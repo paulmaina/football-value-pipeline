@@ -123,7 +123,7 @@ The score matrix remains the single probability engine:
 - L2 regularisation
 - expected home/away goals
 - 1X2 probabilities and fair odds
-- complete scoreline distribution
+- top 20 exact-score probabilities per fixture (the full score matrix is used internally, but only the 20 highest-probability scores are serialized)
 - O/U 0.5, 1.5, 2.5, 3.5 and 4.5 probabilities
 
 If `--market-weight > 0`, the Home/Draw/Away regions of the score matrix are reweighted toward a de-vigged market target. All downstream markets are then recalculated from the same matrix.
