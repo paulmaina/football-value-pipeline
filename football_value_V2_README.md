@@ -164,6 +164,94 @@ If `--market-weight > 0`, the Home/Draw/Away regions of the score matrix are rew
 
 `0.0` remains the default. Do not tune market weight on the same test set used for final evaluation.
 
+## Dixon-Coles exponential time-decay tuning
+
+The Dixon-Coles model already uses a low-score correction (rho) and a
+recency-weighted likelihood. The default remains a **240-day half-life**.
+Do **not** assume 240 days is universally optimal.
+
+The blog's exponential decay coefficient (xi, in reciprocal days) is equivalent
+to the pipeline's half-life parameter through:
+
+```text
+xi = ln(2) / half_life_days
+weight(age_days) = exp(-xi * age_days)
+```
+
+You can now compare candidate half-lives using past-only, walk-forward match
+result predictions (mean 1X2 log loss; lower is better):
+
+```powershell
+python football_value_pipeline_v2_standalone.py --leagues EPL --tune-half-life
+```
+
+Customize the candidate half-lives and evaluation window:
+
+```powershell
+python football_value_pipeline_v2_standalone.py `
+  --leagues EPL LaLiga Bundesliga SerieA Ligue1 `
+  --tune-half-life `
+  --half-life-candidates 120 240 365 730 1000000000 `
+  --tune-validation-days 365 `
+  --tune-step-days 56 `
+  --tune-min-train 250
+```
+
+`1000000000` days approximates no time decay (xi approximately zero).
+Each candidate is fitted on results strictly **before** a validation block,
+then scored on subsequent results. The optimization re-fits multiple models
+per competition, so it is significantly slower than a normal run.
+
+Outputs:
+
+```text
+football_output_v2/raw/EPL_decay_tuning.json
+football_output_v2/raw/EPL_diagnostics.json
+football_output_v2/raw/EPL_predictions.csv
+```
+
+The model automatically uses the selected half-life **for that competition
+and current prediction run only**. Without `--tune-half-life`, existing
+behavior is unchanged. The scoreline top-20 limit, live odds, fixture
+providers and scoring matrix calculations are unaffected.
+
+**Evaluation integrity:** the log-loss values used to choose the half-life are
+*validation* scores, **not** independent test performance. To determine
+whether tuning improves real accuracy, use a later untouched test period or
+implement nested walk-forward evaluation. The CLI prevents combining
+`--tune-half-life` and `--backtest` in one command because selecting
+hyperparameters on the backtest period would introduce selection leakage.
+
+The implementation follows David Sheehan's discussion of Dixon-Coles
+time weighting and predictive profile likelihood:
+https://dashee87.github.io/football/python/predicting-football-results-with-statistical-modelling-dixon-coles-and-time-weighting/
+
+### Optimizer reliability
+
+V2.2.2 calculates the exact gradient of the Dixon–Coles weighted
+log-likelihood instead of asking SciPy to estimate a numerical gradient for
+every attack/defence parameter. This is particularly important for UCL, which
+includes more distinct clubs than most domestic competitions.
+
+A failed or incomplete optimization is now **rejected** instead of being used
+to select a half-life or to produce probability estimates. It is therefore
+possible for a tuning run to fail explicitly if all candidate fits are invalid,
+rather than returning misleading results.
+
+For every competition, inspect:
+
+- `*_decay_tuning.json`: candidate half-life, log loss, match counts and validity.
+- `*_diagnostics.json`: `fit_success`, selected half-life, and optimizer information.
+
+The large `1000000000`-day candidate approximates **no recency decay**,
+not an error. It can be selected if it actually yields the best validation
+log loss, but it is not proof of superior betting performance.
+
+The self-test and automated unit tests cover the exact objective gradient,
+high-dimensional synthetic fitting, and leak-free temporal validation.
+Live provider calls and actual historical score validation remain separate
+checks.
+
 ## Walk-forward backtest
 
 ```powershell
