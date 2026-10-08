@@ -4,20 +4,27 @@ football_value_pipeline.py
 
 Keyless football value/probability pipeline for Europe's major leagues.
 
-Primary public source:
-  - Football-Data.co.uk season CSVs:
+Data sources:
+  - Historical results/odds: Football-Data.co.uk season CSVs
       https://www.football-data.co.uk/mmz4281/{season}/{division}.csv
-  - Football-Data.co.uk latest fixtures:
-      https://www.football-data.co.uk/matches/resources/fixtures.csv
+  - Preferred current fixtures + live market odds: The Odds API v4
+      https://api.the-odds-api.com/v4
+  - Optional reliable schedule fallback: football-data.org v4
+      https://api.football-data.org/v4
+  - Last-resort current fixture/odds snapshot: Football-Data.co.uk fixtures.csv
+
+Environment variables:
+  - THE_ODDS_API_KEY       enables current fixtures + 1X2/O-U odds
+  - FOOTBALL_DATA_API_KEY  optional schedule fallback for football-data.org
 
 Outputs per fixture:
   - Expected home/away goals
   - 1X2 probabilities and fair decimal odds
   - Full scoreline probability distribution (0..max_goals each side)
   - Over/Under probabilities for 0.5, 1.5, 2.5, 3.5, 4.5 goals
-  - If current market odds are present in fixtures.csv:
-      * de-vigged 1X2 market probabilities
-      * model-vs-market probability edge
+  - If current market odds are available from The Odds API or Football-Data:
+      * same-bookmaker de-vigged 1X2 market probabilities
+      * best-price model-vs-market probability edge
       * expected value (EV)
       * O/U 2.5 market EV where available
 
@@ -47,8 +54,10 @@ import argparse
 import io
 import json
 import math
+import os
 import re
 import sys
+import unicodedata
 import warnings
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
@@ -76,32 +85,36 @@ class LeagueConfig:
     name: str
     country: str
     football_data_div: str
+    odds_api_sport_key: str
+    football_data_org_code: str
 
 
 LEAGUES: Dict[str, LeagueConfig] = {
-    "EPL": LeagueConfig("EPL", "Premier League", "England", "E0"),
-    "LaLiga": LeagueConfig("LaLiga", "La Liga", "Spain", "SP1"),
-    "Bundesliga": LeagueConfig("Bundesliga", "Bundesliga", "Germany", "D1"),
-    "SerieA": LeagueConfig("SerieA", "Serie A", "Italy", "I1"),
-    "Ligue1": LeagueConfig("Ligue1", "Ligue 1", "France", "F1"),
+    "EPL": LeagueConfig(
+        "EPL", "Premier League", "England", "E0", "soccer_epl", "PL"
+    ),
+    "LaLiga": LeagueConfig(
+        "LaLiga", "La Liga", "Spain", "SP1", "soccer_spain_la_liga", "PD"
+    ),
+    "Bundesliga": LeagueConfig(
+        "Bundesliga", "Bundesliga", "Germany", "D1",
+        "soccer_germany_bundesliga", "BL1"
+    ),
+    "SerieA": LeagueConfig(
+        "SerieA", "Serie A", "Italy", "I1", "soccer_italy_serie_a", "SA"
+    ),
+    "Ligue1": LeagueConfig(
+        "Ligue1", "Ligue 1", "France", "F1", "soccer_france_ligue_one", "FL1"
+    ),
 }
 
 HISTORICAL_URL = "https://www.football-data.co.uk/mmz4281/{season}/{division}.csv"
 FIXTURES_URL = "https://www.football-data.co.uk/fixtures.csv"
-
-# Schedule fallback used only when Football-Data has no upcoming rows.
-# FixtureDownload publishes a public JSON feed that is usually refreshed daily.
-FIXTUREDOWNLOAD_SLUGS = {
-    "EPL": "epl",
-    "LaLiga": "la-liga",
-    "Bundesliga": "bundesliga",
-    "SerieA": "serie-a",
-    "Ligue1": "ligue-1",
-}
-FIXTUREDOWNLOAD_URL = "https://fixturedownload.com/feed/json/{slug}-{year}"
+THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
+FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.0.4"
+PIPELINE_VERSION = "2.1.0"
 
 
 # ---------------------------------------------------------------------------
@@ -148,7 +161,8 @@ def devig_decimal(odds: Sequence[Optional[float]]) -> List[Optional[float]]:
 
 
 def normalize_team_name(name: str) -> str:
-    s = str(name).lower()
+    s = unicodedata.normalize("NFKD", str(name))
+    s = "".join(ch for ch in s if not unicodedata.combining(ch)).lower()
     s = s.replace("&", " and ")
     s = re.sub(r"[.'’`-]", " ", s)
     tokens = [
@@ -189,6 +203,13 @@ TEAM_ALIASES = {
 }
 
 
+def canonical_team_key(name: str) -> str:
+    """Stable cross-provider key used only for strict fixture/odds matching."""
+    normalized = normalize_team_name(name)
+    alias = TEAM_ALIASES.get(normalized)
+    return normalize_team_name(alias if alias else name)
+
+
 # ---------------------------------------------------------------------------
 # HTTP + cache
 # ---------------------------------------------------------------------------
@@ -222,7 +243,11 @@ class CachedHttpClient:
         cache_name: str,
         ttl: timedelta,
         force_refresh: bool = False,
+        params: Optional[Mapping[str, object]] = None,
+        headers: Optional[Mapping[str, str]] = None,
+        allow_stale: bool = True,
     ) -> bytes:
+        """GET bytes with TTL caching. Secrets in params are never written to cache names/logs."""
         path = self.cache_dir / cache_name
 
         if path.exists() and not force_refresh:
@@ -231,21 +256,50 @@ class CachedHttpClient:
                 return path.read_bytes()
 
         try:
-            r = self.session.get(url, timeout=self.timeout)
+            r = self.session.get(
+                url,
+                params=dict(params or {}),
+                headers=dict(headers or {}),
+                timeout=self.timeout,
+            )
             r.raise_for_status()
             content = r.content
-            if len(content) < 20:
+            if len(content) < 2:
                 raise RuntimeError(f"Suspiciously small response from {url}")
             path.write_bytes(content)
             return content
         except Exception:
-            if path.exists():
+            if allow_stale and path.exists():
                 warnings.warn(
                     f"Live download failed for {url}; using stale cache {path}",
                     RuntimeWarning,
                 )
                 return path.read_bytes()
             raise
+
+    def get_json(
+        self,
+        url: str,
+        cache_name: str,
+        ttl: timedelta,
+        force_refresh: bool = False,
+        params: Optional[Mapping[str, object]] = None,
+        headers: Optional[Mapping[str, str]] = None,
+        allow_stale: bool = True,
+    ):
+        content = self.get_bytes(
+            url=url,
+            cache_name=cache_name,
+            ttl=ttl,
+            force_refresh=force_refresh,
+            params=params,
+            headers=headers,
+            allow_stale=allow_stale,
+        )
+        try:
+            return json.loads(content.decode("utf-8-sig"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise RuntimeError(f"Invalid JSON response from {url}") from exc
 
 
 def read_csv_bytes(content: bytes) -> pd.DataFrame:
@@ -340,93 +394,20 @@ class FootballDataUK:
         df = df.sort_values("Date").reset_index(drop=True)
         return df
 
-    def _fallback_fixtures(
-        self,
-        league: LeagueConfig,
-        lookahead_days: int,
-        now: datetime,
-    ) -> pd.DataFrame:
-        """
-        Fall back to FixtureDownload when Football-Data's downloadable fixture file
-        contains no future matches (which can happen before its weekly odds refresh).
-
-        The fallback supplies schedule data only; bookmaker odds columns will be absent.
-        """
-        slug = FIXTUREDOWNLOAD_SLUGS.get(league.key)
-        if not slug:
-            return pd.DataFrame()
-
-        season_year = current_season_start_year(now)
-        url = FIXTUREDOWNLOAD_URL.format(slug=slug, year=season_year)
-
-        try:
-            content = self.http.get_bytes(
-                url,
-                f"fixturedownload_{slug}_{season_year}.json",
-                ttl=timedelta(hours=6),
-                force_refresh=self.force_refresh,
-            )
-            payload = json.loads(content.decode("utf-8-sig"))
-        except Exception as exc:
-            warnings.warn(
-                f"FixtureDownload fallback failed for {league.name}: {exc}",
-                RuntimeWarning,
-            )
-            return pd.DataFrame()
-
-        if not isinstance(payload, list):
-            warnings.warn(
-                f"FixtureDownload returned unexpected data for {league.name}",
-                RuntimeWarning,
-            )
-            return pd.DataFrame()
-
-        rows = []
-        for item in payload:
-            if not isinstance(item, dict):
-                continue
-            home = item.get("HomeTeam")
-            away = item.get("AwayTeam")
-            raw_dt = item.get("DateUtc")
-            if not home or not away or not raw_dt:
-                continue
-
-            dt = pd.to_datetime(raw_dt, utc=True, errors="coerce")
-            if pd.isna(dt):
-                continue
-
-            rows.append({
-                "Div": league.football_data_div,
-                "Date": dt.tz_convert(None),
-                "HomeTeam": str(home),
-                "AwayTeam": str(away),
-                "fixture_source": "FixtureDownload",
-            })
-
-        if not rows:
-            return pd.DataFrame()
-
-        df = pd.DataFrame(rows)
-        today = pd.Timestamp(now.date())
-        last = today + pd.Timedelta(days=lookahead_days)
-
-        # Compare calendar dates, matching the original Football-Data behavior.
-        df = df[
-            (df["Date"].dt.normalize() >= today)
-            & (df["Date"].dt.normalize() <= last)
-        ].copy()
-
-        return df.sort_values(["Date", "HomeTeam"]).reset_index(drop=True)
-
     def fixtures(
         self,
         league: LeagueConfig,
         lookahead_days: int = 10,
         now: Optional[datetime] = None,
     ) -> pd.DataFrame:
-        now = now or datetime.now(timezone.utc)
+        """
+        Read the current Football-Data.co.uk fixture snapshot.
 
-        football_data_df = pd.DataFrame()
+        This is a last-resort current source. Unlike older versions, this method
+        deliberately does NOT fall back to FixtureDownload because a stale or
+        incorrect schedule is worse than returning no fixtures.
+        """
+        now = now or datetime.now(timezone.utc)
 
         try:
             content = self.http.get_bytes(
@@ -434,98 +415,395 @@ class FootballDataUK:
                 "fixtures.csv",
                 ttl=timedelta(minutes=30),
                 force_refresh=self.force_refresh,
+                allow_stale=False,
             )
 
-            # Guard against a cached/redirected HTML response.
             head = content[:256].lstrip().lower()
             if head.startswith(b"<html") or head.startswith(b"<!doctype html"):
-                cache_path = self.http.cache_dir / "fixtures.csv"
-                try:
-                    cache_path.unlink(missing_ok=True)
-                except OSError:
-                    pass
-                content = self.http.get_bytes(
-                    FIXTURES_URL,
-                    "fixtures.csv",
-                    ttl=timedelta(minutes=30),
-                    force_refresh=True,
-                )
+                raise RuntimeError("Football-Data fixtures endpoint returned HTML, not CSV")
 
             df = read_csv_bytes(content)
             required = {"Div", "Date", "HomeTeam", "AwayTeam"}
             missing = required.difference(df.columns)
-
             if missing:
-                cache_path = self.http.cache_dir / "fixtures.csv"
-                try:
-                    cache_path.unlink(missing_ok=True)
-                except OSError:
-                    pass
-
-                content = self.http.get_bytes(
-                    FIXTURES_URL,
-                    "fixtures.csv",
-                    ttl=timedelta(minutes=30),
-                    force_refresh=True,
+                raise ValueError(
+                    f"Football-Data fixtures.csv missing columns {sorted(missing)}"
                 )
-                df = read_csv_bytes(content)
-                missing = required.difference(df.columns)
 
-            if not missing:
-                df = df[df["Div"].astype(str) == league.football_data_div].copy()
+            df = df[df["Div"].astype(str) == league.football_data_div].copy()
+            if df.empty:
+                return pd.DataFrame()
 
-                if not df.empty:
-                    df["Date"] = pd.to_datetime(
-                        df["Date"],
-                        dayfirst=True,
-                        errors="coerce",
-                    )
-                    df = df.dropna(subset=["Date", "HomeTeam", "AwayTeam"])
+            df["Date"] = pd.to_datetime(df["Date"], dayfirst=True, errors="coerce")
+            df = df.dropna(subset=["Date", "HomeTeam", "AwayTeam"])
 
-                    today = pd.Timestamp(now.date())
-                    last = today + pd.Timedelta(days=lookahead_days)
-                    df = df[
-                        (df["Date"] >= today)
-                        & (df["Date"] <= last)
-                    ].copy()
+            today = pd.Timestamp(now.date())
+            last = today + pd.Timedelta(days=lookahead_days)
+            df = df[(df["Date"] >= today) & (df["Date"] <= last)].copy()
+            if df.empty:
+                return pd.DataFrame()
 
-                    if not df.empty:
-                        df["fixture_source"] = "Football-Data"
-                        football_data_df = df.sort_values(
-                            ["Date", "HomeTeam"]
-                        ).reset_index(drop=True)
+            df["fixture_source"] = "Football-Data.co.uk"
+            df["fixture_id"] = [
+                f"fdco:{league.key}:{d.date()}:{canonical_team_key(h)}:{canonical_team_key(a)}"
+                for d, h, a in zip(df["Date"], df["HomeTeam"], df["AwayTeam"])
+            ]
+            df["kickoff_utc"] = None
+            return df.sort_values(["Date", "HomeTeam"]).reset_index(drop=True)
 
         except Exception as exc:
             warnings.warn(
-                f"Football-Data fixture lookup failed for {league.name}: {exc}. "
-                "Trying schedule fallback.",
+                f"Football-Data.co.uk current fixture lookup failed for "
+                f"{league.name}: {exc}",
                 RuntimeWarning,
             )
+            return pd.DataFrame()
 
-        if not football_data_df.empty:
-            return football_data_df
 
-        # Football-Data sometimes publishes its weekend odds only on Friday.
-        # If its current download contains only past fixtures, use a fresh schedule
-        # feed so model predictions are still generated.
-        fallback = self._fallback_fixtures(
-            league=league,
-            lookahead_days=lookahead_days,
-            now=now,
+# ---------------------------------------------------------------------------
+# Reliable current fixtures + dedicated live odds
+# ---------------------------------------------------------------------------
+
+class TheOddsAPI:
+    """Current event schedule and market-odds client for The Odds API v4."""
+
+    def __init__(
+        self,
+        api_key: str,
+        cache_dir: str | Path = ".football_cache",
+        force_refresh: bool = False,
+        regions: str = "eu",
+    ):
+        if not api_key:
+            raise ValueError("The Odds API key is required")
+        self.api_key = api_key
+        self.http = CachedHttpClient(cache_dir=cache_dir)
+        self.force_refresh = force_refresh
+        self.regions = regions
+
+    @staticmethod
+    def _window(now: datetime, lookahead_days: int) -> Tuple[str, str]:
+        start = now.astimezone(timezone.utc)
+        end = start + timedelta(days=lookahead_days)
+        return (
+            start.isoformat(timespec="seconds").replace("+00:00", "Z"),
+            end.isoformat(timespec="seconds").replace("+00:00", "Z"),
         )
 
-        if not fallback.empty:
-            print(
-                f"[{league.key}] Football-Data has no upcoming rows in the requested "
-                f"{lookahead_days}-day window; using FixtureDownload schedule fallback. "
-                "Betting-odds/EV fields may be blank.",
-                file=sys.stderr,
-            )
-            return fallback
+    def events(
+        self,
+        league: LeagueConfig,
+        lookahead_days: int,
+        now: datetime,
+    ) -> pd.DataFrame:
+        start, end = self._window(now, lookahead_days)
+        url = f"{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/events"
+        payload = self.http.get_json(
+            url,
+            f"oddsapi_events_{league.key}.json",
+            ttl=timedelta(minutes=10),
+            force_refresh=self.force_refresh,
+            params={
+                "apiKey": self.api_key,
+                "dateFormat": "iso",
+                "commenceTimeFrom": start,
+                "commenceTimeTo": end,
+            },
+            allow_stale=False,
+        )
+        if not isinstance(payload, list):
+            raise RuntimeError("The Odds API events response was not a list")
 
-        raise RuntimeError(
-            f"No upcoming {league.name} fixtures found from Football-Data or "
-            f"FixtureDownload within the next {lookahead_days} days."
+        rows: List[Dict[str, object]] = []
+        for event in payload:
+            if not isinstance(event, dict):
+                continue
+            event_id = event.get("id")
+            home = event.get("home_team")
+            away = event.get("away_team")
+            raw_dt = event.get("commence_time")
+            if not event_id or not home or not away or not raw_dt:
+                continue
+            dt = pd.to_datetime(raw_dt, utc=True, errors="coerce")
+            if pd.isna(dt):
+                continue
+            rows.append({
+                "Div": league.football_data_div,
+                "Date": dt.tz_convert(None),
+                "HomeTeam": str(home),
+                "AwayTeam": str(away),
+                "fixture_source": "The Odds API",
+                "fixture_id": str(event_id),
+                "kickoff_utc": dt.isoformat(),
+            })
+
+        if not rows:
+            return pd.DataFrame()
+        df = pd.DataFrame(rows)
+        return (
+            df.drop_duplicates(subset=["fixture_id"])
+            .sort_values(["Date", "HomeTeam"])
+            .reset_index(drop=True)
+        )
+
+    @staticmethod
+    def _market(bookmaker: Mapping[str, object], key: str) -> Optional[Mapping[str, object]]:
+        markets = bookmaker.get("markets")
+        if not isinstance(markets, list):
+            return None
+        for market in markets:
+            if isinstance(market, dict) and market.get("key") == key:
+                return market
+        return None
+
+    @staticmethod
+    def _last_update(bookmaker: Mapping[str, object], market: Mapping[str, object]) -> str:
+        value = market.get("last_update") or bookmaker.get("last_update") or ""
+        return str(value)
+
+    @staticmethod
+    def flatten_odds_event(event: Mapping[str, object]) -> Dict[str, object]:
+        """Flatten one API event into best prices + coherent reference markets."""
+        event_id = str(event.get("id") or "")
+        home = str(event.get("home_team") or "")
+        away = str(event.get("away_team") or "")
+        commence = str(event.get("commence_time") or "")
+
+        best_h: Tuple[Optional[float], Optional[str]] = (None, None)
+        best_d: Tuple[Optional[float], Optional[str]] = (None, None)
+        best_a: Tuple[Optional[float], Optional[str]] = (None, None)
+        best_o: Tuple[Optional[float], Optional[str]] = (None, None)
+        best_u: Tuple[Optional[float], Optional[str]] = (None, None)
+        complete_h2h: List[Tuple[str, str, float, float, float]] = []
+        complete_ou: List[Tuple[str, str, float, float]] = []
+        all_updates: List[str] = []
+
+        def update_best(
+            current: Tuple[Optional[float], Optional[str]],
+            price: Optional[float],
+            bookmaker_name: str,
+        ) -> Tuple[Optional[float], Optional[str]]:
+            if price is None or price <= 1.0:
+                return current
+            if current[0] is None or price > float(current[0]):
+                return (price, bookmaker_name)
+            return current
+
+        bookmakers = event.get("bookmakers")
+        if not isinstance(bookmakers, list):
+            bookmakers = []
+
+        home_key = canonical_team_key(home)
+        away_key = canonical_team_key(away)
+
+        for bookmaker in bookmakers:
+            if not isinstance(bookmaker, dict):
+                continue
+            book_name = str(bookmaker.get("title") or bookmaker.get("key") or "unknown")
+
+            h2h = TheOddsAPI._market(bookmaker, "h2h")
+            if h2h:
+                prices: Dict[str, float] = {}
+                outcomes = h2h.get("outcomes")
+                if isinstance(outcomes, list):
+                    for outcome in outcomes:
+                        if not isinstance(outcome, dict):
+                            continue
+                        name = str(outcome.get("name") or "")
+                        price = safe_float(outcome.get("price"))
+                        if price is None or price <= 1.0:
+                            continue
+                        key = canonical_team_key(name)
+                        if key == home_key:
+                            prices["home"] = price
+                            best_h = update_best(best_h, price, book_name)
+                        elif key == away_key:
+                            prices["away"] = price
+                            best_a = update_best(best_a, price, book_name)
+                        elif name.strip().lower() == "draw":
+                            prices["draw"] = price
+                            best_d = update_best(best_d, price, book_name)
+                if all(k in prices for k in ("home", "draw", "away")):
+                    updated = TheOddsAPI._last_update(bookmaker, h2h)
+                    complete_h2h.append((
+                        updated, book_name, prices["home"], prices["draw"], prices["away"]
+                    ))
+                    if updated:
+                        all_updates.append(updated)
+
+            totals = TheOddsAPI._market(bookmaker, "totals")
+            if totals:
+                prices: Dict[str, float] = {}
+                outcomes = totals.get("outcomes")
+                if isinstance(outcomes, list):
+                    for outcome in outcomes:
+                        if not isinstance(outcome, dict):
+                            continue
+                        point = safe_float(outcome.get("point"))
+                        if point is None or abs(point - 2.5) > 1e-9:
+                            continue
+                        name = str(outcome.get("name") or "").strip().lower()
+                        price = safe_float(outcome.get("price"))
+                        if price is None or price <= 1.0:
+                            continue
+                        if name == "over":
+                            prices["over"] = price
+                            best_o = update_best(best_o, price, book_name)
+                        elif name == "under":
+                            prices["under"] = price
+                            best_u = update_best(best_u, price, book_name)
+                if all(k in prices for k in ("over", "under")):
+                    updated = TheOddsAPI._last_update(bookmaker, totals)
+                    complete_ou.append((updated, book_name, prices["over"], prices["under"]))
+                    if updated:
+                        all_updates.append(updated)
+
+        ref_h2h = max(complete_h2h, key=lambda x: x[0], default=None)
+        ref_ou = max(complete_ou, key=lambda x: x[0], default=None)
+
+        return {
+            "fixture_id": event_id,
+            "_odds_home_team": home,
+            "_odds_away_team": away,
+            "_odds_commence_time": commence,
+            "odds_source": "The Odds API",
+            "odds_last_update_utc": max(all_updates) if all_updates else None,
+            "odds_bookmakers_1x2": len(complete_h2h),
+            "odds_bookmakers_ou25": len(complete_ou),
+            "live_best_home_odds": best_h[0],
+            "live_best_home_bookmaker": best_h[1],
+            "live_best_draw_odds": best_d[0],
+            "live_best_draw_bookmaker": best_d[1],
+            "live_best_away_odds": best_a[0],
+            "live_best_away_bookmaker": best_a[1],
+            "live_ref_home_odds": None if ref_h2h is None else ref_h2h[2],
+            "live_ref_draw_odds": None if ref_h2h is None else ref_h2h[3],
+            "live_ref_away_odds": None if ref_h2h is None else ref_h2h[4],
+            "live_ref_1x2_bookmaker": None if ref_h2h is None else ref_h2h[1],
+            "live_best_over_2_5_odds": best_o[0],
+            "live_best_over_2_5_bookmaker": best_o[1],
+            "live_best_under_2_5_odds": best_u[0],
+            "live_best_under_2_5_bookmaker": best_u[1],
+            "live_ref_over_2_5_odds": None if ref_ou is None else ref_ou[2],
+            "live_ref_under_2_5_odds": None if ref_ou is None else ref_ou[3],
+            "live_ref_ou25_bookmaker": None if ref_ou is None else ref_ou[1],
+        }
+
+    def odds(
+        self,
+        league: LeagueConfig,
+        lookahead_days: int,
+        now: datetime,
+    ) -> pd.DataFrame:
+        start, end = self._window(now, lookahead_days)
+        url = f"{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/odds"
+        region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
+        payload = self.http.get_json(
+            url,
+            f"oddsapi_odds_{league.key}_{region_tag}.json",
+            ttl=timedelta(minutes=5),
+            force_refresh=self.force_refresh,
+            params={
+                "apiKey": self.api_key,
+                "regions": self.regions,
+                "markets": "h2h,totals",
+                "oddsFormat": "decimal",
+                "dateFormat": "iso",
+                "commenceTimeFrom": start,
+                "commenceTimeTo": end,
+            },
+            allow_stale=False,
+        )
+        if not isinstance(payload, list):
+            raise RuntimeError("The Odds API odds response was not a list")
+        rows = [
+            self.flatten_odds_event(event)
+            for event in payload
+            if isinstance(event, dict) and event.get("id")
+        ]
+        return pd.DataFrame(rows)
+
+
+class FootballDataOrg:
+    """Optional v4 fixture fallback backed by football-data.org."""
+
+    def __init__(
+        self,
+        api_key: str,
+        cache_dir: str | Path = ".football_cache",
+        force_refresh: bool = False,
+    ):
+        if not api_key:
+            raise ValueError("football-data.org API key is required")
+        self.api_key = api_key
+        self.http = CachedHttpClient(cache_dir=cache_dir)
+        self.force_refresh = force_refresh
+
+    def fixtures(
+        self,
+        league: LeagueConfig,
+        lookahead_days: int,
+        now: datetime,
+    ) -> pd.DataFrame:
+        start_date = now.astimezone(timezone.utc).date()
+        end_date = start_date + timedelta(days=lookahead_days)
+        url = (
+            f"{FOOTBALL_DATA_ORG_BASE}/competitions/"
+            f"{league.football_data_org_code}/matches"
+        )
+        payload = self.http.get_json(
+            url,
+            f"fdorg_fixtures_{league.key}.json",
+            ttl=timedelta(minutes=15),
+            force_refresh=self.force_refresh,
+            params={
+                "dateFrom": start_date.isoformat(),
+                "dateTo": end_date.isoformat(),
+            },
+            headers={"X-Auth-Token": self.api_key},
+            allow_stale=False,
+        )
+        matches = payload.get("matches") if isinstance(payload, dict) else None
+        if not isinstance(matches, list):
+            raise RuntimeError("football-data.org matches response missing 'matches'")
+
+        rows: List[Dict[str, object]] = []
+        excluded = {"FINISHED", "CANCELLED", "POSTPONED", "SUSPENDED"}
+        for match in matches:
+            if not isinstance(match, dict):
+                continue
+            if str(match.get("status") or "").upper() in excluded:
+                continue
+            home_obj = match.get("homeTeam")
+            away_obj = match.get("awayTeam")
+            if not isinstance(home_obj, dict) or not isinstance(away_obj, dict):
+                continue
+            home = home_obj.get("name")
+            away = away_obj.get("name")
+            raw_dt = match.get("utcDate")
+            match_id = match.get("id")
+            if not home or not away or not raw_dt or match_id is None:
+                continue
+            dt = pd.to_datetime(raw_dt, utc=True, errors="coerce")
+            if pd.isna(dt):
+                continue
+            rows.append({
+                "Div": league.football_data_div,
+                "Date": dt.tz_convert(None),
+                "HomeTeam": str(home),
+                "AwayTeam": str(away),
+                "fixture_source": "football-data.org",
+                "fixture_id": f"fdorg:{match_id}",
+                "kickoff_utc": dt.isoformat(),
+            })
+
+        if not rows:
+            return pd.DataFrame()
+        return (
+            pd.DataFrame(rows)
+            .drop_duplicates(subset=["fixture_id"])
+            .sort_values(["Date", "HomeTeam"])
+            .reset_index(drop=True)
         )
 
 
@@ -1415,15 +1693,43 @@ def prediction_from_matrix(
 
 
 def market_snapshot(row: pd.Series, devig_method: str = "power") -> Dict[str, object]:
-    coherent, source = pick_consistent_market(row, OPEN_1X2_TRIPLES)
+    """Build a market snapshot, preferring dedicated live odds when present."""
+    live_ref = [
+        _valid_price(row.get("live_ref_home_odds")),
+        _valid_price(row.get("live_ref_draw_odds")),
+        _valid_price(row.get("live_ref_away_odds")),
+    ]
+    if all(v is not None for v in live_ref):
+        coherent = live_ref
+        bookmaker = row.get("live_ref_1x2_bookmaker")
+        source = f"The Odds API / {bookmaker}" if bookmaker else "The Odds API"
+        best_h = _valid_price(row.get("live_best_home_odds"))
+        best_d = _valid_price(row.get("live_best_draw_odds"))
+        best_a = _valid_price(row.get("live_best_away_odds"))
+    else:
+        coherent, source = pick_consistent_market(row, OPEN_1X2_TRIPLES)
+        best_h = pick_best_price(row, BEST_1X2_COLUMNS["home"])
+        best_d = pick_best_price(row, BEST_1X2_COLUMNS["draw"])
+        best_a = pick_best_price(row, BEST_1X2_COLUMNS["away"])
+
     fair = devig(coherent, method=devig_method)
 
-    ou_odds, ou_source = pick_consistent_market(row, OU25_PAIRS)
-    ou_fair = devig(ou_odds, method=devig_method)
+    live_ou = [
+        _valid_price(row.get("live_ref_over_2_5_odds")),
+        _valid_price(row.get("live_ref_under_2_5_odds")),
+    ]
+    if all(v is not None for v in live_ou):
+        ou_odds = live_ou
+        bookmaker = row.get("live_ref_ou25_bookmaker")
+        ou_source = f"The Odds API / {bookmaker}" if bookmaker else "The Odds API"
+        best_over = _valid_price(row.get("live_best_over_2_5_odds"))
+        best_under = _valid_price(row.get("live_best_under_2_5_odds"))
+    else:
+        ou_odds, ou_source = pick_consistent_market(row, OU25_PAIRS)
+        best_over = pick_best_price(row, BEST_OU25_COLUMNS["over"])
+        best_under = pick_best_price(row, BEST_OU25_COLUMNS["under"])
 
-    best_h = pick_best_price(row, BEST_1X2_COLUMNS["home"])
-    best_d = pick_best_price(row, BEST_1X2_COLUMNS["draw"])
-    best_a = pick_best_price(row, BEST_1X2_COLUMNS["away"])
+    ou_fair = devig(ou_odds, method=devig_method)
 
     return {
         "market_source_1x2": source,
@@ -1437,8 +1743,8 @@ def market_snapshot(row: pd.Series, devig_method: str = "power") -> Dict[str, ob
         "market_p_draw": fair[1],
         "market_p_away": fair[2],
         "market_source_ou25": ou_source,
-        "market_over_2_5_odds": pick_best_price(row, BEST_OU25_COLUMNS["over"]),
-        "market_under_2_5_odds": pick_best_price(row, BEST_OU25_COLUMNS["under"]),
+        "market_over_2_5_odds": best_over,
+        "market_under_2_5_odds": best_under,
         "market_reference_over_2_5_odds": ou_odds[0],
         "market_reference_under_2_5_odds": ou_odds[1],
         "market_p_over_2_5": ou_fair[0],
@@ -1619,15 +1925,181 @@ class FootballValuePipelineV2(FootballValuePipeline):
         *args,
         devig_method: str = "power",
         market_weight: float = 0.0,
+        odds_api_key: Optional[str] = None,
+        football_data_api_key: Optional[str] = None,
+        odds_regions: str = "eu",
+        fixture_provider: str = "auto",
+        live_odds: bool = True,
         **kwargs,
     ):
+        cache_dir = kwargs.get("cache_dir", ".football_cache")
+        force_refresh = bool(kwargs.get("force_refresh", False))
         super().__init__(*args, **kwargs)
         if devig_method not in {"power", "proportional"}:
             raise ValueError("devig_method must be power or proportional")
         if not 0.0 <= market_weight <= 1.0:
             raise ValueError("market_weight must be between 0 and 1")
+        if fixture_provider not in {
+            "auto", "the-odds-api", "football-data-org", "football-data-uk"
+        }:
+            raise ValueError("Unsupported fixture_provider")
+
         self.devig_method = devig_method
         self.market_weight = float(market_weight)
+        self.odds_regions = str(odds_regions)
+        self.fixture_provider = fixture_provider
+        self.live_odds = bool(live_odds)
+
+        odds_api_key = odds_api_key or os.getenv("THE_ODDS_API_KEY")
+        football_data_api_key = (
+            football_data_api_key or os.getenv("FOOTBALL_DATA_API_KEY")
+        )
+        self.odds_api = (
+            TheOddsAPI(
+                odds_api_key,
+                cache_dir=cache_dir,
+                force_refresh=force_refresh,
+                regions=self.odds_regions,
+            )
+            if odds_api_key
+            else None
+        )
+        self.football_data_org = (
+            FootballDataOrg(
+                football_data_api_key,
+                cache_dir=cache_dir,
+                force_refresh=force_refresh,
+            )
+            if football_data_api_key
+            else None
+        )
+
+    def _current_fixtures(
+        self,
+        league: LeagueConfig,
+        now: datetime,
+    ) -> pd.DataFrame:
+        """Use trusted league-specific endpoints; never silently invent a fallback schedule."""
+        providers: List[str]
+        if self.fixture_provider == "auto":
+            providers = ["the-odds-api", "football-data-org", "football-data-uk"]
+        else:
+            providers = [self.fixture_provider]
+
+        failures: List[str] = []
+        for provider in providers:
+            try:
+                if provider == "the-odds-api":
+                    if self.odds_api is None:
+                        failures.append("The Odds API: THE_ODDS_API_KEY not set")
+                        continue
+                    df = self.odds_api.events(league, self.lookahead_days, now)
+                elif provider == "football-data-org":
+                    if self.football_data_org is None:
+                        failures.append(
+                            "football-data.org: FOOTBALL_DATA_API_KEY not set"
+                        )
+                        continue
+                    df = self.football_data_org.fixtures(
+                        league, self.lookahead_days, now
+                    )
+                else:
+                    df = self.source.fixtures(league, self.lookahead_days, now)
+
+                if not df.empty:
+                    print(
+                        f"[{league.key}] fixtures: {df.iloc[0]['fixture_source']} "
+                        f"({len(df)} matches)",
+                        file=sys.stderr,
+                    )
+                    return df
+                failures.append(f"{provider}: no upcoming fixtures in window")
+            except Exception as exc:
+                failures.append(f"{provider}: {exc}")
+
+        raise RuntimeError(
+            f"No reliable upcoming {league.name} fixtures found. "
+            + " | ".join(failures)
+        )
+
+    def _attach_live_odds(
+        self,
+        fixtures: pd.DataFrame,
+        league: LeagueConfig,
+        now: datetime,
+    ) -> pd.DataFrame:
+        if fixtures.empty or not self.live_odds or self.odds_api is None:
+            return fixtures
+
+        try:
+            odds_df = self.odds_api.odds(league, self.lookahead_days, now)
+        except Exception as exc:
+            warnings.warn(
+                f"Live odds lookup failed for {league.name}: {exc}",
+                RuntimeWarning,
+            )
+            return fixtures
+
+        if odds_df.empty:
+            return fixtures
+
+        result = fixtures.copy()
+        odds_rows = odds_df.to_dict("records")
+        by_id = {str(r.get("fixture_id")): r for r in odds_rows if r.get("fixture_id")}
+
+        by_match: Dict[Tuple[str, str, str], Dict[str, object]] = {}
+        for r in odds_rows:
+            dt = pd.to_datetime(r.get("_odds_commence_time"), utc=True, errors="coerce")
+            if pd.isna(dt):
+                continue
+            key = (
+                dt.date().isoformat(),
+                canonical_team_key(str(r.get("_odds_home_team") or "")),
+                canonical_team_key(str(r.get("_odds_away_team") or "")),
+            )
+            if key not in by_match:
+                by_match[key] = r
+
+        copied_fields = [
+            c for c in odds_df.columns
+            if not c.startswith("_odds_") and c != "fixture_id"
+        ]
+        for field in [*copied_fields, "odds_match_method", "odds_event_id"]:
+            if field not in result.columns:
+                result[field] = None
+
+        for idx, row in result.iterrows():
+            match = None
+            method = None
+            fixture_id = str(row.get("fixture_id") or "")
+            if fixture_id in by_id:
+                match = by_id[fixture_id]
+                method = "event_id"
+            else:
+                date = pd.Timestamp(row["Date"]).date().isoformat()
+                key = (
+                    date,
+                    canonical_team_key(str(row["HomeTeam"])),
+                    canonical_team_key(str(row["AwayTeam"])),
+                )
+                match = by_match.get(key)
+                if match is not None:
+                    method = "date+teams"
+
+            if match is None:
+                continue
+            for field in copied_fields:
+                result.at[idx, field] = match.get(field)
+            result.at[idx, "odds_match_method"] = method
+            result.at[idx, "odds_event_id"] = match.get("fixture_id")
+
+        matched = int(result.get("odds_source", pd.Series(dtype=object)).notna().sum())
+        print(
+            f"[{league.key}] live odds matched: {matched}/{len(result)} fixtures "
+            f"(regions={self.odds_regions})",
+            file=sys.stderr,
+        )
+        return result
 
     def _predict_row(
         self,
@@ -1682,17 +2154,15 @@ class FootballValuePipelineV2(FootballValuePipeline):
             seasons_back=self.seasons_back,
             now=now,
         )
-        fixtures = self.source.fixtures(
-            league,
-            lookahead_days=self.lookahead_days,
-            now=now,
-        )
 
         model = DixonColesModel(
             half_life_days=self.half_life_days,
             l2=self.l2,
             max_goals=self.max_goals,
         ).fit(history)
+
+        fixtures = self._current_fixtures(league, now)
+        fixtures = self._attach_live_odds(fixtures, league, now)
 
         diagnostics = {
             "league": league.name,
@@ -1707,6 +2177,15 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "max_goals": model.max_goals,
             "devig_method": self.devig_method,
             "market_weight": self.market_weight,
+            "fixture_provider_mode": self.fixture_provider,
+            "fixture_sources": sorted(
+                str(x) for x in fixtures.get("fixture_source", pd.Series(dtype=object)).dropna().unique()
+            ),
+            "the_odds_api_enabled": self.odds_api is not None,
+            "odds_regions": self.odds_regions if self.odds_api is not None else None,
+            "live_odds_matched": int(
+                fixtures.get("odds_source", pd.Series(dtype=object)).notna().sum()
+            ),
         }
 
         if fixtures.empty:
@@ -1730,9 +2209,22 @@ class FootballValuePipelineV2(FootballValuePipeline):
             records.append({
                 "league": league.name,
                 "date": row["Date"].date().isoformat(),
+                "kickoff_utc": row.get("kickoff_utc"),
                 "home_team": home,
                 "away_team": away,
                 "fixture_source": row.get("fixture_source", "unknown"),
+                "fixture_id": row.get("fixture_id"),
+                "odds_source": row.get("odds_source"),
+                "odds_match_method": row.get("odds_match_method"),
+                "odds_event_id": row.get("odds_event_id"),
+                "odds_last_update_utc": row.get("odds_last_update_utc"),
+                "odds_bookmakers_1x2": row.get("odds_bookmakers_1x2"),
+                "odds_bookmakers_ou25": row.get("odds_bookmakers_ou25"),
+                "best_home_bookmaker": row.get("live_best_home_bookmaker"),
+                "best_draw_bookmaker": row.get("live_best_draw_bookmaker"),
+                "best_away_bookmaker": row.get("live_best_away_bookmaker"),
+                "best_over_2_5_bookmaker": row.get("live_best_over_2_5_bookmaker"),
+                "best_under_2_5_bookmaker": row.get("live_best_under_2_5_bookmaker"),
                 **pred,
             })
 
@@ -2014,6 +2506,68 @@ def self_test() -> None:
         float(pred["p_over_4_5"]) + float(pred["p_under_4_5"]) - 1.0
     ) < 1e-12
 
+    # Dedicated odds parser: best prices may come from different books, while
+    # the de-vig reference remains a complete same-bookmaker market.
+    sample_event = {
+        "id": "evt-1",
+        "home_team": "Arsenal",
+        "away_team": "Chelsea",
+        "commence_time": "2026-10-10T14:00:00Z",
+        "bookmakers": [
+            {
+                "key": "book_a",
+                "title": "Book A",
+                "last_update": "2026-10-08T10:00:00Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {"name": "Arsenal", "price": 2.20},
+                            {"name": "Draw", "price": 3.40},
+                            {"name": "Chelsea", "price": 3.50},
+                        ],
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {"name": "Over", "price": 1.95, "point": 2.5},
+                            {"name": "Under", "price": 1.90, "point": 2.5},
+                        ],
+                    },
+                ],
+            },
+            {
+                "key": "book_b",
+                "title": "Book B",
+                "last_update": "2026-10-08T10:05:00Z",
+                "markets": [
+                    {
+                        "key": "h2h",
+                        "outcomes": [
+                            {"name": "Arsenal", "price": 2.10},
+                            {"name": "Draw", "price": 3.60},
+                            {"name": "Chelsea", "price": 3.40},
+                        ],
+                    },
+                    {
+                        "key": "totals",
+                        "outcomes": [
+                            {"name": "Over", "price": 2.00, "point": 2.5},
+                            {"name": "Under", "price": 1.85, "point": 2.5},
+                        ],
+                    },
+                ],
+            },
+        ],
+    }
+    flat = TheOddsAPI.flatten_odds_event(sample_event)
+    assert flat["live_best_home_odds"] == 2.20
+    assert flat["live_best_draw_odds"] == 3.60
+    assert flat["live_ref_1x2_bookmaker"] == "Book B"
+    assert flat["live_ref_home_odds"] == 2.10
+    assert flat["live_best_over_2_5_odds"] == 2.00
+    assert flat["live_ref_ou25_bookmaker"] == "Book B"
+
     print("V2 self-test passed.")
 
 
@@ -2041,6 +2595,28 @@ def build_parser() -> argparse.ArgumentParser:
         ),
     )
     p.add_argument("--force-refresh", action="store_true")
+    p.add_argument(
+        "--fixture-provider",
+        choices=["auto", "the-odds-api", "football-data-org", "football-data-uk"],
+        default="auto",
+        help=(
+            "Current fixture source. auto prefers The Odds API, then "
+            "football-data.org, then Football-Data.co.uk."
+        ),
+    )
+    p.add_argument(
+        "--odds-regions",
+        default="eu",
+        help=(
+            "The Odds API bookmaker region(s), comma-separated (default: eu). "
+            "Each extra region increases API-credit usage."
+        ),
+    )
+    p.add_argument(
+        "--no-live-odds",
+        action="store_true",
+        help="Use fixtures without requesting The Odds API h2h/totals markets.",
+    )
 
     p.add_argument("--devig", choices=["power", "proportional"], default="power")
     p.add_argument(
@@ -2080,6 +2656,17 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
     print(f"Raw outputs will be written to: {out_dir.resolve()}", file=sys.stderr)
 
+    if os.getenv("THE_ODDS_API_KEY"):
+        print(
+            f"The Odds API enabled for fixtures/markets (regions={args.odds_regions}).",
+            file=sys.stderr,
+        )
+    else:
+        print(
+            "THE_ODDS_API_KEY is not set; live market odds may be unavailable.",
+            file=sys.stderr,
+        )
+
     pipe = FootballValuePipelineV2(
         cache_dir=args.cache_dir,
         seasons_back=args.seasons_back,
@@ -2090,6 +2677,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         force_refresh=args.force_refresh,
         devig_method=args.devig,
         market_weight=args.market_weight,
+        odds_regions=args.odds_regions,
+        fixture_provider=args.fixture_provider,
+        live_odds=not args.no_live_odds,
     )
 
     combined = []
