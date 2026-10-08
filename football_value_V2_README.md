@@ -14,13 +14,29 @@ The pipeline separates historical modelling data, current fixtures, and live mar
 
 The old FixtureDownload fallback was removed. If a trustworthy current endpoint cannot provide fixtures, the pipeline fails explicitly rather than silently producing predictions for a questionable schedule.
 
-## Supported leagues
+## Supported competitions
 
 - EPL
 - La Liga
 - Bundesliga
 - Serie A
 - Ligue 1
+- UEFA Champions League (UCL)
+
+### Champions League modelling
+
+UCL is intentionally handled differently from a domestic league.
+
+Current UCL fixtures and odds use The Odds API sport key
+`soccer_uefa_champs_league`. Model training uses completed UEFA Champions
+League matches from football-data.org competition code `CL`.
+
+This avoids fitting a Champions League prediction from unrelated domestic-league
+ratings. A `FOOTBALL_DATA_API_KEY` is therefore required when `UCL` is
+included. The free football-data.org tier includes Champions League fixtures and
+results; access to older seasons can depend on the account/plan. The pipeline
+uses all accessible requested seasons and requires at least 30 completed UCL
+matches before fitting the Dixon-Coles model.
 
 ## Install
 
@@ -48,10 +64,25 @@ $env:FOOTBALL_DATA_API_KEY="your-key-here"
 
 These variables apply to the current PowerShell session. Keep secrets in your local environment or a secret manager rather than in source files.
 
-## Run all five leagues
+## Run the five domestic leagues
 
 ```powershell
 python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1
+```
+
+Include Champions League:
+
+```powershell
+$env:THE_ODDS_API_KEY="your-odds-api-key"
+$env:FOOTBALL_DATA_API_KEY="your-football-data-org-key"
+
+python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL
+```
+
+UCL only:
+
+```powershell
+python football_value_pipeline_v2_standalone.py --leagues UCL
 ```
 
 Raw model outputs are written by default to:
@@ -101,7 +132,10 @@ Default:
 
 1. The Odds API events endpoint (if `THE_ODDS_API_KEY` exists)
 2. football-data.org (if `FOOTBALL_DATA_API_KEY` exists)
-3. Football-Data.co.uk current fixture CSV
+3. Football-Data.co.uk current fixture CSV for domestic leagues
+
+For UCL, the third option is not used because Football-Data.co.uk does not provide
+a UCL division CSV compatible with the domestic fixture loader.
 
 You can force a provider for debugging:
 
