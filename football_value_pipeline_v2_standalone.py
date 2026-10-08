@@ -1664,7 +1664,7 @@ def prediction_from_matrix(
     matrix: np.ndarray,
     meta: Dict[str, object],
     total_lines: Sequence[float] = DEFAULT_TOTAL_LINES,
-    top_n_scorelines: int = 8,
+    top_n_scorelines: int = 20,
 ) -> Dict[str, object]:
     x12 = model.one_x_two(matrix)
     result: Dict[str, object] = dict(meta)
@@ -1677,7 +1677,12 @@ def prediction_from_matrix(
         "fair_away": fair_odds(x12["away"]),
         "predicted_1x2": max(x12, key=x12.get),
         "top_scorelines": model.top_scorelines(matrix, n=top_n_scorelines),
-        "scoreline_distribution": model.scoreline_dict(matrix),
+        # Persist only the highest-probability exact scores. The complete matrix
+        # is still used above for 1X2 and totals calculations, but the low-
+        # probability tail is intentionally discarded from serialized outputs.
+        "scoreline_distribution": dict(
+            model.top_scorelines(matrix, n=top_n_scorelines)
+        ),
     })
 
     for line in total_lines:
@@ -2505,6 +2510,8 @@ def self_test() -> None:
     assert abs(
         float(pred["p_over_4_5"]) + float(pred["p_under_4_5"]) - 1.0
     ) < 1e-12
+    assert len(pred["top_scorelines"]) == 20
+    assert len(pred["scoreline_distribution"]) == 20
 
     # Dedicated odds parser: best prices may come from different books, while
     # the de-vig reference remains a complete same-bookmaker market.
