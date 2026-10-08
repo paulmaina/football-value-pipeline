@@ -8,6 +8,12 @@ $env:THE_ODDS_API_KEY="your-key-here"
 
 python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1
 
+# UCL requires FOOTBALL_DATA_API_KEY for Champions League training history
+python football_value_pipeline_v2_standalone.py --leagues UCL
+
+# All supported competitions
+python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL
+
 python football_value_pipeline_v2_standalone.py --leagues EPL
 
 python football_value_pipeline_v2_standalone.py --self-test
