@@ -226,6 +226,32 @@ The implementation follows David Sheehan's discussion of Dixon-Coles
 time weighting and predictive profile likelihood:
 https://dashee87.github.io/football/python/predicting-football-results-with-statistical-modelling-dixon-coles-and-time-weighting/
 
+### Optimizer reliability
+
+V2.2.2 calculates the exact gradient of the Dixon–Coles weighted
+log-likelihood instead of asking SciPy to estimate a numerical gradient for
+every attack/defence parameter. This is particularly important for UCL, which
+includes more distinct clubs than most domestic competitions.
+
+A failed or incomplete optimization is now **rejected** instead of being used
+to select a half-life or to produce probability estimates. It is therefore
+possible for a tuning run to fail explicitly if all candidate fits are invalid,
+rather than returning misleading results.
+
+For every competition, inspect:
+
+- `*_decay_tuning.json`: candidate half-life, log loss, match counts and validity.
+- `*_diagnostics.json`: `fit_success`, selected half-life, and optimizer information.
+
+The large `1000000000`-day candidate approximates **no recency decay**,
+not an error. It can be selected if it actually yields the best validation
+log loss, but it is not proof of superior betting performance.
+
+The self-test and automated unit tests cover the exact objective gradient,
+high-dimensional synthetic fitting, and leak-free temporal validation.
+Live provider calls and actual historical score validation remain separate
+checks.
+
 ## Walk-forward backtest
 
 ```powershell
