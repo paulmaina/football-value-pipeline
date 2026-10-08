@@ -106,6 +106,10 @@ LEAGUES: Dict[str, LeagueConfig] = {
     "Ligue1": LeagueConfig(
         "Ligue1", "Ligue 1", "France", "F1", "soccer_france_ligue_one", "FL1"
     ),
+    "UCL": LeagueConfig(
+        "UCL", "UEFA Champions League", "Europe", "",
+        "soccer_uefa_champs_league", "CL"
+    ),
 }
 
 HISTORICAL_URL = "https://www.football-data.co.uk/mmz4281/{season}/{division}.csv"
@@ -114,7 +118,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.1.0"
+PIPELINE_VERSION = "2.2.0"
 
 
 # ---------------------------------------------------------------------------
@@ -164,7 +168,7 @@ def normalize_team_name(name: str) -> str:
     s = unicodedata.normalize("NFKD", str(name))
     s = "".join(ch for ch in s if not unicodedata.combining(ch)).lower()
     s = s.replace("&", " and ")
-    s = re.sub(r"[.'’`-]", " ", s)
+    s = re.sub(r"[^a-z0-9]+", " ", s)
     tokens = [
         t for t in re.split(r"\s+", s.strip())
         if t and t not in {
@@ -200,6 +204,22 @@ TEAM_ALIASES = {
     "athletic bilbao": "Ath Bilbao",
     "atletico madrid": "Ath Madrid",
     "atlético madrid": "Ath Madrid",
+    "internazionale milano": "Inter",
+    "fc internazionale milano": "Inter",
+    "bayern munchen": "Bayern Munich",
+    "fc bayern munchen": "Bayern Munich",
+    "sporting clube portugal": "Sporting CP",
+    "sporting lisbon": "Sporting CP",
+    "psv eindhoven": "PSV",
+    "feyenoord rotterdam": "Feyenoord",
+    "slavia praha": "Slavia Prague",
+    "sk slavia praha": "Slavia Prague",
+    "shakhtar donetsk": "Shakhtar",
+    "fc shakhtar donetsk": "Shakhtar",
+    "bodo glimt": "Bodo/Glimt",
+    "bodoe glimt": "Bodo/Glimt",
+    "red bull salzburg": "Salzburg",
+    "fc salzburg": "Salzburg",
 }
 
 
@@ -807,6 +827,136 @@ class FootballDataOrg:
         )
 
 
+    def history(
+        self,
+        league: LeagueConfig,
+        seasons_back: int,
+        now: datetime,
+    ) -> pd.DataFrame:
+        """
+        Load completed competition matches for model training.
+
+        For UCL this provides genuine cross-league observations, avoiding the
+        invalid assumption that domestic-league ratings are directly comparable.
+        Older-season availability depends on the football-data.org subscription;
+        inaccessible seasons are skipped and the model uses all accessible data.
+        """
+        current_start = current_season_start_year(now)
+        frames: List[pd.DataFrame] = []
+        failures: List[str] = []
+
+        for start_year in range(
+            current_start - int(seasons_back) + 1,
+            current_start + 1,
+        ):
+            url = (
+                f"{FOOTBALL_DATA_ORG_BASE}/competitions/"
+                f"{league.football_data_org_code}/matches"
+            )
+            try:
+                payload = self.http.get_json(
+                    url,
+                    f"fdorg_history_{league.key}_{start_year}.json",
+                    ttl=(
+                        timedelta(hours=4)
+                        if start_year == current_start
+                        else timedelta(days=30)
+                    ),
+                    force_refresh=self.force_refresh,
+                    params={
+                        "season": start_year,
+                        "status": "FINISHED",
+                    },
+                    headers={"X-Auth-Token": self.api_key},
+                    allow_stale=True,
+                )
+            except Exception as exc:
+                failures.append(f"{start_year}: {exc}")
+                continue
+
+            matches = payload.get("matches") if isinstance(payload, dict) else None
+            if not isinstance(matches, list):
+                failures.append(f"{start_year}: response missing matches")
+                continue
+
+            rows: List[Dict[str, object]] = []
+            for match in matches:
+                if not isinstance(match, dict):
+                    continue
+                if str(match.get("status") or "").upper() != "FINISHED":
+                    continue
+
+                home_obj = match.get("homeTeam")
+                away_obj = match.get("awayTeam")
+                score_obj = match.get("score")
+                if (
+                    not isinstance(home_obj, dict)
+                    or not isinstance(away_obj, dict)
+                    or not isinstance(score_obj, dict)
+                ):
+                    continue
+
+                full_time = score_obj.get("fullTime")
+                if not isinstance(full_time, dict):
+                    continue
+
+                home = home_obj.get("name")
+                away = away_obj.get("name")
+                hg = safe_float(full_time.get("home"))
+                ag = safe_float(full_time.get("away"))
+                raw_dt = match.get("utcDate")
+                if (
+                    not home
+                    or not away
+                    or hg is None
+                    or ag is None
+                    or not raw_dt
+                ):
+                    continue
+
+                dt = pd.to_datetime(raw_dt, utc=True, errors="coerce")
+                if pd.isna(dt):
+                    continue
+
+                rows.append({
+                    "Date": dt.tz_convert(None),
+                    "HomeTeam": str(home),
+                    "AwayTeam": str(away),
+                    "FTHG": int(hg),
+                    "FTAG": int(ag),
+                    "Season": str(start_year),
+                    "competition": league.key,
+                    "history_source": "football-data.org",
+                })
+
+            if rows:
+                frames.append(pd.DataFrame(rows))
+
+        if not frames:
+            detail = " | ".join(failures[-3:]) if failures else "no matches returned"
+            raise RuntimeError(
+                f"No completed {league.name} history available from "
+                f"football-data.org ({detail})"
+            )
+
+        df = pd.concat(frames, ignore_index=True, sort=False)
+        df = (
+            df.drop_duplicates(
+                subset=["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG"]
+            )
+            .sort_values("Date")
+            .reset_index(drop=True)
+        )
+
+        if len(df) < 30:
+            raise RuntimeError(
+                f"Only {len(df)} completed {league.name} matches are accessible. "
+                "At least 30 are required for Dixon-Coles training. Increase "
+                "--seasons-back or use a football-data.org plan with more history."
+            )
+        return df
+
+
 # ---------------------------------------------------------------------------
 # Dixon-Coles model
 # ---------------------------------------------------------------------------
@@ -999,14 +1149,16 @@ class DixonColesModel:
         if raw_name in self.team_to_idx:
             return raw_name, 100.0
 
-        normalized_raw = normalize_team_name(raw_name)
+        normalized_raw = canonical_team_key(raw_name)
 
-        explicit = TEAM_ALIASES.get(normalized_raw)
+        explicit = TEAM_ALIASES.get(normalize_team_name(raw_name))
         if explicit in self.team_to_idx:
             return explicit, 100.0
 
+        # Use the same canonical cross-provider key used by fixture/odds matching.
+        # This is especially important for UCL names such as PSG, Inter and Bayern.
         normalized_to_original = {
-            normalize_team_name(team): team
+            canonical_team_key(team): team
             for team in self.teams
         }
 
@@ -1979,6 +2131,37 @@ class FootballValuePipelineV2(FootballValuePipeline):
             else None
         )
 
+    def _history_for_league(
+        self,
+        league: LeagueConfig,
+        now: datetime,
+    ) -> pd.DataFrame:
+        """
+        Select a competition-appropriate training source.
+
+        Domestic leagues use Football-Data.co.uk's long historical CSVs.
+        UCL uses football-data.org Champions League results because a domestic
+        league model cannot validly estimate cross-country matchups on its own.
+        """
+        if league.key == "UCL":
+            if self.football_data_org is None:
+                raise RuntimeError(
+                    "UCL predictions require FOOTBALL_DATA_API_KEY for "
+                    "Champions League training results. Create a football-data.org "
+                    "API token and set it in the environment before running UCL."
+                )
+            return self.football_data_org.history(
+                league,
+                seasons_back=self.seasons_back,
+                now=now,
+            )
+
+        return self.source.history(
+            league,
+            seasons_back=self.seasons_back,
+            now=now,
+        )
+
     def _current_fixtures(
         self,
         league: LeagueConfig,
@@ -2154,9 +2337,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         league = LEAGUES[league_key]
         now = now or datetime.now(timezone.utc)
 
-        history = self.source.history(
+        history = self._history_for_league(
             league,
-            seasons_back=self.seasons_back,
             now=now,
         )
 
@@ -2182,6 +2364,11 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "max_goals": model.max_goals,
             "devig_method": self.devig_method,
             "market_weight": self.market_weight,
+            "training_source": (
+                "football-data.org"
+                if league.key == "UCL"
+                else "Football-Data.co.uk"
+            ),
             "fixture_provider_mode": self.fixture_provider,
             "fixture_sources": sorted(
                 str(x) for x in fixtures.get("fixture_source", pd.Series(dtype=object)).dropna().unique()
@@ -2263,9 +2450,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         league = LEAGUES[league_key]
         now = now or datetime.now(timezone.utc)
 
-        hist = self.source.history(
+        hist = self._history_for_league(
             league,
-            seasons_back=self.seasons_back,
             now=now,
         ).sort_values("Date").reset_index(drop=True)
 
@@ -2512,6 +2698,10 @@ def self_test() -> None:
     ) < 1e-12
     assert len(pred["top_scorelines"]) == 20
     assert len(pred["scoreline_distribution"]) == 20
+
+    assert "UCL" in LEAGUES
+    assert LEAGUES["UCL"].odds_api_sport_key == "soccer_uefa_champs_league"
+    assert LEAGUES["UCL"].football_data_org_code == "CL"
 
     # Dedicated odds parser: best prices may come from different books, while
     # the de-vig reference remains a complete same-bookmaker market.
