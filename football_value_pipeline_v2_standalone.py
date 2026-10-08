@@ -118,7 +118,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.2.1"
+PIPELINE_VERSION = "2.2.2"
 
 
 # ---------------------------------------------------------------------------
@@ -958,6 +958,107 @@ class FootballDataOrg:
 
 
 # ---------------------------------------------------------------------------
+# Analytic Dixon-Coles negative log-likelihood gradient
+# ---------------------------------------------------------------------------
+
+def dixon_coles_loss_and_gradient(
+    params: np.ndarray,
+    home_idx: np.ndarray,
+    away_idx: np.ndarray,
+    home_goals: np.ndarray,
+    away_goals: np.ndarray,
+    weights: np.ndarray,
+    n_teams: int,
+    l2: float,
+) -> Tuple[float, np.ndarray]:
+    """
+    Return the weighted Dixon-Coles negative log-likelihood and exact gradient.
+
+    An analytic Jacobian avoids the (2 * number_of_teams) finite-difference
+    evaluations per L-BFGS-B step that caused MAXFUN warnings in UCL.
+    The final team's attack/defence are minus the other teams' sum, so
+    gradients use the chain rule for these identifiability constraints.
+    """
+    free = n_teams - 1
+    attack = np.r_[params[:free], -np.sum(params[:free])]
+    weakness = np.r_[params[free:2 * free], -np.sum(params[free:2 * free])]
+    base, home_adv, rho = (float(x) for x in params[-3:])
+
+    log_lam = base + home_adv + attack[home_idx] + weakness[away_idx]
+    log_mu = base + attack[away_idx] + weakness[home_idx]
+    lam = np.exp(log_lam)
+    mu = np.exp(log_mu)
+
+    tau = np.ones_like(lam)
+    dloglam_tau = np.zeros_like(lam)
+    dlogmu_tau = np.zeros_like(lam)
+    drho_tau = np.zeros_like(lam)
+
+    m00 = (home_goals == 0) & (away_goals == 0)
+    m01 = (home_goals == 0) & (away_goals == 1)
+    m10 = (home_goals == 1) & (away_goals == 0)
+    m11 = (home_goals == 1) & (away_goals == 1)
+
+    lm = lam[m00] * mu[m00]
+    tau[m00] = 1.0 - lm * rho
+    dloglam_tau[m00] = -lm * rho
+    dlogmu_tau[m00] = -lm * rho
+    drho_tau[m00] = -lm
+
+    tau[m01] = 1.0 + lam[m01] * rho
+    dloglam_tau[m01] = lam[m01] * rho
+    drho_tau[m01] = lam[m01]
+
+    tau[m10] = 1.0 + mu[m10] * rho
+    dlogmu_tau[m10] = mu[m10] * rho
+    drho_tau[m10] = mu[m10]
+
+    tau[m11] = 1.0 - rho
+    drho_tau[m11] = -1.0
+
+    # Invalid Dixon-Coles factors are outside the likelihood domain.
+    if (
+        np.any(tau <= 0)
+        or not np.all(np.isfinite(tau))
+        or not np.all(np.isfinite(lam))
+        or not np.all(np.isfinite(mu))
+    ):
+        return 1e12, np.zeros_like(params)
+
+    ll = (
+        home_goals * log_lam - lam - gammaln(home_goals + 1.0)
+        + away_goals * log_mu - mu - gammaln(away_goals + 1.0)
+        + np.log(tau)
+    )
+    penalty = l2 * (float(attack @ attack) + float(weakness @ weakness))
+    loss = -float(weights @ ll) + penalty
+
+    # Per-match derivatives of the weighted log likelihood.
+    qlam = weights * (home_goals - lam + dloglam_tau / tau)
+    qmu = weights * (away_goals - mu + dlogmu_tau / tau)
+
+    # Attack participates in lambda as home team and mu as away team.
+    attack_grad = -(
+        np.bincount(home_idx, weights=qlam, minlength=n_teams)
+        + np.bincount(away_idx, weights=qmu, minlength=n_teams)
+    ) + 2.0 * l2 * attack
+
+    # Defence weakness participates in lambda as away, mu as home.
+    weakness_grad = -(
+        np.bincount(away_idx, weights=qlam, minlength=n_teams)
+        + np.bincount(home_idx, weights=qmu, minlength=n_teams)
+    ) + 2.0 * l2 * weakness
+
+    gradient = np.empty_like(params)
+    gradient[:free] = attack_grad[:free] - attack_grad[-1]
+    gradient[free:2 * free] = weakness_grad[:free] - weakness_grad[-1]
+    gradient[-3] = -float(np.sum(qlam + qmu))
+    gradient[-2] = -float(np.sum(qlam))
+    gradient[-1] = -float(weights @ (drho_tau / tau))
+    return loss, gradient
+
+
+# ---------------------------------------------------------------------------
 # Dixon-Coles model
 # ---------------------------------------------------------------------------
 
@@ -1086,33 +1187,17 @@ class DixonColesModel:
         x0[-2] = np.clip(home_adv0, -0.5, 0.5)
         x0[-1] = -0.05
 
-        def objective(params: np.ndarray) -> float:
-            attack, weakness, base, home_adv, rho = self._unpack(params)
-
-            log_lam = base + home_adv + attack[hi] + weakness[ai]
-            log_mu = base + attack[ai] + weakness[hi]
-
-            # Guard optimization against absurd regions while preserving smoothness.
-            if np.any(log_lam > 3.0) or np.any(log_lam < -4.0):
-                return 1e12
-            if np.any(log_mu > 3.0) or np.any(log_mu < -4.0):
-                return 1e12
-
-            lam = np.exp(log_lam)
-            mu = np.exp(log_mu)
-
-            tau = self._tau_vector(hg, ag, lam, mu, rho)
-            if np.any(tau <= 0) or not np.all(np.isfinite(tau)):
-                return 1e12
-
-            log_p_home = hg * log_lam - lam - gammaln(hg + 1.0)
-            log_p_away = ag * log_mu - mu - gammaln(ag + 1.0)
-            log_likelihood = log_p_home + log_p_away + np.log(tau)
-
-            penalty = self.l2 * (
-                float(np.dot(attack, attack)) + float(np.dot(weakness, weakness))
+        def objective(params: np.ndarray) -> Tuple[float, np.ndarray]:
+            return dixon_coles_loss_and_gradient(
+                params,
+                hi,
+                ai,
+                hg,
+                ag,
+                weights,
+                n,
+                self.l2,
             )
-            return -float(np.dot(weights, log_likelihood)) + penalty
 
         team_bounds = [(-1.75, 1.75)] * (2 * (n - 1))
         bounds = team_bounds + [
@@ -1125,12 +1210,48 @@ class DixonColesModel:
             objective,
             x0,
             method="L-BFGS-B",
+            jac=True,
             bounds=bounds,
-            options={"maxiter": 1500, "ftol": 1e-10, "maxls": 40},
+            options={
+                "maxiter": 3000,
+                "maxfun": 30000,
+                "ftol": 1e-9,
+                "gtol": 1e-6,
+                "maxls": 50,
+            },
         )
 
         if not result.success:
-            warnings.warn(f"Dixon-Coles optimizer: {result.message}", RuntimeWarning)
+            # Retry at the best point so an exhausted line search or a rare
+            # evaluation limit does not silently feed unconverged models into
+            # hyperparameter selection and match predictions.
+            retry = minimize(
+                objective,
+                result.x,
+                method="L-BFGS-B",
+                jac=True,
+                bounds=bounds,
+                options={
+                    "maxiter": 3000,
+                    "maxfun": 30000,
+                    "ftol": 1e-8,
+                    "gtol": 1e-5,
+                    "maxls": 50,
+                },
+            )
+            if retry.success or (
+                np.isfinite(retry.fun)
+                and np.isfinite(result.fun)
+                and retry.fun < result.fun
+            ):
+                result = retry
+
+        if not result.success or not np.isfinite(result.fun) or result.fun >= 1e11:
+            raise RuntimeError(
+                "Dixon-Coles optimizer did not converge: "
+                f"{result.message} (evaluations={result.nfev}). "
+                "No prediction or tuning result will be accepted from this fit."
+            )
 
         attack, weakness, base, home_adv, rho = self._unpack(result.x)
         self.attack = attack
