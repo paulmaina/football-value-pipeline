@@ -4,6 +4,12 @@ import unittest
 
 import numpy as np
 import pandas as pd
+from scipy.optimize import check_grad
+
+from football_value_pipeline_v2_standalone import (
+    DixonColesModel,
+    dixon_coles_loss_and_gradient,
+)
 
 from dc_decay_validation import make_walkforward_folds, tune_half_life
 
@@ -36,6 +42,49 @@ class DeterministicModel:
         if self.half_life_days == 120:
             return {"home": 0.8, "draw": 0.1, "away": 0.1}
         return {"home": 0.4, "draw": 0.3, "away": 0.3}
+
+
+class DixonColesGradientTests(unittest.TestCase):
+    def test_analytic_gradient_matches_finite_differences(self):
+        home_idx = np.array([0, 1, 2, 3, 0, 2, 1, 3, 0, 1])
+        away_idx = np.array([1, 2, 3, 0, 3, 1, 0, 2, 2, 3])
+        hg = np.array([0, 0, 1, 1, 2, 1, 0, 3, 2, 0], dtype=float)
+        ag = np.array([0, 1, 0, 1, 0, 2, 1, 1, 3, 0], dtype=float)
+        weights = np.linspace(0.3, 1.0, len(hg))
+        params = np.array(
+            [0.12, -0.10, 0.08, 0.09, -0.03, 0.05, 0.22, 0.16, -0.06],
+            dtype=float,
+        )
+        common = (home_idx, away_idx, hg, ag, weights, 4, 0.08)
+        error = check_grad(
+            lambda p: dixon_coles_loss_and_gradient(p, *common)[0],
+            lambda p: dixon_coles_loss_and_gradient(p, *common)[1],
+            params,
+        )
+        self.assertLess(error, 1e-5)
+
+    def test_many_team_fit_converges(self):
+        # Many clubs historically required expensive numerical gradients.
+        rng = np.random.default_rng(20261008)
+        n_teams = 28
+        n_matches = 420
+        hi = rng.integers(0, n_teams, n_matches)
+        ai = (hi + rng.integers(1, n_teams, n_matches)) % n_teams
+        attack = rng.normal(0, 0.12, size=n_teams)
+        defence = rng.normal(0, 0.10, size=n_teams)
+        lam = np.exp(0.25 + attack[hi] + defence[ai])
+        mu = np.exp(0.08 + attack[ai] + defence[hi])
+        frame = pd.DataFrame({
+            "Date": pd.date_range("2023-01-01", periods=n_matches, freq="D"),
+            "HomeTeam": [f"Team_{i}" for i in hi],
+            "AwayTeam": [f"Team_{i}" for i in ai],
+            "FTHG": rng.poisson(lam),
+            "FTAG": rng.poisson(mu),
+        })
+        model = DixonColesModel(half_life_days=240, l2=0.15)
+        model.fit(frame)
+        self.assertTrue(model.fit_result.success)
+        self.assertLess(model.fit_result.nfev, 30000)
 
 
 class DecayValidationTests(unittest.TestCase):
