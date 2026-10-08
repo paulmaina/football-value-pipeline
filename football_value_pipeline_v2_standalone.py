@@ -118,7 +118,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.2.0"
+PIPELINE_VERSION = "2.2.1"
 
 
 # ---------------------------------------------------------------------------
@@ -1038,7 +1038,11 @@ class DixonColesModel:
             return 1.0 - rho
         return 1.0
 
-    def fit(self, matches: pd.DataFrame) -> "DixonColesModel":
+    def fit(
+        self,
+        matches: pd.DataFrame,
+        as_of: Optional[pd.Timestamp] = None,
+    ) -> "DixonColesModel":
         required = {"Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG"}
         missing = required.difference(matches.columns)
         if missing:
@@ -1061,8 +1065,15 @@ class DixonColesModel:
 
         dates = pd.to_datetime(df["Date"])
         latest = dates.max()
-        age_days = (latest - dates).dt.total_seconds().to_numpy() / 86400.0
-        weights = np.power(0.5, age_days / self.half_life_days)
+        # During rolling-origin validation, anchor recency at prediction time.
+        # With as_of=None, retain the original training behavior.
+        reference = latest if as_of is None else pd.Timestamp(as_of)
+        if reference.tzinfo is not None:
+            reference = reference.tz_convert("UTC").tz_localize(None)
+        if reference < latest:
+            raise ValueError("as_of must not precede the last training match")
+        age_days = (reference - dates).dt.total_seconds().to_numpy() / 86400.0
+        weights = np.exp(-math.log(2.0) * age_days / self.half_life_days)
 
         home_mean = max(float(hg.mean()), 0.2)
         away_mean = max(float(ag.mean()), 0.2)
@@ -2361,6 +2372,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "home_adv": model.home_adv,
             "rho": model.rho,
             "half_life_days": model.half_life_days,
+            "xi_per_day": math.log(2.0) / model.half_life_days,
             "max_goals": model.max_goals,
             "devig_method": self.devig_method,
             "market_weight": self.market_weight,
@@ -2663,6 +2675,24 @@ class FootballValuePipelineV2(FootballValuePipeline):
 # ---------------------------------------------------------------------------
 
 def self_test() -> None:
+    # Verify time splitting cannot leak validation matches into training.
+    from dc_decay_validation import make_walkforward_folds
+    sample = pd.DataFrame({
+        "Date": pd.date_range("2024-01-01", periods=100, freq="7D"),
+        "HomeTeam": ["A"] * 100,
+        "AwayTeam": ["B"] * 100,
+        "FTHG": [1] * 100,
+        "FTAG": [0] * 100,
+    })
+    folds = make_walkforward_folds(
+        sample, validation_days=250, step_days=60, min_train=30
+    )
+    assert folds
+    for train, test, origin in folds:
+        assert train["Date"].max() < origin
+        assert test["Date"].min() >= origin
+        assert train["Date"].max() < test["Date"].min()
+
     # Margin removal
     p = devig([2.0, 3.5, 4.0], "power")
     assert all(x is not None for x in p)
@@ -2779,6 +2809,22 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--leagues", nargs="+", choices=list(LEAGUES), default=["EPL"])
     p.add_argument("--seasons-back", type=int, default=4)
     p.add_argument("--half-life-days", type=float, default=240.0)
+    p.add_argument(
+        "--tune-half-life",
+        action="store_true",
+        help="Choose a per-competition time-decay half-life using walk-forward log loss.",
+    )
+    p.add_argument(
+        "--half-life-candidates",
+        nargs="+",
+        type=float,
+        default=[120.0, 240.0, 365.0, 730.0, 1e9],
+        help="Half-life candidates in days; 1e9 approximates no time decay.",
+    )
+    p.add_argument("--tune-validation-days", type=int, default=365)
+    p.add_argument("--tune-step-days", type=int, default=56)
+    p.add_argument("--tune-min-train", type=int, default=250)
+    p.add_argument("--tune-min-validation-matches", type=int, default=25)
     p.add_argument("--l2", type=float, default=0.08)
     p.add_argument("--max-goals", type=int, default=10)
     p.add_argument("--lookahead-days", type=int, default=10)
@@ -2849,6 +2895,15 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         self_test()
         return 0
 
+    if args.tune_half_life and args.backtest:
+        raise SystemExit(
+            "--tune-half-life and --backtest cannot be combined because "
+            "tuning on the same historical results would bias the backtest."
+        )
+    if args.tune_half_life:
+        # Lazy import preserves standalone operation without tuning enabled.
+        from dc_decay_validation import tune_half_life
+
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     print(f"Raw outputs will be written to: {out_dir.resolve()}", file=sys.stderr)
@@ -2882,8 +2937,46 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     combined = []
 
     for league_key in args.leagues:
+        # Each competition gets its own selected decay rate if tuning is enabled.
+        pipe.half_life_days = args.half_life_days
+        tuning = None
+        if args.tune_half_life:
+            print(f"[{league_key}] tuning Dixon-Coles half-life...", file=sys.stderr)
+            training = pipe._history_for_league(
+                LEAGUES[league_key],
+                now=datetime.now(timezone.utc),
+            )
+            tuning = tune_half_life(
+                history=training,
+                model_class=DixonColesModel,
+                candidates=args.half_life_candidates,
+                l2=args.l2,
+                max_goals=args.max_goals,
+                validation_days=args.tune_validation_days,
+                step_days=args.tune_step_days,
+                min_train=args.tune_min_train,
+                min_validation_matches=args.tune_min_validation_matches,
+            )
+            pipe.half_life_days = float(tuning["selected_half_life_days"])
+            (out_dir / f"{league_key}_decay_tuning.json").write_text(
+                json.dumps(tuning, indent=2),
+                encoding="utf-8",
+            )
+            print(
+                f"[{league_key}] selected half-life: "
+                f"{pipe.half_life_days:g} days",
+                file=sys.stderr,
+            )
+
         print(f"[{league_key}] current-fixture model...", file=sys.stderr)
         predictions, diagnostics, scorelines = pipe.run_league(league_key)
+        if tuning is not None:
+            diagnostics["decay_tuning"] = {
+                "selected_half_life_days": tuning["selected_half_life_days"],
+                "selected_xi_per_day": tuning["selected_xi_per_day"],
+                "selection_metric": tuning["selection_metric"],
+                "validation_days": tuning["validation_days"],
+            }
 
         predictions.to_csv(out_dir / f"{league_key}_predictions.csv", index=False)
         (out_dir / f"{league_key}_diagnostics.json").write_text(
