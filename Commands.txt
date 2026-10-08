@@ -1,0 +1,8 @@
+
+pip install -r football_value_requirements.txt
+
+python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1
+
+python football_value_pipeline_v2_standalone.py --leagues EPL
+
+python format_football_output.py

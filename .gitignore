@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Pipeline cache
+.football_cache/
+
+# Generated model outputs
+football_output_v2/raw/
+football_output_v2/readable/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

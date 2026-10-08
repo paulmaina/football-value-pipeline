@@ -1,0 +1,2148 @@
+#!/usr/bin/env python3
+"""
+football_value_pipeline.py
+
+Keyless football value/probability pipeline for Europe's major leagues.
+
+Primary public source:
+  - Football-Data.co.uk season CSVs:
+      https://www.football-data.co.uk/mmz4281/{season}/{division}.csv
+  - Football-Data.co.uk latest fixtures:
+      https://www.football-data.co.uk/matches/resources/fixtures.csv
+
+Outputs per fixture:
+  - Expected home/away goals
+  - 1X2 probabilities and fair decimal odds
+  - Full scoreline probability distribution (0..max_goals each side)
+  - Over/Under probabilities for 0.5, 1.5, 2.5, 3.5, 4.5 goals
+  - If current market odds are present in fixtures.csv:
+      * de-vigged 1X2 market probabilities
+      * model-vs-market probability edge
+      * expected value (EV)
+      * O/U 2.5 market EV where available
+
+Model:
+  - Recency-weighted Dixon-Coles Poisson
+  - L2 regularisation
+  - Time decay controlled by half_life_days
+
+Install:
+    pip install numpy pandas requests scipy rapidfuzz
+
+Examples:
+    python football_value_pipeline.py --leagues EPL
+    python football_value_pipeline.py --leagues EPL LaLiga Bundesliga SerieA Ligue1
+    python football_value_pipeline.py --leagues EPL --seasons-back 4 --lookahead-days 10
+    python football_value_pipeline.py --self-test
+
+Designed as a module too:
+    from football_value_pipeline import FootballValuePipeline
+    pipeline = FootballValuePipeline()
+    frames = pipeline.run(["EPL"])
+"""
+
+from __future__ import annotations
+
+import argparse
+import io
+import json
+import math
+import re
+import sys
+import warnings
+from dataclasses import dataclass
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from typing import Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
+
+import numpy as np
+import pandas as pd
+import requests
+from rapidfuzz import fuzz, process
+from requests.adapters import HTTPAdapter
+from scipy.optimize import minimize
+from scipy.special import gammaln
+from scipy.stats import poisson
+from urllib3.util.retry import Retry
+
+
+# ---------------------------------------------------------------------------
+# Configuration
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class LeagueConfig:
+    key: str
+    name: str
+    country: str
+    football_data_div: str
+
+
+LEAGUES: Dict[str, LeagueConfig] = {
+    "EPL": LeagueConfig("EPL", "Premier League", "England", "E0"),
+    "LaLiga": LeagueConfig("LaLiga", "La Liga", "Spain", "SP1"),
+    "Bundesliga": LeagueConfig("Bundesliga", "Bundesliga", "Germany", "D1"),
+    "SerieA": LeagueConfig("SerieA", "Serie A", "Italy", "I1"),
+    "Ligue1": LeagueConfig("Ligue1", "Ligue 1", "France", "F1"),
+}
+
+HISTORICAL_URL = "https://www.football-data.co.uk/mmz4281/{season}/{division}.csv"
+FIXTURES_URL = "https://www.football-data.co.uk/fixtures.csv"
+
+# Schedule fallback used only when Football-Data has no upcoming rows.
+# FixtureDownload publishes a public JSON feed that is usually refreshed daily.
+FIXTUREDOWNLOAD_SLUGS = {
+    "EPL": "epl",
+    "LaLiga": "la-liga",
+    "Bundesliga": "bundesliga",
+    "SerieA": "serie-a",
+    "Ligue1": "ligue-1",
+}
+FIXTUREDOWNLOAD_URL = "https://fixturedownload.com/feed/json/{slug}-{year}"
+
+DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
+PIPELINE_VERSION = "2.0.4"
+
+
+# ---------------------------------------------------------------------------
+# Utilities
+# ---------------------------------------------------------------------------
+
+def current_season_start_year(now: Optional[datetime] = None) -> int:
+    """European season start year: Jul-Dec => current year, Jan-Jun => prior year."""
+    now = now or datetime.now(timezone.utc)
+    return now.year if now.month >= 7 else now.year - 1
+
+
+def football_data_season_code(start_year: int) -> str:
+    """2026 -> '2627'."""
+    return f"{start_year % 100:02d}{(start_year + 1) % 100:02d}"
+
+
+def safe_float(value) -> Optional[float]:
+    try:
+        x = float(value)
+        return x if math.isfinite(x) else None
+    except (TypeError, ValueError):
+        return None
+
+
+def fair_odds(probability: float) -> float:
+    return math.inf if probability <= 0 else 1.0 / probability
+
+
+def ev_decimal(probability: float, decimal_odds: Optional[float]) -> Optional[float]:
+    """Expected return per 1 unit staked. 0.05 == +5% EV."""
+    if decimal_odds is None or decimal_odds <= 1.0:
+        return None
+    return probability * decimal_odds - 1.0
+
+
+def devig_decimal(odds: Sequence[Optional[float]]) -> List[Optional[float]]:
+    """Proportional de-vig. Returns normalized implied probabilities."""
+    if not odds or any(o is None or o <= 1.0 for o in odds):
+        return [None for _ in odds]
+    inv = np.array([1.0 / float(o) for o in odds], dtype=float)
+    s = float(inv.sum())
+    return [float(x / s) for x in inv]
+
+
+def normalize_team_name(name: str) -> str:
+    s = str(name).lower()
+    s = s.replace("&", " and ")
+    s = re.sub(r"[.'’`-]", " ", s)
+    tokens = [
+        t for t in re.split(r"\s+", s.strip())
+        if t and t not in {
+            "fc", "cf", "afc", "ac", "sc", "sv", "club", "de", "football",
+            "calcio", "1904", "1899", "04", "05"
+        }
+    ]
+    return " ".join(tokens)
+
+
+# A small explicit alias layer handles common cross-provider mismatches before fuzzy matching.
+TEAM_ALIASES = {
+    "manchester united": "Man United",
+    "man utd": "Man United",
+    "manchester city": "Man City",
+    "tottenham hotspur": "Tottenham",
+    "spurs": "Tottenham",
+    "west ham united": "West Ham",
+    "wolverhampton wanderers": "Wolves",
+    "newcastle united": "Newcastle",
+    "nottingham forest": "Nott'm Forest",
+    "brighton and hove albion": "Brighton",
+    "leeds united": "Leeds",
+    "paris saint germain": "Paris SG",
+    "paris saint-germain": "Paris SG",
+    "internazionale": "Inter",
+    "inter milan": "Inter",
+    "ac milan": "Milan",
+    "bayern munich": "Bayern Munich",
+    "borussia monchengladbach": "M'gladbach",
+    "borussia mönchengladbach": "M'gladbach",
+    "athletic club": "Ath Bilbao",
+    "athletic bilbao": "Ath Bilbao",
+    "atletico madrid": "Ath Madrid",
+    "atlético madrid": "Ath Madrid",
+}
+
+
+# ---------------------------------------------------------------------------
+# HTTP + cache
+# ---------------------------------------------------------------------------
+
+class CachedHttpClient:
+    def __init__(self, cache_dir: str | Path = ".football_cache", timeout: int = 20):
+        self.cache_dir = Path(cache_dir)
+        self.cache_dir.mkdir(parents=True, exist_ok=True)
+        self.timeout = timeout
+
+        retry = Retry(
+            total=4,
+            connect=4,
+            read=4,
+            status=4,
+            backoff_factor=0.6,
+            status_forcelist=(429, 500, 502, 503, 504),
+            allowed_methods=frozenset({"GET"}),
+            raise_on_status=False,
+        )
+        self.session = requests.Session()
+        self.session.headers.update({
+            "User-Agent": "football-value-pipeline/2.0 (+research; public-data-client)"
+        })
+        self.session.mount("https://", HTTPAdapter(max_retries=retry))
+        self.session.mount("http://", HTTPAdapter(max_retries=retry))
+
+    def get_bytes(
+        self,
+        url: str,
+        cache_name: str,
+        ttl: timedelta,
+        force_refresh: bool = False,
+    ) -> bytes:
+        path = self.cache_dir / cache_name
+
+        if path.exists() and not force_refresh:
+            age = datetime.now(timezone.utc).timestamp() - path.stat().st_mtime
+            if age <= ttl.total_seconds():
+                return path.read_bytes()
+
+        try:
+            r = self.session.get(url, timeout=self.timeout)
+            r.raise_for_status()
+            content = r.content
+            if len(content) < 20:
+                raise RuntimeError(f"Suspiciously small response from {url}")
+            path.write_bytes(content)
+            return content
+        except Exception:
+            if path.exists():
+                warnings.warn(
+                    f"Live download failed for {url}; using stale cache {path}",
+                    RuntimeWarning,
+                )
+                return path.read_bytes()
+            raise
+
+
+def read_csv_bytes(content: bytes) -> pd.DataFrame:
+    """Football-Data files occasionally vary in encoding."""
+    last_error = None
+    for encoding in ("utf-8-sig", "latin-1"):
+        try:
+            return pd.read_csv(
+                io.BytesIO(content),
+                encoding=encoding,
+                on_bad_lines="skip",
+                low_memory=False,
+            )
+        except Exception as exc:
+            last_error = exc
+    raise last_error  # type: ignore[misc]
+
+
+# ---------------------------------------------------------------------------
+# Football-Data.co.uk ingestion
+# ---------------------------------------------------------------------------
+
+class FootballDataUK:
+    def __init__(
+        self,
+        cache_dir: str | Path = ".football_cache",
+        force_refresh: bool = False,
+    ):
+        self.http = CachedHttpClient(cache_dir=cache_dir)
+        self.force_refresh = force_refresh
+
+    def season(
+        self,
+        league: LeagueConfig,
+        start_year: int,
+        current_start_year: int,
+    ) -> pd.DataFrame:
+        season_code = football_data_season_code(start_year)
+        url = HISTORICAL_URL.format(
+            season=season_code,
+            division=league.football_data_div,
+        )
+        # Current season changes frequently; older seasons effectively do not.
+        ttl = timedelta(hours=4) if start_year == current_start_year else timedelta(days=30)
+        content = self.http.get_bytes(
+            url,
+            f"{season_code}_{league.football_data_div}.csv",
+            ttl=ttl,
+            force_refresh=self.force_refresh,
+        )
+        df = read_csv_bytes(content).copy()
+        df["Season"] = season_code
+        return df
+
+    def history(
+        self,
+        league: LeagueConfig,
+        seasons_back: int = 3,
+        now: Optional[datetime] = None,
+    ) -> pd.DataFrame:
+        now = now or datetime.now(timezone.utc)
+        current_start = current_season_start_year(now)
+        frames = []
+
+        for start_year in range(current_start - seasons_back + 1, current_start + 1):
+            try:
+                frames.append(self.season(league, start_year, current_start))
+            except Exception as exc:
+                warnings.warn(
+                    f"Skipping {league.name} {start_year}/{start_year + 1}: {exc}",
+                    RuntimeWarning,
+                )
+
+        if not frames:
+            raise RuntimeError(f"No history downloaded for {league.name}")
+
+        df = pd.concat(frames, ignore_index=True, sort=False)
+
+        required = {"Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG"}
+        missing = required.difference(df.columns)
+        if missing:
+            raise ValueError(f"{league.name}: historical data missing columns {sorted(missing)}")
+
+        df["Date"] = pd.to_datetime(df["Date"], dayfirst=True, errors="coerce")
+        df["FTHG"] = pd.to_numeric(df["FTHG"], errors="coerce")
+        df["FTAG"] = pd.to_numeric(df["FTAG"], errors="coerce")
+
+        df = df.dropna(subset=["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG"]).copy()
+        df = df[df["Date"] < pd.Timestamp(now.date()) + pd.Timedelta(days=1)]
+        df["FTHG"] = df["FTHG"].astype(int)
+        df["FTAG"] = df["FTAG"].astype(int)
+        df = df.sort_values("Date").reset_index(drop=True)
+        return df
+
+    def _fallback_fixtures(
+        self,
+        league: LeagueConfig,
+        lookahead_days: int,
+        now: datetime,
+    ) -> pd.DataFrame:
+        """
+        Fall back to FixtureDownload when Football-Data's downloadable fixture file
+        contains no future matches (which can happen before its weekly odds refresh).
+
+        The fallback supplies schedule data only; bookmaker odds columns will be absent.
+        """
+        slug = FIXTUREDOWNLOAD_SLUGS.get(league.key)
+        if not slug:
+            return pd.DataFrame()
+
+        season_year = current_season_start_year(now)
+        url = FIXTUREDOWNLOAD_URL.format(slug=slug, year=season_year)
+
+        try:
+            content = self.http.get_bytes(
+                url,
+                f"fixturedownload_{slug}_{season_year}.json",
+                ttl=timedelta(hours=6),
+                force_refresh=self.force_refresh,
+            )
+            payload = json.loads(content.decode("utf-8-sig"))
+        except Exception as exc:
+            warnings.warn(
+                f"FixtureDownload fallback failed for {league.name}: {exc}",
+                RuntimeWarning,
+            )
+            return pd.DataFrame()
+
+        if not isinstance(payload, list):
+            warnings.warn(
+                f"FixtureDownload returned unexpected data for {league.name}",
+                RuntimeWarning,
+            )
+            return pd.DataFrame()
+
+        rows = []
+        for item in payload:
+            if not isinstance(item, dict):
+                continue
+            home = item.get("HomeTeam")
+            away = item.get("AwayTeam")
+            raw_dt = item.get("DateUtc")
+            if not home or not away or not raw_dt:
+                continue
+
+            dt = pd.to_datetime(raw_dt, utc=True, errors="coerce")
+            if pd.isna(dt):
+                continue
+
+            rows.append({
+                "Div": league.football_data_div,
+                "Date": dt.tz_convert(None),
+                "HomeTeam": str(home),
+                "AwayTeam": str(away),
+                "fixture_source": "FixtureDownload",
+            })
+
+        if not rows:
+            return pd.DataFrame()
+
+        df = pd.DataFrame(rows)
+        today = pd.Timestamp(now.date())
+        last = today + pd.Timedelta(days=lookahead_days)
+
+        # Compare calendar dates, matching the original Football-Data behavior.
+        df = df[
+            (df["Date"].dt.normalize() >= today)
+            & (df["Date"].dt.normalize() <= last)
+        ].copy()
+
+        return df.sort_values(["Date", "HomeTeam"]).reset_index(drop=True)
+
+    def fixtures(
+        self,
+        league: LeagueConfig,
+        lookahead_days: int = 10,
+        now: Optional[datetime] = None,
+    ) -> pd.DataFrame:
+        now = now or datetime.now(timezone.utc)
+
+        football_data_df = pd.DataFrame()
+
+        try:
+            content = self.http.get_bytes(
+                FIXTURES_URL,
+                "fixtures.csv",
+                ttl=timedelta(minutes=30),
+                force_refresh=self.force_refresh,
+            )
+
+            # Guard against a cached/redirected HTML response.
+            head = content[:256].lstrip().lower()
+            if head.startswith(b"<html") or head.startswith(b"<!doctype html"):
+                cache_path = self.http.cache_dir / "fixtures.csv"
+                try:
+                    cache_path.unlink(missing_ok=True)
+                except OSError:
+                    pass
+                content = self.http.get_bytes(
+                    FIXTURES_URL,
+                    "fixtures.csv",
+                    ttl=timedelta(minutes=30),
+                    force_refresh=True,
+                )
+
+            df = read_csv_bytes(content)
+            required = {"Div", "Date", "HomeTeam", "AwayTeam"}
+            missing = required.difference(df.columns)
+
+            if missing:
+                cache_path = self.http.cache_dir / "fixtures.csv"
+                try:
+                    cache_path.unlink(missing_ok=True)
+                except OSError:
+                    pass
+
+                content = self.http.get_bytes(
+                    FIXTURES_URL,
+                    "fixtures.csv",
+                    ttl=timedelta(minutes=30),
+                    force_refresh=True,
+                )
+                df = read_csv_bytes(content)
+                missing = required.difference(df.columns)
+
+            if not missing:
+                df = df[df["Div"].astype(str) == league.football_data_div].copy()
+
+                if not df.empty:
+                    df["Date"] = pd.to_datetime(
+                        df["Date"],
+                        dayfirst=True,
+                        errors="coerce",
+                    )
+                    df = df.dropna(subset=["Date", "HomeTeam", "AwayTeam"])
+
+                    today = pd.Timestamp(now.date())
+                    last = today + pd.Timedelta(days=lookahead_days)
+                    df = df[
+                        (df["Date"] >= today)
+                        & (df["Date"] <= last)
+                    ].copy()
+
+                    if not df.empty:
+                        df["fixture_source"] = "Football-Data"
+                        football_data_df = df.sort_values(
+                            ["Date", "HomeTeam"]
+                        ).reset_index(drop=True)
+
+        except Exception as exc:
+            warnings.warn(
+                f"Football-Data fixture lookup failed for {league.name}: {exc}. "
+                "Trying schedule fallback.",
+                RuntimeWarning,
+            )
+
+        if not football_data_df.empty:
+            return football_data_df
+
+        # Football-Data sometimes publishes its weekend odds only on Friday.
+        # If its current download contains only past fixtures, use a fresh schedule
+        # feed so model predictions are still generated.
+        fallback = self._fallback_fixtures(
+            league=league,
+            lookahead_days=lookahead_days,
+            now=now,
+        )
+
+        if not fallback.empty:
+            print(
+                f"[{league.key}] Football-Data has no upcoming rows in the requested "
+                f"{lookahead_days}-day window; using FixtureDownload schedule fallback. "
+                "Betting-odds/EV fields may be blank.",
+                file=sys.stderr,
+            )
+            return fallback
+
+        raise RuntimeError(
+            f"No upcoming {league.name} fixtures found from Football-Data or "
+            f"FixtureDownload within the next {lookahead_days} days."
+        )
+
+
+# ---------------------------------------------------------------------------
+# Dixon-Coles model
+# ---------------------------------------------------------------------------
+
+class DixonColesModel:
+    """
+    Recency-weighted Dixon-Coles model.
+
+    log(lambda_home) = base + home_adv + attack_home + weakness_away
+    log(lambda_away) = base            + attack_away + weakness_home
+
+    attack and defensive-weakness parameters each sum to zero for identifiability.
+    """
+
+    def __init__(
+        self,
+        half_life_days: float = 240.0,
+        l2: float = 0.08,
+        max_goals: int = 10,
+    ):
+        if half_life_days <= 0:
+            raise ValueError("half_life_days must be > 0")
+        if max_goals < 5:
+            raise ValueError("max_goals should be >= 5")
+
+        self.half_life_days = float(half_life_days)
+        self.l2 = float(l2)
+        self.max_goals = int(max_goals)
+
+        self.teams: List[str] = []
+        self.team_to_idx: Dict[str, int] = {}
+        self.attack: Optional[np.ndarray] = None
+        self.weakness: Optional[np.ndarray] = None
+        self.base: Optional[float] = None
+        self.home_adv: Optional[float] = None
+        self.rho: Optional[float] = None
+        self.fit_result = None
+        self.training_matches = 0
+        self.training_end: Optional[pd.Timestamp] = None
+
+    def _unpack(self, params: np.ndarray) -> Tuple[np.ndarray, np.ndarray, float, float, float]:
+        n = len(self.teams)
+        a_free = params[: n - 1]
+        d_free = params[n - 1 : 2 * n - 2]
+        attack = np.r_[a_free, -a_free.sum()]
+        weakness = np.r_[d_free, -d_free.sum()]
+        base, home_adv, rho = params[-3:]
+        return attack, weakness, float(base), float(home_adv), float(rho)
+
+    @staticmethod
+    def _tau_vector(
+        hg: np.ndarray,
+        ag: np.ndarray,
+        lam: np.ndarray,
+        mu: np.ndarray,
+        rho: float,
+    ) -> np.ndarray:
+        tau = np.ones_like(lam, dtype=float)
+        m00 = (hg == 0) & (ag == 0)
+        m01 = (hg == 0) & (ag == 1)
+        m10 = (hg == 1) & (ag == 0)
+        m11 = (hg == 1) & (ag == 1)
+
+        tau[m00] = 1.0 - lam[m00] * mu[m00] * rho
+        tau[m01] = 1.0 + lam[m01] * rho
+        tau[m10] = 1.0 + mu[m10] * rho
+        tau[m11] = 1.0 - rho
+        return tau
+
+    @staticmethod
+    def _tau_scalar(hg: int, ag: int, lam: float, mu: float, rho: float) -> float:
+        if hg == 0 and ag == 0:
+            return 1.0 - lam * mu * rho
+        if hg == 0 and ag == 1:
+            return 1.0 + lam * rho
+        if hg == 1 and ag == 0:
+            return 1.0 + mu * rho
+        if hg == 1 and ag == 1:
+            return 1.0 - rho
+        return 1.0
+
+    def fit(self, matches: pd.DataFrame) -> "DixonColesModel":
+        required = {"Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG"}
+        missing = required.difference(matches.columns)
+        if missing:
+            raise ValueError(f"Training data missing {sorted(missing)}")
+
+        df = matches.dropna(subset=list(required)).copy()
+        if len(df) < 30:
+            raise ValueError(f"Need at least 30 completed matches; got {len(df)}")
+
+        self.teams = sorted(set(df["HomeTeam"]) | set(df["AwayTeam"]))
+        self.team_to_idx = {team: i for i, team in enumerate(self.teams)}
+        n = len(self.teams)
+        if n < 2:
+            raise ValueError("Need at least two teams")
+
+        hi = df["HomeTeam"].map(self.team_to_idx).to_numpy(dtype=int)
+        ai = df["AwayTeam"].map(self.team_to_idx).to_numpy(dtype=int)
+        hg = df["FTHG"].to_numpy(dtype=float)
+        ag = df["FTAG"].to_numpy(dtype=float)
+
+        dates = pd.to_datetime(df["Date"])
+        latest = dates.max()
+        age_days = (latest - dates).dt.total_seconds().to_numpy() / 86400.0
+        weights = np.power(0.5, age_days / self.half_life_days)
+
+        home_mean = max(float(hg.mean()), 0.2)
+        away_mean = max(float(ag.mean()), 0.2)
+        base0 = math.log(away_mean)
+        home_adv0 = math.log(home_mean / away_mean)
+
+        # 2*(n-1) team params + base + home_adv + rho
+        x0 = np.zeros(2 * (n - 1) + 3, dtype=float)
+        x0[-3] = np.clip(base0, -1.0, 1.0)
+        x0[-2] = np.clip(home_adv0, -0.5, 0.5)
+        x0[-1] = -0.05
+
+        def objective(params: np.ndarray) -> float:
+            attack, weakness, base, home_adv, rho = self._unpack(params)
+
+            log_lam = base + home_adv + attack[hi] + weakness[ai]
+            log_mu = base + attack[ai] + weakness[hi]
+
+            # Guard optimization against absurd regions while preserving smoothness.
+            if np.any(log_lam > 3.0) or np.any(log_lam < -4.0):
+                return 1e12
+            if np.any(log_mu > 3.0) or np.any(log_mu < -4.0):
+                return 1e12
+
+            lam = np.exp(log_lam)
+            mu = np.exp(log_mu)
+
+            tau = self._tau_vector(hg, ag, lam, mu, rho)
+            if np.any(tau <= 0) or not np.all(np.isfinite(tau)):
+                return 1e12
+
+            log_p_home = hg * log_lam - lam - gammaln(hg + 1.0)
+            log_p_away = ag * log_mu - mu - gammaln(ag + 1.0)
+            log_likelihood = log_p_home + log_p_away + np.log(tau)
+
+            penalty = self.l2 * (
+                float(np.dot(attack, attack)) + float(np.dot(weakness, weakness))
+            )
+            return -float(np.dot(weights, log_likelihood)) + penalty
+
+        team_bounds = [(-1.75, 1.75)] * (2 * (n - 1))
+        bounds = team_bounds + [
+            (-1.5, 1.5),   # base
+            (-0.8, 0.8),   # home advantage
+            (-0.20, 0.05), # rho; conservative upper bound keeps tau stable
+        ]
+
+        result = minimize(
+            objective,
+            x0,
+            method="L-BFGS-B",
+            bounds=bounds,
+            options={"maxiter": 1500, "ftol": 1e-10, "maxls": 40},
+        )
+
+        if not result.success:
+            warnings.warn(f"Dixon-Coles optimizer: {result.message}", RuntimeWarning)
+
+        attack, weakness, base, home_adv, rho = self._unpack(result.x)
+        self.attack = attack
+        self.weakness = weakness
+        self.base = base
+        self.home_adv = home_adv
+        self.rho = rho
+        self.fit_result = result
+        self.training_matches = len(df)
+        self.training_end = latest
+        return self
+
+    def _check_fitted(self) -> None:
+        if (
+            self.attack is None
+            or self.weakness is None
+            or self.base is None
+            or self.home_adv is None
+            or self.rho is None
+        ):
+            raise RuntimeError("Model is not fitted")
+
+    def resolve_team(self, raw_name: str, min_score: float = 72.0) -> Tuple[Optional[str], float]:
+        """Resolve source name to training name. Returns (team, confidence_score)."""
+        self._check_fitted()
+
+        if raw_name in self.team_to_idx:
+            return raw_name, 100.0
+
+        normalized_raw = normalize_team_name(raw_name)
+
+        explicit = TEAM_ALIASES.get(normalized_raw)
+        if explicit in self.team_to_idx:
+            return explicit, 100.0
+
+        normalized_to_original = {
+            normalize_team_name(team): team
+            for team in self.teams
+        }
+
+        if normalized_raw in normalized_to_original:
+            return normalized_to_original[normalized_raw], 100.0
+
+        match = process.extractOne(
+            normalized_raw,
+            list(normalized_to_original.keys()),
+            scorer=fuzz.WRatio,
+        )
+        if not match:
+            return None, 0.0
+
+        candidate_norm, score, _ = match
+        if score < min_score:
+            return None, float(score)
+        return normalized_to_original[candidate_norm], float(score)
+
+    def expected_goals(self, home_raw: str, away_raw: str) -> Dict[str, object]:
+        self._check_fitted()
+        assert self.attack is not None
+        assert self.weakness is not None
+        assert self.base is not None
+        assert self.home_adv is not None
+
+        home, home_match_score = self.resolve_team(home_raw)
+        away, away_match_score = self.resolve_team(away_raw)
+
+        # Unknown teams fall back to league-average strength (0 attack/weakness).
+        # This avoids hard failure in early-season/promoted-team edge cases,
+        # while explicitly lowering matching confidence in output.
+        if home is None:
+            h_attack = 0.0
+            h_weak = 0.0
+            home_model_name = "__LEAGUE_AVERAGE__"
+        else:
+            idx = self.team_to_idx[home]
+            h_attack = float(self.attack[idx])
+            h_weak = float(self.weakness[idx])
+            home_model_name = home
+
+        if away is None:
+            a_attack = 0.0
+            a_weak = 0.0
+            away_model_name = "__LEAGUE_AVERAGE__"
+        else:
+            idx = self.team_to_idx[away]
+            a_attack = float(self.attack[idx])
+            a_weak = float(self.weakness[idx])
+            away_model_name = away
+
+        lam = math.exp(self.base + self.home_adv + h_attack + a_weak)
+        mu = math.exp(self.base + a_attack + h_weak)
+
+        return {
+            "lambda_home": lam,
+            "lambda_away": mu,
+            "model_home_team": home_model_name,
+            "model_away_team": away_model_name,
+            "home_name_match_score": home_match_score,
+            "away_name_match_score": away_match_score,
+        }
+
+    def score_matrix(self, home: str, away: str) -> Tuple[np.ndarray, Dict[str, object]]:
+        self._check_fitted()
+        assert self.rho is not None
+
+        meta = self.expected_goals(home, away)
+        lam = float(meta["lambda_home"])
+        mu = float(meta["lambda_away"])
+
+        g = np.arange(self.max_goals + 1)
+        matrix = np.outer(poisson.pmf(g, lam), poisson.pmf(g, mu))
+
+        # Dixon-Coles adjustment affects only 0-0, 0-1, 1-0, 1-1.
+        for hg, ag in ((0, 0), (0, 1), (1, 0), (1, 1)):
+            matrix[hg, ag] *= self._tau_scalar(hg, ag, lam, mu, self.rho)
+
+        total = float(matrix.sum())
+        if total <= 0 or not math.isfinite(total):
+            raise RuntimeError("Invalid score probability matrix")
+
+        # max_goals truncates tiny tails. Renormalize to exact probability mass 1.
+        matrix /= total
+        return matrix, meta
+
+    @staticmethod
+    def one_x_two(matrix: np.ndarray) -> Dict[str, float]:
+        home = float(np.tril(matrix, k=-1).sum())  # row(home goals) > col(away goals)
+        draw = float(np.trace(matrix))
+        away = float(np.triu(matrix, k=1).sum())
+        return {"home": home, "draw": draw, "away": away}
+
+    @staticmethod
+    def over_under(matrix: np.ndarray, line: float) -> Dict[str, float]:
+        """
+        Full-time total goals.
+        Half-lines have no push.
+        Integer lines return explicit push probability.
+        Quarter-lines are intentionally rejected because settlement is split
+        across adjacent half/integer lines and should be represented separately.
+        """
+        q = round(line * 4)
+        if not math.isclose(line * 4, q, abs_tol=1e-9):
+            raise ValueError("Goal line must be in 0.25 increments")
+        if q % 2 == 1:
+            raise ValueError(
+                "Quarter goal lines should be split into their component lines "
+                "(e.g. 2.25 = half 2.0 + half 2.5)."
+            )
+
+        totals = np.add.outer(np.arange(matrix.shape[0]), np.arange(matrix.shape[1]))
+
+        if math.isclose(line, round(line)):
+            target = int(round(line))
+            p_under = float(matrix[totals < target].sum())
+            p_push = float(matrix[totals == target].sum())
+            p_over = float(matrix[totals > target].sum())
+        else:
+            cutoff = math.floor(line)
+            p_under = float(matrix[totals <= cutoff].sum())
+            p_push = 0.0
+            p_over = float(matrix[totals > cutoff].sum())
+
+        return {"over": p_over, "push": p_push, "under": p_under}
+
+    @staticmethod
+    def scoreline_dict(matrix: np.ndarray) -> Dict[str, float]:
+        return {
+            f"{h}-{a}": float(matrix[h, a])
+            for h in range(matrix.shape[0])
+            for a in range(matrix.shape[1])
+        }
+
+    @staticmethod
+    def top_scorelines(matrix: np.ndarray, n: int = 8) -> List[Tuple[str, float]]:
+        flat = np.argsort(matrix.ravel())[::-1][:n]
+        out = []
+        for idx in flat:
+            h, a = np.unravel_index(idx, matrix.shape)
+            out.append((f"{h}-{a}", float(matrix[h, a])))
+        return out
+
+    def predict(
+        self,
+        home: str,
+        away: str,
+        total_lines: Sequence[float] = DEFAULT_TOTAL_LINES,
+        top_n_scorelines: int = 8,
+    ) -> Dict[str, object]:
+        matrix, meta = self.score_matrix(home, away)
+        x12 = self.one_x_two(matrix)
+
+        result: Dict[str, object] = dict(meta)
+        result.update({
+            "p_home": x12["home"],
+            "p_draw": x12["draw"],
+            "p_away": x12["away"],
+            "fair_home": fair_odds(x12["home"]),
+            "fair_draw": fair_odds(x12["draw"]),
+            "fair_away": fair_odds(x12["away"]),
+            "predicted_1x2": max(x12, key=x12.get),
+            "top_scorelines": self.top_scorelines(matrix, n=top_n_scorelines),
+            "scoreline_distribution": self.scoreline_dict(matrix),
+        })
+
+        for line in total_lines:
+            ou = self.over_under(matrix, float(line))
+            label = str(line).replace(".", "_")
+            result[f"p_over_{label}"] = ou["over"]
+            result[f"p_under_{label}"] = ou["under"]
+            if ou["push"] > 0:
+                result[f"p_push_{label}"] = ou["push"]
+            result[f"fair_over_{label}"] = fair_odds(ou["over"])
+            result[f"fair_under_{label}"] = fair_odds(ou["under"])
+
+        return result
+
+
+# ---------------------------------------------------------------------------
+# Market odds extraction
+# ---------------------------------------------------------------------------
+
+def _first_valid_from_row(row: pd.Series, columns: Sequence[str]) -> Optional[float]:
+    for col in columns:
+        if col in row.index:
+            x = safe_float(row[col])
+            if x is not None and x > 1.0:
+                return x
+    return None
+
+
+def extract_market_odds(row: pd.Series) -> Dict[str, Optional[float]]:
+    """
+    Prefer market maxima where available, then averages, then major books.
+    For value screening this intentionally uses the best readily published price.
+    """
+    return {
+        "market_home_odds": _first_valid_from_row(
+            row, ("MaxH", "AvgH", "B365H", "PSH", "WHH", "BWH", "IWH")
+        ),
+        "market_draw_odds": _first_valid_from_row(
+            row, ("MaxD", "AvgD", "B365D", "PSD", "WHD", "BWD", "IWD")
+        ),
+        "market_away_odds": _first_valid_from_row(
+            row, ("MaxA", "AvgA", "B365A", "PSA", "WHA", "BWA", "IWA")
+        ),
+        "market_over_2_5_odds": _first_valid_from_row(
+            row, ("Max>2.5", "Avg>2.5", "B365>2.5", "P>2.5")
+        ),
+        "market_under_2_5_odds": _first_valid_from_row(
+            row, ("Max<2.5", "Avg<2.5", "B365<2.5", "P<2.5")
+        ),
+    }
+
+
+def add_market_value_metrics(pred: Dict[str, object], row: pd.Series) -> None:
+    odds = extract_market_odds(row)
+    pred.update(odds)
+
+    h, d, a = (
+        odds["market_home_odds"],
+        odds["market_draw_odds"],
+        odds["market_away_odds"],
+    )
+    mh, md, ma = devig_decimal((h, d, a))
+    pred["market_p_home"] = mh
+    pred["market_p_draw"] = md
+    pred["market_p_away"] = ma
+
+    for side, mp in (("home", mh), ("draw", md), ("away", ma)):
+        model_p = float(pred[f"p_{side}"])
+        pred[f"edge_{side}"] = None if mp is None else model_p - mp
+        pred[f"ev_{side}"] = ev_decimal(model_p, odds[f"market_{side}_odds"])
+
+    over_odds = odds["market_over_2_5_odds"]
+    under_odds = odds["market_under_2_5_odds"]
+    mo, mu = devig_decimal((over_odds, under_odds))
+    pred["market_p_over_2_5"] = mo
+    pred["market_p_under_2_5"] = mu
+
+    p_over = float(pred["p_over_2_5"])
+    p_under = float(pred["p_under_2_5"])
+    pred["edge_over_2_5"] = None if mo is None else p_over - mo
+    pred["edge_under_2_5"] = None if mu is None else p_under - mu
+    pred["ev_over_2_5"] = ev_decimal(p_over, over_odds)
+    pred["ev_under_2_5"] = ev_decimal(p_under, under_odds)
+
+
+# ---------------------------------------------------------------------------
+# Pipeline
+# ---------------------------------------------------------------------------
+
+class FootballValuePipeline:
+    def __init__(
+        self,
+        cache_dir: str | Path = ".football_cache",
+        seasons_back: int = 3,
+        half_life_days: float = 240.0,
+        l2: float = 0.08,
+        max_goals: int = 10,
+        lookahead_days: int = 10,
+        force_refresh: bool = False,
+    ):
+        self.source = FootballDataUK(cache_dir=cache_dir, force_refresh=force_refresh)
+        self.seasons_back = int(seasons_back)
+        self.half_life_days = float(half_life_days)
+        self.l2 = float(l2)
+        self.max_goals = int(max_goals)
+        self.lookahead_days = int(lookahead_days)
+
+    def run_league(
+        self,
+        league_key: str,
+        now: Optional[datetime] = None,
+    ) -> Tuple[pd.DataFrame, Dict[str, object], Dict[str, Dict[str, float]]]:
+        if league_key not in LEAGUES:
+            raise KeyError(f"Unknown league {league_key!r}. Choose from {list(LEAGUES)}")
+
+        league = LEAGUES[league_key]
+        now = now or datetime.now(timezone.utc)
+
+        history = self.source.history(
+            league,
+            seasons_back=self.seasons_back,
+            now=now,
+        )
+        fixtures = self.source.fixtures(
+            league,
+            lookahead_days=self.lookahead_days,
+            now=now,
+        )
+
+        model = DixonColesModel(
+            half_life_days=self.half_life_days,
+            l2=self.l2,
+            max_goals=self.max_goals,
+        ).fit(history)
+
+        diagnostics = {
+            "league": league.name,
+            "training_matches": model.training_matches,
+            "training_end": None if model.training_end is None else str(model.training_end.date()),
+            "fit_success": bool(model.fit_result.success) if model.fit_result is not None else False,
+            "objective": (
+                float(model.fit_result.fun) if model.fit_result is not None else None
+            ),
+            "base": model.base,
+            "home_adv": model.home_adv,
+            "rho": model.rho,
+            "half_life_days": model.half_life_days,
+            "max_goals": model.max_goals,
+        }
+
+        if fixtures.empty:
+            return pd.DataFrame(), diagnostics, {}
+
+        records = []
+        scoreline_payload: Dict[str, Dict[str, float]] = {}
+
+        for _, row in fixtures.iterrows():
+            home = str(row["HomeTeam"])
+            away = str(row["AwayTeam"])
+
+            pred = model.predict(home, away)
+            add_market_value_metrics(pred, row)
+
+            score_dist = pred.pop("scoreline_distribution")
+            top_scores = pred["top_scorelines"]
+
+            match_id = f"{row['Date'].date()}__{home}__{away}"
+            scoreline_payload[match_id] = score_dist  # type: ignore[assignment]
+
+            record = {
+                "league": league.name,
+                "date": row["Date"].date().isoformat(),
+                "home_team": home,
+                "away_team": away,
+                "fixture_source": row.get("fixture_source", "unknown"),
+                **pred,
+            }
+            record["top_scorelines"] = json.dumps(
+                [{"score": s, "p": round(p, 8)} for s, p in top_scores],
+                separators=(",", ":"),
+            )
+            records.append(record)
+
+        out = pd.DataFrame(records)
+
+        # Stable, integration-friendly column order for the core metrics.
+        preferred = [
+            "league", "date", "home_team", "away_team",
+            "lambda_home", "lambda_away",
+            "p_home", "p_draw", "p_away",
+            "fair_home", "fair_draw", "fair_away",
+            "predicted_1x2",
+            "p_over_0_5", "p_under_0_5",
+            "p_over_1_5", "p_under_1_5",
+            "p_over_2_5", "p_under_2_5",
+            "p_over_3_5", "p_under_3_5",
+            "p_over_4_5", "p_under_4_5",
+            "top_scorelines",
+            "market_home_odds", "market_draw_odds", "market_away_odds",
+            "market_p_home", "market_p_draw", "market_p_away",
+            "edge_home", "edge_draw", "edge_away",
+            "ev_home", "ev_draw", "ev_away",
+            "market_over_2_5_odds", "market_under_2_5_odds",
+            "market_p_over_2_5", "market_p_under_2_5",
+            "edge_over_2_5", "edge_under_2_5",
+            "ev_over_2_5", "ev_under_2_5",
+            "model_home_team", "model_away_team",
+            "home_name_match_score", "away_name_match_score",
+        ]
+        ordered = [c for c in preferred if c in out.columns]
+        remaining = [c for c in out.columns if c not in ordered]
+        out = out[ordered + remaining]
+        return out, diagnostics, scoreline_payload
+
+    def run(
+        self,
+        league_keys: Sequence[str],
+        now: Optional[datetime] = None,
+    ) -> Dict[str, Tuple[pd.DataFrame, Dict[str, object], Dict[str, Dict[str, float]]]]:
+        return {key: self.run_league(key, now=now) for key in league_keys}
+
+
+# ---------------------------------------------------------------------------
+# Self-test
+# ---------------------------------------------------------------------------
+
+def self_test() -> None:
+    model = DixonColesModel(max_goals=10)
+    model.teams = ["A", "B"]
+    model.team_to_idx = {"A": 0, "B": 1}
+    model.attack = np.array([0.15, -0.15])
+    model.weakness = np.array([-0.05, 0.05])
+    model.base = math.log(1.20)
+    model.home_adv = math.log(1.18)
+    model.rho = -0.08
+
+    matrix, _ = model.score_matrix("A", "B")
+    assert abs(float(matrix.sum()) - 1.0) < 1e-12
+
+    x12 = model.one_x_two(matrix)
+    assert abs(sum(x12.values()) - 1.0) < 1e-12
+
+    for line in DEFAULT_TOTAL_LINES:
+        ou = model.over_under(matrix, line)
+        assert abs(ou["over"] + ou["under"] + ou["push"] - 1.0) < 1e-12
+
+    p = model.predict("A", "B")
+    assert 0.0 < float(p["p_home"]) < 1.0
+    assert 0.0 < float(p["p_over_0_5"]) < 1.0
+    assert abs(float(p["p_over_4_5"]) + float(p["p_under_4_5"]) - 1.0) < 1e-12
+
+    market = devig_decimal([2.0, 3.5, 4.0])
+    assert all(x is not None for x in market)
+    assert abs(sum(x for x in market if x is not None) - 1.0) < 1e-12
+
+    print("Self-test passed.")
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
+def build_parser() -> argparse.ArgumentParser:
+    p = argparse.ArgumentParser(
+        description="Dixon-Coles football value pipeline for major European leagues."
+    )
+    p.add_argument(
+        "--leagues",
+        nargs="+",
+        choices=list(LEAGUES),
+        default=["EPL"],
+        help="Leagues to process.",
+    )
+    p.add_argument("--seasons-back", type=int, default=3)
+    p.add_argument("--half-life-days", type=float, default=240.0)
+    p.add_argument("--l2", type=float, default=0.08)
+    p.add_argument("--max-goals", type=int, default=10)
+    p.add_argument("--lookahead-days", type=int, default=10)
+    p.add_argument("--cache-dir", default=".football_cache")
+    p.add_argument("--out-dir", default="football_output")
+    p.add_argument("--force-refresh", action="store_true")
+    p.add_argument("--self-test", action="store_true")
+    return p
+
+
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    args = build_parser().parse_args(argv)
+
+    if args.self_test:
+        self_test()
+        return 0
+
+    out_dir = Path(args.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    pipeline = FootballValuePipeline(
+        cache_dir=args.cache_dir,
+        seasons_back=args.seasons_back,
+        half_life_days=args.half_life_days,
+        l2=args.l2,
+        max_goals=args.max_goals,
+        lookahead_days=args.lookahead_days,
+        force_refresh=args.force_refresh,
+    )
+
+    all_frames = []
+
+    for league_key in args.leagues:
+        print(f"[{league_key}] fetching data + fitting model...", file=sys.stderr)
+        predictions, diagnostics, scorelines = pipeline.run_league(league_key)
+
+        pred_path = out_dir / f"{league_key}_predictions.csv"
+        diag_path = out_dir / f"{league_key}_diagnostics.json"
+        score_path = out_dir / f"{league_key}_scorelines.json"
+
+        predictions.to_csv(pred_path, index=False)
+        diag_path.write_text(json.dumps(diagnostics, indent=2), encoding="utf-8")
+        score_path.write_text(json.dumps(scorelines, indent=2), encoding="utf-8")
+
+        print(
+            f"[{league_key}] {len(predictions)} fixtures -> {pred_path}",
+            file=sys.stderr,
+        )
+        if not predictions.empty:
+            all_frames.append(predictions)
+
+    if all_frames:
+        combined = pd.concat(all_frames, ignore_index=True, sort=False)
+        combined_path = out_dir / "all_leagues_predictions.csv"
+        combined.to_csv(combined_path, index=False)
+        print(f"Combined -> {combined_path}", file=sys.stderr)
+
+    return 0
+
+
+
+# ---------------------------------------------------------------------------
+# Odds selection and margin removal
+# ---------------------------------------------------------------------------
+
+# Probability benchmark: all three prices come from one source.
+OPEN_1X2_TRIPLES = (
+    ("PSH", "PSD", "PSA"),
+    ("B365H", "B365D", "B365A"),
+    ("AvgH", "AvgD", "AvgA"),
+    ("WHH", "WHD", "WHA"),
+    ("BWH", "BWD", "BWA"),
+    ("IWH", "IWD", "IWA"),
+)
+
+CLOSE_1X2_TRIPLES = (
+    ("PSCH", "PSCD", "PSCA"),
+    ("B365CH", "B365CD", "B365CA"),
+    ("AvgCH", "AvgCD", "AvgCA"),
+)
+
+OU25_PAIRS = (
+    ("P>2.5", "P<2.5"),
+    ("B365>2.5", "B365<2.5"),
+    ("Avg>2.5", "Avg<2.5"),
+)
+
+BEST_1X2_COLUMNS = {
+    "home": ("MaxH", "PSH", "B365H", "AvgH", "WHH", "BWH", "IWH"),
+    "draw": ("MaxD", "PSD", "B365D", "AvgD", "WHD", "BWD", "IWD"),
+    "away": ("MaxA", "PSA", "B365A", "AvgA", "WHA", "BWA", "IWA"),
+}
+
+BEST_OU25_COLUMNS = {
+    "over": ("Max>2.5", "P>2.5", "B365>2.5", "Avg>2.5"),
+    "under": ("Max<2.5", "P<2.5", "B365<2.5", "Avg<2.5"),
+}
+
+
+def _valid_price(x) -> Optional[float]:
+    x = safe_float(x)
+    return x if x is not None and x > 1.0 else None
+
+
+def pick_consistent_market(
+    row: pd.Series,
+    candidates: Sequence[Sequence[str]],
+) -> Tuple[List[Optional[float]], Optional[str]]:
+    """Return the first complete odds set, never mixing books within a probability market."""
+    for cols in candidates:
+        if all(c in row.index for c in cols):
+            vals = [_valid_price(row[c]) for c in cols]
+            if all(v is not None for v in vals):
+                source = str(cols[0]).rstrip("HDA")
+                return vals, source
+    return [None] * len(candidates[0]), None
+
+
+def pick_best_price(row: pd.Series, columns: Sequence[str]) -> Optional[float]:
+    for col in columns:
+        if col in row.index:
+            x = _valid_price(row[col])
+            if x is not None:
+                return x
+    return None
+
+
+def devig(odds: Sequence[Optional[float]], method: str = "power") -> List[Optional[float]]:
+    """
+    Convert decimal odds to fair probabilities.
+
+    power:
+      Solve sum(q_i ** k) = 1 where q_i = 1/odds_i.
+      This is generally preferable to proportional normalization for 1X2 because
+      it can partially accommodate favourite/longshot bias.
+
+    proportional:
+      q_i / sum(q)
+    """
+    if not odds or any(o is None or o <= 1.0 for o in odds):
+        return [None for _ in odds]
+
+    q = np.array([1.0 / float(o) for o in odds], dtype=float)
+
+    if method == "proportional":
+        return [float(x) for x in q / q.sum()]
+
+    if method != "power":
+        raise ValueError("devig method must be 'power' or 'proportional'")
+
+    # sum(q**k) is monotonically decreasing for 0<q<1.
+    lo, hi = 0.01, 10.0
+    s_lo = float(np.power(q, lo).sum())
+    s_hi = float(np.power(q, hi).sum())
+
+    # Defensive fallback for malformed/very unusual markets.
+    if not (s_lo >= 1.0 >= s_hi):
+        return [float(x) for x in q / q.sum()]
+
+    for _ in range(80):
+        k = (lo + hi) / 2.0
+        s = float(np.power(q, k).sum())
+        if s > 1.0:
+            lo = k
+        else:
+            hi = k
+
+    fair = np.power(q, (lo + hi) / 2.0)
+    fair /= fair.sum()
+    return [float(x) for x in fair]
+
+
+# ---------------------------------------------------------------------------
+# Score-matrix consistency
+# ---------------------------------------------------------------------------
+
+def reweight_matrix_to_1x2(
+    matrix: np.ndarray,
+    target: Sequence[float],
+) -> np.ndarray:
+    """
+    Reweight H/D/A regions to target probabilities while preserving the relative
+    shape of scorelines inside each region.
+
+    This is the key improvement over simply blending 1X2 after score modelling:
+    every downstream market (O/U, scorelines, AH added later) remains derived
+    from one internally consistent score matrix.
+    """
+    target_arr = np.asarray(target, dtype=float)
+    if target_arr.shape != (3,) or np.any(target_arr < 0):
+        raise ValueError("target must be [home, draw, away]")
+    if not math.isclose(float(target_arr.sum()), 1.0, rel_tol=0, abs_tol=1e-8):
+        target_arr = target_arr / target_arr.sum()
+
+    n_h, n_a = matrix.shape
+    h_idx = np.arange(n_h)[:, None]
+    a_idx = np.arange(n_a)[None, :]
+    masks = (h_idx > a_idx, h_idx == a_idx, h_idx < a_idx)
+
+    out = matrix.copy().astype(float)
+    current = np.array([float(matrix[m].sum()) for m in masks])
+
+    if np.any(current <= 0):
+        return matrix.copy()
+
+    for mask, cur, tgt in zip(masks, current, target_arr):
+        out[mask] *= float(tgt / cur)
+
+    out /= out.sum()
+    return out
+
+
+def prediction_from_matrix(
+    model: DixonColesModel,
+    matrix: np.ndarray,
+    meta: Dict[str, object],
+    total_lines: Sequence[float] = DEFAULT_TOTAL_LINES,
+    top_n_scorelines: int = 8,
+) -> Dict[str, object]:
+    x12 = model.one_x_two(matrix)
+    result: Dict[str, object] = dict(meta)
+    result.update({
+        "p_home": x12["home"],
+        "p_draw": x12["draw"],
+        "p_away": x12["away"],
+        "fair_home": fair_odds(x12["home"]),
+        "fair_draw": fair_odds(x12["draw"]),
+        "fair_away": fair_odds(x12["away"]),
+        "predicted_1x2": max(x12, key=x12.get),
+        "top_scorelines": model.top_scorelines(matrix, n=top_n_scorelines),
+        "scoreline_distribution": model.scoreline_dict(matrix),
+    })
+
+    for line in total_lines:
+        ou = model.over_under(matrix, float(line))
+        label = str(line).replace(".", "_")
+        result[f"p_over_{label}"] = ou["over"]
+        result[f"p_under_{label}"] = ou["under"]
+        if ou["push"] > 0:
+            result[f"p_push_{label}"] = ou["push"]
+        result[f"fair_over_{label}"] = fair_odds(ou["over"])
+        result[f"fair_under_{label}"] = fair_odds(ou["under"])
+    return result
+
+
+def market_snapshot(row: pd.Series, devig_method: str = "power") -> Dict[str, object]:
+    coherent, source = pick_consistent_market(row, OPEN_1X2_TRIPLES)
+    fair = devig(coherent, method=devig_method)
+
+    ou_odds, ou_source = pick_consistent_market(row, OU25_PAIRS)
+    ou_fair = devig(ou_odds, method=devig_method)
+
+    best_h = pick_best_price(row, BEST_1X2_COLUMNS["home"])
+    best_d = pick_best_price(row, BEST_1X2_COLUMNS["draw"])
+    best_a = pick_best_price(row, BEST_1X2_COLUMNS["away"])
+
+    return {
+        "market_source_1x2": source,
+        "market_home_odds": best_h,
+        "market_draw_odds": best_d,
+        "market_away_odds": best_a,
+        "market_reference_home_odds": coherent[0],
+        "market_reference_draw_odds": coherent[1],
+        "market_reference_away_odds": coherent[2],
+        "market_p_home": fair[0],
+        "market_p_draw": fair[1],
+        "market_p_away": fair[2],
+        "market_source_ou25": ou_source,
+        "market_over_2_5_odds": pick_best_price(row, BEST_OU25_COLUMNS["over"]),
+        "market_under_2_5_odds": pick_best_price(row, BEST_OU25_COLUMNS["under"]),
+        "market_reference_over_2_5_odds": ou_odds[0],
+        "market_reference_under_2_5_odds": ou_odds[1],
+        "market_p_over_2_5": ou_fair[0],
+        "market_p_under_2_5": ou_fair[1],
+    }
+
+
+def add_value_metrics(pred: Dict[str, object], snapshot: Dict[str, object]) -> None:
+    pred.update(snapshot)
+
+    for side in ("home", "draw", "away"):
+        model_p = float(pred[f"p_{side}"])
+        market_p = snapshot.get(f"market_p_{side}")
+        odds = snapshot.get(f"market_{side}_odds")
+        pred[f"edge_prob_{side}"] = (
+            None if market_p is None else model_p - float(market_p)
+        )
+        pred[f"ev_{side}"] = ev_decimal(model_p, odds)  # type: ignore[arg-type]
+
+    for side in ("over_2_5", "under_2_5"):
+        model_p = float(pred[f"p_{side}"])
+        market_p = snapshot.get(f"market_p_{side}")
+        odds = snapshot.get(f"market_{side}_odds")
+        pred[f"edge_prob_{side}"] = (
+            None if market_p is None else model_p - float(market_p)
+        )
+        pred[f"ev_{side}"] = ev_decimal(model_p, odds)  # type: ignore[arg-type]
+
+
+# ---------------------------------------------------------------------------
+# Evaluation / staking utilities borrowed from the PL research workflow
+# ---------------------------------------------------------------------------
+
+def multiclass_log_loss(P: np.ndarray, y: np.ndarray) -> float:
+    return float(-np.mean(np.log(np.clip(P[np.arange(len(y)), y], 1e-12, 1.0))))
+
+
+def multiclass_brier(P: np.ndarray, y: np.ndarray) -> float:
+    return float(np.mean(np.sum((P - np.eye(3)[y]) ** 2, axis=1)))
+
+
+def accuracy(P: np.ndarray, y: np.ndarray) -> float:
+    return float(np.mean(P.argmax(axis=1) == y))
+
+
+def binary_brier(p: np.ndarray, y: np.ndarray) -> float:
+    return float(np.mean((p - y) ** 2))
+
+
+def reliability_table(P: np.ndarray, y: np.ndarray, bins: int = 10) -> pd.DataFrame:
+    p = P.ravel()
+    o = np.eye(3)[y].ravel()
+    edges = np.linspace(0.0, 1.0, bins + 1)
+    idx = np.clip(np.digitize(p, edges) - 1, 0, bins - 1)
+    rows = []
+    for b in range(bins):
+        mask = idx == b
+        if mask.any():
+            rows.append({
+                "bin_lo": edges[b],
+                "bin_hi": edges[b + 1],
+                "n": int(mask.sum()),
+                "mean_pred": float(p[mask].mean()),
+                "observed": float(o[mask].mean()),
+            })
+    return pd.DataFrame(rows)
+
+
+def bootstrap_roi_ci(bets: pd.DataFrame, n: int = 5000, seed: int = 0) -> Tuple[float, float]:
+    if bets.empty:
+        return (math.nan, math.nan)
+    unit_returns = np.where(bets["won"], bets["odds_taken"] - 1.0, -1.0)
+    rng = np.random.default_rng(seed)
+    means = rng.choice(unit_returns, size=(n, len(unit_returns)), replace=True).mean(axis=1)
+    return float(np.percentile(means, 2.5)), float(np.percentile(means, 97.5))
+
+
+def simulate_staking(
+    bets: pd.DataFrame,
+    bankroll0: float,
+    mode: str,
+    kelly_frac: float,
+    max_stake_pct: float,
+    flat_pct: float,
+) -> pd.DataFrame:
+    bets = bets.copy()
+    bets["stake"] = 0.0
+    bets["pnl"] = 0.0
+    bankroll = float(bankroll0)
+
+    if bets.empty:
+        return bets
+
+    for _, group in bets.groupby("date", sort=True):
+        start = bankroll
+        for i in group.index:
+            p = float(bets.at[i, "model_prob"])
+            o = float(bets.at[i, "odds_taken"])
+            if mode == "kelly":
+                full_kelly = max(0.0, (p * o - 1.0) / (o - 1.0))
+                stake = start * min(kelly_frac * full_kelly, max_stake_pct)
+            else:
+                stake = bankroll0 * flat_pct
+            stake = min(stake, bankroll)
+            bets.at[i, "stake"] = stake
+            bets.at[i, "pnl"] = stake * (o - 1.0) if bool(bets.at[i, "won"]) else -stake
+        bankroll += float(bets.loc[group.index, "pnl"].sum())
+
+    daily = bets.groupby("date")["pnl"].sum().cumsum() + bankroll0
+    bets["bankroll_after"] = bets["date"].map(daily)
+    return bets
+
+
+def summarize_bets(bets: pd.DataFrame, bankroll0: float) -> Dict[str, object]:
+    if bets.empty:
+        return {"n_bets": 0}
+
+    staked = float(bets["stake"].sum())
+    equity = pd.concat([
+        pd.Series([bankroll0]),
+        bets.drop_duplicates("date")["bankroll_after"],
+    ]).to_numpy(dtype=float)
+
+    drawdown = float(np.max(1.0 - equity / np.maximum.accumulate(equity)))
+    lo, hi = bootstrap_roi_ci(bets)
+
+    return {
+        "n_bets": int(len(bets)),
+        "hit_rate": float(bets["won"].mean()),
+        "avg_odds": float(bets["odds_taken"].mean()),
+        "avg_ev_at_bet": float(bets["edge_ev"].mean()),
+        "avg_clv": float(bets["clv"].dropna().mean()) if bets["clv"].notna().any() else None,
+        "pct_positive_clv": (
+            float((bets.loc[bets["clv"].notna(), "clv"] > 0).mean())
+            if bets["clv"].notna().any()
+            else None
+        ),
+        "roi_on_stake": float(bets["pnl"].sum() / staked) if staked else None,
+        "flat_unit_roi": float(
+            np.where(bets["won"], bets["odds_taken"] - 1.0, -1.0).mean()
+        ),
+        "flat_unit_roi_95ci": [lo, hi],
+        "final_bankroll": float(equity[-1]),
+        "max_drawdown": drawdown,
+    }
+
+
+def plot_reliability(curves: Dict[str, pd.DataFrame], path: Path) -> None:
+    """Optional; pipeline still works without matplotlib."""
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+    except ImportError:
+        return
+
+    fig, ax = plt.subplots(figsize=(5.5, 5.5))
+    ax.plot([0, 1], [0, 1], "k--", lw=1, label="perfect")
+    for name, table in curves.items():
+        if not table.empty:
+            ax.plot(table["mean_pred"], table["observed"], marker="o", label=name)
+    ax.set_xlabel("Predicted probability")
+    ax.set_ylabel("Observed frequency")
+    ax.set_title("1X2 reliability")
+    ax.legend()
+    fig.tight_layout()
+    fig.savefig(path, dpi=130)
+    plt.close(fig)
+
+
+# ---------------------------------------------------------------------------
+# V2 pipeline
+# ---------------------------------------------------------------------------
+
+class FootballValuePipelineV2(FootballValuePipeline):
+    def __init__(
+        self,
+        *args,
+        devig_method: str = "power",
+        market_weight: float = 0.0,
+        **kwargs,
+    ):
+        super().__init__(*args, **kwargs)
+        if devig_method not in {"power", "proportional"}:
+            raise ValueError("devig_method must be power or proportional")
+        if not 0.0 <= market_weight <= 1.0:
+            raise ValueError("market_weight must be between 0 and 1")
+        self.devig_method = devig_method
+        self.market_weight = float(market_weight)
+
+    def _predict_row(
+        self,
+        model: DixonColesModel,
+        row: pd.Series,
+    ) -> Tuple[Dict[str, object], Dict[str, float]]:
+        home, away = str(row["HomeTeam"]), str(row["AwayTeam"])
+        matrix, meta = model.score_matrix(home, away)
+
+        raw_x12 = model.one_x_two(matrix)
+        snapshot = market_snapshot(row, devig_method=self.devig_method)
+        market_probs = [
+            snapshot["market_p_home"],
+            snapshot["market_p_draw"],
+            snapshot["market_p_away"],
+        ]
+
+        blend_applied = False
+        if self.market_weight > 0 and all(p is not None for p in market_probs):
+            target = (
+                (1.0 - self.market_weight)
+                * np.array([raw_x12["home"], raw_x12["draw"], raw_x12["away"]])
+                + self.market_weight * np.array(market_probs, dtype=float)
+            )
+            matrix = reweight_matrix_to_1x2(matrix, target)
+            blend_applied = True
+
+        pred = prediction_from_matrix(model, matrix, meta)
+        pred["raw_p_home"] = raw_x12["home"]
+        pred["raw_p_draw"] = raw_x12["draw"]
+        pred["raw_p_away"] = raw_x12["away"]
+        pred["market_weight"] = self.market_weight
+        pred["market_blend_applied"] = blend_applied
+        add_value_metrics(pred, snapshot)
+
+        score_dist = pred.pop("scoreline_distribution")
+        return pred, score_dist  # type: ignore[return-value]
+
+    def run_league(
+        self,
+        league_key: str,
+        now: Optional[datetime] = None,
+    ):
+        if league_key not in LEAGUES:
+            raise KeyError(f"Unknown league {league_key!r}. Choose from {list(LEAGUES)}")
+
+        league = LEAGUES[league_key]
+        now = now or datetime.now(timezone.utc)
+
+        history = self.source.history(
+            league,
+            seasons_back=self.seasons_back,
+            now=now,
+        )
+        fixtures = self.source.fixtures(
+            league,
+            lookahead_days=self.lookahead_days,
+            now=now,
+        )
+
+        model = DixonColesModel(
+            half_life_days=self.half_life_days,
+            l2=self.l2,
+            max_goals=self.max_goals,
+        ).fit(history)
+
+        diagnostics = {
+            "league": league.name,
+            "training_matches": model.training_matches,
+            "training_end": None if model.training_end is None else str(model.training_end.date()),
+            "fit_success": bool(model.fit_result.success) if model.fit_result is not None else False,
+            "objective": float(model.fit_result.fun) if model.fit_result is not None else None,
+            "base": model.base,
+            "home_adv": model.home_adv,
+            "rho": model.rho,
+            "half_life_days": model.half_life_days,
+            "max_goals": model.max_goals,
+            "devig_method": self.devig_method,
+            "market_weight": self.market_weight,
+        }
+
+        if fixtures.empty:
+            return pd.DataFrame(), diagnostics, {}
+
+        records: List[Dict[str, object]] = []
+        scorelines: Dict[str, Dict[str, float]] = {}
+
+        for _, row in fixtures.iterrows():
+            pred, score_dist = self._predict_row(model, row)
+            home, away = str(row["HomeTeam"]), str(row["AwayTeam"])
+            match_id = f"{row['Date'].date()}__{home}__{away}"
+            scorelines[match_id] = score_dist
+
+            top_scores = pred.get("top_scorelines", [])
+            pred["top_scorelines"] = json.dumps(
+                [{"score": s, "p": round(float(p), 8)} for s, p in top_scores],
+                separators=(",", ":"),
+            )
+
+            records.append({
+                "league": league.name,
+                "date": row["Date"].date().isoformat(),
+                "home_team": home,
+                "away_team": away,
+                "fixture_source": row.get("fixture_source", "unknown"),
+                **pred,
+            })
+
+        return pd.DataFrame(records), diagnostics, scorelines
+
+    def backtest_league(
+        self,
+        league_key: str,
+        test_start: Optional[str] = None,
+        step_days: int = 28,
+        min_train: int = 500,
+        min_edge: float = 0.05,
+        max_edge: float = 0.25,
+        min_prob: float = 0.10,
+        max_odds: float = 8.0,
+        bankroll: float = 1000.0,
+        staking: str = "kelly",
+        kelly_frac: float = 0.25,
+        max_stake_pct: float = 0.02,
+        flat_pct: float = 0.01,
+        now: Optional[datetime] = None,
+    ) -> Tuple[pd.DataFrame, pd.DataFrame, Dict[str, object], pd.DataFrame]:
+        """
+        Walk-forward historical evaluation.
+
+        Opening prices are allowed as bet-time information.
+        Closing prices are NEVER fed into predictions; they are evaluation-only.
+        """
+        if league_key not in LEAGUES:
+            raise KeyError(league_key)
+        league = LEAGUES[league_key]
+        now = now or datetime.now(timezone.utc)
+
+        hist = self.source.history(
+            league,
+            seasons_back=self.seasons_back,
+            now=now,
+        ).sort_values("Date").reset_index(drop=True)
+
+        if test_start:
+            start = pd.Timestamp(test_start)
+        else:
+            # Default: evaluate roughly the last third while retaining substantial training history.
+            start = pd.Timestamp(hist["Date"].quantile(0.67)).normalize()
+
+        if start <= hist["Date"].min():
+            raise ValueError("test_start must leave historical matches for training")
+
+        end = hist["Date"].max() + pd.Timedelta(days=1)
+        edges = list(pd.date_range(start, end, freq=f"{int(step_days)}D"))
+        if not edges or edges[0] != start:
+            edges = [start] + edges
+        if edges[-1] < end:
+            edges.append(end)
+
+        rows: List[Dict[str, object]] = []
+
+        for s, e in zip(edges[:-1], edges[1:]):
+            train = hist[hist["Date"] < s]
+            test = hist[(hist["Date"] >= s) & (hist["Date"] < e)]
+
+            if test.empty or len(train) < min_train:
+                continue
+
+            model = DixonColesModel(
+                half_life_days=self.half_life_days,
+                l2=self.l2,
+                max_goals=self.max_goals,
+            ).fit(train)
+
+            for _, row in test.iterrows():
+                pred, _ = self._predict_row(model, row)
+
+                if row["FTHG"] > row["FTAG"]:
+                    y = 0
+                elif row["FTHG"] == row["FTAG"]:
+                    y = 1
+                else:
+                    y = 2
+
+                open_ref, open_src = pick_consistent_market(row, OPEN_1X2_TRIPLES)
+                close_ref, close_src = pick_consistent_market(row, CLOSE_1X2_TRIPLES)
+                p_open = devig(open_ref, self.devig_method)
+                p_close = devig(close_ref, self.devig_method)
+
+                best = [
+                    pick_best_price(row, BEST_1X2_COLUMNS["home"]),
+                    pick_best_price(row, BEST_1X2_COLUMNS["draw"]),
+                    pick_best_price(row, BEST_1X2_COLUMNS["away"]),
+                ]
+
+                rows.append({
+                    "date": pd.Timestamp(row["Date"]).date().isoformat(),
+                    "home_team": row["HomeTeam"],
+                    "away_team": row["AwayTeam"],
+                    "actual_class": y,
+                    "home_goals": int(row["FTHG"]),
+                    "away_goals": int(row["FTAG"]),
+                    "p_home": pred["p_home"],
+                    "p_draw": pred["p_draw"],
+                    "p_away": pred["p_away"],
+                    "raw_p_home": pred["raw_p_home"],
+                    "raw_p_draw": pred["raw_p_draw"],
+                    "raw_p_away": pred["raw_p_away"],
+                    "p_over_0_5": pred["p_over_0_5"],
+                    "p_under_0_5": pred["p_under_0_5"],
+                    "p_over_2_5": pred["p_over_2_5"],
+                    "p_under_2_5": pred["p_under_2_5"],
+                    "p_over_4_5": pred["p_over_4_5"],
+                    "p_under_4_5": pred["p_under_4_5"],
+                    "actual_over_2_5": int(int(row["FTHG"]) + int(row["FTAG"]) >= 3),
+                    "open_source": open_src,
+                    "close_source": close_src,
+                    "open_home": open_ref[0],
+                    "open_draw": open_ref[1],
+                    "open_away": open_ref[2],
+                    "close_home": close_ref[0],
+                    "close_draw": close_ref[1],
+                    "close_away": close_ref[2],
+                    "open_p_home": p_open[0],
+                    "open_p_draw": p_open[1],
+                    "open_p_away": p_open[2],
+                    "close_p_home": p_close[0],
+                    "close_p_draw": p_close[1],
+                    "close_p_away": p_close[2],
+                    "best_home": best[0],
+                    "best_draw": best[1],
+                    "best_away": best[2],
+                })
+
+        bt = pd.DataFrame(rows)
+        if bt.empty:
+            return bt, pd.DataFrame(), {"n_predictions": 0}, pd.DataFrame()
+
+        y = bt["actual_class"].to_numpy(dtype=int)
+        P = bt[["p_home", "p_draw", "p_away"]].to_numpy(dtype=float)
+
+        metrics: Dict[str, object] = {
+            "league": league.name,
+            "test_start": str(start.date()),
+            "n_predictions": int(len(bt)),
+            "model_log_loss": multiclass_log_loss(P, y),
+            "model_brier": multiclass_brier(P, y),
+            "model_accuracy": accuracy(P, y),
+            "over_2_5_brier": binary_brier(
+                bt["p_over_2_5"].to_numpy(dtype=float),
+                bt["actual_over_2_5"].to_numpy(dtype=int),
+            ),
+            "devig_method": self.devig_method,
+            "market_weight": self.market_weight,
+        }
+
+        close_cols = ["close_p_home", "close_p_draw", "close_p_away"]
+        close_mask = bt[close_cols].notna().all(axis=1).to_numpy()
+        open_cols = ["open_p_home", "open_p_draw", "open_p_away"]
+        open_mask = bt[open_cols].notna().all(axis=1).to_numpy()
+
+        if open_mask.any():
+            P_open = bt.loc[open_mask, open_cols].to_numpy(dtype=float)
+            y_open = y[open_mask]
+            metrics.update({
+                "opening_market_n": int(open_mask.sum()),
+                "opening_market_log_loss": multiclass_log_loss(P_open, y_open),
+                "opening_market_brier": multiclass_brier(P_open, y_open),
+            })
+
+        if close_mask.any():
+            P_close = bt.loc[close_mask, close_cols].to_numpy(dtype=float)
+            y_close = y[close_mask]
+            metrics.update({
+                "closing_market_n": int(close_mask.sum()),
+                "closing_market_log_loss": multiclass_log_loss(P_close, y_close),
+                "closing_market_brier": multiclass_brier(P_close, y_close),
+                "model_minus_closing_log_loss": (
+                    multiclass_log_loss(P[close_mask], y_close)
+                    - multiclass_log_loss(P_close, y_close)
+                ),
+            })
+
+        # Reliability table for model probabilities.
+        rel = reliability_table(P, y)
+
+        # At most one 1X2 bet per match: highest positive EV after filters.
+        bets: List[Dict[str, object]] = []
+        labels = ("H", "D", "A")
+        prob_cols = ("p_home", "p_draw", "p_away")
+        price_cols = ("best_home", "best_draw", "best_away")
+        close_prob_cols = ("close_p_home", "close_p_draw", "close_p_away")
+
+        for _, r in bt.iterrows():
+            candidates = []
+            for j, (label, pc, oc, cc) in enumerate(
+                zip(labels, prob_cols, price_cols, close_prob_cols)
+            ):
+                p = _valid_price(r[oc])
+                if p is None:
+                    continue
+                model_prob = float(r[pc])
+                edge_ev = model_prob * p - 1.0
+                if (
+                    model_prob >= min_prob
+                    and p <= max_odds
+                    and min_edge <= edge_ev <= max_edge
+                ):
+                    candidates.append((edge_ev, j, label, model_prob, p, cc))
+
+            if not candidates:
+                continue
+
+            edge_ev, j, label, model_prob, odds_taken, close_prob_col = max(candidates)
+            cp = r[close_prob_col]
+            close_prob = None if pd.isna(cp) else float(cp)
+            clv = None if close_prob is None else odds_taken * close_prob - 1.0
+
+            bets.append({
+                "date": r["date"],
+                "home_team": r["home_team"],
+                "away_team": r["away_team"],
+                "selection": label,
+                "model_prob": model_prob,
+                "odds_taken": odds_taken,
+                "edge_ev": edge_ev,
+                "closing_fair_prob": close_prob,
+                "clv": clv,
+                "won": int(r["actual_class"]) == j,
+            })
+
+        bets_df = pd.DataFrame(bets)
+        if not bets_df.empty:
+            bets_df = simulate_staking(
+                bets_df,
+                bankroll0=bankroll,
+                mode=staking,
+                kelly_frac=kelly_frac,
+                max_stake_pct=max_stake_pct,
+                flat_pct=flat_pct,
+            )
+        metrics["bet_summary"] = summarize_bets(bets_df, bankroll)
+
+        return bt, bets_df, metrics, rel
+
+
+# ---------------------------------------------------------------------------
+# Self test
+# ---------------------------------------------------------------------------
+
+def self_test() -> None:
+    # Margin removal
+    p = devig([2.0, 3.5, 4.0], "power")
+    assert all(x is not None for x in p)
+    assert abs(sum(float(x) for x in p) - 1.0) < 1e-10
+
+    pp = devig([2.0, 3.5, 4.0], "proportional")
+    assert abs(sum(float(x) for x in pp) - 1.0) < 1e-10
+
+    # Matrix reweighting preserves a valid distribution and hits target 1X2.
+    model = DixonColesModel(max_goals=10)
+    model.teams = ["A", "B"]
+    model.team_to_idx = {"A": 0, "B": 1}
+    model.attack = np.array([0.15, -0.15])
+    model.weakness = np.array([-0.05, 0.05])
+    model.base = math.log(1.20)
+    model.home_adv = math.log(1.18)
+    model.rho = -0.08
+
+    m, meta = model.score_matrix("A", "B")
+    target = np.array([0.55, 0.25, 0.20])
+    m2 = reweight_matrix_to_1x2(m, target)
+    assert abs(float(m2.sum()) - 1.0) < 1e-12
+    x12 = model.one_x_two(m2)
+    got = np.array([x12["home"], x12["draw"], x12["away"]])
+    assert np.max(np.abs(got - target)) < 1e-10
+
+    pred = prediction_from_matrix(model, m2, meta)
+    assert abs(
+        float(pred["p_over_0_5"]) + float(pred["p_under_0_5"]) - 1.0
+    ) < 1e-12
+    assert abs(
+        float(pred["p_over_4_5"]) + float(pred["p_under_4_5"]) - 1.0
+    ) < 1e-12
+
+    print("V2 self-test passed.")
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
+def build_parser() -> argparse.ArgumentParser:
+    p = argparse.ArgumentParser(
+        description="Multi-league scoreline/value pipeline with walk-forward evaluation."
+    )
+    p.add_argument("--leagues", nargs="+", choices=list(LEAGUES), default=["EPL"])
+    p.add_argument("--seasons-back", type=int, default=4)
+    p.add_argument("--half-life-days", type=float, default=240.0)
+    p.add_argument("--l2", type=float, default=0.08)
+    p.add_argument("--max-goals", type=int, default=10)
+    p.add_argument("--lookahead-days", type=int, default=10)
+    p.add_argument("--cache-dir", default=".football_cache")
+    p.add_argument(
+        "--out-dir",
+        default="football_output_v2/raw",
+        help=(
+            "Directory for machine-readable pipeline outputs "
+            "(default: football_output_v2/raw)."
+        ),
+    )
+    p.add_argument("--force-refresh", action="store_true")
+
+    p.add_argument("--devig", choices=["power", "proportional"], default="power")
+    p.add_argument(
+        "--market-weight",
+        type=float,
+        default=0.0,
+        help="0=pure Dixon-Coles, 1=1X2 regions fully aligned to de-vigged opening market.",
+    )
+
+    p.add_argument("--backtest", action="store_true")
+    p.add_argument("--test-start", default=None)
+    p.add_argument("--step-days", type=int, default=28)
+    p.add_argument("--min-train", type=int, default=500)
+
+    p.add_argument("--min-edge", type=float, default=0.05)
+    p.add_argument("--max-edge", type=float, default=0.25)
+    p.add_argument("--min-prob", type=float, default=0.10)
+    p.add_argument("--max-odds", type=float, default=8.0)
+    p.add_argument("--staking", choices=["kelly", "flat"], default="kelly")
+    p.add_argument("--kelly", type=float, default=0.25)
+    p.add_argument("--max-stake-pct", type=float, default=0.02)
+    p.add_argument("--flat-pct", type=float, default=0.01)
+    p.add_argument("--bankroll", type=float, default=1000.0)
+
+    p.add_argument("--self-test", action="store_true")
+    return p
+
+
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    args = build_parser().parse_args(argv)
+
+    if args.self_test:
+        self_test()
+        return 0
+
+    out_dir = Path(args.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    print(f"Raw outputs will be written to: {out_dir.resolve()}", file=sys.stderr)
+
+    pipe = FootballValuePipelineV2(
+        cache_dir=args.cache_dir,
+        seasons_back=args.seasons_back,
+        half_life_days=args.half_life_days,
+        l2=args.l2,
+        max_goals=args.max_goals,
+        lookahead_days=args.lookahead_days,
+        force_refresh=args.force_refresh,
+        devig_method=args.devig,
+        market_weight=args.market_weight,
+    )
+
+    combined = []
+
+    for league_key in args.leagues:
+        print(f"[{league_key}] current-fixture model...", file=sys.stderr)
+        predictions, diagnostics, scorelines = pipe.run_league(league_key)
+
+        predictions.to_csv(out_dir / f"{league_key}_predictions.csv", index=False)
+        (out_dir / f"{league_key}_diagnostics.json").write_text(
+            json.dumps(diagnostics, indent=2), encoding="utf-8"
+        )
+        (out_dir / f"{league_key}_scorelines.json").write_text(
+            json.dumps(scorelines, indent=2), encoding="utf-8"
+        )
+        if not predictions.empty:
+            combined.append(predictions)
+
+        if args.backtest:
+            print(f"[{league_key}] walk-forward backtest...", file=sys.stderr)
+            bt, bets, metrics, rel = pipe.backtest_league(
+                league_key,
+                test_start=args.test_start,
+                step_days=args.step_days,
+                min_train=args.min_train,
+                min_edge=args.min_edge,
+                max_edge=args.max_edge,
+                min_prob=args.min_prob,
+                max_odds=args.max_odds,
+                bankroll=args.bankroll,
+                staking=args.staking,
+                kelly_frac=args.kelly,
+                max_stake_pct=args.max_stake_pct,
+                flat_pct=args.flat_pct,
+            )
+            bt.to_csv(out_dir / f"{league_key}_backtest_predictions.csv", index=False)
+            bets.to_csv(out_dir / f"{league_key}_backtest_bets.csv", index=False)
+            rel.to_csv(out_dir / f"{league_key}_reliability.csv", index=False)
+            (out_dir / f"{league_key}_backtest_metrics.json").write_text(
+                json.dumps(metrics, indent=2), encoding="utf-8"
+            )
+            plot_reliability(
+                {"model": rel},
+                out_dir / f"{league_key}_reliability.png",
+            )
+
+    if combined:
+        pd.concat(combined, ignore_index=True, sort=False).to_csv(
+            out_dir / "all_leagues_predictions.csv", index=False
+        )
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
