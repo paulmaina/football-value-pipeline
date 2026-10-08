@@ -29,3 +29,6 @@ jobs:
 
       - name: Run offline self-test
         run: python football_value_pipeline_v2_standalone.py --self-test
+
+      - name: Validate time-decay selection
+        run: python -m unittest discover -s tests -v
