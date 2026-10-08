@@ -4,8 +4,19 @@ __pycache__/
 .venv/
 venv/
 
+# Secrets
+.env
+.env.*
+!.env.example
+
 # Pipeline cache
 .football_cache/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+football_data_db/
 
 # Generated model outputs
 football_output_v2/raw/

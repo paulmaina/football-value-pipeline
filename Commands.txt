@@ -1,8 +1,21 @@
-
 pip install -r football_value_requirements.txt
+
+# PowerShell - enable current fixtures + live 1X2/O-U odds
+$env:THE_ODDS_API_KEY="your-key-here"
+
+# Optional reliable fixture fallback
+# $env:FOOTBALL_DATA_API_KEY="your-key-here"
 
 python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1
 
+# UCL requires FOOTBALL_DATA_API_KEY for Champions League training history
+python football_value_pipeline_v2_standalone.py --leagues UCL
+
+# All supported competitions
+python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL
+
 python football_value_pipeline_v2_standalone.py --leagues EPL
+
+python football_value_pipeline_v2_standalone.py --self-test
 
 python format_football_output.py
