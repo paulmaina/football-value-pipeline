@@ -24,15 +24,15 @@ class FourDaySelectionTests(unittest.TestCase):
     def select(self, rows):
         return build_conservative_shortlist(pd.DataFrame(rows), as_of=self.clock)
 
-    def test_prefer_eight_in_four_days_over_scattered_higher_probability(self):
-        local = [fixture(i, kickoff=NOW + timedelta(days=1)) for i in range(8)]
+    def test_prefer_ten_in_four_days_over_scattered_higher_probability(self):
+        local = [fixture(i, kickoff=NOW + timedelta(days=1)) for i in range(10)]
         distant = [fixture(100 + i, kickoff=NOW + timedelta(days=7))
                    for i in range(2)]
         for item in distant:
             item["p_over_1_5"] = 0.93
             item["raw_p_over_1_5"] = 0.90
         shortlist, audit, info = self.select(distant + local)
-        self.assertEqual(len(shortlist), 8)
+        self.assertEqual(len(shortlist), 10)
         self.assertTrue(set(shortlist["fixture_id"]) == {
             item["fixture_id"] for item in local
         })
@@ -40,10 +40,10 @@ class FourDaySelectionTests(unittest.TestCase):
         self.assertTrue(info["eight_match_four_day_window_available"])
         self.assertEqual(info["selected_kickoff_span_hours"], 0)
         self.assertEqual(info["shortfall"], 0)
-        self.assertEqual(len(audit[audit["decision"] == "SHORTLISTED"]), 8)
+        self.assertEqual(len(audit[audit["decision"] == "SHORTLISTED"]), 10)
 
     def test_four_day_preference_cannot_displace_materially_stronger_models(self):
-        nearby = [fixture(i, kickoff=NOW + timedelta(days=1)) for i in range(8)]
+        nearby = [fixture(i, kickoff=NOW + timedelta(days=1)) for i in range(10)]
         stronger_far = [
             fixture(200 + i, kickoff=NOW + timedelta(days=8))
             for i in range(2)
@@ -52,7 +52,7 @@ class FourDaySelectionTests(unittest.TestCase):
             row["p_over_1_5"] = 0.99
             row["raw_p_over_1_5"] = 0.96
         picks, _, summary = self.select(nearby + stronger_far)
-        self.assertEqual(len(picks), 8)
+        self.assertEqual(len(picks), 10)
         self.assertFalse(summary["selected_matches_within_four_days"])
         self.assertTrue(summary["eight_match_four_day_window_available"])
         self.assertTrue(summary["four_day_window_skipped_for_quality"])
@@ -60,10 +60,10 @@ class FourDaySelectionTests(unittest.TestCase):
             row["fixture_id"] for row in stronger_far
         }.issubset(set(picks["fixture_id"])))
 
-    def test_choose_highest_chance_eligible_eight_match_window(self):
-        low = [fixture(i, kickoff=NOW + timedelta(days=1)) for i in range(8)]
+    def test_choose_highest_chance_eligible_ten_match_window(self):
+        low = [fixture(i, kickoff=NOW + timedelta(days=1)) for i in range(10)]
         high = [fixture(100 + i, kickoff=NOW + timedelta(days=8))
-                for i in range(8)]
+                for i in range(10)]
         for item in high:
             item["p_over_1_5"] = 0.91
             item["raw_p_over_1_5"] = 0.89
@@ -73,24 +73,24 @@ class FourDaySelectionTests(unittest.TestCase):
         self.assertTrue(info["selected_matches_within_four_days"])
 
     def test_96_hour_boundary_is_inclusive(self):
-        games = [fixture(i, kickoff=NOW + timedelta(days=1, hours=(96 * i / 7)))
-                 for i in range(8)]
+        games = [fixture(i, kickoff=NOW + timedelta(days=1, hours=(96 * i / 9)))
+                 for i in range(10)]
         picks, _, info = self.select(games)
-        self.assertEqual(len(picks), 8)
+        self.assertEqual(len(picks), 10)
         self.assertTrue(info["selected_matches_within_four_days"])
         self.assertAlmostEqual(info["selected_kickoff_span_hours"], 96)
         self.assertEqual(info["status"], "TARGET_MET")
 
-    def test_fallback_when_no_eight_game_window_exists(self):
+    def test_fallback_when_no_ten_game_window_exists(self):
         games = [fixture(i, kickoff=NOW + timedelta(days=1 + i*2))
-                 for i in range(8)]
+                 for i in range(10)]
         picks, audit, info = self.select(games)
-        self.assertEqual(len(picks), 8)
+        self.assertEqual(len(picks), 10)
         self.assertFalse(info["eight_match_four_day_window_available"])
         self.assertFalse(info["selected_matches_within_four_days"])
         self.assertTrue(info["selected_kickoff_span_hours"] > 96)
         self.assertIn("full forecast horizon", info["selection_method"])
-        self.assertEqual(len(audit[audit["decision"] == "SHORTLISTED"]), 8)
+        self.assertEqual(len(audit[audit["decision"] == "SHORTLISTED"]), 10)
 
     def test_one_fixture_keeps_btts_or_goals_market_label(self):
         row = fixture()
@@ -106,7 +106,7 @@ class FourDaySelectionTests(unittest.TestCase):
         self.assertEqual(readable.iloc[0]["Shortlisted market"],
                          "Both Teams to Score - Yes")
         self.assertEqual(readable.iloc[0]["Match"], "Home_0 vs Away_0")
-        self.assertEqual(info["shortfall"], 7)
+        self.assertEqual(info["shortfall"], 9)
 
 
 class FormatterIntegrationTests(unittest.TestCase):
@@ -156,7 +156,7 @@ class FormatterIntegrationTests(unittest.TestCase):
             ])
             shortlist.to_csv(root / "raw" / "conservative_bet_shortlist.csv", index=False)
             (root / "raw" / "conservative_bet_summary.json").write_text(
-                json.dumps({"status": "NO BET", "target_distinct_matches": 8,
+                json.dumps({"status": "NO BET", "target_distinct_matches": 10,
                             "shortfall": 8}), encoding="utf-8"
             )
             n = process_conservative_shortlist(
