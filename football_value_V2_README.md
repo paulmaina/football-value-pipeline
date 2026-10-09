@@ -208,8 +208,9 @@ from this shortlist due to missing historical opening-price validation.
 Outputs remain in `football_output_v2/raw/`:
 
 - `conservative_bet_shortlist.csv`: up to ten distinct fixtures,
-  **the selected market beside each match**, sorted by forecast win
-  probability, then estimated EV. The selection prefers a strongest
+  **the selected market and STRICT/PROVISIONAL qualification tier**
+  beside each match. STRICT selections rank by calibrated forecast
+  probability; provisional gaps rank by distance from strict gates. The selection prefers a strongest
   qualifying ten-match cohort whose kickoffs fall within **96 hours**
   when such a cohort exists. Otherwise it keeps the strongest eligible
   fixtures over the entire horizon and explicitly reports that the
@@ -264,7 +265,7 @@ bookmaker 1X2. Specific threshold gates:
 | Under 3.5 | 76% | 70% |
 | BTTS Yes | 70% | 63% |
 
-All candidates must have estimated positive EV **at least +3%**
+**STRICT** candidates must have estimated positive EV **at least +3%**
 at an actual bookmaker quote and **non-negative unblended DC EV**,
 team-name matching confidence **at least 90** for both teams,
 a valid 50/50 blended market and current future UTC kickoff at least
