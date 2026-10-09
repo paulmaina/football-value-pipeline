@@ -36,59 +36,79 @@ python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga 
 The automatic weight tuner remains in the codebase for future research,
 but is **not part of the recommended daily-use model**.
 
-## Conservative shortlist (generated automatically)
+## Eight-match, five-market shortlist (experimental)
 
-The **same single model and command** now also produces an experimental
-high-confidence 1X2 candidate shortlist. No extra CLI flags are needed:
+Running the existing command (no extra flags) now also produces a
+**target of eight distinct match candidates per run**, with at most one
+market selected from each football match:
 
 ```powershell
 python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life
 ```
 
-Files under the normal `football_output_v2/raw/` directory:
+Markets evaluated: **Home win, Away win, Over 1.5, Under 3.5,
+Both Teams to Score — Yes**. UCL is still forecast, but excluded
+from this shortlist due to missing historical opening-price validation.
 
-- `conservative_bet_shortlist.csv` — up to **two candidate matches per
-  UTC kickoff date**, with their probability, independent raw Dixon–Coles
-  probability, quoted odds, bookmaker, estimated EV, and timestamp.
-- `conservative_bet_rejections.csv` — *every home/away market examined*,
-  its SHORTLISTED / REJECTED / NOT_SELECTED decision, and detailed reasons.
-- `conservative_bet_summary.json` — includes `"status": "NO BET"`
-  when no matches meet all requirements.
-- `shortlist_history/conservative_decisions_<timestamp>.csv` — dated,
-  retained decisions for later feedback. The three current `raw`
-  files above are overwritten on subsequent runs.
+Outputs remain in `football_output_v2/raw/`:
 
-This filter **does not change any forecast probabilities, place wagers,
-or generate accumulators**. It rejects everything outside the five
-domestic leagues (UCL can still appear in the prediction files), and
-considers **home win / away win only**. It requires all of the following:
+- `conservative_bet_shortlist.csv`: up to eight distinct fixtures,
+  one market each, sorted by forecast win probability, then EV.
+- `conservative_bet_rejections.csv`: five decisions per fixture,
+  including rejected/alternate markets and the reasons.
+- `conservative_bet_summary.json`: `TARGET_MET`, `BELOW_TARGET`
+  or `NO BET`, with the shortfall to eight.
+- `shortlist_history/conservative_decisions_<timestamp>.csv`:
+  immutable dated audit snapshots for later feedback.
 
-- Final blended win probability **at least 65%**.
-- Raw Dixon–Coles probability **at least 50%**, with the same selection
-  strictly its highest-probability 1X2 outcome.
-- Estimated EV at the **actual best bookmaker quote at least +3%**.
-- Both teams resolved against historical training teams with name
-  confidence **at least 90** (no league-average unknown-team fallback).
-- A complete coherent current The Odds API 1X2 reference market from
-  **at least two bookmakers**, with a confirmed selected-bookmaker quote.
-- That specific best-quote market's last-update timestamp **no older than
-  24 hours** (or more than five minutes in the future), and the match
-  starting **at least 20 minutes after filter evaluation**.
+**Eight is a target, never a minimum guaranteed by relaxation.** No
+market gets picked without a verified bookmaker price. If fewer than
+eight qualifying matches are available, the result is short with
+`BELOW_TARGET` or `NO BET`. Multiple markets on the same football
+fixture are not counted as different picks. A selection report is not
+an automatically placed multi-leg betslip.
 
-Candidates are prioritized by predicted probability, then estimated EV,
-and capped at **two matches per UTC date globally across all selected
-leagues**, not two per league. Zero picks is a valid outcome. A missing or
-untrusted input is grounds for **rejecting**, not silently guessing.
+The default model remains fixed 50/50 Dixon-Coles / de-vigged
+bookmaker 1X2. Specific threshold gates:
 
-**Caution:** None of the above cutoffs has been backtested as a
-profitable betting strategy. The 50/50 forecast includes bookmaker
-information, which makes EV versus those bookmakers partly circular.
-A +3% *estimated* EV is not a guaranteed advantage. Quotes can move or
-be unavailable by the time a bookmaker is accessed. For the feedback
-period, consider tracking the shortlist without betting and comparing
-actual results, forecast probabilities, prices and final returns.
-Using independent singles is less fragile than an all-or-nothing
-multi-match accumulator, but neither is guaranteed safe.
+| Market | Blended probability at least | Raw DC probability at least |
+| --- | ---: | ---: |
+| Home win | 65% | 50%, with DC also favoring home over draw and away |
+| Away win | 65% | 50%, with DC also favoring away over draw and home |
+| Over 1.5 | 78% | 72% |
+| Under 3.5 | 76% | 70% |
+| BTTS Yes | 70% | 63% |
+
+All candidates must have estimated positive EV **at least +3%**
+at an actual bookmaker quote and **non-negative unblended DC EV**,
+team-name matching confidence **at least 90** for both teams,
+a valid 50/50 blended market and current future UTC kickoff at least
+20 minutes away. Quote timestamp must be no more than 24 hours old.
+
+For 1X2, at least two complete reference bookmakers are required.
+For alternate totals and BTTS Yes, one verified bookmaker with both
+complementary outcomes is sufficient. The market's own coherent
+quote pair (not unrelated line or h2h quotes) must be available.
+
+**Additional The Odds API quota cost:** The standard sports odds
+endpoint retrieves h2h and featured totals, usually 2.5. The
+additional `alternate_totals,btts` markets require a separate
+`/events/{eventId}/odds` request. The pipeline makes no more than
+**24** of these requests per run across domestic leagues, and only
+for fixtures where the model and team-matching confidence suggest
+plausible additional-market candidates. The endpoint may not offer
+these markets in every competition, region or bookmaker; absent
+prices are rejected rather than invented. A bounded request budget
+can also reduce the number of potential shortlist candidates.
+
+**Risk and interpretation:** These thresholds are provisional
+heuristics, not backtested thresholds with proven bookmaker edge.
+A claimed +3% estimated EV can disappear with probability error,
+odds movement or bookmaker limits. An eight-leg accumulator is
+particularly fragile: all eight selections must win to pay out.
+Track real-world outcomes for several weeks before considering
+stakes or a higher selection target. No guaranteed or perfect
+betslip exists.
 
 ## Current data architecture
 
