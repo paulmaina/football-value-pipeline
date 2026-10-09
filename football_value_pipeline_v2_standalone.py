@@ -118,7 +118,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.3.1"
+PIPELINE_VERSION = "2.4.0"
 
 
 # ---------------------------------------------------------------------------
@@ -1968,6 +1968,8 @@ def prediction_from_matrix(
         "fair_draw": fair_odds(x12["draw"]),
         "fair_away": fair_odds(x12["away"]),
         "predicted_1x2": max(x12, key=x12.get),
+        "p_btts_yes": float(matrix[1:, 1:].sum()),
+        "p_btts_no": float(1.0 - matrix[1:, 1:].sum()),
         "top_scorelines": model.top_scorelines(matrix, n=top_n_scorelines),
         # Persist only the highest-probability exact scores. The complete matrix
         # is still used above for 1X2 and totals calculations, but the low-
@@ -2246,6 +2248,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
         self.odds_regions = str(odds_regions)
         self.fixture_provider = fixture_provider
         self.live_odds = bool(live_odds)
+        # Per-event BTTS and alternate totals requests consume additional API credits.
+        self.extra_event_odds_requests = 0
+        self.max_extra_event_odds_requests = 24
 
         odds_api_key = odds_api_key or os.getenv("THE_ODDS_API_KEY")
         football_data_api_key = (
@@ -2438,6 +2443,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
         matrix, meta = model.score_matrix(home, away)
 
         raw_x12 = model.one_x_two(matrix)
+        raw_over_1_5 = model.over_under(matrix, 1.5)["over"]
+        raw_under_3_5 = model.over_under(matrix, 3.5)["under"]
+        raw_btts_yes = float(matrix[1:, 1:].sum())
         snapshot = market_snapshot(row, devig_method=self.devig_method)
         market_probs = [
             snapshot["market_p_home"],
@@ -2459,6 +2467,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
         pred["raw_p_home"] = raw_x12["home"]
         pred["raw_p_draw"] = raw_x12["draw"]
         pred["raw_p_away"] = raw_x12["away"]
+        pred["raw_p_over_1_5"] = raw_over_1_5
+        pred["raw_p_under_3_5"] = raw_under_3_5
+        pred["raw_p_btts_yes"] = raw_btts_yes
         pred["market_weight"] = self.market_weight if blend_applied else 0.0
         pred["market_blend_applied"] = blend_applied
         add_value_metrics(pred, snapshot)
