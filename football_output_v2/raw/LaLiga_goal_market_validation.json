@@ -1,0 +1,556 @@
+{
+  "league": "La Liga",
+  "source": "chronological_expanding_window",
+  "development_fraction": 0.75,
+  "markets": {
+    "home": {
+      "status": "RELIABLE_FOR_RANKING",
+      "development": {
+        "n": 298,
+        "observed_rate": 0.4865771812080537,
+        "mean_forecast": 0.4435691136496592,
+        "overconfidence": -0.043008067558394536,
+        "brier": 0.21387802769329495,
+        "baseline_brier": 0.24981982793567858,
+        "log_loss": 0.6158414033762789
+      },
+      "audit": {
+        "n": 104,
+        "observed_rate": 0.47115384615384615,
+        "mean_forecast": 0.44757082771900575,
+        "overconfidence": -0.023583018434840397,
+        "brier": 0.22006618235685485,
+        "baseline_brier": 0.24916789940828404,
+        "log_loss": 0.6258979648069166
+      },
+      "development_bins": [
+        {
+          "range": [
+            0.0,
+            0.2
+          ],
+          "n": 26,
+          "mean_probability": 0.16838898280955258,
+          "observed_frequency": 0.23076923076923078
+        },
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 97,
+          "mean_probability": 0.32662932457784233,
+          "observed_frequency": 0.35051546391752575
+        },
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 120,
+          "mean_probability": 0.4745529653737376,
+          "observed_frequency": 0.49166666666666664
+        },
+        {
+          "range": [
+            0.6,
+            0.8
+          ],
+          "n": 48,
+          "mean_probability": 0.6942082044828372,
+          "observed_frequency": 0.8125
+        },
+        {
+          "range": [
+            0.8,
+            1.0
+          ],
+          "n": 7,
+          "mean_probability": 0.8362983100678087,
+          "observed_frequency": 1.0
+        }
+      ],
+      "audit_bins": [
+        {
+          "range": [
+            0.0,
+            0.2
+          ],
+          "n": 8,
+          "mean_probability": 0.1413521631722558,
+          "observed_frequency": 0.125
+        },
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 30,
+          "mean_probability": 0.3251770434636702,
+          "observed_frequency": 0.36666666666666664
+        },
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 50,
+          "mean_probability": 0.48181811329195284,
+          "observed_frequency": 0.48
+        },
+        {
+          "range": [
+            0.6,
+            0.8
+          ],
+          "n": 12,
+          "mean_probability": 0.6836164992869754,
+          "observed_frequency": 0.75
+        },
+        {
+          "range": [
+            0.8,
+            1.0
+          ],
+          "n": 4,
+          "mean_probability": 0.8417334543617736,
+          "observed_frequency": 1.0
+        }
+      ],
+      "confidence_penalty": 0.0,
+      "historical_betting": {
+        "status": "UNAVAILABLE_NO_HISTORICAL_PRICES",
+        "n_quotes": 0,
+        "n_simulated": 0,
+        "roi_per_unit": null
+      }
+    },
+    "away": {
+      "status": "RELIABLE_FOR_RANKING",
+      "development": {
+        "n": 298,
+        "observed_rate": 0.2684563758389262,
+        "mean_forecast": 0.30200053511192615,
+        "overconfidence": 0.033544159272999974,
+        "brier": 0.17831518220357032,
+        "baseline_brier": 0.19638755011035536,
+        "log_loss": 0.5353599357057647
+      },
+      "audit": {
+        "n": 104,
+        "observed_rate": 0.28846153846153844,
+        "mean_forecast": 0.3036340403652436,
+        "overconfidence": 0.015172501903705171,
+        "brier": 0.1779420823375541,
+        "baseline_brier": 0.20525147928994084,
+        "log_loss": 0.5349239619815841
+      },
+      "development_bins": [
+        {
+          "range": [
+            0.0,
+            0.2
+          ],
+          "n": 68,
+          "mean_probability": 0.12238565294049908,
+          "observed_frequency": 0.11764705882352941
+        },
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 168,
+          "mean_probability": 0.2915657826008667,
+          "observed_frequency": 0.24404761904761904
+        },
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 46,
+          "mean_probability": 0.4865999362659941,
+          "observed_frequency": 0.5
+        },
+        {
+          "range": [
+            0.6,
+            0.8
+          ],
+          "n": 15,
+          "mean_probability": 0.6325437070318309,
+          "observed_frequency": 0.4666666666666667
+        },
+        {
+          "range": [
+            0.8,
+            1.0
+          ],
+          "n": 1,
+          "mean_probability": 0.8191309127412529,
+          "observed_frequency": 1.0
+        }
+      ],
+      "audit_bins": [
+        {
+          "range": [
+            0.0,
+            0.2
+          ],
+          "n": 22,
+          "mean_probability": 0.12680775239182301,
+          "observed_frequency": 0.13636363636363635
+        },
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 60,
+          "mean_probability": 0.2825698049964901,
+          "observed_frequency": 0.25
+        },
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 15,
+          "mean_probability": 0.4675871770769688,
+          "observed_frequency": 0.4
+        },
+        {
+          "range": [
+            0.6,
+            0.8
+          ],
+          "n": 7,
+          "mean_probability": 0.6885962413458986,
+          "observed_frequency": 0.8571428571428571
+        }
+      ],
+      "confidence_penalty": 0.025115978551140682,
+      "historical_betting": {
+        "status": "UNAVAILABLE_NO_HISTORICAL_PRICES",
+        "n_quotes": 0,
+        "n_simulated": 0,
+        "roi_per_unit": null
+      }
+    },
+    "over_1_5": {
+      "status": "RELIABLE_FOR_RANKING",
+      "development": {
+        "n": 298,
+        "observed_rate": 0.7751677852348994,
+        "mean_forecast": 0.711252789723542,
+        "overconfidence": -0.06391499551135738,
+        "brier": 0.17050591885513355,
+        "baseline_brier": 0.1742826899689203,
+        "log_loss": 0.5202840014873026
+      },
+      "audit": {
+        "n": 104,
+        "observed_rate": 0.7596153846153846,
+        "mean_forecast": 0.7190403955402587,
+        "overconfidence": -0.04057498907512591,
+        "brier": 0.1768081132063677,
+        "baseline_brier": 0.1825998520710059,
+        "log_loss": 0.5319960900148607
+      },
+      "development_bins": [
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 54,
+          "mean_probability": 0.546558750098236,
+          "observed_frequency": 0.6111111111111112
+        },
+        {
+          "range": [
+            0.6,
+            0.8
+          ],
+          "n": 178,
+          "mean_probability": 0.7085717840586002,
+          "observed_frequency": 0.7808988764044944
+        },
+        {
+          "range": [
+            0.8,
+            1.0
+          ],
+          "n": 66,
+          "mean_probability": 0.853233049543635,
+          "observed_frequency": 0.8939393939393939
+        }
+      ],
+      "audit_bins": [
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 2,
+          "mean_probability": 0.3132601371043726,
+          "observed_frequency": 0.5
+        },
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 15,
+          "mean_probability": 0.5458802648686709,
+          "observed_frequency": 0.6
+        },
+        {
+          "range": [
+            0.6,
+            0.8
+          ],
+          "n": 62,
+          "mean_probability": 0.7232765574732926,
+          "observed_frequency": 0.7419354838709677
+        },
+        {
+          "range": [
+            0.8,
+            1.0
+          ],
+          "n": 25,
+          "mean_probability": 0.8448932130241577,
+          "observed_frequency": 0.92
+        }
+      ],
+      "confidence_penalty": 0.0,
+      "historical_betting": {
+        "status": "UNAVAILABLE_NO_HISTORICAL_PRICES",
+        "n_quotes": 0,
+        "n_simulated": 0,
+        "roi_per_unit": null
+      }
+    },
+    "under_3_5": {
+      "status": "RELIABLE_FOR_RANKING",
+      "development": {
+        "n": 298,
+        "observed_rate": 0.738255033557047,
+        "mean_forecast": 0.7355291446086304,
+        "overconfidence": -0.0027258889484166327,
+        "brier": 0.1970042683542663,
+        "baseline_brier": 0.19323453898473042,
+        "log_loss": 0.5848766186758967
+      },
+      "audit": {
+        "n": 104,
+        "observed_rate": 0.6634615384615384,
+        "mean_forecast": 0.7252481251463849,
+        "overconfidence": 0.06178658668484649,
+        "brier": 0.1920178379331408,
+        "baseline_brier": 0.22328032544378698,
+        "log_loss": 0.5663071312679995
+      },
+      "development_bins": [
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 3,
+          "mean_probability": 0.34408541204792154,
+          "observed_frequency": 0.6666666666666666
+        },
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 41,
+          "mean_probability": 0.5297706104861051,
+          "observed_frequency": 0.6585365853658537
+        },
+        {
+          "range": [
+            0.6,
+            0.8
+          ],
+          "n": 149,
+          "mean_probability": 0.7149422304988579,
+          "observed_frequency": 0.7315436241610739
+        },
+        {
+          "range": [
+            0.8,
+            1.0
+          ],
+          "n": 105,
+          "mean_probability": 0.8562708712663618,
+          "observed_frequency": 0.780952380952381
+        }
+      ],
+      "audit_bins": [
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 1,
+          "mean_probability": 0.3251690306881673,
+          "observed_frequency": 0.0
+        },
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 12,
+          "mean_probability": 0.5396614488076322,
+          "observed_frequency": 0.25
+        },
+        {
+          "range": [
+            0.6,
+            0.8
+          ],
+          "n": 63,
+          "mean_probability": 0.7032510081161677,
+          "observed_frequency": 0.6507936507936508
+        },
+        {
+          "range": [
+            0.8,
+            1.0
+          ],
+          "n": 28,
+          "mean_probability": 0.8685673245544901,
+          "observed_frequency": 0.8928571428571429
+        }
+      ],
+      "confidence_penalty": 0.0,
+      "historical_betting": {
+        "status": "UNAVAILABLE_NO_HISTORICAL_PRICES",
+        "n_quotes": 0,
+        "n_simulated": 0,
+        "roi_per_unit": null
+      }
+    },
+    "btts_yes": {
+      "status": "RELIABLE_FOR_RANKING",
+      "development": {
+        "n": 298,
+        "observed_rate": 0.5704697986577181,
+        "mean_forecast": 0.47519462774793764,
+        "overconfidence": -0.09527517090978044,
+        "brier": 0.2505407514400338,
+        "baseline_brier": 0.24503400747714066,
+        "log_loss": 0.6948572785187582
+      },
+      "audit": {
+        "n": 104,
+        "observed_rate": 0.5769230769230769,
+        "mean_forecast": 0.4848511781305306,
+        "overconfidence": -0.09207189879254629,
+        "brier": 0.25255950359941626,
+        "baseline_brier": 0.24408284023668642,
+        "log_loss": 0.7016605791642239
+      },
+      "development_bins": [
+        {
+          "range": [
+            0.0,
+            0.2
+          ],
+          "n": 2,
+          "mean_probability": 0.1627793544366255,
+          "observed_frequency": 0.0
+        },
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 78,
+          "mean_probability": 0.3454564954428667,
+          "observed_frequency": 0.5
+        },
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 182,
+          "mean_probability": 0.499914904204595,
+          "observed_frequency": 0.5769230769230769
+        },
+        {
+          "range": [
+            0.6,
+            0.8
+          ],
+          "n": 36,
+          "mean_probability": 0.6486755875064518,
+          "observed_frequency": 0.7222222222222222
+        }
+      ],
+      "audit_bins": [
+        {
+          "range": [
+            0.0,
+            0.2
+          ],
+          "n": 4,
+          "mean_probability": 0.15309891463933673,
+          "observed_frequency": 0.5
+        },
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 19,
+          "mean_probability": 0.35102162105019113,
+          "observed_frequency": 0.47368421052631576
+        },
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 68,
+          "mean_probability": 0.5136677850324205,
+          "observed_frequency": 0.5735294117647058
+        },
+        {
+          "range": [
+            0.6,
+            0.8
+          ],
+          "n": 13,
+          "mean_probability": 0.6317928219122779,
+          "observed_frequency": 0.7692307692307693
+        }
+      ],
+      "confidence_penalty": 0.0,
+      "historical_betting": {
+        "status": "UNAVAILABLE_NO_HISTORICAL_PRICES",
+        "n_quotes": 0,
+        "n_simulated": 0,
+        "roi_per_unit": null
+      }
+    }
+  },
+  "historical_goal_prices_available": false,
+  "caution": "Development and audit are chronological but may overlap prior half-life/market-hyperparameter tuning periods. This is not a wholly untouched final holdout.",
+  "config": {
+    "validator_version": 1,
+    "half_life_days": 730.0,
+    "market_weight": 0.5,
+    "l2": 0.08,
+    "max_goals": 10,
+    "training_end": "2026-09-20",
+    "training_matches": 1209
+  }
+}

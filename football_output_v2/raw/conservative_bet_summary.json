@@ -1,18 +1,20 @@
 {
   "status": "TARGET_MET",
-  "generated_at_utc": "2026-10-09T08:11:04.742426+00:00",
+  "generated_at_utc": "2026-10-09T13:49:44.089361+00:00",
   "n_fixtures": 110,
   "n_markets_evaluated": 550,
   "n_shortlisted": 8,
   "target_distinct_matches": 8,
   "shortfall": 0,
   "four_day_window_preferred": true,
-  "eight_match_four_day_window_available": true,
-  "selected_matches_within_four_days": true,
-  "selected_kickoff_span_hours": 72.0,
+  "eight_match_four_day_window_available": false,
+  "four_day_window_skipped_for_quality": false,
+  "max_compact_mean_probability_cost": 0.02,
+  "selected_matches_within_four_days": false,
+  "selected_kickoff_span_hours": 213.5,
   "selected_first_kickoff_utc": "2026-10-09T19:00:00+00:00",
-  "selected_last_kickoff_utc": "2026-10-12T19:00:00+00:00",
-  "selection_method": "Highest-probability qualifying eight-fixture cohort within 96 hours",
+  "selected_last_kickoff_utc": "2026-10-18T16:30:00+00:00",
+  "selection_method": "Highest-quality eligible fixtures across full forecast horizon",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -28,6 +30,45 @@
     "Serie A"
   ],
   "min_estimated_ev": 0.03,
+  "validation_required": true,
+  "ranking_metric": "development-calibration-adjusted probability, audit-qualified",
+  "validation_market_statuses": {
+    "Premier League": {
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "RELIABLE_FOR_RANKING",
+      "btts_yes": "RELIABLE_FOR_RANKING"
+    },
+    "La Liga": {
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "RELIABLE_FOR_RANKING",
+      "btts_yes": "RELIABLE_FOR_RANKING"
+    },
+    "Bundesliga": {
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "UNRELIABLE_AUDIT",
+      "btts_yes": "RELIABLE_FOR_RANKING"
+    },
+    "Serie A": {
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "RELIABLE_FOR_RANKING",
+      "btts_yes": "RELIABLE_FOR_RANKING"
+    },
+    "Ligue 1": {
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "RELIABLE_FOR_RANKING",
+      "btts_yes": "RELIABLE_FOR_RANKING"
+    }
+  },
   "min_raw_dc_ev": 0.0,
   "min_team_name_match_score": 90.0,
   "max_quote_age_hours": 24.0,
