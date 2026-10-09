@@ -3510,6 +3510,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         all_predictions, market_reliability=market_reliability
     )
     shortlist.to_csv(out_dir / "conservative_bet_shortlist.csv", index=False)
+    strictly_qualified = shortlist.loc[
+        shortlist["selection_tier"] == "STRICT"
+    ].copy()
+    strictly_qualified.to_csv(
+        out_dir / "conservative_strict_qualifiers.csv", index=False
+    )
     decisions.to_csv(out_dir / "conservative_bet_rejections.csv", index=False)
     (out_dir / "conservative_bet_summary.json").write_text(
         json.dumps(selection_summary, indent=2), encoding="utf-8"
