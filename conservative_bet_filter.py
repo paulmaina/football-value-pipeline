@@ -1,6 +1,6 @@
-"""Experimental eight-match, five-market shortlist; never guarantee winners.
+"""Experimental ten-match, five-market shortlist; never guarantee winners.
 
-One market per fixture, up to eight distinct matches across the whole run.
+One market per fixture, up to ten distinct matches across the whole run.
 Prefer a cohort with kickoff timestamps no more than 96 hours apart.
 No forced selections: all price, EV, model-agreement and freshness
 checks must pass. The strategy is not validated for profitability.
@@ -18,7 +18,7 @@ import pandas as pd
 DOMESTIC_LEAGUES = frozenset({
     "Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1"
 })
-TARGET_DISTINCT_MATCHES = 8
+TARGET_DISTINCT_MATCHES = 10
 MAX_COMPACT_QUALITY_COST = 0.02  # 2 percentage points mean adjusted probability
 MIN_ESTIMATED_EV = 0.03
 MIN_RAW_DC_EV = 0.0
@@ -45,6 +45,10 @@ DECISION_COLUMNS = [
     "validation_status", "development_validation_matches",
     "audit_validation_matches", "audit_brier",
     "calibration_penalty", "rank_probability", "conservative_estimated_ev",
+    "high_confidence_tier", "high_confidence_status",
+    "high_confidence_audit_matches", "high_confidence_audit_observed_rate",
+    "high_confidence_wilson95_lower", "high_confidence_wilson95_upper",
+    "high_confidence_penalty",
 ]
 SHORTLIST_COLUMNS = DECISION_COLUMNS
 
@@ -140,6 +144,9 @@ def _evaluate_market(
     validation_status = "NOT_ASSESSED"
     calibration_penalty = 0.0
     dev_n, audit_n, audit_brier = None, None, None
+    high_tier, high_status, high_audit_n = None, "NOT_REQUIRED", None
+    high_audit_rate, high_wilson_lower, high_wilson_upper = None, None, None
+    high_penalty = 0.0
     if validation is not None:
         market_validation = validation.get("markets", {}).get(key, {})
         validation_status = market_validation.get(
@@ -155,6 +162,30 @@ def _evaluate_market(
         dev_n = market_validation.get("development", {}).get("n")
         audit_n = market_validation.get("audit", {}).get("n")
         audit_brier = market_validation.get("audit", {}).get("brier")
+        if p is not None and p >= 0.75:
+            high_tier = "85plus" if p >= 0.85 else "75plus"
+            high_group = market_validation.get("high_confidence", {}).get(
+                high_tier, {}
+            )
+            high_status = high_group.get(
+                "status", "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY"
+            )
+            if high_status != "PASSED":
+                reasons.append(f"{high_tier} market history: {high_status}")
+            high_audit = high_group.get("audit", {})
+            high_audit_n = high_audit.get("n")
+            high_audit_rate = high_audit.get("observed_rate")
+            interval = high_audit.get("observed_wilson95")
+            if isinstance(interval, (list, tuple)) and len(interval) == 2:
+                high_wilson_lower, high_wilson_upper = interval
+            extra_penalty = _number(
+                high_group.get("development_only_penalty")
+            )
+            if extra_penalty is None or not 0 <= extra_penalty <= 1:
+                reasons.append("missing high-confidence development calibration")
+            else:
+                high_penalty = extra_penalty
+                calibration_penalty = max(calibration_penalty, high_penalty)
     rank_p = (
         max(0.0, p - calibration_penalty) if p is not None else None
     )
@@ -235,6 +266,13 @@ def _evaluate_market(
         "audit_validation_matches": audit_n,
         "audit_brier": audit_brier,
         "calibration_penalty": calibration_penalty,
+        "high_confidence_tier": high_tier,
+        "high_confidence_status": high_status,
+        "high_confidence_audit_matches": high_audit_n,
+        "high_confidence_audit_observed_rate": high_audit_rate,
+        "high_confidence_wilson95_lower": high_wilson_lower,
+        "high_confidence_wilson95_upper": high_wilson_upper,
+        "high_confidence_penalty": high_penalty,
         "rank_probability": rank_p,
         "conservative_estimated_ev": conservative_ev,
     }
@@ -245,9 +283,9 @@ def build_conservative_shortlist(
     as_of: Optional[datetime] = None,
     market_reliability: Optional[Mapping[str, Mapping]] = None,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, dict]:
-    """Aim for eight distinct fixtures; never fabricate a minimum eight.
+    """Aim for ten distinct fixtures; never fabricate a minimum ten.
 
-    Returns shortlist (at most 8 rows), all market decisions (5 per
+    Returns shortlist (at most 10 rows), all market decisions (5 per
     fixture), and a summary with any shortfall. A shortlisted row is a
     candidate to study, NOT an automatically constructed accumulator.
     """
@@ -273,7 +311,7 @@ def build_conservative_shortlist(
     )
 
     # One eligible market per distinct fixture (never stack correlated
-    # same-game outcomes), then a GLOBAL cap of eight for the entire run.
+    # same-game outcomes), then a GLOBAL cap of ten for the entire run.
     id_series = eligible["fixture_id"].fillna("").astype(str)
     fallback = (
         eligible["league"].fillna("").astype(str) + "|"
@@ -288,7 +326,7 @@ def build_conservative_shortlist(
     )
     # The four-day preference is applied AFTER every independent odds/EV
     # gate and one-market-per-match deduplication. Never lower thresholds.
-    # If eight qualifying fixtures can fit in ANY 96-hour interval, choose
+    # If ten qualifying fixtures can fit in ANY 96-hour interval, choose
     # the highest-probability such cohort. Otherwise retain the best
     # candidates over the full available horizon and explain the shortfall.
     chosen = top_per_match.head(TARGET_DISTINCT_MATCHES).index
@@ -336,7 +374,7 @@ def build_conservative_shortlist(
         decisions.loc[overflow, "rejection_reasons"] = (
             "outside 96-hour cohort of similarly strong candidates"
             if compact_selected
-            else "below higher-confidence eight-match ranking"
+            else "below higher-confidence ten-match ranking"
         )
     if len(chosen):
         decisions.loc[chosen, "decision"] = "SHORTLISTED"
@@ -384,7 +422,7 @@ def build_conservative_shortlist(
             last_kickoff.isoformat() if last_kickoff is not None else None
         ),
         "selection_method": (
-            "Highest-quality eligible 96-hour cohort within 2pp of best overall"
+            "Highest-quality eligible ten-fixture 96-hour cohort within 2pp of best overall"
             if compact_selected else
             "Stronger independently audited candidates prioritized over 96-hour preference"
             if compact_skipped_for_quality else
@@ -411,7 +449,7 @@ def build_conservative_shortlist(
         "rule": "one independently quoted market per distinct fixture; no forced picks",
         "warning": (
             "These heuristic thresholds are not validated for betting profit. "
-            "There are no guaranteed matches or perfect betslips; eight-leg "
-            "accumulators have substantially higher joint loss risk."
+            "There are no guaranteed matches or perfect betslips; ten-leg "
+            "accumulators carry substantial all-or-nothing loss risk."
         ),
     }
