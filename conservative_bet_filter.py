@@ -1,6 +1,7 @@
 """Experimental eight-match, five-market shortlist; never guarantee winners.
 
 One market per fixture, up to eight distinct matches across the whole run.
+Prefer a cohort with kickoff timestamps no more than 96 hours apart.
 No forced selections: all price, EV, model-agreement and freshness
 checks must pass. The strategy is not validated for profitability.
 """
@@ -234,17 +235,49 @@ def build_conservative_shortlist(
         + eligible["away_team"].fillna("").astype(str)
     )
     eligible["_fixture_key"] = id_series.where(id_series.str.len() > 0, fallback)
-    top_per_match = eligible.drop_duplicates("_fixture_key", keep="first")
+    top_per_match = eligible.drop_duplicates("_fixture_key", keep="first").copy()
+    top_per_match["_kickoff"] = pd.to_datetime(
+        top_per_match["kickoff_utc"], utc=True, errors="coerce"
+    )
+    # The four-day preference is applied AFTER every independent odds/EV
+    # gate and one-market-per-match deduplication. Never lower thresholds.
+    # If eight qualifying fixtures can fit in ANY 96-hour interval, choose
+    # the highest-probability such cohort. Otherwise retain the best
+    # candidates over the full available horizon and explain the shortfall.
     chosen = top_per_match.head(TARGET_DISTINCT_MATCHES).index
+    compact_window_available = False
+    best_score = None
+    for start in top_per_match["_kickoff"].dropna().sort_values().unique():
+        frame = top_per_match.loc[
+            (top_per_match["_kickoff"] >= start)
+            & (top_per_match["_kickoff"] <= start + pd.Timedelta(hours=96))
+        ]
+        if len(frame) < TARGET_DISTINCT_MATCHES:
+            continue
+        compact_window_available = True
+        cohort = frame.head(TARGET_DISTINCT_MATCHES)
+        # Log-probability sum provides a stable ranking for a collection
+        # of candidates; it is NOT a validated joint win probability.
+        score = (
+            sum(math.log(float(p)) for p in cohort["predicted_probability"]),
+            float(cohort["estimated_ev"].sum()),
+        )
+        if best_score is None or score > best_score:
+            best_score = score
+            chosen = cohort.index
 
     alternate = eligible.index.difference(top_per_match.index)
     overflow = top_per_match.index.difference(chosen)
     if len(alternate):
         decisions.loc[alternate, "decision"] = "NOT_SELECTED"
-        decisions.loc[alternate, "rejection_reasons"] = "higher-ranked market chosen for same match"
+        decisions.loc[alternate, "rejection_reasons"] = "higher-probability market chosen for same match"
     if len(overflow):
         decisions.loc[overflow, "decision"] = "NOT_SELECTED"
-        decisions.loc[overflow, "rejection_reasons"] = "outside eight-match shortlist target"
+        decisions.loc[overflow, "rejection_reasons"] = (
+            "outside strongest eligible 96-hour eight-match cohort"
+            if compact_window_available
+            else "outside eight-match shortlist target"
+        )
     if len(chosen):
         decisions.loc[chosen, "decision"] = "SHORTLISTED"
 
@@ -255,6 +288,18 @@ def build_conservative_shortlist(
     )
     decisions = decisions.reset_index(drop=True)
     n = len(shortlist)
+    kickoff_times = pd.to_datetime(
+        shortlist["kickoff_utc"], utc=True, errors="coerce"
+    ).dropna()
+    first_kickoff = kickoff_times.min() if len(kickoff_times) else None
+    last_kickoff = kickoff_times.max() if len(kickoff_times) else None
+    actual_span = (
+        (last_kickoff - first_kickoff).total_seconds() / 3600.0
+        if first_kickoff is not None and last_kickoff is not None else None
+    )
+    inside_four_days = (
+        actual_span is not None and actual_span <= 96.0
+    )
     status = "TARGET_MET" if n == TARGET_DISTINCT_MATCHES else (
         "BELOW_TARGET" if n else "NO BET"
     )
@@ -266,6 +311,21 @@ def build_conservative_shortlist(
         "n_shortlisted": n,
         "target_distinct_matches": TARGET_DISTINCT_MATCHES,
         "shortfall": TARGET_DISTINCT_MATCHES - n,
+        "four_day_window_preferred": True,
+        "eight_match_four_day_window_available": compact_window_available,
+        "selected_matches_within_four_days": inside_four_days,
+        "selected_kickoff_span_hours": actual_span,
+        "selected_first_kickoff_utc": (
+            first_kickoff.isoformat() if first_kickoff is not None else None
+        ),
+        "selected_last_kickoff_utc": (
+            last_kickoff.isoformat() if last_kickoff is not None else None
+        ),
+        "selection_method": (
+            "Highest-probability qualifying eight-fixture cohort within 96 hours"
+            if compact_window_available else
+            "Highest-probability qualifying fixtures across full forecast horizon"
+        ),
         "eligible_markets": [x[0] for x in MARKET_SPECS],
         "eligible_leagues": sorted(DOMESTIC_LEAGUES),
         "min_estimated_ev": MIN_ESTIMATED_EV,
