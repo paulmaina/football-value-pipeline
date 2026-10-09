@@ -1,0 +1,29 @@
+{
+  "league": "Serie A",
+  "training_matches": 1190,
+  "training_end": "2026-09-20",
+  "fit_success": true,
+  "objective": 879.0779648934368,
+  "base": 0.1342467514141642,
+  "home_adv": 0.09132765111490582,
+  "rho": 0.005406771319339648,
+  "half_life_days": 240.0,
+  "xi_per_day": 0.0028881132523331052,
+  "max_goals": 10,
+  "devig_method": "power",
+  "market_weight": 0.5,
+  "training_source": "Football-Data.co.uk",
+  "fixture_provider_mode": "auto",
+  "fixture_sources": [
+    "The Odds API"
+  ],
+  "the_odds_api_enabled": true,
+  "odds_regions": "eu",
+  "live_odds_matched": 18,
+  "decay_tuning": {
+    "selected_half_life_days": 240.0,
+    "selected_xi_per_day": 0.0028881132523331052,
+    "selection_metric": "walk_forward_1x2_log_loss",
+    "validation_days": 365
+  }
+}

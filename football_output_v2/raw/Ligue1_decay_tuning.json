@@ -1,0 +1,58 @@
+{
+  "selected_half_life_days": 730.0,
+  "selected_xi_per_day": 0.0009495166856985552,
+  "selection_metric": "walk_forward_1x2_log_loss",
+  "validation_days": 365,
+  "step_days": 56,
+  "n_folds": 7,
+  "min_train": 250,
+  "min_validation_matches": 25,
+  "candidates": [
+    {
+      "half_life_days": 120.0,
+      "xi_per_day": 0.0057762265046662105,
+      "valid": true,
+      "n_matches": 311,
+      "n_folds": 7,
+      "log_loss": 1.0500046755225576,
+      "brier_score": 0.6326787076702376
+    },
+    {
+      "half_life_days": 240.0,
+      "xi_per_day": 0.0028881132523331052,
+      "valid": true,
+      "n_matches": 311,
+      "n_folds": 7,
+      "log_loss": 1.0455140520141062,
+      "brier_score": 0.6299269591220181
+    },
+    {
+      "half_life_days": 365.0,
+      "xi_per_day": 0.0018990333713971104,
+      "valid": true,
+      "n_matches": 311,
+      "n_folds": 7,
+      "log_loss": 1.0441890420221387,
+      "brier_score": 0.6292032079509357
+    },
+    {
+      "half_life_days": 730.0,
+      "xi_per_day": 0.0009495166856985552,
+      "valid": true,
+      "n_matches": 311,
+      "n_folds": 7,
+      "log_loss": 1.0436946084765442,
+      "brier_score": 0.6290378958192118
+    },
+    {
+      "half_life_days": 1000000000.0,
+      "xi_per_day": 6.931471805599453e-10,
+      "valid": true,
+      "n_matches": 311,
+      "n_folds": 7,
+      "log_loss": 1.0445344736040805,
+      "brier_score": 0.6296907870181134
+    }
+  ],
+  "note": "Validation scores were used for model selection and are not an independent final test. Evaluate on a later untouched period."
+}

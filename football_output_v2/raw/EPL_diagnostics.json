@@ -1,0 +1,29 @@
+{
+  "league": "Premier League",
+  "training_matches": 1190,
+  "training_end": "2026-09-20",
+  "fit_success": true,
+  "objective": 1333.7457926074214,
+  "base": 0.17443409799712803,
+  "home_adv": 0.16411383941394742,
+  "rho": -0.1047300783920751,
+  "half_life_days": 365.0,
+  "xi_per_day": 0.0018990333713971104,
+  "max_goals": 10,
+  "devig_method": "power",
+  "market_weight": 0.5,
+  "training_source": "Football-Data.co.uk",
+  "fixture_provider_mode": "auto",
+  "fixture_sources": [
+    "The Odds API"
+  ],
+  "the_odds_api_enabled": true,
+  "odds_regions": "eu",
+  "live_odds_matched": 19,
+  "decay_tuning": {
+    "selected_half_life_days": 365.0,
+    "selected_xi_per_day": 0.0018990333713971104,
+    "selection_metric": "walk_forward_1x2_log_loss",
+    "validation_days": 365
+  }
+}

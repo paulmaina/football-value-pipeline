@@ -1,0 +1,29 @@
+{
+  "league": "La Liga",
+  "training_matches": 1209,
+  "training_end": "2026-09-20",
+  "fit_success": true,
+  "objective": 2013.043841399734,
+  "base": 0.08107418012947916,
+  "home_adv": 0.27941589228151964,
+  "rho": -0.014088938909285424,
+  "half_life_days": 730.0,
+  "xi_per_day": 0.0009495166856985552,
+  "max_goals": 10,
+  "devig_method": "power",
+  "market_weight": 0.5,
+  "training_source": "Football-Data.co.uk",
+  "fixture_provider_mode": "auto",
+  "fixture_sources": [
+    "The Odds API"
+  ],
+  "the_odds_api_enabled": true,
+  "odds_regions": "eu",
+  "live_odds_matched": 19,
+  "decay_tuning": {
+    "selected_half_life_days": 730.0,
+    "selected_xi_per_day": 0.0009495166856985552,
+    "selection_metric": "walk_forward_1x2_log_loss",
+    "validation_days": 365
+  }
+}

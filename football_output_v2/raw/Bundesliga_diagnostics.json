@@ -1,0 +1,29 @@
+{
+  "league": "Bundesliga",
+  "training_matches": 954,
+  "training_end": "2026-09-20",
+  "fit_success": true,
+  "objective": 2887.2127049370642,
+  "base": 0.23902024564698088,
+  "home_adv": 0.1897924764103269,
+  "rho": -0.10435824984575495,
+  "half_life_days": 1000000000.0,
+  "xi_per_day": 6.931471805599453e-10,
+  "max_goals": 10,
+  "devig_method": "power",
+  "market_weight": 0.5,
+  "training_source": "Football-Data.co.uk",
+  "fixture_provider_mode": "auto",
+  "fixture_sources": [
+    "The Odds API"
+  ],
+  "the_odds_api_enabled": true,
+  "odds_regions": "eu",
+  "live_odds_matched": 18,
+  "decay_tuning": {
+    "selected_half_life_days": 1000000000.0,
+    "selected_xi_per_day": 6.931471805599453e-10,
+    "selection_metric": "walk_forward_1x2_log_loss",
+    "validation_days": 365
+  }
+}

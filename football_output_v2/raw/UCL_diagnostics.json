@@ -1,0 +1,29 @@
+{
+  "league": "UEFA Champions League",
+  "training_matches": 521,
+  "training_end": "2026-09-10",
+  "fit_success": true,
+  "objective": 1560.623667924308,
+  "base": 0.15446274438550517,
+  "home_adv": 0.2707455768690684,
+  "rho": 0.05,
+  "half_life_days": 1000000000.0,
+  "xi_per_day": 6.931471805599453e-10,
+  "max_goals": 10,
+  "devig_method": "power",
+  "market_weight": 0.5,
+  "training_source": "football-data.org",
+  "fixture_provider_mode": "auto",
+  "fixture_sources": [
+    "The Odds API"
+  ],
+  "the_odds_api_enabled": true,
+  "odds_regions": "eu",
+  "live_odds_matched": 18,
+  "decay_tuning": {
+    "selected_half_life_days": 1000000000.0,
+    "selected_xi_per_day": 6.931471805599453e-10,
+    "selection_metric": "walk_forward_1x2_log_loss",
+    "validation_days": 365
+  }
+}
