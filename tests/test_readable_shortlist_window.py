@@ -157,7 +157,7 @@ class FormatterIntegrationTests(unittest.TestCase):
             shortlist.to_csv(root / "raw" / "conservative_bet_shortlist.csv", index=False)
             (root / "raw" / "conservative_bet_summary.json").write_text(
                 json.dumps({"status": "NO BET", "target_distinct_matches": 10,
-                            "shortfall": 8}), encoding="utf-8"
+                            "shortfall": 10}), encoding="utf-8"
             )
             n = process_conservative_shortlist(
                 root / "raw", root / "readable"
