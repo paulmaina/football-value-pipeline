@@ -36,6 +36,72 @@ python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga 
 The automatic weight tuner remains in the codebase for future research,
 but is **not part of the recommended daily-use model**.
 
+## Reliability validation and balanced live goal-market odds
+
+The normal command remains **unchanged**. The pipeline now uses the
+following data-driven quality controls while leaving its 50/50
+Dixon-Coles prediction engine unchanged:
+
+1. **Fair extra-market API allocation**. The maximum **24**
+   per-event `alternate_totals,btts` bookmaker requests are reserved
+   across the domestic leagues requested for a run. With all five
+   leagues, quotas are **EPL 5, LaLiga 5, Bundesliga 5, SerieA 5,
+   Ligue1 4**. Within each league, fixtures with the strongest
+   qualifying *existing model probabilities* are checked first, rather
+   than first-encountered chronological fixture order. UCL never uses
+   these goal-market requests. A league without qualifying events may
+   leave its reservation unused; the pipeline never silently exceeds
+   the global 24-call budget. These event requests consume API quota.
+
+2. **Historical walk-forward validation** for *Home win, Away win,
+   Over 1.5, Under 3.5 and BTTS Yes*. For each domestic league,
+   the existing match-history walk-forward predictor fits only on
+   matches preceding each prediction window. Actual full-time
+   results label each requested market (including true BTTS Yes).
+   Earlier chronological development matches estimate a
+   conservative correction for model overconfidence. Later
+   chronological audit matches report sample sizes, probability
+   reliability bins, Brier scores, binary log loss and observed rates.
+   A predeclared audit quality gate (minimum sample, calibration bias,
+   and Brier relative to an audit base rate) must pass before a market
+   can be considered in the production shortlist. The audit period
+   never fits the overconfidence correction.
+
+3. **Reliability-aware shortlist ranking**. The filter uses the
+   development-adjusted conservative probability to calculate
+   `conservative_estimated_ev`, enforce the existing minimums
+   and rank candidate markets. The raw model probability/EV remain
+   available. Only then does the 96-hour kickoff preference group
+   candidates. The selection still never forces eight matches or
+   combines several markets from one game.
+
+The new `<league>_goal_market_validation.json` reports are written
+under `football_output_v2/raw/`. Repeated runs reuse an existing
+report when its model configuration and training cutoff have not
+changed; `--force-refresh` forces recomputation. Recalculation can
+add substantial CPU time because each league must run extra
+historical model fits. In the final CSV/Markdown shortlist reports,
+the **reliability-adjusted chance and conservative estimated EV**
+are displayed separately from unadjusted model estimates.
+
+**Price-data limitation:** The currently committed historical
+Football-Data.co.uk CSVs contain completed match scores and some
+1X2/Over 2.5 prices, but **not the actual opening Over 1.5,
+Under 3.5 or BTTS Yes prices**. Thus we can honestly validate these
+markets' probability accuracy and calibration, but historical
+betting profitability for the three added markets is
+`UNAVAILABLE_NO_HISTORICAL_PRICES`, not a simulated positive ROI.
+If future historical files contain same-book paired opening odds for
+those exact markets, the validator can calculate exploratory
+flat-unit settled returns without inventing prices. These
+simulations are not a guarantee of future returns.
+
+The development/audit historical periods can overlap the period
+previously used to tune the half-life parameter, so the audit is
+**not completely untouched**. Conservative safety gates are not
+proof that a market has a true bookmaker edge. Always collect
+timestamped predictions and final scores for future evaluation.
+
 ## Eight-match, five-market shortlist (experimental)
 
 Running the existing command (no extra flags) now also produces a
@@ -80,8 +146,8 @@ The new files are:
 
 - `football_output_v2/readable/conservative_bet_shortlist_readable.csv`
   — each match with its explicit **Shortlisted market**, kickoff UTC,
-  model chance for that exact outcome, unblended DC chance,
-  bookmaker odds and estimated EV.
+  model chance, **reliability-adjusted chance**, unblended DC chance,
+  bookmaker odds, headline estimated EV and **conservative estimated EV**.
 - `football_output_v2/readable/conservative_bet_shortlist_report.md`
   — a readable market-by-match table, four-day-window result, and
   selection risk notes. If there are no qualifying candidates, the
@@ -119,16 +185,10 @@ For alternate totals and BTTS Yes, one verified bookmaker with both
 complementary outcomes is sufficient. The market's own coherent
 quote pair (not unrelated line or h2h quotes) must be available.
 
-**Additional The Odds API quota cost:** The standard sports odds
-endpoint retrieves h2h and featured totals, usually 2.5. The
-additional `alternate_totals,btts` markets require a separate
-`/events/{eventId}/odds` request. The pipeline makes no more than
-**24** of these requests per run across domestic leagues, and only
-for fixtures where the model and team-matching confidence suggest
-plausible additional-market candidates. The endpoint may not offer
-these markets in every competition, region or bookmaker; absent
-prices are rejected rather than invented. A bounded request budget
-can also reduce the number of potential shortlist candidates.
+**Additional The Odds API quota cost:** The 24 extra event calls
+are now reserved fairly across the five requested domestic leagues
+and prioritized within leagues. Extra-market coverage may still be
+missing at specific bookmakers and prices are never fabricated.
 
 **Risk and interpretation:** These thresholds are provisional
 heuristics, not backtested thresholds with proven bookmaker edge.
