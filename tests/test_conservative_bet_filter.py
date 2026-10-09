@@ -1,4 +1,4 @@
-"""Offline regression tests for eight-match, five-market candidate selection."""
+"""Offline regression tests for ten-match, five-market candidate selection."""
 
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -85,7 +85,7 @@ def fixture(i=0, kickoff=None):
     return row
 
 
-class EightMarketTests(unittest.TestCase):
+class TenMarketTests(unittest.TestCase):
     def evaluate(self, *rows):
         return build_conservative_shortlist(pd.DataFrame(list(rows)), as_of=NOW)
 
@@ -95,18 +95,18 @@ class EightMarketTests(unittest.TestCase):
         self.assertEqual(len(shortlist), 1)
         self.assertEqual(shortlist.iloc[0]["market"], "Over 1.5")
         self.assertEqual(summary["status"], "BELOW_TARGET")
-        self.assertEqual(summary["shortfall"], 7)
+        self.assertEqual(summary["shortfall"], 9)
         self.assertEqual(len(decisions[decisions.decision == "NOT_SELECTED"]), 3)
 
-    def test_exactly_eight_distinct_fixtures_selected_across_multiple_days(self):
+    def test_exactly_ten_distinct_fixtures_selected_across_multiple_days(self):
         rows = [fixture(i) for i in range(12)]
         shortlist, decisions, summary = self.evaluate(*rows)
-        self.assertEqual(len(shortlist), 8)
-        self.assertEqual(shortlist["fixture_id"].nunique(), 8)
+        self.assertEqual(len(shortlist), 10)
+        self.assertEqual(shortlist["fixture_id"].nunique(), 10)
         self.assertEqual(summary["status"], "TARGET_MET")
         self.assertEqual(summary["shortfall"], 0)
         self.assertEqual(len(decisions), 60)
-        self.assertEqual(len(decisions[decisions.decision == "SHORTLISTED"]), 8)
+        self.assertEqual(len(decisions[decisions.decision == "SHORTLISTED"]), 10)
 
     def test_winner_markets_without_extra_odds_remain_eligible(self):
         row = fixture()
@@ -256,7 +256,7 @@ class EightMarketTests(unittest.TestCase):
             self.assertEqual(
                 json.loads((raw / "conservative_bet_summary.json").read_text())[
                     "target_distinct_matches"
-                ], 8
+                ], 10
             )
 
 

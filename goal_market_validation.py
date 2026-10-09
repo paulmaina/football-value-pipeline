@@ -19,6 +19,13 @@ import numpy as np
 import pandas as pd
 
 DOMESTIC = ("EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1")
+HIGH_PROBABILITY_THRESHOLDS = (0.75, 0.85)
+MIN_HIGH_DEV = 30
+MIN_HIGH_AUDIT = 12
+MAX_HIGH_AUDIT_OVERCONFIDENCE = 0.10
+# The old overall gate allowed Brier to be 0.03 worse than a hindsight
+# constant-frequency comparator. Reduce that allowance; still diagnostic.
+MAX_OVERALL_BRIER_EXCESS = 0.005
 MARKETS = {
     "home": ("p_home", "raw_p_home", "actual_home", 0.65, 0.50),
     "away": ("p_away", "raw_p_away", "actual_away", 0.65, 0.50),
@@ -141,6 +148,65 @@ def _binary_stats(p: np.ndarray, y: np.ndarray) -> dict:
     }
 
 
+
+def _wilson_interval(successes: int, trials: int, z: float = 1.96) -> list[float] | None:
+    """Approximate 95% confidence interval for an observed binary frequency.
+
+    Reports uncertainty, not a guaranteed lower bound on the next fixture.
+    """
+    if trials <= 0:
+        return None
+    phat = successes / trials
+    z2 = z*z
+    center = (phat + z2/(2*trials))/(1+z2/trials)
+    half = z*math.sqrt(
+        phat*(1-phat)/trials + z2/(4*trials*trials)
+    )/(1+z2/trials)
+    return [float(max(0.0, center-half)), float(min(1.0, center+half))]
+
+
+def _high_confidence_group(
+    dev_p: np.ndarray, dev_y: np.ndarray,
+    audit_p: np.ndarray, audit_y: np.ndarray,
+    threshold: float,
+) -> dict:
+    """Out-of-time assessment for a cumulative >=75% / >=85% forecast group.
+
+    Correction comes from development outcomes only. Audit outcomes may
+    reject a group but never set its correction or threshold.
+    """
+    dmask, amask = dev_p >= threshold, audit_p >= threshold
+    dp, dy = dev_p[dmask], dev_y[dmask]
+    ap, ay = audit_p[amask], audit_y[amask]
+    development, audit = _binary_stats(dp, dy), _binary_stats(ap, ay)
+    for stat, y in ((development, dy), (audit, ay)):
+        stat["n_wins"] = int(np.sum(y))
+        stat["observed_wilson95"] = _wilson_interval(int(np.sum(y)), len(y))
+
+    enough = len(dp) >= MIN_HIGH_DEV and len(ap) >= MIN_HIGH_AUDIT
+    if not enough:
+        status = "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY"
+    elif audit["overconfidence"] > MAX_HIGH_AUDIT_OVERCONFIDENCE:
+        status = "HIGH_CONFIDENCE_OVERESTIMATION"
+    else:
+        status = "PASSED"
+
+    # Shrink development-only high-probability overestimation to avoid
+    # treating a moderate, noisy subgroup sample as exact calibration.
+    raw_bias = max(0.0, float(development.get("overconfidence", 0.0)))
+    penalty = raw_bias * len(dp) / (len(dp) + 30.0) if len(dp) else None
+    return {
+        "threshold": threshold,
+        "status": status,
+        "development": development,
+        "audit": audit,
+        "development_only_penalty": float(penalty) if penalty is not None else None,
+        "minimum_development_samples": MIN_HIGH_DEV,
+        "minimum_audit_samples": MIN_HIGH_AUDIT,
+        "maximum_audit_overconfidence": MAX_HIGH_AUDIT_OVERCONFIDENCE,
+    }
+
+
 def _reliability_bins(p: np.ndarray, y: np.ndarray) -> list[dict]:
     bins = []
     for i in range(5):
@@ -201,6 +267,13 @@ def evaluate_market_history(
     results = {"league": league, "source": "chronological_expanding_window",
                "development_fraction": 1.0 - audit_fraction,
                "markets": {}, "historical_goal_prices_available": False,
+               "high_confidence_thresholds": list(HIGH_PROBABILITY_THRESHOLDS),
+               "validation_rules": {
+                   "high_dev_min": MIN_HIGH_DEV,
+                   "high_audit_min": MIN_HIGH_AUDIT,
+                   "high_max_overconfidence": MAX_HIGH_AUDIT_OVERCONFIDENCE,
+                   "overall_max_brier_excess": MAX_OVERALL_BRIER_EXCESS,
+               },
                "caution": (
                    "Development and audit are chronological but may overlap prior "
                    "half-life/market-hyperparameter tuning periods. This is not "
@@ -211,6 +284,12 @@ def evaluate_market_history(
             results["markets"][key] = {
                 "status": "INSUFFICIENT_HISTORY", "development": {"n": 0},
                 "audit": {"n": 0}, "confidence_penalty": None,
+                "high_confidence": {
+                    f"{int(t*100)}plus": _high_confidence_group(
+                        np.array([]), np.array([]), np.array([]),
+                        np.array([]), t
+                    ) for t in HIGH_PROBABILITY_THRESHOLDS
+                },
                 "historical_betting": {"status": "UNAVAILABLE_NO_HISTORICAL_PRICES",
                                        "n_quotes": 0, "n_simulated": 0, "roi_per_unit": None},
             }
@@ -240,14 +319,20 @@ def evaluate_market_history(
         enough = len(dev_p) >= min_dev and len(audit_p) >= min_audit
         audit_is_ok = (
             enough and abs(audit_stats["overconfidence"]) <= 0.12
-            and audit_stats["brier"] <= audit_stats["baseline_brier"] + 0.03
+            and audit_stats["brier"] <= audit_stats["baseline_brier"] + MAX_OVERALL_BRIER_EXCESS
         )
         prices = _historical_return(ordered, key)
+        high_groups = {
+            f"{int(t*100)}plus": _high_confidence_group(
+                dev_p, dev_y, audit_p, audit_y, t
+            ) for t in HIGH_PROBABILITY_THRESHOLDS
+        }
         results["markets"][key] = {
             "status": ("RELIABLE_FOR_RANKING" if audit_is_ok
                        else "INSUFFICIENT_HISTORY" if not enough
                        else "UNRELIABLE_AUDIT"),
             "development": dev_stats, "audit": audit_stats,
+            "high_confidence": high_groups,
             "development_bins": _reliability_bins(dev_p, dev_y),
             "audit_bins": _reliability_bins(audit_p, audit_y),
             "confidence_penalty": float(penalty) if penalty is not None else None,
