@@ -19,6 +19,7 @@ DOMESTIC_LEAGUES = frozenset({
     "Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1"
 })
 TARGET_DISTINCT_MATCHES = 8
+MAX_COMPACT_QUALITY_COST = 0.02  # 2 percentage points mean adjusted probability
 MIN_ESTIMATED_EV = 0.03
 MIN_RAW_DC_EV = 0.0
 MIN_TEAM_NAME_MATCH_SCORE = 90.0
@@ -292,7 +293,10 @@ def build_conservative_shortlist(
     # candidates over the full available horizon and explain the shortfall.
     chosen = top_per_match.head(TARGET_DISTINCT_MATCHES).index
     compact_window_available = False
+    compact_selected = False
+    compact_skipped_for_quality = False
     best_score = None
+    best_compact = None
     for start in top_per_match["_kickoff"].dropna().sort_values().unique():
         frame = top_per_match.loc[
             (top_per_match["_kickoff"] >= start)
@@ -302,15 +306,25 @@ def build_conservative_shortlist(
             continue
         compact_window_available = True
         cohort = frame.head(TARGET_DISTINCT_MATCHES)
-        # Log-probability sum provides a stable ranking for a collection
-        # of candidates; it is NOT a validated joint win probability.
+        # This cohort score is a preference metric, not a validated
+        # probability that all eight games win together.
         score = (
             sum(math.log(float(p)) for p in cohort["rank_probability"]),
             float(cohort["conservative_estimated_ev"].sum()),
         )
         if best_score is None or score > best_score:
-            best_score = score
-            chosen = cohort.index
+            best_score, best_compact = score, cohort
+
+    if best_compact is not None:
+        global_quality = float(
+            top_per_match.loc[chosen, "rank_probability"].mean()
+        )
+        compact_quality = float(best_compact["rank_probability"].mean())
+        if compact_quality >= global_quality - MAX_COMPACT_QUALITY_COST:
+            chosen = best_compact.index
+            compact_selected = True
+        else:
+            compact_skipped_for_quality = True
 
     alternate = eligible.index.difference(top_per_match.index)
     overflow = top_per_match.index.difference(chosen)
@@ -320,9 +334,9 @@ def build_conservative_shortlist(
     if len(overflow):
         decisions.loc[overflow, "decision"] = "NOT_SELECTED"
         decisions.loc[overflow, "rejection_reasons"] = (
-            "outside strongest eligible 96-hour eight-match cohort"
-            if compact_window_available
-            else "outside eight-match shortlist target"
+            "outside 96-hour cohort of similarly strong candidates"
+            if compact_selected
+            else "below higher-confidence eight-match ranking"
         )
     if len(chosen):
         decisions.loc[chosen, "decision"] = "SHORTLISTED"
@@ -359,6 +373,8 @@ def build_conservative_shortlist(
         "shortfall": TARGET_DISTINCT_MATCHES - n,
         "four_day_window_preferred": True,
         "eight_match_four_day_window_available": compact_window_available,
+        "four_day_window_skipped_for_quality": compact_skipped_for_quality,
+        "max_compact_mean_probability_cost": MAX_COMPACT_QUALITY_COST,
         "selected_matches_within_four_days": inside_four_days,
         "selected_kickoff_span_hours": actual_span,
         "selected_first_kickoff_utc": (
@@ -368,9 +384,11 @@ def build_conservative_shortlist(
             last_kickoff.isoformat() if last_kickoff is not None else None
         ),
         "selection_method": (
-            "Highest-probability qualifying eight-fixture cohort within 96 hours"
-            if compact_window_available else
-            "Highest-probability qualifying fixtures across full forecast horizon"
+            "Highest-quality eligible 96-hour cohort within 2pp of best overall"
+            if compact_selected else
+            "Stronger independently audited candidates prioritized over 96-hour preference"
+            if compact_skipped_for_quality else
+            "Highest-quality eligible fixtures across full forecast horizon"
         ),
         "eligible_markets": [x[0] for x in MARKET_SPECS],
         "eligible_leagues": sorted(DOMESTIC_LEAGUES),
