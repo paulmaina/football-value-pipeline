@@ -1211,7 +1211,7 @@ def process_conservative_shortlist(
         "sample size, observed rate and Wilson 95% uncertainty range.",
         "",
         "Conservative estimated EV uses that adjusted chance and the quoted "
-        "price. Neither the original EV nor the adjusted EV is assured; 
+        "price. Neither the original EV nor the adjusted EV is assured; "
         "bookmaker prices may change before kickoff.",
         "",
         (
