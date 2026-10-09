@@ -472,11 +472,60 @@ def build_conservative_shortlist(
         )
     if len(chosen):
         decisions.loc[chosen, "decision"] = "SHORTLISTED"
+        decisions.loc[chosen, "selection_tier"] = "STRICT"
 
+    n_strict = len(chosen)
+    provisional_ids = pd.Index([], dtype="int64")
+    # A visible research/watchlist supplement: actual strict qualifiers
+    # retain their statuses. A near miss is NEVER reclassified as strict.
+    if market_reliability is not None and n_strict < TARGET_DISTINCT_MATCHES:
+        pool = decisions.loc[decisions["decision"] == "REJECTED"].copy()
+        minimums = {
+            label: (min_p, min_raw)
+            for label, _, min_p, min_raw in MARKET_SPECS
+        }
+        pool["historical_gap_score"] = pool.apply(
+            lambda item: _near_miss_score(item, minimums), axis=1
+        )
+        pool = pool.loc[pool["historical_gap_score"].notna()].copy()
+        pool = pool.sort_values(
+            ["historical_gap_score", "rank_probability", "conservative_estimated_ev",
+             "kickoff_utc", "home_team"],
+            ascending=[True, False, False, True, True],
+            kind="stable",
+        )
+        def fixture_keys(table: pd.DataFrame) -> pd.Series:
+            ids = table["fixture_id"].fillna("").astype(str)
+            names = (
+                table["league"].fillna("").astype(str) + "|"
+                + table["kickoff_utc"].fillna("").astype(str) + "|"
+                + table["home_team"].fillna("").astype(str) + "|"
+                + table["away_team"].fillna("").astype(str)
+            )
+            return ids.where(ids.str.len() > 0, names)
+
+        excluded_keys = set(fixture_keys(decisions.loc[chosen]).tolist())
+        pool["_fixture_key"] = fixture_keys(pool)
+        pool = pool.loc[~pool["_fixture_key"].isin(excluded_keys)]
+        pool = pool.drop_duplicates("_fixture_key", keep="first")
+        provisional_ids = pool.head(TARGET_DISTINCT_MATCHES-n_strict).index
+        if len(provisional_ids):
+            decisions.loc[provisional_ids, "decision"] = "SHORTLISTED_PROVISIONAL"
+            decisions.loc[provisional_ids, "selection_tier"] = "PROVISIONAL"
+            decisions.loc[provisional_ids, "historical_gap_score"] = (
+                pool.loc[provisional_ids, "historical_gap_score"]
+            )
+            decisions.loc[provisional_ids, "near_miss_reason"] = (
+                pool.loc[provisional_ids, "rejection_reasons"]
+            )
+    chosen_all = chosen.append(provisional_ids)
     shortlist = (
-        decisions.loc[chosen, SHORTLIST_COLUMNS]
-        .sort_values(["rank_probability", "conservative_estimated_ev"], ascending=[False, False])
-        .reset_index(drop=True)
+        decisions.loc[chosen_all, SHORTLIST_COLUMNS]
+        .sort_values(
+            ["selection_tier", "historical_gap_score", "rank_probability",
+             "conservative_estimated_ev"],
+            ascending=[False, True, False, False], kind="stable"
+        ).reset_index(drop=True)
     )
     decisions = decisions.reset_index(drop=True)
     n = len(shortlist)
@@ -492,8 +541,12 @@ def build_conservative_shortlist(
     inside_four_days = (
         actual_span is not None and actual_span <= 96.0
     )
-    status = "TARGET_MET" if n == TARGET_DISTINCT_MATCHES else (
-        "BELOW_TARGET" if n else "NO BET"
+    status = (
+        "TARGET_MET" if n == TARGET_DISTINCT_MATCHES and not len(provisional_ids)
+        else "TARGET_WITH_PROVISIONAL" if n == TARGET_DISTINCT_MATCHES
+        else "BELOW_TARGET_WITH_PROVISIONAL" if len(provisional_ids)
+        else "BELOW_TARGET" if n
+        else "NO BET"
     )
     return shortlist, decisions, {
         "status": status,
@@ -501,10 +554,13 @@ def build_conservative_shortlist(
         "n_fixtures": int(len(predictions)),
         "n_markets_evaluated": int(len(decisions)),
         "n_shortlisted": n,
+        "n_strict_qualified": int(n_strict),
+        "n_provisional_watchlist": int(len(provisional_ids)),
+        "n_total_candidates": n,
         "target_distinct_matches": TARGET_DISTINCT_MATCHES,
         "shortfall": TARGET_DISTINCT_MATCHES - n,
         "four_day_window_preferred": True,
-        "eight_match_four_day_window_available": compact_window_available,
+        "ten_match_four_day_window_available": compact_window_available,
         "four_day_window_skipped_for_quality": compact_skipped_for_quality,
         "max_compact_mean_probability_cost": MAX_COMPACT_QUALITY_COST,
         "selected_matches_within_four_days": inside_four_days,
@@ -540,10 +596,22 @@ def build_conservative_shortlist(
         "min_raw_dc_ev": MIN_RAW_DC_EV,
         "min_team_name_match_score": MIN_TEAM_NAME_MATCH_SCORE,
         "max_quote_age_hours": MAX_ODDS_AGE_HOURS,
-        "rule": "one independently quoted market per distinct fixture; no forced picks",
+        "rule": (
+            "one independently quoted market per distinct fixture; "
+            "strict qualifications first, then up to ten clearly labeled "
+            "provisional near-miss watchlist candidates"
+        ),
+        "near_miss_policy": (
+            "PROVISIONAL is not strictly qualified. Only limited "
+            "historical sample gaps, modest audit overconfidence, "
+            "or small adjusted EV/probability misses are considered; "
+            "bookmaker sanity, source, timing, team mapping, "
+            "raw DC probability and raw EV must remain valid."
+        ),
         "warning": (
-            "These heuristic thresholds are not validated for betting profit. "
-            "There are no guaranteed matches or perfect betslips; ten-leg "
-            "accumulators carry substantial all-or-nothing loss risk."
+            "PROVISIONAL picks explicitly FAILED strict historical or EV "
+            "requirements and are ONLY an analysis watchlist, not betting "
+            "recommendations. No validated guaranteed matches or perfect "
+            "betslips exist; ten-leg accumulators have substantial loss risk."
         ),
     }
