@@ -118,7 +118,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.5.0"
+PIPELINE_VERSION = "2.6.0"
 
 
 # ---------------------------------------------------------------------------
@@ -3383,7 +3383,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             # training cutoff and validation code version match.
             validation_path = out_dir / f"{league_key}_goal_market_validation.json"
             config = {
-                "validator_version": 1,
+                "validator_version": 2,
                 "half_life_days": pipe.half_life_days,
                 "market_weight": pipe.market_weight,
                 "l2": pipe.l2,
