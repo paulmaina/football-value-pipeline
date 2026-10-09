@@ -116,6 +116,74 @@ class MarketValidationTests(unittest.TestCase):
             "UNAVAILABLE_NO_HISTORICAL_PRICES"
         )
 
+    def test_high_probability_evidence_has_counts_rate_and_wilson_interval(self):
+        report = evaluate_market_history(
+            historical(n=240, p=0.91, observed=0.9), "Premier League"
+        )
+        group = report["markets"]["over_1_5"]["high_confidence"]["85plus"]
+        self.assertEqual(group["status"], "PASSED")
+        self.assertGreaterEqual(group["development"]["n"], 30)
+        self.assertGreaterEqual(group["audit"]["n"], 12)
+        lo, hi = group["audit"]["observed_wilson95"]
+        self.assertLessEqual(lo, group["audit"]["observed_rate"])
+        self.assertGreaterEqual(hi, group["audit"]["observed_rate"])
+        self.assertIsNotNone(group["development_only_penalty"])
+
+    def test_sparse_85percent_history_is_not_assumed_reliable(self):
+        report = evaluate_market_history(historical(p=0.80), "Premier League")
+        over = report["markets"]["over_1_5"]
+        self.assertEqual(over["high_confidence"]["75plus"]["status"], "PASSED")
+        self.assertEqual(over["high_confidence"]["85plus"]["status"],
+                         "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY")
+        row = fixture()
+        picks, audit, summary = build_conservative_shortlist(
+            pd.DataFrame([row]), as_of=NOW,
+            market_reliability={"Premier League": report},
+        )
+        chosen_market = audit.loc[audit["market"] == "Over 1.5"].iloc[0]
+        self.assertEqual(chosen_market["high_confidence_tier"], "85plus")
+        self.assertEqual(chosen_market["decision"], "REJECTED")
+        self.assertIn("INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+                      chosen_market["rejection_reasons"])
+
+    def test_overconfident_high_group_is_explicitly_rejected(self):
+        report = evaluate_market_history(
+            historical(n=240, p=0.91, observed=0.6), "Premier League"
+        )
+        group = report["markets"]["under_3_5"]["high_confidence"]["85plus"]
+        self.assertEqual(group["status"], "HIGH_CONFIDENCE_OVERESTIMATION")
+        self.assertGreater(group["audit"]["overconfidence"], 0.1)
+
+    def test_audit_changes_do_not_train_high_confidence_penalty(self):
+        hist = historical(n=240, p=0.88, observed=0.7)
+        first = evaluate_market_history(hist, "Premier League")
+        tampered = hist.copy()
+        tampered.loc[tampered.index[-25:], "actual_under_3_5"] = 1
+        second = evaluate_market_history(tampered, "Premier League")
+        self.assertEqual(
+            first["markets"]["under_3_5"]["high_confidence"]["85plus"][
+                "development_only_penalty"
+            ],
+            second["markets"]["under_3_5"]["high_confidence"]["85plus"][
+                "development_only_penalty"
+            ],
+        )
+
+    def test_passing_85plus_subgroup_carries_audit_evidence_into_shortlist(self):
+        report = evaluate_market_history(
+            historical(n=240, p=0.9, observed=0.9), "Premier League"
+        )
+        row = fixture()
+        picks, audit, summary = build_conservative_shortlist(
+            pd.DataFrame([row]), as_of=NOW,
+            market_reliability={"Premier League": report},
+        )
+        group = audit.loc[audit["market"] == "Over 1.5"].iloc[0]
+        self.assertEqual(group["high_confidence_status"], "PASSED")
+        self.assertGreaterEqual(group["high_confidence_audit_matches"], 12)
+        self.assertTrue(0 <= group["high_confidence_wilson95_lower"] <= 1)
+        self.assertEqual(summary["target_distinct_matches"], 10)
+
     def test_actual_outcomes_come_from_match_scores(self):
         prediction = {"p_over_1_5":0.75, "raw_p_over_1_5":0.73,
                       "p_under_3_5":0.8, "raw_p_under_3_5":0.78,
