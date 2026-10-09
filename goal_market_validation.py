@@ -155,7 +155,7 @@ def _reliability_bins(p: np.ndarray, y: np.ndarray) -> list[dict]:
     return bins
 
 
-def _historical_return(bt: pd.DataFrame, key: str, selected) -> dict:
+def _historical_return(bt: pd.DataFrame, key: str) -> dict:
     """Simulated flat-unit returns at *actual historical opening prices* only."""
     odds_col = f"historical_open_{key}_odds"
     if odds_col not in bt.columns:
@@ -217,8 +217,12 @@ def evaluate_market_history(
         return results
 
     ordered = historical.sort_values("date", kind="stable")
-    split = min(max(int(len(ordered)*(1-audit_fraction)), 1), len(ordered))
-    dev_frame, audit_frame = ordered.iloc[:split], ordered.iloc[split:]
+    split = min(max(int(len(ordered)*(1-audit_fraction)), 1), len(ordered)-1)
+    # Never split a calendar day between development and audit:
+    # same-day match results are not necessarily known before kickoff.
+    split_date = ordered.iloc[split]["date"]
+    dev_frame = ordered.loc[ordered["date"] < split_date]
+    audit_frame = ordered.loc[ordered["date"] >= split_date]
     for key, (pcol, _, target_col, _, _) in MARKETS.items():
         def pack(frame):
             if pcol not in frame or target_col not in frame:
@@ -238,7 +242,7 @@ def evaluate_market_history(
             enough and abs(audit_stats["overconfidence"]) <= 0.12
             and audit_stats["brier"] <= audit_stats["baseline_brier"] + 0.03
         )
-        prices = _historical_return(ordered, key, None)
+        prices = _historical_return(ordered, key)
         results["markets"][key] = {
             "status": ("RELIABLE_FOR_RANKING" if audit_is_ok
                        else "INSUFFICIENT_HISTORY" if not enough
