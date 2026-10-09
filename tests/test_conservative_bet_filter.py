@@ -250,6 +250,7 @@ class TenMarketTests(unittest.TestCase):
                 result = main(["--leagues", "EPL", "--out-dir", str(raw)])
             self.assertEqual(result, 0)
             self.assertTrue((raw / "conservative_bet_shortlist.csv").exists())
+            self.assertTrue((raw / "conservative_strict_qualifiers.csv").exists())
             self.assertTrue((raw / "conservative_bet_rejections.csv").exists())
             self.assertTrue((raw / "conservative_bet_summary.json").exists())
             self.assertEqual(len(list((raw / "shortlist_history").glob("*.csv"))), 1)
