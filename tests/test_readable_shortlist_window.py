@@ -42,6 +42,24 @@ class FourDaySelectionTests(unittest.TestCase):
         self.assertEqual(info["shortfall"], 0)
         self.assertEqual(len(audit[audit["decision"] == "SHORTLISTED"]), 8)
 
+    def test_four_day_preference_cannot_displace_materially_stronger_models(self):
+        nearby = [fixture(i, kickoff=NOW + timedelta(days=1)) for i in range(8)]
+        stronger_far = [
+            fixture(200 + i, kickoff=NOW + timedelta(days=8))
+            for i in range(2)
+        ]
+        for row in stronger_far:
+            row["p_over_1_5"] = 0.99
+            row["raw_p_over_1_5"] = 0.96
+        picks, _, summary = self.select(nearby + stronger_far)
+        self.assertEqual(len(picks), 8)
+        self.assertFalse(summary["selected_matches_within_four_days"])
+        self.assertTrue(summary["eight_match_four_day_window_available"])
+        self.assertTrue(summary["four_day_window_skipped_for_quality"])
+        self.assertTrue({
+            row["fixture_id"] for row in stronger_far
+        }.issubset(set(picks["fixture_id"])))
+
     def test_choose_highest_chance_eligible_eight_match_window(self):
         low = [fixture(i, kickoff=NOW + timedelta(days=1)) for i in range(8)]
         high = [fixture(100 + i, kickoff=NOW + timedelta(days=8))
