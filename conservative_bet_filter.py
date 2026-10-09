@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 import math
-from typing import Optional, Tuple
+from typing import Mapping, Optional, Tuple
 
 import pandas as pd
 
@@ -19,6 +19,7 @@ DOMESTIC_LEAGUES = frozenset({
     "Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1"
 })
 TARGET_DISTINCT_MATCHES = 8
+MAX_COMPACT_QUALITY_COST = 0.02  # 2 percentage points mean adjusted probability
 MIN_ESTIMATED_EV = 0.03
 MIN_RAW_DC_EV = 0.0
 MIN_TEAM_NAME_MATCH_SCORE = 90.0
@@ -41,6 +42,9 @@ DECISION_COLUMNS = [
     "market_probability", "offered_decimal_odds", "bookmaker",
     "estimated_ev", "raw_dc_ev", "estimated_edge",
     "min_team_name_match_score", "odds_age_hours",
+    "validation_status", "development_validation_matches",
+    "audit_validation_matches", "audit_brier",
+    "calibration_penalty", "rank_probability", "conservative_estimated_ev",
 ]
 SHORTLIST_COLUMNS = DECISION_COLUMNS
 
@@ -99,6 +103,7 @@ def _evaluate_market(
     row: pd.Series,
     spec: tuple,
     now: pd.Timestamp,
+    validation: Optional[Mapping] = None,
 ) -> dict:
     label, key, min_prob, min_raw = spec
     reasons = []
@@ -129,6 +134,30 @@ def _evaluate_market(
     p = _valid_probability(row.get(f"p_{key}"))
     raw_p = _valid_probability(row.get(f"raw_p_{key}"))
     market_p = _valid_probability(row.get(f"market_p_{key}"))
+
+    # Audit controls market eligibility; earlier development data alone
+    # supplies the overconfidence adjustment.
+    validation_status = "NOT_ASSESSED"
+    calibration_penalty = 0.0
+    dev_n, audit_n, audit_brier = None, None, None
+    if validation is not None:
+        market_validation = validation.get("markets", {}).get(key, {})
+        validation_status = market_validation.get(
+            "status", "INSUFFICIENT_HISTORY"
+        )
+        if validation_status != "RELIABLE_FOR_RANKING":
+            reasons.append(f"market historical reliability: {validation_status}")
+        raw_penalty = _number(market_validation.get("confidence_penalty"))
+        if raw_penalty is None or raw_penalty < 0 or raw_penalty > 1:
+            reasons.append("invalid or missing market calibration penalty")
+        else:
+            calibration_penalty = raw_penalty
+        dev_n = market_validation.get("development", {}).get("n")
+        audit_n = market_validation.get("audit", {}).get("n")
+        audit_brier = market_validation.get("audit", {}).get("brier")
+    rank_p = (
+        max(0.0, p - calibration_penalty) if p is not None else None
+    )
     if p is None or p < min_prob:
         reasons.append(f"blended probability below {min_prob:.0%} or missing")
     if raw_p is None or raw_p < min_raw:
@@ -167,10 +196,16 @@ def _evaluate_market(
         reasons.append("specific bookmaker quote is missing, stale or future-dated")
 
     ev = p * price - 1.0 if p is not None and price is not None and price > 1 else None
+    conservative_ev = (
+        rank_p * price - 1.0
+        if rank_p is not None and price is not None and price > 1 else None
+    )
     raw_ev = raw_p * price - 1.0 if raw_p is not None and price is not None and price > 1 else None
     edge = p - market_p if p is not None and market_p is not None else None
-    if ev is None or ev < MIN_ESTIMATED_EV:
-        reasons.append("estimated EV below +3% or missing")
+    if conservative_ev is None or conservative_ev < MIN_ESTIMATED_EV:
+        reasons.append("reliability-adjusted EV below +3% or missing")
+    if rank_p is None or rank_p < min_prob:
+        reasons.append("reliability-adjusted probability below minimum")
     if raw_ev is None or raw_ev < MIN_RAW_DC_EV:
         reasons.append("independent Dixon-Coles EV is negative or missing")
 
@@ -195,12 +230,20 @@ def _evaluate_market(
         "estimated_edge": edge,
         "min_team_name_match_score": confidence,
         "odds_age_hours": age,
+        "validation_status": validation_status,
+        "development_validation_matches": dev_n,
+        "audit_validation_matches": audit_n,
+        "audit_brier": audit_brier,
+        "calibration_penalty": calibration_penalty,
+        "rank_probability": rank_p,
+        "conservative_estimated_ev": conservative_ev,
     }
 
 
 def build_conservative_shortlist(
     predictions: pd.DataFrame,
     as_of: Optional[datetime] = None,
+    market_reliability: Optional[Mapping[str, Mapping]] = None,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Aim for eight distinct fixtures; never fabricate a minimum eight.
 
@@ -216,12 +259,16 @@ def build_conservative_shortlist(
     evaluated = []
     for _, row in predictions.iterrows():
         for spec in MARKET_SPECS:
-            evaluated.append(_evaluate_market(row, spec, now))
+            report = (
+                market_reliability.get(str(row.get("league") or ""), {})
+                if market_reliability is not None else None
+            )
+            evaluated.append(_evaluate_market(row, spec, now, report))
     decisions = pd.DataFrame(evaluated, columns=DECISION_COLUMNS)
 
     eligible = decisions[decisions["decision"] == "ELIGIBLE"].copy()
     eligible = eligible.sort_values(
-        ["predicted_probability", "estimated_ev", "kickoff_utc", "home_team"],
+        ["rank_probability", "conservative_estimated_ev", "kickoff_utc", "home_team"],
         ascending=[False, False, True, True], kind="stable",
     )
 
@@ -246,7 +293,10 @@ def build_conservative_shortlist(
     # candidates over the full available horizon and explain the shortfall.
     chosen = top_per_match.head(TARGET_DISTINCT_MATCHES).index
     compact_window_available = False
+    compact_selected = False
+    compact_skipped_for_quality = False
     best_score = None
+    best_compact = None
     for start in top_per_match["_kickoff"].dropna().sort_values().unique():
         frame = top_per_match.loc[
             (top_per_match["_kickoff"] >= start)
@@ -256,15 +306,25 @@ def build_conservative_shortlist(
             continue
         compact_window_available = True
         cohort = frame.head(TARGET_DISTINCT_MATCHES)
-        # Log-probability sum provides a stable ranking for a collection
-        # of candidates; it is NOT a validated joint win probability.
+        # This cohort score is a preference metric, not a validated
+        # probability that all eight games win together.
         score = (
-            sum(math.log(float(p)) for p in cohort["predicted_probability"]),
-            float(cohort["estimated_ev"].sum()),
+            sum(math.log(float(p)) for p in cohort["rank_probability"]),
+            float(cohort["conservative_estimated_ev"].sum()),
         )
         if best_score is None or score > best_score:
-            best_score = score
-            chosen = cohort.index
+            best_score, best_compact = score, cohort
+
+    if best_compact is not None:
+        global_quality = float(
+            top_per_match.loc[chosen, "rank_probability"].mean()
+        )
+        compact_quality = float(best_compact["rank_probability"].mean())
+        if compact_quality >= global_quality - MAX_COMPACT_QUALITY_COST:
+            chosen = best_compact.index
+            compact_selected = True
+        else:
+            compact_skipped_for_quality = True
 
     alternate = eligible.index.difference(top_per_match.index)
     overflow = top_per_match.index.difference(chosen)
@@ -274,16 +334,16 @@ def build_conservative_shortlist(
     if len(overflow):
         decisions.loc[overflow, "decision"] = "NOT_SELECTED"
         decisions.loc[overflow, "rejection_reasons"] = (
-            "outside strongest eligible 96-hour eight-match cohort"
-            if compact_window_available
-            else "outside eight-match shortlist target"
+            "outside 96-hour cohort of similarly strong candidates"
+            if compact_selected
+            else "below higher-confidence eight-match ranking"
         )
     if len(chosen):
         decisions.loc[chosen, "decision"] = "SHORTLISTED"
 
     shortlist = (
         decisions.loc[chosen, SHORTLIST_COLUMNS]
-        .sort_values(["predicted_probability", "estimated_ev"], ascending=[False, False])
+        .sort_values(["rank_probability", "conservative_estimated_ev"], ascending=[False, False])
         .reset_index(drop=True)
     )
     decisions = decisions.reset_index(drop=True)
@@ -313,6 +373,8 @@ def build_conservative_shortlist(
         "shortfall": TARGET_DISTINCT_MATCHES - n,
         "four_day_window_preferred": True,
         "eight_match_four_day_window_available": compact_window_available,
+        "four_day_window_skipped_for_quality": compact_skipped_for_quality,
+        "max_compact_mean_probability_cost": MAX_COMPACT_QUALITY_COST,
         "selected_matches_within_four_days": inside_four_days,
         "selected_kickoff_span_hours": actual_span,
         "selected_first_kickoff_utc": (
@@ -322,13 +384,27 @@ def build_conservative_shortlist(
             last_kickoff.isoformat() if last_kickoff is not None else None
         ),
         "selection_method": (
-            "Highest-probability qualifying eight-fixture cohort within 96 hours"
-            if compact_window_available else
-            "Highest-probability qualifying fixtures across full forecast horizon"
+            "Highest-quality eligible 96-hour cohort within 2pp of best overall"
+            if compact_selected else
+            "Stronger independently audited candidates prioritized over 96-hour preference"
+            if compact_skipped_for_quality else
+            "Highest-quality eligible fixtures across full forecast horizon"
         ),
         "eligible_markets": [x[0] for x in MARKET_SPECS],
         "eligible_leagues": sorted(DOMESTIC_LEAGUES),
         "min_estimated_ev": MIN_ESTIMATED_EV,
+        "validation_required": market_reliability is not None,
+        "ranking_metric": (
+            "development-calibration-adjusted probability, audit-qualified"
+            if market_reliability is not None else "uncalibrated model probability"
+        ),
+        "validation_market_statuses": {
+            league: {
+                key: state.get("status", "INSUFFICIENT_HISTORY")
+                for key, state in report.get("markets", {}).items()
+            }
+            for league, report in (market_reliability or {}).items()
+        },
         "min_raw_dc_ev": MIN_RAW_DC_EV,
         "min_team_name_match_score": MIN_TEAM_NAME_MATCH_SCORE,
         "max_quote_age_hours": MAX_ODDS_AGE_HOURS,

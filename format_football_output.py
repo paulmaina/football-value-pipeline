@@ -1027,9 +1027,11 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
     """
     columns = [
         "Match", "Shortlisted market", "Kickoff (UTC)", "League",
-        "Model chance", "Unblended Dixon-Coles chance",
-        "Market implied chance", "Bookmaker", "Quoted decimal odds",
-        "Estimated EV", "Unblended estimated EV", "Data/selection status",
+        "Model chance", "Reliability-adjusted chance",
+        "Unblended Dixon-Coles chance", "Market implied chance",
+        "Bookmaker", "Quoted decimal odds", "Estimated EV",
+        "Conservative estimated EV", "Unblended estimated EV",
+        "Historical reliability", "Data/selection status",
     ]
     rows: List[Dict[str, str]] = []
     for _, item in df.iterrows():
@@ -1055,6 +1057,7 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
                 str(item.get("league")) if not is_missing(item.get("league")) else "—"
             ),
             "Model chance": pct(item.get("predicted_probability")),
+            "Reliability-adjusted chance": pct(item.get("rank_probability")),
             "Unblended Dixon-Coles chance": pct(item.get("raw_dc_probability")),
             "Market implied chance": pct(item.get("market_probability")),
             "Bookmaker": (
@@ -1064,7 +1067,15 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
             ),
             "Quoted decimal odds": decimal(item.get("offered_decimal_odds")),
             "Estimated EV": signed_pct(item.get("estimated_ev")),
+            "Conservative estimated EV": signed_pct(
+                item.get("conservative_estimated_ev")
+            ),
             "Unblended estimated EV": signed_pct(item.get("raw_dc_ev")),
+            "Historical reliability": (
+                str(item.get("validation_status"))
+                if not is_missing(item.get("validation_status"))
+                else "Not assessed"
+            ),
             "Data/selection status": (
                 str(item.get("decision"))
                 if not is_missing(item.get("decision"))
@@ -1144,7 +1155,8 @@ def process_conservative_shortlist(
     if count:
         headers = [
             "Match", "Shortlisted market", "Kickoff (UTC)",
-            "Model chance", "Bookmaker", "Quoted decimal odds", "Estimated EV",
+            "Model chance", "Reliability-adjusted chance",
+            "Bookmaker", "Quoted decimal odds", "Conservative estimated EV",
         ]
         lines.append(markdown_table(
             headers,
@@ -1162,8 +1174,13 @@ def process_conservative_shortlist(
         "market, not the chance of the favorite winning unless the market "
         "is a Home/Away win.",
         "",
-        "The EV column is an estimate based on quoted prices, not an "
-        "assured return. Prices can change before kickoff.",
+        "Reliability-adjusted chance discounts historical overconfidence "
+        "using an earlier chronological development sample; a later audit "
+        "must pass the predefined quality gate. It remains an estimate.",
+        "",
+        "Conservative estimated EV uses that adjusted chance and the quoted "
+        "price. Neither the original EV nor the adjusted EV is assured; "
+        "bookmaker prices may change before kickoff.",
         "",
         (
             "**Four-day selection:** "
