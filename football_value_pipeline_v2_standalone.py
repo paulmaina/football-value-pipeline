@@ -2642,6 +2642,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "live_odds_matched": int(
                 fixtures.get("odds_source", pd.Series(dtype=object)).notna().sum()
             ),
+            "additional_event_odds_calls_used_before_this_league": self.extra_event_odds_requests,
+            "additional_event_odds_calls_budget": self.max_extra_event_odds_requests,
         }
 
         if fixtures.empty:
@@ -2652,6 +2654,38 @@ class FootballValuePipelineV2(FootballValuePipeline):
 
         for _, row in fixtures.iterrows():
             pred, score_dist = self._predict_row(model, row)
+            # Event-scoped extra odds are quota-consuming. Query plausible
+            # domestic fixtures only, and never exceed the global request cap.
+            if (
+                league.key != "UCL"
+                and self.odds_api is not None
+                and row.get("odds_source") == "The Odds API"
+                and self.extra_event_odds_requests < self.max_extra_event_odds_requests
+                and min(
+                    float(pred.get("home_name_match_score") or 0.0),
+                    float(pred.get("away_name_match_score") or 0.0),
+                ) >= 90.0
+                and any(
+                    float(pred.get(m) or 0.0) >= threshold
+                    for m, threshold in (
+                        ("p_over_1_5", 0.75),
+                        ("p_under_3_5", 0.73),
+                        ("p_btts_yes", 0.67),
+                    )
+                )
+            ):
+                event_id = row.get("odds_event_id")
+                if isinstance(event_id, str) and event_id:
+                    self.extra_event_odds_requests += 1
+                    try:
+                        pred.update(
+                            self.odds_api.extra_markets_for_event(league, event_id)
+                        )
+                    except Exception as exc:
+                        warnings.warn(
+                            f"Additional odds missing for {event_id}: {exc}",
+                            RuntimeWarning,
+                        )
             home, away = str(row["HomeTeam"]), str(row["AwayTeam"])
             match_id = f"{row['Date'].date()}__{home}__{away}"
             scorelines[match_id] = score_dist
