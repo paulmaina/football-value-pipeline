@@ -1035,6 +1035,7 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
         "High-confidence audit matches", "High-confidence observed rate",
         "Observed 95% Wilson lower", "Observed 95% Wilson upper",
         "High-confidence evidence status", "Data/selection status",
+        "Qualification", "Near-miss reasons", "Historical gap score",
     ]
     rows: List[Dict[str, str]] = []
     for _, item in df.iterrows():
@@ -1108,6 +1109,21 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
                 if not is_missing(item.get("decision"))
                 else "—"
             ),
+            "Qualification": (
+                str(item.get("selection_tier"))
+                if not is_missing(item.get("selection_tier"))
+                else "STRICT" if item.get("decision") == "SHORTLISTED"
+                else "Not classified"
+            ),
+            "Near-miss reasons": (
+                str(item.get("near_miss_reason"))
+                if not is_missing(item.get("near_miss_reason"))
+                else "—"
+            ),
+            "Historical gap score": (
+                decimal(item.get("historical_gap_score"))
+                if not is_missing(item.get("historical_gap_score")) else "—"
+            ),
         })
     return pd.DataFrame(rows, columns=columns)
 
@@ -1140,7 +1156,9 @@ def process_conservative_shortlist(
     summary = load_json_file(input_dir / "conservative_bet_summary.json")
     if "decision" in raw.columns:
         # Fail closed if a mistakenly supplied mixed decision file slips in.
-        raw = raw.loc[raw["decision"] == "SHORTLISTED"].copy()
+        raw = raw.loc[
+            raw["decision"].isin(["SHORTLISTED", "SHORTLISTED_PROVISIONAL"])
+        ].copy()
 
     readable = readable_shortlist_frame(raw)
     readable.to_csv(
@@ -1150,6 +1168,8 @@ def process_conservative_shortlist(
     )
 
     count = len(readable)
+    n_strict = int(summary.get("n_strict_qualified", count))
+    n_provisional = int(summary.get("n_provisional_watchlist", 0))
     target = summary.get("target_distinct_matches", 10)
     status = summary.get("status") or ("CANDIDATES_FOUND" if count else "NO BET")
     span = to_float(summary.get("selected_kickoff_span_hours"))
@@ -1163,7 +1183,8 @@ def process_conservative_shortlist(
     lines = [
         "# Conservative shortlisted matches and markets",
         "",
-        f"**Shortlisted:** {count} of target {target} distinct matches.",
+        f"**Candidates:** {count} of target {target} distinct matches.",
+        f"**Strictly qualified:** {n_strict}. **Provisional watchlist:** {n_provisional}.",
         f"**Pipeline status:** {status}.",
         f"**Generated (UTC):** {generated}.",
         (
@@ -1172,18 +1193,20 @@ def process_conservative_shortlist(
             + (f" (span: {span:.1f} hours)." if span is not None else ".")
         ),
         "",
-        "> These are screened candidates, not guaranteed results or a "
-        "validated profitable betting strategy. A combined ten-match "
-        "betslip is considerably riskier than evaluating each match separately.",
+        "> WARNING: PROVISIONAL watchlist entries FAILED one or more strict "
+        "historical/EV rules; they are for research only, NOT qualified bets. "
+        "Even STRICT candidates are not guaranteed outcomes or proven "
+        "profitable selections. Do not treat ten candidates as a ten-leg betslip.",
         "",
         "## Shortlisted market for each match",
         "",
     ]
     if count:
         headers = [
-            "Match", "Shortlisted market", "Kickoff (UTC)",
+            "Match", "Shortlisted market", "Qualification", "Kickoff (UTC)",
             "Model chance", "Reliability-adjusted chance",
             "Bookmaker", "Quoted decimal odds", "Conservative estimated EV",
+            "Near-miss reasons",
         ]
         lines.append(markdown_table(
             headers,
@@ -1196,10 +1219,13 @@ def process_conservative_shortlist(
         "",
         "## Interpretation",
         "",
-        "Only the **Shortlisted market** for each match passed the model's "
-        "filters. 'Model chance' is the forecast probability for that exact "
-        "market, not the chance of the favorite winning unless the market "
-        "is a Home/Away win.",
+        "**STRICT** means every configured historical, probability, odds "
+        "and EV rule passed. **PROVISIONAL** means the specified historical "
+        "or small adjusted-EV checks FAILED, although the essential source, "
+        "reference-market integrity, team and price rules passed. "
+        "Never count provisional candidates as verified reliable bets. "
+        "Model chance describes the selected market, not necessarily the "
+        "home or away match winner.",
         "",
         "Reliability-adjusted chance discounts historical overconfidence "
         "using an earlier chronological development sample; a later audit "
