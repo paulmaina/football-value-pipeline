@@ -36,6 +36,60 @@ python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga 
 The automatic weight tuner remains in the codebase for future research,
 but is **not part of the recommended daily-use model**.
 
+## Conservative shortlist (generated automatically)
+
+The **same single model and command** now also produces an experimental
+high-confidence 1X2 candidate shortlist. No extra CLI flags are needed:
+
+```powershell
+python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life
+```
+
+Files under the normal `football_output_v2/raw/` directory:
+
+- `conservative_bet_shortlist.csv` — up to **two candidate matches per
+  UTC kickoff date**, with their probability, independent raw Dixon–Coles
+  probability, quoted odds, bookmaker, estimated EV, and timestamp.
+- `conservative_bet_rejections.csv` — *every home/away market examined*,
+  its SHORTLISTED / REJECTED / NOT_SELECTED decision, and detailed reasons.
+- `conservative_bet_summary.json` — includes `"status": "NO BET"`
+  when no matches meet all requirements.
+- `shortlist_history/conservative_decisions_<timestamp>.csv` — dated,
+  retained decisions for later feedback. The three current `raw`
+  files above are overwritten on subsequent runs.
+
+This filter **does not change any forecast probabilities, place wagers,
+or generate accumulators**. It rejects everything outside the five
+domestic leagues (UCL can still appear in the prediction files), and
+considers **home win / away win only**. It requires all of the following:
+
+- Final blended win probability **at least 65%**.
+- Raw Dixon–Coles probability **at least 50%**, with the same selection
+  strictly its highest-probability 1X2 outcome.
+- Estimated EV at the **actual best bookmaker quote at least +3%**.
+- Both teams resolved against historical training teams with name
+  confidence **at least 90** (no league-average unknown-team fallback).
+- A complete coherent current The Odds API 1X2 reference market from
+  **at least two bookmakers**, with a confirmed selected-bookmaker quote.
+- That specific best-quote market's last-update timestamp **no older than
+  24 hours** (or more than five minutes in the future), and the match
+  starting **at least 20 minutes after filter evaluation**.
+
+Candidates are prioritized by predicted probability, then estimated EV,
+and capped at **two matches per UTC date globally across all selected
+leagues**, not two per league. Zero picks is a valid outcome. A missing or
+untrusted input is grounds for **rejecting**, not silently guessing.
+
+**Caution:** None of the above cutoffs has been backtested as a
+profitable betting strategy. The 50/50 forecast includes bookmaker
+information, which makes EV versus those bookmakers partly circular.
+A +3% *estimated* EV is not a guaranteed advantage. Quotes can move or
+be unavailable by the time a bookmaker is accessed. For the feedback
+period, consider tracking the shortlist without betting and comparing
+actual results, forecast probabilities, prices and final returns.
+Using independent singles is less fragile than an all-or-nothing
+multi-match accumulator, but neither is guaranteed safe.
+
 ## Current data architecture
 
 The pipeline separates historical modelling data, current fixtures, and live market odds.
