@@ -118,7 +118,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.4.0"
+PIPELINE_VERSION = "2.5.0"
 
 
 # ---------------------------------------------------------------------------
@@ -2351,6 +2351,13 @@ class FootballValuePipelineV2(FootballValuePipeline):
         # Per-event BTTS and alternate totals requests consume additional API credits.
         self.extra_event_odds_requests = 0
         self.max_extra_event_odds_requests = 24
+        from goal_market_validation import distribute_event_odds_budget
+        self.extra_event_odds_quota = distribute_event_odds_budget(
+            ["EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1"], 24
+        )
+        self.extra_event_odds_by_league = {
+            key: 0 for key in self.extra_event_odds_quota
+        }
 
         odds_api_key = odds_api_key or os.getenv("THE_ODDS_API_KEY")
         football_data_api_key = (
@@ -2644,6 +2651,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             ),
             "additional_event_odds_calls_used_before_this_league": self.extra_event_odds_requests,
             "additional_event_odds_calls_budget": self.max_extra_event_odds_requests,
+            "additional_event_odds_league_quota": self.extra_event_odds_quota.get(league.key, 0),
         }
 
         if fixtures.empty:
@@ -2652,40 +2660,43 @@ class FootballValuePipelineV2(FootballValuePipeline):
         records: List[Dict[str, object]] = []
         scorelines: Dict[str, Dict[str, float]] = {}
 
-        for _, row in fixtures.iterrows():
-            pred, score_dist = self._predict_row(model, row)
-            # Event-scoped extra odds are quota-consuming. Query plausible
-            # domestic fixtures only, and never exceed the global request cap.
-            if (
-                league.key != "UCL"
-                and self.odds_api is not None
-                and row.get("odds_source") == "The Odds API"
-                and self.extra_event_odds_requests < self.max_extra_event_odds_requests
-                and min(
-                    float(pred.get("home_name_match_score") or 0.0),
-                    float(pred.get("away_name_match_score") or 0.0),
-                ) >= 90.0
-                and any(
-                    float(pred.get(m) or 0.0) >= threshold
-                    for m, threshold in (
-                        ("p_over_1_5", 0.75),
-                        ("p_under_3_5", 0.73),
-                        ("p_btts_yes", 0.67),
-                    )
+        # Predict all fixtures first, so the limited real-price requests
+        # are spent on the league's strongest candidates, not fixture order.
+        prepared = [
+            (row.to_dict(), *self._predict_row(model, row))
+            for _, row in fixtures.iterrows()
+        ]
+        from goal_market_validation import prioritized_additional_events
+
+        quota = max(
+            0, self.extra_event_odds_quota.get(league.key, 0)
+            - self.extra_event_odds_by_league.get(league.key, 0)
+        )
+        if self.odds_api is not None and quota > 0:
+            positions = prioritized_additional_events(
+                [(row, pred) for row, pred, _ in prepared], quota
+            )
+            for idx in positions:
+                if self.extra_event_odds_requests >= self.max_extra_event_odds_requests:
+                    break
+                row, pred, _ = prepared[idx]
+                event_id = row["odds_event_id"]
+                self.extra_event_odds_requests += 1
+                self.extra_event_odds_by_league[league.key] = (
+                    self.extra_event_odds_by_league.get(league.key, 0) + 1
                 )
-            ):
-                event_id = row.get("odds_event_id")
-                if isinstance(event_id, str) and event_id:
-                    self.extra_event_odds_requests += 1
-                    try:
-                        pred.update(
-                            self.odds_api.extra_markets_for_event(league, event_id)
-                        )
-                    except Exception as exc:
-                        warnings.warn(
-                            f"Additional odds missing for {event_id}: {exc}",
-                            RuntimeWarning,
-                        )
+                try:
+                    pred.update(self.odds_api.extra_markets_for_event(league, event_id))
+                except Exception as exc:
+                    warnings.warn(
+                        f"Additional odds missing for {event_id}: {exc}",
+                        RuntimeWarning,
+                    )
+        diagnostics["additional_event_odds_calls_this_league"] = (
+            self.extra_event_odds_by_league.get(league.key, 0)
+        )
+
+        for row, pred, score_dist in prepared:
             home, away = str(row["HomeTeam"]), str(row["AwayTeam"])
             match_id = f"{row['Date'].date()}__{home}__{away}"
             scorelines[match_id] = score_dist
@@ -2774,6 +2785,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             edges.append(end)
 
         rows: List[Dict[str, object]] = []
+        from goal_market_validation import enrich_historical_goal_markets
 
         for s, e in zip(edges[:-1], edges[1:]):
             train = hist[hist["Date"] < s]
@@ -2829,6 +2841,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     "p_over_4_5": pred["p_over_4_5"],
                     "p_under_4_5": pred["p_under_4_5"],
                     "actual_over_2_5": int(int(row["FTHG"]) + int(row["FTAG"]) >= 3),
+                    **enrich_historical_goal_markets(row, pred),
                     "open_source": open_src,
                     "close_source": close_src,
                     "open_home": open_ref[0],
