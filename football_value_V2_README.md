@@ -2,6 +2,40 @@
 
 V2 is a multi-league football probability and value pipeline built around a recency-weighted Dixon-Coles score model.
 
+## Recommended daily-use model (single configuration)
+
+**Use this command for the next several weeks.** It runs one consistent
+Dixon-Coles model, with a **fixed 50% Dixon-Coles / 50% de-vigged
+bookmaker 1X2 blend**, and tunes each competition's historical recency
+half-life. You choose only the competitions and whether to tune decay:
+
+```powershell
+python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life
+```
+
+- The market blend is **0.50 by default**; do not pass `--market-weight`
+  or `--auto-market-weight` in normal use. Keeping a single fixed rule
+  avoids changing the model definition between prediction runs.
+- Dixon-Coles uses historical match results; the market contribution uses
+  a coherent de-vigged live 1X2 bookmaker snapshot. Without complete
+  bookmaker 1X2 odds, that fixture remains a pure Dixon-Coles prediction.
+- Historical audit results indicated that a fixed 0.50 blend improved 1X2
+  log loss over pure Dixon-Coles in all five **domestic** league audit
+  samples. This was a retrospective comparison, not an untouched final
+  test; it does **not** prove better exact-score or betting performance.
+  **UCL has no usable historical opening-odds audit yet**, so its 50%
+  blend is an unvalidated extrapolation.
+- The CSV includes final `p_home/p_draw/p_away` and retained raw
+  `raw_p_home/raw_p_draw/raw_p_away`, plus `raw_ev_*`
+  and `raw_edge_prob_*` for independent model-signal auditing.
+- Send back actual match results alongside saved forecast CSVs after a few
+  matchweeks to measure accuracy, calibration, and whether betting edges
+  are meaningful. Do not use ROI from only a handful of bets as evidence
+  of predictive improvement.
+
+The automatic weight tuner remains in the codebase for future research,
+but is **not part of the recommended daily-use model**.
+
 ## Current data architecture
 
 The pipeline separates historical modelling data, current fixtures, and live market odds.
@@ -162,7 +196,7 @@ The score matrix remains the single probability engine:
 
 If `--market-weight > 0`, the Home/Draw/Away regions of the score matrix are reweighted toward a de-vigged market target. All downstream markets are then recalculated from the same matrix.
 
-`0.0` remains the default. Do not tune market weight on the same test set used for final evaluation.
+The **recommended default is `0.50`**, a single fixed blend chosen for an extended feedback period. Do not tune market weight on the same test set used for final evaluation.
 
 ## Dixon-Coles exponential time-decay tuning
 
@@ -251,6 +285,19 @@ The self-test and automated unit tests cover the exact objective gradient,
 high-dimensional synthetic fitting, and leak-free temporal validation.
 Live provider calls and actual historical score validation remain separate
 checks.
+
+## Market-weight research (advanced, not part of daily use)
+
+The optional `--auto-market-weight` research mode evaluates historical
+opening-bookmaker probability blends by chronological development/audit
+splits. It requires historical opening prices and can fall back to the
+standard 0.50 weight when no suitable history is available. Results
+are written to `<league>_market_weight_validation.json`.
+
+This research helper remains available for a future dedicated experiment.
+For now, **do not run it** in the daily-use model. Its historical audit
+may overlap with half-life tuning, so it is not a final independent
+assessment of prediction performance.
 
 ## Walk-forward backtest
 
