@@ -18,4 +18,6 @@ python football_value_pipeline_v2_standalone.py --leagues EPL
 
 python football_value_pipeline_v2_standalone.py --self-test
 
+python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life
+
 python format_football_output.py
