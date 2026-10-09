@@ -132,7 +132,7 @@ previously used to tune the half-life parameter, so the audit is
 proof that a market has a true bookmaker edge. Always collect
 timestamped predictions and final scores for future evaluation.
 
-## Eight-match, five-market shortlist (experimental)
+## Ten-match, five-market shortlist (experimental)
 
 Running the existing command (no extra flags) now also produces a
 **target of ten distinct match candidates per run**, with at most one
