@@ -751,6 +751,106 @@ class TheOddsAPI:
         ]
         return pd.DataFrame(rows)
 
+    def extra_markets_for_event(
+        self, league: LeagueConfig, event_id: str
+    ) -> Dict[str, object]:
+        """Per-event real-price request for alternate totals and BTTS.
+
+        Additional markets are bookmaker/competition dependent. All
+        returned prices must be verified complementary outcome pairs
+        from the same bookmaker; never estimate unlisted odds.
+        """
+        safe_id = str(event_id)
+        if not re.fullmatch(r"[A-Za-z0-9_-]+", safe_id):
+            raise ValueError("Invalid The Odds API event ID")
+        url = (
+            f"{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}"
+            f"/events/{safe_id}/odds"
+        )
+        region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
+        payload = self.http.get_json(
+            url,
+            f"oddsapi_additional_{league.key}_{region_tag}_{safe_id}.json",
+            ttl=timedelta(minutes=5),
+            force_refresh=self.force_refresh,
+            params={
+                "apiKey": self.api_key,
+                "regions": self.regions,
+                "markets": "alternate_totals,btts",
+                "oddsFormat": "decimal",
+                "dateFormat": "iso",
+            },
+            allow_stale=False,
+        )
+        if not isinstance(payload, dict) or str(payload.get("id")) != safe_id:
+            raise RuntimeError("Event odds response missing/mismatched ID")
+
+        offers: Dict[str, List[Tuple[str, str, float, float]]] = {
+            "over_1_5": [], "under_3_5": [], "btts_yes": [],
+        }
+        books = payload.get("bookmakers")
+        if not isinstance(books, list):
+            return {}
+
+        for book in books:
+            if not isinstance(book, dict):
+                continue
+            name = str(book.get("title") or book.get("key") or "").strip()
+            if not name:
+                continue
+            for market_key in ("alternate_totals", "btts"):
+                market = self._market(book, market_key)
+                if market is None:
+                    continue
+                outcomes = market.get("outcomes")
+                if not isinstance(outcomes, list):
+                    continue
+                updated = self._last_update(book, market)
+                for point in ((1.5, 3.5) if market_key == "alternate_totals" else (None,)):
+                    pair: Dict[str, float] = {}
+                    for outcome in outcomes:
+                        if not isinstance(outcome, dict):
+                            continue
+                        if point is not None and safe_float(outcome.get("point")) != point:
+                            continue
+                        side = str(outcome.get("name") or "").lower().strip()
+                        price = _valid_price(outcome.get("price"))
+                        if price is not None:
+                            pair[side] = price
+                    left, right = (
+                        ("over", "under") if point is not None else ("yes", "no")
+                    )
+                    if left not in pair or right not in pair:
+                        continue
+                    if point == 1.5:
+                        offers["over_1_5"].append(
+                            (updated, name, pair["over"], pair["under"])
+                        )
+                    elif point == 3.5:
+                        offers["under_3_5"].append(
+                            (updated, name, pair["under"], pair["over"])
+                        )
+                    else:
+                        offers["btts_yes"].append(
+                            (updated, name, pair["yes"], pair["no"])
+                        )
+
+        result: Dict[str, object] = {}
+        for market, available in offers.items():
+            if not available:
+                continue
+            ref = max(available, key=lambda x: x[0])
+            best = max(available, key=lambda x: x[2])
+            fair = devig([ref[2], ref[3]], method="power")
+            result[f"market_p_{market}"] = fair[0]
+            result[f"market_{market}_odds"] = best[2]
+            result[f"best_{market}_bookmaker"] = best[1]
+            result[f"market_best_{market}_last_update_utc"] = best[0] or None
+            result[f"market_reference_{market}_odds"] = ref[2]
+            result[f"market_reference_{market}_opposite_odds"] = ref[3]
+            result[f"market_{market}_bookmakers"] = len(available)
+        return result
+
 
 class FootballDataOrg:
     """Optional v4 fixture fallback backed by football-data.org."""
