@@ -345,7 +345,7 @@ def build_conservative_shortlist(
         compact_window_available = True
         cohort = frame.head(TARGET_DISTINCT_MATCHES)
         # This cohort score is a preference metric, not a validated
-        # probability that all eight games win together.
+        # probability that all ten selections win together.
         score = (
             sum(math.log(float(p)) for p in cohort["rank_probability"]),
             float(cohort["conservative_estimated_ev"].sum()),
