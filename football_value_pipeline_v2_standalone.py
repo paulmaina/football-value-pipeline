@@ -118,7 +118,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.3.1"
+PIPELINE_VERSION = "2.4.0"
 
 
 # ---------------------------------------------------------------------------
@@ -750,6 +750,106 @@ class TheOddsAPI:
             if isinstance(event, dict) and event.get("id")
         ]
         return pd.DataFrame(rows)
+
+    def extra_markets_for_event(
+        self, league: LeagueConfig, event_id: str
+    ) -> Dict[str, object]:
+        """Per-event real-price request for alternate totals and BTTS.
+
+        Additional markets are bookmaker/competition dependent. All
+        returned prices must be verified complementary outcome pairs
+        from the same bookmaker; never estimate unlisted odds.
+        """
+        safe_id = str(event_id)
+        if not re.fullmatch(r"[A-Za-z0-9_-]+", safe_id):
+            raise ValueError("Invalid The Odds API event ID")
+        url = (
+            f"{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}"
+            f"/events/{safe_id}/odds"
+        )
+        region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
+        payload = self.http.get_json(
+            url,
+            f"oddsapi_additional_{league.key}_{region_tag}_{safe_id}.json",
+            ttl=timedelta(minutes=5),
+            force_refresh=self.force_refresh,
+            params={
+                "apiKey": self.api_key,
+                "regions": self.regions,
+                "markets": "alternate_totals,btts",
+                "oddsFormat": "decimal",
+                "dateFormat": "iso",
+            },
+            allow_stale=False,
+        )
+        if not isinstance(payload, dict) or str(payload.get("id")) != safe_id:
+            raise RuntimeError("Event odds response missing/mismatched ID")
+
+        offers: Dict[str, List[Tuple[str, str, float, float]]] = {
+            "over_1_5": [], "under_3_5": [], "btts_yes": [],
+        }
+        books = payload.get("bookmakers")
+        if not isinstance(books, list):
+            return {}
+
+        for book in books:
+            if not isinstance(book, dict):
+                continue
+            name = str(book.get("title") or book.get("key") or "").strip()
+            if not name:
+                continue
+            for market_key in ("alternate_totals", "btts"):
+                market = self._market(book, market_key)
+                if market is None:
+                    continue
+                outcomes = market.get("outcomes")
+                if not isinstance(outcomes, list):
+                    continue
+                updated = self._last_update(book, market)
+                for point in ((1.5, 3.5) if market_key == "alternate_totals" else (None,)):
+                    pair: Dict[str, float] = {}
+                    for outcome in outcomes:
+                        if not isinstance(outcome, dict):
+                            continue
+                        if point is not None and safe_float(outcome.get("point")) != point:
+                            continue
+                        side = str(outcome.get("name") or "").lower().strip()
+                        price = _valid_price(outcome.get("price"))
+                        if price is not None:
+                            pair[side] = price
+                    left, right = (
+                        ("over", "under") if point is not None else ("yes", "no")
+                    )
+                    if left not in pair or right not in pair:
+                        continue
+                    if point == 1.5:
+                        offers["over_1_5"].append(
+                            (updated, name, pair["over"], pair["under"])
+                        )
+                    elif point == 3.5:
+                        offers["under_3_5"].append(
+                            (updated, name, pair["under"], pair["over"])
+                        )
+                    else:
+                        offers["btts_yes"].append(
+                            (updated, name, pair["yes"], pair["no"])
+                        )
+
+        result: Dict[str, object] = {}
+        for market, available in offers.items():
+            if not available:
+                continue
+            ref = max(available, key=lambda x: x[0])
+            best = max(available, key=lambda x: x[2])
+            fair = devig([ref[2], ref[3]], method="power")
+            result[f"market_p_{market}"] = fair[0]
+            result[f"market_{market}_odds"] = best[2]
+            result[f"best_{market}_bookmaker"] = best[1]
+            result[f"market_best_{market}_last_update_utc"] = best[0] or None
+            result[f"market_reference_{market}_odds"] = ref[2]
+            result[f"market_reference_{market}_opposite_odds"] = ref[3]
+            result[f"market_{market}_bookmakers"] = len(available)
+        return result
 
 
 class FootballDataOrg:
@@ -1968,6 +2068,8 @@ def prediction_from_matrix(
         "fair_draw": fair_odds(x12["draw"]),
         "fair_away": fair_odds(x12["away"]),
         "predicted_1x2": max(x12, key=x12.get),
+        "p_btts_yes": float(matrix[1:, 1:].sum()),
+        "p_btts_no": float(1.0 - matrix[1:, 1:].sum()),
         "top_scorelines": model.top_scorelines(matrix, n=top_n_scorelines),
         # Persist only the highest-probability exact scores. The complete matrix
         # is still used above for 1X2 and totals calculations, but the low-
@@ -2246,6 +2348,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
         self.odds_regions = str(odds_regions)
         self.fixture_provider = fixture_provider
         self.live_odds = bool(live_odds)
+        # Per-event BTTS and alternate totals requests consume additional API credits.
+        self.extra_event_odds_requests = 0
+        self.max_extra_event_odds_requests = 24
 
         odds_api_key = odds_api_key or os.getenv("THE_ODDS_API_KEY")
         football_data_api_key = (
@@ -2438,6 +2543,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
         matrix, meta = model.score_matrix(home, away)
 
         raw_x12 = model.one_x_two(matrix)
+        raw_over_1_5 = model.over_under(matrix, 1.5)["over"]
+        raw_under_3_5 = model.over_under(matrix, 3.5)["under"]
+        raw_btts_yes = float(matrix[1:, 1:].sum())
         snapshot = market_snapshot(row, devig_method=self.devig_method)
         market_probs = [
             snapshot["market_p_home"],
@@ -2459,6 +2567,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
         pred["raw_p_home"] = raw_x12["home"]
         pred["raw_p_draw"] = raw_x12["draw"]
         pred["raw_p_away"] = raw_x12["away"]
+        pred["raw_p_over_1_5"] = raw_over_1_5
+        pred["raw_p_under_3_5"] = raw_under_3_5
+        pred["raw_p_btts_yes"] = raw_btts_yes
         pred["market_weight"] = self.market_weight if blend_applied else 0.0
         pred["market_blend_applied"] = blend_applied
         add_value_metrics(pred, snapshot)
@@ -2531,6 +2642,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "live_odds_matched": int(
                 fixtures.get("odds_source", pd.Series(dtype=object)).notna().sum()
             ),
+            "additional_event_odds_calls_used_before_this_league": self.extra_event_odds_requests,
+            "additional_event_odds_calls_budget": self.max_extra_event_odds_requests,
         }
 
         if fixtures.empty:
@@ -2541,6 +2654,38 @@ class FootballValuePipelineV2(FootballValuePipeline):
 
         for _, row in fixtures.iterrows():
             pred, score_dist = self._predict_row(model, row)
+            # Event-scoped extra odds are quota-consuming. Query plausible
+            # domestic fixtures only, and never exceed the global request cap.
+            if (
+                league.key != "UCL"
+                and self.odds_api is not None
+                and row.get("odds_source") == "The Odds API"
+                and self.extra_event_odds_requests < self.max_extra_event_odds_requests
+                and min(
+                    float(pred.get("home_name_match_score") or 0.0),
+                    float(pred.get("away_name_match_score") or 0.0),
+                ) >= 90.0
+                and any(
+                    float(pred.get(m) or 0.0) >= threshold
+                    for m, threshold in (
+                        ("p_over_1_5", 0.75),
+                        ("p_under_3_5", 0.73),
+                        ("p_btts_yes", 0.67),
+                    )
+                )
+            ):
+                event_id = row.get("odds_event_id")
+                if isinstance(event_id, str) and event_id:
+                    self.extra_event_odds_requests += 1
+                    try:
+                        pred.update(
+                            self.odds_api.extra_markets_for_event(league, event_id)
+                        )
+                    except Exception as exc:
+                        warnings.warn(
+                            f"Additional odds missing for {event_id}: {exc}",
+                            RuntimeWarning,
+                        )
             home, away = str(row["HomeTeam"]), str(row["AwayTeam"])
             match_id = f"{row['Date'].date()}__{home}__{away}"
             scorelines[match_id] = score_dist
