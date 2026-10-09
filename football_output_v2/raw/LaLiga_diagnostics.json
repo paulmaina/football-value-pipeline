@@ -35,6 +35,6 @@
     "away": "RELIABLE_FOR_RANKING",
     "over_1_5": "RELIABLE_FOR_RANKING",
     "under_3_5": "RELIABLE_FOR_RANKING",
-    "btts_yes": "RELIABLE_FOR_RANKING"
+    "btts_yes": "UNRELIABLE_AUDIT"
   }
 }

@@ -33,8 +33,8 @@
   "goal_market_reliability": {
     "home": "RELIABLE_FOR_RANKING",
     "away": "RELIABLE_FOR_RANKING",
-    "over_1_5": "RELIABLE_FOR_RANKING",
+    "over_1_5": "UNRELIABLE_AUDIT",
     "under_3_5": "UNRELIABLE_AUDIT",
-    "btts_yes": "RELIABLE_FOR_RANKING"
+    "btts_yes": "UNRELIABLE_AUDIT"
   }
 }
