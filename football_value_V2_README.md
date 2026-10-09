@@ -132,7 +132,62 @@ previously used to tune the half-life parameter, so the audit is
 proof that a market has a true bookmaker edge. Always collect
 timestamped predictions and final scores for future evaluation.
 
-## Ten-match, five-market shortlist (experimental)
+## Ten candidates: strict qualifiers and transparent near-misses
+
+The run now produces **up to 10 distinct match/market candidates**,
+without changing the single 50/50 forecasting model or its CLI. The
+top candidates are separated into two **qualification tiers**:
+
+- **STRICT**: passed every existing market-specific, price, team, EV and
+  historical audit rule. These remain estimates, not guaranteed wins.
+- **PROVISIONAL**: *failed at least one strict requirement*. These are
+  **research-only WATCHLIST entries, not verified bets**. They may be
+  included only when fewer than ten STRICT fixtures exist, and only
+  if all non-negotiable market-data rules still pass.
+
+The provisional fallback is restricted to **near historical misses**:
+an underpopulated >=75% or >=85% historical tier with at least **3
+development and 2 audit outcomes**, modest tier overconfidence (at
+most 15 percentage points, explicitly marked), or an
+**adjusted EV of at least +1.5%** and/or adjusted win probability
+at most **1.5 percentage points below** its strict minimum. These
+are *watchlist-only tolerances*, not claims that the failing markets
+have predictive or betting value. Markets that fail the overall
+audit, whose raw independent Dixon–Coles EV is negative, have
+insufficiently matched teams, stale quotes, unknown odds,
+or a malformed reference market are **never backfilled**.
+Watchlist ranking emphasizes closeness to the historic gate before
+model probability; one market per fixture is enforced globally.
+
+The files `conservative_bet_shortlist.csv` and
+`conservative_bet_shortlist_readable.csv` now carry
+`selection_tier` / `Qualification`, `near_miss_reason`, and
+`historical_gap_score`. `conservative_bet_summary.json` reports
+`n_strict_qualified` versus `n_provisional_watchlist` and, when
+ten is reached with watchlist entries, `TARGET_WITH_PROVISIONAL`
+rather than falsely claiming ten fully qualified picks. The readable
+Markdown report displays the strict/watchlist breakdown.
+The old `eight_match_four_day_window_available` summary field
+is renamed to `ten_match_four_day_window_available`.
+
+**Live bookmaker quality repair (v2.7):** Complete 1X2 and goal-market
+reference odds must imply a sane total inverse-odds sum
+(overround) between **0.98 and 1.20**. Corrupt most-recent
+bookmakers are ignored when choosing the reference and **cannot
+contribute best odds**. The pipeline uses the newest remaining valid
+book or rejects the market if no valid reference exists. This
+specifically prevents the previously observed 1.10/1.10/1.10
+Ligue 1 Betfair quotes from contaminating the bookmaker blend.
+The margin range is a heuristic integrity guard, not proof the
+resulting model is calibrated.
+
+**Do not place a ten-leg accumulator based on these lists.**
+Even ten truly strict single-match predictions would have a lower
+combined all-correct probability than any individual pick.
+Provisional rows, by definition, failed validation. Fewer than ten
+rows remains possible if honest, valid candidates are unavailable.
+
+## Ten-match, five-market shortlist (experimental; graded qualification)
 
 Running the existing command (no extra flags) now also produces a
 **target of ten distinct match candidates per run**, with at most one
@@ -186,7 +241,8 @@ The new files are:
 The formatter does **not** choose or revise candidate markets and
 never changes the raw shortlist.
 
-**Ten is a target, never a minimum guaranteed by relaxation.** No
+**Ten is a visible candidate target: STRICT rules are never relaxed,
+and PROVISIONAL rows are prominently marked watchlist-only.** No
 market gets picked without a verified bookmaker price. If fewer than
 ten qualifying matches are available, the result is short with
 `BELOW_TARGET` or `NO BET`. Multiple markets on the same football
