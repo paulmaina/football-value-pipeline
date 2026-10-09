@@ -88,10 +88,9 @@ def _evaluate_market(
         fixture_date = kickoff.date().isoformat()
 
     source = str(row.get("odds_source") or "")
-    if source != "The Odds API" or row.get("market_blend_applied") is not True:
-        # pandas bools are usually bool, but coerce explicitly to accept numpy.bool_.
-        if source != "The Odds API" or row.get("market_blend_applied") not in (True, 1):
-            reasons.append("no complete blended live 1X2 market")
+    # numpy.bool_ and native bool are both accepted by membership below.
+    if source != "The Odds API" or row.get("market_blend_applied") not in (True, 1):
+        reasons.append("no complete blended live 1X2 market")
 
     n_books = _number(row.get("odds_bookmakers_1x2"))
     if n_books is None or n_books < MIN_COMPLETE_BOOKMAKERS:
@@ -118,23 +117,16 @@ def _evaluate_market(
     raw_h = _valid_probability(row.get("raw_p_home"))
     raw_d = _valid_probability(row.get("raw_p_draw"))
     raw_a = _valid_probability(row.get("raw_p_away"))
-    if (
-        raw_p is None or raw_p < MIN_RAW_PROBABILITY
-        or any(x is None for x in (raw_h, raw_d, raw_a))
-        or raw_p <= max(x for x in (raw_h, raw_d, raw_a) if x is not None and x != raw_p)
-        if False else False
-    ):
-        pass
     # Explicit ordering also handles equal probabilities conservatively.
-    if (
-        raw_p is None
-        or raw_p < MIN_RAW_PROBABILITY
-        or any(x is None for x in (raw_h, raw_d, raw_a))
-        or (side == "home" and (raw_h <= raw_d or raw_h <= raw_a)
-            if all(x is not None for x in (raw_h, raw_d, raw_a)) else False)
-        or (side == "away" and (raw_a <= raw_d or raw_a <= raw_h)
-            if all(x is not None for x in (raw_h, raw_d, raw_a)) else False)
-    ):
+    raw_complete = all(x is not None for x in (raw_h, raw_d, raw_a))
+    raw_favors_side = (
+        raw_complete
+        and (
+            (side == "home" and raw_h > raw_d and raw_h > raw_a)
+            or (side == "away" and raw_a > raw_d and raw_a > raw_h)
+        )
+    )
+    if raw_p is None or raw_p < MIN_RAW_PROBABILITY or not raw_favors_side:
         reasons.append("raw Dixon-Coles does not strongly favor this team")
 
     price = _number(row.get(f"market_{side}_odds"))
