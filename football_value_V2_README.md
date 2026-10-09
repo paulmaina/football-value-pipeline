@@ -196,7 +196,7 @@ The score matrix remains the single probability engine:
 
 If `--market-weight > 0`, the Home/Draw/Away regions of the score matrix are reweighted toward a de-vigged market target. All downstream markets are then recalculated from the same matrix.
 
-`0.0` remains the default. Do not tune market weight on the same test set used for final evaluation.
+The **recommended default is `0.50`**, a single fixed blend chosen for an extended feedback period. Do not tune market weight on the same test set used for final evaluation.
 
 ## Dixon-Coles exponential time-decay tuning
 
