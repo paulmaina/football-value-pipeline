@@ -2,8 +2,10 @@
 
 One market per fixture, up to ten distinct matches across the whole run.
 Prefer a cohort with kickoff timestamps no more than 96 hours apart.
-No forced selections: all price, EV, model-agreement and freshness
-checks must pass. The strategy is not validated for profitability.
+Strict selections retain every rule. When fewer than ten qualify, a clearly
+marked PROVISIONAL WATCHLIST may include nearest historical-evidence misses,
+never malformed odds, stale quotes or unknown teams. It is not a ten-leg
+betting recommendation. The strategy is not validated for profitability.
 """
 
 from __future__ import annotations
@@ -25,6 +27,13 @@ MIN_RAW_DC_EV = 0.0
 MIN_TEAM_NAME_MATCH_SCORE = 90.0
 MAX_ODDS_AGE_HOURS = 24.0
 MIN_MINUTES_UNTIL_KICKOFF = 20.0
+MIN_REFERENCE_OVERROUND = 0.98
+MAX_REFERENCE_OVERROUND = 1.20
+PROVISIONAL_MIN_EV = 0.015
+PROVISIONAL_MAX_PROBABILITY_SHORTFALL = 0.015
+PROVISIONAL_MAX_AUDIT_OVERCONFIDENCE = 0.15
+PROVISIONAL_MIN_HIGH_AUDIT = 2
+PROVISIONAL_MIN_HIGH_DEVELOPMENT = 3
 
 # These deliberately selective heuristic thresholds have not yet
 # been optimized or independently backtested for betting profitability.
@@ -49,6 +58,8 @@ DECISION_COLUMNS = [
     "high_confidence_audit_matches", "high_confidence_audit_observed_rate",
     "high_confidence_wilson95_lower", "high_confidence_wilson95_upper",
     "high_confidence_penalty",
+    "high_confidence_development_matches", "high_confidence_overconfidence",
+    "selection_tier", "near_miss_reason", "historical_gap_score",
 ]
 SHORTLIST_COLUMNS = DECISION_COLUMNS
 
@@ -145,6 +156,7 @@ def _evaluate_market(
     calibration_penalty = 0.0
     dev_n, audit_n, audit_brier = None, None, None
     high_tier, high_status, high_audit_n = None, "NOT_REQUIRED", None
+    high_dev_n, high_overconfidence = None, None
     high_audit_rate, high_wilson_lower, high_wilson_upper = None, None, None
     high_penalty = 0.0
     if validation is not None:
@@ -173,6 +185,8 @@ def _evaluate_market(
             if high_status != "PASSED":
                 reasons.append(f"{high_tier} market history: {high_status}")
             high_audit = high_group.get("audit", {})
+            high_dev_n = high_group.get("development", {}).get("n")
+            high_overconfidence = high_audit.get("overconfidence")
             high_audit_n = high_audit.get("n")
             high_audit_rate = high_audit.get("observed_rate")
             interval = high_audit.get("observed_wilson95")
@@ -215,6 +229,8 @@ def _evaluate_market(
     ref = [_number(x) for x in quote["reference"]]
     if any(x is None or x <= 1.0 for x in ref):
         reasons.append("incomplete same-book reference market")
+    elif not MIN_REFERENCE_OVERROUND <= sum(1.0 / x for x in ref) <= MAX_REFERENCE_OVERROUND:
+        reasons.append("implausible same-book reference market overround")
     n_books = _number(quote["book_count"])
     if n_books is None or n_books < quote["min_books"]:
         reasons.append("insufficient bookmaker coverage for this market")
@@ -269,13 +285,91 @@ def _evaluate_market(
         "high_confidence_tier": high_tier,
         "high_confidence_status": high_status,
         "high_confidence_audit_matches": high_audit_n,
+        "high_confidence_development_matches": high_dev_n,
+        "high_confidence_overconfidence": high_overconfidence,
         "high_confidence_audit_observed_rate": high_audit_rate,
         "high_confidence_wilson95_lower": high_wilson_lower,
         "high_confidence_wilson95_upper": high_wilson_upper,
         "high_confidence_penalty": high_penalty,
         "rank_probability": rank_p,
         "conservative_estimated_ev": conservative_ev,
+        "selection_tier": None,
+        "near_miss_reason": None,
+        "historical_gap_score": None,
     }
+
+
+
+def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple]) -> Optional[float]:
+    """Small, explicitly quantified deviations for a RESEARCH-ONLY candidate.
+
+    Under no circumstances waive odds authenticity, price freshness,
+    training-team coverage, 1X2 agreement or nonnegative raw DC EV.
+    A missing audit or a demonstrably very overconfident tier is NOT
+    treated as nearly reliable.
+    """
+    if row["decision"] != "REJECTED" or row["validation_status"] != "RELIABLE_FOR_RANKING":
+        return None
+    problems = str(row["rejection_reasons"] or "").split("; ")
+    if not problems or any(not p for p in problems):
+        return None
+    historical = []
+    allowed = {
+        "reliability-adjusted EV below +3% or missing",
+        "reliability-adjusted probability below minimum",
+    }
+    score = 0.0
+    for problem in problems:
+        if problem in allowed:
+            continue
+        if problem.startswith(("75plus market history: ", "85plus market history: ")):
+            status = problem.split(": ", 1)[1]
+            if status not in (
+                "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+                "HIGH_CONFIDENCE_OVERESTIMATION",
+            ):
+                return None
+            historical.append(status)
+        else:
+            return None
+
+    key = str(row["market"])
+    min_p, _ = limits[key]
+    p = _number(row["rank_probability"])
+    ev = _number(row["conservative_estimated_ev"])
+    if p is None or p < min_p - PROVISIONAL_MAX_PROBABILITY_SHORTFALL:
+        return None
+    if ev is None or ev < PROVISIONAL_MIN_EV:
+        return None
+    score += max(0.0, min_p-p) / PROVISIONAL_MAX_PROBABILITY_SHORTFALL
+    score += max(0.0, MIN_ESTIMATED_EV-ev) / (MIN_ESTIMATED_EV-PROVISIONAL_MIN_EV)
+
+    if historical:
+        high_n = _number(row["high_confidence_audit_matches"])
+        high_status = str(row["high_confidence_status"])
+        # The matching audit must contain some real scored fixtures.
+        if high_n is None or high_n < PROVISIONAL_MIN_HIGH_AUDIT:
+            return None
+        if high_status == "HIGH_CONFIDENCE_OVERESTIMATION":
+            # The group bias is computed from the reported mean model
+            # forecast minus observed rate, never inferred from EV.
+            # With only CSV row fields, read the equivalent difference
+            # from the historical validation subgroup directly when
+            # evaluating near-miss eligibility (passed as a field below).
+            overconfidence = _number(row["high_confidence_overconfidence"])
+            if overconfidence is None or overconfidence > PROVISIONAL_MAX_AUDIT_OVERCONFIDENCE:
+                return None
+            score += 2.0 + max(0.0, overconfidence-0.10)/0.05
+        elif high_status == "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY":
+            high_development = _number(row["high_confidence_development_matches"])
+            if high_development is None or high_development < PROVISIONAL_MIN_HIGH_DEVELOPMENT:
+                return None
+            score += max(0.0, 12.0-high_n)/12.0
+            score += max(0.0, 30.0-high_development)/30.0
+        else:
+            return None
+    return round(score, 6)
+
 
 
 def build_conservative_shortlist(
