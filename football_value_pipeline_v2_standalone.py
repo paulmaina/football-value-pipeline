@@ -3269,6 +3269,18 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         live_odds=not args.no_live_odds,
     )
 
+    # Fair reservations across requested domestic leagues; never allow the
+    # first processed league to exhaust the 24 event-market API calls.
+    from goal_market_validation import (
+        distribute_event_odds_budget, evaluate_market_history,
+    )
+    pipe.extra_event_odds_quota = distribute_event_odds_budget(
+        args.leagues, pipe.max_extra_event_odds_requests
+    )
+    pipe.extra_event_odds_by_league = {
+        key: 0 for key in pipe.extra_event_odds_quota
+    }
+    market_reliability = {}
     combined = []
 
     for league_key in args.leagues:
@@ -3366,6 +3378,54 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 "validation_days": tuning["validation_days"],
             }
 
+        if league_key != "UCL" and not args.backtest:
+            # Reuse validated snapshots only when the historical model,
+            # training cutoff and validation code version match.
+            validation_path = out_dir / f"{league_key}_goal_market_validation.json"
+            config = {
+                "validator_version": 1,
+                "half_life_days": pipe.half_life_days,
+                "market_weight": pipe.market_weight,
+                "l2": pipe.l2,
+                "max_goals": pipe.max_goals,
+                "training_end": diagnostics["training_end"],
+                "training_matches": diagnostics["training_matches"],
+            }
+            cached = None
+            if validation_path.exists() and not args.force_refresh:
+                try:
+                    cached = json.loads(validation_path.read_text(encoding="utf-8"))
+                except (ValueError, OSError):
+                    cached = None
+            if isinstance(cached, dict) and cached.get("config") == config:
+                market_validation = cached
+            else:
+                print(f"[{league_key}] validating goal markets walk-forward...", file=sys.stderr)
+                try:
+                    historical, _, _, _ = pipe.backtest_league(
+                        league_key, min_train=args.min_train, step_days=56
+                    )
+                    market_validation = evaluate_market_history(
+                        historical, LEAGUES[league_key].name
+                    )
+                except (ValueError, RuntimeError) as exc:
+                    warnings.warn(
+                        f"{league_key}: validation unavailable: {exc}",
+                        RuntimeWarning,
+                    )
+                    market_validation = evaluate_market_history(
+                        pd.DataFrame(), LEAGUES[league_key].name
+                    )
+                market_validation["config"] = config
+                validation_path.write_text(
+                    json.dumps(market_validation, indent=2), encoding="utf-8"
+                )
+            market_reliability[LEAGUES[league_key].name] = market_validation
+            diagnostics["goal_market_reliability"] = {
+                key: value["status"]
+                for key, value in market_validation["markets"].items()
+            }
+
         predictions.to_csv(out_dir / f"{league_key}_predictions.csv", index=False)
         (out_dir / f"{league_key}_diagnostics.json").write_text(
             json.dumps(diagnostics, indent=2), encoding="utf-8"
@@ -3418,7 +3478,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         )
 
     shortlist, decisions, selection_summary = build_conservative_shortlist(
-        all_predictions
+        all_predictions, market_reliability=market_reliability
     )
     shortlist.to_csv(out_dir / "conservative_bet_shortlist.csv", index=False)
     decisions.to_csv(out_dir / "conservative_bet_rejections.csv", index=False)
