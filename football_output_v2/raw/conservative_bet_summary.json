@@ -1,17 +1,18 @@
 {
-  "status": "CANDIDATES_FOUND",
-  "generated_at_utc": "2026-10-09T07:13:44.341342+00:00",
+  "status": "TARGET_MET",
+  "generated_at_utc": "2026-10-09T07:42:45.909389+00:00",
   "n_fixtures": 110,
-  "n_markets_evaluated": 220,
-  "n_shortlisted": 2,
-  "max_matches_per_utc_date": 2,
-  "n_utc_matchdates": 2,
-  "min_blended_probability": 0.65,
-  "min_raw_dc_probability": 0.5,
-  "min_estimated_ev": 0.03,
-  "min_team_name_match_score": 90.0,
-  "max_quote_age_hours": 24.0,
-  "min_minutes_until_kickoff": 20.0,
+  "n_markets_evaluated": 550,
+  "n_shortlisted": 8,
+  "target_distinct_matches": 8,
+  "shortfall": 0,
+  "eligible_markets": [
+    "Home win",
+    "Away win",
+    "Over 1.5",
+    "Under 3.5",
+    "Both Teams to Score - Yes"
+  ],
   "eligible_leagues": [
     "Bundesliga",
     "La Liga",
@@ -19,9 +20,10 @@
     "Premier League",
     "Serie A"
   ],
-  "eligible_markets": [
-    "Home win",
-    "Away win"
-  ],
-  "note": "Experimental, unvalidated selection thresholds, not guaranteed outcomes, profitability, or a recommendation to place bets. A NO BET result is valid; no selections are forced."
+  "min_estimated_ev": 0.03,
+  "min_raw_dc_ev": 0.0,
+  "min_team_name_match_score": 90.0,
+  "max_quote_age_hours": 24.0,
+  "rule": "one independently quoted market per distinct fixture; no forced picks",
+  "warning": "These heuristic thresholds are not validated for betting profit. There are no guaranteed matches or perfect betslips; eight-leg accumulators have substantially higher joint loss risk."
 }
