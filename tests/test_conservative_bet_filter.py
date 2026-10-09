@@ -1,4 +1,4 @@
-"""Offline tests for the fail-closed, conservative bet-candidate filter."""
+"""Offline regression tests for eight-match, five-market candidate selection."""
 
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -10,174 +10,248 @@ from unittest.mock import patch
 import pandas as pd
 
 from conservative_bet_filter import build_conservative_shortlist
-from football_value_pipeline_v2_standalone import main
+from football_value_pipeline_v2_standalone import (
+    LEAGUES, TheOddsAPI, main, prediction_from_matrix, DixonColesModel,
+)
+import numpy as np
 
 
 NOW = datetime(2026, 10, 9, 9, 0, tzinfo=timezone.utc)
 
 
-def fixture(
-    home="Example Home",
-    away="Example Away",
-    league="Premier League",
-    kickoff=None,
-    updated=None,
-    prob=0.72,
-    raw_prob=0.68,
-    price=1.50,
-):
-    kickoff = kickoff or NOW + timedelta(days=1)
-    updated = updated or NOW - timedelta(hours=1)
-    return {
-        "league": league,
+def fixture(i=0, kickoff=None):
+    kickoff = kickoff or NOW + timedelta(days=1+i//6)
+    updated = NOW - timedelta(hours=1)
+    row = {
+        "league": "Premier League",
         "date": kickoff.date().isoformat(),
         "kickoff_utc": kickoff.isoformat(),
-        "home_team": home,
-        "away_team": away,
+        "fixture_id": f"fixture-{i}",
+        "home_team": f"Home_{i}",
+        "away_team": f"Away_{i}",
         "odds_source": "The Odds API",
         "market_blend_applied": True,
-        "odds_bookmakers_1x2": 4,
-        "model_home_team": home,
-        "model_away_team": away,
+        "odds_bookmakers_1x2": 3,
+        "model_home_team": f"Home_{i}",
+        "model_away_team": f"Away_{i}",
         "home_name_match_score": 100.0,
         "away_name_match_score": 100.0,
-        "p_home": prob,
-        "p_draw": 0.18,
-        "p_away": 1 - prob - 0.18,
-        "raw_p_home": raw_prob,
+        "p_home": 0.72,
+        "p_draw": 0.17,
+        "p_away": 0.11,
+        "raw_p_home": 0.68,
         "raw_p_draw": 0.19,
-        "raw_p_away": 1 - raw_prob - 0.19,
+        "raw_p_away": 0.13,
         "market_p_home": 0.70,
         "market_p_draw": 0.18,
         "market_p_away": 0.12,
-        "market_reference_home_odds": 1.45,
-        "market_reference_draw_odds": 4.8,
-        "market_reference_away_odds": 7.5,
-        "market_home_odds": price,
-        "market_away_odds": 8.0,
+        "market_reference_home_odds": 1.47,
+        "market_reference_draw_odds": 4.3,
+        "market_reference_away_odds": 7.3,
+        "market_home_odds": 1.52,
+        "market_away_odds": 7.4,
         "best_home_bookmaker": "Book A",
-        "best_away_bookmaker": "Book A",
+        "best_away_bookmaker": "Book B",
         "market_best_home_last_update_utc": updated.isoformat(),
         "market_best_away_last_update_utc": updated.isoformat(),
-        # Intentional: other-market metadata must NOT override stale quote.
-        "odds_last_update_utc": NOW.isoformat(),
+        "p_over_1_5": 0.86,
+        "raw_p_over_1_5": 0.83,
+        "market_p_over_1_5": 0.84,
+        "market_over_1_5_odds": 1.27,
+        "best_over_1_5_bookmaker": "Book A",
+        "market_best_over_1_5_last_update_utc": updated.isoformat(),
+        "market_reference_over_1_5_odds": 1.25,
+        "market_reference_over_1_5_opposite_odds": 4.0,
+        "market_over_1_5_bookmakers": 2,
+        "p_under_3_5": 0.79,
+        "raw_p_under_3_5": 0.77,
+        "market_p_under_3_5": 0.77,
+        "market_under_3_5_odds": 1.40,
+        "best_under_3_5_bookmaker": "Book C",
+        "market_best_under_3_5_last_update_utc": updated.isoformat(),
+        "market_reference_under_3_5_odds": 1.38,
+        "market_reference_under_3_5_opposite_odds": 3.1,
+        "market_under_3_5_bookmakers": 2,
+        "p_btts_yes": 0.73,
+        "raw_p_btts_yes": 0.70,
+        "market_p_btts_yes": 0.70,
+        "market_btts_yes_odds": 1.49,
+        "best_btts_yes_bookmaker": "Book D",
+        "market_best_btts_yes_last_update_utc": updated.isoformat(),
+        "market_reference_btts_yes_odds": 1.47,
+        "market_reference_btts_yes_opposite_odds": 2.4,
+        "market_btts_yes_bookmakers": 2,
     }
+    return row
 
 
-class FilterTests(unittest.TestCase):
+class EightMarketTests(unittest.TestCase):
     def evaluate(self, *rows):
         return build_conservative_shortlist(pd.DataFrame(list(rows)), as_of=NOW)
 
-    def test_valid_home_single_and_rejection_audit(self):
+    def test_all_five_markets_are_evaluated_but_one_per_match(self):
         shortlist, decisions, summary = self.evaluate(fixture())
+        self.assertEqual(len(decisions), 5)
         self.assertEqual(len(shortlist), 1)
-        self.assertEqual(len(decisions), 2)
-        self.assertEqual(shortlist.iloc[0]["market"], "Home win")
-        self.assertEqual(shortlist.iloc[0]["bookmaker"], "Book A")
-        self.assertAlmostEqual(shortlist.iloc[0]["estimated_ev"], 0.08)
-        self.assertEqual(summary["status"], "CANDIDATES_FOUND")
+        self.assertEqual(shortlist.iloc[0]["market"], "Over 1.5")
+        self.assertEqual(summary["status"], "BELOW_TARGET")
+        self.assertEqual(summary["shortfall"], 7)
+        self.assertEqual(len(decisions[decisions.decision == "NOT_SELECTED"]), 3)
 
-    def test_utc_matchday_cap_and_sorting(self):
-        rows = [
-            fixture(home="H1", prob=0.72),
-            fixture(home="H2", prob=0.75),
-            fixture(home="H3", prob=0.70),
-            fixture(home="H4", prob=0.73, kickoff=NOW+timedelta(days=2)),
-        ]
-        picks, audit, summary = self.evaluate(*rows)
-        self.assertEqual(len(picks), 3)
-        same_day = picks[picks["date"] == (NOW + timedelta(days=1)).date().isoformat()]
-        self.assertEqual(same_day["home_team"].tolist(), ["H2", "H1"])
-        self.assertEqual(len(audit[audit["decision"] == "NOT_SELECTED"]), 1)
-        self.assertEqual(summary["max_matches_per_utc_date"], 2)
+    def test_exactly_eight_distinct_fixtures_selected_across_multiple_days(self):
+        rows = [fixture(i) for i in range(12)]
+        shortlist, decisions, summary = self.evaluate(*rows)
+        self.assertEqual(len(shortlist), 8)
+        self.assertEqual(shortlist["fixture_id"].nunique(), 8)
+        self.assertEqual(summary["status"], "TARGET_MET")
+        self.assertEqual(summary["shortfall"], 0)
+        self.assertEqual(len(decisions), 60)
+        self.assertEqual(len(decisions[decisions.decision == "SHORTLISTED"]), 8)
 
-    def test_reject_stale_quote_even_when_other_odds_fresh(self):
-        row = fixture(updated=NOW-timedelta(hours=48))
-        picks, audit, summary = self.evaluate(row)
-        self.assertTrue(picks.empty)
-        self.assertIn("over 24 hours", audit.iloc[0]["rejection_reasons"])
-        self.assertEqual(summary["status"], "NO BET")
+    def test_winner_markets_without_extra_odds_remain_eligible(self):
+        row = fixture()
+        for key in ("over_1_5", "under_3_5", "btts_yes"):
+            row.pop(f"market_{key}_odds")
+        picks, decisions, _ = self.evaluate(row)
+        self.assertEqual(len(picks), 1)
+        self.assertEqual(picks.iloc[0]["market"], "Home win")
+        self.assertEqual(len(decisions), 5)
 
-    def test_reject_unmatched_teams_and_unsupported_competition(self):
-        row = fixture(league="UEFA Champions League")
-        row["model_home_team"] = "__LEAGUE_AVERAGE__"
-        picks, audit, _ = self.evaluate(row)
-        self.assertTrue(picks.empty)
-        self.assertIn("competition not in validated", audit.iloc[0]["rejection_reasons"])
-        self.assertIn("team-model name mapping", audit.iloc[0]["rejection_reasons"])
+    def test_away_win_can_be_selected(self):
+        row = fixture()
+        row.update({
+            "p_home": 0.12, "p_draw": 0.16, "p_away": 0.72,
+            "raw_p_home": 0.14, "raw_p_draw": 0.19, "raw_p_away": 0.67,
+            "market_p_away": 0.69,
+            "market_away_odds": 1.55,
+        })
+        for key in ("over_1_5", "under_3_5", "btts_yes"):
+            row.pop(f"market_{key}_odds")
+        picks, _, _ = self.evaluate(row)
+        self.assertEqual(picks.iloc[0]["market"], "Away win")
 
-    def test_reject_no_market_blend_and_outdated_fixture(self):
-        row = fixture(kickoff=NOW+timedelta(minutes=10))
-        row["market_blend_applied"] = False
-        picks, audit, _ = self.evaluate(row)
+    def test_no_prices_or_stale_prices_fail_closed(self):
+        row = fixture()
+        for key in ("over_1_5", "under_3_5", "btts_yes"):
+            row.pop(f"market_{key}_odds")
+        row["market_best_home_last_update_utc"] = (
+            NOW - timedelta(days=3)
+        ).isoformat()
+        picks, decisions, summary = self.evaluate(row)
         self.assertEqual(len(picks), 0)
-        self.assertIn("20 minutes", audit.iloc[0]["rejection_reasons"])
-        self.assertIn("no complete blended live", audit.iloc[0]["rejection_reasons"])
+        self.assertEqual(summary["status"], "NO BET")
+        self.assertTrue(any("stale" in x for x in decisions.rejection_reasons))
 
-    def test_reject_when_raw_dc_favors_different_team(self):
+    def test_model_uncertainty_and_unsupported_league_are_rejected(self):
         row = fixture()
-        row["raw_p_home"] = 0.28
-        row["raw_p_draw"] = 0.20
-        row["raw_p_away"] = 0.52
-        picks, audit, _ = self.evaluate(row)
+        row["league"] = "UEFA Champions League"
+        row["model_home_team"] = "__LEAGUE_AVERAGE__"
+        picks, decisions, _ = self.evaluate(row)
         self.assertTrue(picks.empty)
-        self.assertIn("raw Dixon-Coles", audit.iloc[0]["rejection_reasons"])
+        self.assertTrue(
+            all("competition excluded" in reason for reason in decisions.rejection_reasons)
+        )
 
-    def test_reject_when_expected_value_too_low(self):
-        picks, audit, _ = self.evaluate(fixture(price=1.40))
-        self.assertTrue(picks.empty)
-        self.assertIn("below +3%", audit.iloc[0]["rejection_reasons"])
-
-    def test_reject_missing_verified_best_quote_timestamp(self):
+    def test_unblended_probabilities_must_not_have_negative_ev(self):
         row = fixture()
-        row["market_best_home_last_update_utc"] = None
-        picks, audit, _ = self.evaluate(row)
-        self.assertTrue(picks.empty)
-        self.assertIn("price is missing", audit.iloc[0]["rejection_reasons"])
+        # Strong blended score but raw O1.5 probability loses at this quote.
+        row["raw_p_over_1_5"] = 0.73
+        row["market_over_1_5_odds"] = 1.28  # raw EV < 0 at 73%
+        picks, decisions, _ = self.evaluate(row)
+        self.assertFalse(
+            any((decisions.market == "Over 1.5") & (decisions.decision == "SHORTLISTED"))
+        )
+        self.assertTrue(len(picks) <= 1)
 
-    def test_reject_missing_market_price_and_bad_model_confidence(self):
+    def test_missing_price_but_high_probability_is_not_a_bet(self):
         row = fixture()
-        row["market_reference_draw_odds"] = None
-        row["odds_bookmakers_1x2"] = 1
-        row["away_name_match_score"] = 72
-        picks, audit, _ = self.evaluate(row)
+        for key in ("home", "away", "over_1_5", "under_3_5", "btts_yes"):
+            row[f"market_{key}_odds"] = None
+        picks, _, summary = self.evaluate(row)
+        self.assertEqual(summary["status"], "NO BET")
         self.assertTrue(picks.empty)
-        self.assertIn("incomplete coherent reference", audit.iloc[0]["rejection_reasons"])
-        self.assertIn("fewer than two", audit.iloc[0]["rejection_reasons"])
-        self.assertIn("name mapping", audit.iloc[0]["rejection_reasons"])
 
-    def test_empty_predictions_are_valid_no_bet(self):
-        picks, audit, summary = build_conservative_shortlist(
+    def test_empty_frames_and_clock(self):
+        picks, decisions, summary = build_conservative_shortlist(
             pd.DataFrame(), as_of=NOW
         )
         self.assertEqual(summary["status"], "NO BET")
         self.assertTrue(picks.empty)
-        self.assertIn("market", picks.columns)
-        self.assertIn("rejection_reasons", audit.columns)
-
-    def test_aware_clock_is_required(self):
+        self.assertEqual(len(decisions), 0)
         with self.assertRaisesRegex(ValueError, "timezone-aware"):
             build_conservative_shortlist(pd.DataFrame(), as_of=datetime(2026, 10, 9))
 
-    def test_main_writes_filter_outputs_without_new_cli_flags(self):
+    def test_btts_probability_from_full_matrix(self):
+        model = DixonColesModel(max_goals=10)
+        matrix = np.full((3, 3), 1/9.0)
+        scores = prediction_from_matrix(model, matrix, {})
+        self.assertAlmostEqual(scores["p_btts_yes"], 4/9)
+        self.assertAlmostEqual(scores["p_btts_no"], 5/9)
+
+    def test_api_event_prices_are_verified_same_book_pairs(self):
+        class StubHttp:
+            def get_json(self, *args, **kwargs):
+                return {
+                    "id": "e42",
+                    "bookmakers": [{
+                        "title": "Book A",
+                        "markets": [
+                            {
+                                "key": "alternate_totals",
+                                "last_update": "2026-10-09T08:00:00Z",
+                                "outcomes": [
+                                    {"name": "Over", "point": 1.5, "price": 1.30},
+                                    {"name": "Under", "point": 1.5, "price": 3.70},
+                                    {"name": "Over", "point": 3.5, "price": 3.00},
+                                    {"name": "Under", "point": 3.5, "price": 1.39},
+                                ],
+                            },
+                            {
+                                "key": "btts",
+                                "last_update": "2026-10-09T08:15:00Z",
+                                "outcomes": [
+                                    {"name": "Yes", "price": 1.47},
+                                    {"name": "No", "price": 2.43},
+                                ],
+                            },
+                        ],
+                    }],
+                }
+
+        api = TheOddsAPI.__new__(TheOddsAPI)
+        api.http = StubHttp()
+        api.regions = "eu"
+        api.api_key = "fake"
+        api.force_refresh = False
+        extra = api.extra_markets_for_event(LEAGUES["EPL"], "e42")
+        self.assertEqual(extra["market_over_1_5_odds"], 1.30)
+        self.assertEqual(extra["market_under_3_5_odds"], 1.39)
+        self.assertEqual(extra["market_btts_yes_odds"], 1.47)
+        self.assertEqual(extra["market_btts_yes_bookmakers"], 1)
+        self.assertEqual(
+            extra["market_best_btts_yes_last_update_utc"],
+            "2026-10-09T08:15:00Z",
+        )
+
+    def test_normal_cli_still_writes_shortlist_and_snapshots(self):
         frame = pd.DataFrame([fixture()])
-        with tempfile.TemporaryDirectory() as temp:
-            out = Path(temp) / "raw"
+        with tempfile.TemporaryDirectory() as path:
+            raw = Path(path) / "raw"
             with patch(
                 "football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league",
-                return_value=(frame, {"test": True}, {}),
+                return_value=(frame, {"sample": True}, {}),
             ):
-                result = main(["--leagues", "EPL", "--out-dir", str(out)])
+                result = main(["--leagues", "EPL", "--out-dir", str(raw)])
             self.assertEqual(result, 0)
-            self.assertTrue((out / "EPL_predictions.csv").is_file())
-            self.assertTrue((out / "conservative_bet_shortlist.csv").is_file())
-            self.assertTrue((out / "conservative_bet_rejections.csv").is_file())
-            self.assertTrue((out / "conservative_bet_summary.json").is_file())
-            self.assertEqual(len(list((out / "shortlist_history").glob("*.csv"))), 1)
-            summary = json.loads((out / "conservative_bet_summary.json").read_text())
-            # Fake fixture is in 2026; testing on a real later CI day must
-            # be fail-closed, but outputs must still be written.
-            self.assertIn(summary["status"], ("NO BET", "CANDIDATES_FOUND"))
+            self.assertTrue((raw / "conservative_bet_shortlist.csv").exists())
+            self.assertTrue((raw / "conservative_bet_rejections.csv").exists())
+            self.assertTrue((raw / "conservative_bet_summary.json").exists())
+            self.assertEqual(len(list((raw / "shortlist_history").glob("*.csv"))), 1)
+            self.assertEqual(
+                json.loads((raw / "conservative_bet_summary.json").read_text())[
+                    "target_distinct_matches"
+                ], 8
+            )
 
 
 if __name__ == "__main__":
