@@ -159,6 +159,10 @@ or a malformed reference market are **never backfilled**.
 Watchlist ranking emphasizes closeness to the historic gate before
 model probability; one market per fixture is enforced globally.
 
+A separate `football_output_v2/raw/conservative_strict_qualifiers.csv`
+contains **only** rows that passed all strict requirements. It is never
+filled with watchlist candidates.
+
 The files `conservative_bet_shortlist.csv` and
 `conservative_bet_shortlist_readable.csv` now carry
 `selection_tier` / `Qualification`, `near_miss_reason`, and
