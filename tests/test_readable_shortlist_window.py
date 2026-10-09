@@ -37,7 +37,7 @@ class FourDaySelectionTests(unittest.TestCase):
             item["fixture_id"] for item in local
         })
         self.assertTrue(info["selected_matches_within_four_days"])
-        self.assertTrue(info["eight_match_four_day_window_available"])
+        self.assertTrue(info["ten_match_four_day_window_available"])
         self.assertEqual(info["selected_kickoff_span_hours"], 0)
         self.assertEqual(info["shortfall"], 0)
         self.assertEqual(len(audit[audit["decision"] == "SHORTLISTED"]), 10)
@@ -54,7 +54,7 @@ class FourDaySelectionTests(unittest.TestCase):
         picks, _, summary = self.select(nearby + stronger_far)
         self.assertEqual(len(picks), 10)
         self.assertFalse(summary["selected_matches_within_four_days"])
-        self.assertTrue(summary["eight_match_four_day_window_available"])
+        self.assertTrue(summary["ten_match_four_day_window_available"])
         self.assertTrue(summary["four_day_window_skipped_for_quality"])
         self.assertTrue({
             row["fixture_id"] for row in stronger_far
@@ -86,7 +86,7 @@ class FourDaySelectionTests(unittest.TestCase):
                  for i in range(10)]
         picks, audit, info = self.select(games)
         self.assertEqual(len(picks), 10)
-        self.assertFalse(info["eight_match_four_day_window_available"])
+        self.assertFalse(info["ten_match_four_day_window_available"])
         self.assertFalse(info["selected_matches_within_four_days"])
         self.assertTrue(info["selected_kickoff_span_hours"] > 96)
         self.assertIn("full forecast horizon", info["selection_method"])

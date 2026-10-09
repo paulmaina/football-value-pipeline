@@ -118,7 +118,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.6.0"
+PIPELINE_VERSION = "2.7.0"
 
 
 # ---------------------------------------------------------------------------
@@ -582,6 +582,22 @@ class TheOddsAPI:
         return str(value)
 
     @staticmethod
+    def _coherent_overround(prices: Sequence[float], low: float = 0.98,
+                            high: float = 1.20) -> bool:
+        """Reject crossed, placeholder, incomplete or pathological bookmaker books.
+
+        Margin bounds are data-quality guardrails, not confidence calibration.
+        Do not blend against extreme outlier quotes merely because their
+        last_update is the newest.
+        """
+        if not prices or any(
+            not math.isfinite(float(price)) or float(price) <= 1.0
+            for price in prices
+        ):
+            return False
+        margin = sum(1.0 / float(price) for price in prices)
+        return low <= margin <= high
+
     def flatten_odds_event(event: Mapping[str, object]) -> Dict[str, object]:
         """Flatten one API event into best prices + coherent reference markets."""
         event_id = str(event.get("id") or "")
@@ -640,14 +656,19 @@ class TheOddsAPI:
                         key = canonical_team_key(name)
                         if key == home_key:
                             prices["home"] = price
-                            best_h = update_best(best_h, price, book_name)
                         elif key == away_key:
                             prices["away"] = price
-                            best_a = update_best(best_a, price, book_name)
                         elif name.strip().lower() == "draw":
                             prices["draw"] = price
-                            best_d = update_best(best_d, price, book_name)
-                if all(k in prices for k in ("home", "draw", "away")):
+                if (
+                    all(k in prices for k in ("home", "draw", "away"))
+                    and TheOddsAPI._coherent_overround(
+                        [prices["home"], prices["draw"], prices["away"]]
+                    )
+                ):
+                    best_h = update_best(best_h, prices["home"], book_name)
+                    best_d = update_best(best_d, prices["draw"], book_name)
+                    best_a = update_best(best_a, prices["away"], book_name)
                     updated = TheOddsAPI._last_update(bookmaker, h2h)
                     complete_h2h.append((
                         updated, book_name, prices["home"], prices["draw"], prices["away"]
@@ -672,11 +693,16 @@ class TheOddsAPI:
                             continue
                         if name == "over":
                             prices["over"] = price
-                            best_o = update_best(best_o, price, book_name)
                         elif name == "under":
                             prices["under"] = price
-                            best_u = update_best(best_u, price, book_name)
-                if all(k in prices for k in ("over", "under")):
+                if (
+                    all(k in prices for k in ("over", "under"))
+                    and TheOddsAPI._coherent_overround(
+                        [prices["over"], prices["under"]]
+                    )
+                ):
+                    best_o = update_best(best_o, prices["over"], book_name)
+                    best_u = update_best(best_u, prices["under"], book_name)
                     updated = TheOddsAPI._last_update(bookmaker, totals)
                     complete_ou.append((updated, book_name, prices["over"], prices["under"]))
                     if updated:
@@ -820,7 +846,10 @@ class TheOddsAPI:
                     left, right = (
                         ("over", "under") if point is not None else ("yes", "no")
                     )
-                    if left not in pair or right not in pair:
+                    if (
+                        left not in pair or right not in pair
+                        or not self._coherent_overround([pair[left], pair[right]])
+                    ):
                         continue
                     if point == 1.5:
                         offers["over_1_5"].append(
@@ -3481,6 +3510,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         all_predictions, market_reliability=market_reliability
     )
     shortlist.to_csv(out_dir / "conservative_bet_shortlist.csv", index=False)
+    strictly_qualified = shortlist.loc[
+        shortlist["selection_tier"] == "STRICT"
+    ].copy()
+    strictly_qualified.to_csv(
+        out_dir / "conservative_strict_qualifiers.csv", index=False
+    )
     decisions.to_csv(out_dir / "conservative_bet_rejections.csv", index=False)
     (out_dir / "conservative_bet_summary.json").write_text(
         json.dumps(selection_summary, indent=2), encoding="utf-8"
@@ -3495,8 +3530,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         archive / f"conservative_decisions_{snapshot_stamp}.csv", index=False
     )
     print(
-        f"Conservative filter: {selection_summary['status']} "
-        f"({selection_summary['n_shortlisted']} matches shortlisted; "
+        f"Conservative candidate filter: {selection_summary['status']} "
+        f"({selection_summary['n_strict_qualified']} STRICT, "
+        f"{selection_summary['n_provisional_watchlist']} PROVISIONAL WATCHLIST; "
         f"see {out_dir / 'conservative_bet_shortlist.csv'})",
         file=sys.stderr,
     )
