@@ -148,7 +148,10 @@ class GradedCandidatesTests(unittest.TestCase):
         self.assertEqual(flat["live_best_away_odds"], 4.2)
         self.assertEqual(flat["live_best_away_bookmaker"], "Regular")
         self.assertEqual(flat["live_ref_home_odds"], 1.9)
-        self.assertIsNone(flat["live_best_away_last_update_utc"] == "2026-10-09T14:39:00Z" or None)
+        self.assertNotEqual(
+            flat["live_best_away_last_update_utc"],
+            "2026-10-09T14:39:00Z",
+        )
 
 
 if __name__=="__main__":
