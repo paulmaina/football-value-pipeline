@@ -3530,8 +3530,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         archive / f"conservative_decisions_{snapshot_stamp}.csv", index=False
     )
     print(
-        f"Conservative filter: {selection_summary['status']} "
-        f"({selection_summary['n_shortlisted']} matches shortlisted; "
+        f"Conservative candidate filter: {selection_summary['status']} "
+        f"({selection_summary['n_strict_qualified']} STRICT, "
+        f"{selection_summary['n_provisional_watchlist']} PROVISIONAL WATCHLIST; "
         f"see {out_dir / 'conservative_bet_shortlist.csv'})",
         file=sys.stderr,
     )
