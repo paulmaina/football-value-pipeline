@@ -53,13 +53,42 @@ from this shortlist due to missing historical opening-price validation.
 Outputs remain in `football_output_v2/raw/`:
 
 - `conservative_bet_shortlist.csv`: up to eight distinct fixtures,
-  one market each, sorted by forecast win probability, then EV.
+  **the selected market beside each match**, sorted by forecast win
+  probability, then estimated EV. The selection prefers a strongest
+  qualifying eight-match cohort whose kickoffs fall within **96 hours**
+  when such a cohort exists. Otherwise it keeps the strongest eligible
+  fixtures over the entire horizon and explicitly reports that the
+  four-day preference was not met.
 - `conservative_bet_rejections.csv`: five decisions per fixture,
   including rejected/alternate markets and the reasons.
 - `conservative_bet_summary.json`: `TARGET_MET`, `BELOW_TARGET`
-  or `NO BET`, with the shortfall to eight.
+  or `NO BET`, with the shortfall to eight, actual selected
+  kickoff span, and whether the four-day preference was met.
 - `shortlist_history/conservative_decisions_<timestamp>.csv`:
   immutable dated audit snapshots for later feedback.
+
+### Readable shortlist
+
+After the normal pipeline run, format all raw predictions **and** the
+shortlist using the same formatter command:
+
+```powershell
+python format_football_output.py
+```
+
+The new files are:
+
+- `football_output_v2/readable/conservative_bet_shortlist_readable.csv`
+  — each match with its explicit **Shortlisted market**, kickoff UTC,
+  model chance for that exact outcome, unblended DC chance,
+  bookmaker odds and estimated EV.
+- `football_output_v2/readable/conservative_bet_shortlist_report.md`
+  — a readable market-by-match table, four-day-window result, and
+  selection risk notes. If there are no qualifying candidates, the
+  report clearly says so.
+
+The formatter does **not** choose or revise candidate markets and
+never changes the raw shortlist.
 
 **Eight is a target, never a minimum guaranteed by relaxation.** No
 market gets picked without a verified bookmaker price. If fewer than
