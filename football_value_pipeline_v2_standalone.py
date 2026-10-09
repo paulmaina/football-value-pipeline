@@ -118,7 +118,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.2.2"
+PIPELINE_VERSION = "2.3.0"
 
 
 # ---------------------------------------------------------------------------
@@ -2213,7 +2213,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         self,
         *args,
         devig_method: str = "power",
-        market_weight: float = 0.0,
+        market_weight: float = 0.50,
         odds_api_key: Optional[str] = None,
         football_data_api_key: Optional[str] = None,
         odds_regions: str = "eu",
@@ -2998,8 +2998,11 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--market-weight",
         type=float,
-        default=0.0,
-        help="0=pure Dixon-Coles, 1=1X2 regions fully aligned to de-vigged opening market.",
+        default=0.50,
+        help=(
+            "Fixed bookmaker blend (default: 0.50) for the recommended "
+            "single-model profile. Normally leave unchanged."
+        ),
     )
     p.add_argument(
         "--auto-market-weight",
