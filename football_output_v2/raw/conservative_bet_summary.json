@@ -1,11 +1,11 @@
 {
-  "status": "TARGET_MET",
-  "generated_at_utc": "2026-10-09T13:49:44.089361+00:00",
+  "status": "BELOW_TARGET",
+  "generated_at_utc": "2026-10-09T14:38:56.846425+00:00",
   "n_fixtures": 110,
   "n_markets_evaluated": 550,
-  "n_shortlisted": 8,
-  "target_distinct_matches": 8,
-  "shortfall": 0,
+  "n_shortlisted": 4,
+  "target_distinct_matches": 10,
+  "shortfall": 6,
   "four_day_window_preferred": true,
   "eight_match_four_day_window_available": false,
   "four_day_window_skipped_for_quality": false,
@@ -45,14 +45,14 @@
       "away": "RELIABLE_FOR_RANKING",
       "over_1_5": "RELIABLE_FOR_RANKING",
       "under_3_5": "RELIABLE_FOR_RANKING",
-      "btts_yes": "RELIABLE_FOR_RANKING"
+      "btts_yes": "UNRELIABLE_AUDIT"
     },
     "Bundesliga": {
       "home": "RELIABLE_FOR_RANKING",
       "away": "RELIABLE_FOR_RANKING",
-      "over_1_5": "RELIABLE_FOR_RANKING",
+      "over_1_5": "UNRELIABLE_AUDIT",
       "under_3_5": "UNRELIABLE_AUDIT",
-      "btts_yes": "RELIABLE_FOR_RANKING"
+      "btts_yes": "UNRELIABLE_AUDIT"
     },
     "Serie A": {
       "home": "RELIABLE_FOR_RANKING",
@@ -73,5 +73,5 @@
   "min_team_name_match_score": 90.0,
   "max_quote_age_hours": 24.0,
   "rule": "one independently quoted market per distinct fixture; no forced picks",
-  "warning": "These heuristic thresholds are not validated for betting profit. There are no guaranteed matches or perfect betslips; eight-leg accumulators have substantially higher joint loss risk."
+  "warning": "These heuristic thresholds are not validated for betting profit. There are no guaranteed matches or perfect betslips; ten-leg accumulators carry substantial all-or-nothing loss risk."
 }

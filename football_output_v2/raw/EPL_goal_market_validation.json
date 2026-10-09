@@ -23,6 +23,71 @@
         "baseline_brier": 0.2436000000000001,
         "log_loss": 0.6033891080920085
       },
+      "high_confidence": {
+        "75plus": {
+          "threshold": 0.75,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 9,
+            "observed_rate": 0.7777777777777778,
+            "mean_forecast": 0.79802614941202,
+            "overconfidence": 0.0202483716342422,
+            "brier": 0.16240819313861612,
+            "baseline_brier": 0.1728395061728395,
+            "log_loss": 0.4982111408563505,
+            "n_wins": 7,
+            "observed_wilson95": [
+              0.4525833436728054,
+              0.9367762376877727
+            ]
+          },
+          "audit": {
+            "n": 3,
+            "observed_rate": 1.0,
+            "mean_forecast": 0.800278784442216,
+            "overconfidence": -0.199721215557784,
+            "brier": 0.04227084821911838,
+            "baseline_brier": 0.0,
+            "log_loss": 0.22460650828067452,
+            "n_wins": 3,
+            "observed_wilson95": [
+              0.43849391955098227,
+              1.0
+            ]
+          },
+          "development_only_penalty": 0.004672701146363585,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        },
+        "85plus": {
+          "threshold": 0.85,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "audit": {
+            "n": 1,
+            "observed_rate": 1.0,
+            "mean_forecast": 0.8692941027739371,
+            "overconfidence": -0.13070589722606285,
+            "brier": 0.017084031569670106,
+            "baseline_brier": 0.0,
+            "log_loss": 0.1400737727991844,
+            "n_wins": 1,
+            "observed_wilson95": [
+              0.20654329147389294,
+              1.0
+            ]
+          },
+          "development_only_penalty": null,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        }
+      },
       "development_bins": [
         {
           "range": [
@@ -145,6 +210,62 @@
         "baseline_brier": 0.1971,
         "log_loss": 0.5429904591957202
       },
+      "high_confidence": {
+        "75plus": {
+          "threshold": 0.75,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 1,
+            "observed_rate": 1.0,
+            "mean_forecast": 0.7636981783105479,
+            "overconfidence": -0.23630182168945213,
+            "brier": 0.05583855093375363,
+            "baseline_brier": 0.0,
+            "log_loss": 0.26958262243757575,
+            "n_wins": 1,
+            "observed_wilson95": [
+              0.20654329147389294,
+              1.0
+            ]
+          },
+          "audit": {
+            "n": 1,
+            "observed_rate": 1.0,
+            "mean_forecast": 0.8000253687160657,
+            "overconfidence": -0.19997463128393433,
+            "brier": 0.03998985315714549,
+            "baseline_brier": 0.0,
+            "log_loss": 0.22311184092190747,
+            "n_wins": 1,
+            "observed_wilson95": [
+              0.20654329147389294,
+              1.0
+            ]
+          },
+          "development_only_penalty": 0.0,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        },
+        "85plus": {
+          "threshold": 0.85,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "audit": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "development_only_penalty": null,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        }
+      },
       "development_bins": [
         {
           "range": [
@@ -258,6 +379,80 @@
         "baseline_brier": 0.1824,
         "log_loss": 0.560305080460521
       },
+      "high_confidence": {
+        "75plus": {
+          "threshold": 0.75,
+          "status": "PASSED",
+          "development": {
+            "n": 216,
+            "observed_rate": 0.8148148148148148,
+            "mean_forecast": 0.8141115138215874,
+            "overconfidence": -0.0007033009932273515,
+            "brier": 0.14962839884033288,
+            "baseline_brier": 0.15089163237311384,
+            "log_loss": 0.4752838198409525,
+            "n_wins": 176,
+            "observed_wilson95": [
+              0.757670571765482,
+              0.860956658021783
+            ]
+          },
+          "audit": {
+            "n": 77,
+            "observed_rate": 0.7792207792207793,
+            "mean_forecast": 0.8066295544748757,
+            "overconfidence": 0.027408775254096462,
+            "brier": 0.17295769102430564,
+            "baseline_brier": 0.17203575645134087,
+            "log_loss": 0.5311897906281492,
+            "n_wins": 60,
+            "observed_wilson95": [
+              0.6745672277887955,
+              0.8573371382801591
+            ]
+          },
+          "development_only_penalty": 0.0,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        },
+        "85plus": {
+          "threshold": 0.85,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 30,
+            "observed_rate": 0.8666666666666667,
+            "mean_forecast": 0.8666788485104875,
+            "overconfidence": 1.2181843820791016e-05,
+            "brier": 0.11605455055992088,
+            "baseline_brier": 0.11555555555555559,
+            "log_loss": 0.39510562446219416,
+            "n_wins": 26,
+            "observed_wilson95": [
+              0.7031831605558306,
+              0.9469043057578189
+            ]
+          },
+          "audit": {
+            "n": 8,
+            "observed_rate": 0.75,
+            "mean_forecast": 0.8599777749045827,
+            "overconfidence": 0.10997777490458271,
+            "brier": 0.20041328207775339,
+            "baseline_brier": 0.1875,
+            "log_loss": 0.6079007526435591,
+            "n_wins": 6,
+            "observed_wilson95": [
+              0.40926987910258916,
+              0.9285223111419724
+            ]
+          },
+          "development_only_penalty": 6.090921910395508e-06,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        }
+      },
       "development_bins": [
         {
           "range": [
@@ -343,6 +538,80 @@
         "brier": 0.22152409478322035,
         "baseline_brier": 0.2176,
         "log_loss": 0.6400630002040867
+      },
+      "high_confidence": {
+        "75plus": {
+          "threshold": 0.75,
+          "status": "HIGH_CONFIDENCE_OVERESTIMATION",
+          "development": {
+            "n": 72,
+            "observed_rate": 0.8055555555555556,
+            "mean_forecast": 0.8153760619859352,
+            "overconfidence": 0.009820506430379572,
+            "brier": 0.16100426987895944,
+            "baseline_brier": 0.15663580246913578,
+            "log_loss": 0.5107203339732677,
+            "n_wins": 58,
+            "observed_wilson95": [
+              0.6996702472161007,
+              0.8804862895658236
+            ]
+          },
+          "audit": {
+            "n": 18,
+            "observed_rate": 0.6666666666666666,
+            "mean_forecast": 0.792122086701551,
+            "overconfidence": 0.1254554200348844,
+            "brier": 0.2531360740600264,
+            "baseline_brier": 0.2222222222222222,
+            "log_loss": 0.7329530477997497,
+            "n_wins": 12,
+            "observed_wilson95": [
+              0.4374906934425036,
+              0.8372144563633714
+            ]
+          },
+          "development_only_penalty": 0.006932122186150286,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        },
+        "85plus": {
+          "threshold": 0.85,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 15,
+            "observed_rate": 0.6666666666666666,
+            "mean_forecast": 0.8749446971455721,
+            "overconfidence": 0.20827803047890547,
+            "brier": 0.2671380892286608,
+            "baseline_brier": 0.22222222222222227,
+            "log_loss": 0.7926215638882439,
+            "n_wins": 10,
+            "observed_wilson95": [
+              0.41713125151212976,
+              0.8482389930530876
+            ]
+          },
+          "audit": {
+            "n": 3,
+            "observed_rate": 0.0,
+            "mean_forecast": 0.8560242079560324,
+            "overconfidence": 0.8560242079560324,
+            "brier": 0.73281044502348,
+            "baseline_brier": 0.0,
+            "log_loss": 1.9389211826205976,
+            "n_wins": 0,
+            "observed_wilson95": [
+              0.0,
+              0.5615060804490177
+            ]
+          },
+          "development_only_penalty": 0.06942601015963515,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        }
       },
       "development_bins": [
         {
@@ -430,6 +699,44 @@
         "baseline_brier": 0.24750000000000003,
         "log_loss": 0.6774132793159883
       },
+      "high_confidence": {
+        "75plus": {
+          "threshold": 0.75,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "audit": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "development_only_penalty": null,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        },
+        "85plus": {
+          "threshold": 0.85,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "audit": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "development_only_penalty": null,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        }
+      },
       "development_bins": [
         {
           "range": [
@@ -498,9 +805,19 @@
     }
   },
   "historical_goal_prices_available": false,
+  "high_confidence_thresholds": [
+    0.75,
+    0.85
+  ],
+  "validation_rules": {
+    "high_dev_min": 30,
+    "high_audit_min": 12,
+    "high_max_overconfidence": 0.1,
+    "overall_max_brier_excess": 0.005
+  },
   "caution": "Development and audit are chronological but may overlap prior half-life/market-hyperparameter tuning periods. This is not a wholly untouched final holdout.",
   "config": {
-    "validator_version": 1,
+    "validator_version": 2,
     "half_life_days": 365.0,
     "market_weight": 0.5,
     "l2": 0.08,

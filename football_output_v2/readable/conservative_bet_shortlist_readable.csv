@@ -1,9 +1,5 @@
-﻿Match,Shortlisted market,Kickoff (UTC),League,Model chance,Reliability-adjusted chance,Unblended Dixon-Coles chance,Market implied chance,Bookmaker,Quoted decimal odds,Estimated EV,Conservative estimated EV,Unblended estimated EV,Historical reliability,Data/selection status
-CA Osasuna vs Real Racing Club de Santander,Over 1.5,2026-10-18T12:00:00+00:00,La Liga,92.0%,92.0%,92.2%,80.0%,William Hill,1.22,+12.3%,+12.3%,+12.5%,RELIABLE_FOR_RANKING,SHORTLISTED
-Málaga vs Espanyol,Under 3.5,2026-10-09T19:00:00+00:00,La Liga,91.5%,91.5%,91.3%,73.8%,Coolbet,1.34,+22.7%,+22.7%,+22.4%,RELIABLE_FOR_RANKING,SHORTLISTED
-Hull City vs Everton,Under 3.5,2026-10-11T13:00:00+00:00,Premier League,90.3%,90.3%,90.0%,74.4%,Pinnacle,1.32,+19.2%,+19.2%,+18.8%,RELIABLE_FOR_RANKING,SHORTLISTED
-Real Racing Club de Santander vs Valencia,Over 1.5,2026-10-11T19:00:00+00:00,La Liga,90.0%,90.0%,90.0%,81.9%,Coolbet,1.25,+12.4%,+12.4%,+12.5%,RELIABLE_FOR_RANKING,SHORTLISTED
-Málaga vs Real Sociedad,Under 3.5,2026-10-18T16:30:00+00:00,La Liga,89.0%,89.0%,88.7%,68.8%,Pinnacle,1.41,+25.5%,+25.5%,+25.0%,RELIABLE_FOR_RANKING,SHORTLISTED
-Fulham vs Hull City,Under 3.5,2026-10-17T14:00:00+00:00,Premier League,87.1%,87.1%,87.1%,68.4%,Pinnacle,1.42,+23.7%,+23.7%,+23.7%,RELIABLE_FOR_RANKING,SHORTLISTED
-Coventry City vs Newcastle United,Under 3.5,2026-10-12T19:00:00+00:00,Premier League,84.3%,84.3%,82.3%,64.6%,Coolbet,1.51,+27.4%,+27.4%,+24.2%,RELIABLE_FOR_RANKING,SHORTLISTED
-Lecce vs Bologna,Under 3.5,2026-10-11T13:00:00+00:00,Serie A,83.6%,83.6%,83.6%,77.1%,Coolbet,1.28,+7.0%,+7.0%,+7.0%,RELIABLE_FOR_RANKING,SHORTLISTED
+﻿Match,Shortlisted market,Kickoff (UTC),League,Model chance,Reliability-adjusted chance,Unblended Dixon-Coles chance,Market implied chance,Bookmaker,Quoted decimal odds,Estimated EV,Conservative estimated EV,Unblended estimated EV,Historical reliability,High-confidence tier,High-confidence audit matches,High-confidence observed rate,Observed 95% Wilson lower,Observed 95% Wilson upper,High-confidence evidence status,Data/selection status
+Málaga vs Espanyol,Under 3.5,2026-10-09T19:00:00+00:00,La Liga,91.5%,85.2%,91.3%,73.4%,Coolbet,1.34,+22.7%,+14.1%,+22.4%,RELIABLE_FOR_RANKING,85plus,18,83.3%,60.8%,94.2%,PASSED,SHORTLISTED
+Málaga vs Real Sociedad,Under 3.5,2026-10-18T16:30:00+00:00,La Liga,89.0%,82.6%,88.7%,68.8%,Pinnacle,1.41,+25.5%,+16.5%,+25.0%,RELIABLE_FOR_RANKING,85plus,18,83.3%,60.8%,94.2%,PASSED,SHORTLISTED
+Troyes vs RC Lens,Away win,2026-10-17T18:45:00+00:00,Ligue 1,72.6%,70.5%,71.3%,73.9%,1xBet,1.87,+35.8%,+31.8%,+33.3%,RELIABLE_FOR_RANKING,Not applicable,—,—,—,—,NOT_REQUIRED,SHORTLISTED
+Atalanta BC vs Venezia,Home win,2026-10-12T16:30:00+00:00,Serie A,67.9%,67.2%,75.3%,60.5%,1xBet,1.66,+12.8%,+11.6%,+25.1%,RELIABLE_FOR_RANKING,Not applicable,—,—,—,—,NOT_REQUIRED,SHORTLISTED

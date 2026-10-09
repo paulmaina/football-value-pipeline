@@ -38,7 +38,7 @@ Fixtures in this report: **18**.
 | Additional event odds league quota | 5.00 |
 | Additional event odds calls this league | 5.00 |
 | Decay tuning | {'selected_half_life_days': 1000000000.0, 'selected_xi_per_day': 6.931471805599453e-10, 'selection_metric': 'walk_forward_1x2_log_loss', 'validation_days': 365} |
-| Goal market reliability | {'home': 'RELIABLE_FOR_RANKING', 'away': 'RELIABLE_FOR_RANKING', 'over_1_5': 'RELIABLE_FOR_RANKING', 'under_3_5': 'UNRELIABLE_AUDIT', 'btts_yes': 'RELIABLE_FOR_RANKING'} |
+| Goal market reliability | {'home': 'RELIABLE_FOR_RANKING', 'away': 'RELIABLE_FOR_RANKING', 'over_1_5': 'UNRELIABLE_AUDIT', 'under_3_5': 'UNRELIABLE_AUDIT', 'btts_yes': 'UNRELIABLE_AUDIT'} |
 
 </details>
 
@@ -54,7 +54,7 @@ Fixtures in this report: **18**.
 
 ## 2026-10-09 — Borussia Dortmund vs Werder Bremen
 
-The model's most likely 1X2 outcome is **Borussia Dortmund win** at **69.3%**. Expected goals are 2.30 for Borussia Dortmund and 0.97 for Werder Bremen (3.27 combined). The most likely exact score is 2-0 at 10.5%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 64.4%; Under 4.5 goals: 76.3%.
+The model's most likely 1X2 outcome is **Borussia Dortmund win** at **70.4%**. Expected goals are 2.30 for Borussia Dortmund and 0.97 for Werder Bremen (3.27 combined). The most likely exact score is 2-0 at 10.7%. Goal-market probabilities: at least one goal: 95.9%; Over 2.5 goals: 64.7%; Under 4.5 goals: 76.1%.
 
 **Fixture source:** The Odds API
 
@@ -62,9 +62,9 @@ The model's most likely 1X2 outcome is **Borussia Dortmund win** at **69.3%**. E
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Borussia Dortmund win | 69.3% | 1.44 |
-| Draw | 18.4% | 5.44 |
-| Werder Bremen win | 12.3% | 8.11 |
+| Borussia Dortmund win | 70.4% | 1.42 |
+| Draw | 17.6% | 5.68 |
+| Werder Bremen win | 12.0% | 8.36 |
 
 ### Goals outlook
 
@@ -73,36 +73,36 @@ The model's most likely 1X2 outcome is **Borussia Dortmund win** at **69.3%**. E
 | Borussia Dortmund expected goals | 2.30 |
 | Werder Bremen expected goals | 0.97 |
 | Expected total goals | 3.27 |
-| Over 0.5 | 95.7% |
-| Under 0.5 | 4.3% |
-| Over 1.5 | 85.0% |
-| Under 1.5 | 15.0% |
-| Over 2.5 | 64.4% |
-| Under 2.5 | 35.6% |
-| Over 3.5 | 41.9% |
-| Under 3.5 | 58.1% |
-| Over 4.5 | 23.7% |
-| Under 4.5 | 76.3% |
+| Over 0.5 | 95.9% |
+| Under 0.5 | 4.1% |
+| Over 1.5 | 85.1% |
+| Under 1.5 | 14.9% |
+| Over 2.5 | 64.7% |
+| Under 2.5 | 35.3% |
+| Over 3.5 | 42.0% |
+| Under 3.5 | 58.0% |
+| Over 4.5 | 23.9% |
+| Under 4.5 | 76.1% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 2-0 | 10.48% |
-| 2 | 2-1 | 10.18% |
-| 3 | 1-1 | 8.54% |
-| 4 | 1-0 | 8.18% |
-| 5 | 3-0 | 8.05% |
+| 1 | 2-0 | 10.66% |
+| 2 | 2-1 | 10.35% |
+| 3 | 1-0 | 8.32% |
+| 4 | 1-1 | 8.19% |
+| 5 | 3-0 | 8.18% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Borussia Dortmund win | 69.3% | 72.2% | 1.38 | -4.4% |
-| Draw | 18.4% | 16.7% | 6.25 | +14.9% |
-| Werder Bremen win | 12.3% | 11.1% | 9.00 | +11.0% |
-| Over 2.5 | 64.4% | 70.7% | 1.38 | -11.2% |
-| Under 2.5 | 35.6% | 29.3% | 3.20 | +14.1% |
+| Borussia Dortmund win | 70.4% | 74.5% | 1.38 | -2.8% |
+| Draw | 17.6% | 15.1% | 6.25 | +10.0% |
+| Werder Bremen win | 12.0% | 10.4% | 9.00 | +7.6% |
+| Over 2.5 | 64.7% | 72.0% | 1.38 | -10.7% |
+| Under 2.5 | 35.3% | 28.0% | 3.20 | +12.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -118,9 +118,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:49:06Z |
-| Market best draw last update utc | 2026-10-09T13:48:19Z |
-| Market best away last update utc | 2026-10-09T13:48:19Z |
+| Market best home last update utc | 2026-10-09T14:38:07Z |
+| Market best draw last update utc | 2026-10-09T14:38:23Z |
+| Market best away last update utc | 2026-10-09T14:38:23Z |
 | Odds bookmakers 1x2 | 21.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Betfair |
@@ -132,17 +132,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Werder Bremen |
 | Home-name matching confidence | 90/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 56.2% |
-| P btts no | 43.8% |
+| P btts yes | 56.0% |
+| P btts no | 44.0% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 23.43 |
-| Fair Over 1.5 odds | 1.18 |
-| Fair Under 1.5 odds | 6.67 |
+| Fair Under 0.5 odds | 24.46 |
+| Fair Over 1.5 odds | 1.17 |
+| Fair Under 1.5 odds | 6.72 |
 | Fair Over 2.5 odds | 1.55 |
-| Fair Under 2.5 odds | 2.81 |
-| Fair Over 3.5 odds | 2.39 |
-| Fair Under 3.5 odds | 1.72 |
-| Fair Over 4.5 odds | 4.21 |
+| Fair Under 2.5 odds | 2.83 |
+| Fair Over 3.5 odds | 2.38 |
+| Fair Under 3.5 odds | 1.73 |
+| Fair Over 4.5 odds | 4.18 |
 | Fair Under 4.5 odds | 1.31 |
 | Unadjusted home-win probability | 66.4% |
 | Unadjusted draw probability | 20.1% |
@@ -152,23 +152,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 56.8% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Matchbook |
-| Reference home odds | 1.38 |
-| Reference draw odds | 5.90 |
-| Reference away odds | 8.80 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.37 |
-| Reference Under 2.5 odds | 3.05 |
-| Home probability edge | -2.9% |
-| Draw probability edge | +1.7% |
-| Away probability edge | +1.2% |
-| Over 2.5 probability edge | -6.4% |
-| Under 2.5 probability edge | +6.4% |
-| Raw edge prob home | -0.0588 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 1.33 |
+| Reference draw odds | 6.25 |
+| Reference away odds | 9.00 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.35 |
+| Reference Under 2.5 odds | 3.20 |
+| Home probability edge | -4.1% |
+| Draw probability edge | +2.5% |
+| Away probability edge | +1.6% |
+| Over 2.5 probability edge | -7.3% |
+| Under 2.5 probability edge | +7.3% |
+| Raw edge prob home | -0.0816 |
 | Raw ev home | -0.0843 |
-| Raw edge prob draw | 0.0345 |
+| Raw edge prob draw | 0.0500 |
 | Raw ev draw | 0.2565 |
-| Raw edge prob away | 0.0242 |
+| Raw edge prob away | 0.0317 |
 | Raw ev away | 0.2187 |
 
 </details>
@@ -178,7 +178,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Augsburg vs Bayern Munich
 
-The model's most likely 1X2 outcome is **Bayern Munich win** at **78.8%**. Expected goals are 1.04 for Augsburg and 2.87 for Bayern Munich (3.92 combined). The most likely exact score is 1-2 at 9.1%. Goal-market probabilities: at least one goal: 97.9%; Over 2.5 goals: 76.3%; Under 4.5 goals: 63.5%.
+The model's most likely 1X2 outcome is **Bayern Munich win** at **78.4%**. Expected goals are 1.04 for Augsburg and 2.87 for Bayern Munich (3.92 combined). The most likely exact score is 1-2 at 9.1%. Goal-market probabilities: at least one goal: 97.8%; Over 2.5 goals: 76.1%; Under 4.5 goals: 63.6%.
 
 **Fixture source:** The Odds API
 
@@ -186,9 +186,9 @@ The model's most likely 1X2 outcome is **Bayern Munich win** at **78.8%**. Expec
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Augsburg win | 8.6% | 11.62 |
-| Draw | 12.6% | 7.91 |
-| Bayern Munich win | 78.8% | 1.27 |
+| Augsburg win | 8.5% | 11.76 |
+| Draw | 13.0% | 7.67 |
+| Bayern Munich win | 78.4% | 1.27 |
 
 ### Goals outlook
 
@@ -197,36 +197,36 @@ The model's most likely 1X2 outcome is **Bayern Munich win** at **78.8%**. Expec
 | Augsburg expected goals | 1.04 |
 | Bayern Munich expected goals | 2.87 |
 | Expected total goals | 3.92 |
-| Over 0.5 | 97.9% |
-| Under 0.5 | 2.1% |
+| Over 0.5 | 97.8% |
+| Under 0.5 | 2.2% |
 | Over 1.5 | 91.2% |
 | Under 1.5 | 8.8% |
-| Over 2.5 | 76.3% |
-| Under 2.5 | 23.7% |
-| Over 3.5 | 55.9% |
-| Under 3.5 | 44.1% |
-| Over 4.5 | 36.5% |
-| Under 4.5 | 63.5% |
+| Over 2.5 | 76.1% |
+| Under 2.5 | 23.9% |
+| Over 3.5 | 55.8% |
+| Under 3.5 | 44.2% |
+| Over 4.5 | 36.4% |
+| Under 4.5 | 63.6% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-2 | 9.09% |
-| 2 | 1-3 | 8.71% |
-| 3 | 0-2 | 8.70% |
-| 4 | 0-3 | 8.34% |
-| 5 | 1-4 | 6.26% |
+| 1 | 1-2 | 9.05% |
+| 2 | 1-3 | 8.67% |
+| 3 | 0-2 | 8.67% |
+| 4 | 0-3 | 8.31% |
+| 5 | 1-4 | 6.23% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Augsburg win | 8.6% | 7.0% | 14.50 | +24.7% |
-| Draw | 12.6% | 9.8% | 10.00 | +26.5% |
-| Bayern Munich win | 78.8% | 83.2% | 1.23 | -3.1% |
-| Over 2.5 | 76.3% | 85.9% | 1.15 | -12.3% |
-| Under 2.5 | 23.7% | 14.1% | 5.55 | +31.8% |
+| Augsburg win | 8.5% | 6.8% | 15.00 | +27.6% |
+| Draw | 13.0% | 10.6% | 10.20 | +33.1% |
+| Bayern Munich win | 78.4% | 82.6% | 1.20 | -5.9% |
+| Over 2.5 | 76.1% | 85.4% | 1.15 | -12.5% |
+| Under 2.5 | 23.9% | 14.6% | 5.55 | +32.7% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -242,32 +242,32 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:48:50Z |
-| Market best draw last update utc | 2026-10-09T13:49:06Z |
-| Market best away last update utc | 2026-10-09T13:48:51Z |
+| Market best home last update utc | 2026-10-09T14:37:18Z |
+| Market best draw last update utc | 2026-10-09T14:37:18Z |
+| Market best away last update utc | 2026-10-09T14:38:07Z |
 | Odds bookmakers 1x2 | 21.00 |
 | Odds bookmakers ou25 | 3.00 |
-| Best home bookmaker | Nordic Bet |
-| Best draw bookmaker | Betfair |
-| Best away bookmaker | GTbets |
+| Best home bookmaker | 1xBet |
+| Best draw bookmaker | 1xBet |
+| Best away bookmaker | Unibet (NL) |
 | Best over 2 5 bookmaker | William Hill |
 | Best under 2 5 bookmaker | Betsson |
 | Matched home-team name | Augsburg |
 | Matched away-team name | Bayern Munich |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 60.8% |
-| P btts no | 39.2% |
+| P btts yes | 60.9% |
+| P btts no | 39.1% |
 | Fair Over 0.5 odds | 1.02 |
-| Fair Under 0.5 odds | 46.90 |
+| Fair Under 0.5 odds | 45.47 |
 | Fair Over 1.5 odds | 1.10 |
-| Fair Under 1.5 odds | 11.43 |
+| Fair Under 1.5 odds | 11.38 |
 | Fair Over 2.5 odds | 1.31 |
-| Fair Under 2.5 odds | 4.21 |
+| Fair Under 2.5 odds | 4.18 |
 | Fair Over 3.5 odds | 1.79 |
-| Fair Under 3.5 odds | 2.27 |
+| Fair Under 3.5 odds | 2.26 |
 | Fair Over 4.5 odds | 2.74 |
-| Fair Under 4.5 odds | 1.58 |
+| Fair Under 4.5 odds | 1.57 |
 | Unadjusted home-win probability | 10.2% |
 | Unadjusted draw probability | 15.5% |
 | Unadjusted away-win probability | 74.3% |
@@ -276,44 +276,44 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 61.8% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Matchbook |
-| Reference home odds | 14.00 |
-| Reference draw odds | 10.00 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 13.00 |
+| Reference draw odds | 8.50 |
 | Reference away odds | 1.20 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.14 |
-| Reference Under 2.5 odds | 5.40 |
-| Home probability edge | +1.6% |
-| Draw probability edge | +2.8% |
-| Away probability edge | -4.5% |
-| Over 2.5 probability edge | -9.6% |
-| Under 2.5 probability edge | +9.6% |
-| Raw edge prob home | 0.0323 |
-| Raw ev home | 0.4818 |
-| Raw edge prob draw | 0.0567 |
-| Raw ev draw | 0.5482 |
-| Raw edge prob away | -0.0891 |
-| Raw ev away | -0.0861 |
-| Market p over 1 5 | 95.8% |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.15 |
+| Reference Under 2.5 odds | 5.50 |
+| Home probability edge | +1.7% |
+| Draw probability edge | +2.4% |
+| Away probability edge | -4.2% |
+| Over 2.5 probability edge | -9.3% |
+| Under 2.5 probability edge | +9.3% |
+| Raw edge prob home | 0.0343 |
+| Raw ev home | 0.5329 |
+| Raw edge prob draw | 0.0488 |
+| Raw ev draw | 0.5792 |
+| Raw edge prob away | -0.0830 |
+| Raw ev away | -0.1084 |
+| Market p over 1 5 | 95.4% |
 | Market over 1 5 odds | 1.04 |
 | Best over 1 5 bookmaker | 1xBet |
-| Market best over 1 5 last update utc | 2026-10-09T13:47:59Z |
-| Market reference over 1 5 odds | 1.03 |
-| Market reference over 1 5 opposite odds | 8.60 |
+| Market best over 1 5 last update utc | 2026-10-09T14:33:59Z |
+| Market reference over 1 5 odds | 1.04 |
+| Market reference over 1 5 opposite odds | 13.00 |
 | Market over 1 5 bookmakers | 3 |
-| Market p under 3 5 | 30.0% |
+| Market p under 3 5 | 29.9% |
 | Market under 3 5 odds | 3.03 |
 | Best under 3 5 bookmaker | Coolbet |
-| Market best under 3 5 last update utc | 2026-10-09T13:49:07Z |
-| Market reference under 3 5 odds | 3.03 |
-| Market reference under 3 5 opposite odds | 1.39 |
+| Market best under 3 5 last update utc | 2026-10-09T14:37:34Z |
+| Market reference under 3 5 odds | 2.98 |
+| Market reference under 3 5 opposite odds | 1.38 |
 | Market under 3 5 bookmakers | 4 |
-| Market p btts yes | 65.3% |
-| Market btts yes odds | 1.52 |
+| Market p btts yes | 64.9% |
+| Market btts yes odds | 1.53 |
 | Best btts yes bookmaker | Matchbook |
-| Market best btts yes last update utc | 2026-10-09T13:49:08Z |
-| Market reference btts yes odds | 1.52 |
-| Market reference btts yes opposite odds | 2.82 |
+| Market best btts yes last update utc | 2026-10-09T14:38:23Z |
+| Market reference btts yes odds | 1.53 |
+| Market reference btts yes opposite odds | 2.80 |
 | Market btts yes bookmakers | 4 |
 
 </details>
@@ -323,7 +323,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — FSV Mainz 05 vs Bayer Leverkusen
 
-The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **48.8%**. Expected goals are 1.08 for FSV Mainz 05 and 1.81 for Bayer Leverkusen (2.89 combined). The most likely exact score is 1-1 at 11.7%. Goal-market probabilities: at least one goal: 93.4%; Over 2.5 goals: 55.2%; Under 4.5 goals: 83.5%.
+The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **48.8%**. Expected goals are 1.08 for FSV Mainz 05 and 1.81 for Bayer Leverkusen (2.89 combined). The most likely exact score is 1-1 at 11.6%. Goal-market probabilities: at least one goal: 93.5%; Over 2.5 goals: 55.3%; Under 4.5 goals: 83.4%.
 
 **Fixture source:** The Odds API
 
@@ -331,8 +331,8 @@ The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **48.8%**. Ex
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| FSV Mainz 05 win | 26.4% | 3.79 |
-| Draw | 24.8% | 4.04 |
+| FSV Mainz 05 win | 26.8% | 3.73 |
+| Draw | 24.4% | 4.10 |
 | Bayer Leverkusen win | 48.8% | 2.05 |
 
 ### Goals outlook
@@ -342,36 +342,36 @@ The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **48.8%**. Ex
 | FSV Mainz 05 expected goals | 1.08 |
 | Bayer Leverkusen expected goals | 1.81 |
 | Expected total goals | 2.89 |
-| Over 0.5 | 93.4% |
-| Under 0.5 | 6.6% |
-| Over 1.5 | 79.2% |
-| Under 1.5 | 20.8% |
-| Over 2.5 | 55.2% |
-| Under 2.5 | 44.8% |
+| Over 0.5 | 93.5% |
+| Under 0.5 | 6.5% |
+| Over 1.5 | 79.3% |
+| Under 1.5 | 20.7% |
+| Over 2.5 | 55.3% |
+| Under 2.5 | 44.7% |
 | Over 3.5 | 32.4% |
 | Under 3.5 | 67.6% |
-| Over 4.5 | 16.5% |
-| Under 4.5 | 83.5% |
+| Over 4.5 | 16.6% |
+| Under 4.5 | 83.4% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 11.74% |
-| 2 | 1-2 | 8.97% |
-| 3 | 0-2 | 8.34% |
-| 4 | 0-1 | 8.16% |
-| 5 | 2-1 | 7.26% |
+| 1 | 1-1 | 11.58% |
+| 2 | 1-2 | 8.96% |
+| 3 | 0-2 | 8.33% |
+| 4 | 0-1 | 8.15% |
+| 5 | 2-1 | 7.38% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| FSV Mainz 05 win | 26.4% | 31.6% | 3.15 | -16.8% |
-| Draw | 24.8% | 24.3% | 4.10 | +1.5% |
-| Bayer Leverkusen win | 48.8% | 44.1% | 2.31 | +12.8% |
-| Over 2.5 | 55.2% | 67.7% | 1.44 | -20.6% |
-| Under 2.5 | 44.8% | 32.3% | 2.84 | +27.3% |
+| FSV Mainz 05 win | 26.8% | 32.5% | 3.10 | -16.8% |
+| Draw | 24.4% | 23.6% | 4.10 | +0.1% |
+| Bayer Leverkusen win | 48.8% | 44.0% | 2.31 | +12.6% |
+| Over 2.5 | 55.3% | 66.7% | 1.44 | -20.4% |
+| Under 2.5 | 44.7% | 33.3% | 2.84 | +27.0% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -387,12 +387,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:49:06Z |
-| Market best draw last update utc | 2026-10-09T13:48:19Z |
-| Market best away last update utc | 2026-10-09T13:47:13Z |
+| Market best home last update utc | 2026-10-09T14:37:33Z |
+| Market best draw last update utc | 2026-10-09T14:38:23Z |
+| Market best away last update utc | 2026-10-09T14:37:18Z |
 | Odds bookmakers 1x2 | 21.00 |
 | Odds bookmakers ou25 | 3.00 |
-| Best home bookmaker | Betfair |
+| Best home bookmaker | Tipico |
 | Best draw bookmaker | Unibet (SE) |
 | Best away bookmaker | 1xBet |
 | Best over 2 5 bookmaker | William Hill |
@@ -401,17 +401,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Leverkusen |
 | Home-name matching confidence | 90/100 |
 | Away-name matching confidence | 90/100 |
-| P btts yes | 56.5% |
-| P btts no | 43.5% |
+| P btts yes | 56.4% |
+| P btts no | 43.6% |
 | Fair Over 0.5 odds | 1.07 |
-| Fair Under 0.5 odds | 15.25 |
+| Fair Under 0.5 odds | 15.47 |
 | Fair Over 1.5 odds | 1.26 |
 | Fair Under 1.5 odds | 4.82 |
 | Fair Over 2.5 odds | 1.81 |
-| Fair Under 2.5 odds | 2.23 |
+| Fair Under 2.5 odds | 2.24 |
 | Fair Over 3.5 odds | 3.08 |
 | Fair Under 3.5 odds | 1.48 |
-| Fair Over 4.5 odds | 6.04 |
+| Fair Over 4.5 odds | 6.03 |
 | Fair Under 4.5 odds | 1.20 |
 | Unadjusted home-win probability | 21.2% |
 | Unadjusted draw probability | 25.3% |
@@ -421,23 +421,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 56.3% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Matchbook |
-| Reference home odds | 3.15 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 3.00 |
 | Reference draw odds | 4.10 |
-| Reference away odds | 2.26 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.43 |
-| Reference Under 2.5 odds | 2.82 |
-| Home probability edge | -5.2% |
-| Draw probability edge | +0.5% |
-| Away probability edge | +4.7% |
-| Over 2.5 probability edge | -12.5% |
-| Under 2.5 probability edge | +12.5% |
-| Raw edge prob home | -0.1042 |
-| Raw ev home | -0.3323 |
-| Raw edge prob draw | 0.0099 |
+| Reference away odds | 2.23 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.44 |
+| Reference Under 2.5 odds | 2.70 |
+| Home probability edge | -5.6% |
+| Draw probability edge | +0.8% |
+| Away probability edge | +4.8% |
+| Over 2.5 probability edge | -11.5% |
+| Under 2.5 probability edge | +11.5% |
+| Raw edge prob home | -0.1126 |
+| Raw ev home | -0.3429 |
+| Raw edge prob draw | 0.0168 |
 | Raw ev draw | 0.0354 |
-| Raw edge prob away | 0.0943 |
+| Raw edge prob away | 0.0957 |
 | Raw ev away | 0.2370 |
 
 </details>
@@ -447,7 +447,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — RB Leipzig vs Eintracht Frankfurt
 
-The model's most likely 1X2 outcome is **RB Leipzig win** at **58.0%**. Expected goals are 2.13 for RB Leipzig and 1.35 for Eintracht Frankfurt (3.48 combined). The most likely exact score is 2-1 at 10.1%. Goal-market probabilities: at least one goal: 96.3%; Over 2.5 goals: 68.2%; Under 4.5 goals: 72.5%.
+The model's most likely 1X2 outcome is **RB Leipzig win** at **58.8%**. Expected goals are 2.13 for RB Leipzig and 1.35 for Eintracht Frankfurt (3.48 combined). The most likely exact score is 2-1 at 10.2%. Goal-market probabilities: at least one goal: 96.3%; Over 2.5 goals: 68.3%; Under 4.5 goals: 72.4%.
 
 **Fixture source:** The Odds API
 
@@ -455,9 +455,9 @@ The model's most likely 1X2 outcome is **RB Leipzig win** at **58.0%**. Expected
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| RB Leipzig win | 58.0% | 1.72 |
-| Draw | 21.0% | 4.76 |
-| Eintracht Frankfurt win | 21.0% | 4.77 |
+| RB Leipzig win | 58.8% | 1.70 |
+| Draw | 20.8% | 4.81 |
+| Eintracht Frankfurt win | 20.4% | 4.91 |
 
 ### Goals outlook
 
@@ -470,32 +470,32 @@ The model's most likely 1X2 outcome is **RB Leipzig win** at **58.0%**. Expected
 | Under 0.5 | 3.7% |
 | Over 1.5 | 87.3% |
 | Under 1.5 | 12.7% |
-| Over 2.5 | 68.2% |
-| Under 2.5 | 31.8% |
-| Over 3.5 | 46.2% |
-| Under 3.5 | 53.8% |
-| Over 4.5 | 27.5% |
-| Under 4.5 | 72.5% |
+| Over 2.5 | 68.3% |
+| Under 2.5 | 31.7% |
+| Over 3.5 | 46.3% |
+| Under 3.5 | 53.7% |
+| Over 4.5 | 27.6% |
+| Under 4.5 | 72.4% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 2-1 | 10.05% |
-| 2 | 1-1 | 9.10% |
-| 3 | 2-0 | 7.47% |
-| 4 | 3-1 | 7.14% |
-| 5 | 1-0 | 6.02% |
+| 1 | 2-1 | 10.19% |
+| 2 | 1-1 | 9.00% |
+| 3 | 2-0 | 7.57% |
+| 4 | 3-1 | 7.24% |
+| 5 | 1-0 | 6.10% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| RB Leipzig win | 58.0% | 61.5% | 1.62 | -6.0% |
-| Draw | 21.0% | 19.4% | 5.10 | +7.1% |
-| Eintracht Frankfurt win | 21.0% | 19.0% | 5.30 | +11.2% |
-| Over 2.5 | 68.2% | 75.4% | 1.30 | -11.4% |
-| Under 2.5 | 31.8% | 24.6% | 3.60 | +14.6% |
+| RB Leipzig win | 58.8% | 63.2% | 1.62 | -4.7% |
+| Draw | 20.8% | 19.0% | 5.10 | +6.0% |
+| Eintracht Frankfurt win | 20.4% | 17.9% | 5.30 | +8.0% |
+| Over 2.5 | 68.3% | 75.6% | 1.30 | -11.2% |
+| Under 2.5 | 31.7% | 24.4% | 3.60 | +14.2% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -511,13 +511,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:47:13Z |
-| Market best draw last update utc | 2026-10-09T13:49:02Z |
-| Market best away last update utc | 2026-10-09T13:48:19Z |
+| Market best home last update utc | 2026-10-09T14:37:18Z |
+| Market best draw last update utc | 2026-10-09T14:38:07Z |
+| Market best away last update utc | 2026-10-09T14:38:23Z |
 | Odds bookmakers 1x2 | 21.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
-| Best draw bookmaker | Winamax (DE) |
+| Best draw bookmaker | Betfair |
 | Best away bookmaker | Unibet (SE) |
 | Best over 2 5 bookmaker | Betsson |
 | Best under 2 5 bookmaker | William Hill |
@@ -525,17 +525,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Ein Frankfurt |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 81/100 |
-| P btts yes | 65.7% |
-| P btts no | 34.3% |
+| P btts yes | 65.6% |
+| P btts no | 34.4% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 26.81 |
+| Fair Under 0.5 odds | 27.10 |
 | Fair Over 1.5 odds | 1.15 |
-| Fair Under 1.5 odds | 7.87 |
-| Fair Over 2.5 odds | 1.47 |
-| Fair Under 2.5 odds | 3.14 |
+| Fair Under 1.5 odds | 7.89 |
+| Fair Over 2.5 odds | 1.46 |
+| Fair Under 2.5 odds | 3.15 |
 | Fair Over 3.5 odds | 2.16 |
 | Fair Under 3.5 odds | 1.86 |
-| Fair Over 4.5 odds | 3.64 |
+| Fair Over 4.5 odds | 3.63 |
 | Fair Under 4.5 odds | 1.38 |
 | Unadjusted home-win probability | 54.5% |
 | Unadjusted draw probability | 22.6% |
@@ -545,23 +545,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 66.1% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Matchbook |
-| Reference home odds | 1.62 |
-| Reference draw odds | 5.10 |
-| Reference away odds | 5.20 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 1.56 |
+| Reference draw odds | 5.00 |
+| Reference away odds | 5.30 |
+| O/U 2.5 market source | The Odds API / William Hill |
 | Reference Over 2.5 odds | 1.29 |
-| Reference Under 2.5 odds | 3.55 |
-| Home probability edge | -3.5% |
-| Draw probability edge | +1.6% |
-| Away probability edge | +1.9% |
+| Reference Under 2.5 odds | 3.60 |
+| Home probability edge | -4.3% |
+| Draw probability edge | +1.8% |
+| Away probability edge | +2.5% |
 | Over 2.5 probability edge | -7.3% |
 | Under 2.5 probability edge | +7.3% |
-| Raw edge prob home | -0.0704 |
+| Raw edge prob home | -0.0867 |
 | Raw ev home | -0.1170 |
-| Raw edge prob draw | 0.0317 |
+| Raw edge prob draw | 0.0362 |
 | Raw ev draw | 0.1520 |
-| Raw edge prob away | 0.0387 |
+| Raw edge prob away | 0.0505 |
 | Raw ev away | 0.2140 |
 
 </details>
@@ -571,7 +571,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — SC Paderborn vs VfB Stuttgart
 
-The model's most likely 1X2 outcome is **VfB Stuttgart win** at **56.0%**. Expected goals are 0.76 for SC Paderborn and 1.42 for VfB Stuttgart (2.18 combined). The most likely exact score is 0-1 at 16.1%. Goal-market probabilities: at least one goal: 89.3%; Over 2.5 goals: 38.9%; Under 4.5 goals: 92.6%.
+The model's most likely 1X2 outcome is **VfB Stuttgart win** at **56.1%**. Expected goals are 0.76 for SC Paderborn and 1.42 for VfB Stuttgart (2.18 combined). The most likely exact score is 0-1 at 16.1%. Goal-market probabilities: at least one goal: 89.5%; Over 2.5 goals: 39.0%; Under 4.5 goals: 92.5%.
 
 **Fixture source:** The Odds API
 
@@ -579,9 +579,9 @@ The model's most likely 1X2 outcome is **VfB Stuttgart win** at **56.0%**. Expec
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| SC Paderborn win | 18.7% | 5.33 |
-| Draw | 25.2% | 3.96 |
-| VfB Stuttgart win | 56.0% | 1.78 |
+| SC Paderborn win | 19.0% | 5.28 |
+| Draw | 25.0% | 4.00 |
+| VfB Stuttgart win | 56.1% | 1.78 |
 
 ### Goals outlook
 
@@ -590,36 +590,36 @@ The model's most likely 1X2 outcome is **VfB Stuttgart win** at **56.0%**. Expec
 | SC Paderborn expected goals | 0.76 |
 | VfB Stuttgart expected goals | 1.42 |
 | Expected total goals | 2.18 |
-| Over 0.5 | 89.3% |
-| Under 0.5 | 10.7% |
+| Over 0.5 | 89.5% |
+| Under 0.5 | 10.5% |
 | Over 1.5 | 66.0% |
 | Under 1.5 | 34.0% |
-| Over 2.5 | 38.9% |
-| Under 2.5 | 61.1% |
+| Over 2.5 | 39.0% |
+| Under 2.5 | 61.0% |
 | Over 3.5 | 18.1% |
 | Under 3.5 | 81.9% |
-| Over 4.5 | 7.4% |
-| Under 4.5 | 92.6% |
+| Over 4.5 | 7.5% |
+| Under 4.5 | 92.5% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 0-1 | 16.06% |
-| 2 | 0-2 | 12.41% |
-| 3 | 1-1 | 11.42% |
-| 4 | 0-0 | 10.65% |
-| 5 | 1-2 | 9.42% |
+| 1 | 0-1 | 16.07% |
+| 2 | 0-2 | 12.42% |
+| 3 | 1-1 | 11.31% |
+| 4 | 0-0 | 10.55% |
+| 5 | 1-2 | 9.43% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| SC Paderborn win | 18.7% | 18.8% | 5.30 | -0.7% |
-| Draw | 25.2% | 20.7% | 4.85 | +22.3% |
-| VfB Stuttgart win | 56.0% | 60.5% | 1.65 | -7.6% |
-| Over 2.5 | 38.9% | 72.4% | 1.35 | -47.5% |
-| Under 2.5 | 61.1% | 27.6% | 3.26 | +99.2% |
+| SC Paderborn win | 19.0% | 19.2% | 5.20 | -1.4% |
+| Draw | 25.0% | 20.2% | 5.03 | +25.6% |
+| VfB Stuttgart win | 56.1% | 60.6% | 1.65 | -7.5% |
+| Over 2.5 | 39.0% | 71.6% | 1.35 | -47.4% |
+| Under 2.5 | 61.0% | 28.4% | 3.26 | +98.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -635,13 +635,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:49:06Z |
-| Market best draw last update utc | 2026-10-09T13:49:06Z |
-| Market best away last update utc | 2026-10-09T13:49:06Z |
+| Market best home last update utc | 2026-10-09T14:38:07Z |
+| Market best draw last update utc | 2026-10-09T14:37:18Z |
+| Market best away last update utc | 2026-10-09T14:38:07Z |
 | Odds bookmakers 1x2 | 21.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Betfair |
-| Best draw bookmaker | Pinnacle |
+| Best draw bookmaker | 1xBet |
 | Best away bookmaker | Betfair |
 | Best over 2 5 bookmaker | William Hill |
 | Best under 2 5 bookmaker | Betsson |
@@ -649,17 +649,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Stuttgart |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 95/100 |
-| P btts yes | 40.6% |
-| P btts no | 59.4% |
+| P btts yes | 40.5% |
+| P btts no | 59.5% |
 | Fair Over 0.5 odds | 1.12 |
-| Fair Under 0.5 odds | 9.39 |
+| Fair Under 0.5 odds | 9.48 |
 | Fair Over 1.5 odds | 1.52 |
 | Fair Under 1.5 odds | 2.94 |
 | Fair Over 2.5 odds | 2.57 |
 | Fair Under 2.5 odds | 1.64 |
-| Fair Over 3.5 odds | 5.52 |
+| Fair Over 3.5 odds | 5.51 |
 | Fair Under 3.5 odds | 1.22 |
-| Fair Over 4.5 odds | 13.43 |
+| Fair Over 4.5 odds | 13.40 |
 | Fair Under 4.5 odds | 1.08 |
 | Unadjusted home-win probability | 18.7% |
 | Unadjusted draw probability | 29.7% |
@@ -669,23 +669,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 41.6% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Matchbook |
-| Reference home odds | 5.30 |
-| Reference draw odds | 4.80 |
-| Reference away odds | 1.65 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.34 |
-| Reference Under 2.5 odds | 3.20 |
-| Home probability edge | -0.0% |
-| Draw probability edge | +4.5% |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 5.00 |
+| Reference draw odds | 4.75 |
+| Reference away odds | 1.63 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.35 |
+| Reference Under 2.5 odds | 3.10 |
+| Home probability edge | -0.2% |
+| Draw probability edge | +4.8% |
 | Away probability edge | -4.5% |
-| Over 2.5 probability edge | -33.5% |
-| Under 2.5 probability edge | +33.5% |
-| Raw edge prob home | -0.0004 |
-| Raw ev home | -0.0077 |
-| Raw edge prob draw | 0.0900 |
-| Raw ev draw | 0.4417 |
-| Raw edge prob away | -0.0896 |
+| Over 2.5 probability edge | -32.6% |
+| Under 2.5 probability edge | +32.6% |
+| Raw edge prob home | -0.0047 |
+| Raw ev home | -0.0264 |
+| Raw edge prob draw | 0.0950 |
+| Raw ev draw | 0.4952 |
+| Raw edge prob away | -0.0903 |
 | Raw ev away | -0.1494 |
 
 </details>
@@ -695,7 +695,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — TSG Hoffenheim vs Hamburger SV
 
-The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **62.5%**. Expected goals are 2.09 for TSG Hoffenheim and 1.21 for Hamburger SV (3.30 combined). The most likely exact score is 2-1 at 10.8%. Goal-market probabilities: at least one goal: 95.8%; Over 2.5 goals: 65.1%; Under 4.5 goals: 75.6%.
+The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **62.9%**. Expected goals are 2.09 for TSG Hoffenheim and 1.21 for Hamburger SV (3.30 combined). The most likely exact score is 2-1 at 10.8%. Goal-market probabilities: at least one goal: 95.9%; Over 2.5 goals: 65.3%; Under 4.5 goals: 75.5%.
 
 **Fixture source:** The Odds API
 
@@ -703,9 +703,9 @@ The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **62.5%**. Expe
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| TSG Hoffenheim win | 62.5% | 1.60 |
-| Draw | 20.6% | 4.85 |
-| Hamburger SV win | 16.8% | 5.94 |
+| TSG Hoffenheim win | 62.9% | 1.59 |
+| Draw | 20.2% | 4.96 |
+| Hamburger SV win | 17.0% | 5.89 |
 
 ### Goals outlook
 
@@ -714,36 +714,36 @@ The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **62.5%**. Expe
 | TSG Hoffenheim expected goals | 2.09 |
 | Hamburger SV expected goals | 1.21 |
 | Expected total goals | 3.30 |
-| Over 0.5 | 95.8% |
-| Under 0.5 | 4.2% |
+| Over 0.5 | 95.9% |
+| Under 0.5 | 4.1% |
 | Over 1.5 | 85.5% |
 | Under 1.5 | 14.5% |
-| Over 2.5 | 65.1% |
-| Under 2.5 | 34.9% |
-| Over 3.5 | 42.6% |
-| Under 3.5 | 57.4% |
-| Over 4.5 | 24.4% |
-| Under 4.5 | 75.6% |
+| Over 2.5 | 65.3% |
+| Under 2.5 | 34.7% |
+| Over 3.5 | 42.7% |
+| Under 3.5 | 57.3% |
+| Over 4.5 | 24.5% |
+| Under 4.5 | 75.5% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 2-1 | 10.76% |
-| 2 | 1-1 | 9.31% |
-| 3 | 2-0 | 8.89% |
-| 4 | 3-1 | 7.50% |
-| 5 | 1-0 | 7.43% |
+| 1 | 2-1 | 10.82% |
+| 2 | 1-1 | 9.10% |
+| 3 | 2-0 | 8.94% |
+| 4 | 3-1 | 7.54% |
+| 5 | 1-0 | 7.47% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| TSG Hoffenheim win | 62.5% | 68.4% | 1.49 | -6.8% |
-| Draw | 20.6% | 18.5% | 5.40 | +11.4% |
-| Hamburger SV win | 16.8% | 13.1% | 7.60 | +28.0% |
-| Over 2.5 | 65.1% | 69.6% | 1.40 | -8.9% |
-| Under 2.5 | 34.9% | 30.4% | 3.00 | +4.7% |
+| TSG Hoffenheim win | 62.9% | 69.1% | 1.49 | -6.3% |
+| Draw | 20.2% | 17.5% | 5.40 | +8.8% |
+| Hamburger SV win | 17.0% | 13.4% | 7.60 | +29.1% |
+| Over 2.5 | 65.3% | 70.8% | 1.40 | -8.6% |
+| Under 2.5 | 34.7% | 29.2% | 3.00 | +4.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -759,9 +759,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:47:13Z |
-| Market best draw last update utc | 2026-10-09T13:48:19Z |
-| Market best away last update utc | 2026-10-09T13:49:06Z |
+| Market best home last update utc | 2026-10-09T14:37:18Z |
+| Market best draw last update utc | 2026-10-09T14:38:23Z |
+| Market best away last update utc | 2026-10-09T14:38:07Z |
 | Odds bookmakers 1x2 | 21.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
@@ -773,17 +773,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Hamburg |
 | Home-name matching confidence | 95/100 |
 | Away-name matching confidence | 88/100 |
-| P btts yes | 61.7% |
-| P btts no | 38.3% |
+| P btts yes | 61.6% |
+| P btts no | 38.4% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 23.75 |
+| Fair Under 0.5 odds | 24.31 |
 | Fair Over 1.5 odds | 1.17 |
-| Fair Under 1.5 odds | 6.90 |
-| Fair Over 2.5 odds | 1.54 |
-| Fair Under 2.5 odds | 2.87 |
-| Fair Over 3.5 odds | 2.35 |
+| Fair Under 1.5 odds | 6.92 |
+| Fair Over 2.5 odds | 1.53 |
+| Fair Under 2.5 odds | 2.88 |
+| Fair Over 3.5 odds | 2.34 |
 | Fair Under 3.5 odds | 1.74 |
-| Fair Over 4.5 odds | 4.09 |
+| Fair Over 4.5 odds | 4.08 |
 | Fair Under 4.5 odds | 1.32 |
 | Unadjusted home-win probability | 56.6% |
 | Unadjusted draw probability | 22.8% |
@@ -793,23 +793,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 62.5% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Matchbook |
-| Reference home odds | 1.46 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 1.43 |
 | Reference draw odds | 5.40 |
-| Reference away odds | 7.60 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.39 |
-| Reference Under 2.5 odds | 2.95 |
-| Home probability edge | -5.9% |
-| Draw probability edge | +2.2% |
-| Away probability edge | +3.7% |
-| Over 2.5 probability edge | -4.5% |
-| Under 2.5 probability edge | +4.5% |
-| Raw edge prob home | -0.1181 |
+| Reference away odds | 7.00 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.36 |
+| Reference Under 2.5 odds | 3.00 |
+| Home probability edge | -6.2% |
+| Draw probability edge | +2.6% |
+| Away probability edge | +3.6% |
+| Over 2.5 probability edge | -5.5% |
+| Under 2.5 probability edge | +5.5% |
+| Raw edge prob home | -0.1247 |
 | Raw ev home | -0.1562 |
-| Raw edge prob draw | 0.0434 |
+| Raw edge prob draw | 0.0529 |
 | Raw ev draw | 0.2310 |
-| Raw edge prob away | 0.0747 |
+| Raw edge prob away | 0.0719 |
 | Raw ev away | 0.5637 |
 
 </details>
@@ -819,7 +819,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Union Berlin vs Elversberg
 
-The model's most likely 1X2 outcome is **Elversberg win** at **49.7%**. Expected goals are 1.17 for Union Berlin and 2.48 for Elversberg (3.65 combined). The most likely exact score is 1-1 at 9.7%. Goal-market probabilities: at least one goal: 96.1%; Over 2.5 goals: 68.7%; Under 4.5 goals: 71.5%.
+The model's most likely 1X2 outcome is **Elversberg win** at **49.4%**. Expected goals are 1.17 for Union Berlin and 2.48 for Elversberg (3.65 combined). The most likely exact score is 1-1 at 9.5%. Goal-market probabilities: at least one goal: 96.1%; Over 2.5 goals: 68.8%; Under 4.5 goals: 71.5%.
 
 **Fixture source:** The Odds API
 
@@ -827,9 +827,9 @@ The model's most likely 1X2 outcome is **Elversberg win** at **49.7%**. Expected
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Union Berlin win | 27.9% | 3.58 |
-| Draw | 22.4% | 4.47 |
-| Elversberg win | 49.7% | 2.01 |
+| Union Berlin win | 28.6% | 3.49 |
+| Draw | 22.0% | 4.55 |
+| Elversberg win | 49.4% | 2.03 |
 
 ### Goals outlook
 
@@ -842,10 +842,10 @@ The model's most likely 1X2 outcome is **Elversberg win** at **49.7%**. Expected
 | Under 0.5 | 3.9% |
 | Over 1.5 | 87.6% |
 | Under 1.5 | 12.4% |
-| Over 2.5 | 68.7% |
-| Under 2.5 | 31.3% |
-| Over 3.5 | 47.3% |
-| Under 3.5 | 52.7% |
+| Over 2.5 | 68.8% |
+| Under 2.5 | 31.2% |
+| Over 3.5 | 47.2% |
+| Under 3.5 | 52.8% |
 | Over 4.5 | 28.5% |
 | Under 4.5 | 71.5% |
 
@@ -853,21 +853,21 @@ The model's most likely 1X2 outcome is **Elversberg win** at **49.7%**. Expected
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 9.67% |
-| 2 | 2-1 | 7.98% |
-| 3 | 1-2 | 7.12% |
-| 4 | 2-2 | 6.33% |
-| 5 | 0-2 | 6.10% |
+| 1 | 1-1 | 9.49% |
+| 2 | 2-1 | 8.18% |
+| 3 | 1-2 | 7.07% |
+| 4 | 2-2 | 6.22% |
+| 5 | 0-2 | 6.07% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Union Berlin win | 27.9% | 40.5% | 2.46 | -31.3% |
-| Draw | 22.4% | 25.5% | 3.90 | -12.7% |
-| Elversberg win | 49.7% | 34.1% | 2.92 | +45.1% |
-| Over 2.5 | 68.7% | 62.7% | 1.54 | +5.7% |
-| Under 2.5 | 31.3% | 37.3% | 2.56 | -19.8% |
+| Union Berlin win | 28.6% | 41.9% | 2.46 | -29.5% |
+| Draw | 22.0% | 24.7% | 3.90 | -14.3% |
+| Elversberg win | 49.4% | 33.4% | 2.92 | +44.2% |
+| Over 2.5 | 68.8% | 62.6% | 1.54 | +5.9% |
+| Under 2.5 | 31.2% | 37.4% | 2.56 | -20.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -883,9 +883,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:49:06Z |
-| Market best draw last update utc | 2026-10-09T13:47:13Z |
-| Market best away last update utc | 2026-10-09T13:49:06Z |
+| Market best home last update utc | 2026-10-09T14:38:07Z |
+| Market best draw last update utc | 2026-10-09T14:37:18Z |
+| Market best away last update utc | 2026-10-09T14:38:07Z |
 | Odds bookmakers 1x2 | 21.00 |
 | Odds bookmakers ou25 | 7.00 |
 | Best home bookmaker | Betfair |
@@ -900,11 +900,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 65.9% |
 | P btts no | 34.1% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 25.39 |
+| Fair Under 0.5 odds | 25.85 |
 | Fair Over 1.5 odds | 1.14 |
-| Fair Under 1.5 odds | 8.10 |
-| Fair Over 2.5 odds | 1.46 |
-| Fair Under 2.5 odds | 3.19 |
+| Fair Under 1.5 odds | 8.09 |
+| Fair Over 2.5 odds | 1.45 |
+| Fair Under 2.5 odds | 3.20 |
 | Fair Over 3.5 odds | 2.12 |
 | Fair Under 3.5 odds | 1.90 |
 | Fair Over 4.5 odds | 3.51 |
@@ -917,23 +917,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 63.9% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Matchbook |
-| Reference home odds | 2.46 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 2.33 |
 | Reference draw odds | 3.90 |
-| Reference away odds | 2.92 |
-| O/U 2.5 market source | The Odds API / Unibet (NL) |
-| Reference Over 2.5 odds | 1.53 |
-| Reference Under 2.5 odds | 2.45 |
-| Home probability edge | -12.5% |
-| Draw probability edge | -3.1% |
-| Away probability edge | +15.6% |
-| Over 2.5 probability edge | +6.0% |
-| Under 2.5 probability edge | -6.0% |
-| Raw edge prob home | -0.2506 |
+| Reference away odds | 2.90 |
+| O/U 2.5 market source | The Odds API / Unibet (SE) |
+| Reference Over 2.5 odds | 1.54 |
+| Reference Under 2.5 odds | 2.48 |
+| Home probability edge | -13.2% |
+| Draw probability edge | -2.7% |
+| Away probability edge | +15.9% |
+| Over 2.5 probability edge | +6.2% |
+| Under 2.5 probability edge | -6.2% |
+| Raw edge prob home | -0.2648 |
 | Raw ev home | -0.6210 |
-| Raw edge prob draw | -0.0617 |
+| Raw edge prob draw | -0.0537 |
 | Raw ev draw | -0.2475 |
-| Raw edge prob away | 0.3123 |
+| Raw edge prob away | 0.3185 |
 | Raw ev away | 0.9067 |
 
 </details>
@@ -943,7 +943,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — 1. FC Köln vs Borussia Monchengladbach
 
-The model's most likely 1X2 outcome is **1. FC Köln win** at **40.4%**. Expected goals are 1.43 for 1. FC Köln and 1.55 for Borussia Monchengladbach (2.97 combined). The most likely exact score is 1-1 at 12.0%. Goal-market probabilities: at least one goal: 94.0%; Over 2.5 goals: 57.4%; Under 4.5 goals: 81.8%.
+The model's most likely 1X2 outcome is **1. FC Köln win** at **40.8%**. Expected goals are 1.43 for 1. FC Köln and 1.55 for Borussia Monchengladbach (2.97 combined). The most likely exact score is 1-1 at 11.7%. Goal-market probabilities: at least one goal: 94.1%; Over 2.5 goals: 57.7%; Under 4.5 goals: 81.7%.
 
 **Fixture source:** The Odds API
 
@@ -951,9 +951,9 @@ The model's most likely 1X2 outcome is **1. FC Köln win** at **40.4%**. Expecte
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| 1. FC Köln win | 40.4% | 2.48 |
-| Draw | 25.7% | 3.90 |
-| Borussia Monchengladbach win | 34.0% | 2.94 |
+| 1. FC Köln win | 40.8% | 2.45 |
+| Draw | 25.1% | 3.99 |
+| Borussia Monchengladbach win | 34.1% | 2.93 |
 
 ### Goals outlook
 
@@ -962,36 +962,36 @@ The model's most likely 1X2 outcome is **1. FC Köln win** at **40.4%**. Expecte
 | 1. FC Köln expected goals | 1.43 |
 | Borussia Monchengladbach expected goals | 1.55 |
 | Expected total goals | 2.97 |
-| Over 0.5 | 94.0% |
-| Under 0.5 | 6.0% |
+| Over 0.5 | 94.1% |
+| Under 0.5 | 5.9% |
 | Over 1.5 | 80.9% |
 | Under 1.5 | 19.1% |
-| Over 2.5 | 57.4% |
-| Under 2.5 | 42.6% |
+| Over 2.5 | 57.7% |
+| Under 2.5 | 42.3% |
 | Over 3.5 | 34.7% |
 | Under 3.5 | 65.3% |
-| Over 4.5 | 18.2% |
-| Under 4.5 | 81.8% |
+| Over 4.5 | 18.3% |
+| Under 4.5 | 81.7% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 11.97% |
-| 2 | 2-1 | 9.56% |
-| 3 | 1-2 | 7.54% |
-| 4 | 1-0 | 7.26% |
-| 5 | 2-0 | 6.18% |
+| 1 | 1-1 | 11.68% |
+| 2 | 2-1 | 9.68% |
+| 3 | 1-2 | 7.56% |
+| 4 | 1-0 | 7.35% |
+| 5 | 2-0 | 6.25% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| 1. FC Köln win | 40.4% | 46.8% | 2.13 | -14.1% |
-| Draw | 25.7% | 24.6% | 4.15 | +6.5% |
-| Borussia Monchengladbach win | 34.0% | 28.6% | 3.45 | +17.2% |
-| Over 2.5 | 57.4% | 64.6% | 1.51 | -13.3% |
-| Under 2.5 | 42.6% | 35.4% | 2.61 | +11.1% |
+| 1. FC Köln win | 40.8% | 47.8% | 2.18 | -11.0% |
+| Draw | 25.1% | 23.4% | 4.10 | +2.8% |
+| Borussia Monchengladbach win | 34.1% | 28.8% | 3.45 | +17.6% |
+| Over 2.5 | 57.7% | 63.8% | 1.51 | -12.9% |
+| Under 2.5 | 42.3% | 36.2% | 2.61 | +10.5% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1007,13 +1007,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:49:06Z |
-| Market best draw last update utc | 2026-10-09T13:47:13Z |
-| Market best away last update utc | 2026-10-09T13:49:06Z |
+| Market best home last update utc | 2026-10-09T14:37:18Z |
+| Market best draw last update utc | 2026-10-09T14:38:07Z |
+| Market best away last update utc | 2026-10-09T14:38:07Z |
 | Odds bookmakers 1x2 | 21.00 |
 | Odds bookmakers ou25 | 3.00 |
-| Best home bookmaker | Pinnacle |
-| Best draw bookmaker | 1xBet |
+| Best home bookmaker | 1xBet |
+| Best draw bookmaker | Unibet (NL) |
 | Best away bookmaker | Betfair |
 | Best over 2 5 bookmaker | Betsson |
 | Best under 2 5 bookmaker | Betsson |
@@ -1021,17 +1021,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | M'gladbach |
 | Home-name matching confidence | 90/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 60.8% |
-| P btts no | 39.2% |
+| P btts yes | 60.7% |
+| P btts no | 39.3% |
 | Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 16.56 |
+| Fair Under 0.5 odds | 16.96 |
 | Fair Over 1.5 odds | 1.24 |
-| Fair Under 1.5 odds | 5.23 |
-| Fair Over 2.5 odds | 1.74 |
-| Fair Under 2.5 odds | 2.35 |
+| Fair Under 1.5 odds | 5.24 |
+| Fair Over 2.5 odds | 1.73 |
+| Fair Under 2.5 odds | 2.36 |
 | Fair Over 3.5 odds | 2.88 |
 | Fair Under 3.5 odds | 1.53 |
-| Fair Over 4.5 odds | 5.51 |
+| Fair Over 4.5 odds | 5.48 |
 | Fair Under 4.5 odds | 1.22 |
 | Unadjusted home-win probability | 33.9% |
 | Unadjusted draw probability | 26.7% |
@@ -1041,23 +1041,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 61.0% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Matchbook |
-| Reference home odds | 2.12 |
-| Reference draw odds | 4.00 |
-| Reference away odds | 3.45 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.49 |
-| Reference Under 2.5 odds | 2.58 |
-| Home probability edge | -6.4% |
-| Draw probability edge | +1.1% |
-| Away probability edge | +5.4% |
-| Over 2.5 probability edge | -7.2% |
-| Under 2.5 probability edge | +7.2% |
-| Raw edge prob home | -0.1286 |
-| Raw ev home | -0.2775 |
-| Raw edge prob draw | 0.0210 |
-| Raw ev draw | 0.1091 |
-| Raw edge prob away | 0.1076 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 2.05 |
+| Reference draw odds | 4.10 |
+| Reference away odds | 3.35 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.50 |
+| Reference Under 2.5 odds | 2.50 |
+| Home probability edge | -6.9% |
+| Draw probability edge | +1.7% |
+| Away probability edge | +5.3% |
+| Over 2.5 probability edge | -6.1% |
+| Under 2.5 probability edge | +6.1% |
+| Raw edge prob home | -0.1385 |
+| Raw ev home | -0.2606 |
+| Raw edge prob draw | 0.0332 |
+| Raw ev draw | 0.0957 |
+| Raw edge prob away | 0.1054 |
 | Raw ev away | 0.3578 |
 
 </details>
@@ -1067,7 +1067,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — SC Freiburg vs FC Schalke 04
 
-The model's most likely 1X2 outcome is **SC Freiburg win** at **47.0%**. Expected goals are 0.90 for SC Freiburg and 0.80 for FC Schalke 04 (1.70 combined). The most likely exact score is 1-0 at 20.6%. Goal-market probabilities: at least one goal: 83.9%; Over 2.5 goals: 26.2%; Under 4.5 goals: 96.7%.
+The model's most likely 1X2 outcome is **SC Freiburg win** at **47.4%**. Expected goals are 0.90 for SC Freiburg and 0.80 for FC Schalke 04 (1.70 combined). The most likely exact score is 1-0 at 20.7%. Goal-market probabilities: at least one goal: 84.1%; Over 2.5 goals: 26.3%; Under 4.5 goals: 96.7%.
 
 **Fixture source:** The Odds API
 
@@ -1075,9 +1075,9 @@ The model's most likely 1X2 outcome is **SC Freiburg win** at **47.0%**. Expecte
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| SC Freiburg win | 47.0% | 2.13 |
-| Draw | 30.1% | 3.32 |
-| FC Schalke 04 win | 22.9% | 4.37 |
+| SC Freiburg win | 47.4% | 2.11 |
+| Draw | 29.8% | 3.36 |
+| FC Schalke 04 win | 22.8% | 4.38 |
 
 ### Goals outlook
 
@@ -1086,12 +1086,12 @@ The model's most likely 1X2 outcome is **SC Freiburg win** at **47.0%**. Expecte
 | SC Freiburg expected goals | 0.90 |
 | FC Schalke 04 expected goals | 0.80 |
 | Expected total goals | 1.70 |
-| Over 0.5 | 83.9% |
-| Under 0.5 | 16.1% |
+| Over 0.5 | 84.1% |
+| Under 0.5 | 15.9% |
 | Over 1.5 | 52.9% |
 | Under 1.5 | 47.1% |
-| Over 2.5 | 26.2% |
-| Under 2.5 | 73.8% |
+| Over 2.5 | 26.3% |
+| Under 2.5 | 73.7% |
 | Over 3.5 | 9.7% |
 | Under 3.5 | 90.3% |
 | Over 4.5 | 3.3% |
@@ -1101,21 +1101,21 @@ The model's most likely 1X2 outcome is **SC Freiburg win** at **47.0%**. Expecte
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 20.55% |
-| 2 | 0-0 | 16.09% |
-| 3 | 1-1 | 11.94% |
-| 4 | 0-1 | 10.48% |
-| 5 | 2-0 | 10.07% |
+| 1 | 1-0 | 20.74% |
+| 2 | 0-0 | 15.91% |
+| 3 | 1-1 | 11.80% |
+| 4 | 0-1 | 10.44% |
+| 5 | 2-0 | 10.16% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| SC Freiburg win | 47.0% | 59.7% | 1.71 | -19.7% |
-| Draw | 30.1% | 23.6% | 4.20 | +26.6% |
-| FC Schalke 04 win | 22.9% | 16.7% | 5.90 | +35.1% |
-| Over 2.5 | 26.2% | 59.0% | 1.69 | -55.7% |
-| Under 2.5 | 73.8% | 41.0% | 2.38 | +75.6% |
+| SC Freiburg win | 47.4% | 60.5% | 1.71 | -19.0% |
+| Draw | 29.8% | 22.9% | 4.20 | +25.2% |
+| FC Schalke 04 win | 22.8% | 16.6% | 6.00 | +36.9% |
+| Over 2.5 | 26.3% | 59.0% | 1.69 | -55.5% |
+| Under 2.5 | 73.7% | 41.0% | 2.38 | +75.4% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1131,10 +1131,10 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:47:13Z |
-| Market best draw last update utc | 2026-10-09T13:48:19Z |
-| Market best away last update utc | 2026-10-09T13:49:06Z |
-| Odds bookmakers 1x2 | 20.00 |
+| Market best home last update utc | 2026-10-09T14:37:18Z |
+| Market best draw last update utc | 2026-10-09T14:38:23Z |
+| Market best away last update utc | 2026-10-09T14:38:07Z |
+| Odds bookmakers 1x2 | 21.00 |
 | Odds bookmakers ou25 | 12.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | Unibet (SE) |
@@ -1145,17 +1145,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Schalke 04 |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 32.8% |
-| P btts no | 67.2% |
+| P btts yes | 32.7% |
+| P btts no | 67.3% |
 | Fair Over 0.5 odds | 1.19 |
-| Fair Under 0.5 odds | 6.21 |
+| Fair Under 0.5 odds | 6.29 |
 | Fair Over 1.5 odds | 1.89 |
 | Fair Under 1.5 odds | 2.12 |
-| Fair Over 2.5 odds | 3.81 |
+| Fair Over 2.5 odds | 3.80 |
 | Fair Under 2.5 odds | 1.36 |
-| Fair Over 3.5 odds | 10.33 |
+| Fair Over 3.5 odds | 10.32 |
 | Fair Under 3.5 odds | 1.11 |
-| Fair Over 4.5 odds | 30.75 |
+| Fair Over 4.5 odds | 30.62 |
 | Fair Under 4.5 odds | 1.03 |
 | Unadjusted home-win probability | 34.2% |
 | Unadjusted draw probability | 36.7% |
@@ -1165,43 +1165,43 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 34.1% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Matchbook |
-| Reference home odds | 1.67 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 1.63 |
 | Reference draw odds | 4.20 |
-| Reference away odds | 5.90 |
-| O/U 2.5 market source | The Odds API / Matchbook |
-| Reference Over 2.5 odds | 1.67 |
-| Reference Under 2.5 odds | 2.38 |
-| Home probability edge | -12.7% |
-| Draw probability edge | +6.6% |
+| Reference away odds | 5.75 |
+| O/U 2.5 market source | The Odds API / Unibet (SE) |
+| Reference Over 2.5 odds | 1.63 |
+| Reference Under 2.5 odds | 2.28 |
+| Home probability edge | -13.2% |
+| Draw probability edge | +6.9% |
 | Away probability edge | +6.2% |
-| Over 2.5 probability edge | -32.8% |
-| Under 2.5 probability edge | +32.8% |
-| Raw edge prob home | -0.2544 |
+| Over 2.5 probability edge | -32.7% |
+| Under 2.5 probability edge | +32.7% |
+| Raw edge prob home | -0.2630 |
 | Raw ev home | -0.4146 |
-| Raw edge prob draw | 0.1314 |
+| Raw edge prob draw | 0.1382 |
 | Raw ev draw | 0.5420 |
-| Raw edge prob away | 0.1231 |
-| Raw ev away | 0.7141 |
-| Market p over 1 5 | 82.8% |
-| Market over 1 5 odds | 1.18 |
-| Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-09T13:48:18Z |
-| Market reference over 1 5 odds | 1.17 |
-| Market reference over 1 5 opposite odds | 4.30 |
-| Market over 1 5 bookmakers | 3 |
+| Raw edge prob away | 0.1248 |
+| Raw ev away | 0.7432 |
+| Market p over 1 5 | 82.7% |
+| Market over 1 5 odds | 1.21 |
+| Best over 1 5 bookmaker | Coolbet |
+| Market best over 1 5 last update utc | 2026-10-09T14:37:34Z |
+| Market reference over 1 5 odds | 1.18 |
+| Market reference over 1 5 opposite odds | 4.60 |
+| Market over 1 5 bookmakers | 4 |
 | Market p under 3 5 | 63.9% |
 | Market under 3 5 odds | 1.54 |
 | Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-09T13:46:16Z |
+| Market best under 3 5 last update utc | 2026-10-09T14:37:46Z |
 | Market reference under 3 5 odds | 1.52 |
 | Market reference under 3 5 opposite odds | 2.60 |
-| Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 57.8% |
-| Market btts yes odds | 1.70 |
+| Market under 3 5 bookmakers | 4 |
+| Market p btts yes | 57.9% |
+| Market btts yes odds | 1.69 |
 | Best btts yes bookmaker | Matchbook |
-| Market best btts yes last update utc | 2026-10-09T13:49:08Z |
-| Market reference btts yes odds | 1.70 |
+| Market best btts yes last update utc | 2026-10-09T14:38:23Z |
+| Market reference btts yes odds | 1.69 |
 | Market reference btts yes opposite odds | 2.30 |
 | Market btts yes bookmakers | 4 |
 
@@ -1212,7 +1212,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-16 — Eintracht Frankfurt vs 1. FC Köln
 
-The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **56.9%**. Expected goals are 2.20 for Eintracht Frankfurt and 1.06 for 1. FC Köln (3.26 combined). The most likely exact score is 1-1 at 10.1%. Goal-market probabilities: at least one goal: 95.1%; Over 2.5 goals: 62.7%; Under 4.5 goals: 77.5%.
+The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **56.6%**. Expected goals are 2.20 for Eintracht Frankfurt and 1.06 for 1. FC Köln (3.26 combined). The most likely exact score is 1-1 at 10.2%. Goal-market probabilities: at least one goal: 95.1%; Over 2.5 goals: 62.6%; Under 4.5 goals: 77.5%.
 
 **Fixture source:** The Odds API
 
@@ -1220,8 +1220,8 @@ The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **56.9%**.
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Eintracht Frankfurt win | 56.9% | 1.76 |
-| Draw | 21.9% | 4.58 |
+| Eintracht Frankfurt win | 56.6% | 1.77 |
+| Draw | 22.1% | 4.52 |
 | 1. FC Köln win | 21.3% | 4.70 |
 
 ### Goals outlook
@@ -1235,8 +1235,8 @@ The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **56.9%**.
 | Under 0.5 | 4.9% |
 | Over 1.5 | 84.1% |
 | Under 1.5 | 15.9% |
-| Over 2.5 | 62.7% |
-| Under 2.5 | 37.3% |
+| Over 2.5 | 62.6% |
+| Under 2.5 | 37.4% |
 | Over 3.5 | 40.3% |
 | Under 3.5 | 59.7% |
 | Over 4.5 | 22.5% |
@@ -1246,21 +1246,21 @@ The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **56.9%**.
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 10.08% |
-| 2 | 2-1 | 8.99% |
-| 3 | 2-0 | 8.50% |
-| 4 | 1-0 | 6.87% |
-| 5 | 3-1 | 6.59% |
+| 1 | 1-1 | 10.21% |
+| 2 | 2-1 | 8.94% |
+| 3 | 2-0 | 8.45% |
+| 4 | 1-0 | 6.83% |
+| 5 | 3-1 | 6.55% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Eintracht Frankfurt win | 56.9% | 51.5% | 2.00 | +13.8% |
-| Draw | 21.9% | 22.3% | 4.30 | -6.0% |
-| 1. FC Köln win | 21.3% | 26.3% | 3.65 | -22.4% |
-| Over 2.5 | 62.7% | 69.6% | 1.40 | -12.2% |
-| Under 2.5 | 37.3% | 30.4% | 3.00 | +11.8% |
+| Eintracht Frankfurt win | 56.6% | 50.8% | 2.00 | +13.1% |
+| Draw | 22.1% | 22.8% | 4.30 | -4.8% |
+| 1. FC Köln win | 21.3% | 26.4% | 3.65 | -22.3% |
+| Over 2.5 | 62.6% | 69.0% | 1.40 | -12.3% |
+| Under 2.5 | 37.4% | 31.0% | 3.00 | +12.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1276,9 +1276,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:47:13Z |
-| Market best draw last update utc | 2026-10-09T13:47:13Z |
-| Market best away last update utc | 2026-10-09T13:48:19Z |
+| Market best home last update utc | 2026-10-09T14:37:18Z |
+| Market best draw last update utc | 2026-10-09T14:37:18Z |
+| Market best away last update utc | 2026-10-09T14:38:23Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
@@ -1293,14 +1293,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 59.6% |
 | P btts no | 40.4% |
 | Fair Over 0.5 odds | 1.05 |
-| Fair Under 0.5 odds | 20.52 |
+| Fair Under 0.5 odds | 20.26 |
 | Fair Over 1.5 odds | 1.19 |
-| Fair Under 1.5 odds | 6.31 |
-| Fair Over 2.5 odds | 1.59 |
+| Fair Under 1.5 odds | 6.29 |
+| Fair Over 2.5 odds | 1.60 |
 | Fair Under 2.5 odds | 2.68 |
 | Fair Over 3.5 odds | 2.48 |
-| Fair Under 3.5 odds | 1.68 |
-| Fair Over 4.5 odds | 4.44 |
+| Fair Under 3.5 odds | 1.67 |
+| Fair Over 4.5 odds | 4.45 |
 | Fair Under 4.5 odds | 1.29 |
 | Unadjusted home-win probability | 62.3% |
 | Unadjusted draw probability | 21.5% |
@@ -1310,23 +1310,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 59.0% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 1.88 |
-| Reference draw odds | 4.17 |
-| Reference away odds | 3.56 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.39 |
-| Reference Under 2.5 odds | 2.95 |
-| Home probability edge | +5.4% |
-| Draw probability edge | -0.4% |
-| Away probability edge | -5.0% |
-| Over 2.5 probability edge | -6.8% |
-| Under 2.5 probability edge | +6.8% |
-| Raw edge prob home | 0.1086 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 1.93 |
+| Reference draw odds | 4.20 |
+| Reference away odds | 3.65 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.40 |
+| Reference Under 2.5 odds | 2.90 |
+| Home probability edge | +5.8% |
+| Draw probability edge | -0.7% |
+| Away probability edge | -5.1% |
+| Over 2.5 probability edge | -6.4% |
+| Under 2.5 probability edge | +6.4% |
+| Raw edge prob home | 0.1151 |
 | Raw ev home | 0.2465 |
-| Raw edge prob draw | -0.0080 |
+| Raw edge prob draw | -0.0137 |
 | Raw ev draw | -0.0776 |
-| Raw edge prob away | -0.1006 |
+| Raw edge prob away | -0.1014 |
 | Raw ev away | -0.4078 |
 
 </details>
@@ -1336,7 +1336,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Bayern Munich vs RB Leipzig
 
-The model's most likely 1X2 outcome is **Bayern Munich win** at **73.6%**. Expected goals are 2.79 for Bayern Munich and 1.24 for RB Leipzig (4.02 combined). The most likely exact score is 2-1 at 9.2%. Goal-market probabilities: at least one goal: 97.8%; Over 2.5 goals: 77.3%; Under 4.5 goals: 61.7%.
+The model's most likely 1X2 outcome is **Bayern Munich win** at **74.6%**. Expected goals are 2.79 for Bayern Munich and 1.24 for RB Leipzig (4.02 combined). The most likely exact score is 2-1 at 9.3%. Goal-market probabilities: at least one goal: 98.0%; Over 2.5 goals: 77.7%; Under 4.5 goals: 61.4%.
 
 **Fixture source:** The Odds API
 
@@ -1344,9 +1344,9 @@ The model's most likely 1X2 outcome is **Bayern Munich win** at **73.6%**. Expec
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Bayern Munich win | 73.6% | 1.36 |
-| Draw | 15.4% | 6.49 |
-| RB Leipzig win | 11.0% | 9.08 |
+| Bayern Munich win | 74.6% | 1.34 |
+| Draw | 14.4% | 6.97 |
+| RB Leipzig win | 11.1% | 9.03 |
 
 ### Goals outlook
 
@@ -1355,36 +1355,36 @@ The model's most likely 1X2 outcome is **Bayern Munich win** at **73.6%**. Expec
 | Bayern Munich expected goals | 2.79 |
 | RB Leipzig expected goals | 1.24 |
 | Expected total goals | 4.02 |
-| Over 0.5 | 97.8% |
-| Under 0.5 | 2.2% |
-| Over 1.5 | 91.9% |
-| Under 1.5 | 8.1% |
-| Over 2.5 | 77.3% |
-| Under 2.5 | 22.7% |
-| Over 3.5 | 57.8% |
-| Under 3.5 | 42.2% |
-| Over 4.5 | 38.3% |
-| Under 4.5 | 61.7% |
+| Over 0.5 | 98.0% |
+| Under 0.5 | 2.0% |
+| Over 1.5 | 92.0% |
+| Under 1.5 | 8.0% |
+| Over 2.5 | 77.7% |
+| Under 2.5 | 22.3% |
+| Over 3.5 | 57.9% |
+| Under 3.5 | 42.1% |
+| Over 4.5 | 38.6% |
+| Under 4.5 | 61.4% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 2-1 | 9.15% |
-| 2 | 3-1 | 8.50% |
-| 3 | 2-0 | 7.41% |
-| 4 | 3-0 | 6.88% |
-| 5 | 1-1 | 6.14% |
+| 1 | 2-1 | 9.27% |
+| 2 | 3-1 | 8.61% |
+| 3 | 2-0 | 7.51% |
+| 4 | 3-0 | 6.97% |
+| 5 | 4-1 | 6.00% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Bayern Munich win | 73.6% | 78.1% | 1.27 | -6.5% |
-| Draw | 15.4% | 13.7% | 8.00 | +23.2% |
-| RB Leipzig win | 11.0% | 8.2% | 11.20 | +23.3% |
-| Over 2.5 | 77.3% | 83.6% | 1.18 | -8.8% |
-| Under 2.5 | 22.7% | 16.4% | 5.01 | +13.8% |
+| Bayern Munich win | 74.6% | 80.0% | 1.27 | -5.3% |
+| Draw | 14.4% | 11.6% | 8.00 | +14.8% |
+| RB Leipzig win | 11.1% | 8.4% | 11.20 | +24.0% |
+| Over 2.5 | 77.7% | 83.8% | 1.18 | -8.3% |
+| Under 2.5 | 22.3% | 16.2% | 5.01 | +11.8% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1400,13 +1400,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:47:13Z |
-| Market best draw last update utc | 2026-10-09T13:48:34Z |
-| Market best away last update utc | 2026-10-09T13:47:13Z |
+| Market best home last update utc | 2026-10-09T14:37:18Z |
+| Market best draw last update utc | 2026-10-09T14:38:07Z |
+| Market best away last update utc | 2026-10-09T14:37:18Z |
 | Odds bookmakers 1x2 | 14.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
-| Best draw bookmaker | Tipico |
+| Best draw bookmaker | Unibet (NL) |
 | Best away bookmaker | 1xBet |
 | Best over 2 5 bookmaker | Betsson |
 | Best under 2 5 bookmaker | Betsson |
@@ -1414,18 +1414,18 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | RB Leipzig |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 66.5% |
-| P btts no | 33.5% |
+| P btts yes | 66.2% |
+| P btts no | 33.8% |
 | Fair Over 0.5 odds | 1.02 |
-| Fair Under 0.5 odds | 45.58 |
+| Fair Under 0.5 odds | 48.89 |
 | Fair Over 1.5 odds | 1.09 |
-| Fair Under 1.5 odds | 12.38 |
+| Fair Under 1.5 odds | 12.50 |
 | Fair Over 2.5 odds | 1.29 |
-| Fair Under 2.5 odds | 4.40 |
+| Fair Under 2.5 odds | 4.48 |
 | Fair Over 3.5 odds | 1.73 |
-| Fair Under 3.5 odds | 2.37 |
-| Fair Over 4.5 odds | 2.61 |
-| Fair Under 4.5 odds | 1.62 |
+| Fair Under 3.5 odds | 2.38 |
+| Fair Over 4.5 odds | 2.59 |
+| Fair Under 4.5 odds | 1.63 |
 | Unadjusted home-win probability | 69.1% |
 | Unadjusted draw probability | 17.1% |
 | Unadjusted away-win probability | 13.8% |
@@ -1434,42 +1434,42 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 67.2% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / 888sport |
-| Reference home odds | 1.25 |
-| Reference draw odds | 6.00 |
-| Reference away odds | 9.50 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 1.24 |
+| Reference draw odds | 8.00 |
+| Reference away odds | 11.00 |
+| O/U 2.5 market source | The Odds API / William Hill |
 | Reference Over 2.5 odds | 1.17 |
-| Reference Under 2.5 odds | 4.90 |
-| Home probability edge | -4.5% |
-| Draw probability edge | +1.7% |
-| Away probability edge | +2.8% |
-| Over 2.5 probability edge | -6.3% |
-| Under 2.5 probability edge | +6.3% |
-| Raw edge prob home | -0.0896 |
+| Reference Under 2.5 odds | 5.00 |
+| Home probability edge | -5.5% |
+| Draw probability edge | +2.7% |
+| Away probability edge | +2.7% |
+| Over 2.5 probability edge | -6.1% |
+| Under 2.5 probability edge | +6.1% |
+| Raw edge prob home | -0.1092 |
 | Raw ev home | -0.1222 |
-| Raw edge prob draw | 0.0339 |
+| Raw edge prob draw | 0.0548 |
 | Raw ev draw | 0.3676 |
-| Raw edge prob away | 0.0556 |
+| Raw edge prob away | 0.0544 |
 | Raw ev away | 0.5445 |
 | Market p over 1 5 | 95.4% |
 | Market over 1 5 odds | 1.04 |
 | Best over 1 5 bookmaker | 1xBet |
-| Market best over 1 5 last update utc | 2026-10-09T13:47:58Z |
+| Market best over 1 5 last update utc | 2026-10-09T14:36:29Z |
 | Market reference over 1 5 odds | 1.04 |
 | Market reference over 1 5 opposite odds | 13.00 |
 | Market over 1 5 bookmakers | 2 |
 | Market p under 3 5 | 30.6% |
 | Market under 3 5 odds | 2.78 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-09T13:49:06Z |
+| Market best under 3 5 last update utc | 2026-10-09T14:38:07Z |
 | Market reference under 3 5 odds | 2.78 |
 | Market reference under 3 5 opposite odds | 1.37 |
 | Market under 3 5 bookmakers | 2 |
 | Market p btts yes | 70.8% |
 | Market btts yes odds | 1.38 |
 | Best btts yes bookmaker | 1xBet |
-| Market best btts yes last update utc | 2026-10-09T13:47:13Z |
+| Market best btts yes last update utc | 2026-10-09T14:37:18Z |
 | Market reference btts yes odds | 1.36 |
 | Market reference btts yes opposite odds | 3.00 |
 | Market btts yes bookmakers | 2 |
@@ -1481,7 +1481,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Elversberg vs Augsburg
 
-The model's most likely 1X2 outcome is **Elversberg win** at **55.8%**. Expected goals are 2.96 for Elversberg and 1.17 for Augsburg (4.13 combined). The most likely exact score is 1-1 at 8.2%. Goal-market probabilities: at least one goal: 97.1%; Over 2.5 goals: 75.3%; Under 4.5 goals: 63.3%.
+The model's most likely 1X2 outcome is **Elversberg win** at **57.1%**. Expected goals are 2.96 for Elversberg and 1.17 for Augsburg (4.13 combined). The most likely exact score is 1-1 at 7.9%. Goal-market probabilities: at least one goal: 97.2%; Over 2.5 goals: 75.7%; Under 4.5 goals: 63.0%.
 
 **Fixture source:** The Odds API
 
@@ -1489,9 +1489,9 @@ The model's most likely 1X2 outcome is **Elversberg win** at **55.8%**. Expected
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Elversberg win | 55.8% | 1.79 |
-| Draw | 20.6% | 4.86 |
-| Augsburg win | 23.7% | 4.23 |
+| Elversberg win | 57.1% | 1.75 |
+| Draw | 19.8% | 5.05 |
+| Augsburg win | 23.1% | 4.33 |
 
 ### Goals outlook
 
@@ -1500,36 +1500,36 @@ The model's most likely 1X2 outcome is **Elversberg win** at **55.8%**. Expected
 | Elversberg expected goals | 2.96 |
 | Augsburg expected goals | 1.17 |
 | Expected total goals | 4.13 |
-| Over 0.5 | 97.1% |
-| Under 0.5 | 2.9% |
-| Over 1.5 | 91.2% |
-| Under 1.5 | 8.8% |
-| Over 2.5 | 75.3% |
-| Under 2.5 | 24.7% |
-| Over 3.5 | 56.1% |
-| Under 3.5 | 43.9% |
-| Over 4.5 | 36.7% |
-| Under 4.5 | 63.3% |
+| Over 0.5 | 97.2% |
+| Under 0.5 | 2.8% |
+| Over 1.5 | 91.3% |
+| Under 1.5 | 8.7% |
+| Over 2.5 | 75.7% |
+| Under 2.5 | 24.3% |
+| Over 3.5 | 56.3% |
+| Under 3.5 | 43.7% |
+| Over 4.5 | 37.0% |
+| Under 4.5 | 63.0% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 8.18% |
-| 2 | 1-2 | 6.76% |
-| 3 | 2-2 | 6.40% |
-| 4 | 2-1 | 6.29% |
-| 5 | 3-1 | 6.20% |
+| 1 | 1-1 | 7.87% |
+| 2 | 1-2 | 6.60% |
+| 3 | 2-1 | 6.44% |
+| 4 | 3-1 | 6.36% |
+| 5 | 2-2 | 6.16% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Elversberg win | 55.8% | 38.4% | 2.55 | +42.2% |
-| Draw | 20.6% | 25.7% | 4.00 | -17.7% |
-| Augsburg win | 23.7% | 36.0% | 2.80 | -33.7% |
-| Over 2.5 | 75.3% | 66.1% | 1.47 | +10.7% |
-| Under 2.5 | 24.7% | 33.9% | 2.71 | -33.2% |
+| Elversberg win | 57.1% | 41.1% | 2.55 | +45.7% |
+| Draw | 19.8% | 24.1% | 4.00 | -20.8% |
+| Augsburg win | 23.1% | 34.8% | 2.80 | -35.4% |
+| Over 2.5 | 75.7% | 66.7% | 1.47 | +11.2% |
+| Under 2.5 | 24.3% | 33.3% | 2.71 | -34.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1545,9 +1545,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:47:13Z |
-| Market best draw last update utc | 2026-10-09T13:48:19Z |
-| Market best away last update utc | 2026-10-09T13:48:19Z |
+| Market best home last update utc | 2026-10-09T14:37:18Z |
+| Market best draw last update utc | 2026-10-09T14:38:23Z |
+| Market best away last update utc | 2026-10-09T14:38:23Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
@@ -1559,18 +1559,18 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Augsburg |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 68.8% |
-| P btts no | 31.2% |
+| P btts yes | 68.5% |
+| P btts no | 31.5% |
 | Fair Over 0.5 odds | 1.03 |
-| Fair Under 0.5 odds | 34.28 |
+| Fair Under 0.5 odds | 35.63 |
 | Fair Over 1.5 odds | 1.10 |
-| Fair Under 1.5 odds | 11.34 |
-| Fair Over 2.5 odds | 1.33 |
-| Fair Under 2.5 odds | 4.05 |
+| Fair Under 1.5 odds | 11.47 |
+| Fair Over 2.5 odds | 1.32 |
+| Fair Under 2.5 odds | 4.11 |
 | Fair Over 3.5 odds | 1.78 |
-| Fair Under 3.5 odds | 2.28 |
-| Fair Over 4.5 odds | 2.73 |
-| Fair Under 4.5 odds | 1.58 |
+| Fair Under 3.5 odds | 2.29 |
+| Fair Over 4.5 odds | 2.71 |
+| Fair Under 4.5 odds | 1.59 |
 | Unadjusted home-win probability | 73.2% |
 | Unadjusted draw probability | 15.5% |
 | Unadjusted away-win probability | 11.4% |
@@ -1579,42 +1579,42 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 65.9% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 2.50 |
-| Reference draw odds | 3.67 |
-| Reference away odds | 2.66 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.46 |
-| Reference Under 2.5 odds | 2.68 |
-| Home probability edge | +17.4% |
-| Draw probability edge | -5.1% |
-| Away probability edge | -12.3% |
-| Over 2.5 probability edge | +9.3% |
-| Under 2.5 probability edge | -9.3% |
-| Raw edge prob home | 0.3479 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 2.38 |
+| Reference draw odds | 4.00 |
+| Reference away odds | 2.80 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.44 |
+| Reference Under 2.5 odds | 2.70 |
+| Home probability edge | +16.0% |
+| Draw probability edge | -4.3% |
+| Away probability edge | -11.7% |
+| Over 2.5 probability edge | +8.9% |
+| Under 2.5 probability edge | -8.9% |
+| Raw edge prob home | 0.3206 |
 | Raw ev home | 0.8655 |
-| Raw edge prob draw | -0.1021 |
+| Raw edge prob draw | -0.0866 |
 | Raw ev draw | -0.3813 |
-| Raw edge prob away | -0.2458 |
+| Raw edge prob away | -0.2340 |
 | Raw ev away | -0.6814 |
-| Market p over 1 5 | 91.0% |
+| Market p over 1 5 | 87.6% |
 | Market over 1 5 odds | 1.12 |
 | Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-09T13:48:18Z |
-| Market reference over 1 5 odds | 1.07 |
-| Market reference over 1 5 opposite odds | 5.70 |
+| Market best over 1 5 last update utc | 2026-10-09T14:37:52Z |
+| Market reference over 1 5 odds | 1.12 |
+| Market reference over 1 5 opposite odds | 6.00 |
 | Market over 1 5 bookmakers | 2 |
 | Market p under 3 5 | 55.3% |
 | Market under 3 5 odds | 1.81 |
 | Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-09T13:48:20Z |
+| Market best under 3 5 last update utc | 2026-10-09T14:36:29Z |
 | Market reference under 3 5 odds | 1.74 |
 | Market reference under 3 5 opposite odds | 2.12 |
 | Market under 3 5 bookmakers | 2 |
 | Market p btts yes | 68.5% |
 | Market btts yes odds | 1.40 |
 | Best btts yes bookmaker | William Hill |
-| Market best btts yes last update utc | 2026-10-09T13:48:18Z |
+| Market best btts yes last update utc | 2026-10-09T14:37:52Z |
 | Market reference btts yes odds | 1.40 |
 | Market reference btts yes opposite odds | 2.80 |
 | Market btts yes bookmakers | 2 |
@@ -1626,7 +1626,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — FC Schalke 04 vs FSV Mainz 05
 
-The model's most likely 1X2 outcome is **FC Schalke 04 win** at **34.8%**. Expected goals are 0.87 for FC Schalke 04 and 0.69 for FSV Mainz 05 (1.56 combined). The most likely exact score is 0-0 at 18.9%. Goal-market probabilities: at least one goal: 81.1%; Over 2.5 goals: 22.0%; Under 4.5 goals: 97.7%.
+The model's most likely 1X2 outcome is **FC Schalke 04 win** at **34.1%**. Expected goals are 0.87 for FC Schalke 04 and 0.69 for FSV Mainz 05 (1.56 combined). The most likely exact score is 0-0 at 18.6%. Goal-market probabilities: at least one goal: 81.4%; Over 2.5 goals: 22.1%; Under 4.5 goals: 97.7%.
 
 **Fixture source:** The Odds API
 
@@ -1634,9 +1634,9 @@ The model's most likely 1X2 outcome is **FC Schalke 04 win** at **34.8%**. Expec
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| FC Schalke 04 win | 34.8% | 2.87 |
-| Draw | 32.4% | 3.09 |
-| FSV Mainz 05 win | 32.8% | 3.05 |
+| FC Schalke 04 win | 34.1% | 2.93 |
+| Draw | 31.9% | 3.14 |
+| FSV Mainz 05 win | 34.0% | 2.94 |
 
 ### Goals outlook
 
@@ -1645,12 +1645,12 @@ The model's most likely 1X2 outcome is **FC Schalke 04 win** at **34.8%**. Expec
 | FC Schalke 04 expected goals | 0.87 |
 | FSV Mainz 05 expected goals | 0.69 |
 | Expected total goals | 1.56 |
-| Over 0.5 | 81.1% |
-| Under 0.5 | 18.9% |
+| Over 0.5 | 81.4% |
+| Under 0.5 | 18.6% |
 | Over 1.5 | 47.9% |
 | Under 1.5 | 52.1% |
-| Over 2.5 | 22.0% |
-| Under 2.5 | 78.0% |
+| Over 2.5 | 22.1% |
+| Under 2.5 | 77.9% |
 | Over 3.5 | 7.5% |
 | Under 3.5 | 92.5% |
 | Over 4.5 | 2.3% |
@@ -1660,21 +1660,21 @@ The model's most likely 1X2 outcome is **FC Schalke 04 win** at **34.8%**. Expec
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 0-0 | 18.88% |
-| 2 | 0-1 | 16.89% |
-| 3 | 1-0 | 16.37% |
-| 4 | 1-1 | 11.77% |
-| 5 | 2-0 | 7.71% |
+| 1 | 0-0 | 18.60% |
+| 2 | 0-1 | 17.52% |
+| 3 | 1-0 | 16.02% |
+| 4 | 1-1 | 11.59% |
+| 5 | 2-0 | 7.54% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| FC Schalke 04 win | 34.8% | 33.4% | 3.05 | +6.3% |
-| Draw | 32.4% | 26.5% | 3.80 | +23.0% |
-| FSV Mainz 05 win | 32.8% | 40.2% | 2.44 | -20.0% |
-| Over 2.5 | 22.0% | 59.8% | 1.66 | -63.5% |
-| Under 2.5 | 78.0% | 40.2% | 2.42 | +88.7% |
+| FC Schalke 04 win | 34.1% | 31.9% | 3.05 | +4.0% |
+| Draw | 31.9% | 25.5% | 3.80 | +21.1% |
+| FSV Mainz 05 win | 34.0% | 42.6% | 2.44 | -17.0% |
+| Over 2.5 | 22.1% | 60.1% | 1.66 | -63.3% |
+| Under 2.5 | 77.9% | 39.9% | 2.42 | +88.5% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1690,9 +1690,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:48:19Z |
-| Market best draw last update utc | 2026-10-09T13:48:19Z |
-| Market best away last update utc | 2026-10-09T13:47:13Z |
+| Market best home last update utc | 2026-10-09T14:38:23Z |
+| Market best draw last update utc | 2026-10-09T14:38:23Z |
+| Market best away last update utc | 2026-10-09T14:37:18Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 9.00 |
 | Best home bookmaker | Unibet (SE) |
@@ -1704,17 +1704,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Mainz |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 90/100 |
-| P btts yes | 29.2% |
-| P btts no | 70.8% |
+| P btts yes | 29.1% |
+| P btts no | 70.9% |
 | Fair Over 0.5 odds | 1.23 |
-| Fair Under 0.5 odds | 5.30 |
+| Fair Under 0.5 odds | 5.38 |
 | Fair Over 1.5 odds | 2.09 |
 | Fair Under 1.5 odds | 1.92 |
-| Fair Over 2.5 odds | 4.54 |
+| Fair Over 2.5 odds | 4.52 |
 | Fair Under 2.5 odds | 1.28 |
 | Fair Over 3.5 odds | 13.41 |
 | Fair Under 3.5 odds | 1.08 |
-| Fair Over 4.5 odds | 43.36 |
+| Fair Over 4.5 odds | 43.18 |
 | Fair Under 4.5 odds | 1.02 |
 | Unadjusted home-win probability | 36.3% |
 | Unadjusted draw probability | 38.3% |
@@ -1724,42 +1724,42 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 30.2% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 2.85 |
-| Reference draw odds | 3.56 |
-| Reference away odds | 2.39 |
-| O/U 2.5 market source | The Odds API / Unibet (NL) |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 3.05 |
+| Reference draw odds | 3.80 |
+| Reference away odds | 2.30 |
+| O/U 2.5 market source | The Odds API / Unibet (SE) |
 | Reference Over 2.5 odds | 1.60 |
-| Reference Under 2.5 odds | 2.30 |
-| Home probability edge | +1.5% |
-| Draw probability edge | +5.9% |
-| Away probability edge | -7.4% |
-| Over 2.5 probability edge | -37.8% |
-| Under 2.5 probability edge | +37.8% |
-| Raw edge prob home | 0.0290 |
+| Reference Under 2.5 odds | 2.33 |
+| Home probability edge | +2.2% |
+| Draw probability edge | +6.4% |
+| Away probability edge | -8.6% |
+| Over 2.5 probability edge | -37.9% |
+| Under 2.5 probability edge | +37.9% |
+| Raw edge prob home | 0.0438 |
 | Raw ev home | 0.1070 |
-| Raw edge prob draw | 0.1181 |
+| Raw edge prob draw | 0.1278 |
 | Raw ev draw | 0.4539 |
-| Raw edge prob away | -0.1471 |
+| Raw edge prob away | -0.1716 |
 | Raw ev away | -0.3791 |
-| Market p over 1 5 | 83.0% |
+| Market p over 1 5 | 84.4% |
 | Market over 1 5 odds | 1.18 |
 | Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-09T13:48:18Z |
-| Market reference over 1 5 odds | 1.18 |
-| Market reference over 1 5 opposite odds | 4.80 |
+| Market best over 1 5 last update utc | 2026-10-09T14:37:52Z |
+| Market reference over 1 5 odds | 1.15 |
+| Market reference over 1 5 opposite odds | 4.60 |
 | Market over 1 5 bookmakers | 2 |
-| Market p under 3 5 | 61.8% |
+| Market p under 3 5 | 62.4% |
 | Market under 3 5 odds | 1.56 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-09T13:49:06Z |
-| Market reference under 3 5 odds | 1.56 |
-| Market reference under 3 5 opposite odds | 2.43 |
+| Market best under 3 5 last update utc | 2026-10-09T14:38:07Z |
+| Market reference under 3 5 odds | 1.51 |
+| Market reference under 3 5 opposite odds | 2.35 |
 | Market under 3 5 bookmakers | 2 |
 | Market p btts yes | 63.0% |
 | Market btts yes odds | 1.53 |
 | Best btts yes bookmaker | William Hill |
-| Market best btts yes last update utc | 2026-10-09T13:48:18Z |
+| Market best btts yes last update utc | 2026-10-09T14:37:52Z |
 | Market reference btts yes odds | 1.53 |
 | Market reference btts yes opposite odds | 2.50 |
 | Market btts yes bookmakers | 2 |
@@ -1771,7 +1771,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Hamburger SV vs VfB Stuttgart
 
-The model's most likely 1X2 outcome is **VfB Stuttgart win** at **55.3%**. Expected goals are 1.11 for Hamburger SV and 2.02 for VfB Stuttgart (3.13 combined). The most likely exact score is 1-1 at 10.9%. Goal-market probabilities: at least one goal: 94.5%; Over 2.5 goals: 60.3%; Under 4.5 goals: 79.4%.
+The model's most likely 1X2 outcome is **VfB Stuttgart win** at **56.5%**. Expected goals are 1.11 for Hamburger SV and 2.02 for VfB Stuttgart (3.13 combined). The most likely exact score is 1-1 at 10.4%. Goal-market probabilities: at least one goal: 94.8%; Over 2.5 goals: 60.8%; Under 4.5 goals: 79.2%.
 
 **Fixture source:** The Odds API
 
@@ -1779,9 +1779,9 @@ The model's most likely 1X2 outcome is **VfB Stuttgart win** at **55.3%**. Expec
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Hamburger SV win | 21.2% | 4.72 |
-| Draw | 23.5% | 4.25 |
-| VfB Stuttgart win | 55.3% | 1.81 |
+| Hamburger SV win | 21.0% | 4.76 |
+| Draw | 22.5% | 4.45 |
+| VfB Stuttgart win | 56.5% | 1.77 |
 
 ### Goals outlook
 
@@ -1790,36 +1790,36 @@ The model's most likely 1X2 outcome is **VfB Stuttgart win** at **55.3%**. Expec
 | Hamburger SV expected goals | 1.11 |
 | VfB Stuttgart expected goals | 2.02 |
 | Expected total goals | 3.13 |
-| Over 0.5 | 94.5% |
-| Under 0.5 | 5.5% |
-| Over 1.5 | 82.8% |
-| Under 1.5 | 17.2% |
-| Over 2.5 | 60.3% |
-| Under 2.5 | 39.7% |
-| Over 3.5 | 38.0% |
-| Under 3.5 | 62.0% |
-| Over 4.5 | 20.6% |
-| Under 4.5 | 79.4% |
+| Over 0.5 | 94.8% |
+| Under 0.5 | 5.2% |
+| Over 1.5 | 82.9% |
+| Under 1.5 | 17.1% |
+| Over 2.5 | 60.8% |
+| Under 2.5 | 39.2% |
+| Over 3.5 | 38.1% |
+| Under 3.5 | 61.9% |
+| Over 4.5 | 20.8% |
+| Under 4.5 | 79.2% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 10.94% |
-| 2 | 1-2 | 9.55% |
-| 3 | 0-2 | 8.60% |
-| 4 | 0-1 | 7.53% |
-| 5 | 1-3 | 6.42% |
+| 1 | 1-1 | 10.44% |
+| 2 | 1-2 | 9.76% |
+| 3 | 0-2 | 8.79% |
+| 4 | 0-1 | 7.70% |
+| 5 | 1-3 | 6.57% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Hamburger SV win | 21.2% | 23.0% | 4.20 | -11.0% |
-| Draw | 23.5% | 23.7% | 4.40 | +3.5% |
-| VfB Stuttgart win | 55.3% | 53.2% | 1.90 | +5.0% |
-| Over 2.5 | 60.3% | 70.7% | 1.38 | -16.7% |
-| Under 2.5 | 39.7% | 29.3% | 3.10 | +23.0% |
+| Hamburger SV win | 21.0% | 22.7% | 4.20 | -11.7% |
+| Draw | 22.5% | 21.6% | 4.40 | -1.2% |
+| VfB Stuttgart win | 56.5% | 55.7% | 1.90 | +7.4% |
+| Over 2.5 | 60.8% | 70.8% | 1.38 | -16.1% |
+| Under 2.5 | 39.2% | 29.2% | 3.10 | +21.6% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1835,9 +1835,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:48:19Z |
-| Market best draw last update utc | 2026-10-09T13:48:19Z |
-| Market best away last update utc | 2026-10-09T13:47:13Z |
+| Market best home last update utc | 2026-10-09T14:38:23Z |
+| Market best draw last update utc | 2026-10-09T14:38:23Z |
+| Market best away last update utc | 2026-10-09T14:37:18Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Unibet (SE) |
@@ -1849,17 +1849,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Stuttgart |
 | Home-name matching confidence | 88/100 |
 | Away-name matching confidence | 95/100 |
-| P btts yes | 59.4% |
-| P btts no | 40.6% |
-| Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 18.35 |
+| P btts yes | 59.1% |
+| P btts no | 40.9% |
+| Fair Over 0.5 odds | 1.05 |
+| Fair Under 0.5 odds | 19.22 |
 | Fair Over 1.5 odds | 1.21 |
-| Fair Under 1.5 odds | 5.82 |
-| Fair Over 2.5 odds | 1.66 |
-| Fair Under 2.5 odds | 2.52 |
-| Fair Over 3.5 odds | 2.63 |
-| Fair Under 3.5 odds | 1.61 |
-| Fair Over 4.5 odds | 4.87 |
+| Fair Under 1.5 odds | 5.86 |
+| Fair Over 2.5 odds | 1.65 |
+| Fair Under 2.5 odds | 2.55 |
+| Fair Over 3.5 odds | 2.62 |
+| Fair Under 3.5 odds | 1.62 |
+| Fair Over 4.5 odds | 4.82 |
 | Fair Under 4.5 odds | 1.26 |
 | Unadjusted home-win probability | 19.4% |
 | Unadjusted draw probability | 23.3% |
@@ -1869,23 +1869,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 59.2% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 4.04 |
-| Reference draw odds | 3.92 |
-| Reference away odds | 1.82 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.37 |
-| Reference Under 2.5 odds | 3.05 |
-| Home probability edge | -1.8% |
-| Draw probability edge | -0.2% |
-| Away probability edge | +2.0% |
-| Over 2.5 probability edge | -10.4% |
-| Under 2.5 probability edge | +10.4% |
-| Raw edge prob home | -0.0365 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 4.20 |
+| Reference draw odds | 4.40 |
+| Reference away odds | 1.76 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.36 |
+| Reference Under 2.5 odds | 3.00 |
+| Home probability edge | -1.7% |
+| Draw probability edge | +0.9% |
+| Away probability edge | +0.8% |
+| Over 2.5 probability edge | -10.1% |
+| Under 2.5 probability edge | +10.1% |
+| Raw edge prob home | -0.0331 |
 | Raw ev home | -0.1869 |
-| Raw edge prob draw | -0.0044 |
+| Raw edge prob draw | 0.0171 |
 | Raw ev draw | 0.0257 |
-| Raw edge prob away | 0.0408 |
+| Raw edge prob away | 0.0160 |
 | Raw ev away | 0.0893 |
 
 </details>
@@ -1895,7 +1895,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Union Berlin vs Borussia Dortmund
 
-The model's most likely 1X2 outcome is **Borussia Dortmund win** at **59.0%**. Expected goals are 0.94 for Union Berlin and 1.92 for Borussia Dortmund (2.87 combined). The most likely exact score is 1-1 at 10.8%. Goal-market probabilities: at least one goal: 93.6%; Over 2.5 goals: 55.0%; Under 4.5 goals: 83.6%.
+The model's most likely 1X2 outcome is **Borussia Dortmund win** at **60.4%**. Expected goals are 0.94 for Union Berlin and 1.92 for Borussia Dortmund (2.87 combined). The most likely exact score is 0-2 at 10.7%. Goal-market probabilities: at least one goal: 93.6%; Over 2.5 goals: 55.2%; Under 4.5 goals: 83.5%.
 
 **Fixture source:** The Odds API
 
@@ -1903,9 +1903,9 @@ The model's most likely 1X2 outcome is **Borussia Dortmund win** at **59.0%**. E
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Union Berlin win | 18.3% | 5.45 |
-| Draw | 22.6% | 4.42 |
-| Borussia Dortmund win | 59.0% | 1.69 |
+| Union Berlin win | 17.1% | 5.84 |
+| Draw | 22.5% | 4.45 |
+| Borussia Dortmund win | 60.4% | 1.66 |
 
 ### Goals outlook
 
@@ -1916,34 +1916,34 @@ The model's most likely 1X2 outcome is **Borussia Dortmund win** at **59.0%**. E
 | Expected total goals | 2.87 |
 | Over 0.5 | 93.6% |
 | Under 0.5 | 6.4% |
-| Over 1.5 | 79.1% |
-| Under 1.5 | 20.9% |
-| Over 2.5 | 55.0% |
-| Under 2.5 | 45.0% |
-| Over 3.5 | 32.3% |
-| Under 3.5 | 67.7% |
-| Over 4.5 | 16.4% |
-| Under 4.5 | 83.6% |
+| Over 1.5 | 79.2% |
+| Under 1.5 | 20.8% |
+| Over 2.5 | 55.2% |
+| Under 2.5 | 44.8% |
+| Over 3.5 | 32.4% |
+| Under 3.5 | 67.6% |
+| Over 4.5 | 16.5% |
+| Under 4.5 | 83.5% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 10.78% |
-| 2 | 0-2 | 10.50% |
-| 3 | 1-2 | 9.88% |
-| 4 | 0-1 | 9.84% |
-| 5 | 0-3 | 6.74% |
+| 1 | 0-2 | 10.74% |
+| 2 | 1-1 | 10.72% |
+| 3 | 1-2 | 10.11% |
+| 4 | 0-1 | 10.07% |
+| 5 | 0-3 | 6.89% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Union Berlin win | 18.3% | 19.9% | 5.40 | -0.9% |
-| Draw | 22.6% | 21.3% | 4.50 | +1.8% |
-| Borussia Dortmund win | 59.0% | 58.8% | 1.73 | +2.1% |
-| Over 2.5 | 55.0% | 65.4% | 1.49 | -18.0% |
-| Under 2.5 | 45.0% | 34.6% | 2.70 | +21.4% |
+| Union Berlin win | 17.1% | 17.5% | 5.40 | -7.5% |
+| Draw | 22.5% | 21.1% | 4.50 | +1.2% |
+| Borussia Dortmund win | 60.4% | 61.5% | 1.73 | +4.5% |
+| Over 2.5 | 55.2% | 66.7% | 1.49 | -17.8% |
+| Under 2.5 | 44.8% | 33.3% | 2.70 | +21.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1959,9 +1959,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:48:19Z |
-| Market best draw last update utc | 2026-10-09T13:49:06Z |
-| Market best away last update utc | 2026-10-09T13:47:13Z |
+| Market best home last update utc | 2026-10-09T14:38:23Z |
+| Market best draw last update utc | 2026-10-09T14:38:07Z |
+| Market best away last update utc | 2026-10-09T14:37:18Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Unibet (SE) |
@@ -1973,17 +1973,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Dortmund |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 90/100 |
-| P btts yes | 52.9% |
-| P btts no | 47.1% |
+| P btts yes | 52.8% |
+| P btts no | 47.2% |
 | Fair Over 0.5 odds | 1.07 |
-| Fair Under 0.5 odds | 15.60 |
+| Fair Under 0.5 odds | 15.69 |
 | Fair Over 1.5 odds | 1.26 |
-| Fair Under 1.5 odds | 4.78 |
-| Fair Over 2.5 odds | 1.82 |
-| Fair Under 2.5 odds | 2.22 |
-| Fair Over 3.5 odds | 3.10 |
+| Fair Under 1.5 odds | 4.81 |
+| Fair Over 2.5 odds | 1.81 |
+| Fair Under 2.5 odds | 2.23 |
+| Fair Over 3.5 odds | 3.09 |
 | Fair Under 3.5 odds | 1.48 |
-| Fair Over 4.5 odds | 6.10 |
+| Fair Over 4.5 odds | 6.07 |
 | Fair Under 4.5 odds | 1.20 |
 | Unadjusted home-win probability | 16.8% |
 | Unadjusted draw probability | 23.9% |
@@ -1993,23 +1993,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 53.2% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 4.59 |
-| Reference draw odds | 4.29 |
-| Reference away odds | 1.65 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.47 |
-| Reference Under 2.5 odds | 2.62 |
-| Home probability edge | -1.5% |
-| Draw probability edge | +1.3% |
-| Away probability edge | +0.2% |
-| Over 2.5 probability edge | -10.4% |
-| Under 2.5 probability edge | +10.4% |
-| Raw edge prob home | -0.0304 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 5.40 |
+| Reference draw odds | 4.50 |
+| Reference away odds | 1.60 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.44 |
+| Reference Under 2.5 odds | 2.70 |
+| Home probability edge | -0.3% |
+| Draw probability edge | +1.4% |
+| Away probability edge | -1.1% |
+| Over 2.5 probability edge | -11.6% |
+| Under 2.5 probability edge | +11.6% |
+| Raw edge prob home | -0.0063 |
 | Raw ev home | -0.0916 |
-| Raw edge prob draw | 0.0255 |
+| Raw edge prob draw | 0.0281 |
 | Raw ev draw | 0.0751 |
-| Raw edge prob away | 0.0049 |
+| Raw edge prob away | -0.0219 |
 | Raw ev away | 0.0257 |
 
 </details>
@@ -2019,7 +2019,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Werder Bremen vs SC Paderborn
 
-The model's most likely 1X2 outcome is **Werder Bremen win** at **49.6%**. Expected goals are 1.16 for Werder Bremen and 0.74 for SC Paderborn (1.91 combined). The most likely exact score is 1-0 at 17.8%. Goal-market probabilities: at least one goal: 86.5%; Over 2.5 goals: 31.6%; Under 4.5 goals: 95.2%.
+The model's most likely 1X2 outcome is **Werder Bremen win** at **48.0%**. Expected goals are 1.16 for Werder Bremen and 0.74 for SC Paderborn (1.91 combined). The most likely exact score is 1-0 at 17.2%. Goal-market probabilities: at least one goal: 86.2%; Over 2.5 goals: 31.3%; Under 4.5 goals: 95.3%.
 
 **Fixture source:** The Odds API
 
@@ -2027,9 +2027,9 @@ The model's most likely 1X2 outcome is **Werder Bremen win** at **49.6%**. Expec
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Werder Bremen win | 49.6% | 2.01 |
-| Draw | 27.8% | 3.60 |
-| SC Paderborn win | 22.6% | 4.43 |
+| Werder Bremen win | 48.0% | 2.08 |
+| Draw | 28.5% | 3.51 |
+| SC Paderborn win | 23.5% | 4.26 |
 
 ### Goals outlook
 
@@ -2038,36 +2038,36 @@ The model's most likely 1X2 outcome is **Werder Bremen win** at **49.6%**. Expec
 | Werder Bremen expected goals | 1.16 |
 | SC Paderborn expected goals | 0.74 |
 | Expected total goals | 1.91 |
-| Over 0.5 | 86.5% |
-| Under 0.5 | 13.5% |
-| Over 1.5 | 58.8% |
-| Under 1.5 | 41.2% |
-| Over 2.5 | 31.6% |
-| Under 2.5 | 68.4% |
-| Over 3.5 | 13.0% |
-| Under 3.5 | 87.0% |
-| Over 4.5 | 4.8% |
-| Under 4.5 | 95.2% |
+| Over 0.5 | 86.2% |
+| Under 0.5 | 13.8% |
+| Over 1.5 | 58.6% |
+| Under 1.5 | 41.4% |
+| Over 2.5 | 31.3% |
+| Under 2.5 | 68.7% |
+| Over 3.5 | 12.9% |
+| Under 3.5 | 87.1% |
+| Over 4.5 | 4.7% |
+| Under 4.5 | 95.3% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 17.82% |
-| 2 | 0-0 | 13.48% |
-| 3 | 1-1 | 11.79% |
-| 4 | 2-0 | 11.25% |
-| 5 | 0-1 | 9.90% |
+| 1 | 1-0 | 17.25% |
+| 2 | 0-0 | 13.82% |
+| 3 | 1-1 | 12.09% |
+| 4 | 2-0 | 10.89% |
+| 5 | 0-1 | 10.29% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Werder Bremen win | 49.6% | 54.8% | 1.91 | -5.2% |
-| Draw | 27.8% | 22.2% | 4.26 | +18.5% |
-| SC Paderborn win | 22.6% | 23.1% | 4.25 | -4.1% |
-| Over 2.5 | 31.6% | 62.7% | 1.56 | -50.7% |
-| Under 2.5 | 68.4% | 37.3% | 2.47 | +69.0% |
+| Werder Bremen win | 48.0% | 51.6% | 1.91 | -8.3% |
+| Draw | 28.5% | 23.6% | 4.26 | +21.5% |
+| SC Paderborn win | 23.5% | 24.8% | 4.25 | -0.3% |
+| Over 2.5 | 31.3% | 61.8% | 1.56 | -51.1% |
+| Under 2.5 | 68.7% | 38.2% | 2.47 | +69.6% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -2083,9 +2083,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:48:19Z |
-| Market best draw last update utc | 2026-10-09T13:47:13Z |
-| Market best away last update utc | 2026-10-09T13:48:50Z |
+| Market best home last update utc | 2026-10-09T14:38:23Z |
+| Market best draw last update utc | 2026-10-09T14:37:18Z |
+| Market best away last update utc | 2026-10-09T14:37:51Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Unibet (SE) |
@@ -2097,17 +2097,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Paderborn |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 36.1% |
-| P btts no | 63.9% |
+| P btts yes | 36.3% |
+| P btts no | 63.7% |
 | Fair Over 0.5 odds | 1.16 |
-| Fair Under 0.5 odds | 7.42 |
-| Fair Over 1.5 odds | 1.70 |
-| Fair Under 1.5 odds | 2.43 |
-| Fair Over 2.5 odds | 3.17 |
+| Fair Under 0.5 odds | 7.23 |
+| Fair Over 1.5 odds | 1.71 |
+| Fair Under 1.5 odds | 2.42 |
+| Fair Over 2.5 odds | 3.19 |
 | Fair Under 2.5 odds | 1.46 |
-| Fair Over 3.5 odds | 7.70 |
+| Fair Over 3.5 odds | 7.75 |
 | Fair Under 3.5 odds | 1.15 |
-| Fair Over 4.5 odds | 20.91 |
+| Fair Over 4.5 odds | 21.15 |
 | Fair Under 4.5 odds | 1.05 |
 | Unadjusted home-win probability | 44.5% |
 | Unadjusted draw probability | 33.4% |
@@ -2117,23 +2117,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 37.4% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 1.77 |
-| Reference draw odds | 4.17 |
-| Reference away odds | 4.02 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.52 |
-| Reference Under 2.5 odds | 2.42 |
-| Home probability edge | -5.1% |
-| Draw probability edge | +5.6% |
-| Away probability edge | -0.5% |
-| Over 2.5 probability edge | -31.1% |
-| Under 2.5 probability edge | +31.1% |
-| Raw edge prob home | -0.1026 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 1.91 |
+| Reference draw odds | 4.10 |
+| Reference away odds | 3.90 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.55 |
+| Reference Under 2.5 odds | 2.40 |
+| Home probability edge | -3.5% |
+| Draw probability edge | +4.9% |
+| Away probability edge | -1.4% |
+| Over 2.5 probability edge | -30.5% |
+| Under 2.5 probability edge | +30.5% |
+| Raw edge prob home | -0.0707 |
 | Raw ev home | -0.1500 |
-| Raw edge prob draw | 0.1125 |
+| Raw edge prob draw | 0.0984 |
 | Raw ev draw | 0.4242 |
-| Raw edge prob away | -0.0099 |
+| Raw edge prob away | -0.0277 |
 | Raw ev away | -0.0621 |
 
 </details>
@@ -2143,7 +2143,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Bayer Leverkusen vs SC Freiburg
 
-The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **64.0%**. Expected goals are 2.44 for Bayer Leverkusen and 0.96 for SC Freiburg (3.41 combined). The most likely exact score is 2-0 at 9.2%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 65.4%; Under 4.5 goals: 74.9%.
+The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **63.3%**. Expected goals are 2.44 for Bayer Leverkusen and 0.96 for SC Freiburg (3.41 combined). The most likely exact score is 1-1 at 9.1%. Goal-market probabilities: at least one goal: 95.6%; Over 2.5 goals: 65.3%; Under 4.5 goals: 75.0%.
 
 **Fixture source:** The Odds API
 
@@ -2151,9 +2151,9 @@ The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **64.0%**. Ex
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Bayer Leverkusen win | 64.0% | 1.56 |
-| Draw | 19.7% | 5.08 |
-| SC Freiburg win | 16.3% | 6.12 |
+| Bayer Leverkusen win | 63.3% | 1.58 |
+| Draw | 19.8% | 5.04 |
+| SC Freiburg win | 16.8% | 5.95 |
 
 ### Goals outlook
 
@@ -2162,36 +2162,36 @@ The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **64.0%**. Ex
 | Bayer Leverkusen expected goals | 2.44 |
 | SC Freiburg expected goals | 0.96 |
 | Expected total goals | 3.41 |
-| Over 0.5 | 95.7% |
-| Under 0.5 | 4.3% |
-| Over 1.5 | 85.7% |
-| Under 1.5 | 14.3% |
-| Over 2.5 | 65.4% |
-| Under 2.5 | 34.6% |
-| Over 3.5 | 43.4% |
-| Under 3.5 | 56.6% |
-| Over 4.5 | 25.1% |
-| Under 4.5 | 74.9% |
+| Over 0.5 | 95.6% |
+| Under 0.5 | 4.4% |
+| Over 1.5 | 85.6% |
+| Under 1.5 | 14.4% |
+| Over 2.5 | 65.3% |
+| Under 2.5 | 34.7% |
+| Over 3.5 | 43.3% |
+| Under 3.5 | 56.7% |
+| Over 4.5 | 25.0% |
+| Under 4.5 | 75.0% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 2-0 | 9.17% |
-| 2 | 1-1 | 9.06% |
-| 3 | 2-1 | 8.83% |
-| 4 | 3-0 | 7.46% |
-| 5 | 3-1 | 7.19% |
+| 1 | 1-1 | 9.13% |
+| 2 | 2-0 | 9.08% |
+| 3 | 2-1 | 8.74% |
+| 4 | 3-0 | 7.39% |
+| 5 | 3-1 | 7.12% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Bayer Leverkusen win | 64.0% | 58.8% | 1.70 | +8.7% |
-| Draw | 19.7% | 20.7% | 4.60 | -9.4% |
-| SC Freiburg win | 16.3% | 20.5% | 4.83 | -21.0% |
-| Over 2.5 | 65.4% | 65.4% | 1.49 | -2.5% |
-| Under 2.5 | 34.6% | 34.6% | 2.67 | -7.7% |
+| Bayer Leverkusen win | 63.3% | 57.6% | 1.70 | +7.7% |
+| Draw | 19.8% | 20.9% | 4.60 | -8.7% |
+| SC Freiburg win | 16.8% | 21.4% | 4.83 | -18.8% |
+| Over 2.5 | 65.3% | 66.3% | 1.49 | -2.7% |
+| Under 2.5 | 34.7% | 33.7% | 2.67 | -7.4% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -2207,9 +2207,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:47:13Z |
-| Market best draw last update utc | 2026-10-09T13:48:34Z |
-| Market best away last update utc | 2026-10-09T13:47:13Z |
+| Market best home last update utc | 2026-10-09T14:37:18Z |
+| Market best draw last update utc | 2026-10-09T14:37:33Z |
+| Market best away last update utc | 2026-10-09T14:37:18Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
@@ -2221,17 +2221,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Freiburg |
 | Home-name matching confidence | 90/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 58.0% |
-| P btts no | 42.0% |
+| P btts yes | 58.1% |
+| P btts no | 41.9% |
 | Fair Over 0.5 odds | 1.05 |
-| Fair Under 0.5 odds | 23.01 |
+| Fair Under 0.5 odds | 22.84 |
 | Fair Over 1.5 odds | 1.17 |
-| Fair Under 1.5 odds | 7.00 |
+| Fair Under 1.5 odds | 6.97 |
 | Fair Over 2.5 odds | 1.53 |
-| Fair Under 2.5 odds | 2.89 |
-| Fair Over 3.5 odds | 2.30 |
-| Fair Under 3.5 odds | 1.77 |
-| Fair Over 4.5 odds | 3.99 |
+| Fair Under 2.5 odds | 2.88 |
+| Fair Over 3.5 odds | 2.31 |
+| Fair Under 3.5 odds | 1.76 |
+| Fair Over 4.5 odds | 4.00 |
 | Fair Under 4.5 odds | 1.33 |
 | Unadjusted home-win probability | 69.1% |
 | Unadjusted draw probability | 18.7% |
@@ -2241,23 +2241,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 57.3% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 1.65 |
-| Reference draw odds | 4.43 |
-| Reference away odds | 4.46 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.47 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 1.70 |
+| Reference draw odds | 4.50 |
+| Reference away odds | 4.40 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.44 |
 | Reference Under 2.5 odds | 2.62 |
-| Home probability edge | +5.1% |
-| Draw probability edge | -1.0% |
-| Away probability edge | -4.2% |
-| Over 2.5 probability edge | +0.0% |
-| Under 2.5 probability edge | -0.0% |
-| Raw edge prob home | 0.1025 |
+| Home probability edge | +5.7% |
+| Draw probability edge | -1.1% |
+| Away probability edge | -4.6% |
+| Over 2.5 probability edge | -1.0% |
+| Under 2.5 probability edge | +1.0% |
+| Raw edge prob home | 0.1147 |
 | Raw ev home | 0.1743 |
-| Raw edge prob draw | -0.0192 |
+| Raw edge prob draw | -0.0221 |
 | Raw ev draw | -0.1381 |
-| Raw edge prob away | -0.0833 |
+| Raw edge prob away | -0.0926 |
 | Raw ev away | -0.4114 |
 
 </details>
@@ -2267,7 +2267,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Borussia Monchengladbach vs TSG Hoffenheim
 
-The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **42.1%**. Expected goals are 1.94 for Borussia Monchengladbach and 1.79 for TSG Hoffenheim (3.73 combined). The most likely exact score is 1-1 at 9.0%. Goal-market probabilities: at least one goal: 96.8%; Over 2.5 goals: 72.0%; Under 4.5 goals: 68.2%.
+The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **42.1%**. Expected goals are 1.94 for Borussia Monchengladbach and 1.79 for TSG Hoffenheim (3.73 combined). The most likely exact score is 1-1 at 9.1%. Goal-market probabilities: at least one goal: 96.8%; Over 2.5 goals: 72.0%; Under 4.5 goals: 68.2%.
 
 **Fixture source:** The Odds API
 
@@ -2275,8 +2275,8 @@ The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **42.1%**. Expe
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Borussia Monchengladbach win | 35.2% | 2.84 |
-| Draw | 22.7% | 4.41 |
+| Borussia Monchengladbach win | 34.9% | 2.86 |
+| Draw | 22.9% | 4.36 |
 | TSG Hoffenheim win | 42.1% | 2.37 |
 
 ### Goals outlook
@@ -2292,8 +2292,8 @@ The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **42.1%**. Expe
 | Under 1.5 | 10.5% |
 | Over 2.5 | 72.0% |
 | Under 2.5 | 28.0% |
-| Over 3.5 | 51.1% |
-| Under 3.5 | 48.9% |
+| Over 3.5 | 51.0% |
+| Under 3.5 | 49.0% |
 | Over 4.5 | 31.8% |
 | Under 4.5 | 68.2% |
 
@@ -2301,21 +2301,21 @@ The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **42.1%**. Expe
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 9.01% |
+| 1 | 1-1 | 9.10% |
 | 2 | 1-2 | 8.87% |
-| 3 | 2-2 | 7.06% |
-| 4 | 2-1 | 6.89% |
+| 3 | 2-2 | 7.14% |
+| 4 | 2-1 | 6.84% |
 | 5 | 1-3 | 5.29% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Borussia Monchengladbach win | 35.2% | 29.1% | 3.58 | +25.9% |
-| Draw | 22.7% | 22.1% | 4.26 | -3.4% |
+| Borussia Monchengladbach win | 34.9% | 28.6% | 3.58 | +25.1% |
+| Draw | 22.9% | 22.6% | 4.26 | -2.4% |
 | TSG Hoffenheim win | 42.1% | 48.8% | 2.00 | -15.7% |
-| Over 2.5 | 72.0% | 69.6% | 1.40 | +0.9% |
-| Under 2.5 | 28.0% | 30.4% | 3.00 | -16.1% |
+| Over 2.5 | 72.0% | 68.5% | 1.40 | +0.7% |
+| Under 2.5 | 28.0% | 31.5% | 3.00 | -15.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -2331,9 +2331,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-09T13:47:13Z |
-| Market best draw last update utc | 2026-10-09T13:47:13Z |
-| Market best away last update utc | 2026-10-09T13:48:19Z |
+| Market best home last update utc | 2026-10-09T14:37:18Z |
+| Market best draw last update utc | 2026-10-09T14:37:18Z |
+| Market best away last update utc | 2026-10-09T14:38:23Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
@@ -2345,17 +2345,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Hoffenheim |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 95/100 |
-| P btts yes | 72.1% |
-| P btts no | 27.9% |
+| P btts yes | 72.2% |
+| P btts no | 27.8% |
 | Fair Over 0.5 odds | 1.03 |
-| Fair Under 0.5 odds | 31.20 |
+| Fair Under 0.5 odds | 30.87 |
 | Fair Over 1.5 odds | 1.12 |
-| Fair Under 1.5 odds | 9.50 |
+| Fair Under 1.5 odds | 9.49 |
 | Fair Over 2.5 odds | 1.39 |
-| Fair Under 2.5 odds | 3.58 |
+| Fair Under 2.5 odds | 3.57 |
 | Fair Over 3.5 odds | 1.96 |
 | Fair Under 3.5 odds | 2.04 |
-| Fair Over 4.5 odds | 3.14 |
+| Fair Over 4.5 odds | 3.15 |
 | Fair Under 4.5 odds | 1.47 |
 | Unadjusted home-win probability | 41.3% |
 | Unadjusted draw probability | 23.2% |
@@ -2365,21 +2365,21 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p btts yes | 72.2% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 3.24 |
+| 1X2 market source | The Odds API / Unibet (SE) |
+| Reference home odds | 3.35 |
 | Reference draw odds | 4.20 |
-| Reference away odds | 1.98 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.39 |
-| Reference Under 2.5 odds | 2.95 |
-| Home probability edge | +6.1% |
-| Draw probability edge | +0.5% |
+| Reference away odds | 2.00 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.40 |
+| Reference Under 2.5 odds | 2.80 |
+| Home probability edge | +6.3% |
+| Draw probability edge | +0.3% |
 | Away probability edge | -6.6% |
-| Over 2.5 probability edge | +2.4% |
-| Under 2.5 probability edge | -2.4% |
-| Raw edge prob home | 0.1221 |
+| Over 2.5 probability edge | +3.4% |
+| Under 2.5 probability edge | -3.4% |
+| Raw edge prob home | 0.1269 |
 | Raw ev home | 0.4780 |
-| Raw edge prob draw | 0.0108 |
+| Raw edge prob draw | 0.0059 |
 | Raw ev draw | -0.0111 |
 | Raw edge prob away | -0.1328 |
 | Raw ev away | -0.2899 |
