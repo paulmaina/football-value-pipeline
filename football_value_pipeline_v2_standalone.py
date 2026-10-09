@@ -118,7 +118,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.3.0"
+PIPELINE_VERSION = "2.3.1"
 
 
 # ---------------------------------------------------------------------------
@@ -597,6 +597,7 @@ class TheOddsAPI:
         complete_h2h: List[Tuple[str, str, float, float, float]] = []
         complete_ou: List[Tuple[str, str, float, float]] = []
         all_updates: List[str] = []
+        h2h_book_updates: Dict[str, str] = {}
 
         def update_best(
             current: Tuple[Optional[float], Optional[str]],
@@ -623,6 +624,9 @@ class TheOddsAPI:
 
             h2h = TheOddsAPI._market(bookmaker, "h2h")
             if h2h:
+                # Timestamp each bookmaker's selected 1X2 quote, not the
+                # unrelated latest totals/other-bookmaker update.
+                h2h_book_updates[book_name] = TheOddsAPI._last_update(bookmaker, h2h)
                 prices: Dict[str, float] = {}
                 outcomes = h2h.get("outcomes")
                 if isinstance(outcomes, list):
@@ -688,14 +692,18 @@ class TheOddsAPI:
             "_odds_commence_time": commence,
             "odds_source": "The Odds API",
             "odds_last_update_utc": max(all_updates) if all_updates else None,
+            "odds_h2h_last_update_utc": None if ref_h2h is None else ref_h2h[0],
             "odds_bookmakers_1x2": len(complete_h2h),
             "odds_bookmakers_ou25": len(complete_ou),
             "live_best_home_odds": best_h[0],
             "live_best_home_bookmaker": best_h[1],
+            "live_best_home_last_update_utc": h2h_book_updates.get(best_h[1]),
             "live_best_draw_odds": best_d[0],
             "live_best_draw_bookmaker": best_d[1],
+            "live_best_draw_last_update_utc": h2h_book_updates.get(best_d[1]),
             "live_best_away_odds": best_a[0],
             "live_best_away_bookmaker": best_a[1],
+            "live_best_away_last_update_utc": h2h_book_updates.get(best_a[1]),
             "live_ref_home_odds": None if ref_h2h is None else ref_h2h[2],
             "live_ref_draw_odds": None if ref_h2h is None else ref_h2h[3],
             "live_ref_away_odds": None if ref_h2h is None else ref_h2h[4],
@@ -2555,6 +2563,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 "odds_match_method": row.get("odds_match_method"),
                 "odds_event_id": row.get("odds_event_id"),
                 "odds_last_update_utc": row.get("odds_last_update_utc"),
+                "odds_h2h_last_update_utc": row.get("odds_h2h_last_update_utc"),
+                "market_best_home_last_update_utc": row.get("live_best_home_last_update_utc"),
+                "market_best_draw_last_update_utc": row.get("live_best_draw_last_update_utc"),
+                "market_best_away_last_update_utc": row.get("live_best_away_last_update_utc"),
                 "odds_bookmakers_1x2": row.get("odds_bookmakers_1x2"),
                 "odds_bookmakers_ou25": row.get("odds_bookmakers_ou25"),
                 "best_home_bookmaker": row.get("live_best_home_bookmaker"),
@@ -3234,10 +3246,42 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 out_dir / f"{league_key}_reliability.png",
             )
 
+    # One conservative shortlist across all requested leagues, not an
+    # independent quota of two picks per league. Do not alter predictions.
+    from conservative_bet_filter import build_conservative_shortlist
+
+    all_predictions = (
+        pd.concat(combined, ignore_index=True, sort=False)
+        if combined else pd.DataFrame()
+    )
     if combined:
-        pd.concat(combined, ignore_index=True, sort=False).to_csv(
+        all_predictions.to_csv(
             out_dir / "all_leagues_predictions.csv", index=False
         )
+
+    shortlist, decisions, selection_summary = build_conservative_shortlist(
+        all_predictions
+    )
+    shortlist.to_csv(out_dir / "conservative_bet_shortlist.csv", index=False)
+    decisions.to_csv(out_dir / "conservative_bet_rejections.csv", index=False)
+    (out_dir / "conservative_bet_summary.json").write_text(
+        json.dumps(selection_summary, indent=2), encoding="utf-8"
+    )
+
+    # Retain a timestamped historical audit even though the current raw
+    # shortlist is overwritten each run. No picks are ever added by force.
+    archive = out_dir / "shortlist_history"
+    archive.mkdir(parents=True, exist_ok=True)
+    snapshot_stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    decisions.to_csv(
+        archive / f"conservative_decisions_{snapshot_stamp}.csv", index=False
+    )
+    print(
+        f"Conservative filter: {selection_summary['status']} "
+        f"({selection_summary['n_shortlisted']} matches shortlisted; "
+        f"see {out_dir / 'conservative_bet_shortlist.csv'})",
+        file=sys.stderr,
+    )
 
     return 0
 
