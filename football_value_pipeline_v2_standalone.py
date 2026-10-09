@@ -598,6 +598,7 @@ class TheOddsAPI:
         margin = sum(1.0 / float(price) for price in prices)
         return low <= margin <= high
 
+    @staticmethod
     def flatten_odds_event(event: Mapping[str, object]) -> Dict[str, object]:
         """Flatten one API event into best prices + coherent reference markets."""
         event_id = str(event.get("id") or "")

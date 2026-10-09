@@ -8,7 +8,7 @@ import unittest
 import pandas as pd
 
 from conservative_bet_filter import build_conservative_shortlist
-from football_value_pipeline_v2_standalone import TheOddsAPI
+from football_value_pipeline_v2_standalone import TheOddsAPI, LEAGUES
 from format_football_output import process_conservative_shortlist
 from test_conservative_bet_filter import NOW, fixture
 
@@ -114,6 +114,57 @@ class GradedCandidatesTests(unittest.TestCase):
             self.assertIn("NOT qualified bets", report)
             table = pd.read_csv(readable / "conservative_bet_shortlist_readable.csv")
             self.assertEqual((table["Qualification"]=="PROVISIONAL").sum(), 6)
+
+    def test_real_odds_client_instance_calls_static_event_parser(self):
+        """Regression: self.flatten_odds_event(event) must not inject self.
+
+        Unlike direct class calls, this is the same code path exercised
+        when production retrieves cached or fresh bookmaker odds.
+        """
+        from datetime import datetime, timezone
+
+        event = {
+            "id": "event-123",
+            "home_team": "Home FC",
+            "away_team": "Away FC",
+            "commence_time": "2026-10-16T16:00:00Z",
+            "bookmakers": [{
+                "title": "Coherent Sportsbook",
+                "markets": [{
+                    "key": "h2h",
+                    "last_update": "2026-10-09T14:00:00Z",
+                    "outcomes": [
+                        {"name": "Home FC", "price": 1.9},
+                        {"name": "Draw", "price": 3.5},
+                        {"name": "Away FC", "price": 4.2},
+                    ],
+                }],
+            }],
+        }
+
+        class StubHttp:
+            def get_json(self, *args, **kwargs):
+                return [event]
+
+        api = TheOddsAPI.__new__(TheOddsAPI)
+        api.http = StubHttp()
+        api.regions = "eu"
+        api.api_key = "fake"
+        api.force_refresh = False
+        result = api.odds(
+            LEAGUES["EPL"], lookahead_days=10,
+            now=datetime(2026, 10, 9, 12, 0, tzinfo=timezone.utc),
+        )
+
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result.iloc[0]["odds_bookmakers_1x2"], 1)
+        self.assertEqual(result.iloc[0]["live_ref_1x2_bookmaker"],
+                         "Coherent Sportsbook")
+        self.assertEqual(result.iloc[0]["live_best_home_odds"], 1.9)
+        self.assertEqual(
+            TheOddsAPI.flatten_odds_event(event)["live_best_home_odds"],
+            result.iloc[0]["live_best_home_odds"],
+        )
 
     def test_anomalous_newest_bookmaker_cannot_supply_reference_or_best(self):
         event = {
