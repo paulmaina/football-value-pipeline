@@ -118,7 +118,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.2.2"
+PIPELINE_VERSION = "2.3.0"
 
 
 # ---------------------------------------------------------------------------
@@ -2213,7 +2213,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         self,
         *args,
         devig_method: str = "power",
-        market_weight: float = 0.0,
+        market_weight: float = 0.50,
         odds_api_key: Optional[str] = None,
         football_data_api_key: Optional[str] = None,
         odds_regions: str = "eu",
@@ -2451,9 +2451,21 @@ class FootballValuePipelineV2(FootballValuePipeline):
         pred["raw_p_home"] = raw_x12["home"]
         pred["raw_p_draw"] = raw_x12["draw"]
         pred["raw_p_away"] = raw_x12["away"]
-        pred["market_weight"] = self.market_weight
+        pred["market_weight"] = self.market_weight if blend_applied else 0.0
         pred["market_blend_applied"] = blend_applied
         add_value_metrics(pred, snapshot)
+
+        # Preserve the independent Dixon-Coles signal for bet-value auditing.
+        # Blended EV uses market-informed probabilities and can look less
+        # advantageous mechanically even when forecast calibration improves.
+        for side in ("home", "draw", "away"):
+            raw_p = float(raw_x12[side])
+            market_p = snapshot.get(f"market_p_{side}")
+            price = snapshot.get(f"market_{side}_odds")
+            pred[f"raw_edge_prob_{side}"] = (
+                None if market_p is None else raw_p - float(market_p)
+            )
+            pred[f"raw_ev_{side}"] = ev_decimal(raw_p, price)
 
         score_dist = pred.pop("scoreline_distribution")
         return pred, score_dist  # type: ignore[return-value]
@@ -2986,8 +2998,33 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--market-weight",
         type=float,
-        default=0.0,
-        help="0=pure Dixon-Coles, 1=1X2 regions fully aligned to de-vigged opening market.",
+        default=0.50,
+        help=(
+            "Fixed bookmaker blend (default: 0.50) for the recommended "
+            "single-model profile. Normally leave unchanged."
+        ),
+    )
+    p.add_argument(
+        "--auto-market-weight",
+        action="store_true",
+        help=(
+            "Select a market blend weight from prior walk-forward predictions "
+            "using historical opening odds. Never uses current or closing odds "
+            "for selection."
+        ),
+    )
+    p.add_argument(
+        "--market-weight-candidates",
+        nargs="+",
+        type=float,
+        default=[0.0, 0.15, 0.30, 0.50, 0.70, 1.0],
+        help="Candidate bookmaker probabilities blend weights, including 0.",
+    )
+    p.add_argument(
+        "--auto-market-min-matches",
+        type=int,
+        default=80,
+        help="Minimum valid historical matches with opening odds for selection.",
     )
 
     p.add_argument("--backtest", action="store_true")
@@ -3021,6 +3058,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             "--tune-half-life and --backtest cannot be combined because "
             "tuning on the same historical results would bias the backtest."
         )
+    if args.auto_market_weight and args.backtest:
+        raise SystemExit(
+            "--auto-market-weight and --backtest cannot be combined: "
+            "market weight selection uses historical match outcomes."
+        )
+    if args.auto_market_weight:
+        from market_blend_validation import select_market_weight
     if args.tune_half_life:
         # Lazy import preserves standalone operation without tuning enabled.
         from dc_decay_validation import tune_half_life
@@ -3058,9 +3102,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     combined = []
 
     for league_key in args.leagues:
-        # Each competition gets its own selected decay rate if tuning is enabled.
+        # Reset both per-competition settings before tuning; never carry a
+        # chosen value into a different competition.
         pipe.half_life_days = args.half_life_days
+        pipe.market_weight = args.market_weight
         tuning = None
+        market_selection = None
         if args.tune_half_life:
             print(f"[{league_key}] tuning Dixon-Coles half-life...", file=sys.stderr)
             training = pipe._history_for_league(
@@ -3089,8 +3136,58 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 file=sys.stderr,
             )
 
+        if args.auto_market_weight:
+            print(
+                f"[{league_key}] selecting market blend from historical opening prices...",
+                file=sys.stderr,
+            )
+            # Exactly one pure Dixon-Coles walk-forward backtest provides
+            # historical predictions and pre-match bookmaker probabilities.
+            # The helper selects a blend on the earlier development matches
+            # and reports the later audit period without using it for tuning.
+            pipe.market_weight = 0.0
+            historical_predictions, _, _, _ = pipe.backtest_league(
+                league_key,
+                min_train=args.min_train,
+                step_days=args.step_days,
+            )
+            market_selection = select_market_weight(
+                historical_predictions,
+                candidates=args.market_weight_candidates,
+                min_matches=args.auto_market_min_matches,
+            )
+            selected = market_selection["selected_market_weight"]
+            pipe.market_weight = (
+                float(selected) if selected is not None else args.market_weight
+            )
+            (out_dir / f"{league_key}_market_weight_validation.json").write_text(
+                json.dumps(market_selection, indent=2),
+                encoding="utf-8",
+            )
+            if selected is None:
+                print(
+                    f"[{league_key}] insufficient valid historical opening odds; "
+                    f"using --market-weight={pipe.market_weight:g}.",
+                    file=sys.stderr,
+                )
+            else:
+                print(
+                    f"[{league_key}] selected market weight: "
+                    f"{pipe.market_weight:g} "
+                    f"(audit gain={market_selection['audit_log_loss_gain']:+.4f} "
+                    f"log-loss points; NOT used for selection).",
+                    file=sys.stderr,
+                )
+
         print(f"[{league_key}] current-fixture model...", file=sys.stderr)
         predictions, diagnostics, scorelines = pipe.run_league(league_key)
+        if market_selection is not None:
+            diagnostics["market_weight_selection"] = {
+                "status": market_selection["status"],
+                "selected_market_weight": pipe.market_weight,
+                "audit_log_loss_gain": market_selection.get("audit_log_loss_gain"),
+                "n_usable_matches": market_selection["n_usable_matches"],
+            }
         if tuning is not None:
             diagnostics["decay_tuning"] = {
                 "selected_half_life_days": tuning["selected_half_life_days"],
