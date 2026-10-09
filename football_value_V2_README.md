@@ -67,17 +67,43 @@ Dixon-Coles prediction engine unchanged:
    can be considered in the production shortlist. The audit period
    never fits the overconfidence correction.
 
+   The reliability module now also evaluates **cumulative >=75% and
+   >=85% forecast groups separately**. Each group reports development
+   and later audit sample counts, observed hit rate, model mean
+   probability, Brier, log loss, positive overconfidence and a Wilson
+   95% interval for the observed rate. A group requires at least **30
+   development and 12 audit predictions** and cannot overstate the
+   observed audit success rate by more than **10 percentage points**.
+   Markets with too little subgroup history are rejected for that
+   probability tier, not silently called reliable. The overall audit
+   Brier tolerance versus its hindsight base-rate comparator is
+   tightened from +0.03 to **+0.005**; this is only a conservative
+   diagnostic, not proof of predictive superiority. Confidence
+   penalties come exclusively from development history. All
+   old validation reports are automatically regenerated with
+   `validator_version=2` on the next run.
+
 3. **Reliability-aware shortlist ranking**. The filter uses the
    development-adjusted conservative probability to calculate
    `conservative_estimated_ev`, enforce the existing minimums
    and rank candidate markets. The raw model probability/EV remain
    available. Only then does the 96-hour kickoff preference group
-   candidates. A compact eight-match group is used **only if its
+   candidates. A compact ten-match group is used **only if its
    average reliability-adjusted forecast is within two percentage
-   points of the strongest eight overall**. Otherwise quality
+   points of the strongest ten overall**. Otherwise quality
    overrides the four-day preference, and the summary records
    `four_day_window_skipped_for_quality`. The selection still
-   never forces eight matches or combines several markets from one game.
+   never forces ten matches or combines several markets from one game.
+
+   With at least 75% predicted probability, the filter requires a
+   passing **>=75% historical forecast group**. At 85% or higher,
+   it requires a separate **>=85% group**, even if the broader group
+   passed. Missing subgroup samples or excess audit overconfidence
+   cause rejection, not automatic relaxation. The output reports
+   `high_confidence_tier`, `high_confidence_status`, subgroup
+   audit count, observed success rate and Wilson interval. The
+   conservative probability also uses the greater of the overall
+   and development-only subgroup overconfidence penalties.
 
 The new `<league>_goal_market_validation.json` reports are written
 under `football_output_v2/raw/`. Repeated runs reuse an existing
@@ -109,7 +135,7 @@ timestamped predictions and final scores for future evaluation.
 ## Eight-match, five-market shortlist (experimental)
 
 Running the existing command (no extra flags) now also produces a
-**target of eight distinct match candidates per run**, with at most one
+**target of ten distinct match candidates per run**, with at most one
 market selected from each football match:
 
 ```powershell
@@ -122,17 +148,17 @@ from this shortlist due to missing historical opening-price validation.
 
 Outputs remain in `football_output_v2/raw/`:
 
-- `conservative_bet_shortlist.csv`: up to eight distinct fixtures,
+- `conservative_bet_shortlist.csv`: up to ten distinct fixtures,
   **the selected market beside each match**, sorted by forecast win
   probability, then estimated EV. The selection prefers a strongest
-  qualifying eight-match cohort whose kickoffs fall within **96 hours**
+  qualifying ten-match cohort whose kickoffs fall within **96 hours**
   when such a cohort exists. Otherwise it keeps the strongest eligible
   fixtures over the entire horizon and explicitly reports that the
   four-day preference was not met.
 - `conservative_bet_rejections.csv`: five decisions per fixture,
   including rejected/alternate markets and the reasons.
 - `conservative_bet_summary.json`: `TARGET_MET`, `BELOW_TARGET`
-  or `NO BET`, with the shortfall to eight, actual selected
+  or `NO BET`, with the shortfall to ten, actual selected
   kickoff span, and whether the four-day preference was met.
 - `shortlist_history/conservative_decisions_<timestamp>.csv`:
   immutable dated audit snapshots for later feedback.
@@ -160,9 +186,9 @@ The new files are:
 The formatter does **not** choose or revise candidate markets and
 never changes the raw shortlist.
 
-**Eight is a target, never a minimum guaranteed by relaxation.** No
+**Ten is a target, never a minimum guaranteed by relaxation.** No
 market gets picked without a verified bookmaker price. If fewer than
-eight qualifying matches are available, the result is short with
+ten qualifying matches are available, the result is short with
 `BELOW_TARGET` or `NO BET`. Multiple markets on the same football
 fixture are not counted as different picks. A selection report is not
 an automatically placed multi-leg betslip.
@@ -197,7 +223,7 @@ missing at specific bookmakers and prices are never fabricated.
 **Risk and interpretation:** These thresholds are provisional
 heuristics, not backtested thresholds with proven bookmaker edge.
 A claimed +3% estimated EV can disappear with probability error,
-odds movement or bookmaker limits. An eight-leg accumulator is
+odds movement or bookmaker limits. An ten-leg accumulator is
 particularly fragile: all eight selections must win to pay out.
 Track real-world outcomes for several weeks before considering
 stakes or a higher selection target. No guaranteed or perfect
