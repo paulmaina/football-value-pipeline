@@ -1031,7 +1031,10 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
         "Unblended Dixon-Coles chance", "Market implied chance",
         "Bookmaker", "Quoted decimal odds", "Estimated EV",
         "Conservative estimated EV", "Unblended estimated EV",
-        "Historical reliability", "Data/selection status",
+        "Historical reliability", "High-confidence tier",
+        "High-confidence audit matches", "High-confidence observed rate",
+        "Observed 95% Wilson lower", "Observed 95% Wilson upper",
+        "High-confidence evidence status", "Data/selection status",
     ]
     rows: List[Dict[str, str]] = []
     for _, item in df.iterrows():
@@ -1074,6 +1077,30 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
             "Historical reliability": (
                 str(item.get("validation_status"))
                 if not is_missing(item.get("validation_status"))
+                else "Not assessed"
+            ),
+            "High-confidence tier": (
+                str(item.get("high_confidence_tier"))
+                if not is_missing(item.get("high_confidence_tier"))
+                else "Not applicable"
+            ),
+            "High-confidence audit matches": (
+                str(int(float(item.get("high_confidence_audit_matches"))))
+                if to_float(item.get("high_confidence_audit_matches")) is not None
+                else "—"
+            ),
+            "High-confidence observed rate": pct(
+                item.get("high_confidence_audit_observed_rate")
+            ),
+            "Observed 95% Wilson lower": pct(
+                item.get("high_confidence_wilson95_lower")
+            ),
+            "Observed 95% Wilson upper": pct(
+                item.get("high_confidence_wilson95_upper")
+            ),
+            "High-confidence evidence status": (
+                str(item.get("high_confidence_status"))
+                if not is_missing(item.get("high_confidence_status"))
                 else "Not assessed"
             ),
             "Data/selection status": (
@@ -1123,7 +1150,7 @@ def process_conservative_shortlist(
     )
 
     count = len(readable)
-    target = summary.get("target_distinct_matches", 8)
+    target = summary.get("target_distinct_matches", 10)
     status = summary.get("status") or ("CANDIDATES_FOUND" if count else "NO BET")
     span = to_float(summary.get("selected_kickoff_span_hours"))
     window = summary.get("selected_matches_within_four_days")
@@ -1146,7 +1173,7 @@ def process_conservative_shortlist(
         ),
         "",
         "> These are screened candidates, not guaranteed results or a "
-        "validated profitable betting strategy. A combined eight-match "
+        "validated profitable betting strategy. A combined ten-match "
         "betslip is considerably riskier than evaluating each match separately.",
         "",
         "## Shortlisted market for each match",
@@ -1178,8 +1205,13 @@ def process_conservative_shortlist(
         "using an earlier chronological development sample; a later audit "
         "must pass the predefined quality gate. It remains an estimate.",
         "",
+        "When forecast probability is 75% or higher, the chosen market "
+        "must separately pass the >=75% historical audit; >=85% forecasts "
+        "must pass the >=85% audit. The readable CSV includes the group "
+        "sample size, observed rate and Wilson 95% uncertainty range.",
+        "",
         "Conservative estimated EV uses that adjusted chance and the quoted "
-        "price. Neither the original EV nor the adjusted EV is assured; "
+        "price. Neither the original EV nor the adjusted EV is assured; 
         "bookmaker prices may change before kickoff.",
         "",
         (
