@@ -72,8 +72,12 @@ Dixon-Coles prediction engine unchanged:
    `conservative_estimated_ev`, enforce the existing minimums
    and rank candidate markets. The raw model probability/EV remain
    available. Only then does the 96-hour kickoff preference group
-   candidates. The selection still never forces eight matches or
-   combines several markets from one game.
+   candidates. A compact eight-match group is used **only if its
+   average reliability-adjusted forecast is within two percentage
+   points of the strongest eight overall**. Otherwise quality
+   overrides the four-day preference, and the summary records
+   `four_day_window_skipped_for_quality`. The selection still
+   never forces eight matches or combines several markets from one game.
 
 The new `<league>_goal_market_validation.json` reports are written
 under `football_output_v2/raw/`. Repeated runs reuse an existing
