@@ -239,7 +239,13 @@ class EightMarketTests(unittest.TestCase):
             raw = Path(path) / "raw"
             with patch(
                 "football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league",
-                return_value=(frame, {"sample": True}, {}),
+                return_value=(frame, {
+                    "sample": True, "training_end": "2026-09-20",
+                    "training_matches": 1000,
+                }, {}),
+            ), patch(
+                "football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league",
+                return_value=(pd.DataFrame(), pd.DataFrame(), {}, pd.DataFrame()),
             ):
                 result = main(["--leagues", "EPL", "--out-dir", str(raw)])
             self.assertEqual(result, 0)
