@@ -20,6 +20,8 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 18,
+  "additional_event_odds_calls_used_before_this_league": 24,
+  "additional_event_odds_calls_budget": 24,
   "decay_tuning": {
     "selected_half_life_days": 1000000000.0,
     "selected_xi_per_day": 6.931471805599453e-10,
