@@ -77,6 +77,45 @@ class MarketValidationTests(unittest.TestCase):
         )
         self.assertEqual(chosen, [1, 2])
 
+    def test_offline_real_historical_walk_forward_includes_goal_markets(self):
+        """Exercise real fitting + outcome extraction from committed EPL CSV."""
+        from pathlib import Path
+        from unittest.mock import patch
+        from football_value_pipeline_v2_standalone import FootballValuePipelineV2
+
+        root = Path(__file__).resolve().parent.parent
+        sources = [
+            root / ".football_cache" / "2526_E0.csv",
+            root / ".football_cache" / "2627_E0.csv",
+        ]
+        hist = pd.concat([pd.read_csv(path, low_memory=False)
+                          for path in sources], ignore_index=True)
+        hist["Date"] = pd.to_datetime(hist["Date"], dayfirst=True, errors="coerce")
+        for key in ("FTHG", "FTAG"):
+            hist[key] = pd.to_numeric(hist[key], errors="coerce")
+        hist = hist.dropna(subset=["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG"])
+        hist = hist.sort_values("Date").reset_index(drop=True)
+        pipe = FootballValuePipelineV2(live_odds=False)
+        with patch.object(pipe, "_history_for_league", return_value=hist):
+            actual, _, _, _ = pipe.backtest_league(
+                "EPL", min_train=200, step_days=150
+            )
+        self.assertGreater(len(actual), 40)
+        for key in ("p_over_1_5", "p_under_3_5", "p_btts_yes",
+                    "raw_p_over_1_5", "actual_under_3_5",
+                    "historical_open_btts_yes_odds"):
+            self.assertIn(key, actual.columns)
+        evaluation = evaluate_market_history(
+            actual, "Premier League", min_dev=40, min_audit=15
+        )
+        self.assertGreater(
+            evaluation["markets"]["under_3_5"]["audit"]["n"], 15
+        )
+        self.assertEqual(
+            evaluation["markets"]["btts_yes"]["historical_betting"]["status"],
+            "UNAVAILABLE_NO_HISTORICAL_PRICES"
+        )
+
     def test_actual_outcomes_come_from_match_scores(self):
         prediction = {"p_over_1_5":0.75, "raw_p_over_1_5":0.73,
                       "p_under_3_5":0.8, "raw_p_under_3_5":0.78,
