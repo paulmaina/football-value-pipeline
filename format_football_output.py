@@ -1511,6 +1511,394 @@ def organize_existing_raw_files(root_dir: Path, raw_dir: Path) -> List[Tuple[Pat
     return moved
 
 
+# ---------------------------------------------------------------------------
+# Forward-only live performance: presentation, never re-grading
+# ---------------------------------------------------------------------------
+
+PERFORMANCE_STATS_COLUMNS = (
+    ("total", "Selections tracked", "count"),
+    ("graded", "Verified selections graded", "count"),
+    ("wins", "Wins", "count"),
+    ("losses", "Losses", "count"),
+    ("pending", "Pending / unverified", "count"),
+    ("win_rate", "Win rate (graded only)", "rate"),
+    ("brier", "Binary Brier (lower is better)", "score"),
+    ("settled_with_odds", "Settled selections with recorded odds", "count"),
+    ("profit_per_unit_staked", "Total simulated profit (units)", "units"),
+    ("flat_stake_roi", "Simulated flat-stake ROI (priced only)", "rate"),
+)
+PERFORMANCE_STATUS = {
+    "WON": "Won", "LOST": "Lost", "GRADED": "Graded",
+    "PENDING_KICKOFF_OR_FINAL_SCORE": "Awaiting kickoff or verified 90-minute result",
+    "VERIFIED_FINISHED": "Verified finished", "UNMATCHED": "Result not matched",
+    "AMBIGUOUS_MATCH": "Ambiguous fixture match",
+}
+
+
+def perf_number(value: Any) -> Optional[float]:
+    try:
+        result = float(value)
+    except (TypeError, ValueError):
+        return None
+    return result if math.isfinite(result) else None
+
+
+def perf_format(value: Any, kind: str = "text") -> str:
+    number = perf_number(value)
+    if value is None or (isinstance(value, str) and not value.strip()):
+        return "—"
+    if kind in {"rate", "probability"}:
+        return f"{number * 100:.1f}%" if number is not None else "—"
+    if kind == "signed_rate":
+        return f"{number * 100:+.1f}%" if number is not None else "—"
+    if kind == "score":
+        return f"{number:.4f}" if number is not None else "—"
+    if kind == "units":
+        return f"{number:+.2f}" if number is not None else "—"
+    if kind == "odds":
+        return f"{number:.2f}" if number is not None else "—"
+    if kind == "count":
+        return str(int(number)) if number is not None else "—"
+    if kind == "flag":
+        return "Correct" if str(value).strip().lower() in {"1", "true"} else (
+            "Incorrect" if str(value).strip().lower() in {"0", "false"} else "—"
+        )
+    if kind == "outcome":
+        return {"home": "Home win", "away": "Away win", "draw": "Draw"}.get(str(value).lower(), str(value))
+    if kind == "status":
+        return PERFORMANCE_STATUS.get(str(value), str(value).replace("_", " ").title())
+    if kind == "datetime":
+        timestamp = pd.to_datetime(value, errors="coerce", utc=True)
+        return timestamp.strftime("%Y-%m-%d %H:%M UTC") if pd.notna(timestamp) else str(value)
+    return str(value)
+
+
+def perf_md_table(headers: Sequence[str], rows: Iterable[Sequence[Any]]) -> str:
+    contents = list(rows)
+    if not contents:
+        return "_No observations yet._"
+    def clean(item: Any) -> str:
+        return str(item).replace("|", "\\|").replace("\n", " ")
+    lines = ["| " + " | ".join(clean(x) for x in headers) + " |",
+             "|" + "|".join("---" for _ in headers) + "|"]
+    lines += ["| " + " | ".join(clean(x) for x in row) + " |" for row in contents]
+    return "\n".join(lines)
+
+
+def perf_read_csv(path: Path) -> pd.DataFrame:
+    if not path.is_file():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(path, dtype={"source_match_id": "string"}, low_memory=False)
+    except pd.errors.EmptyDataError:
+        return pd.DataFrame()
+
+
+def perf_grade_frame(data: pd.DataFrame, *, is_shortlist: bool) -> pd.DataFrame:
+    common = [
+        ("league", "League", "text"),
+        ("home_team", "Home team", "text"),
+        ("away_team", "Away team", "text"),
+        ("kickoff_utc", "Kickoff (UTC)", "datetime"),
+        ("week", "ISO gameweek", "text"),
+    ]
+    fields = ([
+        ("market", "Selected market", "text"),
+        ("selection_tier", "Selection tier", "text"),
+        ("predicted_probability", "Forecast probability", "probability"),
+        ("offered_decimal_odds", "Recorded bookmaker odds", "odds"),
+    ] if is_shortlist else [
+        ("predicted_1x2", "Most likely 1X2", "outcome"),
+        ("predicted_home", "Home-win probability", "probability"),
+        ("predicted_draw", "Draw probability", "probability"),
+        ("predicted_away", "Away-win probability", "probability"),
+    ])
+    common += fields + [
+        ("final_score", "Verified 90-minute score", "text"),
+        ("status", "Verification / grade", "status"),
+    ]
+    common += ([
+        ("unit_profit", "Simulated profit (1 unit stake)", "units"),
+        ("brier", "Binary Brier", "score"),
+    ] if is_shortlist else [
+        ("one_x_two_correct", "Top 1X2 pick", "flag"),
+        ("one_x_two_brier", "Multiclass 1X2 Brier", "score"),
+        ("over_1_5_correct", "Over 1.5 at 50% threshold", "flag"),
+        ("under_3_5_correct", "Under 3.5 at 50% threshold", "flag"),
+        ("btts_yes_correct", "BTTS Yes at 50% threshold", "flag"),
+        ("btts_no_correct", "BTTS No at 50% threshold", "flag"),
+    ])
+    common += [
+        ("snapshot_commit", "Source snapshot commit", "text"),
+        ("snapshot_captured_utc", "Snapshot captured (UTC)", "datetime"),
+        ("source_match_id", "Verified source match ID", "text"),
+        ("match_source", "Result provider", "text"),
+        ("fixture_key", "Source fixture identifier", "text"),
+    ]
+    output = pd.DataFrame(index=data.index)
+    for source, label, kind in common:
+        if source in data.columns:
+            output[label] = data[source].map(lambda x: perf_format(x, kind) if pd.notna(x) else "—")
+    return output.reset_index(drop=True)
+
+
+def perf_group_frames(metrics: Mapping[str, Any]) -> Dict[str, pd.DataFrame]:
+    groups = metrics.get("groups") or {}
+    frames: Dict[str, pd.DataFrame] = {}
+    if not isinstance(groups, dict):
+        return frames
+    for key, label in (("tier", "Qualification tier"), ("market", "Market"),
+                       ("league", "League"), ("week", "ISO gameweek")):
+        payload = groups.get(key) or {}
+        if not isinstance(payload, dict):
+            continue
+        rows = []
+        for name, stats in sorted(payload.items()):
+            if not isinstance(stats, dict):
+                continue
+            entry = {label: name}
+            for field, heading, kind in PERFORMANCE_STATS_COLUMNS:
+                entry[heading] = perf_format(stats.get(field), "signed_rate" if field == "flat_stake_roi" else kind)
+            rows.append(entry)
+        frames[key] = pd.DataFrame(rows, columns=[label] + [h for _, h, _ in PERFORMANCE_STATS_COLUMNS])
+    return frames
+
+
+def perf_stats_from_grades(rows: pd.DataFrame) -> Dict[str, Any]:
+    if rows.empty or "status" not in rows:
+        return {"total": len(rows), "graded": 0, "wins": 0, "losses": 0,
+                "pending": len(rows), "win_rate": None, "brier": None,
+                "settled_with_odds": 0, "profit_per_unit_staked": None, "flat_stake_roi": None}
+    status = rows["status"].astype(str)
+    wins = int((status == "WON").sum())
+    graded_mask = status.isin(["WON", "LOST"])
+    graded = int(graded_mask.sum())
+    priced = pd.to_numeric(rows.get("unit_profit", pd.Series(index=rows.index, dtype=float)), errors="coerce")
+    profit = priced.loc[graded_mask].dropna()
+    brier = pd.to_numeric(rows.get("brier", pd.Series(index=rows.index, dtype=float)), errors="coerce").loc[graded_mask].dropna()
+    return {
+        "total": len(rows), "graded": graded, "wins": wins,
+        "losses": graded - wins, "pending": len(rows) - graded,
+        "win_rate": wins / graded if graded else None,
+        "brier": brier.mean() if not brier.empty else None,
+        "settled_with_odds": len(profit),
+        "profit_per_unit_staked": profit.sum() if not profit.empty else None,
+        "flat_stake_roi": profit.mean() if not profit.empty else None,
+    }
+
+
+def perf_group_stats(data: pd.DataFrame, group: str) -> Dict[str, Dict[str, Any]]:
+    if data.empty or group not in data.columns:
+        return {}
+    return {str(name): perf_stats_from_grades(frame) for name, frame in data.groupby(group, dropna=False)}
+
+
+def perf_weekly_trend(shortlist: pd.DataFrame) -> pd.DataFrame:
+    """Cumulative 1-unit ROI: only verified, priced, settled picks count as stakes."""
+    cols = ["ISO gameweek", "Tracked", "Graded", "Wins", "Losses", "Pending",
+            "Win rate", "Priced settled", "Week profit (units)", "Week ROI",
+            "Cumulative stakes (units)", "Cumulative profit (units)", "Cumulative ROI"]
+    if shortlist.empty or "week" not in shortlist:
+        return pd.DataFrame(columns=cols)
+    rows = []
+    stake_total = profit_total = 0.0
+    for week, data in sorted(shortlist.groupby("week", dropna=True), key=lambda p: str(p[0])):
+        stats = perf_stats_from_grades(data)
+        stake_total += stats["settled_with_odds"]
+        profit_total += stats["profit_per_unit_staked"] or 0.0
+        rows.append([str(week), stats["total"], stats["graded"], stats["wins"], stats["losses"],
+                     stats["pending"], perf_format(stats["win_rate"], "rate"),
+                     stats["settled_with_odds"], perf_format(stats["profit_per_unit_staked"], "units"),
+                     perf_format(stats["flat_stake_roi"], "signed_rate"),
+                     int(stake_total), perf_format(profit_total, "units") if stake_total else "—",
+                     perf_format(profit_total / stake_total if stake_total else None, "signed_rate")])
+    return pd.DataFrame(rows, columns=cols)
+
+
+def perf_prediction_accuracy(predictions: pd.DataFrame) -> pd.DataFrame:
+    columns = ["Prediction type", "Verified predictions scored", "Correct", "Hit rate"]
+    if predictions.empty or "status" not in predictions:
+        return pd.DataFrame(columns=columns)
+    graded = predictions.loc[predictions["status"].astype(str).eq("GRADED")]
+    fields = (("one_x_two_correct", "Most likely 1X2"),
+              ("over_1_5_correct", "Over 1.5 (50% cutoff)"),
+              ("under_3_5_correct", "Under 3.5 (50% cutoff)"),
+              ("btts_yes_correct", "BTTS Yes (50% cutoff)"),
+              ("btts_no_correct", "BTTS No (50% cutoff)"))
+    rows = []
+    for field, label in fields:
+        if field not in graded:
+            continue
+        valid = pd.to_numeric(graded[field], errors="coerce").dropna()
+        correct = int(valid.eq(1).sum())
+        n = len(valid)
+        rows.append([label, n, correct, perf_format(correct / n if n else None, "rate")])
+    return pd.DataFrame(rows, columns=columns)
+
+
+def render_performance_reports(performance_dir: Path, readable_dir: Path) -> bool:
+    """Format immutable forward-tracker outputs; do not modify/settle source files.
+
+    If metrics.json exists it is authoritative for overall and grouped figures.
+    Supplemental weekly/accuracy tables come from the frozen grade CSV files.
+    """
+    metrics_path = performance_dir / "metrics.json"
+    shortlisted_path = performance_dir / "shortlist_grades.csv"
+    forecast_path = performance_dir / "prediction_grades.csv"
+    if not any(path.is_file() for path in (metrics_path, shortlisted_path, forecast_path)):
+        return False
+    metrics = load_json_file(metrics_path)
+    shortlist = perf_read_csv(shortlisted_path)
+    forecasts = perf_read_csv(forecast_path)
+    readable_dir.mkdir(parents=True, exist_ok=True)
+
+    perf_grade_frame(shortlist, is_shortlist=True).to_csv(
+        readable_dir / "shortlist_grades_readable.csv", index=False, encoding="utf-8-sig")
+    perf_grade_frame(forecasts, is_shortlist=False).to_csv(
+        readable_dir / "prediction_grades_readable.csv", index=False, encoding="utf-8-sig")
+
+    overall = metrics.get("shortlist") if isinstance(metrics.get("shortlist"), dict) else perf_stats_from_grades(shortlist)
+    summary = {label: perf_format(overall.get(field), "signed_rate" if field == "flat_stake_roi" else kind)
+               for field, label, kind in PERFORMANCE_STATS_COLUMNS}
+    summary.update({
+        "Tracking state": metrics.get("status", "UNKNOWN"),
+        "Full fixture forecasts graded": perf_format(metrics.get("prediction_fixtures_graded"), "count"),
+        "Full fixture 1X2 multiclass Brier": perf_format(metrics.get("prediction_1x2_multiclass_brier"), "score"),
+    })
+    pd.DataFrame([summary]).to_csv(readable_dir / "performance_summary_readable.csv",
+                                   index=False, encoding="utf-8-sig")
+
+    frames = perf_group_frames(metrics)
+    fields = {"tier": "performance_by_tier_readable.csv", "market": "performance_by_market_readable.csv",
+              "league": "performance_by_league_readable.csv", "week": "performance_by_gameweek_readable.csv"}
+    for key, name in fields.items():
+        if key not in frames:
+            src_key = {"tier": "selection_tier", "market": "market", "league": "league", "week": "week"}[key]
+            stats = perf_group_stats(shortlist, src_key)
+            frames[key] = pd.DataFrame([
+                { {"tier": "Qualification tier", "market": "Market", "league": "League", "week": "ISO gameweek"}[key]: label,
+                  **{heading: perf_format(s.get(field), "signed_rate" if field == "flat_stake_roi" else kind)
+                     for field, heading, kind in PERFORMANCE_STATS_COLUMNS}}
+                for label, s in sorted(stats.items())
+            ])
+        frames[key].to_csv(readable_dir / name, index=False, encoding="utf-8-sig")
+
+    calibration = metrics.get("calibration") or []
+    calibration_rows = []
+    for bucket in calibration if isinstance(calibration, list) else []:
+        if not isinstance(bucket, dict):
+            continue
+        calibration_rows.append({
+            "Forecast probability band": bucket.get("probability_band", "—"),
+            "Graded selections": perf_format(bucket.get("n"), "count"),
+            "Average forecast": perf_format(bucket.get("mean_forecast"), "rate"),
+            "Observed win rate": perf_format(bucket.get("observed_win_rate"), "rate"),
+            "Binary Brier": perf_format(bucket.get("binary_brier"), "score"),
+        })
+    cal_cols = ["Forecast probability band", "Graded selections", "Average forecast", "Observed win rate", "Binary Brier"]
+    calibration_frame = pd.DataFrame(calibration_rows, columns=cal_cols)
+    calibration_frame.to_csv(readable_dir / "performance_calibration_readable.csv",
+                             index=False, encoding="utf-8-sig")
+
+    trend = perf_weekly_trend(shortlist)
+    trend.to_csv(readable_dir / "performance_cumulative_trend_readable.csv",
+                 index=False, encoding="utf-8-sig")
+    accuracy = perf_prediction_accuracy(forecasts)
+    accuracy.to_csv(readable_dir / "performance_prediction_accuracy_readable.csv",
+                    index=False, encoding="utf-8-sig")
+
+    pending = metrics.get("pending_reason_counts") or {}
+    if not pending and not shortlist.empty and "status" in shortlist:
+        pending = shortlist.loc[~shortlist["status"].isin(["WON", "LOST"]), "status"].value_counts().to_dict()
+    pending_frame = pd.DataFrame([{"Reason": perf_format(k, "status"), "Selections": n}
+                                  for k, n in sorted(pending.items())],
+                                 columns=["Reason", "Selections"])
+    pending_frame.to_csv(readable_dir / "performance_pending_reasons_readable.csv", index=False, encoding="utf-8-sig")
+    issues = metrics.get("provider_errors") or {}
+    issue_frame = pd.DataFrame([{"Provider/league": k, "Issue": str(v)} for k, v in sorted(issues.items())],
+                               columns=["Provider/league", "Issue"])
+    issue_frame.to_csv(readable_dir / "performance_provider_issues_readable.csv", index=False, encoding="utf-8-sig")
+
+    lines = [
+        "# Forward prediction performance — readable dashboard", "",
+        "This dashboard formats the **immutable pre-kickoff** evaluation outputs.",
+        "It does not refresh results, settle bets, or change the model.", "",
+        f"**Evaluation status:** `{metrics.get('status', 'UNKNOWN')}`", "",
+        "## At a glance", "",
+        perf_md_table(["Measure", "Result"], ([heading, summary[heading]] for _, heading, _ in PERFORMANCE_STATS_COLUMNS)),
+        "", f"**Full-fixture predictions graded:** {summary['Full fixture forecasts graded']}",
+        f"**1X2 multiclass Brier (lower is better):** {summary['Full fixture 1X2 multiclass Brier']}",
+        "", "_Win rate counts only WON/LOST shortlist selections. Pending or unverifiable scores are not losses. "
+        "ROI is a one-unit-per-selection simulation for settled bets with genuine recorded odds, not actual betting returns._", "",
+    ]
+    for key, title in (("tier", "STRICT versus PROVISIONAL"), ("market", "Performance by market"),
+                       ("league", "Performance by league"), ("week", "Performance by ISO gameweek")):
+        frame = frames[key]
+        cols = list(frame.columns)
+        shown = [cols[0]] + [c for c in ("Verified selections graded", "Wins", "Losses", "Pending / unverified",
+                                       "Win rate (graded only)", "Simulated flat-stake ROI (priced only)") if c in cols] if cols else []
+        lines += [f"## {title}", "", perf_md_table(shown, frame[shown].itertuples(index=False, name=None)) if shown else "_No observations yet._", ""]
+
+    lines += ["## All-fixture direction accuracy", "",
+              "This checks whether each predicted event crossed a **50% cutoff**; it is **not** the selected-bet hit rate.", "",
+              perf_md_table(accuracy.columns.tolist(), accuracy.itertuples(index=False, name=None)), "",
+              "## Confidence calibration (selected bets)", "",
+              perf_md_table(calibration_frame.columns.tolist(), calibration_frame.itertuples(index=False, name=None)), "",
+              "_Compare mean forecast with observed win rate. Empty bins or small samples do not establish calibration._", "",
+              "## Cumulative simulated results by gameweek", "",
+              perf_md_table(["Week", "Graded", "Wins", "Losses", "Week profit (units)", "Cumulative ROI"],
+                            (tuple(r[c] for c in ("ISO gameweek", "Graded", "Wins", "Losses", "Week profit (units)", "Cumulative ROI"))
+                             for _, r in trend.iterrows())), "",
+              "## Pending/unverified and data-quality issues", "",
+              perf_md_table(pending_frame.columns.tolist(), pending_frame.itertuples(index=False, name=None)), "",
+              "### Result-provider errors", "",
+              perf_md_table(issue_frame.columns.tolist(), issue_frame.itertuples(index=False, name=None)), "",
+              "## Weekly match-by-match grades", ""]
+
+    week_folder = readable_dir / "performance_weekly"
+    week_folder.mkdir(exist_ok=True)
+    if not shortlist.empty and "week" in shortlist and "status" in shortlist:
+        for week, group in sorted(shortlist.groupby("week", dropna=True), key=lambda item: str(item[0])):
+            stat = perf_stats_from_grades(group)
+            safe_week = re.sub(r"[^0-9A-Za-z-]+", "_", str(week))
+            report_path = week_folder / f"{safe_week}_report.md"
+            detail = perf_grade_frame(group, is_shortlist=True)
+            keep = [c for c in ("Kickoff (UTC)", "Home team", "Away team", "Selected market", "Selection tier",
+                                "Forecast probability", "Recorded bookmaker odds", "Verified 90-minute score",
+                                "Verification / grade", "Simulated profit (1 unit stake)") if c in detail]
+            content = [f"# {week} — verified gameweek performance", "",
+                       f"Tracked {stat['total']}; graded {stat['graded']}; wins {stat['wins']}; losses {stat['losses']}; pending {stat['pending']}.",
+                       f"Graded hit rate: **{perf_format(stat['win_rate'], 'rate')}**. "
+                       f"Priced-bet simulated ROI: **{perf_format(stat['flat_stake_roi'], 'signed_rate')}**.", "",
+                       perf_md_table(keep, detail[keep].itertuples(index=False, name=None)), "",
+                       "_Results use verified regulation-time scores. Pending games are not graded._", ""]
+            report_path.write_text("\n".join(content), encoding="utf-8")
+            lines.append(f"- [{week} details](performance_weekly/{safe_week}_report.md)")
+    else:
+        lines.append("_No tracked gameweeks yet._")
+    lines += ["", "## Audit and interpretation", "",
+              "- Source of truth: `../performance/metrics.json`, `shortlist_grades.csv` and `prediction_grades.csv`.",
+              "- Snapshot commit and source fixture identifiers remain available in the detailed readable CSV files.",
+              "- `STRICT` and `PROVISIONAL` are reported separately; provisional selections are not audited recommendations.",
+              "- Win rate is not calibration; short-run results and simulated ROI can be noisy.",
+              "- The original 90-minute verification rules and eligibility checks remain in `performance_tracking.py`.", ""]
+    (readable_dir / "performance_dashboard.md").write_text("\n".join(lines), encoding="utf-8")
+    index_file = readable_dir / "README.md"
+    if index_file.is_file():
+        index = index_file.read_text(encoding="utf-8")
+        index += ("\n## Forward performance reports\n\n"
+                  "Start with [`performance_dashboard.md`](performance_dashboard.md). "
+                  "`shortlist_grades_readable.csv` and `prediction_grades_readable.csv` contain individual graded events; "
+                  "`performance_summary_readable.csv`, `performance_by_*_readable.csv`, "
+                  "`performance_calibration_readable.csv`, `performance_prediction_accuracy_readable.csv`, "
+                  "`performance_cumulative_trend_readable.csv`, `performance_pending_reasons_readable.csv`, "
+                  "and `performance_provider_issues_readable.csv` provide cumulative monitoring. "
+                  "Open `performance_weekly/` for week-by-week match detail.\n\n"
+                  "These reports are presentation-only; `performance/` remains authoritative.\n")
+        index_file.write_text(index, encoding="utf-8")
+    return True
+
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
     args = build_parser().parse_args(argv)
 
@@ -1549,7 +1937,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     write_readme(output_dir)
 
     prediction_files = discover_prediction_files(input_dir)
-    if not prediction_files:
+    has_perf = any((root_dir / 'performance' / name).is_file() for name in ('metrics.json', 'shortlist_grades.csv', 'prediction_grades.csv'))
+    if not prediction_files and not has_perf:
         hint = (
             f"\nRecommended model command:\n"
             f"  python football_value_pipeline_v2_standalone.py "
@@ -1584,6 +1973,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     shortlist_count = process_conservative_shortlist(input_dir, output_dir)
 
+    performance_written = render_performance_reports(root_dir / 'performance', output_dir)
+
     print(f"Raw input folder:       {input_dir.resolve()}")
     print(f"Readable output folder: {output_dir.resolve()}")
     if shortlist_count is not None:
@@ -1591,6 +1982,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             f"  Conservative shortlist: {shortlist_count} "
             "match(es), with selected markets (readable CSV and Markdown report)"
         )
+    if performance_written:
+        print('  Forward performance: dashboard, grades, calibration and weekly reports')
     for league, count in processed:
         print(f"  {league}: {count} fixture(s)")
     return 0
