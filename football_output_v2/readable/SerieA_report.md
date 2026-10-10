@@ -54,7 +54,7 @@ Fixtures in this report: **18**.
 
 ## 2026-10-10 — Genoa vs Fiorentina
 
-The model's most likely 1X2 outcome is **Fiorentina win** at **40.4%**. Expected goals are 1.17 for Genoa and 1.29 for Fiorentina (2.46 combined). The most likely exact score is 1-1 at 13.5%. Goal-market probabilities: at least one goal: 91.1%; Over 2.5 goals: 44.1%; Under 4.5 goals: 89.8%.
+The model's most likely 1X2 outcome is **Fiorentina win** at **40.4%**. Expected goals are 1.17 for Genoa and 1.29 for Fiorentina (2.46 combined). The most likely exact score is 1-1 at 13.5%. Goal-market probabilities: at least one goal: 91.1%; Over 2.5 goals: 44.1%; Under 3.5 goals: 76.7%; Under 4.5 goals: 89.8%.
 
 **Fixture source:** The Odds API
 
@@ -178,7 +178,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Inter Milan vs Parma
 
-The model's most likely 1X2 outcome is **Inter Milan win** at **81.2%**. Expected goals are 2.47 for Inter Milan and 0.67 for Parma (3.14 combined). The most likely exact score is 2-0 at 14.0%. Goal-market probabilities: at least one goal: 96.5%; Over 2.5 goals: 62.2%; Under 4.5 goals: 78.4%.
+The model's most likely 1X2 outcome is **Inter Milan win** at **81.2%**. Expected goals are 2.47 for Inter Milan and 0.67 for Parma (3.14 combined). The most likely exact score is 2-0 at 14.0%. Goal-market probabilities: at least one goal: 96.5%; Over 2.5 goals: 62.2%; Under 3.5 goals: 60.8%; Under 4.5 goals: 78.4%.
 
 **Fixture source:** The Odds API
 
@@ -323,7 +323,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Napoli vs Frosinone
 
-The model's most likely 1X2 outcome is **Napoli win** at **55.5%**. Expected goals are 1.39 for Napoli and 1.08 for Frosinone (2.47 combined). The most likely exact score is 1-0 at 14.9%. Goal-market probabilities: at least one goal: 92.9%; Over 2.5 goals: 46.4%; Under 4.5 goals: 89.0%.
+The model's most likely 1X2 outcome is **Napoli win** at **55.5%**. Expected goals are 1.39 for Napoli and 1.08 for Frosinone (2.47 combined). The most likely exact score is 1-0 at 14.9%. Goal-market probabilities: at least one goal: 92.9%; Over 2.5 goals: 46.4%; Under 3.5 goals: 76.0%; Under 4.5 goals: 89.0%.
 
 **Fixture source:** The Odds API
 
@@ -447,7 +447,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Cagliari vs Juventus
 
-The model's most likely 1X2 outcome is **Juventus win** at **57.6%**. Expected goals are 0.80 for Cagliari and 1.48 for Juventus (2.28 combined). The most likely exact score is 0-1 at 16.4%. Goal-market probabilities: at least one goal: 90.4%; Over 2.5 goals: 40.5%; Under 4.5 goals: 91.6%.
+The model's most likely 1X2 outcome is **Juventus win** at **57.6%**. Expected goals are 0.80 for Cagliari and 1.48 for Juventus (2.28 combined). The most likely exact score is 0-1 at 16.4%. Goal-market probabilities: at least one goal: 90.4%; Over 2.5 goals: 40.5%; Under 3.5 goals: 80.0%; Under 4.5 goals: 91.6%.
 
 **Fixture source:** The Odds API
 
@@ -571,7 +571,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Como vs AS Roma
 
-The model's most likely 1X2 outcome is **AS Roma win** at **37.9%**. Expected goals are 1.17 for Como and 1.30 for AS Roma (2.47 combined). The most likely exact score is 1-1 at 12.8%. Goal-market probabilities: at least one goal: 91.6%; Over 2.5 goals: 44.9%; Under 4.5 goals: 89.5%.
+The model's most likely 1X2 outcome is **AS Roma win** at **37.9%**. Expected goals are 1.17 for Como and 1.30 for AS Roma (2.47 combined). The most likely exact score is 1-1 at 12.8%. Goal-market probabilities: at least one goal: 91.6%; Over 2.5 goals: 44.9%; Under 3.5 goals: 76.3%; Under 4.5 goals: 89.5%.
 
 **Fixture source:** The Odds API
 
@@ -695,7 +695,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Lazio vs Monza
 
-The model's most likely 1X2 outcome is **Lazio win** at **62.6%**. Expected goals are 2.01 for Lazio and 0.87 for Monza (2.88 combined). The most likely exact score is 2-0 at 11.1%. Goal-market probabilities: at least one goal: 94.1%; Over 2.5 goals: 54.4%; Under 4.5 goals: 83.8%.
+The model's most likely 1X2 outcome is **Lazio win** at **62.6%**. Expected goals are 2.01 for Lazio and 0.87 for Monza (2.88 combined). The most likely exact score is 2-0 at 11.1%. Goal-market probabilities: at least one goal: 94.1%; Over 2.5 goals: 54.4%; Under 3.5 goals: 67.6%; Under 4.5 goals: 83.8%.
 
 **Fixture source:** The Odds API
 
@@ -819,7 +819,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Lecce vs Bologna
 
-The model's most likely 1X2 outcome is **Bologna win** at **50.0%**. Expected goals are 0.78 for Lecce and 1.33 for Bologna (2.11 combined). The most likely exact score is 0-1 at 16.2%. Goal-market probabilities: at least one goal: 87.9%; Over 2.5 goals: 35.3%; Under 4.5 goals: 93.7%.
+The model's most likely 1X2 outcome is **Bologna win** at **50.0%**. Expected goals are 0.78 for Lecce and 1.33 for Bologna (2.11 combined). The most likely exact score is 0-1 at 16.2%. Goal-market probabilities: at least one goal: 87.9%; Over 2.5 goals: 35.3%; Under 3.5 goals: 83.6%; Under 4.5 goals: 93.7%.
 
 **Fixture source:** The Odds API
 
@@ -964,7 +964,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Sassuolo vs AC Milan
 
-The model's most likely 1X2 outcome is **AC Milan win** at **51.9%**. Expected goals are 1.13 for Sassuolo and 1.68 for AC Milan (2.81 combined). The most likely exact score is 1-1 at 11.5%. Goal-market probabilities: at least one goal: 94.0%; Over 2.5 goals: 53.4%; Under 4.5 goals: 84.5%.
+The model's most likely 1X2 outcome is **AC Milan win** at **51.9%**. Expected goals are 1.13 for Sassuolo and 1.68 for AC Milan (2.81 combined). The most likely exact score is 1-1 at 11.5%. Goal-market probabilities: at least one goal: 94.0%; Over 2.5 goals: 53.4%; Under 3.5 goals: 68.8%; Under 4.5 goals: 84.5%.
 
 **Fixture source:** The Odds API
 
@@ -1088,7 +1088,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-12 — Atalanta BC vs Venezia
 
-The model's most likely 1X2 outcome is **Atalanta BC win** at **68.7%**. Expected goals are 2.35 for Atalanta BC and 0.66 for Venezia (3.02 combined). The most likely exact score is 2-0 at 12.4%. Goal-market probabilities: at least one goal: 94.1%; Over 2.5 goals: 56.0%; Under 4.5 goals: 82.3%.
+The model's most likely 1X2 outcome is **Atalanta BC win** at **68.7%**. Expected goals are 2.35 for Atalanta BC and 0.66 for Venezia (3.02 combined). The most likely exact score is 2-0 at 12.4%. Goal-market probabilities: at least one goal: 94.1%; Over 2.5 goals: 56.0%; Under 3.5 goals: 65.7%; Under 4.5 goals: 82.3%.
 
 **Fixture source:** The Odds API
 
@@ -1212,7 +1212,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-12 — Torino vs Udinese
 
-The model's most likely 1X2 outcome is **Torino win** at **38.6%**. Expected goals are 1.29 for Torino and 1.35 for Udinese (2.64 combined). The most likely exact score is 1-1 at 13.2%. Goal-market probabilities: at least one goal: 92.4%; Over 2.5 goals: 48.5%; Under 4.5 goals: 87.4%.
+The model's most likely 1X2 outcome is **Torino win** at **38.6%**. Expected goals are 1.29 for Torino and 1.35 for Udinese (2.64 combined). The most likely exact score is 1-1 at 13.2%. Goal-market probabilities: at least one goal: 92.4%; Over 2.5 goals: 48.5%; Under 3.5 goals: 72.8%; Under 4.5 goals: 87.4%.
 
 **Fixture source:** The Odds API
 
@@ -1336,7 +1336,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-16 — Frosinone vs Sassuolo
 
-The model's most likely 1X2 outcome is **Frosinone win** at **46.9%**. Expected goals are 1.84 for Frosinone and 1.12 for Sassuolo (2.95 combined). The most likely exact score is 1-1 at 11.8%. Goal-market probabilities: at least one goal: 94.3%; Over 2.5 goals: 55.5%; Under 4.5 goals: 82.9%.
+The model's most likely 1X2 outcome is **Frosinone win** at **46.9%**. Expected goals are 1.84 for Frosinone and 1.12 for Sassuolo (2.95 combined). The most likely exact score is 1-1 at 11.8%. Goal-market probabilities: at least one goal: 94.3%; Over 2.5 goals: 55.5%; Under 3.5 goals: 66.4%; Under 4.5 goals: 82.9%.
 
 **Fixture source:** The Odds API
 
@@ -1460,7 +1460,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — AS Roma vs Genoa
 
-The model's most likely 1X2 outcome is **AS Roma win** at **71.4%**. Expected goals are 2.01 for AS Roma and 0.66 for Genoa (2.67 combined). The most likely exact score is 1-0 at 14.4%. Goal-market probabilities: at least one goal: 93.7%; Over 2.5 goals: 50.6%; Under 4.5 goals: 86.5%.
+The model's most likely 1X2 outcome is **AS Roma win** at **71.4%**. Expected goals are 2.01 for AS Roma and 0.66 for Genoa (2.67 combined). The most likely exact score is 1-0 at 14.4%. Goal-market probabilities: at least one goal: 93.7%; Over 2.5 goals: 50.6%; Under 3.5 goals: 71.8%; Under 4.5 goals: 86.5%.
 
 **Fixture source:** The Odds API
 
@@ -1584,7 +1584,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Bologna vs Inter Milan
 
-The model's most likely 1X2 outcome is **Inter Milan win** at **60.8%**. Expected goals are 1.07 for Bologna and 2.13 for Inter Milan (3.21 combined). The most likely exact score is 1-1 at 10.0%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 61.6%; Under 4.5 goals: 78.2%.
+The model's most likely 1X2 outcome is **Inter Milan win** at **60.8%**. Expected goals are 1.07 for Bologna and 2.13 for Inter Milan (3.21 combined). The most likely exact score is 1-1 at 10.0%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 61.6%; Under 3.5 goals: 60.2%; Under 4.5 goals: 78.2%.
 
 **Fixture source:** The Odds API
 
@@ -1729,7 +1729,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Venezia vs Napoli
 
-The model's most likely 1X2 outcome is **Napoli win** at **64.5%**. Expected goals are 0.67 for Venezia and 2.18 for Napoli (2.85 combined). The most likely exact score is 0-2 at 12.3%. Goal-market probabilities: at least one goal: 93.5%; Over 2.5 goals: 52.4%; Under 4.5 goals: 84.9%.
+The model's most likely 1X2 outcome is **Napoli win** at **64.5%**. Expected goals are 0.67 for Venezia and 2.18 for Napoli (2.85 combined). The most likely exact score is 0-2 at 12.3%. Goal-market probabilities: at least one goal: 93.5%; Over 2.5 goals: 52.4%; Under 3.5 goals: 69.6%; Under 4.5 goals: 84.9%.
 
 **Fixture source:** The Odds API
 
@@ -1853,7 +1853,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — AC Milan vs Atalanta BC
 
-The model's most likely 1X2 outcome is **AC Milan win** at **45.9%**. Expected goals are 1.28 for AC Milan and 1.16 for Atalanta BC (2.44 combined). The most likely exact score is 1-0 at 13.1%. Goal-market probabilities: at least one goal: 91.6%; Over 2.5 goals: 44.4%; Under 4.5 goals: 89.8%.
+The model's most likely 1X2 outcome is **AC Milan win** at **45.9%**. Expected goals are 1.28 for AC Milan and 1.16 for Atalanta BC (2.44 combined). The most likely exact score is 1-0 at 13.1%. Goal-market probabilities: at least one goal: 91.6%; Over 2.5 goals: 44.4%; Under 3.5 goals: 76.9%; Under 4.5 goals: 89.8%.
 
 **Fixture source:** The Odds API
 
@@ -1977,7 +1977,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Fiorentina vs Como
 
-The model's most likely 1X2 outcome is **Como win** at **50.6%**. Expected goals are 1.00 for Fiorentina and 1.73 for Como (2.73 combined). The most likely exact score is 1-1 at 11.6%. Goal-market probabilities: at least one goal: 93.3%; Over 2.5 goals: 50.9%; Under 4.5 goals: 86.1%.
+The model's most likely 1X2 outcome is **Como win** at **50.6%**. Expected goals are 1.00 for Fiorentina and 1.73 for Como (2.73 combined). The most likely exact score is 1-1 at 11.6%. Goal-market probabilities: at least one goal: 93.3%; Over 2.5 goals: 50.9%; Under 3.5 goals: 71.1%; Under 4.5 goals: 86.1%.
 
 **Fixture source:** The Odds API
 
@@ -2101,7 +2101,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Juventus vs Lazio
 
-The model's most likely 1X2 outcome is **Juventus win** at **54.1%**. Expected goals are 1.37 for Juventus and 0.85 for Lazio (2.22 combined). The most likely exact score is 1-0 at 16.5%. Goal-market probabilities: at least one goal: 89.9%; Over 2.5 goals: 39.0%; Under 4.5 goals: 92.3%.
+The model's most likely 1X2 outcome is **Juventus win** at **54.1%**. Expected goals are 1.37 for Juventus and 0.85 for Lazio (2.22 combined). The most likely exact score is 1-0 at 16.5%. Goal-market probabilities: at least one goal: 89.9%; Over 2.5 goals: 39.0%; Under 3.5 goals: 81.3%; Under 4.5 goals: 92.3%.
 
 **Fixture source:** The Odds API
 
@@ -2246,7 +2246,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Udinese vs Lecce
 
-The model's most likely 1X2 outcome is **Udinese win** at **52.0%**. Expected goals are 1.44 for Udinese and 0.82 for Lecce (2.26 combined). The most likely exact score is 1-0 at 15.2%. Goal-market probabilities: at least one goal: 89.9%; Over 2.5 goals: 39.5%; Under 4.5 goals: 92.0%.
+The model's most likely 1X2 outcome is **Udinese win** at **52.0%**. Expected goals are 1.44 for Udinese and 0.82 for Lecce (2.26 combined). The most likely exact score is 1-0 at 15.2%. Goal-market probabilities: at least one goal: 89.9%; Over 2.5 goals: 39.5%; Under 3.5 goals: 80.7%; Under 4.5 goals: 92.0%.
 
 **Fixture source:** The Odds API
 
