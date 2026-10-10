@@ -54,7 +54,7 @@ Fixtures in this report: **19**.
 
 ## 2026-10-10 — Arsenal vs Leeds United
 
-The model's most likely 1X2 outcome is **Arsenal win** at **66.8%**. Expected goals are 1.76 for Arsenal and 0.68 for Leeds United (2.44 combined). The most likely exact score is 1-0 at 15.3%. Goal-market probabilities: at least one goal: 91.6%; Over 2.5 goals: 45.6%; Under 3.5 goals: 76.4%; Under 4.5 goals: 89.4%.
+The model's most likely 1X2 outcome is **Arsenal win** at **66.8%**. Expected goals are 1.76 for Arsenal and 0.68 for Leeds United (2.44 combined). The most likely exact score is 1-0 at 15.3%. Goal-market probabilities: at least one goal: 91.6%; Over 2.5 goals: 45.6%; Under 3.5 goals: 76.4%; Under 4.5 goals: 89.4%; BTTS Yes (both teams score): 40.9%; BTTS No (at least one team does not score): 59.1%.
 
 **Fixture source:** The Odds API
 
@@ -178,7 +178,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Aston Villa vs Brentford
 
-The model's most likely 1X2 outcome is **Aston Villa win** at **38.2%**. Expected goals are 1.59 for Aston Villa and 1.41 for Brentford (3.00 combined). The most likely exact score is 1-1 at 12.4%. Goal-market probabilities: at least one goal: 93.8%; Over 2.5 goals: 57.7%; Under 3.5 goals: 64.7%; Under 4.5 goals: 81.5%.
+The model's most likely 1X2 outcome is **Aston Villa win** at **38.2%**. Expected goals are 1.59 for Aston Villa and 1.41 for Brentford (3.00 combined). The most likely exact score is 1-1 at 12.4%. Goal-market probabilities: at least one goal: 93.8%; Over 2.5 goals: 57.7%; Under 3.5 goals: 64.7%; Under 4.5 goals: 81.5%; BTTS Yes (both teams score): 61.5%; BTTS No (at least one team does not score): 38.5%.
 
 **Fixture source:** The Odds API
 
@@ -302,7 +302,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Chelsea vs Bournemouth
 
-The model's most likely 1X2 outcome is **Chelsea win** at **50.9%**. Expected goals are 1.75 for Chelsea and 1.40 for Bournemouth (3.15 combined). The most likely exact score is 1-1 at 11.0%. Goal-market probabilities: at least one goal: 94.9%; Over 2.5 goals: 61.5%; Under 3.5 goals: 61.1%; Under 4.5 goals: 78.6%.
+The model's most likely 1X2 outcome is **Chelsea win** at **50.9%**. Expected goals are 1.75 for Chelsea and 1.40 for Bournemouth (3.15 combined). The most likely exact score is 1-1 at 11.0%. Goal-market probabilities: at least one goal: 94.9%; Over 2.5 goals: 61.5%; Under 3.5 goals: 61.1%; Under 4.5 goals: 78.6%; BTTS Yes (both teams score): 62.9%; BTTS No (at least one team does not score): 37.1%.
 
 **Fixture source:** The Odds API
 
@@ -426,7 +426,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Ipswich Town vs Fulham
 
-The model's most likely 1X2 outcome is **Fulham win** at **45.5%**. Expected goals are 1.14 for Ipswich Town and 1.79 for Fulham (2.93 combined). The most likely exact score is 1-1 at 12.3%. Goal-market probabilities: at least one goal: 93.4%; Over 2.5 goals: 55.7%; Under 3.5 goals: 66.8%; Under 4.5 goals: 83.0%.
+The model's most likely 1X2 outcome is **Fulham win** at **45.5%**. Expected goals are 1.14 for Ipswich Town and 1.79 for Fulham (2.93 combined). The most likely exact score is 1-1 at 12.3%. Goal-market probabilities: at least one goal: 93.4%; Over 2.5 goals: 55.7%; Under 3.5 goals: 66.8%; Under 4.5 goals: 83.0%; BTTS Yes (both teams score): 58.2%; BTTS No (at least one team does not score): 41.8%.
 
 **Fixture source:** The Odds API
 
@@ -550,7 +550,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Manchester United vs Tottenham Hotspur
 
-The model's most likely 1X2 outcome is **Manchester United win** at **55.8%**. Expected goals are 1.93 for Manchester United and 1.19 for Tottenham Hotspur (3.12 combined). The most likely exact score is 1-1 at 10.7%. Goal-market probabilities: at least one goal: 94.8%; Over 2.5 goals: 60.8%; Under 3.5 goals: 61.8%; Under 4.5 goals: 79.2%.
+The model's most likely 1X2 outcome is **Manchester United win** at **55.8%**. Expected goals are 1.93 for Manchester United and 1.19 for Tottenham Hotspur (3.12 combined). The most likely exact score is 1-1 at 10.7%. Goal-market probabilities: at least one goal: 94.8%; Over 2.5 goals: 60.8%; Under 3.5 goals: 61.8%; Under 4.5 goals: 79.2%; BTTS Yes (both teams score): 60.2%; BTTS No (at least one team does not score): 39.8%.
 
 **Fixture source:** The Odds API
 
@@ -674,7 +674,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Sunderland vs Brighton and Hove Albion
 
-The model's most likely 1X2 outcome is **Brighton and Hove Albion win** at **41.3%**. Expected goals are 1.20 for Sunderland and 1.44 for Brighton and Hove Albion (2.65 combined). The most likely exact score is 1-1 at 13.3%. Goal-market probabilities: at least one goal: 91.8%; Over 2.5 goals: 49.6%; Under 3.5 goals: 72.5%; Under 4.5 goals: 87.0%.
+The model's most likely 1X2 outcome is **Brighton and Hove Albion win** at **41.3%**. Expected goals are 1.20 for Sunderland and 1.44 for Brighton and Hove Albion (2.65 combined). The most likely exact score is 1-1 at 13.3%. Goal-market probabilities: at least one goal: 91.8%; Over 2.5 goals: 49.6%; Under 3.5 goals: 72.5%; Under 4.5 goals: 87.0%; BTTS Yes (both teams score): 54.6%; BTTS No (at least one team does not score): 45.4%.
 
 **Fixture source:** The Odds API
 
@@ -798,7 +798,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Crystal Palace vs Nottingham Forest
 
-The model's most likely 1X2 outcome is **Nottingham Forest win** at **35.7%**. Expected goals are 1.25 for Crystal Palace and 1.23 for Nottingham Forest (2.48 combined). The most likely exact score is 1-1 at 13.8%. Goal-market probabilities: at least one goal: 90.6%; Over 2.5 goals: 45.4%; Under 3.5 goals: 76.2%; Under 4.5 goals: 89.3%.
+The model's most likely 1X2 outcome is **Nottingham Forest win** at **35.7%**. Expected goals are 1.25 for Crystal Palace and 1.23 for Nottingham Forest (2.48 combined). The most likely exact score is 1-1 at 13.8%. Goal-market probabilities: at least one goal: 90.6%; Over 2.5 goals: 45.4%; Under 3.5 goals: 76.2%; Under 4.5 goals: 89.3%; BTTS Yes (both teams score): 51.6%; BTTS No (at least one team does not score): 48.4%.
 
 **Fixture source:** The Odds API
 
@@ -922,7 +922,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Hull City vs Everton
 
-The model's most likely 1X2 outcome is **Hull City win** at **34.4%**. Expected goals are 1.09 for Hull City and 0.66 for Everton (1.74 combined). The most likely exact score is 0-0 at 16.8%. Goal-market probabilities: at least one goal: 83.2%; Over 2.5 goals: 26.0%; Under 3.5 goals: 90.3%; Under 4.5 goals: 96.7%.
+The model's most likely 1X2 outcome is **Hull City win** at **34.4%**. Expected goals are 1.09 for Hull City and 0.66 for Everton (1.74 combined). The most likely exact score is 0-0 at 16.8%. Goal-market probabilities: at least one goal: 83.2%; Over 2.5 goals: 26.0%; Under 3.5 goals: 90.3%; Under 4.5 goals: 96.7%; BTTS Yes (both teams score): 32.8%; BTTS No (at least one team does not score): 67.2%.
 
 **Fixture source:** The Odds API
 
@@ -1067,7 +1067,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Liverpool vs Manchester City
 
-The model's most likely 1X2 outcome is **Manchester City win** at **41.8%**. Expected goals are 1.40 for Liverpool and 1.65 for Manchester City (3.05 combined). The most likely exact score is 1-1 at 11.9%. Goal-market probabilities: at least one goal: 94.2%; Over 2.5 goals: 58.9%; Under 3.5 goals: 63.6%; Under 4.5 goals: 80.7%.
+The model's most likely 1X2 outcome is **Manchester City win** at **41.8%**. Expected goals are 1.40 for Liverpool and 1.65 for Manchester City (3.05 combined). The most likely exact score is 1-1 at 11.9%. Goal-market probabilities: at least one goal: 94.2%; Over 2.5 goals: 58.9%; Under 3.5 goals: 63.6%; Under 4.5 goals: 80.7%; BTTS Yes (both teams score): 61.9%; BTTS No (at least one team does not score): 38.1%.
 
 **Fixture source:** The Odds API
 
@@ -1191,7 +1191,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-12 — Coventry City vs Newcastle United
 
-The model's most likely 1X2 outcome is **Newcastle United win** at **59.3%**. Expected goals are 0.36 for Coventry City and 1.82 for Newcastle United (2.18 combined). The most likely exact score is 0-1 at 16.1%. Goal-market probabilities: at least one goal: 86.9%; Over 2.5 goals: 34.7%; Under 3.5 goals: 84.4%; Under 4.5 goals: 93.8%.
+The model's most likely 1X2 outcome is **Newcastle United win** at **59.3%**. Expected goals are 0.36 for Coventry City and 1.82 for Newcastle United (2.18 combined). The most likely exact score is 0-1 at 16.1%. Goal-market probabilities: at least one goal: 86.9%; Over 2.5 goals: 34.7%; Under 3.5 goals: 84.4%; Under 4.5 goals: 93.8%; BTTS Yes (both teams score): 27.7%; BTTS No (at least one team does not score): 72.3%.
 
 **Fixture source:** The Odds API
 
@@ -1336,7 +1336,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Brentford vs Liverpool
 
-The model's most likely 1X2 outcome is **Liverpool win** at **39.5%**. Expected goals are 1.48 for Brentford and 1.63 for Liverpool (3.11 combined). The most likely exact score is 1-1 at 11.7%. Goal-market probabilities: at least one goal: 94.5%; Over 2.5 goals: 60.3%; Under 3.5 goals: 62.2%; Under 4.5 goals: 79.5%.
+The model's most likely 1X2 outcome is **Liverpool win** at **39.5%**. Expected goals are 1.48 for Brentford and 1.63 for Liverpool (3.11 combined). The most likely exact score is 1-1 at 11.7%. Goal-market probabilities: at least one goal: 94.5%; Over 2.5 goals: 60.3%; Under 3.5 goals: 62.2%; Under 4.5 goals: 79.5%; BTTS Yes (both teams score): 63.2%; BTTS No (at least one team does not score): 36.8%.
 
 **Fixture source:** The Odds API
 
@@ -1460,7 +1460,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Everton vs Chelsea
 
-The model's most likely 1X2 outcome is **Chelsea win** at **39.1%**. Expected goals are 1.28 for Everton and 1.29 for Chelsea (2.57 combined). The most likely exact score is 1-1 at 12.9%. Goal-market probabilities: at least one goal: 91.7%; Over 2.5 goals: 48.3%; Under 3.5 goals: 74.0%; Under 4.5 goals: 87.9%.
+The model's most likely 1X2 outcome is **Chelsea win** at **39.1%**. Expected goals are 1.28 for Everton and 1.29 for Chelsea (2.57 combined). The most likely exact score is 1-1 at 12.9%. Goal-market probabilities: at least one goal: 91.7%; Over 2.5 goals: 48.3%; Under 3.5 goals: 74.0%; Under 4.5 goals: 87.9%; BTTS Yes (both teams score): 53.2%; BTTS No (at least one team does not score): 46.8%.
 
 **Fixture source:** The Odds API
 
@@ -1584,7 +1584,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Fulham vs Hull City
 
-The model's most likely 1X2 outcome is **Fulham win** at **42.1%**. Expected goals are 0.85 for Fulham and 1.07 for Hull City (1.92 combined). The most likely exact score is 1-0 at 17.2%. Goal-market probabilities: at least one goal: 86.5%; Over 2.5 goals: 31.6%; Under 3.5 goals: 87.2%; Under 4.5 goals: 95.2%.
+The model's most likely 1X2 outcome is **Fulham win** at **42.1%**. Expected goals are 0.85 for Fulham and 1.07 for Hull City (1.92 combined). The most likely exact score is 1-0 at 17.2%. Goal-market probabilities: at least one goal: 86.5%; Over 2.5 goals: 31.6%; Under 3.5 goals: 87.2%; Under 4.5 goals: 95.2%; BTTS Yes (both teams score): 38.0%; BTTS No (at least one team does not score): 62.0%.
 
 **Fixture source:** The Odds API
 
@@ -1729,7 +1729,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Manchester City vs Ipswich Town
 
-The model's most likely 1X2 outcome is **Manchester City win** at **83.4%**. Expected goals are 3.46 for Manchester City and 0.70 for Ipswich Town (4.15 combined). The most likely exact score is 3-0 at 10.4%. Goal-market probabilities: at least one goal: 97.6%; Over 2.5 goals: 77.1%; Under 3.5 goals: 41.6%; Under 4.5 goals: 61.0%.
+The model's most likely 1X2 outcome is **Manchester City win** at **83.4%**. Expected goals are 3.46 for Manchester City and 0.70 for Ipswich Town (4.15 combined). The most likely exact score is 3-0 at 10.4%. Goal-market probabilities: at least one goal: 97.6%; Over 2.5 goals: 77.1%; Under 3.5 goals: 41.6%; Under 4.5 goals: 61.0%; BTTS Yes (both teams score): 50.1%; BTTS No (at least one team does not score): 49.9%.
 
 **Fixture source:** The Odds API
 
@@ -1874,7 +1874,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Newcastle United vs Aston Villa
 
-The model's most likely 1X2 outcome is **Newcastle United win** at **45.4%**. Expected goals are 1.77 for Newcastle United and 1.44 for Aston Villa (3.21 combined). The most likely exact score is 1-1 at 11.1%. Goal-market probabilities: at least one goal: 95.0%; Over 2.5 goals: 62.4%; Under 3.5 goals: 60.0%; Under 4.5 goals: 77.8%.
+The model's most likely 1X2 outcome is **Newcastle United win** at **45.4%**. Expected goals are 1.77 for Newcastle United and 1.44 for Aston Villa (3.21 combined). The most likely exact score is 1-1 at 11.1%. Goal-market probabilities: at least one goal: 95.0%; Over 2.5 goals: 62.4%; Under 3.5 goals: 60.0%; Under 4.5 goals: 77.8%; BTTS Yes (both teams score): 64.2%; BTTS No (at least one team does not score): 35.8%.
 
 **Fixture source:** The Odds API
 
@@ -2019,7 +2019,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Bournemouth vs Sunderland
 
-The model's most likely 1X2 outcome is **Bournemouth win** at **47.8%**. Expected goals are 1.53 for Bournemouth and 1.04 for Sunderland (2.57 combined). The most likely exact score is 1-1 at 12.9%. Goal-market probabilities: at least one goal: 91.5%; Over 2.5 goals: 47.9%; Under 3.5 goals: 74.1%; Under 4.5 goals: 88.0%.
+The model's most likely 1X2 outcome is **Bournemouth win** at **47.8%**. Expected goals are 1.53 for Bournemouth and 1.04 for Sunderland (2.57 combined). The most likely exact score is 1-1 at 12.9%. Goal-market probabilities: at least one goal: 91.5%; Over 2.5 goals: 47.9%; Under 3.5 goals: 74.1%; Under 4.5 goals: 88.0%; BTTS Yes (both teams score): 51.8%; BTTS No (at least one team does not score): 48.2%.
 
 **Fixture source:** The Odds API
 
@@ -2143,7 +2143,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Brighton and Hove Albion vs Crystal Palace
 
-The model's most likely 1X2 outcome is **Brighton and Hove Albion win** at **57.0%**. Expected goals are 1.85 for Brighton and Hove Albion and 1.08 for Crystal Palace (2.93 combined). The most likely exact score is 1-1 at 11.1%. Goal-market probabilities: at least one goal: 93.9%; Over 2.5 goals: 56.7%; Under 3.5 goals: 66.0%; Under 4.5 goals: 82.4%.
+The model's most likely 1X2 outcome is **Brighton and Hove Albion win** at **57.0%**. Expected goals are 1.85 for Brighton and Hove Albion and 1.08 for Crystal Palace (2.93 combined). The most likely exact score is 1-1 at 11.1%. Goal-market probabilities: at least one goal: 93.9%; Over 2.5 goals: 56.7%; Under 3.5 goals: 66.0%; Under 4.5 goals: 82.4%; BTTS Yes (both teams score): 56.3%; BTTS No (at least one team does not score): 43.7%.
 
 **Fixture source:** The Odds API
 
@@ -2267,7 +2267,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Leeds United vs Manchester United
 
-The model's most likely 1X2 outcome is **Manchester United win** at **37.4%**. Expected goals are 1.42 for Leeds United and 1.30 for Manchester United (2.72 combined). The most likely exact score is 1-1 at 12.8%. Goal-market probabilities: at least one goal: 92.5%; Over 2.5 goals: 51.6%; Under 3.5 goals: 71.0%; Under 4.5 goals: 85.8%.
+The model's most likely 1X2 outcome is **Manchester United win** at **37.4%**. Expected goals are 1.42 for Leeds United and 1.30 for Manchester United (2.72 combined). The most likely exact score is 1-1 at 12.8%. Goal-market probabilities: at least one goal: 92.5%; Over 2.5 goals: 51.6%; Under 3.5 goals: 71.0%; Under 4.5 goals: 85.8%; BTTS Yes (both teams score): 56.1%; BTTS No (at least one team does not score): 43.9%.
 
 **Fixture source:** The Odds API
 
@@ -2391,7 +2391,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Nottingham Forest vs Arsenal
 
-The model's most likely 1X2 outcome is **Arsenal win** at **58.0%**. Expected goals are 0.77 for Nottingham Forest and 1.55 for Arsenal (2.32 combined). The most likely exact score is 0-1 at 14.8%. Goal-market probabilities: at least one goal: 89.9%; Over 2.5 goals: 42.0%; Under 3.5 goals: 79.1%; Under 4.5 goals: 91.1%.
+The model's most likely 1X2 outcome is **Arsenal win** at **58.0%**. Expected goals are 0.77 for Nottingham Forest and 1.55 for Arsenal (2.32 combined). The most likely exact score is 0-1 at 14.8%. Goal-market probabilities: at least one goal: 89.9%; Over 2.5 goals: 42.0%; Under 3.5 goals: 79.1%; Under 4.5 goals: 91.1%; BTTS Yes (both teams score): 42.9%; BTTS No (at least one team does not score): 57.1%.
 
 **Fixture source:** The Odds API
 
