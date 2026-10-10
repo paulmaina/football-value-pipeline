@@ -54,7 +54,7 @@ Fixtures in this report: **18**.
 
 ## 2026-10-09 — RC Lens vs Lyon
 
-The model's most likely 1X2 outcome is **RC Lens win** at **41.1%**. Expected goals are 1.57 for RC Lens and 1.23 for Lyon (2.80 combined). The most likely exact score is 1-1 at 12.1%. Goal-market probabilities: at least one goal: 93.4%; Over 2.5 goals: 53.1%; Under 4.5 goals: 84.8%.
+The model's most likely 1X2 outcome is **RC Lens win** at **41.1%**. Expected goals are 1.57 for RC Lens and 1.23 for Lyon (2.80 combined). The most likely exact score is 1-1 at 12.1%. Goal-market probabilities: at least one goal: 93.4%; Over 2.5 goals: 53.1%; Under 3.5 goals: 69.3%; Under 4.5 goals: 84.8%.
 
 **Fixture source:** The Odds API
 
@@ -178,7 +178,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — AS Monaco vs Toulouse
 
-The model's most likely 1X2 outcome is **AS Monaco win** at **59.1%**. Expected goals are 1.95 for AS Monaco and 1.13 for Toulouse (3.07 combined). The most likely exact score is 2-1 at 10.4%. Goal-market probabilities: at least one goal: 95.2%; Over 2.5 goals: 60.0%; Under 4.5 goals: 79.9%.
+The model's most likely 1X2 outcome is **AS Monaco win** at **59.1%**. Expected goals are 1.95 for AS Monaco and 1.13 for Toulouse (3.07 combined). The most likely exact score is 2-1 at 10.4%. Goal-market probabilities: at least one goal: 95.2%; Over 2.5 goals: 60.0%; Under 3.5 goals: 62.8%; Under 4.5 goals: 79.9%.
 
 **Fixture source:** The Odds API
 
@@ -302,7 +302,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Brest vs Angers
 
-The model's most likely 1X2 outcome is **Brest win** at **50.7%**. Expected goals are 1.56 for Brest and 0.88 for Angers (2.44 combined). The most likely exact score is 1-0 at 12.5%. Goal-market probabilities: at least one goal: 91.0%; Over 2.5 goals: 44.2%; Under 4.5 goals: 89.9%.
+The model's most likely 1X2 outcome is **Brest win** at **50.7%**. Expected goals are 1.56 for Brest and 0.88 for Angers (2.44 combined). The most likely exact score is 1-0 at 12.5%. Goal-market probabilities: at least one goal: 91.0%; Over 2.5 goals: 44.2%; Under 3.5 goals: 77.3%; Under 4.5 goals: 89.9%.
 
 **Fixture source:** The Odds API
 
@@ -426,7 +426,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Lille vs Le Havre
 
-The model's most likely 1X2 outcome is **Lille win** at **66.2%**. Expected goals are 1.77 for Lille and 0.68 for Le Havre (2.45 combined). The most likely exact score is 1-0 at 15.5%. Goal-market probabilities: at least one goal: 92.0%; Over 2.5 goals: 45.5%; Under 4.5 goals: 89.4%.
+The model's most likely 1X2 outcome is **Lille win** at **66.2%**. Expected goals are 1.77 for Lille and 0.68 for Le Havre (2.45 combined). The most likely exact score is 1-0 at 15.5%. Goal-market probabilities: at least one goal: 92.0%; Over 2.5 goals: 45.5%; Under 3.5 goals: 76.5%; Under 4.5 goals: 89.4%.
 
 **Fixture source:** The Odds API
 
@@ -550,7 +550,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Lorient vs Paris FC
 
-The model's most likely 1X2 outcome is **Paris FC win** at **41.1%**. Expected goals are 1.33 for Lorient and 1.43 for Paris FC (2.76 combined). The most likely exact score is 1-1 at 12.9%. Goal-market probabilities: at least one goal: 93.0%; Over 2.5 goals: 52.0%; Under 4.5 goals: 85.4%.
+The model's most likely 1X2 outcome is **Paris FC win** at **41.1%**. Expected goals are 1.33 for Lorient and 1.43 for Paris FC (2.76 combined). The most likely exact score is 1-1 at 12.9%. Goal-market probabilities: at least one goal: 93.0%; Over 2.5 goals: 52.0%; Under 3.5 goals: 70.0%; Under 4.5 goals: 85.4%.
 
 **Fixture source:** The Odds API
 
@@ -674,7 +674,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Paris Saint Germain vs Le Mans FC
 
-The model's most likely 1X2 outcome is **Paris Saint Germain win** at **84.5%**. Expected goals are 3.17 for Paris Saint Germain and 1.12 for Le Mans FC (4.29 combined). The most likely exact score is 3-1 at 8.9%. Goal-market probabilities: at least one goal: 98.9%; Over 2.5 goals: 81.9%; Under 4.5 goals: 55.6%.
+The model's most likely 1X2 outcome is **Paris Saint Germain win** at **84.5%**. Expected goals are 3.17 for Paris Saint Germain and 1.12 for Le Mans FC (4.29 combined). The most likely exact score is 3-1 at 8.9%. Goal-market probabilities: at least one goal: 98.9%; Over 2.5 goals: 81.9%; Under 3.5 goals: 36.6%; Under 4.5 goals: 55.6%.
 
 **Fixture source:** The Odds API
 
@@ -819,7 +819,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Nice vs Strasbourg
 
-The model's most likely 1X2 outcome is **Nice win** at **39.9%**. Expected goals are 1.46 for Nice and 1.39 for Strasbourg (2.84 combined). The most likely exact score is 1-1 at 12.1%. Goal-market probabilities: at least one goal: 93.7%; Over 2.5 goals: 54.3%; Under 4.5 goals: 84.0%.
+The model's most likely 1X2 outcome is **Nice win** at **39.9%**. Expected goals are 1.46 for Nice and 1.39 for Strasbourg (2.84 combined). The most likely exact score is 1-1 at 12.1%. Goal-market probabilities: at least one goal: 93.7%; Over 2.5 goals: 54.3%; Under 3.5 goals: 68.2%; Under 4.5 goals: 84.0%.
 
 **Fixture source:** The Odds API
 
@@ -943,7 +943,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Rennes vs Auxerre
 
-The model's most likely 1X2 outcome is **Rennes win** at **60.7%**. Expected goals are 1.84 for Rennes and 1.14 for Auxerre (2.98 combined). The most likely exact score is 2-1 at 11.2%. Goal-market probabilities: at least one goal: 95.2%; Over 2.5 goals: 58.8%; Under 4.5 goals: 81.1%.
+The model's most likely 1X2 outcome is **Rennes win** at **60.7%**. Expected goals are 1.84 for Rennes and 1.14 for Auxerre (2.98 combined). The most likely exact score is 2-1 at 11.2%. Goal-market probabilities: at least one goal: 95.2%; Over 2.5 goals: 58.8%; Under 3.5 goals: 64.4%; Under 4.5 goals: 81.1%.
 
 **Fixture source:** The Odds API
 
@@ -1067,7 +1067,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Troyes vs Marseille
 
-The model's most likely 1X2 outcome is **Marseille win** at **62.8%**. Expected goals are 0.92 for Troyes and 2.68 for Marseille (3.60 combined). The most likely exact score is 1-1 at 8.8%. Goal-market probabilities: at least one goal: 96.2%; Over 2.5 goals: 67.4%; Under 4.5 goals: 72.5%.
+The model's most likely 1X2 outcome is **Marseille win** at **62.8%**. Expected goals are 0.92 for Troyes and 2.68 for Marseille (3.60 combined). The most likely exact score is 1-1 at 8.8%. Goal-market probabilities: at least one goal: 96.2%; Over 2.5 goals: 67.4%; Under 3.5 goals: 53.7%; Under 4.5 goals: 72.5%.
 
 **Fixture source:** The Odds API
 
@@ -1212,7 +1212,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-16 — Le Mans FC vs Toulouse
 
-The model's most likely 1X2 outcome is **Le Mans FC win** at **38.7%**. Expected goals are 1.87 for Le Mans FC and 1.51 for Toulouse (3.37 combined). The most likely exact score is 1-1 at 10.5%. Goal-market probabilities: at least one goal: 95.9%; Over 2.5 goals: 65.1%; Under 4.5 goals: 75.2%.
+The model's most likely 1X2 outcome is **Le Mans FC win** at **38.7%**. Expected goals are 1.87 for Le Mans FC and 1.51 for Toulouse (3.37 combined). The most likely exact score is 1-1 at 10.5%. Goal-market probabilities: at least one goal: 95.9%; Over 2.5 goals: 65.1%; Under 3.5 goals: 56.7%; Under 4.5 goals: 75.2%.
 
 **Fixture source:** The Odds API
 
@@ -1357,7 +1357,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Lille vs Brest
 
-The model's most likely 1X2 outcome is **Lille win** at **58.5%**. Expected goals are 1.76 for Lille and 0.94 for Brest (2.70 combined). The most likely exact score is 1-0 at 11.7%. Goal-market probabilities: at least one goal: 93.3%; Over 2.5 goals: 51.4%; Under 4.5 goals: 86.0%.
+The model's most likely 1X2 outcome is **Lille win** at **58.5%**. Expected goals are 1.76 for Lille and 0.94 for Brest (2.70 combined). The most likely exact score is 1-0 at 11.7%. Goal-market probabilities: at least one goal: 93.3%; Over 2.5 goals: 51.4%; Under 3.5 goals: 71.1%; Under 4.5 goals: 86.0%.
 
 **Fixture source:** The Odds API
 
@@ -1481,7 +1481,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Strasbourg vs Paris Saint Germain
 
-The model's most likely 1X2 outcome is **Paris Saint Germain win** at **63.9%**. Expected goals are 1.23 for Strasbourg and 2.10 for Paris Saint Germain (3.33 combined). The most likely exact score is 1-2 at 10.9%. Goal-market probabilities: at least one goal: 96.6%; Over 2.5 goals: 66.1%; Under 4.5 goals: 74.8%.
+The model's most likely 1X2 outcome is **Paris Saint Germain win** at **63.9%**. Expected goals are 1.23 for Strasbourg and 2.10 for Paris Saint Germain (3.33 combined). The most likely exact score is 1-2 at 10.9%. Goal-market probabilities: at least one goal: 96.6%; Over 2.5 goals: 66.1%; Under 3.5 goals: 56.7%; Under 4.5 goals: 74.8%.
 
 **Fixture source:** The Odds API
 
@@ -1626,7 +1626,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Troyes vs RC Lens
 
-The model's most likely 1X2 outcome is **RC Lens win** at **62.5%**. Expected goals are 0.78 for Troyes and 2.31 for RC Lens (3.09 combined). The most likely exact score is 0-2 at 10.6%. Goal-market probabilities: at least one goal: 94.5%; Over 2.5 goals: 58.0%; Under 4.5 goals: 81.0%.
+The model's most likely 1X2 outcome is **RC Lens win** at **62.5%**. Expected goals are 0.78 for Troyes and 2.31 for RC Lens (3.09 combined). The most likely exact score is 0-2 at 10.6%. Goal-market probabilities: at least one goal: 94.5%; Over 2.5 goals: 58.0%; Under 3.5 goals: 64.3%; Under 4.5 goals: 81.0%.
 
 **Fixture source:** The Odds API
 
@@ -1750,7 +1750,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Angers vs Marseille
 
-The model's most likely 1X2 outcome is **Marseille win** at **49.5%**. Expected goals are 0.95 for Angers and 1.65 for Marseille (2.59 combined). The most likely exact score is 1-1 at 11.8%. Goal-market probabilities: at least one goal: 92.2%; Over 2.5 goals: 48.1%; Under 4.5 goals: 87.9%.
+The model's most likely 1X2 outcome is **Marseille win** at **49.5%**. Expected goals are 0.95 for Angers and 1.65 for Marseille (2.59 combined). The most likely exact score is 1-1 at 11.8%. Goal-market probabilities: at least one goal: 92.2%; Over 2.5 goals: 48.1%; Under 3.5 goals: 74.0%; Under 4.5 goals: 87.9%.
 
 **Fixture source:** The Odds API
 
@@ -1874,7 +1874,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Le Havre vs Auxerre
 
-The model's most likely 1X2 outcome is **Le Havre win** at **37.3%**. Expected goals are 1.16 for Le Havre and 1.19 for Auxerre (2.34 combined). The most likely exact score is 1-1 at 13.1%. Goal-market probabilities: at least one goal: 90.3%; Over 2.5 goals: 42.1%; Under 4.5 goals: 90.9%.
+The model's most likely 1X2 outcome is **Le Havre win** at **37.3%**. Expected goals are 1.16 for Le Havre and 1.19 for Auxerre (2.34 combined). The most likely exact score is 1-1 at 13.1%. Goal-market probabilities: at least one goal: 90.3%; Over 2.5 goals: 42.1%; Under 3.5 goals: 79.0%; Under 4.5 goals: 90.9%.
 
 **Fixture source:** The Odds API
 
@@ -1998,7 +1998,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Lorient vs AS Monaco
 
-The model's most likely 1X2 outcome is **AS Monaco win** at **47.2%**. Expected goals are 1.36 for Lorient and 1.84 for AS Monaco (3.21 combined). The most likely exact score is 1-1 at 11.0%. Goal-market probabilities: at least one goal: 95.3%; Over 2.5 goals: 61.8%; Under 4.5 goals: 78.1%.
+The model's most likely 1X2 outcome is **AS Monaco win** at **47.2%**. Expected goals are 1.36 for Lorient and 1.84 for AS Monaco (3.21 combined). The most likely exact score is 1-1 at 11.0%. Goal-market probabilities: at least one goal: 95.3%; Over 2.5 goals: 61.8%; Under 3.5 goals: 60.2%; Under 4.5 goals: 78.1%.
 
 **Fixture source:** The Odds API
 
@@ -2122,7 +2122,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Lyon vs Nice
 
-The model's most likely 1X2 outcome is **Lyon win** at **56.6%**. Expected goals are 1.78 for Lyon and 1.08 for Nice (2.86 combined). The most likely exact score is 1-1 at 10.8%. Goal-market probabilities: at least one goal: 94.1%; Over 2.5 goals: 55.2%; Under 4.5 goals: 83.5%.
+The model's most likely 1X2 outcome is **Lyon win** at **56.6%**. Expected goals are 1.78 for Lyon and 1.08 for Nice (2.86 combined). The most likely exact score is 1-1 at 10.8%. Goal-market probabilities: at least one goal: 94.1%; Over 2.5 goals: 55.2%; Under 3.5 goals: 67.6%; Under 4.5 goals: 83.5%.
 
 **Fixture source:** The Odds API
 
@@ -2246,7 +2246,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Paris FC vs Rennes
 
-The model's most likely 1X2 outcome is **Paris FC win** at **43.2%**. Expected goals are 1.62 for Paris FC and 1.36 for Rennes (2.98 combined). The most likely exact score is 1-1 at 11.8%. Goal-market probabilities: at least one goal: 94.3%; Over 2.5 goals: 57.2%; Under 4.5 goals: 81.9%.
+The model's most likely 1X2 outcome is **Paris FC win** at **43.2%**. Expected goals are 1.62 for Paris FC and 1.36 for Rennes (2.98 combined). The most likely exact score is 1-1 at 11.8%. Goal-market probabilities: at least one goal: 94.3%; Over 2.5 goals: 57.2%; Under 3.5 goals: 65.2%; Under 4.5 goals: 81.9%.
 
 **Fixture source:** The Odds API
 

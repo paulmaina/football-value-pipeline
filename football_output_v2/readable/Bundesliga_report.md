@@ -54,7 +54,7 @@ Fixtures in this report: **18**.
 
 ## 2026-10-09 — Borussia Dortmund vs Werder Bremen
 
-The model's most likely 1X2 outcome is **Borussia Dortmund win** at **69.5%**. Expected goals are 2.30 for Borussia Dortmund and 0.97 for Werder Bremen (3.27 combined). The most likely exact score is 2-0 at 10.5%. Goal-market probabilities: at least one goal: 95.8%; Over 2.5 goals: 64.5%; Under 4.5 goals: 76.2%.
+The model's most likely 1X2 outcome is **Borussia Dortmund win** at **69.5%**. Expected goals are 2.30 for Borussia Dortmund and 0.97 for Werder Bremen (3.27 combined). The most likely exact score is 2-0 at 10.5%. Goal-market probabilities: at least one goal: 95.8%; Over 2.5 goals: 64.5%; Under 3.5 goals: 58.1%; Under 4.5 goals: 76.2%.
 
 **Fixture source:** The Odds API
 
@@ -178,7 +178,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Augsburg vs Bayern Munich
 
-The model's most likely 1X2 outcome is **Bayern Munich win** at **79.1%**. Expected goals are 1.04 for Augsburg and 2.87 for Bayern Munich (3.92 combined). The most likely exact score is 1-2 at 9.1%. Goal-market probabilities: at least one goal: 97.9%; Over 2.5 goals: 76.2%; Under 4.5 goals: 63.4%.
+The model's most likely 1X2 outcome is **Bayern Munich win** at **79.1%**. Expected goals are 1.04 for Augsburg and 2.87 for Bayern Munich (3.92 combined). The most likely exact score is 1-2 at 9.1%. Goal-market probabilities: at least one goal: 97.9%; Over 2.5 goals: 76.2%; Under 3.5 goals: 44.0%; Under 4.5 goals: 63.4%.
 
 **Fixture source:** The Odds API
 
@@ -323,7 +323,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — FSV Mainz 05 vs Bayer Leverkusen
 
-The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **49.0%**. Expected goals are 1.08 for FSV Mainz 05 and 1.81 for Bayer Leverkusen (2.89 combined). The most likely exact score is 1-1 at 11.7%. Goal-market probabilities: at least one goal: 93.5%; Over 2.5 goals: 55.2%; Under 4.5 goals: 83.4%.
+The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **49.0%**. Expected goals are 1.08 for FSV Mainz 05 and 1.81 for Bayer Leverkusen (2.89 combined). The most likely exact score is 1-1 at 11.7%. Goal-market probabilities: at least one goal: 93.5%; Over 2.5 goals: 55.2%; Under 3.5 goals: 67.5%; Under 4.5 goals: 83.4%.
 
 **Fixture source:** The Odds API
 
@@ -447,7 +447,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — RB Leipzig vs Eintracht Frankfurt
 
-The model's most likely 1X2 outcome is **RB Leipzig win** at **58.0%**. Expected goals are 2.13 for RB Leipzig and 1.35 for Eintracht Frankfurt (3.48 combined). The most likely exact score is 2-1 at 10.1%. Goal-market probabilities: at least one goal: 96.3%; Over 2.5 goals: 68.2%; Under 4.5 goals: 72.5%.
+The model's most likely 1X2 outcome is **RB Leipzig win** at **58.0%**. Expected goals are 2.13 for RB Leipzig and 1.35 for Eintracht Frankfurt (3.48 combined). The most likely exact score is 2-1 at 10.1%. Goal-market probabilities: at least one goal: 96.3%; Over 2.5 goals: 68.2%; Under 3.5 goals: 53.8%; Under 4.5 goals: 72.5%.
 
 **Fixture source:** The Odds API
 
@@ -571,7 +571,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — SC Paderborn vs VfB Stuttgart
 
-The model's most likely 1X2 outcome is **VfB Stuttgart win** at **56.2%**. Expected goals are 0.76 for SC Paderborn and 1.42 for VfB Stuttgart (2.18 combined). The most likely exact score is 0-1 at 16.1%. Goal-market probabilities: at least one goal: 89.5%; Over 2.5 goals: 39.0%; Under 4.5 goals: 92.5%.
+The model's most likely 1X2 outcome is **VfB Stuttgart win** at **56.2%**. Expected goals are 0.76 for SC Paderborn and 1.42 for VfB Stuttgart (2.18 combined). The most likely exact score is 0-1 at 16.1%. Goal-market probabilities: at least one goal: 89.5%; Over 2.5 goals: 39.0%; Under 3.5 goals: 81.8%; Under 4.5 goals: 92.5%.
 
 **Fixture source:** The Odds API
 
@@ -695,7 +695,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — TSG Hoffenheim vs Hamburger SV
 
-The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **62.3%**. Expected goals are 2.09 for TSG Hoffenheim and 1.21 for Hamburger SV (3.30 combined). The most likely exact score is 2-1 at 10.7%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 65.0%; Under 4.5 goals: 75.6%.
+The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **62.3%**. Expected goals are 2.09 for TSG Hoffenheim and 1.21 for Hamburger SV (3.30 combined). The most likely exact score is 2-1 at 10.7%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 65.0%; Under 3.5 goals: 57.4%; Under 4.5 goals: 75.6%.
 
 **Fixture source:** The Odds API
 
@@ -819,7 +819,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Union Berlin vs Elversberg
 
-The model's most likely 1X2 outcome is **Elversberg win** at **49.6%**. Expected goals are 1.17 for Union Berlin and 2.48 for Elversberg (3.65 combined). The most likely exact score is 1-1 at 9.6%. Goal-market probabilities: at least one goal: 96.1%; Over 2.5 goals: 68.7%; Under 4.5 goals: 71.5%.
+The model's most likely 1X2 outcome is **Elversberg win** at **49.6%**. Expected goals are 1.17 for Union Berlin and 2.48 for Elversberg (3.65 combined). The most likely exact score is 1-1 at 9.6%. Goal-market probabilities: at least one goal: 96.1%; Over 2.5 goals: 68.7%; Under 3.5 goals: 52.7%; Under 4.5 goals: 71.5%.
 
 **Fixture source:** The Odds API
 
@@ -943,7 +943,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — 1. FC Köln vs Borussia Monchengladbach
 
-The model's most likely 1X2 outcome is **1. FC Köln win** at **40.2%**. Expected goals are 1.43 for 1. FC Köln and 1.55 for Borussia Monchengladbach (2.97 combined). The most likely exact score is 1-1 at 11.7%. Goal-market probabilities: at least one goal: 94.1%; Over 2.5 goals: 57.7%; Under 4.5 goals: 81.7%.
+The model's most likely 1X2 outcome is **1. FC Köln win** at **40.2%**. Expected goals are 1.43 for 1. FC Köln and 1.55 for Borussia Monchengladbach (2.97 combined). The most likely exact score is 1-1 at 11.7%. Goal-market probabilities: at least one goal: 94.1%; Over 2.5 goals: 57.7%; Under 3.5 goals: 65.3%; Under 4.5 goals: 81.7%.
 
 **Fixture source:** The Odds API
 
@@ -1067,7 +1067,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — SC Freiburg vs FC Schalke 04
 
-The model's most likely 1X2 outcome is **SC Freiburg win** at **46.7%**. Expected goals are 0.90 for SC Freiburg and 0.80 for FC Schalke 04 (1.70 combined). The most likely exact score is 1-0 at 20.5%. Goal-market probabilities: at least one goal: 83.7%; Over 2.5 goals: 26.1%; Under 4.5 goals: 96.8%.
+The model's most likely 1X2 outcome is **SC Freiburg win** at **46.7%**. Expected goals are 0.90 for SC Freiburg and 0.80 for FC Schalke 04 (1.70 combined). The most likely exact score is 1-0 at 20.5%. Goal-market probabilities: at least one goal: 83.7%; Over 2.5 goals: 26.1%; Under 3.5 goals: 90.3%; Under 4.5 goals: 96.8%.
 
 **Fixture source:** The Odds API
 
@@ -1212,7 +1212,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-16 — Eintracht Frankfurt vs 1. FC Köln
 
-The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **56.4%**. Expected goals are 2.20 for Eintracht Frankfurt and 1.06 for 1. FC Köln (3.26 combined). The most likely exact score is 1-1 at 9.9%. Goal-market probabilities: at least one goal: 95.2%; Over 2.5 goals: 62.9%; Under 4.5 goals: 77.4%.
+The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **56.4%**. Expected goals are 2.20 for Eintracht Frankfurt and 1.06 for 1. FC Köln (3.26 combined). The most likely exact score is 1-1 at 9.9%. Goal-market probabilities: at least one goal: 95.2%; Over 2.5 goals: 62.9%; Under 3.5 goals: 59.7%; Under 4.5 goals: 77.4%.
 
 **Fixture source:** The Odds API
 
@@ -1336,7 +1336,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Bayern Munich vs RB Leipzig
 
-The model's most likely 1X2 outcome is **Bayern Munich win** at **75.3%**. Expected goals are 2.79 for Bayern Munich and 1.24 for RB Leipzig (4.02 combined). The most likely exact score is 2-1 at 9.4%. Goal-market probabilities: at least one goal: 98.1%; Over 2.5 goals: 78.0%; Under 4.5 goals: 61.2%.
+The model's most likely 1X2 outcome is **Bayern Munich win** at **75.3%**. Expected goals are 2.79 for Bayern Munich and 1.24 for RB Leipzig (4.02 combined). The most likely exact score is 2-1 at 9.4%. Goal-market probabilities: at least one goal: 98.1%; Over 2.5 goals: 78.0%; Under 3.5 goals: 42.0%; Under 4.5 goals: 61.2%.
 
 **Fixture source:** The Odds API
 
@@ -1481,7 +1481,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Elversberg vs Augsburg
 
-The model's most likely 1X2 outcome is **Elversberg win** at **56.3%**. Expected goals are 2.96 for Elversberg and 1.17 for Augsburg (4.13 combined). The most likely exact score is 1-1 at 7.7%. Goal-market probabilities: at least one goal: 97.3%; Over 2.5 goals: 75.8%; Under 4.5 goals: 63.0%.
+The model's most likely 1X2 outcome is **Elversberg win** at **56.3%**. Expected goals are 2.96 for Elversberg and 1.17 for Augsburg (4.13 combined). The most likely exact score is 1-1 at 7.7%. Goal-market probabilities: at least one goal: 97.3%; Over 2.5 goals: 75.8%; Under 3.5 goals: 43.8%; Under 4.5 goals: 63.0%.
 
 **Fixture source:** The Odds API
 
@@ -1626,7 +1626,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — FC Schalke 04 vs FSV Mainz 05
 
-The model's most likely 1X2 outcome is **FC Schalke 04 win** at **35.0%**. Expected goals are 0.87 for FC Schalke 04 and 0.69 for FSV Mainz 05 (1.56 combined). The most likely exact score is 0-0 at 18.3%. Goal-market probabilities: at least one goal: 81.7%; Over 2.5 goals: 22.3%; Under 4.5 goals: 97.7%.
+The model's most likely 1X2 outcome is **FC Schalke 04 win** at **35.0%**. Expected goals are 0.87 for FC Schalke 04 and 0.69 for FSV Mainz 05 (1.56 combined). The most likely exact score is 0-0 at 18.3%. Goal-market probabilities: at least one goal: 81.7%; Over 2.5 goals: 22.3%; Under 3.5 goals: 92.5%; Under 4.5 goals: 97.7%.
 
 **Fixture source:** The Odds API
 
@@ -1771,7 +1771,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Hamburger SV vs VfB Stuttgart
 
-The model's most likely 1X2 outcome is **VfB Stuttgart win** at **55.6%**. Expected goals are 1.11 for Hamburger SV and 2.02 for VfB Stuttgart (3.13 combined). The most likely exact score is 1-1 at 10.3%. Goal-market probabilities: at least one goal: 94.9%; Over 2.5 goals: 60.8%; Under 4.5 goals: 79.2%.
+The model's most likely 1X2 outcome is **VfB Stuttgart win** at **55.6%**. Expected goals are 1.11 for Hamburger SV and 2.02 for VfB Stuttgart (3.13 combined). The most likely exact score is 1-1 at 10.3%. Goal-market probabilities: at least one goal: 94.9%; Over 2.5 goals: 60.8%; Under 3.5 goals: 62.0%; Under 4.5 goals: 79.2%.
 
 **Fixture source:** The Odds API
 
@@ -1895,7 +1895,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Union Berlin vs Borussia Dortmund
 
-The model's most likely 1X2 outcome is **Borussia Dortmund win** at **60.0%**. Expected goals are 0.94 for Union Berlin and 1.92 for Borussia Dortmund (2.87 combined). The most likely exact score is 0-2 at 10.7%. Goal-market probabilities: at least one goal: 93.7%; Over 2.5 goals: 55.2%; Under 4.5 goals: 83.5%.
+The model's most likely 1X2 outcome is **Borussia Dortmund win** at **60.0%**. Expected goals are 0.94 for Union Berlin and 1.92 for Borussia Dortmund (2.87 combined). The most likely exact score is 0-2 at 10.7%. Goal-market probabilities: at least one goal: 93.7%; Over 2.5 goals: 55.2%; Under 3.5 goals: 67.6%; Under 4.5 goals: 83.5%.
 
 **Fixture source:** The Odds API
 
@@ -2019,7 +2019,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Werder Bremen vs SC Paderborn
 
-The model's most likely 1X2 outcome is **Werder Bremen win** at **49.5%**. Expected goals are 1.16 for Werder Bremen and 0.74 for SC Paderborn (1.91 combined). The most likely exact score is 1-0 at 17.8%. Goal-market probabilities: at least one goal: 86.6%; Over 2.5 goals: 31.6%; Under 4.5 goals: 95.2%.
+The model's most likely 1X2 outcome is **Werder Bremen win** at **49.5%**. Expected goals are 1.16 for Werder Bremen and 0.74 for SC Paderborn (1.91 combined). The most likely exact score is 1-0 at 17.8%. Goal-market probabilities: at least one goal: 86.6%; Over 2.5 goals: 31.6%; Under 3.5 goals: 87.0%; Under 4.5 goals: 95.2%.
 
 **Fixture source:** The Odds API
 
@@ -2143,7 +2143,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Bayer Leverkusen vs SC Freiburg
 
-The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **64.1%**. Expected goals are 2.44 for Bayer Leverkusen and 0.96 for SC Freiburg (3.41 combined). The most likely exact score is 2-0 at 9.2%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 65.5%; Under 4.5 goals: 74.9%.
+The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **64.1%**. Expected goals are 2.44 for Bayer Leverkusen and 0.96 for SC Freiburg (3.41 combined). The most likely exact score is 2-0 at 9.2%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 65.5%; Under 3.5 goals: 56.6%; Under 4.5 goals: 74.9%.
 
 **Fixture source:** The Odds API
 
@@ -2267,7 +2267,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Borussia Monchengladbach vs TSG Hoffenheim
 
-The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **42.6%**. Expected goals are 1.94 for Borussia Monchengladbach and 1.79 for TSG Hoffenheim (3.73 combined). The most likely exact score is 1-2 at 9.0%. Goal-market probabilities: at least one goal: 96.8%; Over 2.5 goals: 72.1%; Under 4.5 goals: 68.1%.
+The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **42.6%**. Expected goals are 1.94 for Borussia Monchengladbach and 1.79 for TSG Hoffenheim (3.73 combined). The most likely exact score is 1-2 at 9.0%. Goal-market probabilities: at least one goal: 96.8%; Over 2.5 goals: 72.1%; Under 3.5 goals: 48.9%; Under 4.5 goals: 68.1%.
 
 **Fixture source:** The Odds API
 

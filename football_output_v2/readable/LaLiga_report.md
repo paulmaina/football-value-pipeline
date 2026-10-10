@@ -54,7 +54,7 @@ Fixtures in this report: **19**.
 
 ## 2026-10-09 — Málaga vs Espanyol
 
-The model's most likely 1X2 outcome is **Espanyol win** at **42.2%**. Expected goals are 0.57 for Málaga and 1.09 for Espanyol (1.66 combined). The most likely exact score is 0-0 at 18.4%. Goal-market probabilities: at least one goal: 81.6%; Over 2.5 goals: 23.1%; Under 4.5 goals: 97.3%.
+The model's most likely 1X2 outcome is **Espanyol win** at **42.2%**. Expected goals are 0.57 for Málaga and 1.09 for Espanyol (1.66 combined). The most likely exact score is 0-0 at 18.4%. Goal-market probabilities: at least one goal: 81.6%; Over 2.5 goals: 23.1%; Under 3.5 goals: 91.6%; Under 4.5 goals: 97.3%.
 
 **Fixture source:** The Odds API
 
@@ -199,7 +199,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Alavés vs Atlético Madrid
 
-The model's most likely 1X2 outcome is **Atlético Madrid win** at **50.2%**. Expected goals are 0.99 for Alavés and 1.47 for Atlético Madrid (2.46 combined). The most likely exact score is 0-1 at 13.0%. Goal-market probabilities: at least one goal: 91.5%; Over 2.5 goals: 44.8%; Under 4.5 goals: 89.6%.
+The model's most likely 1X2 outcome is **Atlético Madrid win** at **50.2%**. Expected goals are 0.99 for Alavés and 1.47 for Atlético Madrid (2.46 combined). The most likely exact score is 0-1 at 13.0%. Goal-market probabilities: at least one goal: 91.5%; Over 2.5 goals: 44.8%; Under 3.5 goals: 76.5%; Under 4.5 goals: 89.6%.
 
 **Fixture source:** The Odds API
 
@@ -323,7 +323,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Barcelona vs Getafe
 
-The model's most likely 1X2 outcome is **Barcelona win** at **84.1%**. Expected goals are 2.38 for Barcelona and 0.59 for Getafe (2.97 combined). The most likely exact score is 2-0 at 15.9%. Goal-market probabilities: at least one goal: 96.3%; Over 2.5 goals: 59.5%; Under 4.5 goals: 80.9%.
+The model's most likely 1X2 outcome is **Barcelona win** at **84.1%**. Expected goals are 2.38 for Barcelona and 0.59 for Getafe (2.97 combined). The most likely exact score is 2-0 at 15.9%. Goal-market probabilities: at least one goal: 96.3%; Over 2.5 goals: 59.5%; Under 3.5 goals: 64.0%; Under 4.5 goals: 80.9%.
 
 **Fixture source:** The Odds API
 
@@ -447,7 +447,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Rayo Vallecano vs Athletic Bilbao
 
-The model's most likely 1X2 outcome is **Athletic Bilbao win** at **35.9%**. Expected goals are 1.01 for Rayo Vallecano and 1.05 for Athletic Bilbao (2.06 combined). The most likely exact score is 1-1 at 13.4%. Goal-market probabilities: at least one goal: 87.4%; Over 2.5 goals: 34.2%; Under 4.5 goals: 94.1%.
+The model's most likely 1X2 outcome is **Athletic Bilbao win** at **35.9%**. Expected goals are 1.01 for Rayo Vallecano and 1.05 for Athletic Bilbao (2.06 combined). The most likely exact score is 1-1 at 13.4%. Goal-market probabilities: at least one goal: 87.4%; Over 2.5 goals: 34.2%; Under 3.5 goals: 84.6%; Under 4.5 goals: 94.1%.
 
 **Fixture source:** The Odds API
 
@@ -571,7 +571,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-10 — Real Madrid vs Villarreal
 
-The model's most likely 1X2 outcome is **Real Madrid win** at **69.9%**. Expected goals are 2.56 for Real Madrid and 1.12 for Villarreal (3.68 combined). The most likely exact score is 2-1 at 9.5%. Goal-market probabilities: at least one goal: 97.5%; Over 2.5 goals: 71.4%; Under 4.5 goals: 68.8%.
+The model's most likely 1X2 outcome is **Real Madrid win** at **69.9%**. Expected goals are 2.56 for Real Madrid and 1.12 for Villarreal (3.68 combined). The most likely exact score is 2-1 at 9.5%. Goal-market probabilities: at least one goal: 97.5%; Over 2.5 goals: 71.4%; Under 3.5 goals: 49.6%; Under 4.5 goals: 68.8%.
 
 **Fixture source:** The Odds API
 
@@ -695,7 +695,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Elche CF vs Celta Vigo
 
-The model's most likely 1X2 outcome is **Elche CF win** at **38.5%**. Expected goals are 1.59 for Elche CF and 1.41 for Celta Vigo (3.00 combined). The most likely exact score is 1-1 at 12.4%. Goal-market probabilities: at least one goal: 94.4%; Over 2.5 goals: 56.8%; Under 4.5 goals: 81.9%.
+The model's most likely 1X2 outcome is **Elche CF win** at **38.5%**. Expected goals are 1.59 for Elche CF and 1.41 for Celta Vigo (3.00 combined). The most likely exact score is 1-1 at 12.4%. Goal-market probabilities: at least one goal: 94.4%; Over 2.5 goals: 56.8%; Under 3.5 goals: 64.9%; Under 4.5 goals: 81.9%.
 
 **Fixture source:** The Odds API
 
@@ -819,7 +819,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Real Betis vs CA Osasuna
 
-The model's most likely 1X2 outcome is **Real Betis win** at **59.6%**. Expected goals are 1.77 for Real Betis and 0.94 for CA Osasuna (2.71 combined). The most likely exact score is 1-0 at 12.2%. Goal-market probabilities: at least one goal: 93.5%; Over 2.5 goals: 51.5%; Under 4.5 goals: 85.9%.
+The model's most likely 1X2 outcome is **Real Betis win** at **59.6%**. Expected goals are 1.77 for Real Betis and 0.94 for CA Osasuna (2.71 combined). The most likely exact score is 1-0 at 12.2%. Goal-market probabilities: at least one goal: 93.5%; Over 2.5 goals: 51.5%; Under 3.5 goals: 70.9%; Under 4.5 goals: 85.9%.
 
 **Fixture source:** The Odds API
 
@@ -943,7 +943,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Real Racing Club de Santander vs Valencia
 
-The model's most likely 1X2 outcome is **Real Racing Club de Santander win** at **40.2%**. Expected goals are 1.92 for Real Racing Club de Santander and 1.95 for Valencia (3.87 combined). The most likely exact score is 1-1 at 9.0%. Goal-market probabilities: at least one goal: 97.5%; Over 2.5 goals: 73.4%; Under 4.5 goals: 66.0%.
+The model's most likely 1X2 outcome is **Real Racing Club de Santander win** at **40.2%**. Expected goals are 1.92 for Real Racing Club de Santander and 1.95 for Valencia (3.87 combined). The most likely exact score is 1-1 at 9.0%. Goal-market probabilities: at least one goal: 97.5%; Over 2.5 goals: 73.4%; Under 3.5 goals: 46.0%; Under 4.5 goals: 66.0%.
 
 **Fixture source:** The Odds API
 
@@ -1088,7 +1088,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Real Sociedad vs Deportivo La Coruña
 
-The model's most likely 1X2 outcome is **Real Sociedad win** at **51.7%**. Expected goals are 1.49 for Real Sociedad and 1.20 for Deportivo La Coruña (2.68 combined). The most likely exact score is 1-0 at 11.8%. Goal-market probabilities: at least one goal: 93.4%; Over 2.5 goals: 50.9%; Under 4.5 goals: 86.2%.
+The model's most likely 1X2 outcome is **Real Sociedad win** at **51.7%**. Expected goals are 1.49 for Real Sociedad and 1.20 for Deportivo La Coruña (2.68 combined). The most likely exact score is 1-0 at 11.8%. Goal-market probabilities: at least one goal: 93.4%; Over 2.5 goals: 50.9%; Under 3.5 goals: 71.4%; Under 4.5 goals: 86.2%.
 
 **Fixture source:** The Odds API
 
@@ -1212,7 +1212,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-12 — Levante vs Sevilla
 
-The model's most likely 1X2 outcome is **Levante win** at **40.0%**. Expected goals are 1.61 for Levante and 1.27 for Sevilla (2.88 combined). The most likely exact score is 1-1 at 12.7%. Goal-market probabilities: at least one goal: 93.7%; Over 2.5 goals: 54.1%; Under 4.5 goals: 83.9%.
+The model's most likely 1X2 outcome is **Levante win** at **40.0%**. Expected goals are 1.61 for Levante and 1.27 for Sevilla (2.88 combined). The most likely exact score is 1-1 at 12.7%. Goal-market probabilities: at least one goal: 93.7%; Over 2.5 goals: 54.1%; Under 3.5 goals: 67.7%; Under 4.5 goals: 83.9%.
 
 **Fixture source:** The Odds API
 
@@ -1336,7 +1336,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-16 — Deportivo La Coruña vs Levante
 
-The model's most likely 1X2 outcome is **Deportivo La Coruña win** at **50.7%**. Expected goals are 1.84 for Deportivo La Coruña and 1.11 for Levante (2.95 combined). The most likely exact score is 1-1 at 11.6%. Goal-market probabilities: at least one goal: 94.2%; Over 2.5 goals: 55.9%; Under 4.5 goals: 82.7%.
+The model's most likely 1X2 outcome is **Deportivo La Coruña win** at **50.7%**. Expected goals are 1.84 for Deportivo La Coruña and 1.11 for Levante (2.95 combined). The most likely exact score is 1-1 at 11.6%. Goal-market probabilities: at least one goal: 94.2%; Over 2.5 goals: 55.9%; Under 3.5 goals: 66.1%; Under 4.5 goals: 82.7%.
 
 **Fixture source:** The Odds API
 
@@ -1460,7 +1460,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Espanyol vs Atlético Madrid
 
-The model's most likely 1X2 outcome is **Atlético Madrid win** at **52.2%**. Expected goals are 1.03 for Espanyol and 1.58 for Atlético Madrid (2.60 combined). The most likely exact score is 0-1 at 12.0%. Goal-market probabilities: at least one goal: 92.7%; Over 2.5 goals: 48.7%; Under 4.5 goals: 87.5%.
+The model's most likely 1X2 outcome is **Atlético Madrid win** at **52.2%**. Expected goals are 1.03 for Espanyol and 1.58 for Atlético Madrid (2.60 combined). The most likely exact score is 0-1 at 12.0%. Goal-market probabilities: at least one goal: 92.7%; Over 2.5 goals: 48.7%; Under 3.5 goals: 73.3%; Under 4.5 goals: 87.5%.
 
 **Fixture source:** The Odds API
 
@@ -1584,7 +1584,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Real Betis vs Barcelona
 
-The model's most likely 1X2 outcome is **Barcelona win** at **61.0%**. Expected goals are 1.32 for Real Betis and 2.05 for Barcelona (3.37 combined). The most likely exact score is 1-2 at 10.8%. Goal-market probabilities: at least one goal: 96.9%; Over 2.5 goals: 66.6%; Under 4.5 goals: 74.2%.
+The model's most likely 1X2 outcome is **Barcelona win** at **61.0%**. Expected goals are 1.32 for Real Betis and 2.05 for Barcelona (3.37 combined). The most likely exact score is 1-2 at 10.8%. Goal-market probabilities: at least one goal: 96.9%; Over 2.5 goals: 66.6%; Under 3.5 goals: 55.9%; Under 4.5 goals: 74.2%.
 
 **Fixture source:** The Odds API
 
@@ -1708,7 +1708,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Valencia vs Athletic Bilbao
 
-The model's most likely 1X2 outcome is **Athletic Bilbao win** at **42.3%**. Expected goals are 1.08 for Valencia and 1.17 for Athletic Bilbao (2.25 combined). The most likely exact score is 0-1 at 13.6%. Goal-market probabilities: at least one goal: 89.6%; Over 2.5 goals: 39.3%; Under 4.5 goals: 92.2%.
+The model's most likely 1X2 outcome is **Athletic Bilbao win** at **42.3%**. Expected goals are 1.08 for Valencia and 1.17 for Athletic Bilbao (2.25 combined). The most likely exact score is 0-1 at 13.6%. Goal-market probabilities: at least one goal: 89.6%; Over 2.5 goals: 39.3%; Under 3.5 goals: 81.0%; Under 4.5 goals: 92.2%.
 
 **Fixture source:** The Odds API
 
@@ -1832,7 +1832,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Villarreal vs Elche CF
 
-The model's most likely 1X2 outcome is **Villarreal win** at **66.1%**. Expected goals are 2.51 for Villarreal and 1.25 for Elche CF (3.76 combined). The most likely exact score is 2-1 at 9.4%. Goal-market probabilities: at least one goal: 97.6%; Over 2.5 goals: 72.6%; Under 4.5 goals: 67.4%.
+The model's most likely 1X2 outcome is **Villarreal win** at **66.1%**. Expected goals are 2.51 for Villarreal and 1.25 for Elche CF (3.76 combined). The most likely exact score is 2-1 at 9.4%. Goal-market probabilities: at least one goal: 97.6%; Over 2.5 goals: 72.6%; Under 3.5 goals: 47.9%; Under 4.5 goals: 67.4%.
 
 **Fixture source:** The Odds API
 
@@ -1977,7 +1977,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — CA Osasuna vs Real Racing Club de Santander
 
-The model's most likely 1X2 outcome is **CA Osasuna win** at **57.9%**. Expected goals are 2.71 for CA Osasuna and 1.48 for Real Racing Club de Santander (4.19 combined). The most likely exact score is 2-1 at 7.5%. Goal-market probabilities: at least one goal: 98.1%; Over 2.5 goals: 77.7%; Under 4.5 goals: 60.3%.
+The model's most likely 1X2 outcome is **CA Osasuna win** at **57.9%**. Expected goals are 2.71 for CA Osasuna and 1.48 for Real Racing Club de Santander (4.19 combined). The most likely exact score is 2-1 at 7.5%. Goal-market probabilities: at least one goal: 98.1%; Over 2.5 goals: 77.7%; Under 3.5 goals: 40.2%; Under 4.5 goals: 60.3%.
 
 **Fixture source:** The Odds API
 
@@ -2122,7 +2122,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Celta Vigo vs Alavés
 
-The model's most likely 1X2 outcome is **Celta Vigo win** at **49.1%**. Expected goals are 1.51 for Celta Vigo and 0.96 for Alavés (2.47 combined). The most likely exact score is 1-1 at 12.6%. Goal-market probabilities: at least one goal: 91.2%; Over 2.5 goals: 44.7%; Under 4.5 goals: 89.6%.
+The model's most likely 1X2 outcome is **Celta Vigo win** at **49.1%**. Expected goals are 1.51 for Celta Vigo and 0.96 for Alavés (2.47 combined). The most likely exact score is 1-1 at 12.6%. Goal-market probabilities: at least one goal: 91.2%; Over 2.5 goals: 44.7%; Under 3.5 goals: 76.5%; Under 4.5 goals: 89.6%.
 
 **Fixture source:** The Odds API
 
@@ -2246,7 +2246,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Málaga vs Real Sociedad
 
-The model's most likely 1X2 outcome is **Real Sociedad win** at **48.5%**. Expected goals are 0.57 for Málaga and 1.26 for Real Sociedad (1.83 combined). The most likely exact score is 0-1 at 18.3%. Goal-market probabilities: at least one goal: 84.8%; Over 2.5 goals: 27.7%; Under 4.5 goals: 96.2%.
+The model's most likely 1X2 outcome is **Real Sociedad win** at **48.5%**. Expected goals are 0.57 for Málaga and 1.26 for Real Sociedad (1.83 combined). The most likely exact score is 0-1 at 18.3%. Goal-market probabilities: at least one goal: 84.8%; Over 2.5 goals: 27.7%; Under 3.5 goals: 89.0%; Under 4.5 goals: 96.2%.
 
 **Fixture source:** The Odds API
 
@@ -2391,7 +2391,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Real Madrid vs Sevilla
 
-The model's most likely 1X2 outcome is **Real Madrid win** at **78.1%**. Expected goals are 2.62 for Real Madrid and 0.74 for Sevilla (3.37 combined). The most likely exact score is 2-0 at 12.0%. Goal-market probabilities: at least one goal: 96.6%; Over 2.5 goals: 65.7%; Under 4.5 goals: 74.9%.
+The model's most likely 1X2 outcome is **Real Madrid win** at **78.1%**. Expected goals are 2.62 for Real Madrid and 0.74 for Sevilla (3.37 combined). The most likely exact score is 2-0 at 12.0%. Goal-market probabilities: at least one goal: 96.6%; Over 2.5 goals: 65.7%; Under 3.5 goals: 56.4%; Under 4.5 goals: 74.9%.
 
 **Fixture source:** The Odds API
 
