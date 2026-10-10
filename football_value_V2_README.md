@@ -132,6 +132,19 @@ previously used to tune the half-life parameter, so the audit is
 proof that a market has a true bookmaker edge. Always collect
 timestamped predictions and final scores for future evaluation.
 
+## Under 3.5 in predictions output
+
+The model already computes `p_under_3_5` as the probability of **at
+most three total goals (0, 1, 2 or 3)**. The raw
+`football_output_v2/raw/*_predictions.csv` files already include it.
+After running `python format_football_output.py`, each
+`football_output_v2/readable/<league>_predictions_readable.csv`
+includes a dedicated **Under 3.5** percentage column, immediately
+after **Over 3.5**. Each per-fixture readable Markdown report also
+summarizes its Under 3.5 probability alongside the existing goals
+metrics. This is a presentation change only: **no re-fitting, new
+bookmaker requests, or changed thresholds**.
+
 ## Ten candidates: strict qualifiers and transparent near-misses
 
 The run now produces **up to 10 distinct match/market candidates**,
