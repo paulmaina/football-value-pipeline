@@ -12,9 +12,9 @@ import pandas as pd
 import requests
 
 from performance_tracking import (
-    capture, collect_results, fetch_verified, fixture_match, frozen_rows,
-    review, score_prediction, score_shortlist, snapshots, stats,
-    verified_record,
+    calibration_buckets, capture, collect_results, fetch_verified,
+    fixture_match, frozen_rows, review, score_prediction,
+    score_shortlist, snapshots, stats, verified_record,
 )
 
 
@@ -210,6 +210,20 @@ class ResultsAndMarketsTests(unittest.TestCase):
                                  record, "VERIFIED_FINISHED")
         self.assertEqual(scored["status"], "UNSUPPORTED_MARKET")
         self.assertEqual(stats([scored])["graded"], 0)
+
+    def test_calibration_bins_compare_frozen_chance_to_outcomes(self):
+        inputs = [
+            {"status": "WON", "predicted_probability": 0.82},
+            {"status": "LOST", "predicted_probability": 0.88},
+            {"status": "UNVERIFIED_FIXTURE_OR_RESULT",
+             "predicted_probability": 0.99},
+        ]
+        bins = calibration_buckets(inputs)
+        self.assertEqual(len(bins), 1)
+        self.assertEqual(bins[0]["probability_band"], "80%–90%")
+        self.assertEqual(bins[0]["n"], 2)
+        self.assertEqual(bins[0]["observed_win_rate"], 0.5)
+        self.assertAlmostEqual(bins[0]["mean_forecast"], 0.85)
 
     def test_missing_bookmaker_odds_does_not_invent_profit(self):
         record = verified_record("PL", final())
