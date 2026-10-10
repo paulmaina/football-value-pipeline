@@ -14,8 +14,10 @@ Data sources:
   - Last-resort current fixture/odds snapshot: Football-Data.co.uk fixtures.csv
 
 Environment variables:
-  - THE_ODDS_API_KEY       enables current fixtures + 1X2/O-U odds
-  - FOOTBALL_DATA_API_KEY  optional schedule fallback for football-data.org
+  - THE_ODDS_API_KEY             primary current fixtures + bookmaker odds
+  - THE_ODDS_API_KEY_FALLBACK_1  optional authorized secondary credential
+  - THE_ODDS_API_KEY_FALLBACK_2  optional authorized tertiary credential
+  - FOOTBALL_DATA_API_KEY        optional schedule fallback for football-data.org
 
 Outputs per fixture:
   - Expected home/away goals
@@ -118,7 +120,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.7.0"
+PIPELINE_VERSION = "2.8.0"
 
 
 # ---------------------------------------------------------------------------
@@ -485,7 +487,17 @@ class FootballDataUK:
 # ---------------------------------------------------------------------------
 
 class TheOddsAPI:
-    """Current event schedule and market-odds client for The Odds API v4."""
+    """Current event schedule and market-odds client for The Odds API v4.
+
+    Optional credential redundancy is for provider-authorized usage only.
+    It does not imply permission to pool multiple accounts' free quotas.
+    """
+
+    KEY_ENV_NAMES = (
+        "THE_ODDS_API_KEY",
+        "THE_ODDS_API_KEY_FALLBACK_1",
+        "THE_ODDS_API_KEY_FALLBACK_2",
+    )
 
     def __init__(
         self,
@@ -500,6 +512,116 @@ class TheOddsAPI:
         self.http = CachedHttpClient(cache_dir=cache_dir)
         self.force_refresh = force_refresh
         self.regions = regions
+
+        # The generic historical-data client retries 429 automatically.
+        # Do not do that for this Odds API instance: quota/rate-limit
+        # failures must be passed promptly to the credential failover.
+        retry = Retry(
+            total=4,
+            connect=4,
+            read=4,
+            status=4,
+            backoff_factor=0.6,
+            status_forcelist=(500, 502, 503, 504),
+            allowed_methods=frozenset({"GET"}),
+            raise_on_status=False,
+        )
+        self.http.session.mount(
+            THE_ODDS_API_BASE + "/",
+            HTTPAdapter(max_retries=retry),
+        )
+
+    def _configured_keys(self) -> List[Tuple[str, str]]:
+        """Read secrets at REQUEST time; don't freeze fallback env at startup."""
+        result: List[Tuple[str, str]] = []
+        seen = set()
+        for name in self.KEY_ENV_NAMES:
+            value = os.getenv(name, "").strip()
+            # The explicit constructor credential remains supported when
+            # THE_ODDS_API_KEY is unset (existing programmatic clients).
+            if name == "THE_ODDS_API_KEY" and not value:
+                value = self.api_key
+            if value and value not in seen:
+                seen.add(value)
+                result.append((name, value))
+        return result
+
+    @staticmethod
+    def _is_quota_http_error(exc: requests.HTTPError) -> bool:
+        response = exc.response
+        if response is None:
+            return False
+        if response.status_code == 429:
+            return True
+        if response.status_code not in (401, 403):
+            return False
+        # 401/403 often means INVALID_KEY or DEACTIVATED_KEY; do not
+        # silently disguise a bad credential as monthly credit depletion.
+        try:
+            payload = response.json()
+            if isinstance(payload, dict):
+                code = str(payload.get("error_code") or "").upper()
+                if code == "OUT_OF_USAGE_CREDITS":
+                    return True
+                # Tolerate providers that expose a text error instead of
+                # the canonical error_code, but only for this exact token.
+                if "OUT_OF_USAGE_CREDITS" in str(payload.get("message") or "").upper():
+                    return True
+        except ValueError:
+            pass
+        return "OUT_OF_USAGE_CREDITS" in response.text.upper()
+
+    def _get_json(self, url: str, cache_name: str, **kwargs):
+        """One cached request; on confirmed quota/rate limits, try next key.
+
+        Do not log secrets or error URLs (which include apiKey). A cache
+        hit makes no live request. Non-quota HTTP or network errors fail
+        immediately without consuming other credentials.
+        """
+        keys = self._configured_keys()
+        if not keys:
+            raise RuntimeError(
+                "The Odds API is not configured: set THE_ODDS_API_KEY "
+                "or an authorized fallback key."
+            )
+        original = dict(kwargs.pop("params", {}) or {})
+        original.pop("apiKey", None)
+        # Normal pipeline uses allow_stale=False for current odds;
+        # never turn a quota error into a fabricated or stale live price.
+        for name, key in keys:
+            try:
+                return self.http.get_json(
+                    url,
+                    cache_name,
+                    params={**original, "apiKey": key},
+                    **kwargs,
+                )
+            except requests.HTTPError as exc:
+                if self._is_quota_http_error(exc):
+                    code = exc.response.status_code if exc.response is not None else "?"
+                    warnings.warn(
+                        f"The Odds API {name} returned HTTP {code} "
+                        "(quota/rate-limit); trying the next configured key.",
+                        RuntimeWarning,
+                    )
+                    continue
+                status = (
+                    exc.response.status_code
+                    if exc.response is not None else "unknown"
+                )
+                raise RuntimeError(
+                    f"The Odds API returned HTTP {status} using {name}; "
+                    "not a confirmed quota/rate-limit error."
+                ) from None
+            except requests.RequestException:
+                raise RuntimeError(
+                    f"The Odds API network request failed using {name}; "
+                    "other keys were not attempted."
+                ) from None
+        raise RuntimeError(
+            "The Odds API: all configured keys returned quota/rate-limit "
+            "errors. No bookmaker odds were retrieved."
+        )
 
     @staticmethod
     def _window(now: datetime, lookahead_days: int) -> Tuple[str, str]:
@@ -518,7 +640,7 @@ class TheOddsAPI:
     ) -> pd.DataFrame:
         start, end = self._window(now, lookahead_days)
         url = f"{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/events"
-        payload = self.http.get_json(
+        payload = self._get_json(
             url,
             f"oddsapi_events_{league.key}.json",
             ttl=timedelta(minutes=10),
@@ -753,7 +875,7 @@ class TheOddsAPI:
         start, end = self._window(now, lookahead_days)
         url = f"{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/odds"
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
-        payload = self.http.get_json(
+        payload = self._get_json(
             url,
             f"oddsapi_odds_{league.key}_{region_tag}.json",
             ttl=timedelta(minutes=5),
@@ -795,7 +917,7 @@ class TheOddsAPI:
             f"/events/{safe_id}/odds"
         )
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
-        payload = self.http.get_json(
+        payload = self._get_json(
             url,
             f"oddsapi_additional_{league.key}_{region_tag}_{safe_id}.json",
             ttl=timedelta(minutes=5),
@@ -2389,7 +2511,11 @@ class FootballValuePipelineV2(FootballValuePipeline):
             key: 0 for key in self.extra_event_odds_quota
         }
 
-        odds_api_key = odds_api_key or os.getenv("THE_ODDS_API_KEY")
+        odds_api_key = odds_api_key or next(
+            (value for name in TheOddsAPI.KEY_ENV_NAMES
+             if (value := os.getenv(name, "").strip())),
+            None,
+        )
         football_data_api_key = (
             football_data_api_key or os.getenv("FOOTBALL_DATA_API_KEY")
         )
