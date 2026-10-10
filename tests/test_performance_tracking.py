@@ -194,6 +194,7 @@ class ResultsAndMarketsTests(unittest.TestCase):
         base = {
             **pick(), "fixture_key": "unique", "snapshot_commit": SHA,
             "snapshot_captured_utc": T0.isoformat(),
+            "predicted_probability": 0.8,
         }
         for market, expected in [
             ("Home win", "WON"), ("Away win", "LOST"),
