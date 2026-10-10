@@ -535,11 +535,19 @@ class TheOddsAPI:
         """Read secrets at REQUEST time; don't freeze fallback env at startup."""
         result: List[Tuple[str, str]] = []
         seen = set()
+        explicit_in_fallback = {
+            os.getenv(name, "").strip()
+            for name in self.KEY_ENV_NAMES[1:]
+        }
         for name in self.KEY_ENV_NAMES:
             value = os.getenv(name, "").strip()
-            # The explicit constructor credential remains supported when
-            # THE_ODDS_API_KEY is unset (existing programmatic clients).
-            if name == "THE_ODDS_API_KEY" and not value:
+            # Preserve an explicitly passed legacy key, but if the
+            # constructor got its default from FALLBACK_1/2, keep the
+            # *correct* fallback label instead of calling it primary.
+            if (
+                name == "THE_ODDS_API_KEY" and not value
+                and self.api_key not in explicit_in_fallback
+            ):
                 value = self.api_key
             if value and value not in seen:
                 seen.add(value)
