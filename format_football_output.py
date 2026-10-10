@@ -1862,7 +1862,7 @@ def render_performance_reports(performance_dir: Path, readable_dir: Path) -> boo
               "Pending/postponed/ambiguous fixtures are **not** losses. "
               "PROVISIONAL selections are exploratory. "
               "The report never updates forecasts, thresholds, source grades or snapshots.", "",
-              "_Detailed audit data remains in \`../performance/metrics.json\`, \`shortlist_grades.csv\` and \`prediction_grades.csv\`._", ""]
+              "_Detailed audit data remains in `../performance/metrics.json`, `shortlist_grades.csv` and `prediction_grades.csv`._", ""]
 
     readable_dir.mkdir(parents=True, exist_ok=True)
     (readable_dir / "performance_report.md").write_text("\n".join(lines), encoding="utf-8")
