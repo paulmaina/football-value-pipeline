@@ -34,7 +34,9 @@ jobs:
       - name: Check out the main branch with tracked forecasts
         uses: actions/checkout@v4
         with:
-          ref: main
+          # Preserve the exact commit that triggered a forecast-data push;
+          # don't accidentally tag a later raw snapshot with an older SHA.
+          ref: ${{ github.sha }}
           fetch-depth: 2
 
       - name: Set up Python
