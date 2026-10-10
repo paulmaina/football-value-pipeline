@@ -338,11 +338,44 @@ Optional reliability plots require matplotlib.
 
 Do **not** commit API keys to GitHub. The pipeline reads them from environment variables.
 
-PowerShell:
+PowerShell (primary credential and optional **provider-authorized** failovers):
 
 ```powershell
-$env:THE_ODDS_API_KEY="your-key-here"
+$env:THE_ODDS_API_KEY="your-primary-key"
+$env:THE_ODDS_API_KEY_FALLBACK_1="your-secondary-key"
+$env:THE_ODDS_API_KEY_FALLBACK_2="your-tertiary-key"
 ```
+
+**No new CLI flags or changed model parameters.** Every current The Odds API
+endpoint (fixtures `/events`, featured `/odds`, and the per-event
+`alternate_totals,btts` endpoint) uses the existing cached HTTP client
+with an ordered primary -> secondary -> tertiary retry:
+
+- The environment variables are read **on every live request**, not
+  baked into the program at startup. Empty and duplicate keys are skipped.
+  A single primary key still works as before.
+- A **429** triggers the next key promptly; unlike the generic historic
+  HTTP client, The Odds API does not retry HTTP 429 several times
+  with the same key before switching. The provider says 429 can be
+  temporary, so this does not mark an account permanently exhausted.
+- A **401 or 403** triggers the next key **only if the provider explicitly
+  identifies `OUT_OF_USAGE_CREDITS`**. Invalid or deactivated keys,
+  incorrect markets, networking failures and unrelated HTTP errors
+  stop immediately with a concise error rather than consuming backup
+  quotas or hiding configuration problems.
+- When every configured credential returns quota/rate-limit errors, the
+  request raises a clear `all configured keys` error. Warnings identify
+  **variable names only**, never secret values or URLs containing
+  `apiKey`. Successful results use the **existing TTL cache**;
+  no failed quota response is cached.
+- The per-run budget of **24 extra event-market requests** is unchanged.
+  Fallover does not multiply, increase, or bypass this pipeline budget.
+
+**Usage-policy note:** The provider's terms do not explicitly confirm
+that pooling several free-tier accounts is permitted. Check with The
+Odds API before relying on multiple account quotas. This credential
+redundancy feature is intended only for credentials you are authorized
+to use together.
 
 Optional football-data.org fixture fallback:
 
@@ -418,7 +451,7 @@ Default:
 
 `auto` tries, in order:
 
-1. The Odds API events endpoint (if `THE_ODDS_API_KEY` exists)
+1. The Odds API events endpoint (if any authorized `THE_ODDS_API_KEY*` variable is configured)
 2. football-data.org (if `FOOTBALL_DATA_API_KEY` exists)
 3. Football-Data.co.uk current fixture CSV for domestic leagues
 
