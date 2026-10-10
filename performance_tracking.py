@@ -153,7 +153,6 @@ def capture(commit_sha: str, *, root: Path = ROOT,
     eligible = sum(
         1 for row in forecast
         if (k := utc(row.get("kickoff_utc")))
-        and min(created, generated) == min(created, generated)
         and created <= k - timedelta(minutes=MIN_LEAD_MINUTES)
         and generated <= k - timedelta(minutes=MIN_LEAD_MINUTES)
     )
@@ -570,7 +569,16 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
     one_x_two = [float(r["one_x_two_brier"]) for r in graded_prediction
                  if number(r.get("one_x_two_brier")) is not None]
     result = {
-        "status": "READY" if selections else "AWAITING_PREMATCH_SNAPSHOTS",
+        "status": (
+            "AWAITING_PREMATCH_SNAPSHOTS" if not selections
+            else "AWAITING_VERIFIED_RESULTS" if not any(
+                r["status"] in ("WON", "LOST") for r in selections
+            )
+            else "PARTIALLY_GRADED" if any(
+                r["status"] not in ("WON", "LOST") for r in selections
+            )
+            else "ALL_GRADED"
+        ),
         "source": "football-data.org v4 FINISHED regulation-time scorelines",
         "shortlist": stats(selections),
         "groups": groupings,
