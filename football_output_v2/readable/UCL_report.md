@@ -53,7 +53,7 @@ Fixtures in this report: **18**.
 
 ## 2026-10-13 — Arsenal vs Lille
 
-The model's most likely 1X2 outcome is **Arsenal win** at **72.4%**. Expected goals are 2.01 for Arsenal and 0.77 for Lille (2.78 combined). The most likely exact score is 1-0 at 14.0%. Goal-market probabilities: at least one goal: 95.0%; Over 2.5 goals: 54.0%; Under 3.5 goals: 68.8%; Under 4.5 goals: 84.4%.
+The model's most likely 1X2 outcome is **Arsenal win** at **72.4%**. Expected goals are 2.01 for Arsenal and 0.77 for Lille (2.78 combined). The most likely exact score is 1-0 at 14.0%. Goal-market probabilities: at least one goal: 95.0%; Over 2.5 goals: 54.0%; Under 3.5 goals: 68.8%; Under 4.5 goals: 84.4%; BTTS Yes (both teams score): 45.2%; BTTS No (at least one team does not score): 54.8%.
 
 **Fixture source:** The Odds API
 
@@ -177,7 +177,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-13 — Atlético Madrid vs Manchester United
 
-The model's most likely 1X2 outcome is **Atlético Madrid win** at **60.4%**. Expected goals are 3.87 for Atlético Madrid and 1.70 for Manchester United (5.57 combined). The most likely exact score is 2-2 at 6.5%. Goal-market probabilities: at least one goal: 99.6%; Over 2.5 goals: 90.0%; Under 3.5 goals: 21.0%; Under 4.5 goals: 37.7%.
+The model's most likely 1X2 outcome is **Atlético Madrid win** at **60.4%**. Expected goals are 3.87 for Atlético Madrid and 1.70 for Manchester United (5.57 combined). The most likely exact score is 2-2 at 6.5%. Goal-market probabilities: at least one goal: 99.6%; Over 2.5 goals: 90.0%; Under 3.5 goals: 21.0%; Under 4.5 goals: 37.7%; BTTS Yes (both teams score): 82.2%; BTTS No (at least one team does not score): 17.8%.
 
 **Fixture source:** The Odds API
 
@@ -301,7 +301,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-13 — Galatasaray vs Barcelona
 
-The model's most likely 1X2 outcome is **Barcelona win** at **66.5%**. Expected goals are 1.61 for Galatasaray and 2.47 for Barcelona (4.09 combined). The most likely exact score is 1-2 at 9.7%. Goal-market probabilities: at least one goal: 98.8%; Over 2.5 goals: 78.4%; Under 3.5 goals: 40.9%; Under 4.5 goals: 60.1%.
+The model's most likely 1X2 outcome is **Barcelona win** at **66.5%**. Expected goals are 1.61 for Galatasaray and 2.47 for Barcelona (4.09 combined). The most likely exact score is 1-2 at 9.7%. Goal-market probabilities: at least one goal: 98.8%; Over 2.5 goals: 78.4%; Under 3.5 goals: 40.9%; Under 4.5 goals: 60.1%; BTTS Yes (both teams score): 72.1%; BTTS No (at least one team does not score): 27.9%.
 
 **Fixture source:** The Odds API
 
@@ -425,7 +425,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-13 — Inter Milan vs Club Brugge
 
-The model's most likely 1X2 outcome is **Inter Milan win** at **68.4%**. Expected goals are 1.98 for Inter Milan and 1.01 for Club Brugge (2.99 combined). The most likely exact score is 1-0 at 11.9%. Goal-market probabilities: at least one goal: 96.1%; Over 2.5 goals: 58.8%; Under 3.5 goals: 64.2%; Under 4.5 goals: 81.0%.
+The model's most likely 1X2 outcome is **Inter Milan win** at **68.4%**. Expected goals are 1.98 for Inter Milan and 1.01 for Club Brugge (2.99 combined). The most likely exact score is 1-0 at 11.9%. Goal-market probabilities: at least one goal: 96.1%; Over 2.5 goals: 58.8%; Under 3.5 goals: 64.2%; Under 4.5 goals: 81.0%; BTTS Yes (both teams score): 53.1%; BTTS No (at least one team does not score): 46.9%.
 
 **Fixture source:** The Odds API
 
@@ -549,7 +549,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-13 — RB Leipzig vs PSV Eindhoven
 
-The model's most likely 1X2 outcome is **RB Leipzig win** at **42.1%**. Expected goals are 1.58 for RB Leipzig and 1.78 for PSV Eindhoven (3.36 combined). The most likely exact score is 1-1 at 9.5%. Goal-market probabilities: at least one goal: 96.9%; Over 2.5 goals: 65.0%; Under 3.5 goals: 56.9%; Under 4.5 goals: 75.4%.
+The model's most likely 1X2 outcome is **RB Leipzig win** at **42.1%**. Expected goals are 1.58 for RB Leipzig and 1.78 for PSV Eindhoven (3.36 combined). The most likely exact score is 1-1 at 9.5%. Goal-market probabilities: at least one goal: 96.9%; Over 2.5 goals: 65.0%; Under 3.5 goals: 56.9%; Under 4.5 goals: 75.4%; BTTS Yes (both teams score): 65.7%; BTTS No (at least one team does not score): 34.3%.
 
 **Fixture source:** The Odds API
 
@@ -673,7 +673,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-13 — RC Lens vs Sporting Lisbon
 
-The model's most likely 1X2 outcome is **Sporting Lisbon win** at **41.8%**. Expected goals are 1.25 for RC Lens and 1.66 for Sporting Lisbon (2.91 combined). The most likely exact score is 1-1 at 11.2%. Goal-market probabilities: at least one goal: 94.9%; Over 2.5 goals: 55.2%; Under 3.5 goals: 67.0%; Under 4.5 goals: 83.3%.
+The model's most likely 1X2 outcome is **Sporting Lisbon win** at **41.8%**. Expected goals are 1.25 for RC Lens and 1.66 for Sporting Lisbon (2.91 combined). The most likely exact score is 1-1 at 11.2%. Goal-market probabilities: at least one goal: 94.9%; Over 2.5 goals: 55.2%; Under 3.5 goals: 67.0%; Under 4.5 goals: 83.3%; BTTS Yes (both teams score): 57.7%; BTTS No (at least one team does not score): 42.3%.
 
 **Fixture source:** The Odds API
 
@@ -797,7 +797,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-13 — Sabah FK vs Slavia Praha
 
-The model's most likely 1X2 outcome is **Slavia Praha win** at **53.7%**. Expected goals are 0.37 for Sabah FK and 1.26 for Slavia Praha (1.63 combined). The most likely exact score is 0-1 at 22.6%. Goal-market probabilities: at least one goal: 82.2%; Over 2.5 goals: 22.1%; Under 3.5 goals: 92.2%; Under 4.5 goals: 97.6%.
+The model's most likely 1X2 outcome is **Slavia Praha win** at **53.7%**. Expected goals are 0.37 for Sabah FK and 1.26 for Slavia Praha (1.63 combined). The most likely exact score is 0-1 at 22.6%. Goal-market probabilities: at least one goal: 82.2%; Over 2.5 goals: 22.1%; Under 3.5 goals: 92.2%; Under 4.5 goals: 97.6%; BTTS Yes (both teams score): 21.7%; BTTS No (at least one team does not score): 78.3%.
 
 **Fixture source:** The Odds API
 
@@ -921,7 +921,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-13 — Viking FK vs Bayern Munich
 
-The model's most likely 1X2 outcome is **Bayern Munich win** at **91.9%**. Expected goals are 0.69 for Viking FK and 4.47 for Bayern Munich (5.16 combined). The most likely exact score is 0-4 at 9.4%. Goal-market probabilities: at least one goal: 99.4%; Over 2.5 goals: 88.0%; Under 3.5 goals: 25.3%; Under 4.5 goals: 42.5%.
+The model's most likely 1X2 outcome is **Bayern Munich win** at **91.9%**. Expected goals are 0.69 for Viking FK and 4.47 for Bayern Munich (5.16 combined). The most likely exact score is 0-4 at 9.4%. Goal-market probabilities: at least one goal: 99.4%; Over 2.5 goals: 88.0%; Under 3.5 goals: 25.3%; Under 4.5 goals: 42.5%; BTTS Yes (both teams score): 49.8%; BTTS No (at least one team does not score): 50.2%.
 
 **Fixture source:** The Odds API
 
@@ -1045,7 +1045,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-13 — Villarreal vs Napoli
 
-The model's most likely 1X2 outcome is **Napoli win** at **40.9%**. Expected goals are 0.87 for Villarreal and 1.43 for Napoli (2.31 combined). The most likely exact score is 1-0 at 13.2%. Goal-market probabilities: at least one goal: 90.7%; Over 2.5 goals: 40.0%; Under 3.5 goals: 80.5%; Under 4.5 goals: 91.8%.
+The model's most likely 1X2 outcome is **Napoli win** at **40.9%**. Expected goals are 0.87 for Villarreal and 1.43 for Napoli (2.31 combined). The most likely exact score is 1-0 at 13.2%. Goal-market probabilities: at least one goal: 90.7%; Over 2.5 goals: 40.0%; Under 3.5 goals: 80.5%; Under 4.5 goals: 91.8%; BTTS Yes (both teams score): 44.0%; BTTS No (at least one team does not score): 56.0%.
 
 **Fixture source:** The Odds API
 
@@ -1169,7 +1169,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-14 — AS Roma vs Real Madrid
 
-The model's most likely 1X2 outcome is **Real Madrid win** at **51.3%**. Expected goals are 1.26 for AS Roma and 1.83 for Real Madrid (3.09 combined). The most likely exact score is 1-1 at 10.3%. Goal-market probabilities: at least one goal: 95.9%; Over 2.5 goals: 59.5%; Under 3.5 goals: 62.6%; Under 4.5 goals: 80.0%.
+The model's most likely 1X2 outcome is **Real Madrid win** at **51.3%**. Expected goals are 1.26 for AS Roma and 1.83 for Real Madrid (3.09 combined). The most likely exact score is 1-1 at 10.3%. Goal-market probabilities: at least one goal: 95.9%; Over 2.5 goals: 59.5%; Under 3.5 goals: 62.6%; Under 4.5 goals: 80.0%; BTTS Yes (both teams score): 59.9%; BTTS No (at least one team does not score): 40.1%.
 
 **Fixture source:** The Odds API
 
@@ -1293,7 +1293,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-14 — Aston Villa vs Fenerbahce
 
-The model's most likely 1X2 outcome is **Aston Villa win** at **66.0%**. Expected goals are 2.22 for Aston Villa and 0.60 for Fenerbahce (2.83 combined). The most likely exact score is 2-0 at 12.9%. Goal-market probabilities: at least one goal: 93.3%; Over 2.5 goals: 51.2%; Under 3.5 goals: 70.4%; Under 4.5 goals: 85.5%.
+The model's most likely 1X2 outcome is **Aston Villa win** at **66.0%**. Expected goals are 2.22 for Aston Villa and 0.60 for Fenerbahce (2.83 combined). The most likely exact score is 2-0 at 12.9%. Goal-market probabilities: at least one goal: 93.3%; Over 2.5 goals: 51.2%; Under 3.5 goals: 70.4%; Under 4.5 goals: 85.5%; BTTS Yes (both teams score): 41.4%; BTTS No (at least one team does not score): 58.6%.
 
 **Fixture source:** The Odds API
 
@@ -1417,7 +1417,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-14 — Bodø/Glimt vs Borussia Dortmund
 
-The model's most likely 1X2 outcome is **Borussia Dortmund win** at **46.8%**. Expected goals are 1.67 for Bodø/Glimt and 2.04 for Borussia Dortmund (3.70 combined). The most likely exact score is 1-1 at 8.5%. Goal-market probabilities: at least one goal: 97.8%; Over 2.5 goals: 71.1%; Under 3.5 goals: 49.3%; Under 4.5 goals: 68.9%.
+The model's most likely 1X2 outcome is **Borussia Dortmund win** at **46.8%**. Expected goals are 1.67 for Bodø/Glimt and 2.04 for Borussia Dortmund (3.70 combined). The most likely exact score is 1-1 at 8.5%. Goal-market probabilities: at least one goal: 97.8%; Over 2.5 goals: 71.1%; Under 3.5 goals: 49.3%; Under 4.5 goals: 68.9%; BTTS Yes (both teams score): 70.5%; BTTS No (at least one team does not score): 29.5%.
 
 **Fixture source:** The Odds API
 
@@ -1541,7 +1541,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-14 — Feyenoord vs Como
 
-The model's most likely 1X2 outcome is **Como win** at **62.4%**. Expected goals are 1.84 for Feyenoord and 3.93 for Como (5.77 combined). The most likely exact score is 2-2 at 6.1%. Goal-market probabilities: at least one goal: 99.7%; Over 2.5 goals: 91.5%; Under 3.5 goals: 18.4%; Under 4.5 goals: 34.1%.
+The model's most likely 1X2 outcome is **Como win** at **62.4%**. Expected goals are 1.84 for Feyenoord and 3.93 for Como (5.77 combined). The most likely exact score is 2-2 at 6.1%. Goal-market probabilities: at least one goal: 99.7%; Over 2.5 goals: 91.5%; Under 3.5 goals: 18.4%; Under 4.5 goals: 34.1%; BTTS Yes (both teams score): 84.0%; BTTS No (at least one team does not score): 16.0%.
 
 **Fixture source:** The Odds API
 
@@ -1665,7 +1665,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-14 — LASK vs Liverpool
 
-The model's most likely 1X2 outcome is **Liverpool win** at **72.8%**. Expected goals are 0.33 for LASK and 1.48 for Liverpool (1.80 combined). The most likely exact score is 0-1 at 26.9%. Goal-market probabilities: at least one goal: 87.7%; Over 2.5 goals: 28.9%; Under 3.5 goals: 88.5%; Under 4.5 goals: 96.0%.
+The model's most likely 1X2 outcome is **Liverpool win** at **72.8%**. Expected goals are 0.33 for LASK and 1.48 for Liverpool (1.80 combined). The most likely exact score is 0-1 at 26.9%. Goal-market probabilities: at least one goal: 87.7%; Over 2.5 goals: 28.9%; Under 3.5 goals: 88.5%; Under 4.5 goals: 96.0%; BTTS Yes (both teams score): 20.0%; BTTS No (at least one team does not score): 80.0%.
 
 **Fixture source:** The Odds API
 
@@ -1789,7 +1789,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-14 — Manchester City vs Paris Saint Germain
 
-The model's most likely 1X2 outcome is **Paris Saint Germain win** at **46.9%**. Expected goals are 1.53 for Manchester City and 2.51 for Paris Saint Germain (4.04 combined). The most likely exact score is 2-2 at 7.6%. Goal-market probabilities: at least one goal: 98.3%; Over 2.5 goals: 75.5%; Under 3.5 goals: 43.7%; Under 4.5 goals: 63.5%.
+The model's most likely 1X2 outcome is **Paris Saint Germain win** at **46.9%**. Expected goals are 1.53 for Manchester City and 2.51 for Paris Saint Germain (4.04 combined). The most likely exact score is 2-2 at 7.6%. Goal-market probabilities: at least one goal: 98.3%; Over 2.5 goals: 75.5%; Under 3.5 goals: 43.7%; Under 4.5 goals: 63.5%; BTTS Yes (both teams score): 72.9%; BTTS No (at least one team does not score): 27.1%.
 
 **Fixture source:** The Odds API
 
@@ -1913,7 +1913,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-14 — Real Betis vs Porto
 
-The model's most likely 1X2 outcome is **Real Betis win** at **64.7%**. Expected goals are 4.51 for Real Betis and 1.48 for Porto (5.98 combined). The most likely exact score is 2-2 at 6.1%. Goal-market probabilities: at least one goal: 99.6%; Over 2.5 goals: 91.2%; Under 3.5 goals: 18.4%; Under 4.5 goals: 33.9%.
+The model's most likely 1X2 outcome is **Real Betis win** at **64.7%**. Expected goals are 4.51 for Real Betis and 1.48 for Porto (5.98 combined). The most likely exact score is 2-2 at 6.1%. Goal-market probabilities: at least one goal: 99.6%; Over 2.5 goals: 91.2%; Under 3.5 goals: 18.4%; Under 4.5 goals: 33.9%; BTTS Yes (both teams score): 79.9%; BTTS No (at least one team does not score): 20.1%.
 
 **Fixture source:** The Odds API
 
@@ -2037,7 +2037,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-14 — Shakhtar Donetsk vs AEK Athens
 
-The model's most likely 1X2 outcome is **Shakhtar Donetsk win** at **39.2%**. Expected goals are 1.45 for Shakhtar Donetsk and 1.25 for AEK Athens (2.71 combined). The most likely exact score is 1-1 at 12.2%. Goal-market probabilities: at least one goal: 93.6%; Over 2.5 goals: 50.3%; Under 3.5 goals: 71.3%; Under 4.5 goals: 86.4%.
+The model's most likely 1X2 outcome is **Shakhtar Donetsk win** at **39.2%**. Expected goals are 1.45 for Shakhtar Donetsk and 1.25 for AEK Athens (2.71 combined). The most likely exact score is 1-1 at 12.2%. Goal-market probabilities: at least one goal: 93.6%; Over 2.5 goals: 50.3%; Under 3.5 goals: 71.3%; Under 4.5 goals: 86.4%; BTTS Yes (both teams score): 54.6%; BTTS No (at least one team does not score): 45.4%.
 
 **Fixture source:** The Odds API
 
@@ -2161,7 +2161,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-14 — ŠK Slovan Bratislava vs VfB Stuttgart
 
-The model's most likely 1X2 outcome is **VfB Stuttgart win** at **65.5%**. Expected goals are 1.40 for ŠK Slovan Bratislava and 2.20 for VfB Stuttgart (3.60 combined). The most likely exact score is 1-2 at 10.8%. Goal-market probabilities: at least one goal: 98.0%; Over 2.5 goals: 70.7%; Under 3.5 goals: 50.9%; Under 4.5 goals: 69.9%.
+The model's most likely 1X2 outcome is **VfB Stuttgart win** at **65.5%**. Expected goals are 1.40 for ŠK Slovan Bratislava and 2.20 for VfB Stuttgart (3.60 combined). The most likely exact score is 1-2 at 10.8%. Goal-market probabilities: at least one goal: 98.0%; Over 2.5 goals: 70.7%; Under 3.5 goals: 50.9%; Under 4.5 goals: 69.9%; BTTS Yes (both teams score): 65.6%; BTTS No (at least one team does not score): 34.4%.
 
 **Fixture source:** The Odds API
 
