@@ -1,0 +1,6 @@
+﻿Market,Selections tracked,Verified selections graded,Wins,Losses,Pending / unverified,Win rate (graded only),Binary Brier (lower is better),Settled selections with recorded odds,Total simulated profit (units),Simulated flat-stake ROI (priced only)
+Away win,0,0,0,0,0,—,—,0,—,—
+Both Teams to Score - Yes,0,0,0,0,0,—,—,0,—,—
+Home win,2,0,0,0,2,—,—,0,—,—
+Over 1.5,3,0,0,0,3,—,—,0,—,—
+Under 3.5,5,0,0,0,5,—,—,0,—,—

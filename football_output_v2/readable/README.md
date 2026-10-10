@@ -36,3 +36,9 @@ It is a model estimate, not a guaranteed return.
 
 **Closing-line value (CLV)** — compares the price taken with the de-vigged closing
 market probability. It is mainly useful when evaluated over many bets.
+
+## Forward performance reports
+
+Start with [`performance_dashboard.md`](performance_dashboard.md). `shortlist_grades_readable.csv` and `prediction_grades_readable.csv` contain individual graded events; `performance_summary_readable.csv`, `performance_by_*_readable.csv`, `performance_calibration_readable.csv`, `performance_prediction_accuracy_readable.csv`, `performance_cumulative_trend_readable.csv`, `performance_pending_reasons_readable.csv`, and `performance_provider_issues_readable.csv` provide cumulative monitoring. Open `performance_weekly/` for week-by-week match detail.
+
+These reports are presentation-only; `performance/` remains authoritative.
