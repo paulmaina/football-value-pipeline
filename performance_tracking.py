@@ -535,6 +535,48 @@ def stats(rows: list[dict]) -> dict:
     }
 
 
+def calibration_buckets(rows: list[dict]) -> list[dict]:
+    """Binary reliability buckets for graded *selected* markets only."""
+    edges = (0.0, 0.5, 0.6, 0.7, 0.8, 0.9, 1.000001)
+    buckets = []
+    for low, high in zip(edges, edges[1:]):
+        cohort = [
+            r for r in rows
+            if r["status"] in ("WON", "LOST")
+            and (p := number(r.get("predicted_probability"), min_value=0, max_value=1)) is not None
+            and low <= p < high
+        ]
+        if not cohort:
+            continue
+        n = len(cohort)
+        mean = sum(float(r["predicted_probability"]) for r in cohort) / n
+        actual = sum(r["status"] == "WON" for r in cohort) / n
+        buckets.append({
+            "probability_band": f"{low:.0%}–{min(high, 1.0):.0%}",
+            "n": n, "mean_forecast": round(mean, 6),
+            "observed_win_rate": round(actual, 6),
+            "binary_brier": round(sum(
+                (float(r["predicted_probability"]) - int(r["status"] == "WON"))**2
+                for r in cohort
+            ) / n, 6),
+        })
+    return buckets
+
+
+def calibration_table(buckets: list[dict]) -> str:
+    lines = [
+        "| Forecast bin | Samples | Average forecast | Observed win rate | Binary Brier |",
+        "|---|---:|---:|---:|---:|",
+    ]
+    for x in buckets:
+        lines.append(
+            f"| {x['probability_band']} | {x['n']} | "
+            f"{x['mean_forecast']:.1%} | {x['observed_win_rate']:.1%} "
+            f"| {x['binary_brier']:.4f} |"
+        )
+    return "\n".join(lines)
+
+
 def report_table(groups: dict[str, dict]) -> str:
     lines = [
         "| Group | Graded | W-L | Win rate | Simulated ROI |",
@@ -582,6 +624,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "source": "football-data.org v4 FINISHED regulation-time scorelines",
         "shortlist": stats(selections),
         "groups": groupings,
+        "calibration": calibration_buckets(selections),
         "prediction_fixtures_graded": len(graded_prediction),
         "prediction_1x2_multiclass_brier": (
             round(sum(one_x_two) / len(one_x_two), 6) if one_x_two else None
@@ -615,6 +658,11 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "", "## By market", "", report_table(groupings["market"]),
         "", "## By league", "", report_table(groupings["league"]),
         "", "## Gameweeks", "", report_table(groupings["week"]),
+        "", "## Confidence calibration of shortlisted markets",
+        "", calibration_table(result["calibration"]),
+        "",
+        "Calibration bins report observed outcomes against the originally",
+        "recorded reliability-adjusted chance; small buckets are unstable.",
         "",
         "## Result-source problems", "",
     ]
