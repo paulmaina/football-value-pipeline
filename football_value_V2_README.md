@@ -140,9 +140,12 @@ most three total goals (0, 1, 2 or 3)**. The raw
 After running `python format_football_output.py`, each
 `football_output_v2/readable/<league>_predictions_readable.csv`
 includes a dedicated **Under 3.5** percentage column, immediately
-after **Over 3.5**. Each per-fixture readable Markdown report also
-summarizes its Under 3.5 probability alongside the existing goals
-metrics. This is a presentation change only: **no re-fitting, new
+after **Over 3.5**, followed by **BTTS Yes** and **BTTS No** model
+probabilities after the Under 4.5 column. Each per-fixture readable
+Markdown report also summarizes Under 3.5, BTTS Yes and BTTS No
+alongside the existing goals metrics. BTTS Yes means **both teams
+score at least once**; BTTS No means **at least one team scores zero**.
+These are presentation changes only: **no re-fitting, new
 bookmaker requests, or changed thresholds**.
 
 ## Ten candidates: strict qualifiers and transparent near-misses
