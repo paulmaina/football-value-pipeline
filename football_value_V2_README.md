@@ -132,6 +132,77 @@ previously used to tune the half-life parameter, so the audit is
 proof that a market has a true bookmaker edge. Always collect
 timestamped predictions and final scores for future evaluation.
 
+## Automatic forward-only gameweek performance evaluation
+
+A separate, **non-model-changing** GitHub Actions workflow is in
+`.github/workflows/forward-performance.yml`. Once merged, it:
+
+1. **Captures immutable forecasts on each commit to `main` that changes
+   the tracked raw model CSV, shortlist CSV or shortlist summary JSON.**
+   Archives are written under
+   `football_output_v2/performance/snapshots/<commit-prefix>/`.
+   It snapshots the combined model predictions, the shortlisted
+   STRICT/PROVISIONAL selections, and the original summary, with a
+   capture UTC timestamp and SHA-256 integrity checks. It never
+   overwrites earlier snapshots. A capture must occur at least **20
+   minutes before kickoff** for each fixture to be eligible.
+2. Runs **daily at approximately 07:30 UTC / 10:30 EAT**, including
+   midweek European fixtures, plus optional manual runs from
+   GitHub Actions → **Forward performance review → Run workflow**.
+   The schedule is best effort, subject to GitHub Actions scheduling
+   delays. It checks recent completed fixtures for both the full
+   prediction set and the separately shortlisted selection markets.
+3. Uses the official **football-data.org v4** final score endpoint
+   with `FOOTBALL_DATA_API_KEY`, scoped by actual competition code
+   (PL, PD, BL1, SA, FL1, CL). Scores are considered verified only
+   for `FINISHED` fixtures whose **home/away names, competition
+   and kickoff** match unambiguously. Regulation-time scores are
+   used for extra-time/penalty cup ties; a missing 90-minute score,
+   postponed game, missing subscription permission, ambiguous name,
+   or missing fixture is **not** graded as a win/loss.
+4. Produces `performance/shortlist_grades.csv` and
+   `performance/prediction_grades.csv` with original snapshot IDs,
+   source match IDs, verified final scores and results. It writes
+   `performance/metrics.json`, a cumulative
+   `performance/README.md` (overall, by STRICT/PROVISIONAL,
+   league, market, and gameweek), and
+   `performance/weekly/YYYY-Www.md` gameweek breakdowns.
+   A `verified_results.json` cache records authenticated final scores
+   and any subsequent revisions.
+
+**One-time GitHub setup required:** Set the Actions repository secret
+`FOOTBALL_DATA_API_KEY` through
+GitHub → Settings → Secrets and variables → Actions → New repository
+secret. **Don't put your API key in a committed file.** The token
+must permit `/v4/competitions/{code}/matches` for the desired
+competitions. Provider-free-tier restrictions can prevent scores for
+some leagues. If the token is unavailable or permission is denied,
+the action flags this in `performance/README.md` and leaves the
+affected fixtures **ungraded**; it does not invent scorelines.
+Football-data.org free registered access is subject to an API
+request-rate limit; the workflow currently makes one modest request
+per relevant league each daily run.
+
+**How to activate tracking:** After this feature is merged,
+run your usual forecasting command **before kickoff** and commit the
+updated three raw inputs to `main`. Merely installing the evaluator
+does **not** retroactively establish proof that previous forecast
+files existed before a fixture started. The first new data commit
+will trigger snapshot capture and an initial review. You can also
+run a manual action with `capture_current_snapshot=true`, but it
+records the *actual current capture time* and excludes any fixtures
+already underway.
+
+All selections are **deduplicated by competition, teams and match date
+across snapshots**. The **first eligible** committed forecast for
+each fixture is scored, never an arbitrarily chosen post-match or
+more favorable later prediction. Grading is by the specific selected
+market, using equal one-unit **simulated** stakes where genuine
+pre-match bookmaker odds are present. Unsettled games are excluded
+from graded accuracy/ROI denominators. Full-fixture 1X2 Brier scores
+are reported separately. No training weights, betting thresholds,
+or selection tiers are changed by the evaluation.
+
 ## Under 3.5 in predictions output
 
 The model already computes `p_under_3_5` as the probability of **at
