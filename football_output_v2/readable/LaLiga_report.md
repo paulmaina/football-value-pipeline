@@ -98,8 +98,8 @@ The model's most likely 1X2 outcome is **Elche CF win** at **37.4%**. Expected g
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Elche CF win | 37.4% | 33.2% | 3.06 | +14.5% |
-| Draw | 26.4% | 28.2% | 3.40 | -10.4% |
+| Elche CF win | 37.4% | 33.2% | 3.10 | +16.0% |
+| Draw | 26.4% | 28.2% | 3.35 | -11.7% |
 | Celta Vigo win | 36.2% | 38.6% | 2.61 | -5.5% |
 | Over 2.5 | 57.0% | 47.5% | 2.07 | +18.0% |
 | Under 2.5 | 43.0% | 52.5% | 1.93 | -17.0% |
@@ -118,13 +118,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:55Z |
-| Market best draw last update utc | 2026-10-11T08:22:37Z |
-| Market best away last update utc | 2026-10-11T08:22:24Z |
+| Market best home last update utc | 2026-10-11T08:56:27Z |
+| Market best draw last update utc | 2026-10-11T08:56:41Z |
+| Market best away last update utc | 2026-10-11T08:55:56Z |
 | Odds bookmakers 1x2 | 19.00 |
 | Odds bookmakers ou25 | 14.00 |
-| Best home bookmaker | 1xBet |
-| Best draw bookmaker | Betfair |
+| Best home bookmaker | Betfair |
+| Best draw bookmaker | Unibet (SE) |
 | Best away bookmaker | Coolbet |
 | Best over 2 5 bookmaker | 1xBet |
 | Best under 2 5 bookmaker | Matchbook |
@@ -165,9 +165,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | +9.5% |
 | Under 2.5 probability edge | -9.5% |
 | Raw edge prob home | 0.0834 |
-| Raw ev home | 0.2726 |
+| Raw ev home | 0.2892 |
 | Raw edge prob draw | -0.0367 |
-| Raw ev draw | -0.1662 |
+| Raw ev draw | -0.1785 |
 | Raw edge prob away | -0.0467 |
 | Raw ev away | -0.1155 |
 
@@ -178,7 +178,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Real Betis vs CA Osasuna
 
-The model's most likely 1X2 outcome is **Real Betis win** at **61.3%**. Expected goals are 1.77 for Real Betis and 0.94 for CA Osasuna (2.71 combined). The most likely exact score is 1-0 at 12.6%. Goal-market probabilities: at least one goal: 93.9%; Over 2.5 goals: 51.9%; Under 3.5 goals: 70.7%; Under 4.5 goals: 85.7%; BTTS Yes (both teams score): 49.9%; BTTS No (at least one team does not score): 50.1%.
+The model's most likely 1X2 outcome is **Real Betis win** at **61.6%**. Expected goals are 1.77 for Real Betis and 0.94 for CA Osasuna (2.71 combined). The most likely exact score is 1-0 at 12.6%. Goal-market probabilities: at least one goal: 93.9%; Over 2.5 goals: 52.0%; Under 3.5 goals: 70.7%; Under 4.5 goals: 85.7%; BTTS Yes (both teams score): 49.9%; BTTS No (at least one team does not score): 50.1%.
 
 **Fixture source:** The Odds API
 
@@ -186,9 +186,9 @@ The model's most likely 1X2 outcome is **Real Betis win** at **61.3%**. Expected
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Real Betis win | 61.3% | 1.63 |
-| Draw | 21.3% | 4.70 |
-| CA Osasuna win | 17.4% | 5.75 |
+| Real Betis win | 61.6% | 1.62 |
+| Draw | 21.1% | 4.74 |
+| CA Osasuna win | 17.3% | 5.79 |
 
 ### Goals outlook
 
@@ -201,8 +201,8 @@ The model's most likely 1X2 outcome is **Real Betis win** at **61.3%**. Expected
 | Under 0.5 | 6.1% |
 | Over 1.5 | 75.9% |
 | Under 1.5 | 24.1% |
-| Over 2.5 | 51.9% |
-| Under 2.5 | 48.1% |
+| Over 2.5 | 52.0% |
+| Under 2.5 | 48.0% |
 | Over 3.5 | 29.3% |
 | Under 3.5 | 70.7% |
 | Over 4.5 | 14.3% |
@@ -212,21 +212,21 @@ The model's most likely 1X2 outcome is **Real Betis win** at **61.3%**. Expected
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 12.55% |
-| 2 | 2-0 | 11.27% |
-| 3 | 2-1 | 10.57% |
-| 4 | 1-1 | 10.12% |
-| 5 | 3-0 | 6.65% |
+| 1 | 1-0 | 12.61% |
+| 2 | 2-0 | 11.32% |
+| 3 | 2-1 | 10.62% |
+| 4 | 1-1 | 10.04% |
+| 5 | 3-0 | 6.69% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Real Betis win | 61.3% | 65.8% | 1.57 | -3.7% |
-| Draw | 21.3% | 19.0% | 4.62 | -1.7% |
-| CA Osasuna win | 17.4% | 15.2% | 7.00 | +21.8% |
-| Over 2.5 | 51.9% | 54.6% | 1.81 | -6.1% |
-| Under 2.5 | 48.1% | 45.4% | 2.26 | +8.7% |
+| Real Betis win | 61.6% | 66.4% | 1.56 | -3.9% |
+| Draw | 21.1% | 18.6% | 4.72 | -0.5% |
+| CA Osasuna win | 17.3% | 15.0% | 7.00 | +21.0% |
+| Over 2.5 | 52.0% | 56.8% | 1.74 | -9.6% |
+| Under 2.5 | 48.0% | 43.2% | 2.42 | +16.2% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -242,14 +242,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:55Z |
-| Market best draw last update utc | 2026-10-11T08:22:55Z |
-| Market best away last update utc | 2026-10-11T08:22:37Z |
+| Market best home last update utc | 2026-10-11T08:56:41Z |
+| Market best draw last update utc | 2026-10-11T08:56:39Z |
+| Market best away last update utc | 2026-10-11T08:55:51Z |
 | Odds bookmakers 1x2 | 19.00 |
-| Odds bookmakers ou25 | 13.00 |
+| Odds bookmakers ou25 | 12.00 |
 | Best home bookmaker | 1xBet |
-| Best draw bookmaker | 1xBet |
-| Best away bookmaker | Betfair |
+| Best draw bookmaker | Pinnacle |
+| Best away bookmaker | Unibet (NL) |
 | Best over 2 5 bookmaker | 1xBet |
 | Best under 2 5 bookmaker | Matchbook |
 | Matched home-team name | Betis |
@@ -258,15 +258,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away-name matching confidence | 95/100 |
 | P btts yes | 49.9% |
 | P btts no | 50.1% |
-| Fair Over 0.5 odds | 1.07 |
-| Fair Under 0.5 odds | 16.27 |
+| Fair Over 0.5 odds | 1.06 |
+| Fair Under 0.5 odds | 16.41 |
 | Fair Over 1.5 odds | 1.32 |
 | Fair Under 1.5 odds | 4.15 |
-| Fair Over 2.5 odds | 1.93 |
+| Fair Over 2.5 odds | 1.92 |
 | Fair Under 2.5 odds | 2.08 |
-| Fair Over 3.5 odds | 3.42 |
+| Fair Over 3.5 odds | 3.41 |
 | Fair Under 3.5 odds | 1.41 |
-| Fair Over 4.5 odds | 7.00 |
+| Fair Over 4.5 odds | 6.99 |
 | Fair Under 4.5 odds | 1.17 |
 | Unadjusted home-win probability | 56.8% |
 | Unadjusted draw probability | 23.6% |
@@ -277,22 +277,22 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Winamax (FR) |
-| Reference home odds | 1.46 |
-| Reference draw odds | 4.50 |
-| Reference away odds | 5.50 |
+| Reference home odds | 1.45 |
+| Reference draw odds | 4.60 |
+| Reference away odds | 5.60 |
 | O/U 2.5 market source | The Odds API / 1xBet |
-| Reference Over 2.5 odds | 1.81 |
-| Reference Under 2.5 odds | 2.17 |
-| Home probability edge | -4.5% |
-| Draw probability edge | +2.3% |
-| Away probability edge | +2.2% |
-| Over 2.5 probability edge | -2.7% |
-| Under 2.5 probability edge | +2.7% |
-| Raw edge prob home | -0.0898 |
-| Raw ev home | -0.1075 |
-| Raw edge prob draw | 0.0459 |
-| Raw ev draw | 0.0888 |
-| Raw edge prob away | 0.0439 |
+| Reference Over 2.5 odds | 1.74 |
+| Reference Under 2.5 odds | 2.27 |
+| Home probability edge | -4.8% |
+| Draw probability edge | +2.5% |
+| Away probability edge | +2.3% |
+| Over 2.5 probability edge | -4.8% |
+| Under 2.5 probability edge | +4.8% |
+| Raw edge prob home | -0.0956 |
+| Raw ev home | -0.1132 |
+| Raw edge prob draw | 0.0496 |
+| Raw ev draw | 0.1124 |
+| Raw edge prob away | 0.0460 |
 | Raw ev away | 0.3710 |
 
 </details>
@@ -347,7 +347,7 @@ The model's most likely 1X2 outcome is **Real Racing Club de Santander win** at 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
 | Real Racing Club de Santander win | 41.2% | 43.5% | 2.34 | -3.5% |
-| Draw | 23.5% | 25.6% | 3.67 | -13.9% |
+| Draw | 23.5% | 25.6% | 3.70 | -13.2% |
 | Valencia win | 35.3% | 30.9% | 3.30 | +16.6% |
 | Over 2.5 | 73.6% | 56.8% | 1.74 | +28.2% |
 | Under 2.5 | 26.4% | 43.2% | 2.27 | -40.2% |
@@ -366,13 +366,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:55Z |
-| Market best draw last update utc | 2026-10-11T08:22:55Z |
-| Market best away last update utc | 2026-10-11T08:22:53Z |
+| Market best home last update utc | 2026-10-11T08:56:41Z |
+| Market best draw last update utc | 2026-10-11T08:56:27Z |
+| Market best away last update utc | 2026-10-11T08:56:39Z |
 | Odds bookmakers 1x2 | 19.00 |
 | Odds bookmakers ou25 | 10.00 |
 | Best home bookmaker | 1xBet |
-| Best draw bookmaker | 1xBet |
+| Best draw bookmaker | Betfair |
 | Best away bookmaker | Pinnacle |
 | Best over 2 5 bookmaker | 1xBet |
 | Best under 2 5 bookmaker | 1xBet |
@@ -415,29 +415,29 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob home | -0.0460 |
 | Raw ev home | -0.0893 |
 | Raw edge prob draw | -0.0433 |
-| Raw ev draw | -0.2186 |
+| Raw ev draw | -0.2122 |
 | Raw edge prob away | 0.0893 |
 | Raw ev away | 0.3131 |
-| Market p over 1 5 | 79.7% |
+| Market p over 1 5 | 81.5% |
 | Market over 1 5 odds | 1.24 |
 | Best over 1 5 bookmaker | Coolbet |
-| Market best over 1 5 last update utc | 2026-10-11T08:22:24Z |
-| Market reference over 1 5 odds | 1.24 |
-| Market reference over 1 5 opposite odds | 4.55 |
+| Market best over 1 5 last update utc | 2026-10-11T08:55:56Z |
+| Market reference over 1 5 odds | 1.20 |
+| Market reference over 1 5 opposite odds | 4.50 |
 | Market over 1 5 bookmakers | 3 |
 | Market p under 3 5 | 64.6% |
 | Market under 3 5 odds | 1.51 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-11T08:22:53Z |
+| Market best under 3 5 last update utc | 2026-10-11T08:56:39Z |
 | Market reference under 3 5 odds | 1.51 |
 | Market reference under 3 5 opposite odds | 2.67 |
 | Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 62.3% |
+| Market p btts yes | 59.9% |
 | Market btts yes odds | 1.62 |
 | Best btts yes bookmaker | Matchbook |
-| Market best btts yes last update utc | 2026-10-11T08:22:38Z |
-| Market reference btts yes odds | 1.56 |
-| Market reference btts yes opposite odds | 2.50 |
+| Market best btts yes last update utc | 2026-10-11T08:56:24Z |
+| Market reference btts yes odds | 1.58 |
+| Market reference btts yes opposite odds | 2.26 |
 | Market btts yes bookmakers | 4 |
 
 </details>
@@ -447,7 +447,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Real Sociedad vs Deportivo La Coruña
 
-The model's most likely 1X2 outcome is **Real Sociedad win** at **52.1%**. Expected goals are 1.49 for Real Sociedad and 1.20 for Deportivo La Coruña (2.68 combined). The most likely exact score is 1-0 at 11.9%. Goal-market probabilities: at least one goal: 93.5%; Over 2.5 goals: 51.1%; Under 3.5 goals: 71.4%; Under 4.5 goals: 86.2%; BTTS Yes (both teams score): 53.6%; BTTS No (at least one team does not score): 46.4%.
+The model's most likely 1X2 outcome is **Real Sociedad win** at **52.5%**. Expected goals are 1.49 for Real Sociedad and 1.20 for Deportivo La Coruña (2.68 combined). The most likely exact score is 1-0 at 12.0%. Goal-market probabilities: at least one goal: 93.6%; Over 2.5 goals: 51.2%; Under 3.5 goals: 71.4%; Under 4.5 goals: 86.1%; BTTS Yes (both teams score): 53.5%; BTTS No (at least one team does not score): 46.5%.
 
 **Fixture source:** The Odds API
 
@@ -455,9 +455,9 @@ The model's most likely 1X2 outcome is **Real Sociedad win** at **52.1%**. Expec
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Real Sociedad win | 52.1% | 1.92 |
-| Draw | 23.9% | 4.18 |
-| Deportivo La Coruña win | 24.0% | 4.17 |
+| Real Sociedad win | 52.5% | 1.91 |
+| Draw | 23.6% | 4.24 |
+| Deportivo La Coruña win | 23.9% | 4.18 |
 
 ### Goals outlook
 
@@ -466,36 +466,36 @@ The model's most likely 1X2 outcome is **Real Sociedad win** at **52.1%**. Expec
 | Real Sociedad expected goals | 1.49 |
 | Deportivo La Coruña expected goals | 1.20 |
 | Expected total goals | 2.68 |
-| Over 0.5 | 93.5% |
-| Under 0.5 | 6.5% |
+| Over 0.5 | 93.6% |
+| Under 0.5 | 6.4% |
 | Over 1.5 | 75.3% |
 | Under 1.5 | 24.7% |
-| Over 2.5 | 51.1% |
-| Under 2.5 | 48.9% |
+| Over 2.5 | 51.2% |
+| Under 2.5 | 48.8% |
 | Over 3.5 | 28.6% |
 | Under 3.5 | 71.4% |
-| Over 4.5 | 13.8% |
-| Under 4.5 | 86.2% |
+| Over 4.5 | 13.9% |
+| Under 4.5 | 86.1% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 11.90% |
-| 2 | 1-1 | 11.37% |
-| 3 | 2-1 | 10.78% |
-| 4 | 2-0 | 8.99% |
-| 5 | 0-0 | 6.45% |
+| 1 | 1-0 | 11.99% |
+| 2 | 1-1 | 11.21% |
+| 3 | 2-1 | 10.86% |
+| 4 | 2-0 | 9.06% |
+| 5 | 0-0 | 6.36% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Real Sociedad win | 52.1% | 60.6% | 1.67 | -13.0% |
-| Draw | 23.9% | 21.9% | 4.21 | +0.7% |
-| Deportivo La Coruña win | 24.0% | 17.5% | 5.90 | +41.5% |
-| Over 2.5 | 51.1% | 54.4% | 1.81 | -7.5% |
-| Under 2.5 | 48.9% | 45.6% | 2.22 | +8.5% |
+| Real Sociedad win | 52.5% | 61.3% | 1.67 | -12.3% |
+| Draw | 23.6% | 21.2% | 4.21 | -0.7% |
+| Deportivo La Coruña win | 23.9% | 17.4% | 5.90 | +41.2% |
+| Over 2.5 | 51.2% | 54.4% | 1.81 | -7.3% |
+| Under 2.5 | 48.8% | 45.6% | 2.26 | +10.2% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -511,13 +511,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:37Z |
-| Market best draw last update utc | 2026-10-11T08:22:55Z |
-| Market best away last update utc | 2026-10-11T08:22:37Z |
+| Market best home last update utc | 2026-10-11T08:56:27Z |
+| Market best draw last update utc | 2026-10-11T08:56:39Z |
+| Market best away last update utc | 2026-10-11T08:56:27Z |
 | Odds bookmakers 1x2 | 18.00 |
 | Odds bookmakers ou25 | 13.00 |
 | Best home bookmaker | Betfair |
-| Best draw bookmaker | 1xBet |
+| Best draw bookmaker | Pinnacle |
 | Best away bookmaker | Betfair |
 | Best over 2 5 bookmaker | 1xBet |
 | Best under 2 5 bookmaker | Matchbook |
@@ -525,17 +525,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | La Coruna |
 | Home-name matching confidence | 90/100 |
 | Away-name matching confidence | 90/100 |
-| P btts yes | 53.6% |
-| P btts no | 46.4% |
+| P btts yes | 53.5% |
+| P btts no | 46.5% |
 | Fair Over 0.5 odds | 1.07 |
-| Fair Under 0.5 odds | 15.50 |
+| Fair Under 0.5 odds | 15.73 |
 | Fair Over 1.5 odds | 1.33 |
-| Fair Under 1.5 odds | 4.05 |
-| Fair Over 2.5 odds | 1.96 |
+| Fair Under 1.5 odds | 4.06 |
+| Fair Over 2.5 odds | 1.95 |
 | Fair Under 2.5 odds | 2.05 |
 | Fair Over 3.5 odds | 3.50 |
 | Fair Under 3.5 odds | 1.40 |
-| Fair Over 4.5 odds | 7.23 |
+| Fair Over 4.5 odds | 7.20 |
 | Fair Under 4.5 odds | 1.16 |
 | Unadjusted home-win probability | 43.6% |
 | Unadjusted draw probability | 25.9% |
@@ -546,22 +546,22 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Winamax (FR) |
-| Reference home odds | 1.58 |
-| Reference draw odds | 4.00 |
+| Reference home odds | 1.56 |
+| Reference draw odds | 4.10 |
 | Reference away odds | 4.90 |
 | O/U 2.5 market source | The Odds API / 1xBet |
 | Reference Over 2.5 odds | 1.81 |
 | Reference Under 2.5 odds | 2.15 |
-| Home probability edge | -8.5% |
-| Draw probability edge | +2.0% |
+| Home probability edge | -8.9% |
+| Draw probability edge | +2.4% |
 | Away probability edge | +6.5% |
-| Over 2.5 probability edge | -3.3% |
-| Under 2.5 probability edge | +3.3% |
-| Raw edge prob home | -0.1694 |
+| Over 2.5 probability edge | -3.2% |
+| Under 2.5 probability edge | +3.2% |
+| Raw edge prob home | -0.1771 |
 | Raw ev home | -0.2713 |
-| Raw edge prob draw | 0.0404 |
+| Raw edge prob draw | 0.0472 |
 | Raw ev draw | 0.0919 |
-| Raw edge prob away | 0.1290 |
+| Raw edge prob away | 0.1299 |
 | Raw ev away | 0.7953 |
 
 </details>
@@ -635,9 +635,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:55Z |
-| Market best draw last update utc | 2026-10-11T08:22:55Z |
-| Market best away last update utc | 2026-10-11T08:22:37Z |
+| Market best home last update utc | 2026-10-11T08:56:41Z |
+| Market best draw last update utc | 2026-10-11T08:56:41Z |
+| Market best away last update utc | 2026-10-11T08:56:27Z |
 | Odds bookmakers 1x2 | 19.00 |
 | Odds bookmakers ou25 | 13.00 |
 | Best home bookmaker | 1xBet |
@@ -759,9 +759,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:55Z |
-| Market best draw last update utc | 2026-10-11T08:22:55Z |
-| Market best away last update utc | 2026-10-11T08:22:55Z |
+| Market best home last update utc | 2026-10-11T08:56:41Z |
+| Market best draw last update utc | 2026-10-11T08:56:41Z |
+| Market best away last update utc | 2026-10-11T08:56:41Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 12.00 |
 | Best home bookmaker | 1xBet |
@@ -883,9 +883,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:37Z |
-| Market best draw last update utc | 2026-10-11T08:22:55Z |
-| Market best away last update utc | 2026-10-11T08:22:55Z |
+| Market best home last update utc | 2026-10-11T08:56:27Z |
+| Market best draw last update utc | 2026-10-11T08:56:41Z |
+| Market best away last update utc | 2026-10-11T08:56:41Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | Betfair |
@@ -990,8 +990,8 @@ The model's most likely 1X2 outcome is **Barcelona win** at **62.2%**. Expected 
 | Real Betis win | 20.4% | 16.4% | 6.50 | +32.8% |
 | Draw | 17.4% | 13.2% | 6.20 | +7.8% |
 | Barcelona win | 62.2% | 70.4% | 1.49 | -7.3% |
-| Over 2.5 | 67.1% | 77.0% | 1.27 | -14.8% |
-| Under 2.5 | 32.9% | 23.0% | 3.82 | +25.7% |
+| Over 2.5 | 67.1% | 77.5% | 1.27 | -14.8% |
+| Under 2.5 | 32.9% | 22.5% | 3.82 | +25.7% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1007,9 +1007,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:22Z |
-| Market best draw last update utc | 2026-10-11T08:22:37Z |
-| Market best away last update utc | 2026-10-11T08:22:55Z |
+| Market best home last update utc | 2026-10-11T08:56:08Z |
+| Market best draw last update utc | 2026-10-11T08:56:27Z |
+| Market best away last update utc | 2026-10-11T08:56:41Z |
 | Odds bookmakers 1x2 | 16.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Tipico |
@@ -1045,14 +1045,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 4.50 |
 | Reference draw odds | 5.40 |
 | Reference away odds | 1.34 |
-| O/U 2.5 market source | The Odds API / Betsson |
-| Reference Over 2.5 odds | 1.27 |
-| Reference Under 2.5 odds | 3.82 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.25 |
+| Reference Under 2.5 odds | 3.70 |
 | Home probability edge | +4.0% |
 | Draw probability edge | +4.2% |
 | Away probability edge | -8.2% |
-| Over 2.5 probability edge | -9.9% |
-| Under 2.5 probability edge | +9.9% |
+| Over 2.5 probability edge | -10.4% |
+| Under 2.5 probability edge | +10.4% |
 | Raw edge prob home | 0.0799 |
 | Raw ev home | 0.5871 |
 | Raw edge prob draw | 0.0837 |
@@ -1131,9 +1131,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:37Z |
-| Market best draw last update utc | 2026-10-11T08:22:55Z |
-| Market best away last update utc | 2026-10-11T08:22:55Z |
+| Market best home last update utc | 2026-10-11T08:56:27Z |
+| Market best draw last update utc | 2026-10-11T08:56:41Z |
+| Market best away last update utc | 2026-10-11T08:56:41Z |
 | Odds bookmakers 1x2 | 16.00 |
 | Odds bookmakers ou25 | 12.00 |
 | Best home bookmaker | Betfair |
@@ -1236,10 +1236,10 @@ The model's most likely 1X2 outcome is **Villarreal win** at **65.8%**. Expected
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
 | Villarreal win | 65.8% | 67.0% | 1.51 | -0.7% |
-| Draw | 17.8% | 17.6% | 5.20 | -7.3% |
+| Draw | 17.8% | 17.6% | 5.00 | -10.9% |
 | Elche CF win | 16.4% | 15.4% | 6.73 | +10.4% |
-| Over 2.5 | 72.6% | 64.6% | 1.50 | +8.9% |
-| Under 2.5 | 27.4% | 35.4% | 2.70 | -26.1% |
+| Over 2.5 | 72.6% | 66.7% | 1.50 | +8.9% |
+| Under 2.5 | 27.4% | 33.3% | 2.70 | -26.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1255,13 +1255,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:55Z |
-| Market best draw last update utc | 2026-10-11T08:22:22Z |
-| Market best away last update utc | 2026-10-11T08:22:55Z |
+| Market best home last update utc | 2026-10-11T08:56:41Z |
+| Market best draw last update utc | 2026-10-11T08:56:27Z |
+| Market best away last update utc | 2026-10-11T08:56:41Z |
 | Odds bookmakers 1x2 | 16.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
-| Best draw bookmaker | Tipico |
+| Best draw bookmaker | Betfair |
 | Best away bookmaker | 1xBet |
 | Best over 2 5 bookmaker | Betsson |
 | Best under 2 5 bookmaker | William Hill |
@@ -1293,38 +1293,38 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.40 |
 | Reference draw odds | 4.30 |
 | Reference away odds | 4.80 |
-| O/U 2.5 market source | The Odds API / Betsson |
-| Reference Over 2.5 odds | 1.50 |
-| Reference Under 2.5 odds | 2.62 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.44 |
+| Reference Under 2.5 odds | 2.70 |
 | Home probability edge | -1.2% |
 | Draw probability edge | +0.2% |
 | Away probability edge | +1.0% |
-| Over 2.5 probability edge | +8.0% |
-| Under 2.5 probability edge | -8.0% |
+| Over 2.5 probability edge | +5.9% |
+| Under 2.5 probability edge | -5.9% |
 | Raw edge prob home | -0.0238 |
 | Raw ev home | -0.0247 |
 | Raw edge prob draw | 0.0045 |
-| Raw ev draw | -0.0617 |
+| Raw ev draw | -0.0978 |
 | Raw edge prob away | 0.0193 |
 | Raw ev away | 0.1687 |
 | Market p over 1 5 | 90.1% |
 | Market over 1 5 odds | 1.12 |
 | Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-11T08:22:06Z |
+| Market best over 1 5 last update utc | 2026-10-11T08:56:24Z |
 | Market reference over 1 5 odds | 1.08 |
 | Market reference over 1 5 opposite odds | 5.45 |
 | Market over 1 5 bookmakers | 3 |
 | Market p under 3 5 | 56.4% |
 | Market under 3 5 odds | 1.75 |
 | Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-11T08:23:03Z |
+| Market best under 3 5 last update utc | 2026-10-11T08:56:45Z |
 | Market reference under 3 5 odds | 1.75 |
 | Market reference under 3 5 opposite odds | 2.25 |
 | Market under 3 5 bookmakers | 3 |
 | Market p btts yes | 59.9% |
-| Market btts yes odds | 1.67 |
+| Market btts yes odds | 1.59 |
 | Best btts yes bookmaker | Matchbook |
-| Market best btts yes last update utc | 2026-10-11T08:22:39Z |
+| Market best btts yes last update utc | 2026-10-11T08:56:24Z |
 | Market reference btts yes odds | 1.58 |
 | Market reference btts yes opposite odds | 2.26 |
 | Market btts yes bookmakers | 3 |
@@ -1400,9 +1400,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:55Z |
-| Market best draw last update utc | 2026-10-11T08:22:55Z |
-| Market best away last update utc | 2026-10-11T08:22:55Z |
+| Market best home last update utc | 2026-10-11T08:56:41Z |
+| Market best draw last update utc | 2026-10-11T08:56:41Z |
+| Market best away last update utc | 2026-10-11T08:56:41Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 10.00 |
 | Best home bookmaker | 1xBet |
@@ -1452,24 +1452,24 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev draw | -0.3605 |
 | Raw edge prob away | -0.0477 |
 | Raw ev away | -0.1712 |
-| Market p over 1 5 | 79.7% |
+| Market p over 1 5 | 80.0% |
 | Market over 1 5 odds | 1.22 |
 | Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-11T08:22:06Z |
-| Market reference over 1 5 odds | 1.21 |
-| Market reference over 1 5 opposite odds | 3.80 |
+| Market best over 1 5 last update utc | 2026-10-11T08:56:24Z |
+| Market reference over 1 5 odds | 1.22 |
+| Market reference over 1 5 opposite odds | 4.20 |
 | Market over 1 5 bookmakers | 3 |
 | Market p under 3 5 | 68.6% |
 | Market under 3 5 odds | 1.41 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-11T08:22:53Z |
+| Market best under 3 5 last update utc | 2026-10-11T08:56:39Z |
 | Market reference under 3 5 odds | 1.41 |
 | Market reference under 3 5 opposite odds | 2.87 |
 | Market under 3 5 bookmakers | 3 |
 | Market p btts yes | 57.5% |
 | Market btts yes odds | 1.67 |
 | Best btts yes bookmaker | William Hill |
-| Market best btts yes last update utc | 2026-10-11T08:22:06Z |
+| Market best btts yes last update utc | 2026-10-11T08:56:24Z |
 | Market reference btts yes odds | 1.64 |
 | Market reference btts yes opposite odds | 2.15 |
 | Market btts yes bookmakers | 2 |
@@ -1545,9 +1545,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:55Z |
-| Market best draw last update utc | 2026-10-11T08:22:55Z |
-| Market best away last update utc | 2026-10-11T08:22:55Z |
+| Market best home last update utc | 2026-10-11T08:56:41Z |
+| Market best draw last update utc | 2026-10-11T08:56:41Z |
+| Market best away last update utc | 2026-10-11T08:56:41Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 10.00 |
 | Best home bookmaker | 1xBet |
@@ -1652,8 +1652,8 @@ The model's most likely 1X2 outcome is **Real Sociedad win** at **48.9%**. Expec
 | Málaga win | 23.4% | 30.1% | 3.30 | -22.9% |
 | Draw | 27.7% | 25.3% | 3.63 | +0.6% |
 | Real Sociedad win | 48.9% | 44.6% | 2.29 | +12.0% |
-| Over 2.5 | 27.9% | 53.1% | 1.86 | -48.1% |
-| Under 2.5 | 72.1% | 46.9% | 2.10 | +51.4% |
+| Over 2.5 | 27.9% | 54.1% | 1.86 | -48.1% |
+| Under 2.5 | 72.1% | 45.9% | 2.10 | +51.4% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1669,9 +1669,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:22Z |
-| Market best draw last update utc | 2026-10-11T08:22:55Z |
-| Market best away last update utc | 2026-10-11T08:22:55Z |
+| Market best home last update utc | 2026-10-11T08:56:09Z |
+| Market best draw last update utc | 2026-10-11T08:56:41Z |
+| Market best away last update utc | 2026-10-11T08:56:41Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 10.00 |
 | Best home bookmaker | Tipico |
@@ -1707,14 +1707,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.80 |
 | Reference draw odds | 3.25 |
 | Reference away odds | 2.00 |
-| O/U 2.5 market source | The Odds API / 1xBet |
-| Reference Over 2.5 odds | 1.86 |
-| Reference Under 2.5 odds | 2.10 |
+| O/U 2.5 market source | The Odds API / Unibet (SE) |
+| Reference Over 2.5 odds | 1.76 |
+| Reference Under 2.5 odds | 2.05 |
 | Home probability edge | -6.7% |
 | Draw probability edge | +2.4% |
 | Away probability edge | +4.3% |
-| Over 2.5 probability edge | -25.2% |
-| Under 2.5 probability edge | +25.2% |
+| Over 2.5 probability edge | -26.2% |
+| Under 2.5 probability edge | +26.2% |
 | Raw edge prob home | -0.1350 |
 | Raw ev home | -0.4517 |
 | Raw edge prob draw | 0.0483 |
@@ -1776,8 +1776,8 @@ The model's most likely 1X2 outcome is **Real Madrid win** at **80.0%**. Expecte
 | Real Madrid win | 80.0% | 82.7% | 1.30 | +4.0% |
 | Draw | 12.4% | 10.3% | 7.20 | -10.8% |
 | Sevilla win | 7.6% | 7.0% | 12.00 | -9.2% |
-| Over 2.5 | 66.4% | 70.1% | 1.39 | -7.7% |
-| Under 2.5 | 33.6% | 29.9% | 3.07 | +3.2% |
+| Over 2.5 | 66.4% | 70.4% | 1.38 | -8.4% |
+| Under 2.5 | 33.6% | 29.6% | 3.12 | +4.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1793,9 +1793,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:55Z |
-| Market best draw last update utc | 2026-10-11T08:22:37Z |
-| Market best away last update utc | 2026-10-11T08:22:06Z |
+| Market best home last update utc | 2026-10-11T08:56:41Z |
+| Market best draw last update utc | 2026-10-11T08:56:27Z |
+| Market best away last update utc | 2026-10-11T08:55:51Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
@@ -1831,14 +1831,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.16 |
 | Reference draw odds | 5.90 |
 | Reference away odds | 8.00 |
-| O/U 2.5 market source | The Odds API / Betsson |
-| Reference Over 2.5 odds | 1.39 |
-| Reference Under 2.5 odds | 3.07 |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.36 |
+| Reference Under 2.5 odds | 2.90 |
 | Home probability edge | -2.7% |
 | Draw probability edge | +2.1% |
 | Away probability edge | +0.6% |
-| Over 2.5 probability edge | -3.7% |
-| Under 2.5 probability edge | +3.7% |
+| Over 2.5 probability edge | -4.0% |
+| Under 2.5 probability edge | +4.0% |
 | Raw edge prob home | -0.0532 |
 | Raw ev home | 0.0059 |
 | Raw edge prob draw | 0.0416 |
@@ -1897,11 +1897,11 @@ The model's most likely 1X2 outcome is **Getafe win** at **35.8%**. Expected goa
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Getafe win | 35.8% | 33.9% | 2.98 | +6.8% |
+| Getafe win | 35.8% | 33.9% | 2.97 | +6.4% |
 | Draw | 32.3% | 29.8% | 3.26 | +5.2% |
 | Rayo Vallecano win | 31.9% | 36.3% | 2.80 | -10.7% |
-| Over 2.5 | 23.6% | 38.6% | 2.54 | -40.1% |
-| Under 2.5 | 76.4% | 61.4% | 1.61 | +23.0% |
+| Over 2.5 | 23.6% | 38.0% | 2.54 | -40.1% |
+| Under 2.5 | 76.4% | 62.0% | 1.61 | +23.0% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1917,12 +1917,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T08:22:37Z |
-| Market best draw last update utc | 2026-10-11T08:22:55Z |
-| Market best away last update utc | 2026-10-11T08:22:54Z |
+| Market best home last update utc | 2026-10-11T08:56:41Z |
+| Market best draw last update utc | 2026-10-11T08:56:41Z |
+| Market best away last update utc | 2026-10-11T08:56:42Z |
 | Odds bookmakers 1x2 | 15.00 |
 | Odds bookmakers ou25 | 10.00 |
-| Best home bookmaker | Betfair |
+| Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | Unibet (SE) |
 | Best over 2 5 bookmaker | 1xBet |
@@ -1955,16 +1955,16 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.55 |
 | Reference draw odds | 2.85 |
 | Reference away odds | 2.40 |
-| O/U 2.5 market source | The Odds API / 1xBet |
-| Reference Over 2.5 odds | 2.54 |
-| Reference Under 2.5 odds | 1.61 |
+| O/U 2.5 market source | The Odds API / Unibet (SE) |
+| Reference Over 2.5 odds | 2.43 |
+| Reference Under 2.5 odds | 1.55 |
 | Home probability edge | +2.0% |
 | Draw probability edge | +2.5% |
 | Away probability edge | -4.5% |
-| Over 2.5 probability edge | -14.9% |
-| Under 2.5 probability edge | +14.9% |
+| Over 2.5 probability edge | -14.4% |
+| Under 2.5 probability edge | +14.4% |
 | Raw edge prob home | 0.0392 |
-| Raw ev home | 0.1262 |
+| Raw ev home | 0.1225 |
 | Raw edge prob draw | 0.0499 |
 | Raw ev draw | 0.1337 |
 | Raw edge prob away | -0.0891 |
@@ -1972,21 +1972,21 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market p over 1 5 | 65.9% |
 | Market over 1 5 odds | 1.50 |
 | Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-11T08:22:06Z |
+| Market best over 1 5 last update utc | 2026-10-11T08:56:24Z |
 | Market reference over 1 5 odds | 1.47 |
 | Market reference over 1 5 opposite odds | 2.70 |
 | Market over 1 5 bookmakers | 4 |
 | Market p under 3 5 | 83.6% |
 | Market under 3 5 odds | 1.17 |
 | Best under 3 5 bookmaker | Codere (IT) |
-| Market best under 3 5 last update utc | 2026-10-11T08:22:21Z |
+| Market best under 3 5 last update utc | 2026-10-11T08:56:10Z |
 | Market reference under 3 5 odds | 1.16 |
 | Market reference under 3 5 opposite odds | 4.50 |
 | Market under 3 5 bookmakers | 2 |
 | Market p btts yes | 46.1% |
 | Market btts yes odds | 2.05 |
 | Best btts yes bookmaker | William Hill |
-| Market best btts yes last update utc | 2026-10-11T08:22:06Z |
+| Market best btts yes last update utc | 2026-10-11T08:56:24Z |
 | Market reference btts yes odds | 2.00 |
 | Market reference btts yes opposite odds | 1.74 |
 | Market btts yes bookmakers | 2 |

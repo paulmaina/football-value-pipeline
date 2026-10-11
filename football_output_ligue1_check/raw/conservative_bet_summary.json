@@ -1,0 +1,54 @@
+{
+  "status": "NO BET",
+  "generated_at_utc": "2026-10-11T08:52:24.642827+00:00",
+  "selection_policy_version": "72h-ucl-v2",
+  "n_fixtures": 12,
+  "n_markets_evaluated": 60,
+  "n_shortlisted": 0,
+  "n_strict_qualified": 0,
+  "n_provisional_watchlist": 0,
+  "n_total_candidates": 0,
+  "target_distinct_matches": 10,
+  "shortfall": 10,
+  "shortlist_lookahead_hours": 72.0,
+  "shortlist_window_start_utc": "2026-10-11T08:52:24.642827+00:00",
+  "shortlist_window_end_utc": "2026-10-14T08:52:24.642827+00:00",
+  "selected_matches_within_72_hours": false,
+  "selected_kickoff_span_hours": null,
+  "selected_first_kickoff_utc": null,
+  "selected_last_kickoff_utc": null,
+  "selection_method": "Strict-first ranking within the next 72 hours of the run",
+  "eligible_markets": [
+    "Home win",
+    "Away win",
+    "Over 1.5",
+    "Under 3.5",
+    "Both Teams to Score - Yes"
+  ],
+  "eligible_leagues": [
+    "Bundesliga",
+    "La Liga",
+    "Ligue 1",
+    "Premier League",
+    "Serie A",
+    "UEFA Champions League"
+  ],
+  "min_estimated_ev": 0.03,
+  "validation_required": true,
+  "ranking_metric": "development-calibration-adjusted probability, audit-qualified",
+  "validation_market_statuses": {
+    "Ligue 1": {
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "RELIABLE_FOR_RANKING",
+      "btts_yes": "RELIABLE_FOR_RANKING"
+    }
+  },
+  "min_raw_dc_ev": 0.0,
+  "min_team_name_match_score": 90.0,
+  "max_quote_age_hours": 24.0,
+  "rule": "one independently quoted market per distinct fixture; strict qualifications first, then up to ten clearly labeled provisional near-miss watchlist candidates",
+  "near_miss_policy": "PROVISIONAL is not strictly qualified. Only limited historical sample gaps, modest audit overconfidence, or small adjusted EV/probability misses are considered; bookmaker sanity, source, timing, team mapping, raw DC probability and raw EV must remain valid.",
+  "warning": "PROVISIONAL picks explicitly FAILED strict historical or EV requirements and are ONLY an analysis watchlist, not betting recommendations. No validated guaranteed matches or perfect betslips exist; ten-leg accumulators have substantial loss risk."
+}
