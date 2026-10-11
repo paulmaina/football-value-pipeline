@@ -170,27 +170,6 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev draw | 0.1110 |
 | Raw edge prob away | 0.1126 |
 | Raw ev away | 0.2729 |
-| Market p over 1 5 | 73.9% |
-| Market over 1 5 odds | 1.33 |
-| Best over 1 5 bookmaker | Pinnacle |
-| Market best over 1 5 last update utc | 2026-10-09T15:20:47Z |
-| Market reference over 1 5 odds | 1.33 |
-| Market reference over 1 5 opposite odds | 3.55 |
-| Market over 1 5 bookmakers | 5 |
-| Market p under 3 5 | 73.4% |
-| Market under 3 5 odds | 1.34 |
-| Best under 3 5 bookmaker | Coolbet |
-| Market best under 3 5 last update utc | 2026-10-09T15:20:51Z |
-| Market reference under 3 5 odds | 1.34 |
-| Market reference under 3 5 opposite odds | 3.50 |
-| Market under 3 5 bookmakers | 4 |
-| Market p btts yes | 54.8% |
-| Market btts yes odds | 1.82 |
-| Best btts yes bookmaker | Matchbook |
-| Market best btts yes last update utc | 2026-10-09T15:20:34Z |
-| Market reference btts yes odds | 1.82 |
-| Market reference btts yes opposite odds | 2.20 |
-| Market btts yes bookmakers | 4 |
 
 </details>
 
