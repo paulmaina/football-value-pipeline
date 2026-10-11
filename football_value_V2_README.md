@@ -44,17 +44,16 @@ Dixon-Coles prediction engine unchanged:
 
 1. **Fair extra-market API allocation**. The maximum **24**
    per-event `alternate_totals,btts` bookmaker requests are reserved
-   across the domestic leagues requested for a run. With all five
-   leagues, quotas are **EPL 5, LaLiga 5, Bundesliga 5, SerieA 5,
-   Ligue1 4**. Within each league, fixtures with the strongest
+   across the competitions requested for a run. With all six
+   competitions, quotas are **4 each**, including UCL. Within each league, fixtures with the strongest
    qualifying *existing model probabilities* are checked first, rather
-   than first-encountered chronological fixture order. UCL never uses
-   these goal-market requests. A league without qualifying events may
+   than first-encountered chronological fixture order. UCL shares
+   the same global 24-call budget. A league without qualifying events may
    leave its reservation unused; the pipeline never silently exceeds
    the global 24-call budget. These event requests consume API quota.
 
 2. **Historical walk-forward validation** for *Home win, Away win,
-   Over 1.5, Under 3.5 and BTTS Yes*. For each domestic league,
+   Over 1.5, Under 3.5 and BTTS Yes*. For each requested competition, including UCL,
    the existing match-history walk-forward predictor fits only on
    matches preceding each prediction window. Actual full-time
    results label each requested market (including true BTTS Yes).
@@ -87,13 +86,11 @@ Dixon-Coles prediction engine unchanged:
    development-adjusted conservative probability to calculate
    `conservative_estimated_ev`, enforce the existing minimums
    and rank candidate markets. The raw model probability/EV remain
-   available. Only then does the 96-hour kickoff preference group
-   candidates. A compact ten-match group is used **only if its
-   average reliability-adjusted forecast is within two percentage
-   points of the strongest ten overall**. Otherwise quality
-   overrides the four-day preference, and the summary records
-   `four_day_window_skipped_for_quality`. The selection still
-   never forces ten matches or combines several markets from one game.
+   available. Only fixtures kicking off between 20 minutes and
+   **60 hours after the run time** are eligible. This is a hard cutoff
+   for STRICT and PROVISIONAL rows; stronger distant fixtures cannot
+   override it. The selection never forces ten matches or combines
+   several markets from one game.
 
    With at least 75% predicted probability, the filter requires a
    passing **>=75% historical forecast group**. At 85% or higher,
@@ -258,8 +255,8 @@ The files `conservative_bet_shortlist.csv` and
 ten is reached with watchlist entries, `TARGET_WITH_PROVISIONAL`
 rather than falsely claiming ten fully qualified picks. The readable
 Markdown report displays the strict/watchlist breakdown.
-The old `eight_match_four_day_window_available` summary field
-is renamed to `ten_match_four_day_window_available`.
+Earlier releases used four-day preference fields. New runs use a hard
+60-hour horizon and emit `selected_matches_within_60_hours` instead.
 
 **Live bookmaker quality repair (v2.7):** Complete 1X2 and goal-market
 reference odds must imply a sane total inverse-odds sum
@@ -289,24 +286,29 @@ python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga 
 ```
 
 Markets evaluated: **Home win, Away win, Over 1.5, Under 3.5,
-Both Teams to Score — Yes**. UCL is still forecast, but excluded
-from this shortlist due to missing historical opening-price validation.
+Both Teams to Score — Yes**. UCL is eligible using its own Champions
+League walk-forward reliability report and the same qualification gates.
+Missing/insufficient/unreliable UCL evidence does not become STRICT.
+Historical UCL opening bookmaker prices are still unavailable; its blend
+and simulated profitability require forward evidence, not claims of
+historically validated betting returns.
 
 Outputs remain in `football_output_v2/raw/`:
 
 - `conservative_bet_shortlist.csv`: up to ten distinct fixtures,
   **the selected market and STRICT/PROVISIONAL qualification tier**
   beside each match. STRICT selections rank by calibrated forecast
-  probability; provisional gaps rank by distance from strict gates. The selection prefers a strongest
-  qualifying ten-match cohort whose kickoffs fall within **96 hours**
-  when such a cohort exists. Otherwise it keeps the strongest eligible
-  fixtures over the entire horizon and explicitly reports that the
-  four-day preference was not met.
+  probability; provisional gaps rank by distance from strict gates.
+  All shortlisted kickoffs must be within the **next 60 hours of the run**,
+  with the existing minimum 20-minute lead. The 60-hour endpoint is
+  inclusive. If fewer than ten qualify, the shortlist stays below target.
 - `conservative_bet_rejections.csv`: five decisions per fixture,
   including rejected/alternate markets and the reasons.
 - `conservative_bet_summary.json`: `TARGET_MET`, `BELOW_TARGET`
   or `NO BET`, with the shortfall to ten, actual selected
-  kickoff span, and whether the four-day preference was met.
+  kickoff span, `shortlist_lookahead_hours`, UTC window boundaries, and
+  `selected_matches_within_60_hours`. The old four-day preference fields
+  are no longer emitted for new runs.
 - `shortlist_history/conservative_decisions_<timestamp>.csv`:
   immutable dated audit snapshots for later feedback.
 
@@ -326,7 +328,7 @@ The new files are:
   model chance, **reliability-adjusted chance**, unblended DC chance,
   bookmaker odds, headline estimated EV and **conservative estimated EV**.
 - `football_output_v2/readable/conservative_bet_shortlist_report.md`
-  — a readable market-by-match table, four-day-window result, and
+  — a readable market-by-match table, 60-hour eligibility window, and
   selection risk notes. If there are no qualifying candidates, the
   report clearly says so.
 
@@ -364,7 +366,7 @@ complementary outcomes is sufficient. The market's own coherent
 quote pair (not unrelated line or h2h quotes) must be available.
 
 **Additional The Odds API quota cost:** The 24 extra event calls
-are now reserved fairly across the five requested domestic leagues
+are reserved fairly across the requested competitions, including UCL
 and prioritized within leagues. Extra-market coverage may still be
 missing at specific bookmakers and prices are never fabricated.
 
@@ -698,3 +700,4 @@ The self-test checks probability normalization, matrix reweighting, and dedicate
 ## Database direction
 
 See `DATABASE_DESIGN.md` for a proposed SQLite-first storage layer for HTTP cache, fixtures, odds snapshots, prediction runs and backtests. Database storage is intentionally separated from this live-odds change so source correctness can be validated before persistence is changed.
+
