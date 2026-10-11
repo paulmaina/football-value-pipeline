@@ -39,6 +39,8 @@ Fixtures in this report: **14**.
 | Additional event odds calls this league | 4.00 |
 | Decay tuning | {'selected_half_life_days': 365.0, 'selected_xi_per_day': 0.0018990333713971104, 'selection_metric': 'walk_forward_1x2_log_loss', 'validation_days': 365} |
 | Goal market reliability | {'home': 'RELIABLE_FOR_RANKING', 'away': 'RELIABLE_FOR_RANKING', 'over_1_5': 'RELIABLE_FOR_RANKING', 'under_3_5': 'RELIABLE_FOR_RANKING', 'btts_yes': 'RELIABLE_FOR_RANKING'} |
+| Data mode | offline_replay_of_committed_provider_responses |
+| Provider response source commit | 1cd7e6bed154f42a64d727330bff7e94e7913210 |
 
 </details>
 
@@ -169,7 +171,28 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob draw | 0.0178 |
 | Raw ev draw | 0.0448 |
 | Raw edge prob away | -0.0267 |
-| Raw ev away | -0.0626 |
+| Raw ev away | -0.0625 |
+| Market p over 1 5 | 75.3% |
+| Market over 1 5 odds | 1.30 |
+| Best over 1 5 bookmaker | Coolbet |
+| Market best over 1 5 last update utc | 2026-10-11T08:47:23Z |
+| Market reference over 1 5 odds | 1.29 |
+| Market reference over 1 5 opposite odds | 3.50 |
+| Market over 1 5 bookmakers | 5 |
+| Market p under 3 5 | 71.1% |
+| Market under 3 5 odds | 1.39 |
+| Best under 3 5 bookmaker | Pinnacle |
+| Market best under 3 5 last update utc | 2026-10-11T08:49:14Z |
+| Market reference under 3 5 odds | 1.34 |
+| Market reference under 3 5 opposite odds | 2.90 |
+| Market under 3 5 bookmakers | 4 |
+| Market p btts yes | 56.4% |
+| Market btts yes odds | 1.75 |
+| Best btts yes bookmaker | Matchbook |
+| Market best btts yes last update utc | 2026-10-11T08:49:14Z |
+| Market reference btts yes odds | 1.67 |
+| Market reference btts yes opposite odds | 2.10 |
+| Market btts yes bookmakers | 5 |
 
 </details>
 
@@ -178,7 +201,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Hull City vs Everton
 
-The model's most likely 1X2 outcome is **Hull City win** at **35.0%**. Expected goals are 1.09 for Hull City and 0.66 for Everton (1.74 combined). The most likely exact score is 0-0 at 16.9%. Goal-market probabilities: at least one goal: 83.1%; Over 2.5 goals: 26.0%; Under 3.5 goals: 90.3%; Under 4.5 goals: 96.7%; BTTS Yes (both teams score): 32.9%; BTTS No (at least one team does not score): 67.1%.
+The model's most likely 1X2 outcome is **Hull City win** at **35.0%**. Expected goals are 1.09 for Hull City and 0.66 for Everton (1.74 combined). The most likely exact score is 0-0 at 16.9%. Goal-market probabilities: at least one goal: 83.1%; Over 2.5 goals: 26.0%; Under 3.5 goals: 90.3%; Under 4.5 goals: 96.7%; BTTS Yes (both teams score): 32.8%; BTTS No (at least one team does not score): 67.2%.
 
 **Fixture source:** The Odds API
 
@@ -213,8 +236,8 @@ The model's most likely 1X2 outcome is **Hull City win** at **35.0%**. Expected 
 | Rank | Score | Probability |
 | --- | --- | --- |
 | 1 | 0-0 | 16.94% |
-| 2 | 0-1 | 16.42% |
-| 3 | 1-0 | 13.97% |
+| 2 | 0-1 | 16.43% |
+| 3 | 1-0 | 13.98% |
 | 4 | 1-1 | 12.45% |
 | 5 | 2-0 | 8.15% |
 
@@ -225,7 +248,7 @@ The model's most likely 1X2 outcome is **Hull City win** at **35.0%**. Expected 
 | Hull City win | 35.0% | 25.7% | 3.95 | +38.1% |
 | Draw | 31.6% | 28.1% | 3.52 | +11.1% |
 | Everton win | 33.5% | 46.2% | 2.18 | -27.1% |
-| Over 2.5 | 26.0% | 47.0% | 2.14 | -44.4% |
+| Over 2.5 | 26.0% | 47.0% | 2.14 | -44.5% |
 | Under 2.5 | 74.0% | 53.0% | 1.89 | +39.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
@@ -256,24 +279,24 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Everton |
 | Home-name matching confidence | 90/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 32.9% |
-| P btts no | 67.1% |
+| P btts yes | 32.8% |
+| P btts no | 67.2% |
 | Fair Over 0.5 odds | 1.20 |
 | Fair Under 0.5 odds | 5.90 |
 | Fair Over 1.5 odds | 1.90 |
 | Fair Under 1.5 odds | 2.11 |
 | Fair Over 2.5 odds | 3.85 |
 | Fair Under 2.5 odds | 1.35 |
-| Fair Over 3.5 odds | 10.32 |
+| Fair Over 3.5 odds | 10.33 |
 | Fair Under 3.5 odds | 1.11 |
-| Fair Over 4.5 odds | 30.71 |
+| Fair Over 4.5 odds | 30.74 |
 | Fair Under 4.5 odds | 1.03 |
 | Unadjusted home-win probability | 44.2% |
 | Unadjusted draw probability | 35.0% |
 | Unadjusted away-win probability | 20.8% |
-| Raw p over 1 5 | 53.4% |
+| Raw p over 1 5 | 53.3% |
 | Raw p under 3 5 | 90.0% |
-| Raw p btts yes | 33.3% |
+| Raw p btts yes | 33.2% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Codere (IT) |
@@ -288,12 +311,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -12.7% |
 | Over 2.5 probability edge | -21.1% |
 | Under 2.5 probability edge | +21.1% |
-| Raw edge prob home | 0.1851 |
-| Raw ev home | 0.7468 |
+| Raw edge prob home | 0.1852 |
+| Raw ev home | 0.7472 |
 | Raw edge prob draw | 0.0687 |
-| Raw ev draw | 0.2321 |
-| Raw edge prob away | -0.2538 |
-| Raw ev away | -0.5471 |
+| Raw ev draw | 0.2322 |
+| Raw edge prob away | -0.2539 |
+| Raw ev away | -0.5474 |
 | Market p over 1 5 | 74.1% |
 | Market over 1 5 odds | 1.35 |
 | Best over 1 5 bookmaker | Coolbet |
@@ -361,7 +384,7 @@ The model's most likely 1X2 outcome is **Manchester City win** at **43.0%**. Exp
 | 2 | 1-2 | 9.16% |
 | 3 | 2-1 | 7.55% |
 | 4 | 0-1 | 6.78% |
-| 5 | 0-2 | 6.55% |
+| 5 | 0-2 | 6.56% |
 
 ### Market comparison
 
@@ -404,9 +427,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 61.9% |
 | P btts no | 38.1% |
 | Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 17.11 |
+| Fair Under 0.5 odds | 17.10 |
 | Fair Over 1.5 odds | 1.22 |
-| Fair Under 1.5 odds | 5.55 |
+| Fair Under 1.5 odds | 5.54 |
 | Fair Over 2.5 odds | 1.70 |
 | Fair Under 2.5 odds | 2.43 |
 | Fair Over 3.5 odds | 2.75 |
@@ -434,11 +457,32 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | -2.1% |
 | Under 2.5 probability edge | +2.1% |
 | Raw edge prob home | 0.0078 |
-| Raw ev home | 0.0200 |
+| Raw ev home | 0.0197 |
 | Raw edge prob draw | 0.0037 |
 | Raw ev draw | 0.0073 |
-| Raw edge prob away | -0.0116 |
-| Raw ev away | -0.0236 |
+| Raw edge prob away | -0.0115 |
+| Raw ev away | -0.0234 |
+| Market p over 1 5 | 84.2% |
+| Market over 1 5 odds | 1.20 |
+| Best over 1 5 bookmaker | Coolbet |
+| Market best over 1 5 last update utc | 2026-10-11T08:47:23Z |
+| Market reference over 1 5 odds | 1.15 |
+| Market reference over 1 5 opposite odds | 4.50 |
+| Market over 1 5 bookmakers | 4 |
+| Market p under 3 5 | 60.9% |
+| Market under 3 5 odds | 1.58 |
+| Best under 3 5 bookmaker | Pinnacle |
+| Market best under 3 5 last update utc | 2026-10-11T08:49:14Z |
+| Market reference under 3 5 odds | 1.54 |
+| Market reference under 3 5 opposite odds | 2.27 |
+| Market under 3 5 bookmakers | 4 |
+| Market p btts yes | 63.5% |
+| Market btts yes odds | 1.57 |
+| Best btts yes bookmaker | Matchbook |
+| Market best btts yes last update utc | 2026-10-11T08:49:14Z |
+| Market reference btts yes odds | 1.57 |
+| Market reference btts yes opposite odds | 2.72 |
+| Market btts yes bookmakers | 5 |
 
 </details>
 
@@ -483,7 +527,7 @@ The model's most likely 1X2 outcome is **Newcastle United win** at **57.9%**. Ex
 | --- | --- | --- |
 | 1 | 0-1 | 15.74% |
 | 2 | 0-2 | 14.88% |
-| 3 | 0-0 | 13.32% |
+| 3 | 0-0 | 13.33% |
 | 4 | 1-0 | 10.31% |
 | 5 | 1-1 | 9.11% |
 
@@ -528,15 +572,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 27.9% |
 | P btts no | 72.1% |
 | Fair Over 0.5 odds | 1.15 |
-| Fair Under 0.5 odds | 7.51 |
+| Fair Under 0.5 odds | 7.50 |
 | Fair Over 1.5 odds | 1.65 |
 | Fair Under 1.5 odds | 2.54 |
 | Fair Over 2.5 odds | 2.91 |
 | Fair Under 2.5 odds | 1.52 |
 | Fair Over 3.5 odds | 6.50 |
 | Fair Under 3.5 odds | 1.18 |
-| Fair Over 4.5 odds | 16.38 |
-| Fair Under 4.5 odds | 1.07 |
+| Fair Over 4.5 odds | 16.39 |
+| Fair Under 4.5 odds | 1.06 |
 | Unadjusted home-win probability | 5.9% |
 | Unadjusted draw probability | 21.6% |
 | Unadjusted away-win probability | 72.5% |
@@ -557,12 +601,33 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | +14.6% |
 | Over 2.5 probability edge | -23.6% |
 | Under 2.5 probability edge | +23.6% |
-| Raw edge prob home | -0.2473 |
-| Raw ev home | -0.8030 |
-| Raw edge prob draw | -0.0455 |
-| Raw ev draw | -0.1782 |
-| Raw edge prob away | 0.2928 |
-| Raw ev away | 0.6673 |
+| Raw edge prob home | -0.2474 |
+| Raw ev home | -0.8033 |
+| Raw edge prob draw | -0.0456 |
+| Raw ev draw | -0.1784 |
+| Raw edge prob away | 0.2930 |
+| Raw ev away | 0.6676 |
+| Market p over 1 5 | 81.9% |
+| Market over 1 5 odds | 1.23 |
+| Best over 1 5 bookmaker | Coolbet |
+| Market best over 1 5 last update utc | 2026-10-11T08:47:23Z |
+| Market reference over 1 5 odds | 1.18 |
+| Market reference over 1 5 opposite odds | 4.10 |
+| Market over 1 5 bookmakers | 3 |
+| Market p under 3 5 | 64.6% |
+| Market under 3 5 odds | 1.50 |
+| Best under 3 5 bookmaker | Coolbet |
+| Market best under 3 5 last update utc | 2026-10-11T08:47:23Z |
+| Market reference under 3 5 odds | 1.46 |
+| Market reference under 3 5 opposite odds | 2.46 |
+| Market under 3 5 bookmakers | 3 |
+| Market p btts yes | 61.5% |
+| Market btts yes odds | 1.62 |
+| Best btts yes bookmaker | Matchbook |
+| Market best btts yes last update utc | 2026-10-11T08:49:14Z |
+| Market reference btts yes odds | 1.58 |
+| Market reference btts yes opposite odds | 2.45 |
+| Market btts yes bookmakers | 4 |
 
 </details>
 
@@ -684,9 +749,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob home | -0.0089 |
 | Raw ev home | -0.0260 |
 | Raw edge prob draw | 0.0053 |
-| Raw ev draw | 0.0000 |
+| Raw ev draw | 0.0001 |
 | Raw edge prob away | 0.0036 |
-| Raw ev away | 0.0052 |
+| Raw ev away | 0.0051 |
 
 </details>
 
@@ -805,12 +870,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -4.7% |
 | Over 2.5 probability edge | -9.7% |
 | Under 2.5 probability edge | +9.7% |
-| Raw edge prob home | 0.0527 |
-| Raw ev home | 0.1992 |
+| Raw edge prob home | 0.0526 |
+| Raw ev home | 0.1991 |
 | Raw edge prob draw | 0.0421 |
 | Raw ev draw | 0.1327 |
-| Raw edge prob away | -0.0948 |
-| Raw ev away | -0.1898 |
+| Raw edge prob away | -0.0947 |
+| Raw ev away | -0.1897 |
 
 </details>
 
@@ -853,10 +918,10 @@ The model's most likely 1X2 outcome is **Fulham win** at **42.2%**. Expected goa
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 17.28% |
-| 2 | 0-0 | 13.49% |
+| 1 | 1-0 | 17.29% |
+| 2 | 0-0 | 13.50% |
 | 3 | 1-1 | 12.37% |
-| 4 | 0-1 | 10.70% |
+| 4 | 0-1 | 10.71% |
 | 5 | 2-1 | 8.85% |
 
 ### Market comparison
@@ -865,9 +930,9 @@ The model's most likely 1X2 outcome is **Fulham win** at **42.2%**. Expected goa
 | --- | --- | --- | --- | --- |
 | Fulham win | 42.2% | 57.6% | 1.73 | -26.9% |
 | Draw | 28.7% | 23.2% | 4.11 | +17.9% |
-| Hull City win | 29.1% | 19.2% | 5.18 | +50.6% |
+| Hull City win | 29.1% | 19.2% | 5.18 | +50.7% |
 | Over 2.5 | 31.6% | 55.2% | 1.81 | -42.8% |
-| Under 2.5 | 68.4% | 44.8% | 2.23 | +52.5% |
+| Under 2.5 | 68.4% | 44.8% | 2.23 | +52.6% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -903,11 +968,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 0.5 odds | 7.41 |
 | Fair Over 1.5 odds | 1.71 |
 | Fair Under 1.5 odds | 2.41 |
-| Fair Over 2.5 odds | 3.16 |
+| Fair Over 2.5 odds | 3.17 |
 | Fair Under 2.5 odds | 1.46 |
-| Fair Over 3.5 odds | 7.79 |
+| Fair Over 3.5 odds | 7.80 |
 | Fair Under 3.5 odds | 1.15 |
-| Fair Over 4.5 odds | 20.93 |
+| Fair Over 4.5 odds | 20.96 |
 | Fair Under 4.5 odds | 1.05 |
 | Unadjusted home-win probability | 26.9% |
 | Unadjusted draw probability | 34.1% |
@@ -927,35 +992,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Home probability edge | -15.3% |
 | Draw probability edge | +5.4% |
 | Away probability edge | +9.9% |
-| Over 2.5 probability edge | -23.6% |
-| Under 2.5 probability edge | +23.6% |
-| Raw edge prob home | -0.3066 |
-| Raw ev home | -0.5345 |
-| Raw edge prob draw | 0.1087 |
-| Raw ev draw | 0.4023 |
-| Raw edge prob away | 0.1979 |
-| Raw ev away | 1.0189 |
-| Market p over 1 5 | 79.5% |
-| Market over 1 5 odds | 1.21 |
-| Best over 1 5 bookmaker | Codere (IT) |
-| Market best over 1 5 last update utc | 2026-10-11T08:56:39Z |
-| Market reference over 1 5 odds | 1.21 |
-| Market reference over 1 5 opposite odds | 3.75 |
-| Market over 1 5 bookmakers | 3 |
-| Market p under 3 5 | 67.7% |
-| Market under 3 5 odds | 1.42 |
-| Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:21Z |
-| Market reference under 3 5 odds | 1.40 |
-| Market reference under 3 5 opposite odds | 2.65 |
-| Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 54.4% |
-| Market btts yes odds | 1.75 |
-| Best btts yes bookmaker | Matchbook |
-| Market best btts yes last update utc | 2026-10-11T08:56:21Z |
-| Market reference btts yes odds | 1.72 |
-| Market reference btts yes opposite odds | 2.01 |
-| Market btts yes bookmakers | 4 |
+| Over 2.5 probability edge | -23.7% |
+| Under 2.5 probability edge | +23.7% |
+| Raw edge prob home | -0.3068 |
+| Raw ev home | -0.5349 |
+| Raw edge prob draw | 0.1088 |
+| Raw ev draw | 0.4025 |
+| Raw edge prob away | 0.1980 |
+| Raw ev away | 1.0197 |
 
 </details>
 
@@ -964,7 +1008,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-17 — Manchester City vs Ipswich Town
 
-The model's most likely 1X2 outcome is **Manchester City win** at **82.6%**. Expected goals are 3.46 for Manchester City and 0.70 for Ipswich Town (4.15 combined). The most likely exact score is 3-0 at 10.2%. Goal-market probabilities: at least one goal: 97.6%; Over 2.5 goals: 77.0%; Under 3.5 goals: 41.9%; Under 4.5 goals: 61.2%; BTTS Yes (both teams score): 50.3%; BTTS No (at least one team does not score): 49.7%.
+The model's most likely 1X2 outcome is **Manchester City win** at **82.6%**. Expected goals are 3.46 for Manchester City and 0.70 for Ipswich Town (4.15 combined). The most likely exact score is 3-0 at 10.3%. Goal-market probabilities: at least one goal: 97.6%; Over 2.5 goals: 77.0%; Under 3.5 goals: 41.9%; Under 4.5 goals: 61.2%; BTTS Yes (both teams score): 50.3%; BTTS No (at least one team does not score): 49.7%.
 
 **Fixture source:** The Odds API
 
@@ -999,7 +1043,7 @@ The model's most likely 1X2 outcome is **Manchester City win** at **82.6%**. Exp
 | Rank | Score | Probability |
 | --- | --- | --- |
 | 1 | 3-0 | 10.25% |
-| 2 | 2-0 | 8.89% |
+| 2 | 2-0 | 8.90% |
 | 3 | 4-0 | 8.86% |
 | 4 | 3-1 | 7.15% |
 | 5 | 2-1 | 6.20% |
@@ -1045,11 +1089,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 50.3% |
 | P btts no | 49.7% |
 | Fair Over 0.5 odds | 1.02 |
-| Fair Under 0.5 odds | 41.66 |
+| Fair Under 0.5 odds | 41.64 |
 | Fair Over 1.5 odds | 1.09 |
 | Fair Under 1.5 odds | 11.96 |
 | Fair Over 2.5 odds | 1.30 |
-| Fair Under 2.5 odds | 4.35 |
+| Fair Under 2.5 odds | 4.34 |
 | Fair Over 3.5 odds | 1.72 |
 | Fair Under 3.5 odds | 2.39 |
 | Fair Over 4.5 odds | 2.58 |
@@ -1079,28 +1123,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob draw | -0.0403 |
 | Raw ev draw | -0.3414 |
 | Raw edge prob away | -0.0516 |
-| Raw ev away | -0.5067 |
-| Market p over 1 5 | 88.7% |
-| Market over 1 5 odds | 1.11 |
-| Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-11T08:55:48Z |
-| Market reference over 1 5 odds | 1.10 |
-| Market reference over 1 5 opposite odds | 5.60 |
-| Market over 1 5 bookmakers | 3 |
-| Market p under 3 5 | 51.5% |
-| Market under 3 5 odds | 1.92 |
-| Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:35Z |
-| Market reference under 3 5 odds | 1.79 |
-| Market reference under 3 5 opposite odds | 1.89 |
-| Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 52.6% |
-| Market btts yes odds | 1.88 |
-| Best btts yes bookmaker | Matchbook |
-| Market best btts yes last update utc | 2026-10-11T08:56:21Z |
-| Market reference btts yes odds | 1.81 |
-| Market reference btts yes opposite odds | 1.99 |
-| Market btts yes bookmakers | 5 |
+| Raw ev away | -0.5068 |
 
 </details>
 
@@ -1204,7 +1227,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Unadjusted away-win probability | 30.4% |
 | Raw p over 1 5 | 84.1% |
 | Raw p under 3 5 | 60.1% |
-| Raw p btts yes | 64.3% |
+| Raw p btts yes | 64.4% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Codere (IT) |
@@ -1219,7 +1242,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | +0.8% |
 | Over 2.5 probability edge | +1.8% |
 | Under 2.5 probability edge | -1.8% |
-| Raw edge prob home | -0.0183 |
+| Raw edge prob home | -0.0184 |
 | Raw ev home | -0.0364 |
 | Raw edge prob draw | 0.0014 |
 | Raw ev draw | -0.0036 |
@@ -1314,7 +1337,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 51.8% |
 | P btts no | 48.2% |
 | Fair Over 0.5 odds | 1.09 |
-| Fair Under 0.5 odds | 11.66 |
+| Fair Under 0.5 odds | 11.65 |
 | Fair Over 1.5 odds | 1.35 |
 | Fair Under 1.5 odds | 3.86 |
 | Fair Over 2.5 odds | 2.09 |
@@ -1343,12 +1366,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -1.0% |
 | Over 2.5 probability edge | -5.3% |
 | Under 2.5 probability edge | +5.3% |
-| Raw edge prob home | -0.0010 |
-| Raw ev home | -0.0073 |
-| Raw edge prob draw | 0.0204 |
-| Raw ev draw | 0.0562 |
+| Raw edge prob home | -0.0011 |
+| Raw ev home | -0.0074 |
+| Raw edge prob draw | 0.0205 |
+| Raw ev draw | 0.0563 |
 | Raw edge prob away | -0.0194 |
-| Raw ev away | -0.0543 |
+| Raw ev away | -0.0541 |
 
 </details>
 
@@ -1438,7 +1461,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 56.2% |
 | P btts no | 43.8% |
 | Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 16.78 |
+| Fair Under 0.5 odds | 16.79 |
 | Fair Over 1.5 odds | 1.24 |
 | Fair Under 1.5 odds | 5.10 |
 | Fair Over 2.5 odds | 1.76 |
@@ -1470,9 +1493,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob home | -0.0720 |
 | Raw ev home | -0.1170 |
 | Raw edge prob draw | 0.0393 |
-| Raw ev draw | 0.1399 |
+| Raw ev draw | 0.1400 |
 | Raw edge prob away | 0.0326 |
-| Raw ev away | 0.1591 |
+| Raw ev away | 0.1592 |
 
 </details>
 
@@ -1481,7 +1504,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Leeds United vs Manchester United
 
-The model's most likely 1X2 outcome is **Leeds United win** at **38.8%**. Expected goals are 1.42 for Leeds United and 1.30 for Manchester United (2.72 combined). The most likely exact score is 1-1 at 12.8%. Goal-market probabilities: at least one goal: 92.5%; Over 2.5 goals: 51.5%; Under 3.5 goals: 70.9%; Under 4.5 goals: 85.9%; BTTS Yes (both teams score): 56.1%; BTTS No (at least one team does not score): 43.9%.
+The model's most likely 1X2 outcome is **Leeds United win** at **38.8%**. Expected goals are 1.42 for Leeds United and 1.30 for Manchester United (2.72 combined). The most likely exact score is 1-1 at 12.8%. Goal-market probabilities: at least one goal: 92.5%; Over 2.5 goals: 51.6%; Under 3.5 goals: 70.9%; Under 4.5 goals: 85.9%; BTTS Yes (both teams score): 56.1%; BTTS No (at least one team does not score): 43.9%.
 
 **Fixture source:** The Odds API
 
@@ -1504,8 +1527,8 @@ The model's most likely 1X2 outcome is **Leeds United win** at **38.8%**. Expect
 | Under 0.5 | 7.5% |
 | Over 1.5 | 76.8% |
 | Under 1.5 | 23.2% |
-| Over 2.5 | 51.5% |
-| Under 2.5 | 48.5% |
+| Over 2.5 | 51.6% |
+| Under 2.5 | 48.4% |
 | Over 3.5 | 29.1% |
 | Under 3.5 | 70.9% |
 | Over 4.5 | 14.1% |
@@ -1528,8 +1551,8 @@ The model's most likely 1X2 outcome is **Leeds United win** at **38.8%**. Expect
 | Leeds United win | 38.8% | 39.0% | 2.60 | +0.9% |
 | Draw | 27.0% | 25.7% | 3.75 | +1.1% |
 | Manchester United win | 34.2% | 35.3% | 2.86 | -2.1% |
-| Over 2.5 | 51.5% | 58.9% | 1.70 | -12.4% |
-| Under 2.5 | 48.5% | 41.1% | 2.34 | +13.4% |
+| Over 2.5 | 51.6% | 58.9% | 1.70 | -12.4% |
+| Under 2.5 | 48.4% | 41.1% | 2.34 | +13.4% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1592,11 +1615,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | -7.4% |
 | Under 2.5 probability edge | +7.4% |
 | Raw edge prob home | -0.0046 |
-| Raw ev home | 0.0032 |
+| Raw ev home | 0.0033 |
 | Raw edge prob draw | 0.0252 |
 | Raw ev draw | 0.0580 |
 | Raw edge prob away | -0.0206 |
-| Raw ev away | -0.0505 |
+| Raw ev away | -0.0506 |
 
 </details>
 
@@ -1693,7 +1716,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 2.5 odds | 1.73 |
 | Fair Over 3.5 odds | 4.79 |
 | Fair Under 3.5 odds | 1.26 |
-| Fair Over 4.5 odds | 11.19 |
+| Fair Over 4.5 odds | 11.20 |
 | Fair Under 4.5 odds | 1.10 |
 | Unadjusted home-win probability | 17.3% |
 | Unadjusted draw probability | 28.0% |
@@ -1716,9 +1739,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | -7.5% |
 | Under 2.5 probability edge | +7.5% |
 | Raw edge prob home | 0.0151 |
-| Raw ev home | 0.1773 |
-| Raw edge prob draw | 0.0525 |
-| Raw ev draw | 0.1477 |
+| Raw ev home | 0.1774 |
+| Raw edge prob draw | 0.0526 |
+| Raw ev draw | 0.1478 |
 | Raw edge prob away | -0.0677 |
 | Raw ev away | -0.0921 |
 
@@ -1763,7 +1786,7 @@ The model's most likely 1X2 outcome is **Tottenham Hotspur win** at **68.6%**. E
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 20.66% |
+| 1 | 1-0 | 20.67% |
 | 2 | 2-0 | 18.26% |
 | 3 | 0-0 | 12.60% |
 | 4 | 3-0 | 10.38% |
@@ -1810,14 +1833,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 24.0% |
 | P btts no | 76.0% |
 | Fair Over 0.5 odds | 1.14 |
-| Fair Under 0.5 odds | 7.94 |
+| Fair Under 0.5 odds | 7.93 |
 | Fair Over 1.5 odds | 1.65 |
 | Fair Under 1.5 odds | 2.53 |
 | Fair Over 2.5 odds | 2.99 |
 | Fair Under 2.5 odds | 1.50 |
 | Fair Over 3.5 odds | 6.81 |
 | Fair Under 3.5 odds | 1.17 |
-| Fair Over 4.5 odds | 17.98 |
+| Fair Over 4.5 odds | 18.00 |
 | Fair Under 4.5 odds | 1.06 |
 | Unadjusted home-win probability | 71.0% |
 | Unadjusted draw probability | 23.1% |
@@ -1837,35 +1860,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Home probability edge | +2.4% |
 | Draw probability edge | +2.0% |
 | Away probability edge | -4.4% |
-| Over 2.5 probability edge | -27.4% |
-| Under 2.5 probability edge | +27.4% |
+| Over 2.5 probability edge | -27.5% |
+| Under 2.5 probability edge | +27.5% |
 | Raw edge prob home | 0.0478 |
-| Raw ev home | 0.0927 |
+| Raw ev home | 0.0928 |
 | Raw edge prob draw | 0.0394 |
-| Raw ev draw | 0.1094 |
-| Raw edge prob away | -0.0871 |
-| Raw ev away | -0.5991 |
-| Market p over 1 5 | 83.3% |
-| Market over 1 5 odds | 1.17 |
-| Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-11T08:55:48Z |
-| Market reference over 1 5 odds | 1.16 |
-| Market reference over 1 5 opposite odds | 4.30 |
-| Market over 1 5 bookmakers | 3 |
-| Market p under 3 5 | 62.2% |
-| Market under 3 5 odds | 1.56 |
-| Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:21Z |
-| Market reference under 3 5 odds | 1.51 |
-| Market reference under 3 5 opposite odds | 2.33 |
-| Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 55.9% |
-| Market btts yes odds | 1.68 |
-| Best btts yes bookmaker | 1xBet |
-| Market best btts yes last update utc | 2026-10-11T08:56:04Z |
-| Market reference btts yes odds | 1.68 |
-| Market reference btts yes opposite odds | 2.08 |
-| Market btts yes bookmakers | 2 |
+| Raw ev draw | 0.1093 |
+| Raw edge prob away | -0.0872 |
+| Raw ev away | -0.5994 |
 
 </details>
 

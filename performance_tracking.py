@@ -251,14 +251,7 @@ def frozen_rows(archive: list[tuple[dict, list[dict], list[dict]]],
     return list(frozen.values())
 
 
-def valid_goals(score: Any) -> tuple[int, int] | None:
-    if not isinstance(score, dict):
-        return None
-    h, a = score.get("home"), score.get("away")
-    # API v4 uses home / away for current matches; fail closed on nulls.
-    if all(type(x) is int and 0 <= x <= 30 for x in (h, a)):
-        return h, a
-    return None
+from match_scores import valid_goals, regulation_goals
 
 
 def verified_record(league_code: str, match: dict) -> dict | None:
@@ -271,12 +264,7 @@ def verified_record(league_code: str, match: dict) -> dict | None:
         return None
     score = match["score"]
     duration = score.get("duration")
-    if duration in ("EXTRA_TIME", "PENALTY_SHOOTOUT"):
-        goals = valid_goals(score.get("regularTime"))
-    elif duration in (None, "REGULAR"):
-        goals = valid_goals(score.get("fullTime"))
-    else:
-        return None
+    goals = regulation_goals(score)
     home, away = match.get("homeTeam"), match.get("awayTeam")
     kickoff = utc(match.get("utcDate"))
     if goals is None or kickoff is None or not isinstance(home, dict) or not isinstance(away, dict):
