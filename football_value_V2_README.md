@@ -32,7 +32,7 @@ exploratory review prompt, not proof of a bookmaker edge. The workbook
 does not change model parameters automatically. New snapshots record
 `selection_policy_version`; older archives remain `legacy/unspecified`
 unless their saved summary identifies a policy. Compare policies separately
-when evaluating the 60-hour/UCL shortlist change. Brier scores use the same
+when evaluating the 72-hour/UCL shortlist change. Brier scores use the same
 reliability-adjusted probability shown in the selection report.
 
 The Python exporter fills a bundled native Excel template using the standard
@@ -126,7 +126,7 @@ Dixon-Coles prediction engine unchanged:
    `conservative_estimated_ev`, enforce the existing minimums
    and rank candidate markets. The raw model probability/EV remain
    available. Only fixtures kicking off between 20 minutes and
-   **60 hours after the run time** are eligible. This is a hard cutoff
+   **72 hours after the run time** are eligible. This is a hard cutoff
    for STRICT and PROVISIONAL rows; stronger distant fixtures cannot
    override it. The selection never forces ten matches or combines
    several markets from one game.
@@ -295,7 +295,7 @@ ten is reached with watchlist entries, `TARGET_WITH_PROVISIONAL`
 rather than falsely claiming ten fully qualified picks. The readable
 Markdown report displays the strict/watchlist breakdown.
 Earlier releases used four-day preference fields. New runs use a hard
-60-hour horizon and emit `selected_matches_within_60_hours` instead.
+72-hour horizon and emit `selected_matches_within_72_hours` instead.
 
 **Live bookmaker quality repair (v2.7):** Complete 1X2 and goal-market
 reference odds must imply a sane total inverse-odds sum
@@ -338,15 +338,15 @@ Outputs remain in `football_output_v2/raw/`:
   **the selected market and STRICT/PROVISIONAL qualification tier**
   beside each match. STRICT selections rank by calibrated forecast
   probability; provisional gaps rank by distance from strict gates.
-  All shortlisted kickoffs must be within the **next 60 hours of the run**,
-  with the existing minimum 20-minute lead. The 60-hour endpoint is
+  All shortlisted kickoffs must be within the **next 72 hours of the run**,
+  with the existing minimum 20-minute lead. The 72-hour endpoint is
   inclusive. If fewer than ten qualify, the shortlist stays below target.
 - `conservative_bet_rejections.csv`: five decisions per fixture,
   including rejected/alternate markets and the reasons.
 - `conservative_bet_summary.json`: `TARGET_MET`, `BELOW_TARGET`
   or `NO BET`, with the shortfall to ten, actual selected
   kickoff span, `shortlist_lookahead_hours`, UTC window boundaries, and
-  `selected_matches_within_60_hours`. The old four-day preference fields
+  `selected_matches_within_72_hours`. The old four-day preference fields
   are no longer emitted for new runs.
 - `shortlist_history/conservative_decisions_<timestamp>.csv`:
   immutable dated audit snapshots for later feedback.
@@ -367,7 +367,7 @@ The new files are:
   model chance, **reliability-adjusted chance**, unblended DC chance,
   bookmaker odds, headline estimated EV and **conservative estimated EV**.
 - `football_output_v2/readable/conservative_bet_shortlist_report.md`
-  — a readable market-by-match table, 60-hour eligibility window, and
+  — a readable market-by-match table, 72-hour eligibility window, and
   selection risk notes. If there are no qualifying candidates, the
   report clearly says so.
 
@@ -740,3 +740,28 @@ The self-test checks probability normalization, matrix reweighting, and dedicate
 
 See `DATABASE_DESIGN.md` for a proposed SQLite-first storage layer for HTTP cache, fixtures, odds snapshots, prediction runs and backtests. Database storage is intentionally separated from this live-odds change so source correctness can be validated before persistence is changed.
 
+
+### Refreshing an older shortlist
+
+Merging selection code does not regenerate committed CSVs. To re-rank existing
+forecasts against the current UTC time and hard 72-hour cutoff, run:
+
+```powershell
+py refresh_conservative_shortlist.py
+```
+
+This refreshes raw and readable shortlist files, including rejection reasons.
+It does not fetch fresh odds or add missing league forecasts. For fresh predictions
+including UCL, set the required API keys and run:
+
+```powershell
+py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life
+py format_football_output.py
+```
+
+The shortlist is anchored to generation time, never the first fixture. Exactly
+72 hours is included; later kickoffs are rejected even when they score higher.
+STRICT candidates rank first by calibration-adjusted probability and EV;
+PROVISIONAL candidates remain an explicitly labelled research watchlist.
+UCL requires its own historical validation and qualifying pre-match odds.
+Existing immutable performance archives retain their original selection policy.

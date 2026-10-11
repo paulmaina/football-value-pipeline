@@ -1182,8 +1182,8 @@ def process_conservative_shortlist(
     status = summary.get("status") or ("CANDIDATES_FOUND" if count else "NO BET")
     span = to_float(summary.get("selected_kickoff_span_hours"))
     current_window = "shortlist_lookahead_hours" in summary
-    window = summary.get("selected_matches_within_60_hours") if current_window else summary.get("selected_matches_within_four_days")
-    window_label = ("Kickoffs within next 60 hours of run" if current_window
+    window = summary.get("selected_matches_within_72_hours", summary.get("selected_matches_within_60_hours")) if current_window else summary.get("selected_matches_within_four_days")
+    window_label = (f"Kickoffs within next {summary['shortlist_lookahead_hours']:g} hours of run" if current_window
                     else "Kickoffs within 4 days (96 hours)")
     window_text = (
         "Yes" if window is True else
@@ -1191,9 +1191,14 @@ def process_conservative_shortlist(
     )
     generated = summary.get("generated_at_utc") or "not recorded"
 
+    refresh_note = summary.get("refresh_source", "")
+    if summary.get("ucl_validation_available") is False:
+        refresh_note += "; UCL historical validation missing: rerun the full six-league pipeline"
+
     lines = [
         "# Conservative shortlisted matches and markets",
         "",
+        refresh_note,
         f"**Candidates:** {count} of target {target} distinct matches.",
         f"**Strictly qualified:** {n_strict}. **Provisional watchlist:** {n_provisional}.",
         f"**Pipeline status:** {status}.",
