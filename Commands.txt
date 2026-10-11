@@ -1,23 +1,27 @@
-pip install -r football_value_requirements.txt
 
-# PowerShell - enable current fixtures + live 1X2/O-U odds
-$env:THE_ODDS_API_KEY="your-key-here"
-
-# Optional reliable fixture fallback
-# $env:FOOTBALL_DATA_API_KEY="your-key-here"
-
-python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1
-
-# UCL requires FOOTBALL_DATA_API_KEY for Champions League training history
-python football_value_pipeline_v2_standalone.py --leagues UCL
-
-# All supported competitions
-python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL
-
-python football_value_pipeline_v2_standalone.py --leagues EPL
-
-python football_value_pipeline_v2_standalone.py --self-test
-
-python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life
+python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life (main)
 
 python format_football_output.py
+
+Parameter    |	  Default |	Meaning
+--leagues	        EPL	    Predict English Premier League matches only
+--seasons-back	    4	      Use up to four seasons of historical match data for training
+--lookahead-days	10	    Look for upcoming fixtures within the next 10 days
+--half-life-days	240 days
+--tune-half-life	Disabled
+--market-weight	    0.50 (50% Dixon–Coles / 50% bookmaker)
+--devig	power
+--odds-regions	    eu
+--fixture-provider	auto
+--max-goals	10
+--l2	0.08
+--out-dir	        football_output_v2/raw
+
+
+
+py football_value_pipeline_v2_standalone.py --leagues UCL --tune-half-life --out-dir football_output_v2/raw
+py football_value_pipeline_v2_standalone.py --leagues EPL --tune-half-life --out-dir football_output_v2/raw
+py football_value_pipeline_v2_standalone.py --leagues LaLiga --tune-half-life --out-dir football_output_v2/raw
+py football_value_pipeline_v2_standalone.py --leagues Bundesliga --tune-half-life --out-dir football_output_v2/raw
+py football_value_pipeline_v2_standalone.py --leagues SerieA --tune-half-life --out-dir football_output_v2/raw
+py football_value_pipeline_v2_standalone.py --leagues Ligue1 --tune-half-life --out-dir football_output_v2/raw
