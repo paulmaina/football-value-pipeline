@@ -66,6 +66,37 @@ class GradedCandidatesTests(unittest.TestCase):
         self.assertTrue(watch["historical_gap_score"].notna().all())
         self.assertTrue((watch["decision"]=="SHORTLISTED_PROVISIONAL").all())
 
+    def test_ucl_uses_own_validation_and_preserves_strict_gates(self):
+        row = only_over_goal(0)
+        row["league"] = "UEFA Champions League"
+        picks, _, summary = build_conservative_shortlist(
+            pd.DataFrame([row]), as_of=NOW,
+            market_reliability={"UEFA Champions League": sample_report()},
+        )
+        self.assertEqual(len(picks), 1)
+        self.assertEqual(picks.iloc[0]["selection_tier"], "STRICT")
+        self.assertIn("UEFA Champions League", summary["eligible_leagues"])
+        for reports in (None, {}, {"Premier League": sample_report()}):
+            picks, _, _ = build_conservative_shortlist(
+                pd.DataFrame([row]), as_of=NOW, market_reliability=reports,
+            )
+            self.assertTrue(picks.empty)
+
+    def test_provisional_ucl_respects_horizon_and_invalid_odds(self):
+        from datetime import timedelta
+        rows = [only_over_goal(i) for i in (4, 5, 6)]
+        for row in rows:
+            row["league"] = "UEFA Champions League"
+        rows[1]["kickoff_utc"] = (NOW + timedelta(hours=60, seconds=1)).isoformat()
+        rows[2]["market_over_1_5_odds"] = None
+        picks, _, summary = build_conservative_shortlist(
+            pd.DataFrame(rows), as_of=NOW,
+            market_reliability={"UEFA Champions League": sample_report()},
+        )
+        self.assertEqual(picks.fixture_id.tolist(), [rows[0]["fixture_id"]])
+        self.assertEqual(summary["n_provisional_watchlist"], 1)
+        self.assertEqual(picks.iloc[0]["selection_tier"], "PROVISIONAL")
+
     def test_missing_or_fabricated_reference_never_becomes_provisional(self):
         a=only_over_goal(4)
         a.update({
@@ -207,3 +238,4 @@ class GradedCandidatesTests(unittest.TestCase):
 
 if __name__=="__main__":
     unittest.main()
+

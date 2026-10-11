@@ -43,17 +43,17 @@ def historical(n=200, p=0.8, observed=0.8):
 
 
 class MarketValidationTests(unittest.TestCase):
-    def test_fair_24_calls_split_across_all_domestic_leagues(self):
+    def test_fair_24_calls_split_across_all_six_competitions(self):
         allocation = distribute_event_odds_budget(
             ["EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1", "UCL"], 24
         )
         self.assertEqual(allocation, {
-            "EPL": 5, "LaLiga": 5, "Bundesliga": 5,
-            "SerieA": 5, "Ligue1": 4,
+            "EPL": 4, "LaLiga": 4, "Bundesliga": 4,
+            "SerieA": 4, "Ligue1": 4, "UCL": 4,
         })
         self.assertEqual(sum(allocation.values()), 24)
         self.assertEqual(distribute_event_odds_budget(["SerieA"], 24), {"SerieA": 24})
-        self.assertEqual(distribute_event_odds_budget(["UCL"], 24), {})
+        self.assertEqual(distribute_event_odds_budget(["UCL"], 24), {"UCL": 24})
 
     def test_prioritize_best_eligible_fixture_not_first_upcoming(self):
         def item(i, p):
@@ -270,3 +270,4 @@ class MarketValidationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
