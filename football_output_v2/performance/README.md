@@ -11,7 +11,7 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 |---|---:|---:|---:|---:|
 | All selections | 0 | 0-0 | — | — |
 
-Unsettled / unverified entries: **0**.
+Unsettled / unverified entries: **10**.
 Whole-fixture 1X2 multiclass Brier (n=0): —
 
 ## STRICT versus PROVISIONAL
@@ -35,11 +35,16 @@ Whole-fixture 1X2 multiclass Brier (n=0): —
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
+| La Liga | 0 | 0-0 | — | — |
+| Premier League | 0 | 0-0 | — | — |
+| Serie A | 0 | 0-0 | — | — |
 
 ## Gameweeks
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
+| 2026-W41 | 0 | 0-0 | — | — |
+| 2026-W42 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
 

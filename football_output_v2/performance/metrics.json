@@ -1,7 +1,44 @@
 {
   "calibration": [],
   "groups": {
-    "league": {},
+    "league": {
+      "La Liga": {
+        "brier": null,
+        "flat_stake_roi": null,
+        "graded": 0,
+        "losses": 0,
+        "pending": 4,
+        "profit_per_unit_staked": null,
+        "settled_with_odds": 0,
+        "total": 4,
+        "win_rate": null,
+        "wins": 0
+      },
+      "Premier League": {
+        "brier": null,
+        "flat_stake_roi": null,
+        "graded": 0,
+        "losses": 0,
+        "pending": 4,
+        "profit_per_unit_staked": null,
+        "settled_with_odds": 0,
+        "total": 4,
+        "win_rate": null,
+        "wins": 0
+      },
+      "Serie A": {
+        "brier": null,
+        "flat_stake_roi": null,
+        "graded": 0,
+        "losses": 0,
+        "pending": 2,
+        "profit_per_unit_staked": null,
+        "settled_with_odds": 0,
+        "total": 2,
+        "win_rate": null,
+        "wins": 0
+      }
+    },
     "market": {
       "Away win": {
         "brier": null,
@@ -32,10 +69,10 @@
         "flat_stake_roi": null,
         "graded": 0,
         "losses": 0,
-        "pending": 0,
+        "pending": 2,
         "profit_per_unit_staked": null,
         "settled_with_odds": 0,
-        "total": 0,
+        "total": 2,
         "win_rate": null,
         "wins": 0
       },
@@ -44,10 +81,10 @@
         "flat_stake_roi": null,
         "graded": 0,
         "losses": 0,
-        "pending": 0,
+        "pending": 3,
         "profit_per_unit_staked": null,
         "settled_with_odds": 0,
-        "total": 0,
+        "total": 3,
         "win_rate": null,
         "wins": 0
       },
@@ -56,10 +93,10 @@
         "flat_stake_roi": null,
         "graded": 0,
         "losses": 0,
-        "pending": 0,
+        "pending": 5,
         "profit_per_unit_staked": null,
         "settled_with_odds": 0,
-        "total": 0,
+        "total": 5,
         "win_rate": null,
         "wins": 0
       }
@@ -70,10 +107,10 @@
         "flat_stake_roi": null,
         "graded": 0,
         "losses": 0,
-        "pending": 0,
+        "pending": 8,
         "profit_per_unit_staked": null,
         "settled_with_odds": 0,
-        "total": 0,
+        "total": 8,
         "win_rate": null,
         "wins": 0
       },
@@ -82,17 +119,44 @@
         "flat_stake_roi": null,
         "graded": 0,
         "losses": 0,
-        "pending": 0,
+        "pending": 2,
         "profit_per_unit_staked": null,
         "settled_with_odds": 0,
-        "total": 0,
+        "total": 2,
         "win_rate": null,
         "wins": 0
       }
     },
-    "week": {}
+    "week": {
+      "2026-W41": {
+        "brier": null,
+        "flat_stake_roi": null,
+        "graded": 0,
+        "losses": 0,
+        "pending": 3,
+        "profit_per_unit_staked": null,
+        "settled_with_odds": 0,
+        "total": 3,
+        "win_rate": null,
+        "wins": 0
+      },
+      "2026-W42": {
+        "brier": null,
+        "flat_stake_roi": null,
+        "graded": 0,
+        "losses": 0,
+        "pending": 7,
+        "profit_per_unit_staked": null,
+        "settled_with_odds": 0,
+        "total": 7,
+        "win_rate": null,
+        "wins": 0
+      }
+    }
   },
-  "pending_reason_counts": {},
+  "pending_reason_counts": {
+    "PENDING_KICKOFF_OR_FINAL_SCORE": 10
+  },
   "prediction_1x2_multiclass_brier": null,
   "prediction_fixtures_graded": 0,
   "provider_errors": {},
@@ -101,13 +165,13 @@
     "flat_stake_roi": null,
     "graded": 0,
     "losses": 0,
-    "pending": 0,
+    "pending": 10,
     "profit_per_unit_staked": null,
     "settled_with_odds": 0,
-    "total": 0,
+    "total": 10,
     "win_rate": null,
     "wins": 0
   },
   "source": "football-data.org v4 FINISHED regulation-time scorelines",
-  "status": "AWAITING_PREMATCH_SNAPSHOTS"
+  "status": "AWAITING_VERIFIED_RESULTS"
 }
