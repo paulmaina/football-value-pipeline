@@ -18,7 +18,7 @@ from typing import Optional
 import numpy as np
 import pandas as pd
 
-DOMESTIC = ("EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1")
+SUPPORTED_COMPETITIONS = ("EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1", "UCL")
 HIGH_PROBABILITY_THRESHOLDS = (0.75, 0.85)
 MIN_HIGH_DEV = 30
 MIN_HIGH_AUDIT = 12
@@ -49,7 +49,7 @@ def distribute_event_odds_budget(
     """Fair, deterministic per-league reservation; sum cannot exceed budget."""
     if total < 0:
         raise ValueError("Budget cannot be negative")
-    valid = [key for key in DOMESTIC if key in league_keys]
+    valid = [key for key in SUPPORTED_COMPETITIONS if key in league_keys]
     if not valid:
         return {}
     base, remainder = divmod(total, len(valid))
@@ -341,3 +341,4 @@ def evaluate_market_history(
         if prices["n_quotes"]:
             results["historical_goal_prices_available"] = True
     return results
+

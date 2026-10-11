@@ -1,7 +1,7 @@
 """Experimental ten-match, five-market shortlist; never guarantee winners.
 
 One market per fixture, up to ten distinct matches across the whole run.
-Prefer a cohort with kickoff timestamps no more than 96 hours apart.
+Only select kickoffs within the next 60 hours of the run, including UCL.
 Strict selections retain every rule. When fewer than ten qualify, a clearly
 marked PROVISIONAL WATCHLIST may include nearest historical-evidence misses,
 never malformed odds, stale quotes or unknown teams. It is not a ten-leg
@@ -20,8 +20,9 @@ import pandas as pd
 DOMESTIC_LEAGUES = frozenset({
     "Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1"
 })
+SUPPORTED_LEAGUES = DOMESTIC_LEAGUES | {"UEFA Champions League"}
 TARGET_DISTINCT_MATCHES = 10
-MAX_COMPACT_QUALITY_COST = 0.02  # 2 percentage points mean adjusted probability
+SHORTLIST_LOOKAHEAD_HOURS = 60.0
 MIN_ESTIMATED_EV = 0.03
 MIN_RAW_DC_EV = 0.0
 MIN_TEAM_NAME_MATCH_SCORE = 90.0
@@ -123,14 +124,16 @@ def _evaluate_market(
     label, key, min_prob, min_raw = spec
     reasons = []
     league = str(row.get("league") or "")
-    if league not in DOMESTIC_LEAGUES:
-        reasons.append("competition excluded from domestic validation")
+    if league not in SUPPORTED_LEAGUES:
+        reasons.append("competition excluded from shortlist validation")
 
     kickoff = _utc(row.get("kickoff_utc"))
     if kickoff is None:
         reasons.append("missing or invalid UTC kickoff")
     elif (kickoff - now).total_seconds() / 60.0 < MIN_MINUTES_UNTIL_KICKOFF:
         reasons.append("kickoff has passed or is less than 20 minutes away")
+    elif kickoff > now + pd.Timedelta(hours=SHORTLIST_LOOKAHEAD_HOURS):
+        reasons.append("kickoff outside next 60 hours")
 
     date = kickoff.date().isoformat() if kickoff is not None else str(row.get("date") or "")
     if row.get("odds_source") != "The Odds API" or row.get("market_blend_applied") not in (True, 1):
@@ -159,6 +162,8 @@ def _evaluate_market(
     high_dev_n, high_overconfidence = None, None
     high_audit_rate, high_wilson_lower, high_wilson_upper = None, None, None
     high_penalty = 0.0
+    if validation is None and league == "UEFA Champions League":
+        reasons.append("UCL historical reliability report required")
     if validation is not None:
         market_validation = validation.get("markets", {}).get(key, {})
         validation_status = market_validation.get(
@@ -415,48 +420,8 @@ def build_conservative_shortlist(
     )
     eligible["_fixture_key"] = id_series.where(id_series.str.len() > 0, fallback)
     top_per_match = eligible.drop_duplicates("_fixture_key", keep="first").copy()
-    top_per_match["_kickoff"] = pd.to_datetime(
-        top_per_match["kickoff_utc"], utc=True, errors="coerce"
-    )
-    # The four-day preference is applied AFTER every independent odds/EV
-    # gate and one-market-per-match deduplication. Never lower thresholds.
-    # If ten qualifying fixtures can fit in ANY 96-hour interval, choose
-    # the highest-probability such cohort. Otherwise retain the best
-    # candidates over the full available horizon and explain the shortfall.
+    # The horizon is a hard eligibility rule above, including provisional picks.
     chosen = top_per_match.head(TARGET_DISTINCT_MATCHES).index
-    compact_window_available = False
-    compact_selected = False
-    compact_skipped_for_quality = False
-    best_score = None
-    best_compact = None
-    for start in top_per_match["_kickoff"].dropna().sort_values().unique():
-        frame = top_per_match.loc[
-            (top_per_match["_kickoff"] >= start)
-            & (top_per_match["_kickoff"] <= start + pd.Timedelta(hours=96))
-        ]
-        if len(frame) < TARGET_DISTINCT_MATCHES:
-            continue
-        compact_window_available = True
-        cohort = frame.head(TARGET_DISTINCT_MATCHES)
-        # This cohort score is a preference metric, not a validated
-        # probability that all ten selections win together.
-        score = (
-            sum(math.log(float(p)) for p in cohort["rank_probability"]),
-            float(cohort["conservative_estimated_ev"].sum()),
-        )
-        if best_score is None or score > best_score:
-            best_score, best_compact = score, cohort
-
-    if best_compact is not None:
-        global_quality = float(
-            top_per_match.loc[chosen, "rank_probability"].mean()
-        )
-        compact_quality = float(best_compact["rank_probability"].mean())
-        if compact_quality >= global_quality - MAX_COMPACT_QUALITY_COST:
-            chosen = best_compact.index
-            compact_selected = True
-        else:
-            compact_skipped_for_quality = True
 
     alternate = eligible.index.difference(top_per_match.index)
     overflow = top_per_match.index.difference(chosen)
@@ -465,11 +430,7 @@ def build_conservative_shortlist(
         decisions.loc[alternate, "rejection_reasons"] = "higher-probability market chosen for same match"
     if len(overflow):
         decisions.loc[overflow, "decision"] = "NOT_SELECTED"
-        decisions.loc[overflow, "rejection_reasons"] = (
-            "outside 96-hour cohort of similarly strong candidates"
-            if compact_selected
-            else "below higher-confidence ten-match ranking"
-        )
+        decisions.loc[overflow, "rejection_reasons"] = "below higher-confidence ten-match ranking"
     if len(chosen):
         decisions.loc[chosen, "decision"] = "SHORTLISTED"
         decisions.loc[chosen, "selection_tier"] = "STRICT"
@@ -538,8 +499,10 @@ def build_conservative_shortlist(
         (last_kickoff - first_kickoff).total_seconds() / 3600.0
         if first_kickoff is not None and last_kickoff is not None else None
     )
-    inside_four_days = (
-        actual_span is not None and actual_span <= 96.0
+    inside_window = (
+        bool(len(kickoff_times))
+        and bool((kickoff_times <= now + pd.Timedelta(hours=SHORTLIST_LOOKAHEAD_HOURS)).all())
+        and bool((kickoff_times >= now + pd.Timedelta(minutes=MIN_MINUTES_UNTIL_KICKOFF)).all())
     )
     status = (
         "TARGET_MET" if n == TARGET_DISTINCT_MATCHES and not len(provisional_ids)
@@ -551,6 +514,7 @@ def build_conservative_shortlist(
     return shortlist, decisions, {
         "status": status,
         "generated_at_utc": now.isoformat(),
+        "selection_policy_version": "60h-ucl-v1",
         "n_fixtures": int(len(predictions)),
         "n_markets_evaluated": int(len(decisions)),
         "n_shortlisted": n,
@@ -559,11 +523,12 @@ def build_conservative_shortlist(
         "n_total_candidates": n,
         "target_distinct_matches": TARGET_DISTINCT_MATCHES,
         "shortfall": TARGET_DISTINCT_MATCHES - n,
-        "four_day_window_preferred": True,
-        "ten_match_four_day_window_available": compact_window_available,
-        "four_day_window_skipped_for_quality": compact_skipped_for_quality,
-        "max_compact_mean_probability_cost": MAX_COMPACT_QUALITY_COST,
-        "selected_matches_within_four_days": inside_four_days,
+        "shortlist_lookahead_hours": SHORTLIST_LOOKAHEAD_HOURS,
+        "shortlist_window_start_utc": now.isoformat(),
+        "shortlist_window_end_utc": (
+            now + pd.Timedelta(hours=SHORTLIST_LOOKAHEAD_HOURS)
+        ).isoformat(),
+        "selected_matches_within_60_hours": inside_window,
         "selected_kickoff_span_hours": actual_span,
         "selected_first_kickoff_utc": (
             first_kickoff.isoformat() if first_kickoff is not None else None
@@ -571,15 +536,9 @@ def build_conservative_shortlist(
         "selected_last_kickoff_utc": (
             last_kickoff.isoformat() if last_kickoff is not None else None
         ),
-        "selection_method": (
-            "Highest-quality eligible ten-fixture 96-hour cohort within 2pp of best overall"
-            if compact_selected else
-            "Stronger independently audited candidates prioritized over 96-hour preference"
-            if compact_skipped_for_quality else
-            "Highest-quality eligible fixtures across full forecast horizon"
-        ),
+        "selection_method": "Strict-first ranking within the next 60 hours of the run",
         "eligible_markets": [x[0] for x in MARKET_SPECS],
-        "eligible_leagues": sorted(DOMESTIC_LEAGUES),
+        "eligible_leagues": sorted(SUPPORTED_LEAGUES),
         "min_estimated_ev": MIN_ESTIMATED_EV,
         "validation_required": market_reliability is not None,
         "ranking_metric": (
@@ -615,3 +574,4 @@ def build_conservative_shortlist(
             "betslips exist; ten-leg accumulators have substantial loss risk."
         ),
     }
+
