@@ -11,7 +11,7 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 |---|---:|---:|---:|---:|
 | All selections | 0 | 0-0 | — | — |
 
-Unsettled / unverified entries: **11**.
+Unsettled / unverified entries: **16**.
 Whole-fixture 1X2 multiclass Brier (n=0): —
 
 ## STRICT versus PROVISIONAL
@@ -38,6 +38,7 @@ Whole-fixture 1X2 multiclass Brier (n=0): —
 | La Liga | 0 | 0-0 | — | — |
 | Premier League | 0 | 0-0 | — | — |
 | Serie A | 0 | 0-0 | — | — |
+| UEFA Champions League | 0 | 0-0 | — | — |
 
 ## Gameweeks
 
