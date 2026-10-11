@@ -1,5 +1,44 @@
 # Football Value Pipeline V2
 
+## Consolidated Excel performance report
+
+The single readable performance report is
+`football_output_v2/readable/football_performance_report.xlsx`.
+The daily forward-performance workflow rebuilds and commits it after
+results verification. `py format_football_output.py` also refreshes it
+from the existing graded files. To refresh only this workbook locally:
+
+```powershell
+py performance_excel.py
+```
+
+The workbook contains a dashboard with native Excel charts, an editable
+flat-stake ROI plan and cumulative-profit ledger, breakdowns by tier,
+league, market, ISO calendar week and selection policy, calibration bins,
+and the complete selection/fixture evidence. The default simulation uses
+100 starting bankroll units and one unit per separate selection. These
+are editable simulation inputs, not real account balances or a staking
+recommendation. The simulation does not stop when the balance is exhausted.
+Local assumption edits are replaced by the defaults on the next report
+refresh. ROI is net profit divided by stake on settled selections with
+valid recorded pre-match decimal odds. Missing prices do not create profit.
+Win rate is wins divided by all settled selections, independently of odds
+coverage. Pending or unverified results never enter either denominator.
+No settled evidence means unavailable win rate, ROI and calibration, not 0%.
+
+Review notes highlight small samples, overconfidence and negative simulated
+ROI for investigation on a future holdout. Thirty scored samples is an
+exploratory review prompt, not proof of a bookmaker edge. The workbook
+does not change model parameters automatically. New snapshots record
+`selection_policy_version`; older archives remain `legacy/unspecified`
+unless their saved summary identifies a policy. Compare policies separately
+when evaluating the 60-hour/UCL shortlist change. Brier scores use the same
+reliability-adjusted probability shown in the selection report.
+
+The Python exporter fills a bundled native Excel template using the standard
+library. No additional Windows or GitHub Actions dependencies are needed.
+The original CSV/JSON records and immutable archives remain the audit inputs.
+
 V2 is a multi-league football probability and value pipeline built around a recency-weighted Dixon-Coles score model.
 
 ## Recommended daily-use model (single configuration)

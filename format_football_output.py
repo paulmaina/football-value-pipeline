@@ -1586,6 +1586,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             )
 
     shortlist_count = process_conservative_shortlist(input_dir, output_dir)
+    from performance_excel import export_existing, REPORT_NAME
+    performance_path = export_existing(input_dir.parent, output_dir / REPORT_NAME)
 
     print(f"Raw input folder:       {input_dir.resolve()}")
     print(f"Readable output folder: {output_dir.resolve()}")
@@ -1594,6 +1596,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             f"  Conservative shortlist: {shortlist_count} "
             "match(es), with selected markets (readable CSV and Markdown report)"
         )
+    if performance_path is not None:
+        print(f"  Excel performance report: {performance_path}")
     for league, count in processed:
         print(f"  {league}: {count} fixture(s)")
     return 0
