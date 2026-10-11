@@ -4,7 +4,7 @@
 **Candidates:** 3 of target 10 distinct matches.
 **Strictly qualified:** 1. **Provisional watchlist:** 2.
 **Pipeline status:** BELOW_TARGET_WITH_PROVISIONAL.
-**Generated (UTC):** 2026-10-11T08:23:37.918026+00:00.
+**Generated (UTC):** 2026-10-11T08:57:18.419010+00:00.
 **Kickoffs within next 72 hours of run:** Yes (span: 27.5 hours).
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. Do not treat ten candidates as a ten-leg betslip.
@@ -13,9 +13,9 @@
 
 | Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Atalanta BC vs Venezia | Home win | STRICT | 2026-10-12T16:30:00+00:00 | 68.8% | 68.1% | 1xBet | 1.63 | +11.0% | — |
+| Atalanta BC vs Venezia | Home win | STRICT | 2026-10-12T16:30:00+00:00 | 68.7% | 68.0% | 1xBet | 1.63 | +10.9% | — |
 | Real Racing Club de Santander vs Valencia | Over 1.5 | PROVISIONAL | 2026-10-11T19:00:00+00:00 | 90.0% | 90.0% | Coolbet | 1.24 | +11.5% | 85plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY |
-| Hull City vs Everton | Under 3.5 | PROVISIONAL | 2026-10-11T13:00:00+00:00 | 90.3% | 83.3% | Pinnacle | 1.32 | +10.0% | 85plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY |
+| Hull City vs Everton | Under 3.5 | PROVISIONAL | 2026-10-11T13:00:00+00:00 | 90.3% | 83.4% | Pinnacle | 1.32 | +10.0% | 85plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY |
 
 ## Interpretation
 
