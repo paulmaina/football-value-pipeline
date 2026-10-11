@@ -1,0 +1,16 @@
+{
+  "captured_at_utc": "2026-10-11T08:21:00Z",
+  "data_origin": "git-tracked prediction output at capture time",
+  "generated_at_utc": "2026-10-11T08:16:48Z",
+  "git_commit_sha": "648ca5973f8d6521eefb8a4a5233fabb8e644a8e",
+  "n_all_forecasts": 87,
+  "n_pre_kickoff_forecasts": 87,
+  "n_shortlist": 5,
+  "schema_version": 1,
+  "selection_policy_version": "72h-ucl-v2",
+  "sha256": {
+    "predictions.csv": "e6fb043dc3f0f256d34093a2cc0ff751f6344fad73f3d0eac72714592e2c1553",
+    "selection_summary.json": "54588301f5f86c8a4184f18959db22cfe7ffb580e9ee5d7936b66a9d2d86ef2d",
+    "shortlist.csv": "12c52e247636600442d99e923038491fe9c9d808a64b0dc66ccdc3deea253e0b"
+  }
+}
