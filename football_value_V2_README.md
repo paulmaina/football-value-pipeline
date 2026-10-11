@@ -765,3 +765,29 @@ STRICT candidates rank first by calibration-adjusted probability and EV;
 PROVISIONAL candidates remain an explicitly labelled research watchlist.
 UCL requires its own historical validation and qualifying pre-match odds.
 Existing immutable performance archives retain their original selection policy.
+
+### v2.9.1 data and reporting repairs
+
+UCL training and performance grading share a strict regulation-time score reader.
+Extra-time and shootout totals are never used as 90-minute training labels;
+ambiguous scores and future results are excluded. The UCL calibration warm-up
+is now 250 matches (`--ucl-validation-min-train 250`), separate from the
+500-match domestic/backtest default. Calibration/audit acceptance thresholds
+remain unchanged. Validation cache keys include warm-up, score basis and devig.
+The policy version is `72h-ucl-v3`; compare forward results by policy.
+
+Additional market requests prioritize only fixtures within the shortlist's
+20-minute-to-72-hour window. The total 24-request budget is unchanged.
+
+Keep Excel closed while refreshing reports. A locked workbook now produces
+a clear error and removes its temporary file while preserving the old report.
+Live-response caches, isolated `football_output_*_check/` diagnostic folders
+and temporary workbooks are ignored by git. Historical training inputs,
+canonical raw/readable outputs and immutable performance snapshots are kept.
+A one-time removal of previously tracked cache files may remove those local
+copies when pulling; the next live run recreates them.
+
+The audit replay outputs use provider responses already committed at
+`1cd7e6bed154f42a64d727330bff7e94e7913210`; they are marked accordingly in
+diagnostics. Refresh live predictions with the usual six-league command before
+using current prices. See `PIPELINE_AUDIT.md` for evidence and limitations.

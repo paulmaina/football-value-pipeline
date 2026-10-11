@@ -3,10 +3,10 @@
   "training_matches": 1190,
   "training_end": "2026-09-20",
   "fit_success": true,
-  "objective": 879.0779648934368,
-  "base": 0.1342467514141642,
-  "home_adv": 0.09132765111490582,
-  "rho": 0.005406771319339648,
+  "objective": 879.0779648900416,
+  "base": 0.13424670743071074,
+  "home_adv": 0.09132766472609954,
+  "rho": 0.005406881388152437,
   "half_life_days": 240.0,
   "xi_per_day": 0.0028881132523331052,
   "max_goals": 10,
@@ -20,10 +20,10 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 17,
-  "additional_event_odds_calls_used_before_this_league": 12,
+  "additional_event_odds_calls_used_before_this_league": 9,
   "additional_event_odds_calls_budget": 24,
   "additional_event_odds_league_quota": 4,
-  "additional_event_odds_calls_this_league": 4,
+  "additional_event_odds_calls_this_league": 3,
   "decay_tuning": {
     "selected_half_life_days": 240.0,
     "selected_xi_per_day": 0.0028881132523331052,
@@ -36,5 +36,7 @@
     "over_1_5": "RELIABLE_FOR_RANKING",
     "under_3_5": "RELIABLE_FOR_RANKING",
     "btts_yes": "RELIABLE_FOR_RANKING"
-  }
+  },
+  "data_mode": "offline_replay_of_committed_provider_responses",
+  "provider_response_source_commit": "1cd7e6bed154f42a64d727330bff7e94e7913210"
 }

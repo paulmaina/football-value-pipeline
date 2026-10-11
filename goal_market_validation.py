@@ -59,6 +59,7 @@ def distribute_event_odds_budget(
 def prioritized_additional_events(
     rows: Sequence[tuple[Mapping, Mapping]],
     quota: int,
+    as_of=None,
 ) -> list[int]:
     """Rank *within one league* before spending any quota.
 
@@ -68,6 +69,15 @@ def prioritized_additional_events(
     """
     candidates: list[tuple[float, int]] = []
     for i, (fixture, pred) in enumerate(rows):
+        if as_of is not None:
+            from conservative_bet_filter import SHORTLIST_LOOKAHEAD_HOURS, MIN_MINUTES_UNTIL_KICKOFF
+            clock = pd.to_datetime(as_of, utc=True)
+            kickoff = pd.to_datetime(fixture.get('kickoff_utc'), utc=True, errors='coerce')
+            if pd.isna(kickoff) or not (
+                clock + pd.Timedelta(minutes=MIN_MINUTES_UNTIL_KICKOFF)
+                <= kickoff <= clock + pd.Timedelta(hours=SHORTLIST_LOOKAHEAD_HOURS)
+            ):
+                continue
         if fixture.get("odds_source") != "The Odds API":
             continue
         event_id = fixture.get("odds_event_id")

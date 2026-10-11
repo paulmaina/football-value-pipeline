@@ -254,6 +254,7 @@ class TenMarketTests(unittest.TestCase):
                 self.assertEqual(main(["--leagues", "UCL", "--out-dir", str(raw)]), 0)
             self.assertEqual(backtest.call_count, 1)
             self.assertEqual(backtest.call_args.args[0], "UCL")
+            self.assertEqual(backtest.call_args.kwargs["min_train"], 250)
             report = json.loads((raw / "UCL_goal_market_validation.json").read_text())
             self.assertEqual(report["markets"]["home"]["status"], "RELIABLE_FOR_RANKING")
             summary = json.loads((raw / "conservative_bet_summary.json").read_text())

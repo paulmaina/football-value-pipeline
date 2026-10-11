@@ -3,10 +3,10 @@
   "training_matches": 1209,
   "training_end": "2026-09-20",
   "fit_success": true,
-  "objective": 2013.043841399734,
-  "base": 0.08107418012947916,
-  "home_adv": 0.27941589228151964,
-  "rho": -0.014088938909285424,
+  "objective": 2013.0438391509447,
+  "base": 0.08105919515651332,
+  "home_adv": 0.2794116069724642,
+  "rho": -0.014101470750080556,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
   "max_goals": 10,
@@ -23,7 +23,7 @@
   "additional_event_odds_calls_used_before_this_league": 4,
   "additional_event_odds_calls_budget": 24,
   "additional_event_odds_league_quota": 4,
-  "additional_event_odds_calls_this_league": 4,
+  "additional_event_odds_calls_this_league": 3,
   "decay_tuning": {
     "selected_half_life_days": 730.0,
     "selected_xi_per_day": 0.0009495166856985552,
@@ -36,5 +36,7 @@
     "over_1_5": "RELIABLE_FOR_RANKING",
     "under_3_5": "RELIABLE_FOR_RANKING",
     "btts_yes": "UNRELIABLE_AUDIT"
-  }
+  },
+  "data_mode": "offline_replay_of_committed_provider_responses",
+  "provider_response_source_commit": "1cd7e6bed154f42a64d727330bff7e94e7913210"
 }

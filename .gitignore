@@ -3,19 +3,23 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
-
 # Secrets
 .env
 .env.*
 !.env.example
-
 # Local databases
 *.db
 *.sqlite
 *.sqlite3
 football_data_db/
-
-
+# Regenerable provider caches; retain historical training data
+.football_cache/oddsapi_*
+.football_cache/fixturedownload_*
+.football_cache/fixtures.csv
+# Isolated diagnostic runs and temporary workbook files
+football_output_*_check/
+*.tmp
+~$*.xlsx
 # OS/editor files
 .DS_Store
 Thumbs.db
