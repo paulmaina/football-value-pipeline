@@ -144,7 +144,7 @@ class TenMarketTests(unittest.TestCase):
 
     def test_model_uncertainty_and_unsupported_league_are_rejected(self):
         row = fixture()
-        row["league"] = "UEFA Champions League"
+        row["league"] = "Unsupported Cup"
         row["model_home_team"] = "__LEAGUE_AVERAGE__"
         picks, decisions, _ = self.evaluate(row)
         self.assertTrue(picks.empty)
@@ -233,6 +233,32 @@ class TenMarketTests(unittest.TestCase):
             "2026-10-09T08:15:00Z",
         )
 
+    def test_ucl_cli_generates_competition_specific_reliability_report(self):
+        from test_graded_candidates import sample_report
+        row = fixture()
+        row["league"] = "UEFA Champions League"
+        with tempfile.TemporaryDirectory() as tmp:
+            raw = Path(tmp) / "raw"
+            with patch(
+                "football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league",
+                return_value=(pd.DataFrame([row]), {
+                    "training_end": "2026-09-20", "training_matches": 1000,
+                }, {}),
+            ), patch(
+                "football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league",
+                return_value=(pd.DataFrame(), pd.DataFrame(), {}, pd.DataFrame()),
+            ) as backtest, patch(
+                "goal_market_validation.evaluate_market_history",
+                return_value=sample_report(),
+            ):
+                self.assertEqual(main(["--leagues", "UCL", "--out-dir", str(raw)]), 0)
+            self.assertEqual(backtest.call_count, 1)
+            self.assertEqual(backtest.call_args.args[0], "UCL")
+            report = json.loads((raw / "UCL_goal_market_validation.json").read_text())
+            self.assertEqual(report["markets"]["home"]["status"], "RELIABLE_FOR_RANKING")
+            summary = json.loads((raw / "conservative_bet_summary.json").read_text())
+            self.assertIn("UEFA Champions League", summary["validation_market_statuses"])
+
     def test_normal_cli_still_writes_shortlist_and_snapshots(self):
         frame = pd.DataFrame([fixture()])
         with tempfile.TemporaryDirectory() as path:
@@ -263,3 +289,4 @@ class TenMarketTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

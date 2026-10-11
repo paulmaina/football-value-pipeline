@@ -1181,7 +1181,10 @@ def process_conservative_shortlist(
     target = summary.get("target_distinct_matches", 10)
     status = summary.get("status") or ("CANDIDATES_FOUND" if count else "NO BET")
     span = to_float(summary.get("selected_kickoff_span_hours"))
-    window = summary.get("selected_matches_within_four_days")
+    current_window = "shortlist_lookahead_hours" in summary
+    window = summary.get("selected_matches_within_60_hours") if current_window else summary.get("selected_matches_within_four_days")
+    window_label = ("Kickoffs within next 60 hours of run" if current_window
+                    else "Kickoffs within 4 days (96 hours)")
     window_text = (
         "Yes" if window is True else
         "No" if window is False else "Not available"
@@ -1196,7 +1199,7 @@ def process_conservative_shortlist(
         f"**Pipeline status:** {status}.",
         f"**Generated (UTC):** {generated}.",
         (
-            "**Kickoffs within 4 days (96 hours):** "
+            f"**{window_label}:** "
             + window_text
             + (f" (span: {span:.1f} hours)." if span is not None else ".")
         ),
@@ -1598,3 +1601,4 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

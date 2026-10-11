@@ -120,7 +120,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.8.0"
+PIPELINE_VERSION = "2.9.0"
 
 
 # ---------------------------------------------------------------------------
@@ -2513,7 +2513,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         self.max_extra_event_odds_requests = 24
         from goal_market_validation import distribute_event_odds_budget
         self.extra_event_odds_quota = distribute_event_odds_budget(
-            ["EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1"], 24
+            ["EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1", "UCL"], 24
         )
         self.extra_event_odds_by_league = {
             key: 0 for key in self.extra_event_odds_quota
@@ -3433,7 +3433,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         live_odds=not args.no_live_odds,
     )
 
-    # Fair reservations across requested domestic leagues; never allow the
+    # Fair reservations across requested competitions; never allow the
     # first processed league to exhaust the 24 event-market API calls.
     from goal_market_validation import (
         distribute_event_odds_budget, evaluate_market_history,
@@ -3542,7 +3542,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 "validation_days": tuning["validation_days"],
             }
 
-        if league_key != "UCL" and not args.backtest:
+        if not args.backtest:
             # Reuse validated snapshots only when the historical model,
             # training cutoff and validation code version match.
             validation_path = out_dir / f"{league_key}_goal_market_validation.json"
@@ -3677,3 +3677,4 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
