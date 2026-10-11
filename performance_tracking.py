@@ -170,6 +170,7 @@ def capture(commit_sha: str, *, root: Path = ROOT,
         "git_commit_sha": commit_sha,
         "captured_at_utc": iso(created),
         "generated_at_utc": iso(generated),
+        "selection_policy_version": summary.get("selection_policy_version") or "legacy/unspecified",
         "n_all_forecasts": len(forecast),
         "n_shortlist": len(picks),
         "n_pre_kickoff_forecasts": eligible,
@@ -200,6 +201,11 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
         ):
             warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
             continue
+        summary = load_json(directory / "selection_summary.json", {})
+        meta = {**meta, "selection_policy_version": (
+            meta.get("selection_policy_version") or summary.get("selection_policy_version")
+            or "legacy/unspecified"
+        )}
         output.append((
             meta,
             read_csv(directory / "predictions.csv"),
@@ -240,6 +246,7 @@ def frozen_rows(archive: list[tuple[dict, list[dict], list[dict]]],
                 "snapshot_captured_utc": meta["captured_at_utc"],
                 "snapshot_generated_utc": meta["generated_at_utc"],
                 "fixture_key": key,
+                "selection_policy_version": meta.get("selection_policy_version", "legacy/unspecified"),
             }
     return list(frozen.values())
 
@@ -360,6 +367,7 @@ def score_shortlist(row: dict, final: dict | None, state: str) -> dict:
         "league": row["league"], "home_team": row["home_team"],
         "away_team": row["away_team"], "kickoff_utc": row["kickoff_utc"],
         "snapshot_commit": row["snapshot_commit"],
+        "selection_policy_version": row.get("selection_policy_version") or "legacy/unspecified",
         "snapshot_captured_utc": row["snapshot_captured_utc"],
         "market": row.get("market"), "selection_tier": row.get("selection_tier") or (
             "STRICT" if row.get("decision") == "SHORTLISTED" else "PROVISIONAL"
@@ -389,7 +397,7 @@ def score_shortlist(row: dict, final: dict | None, state: str) -> dict:
     price = number(row.get("offered_decimal_odds"), min_value=1.000001)
     if price is not None:
         out["unit_profit"] = round(price - 1.0 if result else -1.0, 6)
-    p = number(row.get("predicted_probability"), min_value=0, max_value=1)
+    p = number(out.get("predicted_probability"), min_value=0, max_value=1)
     if p is not None:
         out["brier"] = round((p - float(result)) ** 2, 8)
     return out
@@ -401,6 +409,7 @@ def score_prediction(row: dict, final: dict | None, state: str) -> dict:
         "home_team": row["home_team"], "away_team": row["away_team"],
         "kickoff_utc": row["kickoff_utc"],
         "snapshot_commit": row["snapshot_commit"],
+        "selection_policy_version": row.get("selection_policy_version") or "legacy/unspecified",
         "match_source": "football-data.org/v4" if final else "",
         "source_match_id": final["match_id"] if final else "",
         "final_score": f"{final['home_goals']}-{final['away_goals']}" if final else "",
@@ -503,13 +512,13 @@ def collect_results(eligible: list[dict], *, root: Path, token: str,
 
 SHORTLIST_COLUMNS = [
     "fixture_key", "league", "home_team", "away_team", "kickoff_utc",
-    "snapshot_commit", "snapshot_captured_utc", "market", "selection_tier",
+    "snapshot_commit", "selection_policy_version", "snapshot_captured_utc", "market", "selection_tier",
     "predicted_probability", "offered_decimal_odds", "match_source",
     "source_match_id", "final_score", "status", "unit_profit", "brier", "week",
 ]
 PREDICTION_COLUMNS = [
     "fixture_key", "league", "home_team", "away_team", "kickoff_utc",
-    "snapshot_commit", "match_source", "source_match_id", "final_score",
+    "snapshot_commit", "selection_policy_version", "match_source", "source_match_id", "final_score",
     "status", "predicted_1x2", "predicted_home", "predicted_draw",
     "predicted_away", "one_x_two_brier", "one_x_two_correct",
     "over_1_5_correct", "under_3_5_correct", "btts_yes_correct",
@@ -590,7 +599,7 @@ def report_table(groups: dict[str, dict]) -> str:
 
 
 def report(root: Path, selections: list[dict], all_predictions: list[dict],
-           failures: dict) -> dict:
+           failures: dict, reviewed_at: str | None = None) -> dict:
     output = root / "performance"
     output.mkdir(parents=True, exist_ok=True)
     write_csv(output / "shortlist_grades.csv", selections, SHORTLIST_COLUMNS)
@@ -622,6 +631,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
             else "ALL_GRADED"
         ),
         "source": "football-data.org v4 FINISHED regulation-time scorelines",
+        "reviewed_at_utc": reviewed_at,
         "shortlist": stats(selections),
         "groups": groupings,
         "calibration": calibration_buckets(selections),
@@ -708,6 +718,8 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
             )
         lines += ["", "Pending/unverified fixtures are excluded from win-rate and ROI denominators.", ""]
         (weeks_dir / f"{week}.md").write_text("\n".join(lines), encoding="utf-8")
+    from performance_excel import write_workbook
+    write_workbook(root, selections, all_predictions, result)
     return result
 
 
@@ -734,7 +746,7 @@ def review(*, root: Path = ROOT, token: str = "",
         if (kick := utc(row["kickoff_utc"])) and kick > clock - timedelta(hours=2):
             match, state = None, "PENDING_KICKOFF_OR_FINAL_SCORE"
         predictions_graded.append(score_prediction(row, match, state))
-    result = report(root, selections_graded, predictions_graded, errors)
+    result = report(root, selections_graded, predictions_graded, errors, reviewed_at=iso(clock))
     print(f"Performance: {result['shortlist']['graded']} graded, "
           f"{result['shortlist']['pending']} pending, "
           f"{result['prediction_fixtures_graded']} full fixture forecasts graded")
@@ -758,3 +770,4 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
