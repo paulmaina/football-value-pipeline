@@ -11,7 +11,7 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 |---|---:|---:|---:|---:|
 | All selections | 0 | 0-0 | — | — |
 
-Unsettled / unverified entries: **10**.
+Unsettled / unverified entries: **11**.
 Whole-fixture 1X2 multiclass Brier (n=0): —
 
 ## STRICT versus PROVISIONAL
@@ -45,6 +45,7 @@ Whole-fixture 1X2 multiclass Brier (n=0): —
 |---|---:|---:|---:|---:|
 | 2026-W41 | 0 | 0-0 | — | — |
 | 2026-W42 | 0 | 0-0 | — | — |
+| 2026-W43 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
 
