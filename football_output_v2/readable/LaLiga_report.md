@@ -36,9 +36,11 @@ Fixtures in this report: **15**.
 | Additional event odds calls used before this league | 4.00 |
 | Additional event odds calls budget | 24.00 |
 | Additional event odds league quota | 4.00 |
-| Additional event odds calls this league | 4.00 |
+| Additional event odds calls this league | 3.00 |
 | Decay tuning | {'selected_half_life_days': 730.0, 'selected_xi_per_day': 0.0009495166856985552, 'selection_metric': 'walk_forward_1x2_log_loss', 'validation_days': 365} |
 | Goal market reliability | {'home': 'RELIABLE_FOR_RANKING', 'away': 'RELIABLE_FOR_RANKING', 'over_1_5': 'RELIABLE_FOR_RANKING', 'under_3_5': 'RELIABLE_FOR_RANKING', 'btts_yes': 'UNRELIABLE_AUDIT'} |
+| Data mode | offline_replay_of_committed_provider_responses |
+| Provider response source commit | 1cd7e6bed154f42a64d727330bff7e94e7913210 |
 
 </details>
 
@@ -165,11 +167,32 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | +9.5% |
 | Under 2.5 probability edge | -9.5% |
 | Raw edge prob home | 0.0834 |
-| Raw ev home | 0.2892 |
+| Raw ev home | 0.2893 |
 | Raw edge prob draw | -0.0367 |
 | Raw ev draw | -0.1785 |
 | Raw edge prob away | -0.0467 |
 | Raw ev away | -0.1155 |
+| Market p over 1 5 | 74.6% |
+| Market over 1 5 odds | 1.35 |
+| Best over 1 5 bookmaker | Coolbet |
+| Market best over 1 5 last update utc | 2026-10-11T08:50:05Z |
+| Market reference over 1 5 odds | 1.30 |
+| Market reference over 1 5 opposite odds | 3.40 |
+| Market over 1 5 bookmakers | 5 |
+| Market p under 3 5 | 74.7% |
+| Market under 3 5 odds | 1.34 |
+| Best under 3 5 bookmaker | Pinnacle |
+| Market best under 3 5 last update utc | 2026-10-11T08:50:04Z |
+| Market reference under 3 5 odds | 1.32 |
+| Market reference under 3 5 opposite odds | 3.70 |
+| Market under 3 5 bookmakers | 4 |
+| Market p btts yes | 54.7% |
+| Market btts yes odds | 1.79 |
+| Best btts yes bookmaker | Matchbook |
+| Market best btts yes last update utc | 2026-10-11T08:50:05Z |
+| Market reference btts yes odds | 1.73 |
+| Market reference btts yes opposite odds | 2.05 |
+| Market btts yes bookmakers | 4 |
 
 </details>
 
@@ -293,7 +316,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob draw | 0.0496 |
 | Raw ev draw | 0.1124 |
 | Raw edge prob away | 0.0460 |
-| Raw ev away | 0.3710 |
+| Raw ev away | 0.3711 |
 
 </details>
 
@@ -349,7 +372,7 @@ The model's most likely 1X2 outcome is **Real Racing Club de Santander win** at 
 | Real Racing Club de Santander win | 41.2% | 43.5% | 2.34 | -3.5% |
 | Draw | 23.5% | 25.6% | 3.70 | -13.2% |
 | Valencia win | 35.3% | 30.9% | 3.30 | +16.6% |
-| Over 2.5 | 73.6% | 56.8% | 1.74 | +28.2% |
+| Over 2.5 | 73.6% | 56.8% | 1.74 | +28.1% |
 | Under 2.5 | 26.4% | 43.2% | 2.27 | -40.2% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
@@ -383,7 +406,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 73.8% |
 | P btts no | 26.2% |
 | Fair Over 0.5 odds | 1.02 |
-| Fair Under 0.5 odds | 41.41 |
+| Fair Under 0.5 odds | 41.40 |
 | Fair Over 1.5 odds | 1.11 |
 | Fair Under 1.5 odds | 9.96 |
 | Fair Over 2.5 odds | 1.36 |
@@ -562,7 +585,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob draw | 0.0472 |
 | Raw ev draw | 0.0919 |
 | Raw edge prob away | 0.1299 |
-| Raw ev away | 0.7953 |
+| Raw ev away | 0.7952 |
 
 </details>
 
@@ -687,6 +710,27 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev draw | -0.1500 |
 | Raw edge prob away | -0.0704 |
 | Raw ev away | -0.1818 |
+| Market p over 1 5 | 72.7% |
+| Market over 1 5 odds | 1.34 |
+| Best over 1 5 bookmaker | Pinnacle |
+| Market best over 1 5 last update utc | 2026-10-11T08:50:04Z |
+| Market reference over 1 5 odds | 1.33 |
+| Market reference over 1 5 opposite odds | 3.20 |
+| Market over 1 5 bookmakers | 4 |
+| Market p under 3 5 | 74.1% |
+| Market under 3 5 odds | 1.33 |
+| Best under 3 5 bookmaker | Coolbet |
+| Market best under 3 5 last update utc | 2026-10-11T08:50:05Z |
+| Market reference under 3 5 odds | 1.33 |
+| Market reference under 3 5 opposite odds | 3.60 |
+| Market under 3 5 bookmakers | 2 |
+| Market p btts yes | 53.7% |
+| Market btts yes odds | 1.84 |
+| Best btts yes bookmaker | Matchbook |
+| Market best btts yes last update utc | 2026-10-11T08:50:05Z |
+| Market reference btts yes odds | 1.75 |
+| Market reference btts yes opposite odds | 2.00 |
+| Market btts yes bookmakers | 4 |
 
 </details>
 
@@ -742,7 +786,7 @@ The model's most likely 1X2 outcome is **Deportivo La Coruña win** at **50.2%**
 | Deportivo La Coruña win | 50.2% | 46.1% | 2.17 | +9.0% |
 | Draw | 24.7% | 26.2% | 3.62 | -10.7% |
 | Levante win | 25.1% | 27.7% | 3.60 | -9.6% |
-| Over 2.5 | 55.9% | 49.7% | 1.98 | +10.7% |
+| Over 2.5 | 55.9% | 49.7% | 1.98 | +10.6% |
 | Under 2.5 | 44.1% | 50.3% | 1.96 | -13.5% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
@@ -776,7 +820,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 57.1% |
 | P btts no | 42.9% |
 | Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 17.42 |
+| Fair Under 0.5 odds | 17.41 |
 | Fair Over 1.5 odds | 1.26 |
 | Fair Under 1.5 odds | 4.81 |
 | Fair Over 2.5 odds | 1.79 |
@@ -806,11 +850,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | +6.1% |
 | Under 2.5 probability edge | -6.1% |
 | Raw edge prob home | 0.0832 |
-| Raw ev home | 0.1801 |
+| Raw ev home | 0.1800 |
 | Raw edge prob draw | -0.0318 |
 | Raw ev draw | -0.1650 |
 | Raw edge prob away | -0.0514 |
-| Raw ev away | -0.1882 |
+| Raw ev away | -0.1881 |
 
 </details>
 
@@ -987,7 +1031,7 @@ The model's most likely 1X2 outcome is **Barcelona win** at **62.2%**. Expected 
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Real Betis win | 20.4% | 16.4% | 6.50 | +32.8% |
+| Real Betis win | 20.4% | 16.4% | 6.50 | +32.7% |
 | Draw | 17.4% | 13.2% | 6.20 | +7.8% |
 | Barcelona win | 62.2% | 70.4% | 1.49 | -7.3% |
 | Over 2.5 | 67.1% | 77.5% | 1.27 | -14.8% |
@@ -1053,8 +1097,8 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -8.2% |
 | Over 2.5 probability edge | -10.4% |
 | Under 2.5 probability edge | +10.4% |
-| Raw edge prob home | 0.0799 |
-| Raw ev home | 0.5871 |
+| Raw edge prob home | 0.0798 |
+| Raw ev home | 0.5870 |
 | Raw edge prob draw | 0.0837 |
 | Raw ev draw | 0.3375 |
 | Raw edge prob away | -0.1636 |
@@ -1111,7 +1155,7 @@ The model's most likely 1X2 outcome is **Athletic Bilbao win** at **42.4%**. Exp
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Valencia win | 30.0% | 27.0% | 3.75 | +12.7% |
+| Valencia win | 30.0% | 27.0% | 3.75 | +12.6% |
 | Draw | 27.6% | 26.0% | 3.58 | -1.3% |
 | Athletic Bilbao win | 42.4% | 47.0% | 2.18 | -7.6% |
 | Over 2.5 | 39.5% | 46.9% | 2.10 | -17.1% |
@@ -1237,8 +1281,8 @@ The model's most likely 1X2 outcome is **Villarreal win** at **65.8%**. Expected
 | --- | --- | --- | --- | --- |
 | Villarreal win | 65.8% | 67.0% | 1.51 | -0.7% |
 | Draw | 17.8% | 17.6% | 5.00 | -10.9% |
-| Elche CF win | 16.4% | 15.4% | 6.73 | +10.4% |
-| Over 2.5 | 72.6% | 66.7% | 1.50 | +8.9% |
+| Elche CF win | 16.4% | 15.4% | 6.73 | +10.3% |
+| Over 2.5 | 72.6% | 66.7% | 1.50 | +9.0% |
 | Under 2.5 | 27.4% | 33.3% | 2.70 | -26.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
@@ -1286,7 +1330,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Unadjusted away-win probability | 17.4% |
 | Raw p over 1 5 | 89.0% |
 | Raw p under 3 5 | 48.1% |
-| Raw p btts yes | 65.8% |
+| Raw p btts yes | 65.7% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Winamax (FR) |
@@ -1302,32 +1346,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | +5.9% |
 | Under 2.5 probability edge | -5.9% |
 | Raw edge prob home | -0.0238 |
-| Raw ev home | -0.0247 |
+| Raw ev home | -0.0245 |
 | Raw edge prob draw | 0.0045 |
-| Raw ev draw | -0.0978 |
+| Raw ev draw | -0.0980 |
 | Raw edge prob away | 0.0193 |
-| Raw ev away | 0.1687 |
-| Market p over 1 5 | 90.1% |
-| Market over 1 5 odds | 1.12 |
-| Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-11T08:56:24Z |
-| Market reference over 1 5 odds | 1.08 |
-| Market reference over 1 5 opposite odds | 5.45 |
-| Market over 1 5 bookmakers | 3 |
-| Market p under 3 5 | 56.4% |
-| Market under 3 5 odds | 1.75 |
-| Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:45Z |
-| Market reference under 3 5 odds | 1.75 |
-| Market reference under 3 5 opposite odds | 2.25 |
-| Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 59.9% |
-| Market btts yes odds | 1.59 |
-| Best btts yes bookmaker | Matchbook |
-| Market best btts yes last update utc | 2026-10-11T08:56:24Z |
-| Market reference btts yes odds | 1.58 |
-| Market reference btts yes opposite odds | 2.26 |
-| Market btts yes bookmakers | 3 |
+| Raw ev away | 0.1683 |
 
 </details>
 
@@ -1417,7 +1440,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 73.2% |
 | P btts no | 26.8% |
 | Fair Over 0.5 odds | 1.02 |
-| Fair Under 0.5 odds | 52.10 |
+| Fair Under 0.5 odds | 52.09 |
 | Fair Over 1.5 odds | 1.09 |
 | Fair Under 1.5 odds | 12.53 |
 | Fair Over 2.5 odds | 1.29 |
@@ -1452,27 +1475,6 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev draw | -0.3605 |
 | Raw edge prob away | -0.0477 |
 | Raw ev away | -0.1712 |
-| Market p over 1 5 | 80.0% |
-| Market over 1 5 odds | 1.22 |
-| Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-11T08:56:24Z |
-| Market reference over 1 5 odds | 1.22 |
-| Market reference over 1 5 opposite odds | 4.20 |
-| Market over 1 5 bookmakers | 3 |
-| Market p under 3 5 | 68.6% |
-| Market under 3 5 odds | 1.41 |
-| Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:39Z |
-| Market reference under 3 5 odds | 1.41 |
-| Market reference under 3 5 opposite odds | 2.87 |
-| Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 57.5% |
-| Market btts yes odds | 1.67 |
-| Best btts yes bookmaker | William Hill |
-| Market best btts yes last update utc | 2026-10-11T08:56:24Z |
-| Market reference btts yes odds | 1.64 |
-| Market reference btts yes opposite odds | 2.15 |
-| Market btts yes bookmakers | 2 |
 
 </details>
 
@@ -1565,7 +1567,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 0.5 odds | 11.52 |
 | Fair Over 1.5 odds | 1.41 |
 | Fair Under 1.5 odds | 3.42 |
-| Fair Over 2.5 odds | 2.23 |
+| Fair Over 2.5 odds | 2.24 |
 | Fair Under 2.5 odds | 1.81 |
 | Fair Over 3.5 odds | 4.25 |
 | Fair Under 3.5 odds | 1.31 |
@@ -1592,8 +1594,8 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | -0.1% |
 | Under 2.5 probability edge | +0.1% |
 | Raw edge prob home | 0.0144 |
-| Raw ev home | 0.0334 |
-| Raw edge prob draw | -0.0025 |
+| Raw ev home | 0.0333 |
+| Raw edge prob draw | -0.0024 |
 | Raw ev draw | -0.0573 |
 | Raw edge prob away | -0.0120 |
 | Raw ev away | -0.0549 |
@@ -1689,7 +1691,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 0.5 odds | 6.70 |
 | Fair Over 1.5 odds | 1.85 |
 | Fair Under 1.5 odds | 2.17 |
-| Fair Over 2.5 odds | 3.59 |
+| Fair Over 2.5 odds | 3.58 |
 | Fair Under 2.5 odds | 1.39 |
 | Fair Over 3.5 odds | 9.07 |
 | Fair Under 3.5 odds | 1.12 |
@@ -1716,11 +1718,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | -26.2% |
 | Under 2.5 probability edge | +26.2% |
 | Raw edge prob home | -0.1350 |
-| Raw ev home | -0.4517 |
+| Raw ev home | -0.4518 |
 | Raw edge prob draw | 0.0483 |
-| Raw ev draw | 0.0941 |
+| Raw ev draw | 0.0940 |
 | Raw edge prob away | 0.0867 |
-| Raw ev away | 0.2193 |
+| Raw ev away | 0.2194 |
 
 </details>
 
@@ -1763,7 +1765,7 @@ The model's most likely 1X2 outcome is **Real Madrid win** at **80.0%**. Expecte
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 2-0 | 12.27% |
+| 1 | 2-0 | 12.28% |
 | 2 | 3-0 | 10.73% |
 | 3 | 1-0 | 9.27% |
 | 4 | 2-1 | 9.14% |
@@ -1810,7 +1812,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 48.0% |
 | P btts no | 52.0% |
 | Fair Over 0.5 odds | 1.03 |
-| Fair Under 0.5 odds | 32.92 |
+| Fair Under 0.5 odds | 32.91 |
 | Fair Over 1.5 odds | 1.17 |
 | Fair Under 1.5 odds | 6.85 |
 | Fair Over 2.5 odds | 1.51 |
@@ -1842,9 +1844,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob home | -0.0532 |
 | Raw ev home | 0.0059 |
 | Raw edge prob draw | 0.0416 |
-| Raw ev draw | 0.0421 |
+| Raw ev draw | 0.0422 |
 | Raw edge prob away | 0.0116 |
-| Raw ev away | -0.0221 |
+| Raw ev away | -0.0220 |
 
 </details>
 
@@ -1948,7 +1950,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Unadjusted away-win probability | 27.4% |
 | Raw p over 1 5 | 49.4% |
 | Raw p under 3 5 | 91.4% |
-| Raw p btts yes | 31.5% |
+| Raw p btts yes | 31.4% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Winamax (FR) |
@@ -1968,28 +1970,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob draw | 0.0499 |
 | Raw ev draw | 0.1337 |
 | Raw edge prob away | -0.0891 |
-| Raw ev away | -0.2319 |
-| Market p over 1 5 | 65.9% |
-| Market over 1 5 odds | 1.50 |
-| Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-11T08:56:24Z |
-| Market reference over 1 5 odds | 1.47 |
-| Market reference over 1 5 opposite odds | 2.70 |
-| Market over 1 5 bookmakers | 4 |
-| Market p under 3 5 | 83.6% |
-| Market under 3 5 odds | 1.17 |
-| Best under 3 5 bookmaker | Codere (IT) |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:10Z |
-| Market reference under 3 5 odds | 1.16 |
-| Market reference under 3 5 opposite odds | 4.50 |
-| Market under 3 5 bookmakers | 2 |
-| Market p btts yes | 46.1% |
-| Market btts yes odds | 2.05 |
-| Best btts yes bookmaker | William Hill |
-| Market best btts yes last update utc | 2026-10-11T08:56:24Z |
-| Market reference btts yes odds | 2.00 |
-| Market reference btts yes opposite odds | 1.74 |
-| Market btts yes bookmakers | 2 |
+| Raw ev away | -0.2320 |
 
 </details>
 

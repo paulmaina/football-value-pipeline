@@ -33,12 +33,14 @@ Fixtures in this report: **17**.
 | The odds api enabled | 1.00 |
 | Odds regions | — |
 | Live odds matched | 17.00 |
-| Additional event odds calls used before this league | 12.00 |
+| Additional event odds calls used before this league | 9.00 |
 | Additional event odds calls budget | 24.00 |
 | Additional event odds league quota | 4.00 |
-| Additional event odds calls this league | 4.00 |
+| Additional event odds calls this league | 3.00 |
 | Decay tuning | {'selected_half_life_days': 240.0, 'selected_xi_per_day': 0.0028881132523331052, 'selection_metric': 'walk_forward_1x2_log_loss', 'validation_days': 365} |
 | Goal market reliability | {'home': 'RELIABLE_FOR_RANKING', 'away': 'RELIABLE_FOR_RANKING', 'over_1_5': 'RELIABLE_FOR_RANKING', 'under_3_5': 'RELIABLE_FOR_RANKING', 'btts_yes': 'RELIABLE_FOR_RANKING'} |
+| Data mode | offline_replay_of_committed_provider_responses |
+| Provider response source commit | 1cd7e6bed154f42a64d727330bff7e94e7913210 |
 
 </details>
 
@@ -170,6 +172,27 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev draw | 0.1287 |
 | Raw edge prob away | -0.0798 |
 | Raw ev away | -0.1375 |
+| Market p over 1 5 | 73.8% |
+| Market over 1 5 odds | 1.35 |
+| Best over 1 5 bookmaker | Coolbet |
+| Market best over 1 5 last update utc | 2026-10-11T08:51:09Z |
+| Market reference over 1 5 odds | 1.33 |
+| Market reference over 1 5 opposite odds | 3.52 |
+| Market over 1 5 bookmakers | 4 |
+| Market p under 3 5 | 73.9% |
+| Market under 3 5 odds | 1.33 |
+| Best under 3 5 bookmaker | Pinnacle |
+| Market best under 3 5 last update utc | 2026-10-11T08:51:23Z |
+| Market reference under 3 5 odds | 1.33 |
+| Market reference under 3 5 opposite odds | 3.55 |
+| Market under 3 5 bookmakers | 3 |
+| Market p btts yes | 46.3% |
+| Market btts yes odds | 2.14 |
+| Best btts yes bookmaker | Matchbook |
+| Market best btts yes last update utc | 2026-10-11T08:51:40Z |
+| Market reference btts yes odds | 2.14 |
+| Market reference btts yes opposite odds | 1.85 |
+| Market btts yes bookmakers | 4 |
 
 </details>
 
@@ -811,6 +834,27 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev draw | -0.2971 |
 | Raw edge prob away | -0.0652 |
 | Raw ev away | -0.4615 |
+| Market p over 1 5 | 83.1% |
+| Market over 1 5 odds | 1.19 |
+| Best over 1 5 bookmaker | Coolbet |
+| Market best over 1 5 last update utc | 2026-10-11T08:51:09Z |
+| Market reference over 1 5 odds | 1.19 |
+| Market reference over 1 5 opposite odds | 5.30 |
+| Market over 1 5 bookmakers | 3 |
+| Market p under 3 5 | 60.9% |
+| Market under 3 5 odds | 1.62 |
+| Best under 3 5 bookmaker | Coolbet |
+| Market best under 3 5 last update utc | 2026-10-11T08:51:09Z |
+| Market reference under 3 5 odds | 1.60 |
+| Market reference under 3 5 opposite odds | 2.43 |
+| Market under 3 5 bookmakers | 3 |
+| Market p btts yes | 58.3% |
+| Market btts yes odds | 1.69 |
+| Best btts yes bookmaker | Matchbook |
+| Market best btts yes last update utc | 2026-10-11T08:51:40Z |
+| Market reference btts yes odds | 1.69 |
+| Market reference btts yes opposite odds | 2.34 |
+| Market btts yes bookmakers | 4 |
 
 </details>
 
@@ -1307,27 +1351,6 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev draw | -0.1562 |
 | Raw edge prob away | 0.0062 |
 | Raw ev away | 0.0421 |
-| Market p over 1 5 | 83.4% |
-| Market over 1 5 odds | 1.20 |
-| Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-11T08:56:09Z |
-| Market reference over 1 5 odds | 1.16 |
-| Market reference over 1 5 opposite odds | 4.33 |
-| Market over 1 5 bookmakers | 3 |
-| Market p under 3 5 | 64.4% |
-| Market under 3 5 odds | 1.50 |
-| Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:55Z |
-| Market reference under 3 5 odds | 1.50 |
-| Market reference under 3 5 opposite odds | 2.59 |
-| Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 56.8% |
-| Market btts yes odds | 1.68 |
-| Best btts yes bookmaker | Matchbook |
-| Market best btts yes last update utc | 2026-10-11T08:56:55Z |
-| Market reference btts yes odds | 1.66 |
-| Market reference btts yes opposite odds | 2.12 |
-| Market btts yes bookmakers | 4 |
 
 </details>
 
@@ -1421,7 +1444,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Over 1.5 odds | 1.31 |
 | Fair Under 1.5 odds | 4.22 |
 | Fair Over 2.5 odds | 1.90 |
-| Fair Under 2.5 odds | 2.11 |
+| Fair Under 2.5 odds | 2.10 |
 | Fair Over 3.5 odds | 3.27 |
 | Fair Under 3.5 odds | 1.44 |
 | Fair Over 4.5 odds | 6.61 |
@@ -1824,27 +1847,6 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev draw | 0.1144 |
 | Raw edge prob away | 0.0592 |
 | Raw ev away | 0.3549 |
-| Market p over 1 5 | 74.3% |
-| Market over 1 5 odds | 1.31 |
-| Best over 1 5 bookmaker | Pinnacle |
-| Market best over 1 5 last update utc | 2026-10-11T08:56:55Z |
-| Market reference over 1 5 odds | 1.31 |
-| Market reference over 1 5 opposite odds | 3.44 |
-| Market over 1 5 bookmakers | 4 |
-| Market p under 3 5 | 74.2% |
-| Market under 3 5 odds | 1.31 |
-| Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:55Z |
-| Market reference under 3 5 odds | 1.31 |
-| Market reference under 3 5 opposite odds | 3.40 |
-| Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 48.2% |
-| Market btts yes odds | 1.92 |
-| Best btts yes bookmaker | 1xBet |
-| Market best btts yes last update utc | 2026-10-11T08:56:56Z |
-| Market reference btts yes odds | 1.92 |
-| Market reference btts yes opposite odds | 1.80 |
-| Market btts yes bookmakers | 2 |
 
 </details>
 
@@ -2217,27 +2219,6 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev draw | -0.0317 |
 | Raw edge prob away | -0.0354 |
 | Raw ev away | -0.0736 |
-| Market p over 1 5 | 67.4% |
-| Market over 1 5 odds | 1.44 |
-| Best over 1 5 bookmaker | Pinnacle |
-| Market best over 1 5 last update utc | 2026-10-11T08:56:55Z |
-| Market reference over 1 5 odds | 1.44 |
-| Market reference over 1 5 opposite odds | 2.81 |
-| Market over 1 5 bookmakers | 4 |
-| Market p under 3 5 | 80.5% |
-| Market under 3 5 odds | 1.20 |
-| Best under 3 5 bookmaker | Codere (IT) |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:11Z |
-| Market reference under 3 5 odds | 1.20 |
-| Market reference under 3 5 opposite odds | 3.95 |
-| Market under 3 5 bookmakers | 2 |
-| Market p btts yes | 47.2% |
-| Market btts yes odds | 1.96 |
-| Best btts yes bookmaker | 1xBet |
-| Market best btts yes last update utc | 2026-10-11T08:56:56Z |
-| Market reference btts yes odds | 1.96 |
-| Market reference btts yes opposite odds | 1.77 |
-| Market btts yes bookmakers | 2 |
 
 </details>
 

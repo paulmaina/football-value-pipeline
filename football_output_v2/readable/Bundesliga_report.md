@@ -33,12 +33,14 @@ Fixtures in this report: **11**.
 | The odds api enabled | 1.00 |
 | Odds regions | — |
 | Live odds matched | 11.00 |
-| Additional event odds calls used before this league | 8.00 |
+| Additional event odds calls used before this league | 7.00 |
 | Additional event odds calls budget | 24.00 |
 | Additional event odds league quota | 4.00 |
-| Additional event odds calls this league | 4.00 |
+| Additional event odds calls this league | 2.00 |
 | Decay tuning | {'selected_half_life_days': 1000000000.0, 'selected_xi_per_day': 6.931471805599453e-10, 'selection_metric': 'walk_forward_1x2_log_loss', 'validation_days': 365} |
 | Goal market reliability | {'home': 'RELIABLE_FOR_RANKING', 'away': 'RELIABLE_FOR_RANKING', 'over_1_5': 'UNRELIABLE_AUDIT', 'under_3_5': 'UNRELIABLE_AUDIT', 'btts_yes': 'UNRELIABLE_AUDIT'} |
+| Data mode | offline_replay_of_committed_provider_responses |
+| Provider response source commit | 1cd7e6bed154f42a64d727330bff7e94e7913210 |
 
 </details>
 
@@ -90,7 +92,7 @@ The model's most likely 1X2 outcome is **1. FC Köln win** at **41.6%**. Expecte
 | --- | --- | --- |
 | 1 | 1-1 | 11.96% |
 | 2 | 2-1 | 9.85% |
-| 3 | 1-0 | 7.48% |
+| 3 | 1-0 | 7.49% |
 | 4 | 1-2 | 7.27% |
 | 5 | 2-0 | 6.36% |
 
@@ -170,6 +172,27 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev draw | 0.0957 |
 | Raw edge prob away | 0.1318 |
 | Raw ev away | 0.5152 |
+| Market p over 1 5 | 83.9% |
+| Market over 1 5 odds | 1.17 |
+| Best over 1 5 bookmaker | Coolbet |
+| Market best over 1 5 last update utc | 2026-10-11T08:50:50Z |
+| Market reference over 1 5 odds | 1.17 |
+| Market reference over 1 5 opposite odds | 5.10 |
+| Market over 1 5 bookmakers | 4 |
+| Market p under 3 5 | 58.7% |
+| Market under 3 5 odds | 1.74 |
+| Best under 3 5 bookmaker | 1xBet |
+| Market best under 3 5 last update utc | 2026-10-11T08:48:58Z |
+| Market reference under 3 5 odds | 1.64 |
+| Market reference under 3 5 opposite odds | 2.27 |
+| Market under 3 5 bookmakers | 4 |
+| Market p btts yes | 64.0% |
+| Market btts yes odds | 1.56 |
+| Best btts yes bookmaker | Matchbook |
+| Market best btts yes last update utc | 2026-10-11T08:50:50Z |
+| Market reference btts yes odds | 1.56 |
+| Market reference btts yes opposite odds | 2.76 |
+| Market btts yes bookmakers | 4 |
 
 </details>
 
@@ -288,12 +311,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | +5.6% |
 | Over 2.5 probability edge | -33.5% |
 | Under 2.5 probability edge | +33.5% |
-| Raw edge prob home | -0.2470 |
-| Raw ev home | -0.4112 |
+| Raw edge prob home | -0.2471 |
+| Raw ev home | -0.4113 |
 | Raw edge prob draw | 0.1357 |
-| Raw ev draw | 0.5127 |
-| Raw edge prob away | 0.1113 |
-| Raw ev away | 0.5979 |
+| Raw ev draw | 0.5126 |
+| Raw edge prob away | 0.1114 |
+| Raw ev away | 0.5982 |
 | Market p over 1 5 | 82.7% |
 | Market over 1 5 odds | 1.21 |
 | Best over 1 5 bookmaker | Coolbet |
@@ -416,7 +439,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Unadjusted home-win probability | 62.3% |
 | Unadjusted draw probability | 21.5% |
 | Unadjusted away-win probability | 16.2% |
-| Raw p over 1 5 | 84.6% |
+| Raw p over 1 5 | 84.5% |
 | Raw p under 3 5 | 59.0% |
 | Raw p btts yes | 59.0% |
 | Market blending weight | 50.0% |
@@ -433,7 +456,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -5.6% |
 | Over 2.5 probability edge | -6.5% |
 | Under 2.5 probability edge | +6.5% |
-| Raw edge prob home | 0.1270 |
+| Raw edge prob home | 0.1269 |
 | Raw ev home | 0.2465 |
 | Raw edge prob draw | -0.0146 |
 | Raw ev draw | -0.0776 |
@@ -528,7 +551,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 66.5% |
 | P btts no | 33.5% |
 | Fair Over 0.5 odds | 1.02 |
-| Fair Under 0.5 odds | 45.58 |
+| Fair Under 0.5 odds | 45.59 |
 | Fair Over 1.5 odds | 1.09 |
 | Fair Under 1.5 odds | 12.38 |
 | Fair Over 2.5 odds | 1.29 |
@@ -557,33 +580,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | +2.8% |
 | Over 2.5 probability edge | -6.5% |
 | Under 2.5 probability edge | +6.5% |
-| Raw edge prob home | -0.0896 |
+| Raw edge prob home | -0.0895 |
 | Raw ev home | -0.1222 |
 | Raw edge prob draw | 0.0339 |
-| Raw ev draw | 0.3676 |
+| Raw ev draw | 0.3675 |
 | Raw edge prob away | 0.0556 |
 | Raw ev away | 0.5445 |
-| Market p over 1 5 | 95.4% |
-| Market over 1 5 odds | 1.04 |
-| Best over 1 5 bookmaker | 1xBet |
-| Market best over 1 5 last update utc | 2026-10-11T08:56:00Z |
-| Market reference over 1 5 odds | 1.04 |
-| Market reference over 1 5 opposite odds | 13.00 |
-| Market over 1 5 bookmakers | 3 |
-| Market p under 3 5 | 30.6% |
-| Market under 3 5 odds | 2.78 |
-| Best under 3 5 bookmaker | Coolbet |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:06Z |
-| Market reference under 3 5 odds | 2.77 |
-| Market reference under 3 5 opposite odds | 1.37 |
-| Market under 3 5 bookmakers | 4 |
-| Market p btts yes | 70.9% |
-| Market btts yes odds | 1.40 |
-| Best btts yes bookmaker | Matchbook |
-| Market best btts yes last update utc | 2026-10-11T08:56:36Z |
-| Market reference btts yes odds | 1.35 |
-| Market reference btts yes opposite odds | 2.94 |
-| Market btts yes bookmakers | 4 |
 
 </details>
 
@@ -638,7 +640,7 @@ The model's most likely 1X2 outcome is **Elversberg win** at **56.1%**. Expected
 | --- | --- | --- | --- | --- |
 | Elversberg win | 56.1% | 39.0% | 2.55 | +43.0% |
 | Draw | 20.3% | 25.2% | 4.00 | -18.6% |
-| Augsburg win | 23.6% | 35.8% | 2.75 | -35.2% |
+| Augsburg win | 23.6% | 35.8% | 2.75 | -35.1% |
 | Over 2.5 | 75.4% | 66.7% | 1.46 | +10.1% |
 | Under 2.5 | 24.6% | 33.3% | 2.76 | -32.2% |
 
@@ -673,7 +675,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 68.8% |
 | P btts no | 31.2% |
 | Fair Over 0.5 odds | 1.03 |
-| Fair Under 0.5 odds | 34.67 |
+| Fair Under 0.5 odds | 34.66 |
 | Fair Over 1.5 odds | 1.10 |
 | Fair Under 1.5 odds | 11.37 |
 | Fair Over 2.5 odds | 1.33 |
@@ -682,7 +684,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 3.5 odds | 2.28 |
 | Fair Over 4.5 odds | 2.72 |
 | Fair Under 4.5 odds | 1.58 |
-| Unadjusted home-win probability | 73.2% |
+| Unadjusted home-win probability | 73.1% |
 | Unadjusted draw probability | 15.5% |
 | Unadjusted away-win probability | 11.4% |
 | Raw p over 1 5 | 92.3% |
@@ -702,33 +704,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -12.2% |
 | Over 2.5 probability edge | +8.7% |
 | Under 2.5 probability edge | -8.7% |
-| Raw edge prob home | 0.3415 |
-| Raw ev home | 0.8655 |
+| Raw edge prob home | 0.3414 |
+| Raw ev home | 0.8652 |
 | Raw edge prob draw | -0.0975 |
-| Raw ev draw | -0.3813 |
-| Raw edge prob away | -0.2441 |
-| Raw ev away | -0.6871 |
-| Market p over 1 5 | 87.6% |
-| Market over 1 5 odds | 1.14 |
-| Best over 1 5 bookmaker | Coolbet |
-| Market best over 1 5 last update utc | 2026-10-11T08:56:06Z |
-| Market reference over 1 5 odds | 1.12 |
-| Market reference over 1 5 opposite odds | 6.00 |
-| Market over 1 5 bookmakers | 4 |
-| Market p under 3 5 | 54.6% |
-| Market under 3 5 odds | 1.81 |
-| Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:51Z |
-| Market reference under 3 5 odds | 1.81 |
-| Market reference under 3 5 opposite odds | 2.17 |
-| Market under 3 5 bookmakers | 4 |
-| Market p btts yes | 68.5% |
-| Market btts yes odds | 1.45 |
-| Best btts yes bookmaker | Matchbook |
-| Market best btts yes last update utc | 2026-10-11T08:56:36Z |
-| Market reference btts yes odds | 1.40 |
-| Market reference btts yes opposite odds | 2.80 |
-| Market btts yes bookmakers | 3 |
+| Raw ev draw | -0.3812 |
+| Raw edge prob away | -0.2440 |
+| Raw ev away | -0.6869 |
 
 </details>
 
@@ -847,33 +828,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -7.6% |
 | Over 2.5 probability edge | -37.8% |
 | Under 2.5 probability edge | +37.8% |
-| Raw edge prob home | 0.0348 |
-| Raw ev home | 0.1070 |
+| Raw edge prob home | 0.0349 |
+| Raw ev home | 0.1071 |
 | Raw edge prob draw | 0.1167 |
 | Raw ev draw | 0.4730 |
-| Raw edge prob away | -0.1515 |
-| Raw ev away | -0.3791 |
-| Market p over 1 5 | 83.0% |
-| Market over 1 5 odds | 1.20 |
-| Best over 1 5 bookmaker | Coolbet |
-| Market best over 1 5 last update utc | 2026-10-11T08:56:06Z |
-| Market reference over 1 5 odds | 1.18 |
-| Market reference over 1 5 opposite odds | 4.80 |
-| Market over 1 5 bookmakers | 4 |
-| Market p under 3 5 | 61.8% |
-| Market under 3 5 odds | 1.56 |
-| Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-11T08:56:36Z |
-| Market reference under 3 5 odds | 1.56 |
-| Market reference under 3 5 opposite odds | 2.43 |
-| Market under 3 5 bookmakers | 4 |
-| Market p btts yes | 63.0% |
-| Market btts yes odds | 1.53 |
-| Best btts yes bookmaker | William Hill |
-| Market best btts yes last update utc | 2026-10-11T08:56:52Z |
-| Market reference btts yes odds | 1.53 |
-| Market reference btts yes opposite odds | 2.50 |
-| Market btts yes bookmakers | 3 |
+| Raw edge prob away | -0.1516 |
+| Raw ev away | -0.3792 |
 
 </details>
 
@@ -993,11 +953,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | -10.6% |
 | Under 2.5 probability edge | +10.6% |
 | Raw edge prob home | -0.0462 |
-| Raw ev home | -0.1675 |
-| Raw edge prob draw | -0.0066 |
-| Raw ev draw | 0.0257 |
-| Raw edge prob away | 0.0528 |
-| Raw ev away | 0.0893 |
+| Raw ev home | -0.1678 |
+| Raw edge prob draw | -0.0067 |
+| Raw ev draw | 0.0256 |
+| Raw edge prob away | 0.0529 |
+| Raw ev away | 0.0894 |
 
 </details>
 
@@ -1117,11 +1077,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | -9.0% |
 | Under 2.5 probability edge | +9.0% |
 | Raw edge prob home | -0.0359 |
-| Raw ev home | -0.0916 |
+| Raw ev home | -0.0915 |
 | Raw edge prob draw | 0.0165 |
-| Raw ev draw | 0.0751 |
+| Raw ev draw | 0.0750 |
 | Raw edge prob away | 0.0194 |
-| Raw ev away | 0.0257 |
+| Raw ev away | 0.0256 |
 
 </details>
 
@@ -1164,10 +1124,10 @@ The model's most likely 1X2 outcome is **Werder Bremen win** at **49.5%**. Expec
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 17.76% |
+| 1 | 1-0 | 17.77% |
 | 2 | 0-0 | 13.63% |
-| 3 | 1-1 | 11.92% |
-| 4 | 2-0 | 11.21% |
+| 3 | 1-1 | 11.91% |
+| 4 | 2-0 | 11.22% |
 | 5 | 0-1 | 9.84% |
 
 ### Market comparison
@@ -1213,19 +1173,19 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Over 0.5 odds | 1.16 |
 | Fair Under 0.5 odds | 7.34 |
 | Fair Over 1.5 odds | 1.70 |
-| Fair Under 1.5 odds | 2.43 |
-| Fair Over 2.5 odds | 3.17 |
+| Fair Under 1.5 odds | 2.42 |
+| Fair Over 2.5 odds | 3.18 |
 | Fair Under 2.5 odds | 1.46 |
 | Fair Over 3.5 odds | 7.71 |
 | Fair Under 3.5 odds | 1.15 |
-| Fair Over 4.5 odds | 20.98 |
+| Fair Over 4.5 odds | 21.01 |
 | Fair Under 4.5 odds | 1.05 |
 | Unadjusted home-win probability | 44.5% |
 | Unadjusted draw probability | 33.4% |
 | Unadjusted away-win probability | 22.1% |
 | Raw p over 1 5 | 58.1% |
 | Raw p under 3 5 | 87.4% |
-| Raw p btts yes | 37.4% |
+| Raw p btts yes | 37.3% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / William Hill |
@@ -1240,12 +1200,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -0.4% |
 | Over 2.5 probability edge | -30.3% |
 | Under 2.5 probability edge | +30.3% |
-| Raw edge prob home | -0.0993 |
-| Raw ev home | -0.1767 |
+| Raw edge prob home | -0.0992 |
+| Raw ev home | -0.1766 |
 | Raw edge prob draw | 0.1065 |
-| Raw ev draw | 0.4242 |
-| Raw edge prob away | -0.0072 |
-| Raw ev away | -0.0710 |
+| Raw ev draw | 0.4244 |
+| Raw edge prob away | -0.0073 |
+| Raw ev away | -0.0715 |
 
 </details>
 
@@ -1366,7 +1326,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Under 2.5 probability edge | +0.9% |
 | Raw edge prob home | 0.0995 |
 | Raw ev home | 0.1881 |
-| Raw edge prob draw | -0.0221 |
+| Raw edge prob draw | -0.0222 |
 | Raw ev draw | -0.1381 |
 | Raw edge prob away | -0.0773 |
 | Raw ev away | -0.4114 |
@@ -1493,7 +1453,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob draw | 0.0009 |
 | Raw ev draw | -0.0018 |
 | Raw edge prob away | -0.1324 |
-| Raw ev away | -0.2899 |
+| Raw ev away | -0.2900 |
 
 </details>
 

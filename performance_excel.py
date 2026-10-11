@@ -356,13 +356,22 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
         parts[path]=ET.tostring(xml,encoding='utf-8',xml_declaration=True)
     ET.register_namespace('',NS)
     destination.parent.mkdir(parents=True,exist_ok=True)
-    temp=destination.with_suffix('.tmp')
-    with ZipFile(temp,'w',ZIP_DEFLATED) as z:
-        for path,data in sorted(parts.items()):
-            info=ZipInfo(path,date_time=(1980,1,1,0,0,0));info.compress_type=ZIP_DEFLATED
-            z.writestr(info,data)
-    if destination.exists() and destination.read_bytes()==temp.read_bytes():temp.unlink()
-    else:temp.replace(destination)
+    import tempfile
+    import os
+    fd, name = tempfile.mkstemp(prefix=destination.stem+'.', suffix='.tmp', dir=destination.parent)
+    os.close(fd)
+    temp = Path(name)
+    try:
+        with ZipFile(temp,'w',ZIP_DEFLATED) as z:
+            for path,data in sorted(parts.items()):
+                info=ZipInfo(path,date_time=(1980,1,1,0,0,0));info.compress_type=ZIP_DEFLATED
+                z.writestr(info,data)
+        if not destination.exists() or destination.read_bytes()!=temp.read_bytes():
+            temp.replace(destination)
+    except PermissionError as exc:
+        raise PermissionError(f"Cannot update {destination}. Close the workbook in Excel and rerun the report.") from exc
+    finally:
+        temp.unlink(missing_ok=True)
     return destination
 
 
