@@ -3,9 +3,9 @@
   "training_matches": 521,
   "training_end": "2026-09-10",
   "fit_success": true,
-  "objective": 1560.623667924308,
-  "base": 0.15446274438550517,
-  "home_adv": 0.2707455768690684,
+  "objective": 1537.063349233195,
+  "base": 0.14153046097629549,
+  "home_adv": 0.2784241498476826,
   "rho": 0.05,
   "half_life_days": 1000000000.0,
   "xi_per_day": 6.931471805599453e-10,
@@ -20,7 +20,7 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 18,
-  "additional_event_odds_calls_used_before_this_league": 20,
+  "additional_event_odds_calls_used_before_this_league": 15,
   "additional_event_odds_calls_budget": 24,
   "additional_event_odds_league_quota": 4,
   "additional_event_odds_calls_this_league": 4,
@@ -31,10 +31,12 @@
     "validation_days": 365
   },
   "goal_market_reliability": {
-    "home": "INSUFFICIENT_HISTORY",
-    "away": "INSUFFICIENT_HISTORY",
-    "over_1_5": "INSUFFICIENT_HISTORY",
-    "under_3_5": "INSUFFICIENT_HISTORY",
-    "btts_yes": "INSUFFICIENT_HISTORY"
-  }
+    "home": "RELIABLE_FOR_RANKING",
+    "away": "RELIABLE_FOR_RANKING",
+    "over_1_5": "RELIABLE_FOR_RANKING",
+    "under_3_5": "RELIABLE_FOR_RANKING",
+    "btts_yes": "RELIABLE_FOR_RANKING"
+  },
+  "data_mode": "offline_replay_of_committed_provider_responses",
+  "provider_response_source_commit": "1cd7e6bed154f42a64d727330bff7e94e7913210"
 }

@@ -120,7 +120,7 @@ THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
-PIPELINE_VERSION = "2.9.0"
+PIPELINE_VERSION = "2.9.1"
 
 
 # ---------------------------------------------------------------------------
@@ -1164,14 +1164,14 @@ class FootballDataOrg:
                 ):
                     continue
 
-                full_time = score_obj.get("fullTime")
-                if not isinstance(full_time, dict):
+                from match_scores import regulation_goals
+                goals = regulation_goals(score_obj)
+                if goals is None:
                     continue
 
                 home = home_obj.get("name")
                 away = away_obj.get("name")
-                hg = safe_float(full_time.get("home"))
-                ag = safe_float(full_time.get("away"))
+                hg, ag = goals
                 raw_dt = match.get("utcDate")
                 if (
                     not home
@@ -1183,7 +1183,7 @@ class FootballDataOrg:
                     continue
 
                 dt = pd.to_datetime(raw_dt, utc=True, errors="coerce")
-                if pd.isna(dt):
+                if pd.isna(dt) or dt >= pd.Timestamp(now):
                     continue
 
                 rows.append({
@@ -2838,7 +2838,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         )
         if self.odds_api is not None and quota > 0:
             positions = prioritized_additional_events(
-                [(row, pred) for row, pred, _ in prepared], quota
+                [(row, pred) for row, pred, _ in prepared], quota, as_of=now
             )
             for idx in positions:
                 if self.extra_event_odds_requests >= self.max_extra_event_odds_requests:
@@ -3365,6 +3365,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--test-start", default=None)
     p.add_argument("--step-days", type=int, default=28)
     p.add_argument("--min-train", type=int, default=500)
+    p.add_argument("--ucl-validation-min-train", type=int, default=250,
+                   help="UCL walk-forward calibration warm-up; audit gates remain unchanged.")
 
     p.add_argument("--min-edge", type=float, default=0.05)
     p.add_argument("--max-edge", type=float, default=0.25)
@@ -3546,8 +3548,16 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             # Reuse validated snapshots only when the historical model,
             # training cutoff and validation code version match.
             validation_path = out_dir / f"{league_key}_goal_market_validation.json"
+            validation_min_train = (args.ucl_validation_min_train
+                                    if league_key == "UCL" else args.min_train)
+            if validation_min_train < 30:
+                raise ValueError("Validation warm-up must contain at least 30 matches")
             config = {
-                "validator_version": 2,
+                "validator_version": 3,
+                "min_train": validation_min_train,
+                "step_days": 56,
+                "devig": pipe.devig_method,
+                "score_basis": "regulation_time",
                 "half_life_days": pipe.half_life_days,
                 "market_weight": pipe.market_weight,
                 "l2": pipe.l2,
@@ -3567,7 +3577,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 print(f"[{league_key}] validating goal markets walk-forward...", file=sys.stderr)
                 try:
                     historical, _, _, _ = pipe.backtest_league(
-                        league_key, min_train=args.min_train, step_days=56
+                        league_key, min_train=validation_min_train, step_days=56
                     )
                     market_validation = evaluate_market_history(
                         historical, LEAGUES[league_key].name
