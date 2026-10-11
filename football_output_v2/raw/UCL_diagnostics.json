@@ -20,14 +20,21 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 18,
-  "additional_event_odds_calls_used_before_this_league": 24,
+  "additional_event_odds_calls_used_before_this_league": 20,
   "additional_event_odds_calls_budget": 24,
-  "additional_event_odds_league_quota": 0,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_league_quota": 4,
+  "additional_event_odds_calls_this_league": 4,
   "decay_tuning": {
     "selected_half_life_days": 1000000000.0,
     "selected_xi_per_day": 6.931471805599453e-10,
     "selection_metric": "walk_forward_1x2_log_loss",
     "validation_days": 365
+  },
+  "goal_market_reliability": {
+    "home": "INSUFFICIENT_HISTORY",
+    "away": "INSUFFICIENT_HISTORY",
+    "over_1_5": "INSUFFICIENT_HISTORY",
+    "under_3_5": "INSUFFICIENT_HISTORY",
+    "btts_yes": "INSUFFICIENT_HISTORY"
   }
 }

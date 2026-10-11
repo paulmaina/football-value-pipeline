@@ -22,8 +22,8 @@
   "live_odds_matched": 14,
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": 24,
-  "additional_event_odds_league_quota": 5,
-  "additional_event_odds_calls_this_league": 5,
+  "additional_event_odds_league_quota": 4,
+  "additional_event_odds_calls_this_league": 4,
   "decay_tuning": {
     "selected_half_life_days": 365.0,
     "selected_xi_per_day": 0.0018990333713971104,
