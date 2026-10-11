@@ -17,7 +17,7 @@ from format_football_output import (
 from test_conservative_bet_filter import NOW, fixture
 
 
-class SixtyHourSelectionTests(unittest.TestCase):
+class SeventyTwoHourSelectionTests(unittest.TestCase):
     def setUp(self):
         self.clock = NOW
 
@@ -26,25 +26,25 @@ class SixtyHourSelectionTests(unittest.TestCase):
 
     def test_stronger_distant_fixtures_cannot_override_hard_horizon(self):
         nearby = [fixture(i, kickoff=NOW + timedelta(hours=24)) for i in range(10)]
-        far = fixture(100, kickoff=NOW + timedelta(hours=61))
+        far = fixture(100, kickoff=NOW + timedelta(hours=73))
         far.update(p_over_1_5=0.99, raw_p_over_1_5=0.96)
         picks, audit, info = self.select(nearby + [far])
         self.assertEqual(len(picks), 10)
         self.assertNotIn(far["fixture_id"], set(picks["fixture_id"]))
-        self.assertTrue(info["selected_matches_within_60_hours"])
+        self.assertTrue(info["selected_matches_within_72_hours"])
         rejected = audit[audit.fixture_id == far["fixture_id"]]
-        self.assertTrue(rejected.rejection_reasons.str.contains("outside next 60 hours").all())
+        self.assertTrue(rejected.rejection_reasons.str.contains("outside next 72 hours").all())
 
-    def test_exact_60_hour_boundary_inclusive_and_one_second_over_rejected(self):
-        rows = [fixture(0, NOW + timedelta(hours=60)),
-                fixture(1, NOW + timedelta(hours=60, seconds=1))]
+    def test_exact_72_hour_boundary_inclusive_and_one_second_over_rejected(self):
+        rows = [fixture(0, NOW + timedelta(hours=72)),
+                fixture(1, NOW + timedelta(hours=72, seconds=1))]
         picks, _, info = self.select(rows)
         self.assertEqual(picks.fixture_id.tolist(), ["fixture-0"])
-        self.assertEqual(info["shortlist_lookahead_hours"], 60)
+        self.assertEqual(info["shortlist_lookahead_hours"], 72)
         self.assertEqual(info["shortlist_window_end_utc"], rows[0]["kickoff_utc"])
 
     def test_horizon_anchored_to_run_not_first_kickoff(self):
-        rows = [fixture(0, NOW + timedelta(hours=59)),
+        rows = [fixture(0, NOW + timedelta(hours=71)),
                 fixture(1, NOW + timedelta(hours=80))]
         picks, _, _ = self.select(rows)
         self.assertEqual(picks.fixture_id.tolist(), ["fixture-0"])
@@ -52,8 +52,8 @@ class SixtyHourSelectionTests(unittest.TestCase):
     def test_no_fallback_outside_horizon_when_fewer_than_ten(self):
         games = [fixture(i, kickoff=NOW + timedelta(days=1 + i*2)) for i in range(10)]
         picks, _, info = self.select(games)
-        self.assertEqual(len(picks), 1)
-        self.assertEqual(info["shortfall"], 9)
+        self.assertEqual(len(picks), 2)
+        self.assertEqual(info["shortfall"], 8)
         self.assertEqual(info["status"], "BELOW_TARGET")
 
     def test_minimum_kickoff_lead_and_timezone_conversion(self):
@@ -82,6 +82,30 @@ class SixtyHourSelectionTests(unittest.TestCase):
 
 
 class FormatterIntegrationTests(unittest.TestCase):
+    def test_refresh_replaces_stale_outputs_and_uses_all_stored_candidates(self):
+        from refresh_conservative_shortlist import refresh
+        from test_graded_candidates import sample_report, only_over_goal
+        rows = [only_over_goal(i) for i in range(3)]
+        rows[0]['kickoff_utc'] = (NOW + timedelta(days=8)).isoformat()
+        rows[1]['kickoff_utc'] = (NOW + timedelta(hours=71)).isoformat()
+        rows[2]['kickoff_utc'] = (NOW + timedelta(hours=72, seconds=1)).isoformat()
+        rows[1]['league'] = 'UEFA Champions League'
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            raw = root / 'raw'
+            raw.mkdir()
+            pd.DataFrame(rows).to_csv(raw / 'all_leagues_predictions.csv', index=False)
+            pd.DataFrame([rows[0]]).to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+            for key, league in [('EPL', 'Premier League'), ('UCL', 'UEFA Champions League')]:
+                report = dict(sample_report(), league=league)
+                (raw / f'{key}_goal_market_validation.json').write_text(json.dumps(report))
+            summary = refresh(root, as_of=NOW)
+            picks = pd.read_csv(raw / 'conservative_bet_shortlist.csv')
+            self.assertEqual(picks.fixture_id.tolist(), [rows[1]['fixture_id']])
+            self.assertTrue(summary['selected_matches_within_72_hours'])
+            self.assertTrue(summary['ucl_validation_available'])
+            self.assertIn('72 hours', (root / 'readable' / 'conservative_bet_shortlist_report.md').read_text())
+
     def test_formatter_creates_both_readable_reports_and_does_not_edit_raw(self):
         picks, _, summary = build_conservative_shortlist(
             pd.DataFrame([fixture(0)]), as_of=NOW
@@ -114,7 +138,7 @@ class FormatterIntegrationTests(unittest.TestCase):
             self.assertEqual(table.iloc[0]["Shortlisted market"], "Over 1.5")
             self.assertIn("Home_0 vs Away_0", md)
             self.assertIn("Over 1.5", md)
-            self.assertIn("Kickoffs within next 60 hours of run", md)
+            self.assertIn("Kickoffs within next 72 hours of run", md)
             self.assertEqual(source.read_bytes(), before)
 
     def test_empty_shortlist_formats_without_fabricated_match(self):

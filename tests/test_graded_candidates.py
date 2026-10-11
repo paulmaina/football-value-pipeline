@@ -87,7 +87,7 @@ class GradedCandidatesTests(unittest.TestCase):
         rows = [only_over_goal(i) for i in (4, 5, 6)]
         for row in rows:
             row["league"] = "UEFA Champions League"
-        rows[1]["kickoff_utc"] = (NOW + timedelta(hours=60, seconds=1)).isoformat()
+        rows[1]["kickoff_utc"] = (NOW + timedelta(hours=72, seconds=1)).isoformat()
         rows[2]["market_over_1_5_odds"] = None
         picks, _, summary = build_conservative_shortlist(
             pd.DataFrame(rows), as_of=NOW,
