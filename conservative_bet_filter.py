@@ -1,7 +1,7 @@
 """Experimental ten-match, five-market shortlist; never guarantee winners.
 
 One market per fixture, up to ten distinct matches across the whole run.
-Only select kickoffs within the next 60 hours of the run, including UCL.
+Only select kickoffs within the next 72 hours of the run, including UCL.
 Strict selections retain every rule. When fewer than ten qualify, a clearly
 marked PROVISIONAL WATCHLIST may include nearest historical-evidence misses,
 never malformed odds, stale quotes or unknown teams. It is not a ten-leg
@@ -22,7 +22,7 @@ DOMESTIC_LEAGUES = frozenset({
 })
 SUPPORTED_LEAGUES = DOMESTIC_LEAGUES | {"UEFA Champions League"}
 TARGET_DISTINCT_MATCHES = 10
-SHORTLIST_LOOKAHEAD_HOURS = 60.0
+SHORTLIST_LOOKAHEAD_HOURS = 72.0
 MIN_ESTIMATED_EV = 0.03
 MIN_RAW_DC_EV = 0.0
 MIN_TEAM_NAME_MATCH_SCORE = 90.0
@@ -133,7 +133,7 @@ def _evaluate_market(
     elif (kickoff - now).total_seconds() / 60.0 < MIN_MINUTES_UNTIL_KICKOFF:
         reasons.append("kickoff has passed or is less than 20 minutes away")
     elif kickoff > now + pd.Timedelta(hours=SHORTLIST_LOOKAHEAD_HOURS):
-        reasons.append("kickoff outside next 60 hours")
+        reasons.append("kickoff outside next 72 hours")
 
     date = kickoff.date().isoformat() if kickoff is not None else str(row.get("date") or "")
     if row.get("odds_source") != "The Odds API" or row.get("market_blend_applied") not in (True, 1):
@@ -514,7 +514,7 @@ def build_conservative_shortlist(
     return shortlist, decisions, {
         "status": status,
         "generated_at_utc": now.isoformat(),
-        "selection_policy_version": "60h-ucl-v1",
+        "selection_policy_version": "72h-ucl-v2",
         "n_fixtures": int(len(predictions)),
         "n_markets_evaluated": int(len(decisions)),
         "n_shortlisted": n,
@@ -528,7 +528,7 @@ def build_conservative_shortlist(
         "shortlist_window_end_utc": (
             now + pd.Timedelta(hours=SHORTLIST_LOOKAHEAD_HOURS)
         ).isoformat(),
-        "selected_matches_within_60_hours": inside_window,
+        "selected_matches_within_72_hours": inside_window,
         "selected_kickoff_span_hours": actual_span,
         "selected_first_kickoff_utc": (
             first_kickoff.isoformat() if first_kickoff is not None else None
@@ -536,7 +536,7 @@ def build_conservative_shortlist(
         "selected_last_kickoff_utc": (
             last_kickoff.isoformat() if last_kickoff is not None else None
         ),
-        "selection_method": "Strict-first ranking within the next 60 hours of the run",
+        "selection_method": "Strict-first ranking within the next 72 hours of the run",
         "eligible_markets": [x[0] for x in MARKET_SPECS],
         "eligible_leagues": sorted(SUPPORTED_LEAGUES),
         "min_estimated_ev": MIN_ESTIMATED_EV,
