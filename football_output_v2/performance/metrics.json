@@ -179,12 +179,13 @@
     }
   },
   "pending_reason_counts": {
-    "PENDING_KICKOFF_OR_FINAL_SCORE": 16
+    "PENDING_KICKOFF_OR_FINAL_SCORE": 15,
+    "UNVERIFIED_FIXTURE_OR_RESULT": 1
   },
   "prediction_1x2_multiclass_brier": null,
   "prediction_fixtures_graded": 0,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-10-11T11:32:54Z",
+  "reviewed_at_utc": "2026-10-11T14:13:08Z",
   "shortlist": {
     "brier": null,
     "flat_stake_roi": null,
