@@ -33,7 +33,7 @@ Fixtures in this report: **12**.
 | The odds api enabled | 1.00 |
 | Odds regions | — |
 | Live odds matched | 12.00 |
-| Additional event odds calls used before this league | 20.00 |
+| Additional event odds calls used before this league | 16.00 |
 | Additional event odds calls budget | 24.00 |
 | Additional event odds league quota | 4.00 |
 | Additional event odds calls this league | 4.00 |
@@ -54,7 +54,7 @@ Fixtures in this report: **12**.
 
 ## 2026-10-11 — Nice vs Strasbourg
 
-The model's most likely 1X2 outcome is **Nice win** at **40.2%**. Expected goals are 1.46 for Nice and 1.39 for Strasbourg (2.84 combined). The most likely exact score is 1-1 at 12.0%. Goal-market probabilities: at least one goal: 93.8%; Over 2.5 goals: 54.4%; Under 3.5 goals: 68.2%; Under 4.5 goals: 84.0%; BTTS Yes (both teams score): 58.0%; BTTS No (at least one team does not score): 42.0%.
+The model's most likely 1X2 outcome is **Nice win** at **39.8%**. Expected goals are 1.46 for Nice and 1.39 for Strasbourg (2.84 combined). The most likely exact score is 1-1 at 12.0%. Goal-market probabilities: at least one goal: 93.7%; Over 2.5 goals: 54.3%; Under 3.5 goals: 68.2%; Under 4.5 goals: 84.0%; BTTS Yes (both teams score): 58.0%; BTTS No (at least one team does not score): 42.0%.
 
 **Fixture source:** The Odds API
 
@@ -62,9 +62,9 @@ The model's most likely 1X2 outcome is **Nice win** at **40.2%**. Expected goals
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Nice win | 40.2% | 2.49 |
+| Nice win | 39.8% | 2.51 |
 | Draw | 25.5% | 3.92 |
-| Strasbourg win | 34.3% | 2.91 |
+| Strasbourg win | 34.7% | 2.88 |
 
 ### Goals outlook
 
@@ -73,12 +73,12 @@ The model's most likely 1X2 outcome is **Nice win** at **40.2%**. Expected goals
 | Nice expected goals | 1.46 |
 | Strasbourg expected goals | 1.39 |
 | Expected total goals | 2.84 |
-| Over 0.5 | 93.8% |
-| Under 0.5 | 6.2% |
+| Over 0.5 | 93.7% |
+| Under 0.5 | 6.3% |
 | Over 1.5 | 78.3% |
 | Under 1.5 | 21.7% |
-| Over 2.5 | 54.4% |
-| Under 2.5 | 45.6% |
+| Over 2.5 | 54.3% |
+| Under 2.5 | 45.7% |
 | Over 3.5 | 31.8% |
 | Under 3.5 | 68.2% |
 | Over 4.5 | 16.0% |
@@ -88,21 +88,21 @@ The model's most likely 1X2 outcome is **Nice win** at **40.2%**. Expected goals
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 12.00% |
-| 2 | 2-1 | 8.97% |
-| 3 | 1-0 | 8.24% |
-| 4 | 1-2 | 7.92% |
-| 5 | 0-1 | 7.25% |
+| 1 | 1-1 | 12.03% |
+| 2 | 2-1 | 8.87% |
+| 3 | 1-0 | 8.15% |
+| 4 | 1-2 | 8.01% |
+| 5 | 0-1 | 7.33% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Nice win | 40.2% | 42.0% | 2.41 | -3.1% |
-| Draw | 25.5% | 24.7% | 3.80 | -3.2% |
-| Strasbourg win | 34.3% | 33.3% | 3.05 | +4.7% |
-| Over 2.5 | 54.4% | 57.2% | 1.71 | -7.0% |
-| Under 2.5 | 45.6% | 42.8% | 2.35 | +7.3% |
+| Nice win | 39.8% | 41.2% | 2.41 | -4.2% |
+| Draw | 25.5% | 24.8% | 3.80 | -3.0% |
+| Strasbourg win | 34.7% | 34.0% | 3.05 | +5.8% |
+| Over 2.5 | 54.3% | 57.7% | 1.71 | -7.1% |
+| Under 2.5 | 45.7% | 42.3% | 2.40 | +9.6% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -118,11 +118,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:31:23Z |
-| Market best draw last update utc | 2026-10-11T06:31:23Z |
-| Market best away last update utc | 2026-10-11T06:31:54Z |
-| Odds bookmakers 1x2 | 19.00 |
-| Odds bookmakers ou25 | 10.00 |
+| Market best home last update utc | 2026-10-11T08:23:10Z |
+| Market best draw last update utc | 2026-10-11T08:23:10Z |
+| Market best away last update utc | 2026-10-11T08:23:09Z |
+| Odds bookmakers 1x2 | 20.00 |
+| Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | Betfair |
@@ -135,7 +135,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 58.0% |
 | P btts no | 42.0% |
 | Fair Over 0.5 odds | 1.07 |
-| Fair Under 0.5 odds | 16.02 |
+| Fair Under 0.5 odds | 15.99 |
 | Fair Over 1.5 odds | 1.28 |
 | Fair Under 1.5 odds | 4.60 |
 | Fair Over 2.5 odds | 1.84 |
@@ -153,22 +153,22 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Winamax (DE) |
-| Reference home odds | 2.25 |
+| Reference home odds | 2.30 |
 | Reference draw odds | 3.70 |
-| Reference away odds | 2.80 |
-| O/U 2.5 market source | The Odds API / Unibet (SE) |
-| Reference Over 2.5 odds | 1.68 |
-| Reference Under 2.5 odds | 2.20 |
-| Home probability edge | -1.8% |
-| Draw probability edge | +0.8% |
-| Away probability edge | +1.0% |
-| Over 2.5 probability edge | -2.9% |
-| Under 2.5 probability edge | +2.9% |
-| Raw edge prob home | -0.0366 |
+| Reference away odds | 2.75 |
+| O/U 2.5 market source | The Odds API / 1xBet |
+| Reference Over 2.5 odds | 1.71 |
+| Reference Under 2.5 odds | 2.32 |
+| Home probability edge | -1.4% |
+| Draw probability edge | +0.7% |
+| Away probability edge | +0.7% |
+| Over 2.5 probability edge | -3.4% |
+| Under 2.5 probability edge | +3.4% |
+| Raw edge prob home | -0.0279 |
 | Raw ev home | -0.0752 |
-| Raw edge prob draw | 0.0156 |
+| Raw edge prob draw | 0.0146 |
 | Raw ev draw | -0.0021 |
-| Raw edge prob away | 0.0209 |
+| Raw edge prob away | 0.0134 |
 | Raw ev away | 0.0786 |
 
 </details>
@@ -178,7 +178,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Rennes vs Auxerre
 
-The model's most likely 1X2 outcome is **Rennes win** at **60.8%**. Expected goals are 1.84 for Rennes and 1.14 for Auxerre (2.98 combined). The most likely exact score is 2-1 at 11.2%. Goal-market probabilities: at least one goal: 95.2%; Over 2.5 goals: 58.8%; Under 3.5 goals: 64.4%; Under 4.5 goals: 81.0%; BTTS Yes (both teams score): 56.7%; BTTS No (at least one team does not score): 43.3%.
+The model's most likely 1X2 outcome is **Rennes win** at **60.7%**. Expected goals are 1.84 for Rennes and 1.14 for Auxerre (2.98 combined). The most likely exact score is 2-1 at 11.2%. Goal-market probabilities: at least one goal: 95.2%; Over 2.5 goals: 58.8%; Under 3.5 goals: 64.4%; Under 4.5 goals: 81.1%; BTTS Yes (both teams score): 56.8%; BTTS No (at least one team does not score): 43.2%.
 
 **Fixture source:** The Odds API
 
@@ -186,9 +186,9 @@ The model's most likely 1X2 outcome is **Rennes win** at **60.8%**. Expected goa
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Rennes win | 60.8% | 1.65 |
-| Draw | 20.4% | 4.91 |
-| Auxerre win | 18.8% | 5.31 |
+| Rennes win | 60.7% | 1.65 |
+| Draw | 20.5% | 4.88 |
+| Auxerre win | 18.8% | 5.32 |
 
 ### Goals outlook
 
@@ -205,28 +205,28 @@ The model's most likely 1X2 outcome is **Rennes win** at **60.8%**. Expected goa
 | Under 2.5 | 41.2% |
 | Over 3.5 | 35.6% |
 | Under 3.5 | 64.4% |
-| Over 4.5 | 19.0% |
-| Under 4.5 | 81.0% |
+| Over 4.5 | 18.9% |
+| Under 4.5 | 81.1% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 2-1 | 11.22% |
-| 2 | 1-0 | 10.03% |
-| 3 | 2-0 | 9.81% |
-| 4 | 1-1 | 9.55% |
-| 5 | 3-1 | 6.88% |
+| 1 | 2-1 | 11.21% |
+| 2 | 1-0 | 10.02% |
+| 3 | 2-0 | 9.80% |
+| 4 | 1-1 | 9.60% |
+| 5 | 3-1 | 6.87% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Rennes win | 60.8% | 68.5% | 1.48 | -10.1% |
-| Draw | 20.4% | 16.8% | 5.30 | +8.0% |
-| Auxerre win | 18.8% | 14.7% | 7.50 | +41.3% |
+| Rennes win | 60.7% | 68.4% | 1.47 | -10.7% |
+| Draw | 20.5% | 17.1% | 5.40 | +10.7% |
+| Auxerre win | 18.8% | 14.6% | 7.50 | +40.9% |
 | Over 2.5 | 58.8% | 66.1% | 1.50 | -11.8% |
-| Under 2.5 | 41.2% | 33.9% | 2.68 | +10.3% |
+| Under 2.5 | 41.2% | 33.9% | 2.72 | +12.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -242,24 +242,24 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:31:23Z |
-| Market best draw last update utc | 2026-10-11T06:31:54Z |
-| Market best away last update utc | 2026-10-11T06:31:23Z |
-| Odds bookmakers 1x2 | 19.00 |
-| Odds bookmakers ou25 | 2.00 |
+| Market best home last update utc | 2026-10-11T08:23:10Z |
+| Market best draw last update utc | 2026-10-11T08:23:09Z |
+| Market best away last update utc | 2026-10-11T08:22:53Z |
+| Odds bookmakers 1x2 | 20.00 |
+| Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | Betfair |
 | Best away bookmaker | LeoVegas (SE) |
 | Best over 2 5 bookmaker | William Hill |
-| Best under 2 5 bookmaker | Nordic Bet |
+| Best under 2 5 bookmaker | Betsson |
 | Matched home-team name | Rennes |
 | Matched away-team name | Auxerre |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 56.7% |
-| P btts no | 43.3% |
+| P btts yes | 56.8% |
+| P btts no | 43.2% |
 | Fair Over 0.5 odds | 1.05 |
-| Fair Under 0.5 odds | 20.90 |
+| Fair Under 0.5 odds | 20.79 |
 | Fair Over 1.5 odds | 1.24 |
 | Fair Under 1.5 odds | 5.23 |
 | Fair Over 2.5 odds | 1.70 |
@@ -278,21 +278,21 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Winamax (DE) |
 | Reference home odds | 1.42 |
-| Reference draw odds | 5.20 |
+| Reference draw odds | 5.10 |
 | Reference away odds | 5.90 |
 | O/U 2.5 market source | The Odds API / Nordic Bet |
 | Reference Over 2.5 odds | 1.46 |
 | Reference Under 2.5 odds | 2.68 |
-| Home probability edge | -7.7% |
-| Draw probability edge | +3.5% |
-| Away probability edge | +4.1% |
-| Over 2.5 probability edge | -7.2% |
-| Under 2.5 probability edge | +7.2% |
-| Raw edge prob home | -0.1538 |
-| Raw ev home | -0.2143 |
-| Raw edge prob draw | 0.0708 |
-| Raw ev draw | 0.2677 |
-| Raw edge prob away | 0.0830 |
+| Home probability edge | -7.6% |
+| Draw probability edge | +3.4% |
+| Away probability edge | +4.2% |
+| Over 2.5 probability edge | -7.3% |
+| Under 2.5 probability edge | +7.3% |
+| Raw edge prob home | -0.1527 |
+| Raw ev home | -0.2196 |
+| Raw edge prob draw | 0.0685 |
+| Raw ev draw | 0.2916 |
+| Raw edge prob away | 0.0842 |
 | Raw ev away | 0.7245 |
 
 </details>
@@ -302,7 +302,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-11 — Troyes vs Marseille
 
-The model's most likely 1X2 outcome is **Marseille win** at **62.3%**. Expected goals are 0.92 for Troyes and 2.68 for Marseille (3.60 combined). The most likely exact score is 1-1 at 8.8%. Goal-market probabilities: at least one goal: 96.2%; Over 2.5 goals: 67.3%; Under 3.5 goals: 53.8%; Under 4.5 goals: 72.6%; BTTS Yes (both teams score): 58.6%; BTTS No (at least one team does not score): 41.4%.
+The model's most likely 1X2 outcome is **Marseille win** at **61.2%**. Expected goals are 0.92 for Troyes and 2.68 for Marseille (3.60 combined). The most likely exact score is 1-1 at 9.0%. Goal-market probabilities: at least one goal: 96.1%; Over 2.5 goals: 67.1%; Under 3.5 goals: 54.1%; Under 4.5 goals: 72.8%; BTTS Yes (both teams score): 58.8%; BTTS No (at least one team does not score): 41.2%.
 
 **Fixture source:** The Odds API
 
@@ -310,9 +310,9 @@ The model's most likely 1X2 outcome is **Marseille win** at **62.3%**. Expected 
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Troyes win | 18.2% | 5.48 |
-| Draw | 19.4% | 5.15 |
-| Marseille win | 62.3% | 1.60 |
+| Troyes win | 19.0% | 5.26 |
+| Draw | 19.8% | 5.05 |
+| Marseille win | 61.2% | 1.63 |
 
 ### Goals outlook
 
@@ -321,36 +321,36 @@ The model's most likely 1X2 outcome is **Marseille win** at **62.3%**. Expected 
 | Troyes expected goals | 0.92 |
 | Marseille expected goals | 2.68 |
 | Expected total goals | 3.60 |
-| Over 0.5 | 96.2% |
-| Under 0.5 | 3.8% |
-| Over 1.5 | 86.4% |
-| Under 1.5 | 13.6% |
-| Over 2.5 | 67.3% |
-| Under 2.5 | 32.7% |
-| Over 3.5 | 46.2% |
-| Under 3.5 | 53.8% |
-| Over 4.5 | 27.4% |
-| Under 4.5 | 72.6% |
+| Over 0.5 | 96.1% |
+| Under 0.5 | 3.9% |
+| Over 1.5 | 86.3% |
+| Under 1.5 | 13.7% |
+| Over 2.5 | 67.1% |
+| Under 2.5 | 32.9% |
+| Over 3.5 | 45.9% |
+| Under 3.5 | 54.1% |
+| Over 4.5 | 27.2% |
+| Under 4.5 | 72.8% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 8.78% |
-| 2 | 0-2 | 8.23% |
-| 3 | 1-2 | 7.59% |
-| 4 | 0-3 | 7.35% |
-| 5 | 1-3 | 6.78% |
+| 1 | 1-1 | 8.97% |
+| 2 | 0-2 | 8.07% |
+| 3 | 1-2 | 7.45% |
+| 4 | 0-3 | 7.21% |
+| 5 | 1-3 | 6.65% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Troyes win | 18.2% | 26.3% | 4.00 | -27.1% |
-| Draw | 19.4% | 23.2% | 4.04 | -21.6% |
-| Marseille win | 62.3% | 50.5% | 2.02 | +25.9% |
-| Over 2.5 | 67.3% | 60.0% | 1.64 | +10.4% |
-| Under 2.5 | 32.7% | 40.0% | 2.46 | -19.6% |
+| Troyes win | 19.0% | 27.9% | 3.85 | -26.9% |
+| Draw | 19.8% | 24.0% | 3.86 | -23.5% |
+| Marseille win | 61.2% | 48.2% | 2.10 | +28.5% |
+| Over 2.5 | 67.1% | 59.3% | 1.67 | +12.0% |
+| Under 2.5 | 32.9% | 40.7% | 2.41 | -20.7% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -366,11 +366,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:32:10Z |
-| Market best draw last update utc | 2026-10-11T06:31:23Z |
-| Market best away last update utc | 2026-10-11T06:31:54Z |
-| Odds bookmakers 1x2 | 19.00 |
-| Odds bookmakers ou25 | 9.00 |
+| Market best home last update utc | 2026-10-11T08:22:22Z |
+| Market best draw last update utc | 2026-10-11T08:23:10Z |
+| Market best away last update utc | 2026-10-11T08:23:09Z |
+| Odds bookmakers 1x2 | 20.00 |
+| Odds bookmakers ou25 | 10.00 |
 | Best home bookmaker | Unibet (SE) |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | Betfair |
@@ -380,18 +380,18 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Marseille |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 58.6% |
-| P btts no | 41.4% |
+| P btts yes | 58.8% |
+| P btts no | 41.2% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 26.23 |
+| Fair Under 0.5 odds | 25.70 |
 | Fair Over 1.5 odds | 1.16 |
-| Fair Under 1.5 odds | 7.37 |
+| Fair Under 1.5 odds | 7.30 |
 | Fair Over 2.5 odds | 1.49 |
-| Fair Under 2.5 odds | 3.06 |
-| Fair Over 3.5 odds | 2.17 |
-| Fair Under 3.5 odds | 1.86 |
-| Fair Over 4.5 odds | 3.65 |
-| Fair Under 4.5 odds | 1.38 |
+| Fair Under 2.5 odds | 3.04 |
+| Fair Over 3.5 odds | 2.18 |
+| Fair Under 3.5 odds | 1.85 |
+| Fair Over 4.5 odds | 3.67 |
+| Fair Under 4.5 odds | 1.37 |
 | Unadjusted home-win probability | 10.1% |
 | Unadjusted draw probability | 15.7% |
 | Unadjusted away-win probability | 74.2% |
@@ -401,43 +401,43 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Winamax (DE) |
-| Reference home odds | 3.50 |
-| Reference draw odds | 3.95 |
-| Reference away odds | 1.90 |
-| O/U 2.5 market source | The Odds API / Unibet (SE) |
-| Reference Over 2.5 odds | 1.61 |
-| Reference Under 2.5 odds | 2.35 |
-| Home probability edge | -8.1% |
-| Draw probability edge | -3.7% |
-| Away probability edge | +11.9% |
-| Over 2.5 probability edge | +7.3% |
-| Under 2.5 probability edge | -7.3% |
-| Raw edge prob home | -0.1623 |
-| Raw ev home | -0.5952 |
-| Raw edge prob draw | -0.0749 |
-| Raw ev draw | -0.3669 |
-| Raw edge prob away | 0.2372 |
-| Raw ev away | 0.4990 |
+| Reference home odds | 3.30 |
+| Reference draw odds | 3.80 |
+| Reference away odds | 1.98 |
+| O/U 2.5 market source | The Odds API / 1xBet |
+| Reference Over 2.5 odds | 1.67 |
+| Reference Under 2.5 odds | 2.41 |
+| Home probability edge | -8.9% |
+| Draw probability edge | -4.2% |
+| Away probability edge | +13.0% |
+| Over 2.5 probability edge | +7.8% |
+| Under 2.5 probability edge | -7.8% |
+| Raw edge prob home | -0.1776 |
+| Raw ev home | -0.6104 |
+| Raw edge prob draw | -0.0830 |
+| Raw ev draw | -0.3951 |
+| Raw edge prob away | 0.2606 |
+| Raw ev away | 0.5584 |
 | Market p over 1 5 | 83.0% |
 | Market over 1 5 odds | 1.19 |
 | Best over 1 5 bookmaker | Coolbet |
-| Market best over 1 5 last update utc | 2026-10-11T06:31:39Z |
+| Market best over 1 5 last update utc | 2026-10-11T08:22:54Z |
 | Market reference over 1 5 odds | 1.19 |
 | Market reference over 1 5 opposite odds | 5.20 |
-| Market over 1 5 bookmakers | 4 |
-| Market p under 3 5 | 62.1% |
+| Market over 1 5 bookmakers | 3 |
+| Market p under 3 5 | 62.3% |
 | Market under 3 5 odds | 1.60 |
 | Best under 3 5 bookmaker | Coolbet |
-| Market best under 3 5 last update utc | 2026-10-11T06:31:39Z |
+| Market best under 3 5 last update utc | 2026-10-11T08:22:54Z |
 | Market reference under 3 5 odds | 1.57 |
-| Market reference under 3 5 opposite odds | 2.51 |
-| Market under 3 5 bookmakers | 4 |
+| Market reference under 3 5 opposite odds | 2.54 |
+| Market under 3 5 bookmakers | 3 |
 | Market p btts yes | 62.5% |
 | Market btts yes odds | 1.57 |
 | Best btts yes bookmaker | William Hill |
-| Market best btts yes last update utc | 2026-10-11T06:31:38Z |
-| Market reference btts yes odds | 1.56 |
-| Market reference btts yes opposite odds | 2.53 |
+| Market best btts yes last update utc | 2026-10-11T08:22:37Z |
+| Market reference btts yes odds | 1.52 |
+| Market reference btts yes opposite odds | 2.40 |
 | Market btts yes bookmakers | 3 |
 
 </details>
@@ -494,8 +494,8 @@ The model's most likely 1X2 outcome is **Le Mans FC win** at **38.7%**. Expected
 | Le Mans FC win | 38.7% | 31.6% | 3.25 | +25.8% |
 | Draw | 24.3% | 25.2% | 3.57 | -13.2% |
 | Toulouse win | 37.0% | 43.1% | 2.34 | -13.4% |
-| Over 2.5 | 65.1% | 55.3% | 1.84 | +19.7% |
-| Under 2.5 | 34.9% | 44.7% | 2.12 | -25.9% |
+| Over 2.5 | 65.1% | 53.6% | 1.84 | +19.7% |
+| Under 2.5 | 34.9% | 46.4% | 2.12 | -25.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -511,11 +511,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:31:23Z |
-| Market best draw last update utc | 2026-10-11T06:31:23Z |
-| Market best away last update utc | 2026-10-11T06:31:23Z |
-| Odds bookmakers 1x2 | 16.00 |
-| Odds bookmakers ou25 | 10.00 |
+| Market best home last update utc | 2026-10-11T08:23:10Z |
+| Market best draw last update utc | 2026-10-11T08:23:10Z |
+| Market best away last update utc | 2026-10-11T08:23:10Z |
+| Odds bookmakers 1x2 | 17.00 |
+| Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | 1xBet |
@@ -549,14 +549,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.85 |
 | Reference draw odds | 3.50 |
 | Reference away odds | 2.15 |
-| O/U 2.5 market source | The Odds API / Unibet (SE) |
-| Reference Over 2.5 odds | 1.74 |
+| O/U 2.5 market source | The Odds API / 1xBet |
+| Reference Over 2.5 odds | 1.84 |
 | Reference Under 2.5 odds | 2.12 |
 | Home probability edge | +7.1% |
 | Draw probability edge | -0.9% |
 | Away probability edge | -6.1% |
-| Over 2.5 probability edge | +9.8% |
-| Under 2.5 probability edge | -9.8% |
+| Over 2.5 probability edge | +11.4% |
+| Under 2.5 probability edge | -11.4% |
 | Raw edge prob home | 0.1411 |
 | Raw ev home | 0.4869 |
 | Raw edge prob draw | -0.0186 |
@@ -566,23 +566,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market p over 1 5 | 78.0% |
 | Market over 1 5 odds | 1.25 |
 | Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-11T06:31:38Z |
+| Market best over 1 5 last update utc | 2026-10-11T08:22:37Z |
 | Market reference over 1 5 odds | 1.25 |
 | Market reference over 1 5 opposite odds | 3.90 |
 | Market over 1 5 bookmakers | 3 |
 | Market p under 3 5 | 68.2% |
 | Market under 3 5 odds | 1.42 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-11T06:32:09Z |
+| Market best under 3 5 last update utc | 2026-10-11T08:23:10Z |
 | Market reference under 3 5 odds | 1.42 |
 | Market reference under 3 5 opposite odds | 2.86 |
 | Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 59.8% |
+| Market p btts yes | 59.1% |
 | Market btts yes odds | 1.60 |
 | Best btts yes bookmaker | William Hill |
-| Market best btts yes last update utc | 2026-10-11T06:31:38Z |
+| Market best btts yes last update utc | 2026-10-11T08:22:37Z |
 | Market reference btts yes odds | 1.60 |
-| Market reference btts yes opposite odds | 2.30 |
+| Market reference btts yes opposite odds | 2.22 |
 | Market btts yes bookmakers | 2 |
 
 </details>
@@ -636,11 +636,11 @@ The model's most likely 1X2 outcome is **Lille win** at **56.5%**. Expected goal
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Lille win | 56.5% | 57.0% | 1.74 | -1.7% |
+| Lille win | 56.5% | 57.0% | 1.73 | -2.2% |
 | Draw | 23.3% | 22.1% | 4.35 | +1.5% |
 | Brest win | 20.2% | 20.9% | 5.50 | +10.9% |
-| Over 2.5 | 51.1% | 58.1% | 1.76 | -10.1% |
-| Under 2.5 | 48.9% | 41.9% | 2.25 | +10.1% |
+| Over 2.5 | 51.1% | 56.0% | 1.76 | -10.1% |
+| Under 2.5 | 48.9% | 44.0% | 2.25 | +10.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -656,12 +656,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:31:54Z |
-| Market best draw last update utc | 2026-10-11T06:31:23Z |
-| Market best away last update utc | 2026-10-11T06:31:23Z |
-| Odds bookmakers 1x2 | 16.00 |
-| Odds bookmakers ou25 | 10.00 |
-| Best home bookmaker | Betfair |
+| Market best home last update utc | 2026-10-11T08:23:10Z |
+| Market best draw last update utc | 2026-10-11T08:22:53Z |
+| Market best away last update utc | 2026-10-11T08:22:53Z |
+| Odds bookmakers 1x2 | 17.00 |
+| Odds bookmakers ou25 | 11.00 |
+| Best home bookmaker | 1xBet |
 | Best draw bookmaker | LeoVegas (SE) |
 | Best away bookmaker | LeoVegas (SE) |
 | Best over 2 5 bookmaker | 1xBet |
@@ -694,16 +694,16 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.66 |
 | Reference draw odds | 3.90 |
 | Reference away odds | 4.10 |
-| O/U 2.5 market source | The Odds API / Unibet (SE) |
-| Reference Over 2.5 odds | 1.66 |
-| Reference Under 2.5 odds | 2.25 |
+| O/U 2.5 market source | The Odds API / 1xBet |
+| Reference Over 2.5 odds | 1.76 |
+| Reference Under 2.5 odds | 2.23 |
 | Home probability edge | -0.5% |
 | Draw probability edge | +1.2% |
 | Away probability edge | -0.7% |
-| Over 2.5 probability edge | -7.0% |
-| Under 2.5 probability edge | +7.0% |
+| Over 2.5 probability edge | -4.9% |
+| Under 2.5 probability edge | +4.9% |
 | Raw edge prob home | -0.0098 |
-| Raw ev home | -0.0254 |
+| Raw ev home | -0.0310 |
 | Raw edge prob draw | 0.0245 |
 | Raw ev draw | 0.0679 |
 | Raw edge prob away | -0.0147 |
@@ -764,7 +764,7 @@ The model's most likely 1X2 outcome is **Paris Saint Germain win** at **63.5%**.
 | Draw | 18.5% | 15.3% | 5.90 | +9.2% |
 | Paris Saint Germain win | 63.5% | 70.1% | 1.46 | -7.2% |
 | Over 2.5 | 66.0% | 74.0% | 1.33 | -12.2% |
-| Under 2.5 | 34.0% | 26.0% | 3.35 | +13.9% |
+| Under 2.5 | 34.0% | 26.0% | 3.42 | +16.3% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -780,16 +780,16 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:31:23Z |
-| Market best draw last update utc | 2026-10-11T06:28:45Z |
-| Market best away last update utc | 2026-10-11T06:31:23Z |
-| Odds bookmakers 1x2 | 16.00 |
-| Odds bookmakers ou25 | 2.00 |
+| Market best home last update utc | 2026-10-11T08:23:10Z |
+| Market best draw last update utc | 2026-10-11T08:22:50Z |
+| Market best away last update utc | 2026-10-11T08:23:10Z |
+| Odds bookmakers 1x2 | 17.00 |
+| Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | Betclic (FR) |
 | Best away bookmaker | 1xBet |
 | Best over 2 5 bookmaker | William Hill |
-| Best under 2 5 bookmaker | Nordic Bet |
+| Best under 2 5 bookmaker | Betsson |
 | Matched home-team name | Strasbourg |
 | Matched away-team name | Paris SG |
 | Home-name matching confidence | 100/100 |
@@ -832,26 +832,26 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev draw | 0.2837 |
 | Raw edge prob away | -0.1316 |
 | Raw ev away | -0.1683 |
-| Market p over 1 5 | 91.2% |
+| Market p over 1 5 | 95.5% |
 | Market over 1 5 odds | 1.08 |
 | Best over 1 5 bookmaker | William Hill |
-| Market best over 1 5 last update utc | 2026-10-11T06:31:38Z |
-| Market reference over 1 5 odds | 1.08 |
-| Market reference over 1 5 opposite odds | 7.50 |
+| Market best over 1 5 last update utc | 2026-10-11T08:22:37Z |
+| Market reference over 1 5 odds | 1.03 |
+| Market reference over 1 5 opposite odds | 7.20 |
 | Market over 1 5 bookmakers | 3 |
-| Market p under 3 5 | 46.7% |
+| Market p under 3 5 | 47.8% |
 | Market under 3 5 odds | 2.06 |
 | Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-11T06:30:27Z |
-| Market reference under 3 5 odds | 2.04 |
-| Market reference under 3 5 opposite odds | 1.80 |
+| Market best under 3 5 last update utc | 2026-10-11T08:23:21Z |
+| Market reference under 3 5 odds | 2.06 |
+| Market reference under 3 5 opposite odds | 1.89 |
 | Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 64.5% |
+| Market p btts yes | 65.8% |
 | Market btts yes odds | 1.50 |
 | Best btts yes bookmaker | William Hill |
-| Market best btts yes last update utc | 2026-10-11T06:31:38Z |
-| Market reference btts yes odds | 1.50 |
-| Market reference btts yes opposite odds | 2.60 |
+| Market best btts yes last update utc | 2026-10-11T08:22:37Z |
+| Market reference btts yes odds | 1.45 |
+| Market reference btts yes opposite odds | 2.59 |
 | Market btts yes bookmakers | 2 |
 
 </details>
@@ -908,8 +908,8 @@ The model's most likely 1X2 outcome is **RC Lens win** at **62.2%**. Expected go
 | Troyes win | 17.4% | 24.1% | 4.30 | -25.3% |
 | Draw | 20.5% | 22.8% | 4.04 | -17.4% |
 | RC Lens win | 62.2% | 53.1% | 1.87 | +16.3% |
-| Over 2.5 | 57.9% | 61.1% | 1.64 | -5.0% |
-| Under 2.5 | 42.1% | 38.9% | 2.46 | +3.5% |
+| Over 2.5 | 57.9% | 60.2% | 1.64 | -5.0% |
+| Under 2.5 | 42.1% | 39.8% | 2.46 | +3.5% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -925,11 +925,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:31:23Z |
-| Market best draw last update utc | 2026-10-11T06:31:23Z |
-| Market best away last update utc | 2026-10-11T06:31:23Z |
-| Odds bookmakers 1x2 | 15.00 |
-| Odds bookmakers ou25 | 6.00 |
+| Market best home last update utc | 2026-10-11T08:23:10Z |
+| Market best draw last update utc | 2026-10-11T08:23:10Z |
+| Market best away last update utc | 2026-10-11T08:23:10Z |
+| Odds bookmakers 1x2 | 16.00 |
+| Odds bookmakers ou25 | 7.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | 1xBet |
@@ -963,14 +963,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 3.65 |
 | Reference draw odds | 3.85 |
 | Reference away odds | 1.78 |
-| O/U 2.5 market source | The Odds API / GTbets |
-| Reference Over 2.5 odds | 1.57 |
-| Reference Under 2.5 odds | 2.37 |
+| O/U 2.5 market source | The Odds API / 1xBet |
+| Reference Over 2.5 odds | 1.64 |
+| Reference Under 2.5 odds | 2.46 |
 | Home probability edge | -6.8% |
 | Draw probability edge | -2.3% |
 | Away probability edge | +9.1% |
-| Over 2.5 probability edge | -3.2% |
-| Under 2.5 probability edge | +3.2% |
+| Over 2.5 probability edge | -2.3% |
+| Under 2.5 probability edge | +2.3% |
 | Raw edge prob home | -0.1355 |
 | Raw ev home | -0.5449 |
 | Raw edge prob draw | -0.0463 |
@@ -1032,8 +1032,8 @@ The model's most likely 1X2 outcome is **Marseille win** at **49.3%**. Expected 
 | Angers win | 25.7% | 30.5% | 3.25 | -16.3% |
 | Draw | 24.9% | 24.1% | 3.85 | -4.1% |
 | Marseille win | 49.3% | 45.4% | 2.28 | +12.5% |
-| Over 2.5 | 48.1% | 61.3% | 1.68 | -19.3% |
-| Under 2.5 | 51.9% | 38.7% | 2.40 | +24.7% |
+| Over 2.5 | 48.1% | 58.8% | 1.68 | -19.3% |
+| Under 2.5 | 51.9% | 41.2% | 2.40 | +24.7% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1049,11 +1049,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:31:23Z |
-| Market best draw last update utc | 2026-10-11T06:31:54Z |
-| Market best away last update utc | 2026-10-11T06:31:23Z |
-| Odds bookmakers 1x2 | 15.00 |
-| Odds bookmakers ou25 | 9.00 |
+| Market best home last update utc | 2026-10-11T08:22:53Z |
+| Market best draw last update utc | 2026-10-11T08:23:09Z |
+| Market best away last update utc | 2026-10-11T08:23:10Z |
+| Odds bookmakers 1x2 | 16.00 |
+| Odds bookmakers ou25 | 10.00 |
 | Best home bookmaker | LeoVegas (SE) |
 | Best draw bookmaker | Betfair |
 | Best away bookmaker | 1xBet |
@@ -1087,14 +1087,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.95 |
 | Reference draw odds | 3.65 |
 | Reference away odds | 2.05 |
-| O/U 2.5 market source | The Odds API / Unibet (SE) |
-| Reference Over 2.5 odds | 1.57 |
-| Reference Under 2.5 odds | 2.40 |
+| O/U 2.5 market source | The Odds API / 1xBet |
+| Reference Over 2.5 odds | 1.68 |
+| Reference Under 2.5 odds | 2.38 |
 | Home probability edge | -4.7% |
 | Draw probability edge | +0.8% |
 | Away probability edge | +3.9% |
-| Over 2.5 probability edge | -13.3% |
-| Under 2.5 probability edge | +13.3% |
+| Over 2.5 probability edge | -10.8% |
+| Under 2.5 probability edge | +10.8% |
 | Raw edge prob home | -0.0944 |
 | Raw ev home | -0.3169 |
 | Raw edge prob draw | 0.0163 |
@@ -1156,8 +1156,8 @@ The model's most likely 1X2 outcome is **Le Havre win** at **36.8%**. Expected g
 | Le Havre win | 36.8% | 39.2% | 2.52 | -7.3% |
 | Draw | 28.0% | 26.5% | 3.55 | -0.7% |
 | Auxerre win | 35.2% | 34.3% | 3.00 | +5.7% |
-| Over 2.5 | 42.1% | 51.1% | 1.94 | -18.4% |
-| Under 2.5 | 57.9% | 48.9% | 2.00 | +15.9% |
+| Over 2.5 | 42.1% | 51.0% | 1.94 | -18.4% |
+| Under 2.5 | 57.9% | 49.0% | 2.00 | +15.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1173,9 +1173,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:31:23Z |
-| Market best draw last update utc | 2026-10-11T06:31:23Z |
-| Market best away last update utc | 2026-10-11T06:31:23Z |
+| Market best home last update utc | 2026-10-11T08:23:10Z |
+| Market best draw last update utc | 2026-10-11T08:22:53Z |
+| Market best away last update utc | 2026-10-11T08:23:10Z |
 | Odds bookmakers 1x2 | 14.00 |
 | Odds bookmakers ou25 | 9.00 |
 | Best home bookmaker | 1xBet |
@@ -1211,14 +1211,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.35 |
 | Reference draw odds | 3.35 |
 | Reference away odds | 2.65 |
-| O/U 2.5 market source | The Odds API / Unibet (SE) |
-| Reference Over 2.5 odds | 1.87 |
+| O/U 2.5 market source | The Odds API / Pinnacle |
+| Reference Over 2.5 odds | 1.88 |
 | Reference Under 2.5 odds | 1.95 |
 | Home probability edge | -2.4% |
 | Draw probability edge | +1.4% |
 | Away probability edge | +0.9% |
-| Over 2.5 probability edge | -9.1% |
-| Under 2.5 probability edge | +9.1% |
+| Over 2.5 probability edge | -8.9% |
+| Under 2.5 probability edge | +8.9% |
 | Raw edge prob home | -0.0470 |
 | Raw ev home | -0.1318 |
 | Raw edge prob draw | 0.0288 |
@@ -1280,8 +1280,8 @@ The model's most likely 1X2 outcome is **AS Monaco win** at **48.1%**. Expected 
 | Lorient win | 27.4% | 27.0% | 3.78 | +3.6% |
 | Draw | 24.5% | 25.3% | 3.65 | -10.5% |
 | AS Monaco win | 48.1% | 47.8% | 2.14 | +2.9% |
-| Over 2.5 | 61.9% | 52.5% | 1.90 | +17.5% |
-| Under 2.5 | 38.1% | 47.5% | 2.05 | -21.8% |
+| Over 2.5 | 61.9% | 51.0% | 1.90 | +17.5% |
+| Under 2.5 | 38.1% | 49.0% | 2.05 | -21.8% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1297,11 +1297,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:31:23Z |
-| Market best draw last update utc | 2026-10-11T06:31:23Z |
-| Market best away last update utc | 2026-10-11T06:31:23Z |
-| Odds bookmakers 1x2 | 15.00 |
-| Odds bookmakers ou25 | 10.00 |
+| Market best home last update utc | 2026-10-11T08:23:10Z |
+| Market best draw last update utc | 2026-10-11T08:23:10Z |
+| Market best away last update utc | 2026-10-11T08:22:53Z |
+| Odds bookmakers 1x2 | 16.00 |
+| Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | LeoVegas (SE) |
@@ -1335,40 +1335,40 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 3.30 |
 | Reference draw odds | 3.50 |
 | Reference away odds | 1.96 |
-| O/U 2.5 market source | The Odds API / Unibet (SE) |
-| Reference Over 2.5 odds | 1.82 |
-| Reference Under 2.5 odds | 2.00 |
+| O/U 2.5 market source | The Odds API / Pinnacle |
+| Reference Over 2.5 odds | 1.88 |
+| Reference Under 2.5 odds | 1.95 |
 | Home probability edge | +0.5% |
 | Draw probability edge | -0.8% |
 | Away probability edge | +0.3% |
-| Over 2.5 probability edge | +9.3% |
-| Under 2.5 probability edge | -9.3% |
+| Over 2.5 probability edge | +10.9% |
+| Under 2.5 probability edge | -10.9% |
 | Raw edge prob home | 0.0091 |
 | Raw ev home | 0.0533 |
 | Raw edge prob draw | -0.0151 |
 | Raw ev draw | -0.1328 |
 | Raw edge prob away | 0.0061 |
 | Raw ev away | 0.0352 |
-| Market p over 1 5 | 78.0% |
+| Market p over 1 5 | 79.0% |
 | Market over 1 5 odds | 1.26 |
 | Best over 1 5 bookmaker | Codere (IT) |
-| Market best over 1 5 last update utc | 2026-10-11T06:31:38Z |
-| Market reference over 1 5 odds | 1.25 |
-| Market reference over 1 5 opposite odds | 3.90 |
+| Market best over 1 5 last update utc | 2026-10-11T08:22:37Z |
+| Market reference over 1 5 odds | 1.22 |
+| Market reference over 1 5 opposite odds | 3.72 |
 | Market over 1 5 bookmakers | 4 |
-| Market p under 3 5 | 70.3% |
+| Market p under 3 5 | 71.7% |
 | Market under 3 5 odds | 1.38 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-11T06:32:09Z |
-| Market reference under 3 5 odds | 1.38 |
-| Market reference under 3 5 opposite odds | 3.04 |
+| Market best under 3 5 last update utc | 2026-10-11T08:23:10Z |
+| Market reference under 3 5 odds | 1.33 |
+| Market reference under 3 5 opposite odds | 2.96 |
 | Market under 3 5 bookmakers | 3 |
-| Market p btts yes | 57.4% |
+| Market p btts yes | 56.5% |
 | Market btts yes odds | 1.67 |
 | Best btts yes bookmaker | William Hill |
-| Market best btts yes last update utc | 2026-10-11T06:31:38Z |
+| Market best btts yes last update utc | 2026-10-11T08:22:37Z |
 | Market reference btts yes odds | 1.67 |
-| Market reference btts yes opposite odds | 2.20 |
+| Market reference btts yes opposite odds | 2.11 |
 | Market btts yes bookmakers | 2 |
 
 </details>
@@ -1425,8 +1425,8 @@ The model's most likely 1X2 outcome is **Lyon win** at **56.2%**. Expected goals
 | Lyon win | 56.2% | 59.3% | 1.71 | -3.8% |
 | Draw | 22.9% | 21.4% | 4.20 | -3.7% |
 | Nice win | 20.8% | 19.3% | 5.24 | +9.2% |
-| Over 2.5 | 55.1% | 55.7% | 1.78 | -1.9% |
-| Under 2.5 | 44.9% | 44.3% | 2.25 | +1.0% |
+| Over 2.5 | 55.1% | 55.5% | 1.78 | -1.9% |
+| Under 2.5 | 44.9% | 44.5% | 2.25 | +1.0% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1442,11 +1442,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:31:23Z |
-| Market best draw last update utc | 2026-10-11T06:31:56Z |
-| Market best away last update utc | 2026-10-11T06:31:23Z |
-| Odds bookmakers 1x2 | 15.00 |
-| Odds bookmakers ou25 | 9.00 |
+| Market best home last update utc | 2026-10-11T08:23:10Z |
+| Market best draw last update utc | 2026-10-11T08:22:24Z |
+| Market best away last update utc | 2026-10-11T08:23:10Z |
+| Odds bookmakers 1x2 | 16.00 |
+| Odds bookmakers ou25 | 10.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | Tipico |
 | Best away bookmaker | 1xBet |
@@ -1480,14 +1480,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.60 |
 | Reference draw odds | 4.00 |
 | Reference away odds | 4.40 |
-| O/U 2.5 market source | The Odds API / Unibet (SE) |
-| Reference Over 2.5 odds | 1.73 |
-| Reference Under 2.5 odds | 2.14 |
+| O/U 2.5 market source | The Odds API / 1xBet |
+| Reference Over 2.5 odds | 1.78 |
+| Reference Under 2.5 odds | 2.21 |
 | Home probability edge | -3.1% |
 | Draw probability edge | +1.5% |
 | Away probability edge | +1.6% |
-| Over 2.5 probability edge | -0.5% |
-| Under 2.5 probability edge | +0.5% |
+| Over 2.5 probability edge | -0.4% |
+| Under 2.5 probability edge | +0.4% |
 | Raw edge prob home | -0.0616 |
 | Raw ev home | -0.0912 |
 | Raw edge prob draw | 0.0304 |
@@ -1549,8 +1549,8 @@ The model's most likely 1X2 outcome is **Paris FC win** at **43.2%**. Expected g
 | Paris FC win | 43.2% | 43.1% | 2.38 | +2.7% |
 | Draw | 25.3% | 25.2% | 3.55 | -10.2% |
 | Rennes win | 31.6% | 31.6% | 3.29 | +3.8% |
-| Over 2.5 | 57.2% | 57.7% | 1.72 | -1.6% |
-| Under 2.5 | 42.8% | 42.3% | 2.30 | -1.5% |
+| Over 2.5 | 57.2% | 57.4% | 1.72 | -1.6% |
+| Under 2.5 | 42.8% | 42.6% | 2.30 | -1.5% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1566,11 +1566,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-11T06:31:54Z |
-| Market best draw last update utc | 2026-10-11T06:31:23Z |
-| Market best away last update utc | 2026-10-11T06:31:23Z |
-| Odds bookmakers 1x2 | 15.00 |
-| Odds bookmakers ou25 | 9.00 |
+| Market best home last update utc | 2026-10-11T08:23:09Z |
+| Market best draw last update utc | 2026-10-11T08:22:53Z |
+| Market best away last update utc | 2026-10-11T08:23:10Z |
+| Odds bookmakers 1x2 | 16.00 |
+| Odds bookmakers ou25 | 10.00 |
 | Best home bookmaker | Betfair |
 | Best draw bookmaker | LeoVegas (SE) |
 | Best away bookmaker | 1xBet |
@@ -1604,14 +1604,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.15 |
 | Reference draw odds | 3.50 |
 | Reference away odds | 2.85 |
-| O/U 2.5 market source | The Odds API / Unibet (SE) |
-| Reference Over 2.5 odds | 1.67 |
-| Reference Under 2.5 odds | 2.23 |
+| O/U 2.5 market source | The Odds API / 1xBet |
+| Reference Over 2.5 odds | 1.72 |
+| Reference Under 2.5 odds | 2.30 |
 | Home probability edge | +0.0% |
 | Draw probability edge | +0.0% |
 | Away probability edge | -0.1% |
-| Over 2.5 probability edge | -0.5% |
-| Under 2.5 probability edge | +0.5% |
+| Over 2.5 probability edge | -0.2% |
+| Under 2.5 probability edge | +0.2% |
 | Raw edge prob home | 0.0006 |
 | Raw ev home | 0.0277 |
 | Raw edge prob draw | 0.0009 |
