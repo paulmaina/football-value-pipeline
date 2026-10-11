@@ -12,6 +12,7 @@ venv/
 *.sqlite
 *.sqlite3
 football_data_db/
+<<<<<<< HEAD
 # Regenerable provider caches; retain historical training data
 .football_cache/oddsapi_*
 .football_cache/fixturedownload_*
@@ -20,6 +21,10 @@ football_data_db/
 football_output_*_check/
 *.tmp
 ~$*.xlsx
+=======
+
+Commands.txt
+>>>>>>> 8a4d69b (Include new model training datasets and outputs)
 # OS/editor files
 .DS_Store
 Thumbs.db

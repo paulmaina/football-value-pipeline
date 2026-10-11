@@ -14,8 +14,8 @@
       "valid": true,
       "n_matches": 309,
       "n_folds": 6,
-      "log_loss": 0.982422827939772,
-      "brier_score": 0.5823914823567181
+      "log_loss": 0.9824225034305105,
+      "brier_score": 0.5823904525291463
     },
     {
       "half_life_days": 240.0,
@@ -23,8 +23,8 @@
       "valid": true,
       "n_matches": 309,
       "n_folds": 6,
-      "log_loss": 0.973179030553969,
-      "brier_score": 0.5769043401102265
+      "log_loss": 0.9731789967553589,
+      "brier_score": 0.5769045823612522
     },
     {
       "half_life_days": 365.0,
@@ -32,8 +32,8 @@
       "valid": true,
       "n_matches": 309,
       "n_folds": 6,
-      "log_loss": 0.9703957783933523,
-      "brier_score": 0.5752835515845018
+      "log_loss": 0.9703956972578982,
+      "brier_score": 0.5752834948914045
     },
     {
       "half_life_days": 730.0,
@@ -41,8 +41,8 @@
       "valid": true,
       "n_matches": 309,
       "n_folds": 6,
-      "log_loss": 0.9684815763648814,
-      "brier_score": 0.5742703823639768
+      "log_loss": 0.9684835592088655,
+      "brier_score": 0.5742721218808589
     },
     {
       "half_life_days": 1000000000.0,
@@ -50,8 +50,8 @@
       "valid": true,
       "n_matches": 309,
       "n_folds": 6,
-      "log_loss": 0.9676671830575396,
-      "brier_score": 0.5739902437569036
+      "log_loss": 0.9676661318334109,
+      "brier_score": 0.5739901645662165
     }
   ],
   "note": "Validation scores were used for model selection and are not an independent final test. Evaluate on a later untouched period."
