@@ -45,7 +45,7 @@ LEAGUE_CODES = {
 }
 SUPPORTED_MARKETS = {
     "Home win", "Away win", "Over 1.5", "Under 3.5",
-    "Both Teams to Score - Yes",
+    "Both Teams to Score - Yes", "Double Chance 1X", "Double Chance X2",
 }
 RESULT_CACHE = PERFORMANCE / "verified_results.json"
 
@@ -354,6 +354,8 @@ def result_for_market(market: str, h: int, a: int) -> bool | None:
         "Away win": a > h,
         "Over 1.5": h + a >= 2,
         "Under 3.5": h + a <= 3,
+        "Double Chance 1X": h >= a,
+        "Double Chance X2": a >= h,
         "Both Teams to Score - Yes": h > 0 and a > 0,
     }.get(market)
 
