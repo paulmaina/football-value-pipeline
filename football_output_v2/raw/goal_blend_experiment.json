@@ -1,112 +1,10 @@
 {
   "version": "goal-blend-shadow-v1",
-  "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
-  "predictions_sha256": "8d437a3e1d4e93cf4e67fd1144c573696eae5e9729020478559d2a98b588e872",
+  "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
+  "predictions_sha256": "91ca1f1d1e85bc608bf35984de334f036ffb3966922c9e5423ecd005fa4233eb",
   "calibrated": false,
   "selection_policy": "none; research only",
   "rows": [
-    {
-      "league": "Premier League",
-      "home_team": "Coventry City",
-      "away_team": "Newcastle United",
-      "kickoff_utc": "2026-10-12T19:00:00+00:00",
-      "version": "goal-blend-shadow-v1",
-      "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
-      "status": "available",
-      "reasons": [],
-      "raw_probability": 0.6490247806635716,
-      "baseline_probability": 0.609946498430384,
-      "bookmaker_probability": 0.8276015224740231,
-      "reference_odds": 1.17,
-      "reference_opposite_odds": 4.3,
-      "decimal_odds": 1.21,
-      "bookmaker": "Coolbet",
-      "quote_updated_at_utc": "2026-10-12T16:29:40Z",
-      "bookmaker_count": 4.0,
-      "variants": {
-        "raw": 0.6490247806635716,
-        "book25": 0.6936689661161844,
-        "book50": 0.7383131515687973,
-        "bookmaker": 0.8276015224740231,
-        "baseline": 0.609946498430384
-      },
-      "opposite_variants": {
-        "raw": 0.3509752193364284,
-        "book25": 0.30633103388381555,
-        "book50": 0.2616868484312027,
-        "bookmaker": 0.17239847752597692,
-        "baseline": 0.39005350156961605
-      }
-    },
-    {
-      "league": "Premier League",
-      "home_team": "Coventry City",
-      "away_team": "Newcastle United",
-      "kickoff_utc": "2026-10-12T19:00:00+00:00",
-      "version": "goal-blend-shadow-v1",
-      "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
-      "status": "available",
-      "reasons": [],
-      "raw_probability": 0.8227318948215219,
-      "baseline_probability": 0.8440910385180328,
-      "bookmaker_probability": 0.6273950243848976,
-      "reference_odds": 1.5,
-      "reference_opposite_odds": 2.36,
-      "decimal_odds": 1.55,
-      "bookmaker": "Coolbet",
-      "quote_updated_at_utc": "2026-10-12T16:29:40Z",
-      "bookmaker_count": 4.0,
-      "variants": {
-        "raw": 0.8227318948215219,
-        "book25": 0.7738976772123658,
-        "book50": 0.7250634596032097,
-        "bookmaker": 0.6273950243848976,
-        "baseline": 0.8440910385180328
-      },
-      "opposite_variants": {
-        "raw": 0.17726810517847813,
-        "book25": 0.2261023227876342,
-        "book50": 0.2749365403967903,
-        "bookmaker": 0.3726049756151024,
-        "baseline": 0.1559089614819672
-      }
-    },
-    {
-      "league": "Premier League",
-      "home_team": "Coventry City",
-      "away_team": "Newcastle United",
-      "kickoff_utc": "2026-10-12T19:00:00+00:00",
-      "version": "goal-blend-shadow-v1",
-      "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
-      "status": "available",
-      "reasons": [],
-      "raw_probability": 0.2633967394357173,
-      "baseline_probability": 0.27769265196789905,
-      "bookmaker_probability": 0.6227736093113602,
-      "reference_odds": 1.53,
-      "reference_opposite_odds": 2.4,
-      "decimal_odds": 1.62,
-      "bookmaker": "Matchbook",
-      "quote_updated_at_utc": "2026-10-12T16:30:23Z",
-      "bookmaker_count": 4.0,
-      "variants": {
-        "raw": 0.2633967394357173,
-        "book25": 0.353240956904628,
-        "book50": 0.4430851743735387,
-        "bookmaker": 0.6227736093113602,
-        "baseline": 0.27769265196789905
-      },
-      "opposite_variants": {
-        "raw": 0.7366032605642827,
-        "book25": 0.646759043095372,
-        "book50": 0.5569148256264613,
-        "bookmaker": 0.37722639068863983,
-        "baseline": 0.722307348032101
-      }
-    },
     {
       "league": "Premier League",
       "home_team": "Everton",
@@ -114,7 +12,7 @@
       "kickoff_utc": "2026-10-17T11:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -122,7 +20,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.740725323623132,
-      "baseline_probability": 0.7419978941304823,
+      "baseline_probability": 0.7418791762335593,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -140,7 +38,7 @@
       "kickoff_utc": "2026-10-17T11:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -148,7 +46,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7417056607972526,
-      "baseline_probability": 0.7405528867117074,
+      "baseline_probability": 0.7406601834904077,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -166,7 +64,7 @@
       "kickoff_utc": "2026-10-17T11:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -174,7 +72,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.53720258753786,
-      "baseline_probability": 0.5330421478489754,
+      "baseline_probability": 0.5334334909641528,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -192,7 +90,7 @@
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -200,7 +98,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8284461027177139,
-      "baseline_probability": 0.828383205112657,
+      "baseline_probability": 0.8281129673252028,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -218,7 +116,7 @@
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -226,7 +124,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6217950762828667,
-      "baseline_probability": 0.6220067609046068,
+      "baseline_probability": 0.622312113097183,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -244,7 +142,7 @@
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -252,7 +150,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6329272069556888,
-      "baseline_probability": 0.6325832473812141,
+      "baseline_probability": 0.6335777465989693,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -270,7 +168,7 @@
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -278,7 +176,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5860085957135341,
-      "baseline_probability": 0.5849874787833129,
+      "baseline_probability": 0.5853269749053149,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -296,7 +194,7 @@
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -304,7 +202,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8711717636656947,
-      "baseline_probability": 0.8718403557365476,
+      "baseline_probability": 0.8716577982807375,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -322,7 +220,7 @@
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -330,7 +228,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.3899521138303249,
-      "baseline_probability": 0.3809603244922708,
+      "baseline_probability": 0.37996274981634176,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -348,7 +246,7 @@
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -356,7 +254,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.9230053760140754,
-      "baseline_probability": 0.9178597752343427,
+      "baseline_probability": 0.9181077727448097,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -374,7 +272,7 @@
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -382,7 +280,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.40423651999226745,
-      "baseline_probability": 0.41541014819650635,
+      "baseline_probability": 0.4150347468670103,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -400,7 +298,7 @@
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -408,7 +306,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4902492158735617,
-      "baseline_probability": 0.4999721200680647,
+      "baseline_probability": 0.4993294057508239,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -426,7 +324,7 @@
       "kickoff_utc": "2026-10-17T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -434,7 +332,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8405817417275421,
-      "baseline_probability": 0.8408030997538896,
+      "baseline_probability": 0.8407402392455131,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -452,7 +350,7 @@
       "kickoff_utc": "2026-10-17T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -460,7 +358,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6008075231912366,
-      "baseline_probability": 0.600463383703184,
+      "baseline_probability": 0.6005496860711641,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -478,7 +376,7 @@
       "kickoff_utc": "2026-10-17T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -486,7 +384,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6434912260135511,
-      "baseline_probability": 0.6429724527285384,
+      "baseline_probability": 0.6431592789065474,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -504,7 +402,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -512,7 +410,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7401899509276192,
-      "baseline_probability": 0.7405309110438282,
+      "baseline_probability": 0.7408821285839129,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -530,7 +428,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -538,7 +436,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7417743541118602,
-      "baseline_probability": 0.7414931444898764,
+      "baseline_probability": 0.7411586473825827,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -556,7 +454,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -564,7 +462,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5201884221095383,
-      "baseline_probability": 0.518715711720385,
+      "baseline_probability": 0.5178509897699445,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -582,7 +480,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -590,7 +488,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8010563072162566,
-      "baseline_probability": 0.8039526724604475,
+      "baseline_probability": 0.8043686967123155,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -608,7 +506,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -616,7 +514,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6633127122473678,
-      "baseline_probability": 0.6596251700533495,
+      "baseline_probability": 0.6591263393789589,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -634,7 +532,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -642,7 +540,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5677497110517934,
-      "baseline_probability": 0.5619995371420483,
+      "baseline_probability": 0.5609630713325352,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -660,7 +558,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -668,7 +566,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7673902201532449,
-      "baseline_probability": 0.7678383373341611,
+      "baseline_probability": 0.7679452423853007,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -686,7 +584,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -694,7 +592,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7100455507845241,
-      "baseline_probability": 0.7096135572664826,
+      "baseline_probability": 0.7095310285165888,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -712,7 +610,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -720,7 +618,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5640952768698627,
-      "baseline_probability": 0.5625240882952934,
+      "baseline_probability": 0.5619570799508826,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -738,7 +636,7 @@
       "kickoff_utc": "2026-10-18T15:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -746,7 +644,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6864988304450498,
-      "baseline_probability": 0.6913273903200658,
+      "baseline_probability": 0.6912806219349327,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -764,7 +662,7 @@
       "kickoff_utc": "2026-10-18T15:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -772,7 +670,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7948305940875463,
-      "baseline_probability": 0.7910578745152202,
+      "baseline_probability": 0.7910730155975745,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -790,7 +688,7 @@
       "kickoff_utc": "2026-10-18T15:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -798,7 +696,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4356746314736886,
-      "baseline_probability": 0.4281554522708107,
+      "baseline_probability": 0.42919012433134823,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -816,7 +714,7 @@
       "kickoff_utc": "2026-10-19T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -824,7 +722,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6126907205585476,
-      "baseline_probability": 0.6051367801346632,
+      "baseline_probability": 0.6027528864123559,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -842,7 +740,7 @@
       "kickoff_utc": "2026-10-19T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -850,7 +748,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8496992332391251,
-      "baseline_probability": 0.8531737642975057,
+      "baseline_probability": 0.8543192979563725,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -868,7 +766,7 @@
       "kickoff_utc": "2026-10-19T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -876,7 +774,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.2409055118997133,
-      "baseline_probability": 0.24000945909760682,
+      "baseline_probability": 0.2414368175944784,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -889,114 +787,12 @@
     },
     {
       "league": "La Liga",
-      "home_team": "Levante",
-      "away_team": "Sevilla",
-      "kickoff_utc": "2026-10-12T19:00:00+00:00",
-      "version": "goal-blend-shadow-v1",
-      "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
-      "status": "available",
-      "reasons": [],
-      "raw_probability": 0.7838288150280989,
-      "baseline_probability": 0.7819633301960248,
-      "bookmaker_probability": 0.6911299617113121,
-      "reference_odds": 1.42,
-      "reference_opposite_odds": 3.05,
-      "decimal_odds": 1.42,
-      "bookmaker": "Coolbet",
-      "quote_updated_at_utc": "2026-10-12T16:30:41Z",
-      "bookmaker_count": 5.0,
-      "variants": {
-        "raw": 0.7838288150280989,
-        "book25": 0.7606541016989021,
-        "book50": 0.7374793883697055,
-        "bookmaker": 0.6911299617113121,
-        "baseline": 0.7819633301960248
-      },
-      "opposite_variants": {
-        "raw": 0.21617118497190113,
-        "book25": 0.23934589830109787,
-        "book50": 0.2625206116302945,
-        "bookmaker": 0.30887003828868786,
-        "baseline": 0.21803666980397518
-      }
-    },
-    {
-      "league": "La Liga",
-      "home_team": "Levante",
-      "away_team": "Sevilla",
-      "kickoff_utc": "2026-10-12T19:00:00+00:00",
-      "version": "goal-blend-shadow-v1",
-      "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
-      "status": "available",
-      "reasons": [],
-      "raw_probability": 0.674073755849974,
-      "baseline_probability": 0.6765115284435833,
-      "bookmaker_probability": 0.7832894241656336,
-      "reference_odds": 1.26,
-      "reference_opposite_odds": 4.25,
-      "decimal_odds": 1.26,
-      "bookmaker": "Coolbet",
-      "quote_updated_at_utc": "2026-10-12T16:30:41Z",
-      "bookmaker_count": 3.0,
-      "variants": {
-        "raw": 0.674073755849974,
-        "book25": 0.7013776729288889,
-        "book50": 0.7286815900078039,
-        "bookmaker": 0.7832894241656336,
-        "baseline": 0.6765115284435833
-      },
-      "opposite_variants": {
-        "raw": 0.325926244150026,
-        "book25": 0.29862232707111114,
-        "book50": 0.27131840999219614,
-        "bookmaker": 0.21671057583436637,
-        "baseline": 0.3234884715564167
-      }
-    },
-    {
-      "league": "La Liga",
-      "home_team": "Levante",
-      "away_team": "Sevilla",
-      "kickoff_utc": "2026-10-12T19:00:00+00:00",
-      "version": "goal-blend-shadow-v1",
-      "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
-      "status": "available",
-      "reasons": [],
-      "raw_probability": 0.576734234739068,
-      "baseline_probability": 0.5836341288930593,
-      "bookmaker_probability": 0.5228457886939343,
-      "reference_odds": 1.9,
-      "reference_opposite_odds": 2.08,
-      "decimal_odds": 1.9,
-      "bookmaker": "Matchbook",
-      "quote_updated_at_utc": "2026-10-12T16:30:39Z",
-      "bookmaker_count": 4.0,
-      "variants": {
-        "raw": 0.576734234739068,
-        "book25": 0.5632621232277846,
-        "book50": 0.5497900117165011,
-        "bookmaker": 0.5228457886939343,
-        "baseline": 0.5836341288930593
-      },
-      "opposite_variants": {
-        "raw": 0.42326576526093196,
-        "book25": 0.4367378767722154,
-        "book50": 0.4502099882834989,
-        "bookmaker": 0.4771542113060657,
-        "baseline": 0.4163658711069407
-      }
-    },
-    {
-      "league": "La Liga",
       "home_team": "Deportivo La Coru\u00f1a",
       "away_team": "Levante",
       "kickoff_utc": "2026-10-16T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1004,7 +800,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7951435213359409,
-      "baseline_probability": 0.7923562024973475,
+      "baseline_probability": 0.7924770857045855,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1022,7 +818,7 @@
       "kickoff_utc": "2026-10-16T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1030,7 +826,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6578802084190918,
-      "baseline_probability": 0.6614798582591983,
+      "baseline_probability": 0.6612962784603991,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1048,7 +844,7 @@
       "kickoff_utc": "2026-10-16T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1056,7 +852,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5656031788689921,
-      "baseline_probability": 0.5724126972153415,
+      "baseline_probability": 0.5716689307884005,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1074,7 +870,7 @@
       "kickoff_utc": "2026-10-17T12:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1082,7 +878,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7352427988528929,
-      "baseline_probability": 0.7365309236461003,
+      "baseline_probability": 0.7367227643760678,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1100,7 +896,7 @@
       "kickoff_utc": "2026-10-17T12:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1108,7 +904,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7349406491345527,
-      "baseline_probability": 0.7337371657099643,
+      "baseline_probability": 0.7335242981190548,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1126,7 +922,7 @@
       "kickoff_utc": "2026-10-17T12:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1134,7 +930,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5110813862754208,
-      "baseline_probability": 0.5101939820528426,
+      "baseline_probability": 0.5093148732217513,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1152,7 +948,7 @@
       "kickoff_utc": "2026-10-17T14:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1160,7 +956,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8903786241460182,
-      "baseline_probability": 0.8911740186866068,
+      "baseline_probability": 0.8913150348534074,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1178,7 +974,7 @@
       "kickoff_utc": "2026-10-17T14:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1186,7 +982,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.48129322663138707,
-      "baseline_probability": 0.4800006169695645,
+      "baseline_probability": 0.4796052097217005,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1204,7 +1000,7 @@
       "kickoff_utc": "2026-10-17T14:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1212,7 +1008,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6575211302716251,
-      "baseline_probability": 0.6587194791990432,
+      "baseline_probability": 0.6571997110607477,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1230,7 +1026,7 @@
       "kickoff_utc": "2026-10-17T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1238,7 +1034,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8513392588364443,
-      "baseline_probability": 0.8549255145534649,
+      "baseline_probability": 0.8549861239421398,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1256,7 +1052,7 @@
       "kickoff_utc": "2026-10-17T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1264,7 +1060,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5643407975409823,
-      "baseline_probability": 0.5582912016151896,
+      "baseline_probability": 0.5581730573387027,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1282,7 +1078,7 @@
       "kickoff_utc": "2026-10-17T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1290,7 +1086,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6407616557566744,
-      "baseline_probability": 0.6312988603328384,
+      "baseline_probability": 0.6309101460384403,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1308,7 +1104,7 @@
       "kickoff_utc": "2026-10-17T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1316,7 +1112,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6583210255762274,
-      "baseline_probability": 0.6591664147277988,
+      "baseline_probability": 0.6591013484235906,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1334,7 +1130,7 @@
       "kickoff_utc": "2026-10-17T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1342,7 +1138,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.81028242423525,
-      "baseline_probability": 0.8096563669240401,
+      "baseline_probability": 0.8096996245536927,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1360,7 +1156,7 @@
       "kickoff_utc": "2026-10-17T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1368,7 +1164,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.45631426086172294,
-      "baseline_probability": 0.45467824651164146,
+      "baseline_probability": 0.45460094978706717,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1386,7 +1182,7 @@
       "kickoff_utc": "2026-10-18T12:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1394,7 +1190,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.9223397932303615,
-      "baseline_probability": 0.9196079345130025,
+      "baseline_probability": 0.9194450203539047,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1412,7 +1208,7 @@
       "kickoff_utc": "2026-10-18T12:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1420,7 +1216,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.39700502459009607,
-      "baseline_probability": 0.4043200481434315,
+      "baseline_probability": 0.4045864763078358,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1438,7 +1234,7 @@
       "kickoff_utc": "2026-10-18T12:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1446,7 +1242,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7222048608673232,
-      "baseline_probability": 0.734958472069238,
+      "baseline_probability": 0.7338894579192831,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1464,7 +1260,7 @@
       "kickoff_utc": "2026-10-18T14:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1472,7 +1268,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7079791102614171,
-      "baseline_probability": 0.7074248229898623,
+      "baseline_probability": 0.7071760298349327,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1490,7 +1286,7 @@
       "kickoff_utc": "2026-10-18T14:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1498,7 +1294,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7642150488708591,
-      "baseline_probability": 0.7647325196895273,
+      "baseline_probability": 0.76494916544561,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1516,7 +1312,7 @@
       "kickoff_utc": "2026-10-18T14:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1524,7 +1320,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4828148549731419,
-      "baseline_probability": 0.48451501172106337,
+      "baseline_probability": 0.4848871443453785,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1542,7 +1338,7 @@
       "kickoff_utc": "2026-10-18T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1550,7 +1346,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5470333817041246,
-      "baseline_probability": 0.5392017365962469,
+      "baseline_probability": 0.538485505141113,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1568,7 +1364,7 @@
       "kickoff_utc": "2026-10-18T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1576,7 +1372,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8867681119974083,
-      "baseline_probability": 0.8900644779610135,
+      "baseline_probability": 0.8903861005087501,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1594,7 +1390,7 @@
       "kickoff_utc": "2026-10-18T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1602,7 +1398,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.3121749932738606,
-      "baseline_probability": 0.3103016949738858,
+      "baseline_probability": 0.31123377794694046,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1620,7 +1416,7 @@
       "kickoff_utc": "2026-10-18T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1628,7 +1424,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8501977252733258,
-      "baseline_probability": 0.8507853149032415,
+      "baseline_probability": 0.8505724850680266,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1646,7 +1442,7 @@
       "kickoff_utc": "2026-10-18T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1654,7 +1450,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.565839474539553,
-      "baseline_probability": 0.5652128841371379,
+      "baseline_probability": 0.5652801948981083,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1672,7 +1468,7 @@
       "kickoff_utc": "2026-10-18T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1680,7 +1476,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4877328988601155,
-      "baseline_probability": 0.48828567339077633,
+      "baseline_probability": 0.48693921416140074,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1698,7 +1494,7 @@
       "kickoff_utc": "2026-10-19T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1706,7 +1502,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4939105981138103,
-      "baseline_probability": 0.4933229083296381,
+      "baseline_probability": 0.4935591536850015,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1724,7 +1520,7 @@
       "kickoff_utc": "2026-10-19T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1732,7 +1528,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.9136805933203838,
-      "baseline_probability": 0.9139021648099789,
+      "baseline_probability": 0.9138129314219643,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1750,7 +1546,7 @@
       "kickoff_utc": "2026-10-19T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1758,7 +1554,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.3145019818760813,
-      "baseline_probability": 0.31221751372969564,
+      "baseline_probability": 0.3116811154164491,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1776,7 +1572,7 @@
       "kickoff_utc": "2026-10-21T18:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1784,7 +1580,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7355181545469553,
-      "baseline_probability": 0.7352488671033921,
+      "baseline_probability": 0.7355797926920989,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1802,7 +1598,7 @@
       "kickoff_utc": "2026-10-21T18:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1810,7 +1606,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7347146192951475,
-      "baseline_probability": 0.7352225326584404,
+      "baseline_probability": 0.7347515582789071,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1828,7 +1624,7 @@
       "kickoff_utc": "2026-10-21T18:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1836,7 +1632,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5313939381739079,
-      "baseline_probability": 0.5381815987048334,
+      "baseline_probability": 0.5338810374365502,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1854,7 +1650,7 @@
       "kickoff_utc": "2026-10-16T18:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1862,7 +1658,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8455037061094376,
-      "baseline_probability": 0.8406776715834824,
+      "baseline_probability": 0.8409562588685275,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1880,7 +1676,7 @@
       "kickoff_utc": "2026-10-16T18:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1888,7 +1684,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5897430447880283,
-      "baseline_probability": 0.5979834650837976,
+      "baseline_probability": 0.5977022132462219,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1906,7 +1702,7 @@
       "kickoff_utc": "2026-10-16T18:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1914,7 +1710,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5899059329453344,
-      "baseline_probability": 0.5969195963032107,
+      "baseline_probability": 0.5957596492307997,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1932,7 +1728,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1940,7 +1736,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.9231603524457402,
-      "baseline_probability": 0.9120877939606044,
+      "baseline_probability": 0.9123832851879348,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1958,7 +1754,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1966,7 +1762,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.408959224568274,
-      "baseline_probability": 0.43863187125495406,
+      "baseline_probability": 0.4382983433111458,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -1984,7 +1780,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -1992,7 +1788,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6589395851030312,
-      "baseline_probability": 0.6875291286267576,
+      "baseline_probability": 0.6864335976995244,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2010,7 +1806,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2018,7 +1814,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4752062856086285,
-      "baseline_probability": 0.4784348742954201,
+      "baseline_probability": 0.479189147832909,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2036,7 +1832,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2044,7 +1840,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.9265998716383878,
-      "baseline_probability": 0.9254889850970215,
+      "baseline_probability": 0.925225687381511,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2062,7 +1858,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2070,7 +1866,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.3024192358526729,
-      "baseline_probability": 0.29216596755221896,
+      "baseline_probability": 0.29045053853387154,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2088,7 +1884,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2096,7 +1892,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8295568401972204,
-      "baseline_probability": 0.8278096943700004,
+      "baseline_probability": 0.8286163379898098,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2114,7 +1910,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2122,7 +1918,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6183422284355006,
-      "baseline_probability": 0.6211129676407776,
+      "baseline_probability": 0.6201394077705654,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2140,7 +1936,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2148,7 +1944,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5918102703658118,
-      "baseline_probability": 0.5943140582543003,
+      "baseline_probability": 0.5917283667197571,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2166,7 +1962,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2174,7 +1970,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7905639604569298,
-      "baseline_probability": 0.7899476286695845,
+      "baseline_probability": 0.7914518086546694,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2192,7 +1988,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2200,7 +1996,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6773961484436943,
-      "baseline_probability": 0.6783379626302947,
+      "baseline_probability": 0.6765105094148731,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2218,7 +2014,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2226,7 +2022,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5315278130277497,
-      "baseline_probability": 0.5307947310185289,
+      "baseline_probability": 0.5283265077097213,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2244,7 +2040,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2252,7 +2048,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5813676134036014,
-      "baseline_probability": 0.587774179511138,
+      "baseline_probability": 0.5877783855097278,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2270,7 +2066,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2278,7 +2074,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8736629018878149,
-      "baseline_probability": 0.8702510567634522,
+      "baseline_probability": 0.8702515194578803,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2296,7 +2092,7 @@
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2304,7 +2100,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.37354373303785415,
-      "baseline_probability": 0.3618227509027743,
+      "baseline_probability": 0.3613962056338503,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2322,7 +2118,7 @@
       "kickoff_utc": "2026-10-17T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2330,7 +2126,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.9164512778033881,
-      "baseline_probability": 0.9199079993246891,
+      "baseline_probability": 0.9206596717290522,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2348,7 +2144,7 @@
       "kickoff_utc": "2026-10-17T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2356,7 +2152,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.42923310871952536,
-      "baseline_probability": 0.4210050876557465,
+      "baseline_probability": 0.41966283625293255,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2374,7 +2170,7 @@
       "kickoff_utc": "2026-10-17T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2382,7 +2178,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.67206482214566,
-      "baseline_probability": 0.6626403906908311,
+      "baseline_probability": 0.6602019474408509,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2400,7 +2196,7 @@
       "kickoff_utc": "2026-10-18T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2408,7 +2204,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8619229546322354,
-      "baseline_probability": 0.8562136905389311,
+      "baseline_probability": 0.85609435195729,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2426,7 +2222,7 @@
       "kickoff_utc": "2026-10-18T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2434,7 +2230,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.55717615898562,
-      "baseline_probability": 0.5671392870308862,
+      "baseline_probability": 0.567575348163852,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2452,7 +2248,7 @@
       "kickoff_utc": "2026-10-18T13:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2460,7 +2256,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5725882510202128,
-      "baseline_probability": 0.5822453817374954,
+      "baseline_probability": 0.5817012045487675,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2478,7 +2274,7 @@
       "kickoff_utc": "2026-10-18T15:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2486,7 +2282,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8948381759818365,
-      "baseline_probability": 0.894548666538628,
+      "baseline_probability": 0.8946692082225475,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2504,7 +2300,7 @@
       "kickoff_utc": "2026-10-18T15:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2512,7 +2308,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4888125820541743,
-      "baseline_probability": 0.48962984724534253,
+      "baseline_probability": 0.48944234577328416,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2530,7 +2326,7 @@
       "kickoff_utc": "2026-10-18T15:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2538,85 +2334,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7215276812694713,
-      "baseline_probability": 0.7220798869676379,
-      "bookmaker_probability": null,
-      "reference_odds": null,
-      "reference_opposite_odds": null,
-      "decimal_odds": null,
-      "bookmaker": null,
-      "quote_updated_at_utc": "None",
-      "bookmaker_count": null,
-      "variants": {},
-      "opposite_variants": {}
-    },
-    {
-      "league": "Serie A",
-      "home_team": "Torino",
-      "away_team": "Udinese",
-      "kickoff_utc": "2026-10-12T18:45:00+00:00",
-      "version": "goal-blend-shadow-v1",
-      "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
-      "status": "unavailable",
-      "reasons": [
-        "invalid_exact_market_reference",
-        "missing_quote_or_coverage",
-        "stale_or_missing_quote"
-      ],
-      "raw_probability": 0.7393979104097188,
-      "baseline_probability": 0.7388068436577822,
-      "bookmaker_probability": null,
-      "reference_odds": null,
-      "reference_opposite_odds": null,
-      "decimal_odds": null,
-      "bookmaker": null,
-      "quote_updated_at_utc": "None",
-      "bookmaker_count": null,
-      "variants": {},
-      "opposite_variants": {}
-    },
-    {
-      "league": "Serie A",
-      "home_team": "Torino",
-      "away_team": "Udinese",
-      "kickoff_utc": "2026-10-12T18:45:00+00:00",
-      "version": "goal-blend-shadow-v1",
-      "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
-      "status": "unavailable",
-      "reasons": [
-        "invalid_exact_market_reference",
-        "missing_quote_or_coverage",
-        "stale_or_missing_quote"
-      ],
-      "raw_probability": 0.7274762511446508,
-      "baseline_probability": 0.7283714494645563,
-      "bookmaker_probability": null,
-      "reference_odds": null,
-      "reference_opposite_odds": null,
-      "decimal_odds": null,
-      "bookmaker": null,
-      "quote_updated_at_utc": "None",
-      "bookmaker_count": null,
-      "variants": {},
-      "opposite_variants": {}
-    },
-    {
-      "league": "Serie A",
-      "home_team": "Torino",
-      "away_team": "Udinese",
-      "kickoff_utc": "2026-10-12T18:45:00+00:00",
-      "version": "goal-blend-shadow-v1",
-      "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
-      "status": "unavailable",
-      "reasons": [
-        "invalid_exact_market_reference",
-        "missing_quote_or_coverage",
-        "stale_or_missing_quote"
-      ],
-      "raw_probability": 0.5360175178505212,
-      "baseline_probability": 0.543277069120003,
+      "baseline_probability": 0.7216513081628158,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2634,7 +2352,7 @@
       "kickoff_utc": "2026-10-16T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2642,7 +2360,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7929890208258077,
-      "baseline_probability": 0.7873043735050365,
+      "baseline_probability": 0.7871210385990288,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2660,7 +2378,7 @@
       "kickoff_utc": "2026-10-16T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2668,7 +2386,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6579843929957419,
-      "baseline_probability": 0.6647097891810057,
+      "baseline_probability": 0.6650357571201124,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2686,7 +2404,7 @@
       "kickoff_utc": "2026-10-16T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2694,7 +2412,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5646778778833121,
-      "baseline_probability": 0.5709362618204398,
+      "baseline_probability": 0.5725915846674069,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2712,7 +2430,7 @@
       "kickoff_utc": "2026-10-17T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2720,7 +2438,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7760814798678709,
-      "baseline_probability": 0.761728675432726,
+      "baseline_probability": 0.7627549342367569,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2738,7 +2456,7 @@
       "kickoff_utc": "2026-10-17T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2746,7 +2464,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6818288677338005,
-      "baseline_probability": 0.6957575213098957,
+      "baseline_probability": 0.6945969762627561,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2764,7 +2482,7 @@
       "kickoff_utc": "2026-10-17T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2772,7 +2490,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.43247686137339114,
-      "baseline_probability": 0.44495179027990106,
+      "baseline_probability": 0.4425909344962663,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2790,7 +2508,7 @@
       "kickoff_utc": "2026-10-17T16:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2798,7 +2516,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8290329451357176,
-      "baseline_probability": 0.8292244245403038,
+      "baseline_probability": 0.8295046233023639,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2816,7 +2534,7 @@
       "kickoff_utc": "2026-10-17T16:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2824,7 +2542,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6012666986355497,
-      "baseline_probability": 0.6012083622900231,
+      "baseline_probability": 0.6010341581969783,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2842,7 +2560,7 @@
       "kickoff_utc": "2026-10-17T16:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2850,7 +2568,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5794491602677726,
-      "baseline_probability": 0.5812473972363655,
+      "baseline_probability": 0.5829859925640629,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2868,7 +2586,7 @@
       "kickoff_utc": "2026-10-17T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2876,7 +2594,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7449576033004205,
-      "baseline_probability": 0.7485710331455634,
+      "baseline_probability": 0.7461809816979164,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2894,7 +2612,7 @@
       "kickoff_utc": "2026-10-17T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2902,7 +2620,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7211597709857228,
-      "baseline_probability": 0.7178941608662082,
+      "baseline_probability": 0.7199469041847467,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2920,7 +2638,7 @@
       "kickoff_utc": "2026-10-17T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2928,7 +2646,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.41841532301645984,
-      "baseline_probability": 0.41406932884030956,
+      "baseline_probability": 0.4157948546846271,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2946,7 +2664,7 @@
       "kickoff_utc": "2026-10-18T10:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2954,7 +2672,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.659265269145786,
-      "baseline_probability": 0.6591792917067727,
+      "baseline_probability": 0.6591712652946737,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2972,7 +2690,7 @@
       "kickoff_utc": "2026-10-18T10:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -2980,7 +2698,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8073309487543925,
-      "baseline_probability": 0.8073694140004144,
+      "baseline_probability": 0.807379038134786,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -2998,7 +2716,7 @@
       "kickoff_utc": "2026-10-18T10:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3006,7 +2724,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4271143756799238,
-      "baseline_probability": 0.42664202136460094,
+      "baseline_probability": 0.42675666364273906,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3024,7 +2742,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3032,7 +2750,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7562985785031353,
-      "baseline_probability": 0.7531609119991276,
+      "baseline_probability": 0.752632878586398,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3050,7 +2768,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3058,7 +2776,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7072497577083781,
-      "baseline_probability": 0.7104680381848107,
+      "baseline_probability": 0.7109661845000148,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3076,7 +2794,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3084,7 +2802,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.519290554172942,
-      "baseline_probability": 0.5233457410491228,
+      "baseline_probability": 0.5233629773731423,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3102,7 +2820,7 @@
       "kickoff_utc": "2026-10-18T16:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3110,7 +2828,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6994544777413743,
-      "baseline_probability": 0.700719558648724,
+      "baseline_probability": 0.7007150421219455,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3128,7 +2846,7 @@
       "kickoff_utc": "2026-10-18T16:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3136,7 +2854,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7703342332169706,
-      "baseline_probability": 0.7692351093881059,
+      "baseline_probability": 0.7692432903685923,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3154,7 +2872,7 @@
       "kickoff_utc": "2026-10-18T16:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3162,7 +2880,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4947804440634829,
-      "baseline_probability": 0.49231241439939494,
+      "baseline_probability": 0.49243247106783034,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3180,7 +2898,7 @@
       "kickoff_utc": "2026-10-18T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3188,7 +2906,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6492023555833498,
-      "baseline_probability": 0.6534385496683686,
+      "baseline_probability": 0.6537819418611792,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3206,7 +2924,7 @@
       "kickoff_utc": "2026-10-18T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3214,7 +2932,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8157275434321879,
-      "baseline_probability": 0.8128512385410821,
+      "baseline_probability": 0.8126076595325613,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3232,7 +2950,7 @@
       "kickoff_utc": "2026-10-18T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3240,7 +2958,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.42614032325156687,
-      "baseline_probability": 0.4212308249960825,
+      "baseline_probability": 0.42051874131714606,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3258,7 +2976,7 @@
       "kickoff_utc": "2026-10-19T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3266,7 +2984,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7502096198326081,
-      "baseline_probability": 0.7455055814439743,
+      "baseline_probability": 0.7455191284763051,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3284,7 +3002,7 @@
       "kickoff_utc": "2026-10-19T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3292,7 +3010,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7146814766698888,
-      "baseline_probability": 0.7195671132883893,
+      "baseline_probability": 0.7195684599089858,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3310,7 +3028,7 @@
       "kickoff_utc": "2026-10-19T16:30:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3318,7 +3036,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5347560072000718,
-      "baseline_probability": 0.5424665446828226,
+      "baseline_probability": 0.5427219649316991,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3336,7 +3054,7 @@
       "kickoff_utc": "2026-10-19T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3344,7 +3062,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6196790343720072,
-      "baseline_probability": 0.6197395501014086,
+      "baseline_probability": 0.6194692022074911,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3362,7 +3080,7 @@
       "kickoff_utc": "2026-10-19T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3370,7 +3088,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8386256335981652,
-      "baseline_probability": 0.8385943921162042,
+      "baseline_probability": 0.838794458121118,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3388,7 +3106,7 @@
       "kickoff_utc": "2026-10-19T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3396,7 +3114,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4216235173894081,
-      "baseline_probability": 0.4218581724519786,
+      "baseline_probability": 0.42376779434191636,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3414,7 +3132,7 @@
       "kickoff_utc": "2026-10-16T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3422,7 +3140,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8549485412574076,
-      "baseline_probability": 0.8529529009516429,
+      "baseline_probability": 0.8531104508055258,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3440,7 +3158,7 @@
       "kickoff_utc": "2026-10-16T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3448,7 +3166,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5644822926778483,
-      "baseline_probability": 0.567912619583204,
+      "baseline_probability": 0.5676387056682841,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3466,7 +3184,7 @@
       "kickoff_utc": "2026-10-16T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3474,7 +3192,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.662836346262488,
-      "baseline_probability": 0.6682343391000488,
+      "baseline_probability": 0.6679574097445706,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3492,7 +3210,7 @@
       "kickoff_utc": "2026-10-17T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3500,7 +3218,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8496476278868136,
-      "baseline_probability": 0.8531835637700234,
+      "baseline_probability": 0.8537355862343918,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3518,7 +3236,7 @@
       "kickoff_utc": "2026-10-17T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3526,7 +3244,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.57401128657515,
-      "baseline_probability": 0.5682193195525401,
+      "baseline_probability": 0.5673153108155837,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3544,7 +3262,7 @@
       "kickoff_utc": "2026-10-17T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3552,7 +3270,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6252547457616288,
-      "baseline_probability": 0.6176091409055817,
+      "baseline_probability": 0.6158329374830402,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3570,7 +3288,7 @@
       "kickoff_utc": "2026-10-17T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3578,7 +3296,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7572388293062896,
-      "baseline_probability": 0.7571676702895556,
+      "baseline_probability": 0.7560581372124753,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3596,7 +3314,7 @@
       "kickoff_utc": "2026-10-17T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3604,7 +3322,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7139284509164434,
-      "baseline_probability": 0.7139758787419197,
+      "baseline_probability": 0.7151262688806705,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3622,7 +3340,7 @@
       "kickoff_utc": "2026-10-17T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3630,7 +3348,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5109060375915224,
-      "baseline_probability": 0.5099145869520338,
+      "baseline_probability": 0.5108888176384361,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3648,7 +3366,7 @@
       "kickoff_utc": "2026-10-17T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3656,7 +3374,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8184709967682406,
-      "baseline_probability": 0.805130645712888,
+      "baseline_probability": 0.8050744061215933,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3674,7 +3392,7 @@
       "kickoff_utc": "2026-10-17T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3682,7 +3400,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6265711667845998,
-      "baseline_probability": 0.643282430851851,
+      "baseline_probability": 0.6433477957897042,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3700,7 +3418,7 @@
       "kickoff_utc": "2026-10-17T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3708,7 +3426,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.49312932719428176,
-      "baseline_probability": 0.5076818546696586,
+      "baseline_probability": 0.5076530814981899,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3726,7 +3444,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3734,7 +3452,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7375538062228294,
-      "baseline_probability": 0.7335830978261443,
+      "baseline_probability": 0.7345999418403572,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3752,7 +3470,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3760,7 +3478,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.737233092017528,
-      "baseline_probability": 0.7410303886896925,
+      "baseline_probability": 0.7400445637175835,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3778,7 +3496,7 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3786,7 +3504,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.500140867190285,
-      "baseline_probability": 0.502236569988826,
+      "baseline_probability": 0.5010970667883095,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3804,7 +3522,7 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3812,7 +3530,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.686115925587857,
-      "baseline_probability": 0.6866087249984241,
+      "baseline_probability": 0.686304633705006,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3830,7 +3548,7 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3838,7 +3556,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7902274976003579,
-      "baseline_probability": 0.7898000531886864,
+      "baseline_probability": 0.7900617365248176,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3856,7 +3574,7 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3864,7 +3582,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4833006887643282,
-      "baseline_probability": 0.48041622689463137,
+      "baseline_probability": 0.4820070803034491,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3882,7 +3600,7 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3890,7 +3608,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8347652581189502,
-      "baseline_probability": 0.8342421965114973,
+      "baseline_probability": 0.8342446561655672,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3908,7 +3626,7 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3916,7 +3634,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6013312385410174,
-      "baseline_probability": 0.6021253299662719,
+      "baseline_probability": 0.6021125425943066,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3934,7 +3652,7 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3942,7 +3660,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6312220715998847,
-      "baseline_probability": 0.6347867180556244,
+      "baseline_probability": 0.6361528533082117,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3960,7 +3678,7 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3968,7 +3686,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8032229346807859,
-      "baseline_probability": 0.8028764870199206,
+      "baseline_probability": 0.8024819757071732,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -3986,7 +3704,7 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -3994,7 +3712,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6523352834388756,
-      "baseline_probability": 0.6528007221383882,
+      "baseline_probability": 0.6533306614868062,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4012,7 +3730,7 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4020,7 +3738,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6013698972485955,
-      "baseline_probability": 0.6036671229453303,
+      "baseline_probability": 0.6061928611045755,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4038,7 +3756,7 @@
       "kickoff_utc": "2026-10-18T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4046,7 +3764,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7846113785826975,
-      "baseline_probability": 0.7865517034731748,
+      "baseline_probability": 0.7863537786929626,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4064,7 +3782,7 @@
       "kickoff_utc": "2026-10-18T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4072,7 +3790,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6786127370202155,
-      "baseline_probability": 0.6762867057517893,
+      "baseline_probability": 0.6765124310108286,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4090,7 +3808,7 @@
       "kickoff_utc": "2026-10-18T18:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4098,7 +3816,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5548830802554029,
-      "baseline_probability": 0.5521930062820302,
+      "baseline_probability": 0.5517539479661805,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4116,7 +3834,7 @@
       "kickoff_utc": "2026-10-13T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4124,7 +3842,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7776281520499065,
-      "baseline_probability": 0.7761295046067095,
+      "baseline_probability": 0.7764744405653915,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4142,7 +3860,7 @@
       "kickoff_utc": "2026-10-13T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4150,7 +3868,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6724779262801577,
-      "baseline_probability": 0.674288433233176,
+      "baseline_probability": 0.673902926515036,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4168,7 +3886,7 @@
       "kickoff_utc": "2026-10-13T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4176,7 +3894,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5718154297929621,
-      "baseline_probability": 0.5754131162703092,
+      "baseline_probability": 0.5749787448657401,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4194,7 +3912,7 @@
       "kickoff_utc": "2026-10-13T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4202,7 +3920,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.48993959113308394,
-      "baseline_probability": 0.4708508951158561,
+      "baseline_probability": 0.4735111091726509,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4220,7 +3938,7 @@
       "kickoff_utc": "2026-10-13T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4228,7 +3946,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.9125480535860933,
-      "baseline_probability": 0.9184635019218561,
+      "baseline_probability": 0.9176238287414092,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4246,7 +3964,7 @@
       "kickoff_utc": "2026-10-13T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4254,7 +3972,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.22382290267493674,
-      "baseline_probability": 0.22307462503465333,
+      "baseline_probability": 0.222327712728192,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4272,7 +3990,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4280,7 +3998,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7245565950037682,
-      "baseline_probability": 0.7360175092607971,
+      "baseline_probability": 0.7363292584954492,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4298,7 +4016,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4306,7 +4024,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7396907984505285,
-      "baseline_probability": 0.7304935012714102,
+      "baseline_probability": 0.7302578692468128,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4324,7 +4042,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4332,7 +4050,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.40550232301809747,
-      "baseline_probability": 0.3951448348776967,
+      "baseline_probability": 0.3950164107190559,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4350,31 +4068,31 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.9661801461269358,
-      "baseline_probability": 0.9616690735661177,
-      "bookmaker_probability": 0.8523330044651187,
-      "reference_odds": 1.14,
-      "reference_opposite_odds": 4.8,
+      "baseline_probability": 0.9622612602773689,
+      "bookmaker_probability": 0.851344490943634,
+      "reference_odds": 1.16,
+      "reference_opposite_odds": 5.8,
       "decimal_odds": 1.16,
       "bookmaker": "Coolbet",
-      "quote_updated_at_utc": "2026-10-12T16:31:12Z",
+      "quote_updated_at_utc": "2026-10-12T21:08:52Z",
       "bookmaker_count": 4.0,
       "variants": {
         "raw": 0.9661801461269358,
-        "book25": 0.9377183607114815,
-        "book50": 0.9092565752960273,
-        "bookmaker": 0.8523330044651187,
-        "baseline": 0.9616690735661177
+        "book25": 0.9374712323311103,
+        "book50": 0.9087623185352849,
+        "bookmaker": 0.851344490943634,
+        "baseline": 0.9622612602773689
       },
       "opposite_variants": {
         "raw": 0.03381985387306419,
-        "book25": 0.06228163928851849,
-        "book50": 0.09074342470397267,
-        "bookmaker": 0.14766699553488127,
-        "baseline": 0.03833092643388225
+        "book25": 0.0625287676688897,
+        "book50": 0.09123768146471511,
+        "bookmaker": 0.14865550905636604,
+        "baseline": 0.03773873972263109
       }
     },
     {
@@ -4384,31 +4102,31 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.22968335578881527,
-      "baseline_probability": 0.24658919851968875,
-      "bookmaker_probability": 0.5837885988204775,
-      "reference_odds": 1.6,
-      "reference_opposite_odds": 2.15,
+      "baseline_probability": 0.24457233243494067,
+      "bookmaker_probability": 0.5844268324989057,
+      "reference_odds": 1.66,
+      "reference_opposite_odds": 2.29,
       "decimal_odds": 1.74,
       "bookmaker": "1xBet",
-      "quote_updated_at_utc": "2026-10-12T16:29:56Z",
+      "quote_updated_at_utc": "2026-10-12T21:06:54Z",
       "bookmaker_count": 4.0,
       "variants": {
         "raw": 0.22968335578881527,
-        "book25": 0.31820966654673083,
-        "book50": 0.4067359773046464,
-        "bookmaker": 0.5837885988204775,
-        "baseline": 0.24658919851968875
+        "book25": 0.3183692249663379,
+        "book50": 0.4070550941438605,
+        "bookmaker": 0.5844268324989057,
+        "baseline": 0.24457233243494067
       },
       "opposite_variants": {
         "raw": 0.7703166442111847,
-        "book25": 0.6817903334532691,
-        "book50": 0.5932640226953536,
-        "bookmaker": 0.4162114011795225,
-        "baseline": 0.7534108014803113
+        "book25": 0.6816307750336621,
+        "book50": 0.5929449058561396,
+        "bookmaker": 0.4155731675010943,
+        "baseline": 0.7554276675650593
       }
     },
     {
@@ -4418,31 +4136,31 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.76579703870197,
-      "baseline_probability": 0.7883085880383685,
-      "bookmaker_probability": 0.665064339885063,
-      "reference_odds": 1.47,
-      "reference_opposite_odds": 2.81,
-      "decimal_odds": 1.53,
+      "baseline_probability": 0.7861207063201874,
+      "bookmaker_probability": 0.6431370297678316,
+      "reference_odds": 1.54,
+      "reference_opposite_odds": 2.74,
+      "decimal_odds": 1.54,
       "bookmaker": "Matchbook",
-      "quote_updated_at_utc": "2026-10-12T16:31:23Z",
+      "quote_updated_at_utc": "2026-10-12T21:08:54Z",
       "bookmaker_count": 4.0,
       "variants": {
         "raw": 0.76579703870197,
-        "book25": 0.7406138639977432,
-        "book50": 0.7154306892935165,
-        "bookmaker": 0.665064339885063,
-        "baseline": 0.7883085880383685
+        "book25": 0.7351320364684354,
+        "book50": 0.7044670342349009,
+        "bookmaker": 0.6431370297678316,
+        "baseline": 0.7861207063201874
       },
       "opposite_variants": {
         "raw": 0.23420296129802998,
-        "book25": 0.2593861360022568,
-        "book50": 0.2845693107064835,
-        "bookmaker": 0.33493566011493703,
-        "baseline": 0.21169141196163155
+        "book25": 0.2648679635315646,
+        "book50": 0.29553296576509913,
+        "bookmaker": 0.3568629702321684,
+        "baseline": 0.21387929367981262
       }
     },
     {
@@ -4452,7 +4170,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4460,7 +4178,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.9082688019020889,
-      "baseline_probability": 0.9119435839915382,
+      "baseline_probability": 0.9120273298954508,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4478,7 +4196,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4486,7 +4204,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4247980017640715,
-      "baseline_probability": 0.41681748600329854,
+      "baseline_probability": 0.416546726983644,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4504,7 +4222,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4512,7 +4230,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.71736262838022,
-      "baseline_probability": 0.7087420065449598,
+      "baseline_probability": 0.7080285525134987,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4530,7 +4248,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4538,7 +4256,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7743575701624305,
-      "baseline_probability": 0.7835047582950208,
+      "baseline_probability": 0.7838206029173539,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4556,7 +4274,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4564,7 +4282,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6777653080098978,
-      "baseline_probability": 0.6680370746827204,
+      "baseline_probability": 0.6676345351882093,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4582,7 +4300,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4590,7 +4308,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5162076071569258,
-      "baseline_probability": 0.5043660678937659,
+      "baseline_probability": 0.5032703154485938,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4608,7 +4326,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4616,7 +4334,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8612004687448885,
-      "baseline_probability": 0.8595043834525674,
+      "baseline_probability": 0.8594462927232593,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4634,7 +4352,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4642,7 +4360,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5332217514351852,
-      "baseline_probability": 0.5357979501462609,
+      "baseline_probability": 0.5358721699130394,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4660,7 +4378,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4668,7 +4386,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6783124461436242,
-      "baseline_probability": 0.6792735199934089,
+      "baseline_probability": 0.6791923730493372,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4686,31 +4404,31 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.9636627912912872,
-      "baseline_probability": 0.9612820136826283,
-      "bookmaker_probability": 0.9575326056661502,
-      "reference_odds": 1.03,
-      "reference_opposite_odds": 8.6,
+      "baseline_probability": 0.9619724466782974,
+      "bookmaker_probability": 0.9554084954932685,
+      "reference_odds": 1.04,
+      "reference_opposite_odds": 14.5,
       "decimal_odds": 1.04,
       "bookmaker": "Coolbet",
-      "quote_updated_at_utc": "2026-10-12T16:31:12Z",
+      "quote_updated_at_utc": "2026-10-12T21:08:52Z",
       "bookmaker_count": 4.0,
       "variants": {
         "raw": 0.9636627912912872,
-        "book25": 0.962130244885003,
-        "book50": 0.9605976984787187,
-        "bookmaker": 0.9575326056661502,
-        "baseline": 0.9612820136826283
+        "book25": 0.9615992173417826,
+        "book50": 0.9595356433922778,
+        "bookmaker": 0.9554084954932685,
+        "baseline": 0.9619724466782974
       },
       "opposite_variants": {
         "raw": 0.03633720870871282,
-        "book25": 0.03786975511499702,
-        "book50": 0.039402301521281324,
-        "bookmaker": 0.04246739433384983,
-        "baseline": 0.038717986317371667
+        "book25": 0.03840078265821745,
+        "book50": 0.040464356607722185,
+        "bookmaker": 0.04459150450673155,
+        "baseline": 0.0380275533217026
       }
     },
     {
@@ -4720,31 +4438,31 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.24415473600125098,
-      "baseline_probability": 0.25028010462706496,
-      "bookmaker_probability": 0.3107387775079845,
-      "reference_odds": 2.75,
-      "reference_opposite_odds": 1.38,
+      "baseline_probability": 0.24837990144072203,
+      "bookmaker_probability": 0.3193683869244995,
+      "reference_odds": 2.95,
+      "reference_opposite_odds": 1.44,
       "decimal_odds": 2.95,
       "bookmaker": "Coolbet",
-      "quote_updated_at_utc": "2026-10-12T16:31:12Z",
+      "quote_updated_at_utc": "2026-10-12T21:08:52Z",
       "bookmaker_count": 3.0,
       "variants": {
         "raw": 0.24415473600125098,
-        "book25": 0.2608007463779344,
-        "book50": 0.2774467567546177,
-        "bookmaker": 0.3107387775079845,
-        "baseline": 0.25028010462706496
+        "book25": 0.2629581487320631,
+        "book50": 0.28176156146287523,
+        "bookmaker": 0.3193683869244995,
+        "baseline": 0.24837990144072203
       },
       "opposite_variants": {
         "raw": 0.755845263998749,
-        "book25": 0.7391992536220656,
-        "book50": 0.7225532432453823,
-        "bookmaker": 0.6892612224920155,
-        "baseline": 0.749719895372935
+        "book25": 0.7370418512679369,
+        "book50": 0.7182384385371248,
+        "bookmaker": 0.6806316130755006,
+        "baseline": 0.751620098559278
       }
     },
     {
@@ -4754,31 +4472,31 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.4953085203376962,
-      "baseline_probability": 0.5011534280935501,
-      "bookmaker_probability": 0.551590053348062,
-      "reference_odds": 1.74,
-      "reference_opposite_odds": 2.11,
+      "baseline_probability": 0.49913833901306426,
+      "bookmaker_probability": 0.5649904543584472,
+      "reference_odds": 1.76,
+      "reference_opposite_odds": 2.28,
       "decimal_odds": 1.76,
       "bookmaker": "Matchbook",
-      "quote_updated_at_utc": "2026-10-12T16:31:23Z",
+      "quote_updated_at_utc": "2026-10-12T21:08:54Z",
       "bookmaker_count": 4.0,
       "variants": {
         "raw": 0.4953085203376962,
-        "book25": 0.5093789035902876,
-        "book50": 0.5234492868428791,
-        "bookmaker": 0.551590053348062,
-        "baseline": 0.5011534280935501
+        "book25": 0.512729003842884,
+        "book50": 0.5301494873480717,
+        "bookmaker": 0.5649904543584472,
+        "baseline": 0.49913833901306426
       },
       "opposite_variants": {
         "raw": 0.5046914796623039,
-        "book25": 0.4906210964097124,
-        "book50": 0.47655071315712094,
-        "bookmaker": 0.448409946651938,
-        "baseline": 0.4988465719064499
+        "book25": 0.487270996157116,
+        "book50": 0.46985051265192834,
+        "bookmaker": 0.4350095456415528,
+        "baseline": 0.5008616609869357
       }
     },
     {
@@ -4788,7 +4506,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4796,7 +4514,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6662619300984546,
-      "baseline_probability": 0.6563605384569005,
+      "baseline_probability": 0.6563781449379116,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4814,7 +4532,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4822,7 +4540,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7963312655495826,
-      "baseline_probability": 0.8030491353459023,
+      "baseline_probability": 0.8030319111678023,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4840,7 +4558,7 @@
       "kickoff_utc": "2026-10-13T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4848,7 +4566,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.44253662192357607,
-      "baseline_probability": 0.4456243391644468,
+      "baseline_probability": 0.44549535264840434,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4866,31 +4584,31 @@
       "kickoff_utc": "2026-10-14T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.9749606725835053,
-      "baseline_probability": 0.9730049026492373,
-      "bookmaker_probability": 0.8761526389172588,
-      "reference_odds": 1.11,
-      "reference_opposite_odds": 5.2,
+      "baseline_probability": 0.9730309944291192,
+      "bookmaker_probability": 0.8671876620378227,
+      "reference_odds": 1.14,
+      "reference_opposite_odds": 6.4,
       "decimal_odds": 1.14,
       "bookmaker": "Coolbet",
-      "quote_updated_at_utc": "2026-10-12T16:31:12Z",
+      "quote_updated_at_utc": "2026-10-12T21:08:52Z",
       "bookmaker_count": 4.0,
       "variants": {
         "raw": 0.9749606725835053,
-        "book25": 0.9502586641669437,
-        "book50": 0.925556655750382,
-        "bookmaker": 0.8761526389172588,
-        "baseline": 0.9730049026492373
+        "book25": 0.9480174199470847,
+        "book50": 0.9210741673106639,
+        "bookmaker": 0.8671876620378227,
+        "baseline": 0.9730309944291192
       },
       "opposite_variants": {
         "raw": 0.025039327416494728,
-        "book25": 0.04974133583305629,
-        "book50": 0.07444334424961796,
-        "bookmaker": 0.12384736108274119,
-        "baseline": 0.026995097350762665
+        "book25": 0.05198258005291534,
+        "book50": 0.07892583268933606,
+        "bookmaker": 0.13281233796217728,
+        "baseline": 0.026969005570880777
       }
     },
     {
@@ -4900,31 +4618,31 @@
       "kickoff_utc": "2026-10-14T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.1875367760254093,
-      "baseline_probability": 0.19693265226878634,
-      "bookmaker_probability": 0.5461778430539543,
-      "reference_odds": 1.7,
-      "reference_opposite_odds": 2.0,
+      "baseline_probability": 0.19683468860374653,
+      "bookmaker_probability": 0.5463692457185644,
+      "reference_odds": 1.77,
+      "reference_opposite_odds": 2.11,
       "decimal_odds": 1.81,
       "bookmaker": "1xBet",
-      "quote_updated_at_utc": "2026-10-12T16:24:26Z",
+      "quote_updated_at_utc": "2026-10-12T21:04:22Z",
       "bookmaker_count": 4.0,
       "variants": {
         "raw": 0.1875367760254093,
-        "book25": 0.27719704278254553,
-        "book50": 0.3668573095396818,
-        "bookmaker": 0.5461778430539543,
-        "baseline": 0.19693265226878634
+        "book25": 0.27724489344869807,
+        "book50": 0.36695301087198684,
+        "bookmaker": 0.5463692457185644,
+        "baseline": 0.19683468860374653
       },
       "opposite_variants": {
         "raw": 0.8124632239745907,
-        "book25": 0.7228029572174545,
-        "book50": 0.6331426904603181,
-        "bookmaker": 0.45382215694604566,
-        "baseline": 0.8030673477312137
+        "book25": 0.7227551065513019,
+        "book50": 0.6330469891280132,
+        "bookmaker": 0.4536307542814356,
+        "baseline": 0.8031653113962535
       }
     },
     {
@@ -4934,31 +4652,31 @@
       "kickoff_utc": "2026-10-14T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.8179282013509611,
-      "baseline_probability": 0.8331316548873005,
+      "baseline_probability": 0.8330346010851907,
       "bookmaker_probability": 0.6786933828459962,
       "reference_odds": 1.44,
       "reference_opposite_odds": 2.91,
       "decimal_odds": 1.48,
       "bookmaker": "Matchbook",
-      "quote_updated_at_utc": "2026-10-12T16:31:23Z",
+      "quote_updated_at_utc": "2026-10-12T21:08:54Z",
       "bookmaker_count": 4.0,
       "variants": {
         "raw": 0.8179282013509611,
         "book25": 0.7831194967247199,
         "book50": 0.7483107920984786,
         "bookmaker": 0.6786933828459962,
-        "baseline": 0.8331316548873005
+        "baseline": 0.8330346010851907
       },
       "opposite_variants": {
         "raw": 0.18207179864903889,
         "book25": 0.21688050327528008,
         "book50": 0.2516892079015214,
         "bookmaker": 0.32130661715400377,
-        "baseline": 0.16686834511269955
+        "baseline": 0.16696539891480933
       }
     },
     {
@@ -4968,7 +4686,7 @@
       "kickoff_utc": "2026-10-14T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -4976,7 +4694,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5143445612355367,
-      "baseline_probability": 0.5270924825418856,
+      "baseline_probability": 0.5282293760456608,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -4994,7 +4712,7 @@
       "kickoff_utc": "2026-10-14T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5002,7 +4720,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.9013008483704728,
-      "baseline_probability": 0.8971337528672971,
+      "baseline_probability": 0.8967765022900746,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5020,7 +4738,7 @@
       "kickoff_utc": "2026-10-14T16:45:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5028,7 +4746,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.18454705261484675,
-      "baseline_probability": 0.1765772400249726,
+      "baseline_probability": 0.17624389630390885,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5046,7 +4764,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5054,7 +4772,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.772495522371151,
-      "baseline_probability": 0.7729288474077692,
+      "baseline_probability": 0.7729846466612154,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5072,7 +4790,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5080,7 +4798,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6795957240420578,
-      "baseline_probability": 0.6791462090501669,
+      "baseline_probability": 0.6791083618299096,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5098,7 +4816,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5106,7 +4824,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5574566346382825,
-      "baseline_probability": 0.5571828588748972,
+      "baseline_probability": 0.5573975054428584,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5124,7 +4842,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5132,7 +4850,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.771692218955268,
-      "baseline_probability": 0.7532574071258085,
+      "baseline_probability": 0.7552695708190891,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5150,7 +4868,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5158,7 +4876,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6830202272120153,
-      "baseline_probability": 0.6997469682008245,
+      "baseline_probability": 0.6979414991558142,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5176,7 +4894,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5184,7 +4902,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.4027023326785741,
-      "baseline_probability": 0.4177644960573403,
+      "baseline_probability": 0.41626982000555524,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5202,7 +4920,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5210,7 +4928,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8764848848851082,
-      "baseline_probability": 0.8770694194986997,
+      "baseline_probability": 0.8771122797343955,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5228,7 +4946,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5236,7 +4954,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5010150353260889,
-      "baseline_probability": 0.500393982591196,
+      "baseline_probability": 0.500344482703209,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5254,7 +4972,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5262,7 +4980,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6999043453120884,
-      "baseline_probability": 0.7020875854539295,
+      "baseline_probability": 0.7022178870800208,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5280,7 +4998,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5288,7 +5006,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8733727854592103,
-      "baseline_probability": 0.8671041701683391,
+      "baseline_probability": 0.8670841887633587,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5306,7 +5024,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5314,7 +5032,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.50825383508252,
-      "baseline_probability": 0.5189898373067817,
+      "baseline_probability": 0.5190354559065425,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5332,7 +5050,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5340,7 +5058,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6687542901825425,
-      "baseline_probability": 0.6788518926129877,
+      "baseline_probability": 0.6789639417783756,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5358,31 +5076,31 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.9406779044982106,
-      "baseline_probability": 0.931990615054234,
-      "bookmaker_probability": 0.8028376554675566,
-      "reference_odds": 1.2,
-      "reference_opposite_odds": 3.85,
-      "decimal_odds": 1.24,
+      "baseline_probability": 0.932655650766437,
+      "bookmaker_probability": 0.8008396489948089,
+      "reference_odds": 1.23,
+      "reference_opposite_odds": 4.5,
+      "decimal_odds": 1.23,
       "bookmaker": "Coolbet",
-      "quote_updated_at_utc": "2026-10-12T16:31:12Z",
+      "quote_updated_at_utc": "2026-10-12T21:08:52Z",
       "bookmaker_count": 4.0,
       "variants": {
         "raw": 0.9406779044982106,
-        "book25": 0.9062178422405471,
-        "book50": 0.8717577799828836,
-        "bookmaker": 0.8028376554675566,
-        "baseline": 0.931990615054234
+        "book25": 0.9057183406223602,
+        "book50": 0.8707587767465097,
+        "bookmaker": 0.8008396489948089,
+        "baseline": 0.932655650766437
       },
       "opposite_variants": {
         "raw": 0.05932209550178935,
-        "book25": 0.09378215775945287,
-        "book50": 0.12824222001711638,
-        "bookmaker": 0.1971623445324434,
-        "baseline": 0.06800938494576603
+        "book25": 0.09428165937763977,
+        "book50": 0.1292412232534903,
+        "bookmaker": 0.19916035100519114,
+        "baseline": 0.06734434923356303
       }
     },
     {
@@ -5392,31 +5110,31 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.32879490057394506,
-      "baseline_probability": 0.35227068834331793,
-      "bookmaker_probability": 0.6675479543825695,
-      "reference_odds": 1.42,
-      "reference_opposite_odds": 2.6,
-      "decimal_odds": 1.48,
+      "baseline_probability": 0.35069767356269105,
+      "bookmaker_probability": 0.661201555863542,
+      "reference_odds": 1.47,
+      "reference_opposite_odds": 2.74,
+      "decimal_odds": 1.49,
       "bookmaker": "Coolbet",
-      "quote_updated_at_utc": "2026-10-12T16:31:12Z",
+      "quote_updated_at_utc": "2026-10-12T21:08:52Z",
       "bookmaker_count": 4.0,
       "variants": {
         "raw": 0.32879490057394506,
-        "book25": 0.4134831640261012,
-        "book50": 0.49817142747825727,
-        "bookmaker": 0.6675479543825695,
-        "baseline": 0.35227068834331793
+        "book25": 0.4118965643963443,
+        "book50": 0.4949982282187435,
+        "bookmaker": 0.661201555863542,
+        "baseline": 0.35069767356269105
       },
       "opposite_variants": {
         "raw": 0.671205099426055,
-        "book25": 0.5865168359738988,
-        "book50": 0.5018285725217427,
-        "bookmaker": 0.33245204561743047,
-        "baseline": 0.647729311656682
+        "book25": 0.5881034356036556,
+        "book50": 0.5050017717812565,
+        "bookmaker": 0.338798444136458,
+        "baseline": 0.649302326437309
       }
     },
     {
@@ -5426,31 +5144,31 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "available",
       "reasons": [],
       "raw_probability": 0.6959470021329048,
-      "baseline_probability": 0.7233697212086543,
+      "baseline_probability": 0.7221996137731641,
       "bookmaker_probability": 0.5957550427287385,
       "reference_odds": 1.63,
       "reference_opposite_odds": 2.35,
-      "decimal_odds": 1.68,
+      "decimal_odds": 1.67,
       "bookmaker": "Matchbook",
-      "quote_updated_at_utc": "2026-10-12T16:31:23Z",
+      "quote_updated_at_utc": "2026-10-12T21:08:54Z",
       "bookmaker_count": 4.0,
       "variants": {
         "raw": 0.6959470021329048,
         "book25": 0.6708990122818632,
         "book50": 0.6458510224308216,
         "bookmaker": 0.5957550427287385,
-        "baseline": 0.7233697212086543
+        "baseline": 0.7221996137731641
       },
       "opposite_variants": {
         "raw": 0.30405299786709516,
         "book25": 0.3291009877181368,
         "book50": 0.3541489775691784,
         "bookmaker": 0.40424495727126153,
-        "baseline": 0.2766302787913457
+        "baseline": 0.2778003862268359
       }
     },
     {
@@ -5460,7 +5178,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5468,7 +5186,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7524407173860842,
-      "baseline_probability": 0.7517660238833554,
+      "baseline_probability": 0.7516777411519988,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5486,7 +5204,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5494,7 +5212,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.7053178168258619,
-      "baseline_probability": 0.7062673222729021,
+      "baseline_probability": 0.7063600117155437,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5512,7 +5230,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5520,7 +5238,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.5468158812261316,
-      "baseline_probability": 0.5516000777627027,
+      "baseline_probability": 0.5517585181822886,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5538,7 +5256,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "over_1_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5546,7 +5264,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.8803093958969206,
-      "baseline_probability": 0.8845412087335109,
+      "baseline_probability": 0.8846153360489629,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5564,7 +5282,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "under_3_5",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5572,7 +5290,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.492936192566584,
-      "baseline_probability": 0.4850169042719188,
+      "baseline_probability": 0.4848094553762814,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
@@ -5590,7 +5308,7 @@
       "kickoff_utc": "2026-10-14T19:00:00+00:00",
       "version": "goal-blend-shadow-v1",
       "market": "btts_yes",
-      "generated_at_utc": "2026-10-12T16:32:02.915037+00:00",
+      "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
       "status": "unavailable",
       "reasons": [
         "invalid_exact_market_reference",
@@ -5598,7 +5316,7 @@
         "stale_or_missing_quote"
       ],
       "raw_probability": 0.6818726406499783,
-      "baseline_probability": 0.672300604350476,
+      "baseline_probability": 0.6716632118299206,
       "bookmaker_probability": null,
       "reference_odds": null,
       "reference_opposite_odds": null,
