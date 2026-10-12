@@ -3274,6 +3274,8 @@ def build_parser() -> argparse.ArgumentParser:
         description="Multi-league scoreline/value pipeline with walk-forward evaluation."
     )
     p.add_argument("--leagues", nargs="+", choices=list(LEAGUES), default=["EPL"])
+    p.add_argument("--goal-blend-experiment", action="store_true",
+                   help="Write separate uncalibrated goal-market shadow variants; no baseline changes.")
     p.add_argument("--seasons-back", type=int, default=4)
     p.add_argument("--half-life-days", type=float, default=240.0)
     p.add_argument(
@@ -3681,6 +3683,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         f"see {out_dir / 'conservative_bet_shortlist.csv'})",
         file=sys.stderr,
     )
+
+    if args.goal_blend_experiment and combined and not args.backtest:
+        try:
+            from goal_blend_experiment import write_experiment
+            write_experiment(all_predictions, out_dir, selection_summary["generated_at_utc"])
+        except Exception as exc:
+            warnings.warn(f"Shadow experiment failed; baseline outputs complete: {exc}")
 
     return 0
 

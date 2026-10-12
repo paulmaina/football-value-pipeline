@@ -159,6 +159,14 @@ def capture(commit_sha: str, *, root: Path = ROOT,
     if not eligible:
         print("No verifiable pre-kickoff fixtures; snapshot skipped.")
         return False
+    # Optional sidecar; stale/broken experiments must not block baseline capture.
+    try:
+        from goal_blend_experiment import capture_file
+        experiment = capture_file(raw, summary.get("generated_at_utc"))
+        if experiment is not None:
+            files["goal_blend_experiment.json"] = experiment
+    except Exception as exc:
+        warnings.warn(f"Shadow capture skipped: {exc}")
     directory.mkdir(parents=True, exist_ok=False)
     digests = {}
     for output_name, source in files.items():
@@ -198,6 +206,7 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
                 (directory / name).read_bytes()
             ).hexdigest() != digest
             for name, digest in meta.get("sha256", {}).items()
+            if name != "goal_blend_experiment.json"
         ):
             warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
             continue
@@ -735,6 +744,11 @@ def review(*, root: Path = ROOT, token: str = "",
             match, state = None, "PENDING_KICKOFF_OR_FINAL_SCORE"
         predictions_graded.append(score_prediction(row, match, state))
     result = report(root, selections_graded, predictions_graded, errors, reviewed_at=iso(clock))
+    try:
+        from goal_blend_experiment import review_experiment
+        review_experiment(root, archived, records, clock)
+    except Exception as exc:
+        warnings.warn(f"Shadow report failed; baseline report complete: {exc}")
     print(f"Performance: {result['shortlist']['graded']} graded, "
           f"{result['shortlist']['pending']} pending, "
           f"{result['prediction_fixtures_graded']} full fixture forecasts graded")
