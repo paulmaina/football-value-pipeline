@@ -27,6 +27,8 @@ MAX_HIGH_AUDIT_OVERCONFIDENCE = 0.10
 # constant-frequency comparator. Reduce that allowance; still diagnostic.
 MAX_OVERALL_BRIER_EXCESS = 0.005
 MARKETS = {
+    "home_draw": ("p_home_draw", "raw_p_home_draw", "actual_home_draw", 0.80, 0.75),
+    "draw_away": ("p_draw_away", "raw_p_draw_away", "actual_draw_away", 0.80, 0.75),
     "home": ("p_home", "raw_p_home", "actual_home", 0.65, 0.50),
     "away": ("p_away", "raw_p_away", "actual_away", 0.65, 0.50),
     "over_1_5": ("p_over_1_5", "raw_p_over_1_5", "actual_over_1_5", 0.78, 0.72),
@@ -91,7 +93,7 @@ def prioritized_additional_events(
         if not math.isfinite(quality) or quality < 90:
             continue
         checks = []
-        for key in ("over_1_5", "under_3_5", "btts_yes"):
+        for key in ("over_1_5", "home_draw", "draw_away", "btts_yes"):
             pcol, rcol, _, min_p, min_raw = MARKETS[key]
             try:
                 p, raw = float(pred[pcol]), float(pred[rcol])
@@ -129,12 +131,18 @@ def enrich_historical_goal_markets(row: Mapping, pred: Mapping) -> dict:
     total = int(row["FTHG"]) + int(row["FTAG"])
     goals_h, goals_a = int(row["FTHG"]), int(row["FTAG"])
     result = {
+        "actual_home_draw": int(goals_h >= goals_a),
+        "actual_draw_away": int(goals_a >= goals_h),
         "actual_home": int(goals_h > goals_a),
         "actual_away": int(goals_a > goals_h),
         "actual_over_1_5": int(total >= 2),
         "actual_under_3_5": int(total <= 3),
         "actual_btts_yes": int(goals_h >= 1 and goals_a >= 1),
     }
+    from double_chance import probabilities
+    result.update(probabilities(pred))
+    for key in ("home_draw", "draw_away"):
+        result[f"historical_open_{key}_odds"] = None
     for key in ("over_1_5", "under_3_5", "btts_yes"):
         result[f"p_{key}"] = pred[f"p_{key}"]
         result[f"raw_p_{key}"] = pred[f"raw_p_{key}"]
