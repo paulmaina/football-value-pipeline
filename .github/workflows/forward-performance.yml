@@ -7,6 +7,8 @@ on:
       - 'football_output_v2/raw/all_leagues_predictions.csv'
       - 'football_output_v2/raw/conservative_bet_shortlist.csv'
       - 'football_output_v2/raw/conservative_bet_summary.json'
+      - '.github/workflows/forward-performance.yml'
+      - 'publish_performance.py'
   schedule:
     # Daily review 07:30 UTC / 10:30 East Africa Time (approximate).
     # This covers domestic weekend matches and midweek UCL fixtures.
@@ -37,7 +39,7 @@ jobs:
           # Preserve the exact commit that triggered a forecast-data push;
           # don't accidentally tag a later raw snapshot with an older SHA.
           ref: ${{ github.sha }}
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -51,26 +53,23 @@ jobs:
 
       - name: Archive fresh committed forecasts before kickoff
         if: github.event_name == 'push' || inputs.capture_current_snapshot == true
-        run: python performance_tracking.py capture --commit-sha "$SOURCE_SHA"
+        run: |
+          # Code-only repairs must not manufacture a new forecast snapshot.
+          if [ "$EVENT_NAME" = "push" ] && ! git diff --name-only "$BEFORE_SHA" "$SOURCE_SHA" -- \
+            football_output_v2/raw/all_leagues_predictions.csv \
+            football_output_v2/raw/conservative_bet_shortlist.csv \
+            football_output_v2/raw/conservative_bet_summary.json | grep -q .; then
+            echo "No forecast inputs changed; skipping capture."
+            exit 0
+          fi
+          python performance_tracking.py capture --commit-sha "$SOURCE_SHA"
         env:
           SOURCE_SHA: ${{ github.sha }}
+          BEFORE_SHA: ${{ github.event.before }}
+          EVENT_NAME: ${{ github.event_name }}
 
-      - name: Collect verified finished scores and refresh reports
+      - name: Regenerate and publish reports from latest main
         env:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
-        run: python performance_tracking.py review
-
-      - name: Commit immutable snapshots and updated performance outputs
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add football_output_v2/performance/
-          git add football_output_v2/readable/football_performance_report.xlsx
-          if git diff --cached --quiet; then
-            echo "No new snapshots or grades to commit."
-          else
-            git commit -m "Update forward-only gameweek performance reports [skip ci]"
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
+        run: python publish_performance.py
 
