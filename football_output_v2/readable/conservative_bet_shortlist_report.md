@@ -1,11 +1,11 @@
 # Conservative shortlisted matches and markets
 
 
-**Candidates:** 9 of target 10 distinct matches.
-**Strictly qualified:** 5. **Provisional watchlist:** 4.
+**Candidates:** 6 of target 10 distinct matches.
+**Strictly qualified:** 5. **Provisional watchlist:** 1.
 **Pipeline status:** BELOW_TARGET_WITH_PROVISIONAL.
-**Generated (UTC):** 2026-10-11T11:26:44.338551+00:00.
-**Kickoffs within next 72 hours of run:** Yes (span: 55.0 hours).
+**Generated (UTC):** 2026-10-12T16:32:02.915037+00:00.
+**Kickoffs within next 72 hours of run:** Yes (span: 48.0 hours).
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. Do not treat ten candidates as a ten-leg betslip.
 
@@ -13,15 +13,12 @@
 
 | Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Atlético Madrid vs Manchester United | Over 1.5 | STRICT | 2026-10-13T19:00:00+00:00 | 96.2% | 94.4% | William Hill | 1.15 | +8.6% | — |
-| Elche CF vs Celta Vigo | Over 1.5 | STRICT | 2026-10-11T12:00:00+00:00 | 80.1% | 80.1% | Coolbet | 1.32 | +5.8% | — |
-| Levante vs Sevilla | Over 1.5 | STRICT | 2026-10-12T19:00:00+00:00 | 78.2% | 78.2% | Pinnacle | 1.34 | +4.8% | — |
-| Galatasaray vs Barcelona | Both Teams to Score - Yes | STRICT | 2026-10-13T19:00:00+00:00 | 70.8% | 70.8% | Matchbook | 1.49 | +5.5% | — |
-| Atalanta BC vs Venezia | Home win | STRICT | 2026-10-12T16:30:00+00:00 | 69.2% | 68.5% | 1xBet | 1.63 | +11.6% | — |
-| Real Racing Club de Santander vs Valencia | Over 1.5 | PROVISIONAL | 2026-10-11T19:00:00+00:00 | 90.0% | 90.0% | Coolbet | 1.24 | +11.5% | 85plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY |
-| Hull City vs Everton | Under 3.5 | PROVISIONAL | 2026-10-11T13:00:00+00:00 | 90.3% | 83.4% | Coolbet | 1.31 | +9.2% | 85plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY |
-| Coventry City vs Newcastle United | Under 3.5 | PROVISIONAL | 2026-10-12T19:00:00+00:00 | 84.6% | 83.9% | Coolbet | 1.50 | +25.8% | 75plus market history: HIGH_CONFIDENCE_OVERESTIMATION |
-| Crystal Palace vs Nottingham Forest | Under 3.5 | PROVISIONAL | 2026-10-11T13:00:00+00:00 | 76.2% | 75.5% | Pinnacle | 1.39 | +5.0% | 75plus market history: HIGH_CONFIDENCE_OVERESTIMATION; reliability-adjusted probability below minimum |
+| Feyenoord vs Como | Over 1.5 | STRICT | 2026-10-14T16:45:00+00:00 | 97.3% | 95.6% | Coolbet | 1.14 | +9.0% | — |
+| Atlético Madrid vs Manchester United | Over 1.5 | STRICT | 2026-10-13T19:00:00+00:00 | 96.2% | 94.4% | Coolbet | 1.16 | +9.6% | — |
+| Real Betis vs Porto | Over 1.5 | STRICT | 2026-10-14T19:00:00+00:00 | 93.2% | 91.5% | Coolbet | 1.24 | +13.4% | — |
+| Levante vs Sevilla | Over 1.5 | STRICT | 2026-10-12T19:00:00+00:00 | 78.2% | 78.2% | Coolbet | 1.42 | +11.0% | — |
+| Aston Villa vs Fenerbahce | Home win | STRICT | 2026-10-14T19:00:00+00:00 | 66.4% | 66.4% | 1xBet | 1.74 | +15.5% | — |
+| Coventry City vs Newcastle United | Under 3.5 | PROVISIONAL | 2026-10-12T19:00:00+00:00 | 84.4% | 83.7% | Coolbet | 1.55 | +29.8% | 75plus market history: HIGH_CONFIDENCE_OVERESTIMATION |
 
 ## Interpretation
 

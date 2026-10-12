@@ -1,6 +1,8 @@
 
 python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life (main)
 
+py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life --goal-blend-experiment (experiment)
+
 python format_football_output.py
 
 Parameter    |	  Default |	Meaning
@@ -16,7 +18,6 @@ Parameter    |	  Default |	Meaning
 --max-goals	10
 --l2	0.08
 --out-dir	        football_output_v2/raw
-
 
 
 py football_value_pipeline_v2_standalone.py --leagues UCL --tune-half-life --out-dir football_output_v2/raw
