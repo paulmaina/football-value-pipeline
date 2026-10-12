@@ -12,13 +12,6 @@ venv/
 *.sqlite
 *.sqlite3
 football_data_db/
-<<<<<<< HEAD
-# Regenerable provider caches; retain historical training data
-.football_cache/oddsapi_*
-.football_cache/fixturedownload_*
-.football_cache/fixtures.csv
-# Isolated diagnostic runs and temporary workbook files
-football_output_*_check/
 *.tmp
 ~$*.xlsx
 =======
