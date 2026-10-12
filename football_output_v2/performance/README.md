@@ -9,17 +9,17 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 4 | 2-2 | 50.0% | -37.0% |
+| All selections | 7 | 4-3 | 57.1% | -21.6% |
 
-Unsettled / unverified entries: **15**.
-Whole-fixture 1X2 multiclass Brier (n=14): 0.5314
+Unsettled / unverified entries: **12**.
+Whole-fixture 1X2 multiclass Brier (n=18): 0.5584
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| PROVISIONAL | 4 | 2-2 | 50.0% | -37.0% |
-| STRICT | 0 | 0-0 | — | — |
+| PROVISIONAL | 5 | 2-3 | 40.0% | -49.6% |
+| STRICT | 2 | 2-0 | 100.0% | +48.5% |
 
 ## By market
 
@@ -27,17 +27,19 @@ Whole-fixture 1X2 multiclass Brier (n=14): 0.5314
 |---|---:|---:|---:|---:|
 | Away win | 0 | 0-0 | — | — |
 | Both Teams to Score - Yes | 0 | 0-0 | — | — |
-| Home win | 0 | 0-0 | — | — |
-| Over 1.5 | 1 | 1-0 | 100.0% | +24.0% |
-| Under 3.5 | 3 | 1-2 | 33.3% | -57.3% |
+| Double Chance 1X | 0 | 0-0 | — | — |
+| Double Chance X2 | 0 | 0-0 | — | — |
+| Home win | 1 | 1-0 | 100.0% | +63.0% |
+| Over 1.5 | 2 | 2-0 | 100.0% | +29.0% |
+| Under 3.5 | 4 | 1-3 | 25.0% | -68.0% |
 
 ## By league
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| La Liga | 1 | 1-0 | 100.0% | +24.0% |
-| Premier League | 2 | 0-2 | 0.0% | -100.0% |
-| Serie A | 1 | 1-0 | 100.0% | +28.0% |
+| La Liga | 2 | 2-0 | 100.0% | +29.0% |
+| Premier League | 3 | 0-3 | 0.0% | -100.0% |
+| Serie A | 2 | 2-0 | 100.0% | +45.5% |
 | UEFA Champions League | 0 | 0-0 | — | — |
 
 ## Gameweeks
@@ -45,15 +47,16 @@ Whole-fixture 1X2 multiclass Brier (n=14): 0.5314
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
-| 2026-W42 | 0 | 0-0 | — | — |
+| 2026-W42 | 3 | 2-1 | 66.7% | -1.0% |
 | 2026-W43 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
 
 | Forecast bin | Samples | Average forecast | Observed win rate | Binary Brier |
 |---|---:|---:|---:|---:|
-| 70%–80% | 2 | 77.6% | 50.0% | 0.3058 |
-| 80%–90% | 2 | 86.7% | 50.0% | 0.3524 |
+| 60%–70% | 1 | 68.2% | 100.0% | 0.1009 |
+| 70%–80% | 3 | 77.8% | 66.7% | 0.2197 |
+| 80%–90% | 3 | 85.7% | 33.3% | 0.4683 |
 
 Calibration bins report observed outcomes against the originally
 recorded reliability-adjusted chance; small buckets are unstable.

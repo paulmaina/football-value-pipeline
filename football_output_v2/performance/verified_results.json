@@ -344,6 +344,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564704": {
+    "away_goals": 3,
+    "away_short_name": "Sevilla FC",
+    "away_team": "Sevilla FC",
+    "first_verified_at_utc": "2026-10-12T21:11:58Z",
+    "home_goals": 3,
+    "home_short_name": "Levante",
+    "home_team": "Levante UD",
+    "kickoff_utc": "2026-10-12T19:00:00Z",
+    "league_code": "PD",
+    "match_id": 564704,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564705": {
     "away_goals": 2,
     "away_short_name": "Valencia",
@@ -464,6 +479,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PL:560597": {
+    "away_goals": 1,
+    "away_short_name": "Newcastle",
+    "away_team": "Newcastle United FC",
+    "first_verified_at_utc": "2026-10-12T21:11:58Z",
+    "home_goals": 4,
+    "home_short_name": "Coventry City",
+    "home_team": "Coventry City FC",
+    "kickoff_utc": "2026-10-12T19:00:00Z",
+    "league_code": "PL",
+    "match_id": 560597,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560598": {
     "away_goals": 3,
     "away_short_name": "Man City",
@@ -520,6 +550,21 @@
     "kickoff_utc": "2026-10-10T14:00:00Z",
     "league_code": "PL",
     "match_id": 560601,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558579": {
+    "away_goals": 1,
+    "away_short_name": "Venezia FC",
+    "away_team": "Venezia FC",
+    "first_verified_at_utc": "2026-10-12T21:11:58Z",
+    "home_goals": 3,
+    "home_short_name": "Atalanta",
+    "home_team": "Atalanta BC",
+    "kickoff_utc": "2026-10-12T16:30:00Z",
+    "league_code": "SA",
+    "match_id": 558579,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -625,6 +670,21 @@
     "kickoff_utc": "2026-10-10T18:45:00Z",
     "league_code": "SA",
     "match_id": 558586,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558587": {
+    "away_goals": 1,
+    "away_short_name": "Udinese",
+    "away_team": "Udinese Calcio",
+    "first_verified_at_utc": "2026-10-12T21:11:58Z",
+    "home_goals": 2,
+    "home_short_name": "Torino",
+    "home_team": "Torino FC",
+    "kickoff_utc": "2026-10-12T18:45:00Z",
+    "league_code": "SA",
+    "match_id": 558587,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
