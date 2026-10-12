@@ -11,7 +11,7 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 |---|---:|---:|---:|---:|
 | All selections | 4 | 2-2 | 50.0% | -37.0% |
 
-Unsettled / unverified entries: **12**.
+Unsettled / unverified entries: **15**.
 Whole-fixture 1X2 multiclass Brier (n=14): 0.5314
 
 ## STRICT versus PROVISIONAL
