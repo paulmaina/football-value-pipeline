@@ -1,0 +1,47 @@
+name: Refresh domestic training data
+
+on:
+  schedule:
+    # Every four hours, independently of prediction and grading workflows.
+    - cron: '17 0,4,8,12,16,20 * * *'
+  workflow_dispatch:
+    inputs:
+      full_history:
+        description: Refresh four seasons instead of just the current season
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - 'refresh_training_data.py'
+      - '.github/workflows/refresh-training-data.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: domestic-training-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download, validate and publish training cache
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          FULL_HISTORY: ${{ inputs.full_history }}
+        run: |
+          seasons=1
+          if [ "$EVENT_NAME" = "push" ] || [ "$FULL_HISTORY" = "true" ]; then
+            seasons=4
+          fi
+          python refresh_training_data.py --seasons-back "$seasons" --publish
