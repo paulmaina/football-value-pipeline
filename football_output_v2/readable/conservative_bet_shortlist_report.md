@@ -1,11 +1,11 @@
 # Conservative shortlisted matches and markets
 
 
-**Candidates:** 6 of target 10 distinct matches.
-**Strictly qualified:** 5. **Provisional watchlist:** 1.
-**Pipeline status:** BELOW_TARGET_WITH_PROVISIONAL.
-**Generated (UTC):** 2026-10-12T16:32:02.915037+00:00.
-**Kickoffs within next 72 hours of run:** Yes (span: 48.0 hours).
+**Candidates:** 4 of target 10 distinct matches.
+**Strictly qualified:** 4. **Provisional watchlist:** 0.
+**Pipeline status:** BELOW_TARGET.
+**Generated (UTC):** 2026-10-12T21:09:11.967223+00:00.
+**Kickoffs within next 72 hours of run:** Yes (span: 24.0 hours).
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. Do not treat ten candidates as a ten-leg betslip.
 
@@ -14,11 +14,9 @@
 | Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Feyenoord vs Como | Over 1.5 | STRICT | 2026-10-14T16:45:00+00:00 | 97.3% | 95.6% | Coolbet | 1.14 | +9.0% | — |
-| Atlético Madrid vs Manchester United | Over 1.5 | STRICT | 2026-10-13T19:00:00+00:00 | 96.2% | 94.4% | Coolbet | 1.16 | +9.6% | — |
-| Real Betis vs Porto | Over 1.5 | STRICT | 2026-10-14T19:00:00+00:00 | 93.2% | 91.5% | Coolbet | 1.24 | +13.4% | — |
-| Levante vs Sevilla | Over 1.5 | STRICT | 2026-10-12T19:00:00+00:00 | 78.2% | 78.2% | Coolbet | 1.42 | +11.0% | — |
-| Aston Villa vs Fenerbahce | Home win | STRICT | 2026-10-14T19:00:00+00:00 | 66.4% | 66.4% | 1xBet | 1.74 | +15.5% | — |
-| Coventry City vs Newcastle United | Under 3.5 | PROVISIONAL | 2026-10-12T19:00:00+00:00 | 84.4% | 83.7% | Coolbet | 1.55 | +29.8% | 75plus market history: HIGH_CONFIDENCE_OVERESTIMATION |
+| Atlético Madrid vs Manchester United | Over 1.5 | STRICT | 2026-10-13T19:00:00+00:00 | 96.2% | 94.5% | Coolbet | 1.16 | +9.6% | — |
+| Real Betis vs Porto | Over 1.5 | STRICT | 2026-10-14T19:00:00+00:00 | 93.3% | 91.5% | Coolbet | 1.23 | +12.6% | — |
+| Aston Villa vs Fenerbahce | Home win | STRICT | 2026-10-14T19:00:00+00:00 | 67.3% | 67.3% | 1xBet | 1.69 | +13.7% | — |
 
 ## Interpretation
 

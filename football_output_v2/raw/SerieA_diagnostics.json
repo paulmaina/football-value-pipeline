@@ -19,8 +19,8 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 11,
-  "additional_event_odds_calls_used_before_this_league": 2,
+  "live_odds_matched": 10,
+  "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": 24,
   "additional_event_odds_league_quota": 4,
   "additional_event_odds_calls_this_league": 0,
@@ -31,6 +31,8 @@
     "validation_days": 365
   },
   "goal_market_reliability": {
+    "home_draw": "RELIABLE_FOR_RANKING",
+    "draw_away": "RELIABLE_FOR_RANKING",
     "home": "RELIABLE_FOR_RANKING",
     "away": "RELIABLE_FOR_RANKING",
     "over_1_5": "RELIABLE_FOR_RANKING",
