@@ -62,13 +62,18 @@ def prioritized_additional_events(
     rows: Sequence[tuple[Mapping, Mapping]],
     quota: int,
     as_of=None,
+    coverage="ranked",
 ) -> list[int]:
     """Rank *within one league* before spending any quota.
 
     Each item contains a fixture row and its existing probability output.
-    Only securely linked / eligible-looking fixtures enter the request queue.
+    All mode requests every securely linked fixture in the time window,
+    regardless of quota or model probability. Ranked mode also applies
+    model eligibility gates and the supplied quota.
     Extra markets fetched in one call can then be independently screened.
     """
+    if coverage not in {"all", "ranked"}:
+        raise ValueError("Unknown additional odds coverage mode")
     candidates: list[tuple[float, int]] = []
     for i, (fixture, pred) in enumerate(rows):
         if as_of is not None:
@@ -84,6 +89,9 @@ def prioritized_additional_events(
             continue
         event_id = fixture.get("odds_event_id")
         if not isinstance(event_id, str) or not event_id:
+            continue
+        if coverage == "all":
+            candidates.append((0.0, i))
             continue
         try:
             quality = min(float(pred["home_name_match_score"]),
@@ -103,7 +111,8 @@ def prioritized_additional_events(
                 checks.append(p)
         if checks:
             candidates.append((max(checks), i))
-    return [i for _, i in sorted(candidates, key=lambda x: (-x[0], x[1]))[:quota]]
+    ordered = sorted(candidates, key=lambda x: (-x[0], x[1]))
+    return [i for _, i in (ordered if coverage == "all" else ordered[:quota])]
 
 
 def _valid_probability(x) -> bool:
