@@ -2490,6 +2490,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         odds_regions: str = "eu",
         fixture_provider: str = "auto",
         live_odds: bool = True,
+        additional_odds_coverage: str = "all",
         **kwargs,
     ):
         cache_dir = kwargs.get("cache_dir", ".football_cache")
@@ -2509,6 +2510,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
         self.odds_regions = str(odds_regions)
         self.fixture_provider = fixture_provider
         self.live_odds = bool(live_odds)
+        if additional_odds_coverage not in {"all", "ranked"}:
+            raise ValueError("additional_odds_coverage must be all or ranked")
+        self.additional_odds_coverage = additional_odds_coverage
         # Per-event BTTS and alternate totals requests consume additional API credits.
         self.extra_event_odds_requests = 0
         self.max_extra_event_odds_requests = 24
@@ -2817,8 +2821,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 fixtures.get("odds_source", pd.Series(dtype=object)).notna().sum()
             ),
             "additional_event_odds_calls_used_before_this_league": self.extra_event_odds_requests,
-            "additional_event_odds_calls_budget": self.max_extra_event_odds_requests,
-            "additional_event_odds_league_quota": self.extra_event_odds_quota.get(league.key, 0),
+            "additional_event_odds_calls_budget": (self.max_extra_event_odds_requests
+                if self.additional_odds_coverage == "ranked" else None),
+            "additional_event_odds_league_quota": (self.extra_event_odds_quota.get(league.key, 0)
+                if self.additional_odds_coverage == "ranked" else None),
         }
 
         if fixtures.empty:
@@ -2827,8 +2833,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         records: List[Dict[str, object]] = []
         scorelines: Dict[str, Dict[str, float]] = {}
 
-        # Predict all fixtures first, so the limited real-price requests
-        # are spent on the league's strongest candidates, not fixture order.
+        # Predict all fixtures first. Ranked mode prioritizes limited requests;
+        # full coverage requests every linked fixture within the shortlist window.
         prepared = [
             (row.to_dict(), *self._predict_row(model, row))
             for _, row in fixtures.iterrows()
@@ -2839,26 +2845,62 @@ class FootballValuePipelineV2(FootballValuePipeline):
             0, self.extra_event_odds_quota.get(league.key, 0)
             - self.extra_event_odds_by_league.get(league.key, 0)
         )
-        if self.odds_api is not None and quota > 0:
-            positions = prioritized_additional_events(
-                [(row, pred) for row, pred, _ in prepared], quota, as_of=now
+        full_coverage = self.additional_odds_coverage == "all"
+        eligible = prioritized_additional_events(
+            [(row, pred) for row, pred, _ in prepared], len(prepared),
+            as_of=now, coverage="all"
+        )
+        positions = prioritized_additional_events(
+            [(row, pred) for row, pred, _ in prepared], quota,
+            as_of=now, coverage=self.additional_odds_coverage
+        )
+        coverage_rows = []
+        selected = set(positions)
+        for idx, (row, pred, _) in enumerate(prepared):
+            coverage_row = {
+                "fixture_id": row.get("fixture_id"), "event_id": row.get("odds_event_id"),
+                "home_team": row.get("HomeTeam"), "away_team": row.get("AwayTeam"),
+                "kickoff_utc": str(row.get("kickoff_utc")),
+                "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+                "home_draw_quote": False, "draw_away_quote": False,
+            }
+            coverage_rows.append(coverage_row)
+            if idx not in eligible:
+                continue
+            if self.odds_api is None:
+                coverage_row["status"] = "NOT_REQUESTED_API_UNAVAILABLE"
+                continue
+            if idx not in selected or (not full_coverage and
+                    self.extra_event_odds_requests >= self.max_extra_event_odds_requests):
+                coverage_row["status"] = "NOT_REQUESTED_RANKING_OR_BUDGET"
+                continue
+            event_id = row["odds_event_id"]
+            self.extra_event_odds_requests += 1
+            self.extra_event_odds_by_league[league.key] = (
+                self.extra_event_odds_by_league.get(league.key, 0) + 1
             )
-            for idx in positions:
-                if self.extra_event_odds_requests >= self.max_extra_event_odds_requests:
-                    break
-                row, pred, _ = prepared[idx]
-                event_id = row["odds_event_id"]
-                self.extra_event_odds_requests += 1
-                self.extra_event_odds_by_league[league.key] = (
-                    self.extra_event_odds_by_league.get(league.key, 0) + 1
+            try:
+                extra = self.odds_api.extra_markets_for_event(league, event_id)
+                pred.update(extra)
+                coverage_row["home_draw_quote"] = bool(extra.get("market_home_draw_odds"))
+                coverage_row["draw_away_quote"] = bool(extra.get("market_draw_away_odds"))
+                coverage_row["status"] = (
+                    "RECEIVED_VALID_DC_QUOTES" if coverage_row["home_draw_quote"] and
+                    coverage_row["draw_away_quote"] else "RESPONSE_WITHOUT_VALID_DC_QUOTES"
                 )
-                try:
-                    pred.update(self.odds_api.extra_markets_for_event(league, event_id))
-                except Exception as exc:
-                    warnings.warn(
-                        f"Additional odds missing for {event_id}: {exc}",
-                        RuntimeWarning,
-                    )
+                coverage_row["dc_bookmakers"] = extra.get("market_home_draw_bookmakers", 0)
+            except Exception as exc:
+                coverage_row["status"] = "REQUEST_FAILED"
+                # Do not persist exception URLs, which may contain credentials.
+                coverage_row["error_type"] = type(exc).__name__
+                warnings.warn(f"Additional odds missing for {event_id}: {exc}", RuntimeWarning)
+        diagnostics["additional_odds_coverage_mode"] = self.additional_odds_coverage
+        diagnostics["additional_odds_coverage"] = coverage_rows
+        diagnostics["additional_odds_in_window_linked_fixtures"] = len(eligible)
+        diagnostics["additional_odds_unrequested_linked_fixtures"] = sum(
+            coverage_rows[i]["status"].startswith("NOT_REQUESTED") for i in eligible
+        )
+        diagnostics["additional_event_odds_hard_cap_applies"] = not full_coverage
         diagnostics["additional_event_odds_calls_this_league"] = (
             self.extra_event_odds_by_league.get(league.key, 0)
         )
@@ -3277,6 +3319,8 @@ def build_parser() -> argparse.ArgumentParser:
         description="Multi-league scoreline/value pipeline with walk-forward evaluation."
     )
     p.add_argument("--leagues", nargs="+", choices=list(LEAGUES), default=["EPL"])
+    p.add_argument("--additional-odds-coverage", choices=["all", "ranked"], default="all",
+                   help="all: request every linked fixture in the 72h window (more API credits); ranked: capped legacy mode")
     p.add_argument("--goal-blend-experiment", action="store_true",
                    help="Write separate uncalibrated goal-market shadow variants; no baseline changes.")
     p.add_argument("--seasons-back", type=int, default=4)
@@ -3438,6 +3482,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         odds_regions=args.odds_regions,
         fixture_provider=args.fixture_provider,
         live_odds=not args.no_live_odds,
+        additional_odds_coverage=args.additional_odds_coverage,
     )
 
     # Fair reservations across requested competitions; never allow the
