@@ -42,7 +42,8 @@ MARKET_SPECS = (
     ("Home win", "home", 0.65, 0.50),
     ("Away win", "away", 0.65, 0.50),
     ("Over 1.5", "over_1_5", 0.78, 0.72),
-    ("Under 3.5", "under_3_5", 0.76, 0.70),
+    ("Double Chance 1X", "home_draw", 0.80, 0.75),
+    ("Double Chance X2", "draw_away", 0.80, 0.75),
     ("Both Teams to Score - Yes", "btts_yes", 0.70, 0.63),
 )
 DECISION_COLUMNS = [
@@ -90,6 +91,16 @@ def _utc(value) -> Optional[pd.Timestamp]:
 
 def _market_fields(row: pd.Series, key: str) -> dict:
     """Take the real quoted price, book, complementary market, and timestamp."""
+    if key in ("home_draw", "draw_away"):
+        return {
+            "price": row.get(f"market_{key}_odds"),
+            "bookmaker": row.get(f"best_{key}_bookmaker"),
+            "last_update": row.get(f"market_best_{key}_last_update_utc"),
+            "reference": [row.get(f"market_reference_dc_{side}_odds")
+                          for side in ("home_draw", "draw_away", "home_away")],
+            "book_count": row.get(f"market_{key}_bookmakers"),
+            "min_books": 2,
+        }
     if key in ("home", "away"):
         return {
             "price": row.get(f"market_{key}_odds"),
@@ -162,6 +173,8 @@ def _evaluate_market(
     high_dev_n, high_overconfidence = None, None
     high_audit_rate, high_wilson_lower, high_wilson_upper = None, None, None
     high_penalty = 0.0
+    if validation is None and key in ("home_draw", "draw_away"):
+        reasons.append("double chance historical reliability report required")
     if validation is None and league == "UEFA Champions League":
         reasons.append("UCL historical reliability report required")
     if validation is not None:
@@ -234,7 +247,9 @@ def _evaluate_market(
     ref = [_number(x) for x in quote["reference"]]
     if any(x is None or x <= 1.0 for x in ref):
         reasons.append("incomplete same-book reference market")
-    elif not MIN_REFERENCE_OVERROUND <= sum(1.0 / x for x in ref) <= MAX_REFERENCE_OVERROUND:
+    elif not (MIN_REFERENCE_OVERROUND * (2 if key in ("home_draw", "draw_away") else 1)
+              <= sum(1.0 / x for x in ref)
+              <= MAX_REFERENCE_OVERROUND * (2 if key in ("home_draw", "draw_away") else 1)):
         reasons.append("implausible same-book reference market overround")
     n_books = _number(quote["book_count"])
     if n_books is None or n_books < quote["min_books"]:
@@ -242,6 +257,10 @@ def _evaluate_market(
     if market_p is None:
         reasons.append("missing bookmaker reference probability")
 
+    if key in ("home_draw", "draw_away"):
+        reference_time = _utc(row.get(f"market_reference_{key}_last_update_utc"))
+        if reference_time is None or not -5/60 <= (now-reference_time).total_seconds()/3600 <= MAX_ODDS_AGE_HOURS:
+            reasons.append("double chance reference is missing, stale or future-dated")
     updated = _utc(quote["last_update"])
     age = (now - updated).total_seconds() / 3600.0 if updated is not None else None
     if age is None or age > MAX_ODDS_AGE_HOURS or age < -5.0 / 60.0:
@@ -313,6 +332,8 @@ def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple]) -> Optional[fl
     A missing audit or a demonstrably very overconfident tier is NOT
     treated as nearly reliable.
     """
+    if row.get("market") in ("Double Chance 1X", "Double Chance X2"):
+        return None
     if row["decision"] != "REJECTED" or row["validation_status"] != "RELIABLE_FOR_RANKING":
         return None
     problems = str(row["rejection_reasons"] or "").split("; ")
@@ -514,7 +535,7 @@ def build_conservative_shortlist(
     return shortlist, decisions, {
         "status": status,
         "generated_at_utc": now.isoformat(),
-        "selection_policy_version": "72h-ucl-v3",
+        "selection_policy_version": "72h-double-chance-v4",
         "n_fixtures": int(len(predictions)),
         "n_markets_evaluated": int(len(decisions)),
         "n_shortlisted": n,

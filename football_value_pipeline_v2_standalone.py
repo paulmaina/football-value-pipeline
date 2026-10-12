@@ -927,13 +927,13 @@ class TheOddsAPI:
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
         payload = self._get_json(
             url,
-            f"oddsapi_additional_{league.key}_{region_tag}_{safe_id}.json",
+            f"oddsapi_additional_dc_v1_{league.key}_{region_tag}_{safe_id}.json",
             ttl=timedelta(minutes=5),
             force_refresh=self.force_refresh,
             params={
                 "apiKey": self.api_key,
                 "regions": self.regions,
-                "markets": "alternate_totals,btts",
+                "markets": "alternate_totals,btts,double_chance",
                 "oddsFormat": "decimal",
                 "dateFormat": "iso",
             },
@@ -995,7 +995,8 @@ class TheOddsAPI:
                             (updated, name, pair["yes"], pair["no"])
                         )
 
-        result: Dict[str, object] = {}
+        from double_chance import parse_quotes
+        result: Dict[str, object] = parse_quotes(payload)
         for market, available in offers.items():
             if not available:
                 continue
@@ -2741,6 +2742,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         pred["raw_p_over_1_5"] = raw_over_1_5
         pred["raw_p_under_3_5"] = raw_under_3_5
         pred["raw_p_btts_yes"] = raw_btts_yes
+        from double_chance import probabilities as double_chance_probabilities
+        pred.update(double_chance_probabilities(pred))
         pred["market_weight"] = self.market_weight if blend_applied else 0.0
         pred["market_blend_applied"] = blend_applied
         add_value_metrics(pred, snapshot)
@@ -3555,7 +3558,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             if validation_min_train < 30:
                 raise ValueError("Validation warm-up must contain at least 30 matches")
             config = {
-                "validator_version": 3,
+                "validator_version": 4,
                 "min_train": validation_min_train,
                 "step_days": 56,
                 "devig": pipe.devig_method,
