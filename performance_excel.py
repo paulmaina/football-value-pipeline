@@ -219,9 +219,9 @@ def add_health_sheet(root, data, history):
         state=info.get('current_source_health',info['forecast_training_health']).get('status')
         rows.append([league,info['training_end'],info['training_matches'],info['days_since_latest_result'],state])
     rows += [[], ['Latest stored shortlist audit'], *[[k, json.dumps(v) if isinstance(v,dict) else v]
-            for k,v in data['quote_audit'].items()], [], ['Snapshot', 'Captured UTC', 'Goal blend', 'Market led']]
+            for k,v in data['quote_audit'].items()], [], ['Snapshot', 'Captured UTC', 'Goal blend', 'Market led', 'Recency']]
     rows += [[r['commit'][:12],r['captured_at_utc'],r['experiments']['goal_blend_experiment'],
-              r['experiments']['market_led_experiment']] for r in data['snapshot_capture_history']]
+              r['experiments']['market_led_experiment'],r['experiments'].get('recency_experiment','LEGACY_NOT_RECORDED')] for r in data['snapshot_capture_history']]
     rows += [[], ['Daily observations', 'Graded', 'Win rate', 'Net simulated ROI', 'Brier']]
     for day, observation in sorted(history['days'].items()):
         metric=observation['shortlist_performance']

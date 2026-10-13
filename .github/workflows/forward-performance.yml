@@ -20,6 +20,8 @@ on:
       - 'publish_performance.py'
       - 'workflow_checks.py'
       - 'goal_blend_experiment.py'
+      - 'recency_experiment.py'
+      - 'dc_decay_validation.py'
       - 'forecast_integrity.py'
       - '.gitattributes'
       - 'market_led_experiment.py'
