@@ -149,6 +149,8 @@ def frozen(root, archived):
             key = fixture_key(row); kick = utc(row.get('kickoff_utc'))
             if key in seen or kick is None or max(utc(meta['captured_at_utc']),utc(meta['generated_at_utc'])) > kick-timedelta(minutes=20):
                 continue
+            if kick > utc(meta['generated_at_utc'])+timedelta(hours=72):
+                continue
             new.add(key)
             rows.append({**row,'fixture_key':key,'snapshot_commit':meta['git_commit_sha'],
                 'snapshot_captured_utc':meta['captured_at_utc'],

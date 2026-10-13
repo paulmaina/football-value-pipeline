@@ -134,6 +134,21 @@ class SensitivityTests(unittest.TestCase):
             with self.assertRaises(ValueError):validate(altered,summary['generated_at_utc'],predictions.to_dict('records'))
             with self.assertRaises(ValueError):validate(None,summary['generated_at_utc'],predictions.to_dict('records'))
 
+    def test_outside_72h_forecasts_do_not_lock_later_eligible_decisions(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);row=fixture(kickoff=NOW+timedelta(days=4))
+            setup(root,row);capture('a'*40,root=root,captured_at=NOW)
+            self.assertEqual(frozen(root,snapshots(root))[0],[])
+            later=NOW+timedelta(days=2)
+            for key in row:
+                if key.startswith('market_best_') and key.endswith('_last_update_utc'):
+                    row[key]=(later-timedelta(hours=1)).isoformat()
+            with patch('test_filter_sensitivity_experiment.NOW',later):setup(root,row)
+            capture('b'*40,root=root,captured_at=later)
+            rows,_=frozen(root,snapshots(root))
+            self.assertEqual(len(rows),18)
+            self.assertTrue(all(r['snapshot_commit']=='b'*40 for r in rows))
+
     def test_late_and_legacy_not_backfilled(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);raw,data,predictions,*_=setup(root)
