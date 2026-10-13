@@ -2054,7 +2054,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = build_parser().parse_args(argv)
 
     if args.self_test:
-        self_test()
+        import quote_policy
+        from unittest.mock import patch
+        with patch.object(quote_policy, 'CONFIG', Path(__file__).resolve().parent / 'tests' / 'offline_quote_policy.json'):
+            self_test()
         return 0
 
     out_dir = Path(args.out_dir)
@@ -3484,7 +3487,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = build_parser().parse_args(argv)
 
     if args.self_test:
-        self_test()
+        import quote_policy
+        from unittest.mock import patch
+        with patch.object(quote_policy, 'CONFIG', Path(__file__).resolve().parent / 'tests' / 'offline_quote_policy.json'):
+            self_test()
         return 0
 
     from api_key_config import load_api_keys
