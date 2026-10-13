@@ -1,0 +1,384 @@
+{
+  "dependencies": {
+    "PyYAML": "6.0.3",
+    "coverage": "7.16.2",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "python": "3.12.15",
+    "python-dotenv": "1.2.4",
+    "requests": "2.34.2",
+    "scipy": "1.18.1"
+  },
+  "evidence": {
+    "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
+    "graded_selections": 7,
+    "model_improvement_established": false,
+    "prediction_fixtures_graded": 18
+  },
+  "execution_policy": {
+    "account_availability": "NOT_VERIFIED",
+    "allowed_bookmakers": [],
+    "exchange_policy": "EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER",
+    "per_stake_cost_bps": 0
+  },
+  "experiment_capture_counts": {
+    "goal_blend_experiment:CAPTURED": 1,
+    "goal_blend_experiment:LEGACY_NOT_RECORDED": 14,
+    "market_led_experiment:CAPTURED": 1,
+    "market_led_experiment:LEGACY_NOT_RECORDED": 14
+  },
+  "experimental_reports": {
+    "goal_blend_experiment": {
+      "available_fixture_markets": 54,
+      "comparisons": [],
+      "graded_fixture_markets": 0,
+      "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
+      "reviewed_at_utc": "2026-10-13T11:48:08.319087+00:00",
+      "total_fixture_markets": 201,
+      "version": "goal-blend-shadow-v1"
+    },
+    "market_led_experiment": {
+      "available_fixture_markets": 36,
+      "calibration": [],
+      "comparisons": [],
+      "decision": "INCONCLUSIVE_NO_AUTOMATIC_PROMOTION",
+      "flat_unit_roi_after_configured_cost": null,
+      "graded_selections": 0,
+      "late_reference_proxy_count": 0,
+      "missing_reasons": {
+        "event_identity_or_kickoff_mismatch": 98,
+        "missing_invalid_or_stale_pinnacle_1x2": 98,
+        "no_fresh_independent_complete_dc_offer": 98,
+        "outside_selection_window": 98
+      },
+      "note": "Paper results at feed odds, not realized returns. Costs are user-configured per stake. Late reference proxy uses only archived quotes 20–60 minutes before kickoff; not actual closing odds. No automatic collection at close or promotion.",
+      "observed_fixture_markets": 134,
+      "paired_graded_fixture_markets": 0,
+      "pending_or_unverified_selections": 0,
+      "reviewed_at_utc": "2026-10-13T11:48:08.319087+00:00",
+      "selected": 0,
+      "settings_observed": [
+        {
+          "cost_bps": 0.0,
+          "devig": "power",
+          "max_age_minutes": 10.0,
+          "max_skew_minutes": 5.0,
+          "min_ev": 0.03,
+          "min_probability": 0.8,
+          "promotion": "disabled",
+          "reference": "pinnacle",
+          "selection": "one market per fixture; at most ten fixtures",
+          "settlement": "regulation_time"
+        }
+      ],
+      "version": "market-led-dc-v1"
+    }
+  },
+  "quote_audit": {
+    "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
+    "bookmakers": {
+      "1xBet": 1,
+      "Coolbet": 3,
+      "Matchbook": 1
+    },
+    "costs_recorded": 0,
+    "exchange_quotes": 1,
+    "missing_quote_age": 0,
+    "quote_age_over_24h": 0,
+    "selected_quotes": 5
+  },
+  "reviewed_at_utc": "2026-10-13T11:48:08.319087+00:00",
+  "selection_policy_groups": {
+    "72h-ucl-v3": {
+      "brier": 0.308868,
+      "flat_stake_roi": -0.33,
+      "graded": 2,
+      "losses": 1,
+      "pending": 6,
+      "profit_per_unit_staked": -0.66,
+      "settled_with_odds": 2,
+      "total": 8,
+      "win_rate": 0.5,
+      "wins": 1
+    },
+    "legacy/unspecified": {
+      "brier": 0.309472,
+      "flat_stake_roi": -0.17,
+      "graded": 5,
+      "losses": 2,
+      "pending": 6,
+      "profit_per_unit_staked": -0.85,
+      "settled_with_odds": 5,
+      "total": 11,
+      "win_rate": 0.6,
+      "wins": 3
+    }
+  },
+  "snapshot_capture_history": [
+    {
+      "captured_at_utc": "2026-10-11T06:30:30Z",
+      "commit": "2fd31d33722311d8e0155bb5eca6b3a310ac938b",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "legacy/unspecified"
+    },
+    {
+      "captured_at_utc": "2026-10-11T06:38:09Z",
+      "commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "legacy/unspecified"
+    },
+    {
+      "captured_at_utc": "2026-10-11T06:44:04Z",
+      "commit": "b9c15c09504aaf57de5ad0957adb91c0e9b37243",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "legacy/unspecified"
+    },
+    {
+      "captured_at_utc": "2026-10-11T08:21:00Z",
+      "commit": "648ca5973f8d6521eefb8a4a5233fabb8e644a8e",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "72h-ucl-v2"
+    },
+    {
+      "captured_at_utc": "2026-10-11T08:25:02Z",
+      "commit": "660b75e4a3111f2a890ba1d58d595a637d01d0f2",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "72h-ucl-v2"
+    },
+    {
+      "captured_at_utc": "2026-10-11T10:46:00Z",
+      "commit": "a2cdead106b513fd623cffd1e43a491685d68cc3",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "72h-ucl-v3"
+    },
+    {
+      "captured_at_utc": "2026-10-11T11:06:08Z",
+      "commit": "5fb257972ff233227b2e94d4b784eebf60b66d42",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "72h-ucl-v3"
+    },
+    {
+      "captured_at_utc": "2026-10-11T11:32:53Z",
+      "commit": "f1a72cc22d717088fb3c74014de8aae60f586e46",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "72h-ucl-v3"
+    },
+    {
+      "captured_at_utc": "2026-10-12T16:34:11Z",
+      "commit": "4f7af2f470a0b5cdb7b8ae974c859f87b0236fc4",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "72h-ucl-v3"
+    },
+    {
+      "captured_at_utc": "2026-10-12T21:11:56Z",
+      "commit": "5496e9ba03aeb2ae41363a329fbc48e9754cfb0e",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "72h-double-chance-v4"
+    },
+    {
+      "captured_at_utc": "2026-10-13T07:01:01Z",
+      "commit": "f6306ebd6d74a53df80194728284cbdc188f3667",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "72h-double-chance-v5"
+    },
+    {
+      "captured_at_utc": "2026-10-13T07:52:43Z",
+      "commit": "fbfe5af89d0633da4bf4e581e42347272b5e913e",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "72h-all-markets-ev15-one-book-v6"
+    },
+    {
+      "captured_at_utc": "2026-10-13T09:01:13Z",
+      "commit": "87b1676077a47afbdd6b75767d92bd78c5bd8f30",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "72h-all-markets-ev15-one-book-v6"
+    },
+    {
+      "captured_at_utc": "2026-10-13T09:27:14Z",
+      "commit": "0dba961b0bbe74d5cd4c3779bb410a5707e2a2f1",
+      "experiments": {
+        "goal_blend_experiment": "LEGACY_NOT_RECORDED",
+        "market_led_experiment": "LEGACY_NOT_RECORDED"
+      },
+      "health": null,
+      "policy": "72h-all-markets-ev15-one-book-v6"
+    },
+    {
+      "captured_at_utc": "2026-10-13T11:07:31Z",
+      "commit": "962a7a22cb5bd1ec1fb3ceac2b4d2345662a495b",
+      "experiments": {
+        "goal_blend_experiment": "CAPTURED",
+        "market_led_experiment": "CAPTURED"
+      },
+      "health": null,
+      "policy": "72h-all-markets-ev15-one-book-v6"
+    }
+  ],
+  "training": {
+    "Bundesliga": {
+      "days_since_latest_result": 2,
+      "diagnostics_sha256": "c5d001154d7f1b0a87e4df78323f234cbb041fe2c07c14c8247a00f15f76ecf7",
+      "forecast_training_health": {
+        "status": "LEGACY_NOT_RECORDED"
+      },
+      "training_end": "2026-10-11",
+      "training_matches": 963
+    },
+    "EPL": {
+      "days_since_latest_result": 1,
+      "diagnostics_sha256": "f459ff4289313d95f8c2d709b4dc38ce47bccfe6b1df3be6618270ff4e125f57",
+      "forecast_training_health": {
+        "status": "LEGACY_NOT_RECORDED"
+      },
+      "training_end": "2026-10-12",
+      "training_matches": 1200
+    },
+    "LaLiga": {
+      "days_since_latest_result": 1,
+      "diagnostics_sha256": "909cc9e3c8414eddf1483a9479b5c0b2462ca2d5cfa877c98f3af61d05597686",
+      "forecast_training_health": {
+        "status": "LEGACY_NOT_RECORDED"
+      },
+      "training_end": "2026-10-12",
+      "training_matches": 1218
+    },
+    "Ligue1": {
+      "days_since_latest_result": 2,
+      "diagnostics_sha256": "771c2097371698d56d5d6f0bca716c3594f0ca32d89d88760d60f0242f00fca1",
+      "forecast_training_health": {
+        "status": "LEGACY_NOT_RECORDED"
+      },
+      "training_end": "2026-10-11",
+      "training_matches": 972
+    },
+    "SerieA": {
+      "days_since_latest_result": 1,
+      "diagnostics_sha256": "70483b1f43c0cee321d1f2df3bd01aa845814ef1a916a9516ad9c5bf93e06edf",
+      "forecast_training_health": {
+        "status": "LEGACY_NOT_RECORDED"
+      },
+      "training_end": "2026-10-12",
+      "training_matches": 1200
+    },
+    "UCL": {
+      "current_source_health": {
+        "added_matches": 0,
+        "cache_hash_verified": true,
+        "checked_at_utc": "2026-10-13T11:47:48.867891+00:00",
+        "completed_matches": 18,
+        "corrected_scores": 0,
+        "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+        "download_age_hours": 0.00540311,
+        "download_status": "VERIFIED_LIVE",
+        "latest_completed_date": "2026-09-10",
+        "latest_completed_utc": "2026-09-10T19:00:00+00:00",
+        "next_fixture_utc": "2026-10-13T16:45:00+00:00",
+        "note": "Provider schedule comparison is not independent proof of complete coverage.",
+        "overdue_unfinished_match_ids": [],
+        "provider": "football-data.org",
+        "season_start": 2026,
+        "sha256": "e5a952fc3addc9a4e23d1d3bd4af8b31b836fd55452464d6ebbce16e4fdab9d0",
+        "source_schedule_matches": 144,
+        "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+        "training_end": "2026-09-10"
+      },
+      "days_since_latest_result": 33,
+      "diagnostics_sha256": "02e1933b95c0927463f5e63c229f3af1bb578faa66f939dc6ef3a0be36b21992",
+      "forecast_training_health": {
+        "status": "LEGACY_NOT_RECORDED"
+      },
+      "training_end": "2026-09-10",
+      "training_matches": 521
+    }
+  },
+  "weekly_performance": {
+    "2026-W41": {
+      "brier": 0.329116,
+      "flat_stake_roi": -0.37,
+      "graded": 4,
+      "losses": 2,
+      "pending": 1,
+      "profit_per_unit_staked": -1.48,
+      "settled_with_odds": 4,
+      "total": 5,
+      "win_rate": 0.5,
+      "wins": 2
+    },
+    "2026-W42": {
+      "brier": 0.282877,
+      "flat_stake_roi": -0.01,
+      "graded": 3,
+      "losses": 1,
+      "pending": 10,
+      "profit_per_unit_staked": -0.03,
+      "settled_with_odds": 3,
+      "total": 13,
+      "win_rate": 0.666667,
+      "wins": 2
+    },
+    "2026-W43": {
+      "brier": null,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "losses": 0,
+      "pending": 1,
+      "profit_per_unit_staked": null,
+      "settled_with_odds": 0,
+      "total": 1,
+      "win_rate": null,
+      "wins": 0
+    }
+  }
+}
