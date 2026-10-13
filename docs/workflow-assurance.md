@@ -31,7 +31,7 @@ Install local test dependencies with:
 ```powershell
 py -m pip install -r football_value_dev_requirements.txt
 py workflow_checks.py smoke
-py -m coverage run -m unittest discover -s tests -v
+py -m coverage run run_offline_tests.py
 py -m coverage json --fail-under=0
 py workflow_checks.py coverage
 ```
@@ -114,3 +114,5 @@ flags and commit/push the fresh files before kickoff to begin correctly captured
 experimental evidence. Older raw experiment files are not retroactively graded.
 
 Daily source, execution and experimental capture evidence is described in [daily evidence](daily-evidence.md). The new UCL refresh CLI is included in smoke checks; its validation/publishing modules, quote policy and health reporting have dedicated regression and coverage gates.
+
+Offline checks use `run_offline_tests.py` to isolate synthetic bookmaker fixtures from personal account allowlists. Use `py run_offline_tests.py --model-self-test` for the model-only check. Production still loads `shortlist_quote_policy.json`.
