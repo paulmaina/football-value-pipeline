@@ -136,6 +136,7 @@ def _evaluate_market(
     now: pd.Timestamp,
     validation: Optional[Mapping] = None,
     quote_policy: Optional[Mapping] = None,
+    adjusted_ev_floor: Optional[float] = None,
 ) -> dict:
     label, key, min_prob, min_raw = spec
     policy = quote_policy or load_policy()
@@ -285,10 +286,12 @@ def _evaluate_market(
     edge = p - market_p if p is not None and market_p is not None else None
     is_double_chance = key in ("home_draw", "draw_away")
     min_adjusted_ev = MIN_DOUBLE_CHANCE_ADJUSTED_EV if is_double_chance else MIN_ESTIMATED_EV
+    if adjusted_ev_floor is not None:
+        min_adjusted_ev = adjusted_ev_floor
     min_adjusted_probability = MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY if is_double_chance else min_prob
     adjusted_tolerance = 1e-12
     if conservative_ev is None or conservative_ev + adjusted_tolerance < min_adjusted_ev:
-        reasons.append("reliability-adjusted EV below +1.5% or missing")
+        reasons.append(f"reliability-adjusted EV below +{min_adjusted_ev:.1%} or missing")
     if rank_p is None or rank_p + adjusted_tolerance < min_adjusted_probability:
         reasons.append("reliability-adjusted probability below minimum")
     if raw_ev is None or raw_ev < MIN_RAW_DC_EV:
@@ -341,7 +344,7 @@ def _evaluate_market(
 
 
 
-def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple]) -> Optional[float]:
+def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple], adjusted_ev_floor=None) -> Optional[float]:
     """Small, explicitly quantified deviations for a RESEARCH-ONLY candidate.
 
     Under no circumstances waive odds authenticity, price freshness,
@@ -363,7 +366,7 @@ def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple]) -> Optional[fl
     }
     score = 0.0
     for problem in problems:
-        if problem in allowed:
+        if problem in allowed or problem.startswith("reliability-adjusted EV below +"):
             continue
         if problem.startswith(("75plus market history: ", "85plus market history: ")):
             status = problem.split(": ", 1)[1]
@@ -382,7 +385,7 @@ def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple]) -> Optional[fl
     ev = _number(row["conservative_estimated_ev"])
     if p is None or p < min_p - PROVISIONAL_MAX_PROBABILITY_SHORTFALL:
         return None
-    if ev is None or ev + 1e-12 < MIN_ESTIMATED_EV:
+    if ev is None or ev + 1e-12 < (MIN_ESTIMATED_EV if adjusted_ev_floor is None else adjusted_ev_floor):
         return None
     score += max(0.0, min_p-p) / PROVISIONAL_MAX_PROBABILITY_SHORTFALL
 
@@ -418,6 +421,7 @@ def build_conservative_shortlist(
     predictions: pd.DataFrame,
     as_of: Optional[datetime] = None,
     market_reliability: Optional[Mapping[str, Mapping]] = None,
+    *, adjusted_ev_floor: Optional[float] = None,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Aim for ten distinct fixtures; never fabricate a minimum ten.
 
@@ -430,6 +434,8 @@ def build_conservative_shortlist(
         raise ValueError("as_of must be timezone-aware")
     now = now.tz_convert("UTC")
 
+    if adjusted_ev_floor is not None and (not math.isfinite(adjusted_ev_floor) or adjusted_ev_floor < MIN_ESTIMATED_EV):
+        raise ValueError("Research EV floor must be finite and at least the production floor")
     policy = load_policy()
     evaluated = []
     for _, row in predictions.iterrows():
@@ -438,7 +444,7 @@ def build_conservative_shortlist(
                 market_reliability.get(str(row.get("league") or ""), {})
                 if market_reliability is not None else None
             )
-            evaluated.append(_evaluate_market(row, spec, now, report, policy))
+            evaluated.append(_evaluate_market(row, spec, now, report, policy, adjusted_ev_floor))
     decisions = pd.DataFrame(evaluated, columns=DECISION_COLUMNS)
 
     eligible = decisions[decisions["decision"] == "ELIGIBLE"].copy()
@@ -484,7 +490,7 @@ def build_conservative_shortlist(
             for label, _, min_p, min_raw in MARKET_SPECS
         }
         pool["historical_gap_score"] = pool.apply(
-            lambda item: _near_miss_score(item, minimums), axis=1
+            lambda item: _near_miss_score(item, minimums, adjusted_ev_floor), axis=1
         )
         pool = pool.loc[pool["historical_gap_score"].notna()].copy()
         pool = pool.sort_values(

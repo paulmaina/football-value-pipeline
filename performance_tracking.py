@@ -174,6 +174,13 @@ def capture(commit_sha: str, *, root: Path = ROOT,
             files["market_led_experiment.json"] = experiment
     except Exception as exc:
         warnings.warn(f"Market-led capture skipped ({type(exc).__name__})")
+    try:
+        from filter_sensitivity_experiment import capture_file as capture_filter
+        experiment = capture_filter(raw, summary.get("generated_at_utc"))
+        if experiment is not None:
+            files["filter_sensitivity_experiment.json"] = experiment
+    except Exception as exc:
+        warnings.warn(f"Filter sensitivity capture skipped ({type(exc).__name__})")
     directory.mkdir(parents=True, exist_ok=False)
     digests = {}
     for output_name, source in files.items():
@@ -216,7 +223,7 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
                 (directory / name).read_bytes()
             ).hexdigest() != digest
             for name, digest in meta.get("sha256", {}).items()
-            if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "pipeline_health.json"}
+            if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "filter_sensitivity_experiment.json", "pipeline_health.json"}
         ):
             warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
             continue
@@ -780,6 +787,11 @@ def review(*, root: Path = ROOT, token: str = "",
         review_recency(root, archived, records, clock)
     except Exception as exc:
         warnings.warn(f'Recency report failed ({type(exc).__name__}); baseline report complete')
+    try:
+        from filter_sensitivity_experiment import review_experiment as review_filter
+        review_filter(root, archived, records, clock)
+    except Exception as exc:
+        warnings.warn(f'Filter sensitivity report failed ({type(exc).__name__}); baseline report complete')
     from pipeline_health import write_report
     write_report(root, result, clock)
     print(f"Performance: {result['shortlist']['graded']} graded, "
