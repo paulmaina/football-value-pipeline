@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "PyYAML": "6.0.3",
-    "coverage": "7.16.2",
+    "PyYAML": "NOT_INSTALLED",
+    "coverage": "NOT_INSTALLED",
     "numpy": "2.5.4",
     "pandas": "3.0.6",
     "python": "3.12.15",
@@ -35,7 +35,7 @@
       "comparisons": [],
       "graded_fixture_markets": 0,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-13T12:30:02.689663+00:00",
+      "reviewed_at_utc": "2026-10-13T12:35:58.302398+00:00",
       "total_fixture_markets": 201,
       "version": "goal-blend-shadow-v1"
     },
@@ -57,7 +57,7 @@
       "observed_fixture_markets": 134,
       "paired_graded_fixture_markets": 0,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-13T12:30:02.689663+00:00",
+      "reviewed_at_utc": "2026-10-13T12:35:58.302398+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -87,7 +87,7 @@
     "quote_age_over_24h": 0,
     "selected_quotes": 4
   },
-  "reviewed_at_utc": "2026-10-13T12:30:02.689663+00:00",
+  "reviewed_at_utc": "2026-10-13T12:35:58.302398+00:00",
   "selection_policy_groups": {
     "72h-ucl-v3": {
       "brier": 0.308868,
@@ -663,11 +663,11 @@
       "current_source_health": {
         "added_matches": 0,
         "cache_hash_verified": true,
-        "checked_at_utc": "2026-10-13T11:47:48.867891+00:00",
+        "checked_at_utc": "2026-10-13T12:35:54.005491+00:00",
         "completed_matches": 18,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 0.703839381111111,
+        "download_age_hours": 0.0011935852777777778,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-09-10",
         "latest_completed_utc": "2026-09-10T19:00:00+00:00",
