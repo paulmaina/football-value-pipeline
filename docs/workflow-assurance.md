@@ -118,3 +118,5 @@ Daily source, execution and experimental capture evidence is described in [daily
 Offline checks use `run_offline_tests.py` to isolate synthetic bookmaker fixtures from personal account allowlists. Use `py run_offline_tests.py --model-self-test` for the model-only check. Production still loads `shortlist_quote_policy.json`.
 
 The optional recency extension reuses the goal sidecar manifest. Fresh recency reports are additionally reconciled with first frozen variant probabilities, half-lives, official finished scores, complete graded/coverage cohorts, paired score differences, calibration and weekly aggregates before publication. See [recency experiment](recency-experiment.md).
+
+The automatic filter-sensitivity sidecar freezes all six-market candidate decisions at 1.5%, 3%, and 5% adjusted net EV. Review validates complete ledgers and reconciles every published selection, result, ROI, drawdown and calibration aggregate against the frozen forecast and verified result cache. Optional corrupted evidence is isolated from the baseline. See [guide](filter-sensitivity-experiment.md).

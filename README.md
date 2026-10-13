@@ -204,3 +204,5 @@ the existing goal sidecar with Over 1.5/BTTS half-life comparisons. Add
 `--recency-experiment` alongside `--tune-half-life`; production selections stay
 independent while forward results are captured and reviewed automatically.
 
+
+Conservative EV sensitivity is recorded automatically on current-fixture runs: [experiment guide](docs/filter-sensitivity-experiment.md). It compares 1.5%, 3%, and 5% floors without changing the live shortlist.
