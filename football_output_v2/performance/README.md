@@ -76,5 +76,45 @@ Accuracy is not calibration or profit. Simulated ROI assumes
 one unit staked separately on each settled selection with recorded
 pre-kickoff bookmaker decimal odds. These are **not real stakes**;
 it is not the return from a ten-leg accumulator.
+New execution-policy simulations deduct frozen per-stake costs. Legacy snapshots retain their original gross assumptions; compare policy cohorts separately.
 Small samples and stale/invalid prices can undermine conclusions.
 A missing, ambiguous or unverified result is **never called a win**.
+
+## Data, execution and experiment health
+
+| League | Model training end | Matches | Days since result | Source check |
+|---|---|---:|---:|---|
+| Bundesliga | 2026-10-11 | 963 | 2 | LEGACY_NOT_RECORDED |
+| EPL | 2026-10-12 | 1200 | 1 | LEGACY_NOT_RECORDED |
+| LaLiga | 2026-10-12 | 1218 | 1 | LEGACY_NOT_RECORDED |
+| Ligue1 | 2026-10-11 | 972 | 2 | LEGACY_NOT_RECORDED |
+| SerieA | 2026-10-12 | 1200 | 1 | LEGACY_NOT_RECORDED |
+| UCL | 2026-09-10 | 521 | 33 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+
+Latest shortlist audit: {"selected_quotes": 5, "exchange_quotes": 1, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 0, "bookmakers": {"Coolbet": 3, "Matchbook": 1, "1xBet": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
+
+Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
+
+| Snapshot | Goal blend | Market led |
+|---|---|---|
+| 2fd31d337223 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| bdc690a8c706 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| b9c15c09504a | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| 648ca5973f8d | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| 660b75e4a311 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| a2cdead106b5 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| 5fb257972ff2 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| f1a72cc22d71 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| 4f7af2f470a0 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| 5496e9ba03ae | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| f6306ebd6d74 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| fbfe5af89d06 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| 87b1676077a4 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| 0dba961b0bbe | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
+| 962a7a22cb5b | CAPTURED | CAPTURED |
+
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+
+Daily observations: [health_history.json](health_history.json). Frozen forecast health: [pipeline_health.json](pipeline_health.json).
+
+Policy and gameweek results above show sample counts, ROI and calibration. Compare experiments on paired settled forecasts; small samples and changing cohorts cannot establish improvement. Historical missing experimental data is not backfilled.
