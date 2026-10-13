@@ -4,7 +4,7 @@
 **Candidates:** 4 of target 10 distinct matches.
 **Strictly qualified:** 4. **Provisional watchlist:** 0.
 **Pipeline status:** BELOW_TARGET.
-**Generated (UTC):** 2026-10-13T12:43:32.404008+00:00.
+**Generated (UTC):** 2026-10-13T16:01:34.331592+00:00.
 **Kickoffs within next 72 hours of run:** Yes (span: 24.0 hours).
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. Do not treat ten candidates as a ten-leg betslip.
@@ -14,9 +14,9 @@
 | Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Feyenoord vs Como | Over 1.5 | STRICT | 2026-10-14T16:45:00+00:00 | 97.3% | 95.6% | 1xBet | 1.08 | +3.2% | — |
-| Atlético Madrid vs Manchester United | Over 1.5 | STRICT | 2026-10-13T19:00:00+00:00 | 96.2% | 94.5% | 1xBet | 1.16 | +9.6% | — |
-| Real Betis vs Porto | Over 1.5 | STRICT | 2026-10-14T19:00:00+00:00 | 93.2% | 91.5% | 1xBet | 1.21 | +10.7% | — |
-| Aston Villa vs Fenerbahce | Home win | STRICT | 2026-10-14T19:00:00+00:00 | 67.5% | 67.5% | 1xBet | 1.69 | +14.1% | — |
+| Atlético Madrid vs Manchester United | Over 1.5 | STRICT | 2026-10-13T19:00:00+00:00 | 96.2% | 94.5% | 1xBet | 1.18 | +11.5% | — |
+| Real Betis vs Porto | Over 1.5 | STRICT | 2026-10-14T19:00:00+00:00 | 93.3% | 91.6% | 1xBet | 1.21 | +10.8% | — |
+| Aston Villa vs Fenerbahce | Home win | STRICT | 2026-10-14T19:00:00+00:00 | 67.3% | 67.3% | 1xBet | 1.69 | +13.7% | — |
 
 ## Interpretation
 
