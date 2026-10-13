@@ -775,6 +775,11 @@ def review(*, root: Path = ROOT, token: str = "",
         review_market_led(root, archived, records, clock)
     except Exception as exc:
         warnings.warn(f"Market-led report failed ({type(exc).__name__}); baseline report complete")
+    try:
+        from recency_experiment import review_experiment as review_recency
+        review_recency(root, archived, records, clock)
+    except Exception as exc:
+        warnings.warn(f'Recency report failed ({type(exc).__name__}); baseline report complete')
     from pipeline_health import write_report
     write_report(root, result, clock)
     print(f"Performance: {result['shortlist']['graded']} graded, "

@@ -68,12 +68,26 @@ def generate(predictions, generated_at):
     return output
 
 
-def write_experiment(predictions, raw: Path, generated_at):
+def write_experiment(predictions, raw: Path, generated_at, recency_parts=None):
     path = raw / 'goal_blend_experiment.json'
     payload = {'version': VERSION, 'generated_at_utc': generated_at,
                'predictions_sha256': hashlib.sha256((raw/'all_leagues_predictions.csv').read_bytes()).hexdigest(),
                'calibrated': False, 'selection_policy': 'none; research only',
                'rows': generate(predictions, generated_at)}
+    if recency_parts is not None:
+        from recency_experiment import assemble, VERSION as RECENCY_VERSION, MARKETS as RECENCY_MARKETS
+        try:
+            payload['recency_experiment'] = assemble(recency_parts,generated_at)
+        except Exception as exc:
+            # A recency failure must not remove the existing blend experiment.
+            import warnings
+            warnings.warn(f'Recency assembly failed ({type(exc).__name__}); blend sidecar retained')
+            payload['recency_experiment'] = {'version':RECENCY_VERSION,'generated_at_utc':generated_at,
+                'leagues':[],'generation_error':type(exc).__name__,
+                'rows':[{**{k:r.get(k) for k in ('league','home_team','away_team','kickoff_utc')},
+                    'market':key,'status':'unavailable','reasons':['recency_generation_failed'],
+                    'variants':{},'half_lives':{},'candidate_errors':{}}
+                    for r in predictions.to_dict('records') for key in RECENCY_MARKETS]}
     path.write_text(json.dumps(payload, indent=2, allow_nan=False, default=str)+'\n', encoding='utf-8')
 
 

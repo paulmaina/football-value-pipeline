@@ -26,10 +26,11 @@
       "per_stake_cost_bps": 0
     },
     "experiment_capture_counts": {
-      "goal_blend_experiment:CAPTURED": 3,
+      "goal_blend_experiment:CAPTURED": 4,
       "goal_blend_experiment:LEGACY_NOT_RECORDED": 14,
-      "market_led_experiment:CAPTURED": 3,
-      "market_led_experiment:LEGACY_NOT_RECORDED": 14
+      "market_led_experiment:CAPTURED": 4,
+      "market_led_experiment:LEGACY_NOT_RECORDED": 14,
+      "recency_experiment:LEGACY_NOT_RECORDED": 18
     },
     "experimental_reports": {
       "goal_blend_experiment": {
@@ -37,7 +38,7 @@
         "comparisons": [],
         "graded_fixture_markets": 0,
         "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-        "reviewed_at_utc": "2026-10-13T12:36:16.677217+00:00",
+        "reviewed_at_utc": "2026-10-13T15:22:13.852114+00:00",
         "total_fixture_markets": 201,
         "version": "goal-blend-shadow-v1"
       },
@@ -59,7 +60,7 @@
         "observed_fixture_markets": 134,
         "paired_graded_fixture_markets": 0,
         "pending_or_unverified_selections": 0,
-        "reviewed_at_utc": "2026-10-13T12:36:16.677217+00:00",
+        "reviewed_at_utc": "2026-10-13T15:22:13.852114+00:00",
         "selected": 0,
         "settings_observed": [
           {
@@ -76,7 +77,8 @@
           }
         ],
         "version": "market-led-dc-v1"
-      }
+      },
+      "recency_experiment": {}
     },
     "quote_audit": {
       "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -89,7 +91,7 @@
       "quote_age_over_24h": 0,
       "selected_quotes": 4
     },
-    "reviewed_at_utc": "2026-10-13T12:36:16.677217+00:00",
+    "reviewed_at_utc": "2026-10-13T15:22:13.852114+00:00",
     "selection_policy_groups": {
       "72h-ucl-v3": {
         "brier": 0.308868,
@@ -122,7 +124,8 @@
         "commit": "2fd31d33722311d8e0155bb5eca6b3a310ac938b",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "legacy/unspecified"
@@ -132,7 +135,8 @@
         "commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "legacy/unspecified"
@@ -142,7 +146,8 @@
         "commit": "b9c15c09504aaf57de5ad0957adb91c0e9b37243",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "legacy/unspecified"
@@ -152,7 +157,8 @@
         "commit": "648ca5973f8d6521eefb8a4a5233fabb8e644a8e",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-ucl-v2"
@@ -162,7 +168,8 @@
         "commit": "660b75e4a3111f2a890ba1d58d595a637d01d0f2",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-ucl-v2"
@@ -172,7 +179,8 @@
         "commit": "a2cdead106b513fd623cffd1e43a491685d68cc3",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-ucl-v3"
@@ -182,7 +190,8 @@
         "commit": "5fb257972ff233227b2e94d4b784eebf60b66d42",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-ucl-v3"
@@ -192,7 +201,8 @@
         "commit": "f1a72cc22d717088fb3c74014de8aae60f586e46",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-ucl-v3"
@@ -202,7 +212,8 @@
         "commit": "4f7af2f470a0b5cdb7b8ae974c859f87b0236fc4",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-ucl-v3"
@@ -212,7 +223,8 @@
         "commit": "5496e9ba03aeb2ae41363a329fbc48e9754cfb0e",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-double-chance-v4"
@@ -222,7 +234,8 @@
         "commit": "f6306ebd6d74a53df80194728284cbdc188f3667",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-double-chance-v5"
@@ -232,7 +245,8 @@
         "commit": "fbfe5af89d0633da4bf4e581e42347272b5e913e",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-all-markets-ev15-one-book-v6"
@@ -242,7 +256,8 @@
         "commit": "87b1676077a47afbdd6b75767d92bd78c5bd8f30",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-all-markets-ev15-one-book-v6"
@@ -252,7 +267,8 @@
         "commit": "0dba961b0bbe74d5cd4c3779bb410a5707e2a2f1",
         "experiments": {
           "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-          "market_led_experiment": "LEGACY_NOT_RECORDED"
+          "market_led_experiment": "LEGACY_NOT_RECORDED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-all-markets-ev15-one-book-v6"
@@ -262,7 +278,8 @@
         "commit": "962a7a22cb5bd1ec1fb3ceac2b4d2345662a495b",
         "experiments": {
           "goal_blend_experiment": "CAPTURED",
-          "market_led_experiment": "CAPTURED"
+          "market_led_experiment": "CAPTURED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": null,
         "policy": "72h-all-markets-ev15-one-book-v6"
@@ -272,7 +289,8 @@
         "commit": "aea62120d25e83c8faa9370508b138b5198eff7b",
         "experiments": {
           "goal_blend_experiment": "CAPTURED",
-          "market_led_experiment": "CAPTURED"
+          "market_led_experiment": "CAPTURED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": {
           "captured_at_utc": "2026-10-13T12:01:10.494862+00:00",
@@ -440,7 +458,8 @@
         "commit": "95dc22b24994ed86c16a59b69e2c8a70ef714654",
         "experiments": {
           "goal_blend_experiment": "CAPTURED",
-          "market_led_experiment": "CAPTURED"
+          "market_led_experiment": "CAPTURED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
         },
         "health": {
           "captured_at_utc": "2026-10-13T12:30:01.078767+00:00",
@@ -603,6 +622,177 @@
           }
         },
         "policy": "72h-all-markets-net-ev15-execution-v7"
+      },
+      {
+        "captured_at_utc": "2026-10-13T12:48:34Z",
+        "commit": "ea202e9e045b13c143daefbf6921b6a2384fc2d1",
+        "experiments": {
+          "goal_blend_experiment": "CAPTURED",
+          "market_led_experiment": "CAPTURED",
+          "recency_experiment": "LEGACY_NOT_RECORDED"
+        },
+        "health": {
+          "captured_at_utc": "2026-10-13T12:48:34.211531+00:00",
+          "dependencies": {
+            "PyYAML": "6.0.3",
+            "coverage": "7.16.2",
+            "numpy": "2.5.4",
+            "pandas": "3.0.6",
+            "python": "3.12.15",
+            "python-dotenv": "1.2.4",
+            "requests": "2.34.2",
+            "scipy": "1.18.1"
+          },
+          "execution_policy": {
+            "account_availability": "USER_ALLOWLIST",
+            "allowed_bookmakers": [
+              "1xBet"
+            ],
+            "exchange_policy": "EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER",
+            "per_stake_cost_bps": 0
+          },
+          "experiments": {
+            "goal_blend_experiment": "CAPTURED",
+            "market_led_experiment": "CAPTURED"
+          },
+          "forecast_generated_at_utc": "2026-10-13T12:43:32.404008+00:00",
+          "forecast_runtime": {
+            "dependencies": {
+              "PyYAML": "NOT_INSTALLED",
+              "coverage": "NOT_INSTALLED",
+              "numpy": "2.5.3",
+              "pandas": "3.0.6",
+              "python": "3.14.8",
+              "python-dotenv": "1.2.4",
+              "requests": "2.34.2",
+              "scipy": "1.18.1"
+            },
+            "generated_at_utc": "2026-10-13T12:43:32.404008+00:00",
+            "model_code_sha256": "8ad76ada804f969c222f7c0828fd919b0c78decb7f8c00552592c8762e6a4655",
+            "predictions_sha256": "f6f9575cf3a770c2a78e91fc854e6a14449067606691bbd03c8f47f9acc751b3",
+            "selection_policy_version": "72h-all-markets-net-ev15-execution-v7"
+          },
+          "pre_kickoff_forecasts": 67,
+          "quote_audit": {
+            "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
+            "bookmakers": {
+              "1xBet": 4
+            },
+            "costs_recorded": 4,
+            "exchange_quotes": 0,
+            "missing_quote_age": 0,
+            "quote_age_over_24h": 0,
+            "selected_quotes": 4
+          },
+          "training": {
+            "Bundesliga": {
+              "days_since_latest_result": 2,
+              "diagnostics_sha256": "1b66437a03abe32082c8473c3b3cf03fc1640fd5231b47c5ae3779d914811c8c",
+              "forecast_training_health": {
+                "days_since_latest_result": 2,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-10-11"
+              },
+              "training_end": "2026-10-11",
+              "training_matches": 963
+            },
+            "EPL": {
+              "days_since_latest_result": 1,
+              "diagnostics_sha256": "e7dc35353f5086e9bfeec6c25ded72ad7839e8accbada22b85c5415feddf094e",
+              "forecast_training_health": {
+                "days_since_latest_result": 1,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-10-12"
+              },
+              "training_end": "2026-10-12",
+              "training_matches": 1200
+            },
+            "LaLiga": {
+              "days_since_latest_result": 1,
+              "diagnostics_sha256": "9398eab795bedd87b11abace1331135a20aab04e3d0f050e4bc7365a576fe0d2",
+              "forecast_training_health": {
+                "days_since_latest_result": 1,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-10-12"
+              },
+              "training_end": "2026-10-12",
+              "training_matches": 1218
+            },
+            "Ligue1": {
+              "days_since_latest_result": 2,
+              "diagnostics_sha256": "a16f9c12b7715a8533c60a50683e8a0cbc08018cef1668a3eb2cbf9ca3c5247c",
+              "forecast_training_health": {
+                "days_since_latest_result": 2,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-10-11"
+              },
+              "training_end": "2026-10-11",
+              "training_matches": 972
+            },
+            "SerieA": {
+              "days_since_latest_result": 1,
+              "diagnostics_sha256": "5c7e5a37f420fb394fbbd8dec62c7c4ccb2269583c242f761dbbe72d204e027a",
+              "forecast_training_health": {
+                "days_since_latest_result": 1,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-10-12"
+              },
+              "training_end": "2026-10-12",
+              "training_matches": 1200
+            },
+            "UCL": {
+              "current_source_health": {
+                "added_matches": 0,
+                "cache_hash_verified": true,
+                "checked_at_utc": "2026-10-13T12:43:15.877880+00:00",
+                "completed_matches": 18,
+                "corrected_scores": 0,
+                "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+                "download_age_hours": 0.08842601416666666,
+                "download_status": "VERIFIED_LIVE",
+                "latest_completed_date": "2026-09-10",
+                "latest_completed_utc": "2026-09-10T19:00:00+00:00",
+                "next_fixture_utc": "2026-10-13T16:45:00+00:00",
+                "note": "Provider schedule comparison is not independent proof of complete coverage.",
+                "overdue_unfinished_match_ids": [],
+                "provider": "football-data.org",
+                "season_start": 2026,
+                "sha256": "e5a952fc3addc9a4e23d1d3bd4af8b31b836fd55452464d6ebbce16e4fdab9d0",
+                "source_schedule_matches": 144,
+                "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+                "training_end": "2026-09-10"
+              },
+              "days_since_latest_result": 33,
+              "diagnostics_sha256": "183c0418367f1d3a4700ac51e158ea3172315c37c3764864c0209f0700aafa49",
+              "forecast_training_health": {
+                "added_matches": 0,
+                "cache_hash_verified": true,
+                "checked_at_utc": "2026-10-13T12:43:15.877880+00:00",
+                "completed_matches": 18,
+                "corrected_scores": 0,
+                "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+                "download_age_hours": 0.000614991111111111,
+                "download_status": "VERIFIED_LIVE",
+                "last_refresh_error": null,
+                "last_refresh_error_reason": null,
+                "latest_completed_date": "2026-09-10",
+                "latest_completed_utc": "2026-09-10T19:00:00+00:00",
+                "next_fixture_utc": "2026-10-13T16:45:00+00:00",
+                "note": "Provider schedule comparison is not independent proof of complete coverage.",
+                "overdue_unfinished_match_ids": [],
+                "provider": "football-data.org",
+                "season_start": 2026,
+                "sha256": "e5a952fc3addc9a4e23d1d3bd4af8b31b836fd55452464d6ebbce16e4fdab9d0",
+                "source_schedule_matches": 144,
+                "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+                "training_end": "2026-09-10"
+              },
+              "training_end": "2026-09-10",
+              "training_matches": 521
+            }
+          }
+        },
+        "policy": "72h-all-markets-net-ev15-execution-v7"
       }
     ],
     "training": {
@@ -665,11 +855,11 @@
         "current_source_health": {
           "added_matches": 0,
           "cache_hash_verified": true,
-          "checked_at_utc": "2026-10-13T12:35:54.005491+00:00",
+          "checked_at_utc": "2026-10-13T12:43:15.877880+00:00",
           "completed_matches": 18,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 0.0062977016666666665,
+          "download_age_hours": 2.649437287222222,
           "download_status": "VERIFIED_LIVE",
           "latest_completed_date": "2026-09-10",
           "latest_completed_utc": "2026-09-10T19:00:00+00:00",
@@ -684,17 +874,18 @@
           "training_end": "2026-09-10"
         },
         "days_since_latest_result": 33,
-        "diagnostics_sha256": "432258e7785ee879af7c4e2b8ae8dab51a505f2782590f618947324e3ace8975",
+        "diagnostics_sha256": "183c0418367f1d3a4700ac51e158ea3172315c37c3764864c0209f0700aafa49",
         "forecast_training_health": {
           "added_matches": 0,
           "cache_hash_verified": true,
-          "checked_at_utc": "2026-10-13T11:47:48.867891+00:00",
+          "checked_at_utc": "2026-10-13T12:43:15.877880+00:00",
           "completed_matches": 18,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 0.6311165830555555,
+          "download_age_hours": 0.000614991111111111,
           "download_status": "VERIFIED_LIVE",
-          "last_refresh_error": "ValueError",
+          "last_refresh_error": null,
+          "last_refresh_error_reason": null,
           "latest_completed_date": "2026-09-10",
           "latest_completed_utc": "2026-09-10T19:00:00+00:00",
           "next_fixture_utc": "2026-10-13T16:45:00+00:00",
@@ -704,7 +895,7 @@
           "season_start": 2026,
           "sha256": "e5a952fc3addc9a4e23d1d3bd4af8b31b836fd55452464d6ebbce16e4fdab9d0",
           "source_schedule_matches": 144,
-          "status": "LIVE_REFRESH_FAILED_USING_CACHE",
+          "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
           "training_end": "2026-09-10"
         },
         "training_end": "2026-09-10",
@@ -750,8 +941,8 @@
       }
     }
   },
-  "reviewed_at_utc": "2026-10-13T12:36:16Z",
-  "snapshots": 17,
+  "reviewed_at_utc": "2026-10-13T15:22:13Z",
+  "snapshots": 18,
   "shortlist": {
     "brier": 0.309299,
     "flat_stake_roi": -0.215714,
@@ -805,7 +996,7 @@
       "comparisons": [],
       "graded_fixture_markets": 0,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-13T12:36:16.677217+00:00",
+      "reviewed_at_utc": "2026-10-13T15:22:13.852114+00:00",
       "total_fixture_markets": 201,
       "version": "goal-blend-shadow-v1"
     },
@@ -827,7 +1018,7 @@
       "observed_fixture_markets": 134,
       "paired_graded_fixture_markets": 0,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-13T12:36:16.677217+00:00",
+      "reviewed_at_utc": "2026-10-13T15:22:13.852114+00:00",
       "selected": 0,
       "settings_observed": [
         {

@@ -26,10 +26,11 @@
         "per_stake_cost_bps": 0
       },
       "experiment_capture_counts": {
-        "goal_blend_experiment:CAPTURED": 3,
+        "goal_blend_experiment:CAPTURED": 4,
         "goal_blend_experiment:LEGACY_NOT_RECORDED": 14,
-        "market_led_experiment:CAPTURED": 3,
-        "market_led_experiment:LEGACY_NOT_RECORDED": 14
+        "market_led_experiment:CAPTURED": 4,
+        "market_led_experiment:LEGACY_NOT_RECORDED": 14,
+        "recency_experiment:LEGACY_NOT_RECORDED": 18
       },
       "experimental_reports": {
         "goal_blend_experiment": {
@@ -37,7 +38,7 @@
           "comparisons": [],
           "graded_fixture_markets": 0,
           "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-          "reviewed_at_utc": "2026-10-13T12:36:16.677217+00:00",
+          "reviewed_at_utc": "2026-10-13T15:22:13.852114+00:00",
           "total_fixture_markets": 201,
           "version": "goal-blend-shadow-v1"
         },
@@ -59,7 +60,7 @@
           "observed_fixture_markets": 134,
           "paired_graded_fixture_markets": 0,
           "pending_or_unverified_selections": 0,
-          "reviewed_at_utc": "2026-10-13T12:36:16.677217+00:00",
+          "reviewed_at_utc": "2026-10-13T15:22:13.852114+00:00",
           "selected": 0,
           "settings_observed": [
             {
@@ -76,7 +77,8 @@
             }
           ],
           "version": "market-led-dc-v1"
-        }
+        },
+        "recency_experiment": {}
       },
       "quote_audit": {
         "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -89,7 +91,7 @@
         "quote_age_over_24h": 0,
         "selected_quotes": 4
       },
-      "reviewed_at_utc": "2026-10-13T12:36:16.677217+00:00",
+      "reviewed_at_utc": "2026-10-13T15:22:13.852114+00:00",
       "selection_policy_groups": {
         "72h-ucl-v3": {
           "brier": 0.308868,
@@ -188,11 +190,11 @@
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-10-13T12:35:54.005491+00:00",
+            "checked_at_utc": "2026-10-13T12:43:15.877880+00:00",
             "completed_matches": 18,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.0062977016666666665,
+            "download_age_hours": 2.649437287222222,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-09-10",
             "latest_completed_utc": "2026-09-10T19:00:00+00:00",
@@ -207,17 +209,18 @@
             "training_end": "2026-09-10"
           },
           "days_since_latest_result": 33,
-          "diagnostics_sha256": "432258e7785ee879af7c4e2b8ae8dab51a505f2782590f618947324e3ace8975",
+          "diagnostics_sha256": "183c0418367f1d3a4700ac51e158ea3172315c37c3764864c0209f0700aafa49",
           "forecast_training_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-10-13T11:47:48.867891+00:00",
+            "checked_at_utc": "2026-10-13T12:43:15.877880+00:00",
             "completed_matches": 18,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.6311165830555555,
+            "download_age_hours": 0.000614991111111111,
             "download_status": "VERIFIED_LIVE",
-            "last_refresh_error": "ValueError",
+            "last_refresh_error": null,
+            "last_refresh_error_reason": null,
             "latest_completed_date": "2026-09-10",
             "latest_completed_utc": "2026-09-10T19:00:00+00:00",
             "next_fixture_utc": "2026-10-13T16:45:00+00:00",
@@ -227,7 +230,7 @@
             "season_start": 2026,
             "sha256": "e5a952fc3addc9a4e23d1d3bd4af8b31b836fd55452464d6ebbce16e4fdab9d0",
             "source_schedule_matches": 144,
-            "status": "LIVE_REFRESH_FAILED_USING_CACHE",
+            "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
             "training_end": "2026-09-10"
           },
           "training_end": "2026-09-10",
