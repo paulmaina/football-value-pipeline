@@ -208,7 +208,7 @@ def add_health_sheet(root, data, history):
         parts = {name:z.read(name) for name in z.namelist()}
     sheet = TemplateSheet(f'<worksheet xmlns="{NS}"><sheetData/></worksheet>'.encode())
     columns=ET.Element(tag('cols'))
-    for i,width in enumerate((28,30,26,26,52),1):
+    for i,width in enumerate((28,30,26,26,52,26),1):
         ET.SubElement(columns,tag('col'),{'min':str(i),'max':str(i),'width':str(width),'customWidth':'1'})
     sheet.xml.insert(0,columns)
     sheet.set('A1', 'Pipeline health and forward evidence')
@@ -219,13 +219,16 @@ def add_health_sheet(root, data, history):
         state=info.get('current_source_health',info['forecast_training_health']).get('status')
         rows.append([league,info['training_end'],info['training_matches'],info['days_since_latest_result'],state])
     rows += [[], ['Latest stored shortlist audit'], *[[k, json.dumps(v) if isinstance(v,dict) else v]
-            for k,v in data['quote_audit'].items()], [], ['Snapshot', 'Captured UTC', 'Goal blend', 'Market led', 'Recency']]
+            for k,v in data['quote_audit'].items()], [], ['Snapshot', 'Captured UTC', 'Goal blend', 'Market led', 'Recency', 'Filter sensitivity']]
     rows += [[r['commit'][:12],r['captured_at_utc'],r['experiments']['goal_blend_experiment'],
-              r['experiments']['market_led_experiment'],r['experiments'].get('recency_experiment','LEGACY_NOT_RECORDED')] for r in data['snapshot_capture_history']]
+              r['experiments']['market_led_experiment'],r['experiments'].get('recency_experiment','LEGACY_NOT_RECORDED'),r['experiments'].get('filter_sensitivity_experiment','LEGACY_NOT_RECORDED')] for r in data['snapshot_capture_history']]
     rows += [[], ['Daily observations', 'Graded', 'Win rate', 'Net simulated ROI', 'Brier']]
     for day, observation in sorted(history['days'].items()):
         metric=observation['shortlist_performance']
         rows.append([day,metric['graded'],metric['win_rate'],metric['flat_stake_roi'],metric['brier']])
+    rows += [[], ['EV sensitivity floor', 'Tier', 'Selected', 'Settled', 'Net ROI', 'Drawdown units']]
+    for r in data.get('experimental_reports',{}).get('filter_sensitivity_experiment',{}).get('comparisons',[]):
+        rows.append([r['ev_floor'],r['tier'],r['selected'],r['graded'],r['flat_stake_roi'],r['max_drawdown_units']])
     rows += [[], ['Review dependency versions'], *[[k,v] for k,v in data['dependencies'].items()], [],
              ['Improvement is not established by fresher data or software changes. Compare paired forecasts and settled results.'],
              ['Account access and executable stake sizes are not verified. Exchange targets require a commission/liquidity adapter.']]

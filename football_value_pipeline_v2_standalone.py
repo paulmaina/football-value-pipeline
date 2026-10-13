@@ -3835,6 +3835,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         file=sys.stderr,
     )
 
+    if combined and not args.backtest:
+        try:
+            from filter_sensitivity_experiment import write_experiment as write_filter_sensitivity
+            write_filter_sensitivity(all_predictions, out_dir, selection_summary,
+                                     decisions, market_reliability)
+        except Exception as exc:
+            warnings.warn(f"Filter sensitivity experiment failed ({type(exc).__name__}); baseline outputs complete")
+
     if (args.goal_blend_experiment or args.recency_experiment) and combined and not args.backtest:
         try:
             from goal_blend_experiment import write_experiment
