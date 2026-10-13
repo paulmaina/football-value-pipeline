@@ -176,7 +176,7 @@ class WorkflowChecksTests(unittest.TestCase):
     def test_smoke_compiles_all_python_and_checks_all_cli_help(self):
         result=smoke(REPO)
         self.assertGreaterEqual(result['python_modules_compiled'],35)
-        self.assertEqual(result['cli_help_checked'],8)
+        self.assertEqual(result['cli_help_checked'],9)
 
     def test_workflow_matrix_permissions_triggers_and_failure_artifacts(self):
         workflows=REPO/'.github/workflows'

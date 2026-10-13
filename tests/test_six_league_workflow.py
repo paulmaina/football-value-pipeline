@@ -62,7 +62,8 @@ class SixLeagueWorkflowTests(unittest.TestCase):
                 with patch('performance_tracking.collect_results',return_value=(records,{})):
                     review(root=root,clock=NOW+timedelta(days=2))
                 data=report_check(root)
-            self.assertEqual(data['status'],'VERIFIED')
+            self.assertEqual(data['status'],'VERIFIED_WITH_WARNINGS')
+            self.assertIn('UCL training/source health: DOWNLOAD_NOT_VERIFIED',data['warnings'])
             self.assertEqual(data['shortlist']['graded'],6)
             self.assertEqual(len(data['training_end_dates']),6)
             self.assertEqual(data['experiments']['goal_blend_experiment']['graded_fixture_markets'],18)

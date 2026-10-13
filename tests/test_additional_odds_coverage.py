@@ -30,6 +30,7 @@ class CoverageTests(unittest.TestCase):
                 max_extra_event_odds_requests=24, extra_event_odds_quota={'UCL': 4},
                 extra_event_odds_by_league={}, additional_odds_coverage=mode).items():
             setattr(pipeline, key, value)
+        pipeline._training_health = Mock(return_value={'status':'OFFLINE_TEST'})
         pipeline._history_for_league = Mock(return_value=pd.DataFrame())
         pipeline._current_fixtures = Mock(return_value=self.fixtures())
         pipeline._attach_live_odds = lambda fixtures, *args: fixtures

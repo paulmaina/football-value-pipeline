@@ -180,6 +180,9 @@ def capture(commit_sha: str, *, root: Path = ROOT,
         dest = directory / output_name
         shutil.copyfile(source, dest)
         digests[output_name] = hashlib.sha256(dest.read_bytes()).hexdigest()
+    from pipeline_health import capture_health
+    write_json(directory / "pipeline_health.json", capture_health(root, created, files))
+    digests["pipeline_health.json"] = hashlib.sha256((directory / "pipeline_health.json").read_bytes()).hexdigest()
     write_json(directory / "metadata.json", {
         "schema_version": 1,
         "git_commit_sha": commit_sha,
@@ -213,7 +216,7 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
                 (directory / name).read_bytes()
             ).hexdigest() != digest
             for name, digest in meta.get("sha256", {}).items()
-            if name not in {"goal_blend_experiment.json", "market_led_experiment.json"}
+            if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "pipeline_health.json"}
         ):
             warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
             continue
@@ -380,6 +383,8 @@ def score_shortlist(row: dict, final: dict | None, state: str) -> dict:
         ),
         "predicted_probability": row.get("rank_probability") or row.get("predicted_probability"),
         "offered_decimal_odds": row.get("offered_decimal_odds"),
+        "per_stake_cost": row.get("per_stake_cost") or 0,
+        "bookmaker": row.get("bookmaker"),
         "match_source": "football-data.org/v4" if final else "",
         "source_match_id": final["match_id"] if final else "",
         "final_score": f"{final['home_goals']}-{final['away_goals']}" if final else "",
@@ -402,7 +407,9 @@ def score_shortlist(row: dict, final: dict | None, state: str) -> dict:
     out["status"] = "WON" if result else "LOST"
     price = number(row.get("offered_decimal_odds"), min_value=1.000001)
     if price is not None:
-        out["unit_profit"] = round(price - 1.0 if result else -1.0, 6)
+        from quote_policy import stake_cost
+        cost = stake_cost(out["per_stake_cost"])
+        out["unit_profit"] = round((price - 1.0 if result else -1.0) - cost, 6)
     p = number(out.get("predicted_probability"), min_value=0, max_value=1)
     if p is not None:
         out["brier"] = round((p - float(result)) ** 2, 8)
@@ -519,7 +526,7 @@ def collect_results(eligible: list[dict], *, root: Path, token: str,
 SHORTLIST_COLUMNS = [
     "fixture_key", "league", "home_team", "away_team", "kickoff_utc",
     "snapshot_commit", "selection_policy_version", "snapshot_captured_utc", "market", "selection_tier",
-    "predicted_probability", "offered_decimal_odds", "match_source",
+    "predicted_probability", "offered_decimal_odds", "per_stake_cost", "bookmaker", "match_source",
     "source_match_id", "final_score", "status", "unit_profit", "brier", "week",
 ]
 PREDICTION_COLUMNS = [
@@ -695,6 +702,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "one unit staked separately on each settled selection with recorded",
         "pre-kickoff bookmaker decimal odds. These are **not real stakes**;",
         "it is not the return from a ten-leg accumulator.",
+        "New execution-policy simulations deduct frozen per-stake costs. Legacy snapshots retain their original gross assumptions; compare policy cohorts separately.",
         "Small samples and stale/invalid prices can undermine conclusions.",
         "A missing, ambiguous or unverified result is **never called a win**.",
         "",
@@ -767,6 +775,8 @@ def review(*, root: Path = ROOT, token: str = "",
         review_market_led(root, archived, records, clock)
     except Exception as exc:
         warnings.warn(f"Market-led report failed ({type(exc).__name__}); baseline report complete")
+    from pipeline_health import write_report
+    write_report(root, result, clock)
     print(f"Performance: {result['shortlist']['graded']} graded, "
           f"{result['shortlist']['pending']} pending, "
           f"{result['prediction_fixtures_graded']} full fixture forecasts graded")
