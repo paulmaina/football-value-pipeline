@@ -9,6 +9,8 @@ on:
       - 'football_output_v2/raw/conservative_bet_summary.json'
       - '.github/workflows/forward-performance.yml'
       - 'publish_performance.py'
+      - 'market_led_experiment.py'
+      - 'football_output_v2/raw/market_led_experiment.json'
   schedule:
     # Daily review 07:30 UTC / 10:30 East Africa Time (approximate).
     # This covers domestic weekend matches and midweek UCL fixtures.
@@ -58,7 +60,8 @@ jobs:
           if [ "$EVENT_NAME" = "push" ] && ! git diff --name-only "$BEFORE_SHA" "$SOURCE_SHA" -- \
             football_output_v2/raw/all_leagues_predictions.csv \
             football_output_v2/raw/conservative_bet_shortlist.csv \
-            football_output_v2/raw/conservative_bet_summary.json | grep -q .; then
+            football_output_v2/raw/conservative_bet_summary.json \
+            football_output_v2/raw/market_led_experiment.json | grep -q .; then
             echo "No forecast inputs changed; skipping capture."
             exit 0
           fi
@@ -72,4 +75,5 @@ jobs:
         env:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
         run: python publish_performance.py
+
 
