@@ -70,11 +70,7 @@ recorded reliability-adjusted chance; small buckets are unstable.
 
 ## Result-source problems
 
-- Bundesliga: football-data.org rate limited results requests (HTTP 429)
-- EPL: football-data.org rate limited results requests (HTTP 429)
-- LaLiga: football-data.org rate limited results requests (HTTP 429)
-- Ligue1: football-data.org rate limited results requests (HTTP 429)
-- SerieA: football-data.org rate limited results requests (HTTP 429)
+No provider errors detected.
 
 Accuracy is not calibration or profit. Simulated ROI assumes
 one unit staked separately on each settled selection with recorded
@@ -88,14 +84,14 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-10-11 | 963 | 2 | LEGACY_NOT_RECORDED |
-| EPL | 2026-10-12 | 1200 | 1 | LEGACY_NOT_RECORDED |
-| LaLiga | 2026-10-12 | 1218 | 1 | LEGACY_NOT_RECORDED |
-| Ligue1 | 2026-10-11 | 972 | 2 | LEGACY_NOT_RECORDED |
-| SerieA | 2026-10-12 | 1200 | 1 | LEGACY_NOT_RECORDED |
+| Bundesliga | 2026-10-11 | 963 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-10-12 | 1200 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-12 | 1218 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-11 | 972 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-12 | 1200 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-09-10 | 521 | 33 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 
-Latest shortlist audit: {"selected_quotes": 5, "exchange_quotes": 1, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 0, "bookmakers": {"Coolbet": 3, "Matchbook": 1, "1xBet": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
+Latest shortlist audit: {"selected_quotes": 4, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 4, "bookmakers": {"Coolbet": 3, "1xBet": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
@@ -116,8 +112,9 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 87b1676077a4 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 0dba961b0bbe | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 962a7a22cb5b | CAPTURED | CAPTURED |
+| aea62120d25e | CAPTURED | CAPTURED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Daily observations: [health_history.json](health_history.json). Frozen forecast health: [pipeline_health.json](pipeline_health.json).
 
