@@ -1,7 +1,7 @@
 {
   "status": "VERIFIED",
-  "reviewed_at_utc": "2026-10-13T10:55:48Z",
-  "snapshots": 14,
+  "reviewed_at_utc": "2026-10-13T11:07:32Z",
+  "snapshots": 15,
   "shortlist": {
     "brier": 0.309299,
     "flat_stake_roi": -0.215714,
@@ -49,6 +49,52 @@
     "SerieA": "2026-10-12",
     "UCL": "2026-09-10"
   },
-  "experiments": {},
+  "experiments": {
+    "goal_blend_experiment": {
+      "available_fixture_markets": 54,
+      "comparisons": [],
+      "graded_fixture_markets": 0,
+      "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
+      "reviewed_at_utc": "2026-10-13T11:07:32.746251+00:00",
+      "total_fixture_markets": 201,
+      "version": "goal-blend-shadow-v1"
+    },
+    "market_led_experiment": {
+      "available_fixture_markets": 36,
+      "calibration": [],
+      "comparisons": [],
+      "decision": "INCONCLUSIVE_NO_AUTOMATIC_PROMOTION",
+      "flat_unit_roi_after_configured_cost": null,
+      "graded_selections": 0,
+      "late_reference_proxy_count": 0,
+      "missing_reasons": {
+        "event_identity_or_kickoff_mismatch": 98,
+        "missing_invalid_or_stale_pinnacle_1x2": 98,
+        "no_fresh_independent_complete_dc_offer": 98,
+        "outside_selection_window": 98
+      },
+      "note": "Paper results at feed odds, not realized returns. Costs are user-configured per stake. Late reference proxy uses only archived quotes 20\u201360 minutes before kickoff; not actual closing odds. No automatic collection at close or promotion.",
+      "observed_fixture_markets": 134,
+      "paired_graded_fixture_markets": 0,
+      "pending_or_unverified_selections": 0,
+      "reviewed_at_utc": "2026-10-13T11:07:32.746251+00:00",
+      "selected": 0,
+      "settings_observed": [
+        {
+          "cost_bps": 0.0,
+          "devig": "power",
+          "max_age_minutes": 10.0,
+          "max_skew_minutes": 5.0,
+          "min_ev": 0.03,
+          "min_probability": 0.8,
+          "promotion": "disabled",
+          "reference": "pinnacle",
+          "selection": "one market per fixture; at most ten fixtures",
+          "settlement": "regulation_time"
+        }
+      ],
+      "version": "market-led-dc-v1"
+    }
+  },
   "warnings": []
 }
