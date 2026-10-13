@@ -1124,14 +1124,19 @@ class FootballDataOrg:
             from ucl_training import fetch_payload, apply_payload
             self._ucl_refresh_year = current_start
             self.ucl_refresh_error = None
+            self.ucl_refresh_error_reason = None
             try:
                 payload = fetch_payload(self.api_key, current_start, session=self.http.session)
                 apply_payload(self.http.cache_dir.resolve().parent, payload, current_start, now,
                               cache_dir=self.http.cache_dir)
             except Exception as exc:
                 self.ucl_refresh_error = type(exc).__name__
+                # Domain validation/decoding errors contain useful reasons;
+                # network exception URLs/headers are not copied into diagnostics.
+                self.ucl_refresh_error_reason = str(exc).splitlines()[0][:200] if isinstance(exc, ValueError) and str(exc) else None
                 warnings.warn("UCL live training refresh failed validation/download; retained previous cache ("
-                              + self.ucl_refresh_error + ")", RuntimeWarning)
+                              + self.ucl_refresh_error + (": " + self.ucl_refresh_error_reason if self.ucl_refresh_error_reason else "")
+                              + ")", RuntimeWarning)
 
         for start_year in range(
             current_start - int(seasons_back) + 1,
@@ -1865,6 +1870,7 @@ class FootballValuePipeline:
             from ucl_training import health
             data = health(self.source.http.cache_dir.resolve().parent, end, now, cache_dir=self.source.http.cache_dir)
             data["last_refresh_error"] = getattr(self.football_data_org, "ucl_refresh_error", None)
+            data["last_refresh_error_reason"] = getattr(self.football_data_org, "ucl_refresh_error_reason", None)
             if data["last_refresh_error"]:
                 data["status"] = "LIVE_REFRESH_FAILED_USING_CACHE"
             return data
