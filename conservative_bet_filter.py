@@ -23,7 +23,8 @@ DOMESTIC_LEAGUES = frozenset({
 SUPPORTED_LEAGUES = DOMESTIC_LEAGUES | {"UEFA Champions League"}
 TARGET_DISTINCT_MATCHES = 10
 SHORTLIST_LOOKAHEAD_HOURS = 72.0
-MIN_ESTIMATED_EV = 0.03
+MIN_ESTIMATED_EV = 0.015
+MIN_BOOKMAKERS = 1
 MIN_DOUBLE_CHANCE_ADJUSTED_EV = 0.015
 MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY = 0.75
 MIN_RAW_DC_EV = 0.0
@@ -101,7 +102,7 @@ def _market_fields(row: pd.Series, key: str) -> dict:
             "reference": [row.get(f"market_reference_dc_{side}_odds")
                           for side in ("home_draw", "draw_away", "home_away")],
             "book_count": row.get(f"market_{key}_bookmakers"),
-            "min_books": 2,
+            "min_books": MIN_BOOKMAKERS,
         }
     if key in ("home", "away"):
         return {
@@ -113,7 +114,7 @@ def _market_fields(row: pd.Series, key: str) -> dict:
                 for side in ("home", "draw", "away")
             ],
             "book_count": row.get("odds_bookmakers_1x2"),
-            "min_books": 2,
+            "min_books": MIN_BOOKMAKERS,
         }
     return {
         "price": row.get(f"market_{key}_odds"),
@@ -124,7 +125,7 @@ def _market_fields(row: pd.Series, key: str) -> dict:
             row.get(f"market_reference_{key}_opposite_odds"),
         ],
         "book_count": row.get(f"market_{key}_bookmakers"),
-        "min_books": 1,
+        "min_books": MIN_BOOKMAKERS,
     }
 
 
@@ -278,10 +279,9 @@ def _evaluate_market(
     is_double_chance = key in ("home_draw", "draw_away")
     min_adjusted_ev = MIN_DOUBLE_CHANCE_ADJUSTED_EV if is_double_chance else MIN_ESTIMATED_EV
     min_adjusted_probability = MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY if is_double_chance else min_prob
-    adjusted_tolerance = 1e-12 if is_double_chance else 0.0
+    adjusted_tolerance = 1e-12
     if conservative_ev is None or conservative_ev + adjusted_tolerance < min_adjusted_ev:
-        reasons.append(f"reliability-adjusted EV below +{min_adjusted_ev:.1%} or missing"
-                       if is_double_chance else "reliability-adjusted EV below +3% or missing")
+        reasons.append("reliability-adjusted EV below +1.5% or missing")
     if rank_p is None or rank_p + adjusted_tolerance < min_adjusted_probability:
         reasons.append("reliability-adjusted probability below minimum")
     if raw_ev is None or raw_ev < MIN_RAW_DC_EV:
@@ -348,7 +348,7 @@ def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple]) -> Optional[fl
         return None
     historical = []
     allowed = {
-        "reliability-adjusted EV below +3% or missing",
+        "reliability-adjusted EV below +1.5% or missing",
         "reliability-adjusted probability below minimum",
     }
     score = 0.0
@@ -372,10 +372,9 @@ def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple]) -> Optional[fl
     ev = _number(row["conservative_estimated_ev"])
     if p is None or p < min_p - PROVISIONAL_MAX_PROBABILITY_SHORTFALL:
         return None
-    if ev is None or ev < PROVISIONAL_MIN_EV:
+    if ev is None or ev + 1e-12 < MIN_ESTIMATED_EV:
         return None
     score += max(0.0, min_p-p) / PROVISIONAL_MAX_PROBABILITY_SHORTFALL
-    score += max(0.0, MIN_ESTIMATED_EV-ev) / (MIN_ESTIMATED_EV-PROVISIONAL_MIN_EV)
 
     if historical:
         high_n = _number(row["high_confidence_audit_matches"])
@@ -542,7 +541,7 @@ def build_conservative_shortlist(
     return shortlist, decisions, {
         "status": status,
         "generated_at_utc": now.isoformat(),
-        "selection_policy_version": "72h-double-chance-v5",
+        "selection_policy_version": "72h-all-markets-ev15-one-book-v6",
         "n_fixtures": int(len(predictions)),
         "n_markets_evaluated": int(len(decisions)),
         "n_shortlisted": n,
@@ -568,6 +567,7 @@ def build_conservative_shortlist(
         "eligible_markets": [x[0] for x in MARKET_SPECS],
         "eligible_leagues": sorted(SUPPORTED_LEAGUES),
         "min_estimated_ev": MIN_ESTIMATED_EV,
+        "min_bookmakers": MIN_BOOKMAKERS,
         "double_chance_min_adjusted_ev": MIN_DOUBLE_CHANCE_ADJUSTED_EV,
         "double_chance_min_adjusted_probability": MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY,
         "validation_required": market_reliability is not None,
@@ -593,7 +593,7 @@ def build_conservative_shortlist(
         "near_miss_policy": (
             "PROVISIONAL is not strictly qualified. Only limited "
             "historical sample gaps, modest audit overconfidence, "
-            "or small adjusted EV/probability misses are considered; "
+            "or small adjusted probability misses are considered; adjusted EV must remain at least +1.5%; "
             "bookmaker sanity, source, timing, team mapping, "
             "raw DC probability and raw EV must remain valid."
         ),
@@ -604,4 +604,5 @@ def build_conservative_shortlist(
             "betslips exist; ten-leg accumulators have substantial loss risk."
         ),
     }
+
 
