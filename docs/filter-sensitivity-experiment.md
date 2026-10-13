@@ -6,7 +6,7 @@ Three fixed policies compare reliability-adjusted **net EV floors of 1.5%, 3%, a
 
 All candidate decisions, including rejections and unpriced candidates, are included in the sidecar. Rejected candidates are graded for probability diagnostics where available; they are never treated as placed bets. Missing prices never produce simulated profit.
 
-The existing forward-review workflow freezes the sidecar in the immutable forecast snapshot with its SHA-256 manifest. Generation timestamps and forecast hashes must agree. Both generation and capture must be at least 20 minutes before kickoff. First eligible experiment snapshot per fixture freezes all market/policy decisions, including rejection, so later runs cannot replace an unfavorable forecast. Old snapshots are not backfilled. Hash or schema failures exclude the experiment while preserving baseline evidence.
+The existing forward-review workflow freezes the sidecar in the immutable forecast snapshot with its SHA-256 manifest. Generation timestamps and forecast hashes must agree. Both generation and capture must be at least 20 minutes before kickoff. Only fixtures within the conservative 72-hour generation horizon enter the forward comparison; earlier outside-horizon rejections remain archived but do not lock out later eligible forecasts. First eligible experiment snapshot per fixture freezes all market/policy decisions, including rejection, so later runs cannot replace an unfavorable forecast. Old snapshots are not backfilled. Hash or schema failures exclude the experiment while preserving baseline evidence.
 
 Daily review uses the same verified regulation results and pending-score safeguards as production reporting. Outputs are in `performance/filter_sensitivity_experiment/`:
 
