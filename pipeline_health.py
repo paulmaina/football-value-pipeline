@@ -70,6 +70,11 @@ def capture_health(root, clock, files):
     for name in ('goal_blend_experiment', 'market_led_experiment'):
         data['experiments'][name] = ('CAPTURED' if name+'.json' in files else
             'PRESENT_BUT_REJECTED' if (raw/(name+'.json')).exists() else 'NOT_GENERATED')
+    parent=read(raw/'goal_blend_experiment.json',{})
+    extension=parent.get('recency_experiment')
+    from recency_experiment import valid_extension
+    data['experiments']['recency_experiment'] = ('CAPTURED' if 'goal_blend_experiment.json' in files and valid_extension(extension,parent.get('generated_at_utc')) else
+        'PRESENT_BUT_REJECTED' if extension is not None else 'NOT_GENERATED')
     data['captured_at_utc'] = clock.isoformat()
     data['forecast_generated_at_utc'] = read(raw/'conservative_bet_summary.json', {}).get('generated_at_utc')
     provenance = read(raw/'pipeline_run_metadata.json', {})
@@ -119,11 +124,20 @@ def write_report(root, metrics, clock):
             state = 'CAPTURED' if expected and sidecar.exists() and hashlib.sha256(sidecar.read_bytes()).hexdigest() == expected else (
                 'MISSING_OR_TAMPERED' if expected else frozen.get('experiments', {}).get(name, 'LEGACY_NOT_RECORDED'))
             row['experiments'][name] = state; capture_counts[name+':'+state] += 1
+        parent_path=directory/'goal_blend_experiment.json'
+        parent=read(parent_path,{}) if row['experiments']['goal_blend_experiment']=='CAPTURED' else {}
+        extension=parent.get('recency_experiment')
+        from recency_experiment import valid_extension
+        state=('CAPTURED' if valid_extension(extension,parent.get('generated_at_utc')) else
+            'PRESENT_BUT_REJECTED' if extension is not None else
+            frozen.get('experiments',{}).get('recency_experiment','LEGACY_NOT_RECORDED'))
+        row['experiments']['recency_experiment']=state
+        capture_counts['recency_experiment:'+state]+=1
         capture_rows.append(row)
     data['snapshot_capture_history'] = capture_rows
     data['experiment_capture_counts'] = dict(capture_counts)
     data['experimental_reports'] = {name:read(output/name/'summary.json', {}) for name in
-        ('goal_blend_experiment', 'market_led_experiment')}
+        ('goal_blend_experiment', 'market_led_experiment', 'recency_experiment')}
     history = read(output/'health_history.json', {'schema_version': 1, 'days': {}})
     observation = {k:v for k,v in data.items() if k != 'snapshot_capture_history'}
     observation['shortlist_performance'] = metrics['shortlist']
@@ -139,10 +153,11 @@ def write_report(root, metrics, clock):
     quote = data['quote_audit']
     lines += ['', 'Latest shortlist audit: '+json.dumps(quote, ensure_ascii=False)+'.', '',
         'Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.', '',
-        '| Snapshot | Goal blend | Market led |', '|---|---|---|']
+        '| Snapshot | Goal blend | Market led | Recency |', '|---|---|---|---|']
     for row in capture_rows[-20:]:
-        lines.append(f"| {row['commit'][:12]} | {row['experiments']['goal_blend_experiment']} | {row['experiments']['market_led_experiment']} |")
+        lines.append(f"| {row['commit'][:12]} | {row['experiments']['goal_blend_experiment']} | {row['experiments']['market_led_experiment']} | {row['experiments']['recency_experiment']} |")
     lines += ['', 'Dependency versions at review: '+json.dumps(data['dependencies'])+'. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.', '',
+        'Recency comparisons: [report](recency_experiment/report.md). Raw goal probabilities, chronological selection/audit and paired forward scores; no automatic promotion.', '',
         'Daily observations: [health_history.json](health_history.json). Frozen forecast health: [pipeline_health.json](pipeline_health.json).', '',
         'Policy and gameweek results above show sample counts, ROI and calibration. Compare experiments on paired settled forecasts; small samples and changing cohorts cannot establish improvement. Historical missing experimental data is not backfilled.', '']
     path = output/'README.md'
