@@ -78,7 +78,7 @@ def apply_payload(repo, payload, year, clock, cache_dir=None):
     repo = Path(repo)
     path = (Path(cache_dir) if cache_dir is not None else repo/'.football_cache')/f'fdorg_history_UCL_{year}.json'
     checked = inspect_payload(payload, year, clock)
-    old = inspect_payload(json.loads(path.read_text()), year, clock) if path.exists() else {'matches': {}}
+    old = inspect_payload(json.loads(path.read_text(encoding='utf-8-sig')), year, clock) if path.exists() else {'matches': {}}
     if not set(old['matches']).issubset(checked['matches']):
         raise ValueError('Refusing UCL refresh that removes completed matches')
     if any(checked['matches'][k]['home'] != v['home'] or checked['matches'][k]['away'] != v['away']
@@ -112,7 +112,7 @@ def health(repo, training_end, clock, cache_dir=None):
     repo = Path(repo); year = clock.year if clock.month >= 7 else clock.year-1
     path = (Path(cache_dir) if cache_dir is not None else repo/'.football_cache')/f'fdorg_history_UCL_{year}.json'
     meta_path = path.with_suffix('.meta.json')
-    meta = json.loads(meta_path.read_text()) if meta_path.exists() else {}
+    meta = json.loads(meta_path.read_text(encoding='utf-8-sig')) if meta_path.exists() else {}
     checked = utc(meta.get('checked_at_utc'))
     bound = path.exists() and meta.get('sha256') == hashlib.sha256(path.read_bytes()).hexdigest()
     age = (clock-checked).total_seconds()/3600 if checked else None
