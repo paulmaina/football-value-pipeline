@@ -1,4 +1,4 @@
 {
-  "allowed_bookmakers": [],
+  "allowed_bookmakers": ["1xBet"],
   "per_stake_cost_bps": 0
 }

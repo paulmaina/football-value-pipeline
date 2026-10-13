@@ -46,7 +46,7 @@ than inventing a replacement. Under 3.5 remains excluded.
 {"allowed_bookmakers": ["Your bookmaker's exact provider title"], "per_stake_cost_bps": 0}
 ```
 
-An empty allowlist retains ordinary sportsbook coverage. It does **not** verify
+The current account allowlist is `["1xBet"]`, so production candidates require real 1xBet target quotes. Other bookmakers can still provide model probability references, and independent experimental outputs retain their research coverage. An empty allowlist would retain ordinary sportsbook coverage. It does **not** verify
 Kenyan availability, your account access, bet acceptance or stake limits. Set the
 allowlist to accounts you can actually use. The optional cost is a global
 per-stake fee in basis points, not an assumed exchange commission rate.

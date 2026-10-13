@@ -71,7 +71,7 @@ jobs:
       - name: Check Python modules and CLI entry points
         run: python workflow_checks.py smoke --output workflow_artifacts/smoke.json
       - name: Run complete offline regression suite before writing reports
-        run: python -m unittest discover -s tests -v
+        run: python run_offline_tests.py
       - name: Validate archived forecast integrity
         run: python workflow_checks.py archives --output workflow_artifacts/archive-check.json
       - name: Archive changed forecasts before kickoff
