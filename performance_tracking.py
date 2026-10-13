@@ -619,6 +619,9 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "league": {key: stats([r for r in selections if r["league"] == key])
                    for key in sorted({r["league"] for r in selections})},
     }
+    policies = sorted({r.get("selection_policy_version") or "legacy/unspecified" for r in selections})
+    groupings["policy"] = {policy: stats([r for r in selections
+        if (r.get("selection_policy_version") or "legacy/unspecified") == policy]) for policy in policies}
     weeks = sorted({r["week"] for r in selections if r["week"]})
     groupings["week"] = {week: stats([r for r in selections if r["week"] == week])
                          for week in weeks}
@@ -671,6 +674,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         + ("—" if not one_x_two else f"{result['prediction_1x2_multiclass_brier']:.4f}"),
         "",
         "## STRICT versus PROVISIONAL", "", report_table(groupings["tier"]),
+        "", "## By policy", "", report_table(groupings["policy"]),
         "", "## By market", "", report_table(groupings["market"]),
         "", "## By league", "", report_table(groupings["league"]),
         "", "## Gameweeks", "", report_table(groupings["week"]),
