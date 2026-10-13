@@ -3321,6 +3321,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--leagues", nargs="+", choices=list(LEAGUES), default=["EPL"])
     p.add_argument("--additional-odds-coverage", choices=["all", "ranked"], default="all",
                    help="all: request every linked fixture in the 72h window (more API credits); ranked: capped legacy mode")
+    p.add_argument("--market-led-experiment", action="store_true",
+                   help="Write a separate Pinnacle-reference double-chance paper experiment.")
+    p.add_argument("--market-led-max-age-minutes", type=float, default=10.0)
+    p.add_argument("--market-led-max-skew-minutes", type=float, default=5.0)
+    p.add_argument("--market-led-cost-bps", type=float, default=0.0,
+                   help="Experiment cost per unit staked in basis points; 100 bps = 1%.")
     p.add_argument("--goal-blend-experiment", action="store_true",
                    help="Write separate uncalibrated goal-market shadow variants; no baseline changes.")
     p.add_argument("--seasons-back", type=int, default=4)
@@ -3437,6 +3443,17 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if args.self_test:
         self_test()
         return 0
+
+    market_led_settings = None
+    if args.market_led_experiment:
+        if args.backtest:
+            raise SystemExit("--market-led-experiment requires live pre-match quotes; cannot use --backtest")
+        from market_led_experiment import settings
+        try:
+            market_led_settings = settings(args.market_led_max_age_minutes,
+                args.market_led_max_skew_minutes, args.market_led_cost_bps)
+        except ValueError as exc:
+            raise SystemExit(str(exc)) from exc
 
     if args.tune_half_life and args.backtest:
         raise SystemExit(
@@ -3738,6 +3755,17 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             write_experiment(all_predictions, out_dir, selection_summary["generated_at_utc"])
         except Exception as exc:
             warnings.warn(f"Shadow experiment failed; baseline outputs complete: {exc}")
+
+    if args.market_led_experiment and combined:
+        try:
+            from market_led_experiment import write_experiment as write_market_led
+            experiment = write_market_led(all_predictions, out_dir,
+                selection_summary["generated_at_utc"], pipe.odds_api, market_led_settings)
+            print(f"Market-led paper experiment: {sum(r['selected'] for r in experiment['rows'])} selections; "
+                  f"see {out_dir / 'market_led_report.md'}", file=sys.stderr)
+        except Exception as exc:
+            # Optional research failure must not invalidate completed baseline output.
+            warnings.warn(f"Market-led experiment failed ({type(exc).__name__}); baseline outputs complete")
 
     return 0
 

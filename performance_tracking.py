@@ -167,6 +167,13 @@ def capture(commit_sha: str, *, root: Path = ROOT,
             files["goal_blend_experiment.json"] = experiment
     except Exception as exc:
         warnings.warn(f"Shadow capture skipped: {exc}")
+    try:
+        from market_led_experiment import capture_file as capture_market_led
+        experiment = capture_market_led(raw, summary.get("generated_at_utc"))
+        if experiment is not None:
+            files["market_led_experiment.json"] = experiment
+    except Exception as exc:
+        warnings.warn(f"Market-led capture skipped ({type(exc).__name__})")
     directory.mkdir(parents=True, exist_ok=False)
     digests = {}
     for output_name, source in files.items():
@@ -206,7 +213,7 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
                 (directory / name).read_bytes()
             ).hexdigest() != digest
             for name, digest in meta.get("sha256", {}).items()
-            if name != "goal_blend_experiment.json"
+            if name not in {"goal_blend_experiment.json", "market_led_experiment.json"}
         ):
             warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
             continue
@@ -751,6 +758,11 @@ def review(*, root: Path = ROOT, token: str = "",
         review_experiment(root, archived, records, clock)
     except Exception as exc:
         warnings.warn(f"Shadow report failed; baseline report complete: {exc}")
+    try:
+        from market_led_experiment import review_experiment as review_market_led
+        review_market_led(root, archived, records, clock)
+    except Exception as exc:
+        warnings.warn(f"Market-led report failed ({type(exc).__name__}); baseline report complete")
     print(f"Performance: {result['shortlist']['graded']} graded, "
           f"{result['shortlist']['pending']} pending, "
           f"{result['prediction_fixtures_graded']} full fixture forecasts graded")
