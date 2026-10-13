@@ -1,0 +1,54 @@
+{
+  "status": "VERIFIED",
+  "reviewed_at_utc": "2026-10-13T10:55:48Z",
+  "snapshots": 14,
+  "shortlist": {
+    "brier": 0.309299,
+    "flat_stake_roi": -0.215714,
+    "graded": 7,
+    "losses": 3,
+    "pending": 12,
+    "profit_per_unit_staked": -1.51,
+    "settled_with_odds": 7,
+    "total": 19,
+    "win_rate": 0.571429,
+    "wins": 4
+  },
+  "policy_groups": {
+    "72h-ucl-v3": {
+      "brier": 0.308868,
+      "flat_stake_roi": -0.33,
+      "graded": 2,
+      "losses": 1,
+      "pending": 6,
+      "profit_per_unit_staked": -0.66,
+      "settled_with_odds": 2,
+      "total": 8,
+      "win_rate": 0.5,
+      "wins": 1
+    },
+    "legacy/unspecified": {
+      "brier": 0.309472,
+      "flat_stake_roi": -0.17,
+      "graded": 5,
+      "losses": 2,
+      "pending": 6,
+      "profit_per_unit_staked": -0.85,
+      "settled_with_odds": 5,
+      "total": 11,
+      "win_rate": 0.6,
+      "wins": 3
+    }
+  },
+  "provider_errors": {},
+  "training_end_dates": {
+    "Bundesliga": "2026-10-11",
+    "EPL": "2026-10-12",
+    "LaLiga": "2026-10-12",
+    "Ligue1": "2026-10-11",
+    "SerieA": "2026-10-12",
+    "UCL": "2026-09-10"
+  },
+  "experiments": {},
+  "warnings": []
+}

@@ -2,33 +2,66 @@ name: Pipeline self-test
 
 on:
   push:
-    branches:
-      - feature/**
-      - main
+    branches: ['**']
+    paths:
+      - '**.py'
+      - '**requirements.txt'
+      - '.coveragerc'
+      - '.gitattributes'
+      - '.github/workflows/**'
+      - 'assets/**'
+      - '.env.example'
   pull_request:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pipeline-self-test-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
 
 jobs:
   self-test:
-    runs-on: ubuntu-latest
+    name: Python ${{ matrix.python }} on ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.12', '3.14']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: pip install -r football_value_requirements.txt
-
-      - name: Compile pipeline
-        run: python -m py_compile football_value_pipeline_v2_standalone.py
-
-      - name: Run offline self-test
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: |
+            football_value_requirements.txt
+            football_value_dev_requirements.txt
+      - name: Install runtime and test dependencies
+        run: python -m pip install -r football_value_dev_requirements.txt
+      - name: Verify installed dependencies
+        run: python -m pip check
+      - name: Compile all modules and check every CLI help page
+        run: python workflow_checks.py smoke --output workflow_artifacts/smoke.json
+      - name: Run model offline self-test
         run: python football_value_pipeline_v2_standalone.py --self-test
-
-      - name: Validate time-decay selection
-        run: python -m unittest discover -s tests -v
+      - name: Run complete offline regression and integration suite
+        run: python -m coverage run -m unittest discover -s tests -v
+      - name: Export coverage and enforce application and critical-module floors
+        if: always()
+        run: |
+          python -m coverage xml --fail-under=0
+          python -m coverage json --fail-under=0
+          python workflow_checks.py coverage --output workflow_artifacts/coverage-check.json
+      - name: Retain test diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-tests-${{ runner.os }}-python-${{ matrix.python }}
+          path: workflow_artifacts/
+          if-no-files-found: warn
+          retention-days: 30

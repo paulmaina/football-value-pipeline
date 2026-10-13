@@ -184,8 +184,9 @@ def capture_file(raw, baseline_generated):
     path = raw/FILE
     if not path.exists(): return None
     data = load_json(path,{})
-    digest = hashlib.sha256((raw/'all_leagues_predictions.csv').read_bytes()).hexdigest()
-    if data.get('version') == VERSION and data.get('baseline_generated_at_utc') == baseline_generated and data.get('predictions_sha256') == digest:
+    from forecast_integrity import forecast_digest_variants
+    digests = forecast_digest_variants(raw/'all_leagues_predictions.csv')
+    if data.get('version') == VERSION and data.get('baseline_generated_at_utc') == baseline_generated and data.get('predictions_sha256') in digests:
         return path
     return None
 

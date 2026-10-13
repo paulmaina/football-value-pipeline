@@ -1,0 +1,4 @@
+# Current forecast CSVs have a consistent repository representation.
+football_output_v2/raw/*.csv text eol=lf
+# Never normalize immutable snapshot bytes after their SHA-256 is recorded.
+football_output_v2/performance/snapshots/** -text
