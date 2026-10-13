@@ -21,6 +21,13 @@ Whole-fixture 1X2 multiclass Brier (n=18): 0.5584
 | PROVISIONAL | 5 | 2-3 | 40.0% | -49.6% |
 | STRICT | 2 | 2-0 | 100.0% | +48.5% |
 
+## By policy
+
+| Group | Graded | W-L | Win rate | Simulated ROI |
+|---|---:|---:|---:|---:|
+| 72h-ucl-v3 | 2 | 1-1 | 50.0% | -33.0% |
+| legacy/unspecified | 5 | 3-2 | 60.0% | -17.0% |
+
 ## By market
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
