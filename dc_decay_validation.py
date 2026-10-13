@@ -68,6 +68,7 @@ def tune_half_life(
     step_days: int = 56,
     min_train: int = 250,
     min_validation_matches: int = 25,
+    collect_recency_metrics: bool = False,
 ) -> Dict[str, object]:
     """Select half-life by historical walk-forward 1X2 log loss (lower is better)."""
     options = sorted(set(float(x) for x in candidates))
@@ -94,8 +95,11 @@ def tune_half_life(
         brier_total = 0.0
         count = 0
         successful_folds = 0
+        recency_folds = []
+        recency_error = None
         try:
             for train, test, origin in folds:
+                recency_rows = []
                 model = model_class(
                     half_life_days=half_life,
                     l2=l2,
@@ -120,6 +124,22 @@ def tune_half_life(
                     one_hot = np.eye(3)[actual]
                     brier_total += float(np.sum((probs - one_hot) ** 2))
                     count += 1
+                    if collect_recency_metrics and recency_error is None:
+                        try:
+                            from recency_experiment import goal_probabilities
+                            goals = goal_probabilities(matrix)
+                            recency_rows.append({**goals, 'y_over_1_5':int(hg+ag >= 2),
+                                'y_btts_yes':int(hg>0 and ag>0),
+                                'one_x_two_brier':float(np.sum((probs-one_hot)**2)),
+                                'one_x_two_log_loss':-math.log(max(float(probs[actual]),1e-12))})
+                        except Exception as exc:
+                            recency_error = type(exc).__name__
+                if collect_recency_metrics and recency_error is None:
+                    try:
+                        from recency_experiment import fold_diagnostic
+                        recency_folds.append(fold_diagnostic(origin,train,test,recency_rows))
+                    except Exception as exc:
+                        recency_error = type(exc).__name__
         except (ValueError, RuntimeError, FloatingPointError) as exc:
             scores.append({
                 "half_life_days": half_life,
@@ -140,6 +160,8 @@ def tune_half_life(
             "n_folds": successful_folds,
             "log_loss": logloss_total / count if count else None,
             "brier_score": brier_total / count if count else None,
+            **({'recency_folds':recency_folds if recency_error is None else [],
+                'recency_diagnostics_error':recency_error} if collect_recency_metrics else {}),
         })
 
     eligible = [x for x in scores if x["valid"]]

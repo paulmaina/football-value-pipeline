@@ -29,7 +29,7 @@ COVERAGE_FLOORS = {'forecast_integrity.py':100, 'api_key_config.py':90, 'conserv
     'double_chance.py':90, 'goal_market_validation.py':85, 'goal_blend_experiment.py':90,
     'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85,
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
-    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75}
+    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'recency_experiment.py':85}
 
 
 def require(condition, message):
@@ -258,13 +258,17 @@ def report_check(root):
     warnings=audit['warnings']
     if metrics.get('provider_errors'):warnings.append('Result provider has errors; cached verified results used where available')
     experiments={}
-    for name in ('goal_blend_experiment','market_led_experiment'):
+    for name in ('goal_blend_experiment','market_led_experiment','recency_experiment'):
         path=performance/name/'summary.json'
         if path.exists():
             data=read_json(path);experiments[name]=data
             experimental_time=utc(data.get('reviewed_at_utc'))
             if experimental_time is None or abs((experimental_time-utc(metrics['reviewed_at_utc'])).total_seconds()) > 1:
                 warnings.append(f'{name}: report timestamp differs from current baseline review')
+            elif name=='recency_experiment':
+                from recency_experiment import validate_report
+                validate_report(root)
+                if data.get('rejected_snapshot_commits'):warnings.append('recency_experiment: invalid archived data excluded; see rejected_snapshot_commits')
     training={}
     for path in sorted((root/'raw').glob('*_diagnostics.json')):
         data=read_json(path);training[path.stem.replace('_diagnostics','')]=data.get('training_end')
