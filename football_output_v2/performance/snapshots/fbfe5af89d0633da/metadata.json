@@ -1,0 +1,16 @@
+{
+  "captured_at_utc": "2026-10-13T07:52:43Z",
+  "data_origin": "git-tracked prediction output at capture time",
+  "generated_at_utc": "2026-10-13T07:43:35Z",
+  "git_commit_sha": "fbfe5af89d0633da4bf4e581e42347272b5e913e",
+  "n_all_forecasts": 67,
+  "n_pre_kickoff_forecasts": 67,
+  "n_shortlist": 5,
+  "schema_version": 1,
+  "selection_policy_version": "72h-all-markets-ev15-one-book-v6",
+  "sha256": {
+    "predictions.csv": "3cca698a5b8540f704c956087c6bd046607777907fa8e2dc0ee928f9e397116e",
+    "selection_summary.json": "da3d7113435c536bfc0368a0e52dde8e2be317e0a90f0f9ecd632ff7dbfc708c",
+    "shortlist.csv": "d2715847b52ade8166d179df16990d0075ff0cfbb4d690672b74e03261b1a84e"
+  }
+}
