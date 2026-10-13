@@ -2832,6 +2832,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
             now=now,
         )
 
+        if getattr(self, 'recency_experiment_enabled', False):
+            self._recency_history = history.copy(deep=True)
         model = DixonColesModel(
             half_life_days=self.half_life_days,
             l2=self.l2,
@@ -3396,6 +3398,8 @@ def build_parser() -> argparse.ArgumentParser:
         help="Half-life candidates in days; 1e9 approximates no time decay.",
     )
     p.add_argument("--tune-validation-days", type=int, default=365)
+    p.add_argument("--recency-experiment", action="store_true",
+                   help="Extend the goal sidecar with raw Over 1.5/BTTS half-life comparisons; requires --tune-half-life.")
     p.add_argument("--tune-step-days", type=int, default=56)
     p.add_argument("--tune-min-train", type=int, default=250)
     p.add_argument("--tune-min-validation-matches", type=int, default=25)
@@ -3518,6 +3522,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             "--tune-half-life and --backtest cannot be combined because "
             "tuning on the same historical results would bias the backtest."
         )
+    if args.recency_experiment and not args.tune_half_life:
+        raise SystemExit('--recency-experiment requires --tune-half-life')
     if args.auto_market_weight and args.backtest:
         raise SystemExit(
             "--auto-market-weight and --backtest cannot be combined: "
@@ -3573,6 +3579,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     }
     market_reliability = {}
     combined = []
+    recency_parts = []
+    pipe.recency_experiment_enabled = args.recency_experiment
 
     for league_key in args.leagues:
         # Reset both per-competition settings before tuning; never carry a
@@ -3597,6 +3605,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 step_days=args.tune_step_days,
                 min_train=args.tune_min_train,
                 min_validation_matches=args.tune_min_validation_matches,
+                **({'collect_recency_metrics':True} if args.recency_experiment else {}),
             )
             pipe.half_life_days = float(tuning["selected_half_life_days"])
             (out_dir / f"{league_key}_decay_tuning.json").write_text(
@@ -3654,6 +3663,22 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
         print(f"[{league_key}] current-fixture model...", file=sys.stderr)
         predictions, diagnostics, scorelines = pipe.run_league(league_key)
+        if args.recency_experiment and not predictions.empty:
+            try:
+                from recency_experiment import generate_league
+                recency_parts.append(generate_league(predictions,pipe._recency_history,
+                    DixonColesModel,tuning,league=LEAGUES[league_key].name,
+                    production_half_life=pipe.half_life_days,l2=pipe.l2,max_goals=pipe.max_goals))
+            except Exception as exc:
+                # Freeze failure coverage, not a fabricated replacement prediction.
+                recency_parts.append({'league':LEAGUES[league_key].name,
+                    'training_end':diagnostics['training_end'],'training_matches':diagnostics['training_matches'],
+                    'historical_audit':{'status':'GENERATION_FAILED','error':type(exc).__name__},
+                    'rows':[{**{k:r.get(k) for k in ('league','home_team','away_team','kickoff_utc')},
+                        'market':key,'status':'unavailable','reasons':['recency_generation_failed'],
+                        'variants':{},'half_lives':{},'candidate_errors':{}}
+                        for r in predictions.to_dict('records') for key in ('over_1_5','btts_yes')]})
+                warnings.warn(f'{league_key}: recency experiment unavailable ({type(exc).__name__}); baseline outputs complete')
         if market_selection is not None:
             diagnostics["market_weight_selection"] = {
                 "status": market_selection["status"],
@@ -3810,10 +3835,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         file=sys.stderr,
     )
 
-    if args.goal_blend_experiment and combined and not args.backtest:
+    if (args.goal_blend_experiment or args.recency_experiment) and combined and not args.backtest:
         try:
             from goal_blend_experiment import write_experiment
-            write_experiment(all_predictions, out_dir, selection_summary["generated_at_utc"])
+            write_experiment(all_predictions, out_dir, selection_summary["generated_at_utc"],
+                **({'recency_parts':recency_parts} if args.recency_experiment else {}))
         except Exception as exc:
             warnings.warn(f"Shadow experiment failed; baseline outputs complete: {exc}")
 

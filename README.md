@@ -199,3 +199,8 @@ See [daily data health and forward evidence](docs/daily-evidence.md) for UCL
 automatic refresh, production quote eligibility and costs, and the new
 performance report health history. Existing forecasting commands remain valid.
 
+The optional [recency-weighting experiment](docs/recency-experiment.md) extends
+the existing goal sidecar with Over 1.5/BTTS half-life comparisons. Add
+`--recency-experiment` alongside `--tune-half-life`; production selections stay
+independent while forward results are captured and reviewed automatically.
+
