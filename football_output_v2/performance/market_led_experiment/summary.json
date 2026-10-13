@@ -2,20 +2,92 @@
   "available_fixture_markets": 36,
   "calibration": [
     {
-      "bin_lower": 0.6,
-      "event_rate": 1.0,
+      "bin_lower": 0.2,
+      "event_rate": 0.5,
       "market": "draw_away",
-      "mean_probability": 0.6551158798556687,
+      "mean_probability": 0.271626205613103,
+      "n": 2,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.3,
+      "event_rate": 0.0,
+      "market": "draw_away",
+      "mean_probability": 0.3599046784378539,
       "n": 1,
       "variant": "baseline"
     },
     {
-      "bin_lower": 0.8,
+      "bin_lower": 0.5,
       "event_rate": 0.0,
       "market": "draw_away",
-      "mean_probability": 0.8175889321358695,
+      "mean_probability": 0.519296387104354,
       "n": 1,
       "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.6,
+      "event_rate": 0.5,
+      "market": "draw_away",
+      "mean_probability": 0.6471841442122344,
+      "n": 2,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.8,
+      "event_rate": 0.5,
+      "market": "draw_away",
+      "mean_probability": 0.8288540968839049,
+      "n": 2,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.9,
+      "event_rate": 1.0,
+      "market": "draw_away",
+      "mean_probability": 0.9729303371796814,
+      "n": 1,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.1,
+      "event_rate": 0.0,
+      "market": "draw_away",
+      "mean_probability": 0.18456753498739042,
+      "n": 1,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.2,
+      "event_rate": 1.0,
+      "market": "draw_away",
+      "mean_probability": 0.21209745837143262,
+      "n": 1,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.3,
+      "event_rate": 0.0,
+      "market": "draw_away",
+      "mean_probability": 0.38925537008761024,
+      "n": 1,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.4,
+      "event_rate": 0.0,
+      "market": "draw_away",
+      "mean_probability": 0.49435307316847454,
+      "n": 1,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.5,
+      "event_rate": 0.0,
+      "market": "draw_away",
+      "mean_probability": 0.5352225568541347,
+      "n": 1,
+      "variant": "market"
     },
     {
       "bin_lower": 0.6,
@@ -34,11 +106,43 @@
       "variant": "market"
     },
     {
-      "bin_lower": 0.6,
+      "bin_lower": 0.9,
       "event_rate": 1.0,
       "market": "draw_away",
-      "mean_probability": 0.687871696578449,
+      "mean_probability": 0.9309427160784858,
+      "n": 2,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.2,
+      "event_rate": 0.0,
+      "market": "draw_away",
+      "mean_probability": 0.22911856606395536,
       "n": 1,
+      "variant": "raw"
+    },
+    {
+      "bin_lower": 0.3,
+      "event_rate": 0.5,
+      "market": "draw_away",
+      "mean_probability": 0.3556339688471873,
+      "n": 2,
+      "variant": "raw"
+    },
+    {
+      "bin_lower": 0.6,
+      "event_rate": 0.5,
+      "market": "draw_away",
+      "mean_probability": 0.6690493272360396,
+      "n": 2,
+      "variant": "raw"
+    },
+    {
+      "bin_lower": 0.7,
+      "event_rate": 0.5,
+      "market": "draw_away",
+      "mean_probability": 0.7632580159836369,
+      "n": 2,
       "variant": "raw"
     },
     {
@@ -48,6 +152,30 @@
       "mean_probability": 0.885802833397558,
       "n": 1,
       "variant": "raw"
+    },
+    {
+      "bin_lower": 0.9,
+      "event_rate": 1.0,
+      "market": "draw_away",
+      "mean_probability": 0.9802931448694244,
+      "n": 1,
+      "variant": "raw"
+    },
+    {
+      "bin_lower": 0.0,
+      "event_rate": 1.0,
+      "market": "home_draw",
+      "mean_probability": 0.07848529418079936,
+      "n": 1,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.3,
+      "event_rate": 0.0,
+      "market": "home_draw",
+      "mean_probability": 0.30980544747463246,
+      "n": 1,
+      "variant": "baseline"
     },
     {
       "bin_lower": 0.4,
@@ -66,6 +194,46 @@
       "variant": "baseline"
     },
     {
+      "bin_lower": 0.6,
+      "event_rate": 1.0,
+      "market": "home_draw",
+      "mean_probability": 0.6481120619631847,
+      "n": 2,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.8,
+      "event_rate": 0.5,
+      "market": "home_draw",
+      "mean_probability": 0.8449732491774438,
+      "n": 2,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.9,
+      "event_rate": 1.0,
+      "market": "home_draw",
+      "mean_probability": 0.9075972828099699,
+      "n": 1,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.1,
+      "event_rate": 1.0,
+      "market": "home_draw",
+      "mean_probability": 0.10835632851445695,
+      "n": 1,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.2,
+      "event_rate": 0.0,
+      "market": "home_draw",
+      "mean_probability": 0.2370545906192011,
+      "n": 1,
+      "variant": "market"
+    },
+    {
       "bin_lower": 0.4,
       "event_rate": 1.0,
       "market": "home_draw",
@@ -82,6 +250,38 @@
       "variant": "market"
     },
     {
+      "bin_lower": 0.7,
+      "event_rate": 1.0,
+      "market": "home_draw",
+      "mean_probability": 0.7413921599824969,
+      "n": 2,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.8,
+      "event_rate": 1.0,
+      "market": "home_draw",
+      "mean_probability": 0.8020552869946664,
+      "n": 1,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.9,
+      "event_rate": 0.5,
+      "market": "home_draw",
+      "mean_probability": 0.9353697116482711,
+      "n": 2,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.0,
+      "event_rate": 1.0,
+      "market": "home_draw",
+      "mean_probability": 0.0614091434046802,
+      "n": 1,
+      "variant": "raw"
+    },
+    {
       "bin_lower": 0.3,
       "event_rate": 1.0,
       "market": "home_draw",
@@ -90,67 +290,83 @@
       "variant": "raw"
     },
     {
-      "bin_lower": 0.5,
+      "bin_lower": 0.4,
       "event_rate": 0.0,
       "market": "home_draw",
-      "mean_probability": 0.5455401572502492,
+      "mean_probability": 0.407858306561469,
       "n": 1,
+      "variant": "raw"
+    },
+    {
+      "bin_lower": 0.5,
+      "event_rate": 0.6666666666666666,
+      "market": "home_draw",
+      "mean_probability": 0.5365395173196063,
+      "n": 3,
+      "variant": "raw"
+    },
+    {
+      "bin_lower": 0.8,
+      "event_rate": 0.6666666666666666,
+      "market": "home_draw",
+      "mean_probability": 0.8590842472404455,
+      "n": 3,
       "variant": "raw"
     }
   ],
   "comparisons": [
     {
-      "brier": 0.3936983591394005,
-      "event_rate": 0.5,
-      "log_loss": 1.0622178336438022,
+      "brier": 0.2420549529368236,
+      "event_rate": 0.4444444444444444,
+      "log_loss": 0.6695832484452104,
       "market": "draw_away",
-      "mean_probability": 0.7363524059957691,
-      "n": 2,
+      "mean_probability": 0.5941622551267082,
+      "n": 9,
       "variant": "baseline"
     },
     {
-      "brier": 0.35699739887084675,
-      "event_rate": 0.5,
-      "log_loss": 0.9413539482214941,
+      "brier": 0.22917621062565255,
+      "event_rate": 0.4444444444444444,
+      "log_loss": 0.6358683175236686,
       "market": "draw_away",
-      "mean_probability": 0.6862239973956377,
-      "n": 2,
+      "mean_probability": 0.5610921578241432,
+      "n": 9,
       "variant": "market"
     },
     {
-      "brier": 0.4410353687259789,
-      "event_rate": 0.5,
-      "log_loss": 1.2719908694379305,
+      "brier": 0.2723005205766381,
+      "event_rate": 0.4444444444444444,
+      "log_loss": 0.7622461730901687,
       "market": "draw_away",
-      "mean_probability": 0.7868372649880035,
-      "n": 2,
+      "mean_probability": 0.630121907607185,
+      "n": 9,
       "variant": "raw"
     },
     {
-      "brier": 0.32682154028831234,
-      "event_rate": 0.5,
-      "log_loss": 0.848076282204604,
+      "brier": 0.294688084251859,
+      "event_rate": 0.6666666666666666,
+      "log_loss": 0.8713447056793732,
       "market": "home_draw",
-      "mean_probability": 0.5164356860096027,
-      "n": 2,
+      "mean_probability": 0.5905477798628738,
+      "n": 9,
       "variant": "baseline"
     },
     {
-      "brier": 0.3333203455391329,
-      "event_rate": 0.5,
-      "log_loss": 0.8643070283328905,
+      "brier": 0.2838378545032574,
+      "event_rate": 0.6666666666666666,
+      "log_loss": 0.8580271288296122,
       "market": "home_draw",
-      "mean_probability": 0.5651021128999362,
-      "n": 2,
+      "mean_probability": 0.6256882416877481,
+      "n": 9,
       "variant": "market"
     },
     {
-      "brier": 0.3292350584627983,
-      "event_rate": 0.5,
-      "log_loss": 0.8533602163102598,
+      "brier": 0.31524837310732173,
+      "event_rate": 0.6666666666666666,
+      "log_loss": 0.9137681580881881,
       "market": "home_draw",
-      "mean_probability": 0.4724136013547942,
-      "n": 2,
+      "mean_probability": 0.5617139765672937,
+      "n": 9,
       "variant": "raw"
     }
   ],
@@ -166,9 +382,9 @@
   },
   "note": "Paper results at feed odds, not realized returns. Costs are user-configured per stake. Late reference proxy uses only archived quotes 20–60 minutes before kickoff; not actual closing odds. No automatic collection at close or promotion.",
   "observed_fixture_markets": 134,
-  "paired_graded_fixture_markets": 4,
+  "paired_graded_fixture_markets": 18,
   "pending_or_unverified_selections": 0,
-  "reviewed_at_utc": "2026-10-13T19:24:44.792179+00:00",
+  "reviewed_at_utc": "2026-10-13T23:47:05.809888+00:00",
   "selected": 0,
   "settings_observed": [
     {

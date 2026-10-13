@@ -2,54 +2,75 @@
   "breakdowns": [
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "league",
       "ev_floor": 0.015,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
       "selected": 4,
       "value": "UEFA Champions League",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "league",
       "ev_floor": 0.03,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
       "selected": 4,
       "value": "UEFA Champions League",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "league",
       "ev_floor": 0.05,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
       "selected": 4,
       "value": "UEFA Champions League",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -155,287 +176,392 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "market",
       "ev_floor": 0.015,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 3,
-      "profit_units": 0,
-      "selected": 3,
-      "value": "Over 1.5",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "dimension": "market",
-      "ev_floor": 0.03,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 3,
-      "profit_units": 0,
-      "selected": 3,
-      "value": "Over 1.5",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "dimension": "market",
-      "ev_floor": 0.05,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
       "pending": 2,
-      "profit_units": 0,
+      "profit_units": 0.17999999999999994,
+      "selected": 3,
+      "value": "Over 1.5",
+      "wins": 1
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "dimension": "market",
+      "ev_floor": 0.03,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 2,
+      "profit_units": 0.17999999999999994,
+      "selected": 3,
+      "value": "Over 1.5",
+      "wins": 1
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "dimension": "market",
+      "ev_floor": 0.05,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 1,
+      "profit_units": 0.17999999999999994,
       "selected": 2,
       "value": "Over 1.5",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "week",
       "ev_floor": 0.015,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
       "selected": 4,
       "value": "2026-W42",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "week",
       "ev_floor": 0.03,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
       "selected": 4,
       "value": "2026-W42",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "week",
       "ev_floor": 0.05,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
       "selected": 4,
       "value": "2026-W42",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "selection_policy_version",
       "ev_floor": 0.015,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
       "selected": 4,
       "value": "72h-all-markets-net-ev15-execution-v7",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "selection_policy_version",
       "ev_floor": 0.03,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
       "selected": 4,
       "value": "72h-all-markets-net-ev15-execution-v7",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "selection_policy_version",
       "ev_floor": 0.05,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
       "selected": 4,
       "value": "72h-all-markets-net-ev15-execution-v7",
-      "wins": 0
+      "wins": 1
     }
   ],
   "candidate_decisions": 288,
   "comparisons": [
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "ev_floor": 0.015,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
-      "selected": 4,
-      "tier": "ALL",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "ev_floor": 0.015,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
-      "selected": 4,
-      "tier": "STRICT",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "ev_floor": 0.015,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 0,
-      "profit_units": 0,
-      "selected": 0,
-      "tier": "PROVISIONAL",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "ev_floor": 0.03,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
-      "selected": 4,
-      "tier": "ALL",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "ev_floor": 0.03,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
-      "selected": 4,
-      "tier": "STRICT",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "ev_floor": 0.03,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 0,
-      "profit_units": 0,
-      "selected": 0,
-      "tier": "PROVISIONAL",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "ev_floor": 0.05,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
-      "selected": 4,
-      "tier": "ALL",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "ev_floor": 0.05,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
       "pending": 3,
+      "profit_units": 0.17999999999999994,
+      "selected": 4,
+      "tier": "ALL",
+      "wins": 1
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "ev_floor": 0.015,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
+      "selected": 4,
+      "tier": "STRICT",
+      "wins": 1
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": null,
+      "calibration": [],
+      "ev_floor": 0.015,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "max_drawdown_units": null,
+      "mean_probability": null,
+      "observed_rate": null,
+      "pending": 0,
       "profit_units": 0,
+      "selected": 0,
+      "tier": "PROVISIONAL",
+      "wins": 0
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "ev_floor": 0.03,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
+      "selected": 4,
+      "tier": "ALL",
+      "wins": 1
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "ev_floor": 0.03,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
+      "selected": 4,
+      "tier": "STRICT",
+      "wins": 1
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": null,
+      "calibration": [],
+      "ev_floor": 0.03,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "max_drawdown_units": null,
+      "mean_probability": null,
+      "observed_rate": null,
+      "pending": 0,
+      "profit_units": 0,
+      "selected": 0,
+      "tier": "PROVISIONAL",
+      "wins": 0
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "ev_floor": 0.05,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 3,
+      "profit_units": 0.17999999999999994,
+      "selected": 4,
+      "tier": "ALL",
+      "wins": 1
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": 0.002975537592826616,
+      "calibration": [
+        {
+          "band": "90%-100%",
+          "mean_probability": 0.945451511544071,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "ev_floor": 0.05,
+      "flat_stake_roi": 0.17999999999999994,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.945451511544071,
+      "observed_rate": 1.0,
+      "pending": 2,
+      "profit_units": 0.17999999999999994,
       "selected": 3,
       "tier": "STRICT",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -456,7 +582,7 @@
   ],
   "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
   "rejected_snapshot_commits": [],
-  "reviewed_at_utc": "2026-10-13T19:24:44.792179+00:00",
+  "reviewed_at_utc": "2026-10-13T23:47:05.809888+00:00",
   "total_fixtures": 16,
   "version": "conservative-ev-sensitivity-v1"
 }
