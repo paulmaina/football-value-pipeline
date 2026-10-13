@@ -1,4 +1,6 @@
-# Conservative policy v6
+# Conservative policy v6 (historical)
+
+Current production policy v7 retains these numerical thresholds and adds exchange-target exclusion, optional account allowlists and net-cost EV checks. See [daily evidence and execution checks](daily-evidence.md).
 
 Policy `72h-all-markets-ev15-one-book-v6` requires adjusted EV at least +1.5%
 for every production shortlist market and at least one validated bookmaker.

@@ -8,7 +8,7 @@ Each code PR and relevant branch push runs four combinations: Python 3.12 and
 All matrix legs run even if one fails.
 
 Each leg checks installed dependencies, compiles every root/test Python module,
-exercises all eight CLI help pages (including argparse percent formatting), runs
+exercises all nine CLI help pages (including argparse percent formatting), runs
 the offline Dixon–Coles self-test, and runs the complete unittest suite under
 coverage. Tests cover chronological leakage protection, model gradients,
 market/decay validation, odds failover and sanitization, environment precedence,
@@ -21,7 +21,7 @@ access explicitly disabled.
 Application statement coverage must be at least 75%, excluding tests. Critical
 modules have additional floors recorded in `workflow_checks.COVERAGE_FLOORS`.
 Measured baseline before this change was about 77%; the broader suite reaches
-about 78%. A coverage percentage is a regression guard, not proof every behavior
+about 79%. A coverage percentage is a regression guard, not proof every behavior
 is tested. JSON/XML coverage and smoke results are retained for 30 days, including
 failed runs. The standalone legacy pipeline and formatter still have coverage
 gaps; reports show those rather than excluding them to inflate coverage.
@@ -112,3 +112,5 @@ checkout representation and disables text normalization inside immutable archive
 Existing snapshots are not backfilled or rewritten. Rerun with both experimental
 flags and commit/push the fresh files before kickoff to begin correctly captured
 experimental evidence. Older raw experiment files are not retroactively graded.
+
+Daily source, execution and experimental capture evidence is described in [daily evidence](daily-evidence.md). The new UCL refresh CLI is included in smoke checks; its validation/publishing modules, quote policy and health reporting have dedicated regression and coverage gates.
