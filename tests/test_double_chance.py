@@ -54,7 +54,7 @@ class DoubleChanceTests(unittest.TestCase):
         picks,decisions,summary=build_conservative_shortlist(pd.DataFrame([r]),as_of=NOW,
             market_reliability={'Premier League':report})
         self.assertNotIn('Under 3.5',decisions.market.tolist())
-        self.assertEqual(summary['selection_policy_version'],'72h-double-chance-v4')
+        self.assertEqual(summary['selection_policy_version'],'72h-double-chance-v5')
         dc=decisions.loc[decisions.market.eq('Double Chance 1X')].iloc[0]
         self.assertNotEqual(dc.decision,'REJECTED',dc.rejection_reasons)
         r.pop('market_home_draw_odds')
@@ -93,3 +93,53 @@ class DoubleChanceTests(unittest.TestCase):
                 self.assertIn('double_chance',fetch.call_args.kwargs['params']['markets'])
                 self.assertIn('dc_v1',fetch.call_args.args[1])
                 self.assertEqual(r['market_home_draw_odds'],1.35)
+
+
+class DoubleChanceAdjustedThresholdTests(unittest.TestCase):
+    def candidate(self, key, adjusted=.75, ev=.015):
+        row=fixture()
+        row.update(parse_quotes(event()))
+        row['p_'+key]=.82
+        row['raw_p_'+key]=.80
+        row['market_'+key+'_odds']=(1+ev)/adjusted
+        report=sample_report()
+        report['markets'][key]=copy.deepcopy(report['markets']['over_1_5'])
+        report['markets'][key]['confidence_penalty']=.82-adjusted
+        return row,report
+
+    def decision(self, key, **kwargs):
+        row,report=self.candidate(key,**kwargs)
+        _,decisions,summary=build_conservative_shortlist(pd.DataFrame([row]),as_of=NOW,
+            market_reliability={'Premier League':report})
+        label='Double Chance 1X' if key=='home_draw' else 'Double Chance X2'
+        return decisions.loc[decisions.market.eq(label)].iloc[0],summary
+
+    def test_both_double_chances_pass_at_new_thresholds(self):
+        for key in ('home_draw','draw_away'):
+            row,summary=self.decision(key,ev=.015)
+            self.assertNotEqual(row.decision,'REJECTED',row.rejection_reasons)
+            self.assertAlmostEqual(row.rank_probability,.75)
+            self.assertEqual(summary['double_chance_min_adjusted_ev'],.015)
+            self.assertEqual(summary['double_chance_min_adjusted_probability'],.75)
+
+    def test_below_each_threshold_is_rejected_without_provisional_relaxation(self):
+        row,_=self.decision('home_draw',ev=.0149)
+        self.assertEqual(row.decision,'REJECTED')
+        self.assertIn('below +1.5%',row.rejection_reasons)
+        row,_=self.decision('draw_away',adjusted=.7499,ev=.02)
+        self.assertEqual(row.decision,'REJECTED')
+        self.assertIn('reliability-adjusted probability below minimum',row.rejection_reasons)
+
+    def test_unadjusted_and_raw_gates_still_apply(self):
+        for field,value in [('p_home_draw',.79),('raw_p_home_draw',.749)]:
+            row,report=self.candidate('home_draw',adjusted=.78,ev=.025)
+            row[field]=value
+            _,decisions,_=build_conservative_shortlist(pd.DataFrame([row]),as_of=NOW,
+                market_reliability={'Premier League':report})
+            dc=decisions.loc[decisions.market.eq('Double Chance 1X')].iloc[0]
+            self.assertEqual(dc.decision,'REJECTED')
+
+    def test_market_led_experiment_remains_at_three_percent(self):
+        from market_led_experiment import settings
+        self.assertEqual(settings()['min_ev'],.03)
+        self.assertEqual(settings()['min_probability'],.80)

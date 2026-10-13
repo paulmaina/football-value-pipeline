@@ -24,6 +24,8 @@ SUPPORTED_LEAGUES = DOMESTIC_LEAGUES | {"UEFA Champions League"}
 TARGET_DISTINCT_MATCHES = 10
 SHORTLIST_LOOKAHEAD_HOURS = 72.0
 MIN_ESTIMATED_EV = 0.03
+MIN_DOUBLE_CHANCE_ADJUSTED_EV = 0.015
+MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY = 0.75
 MIN_RAW_DC_EV = 0.0
 MIN_TEAM_NAME_MATCH_SCORE = 90.0
 MAX_ODDS_AGE_HOURS = 24.0
@@ -273,9 +275,14 @@ def _evaluate_market(
     )
     raw_ev = raw_p * price - 1.0 if raw_p is not None and price is not None and price > 1 else None
     edge = p - market_p if p is not None and market_p is not None else None
-    if conservative_ev is None or conservative_ev < MIN_ESTIMATED_EV:
-        reasons.append("reliability-adjusted EV below +3% or missing")
-    if rank_p is None or rank_p < min_prob:
+    is_double_chance = key in ("home_draw", "draw_away")
+    min_adjusted_ev = MIN_DOUBLE_CHANCE_ADJUSTED_EV if is_double_chance else MIN_ESTIMATED_EV
+    min_adjusted_probability = MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY if is_double_chance else min_prob
+    adjusted_tolerance = 1e-12 if is_double_chance else 0.0
+    if conservative_ev is None or conservative_ev + adjusted_tolerance < min_adjusted_ev:
+        reasons.append(f"reliability-adjusted EV below +{min_adjusted_ev:.1%} or missing"
+                       if is_double_chance else "reliability-adjusted EV below +3% or missing")
+    if rank_p is None or rank_p + adjusted_tolerance < min_adjusted_probability:
         reasons.append("reliability-adjusted probability below minimum")
     if raw_ev is None or raw_ev < MIN_RAW_DC_EV:
         reasons.append("independent Dixon-Coles EV is negative or missing")
@@ -535,7 +542,7 @@ def build_conservative_shortlist(
     return shortlist, decisions, {
         "status": status,
         "generated_at_utc": now.isoformat(),
-        "selection_policy_version": "72h-double-chance-v4",
+        "selection_policy_version": "72h-double-chance-v5",
         "n_fixtures": int(len(predictions)),
         "n_markets_evaluated": int(len(decisions)),
         "n_shortlisted": n,
@@ -561,6 +568,8 @@ def build_conservative_shortlist(
         "eligible_markets": [x[0] for x in MARKET_SPECS],
         "eligible_leagues": sorted(SUPPORTED_LEAGUES),
         "min_estimated_ev": MIN_ESTIMATED_EV,
+        "double_chance_min_adjusted_ev": MIN_DOUBLE_CHANCE_ADJUSTED_EV,
+        "double_chance_min_adjusted_probability": MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY,
         "validation_required": market_reliability is not None,
         "ranking_metric": (
             "development-calibration-adjusted probability, audit-qualified"
