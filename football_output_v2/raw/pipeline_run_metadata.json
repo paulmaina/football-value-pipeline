@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "PyYAML": "NOT_INSTALLED",
+    "coverage": "NOT_INSTALLED",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "python": "3.14.8",
+    "python-dotenv": "1.2.4",
+    "requests": "2.34.2",
+    "scipy": "1.18.1"
+  },
+  "generated_at_utc": "2026-10-13T11:52:12.097894+00:00",
+  "model_code_sha256": "e2cba71b82ac81d57e2e84c41a3d66c3a18446c9a826c3072f731b20f6526ff9",
+  "predictions_sha256": "46d735f55b51da10669adbe481d9aff204f54a6c7ed3fb4fb4a47facee35de67",
+  "selection_policy_version": "72h-all-markets-net-ev15-execution-v7"
+}
