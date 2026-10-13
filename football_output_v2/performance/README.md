@@ -70,7 +70,11 @@ recorded reliability-adjusted chance; small buckets are unstable.
 
 ## Result-source problems
 
-No provider errors detected.
+- Bundesliga: football-data.org rate limited results requests (HTTP 429)
+- EPL: football-data.org rate limited results requests (HTTP 429)
+- LaLiga: football-data.org rate limited results requests (HTTP 429)
+- Ligue1: football-data.org rate limited results requests (HTTP 429)
+- SerieA: football-data.org rate limited results requests (HTTP 429)
 
 Accuracy is not calibration or profit. Simulated ROI assumes
 one unit staked separately on each settled selection with recorded
@@ -113,7 +117,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 0dba961b0bbe | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 962a7a22cb5b | CAPTURED | CAPTURED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Daily observations: [health_history.json](health_history.json). Frozen forecast health: [pipeline_health.json](pipeline_health.json).
 
