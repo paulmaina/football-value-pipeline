@@ -257,7 +257,7 @@
   "prediction_1x2_multiclass_brier": 0.558406,
   "prediction_fixtures_graded": 18,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-10-13T12:36:16Z",
+  "reviewed_at_utc": "2026-10-13T12:48:35Z",
   "shortlist": {
     "brier": 0.309299,
     "flat_stake_roi": -0.215714,
