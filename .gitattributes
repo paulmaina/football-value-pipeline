@@ -1,4 +1,6 @@
 # Current forecast CSVs have a consistent repository representation.
 football_output_v2/raw/*.csv text eol=lf
+# UCL refresh metadata binds these files by their exact UTF-8/LF hash.
+.football_cache/fdorg_history_UCL_*.json text eol=lf
 # Never normalize immutable snapshot bytes after their SHA-256 is recorded.
 football_output_v2/performance/snapshots/** -text

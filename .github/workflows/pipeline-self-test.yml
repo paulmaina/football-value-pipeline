@@ -11,6 +11,7 @@ on:
       - '.github/workflows/**'
       - 'assets/**'
       - '.env.example'
+      - 'shortlist_quote_policy.json'
   pull_request:
     branches: [main]
   workflow_dispatch:

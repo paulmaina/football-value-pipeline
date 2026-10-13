@@ -68,12 +68,14 @@ def parse_quotes(payload):
     if not offers: return {}
     ref=max(offers,key=lambda x:x[0]);out={}
     for key in MARKETS:
-        best=max(offers,key=lambda x:x[2][key])
+        from quote_policy import usable_bookmaker
+        usable=[x for x in offers if usable_bookmaker(x[1])]
+        best=max(usable,key=lambda x:x[2][key]) if usable else (None,None,{key:None})
         out.update({f'market_p_{key}':ref[3][key],f'market_{key}_odds':best[2][key],
                     f'best_{key}_bookmaker':best[1],
                     f'market_best_{key}_last_update_utc':best[0] or None,
                     f'market_reference_{key}_last_update_utc':ref[0] or None,
-                    f'market_{key}_bookmakers':len({x[1] for x in offers}),
+                    f'market_{key}_bookmakers':len({x[1] for x in usable}),
                     f'market_reference_{key}_method':'proportional_overlap_sum_two'})
     for key,price in ref[2].items():
         out[f'market_reference_dc_{key}_odds']=price

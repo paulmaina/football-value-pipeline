@@ -15,6 +15,7 @@ import math
 from typing import Mapping, Optional, Tuple
 
 import pandas as pd
+from quote_policy import load_policy, usable_bookmaker
 
 
 DOMESTIC_LEAGUES = frozenset({
@@ -54,7 +55,7 @@ DECISION_COLUMNS = [
     "fixture_id", "kickoff_utc", "market", "decision",
     "rejection_reasons", "predicted_probability", "raw_dc_probability",
     "market_probability", "offered_decimal_odds", "bookmaker",
-    "estimated_ev", "raw_dc_ev", "estimated_edge",
+    "estimated_ev", "gross_estimated_ev", "per_stake_cost", "bookmaker_availability", "raw_dc_ev", "estimated_edge",
     "min_team_name_match_score", "odds_age_hours",
     "validation_status", "development_validation_matches",
     "audit_validation_matches", "audit_brier",
@@ -134,8 +135,11 @@ def _evaluate_market(
     spec: tuple,
     now: pd.Timestamp,
     validation: Optional[Mapping] = None,
+    quote_policy: Optional[Mapping] = None,
 ) -> dict:
     label, key, min_prob, min_raw = spec
+    policy = quote_policy or load_policy()
+    cost = policy["per_stake_cost_bps"] / 10000
     reasons = []
     league = str(row.get("league") or "")
     if league not in SUPPORTED_LEAGUES:
@@ -247,6 +251,9 @@ def _evaluate_market(
     if price is None or price <= 1.0 or not isinstance(bookmaker, str) or not bookmaker.strip():
         reasons.append("no validated bookmaker quote for this exact market")
 
+    if not usable_bookmaker(bookmaker, policy):
+        reasons.append("bookmaker excluded by execution policy (exchange or user allowlist)")
+
     ref = [_number(x) for x in quote["reference"]]
     if any(x is None or x <= 1.0 for x in ref):
         reasons.append("incomplete same-book reference market")
@@ -269,12 +276,12 @@ def _evaluate_market(
     if age is None or age > MAX_ODDS_AGE_HOURS or age < -5.0 / 60.0:
         reasons.append("specific bookmaker quote is missing, stale or future-dated")
 
-    ev = p * price - 1.0 if p is not None and price is not None and price > 1 else None
+    ev = p * price - 1.0 - cost if p is not None and price is not None and price > 1 else None
     conservative_ev = (
-        rank_p * price - 1.0
+        rank_p * price - 1.0 - cost
         if rank_p is not None and price is not None and price > 1 else None
     )
-    raw_ev = raw_p * price - 1.0 if raw_p is not None and price is not None and price > 1 else None
+    raw_ev = raw_p * price - 1.0 - cost if raw_p is not None and price is not None and price > 1 else None
     edge = p - market_p if p is not None and market_p is not None else None
     is_double_chance = key in ("home_draw", "draw_away")
     min_adjusted_ev = MIN_DOUBLE_CHANCE_ADJUSTED_EV if is_double_chance else MIN_ESTIMATED_EV
@@ -304,6 +311,9 @@ def _evaluate_market(
         "offered_decimal_odds": price,
         "bookmaker": bookmaker,
         "estimated_ev": ev,
+        "gross_estimated_ev": p * price - 1.0 if p is not None and price is not None and price > 1 else None,
+        "per_stake_cost": cost,
+        "bookmaker_availability": policy["account_availability"],
         "raw_dc_ev": raw_ev,
         "estimated_edge": edge,
         "min_team_name_match_score": confidence,
@@ -420,6 +430,7 @@ def build_conservative_shortlist(
         raise ValueError("as_of must be timezone-aware")
     now = now.tz_convert("UTC")
 
+    policy = load_policy()
     evaluated = []
     for _, row in predictions.iterrows():
         for spec in MARKET_SPECS:
@@ -427,7 +438,7 @@ def build_conservative_shortlist(
                 market_reliability.get(str(row.get("league") or ""), {})
                 if market_reliability is not None else None
             )
-            evaluated.append(_evaluate_market(row, spec, now, report))
+            evaluated.append(_evaluate_market(row, spec, now, report, policy))
     decisions = pd.DataFrame(evaluated, columns=DECISION_COLUMNS)
 
     eligible = decisions[decisions["decision"] == "ELIGIBLE"].copy()
@@ -541,7 +552,7 @@ def build_conservative_shortlist(
     return shortlist, decisions, {
         "status": status,
         "generated_at_utc": now.isoformat(),
-        "selection_policy_version": "72h-all-markets-ev15-one-book-v6",
+        "selection_policy_version": "72h-all-markets-net-ev15-execution-v7",
         "n_fixtures": int(len(predictions)),
         "n_markets_evaluated": int(len(decisions)),
         "n_shortlisted": n,
@@ -566,6 +577,7 @@ def build_conservative_shortlist(
         "selection_method": "Strict-first ranking within the next 72 hours of the run",
         "eligible_markets": [x[0] for x in MARKET_SPECS],
         "eligible_leagues": sorted(SUPPORTED_LEAGUES),
+        "quote_execution_policy": policy,
         "min_estimated_ev": MIN_ESTIMATED_EV,
         "min_bookmakers": MIN_BOOKMAKERS,
         "double_chance_min_adjusted_ev": MIN_DOUBLE_CHANCE_ADJUSTED_EV,

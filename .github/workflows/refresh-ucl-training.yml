@@ -1,0 +1,50 @@
+name: Refresh UCL training data
+
+on:
+  schedule:
+    - cron: '27 0,4,8,12,16,20 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'refresh_ucl_training.py'
+      - 'ucl_training.py'
+      - '.github/workflows/refresh-ucl-training.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ucl-training-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r football_value_requirements.txt
+      - name: Fetch, validate and publish current-season results
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+        run: python refresh_ucl_training.py --api-key-source environment --publish
+      - name: Update visible performance health from refreshed main
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+        run: python publish_performance.py --api-key-source environment --validate-reports --artifact-dir workflow_artifacts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ucl-training-health-${{ github.run_id }}
+          path: |
+            docs/ucl_training_refresh_status.json
+            workflow_artifacts/
+          if-no-files-found: warn
+          retention-days: 30

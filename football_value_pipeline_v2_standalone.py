@@ -751,7 +751,8 @@ class TheOddsAPI:
             price: Optional[float],
             bookmaker_name: str,
         ) -> Tuple[Optional[float], Optional[str]]:
-            if price is None or price <= 1.0:
+            from quote_policy import usable_bookmaker
+            if price is None or price <= 1.0 or not usable_bookmaker(bookmaker_name):
                 return current
             if current[0] is None or price > float(current[0]):
                 return (price, bookmaker_name)
@@ -839,6 +840,7 @@ class TheOddsAPI:
                     if updated:
                         all_updates.append(updated)
 
+        from quote_policy import usable_bookmaker
         ref_h2h = max(complete_h2h, key=lambda x: x[0], default=None)
         ref_ou = max(complete_ou, key=lambda x: x[0], default=None)
 
@@ -850,7 +852,7 @@ class TheOddsAPI:
             "odds_source": "The Odds API",
             "odds_last_update_utc": max(all_updates) if all_updates else None,
             "odds_h2h_last_update_utc": None if ref_h2h is None else ref_h2h[0],
-            "odds_bookmakers_1x2": len(complete_h2h),
+            "odds_bookmakers_1x2": sum(1 for x in complete_h2h if usable_bookmaker(x[1])),
             "odds_bookmakers_ou25": len(complete_ou),
             "live_best_home_odds": best_h[0],
             "live_best_home_bookmaker": best_h[1],
@@ -1001,7 +1003,9 @@ class TheOddsAPI:
             if not available:
                 continue
             ref = max(available, key=lambda x: x[0])
-            best = max(available, key=lambda x: x[2])
+            from quote_policy import usable_bookmaker
+            usable = [x for x in available if usable_bookmaker(x[1])]
+            best = max(usable, key=lambda x: x[2]) if usable else (None, None, None, None)
             fair = devig([ref[2], ref[3]], method="power")
             result[f"market_p_{market}"] = fair[0]
             result[f"market_{market}_odds"] = best[2]
@@ -1009,7 +1013,7 @@ class TheOddsAPI:
             result[f"market_best_{market}_last_update_utc"] = best[0] or None
             result[f"market_reference_{market}_odds"] = ref[2]
             result[f"market_reference_{market}_opposite_odds"] = ref[3]
-            result[f"market_{market}_bookmakers"] = len(available)
+            result[f"market_{market}_bookmakers"] = len({x[1] for x in usable})
         return result
 
 
@@ -1114,6 +1118,21 @@ class FootballDataOrg:
         frames: List[pd.DataFrame] = []
         failures: List[str] = []
 
+        # One validated current-season refresh per provider instance. Filesystem
+        # mtimes after git pull do not establish a successful provider download.
+        if league.key == "UCL" and getattr(self, "_ucl_refresh_year", None) != current_start:
+            from ucl_training import fetch_payload, apply_payload
+            self._ucl_refresh_year = current_start
+            self.ucl_refresh_error = None
+            try:
+                payload = fetch_payload(self.api_key, current_start, session=self.http.session)
+                apply_payload(self.http.cache_dir.resolve().parent, payload, current_start, now,
+                              cache_dir=self.http.cache_dir)
+            except Exception as exc:
+                self.ucl_refresh_error = type(exc).__name__
+                warnings.warn("UCL live training refresh failed validation/download; retained previous cache ("
+                              + self.ucl_refresh_error + ")", RuntimeWarning)
+
         for start_year in range(
             current_start - int(seasons_back) + 1,
             current_start + 1,
@@ -1123,22 +1142,30 @@ class FootballDataOrg:
                 f"{league.football_data_org_code}/matches"
             )
             try:
-                payload = self.http.get_json(
-                    url,
-                    f"fdorg_history_{league.key}_{start_year}.json",
-                    ttl=(
-                        timedelta(hours=4)
-                        if start_year == current_start
-                        else timedelta(days=30)
-                    ),
-                    force_refresh=self.force_refresh,
-                    params={
-                        "season": start_year,
-                        "status": "FINISHED",
-                    },
-                    headers={"X-Auth-Token": self.api_key},
-                    allow_stale=True,
-                )
+                current_path = self.http.cache_dir / f"fdorg_history_{league.key}_{start_year}.json"
+                if league.key == "UCL" and start_year == current_start:
+                    if not current_path.exists():
+                        raise RuntimeError("No validated current-season UCL cache available")
+                    payload = json.loads(current_path.read_text(encoding="utf-8-sig"))
+                    from ucl_training import inspect_payload
+                    inspect_payload(payload, current_start, now)
+                else:
+                    payload = self.http.get_json(
+                        url,
+                        f"fdorg_history_{league.key}_{start_year}.json",
+                        ttl=(
+                            timedelta(hours=4)
+                            if start_year == current_start
+                            else timedelta(days=30)
+                        ),
+                        force_refresh=self.force_refresh if start_year != current_start else False,
+                        params={
+                            "season": start_year,
+                            "status": "FINISHED",
+                        },
+                        headers={"X-Auth-Token": self.api_key},
+                        allow_stale=True,
+                    )
             except Exception as exc:
                 failures.append(f"{start_year}: {exc}")
                 continue
@@ -1831,6 +1858,19 @@ class FootballValuePipeline:
         self.l2 = float(l2)
         self.max_goals = int(max_goals)
         self.lookahead_days = int(lookahead_days)
+
+    def _training_health(self, league, model, now):
+        end = None if model.training_end is None else str(model.training_end.date())
+        if league.key == "UCL":
+            from ucl_training import health
+            data = health(self.source.http.cache_dir.resolve().parent, end, now, cache_dir=self.source.http.cache_dir)
+            data["last_refresh_error"] = getattr(self.football_data_org, "ucl_refresh_error", None)
+            if data["last_refresh_error"]:
+                data["status"] = "LIVE_REFRESH_FAILED_USING_CACHE"
+            return data
+        return {"training_end": end, "days_since_latest_result":
+                (now.date()-model.training_end.date()).days if model.training_end is not None else None,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}
 
     def run_league(
         self,
@@ -2806,6 +2846,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "max_goals": model.max_goals,
             "devig_method": self.devig_method,
             "market_weight": self.market_weight,
+            "training_data_health": self._training_health(league, model, now),
             "training_source": (
                 "football-data.org"
                 if league.key == "UCL"
@@ -3737,6 +3778,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     (out_dir / "conservative_bet_summary.json").write_text(
         json.dumps(selection_summary, indent=2), encoding="utf-8"
     )
+    if combined:
+        from pipeline_health import write_generation_metadata
+        write_generation_metadata(out_dir, selection_summary)
 
     # Retain a timestamped historical audit even though the current raw
     # shortlist is overwritten each run. No picks are ever added by force.

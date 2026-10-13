@@ -24,12 +24,12 @@ FORECAST_PATHS = (
 SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json')
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
-             'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'workflow_checks.py')
+             'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'workflow_checks.py')
 COVERAGE_FLOORS = {'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
     'double_chance.py':90, 'goal_market_validation.py':85, 'goal_blend_experiment.py':90,
     'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85,
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
-    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60}
+    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75}
 
 
 def require(condition, message):
@@ -138,10 +138,10 @@ def archive_check(root):
         require(isinstance(digests,dict) and all(k in digests for k in ('predictions.csv','shortlist.csv','selection_summary.json')),
                 'Snapshot missing required integrity manifest')
         for name,digest in digests.items():
-            require(name in ('predictions.csv','shortlist.csv','selection_summary.json',*SIDECARS), 'Unexpected snapshot path')
+            require(name in ('predictions.csv','shortlist.csv','selection_summary.json','pipeline_health.json',*SIDECARS), 'Unexpected snapshot path')
             path=directory/name
             valid=path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==digest
-            if name in SIDECARS:
+            if name in (*SIDECARS, 'pipeline_health.json'):
                 if not valid: warnings.append(f'{directory.name}/{name}: optional artifact missing/tampered; excluded from grading')
             else: require(valid, f'Snapshot integrity failure: {directory.name}/{name}')
         summary=read_json(directory/'selection_summary.json')
@@ -188,6 +188,8 @@ def report_check(root):
         require(row['selection_policy_version']==original['selection_policy_version'], 'Report policy provenance changed')
         close(row.get('offered_decimal_odds'),number(original.get('offered_decimal_odds')),'Frozen selection price')
         close(row.get('predicted_probability'),number(original.get('rank_probability') or original.get('predicted_probability')),'Frozen selection probability')
+        from quote_policy import stake_cost
+        close(row.get('per_stake_cost') or 0,stake_cost(original.get('per_stake_cost') or 0),'Frozen selection cost')
         require(row['selection_tier']==(original.get('selection_tier') or ('STRICT' if original.get('decision')=='SHORTLISTED' else 'PROVISIONAL')), 'Report selection tier changed')
         if row['status'] in ('WON','LOST'):
             verified,state=fixture_match(original,records)
@@ -201,7 +203,10 @@ def report_check(root):
             p=number(row.get('predicted_probability'),min_value=0,max_value=1)
             if p is not None: close(row.get('brier'),(p-int(won))**2,'Selection Brier')
             price=number(row.get('offered_decimal_odds'),min_value=1.000001)
-            close(row.get('unit_profit'),(price-1 if won else -1) if price is not None else None,'Selection P&L')
+            from quote_policy import stake_cost
+            cost=stake_cost(original.get('per_stake_cost') or 0)
+            close(row.get('per_stake_cost') or 0,cost,'Frozen selection cost')
+            close(row.get('unit_profit'),((price-1 if won else -1)-cost) if price is not None else None,'Selection P&L')
         else:
             require(row.get('unit_profit') in ('',None) and row.get('brier') in ('',None),'Pending result included in scored metrics')
     for field,value in expected_stats(selections).items():close(metrics['shortlist'].get(field),value,'Shortlist '+field)
@@ -263,7 +268,23 @@ def report_check(root):
     training={}
     for path in sorted((root/'raw').glob('*_diagnostics.json')):
         data=read_json(path);training[path.stem.replace('_diagnostics','')]=data.get('training_end')
-    return {'status':'VERIFIED_WITH_WARNINGS' if warnings else 'VERIFIED','reviewed_at_utc':metrics['reviewed_at_utc'],
+    health_path=performance/'pipeline_health.json'
+    health_data=read_json(health_path) if health_path.exists() else {}
+    if health_data:
+        health_time=utc(health_data.get('reviewed_at_utc'))
+        require(health_time and abs((health_time-utc(metrics['reviewed_at_utc'])).total_seconds())<1,'Health report timestamp differs from performance review')
+        history=read_json(performance/'health_history.json')
+        latest=history.get('days',{}).get(health_time.date().isoformat(),{})
+        for field,value in metrics['shortlist'].items():close(latest.get('shortlist_performance',{}).get(field),value,'Daily health performance '+field)
+        require(len(health_data.get('snapshot_capture_history',[]))==len(audit['snapshots']),'Health snapshot coverage mismatch')
+        with ZipFile(workbook) as z:
+            wb=ET.fromstring(z.read('xl/workbook.xml'))
+            require(any(s.get('name')=='Pipeline Health' for s in wb.find(ns+'sheets')),'Missing native Pipeline Health worksheet')
+    for info in health_data.get('training',{}).values():
+        state=info.get('current_source_health',{}).get('status')
+        if state and state!='CURRENT_WITHIN_PROVIDER_SCHEDULE': warnings.append('UCL training/source health: '+state)
+    if health_data.get('quote_audit',{}).get('exchange_quotes'): warnings.append('Latest stored shortlist includes gross exchange quotes from an older execution policy')
+    return {'status':'VERIFIED_WITH_WARNINGS' if warnings else 'VERIFIED','pipeline_health':health_data,'reviewed_at_utc':metrics['reviewed_at_utc'],
         'snapshots':len(audit['snapshots']),'shortlist':metrics['shortlist'],'policy_groups':metrics['groups']['policy'],
         'provider_errors':metrics.get('provider_errors',{}),'training_end_dates':training,'experiments':experiments,'warnings':warnings}
 
