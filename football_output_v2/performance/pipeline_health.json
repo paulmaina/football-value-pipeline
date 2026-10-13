@@ -24,6 +24,7 @@
     "per_stake_cost_bps": 0
   },
   "experiment_capture_counts": {
+    "filter_sensitivity_experiment:LEGACY_NOT_RECORDED": 19,
     "goal_blend_experiment:CAPTURED": 5,
     "goal_blend_experiment:LEGACY_NOT_RECORDED": 14,
     "market_led_experiment:CAPTURED": 5,
@@ -32,12 +33,167 @@
     "recency_experiment:LEGACY_NOT_RECORDED": 18
   },
   "experimental_reports": {
+    "filter_sensitivity_experiment": {
+      "breakdowns": [],
+      "candidate_decisions": 0,
+      "comparisons": [
+        {
+          "assessment": "COLLECT_MORE_DATA",
+          "brier": null,
+          "calibration": [],
+          "ev_floor": 0.015,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 0,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "ALL",
+          "wins": 0
+        },
+        {
+          "assessment": "COLLECT_MORE_DATA",
+          "brier": null,
+          "calibration": [],
+          "ev_floor": 0.015,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 0,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "STRICT",
+          "wins": 0
+        },
+        {
+          "assessment": "COLLECT_MORE_DATA",
+          "brier": null,
+          "calibration": [],
+          "ev_floor": 0.015,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 0,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "PROVISIONAL",
+          "wins": 0
+        },
+        {
+          "assessment": "COLLECT_MORE_DATA",
+          "brier": null,
+          "calibration": [],
+          "ev_floor": 0.03,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 0,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "ALL",
+          "wins": 0
+        },
+        {
+          "assessment": "COLLECT_MORE_DATA",
+          "brier": null,
+          "calibration": [],
+          "ev_floor": 0.03,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 0,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "STRICT",
+          "wins": 0
+        },
+        {
+          "assessment": "COLLECT_MORE_DATA",
+          "brier": null,
+          "calibration": [],
+          "ev_floor": 0.03,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 0,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "PROVISIONAL",
+          "wins": 0
+        },
+        {
+          "assessment": "COLLECT_MORE_DATA",
+          "brier": null,
+          "calibration": [],
+          "ev_floor": 0.05,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 0,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "ALL",
+          "wins": 0
+        },
+        {
+          "assessment": "COLLECT_MORE_DATA",
+          "brier": null,
+          "calibration": [],
+          "ev_floor": 0.05,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 0,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "STRICT",
+          "wins": 0
+        },
+        {
+          "assessment": "COLLECT_MORE_DATA",
+          "brier": null,
+          "calibration": [],
+          "ev_floor": 0.05,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 0,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "PROVISIONAL",
+          "wins": 0
+        }
+      ],
+      "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
+      "rejected_snapshot_commits": [],
+      "reviewed_at_utc": "2026-10-13T16:34:23.766266+00:00",
+      "total_fixtures": 0,
+      "version": "conservative-ev-sensitivity-v1"
+    },
     "goal_blend_experiment": {
       "available_fixture_markets": 54,
       "comparisons": [],
       "graded_fixture_markets": 0,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-13T16:06:08.736909+00:00",
+      "reviewed_at_utc": "2026-10-13T16:34:23.766266+00:00",
       "total_fixture_markets": 201,
       "version": "goal-blend-shadow-v1"
     },
@@ -59,7 +215,7 @@
       "observed_fixture_markets": 134,
       "paired_graded_fixture_markets": 0,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-13T16:06:08.736909+00:00",
+      "reviewed_at_utc": "2026-10-13T16:34:23.766266+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -1666,7 +1822,7 @@
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-13T16:06:08.736909+00:00",
+      "reviewed_at_utc": "2026-10-13T16:34:23.766266+00:00",
       "total_fixture_markets": 134,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": []
@@ -1683,7 +1839,7 @@
     "quote_age_over_24h": 0,
     "selected_quotes": 4
   },
-  "reviewed_at_utc": "2026-10-13T16:06:08.736909+00:00",
+  "reviewed_at_utc": "2026-10-13T16:34:23.766266+00:00",
   "selection_policy_groups": {
     "72h-ucl-v3": {
       "brier": 0.308868,
@@ -1715,6 +1871,7 @@
       "captured_at_utc": "2026-10-11T06:30:30Z",
       "commit": "2fd31d33722311d8e0155bb5eca6b3a310ac938b",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1726,6 +1883,7 @@
       "captured_at_utc": "2026-10-11T06:38:09Z",
       "commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1737,6 +1895,7 @@
       "captured_at_utc": "2026-10-11T06:44:04Z",
       "commit": "b9c15c09504aaf57de5ad0957adb91c0e9b37243",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1748,6 +1907,7 @@
       "captured_at_utc": "2026-10-11T08:21:00Z",
       "commit": "648ca5973f8d6521eefb8a4a5233fabb8e644a8e",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1759,6 +1919,7 @@
       "captured_at_utc": "2026-10-11T08:25:02Z",
       "commit": "660b75e4a3111f2a890ba1d58d595a637d01d0f2",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1770,6 +1931,7 @@
       "captured_at_utc": "2026-10-11T10:46:00Z",
       "commit": "a2cdead106b513fd623cffd1e43a491685d68cc3",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1781,6 +1943,7 @@
       "captured_at_utc": "2026-10-11T11:06:08Z",
       "commit": "5fb257972ff233227b2e94d4b784eebf60b66d42",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1792,6 +1955,7 @@
       "captured_at_utc": "2026-10-11T11:32:53Z",
       "commit": "f1a72cc22d717088fb3c74014de8aae60f586e46",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1803,6 +1967,7 @@
       "captured_at_utc": "2026-10-12T16:34:11Z",
       "commit": "4f7af2f470a0b5cdb7b8ae974c859f87b0236fc4",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1814,6 +1979,7 @@
       "captured_at_utc": "2026-10-12T21:11:56Z",
       "commit": "5496e9ba03aeb2ae41363a329fbc48e9754cfb0e",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1825,6 +1991,7 @@
       "captured_at_utc": "2026-10-13T07:01:01Z",
       "commit": "f6306ebd6d74a53df80194728284cbdc188f3667",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1836,6 +2003,7 @@
       "captured_at_utc": "2026-10-13T07:52:43Z",
       "commit": "fbfe5af89d0633da4bf4e581e42347272b5e913e",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1847,6 +2015,7 @@
       "captured_at_utc": "2026-10-13T09:01:13Z",
       "commit": "87b1676077a47afbdd6b75767d92bd78c5bd8f30",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1858,6 +2027,7 @@
       "captured_at_utc": "2026-10-13T09:27:14Z",
       "commit": "0dba961b0bbe74d5cd4c3779bb410a5707e2a2f1",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
         "market_led_experiment": "LEGACY_NOT_RECORDED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1869,6 +2039,7 @@
       "captured_at_utc": "2026-10-13T11:07:31Z",
       "commit": "962a7a22cb5bd1ec1fb3ceac2b4d2345662a495b",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "CAPTURED",
         "market_led_experiment": "CAPTURED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -1880,6 +2051,7 @@
       "captured_at_utc": "2026-10-13T12:01:10Z",
       "commit": "aea62120d25e83c8faa9370508b138b5198eff7b",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "CAPTURED",
         "market_led_experiment": "CAPTURED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -2049,6 +2221,7 @@
       "captured_at_utc": "2026-10-13T12:30:01Z",
       "commit": "95dc22b24994ed86c16a59b69e2c8a70ef714654",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "CAPTURED",
         "market_led_experiment": "CAPTURED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -2219,6 +2392,7 @@
       "captured_at_utc": "2026-10-13T12:48:34Z",
       "commit": "ea202e9e045b13c143daefbf6921b6a2384fc2d1",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "CAPTURED",
         "market_led_experiment": "CAPTURED",
         "recency_experiment": "LEGACY_NOT_RECORDED"
@@ -2390,6 +2564,7 @@
       "captured_at_utc": "2026-10-13T16:06:07Z",
       "commit": "6556638142ba9c82a8707efbc610087b834abfd3",
       "experiments": {
+        "filter_sensitivity_experiment": "LEGACY_NOT_RECORDED",
         "goal_blend_experiment": "CAPTURED",
         "market_led_experiment": "CAPTURED",
         "recency_experiment": "CAPTURED"
@@ -2623,7 +2798,7 @@
         "completed_matches": 18,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 0.08506804416666666,
+        "download_age_hours": 0.5559095322222222,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-09-10",
         "latest_completed_utc": "2026-09-10T19:00:00+00:00",
