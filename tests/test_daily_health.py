@@ -30,6 +30,39 @@ def payload():
 
 
 class DailyHealthTests(unittest.TestCase):
+    def test_ucl_cache_names_are_utf8_under_windows_default_encoding(self):
+        p=payload();p['matches'][0]['homeTeam']['name']='Atlético Madrid'
+        p['matches'][0]['awayTeam']['name']='Bodø/Glimt'
+        read_text=Path.read_text
+        def windows_default(path,encoding=None,errors=None):
+            return read_text(path,encoding=encoding or 'cp1252',errors=errors)
+        with tempfile.TemporaryDirectory() as tmp:
+            repo=Path(tmp)
+            apply_payload(repo,p,2026,NOW)
+            with patch.object(Path,'read_text',windows_default):
+                result=apply_payload(repo,p,2026,NOW)
+                status=health(repo,'2026-10-08',NOW)
+            self.assertEqual(result['added_matches'],0)
+            self.assertEqual(result['corrected_scores'],0)
+            self.assertTrue(status['cache_hash_verified'])
+
+    def test_ucl_fallback_warning_explains_domain_validation_failure(self):
+        from football_value_pipeline_v2_standalone import FootballDataOrg,LEAGUES
+        p=payload();base=p['matches'][0]
+        p['matches']=[copy.deepcopy(base) for _ in range(30)]
+        for i,m in enumerate(p['matches']):
+            m['id']=i+1;m['homeTeam']['name']=f'Home {i}'
+            m['utcDate']=(NOW-timedelta(days=1,hours=i)).isoformat()
+        p['resultSet']['count']=30
+        with tempfile.TemporaryDirectory() as tmp:
+            repo=Path(tmp);apply_payload(repo,p,2026,NOW)
+            provider=FootballDataOrg('offline-test',cache_dir=repo/'.football_cache')
+            reason='Refusing UCL refresh that removes completed matches'
+            with patch('ucl_training.fetch_payload',side_effect=ValueError(reason)),self.assertWarnsRegex(RuntimeWarning,reason):
+                history=provider.history(LEAGUES['UCL'],1,NOW)
+            self.assertEqual(len(history),30)
+            self.assertEqual(provider.ucl_refresh_error_reason,reason)
+
     def test_exchange_offer_exclusion_does_not_change_market_reference(self):
         from football_value_pipeline_v2_standalone import TheOddsAPI
         event = {'id':'e','home_team':'Home','away_team':'Away','commence_time':NOW.isoformat(),
