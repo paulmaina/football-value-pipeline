@@ -28,3 +28,5 @@ py refresh_training_data.py --seasons-back 4
 ```
 
 This validates all downloaded files before writing; publishing all files atomically is a Git workflow property, while local replacement is atomic per file. Upstream removals/date or team-name corrections fail closed and require review. The first version deliberately does not merge a second provider, invent missing results, regenerate predictions, or claim completeness from a latest-date check.
+
+UCL now has a separate four-hour validated current-season refresh. See [daily evidence](daily-evidence.md) for its schedule/finished-match comparison, cache provenance, model/source freshness distinction and report integration. The domestic behavior documented above remains unchanged.
