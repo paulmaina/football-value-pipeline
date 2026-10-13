@@ -9,23 +9,23 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 7 | 4-3 | 57.1% | -21.6% |
+| All selections | 9 | 6-3 | 66.7% | -9.7% |
 
-Unsettled / unverified entries: **12**.
-Whole-fixture 1X2 multiclass Brier (n=20): 0.5789
+Unsettled / unverified entries: **10**.
+Whole-fixture 1X2 multiclass Brier (n=27): 0.6024
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | PROVISIONAL | 5 | 2-3 | 40.0% | -49.6% |
-| STRICT | 2 | 2-0 | 100.0% | +48.5% |
+| STRICT | 4 | 4-0 | 100.0% | +40.2% |
 
 ## By policy
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| 72h-ucl-v3 | 2 | 1-1 | 50.0% | -33.0% |
+| 72h-ucl-v3 | 4 | 3-1 | 75.0% | -0.5% |
 | legacy/unspecified | 5 | 3-2 | 60.0% | -17.0% |
 
 ## By market
@@ -33,11 +33,11 @@ Whole-fixture 1X2 multiclass Brier (n=20): 0.5789
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | Away win | 0 | 0-0 | — | — |
-| Both Teams to Score - Yes | 0 | 0-0 | — | — |
+| Both Teams to Score - Yes | 1 | 1-0 | 100.0% | +49.0% |
 | Double Chance 1X | 0 | 0-0 | — | — |
 | Double Chance X2 | 0 | 0-0 | — | — |
 | Home win | 1 | 1-0 | 100.0% | +63.0% |
-| Over 1.5 | 2 | 2-0 | 100.0% | +29.0% |
+| Over 1.5 | 3 | 3-0 | 100.0% | +24.3% |
 | Under 3.5 | 4 | 1-3 | 25.0% | -68.0% |
 
 ## By league
@@ -47,14 +47,14 @@ Whole-fixture 1X2 multiclass Brier (n=20): 0.5789
 | La Liga | 2 | 2-0 | 100.0% | +29.0% |
 | Premier League | 3 | 0-3 | 0.0% | -100.0% |
 | Serie A | 2 | 2-0 | 100.0% | +45.5% |
-| UEFA Champions League | 0 | 0-0 | — | — |
+| UEFA Champions League | 2 | 2-0 | 100.0% | +32.0% |
 
 ## Gameweeks
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
-| 2026-W42 | 3 | 2-1 | 66.7% | -1.0% |
+| 2026-W42 | 5 | 4-1 | 80.0% | +12.2% |
 | 2026-W43 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
@@ -62,8 +62,9 @@ Whole-fixture 1X2 multiclass Brier (n=20): 0.5789
 | Forecast bin | Samples | Average forecast | Observed win rate | Binary Brier |
 |---|---:|---:|---:|---:|
 | 60%–70% | 1 | 68.2% | 100.0% | 0.1009 |
-| 70%–80% | 3 | 77.8% | 66.7% | 0.2197 |
+| 70%–80% | 4 | 76.0% | 75.0% | 0.1865 |
 | 80%–90% | 3 | 85.7% | 33.3% | 0.4683 |
+| 90%–100% | 1 | 94.5% | 100.0% | 0.0031 |
 
 Calibration bins report observed outcomes against the originally
 recorded reliability-adjusted chance; small buckets are unstable.
