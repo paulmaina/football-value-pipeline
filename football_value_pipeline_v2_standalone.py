@@ -3326,7 +3326,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--market-led-max-age-minutes", type=float, default=10.0)
     p.add_argument("--market-led-max-skew-minutes", type=float, default=5.0)
     p.add_argument("--market-led-cost-bps", type=float, default=0.0,
-                   help="Experiment cost per unit staked in basis points; 100 bps = 1%.")
+                   help="Experiment cost per unit staked in basis points; 100 bps = 1%%.")
     p.add_argument("--goal-blend-experiment", action="store_true",
                    help="Write separate uncalibrated goal-market shadow variants; no baseline changes.")
     p.add_argument("--seasons-back", type=int, default=4)

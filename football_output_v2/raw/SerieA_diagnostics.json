@@ -1,12 +1,12 @@
 {
   "league": "Serie A",
-  "training_matches": 1190,
-  "training_end": "2026-09-20",
+  "training_matches": 1200,
+  "training_end": "2026-10-12",
   "fit_success": true,
-  "objective": 879.0779648934368,
-  "base": 0.1342467514141642,
-  "home_adv": 0.09132765111490582,
-  "rho": 0.005406771319339648,
+  "objective": 849.5862990123923,
+  "base": 0.12680547256384003,
+  "home_adv": 0.11067743902551781,
+  "rho": -0.021088842765235555,
   "half_life_days": 240.0,
   "xi_per_day": 0.0028881132523331052,
   "max_goals": 10,
@@ -21,8 +21,114 @@
   "odds_regions": "eu",
   "live_odds_matched": 10,
   "additional_event_odds_calls_used_before_this_league": 0,
-  "additional_event_odds_calls_budget": 24,
-  "additional_event_odds_league_quota": 4,
+  "additional_event_odds_calls_budget": null,
+  "additional_event_odds_league_quota": null,
+  "additional_odds_coverage_mode": "all",
+  "additional_odds_coverage": [
+    {
+      "fixture_id": "7d3160040958fe21778fd5ee485666c3",
+      "event_id": "7d3160040958fe21778fd5ee485666c3",
+      "home_team": "Frosinone",
+      "away_team": "Sassuolo",
+      "kickoff_utc": "2026-10-16T18:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "907639dade64cca45d1ab639195d201e",
+      "event_id": "907639dade64cca45d1ab639195d201e",
+      "home_team": "Venezia",
+      "away_team": "Napoli",
+      "kickoff_utc": "2026-10-17T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "bfefc309177723410230fee52f650315",
+      "event_id": "bfefc309177723410230fee52f650315",
+      "home_team": "Bologna",
+      "away_team": "Inter Milan",
+      "kickoff_utc": "2026-10-17T16:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "18d478f469da3bcc654dd4555b85c7e3",
+      "event_id": "18d478f469da3bcc654dd4555b85c7e3",
+      "home_team": "AS Roma",
+      "away_team": "Genoa",
+      "kickoff_utc": "2026-10-17T18:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "367da93aa21a1e13eeafb94fd2263c75",
+      "event_id": "367da93aa21a1e13eeafb94fd2263c75",
+      "home_team": "Udinese",
+      "away_team": "Lecce",
+      "kickoff_utc": "2026-10-18T10:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "3ea32a0aa44a5f0ef7fd088155430087",
+      "event_id": "3ea32a0aa44a5f0ef7fd088155430087",
+      "home_team": "Fiorentina",
+      "away_team": "Como",
+      "kickoff_utc": "2026-10-18T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "f9403dd597edbfaa73abdc974e55344c",
+      "event_id": "f9403dd597edbfaa73abdc974e55344c",
+      "home_team": "AC Milan",
+      "away_team": "Atalanta BC",
+      "kickoff_utc": "2026-10-18T16:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "4c4026e2782f09d6f0ff2bde2a390513",
+      "event_id": "4c4026e2782f09d6f0ff2bde2a390513",
+      "home_team": "Juventus",
+      "away_team": "Lazio",
+      "kickoff_utc": "2026-10-18T18:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "ce94aca384a20f6af459366da6e1dd21",
+      "event_id": "ce94aca384a20f6af459366da6e1dd21",
+      "home_team": "Monza",
+      "away_team": "Cagliari",
+      "kickoff_utc": "2026-10-19T16:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "07014d9adc65ca39710bd9f0c7c0d3f0",
+      "event_id": "07014d9adc65ca39710bd9f0c7c0d3f0",
+      "home_team": "Parma",
+      "away_team": "Torino",
+      "kickoff_utc": "2026-10-19T18:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    }
+  ],
+  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "decay_tuning": {
     "selected_half_life_days": 240.0,
@@ -35,7 +141,7 @@
     "draw_away": "RELIABLE_FOR_RANKING",
     "home": "RELIABLE_FOR_RANKING",
     "away": "RELIABLE_FOR_RANKING",
-    "over_1_5": "RELIABLE_FOR_RANKING",
+    "over_1_5": "UNRELIABLE_AUDIT",
     "under_3_5": "RELIABLE_FOR_RANKING",
     "btts_yes": "RELIABLE_FOR_RANKING"
   }

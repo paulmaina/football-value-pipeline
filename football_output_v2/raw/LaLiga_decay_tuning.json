@@ -4,7 +4,7 @@
   "selection_metric": "walk_forward_1x2_log_loss",
   "validation_days": 365,
   "step_days": 56,
-  "n_folds": 7,
+  "n_folds": 6,
   "min_train": 250,
   "min_validation_matches": 25,
   "candidates": [
@@ -12,46 +12,46 @@
       "half_life_days": 120.0,
       "xi_per_day": 0.0057762265046662105,
       "valid": true,
-      "n_matches": 402,
-      "n_folds": 7,
-      "log_loss": 0.9912562560270418,
-      "brier_score": 0.5901342830757065
+      "n_matches": 378,
+      "n_folds": 6,
+      "log_loss": 0.9901164474895611,
+      "brier_score": 0.5886814457228088
     },
     {
       "half_life_days": 240.0,
       "xi_per_day": 0.0028881132523331052,
       "valid": true,
-      "n_matches": 402,
-      "n_folds": 7,
-      "log_loss": 0.9808125365547512,
-      "brier_score": 0.5832829040352766
+      "n_matches": 378,
+      "n_folds": 6,
+      "log_loss": 0.9809225214337228,
+      "brier_score": 0.5827602579470909
     },
     {
       "half_life_days": 365.0,
       "xi_per_day": 0.0018990333713971104,
       "valid": true,
-      "n_matches": 402,
-      "n_folds": 7,
-      "log_loss": 0.9784833929106935,
-      "brier_score": 0.58164431980289
+      "n_matches": 378,
+      "n_folds": 6,
+      "log_loss": 0.9788321441174348,
+      "brier_score": 0.5813323295667215
     },
     {
       "half_life_days": 730.0,
       "xi_per_day": 0.0009495166856985552,
       "valid": true,
-      "n_matches": 402,
-      "n_folds": 7,
-      "log_loss": 0.977621545482237,
-      "brier_score": 0.5809354811180338
+      "n_matches": 378,
+      "n_folds": 6,
+      "log_loss": 0.9780662324266823,
+      "brier_score": 0.5807631638659209
     },
     {
       "half_life_days": 1000000000.0,
       "xi_per_day": 6.931471805599453e-10,
       "valid": true,
-      "n_matches": 402,
-      "n_folds": 7,
-      "log_loss": 0.9785277142480079,
-      "brier_score": 0.581423038621295
+      "n_matches": 378,
+      "n_folds": 6,
+      "log_loss": 0.9788755536422791,
+      "brier_score": 0.581243859443764
     }
   ],
   "note": "Validation scores were used for model selection and are not an independent final test. Evaluate on a later untouched period."

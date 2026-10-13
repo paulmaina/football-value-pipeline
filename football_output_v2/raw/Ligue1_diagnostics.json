@@ -1,12 +1,12 @@
 {
   "league": "Ligue 1",
-  "training_matches": 963,
-  "training_end": "2026-09-20",
+  "training_matches": 972,
+  "training_end": "2026-10-11",
   "fit_success": true,
-  "objective": 1689.0311019599203,
-  "base": 0.21111058479928374,
-  "home_adv": 0.19315900646292328,
-  "rho": -0.05179285449005955,
+  "objective": 1681.0197991758384,
+  "base": 0.19531522475774254,
+  "home_adv": 0.20147556623279245,
+  "rho": -0.043325534331162444,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
   "max_goals": 10,
@@ -21,8 +21,104 @@
   "odds_regions": "eu",
   "live_odds_matched": 9,
   "additional_event_odds_calls_used_before_this_league": 0,
-  "additional_event_odds_calls_budget": 24,
-  "additional_event_odds_league_quota": 4,
+  "additional_event_odds_calls_budget": null,
+  "additional_event_odds_league_quota": null,
+  "additional_odds_coverage_mode": "all",
+  "additional_odds_coverage": [
+    {
+      "fixture_id": "66c168c030f3faad3983fcadc3060009",
+      "event_id": "66c168c030f3faad3983fcadc3060009",
+      "home_team": "Le Mans FC",
+      "away_team": "Toulouse",
+      "kickoff_utc": "2026-10-16T18:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "f3034246520a2ee4ff0ac0d5074966f8",
+      "event_id": "f3034246520a2ee4ff0ac0d5074966f8",
+      "home_team": "Strasbourg",
+      "away_team": "Paris Saint Germain",
+      "kickoff_utc": "2026-10-17T15:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "ad25a350c89b64715e15c59cde5653d3",
+      "event_id": "ad25a350c89b64715e15c59cde5653d3",
+      "home_team": "Lille",
+      "away_team": "Brest",
+      "kickoff_utc": "2026-10-17T18:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "b077aa049133c0358bcd643bfee48da3",
+      "event_id": "b077aa049133c0358bcd643bfee48da3",
+      "home_team": "Troyes",
+      "away_team": "RC Lens",
+      "kickoff_utc": "2026-10-17T18:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "c7a60aa94470fe959fbf6b0c68060fc1",
+      "event_id": "c7a60aa94470fe959fbf6b0c68060fc1",
+      "home_team": "Angers",
+      "away_team": "Marseille",
+      "kickoff_utc": "2026-10-18T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "d637845b9760bb02b55bbbaa32b5c21e",
+      "event_id": "d637845b9760bb02b55bbbaa32b5c21e",
+      "home_team": "Le Havre",
+      "away_team": "Auxerre",
+      "kickoff_utc": "2026-10-18T15:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "53f5fe7ed0ba0fbf6345c73270e4cd00",
+      "event_id": "53f5fe7ed0ba0fbf6345c73270e4cd00",
+      "home_team": "Lorient",
+      "away_team": "AS Monaco",
+      "kickoff_utc": "2026-10-18T15:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "27f7222d2abde93fc6e8d17b5b05b272",
+      "event_id": "27f7222d2abde93fc6e8d17b5b05b272",
+      "home_team": "Paris FC",
+      "away_team": "Rennes",
+      "kickoff_utc": "2026-10-18T15:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "471f891b1f6516a864ad94c8eb649f5e",
+      "event_id": "471f891b1f6516a864ad94c8eb649f5e",
+      "home_team": "Lyon",
+      "away_team": "Nice",
+      "kickoff_utc": "2026-10-18T18:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    }
+  ],
+  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "decay_tuning": {
     "selected_half_life_days": 730.0,
@@ -37,6 +133,6 @@
     "away": "RELIABLE_FOR_RANKING",
     "over_1_5": "RELIABLE_FOR_RANKING",
     "under_3_5": "RELIABLE_FOR_RANKING",
-    "btts_yes": "RELIABLE_FOR_RANKING"
+    "btts_yes": "UNRELIABLE_AUDIT"
   }
 }
