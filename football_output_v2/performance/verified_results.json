@@ -134,6 +134,36 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "CL:575341": {
+    "away_goals": 2,
+    "away_short_name": "Sporting CP",
+    "away_team": "Sporting Clube de Portugal",
+    "first_verified_at_utc": "2026-10-13T19:24:44Z",
+    "home_goals": 0,
+    "home_short_name": "RC Lens",
+    "home_team": "Racing Club de Lens",
+    "kickoff_utc": "2026-10-13T16:45:00Z",
+    "league_code": "CL",
+    "match_id": 575341,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "CL:575342": {
+    "away_goals": 0,
+    "away_short_name": "Slavia Praha",
+    "away_team": "SK Slavia Praha",
+    "first_verified_at_utc": "2026-10-13T19:24:44Z",
+    "home_goals": 2,
+    "home_short_name": "Sabah FK",
+    "home_team": "Sabah FK",
+    "kickoff_utc": "2026-10-13T16:45:00Z",
+    "league_code": "CL",
+    "match_id": 575342,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559666": {
     "away_goals": 1,
     "away_short_name": "Angers SCO",
