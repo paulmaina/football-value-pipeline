@@ -1,14 +1,14 @@
 {
   "league": "Premier League",
-  "training_matches": 1190,
-  "training_end": "2026-09-20",
+  "training_matches": 1200,
+  "training_end": "2026-10-12",
   "fit_success": true,
-  "objective": 1333.7457926074214,
-  "base": 0.17443409799712803,
-  "home_adv": 0.16411383941394742,
-  "rho": -0.1047300783920751,
-  "half_life_days": 365.0,
-  "xi_per_day": 0.0018990333713971104,
+  "objective": 897.6230219503293,
+  "base": 0.21703147972945164,
+  "home_adv": 0.17879041943218402,
+  "rho": -0.11544439700644936,
+  "half_life_days": 240.0,
+  "xi_per_day": 0.0028881132523331052,
   "max_goals": 10,
   "devig_method": "power",
   "market_weight": 0.5,
@@ -21,12 +21,118 @@
   "odds_regions": "eu",
   "live_odds_matched": 10,
   "additional_event_odds_calls_used_before_this_league": 0,
-  "additional_event_odds_calls_budget": 24,
-  "additional_event_odds_league_quota": 4,
+  "additional_event_odds_calls_budget": null,
+  "additional_event_odds_league_quota": null,
+  "additional_odds_coverage_mode": "all",
+  "additional_odds_coverage": [
+    {
+      "fixture_id": "764e6513cb3f348881503df70ccb90e0",
+      "event_id": "764e6513cb3f348881503df70ccb90e0",
+      "home_team": "Everton",
+      "away_team": "Chelsea",
+      "kickoff_utc": "2026-10-17T11:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "8f1945e7272bc7e89016439f5ab321c7",
+      "event_id": "8f1945e7272bc7e89016439f5ab321c7",
+      "home_team": "Brentford",
+      "away_team": "Liverpool",
+      "kickoff_utc": "2026-10-17T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "7895f97f2f9577f3b13287a3d086859d",
+      "event_id": "7895f97f2f9577f3b13287a3d086859d",
+      "home_team": "Fulham",
+      "away_team": "Hull City",
+      "kickoff_utc": "2026-10-17T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "bf2142d1ca76ba2fc9e61afce80f86c0",
+      "event_id": "bf2142d1ca76ba2fc9e61afce80f86c0",
+      "home_team": "Manchester City",
+      "away_team": "Ipswich Town",
+      "kickoff_utc": "2026-10-17T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "d1bbbdcd3d430e70091b518369b559cf",
+      "event_id": "d1bbbdcd3d430e70091b518369b559cf",
+      "home_team": "Newcastle United",
+      "away_team": "Aston Villa",
+      "kickoff_utc": "2026-10-17T16:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "dfd5d6648be46426e418801584d46a68",
+      "event_id": "dfd5d6648be46426e418801584d46a68",
+      "home_team": "Bournemouth",
+      "away_team": "Sunderland",
+      "kickoff_utc": "2026-10-18T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "9fc08b390a49c4434f7cf631a0bb88fb",
+      "event_id": "9fc08b390a49c4434f7cf631a0bb88fb",
+      "home_team": "Brighton and Hove Albion",
+      "away_team": "Crystal Palace",
+      "kickoff_utc": "2026-10-18T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "676b3b0b609e9cf565da450786618d26",
+      "event_id": "676b3b0b609e9cf565da450786618d26",
+      "home_team": "Leeds United",
+      "away_team": "Manchester United",
+      "kickoff_utc": "2026-10-18T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "f696a248965373d9071dc0662e5c58a8",
+      "event_id": "f696a248965373d9071dc0662e5c58a8",
+      "home_team": "Nottingham Forest",
+      "away_team": "Arsenal",
+      "kickoff_utc": "2026-10-18T15:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "9baaf4e48b041cfef04e70e42532502e",
+      "event_id": "9baaf4e48b041cfef04e70e42532502e",
+      "home_team": "Tottenham Hotspur",
+      "away_team": "Coventry City",
+      "kickoff_utc": "2026-10-19T19:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    }
+  ],
+  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "decay_tuning": {
-    "selected_half_life_days": 365.0,
-    "selected_xi_per_day": 0.0018990333713971104,
+    "selected_half_life_days": 240.0,
+    "selected_xi_per_day": 0.0028881132523331052,
     "selection_metric": "walk_forward_1x2_log_loss",
     "validation_days": 365
   },
@@ -36,7 +142,7 @@
     "home": "RELIABLE_FOR_RANKING",
     "away": "RELIABLE_FOR_RANKING",
     "over_1_5": "RELIABLE_FOR_RANKING",
-    "under_3_5": "RELIABLE_FOR_RANKING",
+    "under_3_5": "UNRELIABLE_AUDIT",
     "btts_yes": "RELIABLE_FOR_RANKING"
   }
 }

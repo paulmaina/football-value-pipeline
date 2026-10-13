@@ -1,18 +1,18 @@
 {
-  "status": "BELOW_TARGET",
-  "generated_at_utc": "2026-10-12T21:09:11.967223+00:00",
-  "selection_policy_version": "72h-double-chance-v4",
+  "status": "BELOW_TARGET_WITH_PROVISIONAL",
+  "generated_at_utc": "2026-10-13T06:56:18.724406+00:00",
+  "selection_policy_version": "72h-double-chance-v5",
   "n_fixtures": 67,
   "n_markets_evaluated": 402,
-  "n_shortlisted": 4,
+  "n_shortlisted": 5,
   "n_strict_qualified": 4,
-  "n_provisional_watchlist": 0,
-  "n_total_candidates": 4,
+  "n_provisional_watchlist": 1,
+  "n_total_candidates": 5,
   "target_distinct_matches": 10,
-  "shortfall": 6,
+  "shortfall": 5,
   "shortlist_lookahead_hours": 72.0,
-  "shortlist_window_start_utc": "2026-10-12T21:09:11.967223+00:00",
-  "shortlist_window_end_utc": "2026-10-15T21:09:11.967223+00:00",
+  "shortlist_window_start_utc": "2026-10-13T06:56:18.724406+00:00",
+  "shortlist_window_end_utc": "2026-10-16T06:56:18.724406+00:00",
   "selected_matches_within_72_hours": true,
   "selected_kickoff_span_hours": 24.0,
   "selected_first_kickoff_utc": "2026-10-13T19:00:00+00:00",
@@ -35,6 +35,8 @@
     "UEFA Champions League"
   ],
   "min_estimated_ev": 0.03,
+  "double_chance_min_adjusted_ev": 0.015,
+  "double_chance_min_adjusted_probability": 0.75,
   "validation_required": true,
   "ranking_metric": "development-calibration-adjusted probability, audit-qualified",
   "validation_market_statuses": {
@@ -44,7 +46,7 @@
       "home": "RELIABLE_FOR_RANKING",
       "away": "RELIABLE_FOR_RANKING",
       "over_1_5": "RELIABLE_FOR_RANKING",
-      "under_3_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "UNRELIABLE_AUDIT",
       "btts_yes": "RELIABLE_FOR_RANKING"
     },
     "La Liga": {
@@ -70,7 +72,7 @@
       "draw_away": "RELIABLE_FOR_RANKING",
       "home": "RELIABLE_FOR_RANKING",
       "away": "RELIABLE_FOR_RANKING",
-      "over_1_5": "RELIABLE_FOR_RANKING",
+      "over_1_5": "UNRELIABLE_AUDIT",
       "under_3_5": "RELIABLE_FOR_RANKING",
       "btts_yes": "RELIABLE_FOR_RANKING"
     },
@@ -81,7 +83,7 @@
       "away": "RELIABLE_FOR_RANKING",
       "over_1_5": "RELIABLE_FOR_RANKING",
       "under_3_5": "RELIABLE_FOR_RANKING",
-      "btts_yes": "RELIABLE_FOR_RANKING"
+      "btts_yes": "UNRELIABLE_AUDIT"
     },
     "UEFA Champions League": {
       "home_draw": "RELIABLE_FOR_RANKING",

@@ -1,10 +1,10 @@
 {
-  "selected_half_life_days": 365.0,
-  "selected_xi_per_day": 0.0018990333713971104,
+  "selected_half_life_days": 240.0,
+  "selected_xi_per_day": 0.0028881132523331052,
   "selection_metric": "walk_forward_1x2_log_loss",
   "validation_days": 365,
   "step_days": 56,
-  "n_folds": 7,
+  "n_folds": 6,
   "min_train": 250,
   "min_validation_matches": 25,
   "candidates": [
@@ -12,46 +12,46 @@
       "half_life_days": 120.0,
       "xi_per_day": 0.0057762265046662105,
       "valid": true,
-      "n_matches": 383,
-      "n_folds": 7,
-      "log_loss": 1.046384753361515,
-      "brier_score": 0.6293707380057111
+      "n_matches": 370,
+      "n_folds": 6,
+      "log_loss": 1.0520813415109125,
+      "brier_score": 0.6289183029516792
     },
     {
       "half_life_days": 240.0,
       "xi_per_day": 0.0028881132523331052,
       "valid": true,
-      "n_matches": 383,
-      "n_folds": 7,
-      "log_loss": 1.0398734125503533,
-      "brier_score": 0.6245903621227317
+      "n_matches": 370,
+      "n_folds": 6,
+      "log_loss": 1.0488665079925272,
+      "brier_score": 0.62684678707876
     },
     {
       "half_life_days": 365.0,
       "xi_per_day": 0.0018990333713971104,
       "valid": true,
-      "n_matches": 383,
-      "n_folds": 7,
-      "log_loss": 1.0388212076435257,
-      "brier_score": 0.6238480069468415
+      "n_matches": 370,
+      "n_folds": 6,
+      "log_loss": 1.0488865456355938,
+      "brier_score": 0.6269279454379416
     },
     {
       "half_life_days": 730.0,
       "xi_per_day": 0.0009495166856985552,
       "valid": true,
-      "n_matches": 383,
-      "n_folds": 7,
-      "log_loss": 1.0391661892649773,
-      "brier_score": 0.6243044201477859
+      "n_matches": 370,
+      "n_folds": 6,
+      "log_loss": 1.0496277724156444,
+      "brier_score": 0.6275785934225208
     },
     {
       "half_life_days": 1000000000.0,
       "xi_per_day": 6.931471805599453e-10,
       "valid": true,
-      "n_matches": 383,
-      "n_folds": 7,
-      "log_loss": 1.039271738104755,
-      "brier_score": 0.6244918227335393
+      "n_matches": 370,
+      "n_folds": 6,
+      "log_loss": 1.051189745146566,
+      "brier_score": 0.62891782350291
     }
   ],
   "note": "Validation scores were used for model selection and are not an independent final test. Evaluate on a later untouched period."
