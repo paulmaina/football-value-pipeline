@@ -55,7 +55,7 @@ class AllMarketEVTests(unittest.TestCase):
         _,_,summary=build_conservative_shortlist(pd.DataFrame([fixture()]),as_of=NOW)
         self.assertEqual(summary['min_estimated_ev'],.015)
         self.assertEqual(summary['min_bookmakers'],1)
-        self.assertEqual(summary['selection_policy_version'],'72h-all-markets-ev15-one-book-v6')
+        self.assertEqual(summary['selection_policy_version'],'72h-all-markets-net-ev15-execution-v7')
         from market_led_experiment import settings
         self.assertEqual(settings()['min_ev'],.03)
         self.assertEqual(settings()['min_probability'],.8)

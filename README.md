@@ -193,3 +193,9 @@ This repository is maintained under the GitHub user `paulmaina` and is described
 Pipeline CI now tests Python 3.12/3.14 on Linux and Windows, enforces application and critical-module coverage floors, and exercises the six-league prediction/experiment/format/capture/review path offline. Forward review validates immutable archives and independently reconciles generated reports before publishing, retains failure diagnostics, and reports provider health, training dates and policy groups. Windows LF/CRLF conversion no longer silently excludes experimental sidecars.
 
 See [Workflow checks and evidence](docs/workflow-assurance.md) for controls, artifacts, local commands and limitations. Rerun with both experiment flags and push before kickoff to capture future experiment evidence; historical snapshots are preserved.
+# Daily evidence and execution checks
+
+See [daily data health and forward evidence](docs/daily-evidence.md) for UCL
+automatic refresh, production quote eligibility and costs, and the new
+performance report health history. Existing forecasting commands remain valid.
+
