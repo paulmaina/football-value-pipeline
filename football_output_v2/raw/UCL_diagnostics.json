@@ -89,7 +89,7 @@
       "status": "RECEIVED_VALID_DC_QUOTES",
       "home_draw_quote": true,
       "draw_away_quote": true,
-      "dc_bookmakers": 4
+      "dc_bookmakers": 5
     },
     {
       "fixture_id": "da9e9e9eb9a238ed97827c4a8fbe6044",
