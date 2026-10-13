@@ -187,3 +187,9 @@ No explicit license file is present in the repository metadata, so licensing ter
 ## Contact / ownership
 
 This repository is maintained under the GitHub user `paulmaina` and is described as a football prediction model project.
+
+## Workflow verification
+
+Pipeline CI now tests Python 3.12/3.14 on Linux and Windows, enforces application and critical-module coverage floors, and exercises the six-league prediction/experiment/format/capture/review path offline. Forward review validates immutable archives and independently reconciles generated reports before publishing, retains failure diagnostics, and reports provider health, training dates and policy groups. Windows LF/CRLF conversion no longer silently excludes experimental sidecars.
+
+See [Workflow checks and evidence](docs/workflow-assurance.md) for controls, artifacts, local commands and limitations. Rerun with both experiment flags and push before kickoff to capture future experiment evidence; historical snapshots are preserved.
