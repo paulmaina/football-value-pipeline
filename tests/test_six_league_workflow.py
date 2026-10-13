@@ -16,6 +16,7 @@ from format_football_output import main as format_main
 from performance_tracking import capture,review,verified_record,write_json
 from test_conservative_bet_filter import fixture,NOW
 from test_graded_candidates import sample_report
+from test_recency_experiment import history,tuning,ToyModel
 from workflow_checks import raw_check,report_check
 
 
@@ -32,6 +33,7 @@ class SixLeagueWorkflowTests(unittest.TestCase):
                 'score':{'duration':'REGULAR','fullTime':{'home':2,'away':1}}}
             records.append(verified_record(cfg.football_data_org_code,match))
         def run_league(self,key,*args,**kwargs):
+            self._recency_history=history()
             return frames[key],{'training_end':'2026-10-08','training_matches':1000},{}
         def payload(api,league,event_id):
             row=frames[league.key].iloc[0]
@@ -52,9 +54,12 @@ class SixLeagueWorkflowTests(unittest.TestCase):
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league',return_value=(pd.DataFrame(),pd.DataFrame(),{},pd.DataFrame())),patch(
                 'goal_market_validation.evaluate_market_history',return_value=reliability),patch(
                 'conservative_bet_filter.build_conservative_shortlist',side_effect=partial(build_conservative_shortlist,as_of=NOW)),patch(
+                'football_value_pipeline_v2_standalone.FootballValuePipelineV2._history_for_league',return_value=history()),patch(
+                'dc_decay_validation.tune_half_life',side_effect=lambda *args,**kwargs:tuning()),patch(
+                'football_value_pipeline_v2_standalone.DixonColesModel',ToyModel),patch(
                 'market_led_experiment.fetch_event',side_effect=payload),patch('market_led_experiment.datetime') as dt:
                 dt.now.return_value=NOW
-                self.assertEqual(main(['--leagues',*keys,'--out-dir',str(raw),'--goal-blend-experiment','--market-led-experiment']),0)
+                self.assertEqual(main(['--leagues',*keys,'--out-dir',str(raw),'--goal-blend-experiment','--market-led-experiment','--tune-half-life','--recency-experiment']),0)
                 self.assertEqual(raw_check(root)['forecasts'],6)
                 self.assertEqual(format_main(['--root-dir',str(root)]),0)
                 self.assertTrue(capture('f'*40,root=root,captured_at=NOW+timedelta(minutes=1)))
@@ -68,4 +73,6 @@ class SixLeagueWorkflowTests(unittest.TestCase):
             self.assertEqual(len(data['training_end_dates']),6)
             self.assertEqual(data['experiments']['goal_blend_experiment']['graded_fixture_markets'],18)
             self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],6)
+            self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],12)
+            self.assertEqual(data['pipeline_health']['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
             self.assertTrue((root/'readable/football_performance_report.xlsx').exists())
