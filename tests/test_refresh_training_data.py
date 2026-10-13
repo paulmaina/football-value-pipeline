@@ -99,7 +99,9 @@ class RefreshTests(unittest.TestCase):
             git(other,'pull','--ff-only')
             self.assertEqual((other/'keep.txt').read_text(),'concurrent work')
             self.assertEqual((other/'README.md').read_text(),'preserve me')
-            self.assertEqual((other/'.football_cache/2627_E0.csv').read_bytes(),csv_data())
+            # A Windows Git checkout can convert this mutable CSV to CRLF.
+            # Assert preserved data independently of that representation.
+            self.assertEqual((other/'.football_cache/2627_E0.csv').read_bytes().replace(b'\r\n',b'\n'),csv_data())
             self.assertTrue(raced)
 
 

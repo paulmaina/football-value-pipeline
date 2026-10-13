@@ -14,12 +14,14 @@ venv/
 football_data_db/
 *.tmp
 ~$*.xlsx
-=======
 
 Commands.txt
->>>>>>> 8a4d69b (Include new model training datasets and outputs)
 # OS/editor files
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+# CI diagnostic outputs
+workflow_artifacts/
+.coverage
+.coverage.*
