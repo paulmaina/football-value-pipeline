@@ -256,8 +256,14 @@
   },
   "prediction_1x2_multiclass_brier": 0.558406,
   "prediction_fixtures_graded": 18,
-  "provider_errors": {},
-  "reviewed_at_utc": "2026-10-13T11:48:08Z",
+  "provider_errors": {
+    "Bundesliga": "football-data.org rate limited results requests (HTTP 429)",
+    "EPL": "football-data.org rate limited results requests (HTTP 429)",
+    "LaLiga": "football-data.org rate limited results requests (HTTP 429)",
+    "Ligue1": "football-data.org rate limited results requests (HTTP 429)",
+    "SerieA": "football-data.org rate limited results requests (HTTP 429)"
+  },
+  "reviewed_at_utc": "2026-10-13T11:48:17Z",
   "shortlist": {
     "brier": 0.309299,
     "flat_stake_roi": -0.215714,
