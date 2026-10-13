@@ -12,6 +12,11 @@
   "max_goals": 10,
   "devig_method": "power",
   "market_weight": 0.5,
+  "training_data_health": {
+    "training_end": "2026-10-12",
+    "days_since_latest_result": 1,
+    "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
+  },
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [

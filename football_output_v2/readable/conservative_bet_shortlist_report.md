@@ -1,10 +1,10 @@
 # Conservative shortlisted matches and markets
 
 
-**Candidates:** 5 of target 10 distinct matches.
-**Strictly qualified:** 5. **Provisional watchlist:** 0.
+**Candidates:** 4 of target 10 distinct matches.
+**Strictly qualified:** 4. **Provisional watchlist:** 0.
 **Pipeline status:** BELOW_TARGET.
-**Generated (UTC):** 2026-10-13T11:03:50.762232+00:00.
+**Generated (UTC):** 2026-10-13T11:52:12.097894+00:00.
 **Kickoffs within next 72 hours of run:** Yes (span: 24.0 hours).
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. Do not treat ten candidates as a ten-leg betslip.
@@ -15,9 +15,8 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Feyenoord vs Como | Over 1.5 | STRICT | 2026-10-14T16:45:00+00:00 | 97.3% | 95.6% | Coolbet | 1.14 | +9.0% | — |
 | Atlético Madrid vs Manchester United | Over 1.5 | STRICT | 2026-10-13T19:00:00+00:00 | 96.2% | 94.5% | Coolbet | 1.21 | +14.3% | — |
-| Real Betis vs Porto | Over 1.5 | STRICT | 2026-10-14T19:00:00+00:00 | 93.2% | 91.5% | Coolbet | 1.23 | +12.6% | — |
-| Galatasaray vs Barcelona | Both Teams to Score - Yes | STRICT | 2026-10-13T19:00:00+00:00 | 70.7% | 70.7% | Matchbook | 1.45 | +2.5% | — |
-| Aston Villa vs Fenerbahce | Home win | STRICT | 2026-10-14T19:00:00+00:00 | 67.5% | 67.5% | 1xBet | 1.69 | +14.0% | — |
+| Real Betis vs Porto | Over 1.5 | STRICT | 2026-10-14T19:00:00+00:00 | 93.2% | 91.5% | Coolbet | 1.23 | +12.5% | — |
+| Aston Villa vs Fenerbahce | Home win | STRICT | 2026-10-14T19:00:00+00:00 | 66.6% | 66.6% | 1xBet | 1.69 | +12.6% | — |
 
 ## Interpretation
 
