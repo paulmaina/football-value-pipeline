@@ -26,9 +26,9 @@
         "per_stake_cost_bps": 0
       },
       "experiment_capture_counts": {
-        "goal_blend_experiment:CAPTURED": 2,
+        "goal_blend_experiment:CAPTURED": 3,
         "goal_blend_experiment:LEGACY_NOT_RECORDED": 14,
-        "market_led_experiment:CAPTURED": 2,
+        "market_led_experiment:CAPTURED": 3,
         "market_led_experiment:LEGACY_NOT_RECORDED": 14
       },
       "experimental_reports": {
@@ -37,7 +37,7 @@
           "comparisons": [],
           "graded_fixture_markets": 0,
           "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-          "reviewed_at_utc": "2026-10-13T12:18:56.740793+00:00",
+          "reviewed_at_utc": "2026-10-13T12:30:02.689663+00:00",
           "total_fixture_markets": 201,
           "version": "goal-blend-shadow-v1"
         },
@@ -59,7 +59,7 @@
           "observed_fixture_markets": 134,
           "paired_graded_fixture_markets": 0,
           "pending_or_unverified_selections": 0,
-          "reviewed_at_utc": "2026-10-13T12:18:56.740793+00:00",
+          "reviewed_at_utc": "2026-10-13T12:30:02.689663+00:00",
           "selected": 0,
           "settings_observed": [
             {
@@ -81,8 +81,7 @@
       "quote_audit": {
         "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
         "bookmakers": {
-          "1xBet": 1,
-          "Coolbet": 3
+          "1xBet": 4
         },
         "costs_recorded": 4,
         "exchange_quotes": 0,
@@ -90,7 +89,7 @@
         "quote_age_over_24h": 0,
         "selected_quotes": 4
       },
-      "reviewed_at_utc": "2026-10-13T12:18:56.740793+00:00",
+      "reviewed_at_utc": "2026-10-13T12:30:02.689663+00:00",
       "selection_policy_groups": {
         "72h-ucl-v3": {
           "brier": 0.308868,
@@ -193,7 +192,7 @@
             "completed_matches": 18,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.5188535838888889,
+            "download_age_hours": 0.703839381111111,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-09-10",
             "latest_completed_utc": "2026-09-10T19:00:00+00:00",
@@ -208,7 +207,7 @@
             "training_end": "2026-09-10"
           },
           "days_since_latest_result": 33,
-          "diagnostics_sha256": "e06add3e89e83f9795601a9200001972b907bfb62e4f3df65ec8688a8b9aa2db",
+          "diagnostics_sha256": "432258e7785ee879af7c4e2b8ae8dab51a505f2782590f618947324e3ace8975",
           "forecast_training_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
@@ -216,7 +215,7 @@
             "completed_matches": 18,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.06971773972222223,
+            "download_age_hours": 0.6311165830555555,
             "download_status": "VERIFIED_LIVE",
             "last_refresh_error": "ValueError",
             "latest_completed_date": "2026-09-10",

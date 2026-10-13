@@ -91,7 +91,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | SerieA | 2026-10-12 | 1200 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-09-10 | 521 | 33 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 
-Latest shortlist audit: {"selected_quotes": 4, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 4, "bookmakers": {"Coolbet": 3, "1xBet": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
+Latest shortlist audit: {"selected_quotes": 4, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 4, "bookmakers": {"1xBet": 4}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
@@ -113,6 +113,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 0dba961b0bbe | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 962a7a22cb5b | CAPTURED | CAPTURED |
 | aea62120d25e | CAPTURED | CAPTURED |
+| 95dc22b24994 | CAPTURED | CAPTURED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
