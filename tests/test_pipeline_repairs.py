@@ -28,8 +28,8 @@ class PipelineRepairsTests(unittest.TestCase):
             'duration':'EXTRA_TIME','fullTime':{'home':4,'away':3}}))
         with tempfile.TemporaryDirectory() as tmp:
             provider = FootballDataOrg('offline-test', cache_dir=tmp)
-            with patch.object(provider.http,'get_json',return_value={'matches':matches}):
-                history = provider.history(LEAGUES['UCL'],1,now)
+            with patch('ucl_training.fetch_payload',return_value={'competition':{'code':'CL'},'matches':[]}), patch.object(provider.http,'get_json',return_value={'matches':matches}):
+                history = provider.history(LEAGUES['UCL'],2,now)
         self.assertEqual(len(history),30)
         self.assertEqual(history.iloc[0][['FTHG','FTAG']].tolist(),[0,1])
         self.assertEqual(history.iloc[-1][['FTHG','FTAG']].tolist(),[3,3])

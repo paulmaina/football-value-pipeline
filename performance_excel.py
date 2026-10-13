@@ -150,6 +150,8 @@ def prepared_rows(rows):
         r['price'] = num(r.get('offered_decimal_odds'))
         if r['price'] is not None and r['price'] <= 1:
             r['price'] = None
+        from quote_policy import stake_cost
+        r['cost'] = stake_cost(r.get('per_stake_cost') or 0)
         r['priced'] = r['y'] is not None and r['price'] is not None
         r['scored_p'] = r['p'] if r['y'] is not None else None
         r['brier_value'] = (r['p']-r['y'])**2 if r['scored_p'] is not None else None
@@ -163,7 +165,7 @@ def summarize(rows):
     priced = [r for r in rows if r['priced']]
     prob = [r for r in settled if r['scored_p'] is not None]
     wins = sum(r['y'] for r in settled)
-    profit = sum(r['price']-1 if r['y'] else -1 for r in priced)
+    profit = sum((r['price']-1 if r['y'] else -1)-r['cost'] for r in priced)
     mean = sum(r['p'] for r in prob)/len(prob) if prob else None
     observed = sum(r['y'] for r in prob)/len(prob) if prob else None
     return [len(rows), len(settled), wins, len(settled)-wins, len(rows)-len(settled),
@@ -197,6 +199,74 @@ def formula_group(dimension, label, rows, end, column=None):
     return [dimension,label]+list(zip(fs,metrics))
 
 
+def add_health_sheet(root, data, history):
+    """Add the operational evidence sheet without changing existing report charts."""
+    destination = Path(root)/'readable'/REPORT_NAME
+    if not destination.exists():
+        return
+    with ZipFile(destination) as z:
+        parts = {name:z.read(name) for name in z.namelist()}
+    sheet = TemplateSheet(f'<worksheet xmlns="{NS}"><sheetData/></worksheet>'.encode())
+    columns=ET.Element(tag('cols'))
+    for i,width in enumerate((28,30,26,26,52),1):
+        ET.SubElement(columns,tag('col'),{'min':str(i),'max':str(i),'width':str(width),'customWidth':'1'})
+    sheet.xml.insert(0,columns)
+    sheet.set('A1', 'Pipeline health and forward evidence')
+    sheet.set('A2', 'Review UTC: '+data['reviewed_at_utc'])
+    sheet.set('A3', 'Source freshness, model results and execution checks are separate evidence.')
+    rows = [['League', 'Training end', 'Matches', 'Days since result', 'Source status']]
+    for league, info in data['training'].items():
+        state=info.get('current_source_health',info['forecast_training_health']).get('status')
+        rows.append([league,info['training_end'],info['training_matches'],info['days_since_latest_result'],state])
+    rows += [[], ['Latest stored shortlist audit'], *[[k, json.dumps(v) if isinstance(v,dict) else v]
+            for k,v in data['quote_audit'].items()], [], ['Snapshot', 'Captured UTC', 'Goal blend', 'Market led']]
+    rows += [[r['commit'][:12],r['captured_at_utc'],r['experiments']['goal_blend_experiment'],
+              r['experiments']['market_led_experiment']] for r in data['snapshot_capture_history']]
+    rows += [[], ['Daily observations', 'Graded', 'Win rate', 'Net simulated ROI', 'Brier']]
+    for day, observation in sorted(history['days'].items()):
+        metric=observation['shortlist_performance']
+        rows.append([day,metric['graded'],metric['win_rate'],metric['flat_stake_roi'],metric['brier']])
+    rows += [[], ['Review dependency versions'], *[[k,v] for k,v in data['dependencies'].items()], [],
+             ['Improvement is not established by fresher data or software changes. Compare paired forecasts and settled results.'],
+             ['Account access and executable stake sizes are not verified. Exchange targets require a commission/liquidity adapter.']]
+    sheet.fill(rows)
+    # Add one native worksheet and its package relationships.
+    workbook=ET.fromstring(parts['xl/workbook.xml']);sheets=workbook.find(tag('sheets'))
+    rel_ns='http://schemas.openxmlformats.org/package/2006/relationships'
+    r_ns='http://schemas.openxmlformats.org/officeDocument/2006/relationships'
+    relationships=ET.fromstring(parts['xl/_rels/workbook.xml.rels'])
+    existing=next((s for s in sheets if s.get('name')=='Pipeline Health'),None)
+    if existing is None:
+        index=max(int(s.get('sheetId')) for s in sheets)+1
+        rid='rIdPipelineHealth'
+        ET.SubElement(sheets,tag('sheet'),{'name':'Pipeline Health','sheetId':str(index),f'{{{r_ns}}}id':rid})
+        ET.SubElement(relationships,f'{{{rel_ns}}}Relationship',{'Id':rid,
+            'Type':r_ns+'/worksheet','Target':f'worksheets/sheet{index}.xml'})
+        types=ET.fromstring(parts['[Content_Types].xml']);ct_ns='http://schemas.openxmlformats.org/package/2006/content-types'
+        ET.SubElement(types,f'{{{ct_ns}}}Override',{'PartName':f'/xl/worksheets/sheet{index}.xml',
+            'ContentType':'application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml'})
+        parts['[Content_Types].xml']=ET.tostring(types,encoding='utf-8',xml_declaration=True)
+    else:
+        rid=existing.get(f'{{{r_ns}}}id')
+        target=next(r.get('Target') for r in relationships if r.get('Id')==rid)
+        index=int(re.search(r'sheet(\d+)\.xml',target).group(1))
+    parts[f'xl/worksheets/sheet{index}.xml']=ET.tostring(sheet.xml,encoding='utf-8',xml_declaration=True)
+    parts['xl/workbook.xml']=ET.tostring(workbook,encoding='utf-8',xml_declaration=True)
+    parts['xl/_rels/workbook.xml.rels']=ET.tostring(relationships,encoding='utf-8',xml_declaration=True)
+    import tempfile
+    import os
+    fd,name=tempfile.mkstemp(prefix='health.',suffix='.tmp',dir=destination.parent);os.close(fd)
+    temporary=Path(name)
+    try:
+        with ZipFile(temporary,'w',ZIP_DEFLATED) as z:
+            for name,content in sorted(parts.items()):
+                info=ZipInfo(name,date_time=(1980,1,1,0,0,0));info.compress_type=ZIP_DEFLATED
+                z.writestr(info,content)
+        temporary.replace(destination)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
 def review_note(data):
     n=data[-1]
     if n < 30:
@@ -224,11 +294,12 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
             f"{r.get('home_team','')} vs {r.get('away_team','')}",r.get('market'),r.get('selection_tier'),r['policy'],
             r['p'],r['price'],r.get('final_score'),r['status'],r['y'],
             (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(I{i}),I{i}>1),\'ROI Plan\'!$B$5,"")',1 if r['priced'] else ''),
-            (f'IF(ISNUMBER(M{i}),M{i}*(I{i}*L{i}-1),"")',(r['price']-1 if r['y'] else -1) if r['priced'] else ''),
+            (f'IF(ISNUMBER(M{i}),M{i}*(I{i}*L{i}-1-U{i}),"")',((r['price']-1 if r['y'] else -1)-r['cost']) if r['priced'] else ''),
             (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(H{i})),(H{i}-L{i})^2,"")',r['brier_value']),
             r.get('week'),r.get('snapshot_commit'),r.get('match_source'),
             (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(H{i})),H{i},"")',r['scored_p']),
-            (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(H{i})),1,0)',1 if r['scored_p'] is not None else 0)])
+            (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(H{i})),1,0)',1 if r['scored_p'] is not None else 0), r['cost']])
+    sheets['Selections'].set('U5','Cost per unit stake')
     sheets['Selections'].fill(selection_data)
     ps=[]
     for p in sorted(predictions,key=lambda r:(r.get('kickoff_utc',''),r.get('fixture_key',''))):
@@ -268,7 +339,7 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
     sheets['Calibration'].fill(cal_rows)
     roi=[]; running=0; peak=100
     for i,r in enumerate(rows,10):
-        sr=i-4; gain=(r['price']-1 if r['y'] else -1) if r['priced'] else 0
+        sr=i-4; gain=((r['price']-1 if r['y'] else -1)-r['cost']) if r['priced'] else 0
         running+=gain; bank=100+running;peak=max(peak,bank)
         roi.append([r.get('kickoff_utc',''),f"{r.get('home_team','')} vs {r.get('away_team','')}",r['status'],
                     (f'IF(ISNUMBER(Selections!M{sr}),Selections!M{sr},"")',1 if r['priced'] else ''),
