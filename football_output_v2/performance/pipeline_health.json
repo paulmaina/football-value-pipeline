@@ -27,7 +27,8 @@
     "goal_blend_experiment:CAPTURED": 4,
     "goal_blend_experiment:LEGACY_NOT_RECORDED": 14,
     "market_led_experiment:CAPTURED": 4,
-    "market_led_experiment:LEGACY_NOT_RECORDED": 14
+    "market_led_experiment:LEGACY_NOT_RECORDED": 14,
+    "recency_experiment:LEGACY_NOT_RECORDED": 18
   },
   "experimental_reports": {
     "goal_blend_experiment": {
@@ -35,7 +36,7 @@
       "comparisons": [],
       "graded_fixture_markets": 0,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-13T15:10:17.767050+00:00",
+      "reviewed_at_utc": "2026-10-13T15:22:13.852114+00:00",
       "total_fixture_markets": 201,
       "version": "goal-blend-shadow-v1"
     },
@@ -57,7 +58,7 @@
       "observed_fixture_markets": 134,
       "paired_graded_fixture_markets": 0,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-13T15:10:17.767050+00:00",
+      "reviewed_at_utc": "2026-10-13T15:22:13.852114+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -74,7 +75,8 @@
         }
       ],
       "version": "market-led-dc-v1"
-    }
+    },
+    "recency_experiment": {}
   },
   "quote_audit": {
     "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -87,7 +89,7 @@
     "quote_age_over_24h": 0,
     "selected_quotes": 4
   },
-  "reviewed_at_utc": "2026-10-13T15:10:17.767050+00:00",
+  "reviewed_at_utc": "2026-10-13T15:22:13.852114+00:00",
   "selection_policy_groups": {
     "72h-ucl-v3": {
       "brier": 0.308868,
@@ -120,7 +122,8 @@
       "commit": "2fd31d33722311d8e0155bb5eca6b3a310ac938b",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "legacy/unspecified"
@@ -130,7 +133,8 @@
       "commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "legacy/unspecified"
@@ -140,7 +144,8 @@
       "commit": "b9c15c09504aaf57de5ad0957adb91c0e9b37243",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "legacy/unspecified"
@@ -150,7 +155,8 @@
       "commit": "648ca5973f8d6521eefb8a4a5233fabb8e644a8e",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-ucl-v2"
@@ -160,7 +166,8 @@
       "commit": "660b75e4a3111f2a890ba1d58d595a637d01d0f2",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-ucl-v2"
@@ -170,7 +177,8 @@
       "commit": "a2cdead106b513fd623cffd1e43a491685d68cc3",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-ucl-v3"
@@ -180,7 +188,8 @@
       "commit": "5fb257972ff233227b2e94d4b784eebf60b66d42",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-ucl-v3"
@@ -190,7 +199,8 @@
       "commit": "f1a72cc22d717088fb3c74014de8aae60f586e46",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-ucl-v3"
@@ -200,7 +210,8 @@
       "commit": "4f7af2f470a0b5cdb7b8ae974c859f87b0236fc4",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-ucl-v3"
@@ -210,7 +221,8 @@
       "commit": "5496e9ba03aeb2ae41363a329fbc48e9754cfb0e",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-double-chance-v4"
@@ -220,7 +232,8 @@
       "commit": "f6306ebd6d74a53df80194728284cbdc188f3667",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-double-chance-v5"
@@ -230,7 +243,8 @@
       "commit": "fbfe5af89d0633da4bf4e581e42347272b5e913e",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-all-markets-ev15-one-book-v6"
@@ -240,7 +254,8 @@
       "commit": "87b1676077a47afbdd6b75767d92bd78c5bd8f30",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-all-markets-ev15-one-book-v6"
@@ -250,7 +265,8 @@
       "commit": "0dba961b0bbe74d5cd4c3779bb410a5707e2a2f1",
       "experiments": {
         "goal_blend_experiment": "LEGACY_NOT_RECORDED",
-        "market_led_experiment": "LEGACY_NOT_RECORDED"
+        "market_led_experiment": "LEGACY_NOT_RECORDED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-all-markets-ev15-one-book-v6"
@@ -260,7 +276,8 @@
       "commit": "962a7a22cb5bd1ec1fb3ceac2b4d2345662a495b",
       "experiments": {
         "goal_blend_experiment": "CAPTURED",
-        "market_led_experiment": "CAPTURED"
+        "market_led_experiment": "CAPTURED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": null,
       "policy": "72h-all-markets-ev15-one-book-v6"
@@ -270,7 +287,8 @@
       "commit": "aea62120d25e83c8faa9370508b138b5198eff7b",
       "experiments": {
         "goal_blend_experiment": "CAPTURED",
-        "market_led_experiment": "CAPTURED"
+        "market_led_experiment": "CAPTURED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": {
         "captured_at_utc": "2026-10-13T12:01:10.494862+00:00",
@@ -438,7 +456,8 @@
       "commit": "95dc22b24994ed86c16a59b69e2c8a70ef714654",
       "experiments": {
         "goal_blend_experiment": "CAPTURED",
-        "market_led_experiment": "CAPTURED"
+        "market_led_experiment": "CAPTURED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": {
         "captured_at_utc": "2026-10-13T12:30:01.078767+00:00",
@@ -607,7 +626,8 @@
       "commit": "ea202e9e045b13c143daefbf6921b6a2384fc2d1",
       "experiments": {
         "goal_blend_experiment": "CAPTURED",
-        "market_led_experiment": "CAPTURED"
+        "market_led_experiment": "CAPTURED",
+        "recency_experiment": "LEGACY_NOT_RECORDED"
       },
       "health": {
         "captured_at_utc": "2026-10-13T12:48:34.211531+00:00",
@@ -837,7 +857,7 @@
         "completed_matches": 18,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 2.4505247694444448,
+        "download_age_hours": 2.649437287222222,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-09-10",
         "latest_completed_utc": "2026-09-10T19:00:00+00:00",
