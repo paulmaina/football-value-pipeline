@@ -71,6 +71,34 @@ if not marker.exists():
             self.assertFalse((event / 'newer.txt').exists())
             self.assertTrue(captured.exists())
 
+class PublisherValidationTests(unittest.TestCase):
+    def test_failed_validation_blocks_push_and_retains_attempt_reports(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base=Path(tmp);remote=base/'remote.git';repo=base/'event'
+            subprocess.run(['git','init','--bare',str(remote)],check=True,capture_output=True)
+            subprocess.run(['git','clone',str(remote),str(repo)],check=True,capture_output=True)
+            git(repo,'checkout','-b','main')
+            git(repo,'config','user.name','CI Test');git(repo,'config','user.email','ci@example.com')
+            (repo/'baseline.txt').write_text('keep')
+            git(repo,'add','.');git(repo,'commit','-m','baseline');git(repo,'push','origin','main')
+            initial=git(repo,'rev-parse','HEAD').stdout.strip()
+            reviewer=base/'review.py'
+            reviewer.write_text("from pathlib import Path\np=Path('football_output_v2/performance');p.mkdir(parents=True)\n(p/'metrics.json').write_text('{}')\n")
+            diagnostics=repo/'workflow_artifacts';diagnostics.mkdir();(diagnostics/'preflight.json').write_text('keep preflight')
+            with self.assertRaises(subprocess.CalledProcessError):
+                publish(repo,review_command=[sys.executable,str(reviewer)],
+                    validation_command=[sys.executable,'-c','raise SystemExit(3)'],artifact_dir=Path('workflow_artifacts'))
+            self.assertEqual(git(repo,'ls-remote','origin','refs/heads/main').stdout.split()[0],initial)
+            self.assertEqual((diagnostics/'performance/metrics.json').read_text(),'{}')
+            self.assertEqual((diagnostics/'preflight.json').read_text(),'keep preflight')
+            self.assertFalse((repo/'football_output_v2/performance/metrics.json').exists())
+
+    def test_artifact_destination_cannot_overwrite_checkout_or_escape_it(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            for destination in (Path('.'),Path('../workflow_artifacts'),Path('football_output_v2')):
+                with self.assertRaisesRegex(ValueError,'Artifact destination'):
+                    publish(Path(tmp),artifact_dir=destination)
+
 
 if __name__ == '__main__':
     unittest.main()

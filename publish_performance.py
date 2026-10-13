@@ -39,9 +39,14 @@ def merge_snapshots(source: Path, destination: Path) -> None:
 
 
 def publish(repo: Path, *, remote: str = "origin", branch: str = "main",
-            attempts: int = 3, review_command: list[str] | None = None) -> None:
+            attempts: int = 3, review_command: list[str] | None = None,
+            validation_command: list[str] | None = None, artifact_dir: Path | None = None) -> None:
     repo = repo.resolve()
     command = review_command or [sys.executable, "performance_tracking.py", "review"]
+    artifacts = (repo / artifact_dir).resolve() if artifact_dir is not None else None
+    if artifacts is not None:
+        if not artifacts.is_relative_to(repo) or artifacts == repo or artifacts.name != "workflow_artifacts":
+            raise ValueError("Artifact destination must be a workflow_artifacts directory inside the checkout")
     with tempfile.TemporaryDirectory(prefix="performance-publish-") as temporary:
         temporary = Path(temporary)
         saved = temporary / "snapshots"
@@ -53,7 +58,20 @@ def publish(repo: Path, *, remote: str = "origin", branch: str = "main",
             git(repo, "worktree", "add", "--detach", str(work), base)
             try:
                 merge_snapshots(saved, work / SNAPSHOTS)
-                subprocess.run(command, cwd=work, check=True)
+                try:
+                    subprocess.run(command, cwd=work, check=True)
+                    if validation_command is not None:
+                        subprocess.run(validation_command, cwd=work, check=True)
+                finally:
+                    if artifacts is not None:
+                        # Retain this attempt's reports even if validation fails; never copy secrets/raw cache.
+                        artifacts.mkdir(parents=True, exist_ok=True)
+                        if (artifacts / "performance").exists(): shutil.rmtree(artifacts / "performance")
+                        performance = work / "football_output_v2/performance"
+                        if performance.exists():
+                            shutil.copytree(performance, artifacts / "performance", ignore=shutil.ignore_patterns("snapshots"))
+                        workbook = work / OUTPUTS[1]
+                        if workbook.exists(): shutil.copyfile(workbook, artifacts / workbook.name)
                 for path in OUTPUTS:
                     if (work / path).exists():
                         git(work, "add", "--", path)
@@ -81,6 +99,11 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--api-key-source", choices=("dotenv", "environment"), default="dotenv")
+    parser.add_argument("--validate-reports", action="store_true")
+    parser.add_argument("--artifact-dir", type=Path)
     args = parser.parse_args()
     publish(Path(__file__).resolve().parent, review_command=[sys.executable,
-        "performance_tracking.py", "review", "--api-key-source", args.api_key_source])
+        "performance_tracking.py", "review", "--api-key-source", args.api_key_source],
+        validation_command=([sys.executable, "workflow_checks.py", "reports", "--output",
+            "football_output_v2/performance/workflow_health.json", "--github-summary"] if args.validate_reports else None),
+        artifact_dir=args.artifact_dir)
