@@ -74,6 +74,7 @@ jobs:
       - name: Regenerate and publish reports from latest main
         env:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
-        run: python publish_performance.py
+        run: python publish_performance.py --api-key-source environment
+
 
 

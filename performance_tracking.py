@@ -776,10 +776,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("action", choices=("capture", "review"))
     parser.add_argument("--commit-sha", default=os.getenv("GITHUB_SHA", ""))
     parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--api-key-source", choices=("dotenv", "environment"), default="dotenv")
     args = parser.parse_args(argv)
     if args.action == "capture":
         capture(args.commit_sha, root=args.root)
     else:
+        from api_key_config import load_api_keys
+        load_api_keys(args.api_key_source)
         review(root=args.root, token=os.getenv("FOOTBALL_DATA_API_KEY", "").strip())
     return 0
 
