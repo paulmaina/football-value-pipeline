@@ -18,8 +18,10 @@
         "prediction_fixtures_graded": 18
       },
       "execution_policy": {
-        "account_availability": "NOT_VERIFIED",
-        "allowed_bookmakers": [],
+        "account_availability": "USER_ALLOWLIST",
+        "allowed_bookmakers": [
+          "1xBet"
+        ],
         "exchange_policy": "EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER",
         "per_stake_cost_bps": 0
       },
@@ -35,7 +37,7 @@
           "comparisons": [],
           "graded_fixture_markets": 0,
           "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-          "reviewed_at_utc": "2026-10-13T12:01:12.349759+00:00",
+          "reviewed_at_utc": "2026-10-13T12:18:56.740793+00:00",
           "total_fixture_markets": 201,
           "version": "goal-blend-shadow-v1"
         },
@@ -57,7 +59,7 @@
           "observed_fixture_markets": 134,
           "paired_graded_fixture_markets": 0,
           "pending_or_unverified_selections": 0,
-          "reviewed_at_utc": "2026-10-13T12:01:12.349759+00:00",
+          "reviewed_at_utc": "2026-10-13T12:18:56.740793+00:00",
           "selected": 0,
           "settings_observed": [
             {
@@ -88,7 +90,7 @@
         "quote_age_over_24h": 0,
         "selected_quotes": 4
       },
-      "reviewed_at_utc": "2026-10-13T12:01:12.349759+00:00",
+      "reviewed_at_utc": "2026-10-13T12:18:56.740793+00:00",
       "selection_policy_groups": {
         "72h-ucl-v3": {
           "brier": 0.308868,
@@ -191,7 +193,7 @@
             "completed_matches": 18,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.22318940777777777,
+            "download_age_hours": 0.5188535838888889,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-09-10",
             "latest_completed_utc": "2026-09-10T19:00:00+00:00",
