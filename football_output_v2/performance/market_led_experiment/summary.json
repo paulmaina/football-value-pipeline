@@ -1,7 +1,159 @@
 {
   "available_fixture_markets": 36,
-  "calibration": [],
-  "comparisons": [],
+  "calibration": [
+    {
+      "bin_lower": 0.6,
+      "event_rate": 1.0,
+      "market": "draw_away",
+      "mean_probability": 0.6551158798556687,
+      "n": 1,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.8,
+      "event_rate": 0.0,
+      "market": "draw_away",
+      "mean_probability": 0.8175889321358695,
+      "n": 1,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.6,
+      "event_rate": 1.0,
+      "market": "draw_away",
+      "mean_probability": 0.6184934084145293,
+      "n": 1,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.7,
+      "event_rate": 0.0,
+      "market": "draw_away",
+      "mean_probability": 0.7539545863767462,
+      "n": 1,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.6,
+      "event_rate": 1.0,
+      "market": "draw_away",
+      "mean_probability": 0.687871696578449,
+      "n": 1,
+      "variant": "raw"
+    },
+    {
+      "bin_lower": 0.8,
+      "event_rate": 0.0,
+      "market": "draw_away",
+      "mean_probability": 0.885802833397558,
+      "n": 1,
+      "variant": "raw"
+    },
+    {
+      "bin_lower": 0.4,
+      "event_rate": 1.0,
+      "market": "home_draw",
+      "mean_probability": 0.44498891813554586,
+      "n": 1,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.5,
+      "event_rate": 0.0,
+      "market": "home_draw",
+      "mean_probability": 0.5878824538836593,
+      "n": 1,
+      "variant": "baseline"
+    },
+    {
+      "bin_lower": 0.4,
+      "event_rate": 1.0,
+      "market": "home_draw",
+      "mean_probability": 0.4914453684655167,
+      "n": 1,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.6,
+      "event_rate": 0.0,
+      "market": "home_draw",
+      "mean_probability": 0.6387588573343557,
+      "n": 1,
+      "variant": "market"
+    },
+    {
+      "bin_lower": 0.3,
+      "event_rate": 1.0,
+      "market": "home_draw",
+      "mean_probability": 0.39928704545933924,
+      "n": 1,
+      "variant": "raw"
+    },
+    {
+      "bin_lower": 0.5,
+      "event_rate": 0.0,
+      "market": "home_draw",
+      "mean_probability": 0.5455401572502492,
+      "n": 1,
+      "variant": "raw"
+    }
+  ],
+  "comparisons": [
+    {
+      "brier": 0.3936983591394005,
+      "event_rate": 0.5,
+      "log_loss": 1.0622178336438022,
+      "market": "draw_away",
+      "mean_probability": 0.7363524059957691,
+      "n": 2,
+      "variant": "baseline"
+    },
+    {
+      "brier": 0.35699739887084675,
+      "event_rate": 0.5,
+      "log_loss": 0.9413539482214941,
+      "market": "draw_away",
+      "mean_probability": 0.6862239973956377,
+      "n": 2,
+      "variant": "market"
+    },
+    {
+      "brier": 0.4410353687259789,
+      "event_rate": 0.5,
+      "log_loss": 1.2719908694379305,
+      "market": "draw_away",
+      "mean_probability": 0.7868372649880035,
+      "n": 2,
+      "variant": "raw"
+    },
+    {
+      "brier": 0.32682154028831234,
+      "event_rate": 0.5,
+      "log_loss": 0.848076282204604,
+      "market": "home_draw",
+      "mean_probability": 0.5164356860096027,
+      "n": 2,
+      "variant": "baseline"
+    },
+    {
+      "brier": 0.3333203455391329,
+      "event_rate": 0.5,
+      "log_loss": 0.8643070283328905,
+      "market": "home_draw",
+      "mean_probability": 0.5651021128999362,
+      "n": 2,
+      "variant": "market"
+    },
+    {
+      "brier": 0.3292350584627983,
+      "event_rate": 0.5,
+      "log_loss": 0.8533602163102598,
+      "market": "home_draw",
+      "mean_probability": 0.4724136013547942,
+      "n": 2,
+      "variant": "raw"
+    }
+  ],
   "decision": "INCONCLUSIVE_NO_AUTOMATIC_PROMOTION",
   "flat_unit_roi_after_configured_cost": null,
   "graded_selections": 0,
@@ -14,9 +166,9 @@
   },
   "note": "Paper results at feed odds, not realized returns. Costs are user-configured per stake. Late reference proxy uses only archived quotes 20–60 minutes before kickoff; not actual closing odds. No automatic collection at close or promotion.",
   "observed_fixture_markets": 134,
-  "paired_graded_fixture_markets": 0,
+  "paired_graded_fixture_markets": 4,
   "pending_or_unverified_selections": 0,
-  "reviewed_at_utc": "2026-10-13T17:05:36.167342+00:00",
+  "reviewed_at_utc": "2026-10-13T19:24:44.792179+00:00",
   "selected": 0,
   "settings_observed": [
     {

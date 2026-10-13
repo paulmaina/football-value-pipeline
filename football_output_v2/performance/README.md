@@ -12,7 +12,7 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 | All selections | 7 | 4-3 | 57.1% | -21.6% |
 
 Unsettled / unverified entries: **12**.
-Whole-fixture 1X2 multiclass Brier (n=18): 0.5584
+Whole-fixture 1X2 multiclass Brier (n=20): 0.5789
 
 ## STRICT versus PROVISIONAL
 
@@ -89,7 +89,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | LaLiga | 2026-10-12 | 1218 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Ligue1 | 2026-10-11 | 972 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SerieA | 2026-10-12 | 1200 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-09-10 | 521 | 33 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UCL | 2026-09-10 | 521 | 33 | MODEL_BEHIND_VERIFIED_SOURCE |
 
 Latest shortlist audit: {"selected_quotes": 4, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 4, "bookmakers": {"1xBet": 4}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
 
@@ -118,7 +118,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 6556638142ba | CAPTURED | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED |
 | 010ef527d5bf | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Filter sensitivity: [report](filter_sensitivity_experiment/report.md). Frozen 1.5%, 3% and 5% adjusted EV policies; production unchanged.
 

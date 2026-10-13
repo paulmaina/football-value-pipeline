@@ -1,9 +1,130 @@
 {
   "available_fixture_markets": 54,
-  "comparisons": [],
-  "graded_fixture_markets": 0,
+  "comparisons": [
+    {
+      "brier": 0.18977911564260247,
+      "event_rate": 0.0,
+      "market": "btts_yes",
+      "mean_probability": 0.39807445641941885,
+      "n": 2,
+      "variant": "baseline"
+    },
+    {
+      "brier": 0.22660291294966292,
+      "event_rate": 0.0,
+      "market": "btts_yes",
+      "mean_probability": 0.4573702105877856,
+      "n": 2,
+      "variant": "book25"
+    },
+    {
+      "brier": 0.27529653607934856,
+      "event_rate": 0.0,
+      "market": "btts_yes",
+      "mean_probability": 0.5169212549416218,
+      "n": 2,
+      "variant": "book50"
+    },
+    {
+      "brier": 0.4045602791455044,
+      "event_rate": 0.0,
+      "market": "btts_yes",
+      "mean_probability": 0.6360233436492941,
+      "n": 2,
+      "variant": "bookmaker"
+    },
+    {
+      "brier": 0.18853478875557206,
+      "event_rate": 0.0,
+      "market": "btts_yes",
+      "mean_probability": 0.3978191662339494,
+      "n": 2,
+      "variant": "raw"
+    },
+    {
+      "brier": 0.16150627510309432,
+      "event_rate": 1.0,
+      "market": "over_1_5",
+      "mean_probability": 0.6269236575773267,
+      "n": 2,
+      "variant": "baseline"
+    },
+    {
+      "brier": 0.11145438898946278,
+      "event_rate": 1.0,
+      "market": "over_1_5",
+      "mean_probability": 0.6840639274863087,
+      "n": 2,
+      "variant": "book25"
+    },
+    {
+      "brier": 0.07574591342095895,
+      "event_rate": 1.0,
+      "market": "over_1_5",
+      "mean_probability": 0.7343439833811223,
+      "n": 2,
+      "variant": "book50"
+    },
+    {
+      "brier": 0.027256657791388982,
+      "event_rate": 1.0,
+      "market": "over_1_5",
+      "mean_probability": 0.8349040951707494,
+      "n": 2,
+      "variant": "bookmaker"
+    },
+    {
+      "brier": 0.15480542972711253,
+      "event_rate": 1.0,
+      "market": "over_1_5",
+      "mean_probability": 0.6337838715914952,
+      "n": 2,
+      "variant": "raw"
+    },
+    {
+      "brier": 0.056616246778379696,
+      "event_rate": 1.0,
+      "market": "under_3_5",
+      "mean_probability": 0.7952084142184824,
+      "n": 2,
+      "variant": "baseline"
+    },
+    {
+      "brier": 0.07173755553548115,
+      "event_rate": 1.0,
+      "market": "under_3_5",
+      "mean_probability": 0.7477055515444406,
+      "n": 2,
+      "variant": "book25"
+    },
+    {
+      "brier": 0.09184544385487137,
+      "event_rate": 1.0,
+      "market": "under_3_5",
+      "mean_probability": 0.7028981131557557,
+      "n": 2,
+      "variant": "book50"
+    },
+    {
+      "brier": 0.14955004640336894,
+      "event_rate": 1.0,
+      "market": "under_3_5",
+      "mean_probability": 0.6132832363783858,
+      "n": 2,
+      "variant": "bookmaker"
+    },
+    {
+      "brier": 0.05745927585266332,
+      "event_rate": 1.0,
+      "market": "under_3_5",
+      "mean_probability": 0.7925129899331255,
+      "n": 2,
+      "variant": "raw"
+    }
+  ],
+  "graded_fixture_markets": 6,
   "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-  "reviewed_at_utc": "2026-10-13T17:05:36.167342+00:00",
+  "reviewed_at_utc": "2026-10-13T19:24:44.792179+00:00",
   "total_fixture_markets": 201,
   "version": "goal-blend-shadow-v1"
 }
