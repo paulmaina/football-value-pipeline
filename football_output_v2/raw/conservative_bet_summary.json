@@ -1,6 +1,6 @@
 {
   "status": "BELOW_TARGET",
-  "generated_at_utc": "2026-10-13T11:52:12.097894+00:00",
+  "generated_at_utc": "2026-10-13T12:25:52.916649+00:00",
   "selection_policy_version": "72h-all-markets-net-ev15-execution-v7",
   "n_fixtures": 67,
   "n_markets_evaluated": 402,
@@ -11,8 +11,8 @@
   "target_distinct_matches": 10,
   "shortfall": 6,
   "shortlist_lookahead_hours": 72.0,
-  "shortlist_window_start_utc": "2026-10-13T11:52:12.097894+00:00",
-  "shortlist_window_end_utc": "2026-10-16T11:52:12.097894+00:00",
+  "shortlist_window_start_utc": "2026-10-13T12:25:52.916649+00:00",
+  "shortlist_window_end_utc": "2026-10-16T12:25:52.916649+00:00",
   "selected_matches_within_72_hours": true,
   "selected_kickoff_span_hours": 24.0,
   "selected_first_kickoff_utc": "2026-10-13T19:00:00+00:00",
@@ -35,10 +35,12 @@
     "UEFA Champions League"
   ],
   "quote_execution_policy": {
-    "allowed_bookmakers": [],
+    "allowed_bookmakers": [
+      "1xBet"
+    ],
     "per_stake_cost_bps": 0,
     "exchange_policy": "EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER",
-    "account_availability": "NOT_VERIFIED"
+    "account_availability": "USER_ALLOWLIST"
   },
   "min_estimated_ev": 0.015,
   "min_bookmakers": 1,
