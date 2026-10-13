@@ -13,7 +13,7 @@ Data sources:
       https://api.football-data.org/v4
   - Last-resort current fixture/odds snapshot: Football-Data.co.uk fixtures.csv
 
-Environment variables:
+API keys (local CLI reads project .env exclusively; explicit CI mode uses environment):
   - THE_ODDS_API_KEY             primary current fixtures + bookmaker odds
   - THE_ODDS_API_KEY_FALLBACK_1  optional authorized secondary credential
   - THE_ODDS_API_KEY_FALLBACK_2  optional authorized tertiary credential
@@ -2569,7 +2569,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 raise RuntimeError(
                     "UCL predictions require FOOTBALL_DATA_API_KEY for "
                     "Champions League training results. Create a football-data.org "
-                    "API token and set it in the environment before running UCL."
+                    "API token and put FOOTBALL_DATA_API_KEY in the project .env before running UCL."
                 )
             return self.football_data_org.history(
                 league,
@@ -3318,6 +3318,8 @@ def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         description="Multi-league scoreline/value pipeline with walk-forward evaluation."
     )
+    p.add_argument("--api-key-source", choices=["dotenv", "environment"], default="dotenv",
+                   help="Default: project .env only, ignoring inherited API keys; environment is for explicit CI use.")
     p.add_argument("--leagues", nargs="+", choices=list(LEAGUES), default=["EPL"])
     p.add_argument("--additional-odds-coverage", choices=["all", "ranked"], default="all",
                    help="all: request every linked fixture in the 72h window (more API credits); ranked: capped legacy mode")
@@ -3443,6 +3445,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if args.self_test:
         self_test()
         return 0
+
+    from api_key_config import load_api_keys
+    load_api_keys(args.api_key_source)
 
     market_led_settings = None
     if args.market_led_experiment:

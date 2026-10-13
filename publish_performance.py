@@ -78,4 +78,9 @@ def publish(repo: Path, *, remote: str = "origin", branch: str = "main",
 
 
 if __name__ == "__main__":
-    publish(Path(__file__).resolve().parent)
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--api-key-source", choices=("dotenv", "environment"), default="dotenv")
+    args = parser.parse_args()
+    publish(Path(__file__).resolve().parent, review_command=[sys.executable,
+        "performance_tracking.py", "review", "--api-key-source", args.api_key_source])
