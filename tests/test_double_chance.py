@@ -54,7 +54,7 @@ class DoubleChanceTests(unittest.TestCase):
         picks,decisions,summary=build_conservative_shortlist(pd.DataFrame([r]),as_of=NOW,
             market_reliability={'Premier League':report})
         self.assertNotIn('Under 3.5',decisions.market.tolist())
-        self.assertEqual(summary['selection_policy_version'],'72h-double-chance-v5')
+        self.assertEqual(summary['selection_policy_version'],'72h-all-markets-ev15-one-book-v6')
         dc=decisions.loc[decisions.market.eq('Double Chance 1X')].iloc[0]
         self.assertNotEqual(dc.decision,'REJECTED',dc.rejection_reasons)
         r.pop('market_home_draw_odds')
@@ -143,3 +143,4 @@ class DoubleChanceAdjustedThresholdTests(unittest.TestCase):
         from market_led_experiment import settings
         self.assertEqual(settings()['min_ev'],.03)
         self.assertEqual(settings()['min_probability'],.80)
+
