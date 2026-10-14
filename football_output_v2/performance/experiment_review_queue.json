@@ -1,0 +1,60 @@
+{
+  "automatic_promotion": false,
+  "experiments": [
+    {
+      "collection_days": 0,
+      "key": "goal_blend_experiment",
+      "name": "goal_blend_experiment",
+      "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
+      "report": "goal_blend_experiment/report.md",
+      "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
+      "settled_evidence": 27,
+      "status": "COLLECT_MORE_DATA"
+    },
+    {
+      "collection_days": 0,
+      "graded_paper_bets": 0,
+      "key": "market_led_experiment",
+      "name": "market_led_experiment",
+      "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
+      "report": "market_led_experiment/report.md",
+      "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
+      "settled_evidence": 18,
+      "status": "COLLECT_MORE_DATA"
+    },
+    {
+      "collection_days": 0,
+      "key": "recency_experiment",
+      "name": "recency_experiment",
+      "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
+      "report": "recency_experiment/report.md",
+      "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
+      "settled_evidence": 16,
+      "status": "COLLECT_MORE_DATA"
+    },
+    {
+      "collection_days": 0,
+      "key": "filter_sensitivity_experiment",
+      "name": "filter_sensitivity_experiment",
+      "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
+      "report": "filter_sensitivity_experiment/report.md",
+      "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
+      "settled_evidence": 1,
+      "status": "COLLECT_MORE_DATA"
+    },
+    {
+      "automatic_production_change": false,
+      "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
+      "gameweeks": 0,
+      "key": "benchmark_forward:761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+      "name": "benchmark_forward_experiment",
+      "report": "benchmark_forward_experiment/report.md",
+      "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
+      "settled_evidence": 0,
+      "status": "COLLECT_MORE_DATA"
+    }
+  ],
+  "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
+  "reviewed_at_utc": "2026-10-14T09:31:07.461235+00:00",
+  "version": "experiment-review-queue-v1"
+}
