@@ -10,6 +10,7 @@ on:
       - 'football_output_v2/raw/goal_blend_experiment.json'
       - 'football_output_v2/raw/market_led_experiment.json'
       - 'football_output_v2/raw/filter_sensitivity_experiment.json'
+      - 'football_output_v2/raw/benchmark_forward_experiment.json'
       - 'football_output_v2/performance/snapshots/**'
       - 'performance_tracking.py'
       - 'pipeline_health.py'
@@ -23,6 +24,9 @@ on:
       - 'goal_blend_experiment.py'
       - 'recency_experiment.py'
       - 'filter_sensitivity_experiment.py'
+      - 'benchmark_forward_experiment.py'
+      - 'benchmark_forward_registry.json'
+      - 'experiment_review_queue.py'
       - 'dc_decay_validation.py'
       - 'forecast_integrity.py'
       - '.gitattributes'
@@ -104,3 +108,22 @@ jobs:
             football_output_v2/performance/snapshots/
           if-no-files-found: warn
           retention-days: 30
+
+  notify:
+    needs: evaluate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r football_value_requirements.txt
+      - name: Notify ready experiment reviews once
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python experiment_review_queue.py --notify-repository "$GITHUB_REPOSITORY"

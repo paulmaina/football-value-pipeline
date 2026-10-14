@@ -1,0 +1,40 @@
+{
+  "version": "benchmark-forward-registry-v1",
+  "candidate_id": "market-weight-085-v1",
+  "registered_on": "2026-10-14",
+  "change": "market_weight_only",
+  "market_weight": 0.85,
+  "primary_metric": "1x2_log_loss",
+  "leagues": [
+    "Premier League",
+    "La Liga",
+    "Bundesliga",
+    "Serie A",
+    "Ligue 1"
+  ],
+  "selection": {
+    "period": "development_only",
+    "source": "docs/benchmarks/2026-10-14/results.json",
+    "source_sha256": "7fe421c2c1095f8c9c3220e06e25432c28e7662a2284c6e435cc05821c97b4eb",
+    "family": "market_weight",
+    "market": "1x2",
+    "league": "ALL",
+    "selected_variant": "market_weight_0.85"
+  },
+  "review_gates": {
+    "minimum_paired_fixtures": 300,
+    "minimum_gameweeks": 6,
+    "minimum_verified_coverage": 0.8,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20261014,
+    "confidence_level": 0.95
+  },
+  "approval_required": true,
+  "note": "One-factor forecasting trial, same raw model and same live 1X2 reference as production. Positive forecasting evidence does not establish betting edge. No automatic production change.",
+  "baseline_market_weight": 0.5,
+  "secondary_markets": [
+    "over_1_5",
+    "btts_yes"
+  ],
+  "secondary_gate": "No deterioration in paired log loss or Brier on production goal markets; at least 80% secondary coverage"
+}
