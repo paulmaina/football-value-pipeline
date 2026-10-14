@@ -8,15 +8,16 @@ from pathlib import Path
 import re
 import time
 
-VERSION='local-closing-quotes-v1'
+VERSION='local-closing-quotes-v2'
+LEGACY_VERSION='local-closing-quotes-v1'
 PRE_KICKOFF_WINDOW_SECONDS=6*60
-LABELS={'home':'Home win','away':'Away win','over_1_5':'Over 1.5','under_3_5':'Under 3.5','btts_yes':'Both Teams to Score - Yes','home_draw':'Double Chance 1X','draw_away':'Double Chance X2'}
+LABELS={'home':'Home win','away':'Away win','over_1_5':'Over 1.5','under_3_5':'Under 3.5','btts_yes':'Both Teams to Score - Yes','home_draw':'Double Chance 1X','draw_away':'Double Chance X2','home_away':'Double Chance 12'}
 
 
 def digest(data):return hashlib.sha256(json.dumps(data,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
 
 
-def normalize(source,payload,observed):
+def normalize(source,payload,observed,version=VERSION):
     """Complete same-book markets, timestamped before kickoff; no synthetic prices."""
     from performance_tracking import utc,number
     from football_value_pipeline_v2_standalone import canonical_team_key,devig
@@ -63,13 +64,13 @@ def normalize(source,payload,observed):
                     pairs.extend((('btts_'+k if mk=='btts' else k+'_'+str(point).replace('.','_')),values[k],float(probs[i]),'power_complete_binary') for i,k in enumerate(allowed))
             elif mk=='double_chance':
                 dc=parse_quotes({**payload,'bookmakers':[{**book,'markets':[market]}]})
-                pairs=[(k,dc['market_reference_dc_'+k+'_odds'],dc['market_p_'+k],'proportional_overlap_sum_two') for k in ('home_draw','draw_away') if 'market_p_'+k in dc]
+                pairs=[(k,dc['market_reference_dc_'+k+'_odds'],dc['market_p_'+k],'proportional_overlap_sum_two') for k in (('home_draw','draw_away') if version==LEGACY_VERSION else ('home_draw','draw_away','home_away')) if 'market_p_'+k in dc]
             for selection,price,p,method in pairs:
                 quotes.append({'bookmaker':key,'selection':selection,'decimal_odds':price,'fair_probability':p,'devig_method':method,'updated_at_utc':updated.isoformat()})
     # At most one quote per bookmaker/selection; newest market wins deterministically.
     unique={}
     for q in sorted(quotes,key=lambda x:x['updated_at_utc']):unique[(q['bookmaker'],q['selection'])]=q
-    return {'version':VERSION,'observed_at_utc':observed.isoformat(),'fixture':{k:source.get(k) for k in ('league','home_team','away_team','kickoff_utc','odds_event_id')},'payload':payload,'quotes':list(unique.values()),'provenance':'local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price'}
+    return {'version':version,'observed_at_utc':observed.isoformat(),'fixture':{k:source.get(k) for k in ('league','home_team','away_team','kickoff_utc','odds_event_id')},'payload':payload,'quotes':list(unique.values()),'provenance':'local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price'}
 
 
 def load_observations(root,clock=None):
@@ -77,11 +78,11 @@ def load_observations(root,clock=None):
     for path in sorted((root/'closing_odds/observations').glob('*.json')):
         try:
             d=json.loads(path.read_text(encoding='utf-8-sig'))
-            if digest(d)!=path.stem or d.get('version')!=VERSION:raise ValueError('Hash')
+            if digest(d)!=path.stem or d.get('version') not in (VERSION,LEGACY_VERSION):raise ValueError('Hash')
             from performance_tracking import utc
             observed=utc(d['observed_at_utc'])
             if not observed or (clock is not None and observed>clock):raise ValueError('Clock')
-            expected=normalize(d['fixture'],d['payload'],observed)
+            expected=normalize(d['fixture'],d['payload'],observed,version=d['version'])
             from totals_anchor_experiment import equivalent
             if not equivalent(d,expected):raise ValueError('Quote calculation')
             rows.append(d)
@@ -141,10 +142,10 @@ def evaluate(root,archive,clock):
                 if fixture_key(obs['fixture'])!=key or utc(obs['fixture']['kickoff_utc'])!=utc(pick['kickoff_utc']) or utc(obs['observed_at_utc'])<utc(pick['snapshot_captured_utc']):continue
                 q=next((x for x in obs['quotes'] if x['bookmaker']==book and x['selection']==selection),None)
                 # For Pinnacle double chance, coherent 1X2 sums provide FAIR probabilities only, never prices.
-                if q is None and book=='pinnacle' and selection in ('home_draw','draw_away'):
+                if q is None and book=='pinnacle' and selection in ('home_draw','draw_away','home_away'):
                     hda={x['selection']:x for x in obs['quotes'] if x['bookmaker']==book and x['selection'] in ('home','draw','away')}
                     if set(hda)=={'home','draw','away'} and len({x['updated_at_utc'] for x in hda.values()})==1:
-                        sides=('home','draw') if selection=='home_draw' else ('draw','away');q={'decimal_odds':None,'fair_probability':sum(hda[s]['fair_probability'] for s in sides),'updated_at_utc':hda['draw']['updated_at_utc'],'devig_method':'power_1x2_sum_no_synthetic_price'}
+                        sides={'home_draw':('home','draw'),'draw_away':('draw','away'),'home_away':('home','away')}[selection];q={'decimal_odds':None,'fair_probability':sum(hda[s]['fair_probability'] for s in sides),'updated_at_utc':hda['draw']['updated_at_utc'],'devig_method':'power_1x2_sum_no_synthetic_price'}
                 if q:candidates.append((utc(obs['observed_at_utc']),q,obs))
             if not candidates:
                 item['closing'][book]={'status':'MISSING_VALID_PRE_KICKOFF_QUOTE'};continue
@@ -199,3 +200,4 @@ def main(argv=None):
 
 
 if __name__=='__main__':raise SystemExit(main())
+
