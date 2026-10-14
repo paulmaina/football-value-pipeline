@@ -1101,5 +1101,63 @@
     "snapshot_commit": "d3f12df5a2a20809c3ac84f9a31766ba965813e3",
     "snapshot_generated_utc": "2026-10-14T09:46:32Z",
     "validation_status": "RELIABLE_FOR_RANKING"
+  },
+  {
+    "audit_brier": "0.1984701970455169",
+    "audit_validation_matches": "100",
+    "away_team": "Napoli",
+    "bookmaker": "1xBet",
+    "bookmaker_availability": "USER_ALLOWLIST",
+    "calibration_penalty": "0.0",
+    "closing": {
+      "1xbet": {
+        "status": "PENDING_KICKOFF"
+      },
+      "pinnacle": {
+        "status": "PENDING_KICKOFF"
+      }
+    },
+    "conservative_estimated_ev": "0.12915326342808076",
+    "date": "2026-10-17",
+    "decision": "SHORTLISTED",
+    "development_validation_matches": "297",
+    "entry_price_basis": "frozen offered quote; accepted execution unverified",
+    "estimated_edge": "0.07968840198735161",
+    "estimated_ev": "0.12915326342808076",
+    "evaluated_at_utc": "2026-10-14T18:13:48.803955+00:00",
+    "fixture_id": "907639dade64cca45d1ab639195d201e",
+    "fixture_key": "Serie A|venezia|napoli|2026-10-17",
+    "gross_estimated_ev": "0.12915326342808076",
+    "high_confidence_audit_matches": "",
+    "high_confidence_audit_observed_rate": "",
+    "high_confidence_development_matches": "",
+    "high_confidence_overconfidence": "",
+    "high_confidence_penalty": "0.0",
+    "high_confidence_status": "NOT_REQUIRED",
+    "high_confidence_tier": "",
+    "high_confidence_wilson95_lower": "",
+    "high_confidence_wilson95_upper": "",
+    "historical_gap_score": "",
+    "home_team": "Venezia",
+    "kickoff_utc": "2026-10-17T13:00:00+00:00",
+    "league": "Serie A",
+    "market": "Away win",
+    "market_probability": "0.5806351438770231",
+    "min_team_name_match_score": "100.0",
+    "near_miss_reason": "",
+    "odds_age_hours": "0.019945543055555556",
+    "offered_decimal_odds": "1.71",
+    "per_stake_cost": "0.0",
+    "predicted_probability": "0.6603235458643747",
+    "rank_probability": "0.6603235458643747",
+    "raw_dc_ev": "0.2654204308264514",
+    "raw_dc_probability": "0.740011947851726",
+    "rejection_reasons": "",
+    "selection_policy_version": "72h-all-markets-net-ev15-execution-v7",
+    "selection_tier": "STRICT",
+    "snapshot_captured_utc": "2026-10-14T18:20:17Z",
+    "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
+    "snapshot_generated_utc": "2026-10-14T18:13:48Z",
+    "validation_status": "RELIABLE_FOR_RANKING"
   }
 ]

@@ -6,7 +6,7 @@
       "mean_fair_close_ev": null,
       "mean_same_book_offered_price_clv": null,
       "missing_selections": 11,
-      "pending_selections": 9,
+      "pending_selections": 10,
       "positive_fair_close_ev": 0
     },
     "pinnacle": {
@@ -14,14 +14,14 @@
       "mean_fair_close_ev": null,
       "mean_same_book_offered_price_clv": null,
       "missing_selections": 11,
-      "pending_selections": 9,
+      "pending_selections": 10,
       "positive_fair_close_ev": 0
     }
   },
-  "frozen_selections": 20,
+  "frozen_selections": 21,
   "note": "Last observed live quote within 90 seconds of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
   "observations": 0,
   "rejected_files": [],
-  "reviewed_at_utc": "2026-10-14T17:07:53.581930+00:00",
+  "reviewed_at_utc": "2026-10-14T18:20:19.338912+00:00",
   "version": "local-closing-quotes-v1"
 }
