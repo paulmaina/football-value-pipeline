@@ -1,0 +1,164 @@
+{
+  "captured_at_utc": "2026-10-14T09:52:36.582176+00:00",
+  "dependencies": {
+    "PyYAML": "6.0.3",
+    "coverage": "7.16.2",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "python": "3.12.15",
+    "python-dotenv": "1.2.4",
+    "requests": "2.34.2",
+    "scipy": "1.18.1"
+  },
+  "execution_policy": {
+    "account_availability": "USER_ALLOWLIST",
+    "allowed_bookmakers": [
+      "1xBet"
+    ],
+    "exchange_policy": "EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER",
+    "per_stake_cost_bps": 0
+  },
+  "experiments": {
+    "benchmark_forward_experiment": "CAPTURED",
+    "filter_sensitivity_experiment": "CAPTURED",
+    "goal_blend_experiment": "CAPTURED",
+    "market_led_experiment": "CAPTURED",
+    "recency_experiment": "CAPTURED"
+  },
+  "forecast_generated_at_utc": "2026-10-14T09:46:32.015572+00:00",
+  "forecast_runtime": {
+    "dependencies": {
+      "PyYAML": "NOT_INSTALLED",
+      "coverage": "NOT_INSTALLED",
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "python": "3.14.8",
+      "python-dotenv": "1.2.4",
+      "requests": "2.34.2",
+      "scipy": "1.18.1"
+    },
+    "generated_at_utc": "2026-10-14T09:46:32.015572+00:00",
+    "model_code_sha256": "3a2fa85c1006e92acfc72b1581fe39b4bdc1d842e67967dd75a5693f7a1301c4",
+    "predictions_sha256": "28fb203af1f1ccf3dcd5197f591a4820805e950a8cc9f9f30c9d684354cce9c4",
+    "selection_policy_version": "72h-all-markets-net-ev15-execution-v7"
+  },
+  "pre_kickoff_forecasts": 63,
+  "quote_audit": {
+    "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
+    "bookmakers": {
+      "1xBet": 4
+    },
+    "costs_recorded": 4,
+    "exchange_quotes": 0,
+    "missing_quote_age": 0,
+    "quote_age_over_24h": 0,
+    "selected_quotes": 4
+  },
+  "training": {
+    "Bundesliga": {
+      "days_since_latest_result": 3,
+      "diagnostics_sha256": "766581af757658e3afb6c186e83f402d33e2cfa7b3076af2a1a63d3710c0d35d",
+      "forecast_training_health": {
+        "days_since_latest_result": 3,
+        "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+        "training_end": "2026-10-11"
+      },
+      "training_end": "2026-10-11",
+      "training_matches": 963
+    },
+    "EPL": {
+      "days_since_latest_result": 2,
+      "diagnostics_sha256": "857e6c2261e23b61467923516c57feaedef4b405a7022ea2928107bc8df6990c",
+      "forecast_training_health": {
+        "days_since_latest_result": 2,
+        "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+        "training_end": "2026-10-12"
+      },
+      "training_end": "2026-10-12",
+      "training_matches": 1200
+    },
+    "LaLiga": {
+      "days_since_latest_result": 2,
+      "diagnostics_sha256": "d81a6fd5d3975ec7aeb36b4a89b7f07061ecd75ab0a8efc72c5cce4768cd126c",
+      "forecast_training_health": {
+        "days_since_latest_result": 2,
+        "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+        "training_end": "2026-10-12"
+      },
+      "training_end": "2026-10-12",
+      "training_matches": 1218
+    },
+    "Ligue1": {
+      "days_since_latest_result": 3,
+      "diagnostics_sha256": "370a348038df8713532108d0a27ce5d81a75eb1f6806ab7d361fe6fc01a24f70",
+      "forecast_training_health": {
+        "days_since_latest_result": 3,
+        "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+        "training_end": "2026-10-11"
+      },
+      "training_end": "2026-10-11",
+      "training_matches": 972
+    },
+    "SerieA": {
+      "days_since_latest_result": 2,
+      "diagnostics_sha256": "fcda536b89b95fd1cfd24d5ffd662602c37f4ecc62ca1a8d930db14994ca31d4",
+      "forecast_training_health": {
+        "days_since_latest_result": 2,
+        "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+        "training_end": "2026-10-12"
+      },
+      "training_end": "2026-10-12",
+      "training_matches": 1200
+    },
+    "UCL": {
+      "current_source_health": {
+        "added_matches": 0,
+        "cache_hash_verified": true,
+        "checked_at_utc": "2026-10-14T09:46:21.767703+00:00",
+        "completed_matches": 27,
+        "corrected_scores": 0,
+        "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+        "download_age_hours": 0.10411513138888889,
+        "download_status": "VERIFIED_LIVE",
+        "latest_completed_date": "2026-10-13",
+        "latest_completed_utc": "2026-10-13T19:00:00+00:00",
+        "next_fixture_utc": "2026-10-14T16:45:00+00:00",
+        "note": "Provider schedule comparison is not independent proof of complete coverage.",
+        "overdue_unfinished_match_ids": [],
+        "provider": "football-data.org",
+        "season_start": 2026,
+        "sha256": "a7f09a11287058dc6c944f9931d177bbe8e8a36195a4f7edd862b7f91e59df89",
+        "source_schedule_matches": 144,
+        "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+        "training_end": "2026-10-13"
+      },
+      "days_since_latest_result": 1,
+      "diagnostics_sha256": "8d0a75ee907301bb15f06341ff90850156aa46b82e01a24bc36d44e70b2a77a7",
+      "forecast_training_health": {
+        "added_matches": 0,
+        "cache_hash_verified": true,
+        "checked_at_utc": "2026-10-14T09:46:21.767703+00:00",
+        "completed_matches": 27,
+        "corrected_scores": 0,
+        "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+        "download_age_hours": 0.0006662741666666667,
+        "download_status": "VERIFIED_LIVE",
+        "last_refresh_error": null,
+        "last_refresh_error_reason": null,
+        "latest_completed_date": "2026-10-13",
+        "latest_completed_utc": "2026-10-13T19:00:00+00:00",
+        "next_fixture_utc": "2026-10-14T16:45:00+00:00",
+        "note": "Provider schedule comparison is not independent proof of complete coverage.",
+        "overdue_unfinished_match_ids": [],
+        "provider": "football-data.org",
+        "season_start": 2026,
+        "sha256": "a7f09a11287058dc6c944f9931d177bbe8e8a36195a4f7edd862b7f91e59df89",
+        "source_schedule_matches": 144,
+        "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+        "training_end": "2026-10-13"
+      },
+      "training_end": "2026-10-13",
+      "training_matches": 530
+    }
+  }
+}

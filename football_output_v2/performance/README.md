@@ -11,7 +11,7 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 |---|---:|---:|---:|---:|
 | All selections | 9 | 6-3 | 66.7% | -9.7% |
 
-Unsettled / unverified entries: **10**.
+Unsettled / unverified entries: **11**.
 Whole-fixture 1X2 multiclass Brier (n=27): 0.6024
 
 ## STRICT versus PROVISIONAL
@@ -25,6 +25,7 @@ Whole-fixture 1X2 multiclass Brier (n=27): 0.6024
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
+| 72h-all-markets-net-ev15-execution-v7 | 0 | 0-0 | — | — |
 | 72h-ucl-v3 | 4 | 3-1 | 75.0% | -0.5% |
 | legacy/unspecified | 5 | 3-2 | 60.0% | -17.0% |
 
@@ -90,7 +91,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | LaLiga | 2026-10-12 | 1218 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Ligue1 | 2026-10-11 | 972 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SerieA | 2026-10-12 | 1200 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-09-10 | 521 | 34 | MODEL_BEHIND_VERIFIED_SOURCE |
+| UCL | 2026-10-13 | 530 | 1 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 
 Latest shortlist audit: {"selected_quotes": 4, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 4, "bookmakers": {"1xBet": 4}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
 
@@ -98,7 +99,6 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| 2fd31d337223 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | bdc690a8c706 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | b9c15c09504a | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 648ca5973f8d | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
@@ -118,6 +118,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | ea202e9e045b | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 6556638142ba | CAPTURED | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED |
 | 010ef527d5bf | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| d3f12df5a2a2 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
