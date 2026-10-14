@@ -2,7 +2,7 @@
 
 One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.
 
-Frozen fixtures: 37; candidate decisions: 666; rejected snapshots: 0.
+Frozen fixtures: 41; candidate decisions: 738; rejected snapshots: 0.
 
 | EV floor | Tier | Selected | Settled | Pending | Net ROI | Drawdown (units) | Brier |
 |---|---|---:|---:|---:|---:|---:|---:|

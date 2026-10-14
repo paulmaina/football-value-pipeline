@@ -2,7 +2,7 @@
 
 Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.
 
-Coverage: 166/178 fixture-markets; 18 graded.
+Coverage: 208/220 fixture-markets; 18 graded.
 Rejected snapshot data: 0 commit(s); details in summary.json.
 
 | League | Market | Variant | N | Brier | Log loss | Brier gain | Log-loss gain | Overconfidence |
@@ -54,5 +54,5 @@ Calibration buckets, approximate paired-gain intervals, gameweek comparisons and
 | Serie A | btts_yes | 730.0 | 320 | 60 | -0.0017 | {'1000000000.0': 2, '120.0': 1, '365.0': 1} |
 | Ligue 1 | over_1_5 | 1000000000.0 | 243 | 54 | -0.0175 | {'1000000000.0': 3, '120.0': 1} |
 | Ligue 1 | btts_yes | 1000000000.0 | 243 | 54 | -0.0041 | {'1000000000.0': 3, '120.0': 1} |
-| UEFA Champions League | over_1_5 | 240.0 | 152 | 28 | +0.0117 | {'240.0': 2, '120.0': 2} |
-| UEFA Champions League | btts_yes | 730.0 | 152 | 28 | +0.0128 | {'120.0': 1, '730.0': 1, '1000000000.0': 2} |
+| UEFA Champions League | over_1_5 | 120.0 | 152 | 30 | +0.0041 | {'240.0': 2, '120.0': 2} |
+| UEFA Champions League | btts_yes | 730.0 | 152 | 30 | +0.0126 | {'240.0': 1, '1000000000.0': 3} |
