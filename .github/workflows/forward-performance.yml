@@ -19,6 +19,7 @@ on:
       - 'ucl_training.py'
       - 'docs/ucl_training_refresh_status.json'
       - 'performance_excel.py'
+      - 'performance_report_layout.py'
       - 'publish_performance.py'
       - 'workflow_checks.py'
       - 'goal_blend_experiment.py'
@@ -132,3 +133,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python experiment_review_queue.py --notify-repository "$GITHUB_REPOSITORY"
+

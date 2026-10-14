@@ -204,77 +204,8 @@ def add_health_sheet(root, data, history):
     destination = Path(root)/'readable'/REPORT_NAME
     if not destination.exists():
         return
-    with ZipFile(destination) as z:
-        parts = {name:z.read(name) for name in z.namelist()}
-    sheet = TemplateSheet(f'<worksheet xmlns="{NS}"><sheetData/></worksheet>'.encode())
-    columns=ET.Element(tag('cols'))
-    for i,width in enumerate((28,30,26,26,52,26),1):
-        ET.SubElement(columns,tag('col'),{'min':str(i),'max':str(i),'width':str(width),'customWidth':'1'})
-    sheet.xml.insert(0,columns)
-    sheet.set('A1', 'Pipeline health and forward evidence')
-    sheet.set('A2', 'Review UTC: '+data['reviewed_at_utc'])
-    sheet.set('A3', 'Source freshness, model results and execution checks are separate evidence.')
-    rows = [['League', 'Training end', 'Matches', 'Days since result', 'Source status']]
-    for league, info in data['training'].items():
-        state=info.get('current_source_health',info['forecast_training_health']).get('status')
-        rows.append([league,info['training_end'],info['training_matches'],info['days_since_latest_result'],state])
-    rows += [[], ['Latest stored shortlist audit'], *[[k, json.dumps(v) if isinstance(v,dict) else v]
-            for k,v in data['quote_audit'].items()], [], ['Snapshot', 'Captured UTC', 'Goal blend', 'Market led', 'Recency', 'Filter sensitivity']]
-    rows += [[r['commit'][:12],r['captured_at_utc'],r['experiments']['goal_blend_experiment'],
-              r['experiments']['market_led_experiment'],r['experiments'].get('recency_experiment','LEGACY_NOT_RECORDED'),r['experiments'].get('filter_sensitivity_experiment','LEGACY_NOT_RECORDED')] for r in data['snapshot_capture_history']]
-    rows += [[], ['Daily observations', 'Graded', 'Win rate', 'Net simulated ROI', 'Brier']]
-    for day, observation in sorted(history['days'].items()):
-        metric=observation['shortlist_performance']
-        rows.append([day,metric['graded'],metric['win_rate'],metric['flat_stake_roi'],metric['brier']])
-    rows += [[], ['EV sensitivity floor', 'Tier', 'Selected', 'Settled', 'Net ROI', 'Drawdown units']]
-    for r in data.get('experimental_reports',{}).get('filter_sensitivity_experiment',{}).get('comparisons',[]):
-        rows.append([r['ev_floor'],r['tier'],r['selected'],r['graded'],r['flat_stake_roi'],r['max_drawdown_units']])
-    rows += [[], ['Experiment review queue', 'Status', 'Settled evidence', 'First-look or approval']]
-    for r in data.get('review_queue',{}).get('experiments',[]):
-        rows.append([r['name'],r['status'],r['settled_evidence'],r['scope']])
-    rows += [[], ['Closing bookmaker', 'Covered selections', 'Missing selections', 'Pending selections', 'Mean fair-close EV', 'Same-book offer CLV']]
-    for book,info in data.get('closing_odds',{}).get('by_bookmaker',{}).items():
-        rows.append([book,info['covered_selections'],info['missing_selections'],info['pending_selections'],info['mean_fair_close_ev'],info['mean_same_book_offered_price_clv']])
-    rows += [['Locally observed near-close quotes; official closing odds and accepted execution are unverified.']]
-    rows += [[], ['Review dependency versions'], *[[k,v] for k,v in data['dependencies'].items()], [],
-             ['Improvement is not established by fresher data or software changes. Compare paired forecasts and settled results.'],
-             ['Account access and executable stake sizes are not verified. Exchange targets require a commission/liquidity adapter.']]
-    sheet.fill(rows)
-    # Add one native worksheet and its package relationships.
-    workbook=ET.fromstring(parts['xl/workbook.xml']);sheets=workbook.find(tag('sheets'))
-    rel_ns='http://schemas.openxmlformats.org/package/2006/relationships'
-    r_ns='http://schemas.openxmlformats.org/officeDocument/2006/relationships'
-    relationships=ET.fromstring(parts['xl/_rels/workbook.xml.rels'])
-    existing=next((s for s in sheets if s.get('name')=='Pipeline Health'),None)
-    if existing is None:
-        index=max(int(s.get('sheetId')) for s in sheets)+1
-        rid='rIdPipelineHealth'
-        ET.SubElement(sheets,tag('sheet'),{'name':'Pipeline Health','sheetId':str(index),f'{{{r_ns}}}id':rid})
-        ET.SubElement(relationships,f'{{{rel_ns}}}Relationship',{'Id':rid,
-            'Type':r_ns+'/worksheet','Target':f'worksheets/sheet{index}.xml'})
-        types=ET.fromstring(parts['[Content_Types].xml']);ct_ns='http://schemas.openxmlformats.org/package/2006/content-types'
-        ET.SubElement(types,f'{{{ct_ns}}}Override',{'PartName':f'/xl/worksheets/sheet{index}.xml',
-            'ContentType':'application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml'})
-        parts['[Content_Types].xml']=ET.tostring(types,encoding='utf-8',xml_declaration=True)
-    else:
-        rid=existing.get(f'{{{r_ns}}}id')
-        target=next(r.get('Target') for r in relationships if r.get('Id')==rid)
-        index=int(re.search(r'sheet(\d+)\.xml',target).group(1))
-    parts[f'xl/worksheets/sheet{index}.xml']=ET.tostring(sheet.xml,encoding='utf-8',xml_declaration=True)
-    parts['xl/workbook.xml']=ET.tostring(workbook,encoding='utf-8',xml_declaration=True)
-    parts['xl/_rels/workbook.xml.rels']=ET.tostring(relationships,encoding='utf-8',xml_declaration=True)
-    import tempfile
-    import os
-    fd,name=tempfile.mkstemp(prefix='health.',suffix='.tmp',dir=destination.parent);os.close(fd)
-    temporary=Path(name)
-    try:
-        with ZipFile(temporary,'w',ZIP_DEFLATED) as z:
-            for name,content in sorted(parts.items()):
-                info=ZipInfo(name,date_time=(1980,1,1,0,0,0));info.compress_type=ZIP_DEFLATED
-                z.writestr(info,content)
-        temporary.replace(destination)
-    finally:
-        temporary.unlink(missing_ok=True)
+    from performance_report_layout import format_report
+    format_report(destination, root, data, history)
 
 
 def review_note(data):
@@ -453,6 +384,8 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
         raise PermissionError(f"Cannot update {destination}. Close the workbook in Excel and rerun the report.") from exc
     finally:
         temp.unlink(missing_ok=True)
+    from performance_report_layout import format_report
+    format_report(destination, root)
     return destination
 
 
@@ -476,3 +409,4 @@ def main(argv=None):
 
 
 if __name__=='__main__':raise SystemExit(main())
+
