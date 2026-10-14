@@ -942,10 +942,10 @@
     "calibration_penalty": "0.01719602233724048",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "conservative_estimated_ev": "0.134345294969072",
@@ -997,10 +997,22 @@
     "calibration_penalty": "0.0",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.62,
+        "devig_method": "power_complete_1x2",
+        "fair_close_ev": 0.05317884471232537,
+        "fair_probability": 0.6052751981105318,
+        "observation_sha256": "0c1ac6b9d9e4aad5c2f9efcde77a217a438f3f0a527472e1f3c8ebe54163f6b5",
+        "observed_at_utc": "2026-10-14T18:54:24.383044+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 335.616956,
+        "selection": "home",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-14T18:54:17+00:00"
       }
     },
     "conservative_estimated_ev": "0.1545598414925129",
