@@ -1,0 +1,62 @@
+name: Historical model benchmark
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'historical_benchmark.py'
+      - 'historical_benchmark_config.json'
+      - 'historical_benchmark_inputs.json'
+      - 'benchmark_promotion_rules.json'
+      - '.github/workflows/historical-benchmark.yml'
+  schedule:
+    - cron: '15 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: historical-model-benchmark
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: football_value_dev_requirements.txt
+      - name: Install dependencies
+        run: python -m pip install -r football_value_dev_requirements.txt
+      - name: Offline regression checks
+        run: python run_offline_tests.py
+      - name: Run benchmark against pinned historical data
+        run: python historical_benchmark.py --materialize-pinned-data --source-commit "$SOURCE_SHA"
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+      - name: Retain preregistered review rules
+        run: cp benchmark_promotion_rules.json workflow_artifacts/historical_benchmark/promotion_rules.json
+      - name: Record installed dependency versions
+        run: python -m pip freeze > workflow_artifacts/historical_benchmark/dependencies.txt
+      - name: Reconcile benchmark evidence
+        run: python historical_benchmark.py --validate-only
+      - name: Publish job summary
+        run: cat workflow_artifacts/historical_benchmark/report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Retain full benchmark evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-model-benchmark-${{ github.sha }}
+          path: workflow_artifacts/historical_benchmark/
+          if-no-files-found: error
+          retention-days: 90
