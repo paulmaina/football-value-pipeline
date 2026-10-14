@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "PyYAML": "NOT_INSTALLED",
-    "coverage": "NOT_INSTALLED",
+    "PyYAML": "6.0.3",
+    "coverage": "7.16.2",
     "numpy": "2.5.4",
     "pandas": "3.0.6",
     "python": "3.12.15",
@@ -618,7 +618,7 @@
       ],
       "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-14T05:07:54.941733+00:00",
+      "reviewed_at_utc": "2026-10-14T08:06:14.819570+00:00",
       "total_fixtures": 16,
       "version": "conservative-ev-sensitivity-v1"
     },
@@ -748,7 +748,7 @@
       ],
       "graded_fixture_markets": 27,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-14T05:07:54.941733+00:00",
+      "reviewed_at_utc": "2026-10-14T08:06:14.819570+00:00",
       "total_fixture_markets": 201,
       "version": "goal-blend-shadow-v1"
     },
@@ -1138,7 +1138,7 @@
       "observed_fixture_markets": 134,
       "paired_graded_fixture_markets": 18,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-14T05:07:54.941733+00:00",
+      "reviewed_at_utc": "2026-10-14T08:06:14.819570+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -6487,7 +6487,7 @@
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-14T05:07:54.941733+00:00",
+      "reviewed_at_utc": "2026-10-14T08:06:14.819570+00:00",
       "total_fixture_markets": 134,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": [
@@ -7585,7 +7585,7 @@
     "quote_age_over_24h": 0,
     "selected_quotes": 4
   },
-  "reviewed_at_utc": "2026-10-14T05:07:54.941733+00:00",
+  "reviewed_at_utc": "2026-10-14T08:06:14.819570+00:00",
   "selection_policy_groups": {
     "72h-ucl-v3": {
       "brier": 0.176857,
@@ -8718,7 +8718,7 @@
         "completed_matches": 27,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 0.0011720808333333332,
+        "download_age_hours": 2.9733603688888888,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-10-13",
         "latest_completed_utc": "2026-10-13T19:00:00+00:00",
