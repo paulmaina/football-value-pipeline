@@ -213,7 +213,10 @@ def capture(commit_sha: str, *, root: Path = ROOT,
         "schema_version": 1,
         "git_commit_sha": commit_sha,
         "captured_at_utc": iso(created),
-        "generated_at_utc": iso(generated),
+        # Sidecars bind to the exact generation instant, including microseconds.
+        # Do not truncate here: capture succeeds against the raw summary but
+        # later archive validation compares against this stored timestamp.
+        "generated_at_utc": generated.astimezone(timezone.utc).isoformat().replace("+00:00", "Z"),
         "selection_policy_version": summary.get("selection_policy_version") or "legacy/unspecified",
         "n_all_forecasts": len(forecast),
         "n_shortlist": len(picks),
