@@ -63,9 +63,33 @@
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
       "settled_evidence": 0,
       "status": "COLLECT_MORE_DATA"
+    },
+    {
+      "automatic_production_change": false,
+      "candidate_id": "stronger_l2",
+      "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
+      "gameweeks": 0,
+      "key": "model_reliability:24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb:stronger_l2",
+      "name": "model_reliability_experiment",
+      "report": "model_reliability_experiment/report.md",
+      "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
+      "settled_evidence": 0,
+      "status": "COLLECT_MORE_DATA"
+    },
+    {
+      "automatic_production_change": false,
+      "candidate_id": "fixed_half_life",
+      "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
+      "gameweeks": 0,
+      "key": "model_reliability:24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb:fixed_half_life",
+      "name": "model_reliability_experiment",
+      "report": "model_reliability_experiment/report.md",
+      "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
+      "settled_evidence": 0,
+      "status": "COLLECT_MORE_DATA"
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
+  "reviewed_at_utc": "2026-10-14T19:19:04.140995+00:00",
   "version": "experiment-review-queue-v1"
 }

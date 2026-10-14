@@ -91,15 +91,14 @@ A missing, ambiguous or unverified result is **never called a win**.
 | LaLiga | 2026-10-12 | 1218 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Ligue1 | 2026-10-11 | 972 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SerieA | 2026-10-12 | 1200 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-10-13 | 530 | 1 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UCL | 2026-10-14 | 532 | 0 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 
-Latest shortlist audit: {"selected_quotes": 5, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 5, "bookmakers": {"1xBet": 5}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
+Latest shortlist audit: {"selected_quotes": 3, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 3, "bookmakers": {"1xBet": 3}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| 648ca5973f8d | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 660b75e4a311 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | a2cdead106b5 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 5fb257972ff2 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
@@ -119,6 +118,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | d3f12df5a2a2 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | e5dcb5f67050 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 54bb8a2c2c95 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| a98524037f73 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
