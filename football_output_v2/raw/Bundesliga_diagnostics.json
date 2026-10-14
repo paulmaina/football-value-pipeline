@@ -14,7 +14,7 @@
   "market_weight": 0.5,
   "training_data_health": {
     "training_end": "2026-10-11",
-    "days_since_latest_result": 2,
+    "days_since_latest_result": 3,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -24,8 +24,8 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 9,
-  "additional_event_odds_calls_used_before_this_league": 0,
+  "live_odds_matched": 10,
+  "additional_event_odds_calls_used_before_this_league": 1,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "additional_odds_coverage_mode": "all",
@@ -36,9 +36,10 @@
       "home_team": "Eintracht Frankfurt",
       "away_team": "1. FC K\u00f6ln",
       "kickoff_utc": "2026-10-16T18:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "0bf757f3bd903496ce2fa27bd0481869",
@@ -119,12 +120,22 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false
+    },
+    {
+      "fixture_id": "d4d56a31d8ccd432e3a6183180e093f3",
+      "event_id": "d4d56a31d8ccd432e3a6183180e093f3",
+      "home_team": "VfB Stuttgart",
+      "away_team": "Borussia Monchengladbach",
+      "kickoff_utc": "2026-10-23T18:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 1,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 1,
   "decay_tuning": {
     "selected_half_life_days": 730.0,
     "selected_xi_per_day": 0.0009495166856985552,

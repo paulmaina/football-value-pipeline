@@ -14,7 +14,7 @@
   "market_weight": 0.5,
   "training_data_health": {
     "training_end": "2026-10-12",
-    "days_since_latest_result": 1,
+    "days_since_latest_result": 2,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -24,7 +24,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 10,
+  "live_odds_matched": 11,
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
@@ -126,6 +126,16 @@
       "home_team": "Tottenham Hotspur",
       "away_team": "Coventry City",
       "kickoff_utc": "2026-10-19T19:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "d0202960708a442401d7fc7bd74a0183",
+      "event_id": "d0202960708a442401d7fc7bd74a0183",
+      "home_team": "Ipswich Town",
+      "away_team": "Nottingham Forest",
+      "kickoff_utc": "2026-10-23T19:00:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false
