@@ -270,13 +270,13 @@
     }
   },
   "pending_reason_counts": {
-    "PENDING_KICKOFF_OR_FINAL_SCORE": 11,
-    "UNVERIFIED_FIXTURE_OR_RESULT": 1
+    "PENDING_KICKOFF_OR_FINAL_SCORE": 10,
+    "UNVERIFIED_FIXTURE_OR_RESULT": 2
   },
-  "prediction_1x2_multiclass_brier": 0.602376,
-  "prediction_fixtures_graded": 27,
+  "prediction_1x2_multiclass_brier": 0.585016,
+  "prediction_fixtures_graded": 28,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-10-14T18:20:19Z",
+  "reviewed_at_utc": "2026-10-14T18:57:39Z",
   "shortlist": {
     "brier": 0.250532,
     "flat_stake_roi": -0.096667,
