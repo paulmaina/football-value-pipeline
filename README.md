@@ -206,3 +206,5 @@ independent while forward results are captured and reviewed automatically.
 
 
 Conservative EV sensitivity is recorded automatically on current-fixture runs: [experiment guide](docs/filter-sensitivity-experiment.md). It compares 1.5%, 3%, and 5% floors without changing the live shortlist.
+
+A separate [historical benchmark](docs/historical-benchmark.md) compares regularisation, recency, market weighting and totals anchoring on pinned data. Run `py historical_benchmark.py --materialize-pinned-data`; production commands and settings are unchanged. Future trial gates are recorded in `benchmark_promotion_rules.json`.

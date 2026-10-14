@@ -1,0 +1,36 @@
+{
+  "version": "benchmark-promotion-rules-v1",
+  "registered_on": "2026-10-14",
+  "automatic_promotion": false,
+  "historical_evidence_status": "Already examined retrospective diagnostics; never treated as a genuinely untouched final test",
+  "candidate_selection": {
+    "primary_metric": "log_loss",
+    "tie_breaker": "brier_then_predeclared_baseline_first_order",
+    "selection_period": "development_only",
+    "audit_usage": "Assess the development-selected candidate; do not use audit to choose another winner",
+    "eligible_sources": "Model-only or nominal-opening diagnostics; closing-anchored oracle variants are ineligible",
+    "change_scope": "One factor at a time; no unvalidated combination of winning settings"
+  },
+  "forward_trial_prerequisites": [
+    "Freeze candidate version, parameters, target markets, primary metric and comparison cohort before its first forecast",
+    "Use only data and odds with demonstrable availability at forecast time",
+    "Archive candidate and production baseline together before kickoff",
+    "Keep production settings unchanged during the trial"
+  ],
+  "promotion_review_gates": {
+    "minimum_distinct_paired_fixtures": 300,
+    "minimum_gameweeks": 6,
+    "primary_result": "Positive paired log-loss gain with a predeclared 95% uncertainty interval whose lower bound exceeds zero; account for fixture/gameweek dependence and multiple tested candidates",
+    "secondary_results": "No aggregate Brier deterioration; inspect calibration and league/market coverage, including high-confidence groups",
+    "data_integrity": "No unexplained missing-data, source, timing or execution differences between candidate and baseline",
+    "approval": "Human review and explicit versioned production change; never automatic"
+  },
+  "betting_edge_claim_requirements": [
+    "Actual accepted prices and stakes, rejected bets and applicable costs",
+    "Comparable timestamped sharp and execution-book closing quotes with documented margin removal",
+    "Net realized returns and exposure/drawdown evidence over a sufficient prospective sample",
+    "Positive closing-line value alone is supporting evidence, not proof of profitability"
+  ],
+  "four_week_review": "Initial evidence and coverage review only; passing a calendar date never satisfies sample-size or promotion gates",
+  "future_status": "The new parameter/total-anchor candidates currently exist only in this offline benchmark. Forward candidate generation, true closing collection and execution recording require a later explicit implementation."
+}
