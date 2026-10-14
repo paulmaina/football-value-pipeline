@@ -9,6 +9,7 @@ import re
 import time
 
 VERSION='local-closing-quotes-v1'
+PRE_KICKOFF_WINDOW_SECONDS=6*60
 LABELS={'home':'Home win','away':'Away win','over_1_5':'Over 1.5','under_3_5':'Under 3.5','btts_yes':'Both Teams to Score - Yes','home_draw':'Double Chance 1X','draw_away':'Double Chance X2'}
 
 
@@ -22,7 +23,7 @@ def normalize(source,payload,observed):
     from double_chance import parse_quotes
     if not isinstance(payload,dict) or not isinstance(payload.get('bookmakers',[]),list):raise ValueError('Malformed odds response')
     kick=utc(source.get('kickoff_utc'));pk=utc(payload.get('commence_time'))
-    if not kick or not pk or abs((pk-kick).total_seconds())>1 or str(payload.get('id'))!=str(source.get('odds_event_id')) or not 0<(kick-observed).total_seconds()<=90 or any(canonical_team_key(str(payload.get(k,'')))!=canonical_team_key(str(source.get(k,''))) for k in ('home_team','away_team')):raise ValueError('Closing event/timing mismatch')
+    if not kick or not pk or abs((pk-kick).total_seconds())>1 or str(payload.get('id'))!=str(source.get('odds_event_id')) or not 0<(kick-observed).total_seconds()<=PRE_KICKOFF_WINDOW_SECONDS or any(canonical_team_key(str(payload.get(k,'')))!=canonical_team_key(str(source.get(k,''))) for k in ('home_team','away_team')):raise ValueError('Closing event/timing mismatch')
     quotes=[]
     for book in payload.get('bookmakers',[]):
         if not isinstance(book,dict) or not isinstance(book.get('markets',[]),list):continue
@@ -104,7 +105,7 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None):
     observations,_=load_observations(root,start);done={str(x['fixture']['odds_event_id']) for x in observations if x['quotes']};predictions=read_csv(root/'raw/all_leagues_predictions.csv');picks=read_csv(root/'raw/conservative_bet_shortlist.csv');count=0;written=0;errors=[]
     for source in predictions:
         event=str(source.get('odds_event_id',''));kick=utc(source.get('kickoff_utc'))
-        if event in done or not event or not kick or not 0<(kick-start).total_seconds()<=90:continue
+        if event in done or not event or not kick or not 0<(kick-start).total_seconds()<=PRE_KICKOFF_WINDOW_SECONDS:continue
         if count>=cap:break
         markets={'h2h','totals'}
         selected=[x.get('market') for x in picks if fixture_key(x)==fixture_key(source)]
@@ -154,7 +155,7 @@ def evaluate(root,archive,clock):
     for book in ('1xbet','pinnacle'):
         valid=[x['closing'][book] for x in rows if x['closing'][book]['status']=='OBSERVED_NEAR_CLOSE'];values=[x['fair_close_ev'] for x in valid if x['fair_close_ev'] is not None];prices=[x['offered_price_clv'] for x in valid if x['offered_price_clv'] is not None]
         groups[book]={'covered_selections':len(valid),'missing_selections':sum(x['closing'][book]['status']=='MISSING_VALID_PRE_KICKOFF_QUOTE' for x in rows),'pending_selections':sum(x['closing'][book]['status']=='PENDING_KICKOFF' for x in rows),'mean_fair_close_ev':sum(values)/len(values) if values else None,'mean_same_book_offered_price_clv':sum(prices)/len(prices) if prices else None,'positive_fair_close_ev':sum(v>0 for v in values)}
-    summary={'version':VERSION,'reviewed_at_utc':clock.isoformat(),'frozen_selections':len(rows),'observations':len(observations),'rejected_files':rejected,'by_bookmaker':groups,'automatic_production_change':False,'note':'Last observed live quote within 90 seconds of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.'}
+    summary={'version':VERSION,'reviewed_at_utc':clock.isoformat(),'frozen_selections':len(rows),'observations':len(observations),'rejected_files':rejected,'by_bookmaker':groups,'automatic_production_change':False,'note':'Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.'}
     return summary,rows
 
 
