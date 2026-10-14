@@ -73,7 +73,7 @@ class ExcelReportTests(unittest.TestCase):
         self.assertEqual(first,path.read_bytes())
         with ZipFile(path) as z:
             charts=[n for n in z.namelist() if '/charts/chart' in n and n.endswith('.xml')]
-            self.assertEqual(len(charts),3)
+            self.assertEqual(len(charts),5)
             for n in charts:
                 ET.fromstring(z.read(n))
             sheet=ET.fromstring(z.read('xl/worksheets/sheet5.xml'))
@@ -113,3 +113,4 @@ class ExcelReportTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
