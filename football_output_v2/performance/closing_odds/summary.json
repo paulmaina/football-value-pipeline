@@ -5,23 +5,23 @@
       "covered_selections": 0,
       "mean_fair_close_ev": null,
       "mean_same_book_offered_price_clv": null,
-      "missing_selections": 11,
-      "pending_selections": 10,
+      "missing_selections": 13,
+      "pending_selections": 8,
       "positive_fair_close_ev": 0
     },
     "pinnacle": {
-      "covered_selections": 0,
-      "mean_fair_close_ev": null,
+      "covered_selections": 1,
+      "mean_fair_close_ev": 0.05317884471232537,
       "mean_same_book_offered_price_clv": null,
-      "missing_selections": 11,
-      "pending_selections": 10,
-      "positive_fair_close_ev": 0
+      "missing_selections": 12,
+      "pending_selections": 8,
+      "positive_fair_close_ev": 1
     }
   },
   "frozen_selections": 21,
   "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-  "observations": 0,
+  "observations": 7,
   "rejected_files": [],
-  "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+  "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
   "version": "local-closing-quotes-v1"
 }

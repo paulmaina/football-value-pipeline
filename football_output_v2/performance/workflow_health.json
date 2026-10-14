@@ -8,24 +8,24 @@
           "covered_selections": 0,
           "mean_fair_close_ev": null,
           "mean_same_book_offered_price_clv": null,
-          "missing_selections": 11,
-          "pending_selections": 10,
+          "missing_selections": 13,
+          "pending_selections": 8,
           "positive_fair_close_ev": 0
         },
         "pinnacle": {
-          "covered_selections": 0,
-          "mean_fair_close_ev": null,
+          "covered_selections": 1,
+          "mean_fair_close_ev": 0.05317884471232537,
           "mean_same_book_offered_price_clv": null,
-          "missing_selections": 11,
-          "pending_selections": 10,
-          "positive_fair_close_ev": 0
+          "missing_selections": 12,
+          "pending_selections": 8,
+          "positive_fair_close_ev": 1
         }
       },
       "frozen_selections": 21,
       "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-      "observations": 0,
+      "observations": 7,
       "rejected_files": [],
-      "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+      "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
       "version": "local-closing-quotes-v1"
     },
     "dependencies": {
@@ -228,7 +228,7 @@
           "minimum_paired_fixtures": 300,
           "minimum_verified_coverage": 0.8
         },
-        "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+        "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
         "secondary_comparison": {
           "btts_yes": {
             "baseline": {
@@ -1058,7 +1058,7 @@
         ],
         "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
         "rejected_snapshot_commits": [],
-        "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+        "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
         "total_fixtures": 37,
         "version": "conservative-ev-sensitivity-v1"
       },
@@ -1188,7 +1188,7 @@
         ],
         "graded_fixture_markets": 30,
         "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-        "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+        "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
         "total_fixture_markets": 267,
         "version": "goal-blend-shadow-v1"
       },
@@ -1586,7 +1586,7 @@
         "observed_fixture_markets": 178,
         "paired_graded_fixture_markets": 20,
         "pending_or_unverified_selections": 0,
-        "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+        "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
         "selected": 0,
         "settings_observed": [
           {
@@ -11823,7 +11823,7 @@
         ],
         "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
         "rejected_snapshot_commits": [],
-        "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+        "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
         "total_fixture_markets": 178,
         "version": "goal-recency-shadow-v1",
         "weekly_comparisons": [
@@ -13401,7 +13401,7 @@
           "minimum_paired_fixtures": 300,
           "minimum_verified_coverage": 0.8
         },
-        "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+        "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
         "status": "COLLECT_MORE_DATA",
         "verified_coverage": null,
         "version": "pinnacle-totals-anchor-v1"
@@ -13486,10 +13486,10 @@
         }
       ],
       "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-      "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+      "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
       "version": "experiment-review-queue-v1"
     },
-    "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+    "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
     "selection_policy_groups": {
       "72h-all-markets-net-ev15-execution-v7": {
         "brier": null,
@@ -15230,7 +15230,7 @@
           "completed_matches": 27,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 0.7344778083333333,
+          "download_age_hours": 0.9855371286111111,
           "download_status": "VERIFIED_LIVE",
           "latest_completed_date": "2026-10-13",
           "latest_completed_utc": "2026-10-13T19:00:00+00:00",
@@ -15312,7 +15312,7 @@
       }
     }
   },
-  "reviewed_at_utc": "2026-10-14T18:57:39Z",
+  "reviewed_at_utc": "2026-10-14T19:12:42Z",
   "snapshots": 23,
   "shortlist": {
     "brier": 0.250532,
@@ -15500,7 +15500,7 @@
       ],
       "graded_fixture_markets": 30,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+      "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
       "total_fixture_markets": 267,
       "version": "goal-blend-shadow-v1"
     },
@@ -15898,7 +15898,7 @@
       "observed_fixture_markets": 178,
       "paired_graded_fixture_markets": 20,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+      "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -26134,7 +26134,7 @@
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+      "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
       "total_fixture_markets": 178,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": [
@@ -28080,7 +28080,7 @@
       ],
       "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+      "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
       "total_fixtures": 37,
       "version": "conservative-ev-sensitivity-v1"
     },
@@ -28244,7 +28244,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+      "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
       "secondary_comparison": {
         "btts_yes": {
           "baseline": {
@@ -28706,7 +28706,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-14T18:57:39.122244+00:00",
+      "reviewed_at_utc": "2026-10-14T19:12:42.935797+00:00",
       "status": "COLLECT_MORE_DATA",
       "verified_coverage": null,
       "version": "pinnacle-totals-anchor-v1"
