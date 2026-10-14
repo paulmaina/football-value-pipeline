@@ -24,8 +24,8 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 11,
-  "additional_event_odds_calls_used_before_this_league": 2,
+  "live_odds_matched": 14,
+  "additional_event_odds_calls_used_before_this_league": 16,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "additional_odds_coverage_mode": "all",
@@ -47,9 +47,10 @@
       "home_team": "Venezia",
       "away_team": "Napoli",
       "kickoff_utc": "2026-10-17T13:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "bfefc309177723410230fee52f650315",
@@ -57,9 +58,10 @@
       "home_team": "Bologna",
       "away_team": "Inter Milan",
       "kickoff_utc": "2026-10-17T16:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "18d478f469da3bcc654dd4555b85c7e3",
@@ -140,12 +142,42 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false
+    },
+    {
+      "fixture_id": "b7f0880e3da978f9481f7cb5697e2aa5",
+      "event_id": "b7f0880e3da978f9481f7cb5697e2aa5",
+      "home_team": "Cagliari",
+      "away_team": "Bologna",
+      "kickoff_utc": "2026-10-24T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "08ffd99b2249c81d8a7410598f32b9b0",
+      "event_id": "08ffd99b2249c81d8a7410598f32b9b0",
+      "home_team": "Como",
+      "away_team": "Sassuolo",
+      "kickoff_utc": "2026-10-24T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "0b4894e9fb123ef3045269f97e339eba",
+      "event_id": "0b4894e9fb123ef3045269f97e339eba",
+      "home_team": "Napoli",
+      "away_team": "AS Roma",
+      "kickoff_utc": "2026-10-24T16:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_in_window_linked_fixtures": 3,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 1,
+  "additional_event_odds_calls_this_league": 3,
   "decay_tuning": {
     "selected_half_life_days": 240.0,
     "selected_xi_per_day": 0.0028881132523331052,

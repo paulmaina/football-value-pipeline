@@ -24,7 +24,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 11,
+  "live_odds_matched": 15,
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
@@ -36,9 +36,10 @@
       "home_team": "Everton",
       "away_team": "Chelsea",
       "kickoff_utc": "2026-10-17T11:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "8f1945e7272bc7e89016439f5ab321c7",
@@ -46,9 +47,10 @@
       "home_team": "Brentford",
       "away_team": "Liverpool",
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "7895f97f2f9577f3b13287a3d086859d",
@@ -56,9 +58,10 @@
       "home_team": "Fulham",
       "away_team": "Hull City",
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "bf2142d1ca76ba2fc9e61afce80f86c0",
@@ -66,9 +69,10 @@
       "home_team": "Manchester City",
       "away_team": "Ipswich Town",
       "kickoff_utc": "2026-10-17T14:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "d1bbbdcd3d430e70091b518369b559cf",
@@ -76,9 +80,10 @@
       "home_team": "Newcastle United",
       "away_team": "Aston Villa",
       "kickoff_utc": "2026-10-17T16:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "dfd5d6648be46426e418801584d46a68",
@@ -139,12 +144,52 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false
+    },
+    {
+      "fixture_id": "aca5dd297dbee71f576f7641569fe578",
+      "event_id": "aca5dd297dbee71f576f7641569fe578",
+      "home_team": "Aston Villa",
+      "away_team": "Manchester City",
+      "kickoff_utc": "2026-10-24T11:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "f66e4f29c1b7bcfc5ab58c0b88c8850b",
+      "event_id": "f66e4f29c1b7bcfc5ab58c0b88c8850b",
+      "home_team": "Arsenal",
+      "away_team": "Everton",
+      "kickoff_utc": "2026-10-24T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "0fbb2626ed9534b9dcf21d16925f9bd7",
+      "event_id": "0fbb2626ed9534b9dcf21d16925f9bd7",
+      "home_team": "Coventry City",
+      "away_team": "Fulham",
+      "kickoff_utc": "2026-10-24T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
+    },
+    {
+      "fixture_id": "0382a9faef0bb8df1bcc436536cffb05",
+      "event_id": "0382a9faef0bb8df1bcc436536cffb05",
+      "home_team": "Chelsea",
+      "away_team": "Tottenham Hotspur",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 5,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 5,
   "decay_tuning": {
     "selected_half_life_days": 240.0,
     "selected_xi_per_day": 0.0028881132523331052,
