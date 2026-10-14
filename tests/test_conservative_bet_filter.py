@@ -89,9 +89,9 @@ class TenMarketTests(unittest.TestCase):
     def evaluate(self, *rows):
         return build_conservative_shortlist(pd.DataFrame(list(rows)), as_of=NOW)
 
-    def test_all_five_markets_are_evaluated_but_one_per_match(self):
+    def test_all_six_markets_are_evaluated_but_one_per_match(self):
         shortlist, decisions, summary = self.evaluate(fixture())
-        self.assertEqual(len(decisions), 5)
+        self.assertEqual(len(decisions), 6)
         self.assertEqual(len(shortlist), 1)
         self.assertEqual(shortlist.iloc[0]["market"], "Over 1.5")
         self.assertEqual(summary["status"], "BELOW_TARGET")
@@ -124,7 +124,7 @@ class TenMarketTests(unittest.TestCase):
         self.assertEqual(shortlist["fixture_id"].nunique(), 10)
         self.assertEqual(summary["status"], "TARGET_MET")
         self.assertEqual(summary["shortfall"], 0)
-        self.assertEqual(len(decisions), 60)
+        self.assertEqual(len(decisions), 72)
         self.assertEqual(len(decisions[decisions.decision == "SHORTLISTED"]), 10)
 
     def test_winner_markets_without_extra_odds_remain_eligible(self):
@@ -134,7 +134,7 @@ class TenMarketTests(unittest.TestCase):
         picks, decisions, _ = self.evaluate(row)
         self.assertEqual(len(picks), 1)
         self.assertEqual(picks.iloc[0]["market"], "Home win")
-        self.assertEqual(len(decisions), 5)
+        self.assertEqual(len(decisions), 6)
 
     def test_away_win_can_be_selected(self):
         row = fixture()
@@ -309,5 +309,6 @@ class TenMarketTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
 
