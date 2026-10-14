@@ -99,7 +99,6 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| bdc690a8c706 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | b9c15c09504a | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 648ca5973f8d | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 660b75e4a311 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
@@ -119,6 +118,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 6556638142ba | CAPTURED | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED |
 | 010ef527d5bf | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | d3f12df5a2a2 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| e5dcb5f67050 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 

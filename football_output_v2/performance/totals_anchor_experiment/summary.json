@@ -406,7 +406,9 @@
   "paired_fixtures": 0,
   "primary_log_loss_gain_week_block95": null,
   "registry_sha256": "05c7b4af8e00fc30b8385f253389892160d83d04840f013bff7e7e6ee144ccc2",
-  "rejected_snapshot_commits": [],
+  "rejected_snapshot_commits": [
+    "e5dcb5f670502ffa323617e647aaeb870b634f67"
+  ],
   "review_gates": {
     "bootstrap_replicates": 2000,
     "bootstrap_seed": 20261014,
@@ -415,7 +417,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-14T10:31:54.432908+00:00",
+  "reviewed_at_utc": "2026-10-14T11:27:05.226373+00:00",
   "status": "COLLECT_MORE_DATA",
   "verified_coverage": null,
   "version": "pinnacle-totals-anchor-v1"
