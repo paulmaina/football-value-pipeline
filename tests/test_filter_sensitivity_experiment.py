@@ -37,7 +37,7 @@ def record(row,h=2,a=1):
 class SensitivityTests(unittest.TestCase):
     def test_previous_six_market_policy_remains_valid_for_archived_evidence(self):
         import conservative_bet_filter as shortlist
-        old_specs = shortlist.MARKET_SPECS + (("Both Teams to Score - Yes", "btts_yes", .70, .63),)
+        old_specs = tuple(s for s in shortlist.MARKET_SPECS if s[1] != "home_away") + (("Both Teams to Score - Yes", "btts_yes", .70, .63),)
         with tempfile.TemporaryDirectory() as tmp:
             with patch.object(shortlist, "MARKET_SPECS", old_specs):
                 _, data, predictions, _, _, summary = setup(Path(tmp))
@@ -48,11 +48,21 @@ class SensitivityTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 validate(data, summary["generated_at_utc"], predictions.to_dict("records"))
 
+    def test_previous_five_market_policy_remains_valid(self):
+        import conservative_bet_filter as shortlist
+        old_specs=tuple(s for s in shortlist.MARKET_SPECS if s[1] != 'home_away')
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.object(shortlist, 'MARKET_SPECS', old_specs):
+                _, data, predictions, _, _, summary=setup(Path(tmp))
+            data['selection_policy_version']='72h-five-markets-probability-odds-net-ev15-v8'
+            self.assertEqual(len(data['rows']), 15)
+            validate(data, summary['generated_at_utc'], predictions.to_dict('records'))
+
     def test_production_unchanged_and_all_markets_rejections_retained(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);raw,data,predictions,picks,decisions,summary=setup(root)
             before=(raw/'conservative_bet_shortlist.csv').read_bytes()
-            self.assertEqual(len(data['rows']),15)
+            self.assertEqual(len(data['rows']),18)
             control=[r for r in data['rows'] if r['ev_floor']==.015]
             self.assertEqual([r['decision'] for r in control],decisions.decision.tolist())
             self.assertEqual([r['market'] for r in control],decisions.market.tolist())
@@ -100,7 +110,7 @@ class SensitivityTests(unittest.TestCase):
             sha='a'*40;capture(sha,root=root,captured_at=NOW)
             # Duplicate runs cannot add markets or replace first rejections.
             capture('b'*40,root=root,captured_at=NOW+timedelta(minutes=1))
-            rows,rejected=frozen(root,snapshots(root));self.assertEqual(len(rows),15);self.assertFalse(rejected)
+            rows,rejected=frozen(root,snapshots(root));self.assertEqual(len(rows),18);self.assertFalse(rejected)
             row=predictions.iloc[0].to_dict();rec=record(row);clock=NOW+timedelta(days=3)
             write_json(root/'performance/verified_results.json',{'PL:90002':rec})
             summary=review_experiment(root,snapshots(root),[rec],clock)
@@ -123,7 +133,7 @@ class SensitivityTests(unittest.TestCase):
             archive.write_text('{}')
             self.assertEqual(len(snapshots(root)),2) # optional failure preserves baseline
             rows,rejected=frozen(root,snapshots(root));self.assertIn(sha,rejected)
-            self.assertEqual(len(rows),15)
+            self.assertEqual(len(rows),18)
 
     def test_only_ev_changes_and_selected_quote_is_bound_to_forecast(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -159,7 +169,7 @@ class SensitivityTests(unittest.TestCase):
             with patch('test_filter_sensitivity_experiment.NOW',later):setup(root,row)
             capture('b'*40,root=root,captured_at=later)
             rows,_=frozen(root,snapshots(root))
-            self.assertEqual(len(rows),15)
+            self.assertEqual(len(rows),18)
             self.assertTrue(all(r['snapshot_commit']=='b'*40 for r in rows))
 
     def test_late_and_legacy_not_backfilled(self):
@@ -186,4 +196,5 @@ class SensitivityTests(unittest.TestCase):
         self.assertAlmostEqual(s['flat_stake_roi'],-.405)
         self.assertEqual(s['calibration'][0]['observed_rate'],.5)
         self.assertEqual(statistics([])['graded'],0)
+
 

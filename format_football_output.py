@@ -520,6 +520,7 @@ def build_match_summary(
         ("Under 3.5 goals", "p_under_3_5"),
         ("Double Chance 1X", "p_home_draw"),
         ("Double Chance X2", "p_draw_away"),
+        ("Double Chance 12 (either team wins)", "p_home_away"),
         ("Under 4.5 goals", "p_under_4_5"),
         ("BTTS Yes (both teams score)", "p_btts_yes"),
         ("BTTS No (at least one team does not score)", "p_btts_no"),
@@ -593,6 +594,7 @@ def readable_predictions_frame(
             "Under 3.5": pct(row.get("p_under_3_5")),
             "Double Chance 1X": pct(row.get("p_home_draw")),
             "Double Chance X2": pct(row.get("p_draw_away")),
+            "Double Chance 12": pct(row.get("p_home_away")),
             "Under 4.5": pct(row.get("p_under_4_5")),
             "BTTS Yes": pct(row.get("p_btts_yes")),
             "BTTS No": pct(row.get("p_btts_no")),
@@ -1614,4 +1616,5 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 
