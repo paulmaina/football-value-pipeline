@@ -618,7 +618,7 @@
       ],
       "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-13T23:47:05.809888+00:00",
+      "reviewed_at_utc": "2026-10-14T05:07:54.941733+00:00",
       "total_fixtures": 16,
       "version": "conservative-ev-sensitivity-v1"
     },
@@ -748,7 +748,7 @@
       ],
       "graded_fixture_markets": 27,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-13T23:47:05.809888+00:00",
+      "reviewed_at_utc": "2026-10-14T05:07:54.941733+00:00",
       "total_fixture_markets": 201,
       "version": "goal-blend-shadow-v1"
     },
@@ -1138,7 +1138,7 @@
       "observed_fixture_markets": 134,
       "paired_graded_fixture_markets": 18,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-13T23:47:05.809888+00:00",
+      "reviewed_at_utc": "2026-10-14T05:07:54.941733+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -6487,7 +6487,7 @@
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-13T23:47:05.809888+00:00",
+      "reviewed_at_utc": "2026-10-14T05:07:54.941733+00:00",
       "total_fixture_markets": 134,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": [
@@ -7585,7 +7585,7 @@
     "quote_age_over_24h": 0,
     "selected_quotes": 4
   },
-  "reviewed_at_utc": "2026-10-13T23:47:05.809888+00:00",
+  "reviewed_at_utc": "2026-10-14T05:07:54.941733+00:00",
   "selection_policy_groups": {
     "72h-ucl-v3": {
       "brier": 0.176857,
@@ -8656,7 +8656,7 @@
   ],
   "training": {
     "Bundesliga": {
-      "days_since_latest_result": 2,
+      "days_since_latest_result": 3,
       "diagnostics_sha256": "1b66437a03abe32082c8473c3b3cf03fc1640fd5231b47c5ae3779d914811c8c",
       "forecast_training_health": {
         "days_since_latest_result": 2,
@@ -8667,7 +8667,7 @@
       "training_matches": 963
     },
     "EPL": {
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "e7dc35353f5086e9bfeec6c25ded72ad7839e8accbada22b85c5415feddf094e",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -8678,7 +8678,7 @@
       "training_matches": 1200
     },
     "LaLiga": {
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "9398eab795bedd87b11abace1331135a20aab04e3d0f050e4bc7365a576fe0d2",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -8689,7 +8689,7 @@
       "training_matches": 1218
     },
     "Ligue1": {
-      "days_since_latest_result": 2,
+      "days_since_latest_result": 3,
       "diagnostics_sha256": "a16f9c12b7715a8533c60a50683e8a0cbc08018cef1668a3eb2cbf9ca3c5247c",
       "forecast_training_health": {
         "days_since_latest_result": 2,
@@ -8700,7 +8700,7 @@
       "training_matches": 972
     },
     "SerieA": {
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "5c7e5a37f420fb394fbbd8dec62c7c4ccb2269583c242f761dbbe72d204e027a",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -8712,13 +8712,13 @@
     },
     "UCL": {
       "current_source_health": {
-        "added_matches": 7,
+        "added_matches": 0,
         "cache_hash_verified": true,
-        "checked_at_utc": "2026-10-13T23:47:01.770936+00:00",
+        "checked_at_utc": "2026-10-14T05:07:50.722242+00:00",
         "completed_matches": 27,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 0.001121931111111111,
+        "download_age_hours": 0.0011720808333333332,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-10-13",
         "latest_completed_utc": "2026-10-13T19:00:00+00:00",
@@ -8727,12 +8727,12 @@
         "overdue_unfinished_match_ids": [],
         "provider": "football-data.org",
         "season_start": 2026,
-        "sha256": "657c524df1500b6dc2f720500e0caacd077afc8bf2ab84f293bec8779e120397",
+        "sha256": "a7f09a11287058dc6c944f9931d177bbe8e8a36195a4f7edd862b7f91e59df89",
         "source_schedule_matches": 144,
         "status": "MODEL_BEHIND_VERIFIED_SOURCE",
         "training_end": "2026-09-10"
       },
-      "days_since_latest_result": 33,
+      "days_since_latest_result": 34,
       "diagnostics_sha256": "04a1ff5933a5331a339fadf43e21cb534feefd43888133674a292b4f1d880d03",
       "forecast_training_health": {
         "added_matches": 0,
