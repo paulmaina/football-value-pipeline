@@ -1,7 +1,7 @@
 
 python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life (main)
 
-py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life --goal-blend-experiment --additional-odds-coverage all --market-led-experiment --recency-experiment
+py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life --goal-blend-experiment --additional-odds-coverage all --market-led-experiment --recency-experiment --reliability-experiment
 
 python format_football_output.py
 
