@@ -7798,6 +7798,7 @@
         "per_stake_cost_bps": 0
       },
       "experiment_capture_counts": {
+        "benchmark_forward_experiment:LEGACY_NOT_RECORDED": 20,
         "filter_sensitivity_experiment:CAPTURED": 1,
         "filter_sensitivity_experiment:LEGACY_NOT_RECORDED": 19,
         "goal_blend_experiment:CAPTURED": 6,
@@ -7808,6 +7809,208 @@
         "recency_experiment:LEGACY_NOT_RECORDED": 18
       },
       "experimental_reports": {
+        "benchmark_forward_experiment": {
+          "automatic_production_change": false,
+          "by_league": {
+            "Bundesliga": {
+              "baseline": {
+                "brier": null,
+                "calibration": [],
+                "ece": null,
+                "log_loss": null,
+                "n": 0,
+                "rps": null,
+                "top_label_calibration": []
+              },
+              "brier_gain": null,
+              "candidate": {
+                "brier": null,
+                "calibration": [],
+                "ece": null,
+                "log_loss": null,
+                "n": 0,
+                "rps": null,
+                "top_label_calibration": []
+              },
+              "log_loss_gain": null,
+              "rps_gain": null
+            },
+            "La Liga": {
+              "baseline": {
+                "brier": null,
+                "calibration": [],
+                "ece": null,
+                "log_loss": null,
+                "n": 0,
+                "rps": null,
+                "top_label_calibration": []
+              },
+              "brier_gain": null,
+              "candidate": {
+                "brier": null,
+                "calibration": [],
+                "ece": null,
+                "log_loss": null,
+                "n": 0,
+                "rps": null,
+                "top_label_calibration": []
+              },
+              "log_loss_gain": null,
+              "rps_gain": null
+            },
+            "Ligue 1": {
+              "baseline": {
+                "brier": null,
+                "calibration": [],
+                "ece": null,
+                "log_loss": null,
+                "n": 0,
+                "rps": null,
+                "top_label_calibration": []
+              },
+              "brier_gain": null,
+              "candidate": {
+                "brier": null,
+                "calibration": [],
+                "ece": null,
+                "log_loss": null,
+                "n": 0,
+                "rps": null,
+                "top_label_calibration": []
+              },
+              "log_loss_gain": null,
+              "rps_gain": null
+            },
+            "Premier League": {
+              "baseline": {
+                "brier": null,
+                "calibration": [],
+                "ece": null,
+                "log_loss": null,
+                "n": 0,
+                "rps": null,
+                "top_label_calibration": []
+              },
+              "brier_gain": null,
+              "candidate": {
+                "brier": null,
+                "calibration": [],
+                "ece": null,
+                "log_loss": null,
+                "n": 0,
+                "rps": null,
+                "top_label_calibration": []
+              },
+              "log_loss_gain": null,
+              "rps_gain": null
+            },
+            "Serie A": {
+              "baseline": {
+                "brier": null,
+                "calibration": [],
+                "ece": null,
+                "log_loss": null,
+                "n": 0,
+                "rps": null,
+                "top_label_calibration": []
+              },
+              "brier_gain": null,
+              "candidate": {
+                "brier": null,
+                "calibration": [],
+                "ece": null,
+                "log_loss": null,
+                "n": 0,
+                "rps": null,
+                "top_label_calibration": []
+              },
+              "log_loss_gain": null,
+              "rps_gain": null
+            }
+          },
+          "candidate_id": "market-weight-085-v1",
+          "comparison": {
+            "baseline": {
+              "brier": null,
+              "calibration": [],
+              "ece": null,
+              "log_loss": null,
+              "n": 0,
+              "rps": null,
+              "top_label_calibration": []
+            },
+            "brier_gain": null,
+            "candidate": {
+              "brier": null,
+              "calibration": [],
+              "ece": null,
+              "log_loss": null,
+              "n": 0,
+              "rps": null,
+              "top_label_calibration": []
+            },
+            "log_loss_gain": null,
+            "rps_gain": null
+          },
+          "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
+          "gameweeks": 0,
+          "log_loss_gain_week_block95": null,
+          "note": "Primary 1X2 log loss; week-block bootstrap, one preregistered candidate. Calibration and subgroup metrics are descriptive. Ready means enough evidence to review, including negative findings; it does not mean approval or profitability. Baseline is the actual production forecast. No closing odds, backfill, bets or automatic promotion.",
+          "observed_fixtures": 0,
+          "other_archived_registry_versions": [],
+          "paired_fixtures": 0,
+          "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+          "rejected_snapshot_commits": [],
+          "review_gates": {
+            "bootstrap_replicates": 2000,
+            "bootstrap_seed": 20261014,
+            "confidence_level": 0.95,
+            "minimum_gameweeks": 6,
+            "minimum_paired_fixtures": 300,
+            "minimum_verified_coverage": 0.8
+          },
+          "reviewed_at_utc": "2026-10-14T09:31:07.461235+00:00",
+          "secondary_comparison": {
+            "btts_yes": {
+              "baseline": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              },
+              "candidate": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              }
+            },
+            "over_1_5": {
+              "baseline": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              },
+              "candidate": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              }
+            }
+          },
+          "secondary_coverage": null,
+          "secondary_gate_passed": false,
+          "status": "COLLECT_MORE_DATA",
+          "verified_coverage": null,
+          "verified_in_scope_fixtures": 0,
+          "version": "benchmark-forward-shadow-v1"
+        },
         "filter_sensitivity_experiment": {
           "breakdowns": [
             {
@@ -8392,7 +8595,7 @@
           ],
           "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
           "rejected_snapshot_commits": [],
-          "reviewed_at_utc": "2026-10-14T08:06:14.819570+00:00",
+          "reviewed_at_utc": "2026-10-14T09:31:07.461235+00:00",
           "total_fixtures": 16,
           "version": "conservative-ev-sensitivity-v1"
         },
@@ -8522,7 +8725,7 @@
           ],
           "graded_fixture_markets": 27,
           "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-          "reviewed_at_utc": "2026-10-14T08:06:14.819570+00:00",
+          "reviewed_at_utc": "2026-10-14T09:31:07.461235+00:00",
           "total_fixture_markets": 201,
           "version": "goal-blend-shadow-v1"
         },
@@ -8912,7 +9115,7 @@
           "observed_fixture_markets": 134,
           "paired_graded_fixture_markets": 18,
           "pending_or_unverified_selections": 0,
-          "reviewed_at_utc": "2026-10-14T08:06:14.819570+00:00",
+          "reviewed_at_utc": "2026-10-14T09:31:07.461235+00:00",
           "selected": 0,
           "settings_observed": [
             {
@@ -14261,7 +14464,7 @@
           ],
           "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
           "rejected_snapshot_commits": [],
-          "reviewed_at_utc": "2026-10-14T08:06:14.819570+00:00",
+          "reviewed_at_utc": "2026-10-14T09:31:07.461235+00:00",
           "total_fixture_markets": 134,
           "version": "goal-recency-shadow-v1",
           "weekly_comparisons": [
@@ -15359,7 +15562,67 @@
         "quote_age_over_24h": 0,
         "selected_quotes": 4
       },
-      "reviewed_at_utc": "2026-10-14T08:06:14.819570+00:00",
+      "review_queue": {
+        "automatic_promotion": false,
+        "experiments": [
+          {
+            "collection_days": 0,
+            "key": "goal_blend_experiment",
+            "name": "goal_blend_experiment",
+            "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
+            "report": "goal_blend_experiment/report.md",
+            "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
+            "settled_evidence": 27,
+            "status": "COLLECT_MORE_DATA"
+          },
+          {
+            "collection_days": 0,
+            "graded_paper_bets": 0,
+            "key": "market_led_experiment",
+            "name": "market_led_experiment",
+            "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
+            "report": "market_led_experiment/report.md",
+            "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
+            "settled_evidence": 18,
+            "status": "COLLECT_MORE_DATA"
+          },
+          {
+            "collection_days": 0,
+            "key": "recency_experiment",
+            "name": "recency_experiment",
+            "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
+            "report": "recency_experiment/report.md",
+            "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
+            "settled_evidence": 16,
+            "status": "COLLECT_MORE_DATA"
+          },
+          {
+            "collection_days": 0,
+            "key": "filter_sensitivity_experiment",
+            "name": "filter_sensitivity_experiment",
+            "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
+            "report": "filter_sensitivity_experiment/report.md",
+            "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
+            "settled_evidence": 1,
+            "status": "COLLECT_MORE_DATA"
+          },
+          {
+            "automatic_production_change": false,
+            "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
+            "gameweeks": 0,
+            "key": "benchmark_forward:761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+            "name": "benchmark_forward_experiment",
+            "report": "benchmark_forward_experiment/report.md",
+            "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
+            "settled_evidence": 0,
+            "status": "COLLECT_MORE_DATA"
+          }
+        ],
+        "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
+        "reviewed_at_utc": "2026-10-14T09:31:07.461235+00:00",
+        "version": "experiment-review-queue-v1"
+      },
+      "reviewed_at_utc": "2026-10-14T09:31:07.461235+00:00",
       "selection_policy_groups": {
         "72h-ucl-v3": {
           "brier": 0.176857,
@@ -15462,7 +15725,7 @@
             "completed_matches": 27,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 2.9733603688888888,
+            "download_age_hours": 4.387983053611111,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-13",
             "latest_completed_utc": "2026-10-13T19:00:00+00:00",
