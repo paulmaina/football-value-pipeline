@@ -36,6 +36,24 @@ def setup(root):
 
 
 class ForwardBridgeTests(unittest.TestCase):
+    def test_missing_reference_round_trip_preserves_unavailable_evidence(self):
+        from performance_tracking import read_csv
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);raw,data,_=setup(root)
+            data['odds_h2h_last_update_utc']=None
+            data['market_source_1x2']=None
+            data.to_csv(raw/'all_leagues_predictions.csv',index=False)
+            result=bf.write_experiment(data,raw,NOW.isoformat())
+            bf.validate(result,NOW.isoformat(),read_csv(raw/'all_leagues_predictions.csv'))
+            self.assertEqual(result['rows'][0]['status'],'unavailable')
+            self.assertIsNotNone(bf.capture_file(raw,NOW.isoformat()))
+            capture('f'*40,root=root,captured_at=NOW+timedelta(minutes=1))
+            _,rejected=bf.frozen(root,snapshots(root));self.assertEqual(rejected,[])
+            bad=copy.deepcopy(result)
+            bad['rows'][0]['reference_updated_at_utc']=NOW.isoformat()
+            with self.assertRaises(ValueError):
+                bf.validate(bad,NOW.isoformat(),read_csv(raw/'all_leagues_predictions.csv'))
+
     def test_nomination_is_bound_and_changes_only_market_weight(self):
         r=bf.load_registry();self.assertEqual(r['market_weight'],.85)
         row=frame().iloc[0].to_dict();decision=bf.decision(row,r,NOW)

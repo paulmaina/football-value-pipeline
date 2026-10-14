@@ -50,9 +50,11 @@ class TotalsTests(unittest.TestCase):
     def test_capture_grade_and_tamper_isolated_from_baseline(self):
         row,m,inputs=sample();key=fixture_key(row)
         with tempfile.TemporaryDirectory() as tmp:
-            root=Path(tmp);raw=root/'raw';raw.mkdir();data=pd.DataFrame([row]);data.to_csv(raw/'all_leagues_predictions.csv',index=False);pd.DataFrame(columns=['decision']).to_csv(raw/'conservative_bet_shortlist.csv',index=False);write_json(raw/'conservative_bet_summary.json',{'generated_at_utc':NOW.isoformat()})
-            before=(raw/'all_leagues_predictions.csv').read_bytes();d=t.write_experiment(data,raw,NOW.isoformat(),{key:m},{key:inputs});self.assertIsNotNone(t.capture_file(raw,NOW.isoformat()))
+            generated=NOW.replace(microsecond=552356).isoformat()
+            root=Path(tmp);raw=root/'raw';raw.mkdir();data=pd.DataFrame([row]);data.to_csv(raw/'all_leagues_predictions.csv',index=False);pd.DataFrame(columns=['decision']).to_csv(raw/'conservative_bet_shortlist.csv',index=False);write_json(raw/'conservative_bet_summary.json',{'generated_at_utc':generated})
+            before=(raw/'all_leagues_predictions.csv').read_bytes();d=t.write_experiment(data,raw,generated,{key:m},{key:inputs});self.assertIsNotNone(t.capture_file(raw,generated))
             capture('c'*40,root=root,captured_at=NOW+timedelta(minutes=1));capture('d'*40,root=root,captured_at=NOW+timedelta(minutes=2));archive=snapshots(root)
+            self.assertEqual(__import__('performance_tracking').utc(archive[0][0]['generated_at_utc']).microsecond,552356)
             f=final(h=4,a=1);f['utcDate']=row['kickoff_utc'];rec=verified_record('PL',f);write_json(root/'performance/verified_results.json',{'x':rec})
             s=t.review_experiment(root,archive,[rec],NOW+timedelta(days=3));self.assertEqual(s['paired_fixtures'],1);self.assertTrue(t.validate_report(root));self.assertEqual(before,(raw/'all_leagues_predictions.csv').read_bytes())
             s['paired_fixtures']=999;write_json(root/'performance/totals_anchor_experiment/summary.json',s)

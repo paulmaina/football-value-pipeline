@@ -51,7 +51,7 @@ def decision(row,r,clock):
     candidate=[(1-r['market_weight'])*p+r['market_weight']*q for p,q in zip(raw,market)] if not reasons else None
     return {'status':'available' if candidate is not None else 'unavailable','reasons':reasons,
         'baseline':base,'candidate':candidate,'raw':raw,'market_reference':market,
-        'reference_updated_at_utc':row.get('odds_h2h_last_update_utc'),'reference_source':row.get('market_source_1x2'),
+        'reference_updated_at_utc':row.get('odds_h2h_last_update_utc') or None,'reference_source':row.get('market_source_1x2') or None,
         'production_market_weight':weight}
 
 
@@ -101,6 +101,10 @@ def validate(data,generated,predictions,require_active=True):
         if extra!={k:row.get(k) for k in extra}:raise ValueError('Unbound secondary score probabilities')
         for field,value in expected.items():
             actual=row.get(field)
+            # CSV encodes absent text as an empty field; JSON uses null.
+            # These are the same missing evidence, not different timestamps.
+            if field in ('reference_updated_at_utc','reference_source'):
+                actual=actual or None
             if isinstance(value,list) and value and isinstance(value[0],(int,float)):
                 if not isinstance(actual,list) or len(actual)!=len(value) or any(not math.isfinite(a) or abs(a-b)>1e-9 for a,b in zip(actual,value)):raise ValueError('Unbound trial probability')
             elif isinstance(value,float):
