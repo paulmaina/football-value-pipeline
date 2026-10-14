@@ -269,6 +269,36 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "CL:575350": {
+    "away_goals": 6,
+    "away_short_name": "Liverpool",
+    "away_team": "Liverpool FC",
+    "first_verified_at_utc": "2026-10-14T18:57:39Z",
+    "home_goals": 3,
+    "home_short_name": "LASK",
+    "home_team": "LASK Linz",
+    "kickoff_utc": "2026-10-14T16:45:00Z",
+    "league_code": "CL",
+    "match_id": 575350,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "CL:575351": {
+    "away_goals": 2,
+    "away_short_name": "Como 1907",
+    "away_team": "Como 1907",
+    "first_verified_at_utc": "2026-10-14T18:57:39Z",
+    "home_goals": 3,
+    "home_short_name": "Feyenoord",
+    "home_team": "Feyenoord Rotterdam",
+    "kickoff_utc": "2026-10-14T16:45:00Z",
+    "league_code": "CL",
+    "match_id": 575351,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559666": {
     "away_goals": 1,
     "away_short_name": "Angers SCO",
