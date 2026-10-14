@@ -29,6 +29,8 @@ NAMES = {
     'filter_sensitivity_experiment': 'EV filter sensitivity',
     'benchmark_forward_experiment': '85% market weight',
     'totals_anchor_experiment': 'Pinnacle totals anchor',
+    'reliability:stronger_l2': 'Stronger regularisation (L2=3)',
+    'reliability:fixed_half_life': 'Fixed half-life (480 days)',
 }
 
 
@@ -288,10 +290,17 @@ def experiment_rows(root, health):
     for name, display in NAMES.items():
         item = by_name.get(name, {})
         summary = load(root, name + '/summary.json')
+        if name.startswith('reliability:'):
+            candidate_id = name.split(':', 1)[1]
+            name = 'model_reliability_experiment'
+            item = next((i for i in queue.get('experiments', []) if i['name'] == name and i.get('candidate_id') == candidate_id), {})
+            parent = load(root, name + '/summary.json')
+            summary = {**next((c for c in parent.get('comparisons', []) if c['candidate_id'] == candidate_id), {}),
+                       'review_gates': parent.get('registry', {}), 'rejected_snapshot_commits': parent.get('rejected_snapshot_commits', [])}
         state = item.get('status', 'REPORT_UNAVAILABLE_OR_STALE')
         n = item.get('settled_evidence')
         requirements = []
-        if name in ('benchmark_forward_experiment', 'totals_anchor_experiment'):
+        if name in ('benchmark_forward_experiment', 'totals_anchor_experiment', 'model_reliability_experiment'):
             gates = summary.get('review_gates', {})
             minimum = gates.get('minimum_paired_fixtures'); weeks = gates.get('minimum_gameweeks')
             coverage_min = gates.get('minimum_verified_coverage'); coverage = summary.get('verified_coverage')
@@ -319,7 +328,7 @@ def experiment_rows(root, health):
             next_action = 'Review the paired results; approval is separate'
         else:
             next_action = '; '.join(requirements) or 'Continue collection; see detailed report'
-        unit = 'Paired fixtures' if name in ('benchmark_forward_experiment','totals_anchor_experiment') else 'Settled observations'
+        unit = 'Paired fixtures' if name in ('benchmark_forward_experiment','totals_anchor_experiment','model_reliability_experiment') else 'Settled observations'
         result.append([display, label(state), n if n is not None else 'Unavailable', unit, threshold, period,
             coverage_text if coverage_text is not None else 'Unavailable' if scope=='Approval review' else 'Not applicable',
             scope, next_action, label(item.get('evidence')) if 'evidence' in item else 'Initial review only'])
@@ -330,17 +339,19 @@ def add_experiments(parts, root, health, st):
     sheet = Sheet(); title(sheet, 'Experiment readiness', 'Readiness invites review, including negative findings. Production changes still require approval.',
         [28, 28, 12, 22, 25, 20, 15, 23, 48, 32], st, (1, 5, 'B6'))
     sheet.row(5, ['Experiment', 'Status', 'Collected', 'Evidence unit', 'Required sample', 'Time collected / required', 'Verified coverage', 'Review scope', 'Remaining requirements / next action', 'Evidence finding'], st, True)
-    for nr, values in enumerate(experiment_rows(root, health), 6):
+    rows = experiment_rows(root, health)
+    end = 5 + len(rows)
+    for nr, values in enumerate(rows, 6):
         sheet.row(nr, values, st); sheet.cell(f'G{nr}').set('s', str(st['percent']))
         state = values[1]
         sheet.cell(f'B{nr}').set('s', str(st['ready'] if state in ('Ready for review','First look ready') else st['error'] if state in ('Report unavailable or stale','Data quality blocked') else st['warning']))
         sheet.data.find(f"{q('row')}[@r='{nr}']").set('ht', '66')
-    ET.SubElement(sheet.root, q('autoFilter'), {'ref': 'A5:J11'})
-    status_rules(sheet,'B6:B11',st,[('ready',['Ready for review','First look ready']),
+    ET.SubElement(sheet.root, q('autoFilter'), {'ref': f'A5:J{end}'})
+    status_rules(sheet,f'B6:B{end}',st,[('ready',['Ready for review','First look ready']),
         ('error',['Report unavailable or stale','Data quality blocked']),('warning',['Collect more data'])])
-    sheet.put('A13', 'The original four sidecars count observations, not necessarily independent fixtures. Do not add their sample counts together.', st['note']); sheet.merge('A13:J13')
-    sheet.put('A14', 'Coverage and time gates must also pass. Reaching a sample count alone does not make a candidate ready.', st['note']); sheet.merge('A14:J14')
-    link(sheet, 'A16', 'Dashboard', 'Back to dashboard', st)
+    sheet.put(f'A{end+2}', 'The original four sidecars count observations, not necessarily independent fixtures. Do not add their sample counts together.', st['note']); sheet.merge(f'A{end+2}:J{end+2}')
+    sheet.put(f'A{end+3}', 'Coverage and time gates must also pass. Reaching a sample count alone does not make a candidate ready.', st['note']); sheet.merge(f'A{end+3}:J{end+3}')
+    link(sheet, f'A{end+5}', 'Dashboard', 'Back to dashboard', st)
     put_sheet(parts, 'Experiments', sheet)
 
 

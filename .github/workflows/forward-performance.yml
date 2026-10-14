@@ -30,6 +30,8 @@ on:
       - 'totals_anchor_experiment.py'
       - 'totals_anchor_registry.json'
       - 'closing_odds.py'
+      - 'model_reliability_experiment.py'
+      - 'football_output_v2/raw/model_reliability_experiment.json'
       - 'football_output_v2/raw/totals_anchor_experiment.json'
       - 'football_output_v2/closing_odds/observations/**'
       - 'experiment_review_queue.py'
