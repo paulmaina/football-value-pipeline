@@ -129,7 +129,7 @@ class ForwardBridgeTests(unittest.TestCase):
             'live_ref_home_odds':1.47,'live_ref_draw_odds':4.3,'live_ref_away_odds':7.3,
             'live_best_home_odds':1.52,'live_best_draw_odds':4.3,'live_best_away_odds':7.4})
         plain=pipe._predict_row(model,input_row)
-        pipe._benchmark_trial_enabled=True;pipe._benchmark_score_matrices={}
+        pipe._benchmark_trial_enabled=True;pipe._benchmark_score_matrices={};pipe._totals_shadow_inputs={}
         shadow=pipe._predict_row(model,input_row);self.assertEqual(plain,shadow)
         matrix=pipe._benchmark_score_matrices[(model.teams[0],model.teams[1],input_row.kickoff_utc)];before=matrix.copy()
         row=frame().iloc[0].to_dict();row.update(shadow[0]);data=pd.DataFrame([row])
@@ -148,7 +148,7 @@ class ForwardBridgeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);setup(root)
             bf.review_experiment(root,[],[],NOW)
-            q=eq.write_queue(root,NOW);self.assertEqual(len(q['experiments']),5)
+            q=eq.write_queue(root,NOW);self.assertEqual(len(q['experiments']),6)
             self.assertTrue(all(x['status']!='READY_FOR_REVIEW' for x in q['experiments']))
             q['experiments']=[{'name':'benchmark_forward_experiment','key':'trial-1','status':'READY_FOR_REVIEW','settled_evidence':300,'scope':'REVIEW_ONLY'}]
             payload=json.dumps({'content':base64.b64encode(json.dumps(q).encode()).decode()})

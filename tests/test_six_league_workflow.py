@@ -79,6 +79,6 @@ class SixLeagueWorkflowTests(unittest.TestCase):
             self.assertEqual(data['experiments']['filter_sensitivity_experiment']['candidate_decisions'],108)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['filter_sensitivity_experiment:CAPTURED'],1)
             self.assertEqual(data['experiments']['benchmark_forward_experiment']['paired_fixtures'],0)
-            self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),5)
+            self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),6)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['benchmark_forward_experiment:CAPTURED'],1)
             self.assertTrue((root/'readable/football_performance_report.xlsx').exists())
