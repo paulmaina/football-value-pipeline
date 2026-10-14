@@ -458,7 +458,16 @@ def ledger_layout(parts, st):
         for nr in ((2,) if name=='ROI Plan' else (2,4)):
             sheet.merge(f'A{nr}:{column(len(widths))}{nr}')
         if name!='ROI Plan':sheet.put('A4', text(sheet.cell('A4')) or '',st['note'])
-        if name=='Breakdowns':sheet.put('O5','Calibration gap',st['header'])
+        if name=='Breakdowns':
+            sheet.put('O5','Calibration gap',st['header'])
+            # Excel requires table column names to match their header cells.
+            for path in list(parts):
+                if not (path.startswith('xl/tables/') and path.endswith('.xml')):
+                    continue
+                table = ET.fromstring(parts[path])
+                if table.get('name') == 'BreakdownsTable':
+                    table.find(q('tableColumns'))[14].set('name', 'Calibration gap')
+                    parts[path] = xml_bytes(table)
         if name=='Selections':sheet.put('A4','Frozen selections. Technical fields are grouped; expand them for source details. Kickoff times are UTC.',st['note'])
         if name in ('Selections','Predictions'):
             for nr in (2,4):

@@ -53,6 +53,18 @@ class MonitoringLayoutTests(unittest.TestCase):
         self.assertIsNotNone(get_sheet(data,'Selections').cell('N6').find(q('f')))
         self.assertTrue(data['[Content_Types].xml'].splitlines()[1].startswith(b'<Types xmlns='))
 
+    def test_breakdown_table_header_matches_worksheet_after_formatting(self):
+        path=write_workbook(self.root,[row('a')],[],{})
+        for _ in range(2):
+            data=parts(path)
+            header=text(get_sheet(data,'Breakdowns').cell('O5'))
+            tables=[ET.fromstring(value) for name,value in data.items()
+                    if name.startswith('xl/tables/') and name.endswith('.xml')]
+            table=next(t for t in tables if t.get('name')=='BreakdownsTable')
+            self.assertEqual(header,'Calibration gap')
+            self.assertEqual(table.find(q('tableColumns'))[14].get('name'),header)
+            format_report(path,self.root)
+
     def test_no_prices_or_results_are_unavailable_in_profit_trend(self):
         for rows in ([],[row('a','PENDING')],[row('a','WON',None)]):
             path=write_workbook(self.root,rows,[],{});sheet=get_sheet(parts(path),'Weekly Trends')
