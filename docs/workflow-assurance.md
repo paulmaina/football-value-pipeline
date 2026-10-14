@@ -124,3 +124,7 @@ The automatic filter-sensitivity sidecar freezes all six-market candidate decisi
 The Historical model benchmark workflow runs separately on pinned, hash-verified CSVs with read-only permissions and no API secrets. Its prediction ledger and fold chronology are reconciled before artifact publication. Closing odds are oracle/reference-only; nominal-opening CSVs lack exact availability timestamps. Statistical underperformance or insufficient Pinnacle coverage is reported as evidence, not a CI failure or reason to alter production.
 
 The benchmark forward bridge binds a development-selected registry, candidate probabilities, production score matrix and actual control to immutable forecast snapshots. Reports are reconciled against verified results before publishing. Readiness requires paired coverage and preregistered gates; issue notifications are idempotent and never promote production. Scheduled generation captures its forecast commit explicitly before publishing reviews, preserving concurrent main changes through fresh worktree retries. Missing cloud credentials are reported as setup required.
+
+## Local close collection and totals trial
+
+The forward workflow now includes the separate totals registry/sidecar and closing quote observation pushes. Optional failures preserve baseline capture. Totals and closing reports are recalculated during report validation; hash, temporal and same-event quote checks fail closed. See [local setup](closing-odds-and-totals-trial.md).

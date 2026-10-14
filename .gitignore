@@ -25,3 +25,6 @@ Thumbs.db
 workflow_artifacts/
 .coverage
 .coverage.*
+
+# Local collector process lease
+football_output_v2/closing_odds/collector.lock

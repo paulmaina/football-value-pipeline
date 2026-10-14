@@ -1,0 +1,38 @@
+{
+  "version": "pinnacle-totals-anchor-v1",
+  "candidate_id": "pinnacle-totals-anchor-v1",
+  "registered_on": "2026-10-14",
+  "primary_metric": "under_3_5_log_loss",
+  "leagues": [
+    "Premier League",
+    "La Liga",
+    "Bundesliga",
+    "Serie A",
+    "Ligue 1"
+  ],
+  "review_gates": {
+    "minimum_paired_fixtures": 300,
+    "minimum_gameweeks": 6,
+    "minimum_verified_coverage": 0.8,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20261014,
+    "confidence_level": 0.95
+  },
+  "approval_required": true,
+  "note": "Proportional goal-intensity scale; retain fitted rho and production HDA. Ten-minute Pinnacle quote freshness. Review and approval required.",
+  "primary_market": "under_3_5",
+  "markets": [
+    "under_3_5",
+    "over_1_5",
+    "btts_yes",
+    "over_2_5"
+  ],
+  "source": "docs/benchmarks/2026-10-14/results.json",
+  "source_sha256": "7fe421c2c1095f8c9c3220e06e25432c28e7662a2284c6e435cc05821c97b4eb",
+  "baseline_market_weight": 0.5,
+  "reference_bookmaker": "pinnacle",
+  "devig_method": "power",
+  "quote_max_age_seconds": 600,
+  "maximum_1x2_totals_skew_seconds": 300,
+  "anchoring": "proportional_intensity_scale_preserve_rho_and_production_hda"
+}
