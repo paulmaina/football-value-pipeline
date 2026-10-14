@@ -12,7 +12,7 @@ if (-not (Test-Path -LiteralPath $pythonWindowless -PathType Leaf)) {
     throw "Windowless Python is unavailable at $pythonWindowless. Repair the local Python installation before registering this task."
 }
 $action = New-ScheduledTaskAction -Execute $pythonWindowless -Argument ('"' + (Join-Path $repoPath 'closing_odds.py') + '" --max-requests 100') -WorkingDirectory $repoPath
-$trigger = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1) -RepetitionInterval (New-TimeSpan -Minutes 1)
+$trigger = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1) -RepetitionInterval (New-TimeSpan -Minutes 5)
 $settings = New-ScheduledTaskSettingsSet -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Minutes 4) -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
 $principal = New-ScheduledTaskPrincipal -UserId ([System.Security.Principal.WindowsIdentity]::GetCurrent().Name) -LogonType Interactive -RunLevel Limited
 Register-ScheduledTask -TaskName 'FootballClosingOddsCollector' -Action $action -Trigger $trigger -Settings $settings -Principal $principal -Description 'Local pre-kickoff quotes; .env keys; requires signed-in user and awake computer; no bets or Git pushes.' -Force | Out-Null
