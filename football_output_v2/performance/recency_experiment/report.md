@@ -2,39 +2,39 @@
 
 Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.
 
-Coverage: 166/178 fixture-markets; 16 graded.
+Coverage: 166/178 fixture-markets; 18 graded.
 Rejected snapshot data: 0 commit(s); details in summary.json.
 
 | League | Market | Variant | N | Brier | Log loss | Brier gain | Log-loss gain | Overconfidence |
 |---|---|---|---:|---:|---:|---:|---:|---:|
-| ALL | over_1_5 | development_1x2 | 8 | 0.1564 | 0.4800 | +0.0000 | +0.0000 | -8.1% |
-| ALL | over_1_5 | half_life_1000000000 | 8 | 0.1564 | 0.4800 | +0.0000 | +0.0000 | -8.1% |
-| ALL | over_1_5 | half_life_120 | 8 | 0.1446 | 0.4841 | +0.0118 | -0.0041 | -5.8% |
-| ALL | over_1_5 | half_life_240 | 8 | 0.1483 | 0.4710 | +0.0080 | +0.0089 | -7.0% |
-| ALL | over_1_5 | half_life_365 | 8 | 0.1507 | 0.4716 | +0.0056 | +0.0083 | -7.3% |
-| ALL | over_1_5 | half_life_730 | 8 | 0.1540 | 0.4766 | +0.0023 | +0.0034 | -7.7% |
-| ALL | over_1_5 | production_raw | 8 | 0.1564 | 0.4800 | +0.0000 | +0.0000 | -8.1% |
-| ALL | btts_yes | development_1x2 | 8 | 0.2676 | 0.7338 | +0.0000 | +0.0000 | +3.1% |
-| ALL | btts_yes | half_life_1000000000 | 8 | 0.2676 | 0.7338 | +0.0000 | +0.0000 | +3.1% |
-| ALL | btts_yes | half_life_120 | 8 | 0.2193 | 0.6300 | +0.0482 | +0.1038 | +5.3% |
-| ALL | btts_yes | half_life_240 | 8 | 0.2399 | 0.6731 | +0.0277 | +0.0607 | +3.9% |
-| ALL | btts_yes | half_life_365 | 8 | 0.2492 | 0.6932 | +0.0183 | +0.0406 | +3.5% |
-| ALL | btts_yes | half_life_730 | 8 | 0.2586 | 0.7135 | +0.0090 | +0.0203 | +3.1% |
-| ALL | btts_yes | production_raw | 8 | 0.2676 | 0.7338 | +0.0000 | +0.0000 | +3.1% |
-| UEFA Champions League | over_1_5 | development_1x2 | 8 | 0.1564 | 0.4800 | +0.0000 | +0.0000 | -8.1% |
-| UEFA Champions League | over_1_5 | half_life_1000000000 | 8 | 0.1564 | 0.4800 | +0.0000 | +0.0000 | -8.1% |
-| UEFA Champions League | over_1_5 | half_life_120 | 8 | 0.1446 | 0.4841 | +0.0118 | -0.0041 | -5.8% |
-| UEFA Champions League | over_1_5 | half_life_240 | 8 | 0.1483 | 0.4710 | +0.0080 | +0.0089 | -7.0% |
-| UEFA Champions League | over_1_5 | half_life_365 | 8 | 0.1507 | 0.4716 | +0.0056 | +0.0083 | -7.3% |
-| UEFA Champions League | over_1_5 | half_life_730 | 8 | 0.1540 | 0.4766 | +0.0023 | +0.0034 | -7.7% |
-| UEFA Champions League | over_1_5 | production_raw | 8 | 0.1564 | 0.4800 | +0.0000 | +0.0000 | -8.1% |
-| UEFA Champions League | btts_yes | development_1x2 | 8 | 0.2676 | 0.7338 | +0.0000 | +0.0000 | +3.1% |
-| UEFA Champions League | btts_yes | half_life_1000000000 | 8 | 0.2676 | 0.7338 | +0.0000 | +0.0000 | +3.1% |
-| UEFA Champions League | btts_yes | half_life_120 | 8 | 0.2193 | 0.6300 | +0.0482 | +0.1038 | +5.3% |
-| UEFA Champions League | btts_yes | half_life_240 | 8 | 0.2399 | 0.6731 | +0.0277 | +0.0607 | +3.9% |
-| UEFA Champions League | btts_yes | half_life_365 | 8 | 0.2492 | 0.6932 | +0.0183 | +0.0406 | +3.5% |
-| UEFA Champions League | btts_yes | half_life_730 | 8 | 0.2586 | 0.7135 | +0.0090 | +0.0203 | +3.1% |
-| UEFA Champions League | btts_yes | production_raw | 8 | 0.2676 | 0.7338 | +0.0000 | +0.0000 | +3.1% |
+| ALL | over_1_5 | development_1x2 | 9 | 0.1652 | 0.5005 | +0.0000 | +0.0000 | -12.6% |
+| ALL | over_1_5 | half_life_1000000000 | 9 | 0.1652 | 0.5005 | +0.0000 | +0.0000 | -12.6% |
+| ALL | over_1_5 | half_life_120 | 9 | 0.1628 | 0.5204 | +0.0024 | -0.0198 | -11.4% |
+| ALL | over_1_5 | half_life_240 | 9 | 0.1617 | 0.4998 | +0.0035 | +0.0007 | -12.0% |
+| ALL | over_1_5 | half_life_365 | 9 | 0.1625 | 0.4977 | +0.0027 | +0.0028 | -12.1% |
+| ALL | over_1_5 | half_life_730 | 9 | 0.1640 | 0.4993 | +0.0012 | +0.0012 | -12.3% |
+| ALL | over_1_5 | production_raw | 9 | 0.1652 | 0.5005 | +0.0000 | +0.0000 | -12.6% |
+| ALL | btts_yes | development_1x2 | 9 | 0.3117 | 0.8400 | +0.0000 | +0.0000 | -6.3% |
+| ALL | btts_yes | half_life_1000000000 | 9 | 0.3117 | 0.8400 | +0.0000 | +0.0000 | -6.3% |
+| ALL | btts_yes | half_life_120 | 9 | 0.2686 | 0.7470 | +0.0431 | +0.0930 | -4.3% |
+| ALL | btts_yes | half_life_240 | 9 | 0.2869 | 0.7854 | +0.0248 | +0.0547 | -5.6% |
+| ALL | btts_yes | half_life_365 | 9 | 0.2950 | 0.8026 | +0.0167 | +0.0374 | -6.0% |
+| ALL | btts_yes | half_life_730 | 9 | 0.3031 | 0.8200 | +0.0086 | +0.0200 | -6.2% |
+| ALL | btts_yes | production_raw | 9 | 0.3117 | 0.8400 | +0.0000 | +0.0000 | -6.3% |
+| UEFA Champions League | over_1_5 | development_1x2 | 9 | 0.1652 | 0.5005 | +0.0000 | +0.0000 | -12.6% |
+| UEFA Champions League | over_1_5 | half_life_1000000000 | 9 | 0.1652 | 0.5005 | +0.0000 | +0.0000 | -12.6% |
+| UEFA Champions League | over_1_5 | half_life_120 | 9 | 0.1628 | 0.5204 | +0.0024 | -0.0198 | -11.4% |
+| UEFA Champions League | over_1_5 | half_life_240 | 9 | 0.1617 | 0.4998 | +0.0035 | +0.0007 | -12.0% |
+| UEFA Champions League | over_1_5 | half_life_365 | 9 | 0.1625 | 0.4977 | +0.0027 | +0.0028 | -12.1% |
+| UEFA Champions League | over_1_5 | half_life_730 | 9 | 0.1640 | 0.4993 | +0.0012 | +0.0012 | -12.3% |
+| UEFA Champions League | over_1_5 | production_raw | 9 | 0.1652 | 0.5005 | +0.0000 | +0.0000 | -12.6% |
+| UEFA Champions League | btts_yes | development_1x2 | 9 | 0.3117 | 0.8400 | +0.0000 | +0.0000 | -6.3% |
+| UEFA Champions League | btts_yes | half_life_1000000000 | 9 | 0.3117 | 0.8400 | +0.0000 | +0.0000 | -6.3% |
+| UEFA Champions League | btts_yes | half_life_120 | 9 | 0.2686 | 0.7470 | +0.0431 | +0.0930 | -4.3% |
+| UEFA Champions League | btts_yes | half_life_240 | 9 | 0.2869 | 0.7854 | +0.0248 | +0.0547 | -5.6% |
+| UEFA Champions League | btts_yes | half_life_365 | 9 | 0.2950 | 0.8026 | +0.0167 | +0.0374 | -6.0% |
+| UEFA Champions League | btts_yes | half_life_730 | 9 | 0.3031 | 0.8200 | +0.0086 | +0.0200 | -6.2% |
+| UEFA Champions League | btts_yes | production_raw | 9 | 0.3117 | 0.8400 | +0.0000 | +0.0000 | -6.3% |
 
 Positive paired gain means lower error than the raw production model on those same matches. A 30-match review prompt is not statistical proof.
 
