@@ -36,7 +36,7 @@ class ClosingTests(unittest.TestCase):
         self.assertEqual(len(d['quotes']),26);home=next(x for x in d['quotes'] if x['bookmaker']=='pinnacle' and x['selection']=='home');self.assertGreater(home['fair_probability'],.5)
         for field,value in [('id','bad'),('home_team','Wrong'),('commence_time',NOW.isoformat())]:
             with self.assertRaises(ValueError):c.normalize(row,{**p,field:value},observed)
-        for badclock in (observed-timedelta(seconds=40),observed+timedelta(seconds=60)):
+        for badclock in (observed-timedelta(seconds=301),observed+timedelta(seconds=60)):
             with self.assertRaises(ValueError):c.normalize(row,p,badclock)
         stale=copy.deepcopy(p)
         for b in stale['bookmakers']:
@@ -45,6 +45,28 @@ class ClosingTests(unittest.TestCase):
         bad=copy.deepcopy(p);bad['bookmakers'][0]['markets'][0]['outcomes'].pop();bad['bookmakers'][1]['key']='other'
         d=c.normalize(row,bad,observed);self.assertFalse(any(x['selection']=='home' for x in d['quotes']));self.assertTrue(all(x['bookmaker']=='pinnacle' for x in d['quotes']))
         bad=copy.deepcopy(p);bad['bookmakers'][0]['markets'][0]['outcomes'].append(bad['bookmakers'][0]['markets'][0]['outcomes'][0]);self.assertFalse(any(x['selection']=='home' and x['bookmaker']=='pinnacle' for x in c.normalize(row,bad,observed)['quotes']))
+
+    def test_six_minute_window_boundaries_and_collection(self):
+        row,_,_=sample()
+        kickoff=__import__('performance_tracking').utc(row['kickoff_utc'])
+        for seconds in (360,300,1):
+            observed=kickoff-timedelta(seconds=seconds)
+            self.assertTrue(c.normalize(row,payload(row,observed),observed)['quotes'])
+        for seconds in (361,0,-1):
+            observed=kickoff-timedelta(seconds=seconds)
+            with self.assertRaises(ValueError):
+                c.normalize(row,payload(row,observed),observed)
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);row,_=setup(root)
+            observed=kickoff-timedelta(minutes=5)
+            result=c.collect_once(root,None,observed,fetcher=lambda *a:payload(row,observed))
+            self.assertEqual(result['requests'],1)
+            self.assertEqual(result['written'],1)
+            self.assertEqual(result['errors'],[])
+            self.assertEqual(len(c.load_observations(root,observed)[0]),1)
+            summary,rows=c.evaluate(root,snapshots(root),kickoff+timedelta(seconds=1))
+            self.assertEqual(summary['by_bookmaker']['1xbet']['covered_selections'],1)
+            self.assertEqual(rows[0]['closing']['1xbet']['seconds_before_kickoff'],300)
 
     def test_collect_once_cap_and_failure_safety(self):
         with tempfile.TemporaryDirectory() as tmp:
