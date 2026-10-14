@@ -24,8 +24,8 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 10,
-  "additional_event_odds_calls_used_before_this_league": 3,
+  "live_odds_matched": 11,
+  "additional_event_odds_calls_used_before_this_league": 19,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "additional_odds_coverage_mode": "all",
@@ -47,9 +47,10 @@
       "home_team": "Strasbourg",
       "away_team": "Paris Saint Germain",
       "kickoff_utc": "2026-10-17T15:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "ad25a350c89b64715e15c59cde5653d3",
@@ -130,12 +131,22 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false
+    },
+    {
+      "fixture_id": "0bbce95e5764e706e6c428bb52dc5536",
+      "event_id": "0bbce95e5764e706e6c428bb52dc5536",
+      "home_team": "Toulouse",
+      "away_team": "Troyes",
+      "kickoff_utc": "2026-10-24T15:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_in_window_linked_fixtures": 2,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 1,
+  "additional_event_odds_calls_this_league": 2,
   "decay_tuning": {
     "selected_half_life_days": 730.0,
     "selected_xi_per_day": 0.0009495166856985552,
