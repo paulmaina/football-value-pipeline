@@ -57,6 +57,7 @@ class HistoricalBenchmarkTests(unittest.TestCase):
             root=Path(tmp);path=root/'2324_E0.csv';d=history();d.to_csv(path,index=False)
             c=config();data,sources,excluded=hb.load_history(root,'EPL',c)
             self.assertEqual(len(data),90);self.assertEqual(sources[0]['sha256'],hb.digest(path))
+            self.assertEqual(data.Date.min(),pd.Timestamp('2025-06-01'));self.assertEqual(data.Date.max(),pd.Timestamp('2025-08-29'))
             c['dataset_source_commit']='a'*40
             manifest={'dataset_source_commit':'a'*40,'sha256':{path.name:hb.digest(path)}}
             self.assertTrue(hb.verify_inputs(root,c,manifest))

@@ -71,7 +71,11 @@ def load_history(cache, league, cfg):
         needed={'Date','HomeTeam','AwayTeam','FTHG','FTAG'}
         if needed-set(frame):raise ValueError('Missing training columns '+path.name)
         sources.append({'path':path.name,'sha256':hashlib.sha256(raw).hexdigest(),'rows':len(frame)})
-        dates=pd.to_datetime(frame['Date'],format='mixed',dayfirst=True,errors='coerce')
+        text_dates=frame['Date'].astype(str).str.strip()
+        iso=text_dates.str.match(r'^\d{4}-\d{2}-\d{2}(?:$|T|\s)')
+        dates=pd.Series(pd.NaT,index=frame.index,dtype='datetime64[ns]')
+        dates.loc[iso]=pd.to_datetime(text_dates.loc[iso],format='ISO8601',errors='coerce')
+        dates.loc[~iso]=pd.to_datetime(text_dates.loc[~iso],format='mixed',dayfirst=True,errors='coerce')
         if dates.isna().any():raise ValueError('Invalid historical date '+path.name)
         frame['Date']=dates.dt.normalize()
         hg=pd.to_numeric(frame.FTHG,errors='coerce');ag=pd.to_numeric(frame.FTAG,errors='coerce')
