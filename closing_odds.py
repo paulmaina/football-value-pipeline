@@ -81,7 +81,8 @@ def load_observations(root,clock=None):
             observed=utc(d['observed_at_utc'])
             if not observed or (clock is not None and observed>clock):raise ValueError('Clock')
             expected=normalize(d['fixture'],d['payload'],observed)
-            if d!=expected:raise ValueError('Quote calculation')
+            from totals_anchor_experiment import equivalent
+            if not equivalent(d,expected):raise ValueError('Quote calculation')
             rows.append(d)
         except (ValueError,TypeError,KeyError,OSError):rejected.append(path.name)
     return rows,rejected

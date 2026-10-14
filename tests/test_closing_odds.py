@@ -51,6 +51,7 @@ class ClosingTests(unittest.TestCase):
             root=Path(tmp);row,observed=setup(root);calls=[]
             def fetch(api,source,markets):calls.append(markets);return payload(row,observed)
             s=c.collect_once(root,None,observed,fetcher=fetch);self.assertEqual(s['written'],1);self.assertEqual(calls,[{'h2h','totals'}]);self.assertEqual(c.collect_once(root,None,observed,fetcher=fetch)['requests'],0)
+            pending,_=c.evaluate(root,snapshots(root),observed);self.assertEqual(pending['by_bookmaker']['1xbet']['pending_selections'],1)
             s,rows=c.evaluate(root,snapshots(root),observed+timedelta(days=1));self.assertEqual(s['by_bookmaker']['1xbet']['covered_selections'],1);self.assertAlmostEqual(rows[0]['closing']['1xbet']['offered_price_clv'],1.7/1.6-1);self.assertIsNone(rows[0]['closing']['pinnacle']['offered_price_clv']);self.assertFalse(rows[0]['closing']['pinnacle']['official_close_verified'])
             write_json(root/'closing_odds/request_budget.json',{'date':observed.date().isoformat(),'requests':100});self.assertEqual(c.collect_once(root,None,observed,fetcher=fetch)['requests'],0)
             s=c.review(root,snapshots(root),observed+timedelta(days=1));self.assertTrue(c.validate_report(root));s['observations']=50;write_json(root/'performance/closing_odds/summary.json',s)
