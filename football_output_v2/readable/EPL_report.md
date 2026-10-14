@@ -120,9 +120,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:01Z |
-| Market best draw last update utc | 2026-10-14T18:12:01Z |
-| Market best away last update utc | 2026-10-14T18:12:01Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 4.00 |
 | Best home bookmaker | 1xBet |
@@ -160,56 +160,56 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.30 |
 | Reference draw odds | 3.65 |
 | Reference away odds | 2.75 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.60 |
-| Reference Under 2.5 odds | 2.35 |
+| O/U 2.5 market source | The Odds API / Betsson |
+| Reference Over 2.5 odds | 1.59 |
+| Reference Under 2.5 odds | 2.40 |
 | Home probability edge | -1.0% |
 | Draw probability edge | +0.7% |
 | Away probability edge | +0.3% |
-| Over 2.5 probability edge | -0.9% |
-| Under 2.5 probability edge | +0.9% |
+| Over 2.5 probability edge | -1.6% |
+| Under 2.5 probability edge | +1.6% |
 | Raw edge prob home | -0.0209 |
 | Raw ev home | -0.0222 |
 | Raw edge prob draw | 0.0148 |
 | Raw ev draw | -0.0078 |
 | Raw edge prob away | 0.0061 |
 | Raw ev away | -0.0095 |
-| Market p home draw | 67.4% |
+| Market p home draw | 65.7% |
 | Market home draw odds | 1.48 |
 | Best home draw bookmaker | 1xBet |
-| Market best home draw last update utc | 2026-10-14T18:12:01Z |
-| Market reference home draw last update utc | 2026-10-14T18:12:34Z |
+| Market best home draw last update utc | 2026-10-14T19:06:45Z |
+| Market reference home draw last update utc | 2026-10-14T19:06:45Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 60.1% |
+| Market p draw away | 60.7% |
 | Market draw away odds | 1.60 |
 | Best draw away bookmaker | 1xBet |
-| Market best draw away last update utc | 2026-10-14T18:12:01Z |
-| Market reference draw away last update utc | 2026-10-14T18:12:34Z |
+| Market best draw away last update utc | 2026-10-14T19:06:45Z |
+| Market reference draw away last update utc | 2026-10-14T19:06:45Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market reference dc draw away odds | 1.57 |
-| Market reference dc home draw odds | 1.40 |
-| Market reference dc home away odds | 1.30 |
-| Market p over 1 5 | 83.5% |
+| Market reference dc draw away odds | 1.60 |
+| Market reference dc home draw odds | 1.48 |
+| Market reference dc home away odds | 1.32 |
+| Market p over 1 5 | 86.3% |
 | Market over 1 5 odds | 1.12 |
 | Best over 1 5 bookmaker | 1xBet |
-| Market best over 1 5 last update utc | 2026-10-14T18:11:58Z |
-| Market reference over 1 5 odds | 1.17 |
-| Market reference over 1 5 opposite odds | 4.80 |
+| Market best over 1 5 last update utc | 2026-10-14T19:06:59Z |
+| Market reference over 1 5 odds | 1.12 |
+| Market reference over 1 5 opposite odds | 4.65 |
 | Market over 1 5 bookmakers | 1 |
-| Market p under 3 5 | 62.1% |
+| Market p under 3 5 | 60.2% |
 | Market under 3 5 odds | 1.64 |
 | Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-14T18:11:58Z |
-| Market reference under 3 5 odds | 1.57 |
-| Market reference under 3 5 opposite odds | 2.50 |
+| Market best under 3 5 last update utc | 2026-10-14T19:06:59Z |
+| Market reference under 3 5 odds | 1.64 |
+| Market reference under 3 5 opposite odds | 2.46 |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 63.8% |
+| Market p btts yes | 65.1% |
 | Market btts yes odds | 1.46 |
 | Best btts yes bookmaker | 1xBet |
-| Market best btts yes last update utc | 2026-10-14T18:12:01Z |
-| Market reference btts yes odds | 1.55 |
+| Market best btts yes last update utc | 2026-10-14T19:06:45Z |
+| Market reference btts yes odds | 1.50 |
 | Market reference btts yes opposite odds | 2.70 |
 | Market btts yes bookmakers | 1 |
 
@@ -267,8 +267,8 @@ The model's most likely 1X2 outcome is **Chelsea win** at **40.2%**. Expected go
 | Everton win | 33.5% | 30.4% | 3.23 | +8.1% |
 | Draw | 26.3% | 24.4% | 3.88 | +2.1% |
 | Chelsea win | 40.2% | 45.3% | 2.23 | -10.3% |
-| Over 2.5 | 52.9% | 58.0% | 1.73 | -8.5% |
-| Under 2.5 | 47.1% | 42.0% | 2.28 | +7.4% |
+| Over 2.5 | 52.9% | 57.7% | 1.73 | -8.5% |
+| Under 2.5 | 47.1% | 42.3% | 2.28 | +7.4% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -284,9 +284,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:01Z |
-| Market best draw last update utc | 2026-10-14T18:12:01Z |
-| Market best away last update utc | 2026-10-14T18:12:01Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 14.00 |
 | Best home bookmaker | 1xBet |
@@ -326,57 +326,57 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 3.05 |
 | Reference draw odds | 3.75 |
 | Reference away odds | 2.10 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.65 |
-| Reference Under 2.5 odds | 2.22 |
+| O/U 2.5 market source | The Odds API / Unibet (SE) |
+| Reference Over 2.5 odds | 1.67 |
+| Reference Under 2.5 odds | 2.23 |
 | Home probability edge | +3.1% |
 | Draw probability edge | +1.9% |
 | Away probability edge | -5.0% |
-| Over 2.5 probability edge | -5.1% |
-| Under 2.5 probability edge | +5.1% |
+| Over 2.5 probability edge | -4.8% |
+| Under 2.5 probability edge | +4.8% |
 | Raw edge prob home | 0.0618 |
 | Raw ev home | 0.1808 |
 | Raw edge prob draw | 0.0389 |
 | Raw ev draw | 0.0962 |
 | Raw edge prob away | -0.1007 |
 | Raw ev away | -0.2153 |
-| Market p home draw | 56.8% |
+| Market p home draw | 56.1% |
 | Market home draw odds | 1.73 |
 | Best home draw bookmaker | 1xBet |
-| Market best home draw last update utc | 2026-10-14T18:12:01Z |
-| Market reference home draw last update utc | 2026-10-14T18:12:34Z |
+| Market best home draw last update utc | 2026-10-14T19:06:45Z |
+| Market reference home draw last update utc | 2026-10-14T19:06:45Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 69.7% |
+| Market p draw away | 69.3% |
 | Market draw away odds | 1.40 |
 | Best draw away bookmaker | 1xBet |
-| Market best draw away last update utc | 2026-10-14T18:12:01Z |
-| Market reference draw away last update utc | 2026-10-14T18:12:34Z |
+| Market best draw away last update utc | 2026-10-14T19:06:45Z |
+| Market reference draw away last update utc | 2026-10-14T19:06:45Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market reference dc draw away odds | 1.36 |
-| Market reference dc home draw odds | 1.67 |
-| Market reference dc home away odds | 1.29 |
-| Market p over 1 5 | 81.3% |
+| Market reference dc draw away odds | 1.40 |
+| Market reference dc home draw odds | 1.73 |
+| Market reference dc home away odds | 1.30 |
+| Market p over 1 5 | 80.7% |
 | Market over 1 5 odds | 1.17 |
 | Best over 1 5 bookmaker | 1xBet |
-| Market best over 1 5 last update utc | 2026-10-14T18:12:25Z |
-| Market reference over 1 5 odds | 1.20 |
-| Market reference over 1 5 opposite odds | 4.40 |
+| Market best over 1 5 last update utc | 2026-10-14T19:06:08Z |
+| Market reference over 1 5 odds | 1.22 |
+| Market reference over 1 5 opposite odds | 4.60 |
 | Market over 1 5 bookmakers | 1 |
 | Market p under 3 5 | 66.2% |
 | Market under 3 5 odds | 1.42 |
 | Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-14T18:12:25Z |
+| Market best under 3 5 last update utc | 2026-10-14T19:06:08Z |
 | Market reference under 3 5 odds | 1.47 |
 | Market reference under 3 5 opposite odds | 2.76 |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 60.5% |
+| Market p btts yes | 61.1% |
 | Market btts yes odds | 1.55 |
 | Best btts yes bookmaker | 1xBet |
-| Market best btts yes last update utc | 2026-10-14T18:12:01Z |
-| Market reference btts yes odds | 1.64 |
-| Market reference btts yes opposite odds | 2.50 |
+| Market best btts yes last update utc | 2026-10-14T19:06:45Z |
+| Market reference btts yes odds | 1.55 |
+| Market reference btts yes opposite odds | 2.32 |
 | Market btts yes bookmakers | 1 |
 
 </details>
@@ -433,8 +433,8 @@ The model's most likely 1X2 outcome is **Fulham win** at **41.8%**. Expected goa
 | Fulham win | 41.8% | 56.6% | 1.77 | -26.0% |
 | Draw | 27.5% | 22.9% | 4.05 | +11.5% |
 | Hull City win | 30.7% | 20.4% | 4.93 | +51.3% |
-| Over 2.5 | 38.0% | 54.6% | 1.81 | -31.3% |
-| Under 2.5 | 62.0% | 45.4% | 2.17 | +34.6% |
+| Over 2.5 | 38.0% | 54.1% | 1.81 | -31.3% |
+| Under 2.5 | 62.0% | 45.9% | 2.17 | +34.6% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -450,9 +450,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:01Z |
-| Market best draw last update utc | 2026-10-14T18:12:01Z |
-| Market best away last update utc | 2026-10-14T18:12:01Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 17.00 |
 | Best home bookmaker | 1xBet |
@@ -492,57 +492,57 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.70 |
 | Reference draw odds | 3.95 |
 | Reference away odds | 4.40 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.75 |
-| Reference Under 2.5 odds | 2.08 |
+| O/U 2.5 market source | The Odds API / BetOnline.ag |
+| Reference Over 2.5 odds | 1.77 |
+| Reference Under 2.5 odds | 2.06 |
 | Home probability edge | -14.8% |
 | Draw probability edge | +4.6% |
 | Away probability edge | +10.2% |
-| Over 2.5 probability edge | -16.7% |
-| Under 2.5 probability edge | +16.7% |
+| Over 2.5 probability edge | -16.1% |
+| Under 2.5 probability edge | +16.1% |
 | Raw edge prob home | -0.2968 |
 | Raw ev home | -0.5231 |
 | Raw edge prob draw | 0.0919 |
 | Raw ev draw | 0.3011 |
 | Raw edge prob away | 0.2050 |
 | Raw ev away | 1.0179 |
-| Market p home draw | 80.6% |
+| Market p home draw | 79.5% |
 | Market home draw odds | 1.22 |
 | Best home draw bookmaker | 1xBet |
-| Market best home draw last update utc | 2026-10-14T18:12:01Z |
-| Market reference home draw last update utc | 2026-10-14T18:12:34Z |
+| Market best home draw last update utc | 2026-10-14T19:06:45Z |
+| Market reference home draw last update utc | 2026-10-14T19:06:45Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 43.2% |
+| Market p draw away | 44.7% |
 | Market draw away odds | 2.17 |
 | Best draw away bookmaker | 1xBet |
-| Market best draw away last update utc | 2026-10-14T18:12:01Z |
-| Market reference draw away last update utc | 2026-10-14T18:12:34Z |
+| Market best draw away last update utc | 2026-10-14T19:06:45Z |
+| Market reference draw away last update utc | 2026-10-14T19:06:45Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market reference dc draw away odds | 2.20 |
-| Market reference dc home draw odds | 1.18 |
-| Market reference dc home away odds | 1.25 |
-| Market p over 1 5 | 79.6% |
+| Market reference dc draw away odds | 2.17 |
+| Market reference dc home draw odds | 1.22 |
+| Market reference dc home away odds | 1.28 |
+| Market p over 1 5 | 80.5% |
 | Market over 1 5 odds | 1.20 |
 | Best over 1 5 bookmaker | 1xBet |
-| Market best over 1 5 last update utc | 2026-10-14T18:12:24Z |
-| Market reference over 1 5 odds | 1.22 |
-| Market reference over 1 5 opposite odds | 4.00 |
+| Market best over 1 5 last update utc | 2026-10-14T19:07:06Z |
+| Market reference over 1 5 odds | 1.20 |
+| Market reference over 1 5 opposite odds | 3.96 |
 | Market over 1 5 bookmakers | 1 |
-| Market p under 3 5 | 68.8% |
+| Market p under 3 5 | 68.4% |
 | Market under 3 5 odds | 1.39 |
 | Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-14T18:12:24Z |
-| Market reference under 3 5 odds | 1.42 |
-| Market reference under 3 5 opposite odds | 2.98 |
+| Market best under 3 5 last update utc | 2026-10-14T19:07:06Z |
+| Market reference under 3 5 odds | 1.39 |
+| Market reference under 3 5 opposite odds | 2.72 |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 54.9% |
+| Market p btts yes | 54.0% |
 | Market btts yes odds | 1.69 |
 | Best btts yes bookmaker | 1xBet |
-| Market best btts yes last update utc | 2026-10-14T18:12:01Z |
-| Market reference btts yes odds | 1.80 |
-| Market reference btts yes opposite odds | 2.18 |
+| Market best btts yes last update utc | 2026-10-14T19:06:45Z |
+| Market reference btts yes odds | 1.79 |
+| Market reference btts yes opposite odds | 2.08 |
 | Market btts yes bookmakers | 1 |
 
 </details>
@@ -614,9 +614,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:01Z |
-| Market best draw last update utc | 2026-10-14T18:12:01Z |
-| Market best away last update utc | 2026-10-14T18:12:01Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
@@ -654,57 +654,57 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.21 |
 | Reference draw odds | 7.25 |
 | Reference away odds | 9.50 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.34 |
-| Reference Under 2.5 odds | 3.25 |
+| O/U 2.5 market source | The Odds API / Betsson |
+| Reference Over 2.5 odds | 1.36 |
+| Reference Under 2.5 odds | 3.21 |
 | Home probability edge | +3.0% |
 | Draw probability edge | -0.8% |
 | Away probability edge | -2.2% |
-| Over 2.5 probability edge | +5.7% |
-| Under 2.5 probability edge | -5.7% |
+| Over 2.5 probability edge | +6.5% |
+| Under 2.5 probability edge | -6.5% |
 | Raw edge prob home | 0.0595 |
 | Raw ev home | 0.0938 |
 | Raw edge prob draw | -0.0163 |
 | Raw ev draw | -0.3199 |
 | Raw edge prob away | -0.0432 |
 | Raw ev away | -0.5606 |
-| Market p home draw | 90.1% |
+| Market p home draw | 91.9% |
 | Market home draw odds | 1.05 |
 | Best home draw bookmaker | 1xBet |
-| Market best home draw last update utc | 2026-10-14T18:12:01Z |
-| Market reference home draw last update utc | 2026-10-14T18:12:34Z |
+| Market best home draw last update utc | 2026-10-14T19:06:45Z |
+| Market reference home draw last update utc | 2026-10-14T19:06:45Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 23.9% |
+| Market p draw away | 22.7% |
 | Market draw away odds | 4.26 |
 | Best draw away bookmaker | 1xBet |
-| Market best draw away last update utc | 2026-10-14T18:12:01Z |
-| Market reference draw away last update utc | 2026-10-14T18:12:34Z |
+| Market best draw away last update utc | 2026-10-14T19:06:45Z |
+| Market reference draw away last update utc | 2026-10-14T19:06:45Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market reference dc draw away odds | 4.00 |
-| Market reference dc home draw odds | 1.06 |
-| Market reference dc home away odds | 1.11 |
-| Market p over 1 5 | 88.6% |
+| Market reference dc draw away odds | 4.26 |
+| Market reference dc home draw odds | 1.05 |
+| Market reference dc home away odds | 1.13 |
+| Market p over 1 5 | 92.1% |
 | Market over 1 5 odds | 1.06 |
 | Best over 1 5 bookmaker | 1xBet |
-| Market best over 1 5 last update utc | 2026-10-14T18:12:22Z |
-| Market reference over 1 5 odds | 1.11 |
-| Market reference over 1 5 opposite odds | 6.50 |
+| Market best over 1 5 last update utc | 2026-10-14T19:06:57Z |
+| Market reference over 1 5 odds | 1.06 |
+| Market reference over 1 5 opposite odds | 6.05 |
 | Market over 1 5 bookmakers | 1 |
-| Market p under 3 5 | 51.0% |
+| Market p under 3 5 | 50.5% |
 | Market under 3 5 odds | 1.95 |
 | Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-14T18:12:22Z |
-| Market reference under 3 5 odds | 1.90 |
-| Market reference under 3 5 opposite odds | 1.97 |
+| Market best under 3 5 last update utc | 2026-10-14T19:06:57Z |
+| Market reference under 3 5 odds | 1.95 |
+| Market reference under 3 5 opposite odds | 1.99 |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 52.0% |
+| Market p btts yes | 52.5% |
 | Market btts yes odds | 1.75 |
 | Best btts yes bookmaker | 1xBet |
-| Market best btts yes last update utc | 2026-10-14T18:12:01Z |
-| Market reference btts yes odds | 1.89 |
-| Market reference btts yes opposite odds | 2.04 |
+| Market best btts yes last update utc | 2026-10-14T19:06:45Z |
+| Market reference btts yes odds | 1.83 |
+| Market reference btts yes opposite odds | 2.01 |
 | Market btts yes bookmakers | 1 |
 
 </details>
@@ -761,8 +761,8 @@ The model's most likely 1X2 outcome is **Newcastle United win** at **42.8%**. Ex
 | Newcastle United win | 42.8% | 43.2% | 2.26 | -3.4% |
 | Draw | 24.9% | 24.5% | 3.85 | -4.2% |
 | Aston Villa win | 32.3% | 32.2% | 3.19 | +3.2% |
-| Over 2.5 | 63.9% | 60.2% | 1.67 | +6.6% |
-| Under 2.5 | 36.1% | 39.8% | 2.40 | -13.3% |
+| Over 2.5 | 63.9% | 58.1% | 1.67 | +6.6% |
+| Under 2.5 | 36.1% | 41.9% | 2.40 | -13.3% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -778,11 +778,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:01Z |
-| Market best draw last update utc | 2026-10-14T18:12:01Z |
-| Market best away last update utc | 2026-10-14T18:12:01Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 12.00 |
+| Odds bookmakers ou25 | 13.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | 1xBet |
@@ -820,57 +820,57 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.20 |
 | Reference draw odds | 3.75 |
 | Reference away odds | 2.90 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.60 |
-| Reference Under 2.5 odds | 2.35 |
+| O/U 2.5 market source | The Odds API / Unibet (SE) |
+| Reference Over 2.5 odds | 1.66 |
+| Reference Under 2.5 odds | 2.25 |
 | Home probability edge | -0.5% |
 | Draw probability edge | +0.4% |
 | Away probability edge | +0.1% |
-| Over 2.5 probability edge | +3.6% |
-| Under 2.5 probability edge | -3.6% |
+| Over 2.5 probability edge | +5.8% |
+| Under 2.5 probability edge | -5.8% |
 | Raw edge prob home | -0.0096 |
 | Raw ev home | -0.0444 |
 | Raw edge prob draw | 0.0073 |
 | Raw ev draw | -0.0277 |
 | Raw edge prob away | 0.0023 |
 | Raw ev away | 0.0355 |
-| Market p home draw | 69.7% |
+| Market p home draw | 68.3% |
 | Market home draw odds | 1.41 |
 | Best home draw bookmaker | 1xBet |
-| Market best home draw last update utc | 2026-10-14T18:12:01Z |
-| Market reference home draw last update utc | 2026-10-14T18:12:34Z |
+| Market best home draw last update utc | 2026-10-14T19:06:45Z |
+| Market reference home draw last update utc | 2026-10-14T19:07:04Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 56.8% |
+| Market p draw away | 59.6% |
 | Market draw away odds | 1.71 |
 | Best draw away bookmaker | 1xBet |
-| Market best draw away last update utc | 2026-10-14T18:12:01Z |
-| Market reference draw away last update utc | 2026-10-14T18:12:34Z |
+| Market best draw away last update utc | 2026-10-14T19:06:45Z |
+| Market reference draw away last update utc | 2026-10-14T19:07:04Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market reference dc draw away odds | 1.67 |
-| Market reference dc home draw odds | 1.36 |
-| Market reference dc home away odds | 1.29 |
-| Market p over 1 5 | 82.7% |
+| Market reference dc draw away odds | 1.49 |
+| Market reference dc home draw odds | 1.30 |
+| Market reference dc home away odds | 1.23 |
+| Market p over 1 5 | 82.1% |
 | Market over 1 5 odds | 1.16 |
 | Best over 1 5 bookmaker | 1xBet |
-| Market best over 1 5 last update utc | 2026-10-14T18:12:21Z |
-| Market reference over 1 5 odds | 1.18 |
-| Market reference over 1 5 opposite odds | 4.60 |
+| Market best over 1 5 last update utc | 2026-10-14T19:05:42Z |
+| Market reference over 1 5 odds | 1.20 |
+| Market reference over 1 5 opposite odds | 4.90 |
 | Market over 1 5 bookmakers | 1 |
 | Market p under 3 5 | 62.4% |
 | Market under 3 5 odds | 1.49 |
 | Best under 3 5 bookmaker | 1xBet |
-| Market best under 3 5 last update utc | 2026-10-14T18:12:21Z |
+| Market best under 3 5 last update utc | 2026-10-14T19:05:42Z |
 | Market reference under 3 5 odds | 1.56 |
 | Market reference under 3 5 opposite odds | 2.52 |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 63.6% |
+| Market p btts yes | 63.2% |
 | Market btts yes odds | 1.51 |
 | Best btts yes bookmaker | 1xBet |
-| Market best btts yes last update utc | 2026-10-14T18:12:01Z |
-| Market reference btts yes odds | 1.53 |
-| Market reference btts yes opposite odds | 2.59 |
+| Market best btts yes last update utc | 2026-10-14T19:06:45Z |
+| Market reference btts yes odds | 1.50 |
+| Market reference btts yes opposite odds | 2.42 |
 | Market btts yes bookmakers | 1 |
 
 </details>
@@ -927,8 +927,8 @@ The model's most likely 1X2 outcome is **Bournemouth win** at **47.4%**. Expecte
 | Bournemouth win | 47.4% | 46.5% | 2.04 | -3.3% |
 | Draw | 26.6% | 25.5% | 3.75 | -0.1% |
 | Sunderland win | 25.9% | 28.0% | 3.85 | -0.1% |
-| Over 2.5 | 49.7% | 53.1% | 1.88 | -6.5% |
-| Under 2.5 | 50.3% | 46.9% | 2.07 | +4.0% |
+| Over 2.5 | 49.7% | 52.8% | 1.88 | -6.5% |
+| Under 2.5 | 50.3% | 47.2% | 2.07 | +4.0% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -944,9 +944,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:02Z |
-| Market best draw last update utc | 2026-10-14T18:12:02Z |
-| Market best away last update utc | 2026-10-14T18:12:02Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 18.00 |
 | Best home bookmaker | 1xBet |
@@ -986,14 +986,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.05 |
 | Reference draw odds | 3.60 |
 | Reference away odds | 3.30 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.80 |
-| Reference Under 2.5 odds | 2.02 |
+| O/U 2.5 market source | The Odds API / BetOnline.ag |
+| Reference Over 2.5 odds | 1.81 |
+| Reference Under 2.5 odds | 2.01 |
 | Home probability edge | +0.9% |
 | Draw probability edge | +1.1% |
 | Away probability edge | -2.0% |
-| Over 2.5 probability edge | -3.4% |
-| Under 2.5 probability edge | +3.4% |
+| Over 2.5 probability edge | -3.1% |
+| Under 2.5 probability edge | +3.1% |
 | Raw edge prob home | 0.0182 |
 | Raw ev home | -0.0142 |
 | Raw edge prob draw | 0.0228 |
@@ -1055,8 +1055,8 @@ The model's most likely 1X2 outcome is **Brighton and Hove Albion win** at **61.
 | Brighton and Hove Albion win | 61.3% | 63.6% | 1.63 | -0.1% |
 | Draw | 21.6% | 19.6% | 4.57 | -1.4% |
 | Crystal Palace win | 17.2% | 16.8% | 5.44 | -6.7% |
-| Over 2.5 | 59.0% | 60.9% | 1.63 | -3.8% |
-| Under 2.5 | 41.0% | 39.1% | 2.49 | +2.1% |
+| Over 2.5 | 59.0% | 60.5% | 1.63 | -3.8% |
+| Under 2.5 | 41.0% | 39.5% | 2.49 | +2.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1072,11 +1072,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:02Z |
-| Market best draw last update utc | 2026-10-14T18:12:02Z |
-| Market best away last update utc | 2026-10-14T18:12:02Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 12.00 |
+| Odds bookmakers ou25 | 10.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | 1xBet |
@@ -1114,14 +1114,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.52 |
 | Reference draw odds | 4.50 |
 | Reference away odds | 5.20 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.58 |
+| O/U 2.5 market source | The Odds API / Unibet (SE) |
+| Reference Over 2.5 odds | 1.60 |
 | Reference Under 2.5 odds | 2.38 |
 | Home probability edge | -2.3% |
 | Draw probability edge | +1.9% |
 | Away probability edge | +0.4% |
-| Over 2.5 probability edge | -1.9% |
-| Under 2.5 probability edge | +1.9% |
+| Over 2.5 probability edge | -1.5% |
+| Under 2.5 probability edge | +1.5% |
 | Raw edge prob home | -0.0459 |
 | Raw ev home | -0.0386 |
 | Raw edge prob draw | 0.0387 |
@@ -1183,8 +1183,8 @@ The model's most likely 1X2 outcome is **Leeds United win** at **40.0%**. Expect
 | Leeds United win | 40.0% | 41.2% | 2.51 | +0.3% |
 | Draw | 26.7% | 24.8% | 3.75 | +0.1% |
 | Manchester United win | 33.3% | 34.0% | 2.86 | -4.7% |
-| Over 2.5 | 51.3% | 59.2% | 1.70 | -12.8% |
-| Under 2.5 | 48.7% | 40.8% | 2.34 | +14.0% |
+| Over 2.5 | 51.3% | 58.6% | 1.70 | -12.8% |
+| Under 2.5 | 48.7% | 41.4% | 2.34 | +14.0% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1200,9 +1200,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:02Z |
-| Market best draw last update utc | 2026-10-14T18:12:02Z |
-| Market best away last update utc | 2026-10-14T18:12:02Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 14.00 |
 | Best home bookmaker | 1xBet |
@@ -1242,14 +1242,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.30 |
 | Reference draw odds | 3.70 |
 | Reference away odds | 2.75 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.62 |
+| O/U 2.5 market source | The Odds API / Unibet (SE) |
+| Reference Over 2.5 odds | 1.65 |
 | Reference Under 2.5 odds | 2.28 |
 | Home probability edge | -1.2% |
 | Draw probability edge | +1.9% |
 | Away probability edge | -0.7% |
-| Over 2.5 probability edge | -7.9% |
-| Under 2.5 probability edge | +7.9% |
+| Over 2.5 probability edge | -7.3% |
+| Under 2.5 probability edge | +7.3% |
 | Raw edge prob home | -0.0240 |
 | Raw ev home | -0.0270 |
 | Raw edge prob draw | 0.0379 |
@@ -1328,9 +1328,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:02Z |
-| Market best draw last update utc | 2026-10-14T18:12:02Z |
-| Market best away last update utc | 2026-10-14T18:12:02Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 18.00 |
 | Best home bookmaker | 1xBet |
@@ -1370,9 +1370,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 5.80 |
 | Reference draw odds | 4.00 |
 | Reference away odds | 1.54 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.92 |
-| Reference Under 2.5 odds | 1.88 |
+| O/U 2.5 market source | The Odds API / BetOnline.ag |
+| Reference Over 2.5 odds | 1.93 |
+| Reference Under 2.5 odds | 1.89 |
 | Home probability edge | +1.2% |
 | Draw probability edge | +3.1% |
 | Away probability edge | -4.3% |
@@ -1439,8 +1439,8 @@ The model's most likely 1X2 outcome is **Tottenham Hotspur win** at **55.3%**. E
 | Tottenham Hotspur win | 55.3% | 66.4% | 1.54 | -14.9% |
 | Draw | 23.9% | 18.3% | 4.72 | +12.7% |
 | Coventry City win | 20.9% | 15.2% | 6.47 | +34.9% |
-| Over 2.5 | 47.5% | 60.9% | 1.64 | -22.1% |
-| Under 2.5 | 52.5% | 39.1% | 2.46 | +29.2% |
+| Over 2.5 | 47.5% | 61.2% | 1.64 | -22.1% |
+| Under 2.5 | 52.5% | 38.8% | 2.46 | +29.2% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1456,9 +1456,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:02Z |
-| Market best draw last update utc | 2026-10-14T18:12:02Z |
-| Market best away last update utc | 2026-10-14T18:12:02Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 14.00 |
 | Best home bookmaker | 1xBet |
@@ -1498,14 +1498,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.46 |
 | Reference draw odds | 4.80 |
 | Reference away odds | 5.70 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.58 |
+| O/U 2.5 market source | The Odds API / Unibet (SE) |
+| Reference Over 2.5 odds | 1.57 |
 | Reference Under 2.5 odds | 2.38 |
 | Home probability edge | -11.2% |
 | Draw probability edge | +5.5% |
 | Away probability edge | +5.6% |
-| Over 2.5 probability edge | -13.4% |
-| Under 2.5 probability edge | +13.4% |
+| Over 2.5 probability edge | -13.7% |
+| Under 2.5 probability edge | +13.7% |
 | Raw edge prob home | -0.2233 |
 | Raw ev home | -0.3210 |
 | Raw edge prob draw | 0.1109 |
@@ -1567,8 +1567,8 @@ The model's most likely 1X2 outcome is **Nottingham Forest win** at **45.8%**. E
 | Ipswich Town win | 28.4% | 31.6% | 3.10 | -12.1% |
 | Draw | 25.9% | 25.8% | 3.63 | -6.1% |
 | Nottingham Forest win | 45.8% | 42.6% | 2.39 | +9.4% |
-| Over 2.5 | 57.2% | 53.4% | 1.84 | +5.2% |
-| Under 2.5 | 42.8% | 46.6% | 2.12 | -9.2% |
+| Over 2.5 | 57.2% | 53.2% | 1.84 | +5.2% |
+| Under 2.5 | 42.8% | 46.8% | 2.12 | -9.2% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1584,9 +1584,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:02Z |
-| Market best draw last update utc | 2026-10-14T18:12:02Z |
-| Market best away last update utc | 2026-10-14T18:12:02Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 12.00 |
 | Best home bookmaker | 1xBet |
@@ -1626,14 +1626,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.90 |
 | Reference draw odds | 3.50 |
 | Reference away odds | 2.20 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
+| O/U 2.5 market source | The Odds API / Unibet (SE) |
 | Reference Over 2.5 odds | 1.78 |
-| Reference Under 2.5 odds | 2.02 |
+| Reference Under 2.5 odds | 2.00 |
 | Home probability edge | -3.2% |
 | Draw probability edge | +0.1% |
 | Away probability edge | +3.2% |
-| Over 2.5 probability edge | +3.8% |
-| Under 2.5 probability edge | -3.8% |
+| Over 2.5 probability edge | +4.0% |
+| Under 2.5 probability edge | -4.0% |
 | Raw edge prob home | -0.0649 |
 | Raw ev home | -0.2216 |
 | Raw edge prob draw | 0.0014 |
@@ -1695,8 +1695,8 @@ The model's most likely 1X2 outcome is **Arsenal win** at **67.1%**. Expected go
 | Arsenal win | 67.1% | 72.1% | 1.43 | -4.0% |
 | Draw | 21.5% | 16.9% | 4.93 | +5.8% |
 | Everton win | 11.4% | 10.9% | 8.90 | +1.7% |
-| Over 2.5 | 41.7% | 53.1% | 1.83 | -23.8% |
-| Under 2.5 | 58.3% | 46.9% | 2.14 | +24.8% |
+| Over 2.5 | 41.7% | 53.4% | 1.83 | -23.8% |
+| Under 2.5 | 58.3% | 46.6% | 2.14 | +24.8% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1712,9 +1712,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:02Z |
-| Market best draw last update utc | 2026-10-14T18:12:02Z |
-| Market best away last update utc | 2026-10-14T18:12:02Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | 1xBet |
@@ -1754,14 +1754,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.34 |
 | Reference draw odds | 4.90 |
 | Reference away odds | 7.25 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.80 |
-| Reference Under 2.5 odds | 2.02 |
+| O/U 2.5 market source | The Odds API / PMU (FR) |
+| Reference Over 2.5 odds | 1.68 |
+| Reference Under 2.5 odds | 1.88 |
 | Home probability edge | -5.0% |
 | Draw probability edge | +4.5% |
 | Away probability edge | +0.5% |
-| Over 2.5 probability edge | -11.4% |
-| Under 2.5 probability edge | +11.4% |
+| Over 2.5 probability edge | -11.7% |
+| Under 2.5 probability edge | +11.7% |
 | Raw edge prob home | -0.0999 |
 | Raw ev home | -0.1116 |
 | Raw edge prob draw | 0.0903 |
@@ -1776,7 +1776,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-24 — Aston Villa vs Manchester City
 
-The model's most likely 1X2 outcome is **Manchester City win** at **57.2%**. Expected goals are 1.09 for Aston Villa and 1.92 for Manchester City (3.00 combined). The most likely exact score is 1-1 at 10.8%. Goal-market probabilities: at least one goal: 94.2%; Over 2.5 goals: 58.4%; Under 3.5 goals: 64.4%; Double Chance 1X: 42.8%; Double Chance X2: 80.1%; Under 4.5 goals: 81.2%; BTTS Yes (both teams score): 57.4%; BTTS No (at least one team does not score): 42.6%.
+The model's most likely 1X2 outcome is **Manchester City win** at **56.1%**. Expected goals are 1.09 for Aston Villa and 1.92 for Manchester City (3.00 combined). The most likely exact score is 1-1 at 10.9%. Goal-market probabilities: at least one goal: 94.2%; Over 2.5 goals: 58.3%; Under 3.5 goals: 64.5%; Double Chance 1X: 43.9%; Double Chance X2: 79.3%; Under 4.5 goals: 81.3%; BTTS Yes (both teams score): 57.5%; BTTS No (at least one team does not score): 42.5%.
 
 **Fixture source:** The Odds API
 
@@ -1784,9 +1784,9 @@ The model's most likely 1X2 outcome is **Manchester City win** at **57.2%**. Exp
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Aston Villa win | 19.9% | 5.03 |
-| Draw | 22.9% | 4.37 |
-| Manchester City win | 57.2% | 1.75 |
+| Aston Villa win | 20.7% | 4.83 |
+| Draw | 23.2% | 4.31 |
+| Manchester City win | 56.1% | 1.78 |
 
 ### Goals outlook
 
@@ -1797,32 +1797,32 @@ The model's most likely 1X2 outcome is **Manchester City win** at **57.2%**. Exp
 | Expected total goals | 3.00 |
 | Over 0.5 | 94.2% |
 | Under 0.5 | 5.8% |
-| Over 1.5 | 81.5% |
-| Under 1.5 | 18.5% |
-| Over 2.5 | 58.4% |
-| Under 2.5 | 41.6% |
-| Over 3.5 | 35.6% |
-| Under 3.5 | 64.4% |
-| Over 4.5 | 18.8% |
-| Under 4.5 | 81.2% |
+| Over 1.5 | 81.4% |
+| Under 1.5 | 18.6% |
+| Over 2.5 | 58.3% |
+| Under 2.5 | 41.7% |
+| Over 3.5 | 35.5% |
+| Under 3.5 | 64.5% |
+| Over 4.5 | 18.7% |
+| Under 4.5 | 81.3% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 10.78% |
-| 2 | 1-2 | 10.21% |
-| 3 | 0-2 | 9.38% |
-| 4 | 0-1 | 8.57% |
-| 5 | 1-3 | 6.52% |
+| 1 | 1-1 | 10.93% |
+| 2 | 1-2 | 10.01% |
+| 3 | 0-2 | 9.20% |
+| 4 | 0-1 | 8.40% |
+| 5 | 1-3 | 6.39% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Aston Villa win | 19.9% | 19.7% | 5.08 | +1.0% |
-| Draw | 22.9% | 21.3% | 4.37 | +0.1% |
-| Manchester City win | 57.2% | 59.0% | 1.70 | -2.7% |
+| Aston Villa win | 20.7% | 21.4% | 4.72 | -2.3% |
+| Draw | 23.2% | 21.9% | 4.26 | -1.1% |
+| Manchester City win | 56.1% | 56.7% | 1.76 | -1.3% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1838,9 +1838,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:02Z |
-| Market best draw last update utc | 2026-10-14T18:12:02Z |
-| Market best away last update utc | 2026-10-14T18:12:02Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
@@ -1850,17 +1850,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Man City |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| P btts yes | 57.4% |
-| P btts no | 42.6% |
+| P btts yes | 57.5% |
+| P btts no | 42.5% |
 | Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 17.39 |
+| Fair Under 0.5 odds | 17.15 |
 | Fair Over 1.5 odds | 1.23 |
-| Fair Under 1.5 odds | 5.41 |
-| Fair Over 2.5 odds | 1.71 |
-| Fair Under 2.5 odds | 2.41 |
-| Fair Over 3.5 odds | 2.81 |
+| Fair Under 1.5 odds | 5.39 |
+| Fair Over 2.5 odds | 1.72 |
+| Fair Under 2.5 odds | 2.40 |
+| Fair Over 3.5 odds | 2.82 |
 | Fair Under 3.5 odds | 1.55 |
-| Fair Over 4.5 odds | 5.31 |
+| Fair Over 4.5 odds | 5.33 |
 | Fair Under 4.5 odds | 1.23 |
 | Unadjusted home-win probability | 20.0% |
 | Unadjusted draw probability | 24.5% |
@@ -1868,30 +1868,30 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p over 1 5 | 81.3% |
 | Raw p under 3 5 | 64.6% |
 | Raw p btts yes | 57.8% |
-| P home draw | 42.8% |
-| P draw away | 80.1% |
+| P home draw | 43.9% |
+| P draw away | 79.3% |
 | Raw p home draw | 44.5% |
 | Raw p draw away | 80.0% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Winamax (DE) |
-| Reference home odds | 4.40 |
-| Reference draw odds | 4.10 |
-| Reference away odds | 1.62 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.55 |
+| Reference home odds | 4.10 |
+| Reference draw odds | 4.00 |
+| Reference away odds | 1.68 |
+| O/U 2.5 market source | The Odds API / Betsson |
+| Reference Over 2.5 odds | 1.56 |
 | Reference Under 2.5 odds | 2.45 |
-| Home probability edge | +0.2% |
-| Draw probability edge | +1.6% |
-| Away probability edge | -1.7% |
+| Home probability edge | -0.7% |
+| Draw probability edge | +1.3% |
+| Away probability edge | -0.6% |
 | Over 2.5 probability edge | -3.7% |
 | Under 2.5 probability edge | +3.7% |
-| Raw edge prob home | 0.0031 |
-| Raw ev home | 0.0182 |
-| Raw edge prob draw | 0.0318 |
-| Raw ev draw | 0.0705 |
-| Raw edge prob away | -0.0349 |
-| Raw ev away | -0.0572 |
+| Raw edge prob home | -0.0132 |
+| Raw ev home | -0.0540 |
+| Raw edge prob draw | 0.0255 |
+| Raw ev draw | 0.0435 |
+| Raw edge prob away | -0.0123 |
+| Raw ev away | -0.0239 |
 
 </details>
 
@@ -1947,8 +1947,8 @@ The model's most likely 1X2 outcome is **Chelsea win** at **55.2%**. Expected go
 | Chelsea win | 55.2% | 52.6% | 1.90 | +4.9% |
 | Draw | 22.7% | 22.6% | 4.11 | -6.6% |
 | Tottenham Hotspur win | 22.1% | 24.7% | 4.06 | -10.4% |
-| Over 2.5 | 63.5% | 62.2% | 1.66 | +5.5% |
-| Under 2.5 | 36.5% | 37.8% | 2.42 | -11.8% |
+| Over 2.5 | 63.5% | 59.5% | 1.66 | +5.5% |
+| Under 2.5 | 36.5% | 40.5% | 2.42 | -11.8% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1964,9 +1964,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:02Z |
-| Market best draw last update utc | 2026-10-14T18:12:02Z |
-| Market best away last update utc | 2026-10-14T18:12:02Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 6.00 |
 | Best home bookmaker | 1xBet |
@@ -2006,14 +2006,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.80 |
 | Reference draw odds | 3.90 |
 | Reference away odds | 3.60 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.55 |
-| Reference Under 2.5 odds | 2.45 |
+| O/U 2.5 market source | The Odds API / 1xBet |
+| Reference Over 2.5 odds | 1.66 |
+| Reference Under 2.5 odds | 2.42 |
 | Home probability edge | +2.6% |
 | Draw probability edge | +0.1% |
 | Away probability edge | -2.6% |
-| Over 2.5 probability edge | +1.4% |
-| Under 2.5 probability edge | -1.4% |
+| Over 2.5 probability edge | +4.0% |
+| Under 2.5 probability edge | -4.0% |
 | Raw edge prob home | 0.0513 |
 | Raw ev home | 0.0978 |
 | Raw edge prob draw | 0.0015 |
@@ -2075,8 +2075,8 @@ The model's most likely 1X2 outcome is **Fulham win** at **38.4%**. Expected goa
 | Coventry City win | 33.3% | 33.3% | 3.12 | +3.8% |
 | Draw | 28.3% | 25.2% | 3.61 | +2.2% |
 | Fulham win | 38.4% | 41.4% | 2.39 | -8.2% |
-| Over 2.5 | 41.6% | 55.6% | 1.81 | -24.8% |
-| Under 2.5 | 58.4% | 44.4% | 2.15 | +25.6% |
+| Over 2.5 | 41.6% | 55.3% | 1.81 | -24.8% |
+| Under 2.5 | 58.4% | 44.7% | 2.15 | +25.6% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -2092,9 +2092,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-14T18:12:02Z |
-| Market best draw last update utc | 2026-10-14T18:12:02Z |
-| Market best away last update utc | 2026-10-14T18:12:02Z |
+| Market best home last update utc | 2026-10-14T19:06:45Z |
+| Market best draw last update utc | 2026-10-14T19:06:45Z |
+| Market best away last update utc | 2026-10-14T19:06:45Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | 1xBet |
@@ -2134,14 +2134,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.75 |
 | Reference draw odds | 3.55 |
 | Reference away odds | 2.25 |
-| O/U 2.5 market source | The Odds API / Nordic Bet |
-| Reference Over 2.5 odds | 1.72 |
-| Reference Under 2.5 odds | 2.12 |
+| O/U 2.5 market source | The Odds API / PMU (FR) |
+| Reference Over 2.5 odds | 1.63 |
+| Reference Under 2.5 odds | 1.94 |
 | Home probability edge | -0.1% |
 | Draw probability edge | +3.1% |
 | Away probability edge | -3.0% |
-| Over 2.5 probability edge | -14.1% |
-| Under 2.5 probability edge | +14.1% |
+| Over 2.5 probability edge | -13.7% |
+| Under 2.5 probability edge | +13.7% |
 | Raw edge prob home | -0.0013 |
 | Raw ev home | 0.0356 |
 | Raw edge prob draw | 0.0615 |

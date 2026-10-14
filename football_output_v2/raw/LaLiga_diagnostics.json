@@ -24,7 +24,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 15,
+  "live_odds_matched": 16,
   "additional_event_odds_calls_used_before_this_league": 5,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
@@ -80,9 +80,10 @@
       "home_team": "Valencia",
       "away_team": "Athletic Bilbao",
       "kickoff_utc": "2026-10-17T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "1f566f17c50fe5162724ec2863d2207b",
@@ -183,12 +184,22 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false
+    },
+    {
+      "fixture_id": "70df1835c3b5ddff1c99e0189532136b",
+      "event_id": "70df1835c3b5ddff1c99e0189532136b",
+      "home_team": "Atl\u00e9tico Madrid",
+      "away_team": "Deportivo La Coru\u00f1a",
+      "kickoff_utc": "2026-10-24T19:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 4,
+  "additional_odds_in_window_linked_fixtures": 5,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 4,
+  "additional_event_odds_calls_this_league": 5,
   "decay_tuning": {
     "selected_half_life_days": 730.0,
     "selected_xi_per_day": 0.0009495166856985552,

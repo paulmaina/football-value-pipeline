@@ -24,8 +24,8 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 11,
-  "additional_event_odds_calls_used_before_this_league": 19,
+  "live_odds_matched": 12,
+  "additional_event_odds_calls_used_before_this_league": 21,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "additional_odds_coverage_mode": "all",
@@ -58,9 +58,10 @@
       "home_team": "Lille",
       "away_team": "Brest",
       "kickoff_utc": "2026-10-17T18:45:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "b077aa049133c0358bcd643bfee48da3",
@@ -68,9 +69,10 @@
       "home_team": "Troyes",
       "away_team": "RC Lens",
       "kickoff_utc": "2026-10-17T18:45:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "c7a60aa94470fe959fbf6b0c68060fc1",
@@ -141,12 +143,22 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false
+    },
+    {
+      "fixture_id": "fc6c50376190b578cfeb38c029db8487",
+      "event_id": "fc6c50376190b578cfeb38c029db8487",
+      "home_team": "RC Lens",
+      "away_team": "Paris FC",
+      "kickoff_utc": "2026-10-24T18:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 2,
+  "additional_odds_in_window_linked_fixtures": 4,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 2,
+  "additional_event_odds_calls_this_league": 4,
   "decay_tuning": {
     "selected_half_life_days": 730.0,
     "selected_xi_per_day": 0.0009495166856985552,
