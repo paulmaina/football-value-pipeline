@@ -7773,6 +7773,33 @@
       }
     },
     "2026-10-14": {
+      "closing_odds": {
+        "automatic_production_change": false,
+        "by_bookmaker": {
+          "1xbet": {
+            "covered_selections": 0,
+            "mean_fair_close_ev": null,
+            "mean_same_book_offered_price_clv": null,
+            "missing_selections": 10,
+            "pending_selections": 10,
+            "positive_fair_close_ev": 0
+          },
+          "pinnacle": {
+            "covered_selections": 0,
+            "mean_fair_close_ev": null,
+            "mean_same_book_offered_price_clv": null,
+            "missing_selections": 10,
+            "pending_selections": 10,
+            "positive_fair_close_ev": 0
+          }
+        },
+        "frozen_selections": 20,
+        "note": "Last observed live quote within 90 seconds of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
+        "observations": 0,
+        "rejected_files": [],
+        "reviewed_at_utc": "2026-10-14T10:31:54.432908+00:00",
+        "version": "local-closing-quotes-v1"
+      },
       "dependencies": {
         "PyYAML": "6.0.3",
         "coverage": "7.16.2",
@@ -7807,7 +7834,8 @@
         "market_led_experiment:CAPTURED": 7,
         "market_led_experiment:LEGACY_NOT_RECORDED": 14,
         "recency_experiment:CAPTURED": 3,
-        "recency_experiment:LEGACY_NOT_RECORDED": 18
+        "recency_experiment:LEGACY_NOT_RECORDED": 18,
+        "totals_anchor_experiment:LEGACY_NOT_RECORDED": 21
       },
       "experimental_reports": {
         "benchmark_forward_experiment": {
@@ -7970,7 +7998,7 @@
             "minimum_paired_fixtures": 300,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-14T09:52:38.107135+00:00",
+          "reviewed_at_utc": "2026-10-14T10:31:54.432908+00:00",
           "secondary_comparison": {
             "btts_yes": {
               "baseline": {
@@ -8647,7 +8675,7 @@
           ],
           "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
           "rejected_snapshot_commits": [],
-          "reviewed_at_utc": "2026-10-14T09:52:38.107135+00:00",
+          "reviewed_at_utc": "2026-10-14T10:31:54.432908+00:00",
           "total_fixtures": 20,
           "version": "conservative-ev-sensitivity-v1"
         },
@@ -8777,7 +8805,7 @@
           ],
           "graded_fixture_markets": 27,
           "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-          "reviewed_at_utc": "2026-10-14T09:52:38.107135+00:00",
+          "reviewed_at_utc": "2026-10-14T10:31:54.432908+00:00",
           "total_fixture_markets": 216,
           "version": "goal-blend-shadow-v1"
         },
@@ -9167,7 +9195,7 @@
           "observed_fixture_markets": 144,
           "paired_graded_fixture_markets": 18,
           "pending_or_unverified_selections": 0,
-          "reviewed_at_utc": "2026-10-14T09:52:38.107135+00:00",
+          "reviewed_at_utc": "2026-10-14T10:31:54.432908+00:00",
           "selected": 0,
           "settings_observed": [
             {
@@ -16097,7 +16125,7 @@
           ],
           "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
           "rejected_snapshot_commits": [],
-          "reviewed_at_utc": "2026-10-14T09:52:38.107135+00:00",
+          "reviewed_at_utc": "2026-10-14T10:31:54.432908+00:00",
           "total_fixture_markets": 144,
           "version": "goal-recency-shadow-v1",
           "weekly_comparisons": [
@@ -17182,6 +17210,428 @@
               "week": "2026-W42"
             }
           ]
+        },
+        "totals_anchor_experiment": {
+          "automatic_production_change": false,
+          "by_league": {
+            "Bundesliga": {
+              "btts_yes": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "over_1_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "over_2_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "under_3_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              }
+            },
+            "La Liga": {
+              "btts_yes": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "over_1_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "over_2_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "under_3_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              }
+            },
+            "Ligue 1": {
+              "btts_yes": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "over_1_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "over_2_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "under_3_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              }
+            },
+            "Premier League": {
+              "btts_yes": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "over_1_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "over_2_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "under_3_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              }
+            },
+            "Serie A": {
+              "btts_yes": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "over_1_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "over_2_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              },
+              "under_3_5": {
+                "baseline": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                },
+                "candidate": {
+                  "brier": null,
+                  "calibration": [],
+                  "log_loss": null,
+                  "n": 0,
+                  "rps": null
+                }
+              }
+            }
+          },
+          "candidate_id": "pinnacle-totals-anchor-v1",
+          "comparison": {
+            "btts_yes": {
+              "baseline": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              },
+              "candidate": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              }
+            },
+            "over_1_5": {
+              "baseline": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              },
+              "candidate": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              }
+            },
+            "over_2_5": {
+              "baseline": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              },
+              "candidate": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              }
+            },
+            "under_3_5": {
+              "baseline": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              },
+              "candidate": {
+                "brier": null,
+                "calibration": [],
+                "log_loss": null,
+                "n": 0,
+                "rps": null
+              }
+            }
+          },
+          "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
+          "gameweeks": 0,
+          "note": "Separate proportional intensity scaling to fresh Pinnacle O/U 2.5, fitted rho and production HDA preserved. Primary Under 3.5 log loss; other markets are guardrails. No bets, automatic promotion or backfill.",
+          "observed_fixtures": 0,
+          "paired_fixtures": 0,
+          "primary_log_loss_gain_week_block95": null,
+          "registry_sha256": "05c7b4af8e00fc30b8385f253389892160d83d04840f013bff7e7e6ee144ccc2",
+          "rejected_snapshot_commits": [],
+          "review_gates": {
+            "bootstrap_replicates": 2000,
+            "bootstrap_seed": 20261014,
+            "confidence_level": 0.95,
+            "minimum_gameweeks": 6,
+            "minimum_paired_fixtures": 300,
+            "minimum_verified_coverage": 0.8
+          },
+          "reviewed_at_utc": "2026-10-14T10:31:54.432908+00:00",
+          "status": "COLLECT_MORE_DATA",
+          "verified_coverage": null,
+          "version": "pinnacle-totals-anchor-v1"
         }
       },
       "quote_audit": {
@@ -17249,13 +17699,24 @@
             "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
             "settled_evidence": 0,
             "status": "COLLECT_MORE_DATA"
+          },
+          {
+            "automatic_production_change": false,
+            "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
+            "gameweeks": 0,
+            "key": "totals_anchor:05c7b4af8e00fc30b8385f253389892160d83d04840f013bff7e7e6ee144ccc2",
+            "name": "totals_anchor_experiment",
+            "report": "totals_anchor_experiment/report.md",
+            "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
+            "settled_evidence": 0,
+            "status": "COLLECT_MORE_DATA"
           }
         ],
         "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-10-14T09:52:38.107135+00:00",
+        "reviewed_at_utc": "2026-10-14T10:31:54.432908+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-10-14T09:52:38.107135+00:00",
+      "reviewed_at_utc": "2026-10-14T10:31:54.432908+00:00",
       "selection_policy_groups": {
         "72h-all-markets-net-ev15-execution-v7": {
           "brier": null,
@@ -17370,7 +17831,7 @@
             "completed_matches": 27,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.1045387311111111,
+            "download_age_hours": 0.7590736680555555,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-13",
             "latest_completed_utc": "2026-10-13T19:00:00+00:00",
