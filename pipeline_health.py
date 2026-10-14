@@ -67,7 +67,7 @@ def capture_health(root, clock, files):
     data = current_health(root, clock)
     data['experiments'] = {}
     raw = root/'raw'
-    for name in ('goal_blend_experiment', 'market_led_experiment', 'filter_sensitivity_experiment', 'benchmark_forward_experiment', 'totals_anchor_experiment'):
+    for name in ('goal_blend_experiment', 'market_led_experiment', 'filter_sensitivity_experiment', 'benchmark_forward_experiment', 'totals_anchor_experiment', 'model_reliability_experiment'):
         data['experiments'][name] = ('CAPTURED' if name+'.json' in files else
             'PRESENT_BUT_REJECTED' if (raw/(name+'.json')).exists() else 'NOT_GENERATED')
     parent=read(raw/'goal_blend_experiment.json',{})
@@ -119,7 +119,7 @@ def write_report(root, metrics, clock):
         frozen = read(path, {}) if valid else {}
         row = {'commit': meta['git_commit_sha'], 'captured_at_utc': meta['captured_at_utc'],
                'policy': meta.get('selection_policy_version'), 'health': frozen or None, 'experiments': {}}
-        for name in ('goal_blend_experiment', 'market_led_experiment', 'filter_sensitivity_experiment', 'benchmark_forward_experiment', 'totals_anchor_experiment'):
+        for name in ('goal_blend_experiment', 'market_led_experiment', 'filter_sensitivity_experiment', 'benchmark_forward_experiment', 'totals_anchor_experiment', 'model_reliability_experiment'):
             sidecar = directory/(name+'.json'); expected = meta.get('sha256', {}).get(sidecar.name)
             state = 'CAPTURED' if expected and sidecar.exists() and hashlib.sha256(sidecar.read_bytes()).hexdigest() == expected else (
                 'MISSING_OR_TAMPERED' if expected else frozen.get('experiments', {}).get(name, 'LEGACY_NOT_RECORDED'))
@@ -137,7 +137,7 @@ def write_report(root, metrics, clock):
     data['snapshot_capture_history'] = capture_rows
     data['experiment_capture_counts'] = dict(capture_counts)
     data['experimental_reports'] = {name:read(output/name/'summary.json', {}) for name in
-        ('goal_blend_experiment', 'market_led_experiment', 'recency_experiment', 'filter_sensitivity_experiment', 'benchmark_forward_experiment', 'totals_anchor_experiment')}
+        ('goal_blend_experiment', 'market_led_experiment', 'recency_experiment', 'filter_sensitivity_experiment', 'benchmark_forward_experiment', 'totals_anchor_experiment', 'model_reliability_experiment')}
     data['review_queue']=read(output/'experiment_review_queue.json',{})
     data['closing_odds']=read(output/'closing_odds/summary.json',{})
     history = read(output/'health_history.json', {'schema_version': 1, 'days': {}})

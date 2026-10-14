@@ -2050,6 +2050,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--seasons-back", type=int, default=3)
     p.add_argument("--half-life-days", type=float, default=240.0)
+    p.add_argument("--reliability-experiment", action="store_true",
+                   help="Compare stronger L2 and fixed half-life fits prospectively; no production changes or extra odds requests.")
     p.add_argument("--l2", type=float, default=0.08)
     p.add_argument("--max-goals", type=int, default=10)
     p.add_argument("--lookahead-days", type=int, default=10)
@@ -3413,6 +3415,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--tune-step-days", type=int, default=56)
     p.add_argument("--tune-min-train", type=int, default=250)
     p.add_argument("--tune-min-validation-matches", type=int, default=25)
+    p.add_argument("--reliability-experiment", action="store_true",
+                   help="Compare stronger L2 and fixed half-life fits prospectively; no production changes or extra odds requests.")
     p.add_argument("--l2", type=float, default=0.08)
     p.add_argument("--max-goals", type=int, default=10)
     p.add_argument("--lookahead-days", type=int, default=10)
@@ -3532,6 +3536,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             "--tune-half-life and --backtest cannot be combined because "
             "tuning on the same historical results would bias the backtest."
         )
+    if args.reliability_experiment and args.backtest:
+        raise SystemExit("--reliability-experiment requires live forecasts, not --backtest")
     if args.recency_experiment and not args.tune_half_life:
         raise SystemExit('--recency-experiment requires --tune-half-life')
     if args.auto_market_weight and args.backtest:
@@ -3590,9 +3596,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     market_reliability = {}
     combined = []
     recency_parts = []
+    reliability_rows = []
     benchmark_matrices = {}
     totals_shadow_inputs = {}
-    pipe.recency_experiment_enabled = args.recency_experiment
+    pipe.recency_experiment_enabled = args.recency_experiment or args.reliability_experiment
 
     for league_key in args.leagues:
         # Reset both per-competition settings before tuning; never carry a
@@ -3685,6 +3692,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 benchmark_matrices[benchmark_fixture_key(source)] = matrix.copy()
                 totals_shadow_inputs[benchmark_fixture_key(source)] = pipe._totals_shadow_inputs.get((source["home_team"], source["away_team"], str(source.get("kickoff_utc"))))
         pipe._benchmark_trial_enabled = False
+        if args.reliability_experiment and not predictions.empty:
+            try:
+                from model_reliability_experiment import generate_league as reliability_generate
+                reliability_rows.extend(reliability_generate(predictions, pipe._recency_history,
+                    DixonColesModel, half_life=pipe.half_life_days, l2=pipe.l2, max_goals=pipe.max_goals))
+            except Exception as exc:
+                warnings.warn(f'{league_key}: reliability trial unavailable ({type(exc).__name__}); production outputs complete')
         if args.recency_experiment and not predictions.empty:
             try:
                 from recency_experiment import generate_league
@@ -3876,6 +3890,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             write_totals_shadow(all_predictions, out_dir, selection_summary["generated_at_utc"], benchmark_matrices, totals_shadow_inputs)
         except Exception as exc:
             warnings.warn(f"Totals anchoring trial unavailable ({type(exc).__name__}); production outputs complete")
+
+    if args.reliability_experiment and combined and not args.backtest:
+        try:
+            from model_reliability_experiment import write_experiment as write_reliability
+            write_reliability(all_predictions, out_dir, selection_summary["generated_at_utc"], reliability_rows)
+        except Exception as exc:
+            warnings.warn(f'Reliability trial unavailable ({type(exc).__name__}); production outputs complete')
 
     if (args.goal_blend_experiment or args.recency_experiment) and combined and not args.backtest:
         try:
