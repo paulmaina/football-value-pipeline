@@ -1,0 +1,88 @@
+{
+  "fixture": {
+    "away_team": "Fenerbahce",
+    "home_team": "Aston Villa",
+    "kickoff_utc": "2026-10-14T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "3f3cb74e560dfcc3e795b667ed9ebdef"
+  },
+  "observed_at_utc": "2026-10-14T18:54:24.383044+00:00",
+  "payload": {
+    "away_team": "Fenerbahce",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 1.62
+              },
+              {
+                "name": "Fenerbahce",
+                "price": 5.4
+              },
+              {
+                "name": "Draw",
+                "price": 4.25
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.97
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.93
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-14T19:00:00Z",
+    "home_team": "Aston Villa",
+    "id": "3f3cb74e560dfcc3e795b667ed9ebdef",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6052751981105318,
+      "selection": "home",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22183042262156283,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1728943792679054,
+      "selection": "away",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v1"
+}

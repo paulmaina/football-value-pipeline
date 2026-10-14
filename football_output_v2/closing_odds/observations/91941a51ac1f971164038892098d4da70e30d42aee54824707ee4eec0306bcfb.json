@@ -1,0 +1,104 @@
+{
+  "fixture": {
+    "away_team": "VfB Stuttgart",
+    "home_team": "\u0160K Slovan Bratislava",
+    "kickoff_utc": "2026-10-14T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "d7576351b8cb2396e32cc3de0446f3de"
+  },
+  "observed_at_utc": "2026-10-14T18:54:27.552347+00:00",
+  "payload": {
+    "away_team": "VfB Stuttgart",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "VfB Stuttgart",
+                "price": 1.37
+              },
+              {
+                "name": "\u0160K Slovan Bratislava",
+                "price": 7.15
+              },
+              {
+                "name": "Draw",
+                "price": 6.05
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.83
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.09
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-14T19:00:00Z",
+    "home_team": "\u0160K Slovan Bratislava",
+    "id": "d7576351b8cb2396e32cc3de0446f3de",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.12797854574709774,
+      "selection": "home",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.05,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.152392016459394,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.37,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7196294377935083,
+      "selection": "away",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.83,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5343845303928156,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.09,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4656154696071843,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v1"
+}

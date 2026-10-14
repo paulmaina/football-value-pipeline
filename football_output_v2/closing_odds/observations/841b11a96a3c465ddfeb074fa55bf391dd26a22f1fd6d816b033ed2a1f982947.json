@@ -1,0 +1,88 @@
+{
+  "fixture": {
+    "away_team": "AEK Athens",
+    "home_team": "Shakhtar Donetsk",
+    "kickoff_utc": "2026-10-14T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "0f961390e790ad2c80ecb3f302cad4a6"
+  },
+  "observed_at_utc": "2026-10-14T18:54:27.296458+00:00",
+  "payload": {
+    "away_team": "AEK Athens",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "AEK Athens",
+                "price": 2.72
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "price": 2.88
+              },
+              {
+                "name": "Draw",
+                "price": 3.21
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.85
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.07
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-14T19:00:00Z",
+    "home_team": "Shakhtar Donetsk",
+    "id": "0f961390e790ad2c80ecb3f302cad4a6",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.88,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.338394832582215,
+      "selection": "home",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.21,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3028058320144908,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.72,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3587993354032943,
+      "selection": "away",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v1"
+}
