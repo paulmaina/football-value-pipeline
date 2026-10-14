@@ -1,0 +1,422 @@
+{
+  "automatic_production_change": false,
+  "by_league": {
+    "Bundesliga": {
+      "btts_yes": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "over_1_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "over_2_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "under_3_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      }
+    },
+    "La Liga": {
+      "btts_yes": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "over_1_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "over_2_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "under_3_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      }
+    },
+    "Ligue 1": {
+      "btts_yes": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "over_1_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "over_2_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "under_3_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      }
+    },
+    "Premier League": {
+      "btts_yes": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "over_1_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "over_2_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "under_3_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      }
+    },
+    "Serie A": {
+      "btts_yes": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "over_1_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "over_2_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      },
+      "under_3_5": {
+        "baseline": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        },
+        "candidate": {
+          "brier": null,
+          "calibration": [],
+          "log_loss": null,
+          "n": 0,
+          "rps": null
+        }
+      }
+    }
+  },
+  "candidate_id": "pinnacle-totals-anchor-v1",
+  "comparison": {
+    "btts_yes": {
+      "baseline": {
+        "brier": null,
+        "calibration": [],
+        "log_loss": null,
+        "n": 0,
+        "rps": null
+      },
+      "candidate": {
+        "brier": null,
+        "calibration": [],
+        "log_loss": null,
+        "n": 0,
+        "rps": null
+      }
+    },
+    "over_1_5": {
+      "baseline": {
+        "brier": null,
+        "calibration": [],
+        "log_loss": null,
+        "n": 0,
+        "rps": null
+      },
+      "candidate": {
+        "brier": null,
+        "calibration": [],
+        "log_loss": null,
+        "n": 0,
+        "rps": null
+      }
+    },
+    "over_2_5": {
+      "baseline": {
+        "brier": null,
+        "calibration": [],
+        "log_loss": null,
+        "n": 0,
+        "rps": null
+      },
+      "candidate": {
+        "brier": null,
+        "calibration": [],
+        "log_loss": null,
+        "n": 0,
+        "rps": null
+      }
+    },
+    "under_3_5": {
+      "baseline": {
+        "brier": null,
+        "calibration": [],
+        "log_loss": null,
+        "n": 0,
+        "rps": null
+      },
+      "candidate": {
+        "brier": null,
+        "calibration": [],
+        "log_loss": null,
+        "n": 0,
+        "rps": null
+      }
+    }
+  },
+  "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
+  "gameweeks": 0,
+  "note": "Separate proportional intensity scaling to fresh Pinnacle O/U 2.5, fitted rho and production HDA preserved. Primary Under 3.5 log loss; other markets are guardrails. No bets, automatic promotion or backfill.",
+  "observed_fixtures": 0,
+  "paired_fixtures": 0,
+  "primary_log_loss_gain_week_block95": null,
+  "registry_sha256": "05c7b4af8e00fc30b8385f253389892160d83d04840f013bff7e7e6ee144ccc2",
+  "rejected_snapshot_commits": [],
+  "review_gates": {
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20261014,
+    "confidence_level": 0.95,
+    "minimum_gameweeks": 6,
+    "minimum_paired_fixtures": 300,
+    "minimum_verified_coverage": 0.8
+  },
+  "reviewed_at_utc": "2026-10-14T10:31:54.432908+00:00",
+  "status": "COLLECT_MORE_DATA",
+  "verified_coverage": null,
+  "version": "pinnacle-totals-anchor-v1"
+}
