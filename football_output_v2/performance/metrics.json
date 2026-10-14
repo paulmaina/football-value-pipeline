@@ -105,6 +105,18 @@
         "win_rate": 1.0,
         "wins": 1
       },
+      "Double Chance 12": {
+        "brier": null,
+        "flat_stake_roi": null,
+        "graded": 0,
+        "losses": 0,
+        "pending": 0,
+        "profit_per_unit_staked": null,
+        "settled_with_odds": 0,
+        "total": 0,
+        "win_rate": null,
+        "wins": 0
+      },
       "Double Chance 1X": {
         "brier": null,
         "flat_stake_roi": null,
@@ -276,7 +288,7 @@
   "prediction_1x2_multiclass_brier": 0.542483,
   "prediction_fixtures_graded": 34,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-10-14T21:43:01Z",
+  "reviewed_at_utc": "2026-10-14T22:07:11Z",
   "shortlist": {
     "brier": 0.215932,
     "flat_stake_roi": 0.01,

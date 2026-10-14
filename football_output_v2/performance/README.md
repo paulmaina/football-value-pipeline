@@ -35,6 +35,7 @@ Whole-fixture 1X2 multiclass Brier (n=34): 0.5425
 |---|---:|---:|---:|---:|
 | Away win | 0 | 0-0 | — | — |
 | Both Teams to Score - Yes | 1 | 1-0 | 100.0% | +49.0% |
+| Double Chance 12 | 0 | 0-0 | — | — |
 | Double Chance 1X | 0 | 0-0 | — | — |
 | Double Chance X2 | 0 | 0-0 | — | — |
 | Home win | 2 | 2-0 | 100.0% | +68.5% |
