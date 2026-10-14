@@ -48,7 +48,6 @@ MARKET_SPECS = (
     ("Over 1.5", "over_1_5", 0.78, 0.72),
     ("Double Chance 1X", "home_draw", 0.80, 0.75),
     ("Double Chance X2", "draw_away", 0.80, 0.75),
-    ("Both Teams to Score - Yes", "btts_yes", 0.70, 0.63),
 )
 DECISION_COLUMNS = [
     "evaluated_at_utc", "date", "league", "home_team", "away_team",
@@ -449,8 +448,8 @@ def build_conservative_shortlist(
 
     eligible = decisions[decisions["decision"] == "ELIGIBLE"].copy()
     eligible = eligible.sort_values(
-        ["rank_probability", "conservative_estimated_ev", "kickoff_utc", "home_team"],
-        ascending=[False, False, True, True], kind="stable",
+        ["rank_probability", "offered_decimal_odds", "conservative_estimated_ev", "kickoff_utc", "home_team"],
+        ascending=[False, False, False, True, True], kind="stable",
     )
 
     # One eligible market per distinct fixture (never stack correlated
@@ -471,7 +470,7 @@ def build_conservative_shortlist(
     overflow = top_per_match.index.difference(chosen)
     if len(alternate):
         decisions.loc[alternate, "decision"] = "NOT_SELECTED"
-        decisions.loc[alternate, "rejection_reasons"] = "higher-probability market chosen for same match"
+        decisions.loc[alternate, "rejection_reasons"] = "higher-ranked market chosen for same match (adjusted probability, then quoted odds)"
     if len(overflow):
         decisions.loc[overflow, "decision"] = "NOT_SELECTED"
         decisions.loc[overflow, "rejection_reasons"] = "below higher-confidence ten-match ranking"
@@ -494,9 +493,9 @@ def build_conservative_shortlist(
         )
         pool = pool.loc[pool["historical_gap_score"].notna()].copy()
         pool = pool.sort_values(
-            ["historical_gap_score", "rank_probability", "conservative_estimated_ev",
+            ["historical_gap_score", "rank_probability", "offered_decimal_odds", "conservative_estimated_ev",
              "kickoff_utc", "home_team"],
-            ascending=[True, False, False, True, True],
+            ascending=[True, False, False, False, True, True],
             kind="stable",
         )
         def fixture_keys(table: pd.DataFrame) -> pd.Series:
@@ -528,8 +527,8 @@ def build_conservative_shortlist(
         decisions.loc[chosen_all, SHORTLIST_COLUMNS]
         .sort_values(
             ["selection_tier", "historical_gap_score", "rank_probability",
-             "conservative_estimated_ev"],
-            ascending=[False, True, False, False], kind="stable"
+             "offered_decimal_odds", "conservative_estimated_ev"],
+            ascending=[False, True, False, False, False], kind="stable"
         ).reset_index(drop=True)
     )
     decisions = decisions.reset_index(drop=True)
@@ -558,7 +557,7 @@ def build_conservative_shortlist(
     return shortlist, decisions, {
         "status": status,
         "generated_at_utc": now.isoformat(),
-        "selection_policy_version": "72h-all-markets-net-ev15-execution-v7",
+        "selection_policy_version": "72h-five-markets-probability-odds-net-ev15-v8",
         "n_fixtures": int(len(predictions)),
         "n_markets_evaluated": int(len(decisions)),
         "n_shortlisted": n,
@@ -580,7 +579,7 @@ def build_conservative_shortlist(
         "selected_last_kickoff_utc": (
             last_kickoff.isoformat() if last_kickoff is not None else None
         ),
-        "selection_method": "Strict-first ranking within the next 72 hours of the run",
+        "selection_method": "Strict-first ranking within 72 hours; highest adjusted probability, then highest quoted odds",
         "eligible_markets": [x[0] for x in MARKET_SPECS],
         "eligible_leagues": sorted(SUPPORTED_LEAGUES),
         "quote_execution_policy": policy,
@@ -622,5 +621,6 @@ def build_conservative_shortlist(
             "betslips exist; ten-leg accumulators have substantial loss risk."
         ),
     }
+
 
 
