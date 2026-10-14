@@ -1,0 +1,9 @@
+{
+  "checked_at_utc": "2026-10-14T11:25:20.390871+00:00",
+  "daily_request_cap": 100,
+  "daily_requests": 0,
+  "errors": [],
+  "request_limit": 100,
+  "requests": 0,
+  "written": 0
+}
