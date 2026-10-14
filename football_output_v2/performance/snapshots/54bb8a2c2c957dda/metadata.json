@@ -1,0 +1,22 @@
+{
+  "captured_at_utc": "2026-10-14T18:20:17Z",
+  "data_origin": "git-tracked prediction output at capture time",
+  "generated_at_utc": "2026-10-14T18:13:48Z",
+  "git_commit_sha": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
+  "n_all_forecasts": 78,
+  "n_pre_kickoff_forecasts": 78,
+  "n_shortlist": 5,
+  "schema_version": 1,
+  "selection_policy_version": "72h-all-markets-net-ev15-execution-v7",
+  "sha256": {
+    "benchmark_forward_experiment.json": "2f989e1b17d980c20867dc5200e6d39277b657ef66fc5bf2eff7d5262df4a2b9",
+    "filter_sensitivity_experiment.json": "8326652ac31e50b4493de486b445d92aec7617524c9beeeeeec072ff2a7d75b0",
+    "goal_blend_experiment.json": "b5627bdfbc776a549e10ac39cd54bb16170bb9c7da60c5820c59c7641cf8b6c9",
+    "market_led_experiment.json": "ed4edd63464fb8f5ef7871dd56ce65cd46ebb6aa7be18b13e00b77ba968f181c",
+    "pipeline_health.json": "76c7691149c77c307929b08d99b2515c3a79531d36aac65ab09d98ca0cbf1219",
+    "predictions.csv": "5aba47196713c725cc261d5e49306e04775e56d81c6db4efd8d3e978f5882c82",
+    "selection_summary.json": "a62ba72ad32211bae4561c5163aa5085ac3e09a824f1202f4312d6dc9ead6a2e",
+    "shortlist.csv": "57ccb0a9166506bfc20b7fbe16fbedf398a46a807bba4770b2a1229ffc6c2b71",
+    "totals_anchor_experiment.json": "22729938e645919fea924cffcf716c5556557b7b4e686487676fb8f818429eca"
+  }
+}
