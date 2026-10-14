@@ -1,0 +1,118 @@
+{
+  "fixture": {
+    "away_team": "Porto",
+    "home_team": "Real Betis",
+    "kickoff_utc": "2026-10-14T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "4c7f87780ae5ab8bec9e83d6d6ec9909"
+  },
+  "observed_at_utc": "2026-10-14T18:54:26.605484+00:00",
+  "payload": {
+    "away_team": "Porto",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "Porto",
+                "price": 3.43
+              },
+              {
+                "name": "Real Betis",
+                "price": 2.16
+              },
+              {
+                "name": "Draw",
+                "price": 3.64
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.05
+              }
+            ]
+          },
+          {
+            "key": "btts",
+            "last_update": "2026-10-14T18:54:06Z",
+            "outcomes": [
+              {
+                "name": "Yes",
+                "price": 1.58
+              },
+              {
+                "name": "No",
+                "price": 2.5
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-14T19:00:00Z",
+    "home_team": "Real Betis",
+    "id": "4c7f87780ae5ab8bec9e83d6d6ec9909",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.58,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6182927136103635,
+      "selection": "btts_yes",
+      "updated_at_utc": "2026-10-14T18:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.5,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3817072863896364,
+      "selection": "btts_no",
+      "updated_at_utc": "2026-10-14T18:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.16,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4531855200803595,
+      "selection": "home",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.64,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.265061276743064,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.43,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2817532031765765,
+      "selection": "away",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v1"
+}

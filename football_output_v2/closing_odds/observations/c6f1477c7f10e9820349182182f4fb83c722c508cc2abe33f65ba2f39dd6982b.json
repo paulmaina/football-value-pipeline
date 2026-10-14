@@ -1,0 +1,88 @@
+{
+  "fixture": {
+    "away_team": "Real Madrid",
+    "home_team": "AS Roma",
+    "kickoff_utc": "2026-10-14T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "d4ef112438afa4c2cdbbfc9376a009c9"
+  },
+  "observed_at_utc": "2026-10-14T18:54:23.670103+00:00",
+  "payload": {
+    "away_team": "Real Madrid",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "price": 3.68
+              },
+              {
+                "name": "Real Madrid",
+                "price": 1.99
+              },
+              {
+                "name": "Draw",
+                "price": 4.01
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.95
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-14T19:00:00Z",
+    "home_team": "AS Roma",
+    "id": "d4ef112438afa4c2cdbbfc9376a009c9",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.68,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2637587325649527,
+      "selection": "home",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.01,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24157780529995543,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.99,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4946634621350917,
+      "selection": "away",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v1"
+}

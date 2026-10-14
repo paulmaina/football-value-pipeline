@@ -1,0 +1,104 @@
+{
+  "fixture": {
+    "away_team": "Borussia Dortmund",
+    "home_team": "Bod\u00f8/Glimt",
+    "kickoff_utc": "2026-10-14T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "ca87a3874b0eae31b4173ae4a9324957"
+  },
+  "observed_at_utc": "2026-10-14T18:54:25.078364+00:00",
+  "payload": {
+    "away_team": "Borussia Dortmund",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "Bod\u00f8/Glimt",
+                "price": 2.63
+              },
+              {
+                "name": "Borussia Dortmund",
+                "price": 2.59
+              },
+              {
+                "name": "Draw",
+                "price": 3.83
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-14T18:54:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.02
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.89
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-14T19:00:00Z",
+    "home_team": "Bod\u00f8/Glimt",
+    "id": "ca87a3874b0eae31b4173ae4a9324957",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.63,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3709270598289099,
+      "selection": "home",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.83,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2522694022696655,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.59,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3768035379014247,
+      "selection": "away",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.02,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.48278318964821737,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.89,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5172168103517827,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-14T18:54:17+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v1"
+}
