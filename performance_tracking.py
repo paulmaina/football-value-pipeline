@@ -189,6 +189,12 @@ def capture(commit_sha: str, *, root: Path = ROOT,
     except Exception as exc:
         warnings.warn(f"Benchmark forward capture skipped ({type(exc).__name__})")
     try:
+        from model_reliability_experiment import capture_file as capture_reliability
+        experiment = capture_reliability(raw, summary.get("generated_at_utc"))
+        if experiment is not None: files["model_reliability_experiment.json"] = experiment
+    except Exception as exc:
+        warnings.warn(f'Reliability capture skipped ({type(exc).__name__})')
+    try:
         from totals_anchor_experiment import capture_file as capture_totals
         experiment = capture_totals(raw, summary.get("generated_at_utc"))
         if experiment is not None: files["totals_anchor_experiment.json"] = experiment
@@ -236,7 +242,7 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
                 (directory / name).read_bytes()
             ).hexdigest() != digest
             for name, digest in meta.get("sha256", {}).items()
-            if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "filter_sensitivity_experiment.json", "benchmark_forward_experiment.json", "totals_anchor_experiment.json", "pipeline_health.json"}
+            if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "filter_sensitivity_experiment.json", "benchmark_forward_experiment.json", "totals_anchor_experiment.json", "model_reliability_experiment.json", "pipeline_health.json"}
         ):
             warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
             continue
@@ -810,6 +816,11 @@ def review(*, root: Path = ROOT, token: str = "",
         review_benchmark(root, archived, records, clock)
     except Exception as exc:
         warnings.warn(f'Benchmark forward review failed ({type(exc).__name__}); production report complete')
+    try:
+        from model_reliability_experiment import review_experiment as review_reliability
+        review_reliability(root, archived, records, clock)
+    except Exception as exc:
+        warnings.warn(f'Reliability review failed ({type(exc).__name__}); production report complete')
     try:
         from totals_anchor_experiment import review_experiment as review_totals
         review_totals(root, archived, records, clock)
