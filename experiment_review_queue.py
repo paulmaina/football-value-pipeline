@@ -44,6 +44,13 @@ def build_queue(root,clock):
         'settled_evidence':trial.get('paired_fixtures',0),'gameweeks':trial.get('gameweeks',0),
         'scope':'FORECASTING_REVIEW_APPROVAL_REQUIRED','evidence':trial.get('evidence','UNAVAILABLE'),
         'report':'benchmark_forward_experiment/report.md','automatic_production_change':False})
+    totals=load_json(root/'performance/totals_anchor_experiment/summary.json',{})
+    fresh=utc(totals.get('reviewed_at_utc')) is not None and abs((clock-utc(totals['reviewed_at_utc'])).total_seconds())<1
+    items.append({'name':'totals_anchor_experiment','key':'totals_anchor:'+totals.get('registry_sha256','not_generated'),
+        'status':totals.get('status','COLLECT_MORE_DATA') if fresh else 'REPORT_UNAVAILABLE_OR_STALE',
+        'settled_evidence':totals.get('paired_fixtures',0),'gameweeks':totals.get('gameweeks',0),
+        'scope':'FORECASTING_REVIEW_APPROVAL_REQUIRED','evidence':totals.get('evidence','UNAVAILABLE'),
+        'report':'totals_anchor_experiment/report.md','automatic_production_change':False})
     return {'version':'experiment-review-queue-v1','reviewed_at_utc':clock.isoformat(),'experiments':items,'automatic_promotion':False,
         'note':'Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.'}
 

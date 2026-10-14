@@ -188,6 +188,12 @@ def capture(commit_sha: str, *, root: Path = ROOT,
             files["benchmark_forward_experiment.json"] = experiment
     except Exception as exc:
         warnings.warn(f"Benchmark forward capture skipped ({type(exc).__name__})")
+    try:
+        from totals_anchor_experiment import capture_file as capture_totals
+        experiment = capture_totals(raw, summary.get("generated_at_utc"))
+        if experiment is not None: files["totals_anchor_experiment.json"] = experiment
+    except Exception as exc:
+        warnings.warn(f"Totals anchoring capture skipped ({type(exc).__name__})")
     directory.mkdir(parents=True, exist_ok=False)
     digests = {}
     for output_name, source in files.items():
@@ -230,7 +236,7 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
                 (directory / name).read_bytes()
             ).hexdigest() != digest
             for name, digest in meta.get("sha256", {}).items()
-            if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "filter_sensitivity_experiment.json", "benchmark_forward_experiment.json", "pipeline_health.json"}
+            if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "filter_sensitivity_experiment.json", "benchmark_forward_experiment.json", "totals_anchor_experiment.json", "pipeline_health.json"}
         ):
             warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
             continue
@@ -804,6 +810,16 @@ def review(*, root: Path = ROOT, token: str = "",
         review_benchmark(root, archived, records, clock)
     except Exception as exc:
         warnings.warn(f'Benchmark forward review failed ({type(exc).__name__}); production report complete')
+    try:
+        from totals_anchor_experiment import review_experiment as review_totals
+        review_totals(root, archived, records, clock)
+    except Exception as exc:
+        warnings.warn(f'Totals anchoring review failed ({type(exc).__name__}); production report complete')
+    try:
+        from closing_odds import review as review_closing
+        review_closing(root, archived, clock)
+    except Exception as exc:
+        warnings.warn(f'Closing quote review failed ({type(exc).__name__}); production report complete')
     from experiment_review_queue import write_queue
     write_queue(root, clock)
     from pipeline_health import write_report

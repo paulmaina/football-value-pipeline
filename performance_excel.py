@@ -232,6 +232,10 @@ def add_health_sheet(root, data, history):
     rows += [[], ['Experiment review queue', 'Status', 'Settled evidence', 'First-look or approval']]
     for r in data.get('review_queue',{}).get('experiments',[]):
         rows.append([r['name'],r['status'],r['settled_evidence'],r['scope']])
+    rows += [[], ['Closing bookmaker', 'Covered selections', 'Missing selections', 'Pending selections', 'Mean fair-close EV', 'Same-book offer CLV']]
+    for book,info in data.get('closing_odds',{}).get('by_bookmaker',{}).items():
+        rows.append([book,info['covered_selections'],info['missing_selections'],info['pending_selections'],info['mean_fair_close_ev'],info['mean_same_book_offered_price_clv']])
+    rows += [['Locally observed near-close quotes; official closing odds and accepted execution are unverified.']]
     rows += [[], ['Review dependency versions'], *[[k,v] for k,v in data['dependencies'].items()], [],
              ['Improvement is not established by fresher data or software changes. Compare paired forecasts and settled results.'],
              ['Account access and executable stake sizes are not verified. Exchange targets require a commission/liquidity adapter.']]
