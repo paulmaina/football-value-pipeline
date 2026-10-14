@@ -1,0 +1,45 @@
+{
+  "version": "historical-dc-benchmark-v1",
+  "leagues": [
+    "EPL",
+    "LaLiga",
+    "Bundesliga",
+    "SerieA",
+    "Ligue1"
+  ],
+  "seasons": [
+    "2324",
+    "2425",
+    "2526",
+    "2627"
+  ],
+  "test_start": "2025-08-01",
+  "audit_start": "2025-11-01",
+  "test_end_exclusive": "2026-10-14",
+  "step_days": 14,
+  "min_train": 500,
+  "max_goals": 10,
+  "baseline_half_life": 240.0,
+  "baseline_l2": 0.08,
+  "l2_candidates": [
+    0.8,
+    3.0
+  ],
+  "half_life_candidates": [
+    365.0,
+    480.0
+  ],
+  "market_weights": [
+    0.75,
+    0.85
+  ],
+  "devig_method": "power",
+  "min_development_matches": 100,
+  "min_audit_matches": 100,
+  "min_pinnacle_comparison_matches": 1000,
+  "prospective_validation_start": "2026-10-14",
+  "promotion_policy": "No automatic promotion. Historical periods have already been inspected and are retrospective diagnostics. Select candidates using development only; audit scores cannot select. A candidate needs later, genuinely untouched pre-kickoff forecasts, adequate paired coverage, calibration checks and manual approval before production changes. Historical closing inputs are oracle diagnostics and never promotion-eligible. No ROI, CLV or live bet recommendation can be inferred from these untimestamped CSV odds.",
+  "historical_split_reason": "Chosen on odds coverage only before calculating scores: Pinnacle columns stop in January 2026, so a February boundary would leave no market-informed audit cohort. Both periods remain retrospective and already inspected.",
+  "dataset_source_commit": "1caa1ee2ad9ac255f2952727df8e91ba4081d389",
+  "input_manifest": "historical_benchmark_inputs.json"
+}

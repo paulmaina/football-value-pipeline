@@ -25,12 +25,12 @@ FORECAST_PATHS = (
 SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json')
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
-             'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'workflow_checks.py')
+             'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'historical_benchmark.py', 'workflow_checks.py')
 COVERAGE_FLOORS = {'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
     'double_chance.py':90, 'goal_market_validation.py':85, 'goal_blend_experiment.py':90,
     'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85,
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
-    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'recency_experiment.py':85, 'filter_sensitivity_experiment.py':85}
+    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'recency_experiment.py':85, 'filter_sensitivity_experiment.py':85, 'historical_benchmark.py':85}
 
 
 def require(condition, message):
