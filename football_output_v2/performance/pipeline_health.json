@@ -23,12 +23,12 @@
     "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
     "observations": 7,
     "rejected_files": [],
-    "reviewed_at_utc": "2026-10-14T19:19:04.140995+00:00",
+    "reviewed_at_utc": "2026-10-14T20:16:18.361713+00:00",
     "version": "local-closing-quotes-v1"
   },
   "dependencies": {
-    "PyYAML": "6.0.3",
-    "coverage": "7.16.2",
+    "PyYAML": "NOT_INSTALLED",
+    "coverage": "NOT_INSTALLED",
     "numpy": "2.5.4",
     "pandas": "3.0.6",
     "python": "3.12.15",
@@ -228,7 +228,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-14T19:19:04.140995+00:00",
+      "reviewed_at_utc": "2026-10-14T20:16:18.361713+00:00",
       "secondary_comparison": {
         "btts_yes": {
           "baseline": {
@@ -1058,7 +1058,7 @@
       ],
       "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-14T19:19:04.140995+00:00",
+      "reviewed_at_utc": "2026-10-14T20:16:18.361713+00:00",
       "total_fixtures": 41,
       "version": "conservative-ev-sensitivity-v1"
     },
@@ -1188,7 +1188,7 @@
       ],
       "graded_fixture_markets": 30,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-14T19:19:04.140995+00:00",
+      "reviewed_at_utc": "2026-10-14T20:16:18.361713+00:00",
       "total_fixture_markets": 330,
       "version": "goal-blend-shadow-v1"
     },
@@ -1587,7 +1587,7 @@
       "observed_fixture_markets": 220,
       "paired_graded_fixture_markets": 20,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-14T19:19:04.140995+00:00",
+      "reviewed_at_utc": "2026-10-14T20:16:18.361713+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -2700,7 +2700,7 @@
       "rejected_snapshot_commits": [
         "a98524037f736c1c589800f3bd4b329ab00983f7"
       ],
-      "reviewed_at_utc": "2026-10-14T19:19:04.140995+00:00",
+      "reviewed_at_utc": "2026-10-14T20:16:18.361713+00:00",
       "version": "model-reliability-forward-v1"
     },
     "recency_experiment": {
@@ -14501,7 +14501,7 @@
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-14T19:19:04.140995+00:00",
+      "reviewed_at_utc": "2026-10-14T20:16:18.361713+00:00",
       "total_fixture_markets": 220,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": [
@@ -16080,7 +16080,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-14T19:19:04.140995+00:00",
+      "reviewed_at_utc": "2026-10-14T20:16:18.361713+00:00",
       "status": "COLLECT_MORE_DATA",
       "verified_coverage": null,
       "version": "pinnacle-totals-anchor-v1"
@@ -16189,10 +16189,10 @@
       }
     ],
     "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-    "reviewed_at_utc": "2026-10-14T19:19:04.140995+00:00",
+    "reviewed_at_utc": "2026-10-14T20:16:18.361713+00:00",
     "version": "experiment-review-queue-v1"
   },
-  "reviewed_at_utc": "2026-10-14T19:19:04.140995+00:00",
+  "reviewed_at_utc": "2026-10-14T20:16:18.361713+00:00",
   "selection_policy_groups": {
     "72h-all-markets-net-ev15-execution-v7": {
       "brier": null,
@@ -18107,13 +18107,13 @@
     },
     "UCL": {
       "current_source_health": {
-        "added_matches": 2,
+        "added_matches": 0,
         "cache_hash_verified": true,
-        "checked_at_utc": "2026-10-14T19:07:41.482732+00:00",
+        "checked_at_utc": "2026-10-14T20:16:14.194329+00:00",
         "completed_matches": 29,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 0.18962729527777777,
+        "download_age_hours": 0.0011576066666666668,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-10-14",
         "latest_completed_utc": "2026-10-14T16:45:00+00:00",
@@ -18122,7 +18122,7 @@
         "overdue_unfinished_match_ids": [],
         "provider": "football-data.org",
         "season_start": 2026,
-        "sha256": "994ad05058e9e8add3afb2e70d047cbb3bceb2fe96023dd8a6a6ad58ab26bcc9",
+        "sha256": "2cf669cab1644c16e1c39c9586227eb2c569225472b5ac13f9bd05e8ec485e7d",
         "source_schedule_matches": 144,
         "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
         "training_end": "2026-10-14"
