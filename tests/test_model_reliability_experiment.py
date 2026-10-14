@@ -203,6 +203,11 @@ class ReliabilityTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             raw, data, _ = setup(root)
+            generated=NOW.replace(microsecond=904906).isoformat()
+            write_json(raw/'conservative_bet_summary.json', {'generated_at_utc': generated})
+            sidecar=json.loads((raw/m.FILE).read_text())
+            sidecar['generated_at_utc']=generated
+            write_json(raw/m.FILE,sidecar)
             capture('c'*40, root=root, captured_at=NOW)
             record = verified_record('PL', final())
             record['home_team'] = data.iloc[0]['home_team']
