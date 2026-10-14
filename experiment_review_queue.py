@@ -51,6 +51,15 @@ def build_queue(root,clock):
         'settled_evidence':totals.get('paired_fixtures',0),'gameweeks':totals.get('gameweeks',0),
         'scope':'FORECASTING_REVIEW_APPROVAL_REQUIRED','evidence':totals.get('evidence','UNAVAILABLE'),
         'report':'totals_anchor_experiment/report.md','automatic_production_change':False})
+    reliability=load_json(root/'performance/model_reliability_experiment/summary.json',{})
+    fresh=utc(reliability.get('reviewed_at_utc')) is not None and abs((clock-utc(reliability['reviewed_at_utc'])).total_seconds())<1
+    for candidate in reliability.get('comparisons',[]):
+        items.append({'name':'model_reliability_experiment','key':'model_reliability:'+reliability.get('registry_sha256','')+':'+candidate['candidate_id'],
+            'candidate_id':candidate['candidate_id'],
+            'status':candidate['status'] if fresh else 'REPORT_UNAVAILABLE_OR_STALE',
+            'settled_evidence':candidate['paired_fixtures'],'gameweeks':candidate['gameweeks'],
+            'scope':'FORECASTING_REVIEW_APPROVAL_REQUIRED','evidence':candidate['evidence'],
+            'report':'model_reliability_experiment/report.md','automatic_production_change':False})
     return {'version':'experiment-review-queue-v1','reviewed_at_utc':clock.isoformat(),'experiments':items,'automatic_promotion':False,
         'note':'Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.'}
 
