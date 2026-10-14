@@ -745,6 +745,7 @@ class TheOddsAPI:
         complete_ou: List[Tuple[str, str, float, float]] = []
         all_updates: List[str] = []
         h2h_book_updates: Dict[str, str] = {}
+        pinnacle_totals = None
 
         def update_best(
             current: Tuple[Optional[float], Optional[str]],
@@ -837,6 +838,8 @@ class TheOddsAPI:
                     best_u = update_best(best_u, prices["under"], book_name)
                     updated = TheOddsAPI._last_update(bookmaker, totals)
                     complete_ou.append((updated, book_name, prices["over"], prices["under"]))
+                    if str(bookmaker.get("key", "")).lower() == "pinnacle":
+                        pinnacle_totals = {"updated_at_utc": updated, "over": prices["over"], "under": prices["under"], "bookmaker": "pinnacle", "event_id": event_id, "kickoff_utc": commence, "home_team": home, "away_team": away}
                     if updated:
                         all_updates.append(updated)
 
@@ -874,6 +877,7 @@ class TheOddsAPI:
             "live_ref_over_2_5_odds": None if ref_ou is None else ref_ou[2],
             "live_ref_under_2_5_odds": None if ref_ou is None else ref_ou[3],
             "live_ref_ou25_bookmaker": None if ref_ou is None else ref_ou[1],
+            "shadow_pinnacle_totals": pinnacle_totals,
         }
 
     def odds(
@@ -2790,6 +2794,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
 
         if getattr(self, '_benchmark_trial_enabled', False):
             self._benchmark_score_matrices[(home, away, str(row.get('kickoff_utc')))] = matrix.copy()
+            if hasattr(self, '_totals_shadow_inputs'):
+                self._totals_shadow_inputs[(home, away, str(row.get('kickoff_utc')))] = {'lambda_home': meta['lambda_home'], 'lambda_away': meta['lambda_away'], 'rho': float(model.rho), 'max_goals': model.max_goals, 'reference': row.get('shadow_pinnacle_totals')}
         pred = prediction_from_matrix(model, matrix, meta)
         pred["raw_p_home"] = raw_x12["home"]
         pred["raw_p_draw"] = raw_x12["draw"]
@@ -3585,6 +3591,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     combined = []
     recency_parts = []
     benchmark_matrices = {}
+    totals_shadow_inputs = {}
     pipe.recency_experiment_enabled = args.recency_experiment
 
     for league_key in args.leagues:
@@ -3669,12 +3676,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print(f"[{league_key}] current-fixture model...", file=sys.stderr)
         pipe._benchmark_trial_enabled = not args.backtest
         pipe._benchmark_score_matrices = {}
+        pipe._totals_shadow_inputs = {}
         predictions, diagnostics, scorelines = pipe.run_league(league_key)
         from performance_tracking import fixture_key as benchmark_fixture_key
         for source in predictions.to_dict('records'):
             matrix = getattr(pipe, '_benchmark_score_matrices', {}).get((source['home_team'], source['away_team'], str(source.get('kickoff_utc'))))
             if matrix is not None:
                 benchmark_matrices[benchmark_fixture_key(source)] = matrix.copy()
+                totals_shadow_inputs[benchmark_fixture_key(source)] = pipe._totals_shadow_inputs.get((source["home_team"], source["away_team"], str(source.get("kickoff_utc"))))
         pipe._benchmark_trial_enabled = False
         if args.recency_experiment and not predictions.empty:
             try:
@@ -3862,6 +3871,11 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             write_benchmark_forward(all_predictions, out_dir, selection_summary["generated_at_utc"], benchmark_matrices)
         except Exception as exc:
             warnings.warn(f"Benchmark forward trial unavailable ({type(exc).__name__}); production outputs complete")
+        try:
+            from totals_anchor_experiment import write_experiment as write_totals_shadow
+            write_totals_shadow(all_predictions, out_dir, selection_summary["generated_at_utc"], benchmark_matrices, totals_shadow_inputs)
+        except Exception as exc:
+            warnings.warn(f"Totals anchoring trial unavailable ({type(exc).__name__}); production outputs complete")
 
     if (args.goal_blend_experiment or args.recency_experiment) and combined and not args.backtest:
         try:

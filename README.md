@@ -210,3 +210,5 @@ Conservative EV sensitivity is recorded automatically on current-fixture runs: [
 A separate [historical benchmark](docs/historical-benchmark.md) compares regularisation, recency, market weighting and totals anchoring on pinned data. Run `py historical_benchmark.py --materialize-pinned-data`; production commands and settings are unchanged. Future trial gates are recorded in `benchmark_promotion_rules.json`.
 
 The [benchmark forward bridge](docs/benchmark-forward-automation.md) automatically captures a frozen 85% market-weight candidate and reports review readiness. Daily scheduled forecast collection requires Odds API keys in GitHub Secrets; local `.env` files are not available to Actions. GitHub issues request review once evidence gates are reached; production changes require approval.
+
+Local closing quote collection and the separate Pinnacle totals trial: [setup and evidence limits](docs/closing-odds-and-totals-trial.md). Normal forecasts generate the totals sidecar automatically; closing collection uses local `.env` credentials.
