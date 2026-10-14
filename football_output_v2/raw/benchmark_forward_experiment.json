@@ -1,0 +1,2660 @@
+{
+  "generated_at_utc": "2026-10-14T09:46:32.015572+00:00",
+  "predictions_sha256": "28fb203af1f1ccf3dcd5197f591a4820805e950a8cc9f9f30c9d684354cce9c4",
+  "registry": {
+    "approval_required": true,
+    "baseline_market_weight": 0.5,
+    "candidate_id": "market-weight-085-v1",
+    "change": "market_weight_only",
+    "leagues": [
+      "Premier League",
+      "La Liga",
+      "Bundesliga",
+      "Serie A",
+      "Ligue 1"
+    ],
+    "market_weight": 0.85,
+    "note": "One-factor forecasting trial, same raw model and same live 1X2 reference as production. Positive forecasting evidence does not establish betting edge. No automatic production change.",
+    "primary_metric": "1x2_log_loss",
+    "registered_on": "2026-10-14",
+    "review_gates": {
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 20261014,
+      "confidence_level": 0.95,
+      "minimum_gameweeks": 6,
+      "minimum_paired_fixtures": 300,
+      "minimum_verified_coverage": 0.8
+    },
+    "secondary_gate": "No deterioration in paired log loss or Brier on production goal markets; at least 80% secondary coverage",
+    "secondary_markets": [
+      "over_1_5",
+      "btts_yes"
+    ],
+    "selection": {
+      "family": "market_weight",
+      "league": "ALL",
+      "market": "1x2",
+      "period": "development_only",
+      "selected_variant": "market_weight_0.85",
+      "source": "docs/benchmarks/2026-10-14/results.json",
+      "source_sha256": "7fe421c2c1095f8c9c3220e06e25432c28e7662a2284c6e435cc05821c97b4eb"
+    },
+    "version": "benchmark-forward-registry-v1"
+  },
+  "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+  "rows": [
+    {
+      "away_team": "Chelsea",
+      "baseline": [
+        0.3349183438539141,
+        0.26756465592393197,
+        0.3975170002221541
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "764e6513cb3f348881503df70ccb90e0",
+      "home_team": "Everton",
+      "kickoff_utc": "2026-10-17T11:30:00+00:00",
+      "league": "Premier League",
+      "market_reference": [
+        0.30426388555155637,
+        0.2526044466205539,
+        0.44313166782788965
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.36557280215627186,
+        0.28252486522730974,
+        0.35190233261641835
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / 1xBet",
+      "reference_updated_at_utc": "2026-10-14T09:45:53Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Liverpool",
+      "baseline": [
+        0.39158951169895573,
+        0.2640318006301932,
+        0.34437868767085134
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "8f1945e7272bc7e89016439f5ab321c7",
+      "home_team": "Brentford",
+      "kickoff_utc": "2026-10-17T14:00:00+00:00",
+      "league": "Premier League",
+      "market_reference": [
+        0.39360375005589854,
+        0.2627718749095285,
+        0.34362437503457294
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.3895752733420127,
+        0.26529172635085785,
+        0.3451330003071294
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / 1xBet",
+      "reference_updated_at_utc": "2026-10-14T09:45:53Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Hull City",
+      "baseline": [
+        0.4147890578335096,
+        0.2815313112906302,
+        0.30367963087586025
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "7895f97f2f9577f3b13287a3d086859d",
+      "home_team": "Fulham",
+      "kickoff_utc": "2026-10-17T14:00:00+00:00",
+      "league": "Premier League",
+      "market_reference": [
+        0.5601588189526786,
+        0.241792628112086,
+        0.19804855293523538
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.2694192967143404,
+        0.3212699944691743,
+        0.4093107088164852
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / 1xBet",
+      "reference_updated_at_utc": "2026-10-14T09:45:53Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Ipswich Town",
+      "baseline": [
+        0.8283178347777708,
+        0.11197933215399264,
+        0.059702833068236635
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "bf2142d1ca76ba2fc9e61afce80f86c0",
+      "home_team": "Manchester City",
+      "kickoff_utc": "2026-10-17T14:00:00+00:00",
+      "league": "Premier League",
+      "market_reference": [
+        0.7885189814249683,
+        0.1302859949009978,
+        0.0811950236740339
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.8681166881305731,
+        0.09367266940698749,
+        0.038210642462439354
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / 1xBet",
+      "reference_updated_at_utc": "2026-10-14T09:45:53Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Aston Villa",
+      "baseline": [
+        0.43002425573663616,
+        0.2535936180403249,
+        0.31638212622303885
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "d1bbbdcd3d430e70091b518369b559cf",
+      "home_team": "Newcastle United",
+      "kickoff_utc": "2026-10-17T16:30:00+00:00",
+      "league": "Premier League",
+      "market_reference": [
+        0.4371962142733051,
+        0.25463426121870325,
+        0.30816952450799173
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.4228522971999676,
+        0.2525529748619466,
+        0.32459472793808597
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / 1xBet",
+      "reference_updated_at_utc": "2026-10-14T09:45:53Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Sunderland",
+      "baseline": [
+        0.4839593994892731,
+        0.2694846367303804,
+        0.2465559637803466
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "dfd5d6648be46426e418801584d46a68",
+      "home_team": "Bournemouth",
+      "kickoff_utc": "2026-10-18T13:00:00+00:00",
+      "league": "Premier League",
+      "market_reference": [
+        0.48466272389271,
+        0.2611129931596964,
+        0.2542242829475935
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.48325607508583607,
+        0.2778562803010644,
+        0.23888764461309964
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / 1xBet",
+      "reference_updated_at_utc": "2026-10-14T09:45:53Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Crystal Palace",
+      "baseline": [
+        0.5990681871096412,
+        0.22409613127607766,
+        0.17683568161428126
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "9fc08b390a49c4434f7cf631a0bb88fb",
+      "home_team": "Brighton and Hove Albion",
+      "kickoff_utc": "2026-10-18T13:00:00+00:00",
+      "league": "Premier League",
+      "market_reference": [
+        0.6083365965646546,
+        0.21314477660166742,
+        0.17851862683367792
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.5897997776546277,
+        0.2350474859504878,
+        0.17515273639488452
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / 1xBet",
+      "reference_updated_at_utc": "2026-10-14T09:45:53Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Manchester United",
+      "baseline": [
+        0.3905350257517468,
+        0.2738962665449148,
+        0.33556870770333824
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "676b3b0b609e9cf565da450786618d26",
+      "home_team": "Leeds United",
+      "kickoff_utc": "2026-10-18T13:00:00+00:00",
+      "league": "Premier League",
+      "market_reference": [
+        0.3934321300285985,
+        0.26189783072241246,
+        0.3446700392489891
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.3876379214748952,
+        0.28589470236741726,
+        0.3264673761576875
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / 1xBet",
+      "reference_updated_at_utc": "2026-10-14T09:45:53Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Arsenal",
+      "baseline": [
+        0.16561178454739894,
+        0.26517783796292477,
+        0.5692103774896765
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "f696a248965373d9071dc0662e5c58a8",
+      "home_team": "Nottingham Forest",
+      "kickoff_utc": "2026-10-18T15:30:00+00:00",
+      "league": "Premier League",
+      "market_reference": [
+        0.15828240816845573,
+        0.24492381368839708,
+        0.5967937781431472
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.17294116092634204,
+        0.28543186223745226,
+        0.5416269768362059
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / 1xBet",
+      "reference_updated_at_utc": "2026-10-14T09:45:53Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Coventry City",
+      "baseline": [
+        0.5426548111487894,
+        0.25020265832387323,
+        0.2071425305273374
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "9baaf4e48b041cfef04e70e42532502e",
+      "home_team": "Tottenham Hotspur",
+      "kickoff_utc": "2026-10-19T19:00:00+00:00",
+      "league": "Premier League",
+      "market_reference": [
+        0.6443858942631003,
+        0.20610020270898036,
+        0.1495139030279193
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.44092372803447866,
+        0.29430511393876596,
+        0.2647711580267553
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / 1xBet",
+      "reference_updated_at_utc": "2026-10-14T09:45:53Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Nottingham Forest",
+      "baseline": [
+        0.2840716735868294,
+        0.26468897379036815,
+        0.45123935262280224
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "d0202960708a442401d7fc7bd74a0183",
+      "home_team": "Ipswich Town",
+      "kickoff_utc": "2026-10-23T19:00:00+00:00",
+      "league": "Premier League",
+      "market_reference": [
+        0.3170395090641212,
+        0.27009635898783746,
+        0.4128641319480414
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.25110383810953774,
+        0.259281588592899,
+        0.4896145732975632
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / 1xBet",
+      "reference_updated_at_utc": "2026-10-14T09:45:53Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Levante",
+      "baseline": [
+        0.5040173094508038,
+        0.24250540045314004,
+        0.253477290096056
+      ],
+      "baseline_goals": {
+        "btts_yes": 0.6466703708812622,
+        "over_1_5": 0.8490677731739953,
+        "over_2_5": 0.643666876192443,
+        "under_3_5": 0.5695321615652146
+      },
+      "candidate": [
+        0.4796219841974197,
+        0.26013869747921325,
+        0.260239318323367
+      ],
+      "candidate_goals": {
+        "btts_yes": 0.6515410480266713,
+        "over_1_5": 0.848002997197898,
+        "over_2_5": 0.6372946054829703,
+        "under_3_5": 0.5714451648289622
+      },
+      "fixture_id": "19ee731602634e5c9e3106630e087464",
+      "home_team": "Deportivo La Coruña",
+      "kickoff_utc": "2026-10-16T19:00:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.4691668448031122,
+        0.26769582477610177,
+        0.263137330420786
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": [
+        [
+          0.040781773070049716,
+          0.0456971299817567,
+          0.03146153199739528,
+          0.013853621007905029,
+          0.004575178070950829,
+          0.001208767259850124,
+          0.0002661314062219518,
+          5.0223014846988104e-05,
+          8.293111095426363e-06,
+          1.2172496675410976e-06,
+          1.6079937462208317e-07
+        ],
+        [
+          0.06445332377419823,
+          0.10640457266642052,
+          0.06419690670005347,
+          0.028268159839641965,
+          0.009335600052193187,
+          0.0024664761718883304,
+          0.0005430381793422881,
+          0.00010247950413204375,
+          1.6922001105678566e-05,
+          2.4837844305953226e-06,
+          3.2810933844211575e-07
+        ],
+        [
+          0.06753479231773658,
+          0.0892138454378151,
+          0.07030326149102677,
+          0.02884043313526399,
+          0.009524594123218131,
+          0.0025164086208155616,
+          0.0005540316875969355,
+          0.00010455414513789773,
+          1.726457767932896e-05,
+          2.534067275668179e-06,
+          3.3475173092538284e-07
+        ],
+        [
+          0.04593466461188397,
+          0.06067995366954341,
+          0.0400792822637191,
+          0.02105580695859549,
+          0.0064782761832739575,
+          0.0017115679497434239,
+          0.0003768318355728119,
+          7.11138574039896e-05,
+          1.1742726351103594e-05,
+          1.723578712793316e-06,
+          2.2768572998582725e-07
+        ],
+        [
+          0.023432293273508594,
+          0.030954192922087783,
+          0.020445332607309945,
+          0.009002800287846266,
+          0.0035472421331121575,
+          0.0008731088491620274,
+          0.00019223029406101807,
+          3.627675910078687e-05,
+          5.990225682815352e-06,
+          8.7923580632176e-07,
+          1.1614755096830507e-07
+        ],
+        [
+          0.009562666847706352,
+          0.01263233739004982,
+          0.008343694833116854,
+          0.0036740228045216003,
+          0.001213351264469334,
+          0.0003824632860867505,
+          7.844875611130893e-05,
+          1.4804464827500066e-05,
+          2.444597798376753e-06,
+          3.588141799989739e-07,
+          4.7399557615753124e-08
+        ],
+        [
+          0.0032520859202317502,
+          0.004296024029703771,
+          0.002837536110127901,
+          0.0012494671228728315,
+          0.0004126382970690397,
+          0.00010901950829505216,
+          2.863691153795391e-05,
+          5.034724349267381e-06,
+          8.313624439020823e-07,
+          1.2202605835149936e-07,
+          1.611971183377337e-08
+        ],
+        [
+          0.0009479778871314958,
+          0.0012522841900974434,
+          0.0008271372750651933,
+          0.0003642176843522167,
+          0.00012028340904879015,
+          3.177901373598805e-05,
+          6.9967097015465664e-06,
+          1.5753208622677815e-06,
+          2.4234083365011773e-07,
+          3.55704024458233e-08,
+          4.698870429677971e-09
+        ],
+        [
+          0.0002417922940741287,
+          0.0003194089981071702,
+          0.0002109705531817906,
+          9.289776759283597e-05,
+          3.0679620071063474e-05,
+          8.10559058280222e-06,
+          1.7845885570461524e-06,
+          3.367788073894042e-07,
+          6.634802155523271e-08,
+          9.072626403280864e-09,
+          1.1984991170910361e-09
+        ],
+        [
+          5.481938791775536e-05,
+          7.24167237781796e-05,
+          4.783145235617117e-05,
+          2.1061873695626823e-05,
+          6.955713788502141e-06,
+          1.8377075090942009e-06,
+          4.0460368167195433e-07,
+          7.635482410824341e-08,
+          1.2608144710758562e-08,
+          2.2079126350031502e-09,
+          2.7172490451146553e-10
+        ],
+        [
+          1.1185835234601841e-05,
+          1.477655207729941e-05,
+          9.759954742481669e-06,
+          4.297651941038362e-06,
+          1.4193056751009954e-06,
+          3.749821766882654e-07,
+          8.255893198380477e-08,
+          1.5580117076885216e-08,
+          2.5726779284757964e-09,
+          3.7761357795563007e-10,
+          5.951422894797481e-11
+        ]
+      ],
+      "raw": [
+        0.5388677740984955,
+        0.21731497613017828,
+        0.24381724977132607
+      ],
+      "reasons": [],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:46:00Z",
+      "secondary_status": "available",
+      "status": "available"
+    },
+    {
+      "away_team": "Atlético Madrid",
+      "baseline": [
+        0.22116253485632692,
+        0.24803664893845098,
+        0.5308008162052221
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "6436925dd15916d7041ba32b60000d48",
+      "home_team": "Espanyol",
+      "kickoff_utc": "2026-10-17T12:00:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.199828153150397,
+        0.24022710465512007,
+        0.559944742194483
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.24249691656225675,
+        0.25584619322178187,
+        0.5016568902159613
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:46:00Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Elche CF",
+      "baseline": [
+        0.6628083021457765,
+        0.18315039198360997,
+        0.15404130587061357
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "aef660734585649651415961a9d177c6",
+      "home_team": "Villarreal",
+      "kickoff_utc": "2026-10-17T14:15:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.6821726254466973,
+        0.18032249137635772,
+        0.13750488317694495
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.6434439788448557,
+        0.18597829259086218,
+        0.1705777285642821
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:46:00Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Barcelona",
+      "baseline": [
+        0.19782432443493397,
+        0.1891620605188875,
+        0.6130136150461786
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "846e496fc232b2fc20214754836727d0",
+      "home_team": "Real Betis",
+      "kickoff_utc": "2026-10-17T16:30:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.14966667574062484,
+        0.1630483116946312,
+        0.6872850125647441
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.24598197312924303,
+        0.2152758093431438,
+        0.5387422175276132
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:46:00Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Athletic Bilbao",
+      "baseline": [
+        0.30863793122138095,
+        0.2885246473379734,
+        0.4028374214406459
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "f00cd1ea41fa39149729d14ebc07aa6c",
+      "home_team": "Valencia",
+      "kickoff_utc": "2026-10-17T19:00:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.28659532211486405,
+        0.28398045632575036,
+        0.4294242215593855
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.3306805403278976,
+        0.2930688383501963,
+        0.3762506213219061
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:46:00Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Real Racing Club de Santander",
+      "baseline": [
+        0.5568187931361426,
+        0.21868688707146708,
+        0.22449431979239043
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "1f566f17c50fe5162724ec2863d2207b",
+      "home_team": "CA Osasuna",
+      "kickoff_utc": "2026-10-18T12:00:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.4810204030879033,
+        0.26530471524090377,
+        0.25367488167119306
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.6326171831843819,
+        0.1720690589020304,
+        0.1953137579135877
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:45:59Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Alavés",
+      "baseline": [
+        0.47231702034933754,
+        0.28055922575728864,
+        0.24712375389337377
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "aabe899ecc4c19a1fafe5440151b62e4",
+      "home_team": "Celta Vigo",
+      "kickoff_utc": "2026-10-18T14:15:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.447551630191024,
+        0.29456743117946377,
+        0.25788093862951217
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.4970824105076511,
+        0.2665510203351135,
+        0.23636656915723542
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:46:00Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Real Sociedad",
+      "baseline": [
+        0.23240033602880722,
+        0.2855433523948399,
+        0.48205631157635276
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "1051298b4aca6f07113309bff598a5c1",
+      "home_team": "Málaga",
+      "kickoff_utc": "2026-10-18T16:30:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.2828377628693101,
+        0.2697293005081856,
+        0.4474329366225042
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.18196290918830438,
+        0.3013574042814944,
+        0.5166796865302012
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:46:00Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Sevilla",
+      "baseline": [
+        0.7812249937949161,
+        0.13896072767284878,
+        0.07981427853223515
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "eccd63bf768e2f2a358b871d3f33a63d",
+      "home_team": "Real Madrid",
+      "kickoff_utc": "2026-10-18T19:00:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.7879916990992494,
+        0.13289421851663635,
+        0.07911408238411438
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.7744582884905827,
+        0.14502723682906138,
+        0.08051447468035591
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:45:59Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Rayo Vallecano",
+      "baseline": [
+        0.34751157326564,
+        0.3381754911931768,
+        0.3143129355411832
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "4a88bc4de574d43ef34677fd8d78722f",
+      "home_team": "Getafe",
+      "kickoff_utc": "2026-10-19T19:00:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.3221356557396037,
+        0.3254912828031266,
+        0.35237306145726965
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.37288749079167616,
+        0.3508596995832271,
+        0.2762528096250968
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:46:00Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Athletic Bilbao",
+      "baseline": [
+        0.2969198834018215,
+        0.28520321747099947,
+        0.41787689912717907
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "a362cccad837f1ffae61ff43a3536688",
+      "home_team": "Levante",
+      "kickoff_utc": "2026-10-21T18:00:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.24905874877016132,
+        0.30675027196192156,
+        0.4441909792679172
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.3447810180334815,
+        0.2636561629800772,
+        0.3915628189864412
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:45:59Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Málaga",
+      "baseline": [
+        0.5653315824064213,
+        0.2711754426410784,
+        0.16349297495250043
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "903eb4941471ffe20d525b02dd3b77aa",
+      "home_team": "Alavés",
+      "kickoff_utc": "2026-10-23T19:00:00+00:00",
+      "league": "La Liga",
+      "market_reference": [
+        0.526136412925869,
+        0.2617816537052467,
+        0.2120819333688844
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.6045267518869732,
+        0.2805692315769102,
+        0.11490401653611651
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Pinnacle",
+      "reference_updated_at_utc": "2026-10-14T09:46:00Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "1. FC Köln",
+      "baseline": [
+        0.5386887182332047,
+        0.22286585858580035,
+        0.23844542318099463
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "947bd5d924835af090d9cdc7bbdf10f6",
+      "home_team": "Eintracht Frankfurt",
+      "kickoff_utc": "2026-10-16T18:30:00+00:00",
+      "league": "Bundesliga",
+      "market_reference": [
+        0.4855172926046198,
+        0.23354296558073098,
+        0.2809397418146492
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.5918601438617899,
+        0.21218875159086995,
+        0.19595110454734027
+      ],
+      "reasons": [
+        "unreliable_team_identity"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:08Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Augsburg",
+      "baseline": [
+        0.4831804185816715,
+        0.23454729202365937,
+        0.2822722893946692
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "0bf757f3bd903496ce2fa27bd0481869",
+      "home_team": "Elversberg",
+      "kickoff_utc": "2026-10-17T13:30:00+00:00",
+      "league": "Bundesliga",
+      "market_reference": [
+        0.3921409991587101,
+        0.24260618634486786,
+        0.3652528144964221
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.5742198380046328,
+        0.22648839770245074,
+        0.19929176429291634
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:08Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "FSV Mainz 05",
+      "baseline": [
+        0.3241662398528823,
+        0.301288555179114,
+        0.3745452049680037
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "606d65d57a9a6d8f9b53faee1ad10009",
+      "home_team": "FC Schalke 04",
+      "kickoff_utc": "2026-10-17T13:30:00+00:00",
+      "league": "Bundesliga",
+      "market_reference": [
+        0.3115498050182926,
+        0.25820444100032897,
+        0.43024575398137843
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.3367826746874719,
+        0.344372669357899,
+        0.3188446559546291
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:08Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "VfB Stuttgart",
+      "baseline": [
+        0.21995621470083265,
+        0.23333488939777683,
+        0.5467088959013904
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "221916b8b36706ec52aa655a64e5f1d2",
+      "home_team": "Hamburger SV",
+      "kickoff_utc": "2026-10-17T13:30:00+00:00",
+      "league": "Bundesliga",
+      "market_reference": [
+        0.2295678807791145,
+        0.23531116436702046,
+        0.5351209548538649
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.21034454862255084,
+        0.23135861442853314,
+        0.558296836948916
+      ],
+      "reasons": [
+        "outside_capture_window",
+        "unreliable_team_identity"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:08Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Borussia Dortmund",
+      "baseline": [
+        0.1755565186760435,
+        0.22459605223208945,
+        0.5998474290918672
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "d8eac776adb07b0e7f01d8736d097291",
+      "home_team": "Union Berlin",
+      "kickoff_utc": "2026-10-17T13:30:00+00:00",
+      "league": "Bundesliga",
+      "market_reference": [
+        0.18309678924124007,
+        0.21628373279330435,
+        0.6006194779654557
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.16801624811084684,
+        0.23290837167087453,
+        0.5990753802182788
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:08Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "SC Paderborn",
+      "baseline": [
+        0.5249414499988825,
+        0.2762002745825399,
+        0.19885827541857745
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "9a422e1aad1053828eaf629a58d901de",
+      "home_team": "Werder Bremen",
+      "kickoff_utc": "2026-10-17T13:30:00+00:00",
+      "league": "Bundesliga",
+      "market_reference": [
+        0.5408358429234326,
+        0.23232918031775107,
+        0.2268349767588165
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.5090470570743328,
+        0.3200713688473289,
+        0.17088157407833843
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:08Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "RB Leipzig",
+      "baseline": [
+        0.7518680616904149,
+        0.1378778562545272,
+        0.1102540820550581
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "9a64448205fdc4b95f45641bb946706c",
+      "home_team": "Bayern Munich",
+      "kickoff_utc": "2026-10-17T16:30:00+00:00",
+      "league": "Bundesliga",
+      "market_reference": [
+        0.8000085812767357,
+        0.11274837109886897,
+        0.08724304762439546
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.7037275421040938,
+        0.1630073414101854,
+        0.13326511648572076
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:08Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "SC Freiburg",
+      "baseline": [
+        0.6081738137417716,
+        0.20610775598225153,
+        0.18571843027597695
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "096d800bcc95c547ef592cbef624d080",
+      "home_team": "Bayer Leverkusen",
+      "kickoff_utc": "2026-10-18T13:30:00+00:00",
+      "league": "Bundesliga",
+      "market_reference": [
+        0.556897620010119,
+        0.21894043190116957,
+        0.22416194808871148
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.659450007473424,
+        0.19327508006333352,
+        0.14727491246324242
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:08Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "TSG Hoffenheim",
+      "baseline": [
+        0.3570781373996868,
+        0.232793501844778,
+        0.4101283607555351
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "fd9b8c185737a15615aa0c9daaa3dfbf",
+      "home_team": "Borussia Monchengladbach",
+      "kickoff_utc": "2026-10-18T15:30:00+00:00",
+      "league": "Bundesliga",
+      "market_reference": [
+        0.3125730880323575,
+        0.2335196862379989,
+        0.45390722572964365
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.4015831867670161,
+        0.23206731745155723,
+        0.36634949578142667
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:08Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Borussia Monchengladbach",
+      "baseline": [
+        0.6811720765512725,
+        0.17511585044544256,
+        0.14371207300328487
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "d4d56a31d8ccd432e3a6183180e093f3",
+      "home_team": "VfB Stuttgart",
+      "kickoff_utc": "2026-10-23T18:30:00+00:00",
+      "league": "Bundesliga",
+      "market_reference": [
+        0.7018676032098873,
+        0.16346240156773376,
+        0.1346699952223791
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.6604765498926578,
+        0.18676929932315134,
+        0.1527541507841907
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Unibet (SE)",
+      "reference_updated_at_utc": "2026-10-14T09:46:08Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Sassuolo",
+      "baseline": [
+        0.4198361364008173,
+        0.25390731303547714,
+        0.3262565505637056
+      ],
+      "baseline_goals": {
+        "btts_yes": 0.5899385570658456,
+        "over_1_5": 0.7921535471780655,
+        "over_2_5": 0.5589865797962091,
+        "under_3_5": 0.6632612956413966
+      },
+      "candidate": [
+        0.39608154153176556,
+        0.258939016108667,
+        0.34497944235956746
+      ],
+      "candidate_goals": {
+        "btts_yes": 0.5916357634338447,
+        "over_1_5": 0.7913183320036487,
+        "over_2_5": 0.5567754523750601,
+        "under_3_5": 0.6643276221833581
+      },
+      "fixture_id": "7d3160040958fe21778fd5ee485666c3",
+      "home_team": "Frosinone",
+      "kickoff_utc": "2026-10-16T18:45:00+00:00",
+      "league": "Serie A",
+      "market_reference": [
+        0.3859010008736005,
+        0.2610954602828912,
+        0.35300353884350827
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": [
+        [
+          0.05711353300369804,
+          0.0722306298242203,
+          0.048376651472308206,
+          0.020852230644764217,
+          0.006741095801835431,
+          0.0017434057155293718,
+          0.00037573805731912186,
+          6.941049093592073e-05,
+          1.1219489584174476e-05,
+          1.6120130779731927e-06,
+          2.0845222321876487e-07
+        ],
+        [
+          0.0785022899940163,
+          0.11852805988273767,
+          0.07944047749858192,
+          0.03424195575584338,
+          0.011069717582004061,
+          0.0028628889826053526,
+          0.000617008614267291,
+          0.0001139806575185731,
+          1.8423797074243034e-05,
+          2.6471259326713194e-06,
+          3.423044721815584e-07
+        ],
+        [
+          0.0662622560268104,
+          0.08568487919245864,
+          0.0616228338023172,
+          0.02811477472026573,
+          0.00908892641104178,
+          0.002350609859115444,
+          0.0005066024357451591,
+          9.358520674028942e-05,
+          1.5127082925041177e-05,
+          2.173454979729864e-06,
+          2.8105325495263756e-07
+        ],
+        [
+          0.03627028810180103,
+          0.046901742268193165,
+          0.03032473055656243,
+          0.014539288991622277,
+          0.004975049134022402,
+          0.0012866645646739691,
+          0.0002773013990063439,
+          5.1226182355812254e-05,
+          8.280183753615082e-06,
+          1.18969445077753e-06,
+          1.5384146481454767e-07
+        ],
+        [
+          0.014890080845444322,
+          0.019254623294015446,
+          0.01244924463616568,
+          0.0053661118040594005,
+          0.0019295995920322684,
+          0.0005282158039437379,
+          0.00011384084510633494,
+          2.1029940389242244e-05,
+          3.3992728472521012e-06,
+          4.884065575584515e-07,
+          6.315670396774284e-08
+        ],
+        [
+          0.004890272874846198,
+          0.0063236971637339505,
+          0.004088641558665015,
+          0.0017623645748580637,
+          0.0005697360939109981,
+          0.0001638970747564471,
+          3.738816482271859e-05,
+          6.9067554510027266e-06,
+          1.116405744983187e-06,
+          1.604048604649354e-07,
+          2.0742232327948644e-08
+        ],
+        [
+          0.0013384060300884399,
+          0.0017307161855790864,
+          0.0011190096456855814,
+          0.0004823369645356378,
+          0.00015592958576437225,
+          4.0327053498886096e-05,
+          9.667467348263593e-06,
+          1.890291887701457e-06,
+          3.0554617694168415e-07,
+          4.3900787951125606e-08,
+          5.676887473502173e-09
+        ],
+        [
+          0.00031397559088446053,
+          0.0004060073137780065,
+          0.0002625075700580377,
+          0.00011315103940131449,
+          3.657939573352256e-05,
+          9.460290947811514e-06,
+          2.038877876068594e-06,
+          4.189485062152338e-07,
+          7.167783115966239e-08,
+          1.0298650429972477e-08,
+          1.3317364527711058e-09
+        ],
+        [
+          6.444837050430844e-05,
+          8.33393121806496e-05,
+          5.388375920442751e-05,
+          2.3226009670818773e-05,
+          7.508489568940115e-06,
+          1.941871768966507e-06,
+          4.1851137663201593e-07,
+          7.731205170314778e-08,
+          1.3900316362465446e-08,
+          2.1139580842431385e-09,
+          2.7335960760678854e-10
+        ],
+        [
+          1.175913763504162e-05,
+          1.5205946010325357e-05,
+          9.83153702444572e-06,
+          4.23777734479272e-06,
+          1.3699859528106866e-06,
+          3.543105469106061e-07,
+          7.636085817433692e-08,
+          1.410622254233709e-08,
+          2.2801253060132786e-09,
+          3.6440445529437217e-10,
+          4.98767187526379e-11
+        ],
+        [
+          1.9309966280613246e-06,
+          2.497005425374196e-06,
+          1.6144606375123493e-06,
+          6.958957380415466e-07,
+          2.2496872963588312e-07,
+          5.8182197760161054e-08,
+          1.2539402482297058e-08,
+          2.316417156540847e-09,
+          3.7442492928635176e-10,
+          5.379726753168495e-11,
+          7.73798156073164e-12
+        ]
+      ],
+      "raw": [
+        0.453771271928034,
+        0.24671916578806324,
+        0.29950956228390285
+      ],
+      "reasons": [],
+      "reference_source": "The Odds API / Betsson",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "available",
+      "status": "available"
+    },
+    {
+      "away_team": "Napoli",
+      "baseline": [
+        0.1371821738241436,
+        0.19727873380367525,
+        0.6655390923721811
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "907639dade64cca45d1ab639195d201e",
+      "home_team": "Venezia",
+      "kickoff_utc": "2026-10-17T13:00:00+00:00",
+      "league": "Serie A",
+      "market_reference": [
+        0.18452837426409335,
+        0.22440538884327046,
+        0.5910662368926362
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.08983597338419383,
+        0.17015207876408,
+        0.740011947851726
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betsson",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Inter Milan",
+      "baseline": [
+        0.1716247998648755,
+        0.21487695689041783,
+        0.6134982432447067
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "bfefc309177723410230fee52f650315",
+      "home_team": "Bologna",
+      "kickoff_utc": "2026-10-17T16:00:00+00:00",
+      "league": "Serie A",
+      "market_reference": [
+        0.16179382208341864,
+        0.22321863573675269,
+        0.6149875421798287
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.18145577764633233,
+        0.2065352780440829,
+        0.6120089443095847
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betsson",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Genoa",
+      "baseline": [
+        0.6983950289900221,
+        0.19307765421184664,
+        0.10852731679813124
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "18d478f469da3bcc654dd4555b85c7e3",
+      "home_team": "AS Roma",
+      "kickoff_utc": "2026-10-17T18:45:00+00:00",
+      "league": "Serie A",
+      "market_reference": [
+        0.7087451186634219,
+        0.1829292449121896,
+        0.10832563642438854
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.6880449393166224,
+        0.2032260635115037,
+        0.10872899717187395
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betsson",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Lecce",
+      "baseline": [
+        0.5198244727560019,
+        0.26616081023321586,
+        0.2140147170107825
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "367da93aa21a1e13eeafb94fd2263c75",
+      "home_team": "Udinese",
+      "kickoff_utc": "2026-10-18T10:30:00+00:00",
+      "league": "Serie A",
+      "market_reference": [
+        0.5238639141497553,
+        0.2602311760716656,
+        0.21590490977857912
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.5157850313622481,
+        0.27209044439476604,
+        0.2121245242429859
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betsson",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Como",
+      "baseline": [
+        0.24116016097501417,
+        0.2492844497049155,
+        0.5095553893200705
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "3ea32a0aa44a5f0ef7fd088155430087",
+      "home_team": "Fiorentina",
+      "kickoff_utc": "2026-10-18T13:00:00+00:00",
+      "league": "Serie A",
+      "market_reference": [
+        0.27372121461860804,
+        0.25440212122932465,
+        0.4718766641520673
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.20859910733142012,
+        0.24416677818050625,
+        0.5472341144880737
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betsson",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Atalanta BC",
+      "baseline": [
+        0.45539101614174704,
+        0.26773422254839757,
+        0.27687476130985544
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "f9403dd597edbfaa73abdc974e55344c",
+      "home_team": "AC Milan",
+      "kickoff_utc": "2026-10-18T16:00:00+00:00",
+      "league": "Serie A",
+      "market_reference": [
+        0.5155625852277295,
+        0.25697700456965294,
+        0.2274604102026177
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.3952194470557646,
+        0.27849144052714214,
+        0.3262891124170932
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betsson",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Lazio",
+      "baseline": [
+        0.5367233754349097,
+        0.2607578422345022,
+        0.20251878233058812
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "4c4026e2782f09d6f0ff2bde2a390513",
+      "home_team": "Juventus",
+      "kickoff_utc": "2026-10-18T18:45:00+00:00",
+      "league": "Serie A",
+      "market_reference": [
+        0.5908046879028154,
+        0.23924576104843526,
+        0.16994955104874934
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.48264206296700396,
+        0.28226992342056917,
+        0.2350880136124269
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betsson",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Cagliari",
+      "baseline": [
+        0.33087204855823665,
+        0.27528426272681006,
+        0.39384368871495323
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "ce94aca384a20f6af459366da6e1dd21",
+      "home_team": "Monza",
+      "kickoff_utc": "2026-10-19T16:30:00+00:00",
+      "league": "Serie A",
+      "market_reference": [
+        0.3976703924937766,
+        0.29862707304759256,
+        0.30370253445863077
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.26407370462269664,
+        0.2519414524060276,
+        0.48398484297127575
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betsson",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Torino",
+      "baseline": [
+        0.31582197079619134,
+        0.30675447402922557,
+        0.37742355517458304
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "07014d9adc65ca39710bd9f0c7c0d3f0",
+      "home_team": "Parma",
+      "kickoff_utc": "2026-10-19T18:45:00+00:00",
+      "league": "Serie A",
+      "market_reference": [
+        0.30933668032486855,
+        0.30933668032486855,
+        0.38132663935026284
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.3223072612675142,
+        0.3041722677335826,
+        0.3735204709989032
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betsson",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Monza",
+      "baseline": [
+        0.49793777124661986,
+        0.2494333067456486,
+        0.25262892200773157
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "124c70f8f3248a845bdb983a54e74720",
+      "home_team": "Torino",
+      "kickoff_utc": "2026-10-23T18:45:00+00:00",
+      "league": "Serie A",
+      "market_reference": [
+        0.44586767683048983,
+        0.27490050432142416,
+        0.27923181884808596
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.5500078656627498,
+        0.2239661091698732,
+        0.22602602516737713
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Betsson",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Toulouse",
+      "baseline": [
+        0.38054655056237513,
+        0.256530813767747,
+        0.362922635669878
+      ],
+      "baseline_goals": {
+        "btts_yes": 0.6630292592504288,
+        "over_1_5": 0.8478342010908475,
+        "over_2_5": 0.6389433649309315,
+        "under_3_5": 0.5759515168622246
+      },
+      "candidate": [
+        0.32355456965422635,
+        0.2728408226962655,
+        0.40360460764950834
+      ],
+      "candidate_goals": {
+        "btts_yes": 0.6678888337597267,
+        "over_1_5": 0.8462173153226965,
+        "over_2_5": 0.6325637635657827,
+        "under_3_5": 0.5786752767298957
+      },
+      "fixture_id": "66c168c030f3faad3983fcadc3060009",
+      "home_team": "Le Mans FC",
+      "kickoff_utc": "2026-10-16T18:45:00+00:00",
+      "league": "Ligue 1",
+      "market_reference": [
+        0.29912943497930544,
+        0.27983082652277336,
+        0.4210397384979213
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": [
+        [
+          0.043727140126350296,
+          0.057576436283653394,
+          0.04634560963041952,
+          0.022869131719806566,
+          0.008463539315619238,
+          0.002505788103358336,
+          0.0006182376136014081,
+          0.0001307433821579398,
+          2.4193130038959642e-05,
+          3.979347644702814e-06,
+          5.890799118060075e-07
+        ],
+        [
+          0.050862222499148756,
+          0.11207757483193488,
+          0.08607336848519033,
+          0.04247270058916791,
+          0.015718540418638488,
+          0.004653766009037519,
+          0.00114819492830646,
+          0.00024281746209017436,
+          4.493163890300198e-05,
+          7.3904704002073376e-06,
+          1.0940430543570118e-06
+        ],
+        [
+          0.05046765169756177,
+          0.07470943095567685,
+          0.07383485542058384,
+          0.0394402882767681,
+          0.014596287893198893,
+          0.004321502292601457,
+          0.001066217554856383,
+          0.00022548108716006907,
+          4.172366641395064e-05,
+          6.862814915033629e-06,
+          1.0159319481097722e-06
+        ],
+        [
+          0.031242950632482277,
+          0.04625028081585622,
+          0.03423313791178254,
+          0.02255492830446827,
+          0.009036107025497758,
+          0.0026753074146390146,
+          0.0006600620656869858,
+          0.00013958831524235198,
+          2.582982179930115e-05,
+          4.248554873826588e-06,
+          6.289318134112556e-07
+        ],
+        [
+          0.01450615292256927,
+          0.021474080797255272,
+          0.015894501752066643,
+          0.007843104386529092,
+          0.0038756450893829186,
+          0.0012421495949005896,
+          0.00030646789337776575,
+          6.481108237594412e-05,
+          1.1992828378822241e-05,
+          1.9726109554960077e-06,
+          2.9201406648599935e-07
+        ],
+        [
+          0.0053881843642306785,
+          0.007976360583375383,
+          0.005903874464502332,
+          0.0029132529243349635,
+          0.0010781533362763031,
+          0.00042621283383838753,
+          0.00011383483409082384,
+          2.407351298107488e-05,
+          4.454631817174226e-06,
+          7.327091864981663e-07,
+          1.0846608577573169e-07
+        ],
+        [
+          0.0016678285240930375,
+          0.0024689581499322487,
+          0.0018274523603773155,
+          0.0009017520553599404,
+          0.0003337255680271129,
+          9.880565647111408e-05,
+          3.2549667277431535e-05,
+          7.451580887153508e-06,
+          1.3788618775438588e-06,
+          2.2679871335121402e-07,
+          3.357398699168614e-08
+        ],
+        [
+          0.0004425002875727678,
+          0.0006550521684741281,
+          0.0004848509204099606,
+          0.00023924854267203365,
+          8.854247165648365e-05,
+          2.6214644233920744e-05,
+          6.467777171927708e-06,
+          1.826303725831391e-06,
+          3.658330389019344e-07,
+          6.017314995474174e-08,
+          8.907689660041293e-09
+        ],
+        [
+          0.00010272680252450049,
+          0.00015207089496641673,
+          0.00011255853646555129,
+          5.5541744237404325e-05,
+          2.0555206982528836e-05,
+          6.085751031348571e-06,
+          1.5014997435540173e-06,
+          3.1753350243115063e-07,
+          7.845408519141626e-08,
+          1.3969245820346269e-08,
+          2.067927416897143e-09
+        ],
+        [
+          2.1198320851405838e-05,
+          3.138078422025931e-05,
+          2.322716089593408e-05,
+          1.1461387739683693e-05,
+          4.241696052778245e-06,
+          1.2558329453847498e-06,
+          3.098439018830584e-07,
+          6.552503241791051e-08,
+          1.212493974018926e-08,
+          2.662889071993217e-09,
+          4.267298095874193e-10
+        ],
+        [
+          3.936965974685849e-06,
+          5.828059712848727e-06,
+          4.313763471024249e-06,
+          2.1286164064652204e-06,
+          7.877705574797799e-07,
+          2.332341137077082e-07,
+          5.7544411546945874e-08,
+          1.2169351757990434e-08,
+          2.2518517167870705e-09,
+          3.703903054704514e-10,
+          7.3210876602236e-11
+        ]
+      ],
+      "raw": [
+        0.4619636661454445,
+        0.2332308010127207,
+        0.30480553284183487
+      ],
+      "reasons": [],
+      "reference_source": "The Odds API / Tipico",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "available",
+      "status": "available"
+    },
+    {
+      "away_team": "Paris Saint Germain",
+      "baseline": [
+        0.17099103865664117,
+        0.1887633747865747,
+        0.6402455865567843
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "f3034246520a2ee4ff0ac0d5074966f8",
+      "home_team": "Strasbourg",
+      "kickoff_utc": "2026-10-17T15:15:00+00:00",
+      "league": "Ligue 1",
+      "market_reference": [
+        0.12936359463238606,
+        0.1616803577312472,
+        0.7089560476363669
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.21261848268089625,
+        0.21584639184190219,
+        0.5715351254772018
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Tipico",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Brest",
+      "baseline": [
+        0.5485382048143693,
+        0.23822369922976877,
+        0.2132380959558619
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "ad25a350c89b64715e15c59cde5653d3",
+      "home_team": "Lille",
+      "kickoff_utc": "2026-10-17T18:45:00+00:00",
+      "league": "Ligue 1",
+      "market_reference": [
+        0.5419051787962725,
+        0.23215838734985553,
+        0.22593643385387188
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.5551712308324663,
+        0.24428901110968193,
+        0.20053975805785185
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Tipico",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "RC Lens",
+      "baseline": [
+        0.15740355285622876,
+        0.20650512237413007,
+        0.6360913247696413
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "b077aa049133c0358bcd643bfee48da3",
+      "home_team": "Troyes",
+      "kickoff_utc": "2026-10-17T18:45:00+00:00",
+      "league": "Ligue 1",
+      "market_reference": [
+        0.22593643385387188,
+        0.23215838734985553,
+        0.5419051787962725
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.08887067185858556,
+        0.1808518573984047,
+        0.7302774707430097
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Tipico",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Marseille",
+      "baseline": [
+        0.23609470706123803,
+        0.25126719772419187,
+        0.5126380952145702
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "c7a60aa94470fe959fbf6b0c68060fc1",
+      "home_team": "Angers",
+      "kickoff_utc": "2026-10-18T13:00:00+00:00",
+      "league": "Ligue 1",
+      "market_reference": [
+        0.2698891656738374,
+        0.25387389483990286,
+        0.4762369394862598
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.20230024844863864,
+        0.24866050060848074,
+        0.5490392509428805
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Tipico",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Auxerre",
+      "baseline": [
+        0.38833221064293627,
+        0.2859827856947959,
+        0.3256850036622677
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "d637845b9760bb02b55bbbaa32b5c21e",
+      "home_team": "Le Havre",
+      "kickoff_utc": "2026-10-18T15:15:00+00:00",
+      "league": "Ligue 1",
+      "market_reference": [
+        0.4210397384979213,
+        0.27983082652277336,
+        0.29912943497930544
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.35562468278795123,
+        0.2921347448668185,
+        0.3522405723452302
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Tipico",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "AS Monaco",
+      "baseline": [
+        0.2645717933895543,
+        0.25450940524438115,
+        0.4809188013660645
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "53f5fe7ed0ba0fbf6345c73270e4cd00",
+      "home_team": "Lorient",
+      "kickoff_utc": "2026-10-18T15:15:00+00:00",
+      "league": "Ligue 1",
+      "market_reference": [
+        0.23999096873912448,
+        0.2702924847354185,
+        0.48971654652545715
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.289152618039984,
+        0.23872632575334388,
+        0.4721210562066721
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Tipico",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Rennes",
+      "baseline": [
+        0.4250369382191633,
+        0.26699013030483976,
+        0.3079729314759971
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "27f7222d2abde93fc6e8d17b5b05b272",
+      "home_team": "Paris FC",
+      "kickoff_utc": "2026-10-18T15:15:00+00:00",
+      "league": "Ligue 1",
+      "market_reference": [
+        0.43116931620455234,
+        0.2797467698233102,
+        0.2890839139721375
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.4189045602337742,
+        0.25423349078636936,
+        0.32686194897985643
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Tipico",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Nice",
+      "baseline": [
+        0.5625408326446029,
+        0.22885687456088186,
+        0.2086022927945153
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "471f891b1f6516a864ad94c8eb649f5e",
+      "home_team": "Lyon",
+      "kickoff_utc": "2026-10-18T18:45:00+00:00",
+      "league": "Ligue 1",
+      "market_reference": [
+        0.5958021229111089,
+        0.21428447884896798,
+        0.18991339823992304
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.5292795423780969,
+        0.24342927027279565,
+        0.22729118734910747
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Tipico",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Nice",
+      "baseline": [
+        0.4325822479965476,
+        0.26901818590569176,
+        0.29839956609776075
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "8aa36b30d655d6c81ed98bf9ec1b4039",
+      "home_team": "Brest",
+      "kickoff_utc": "2026-10-23T18:45:00+00:00",
+      "league": "Ligue 1",
+      "market_reference": [
+        0.43116931620455234,
+        0.2797467698233102,
+        0.2890839139721375
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.43399517978854285,
+        0.2582896019880731,
+        0.307715218223384
+      ],
+      "reasons": [
+        "outside_capture_window"
+      ],
+      "reference_source": "The Odds API / Tipico",
+      "reference_updated_at_utc": "2026-10-14T09:46:12Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Como",
+      "baseline": [
+        0.2148540443768707,
+        0.1834020995918799,
+        0.6017438560312494
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "5d6f9accd6f79ae4216dfd29ccc342b2",
+      "home_team": "Feyenoord",
+      "kickoff_utc": "2026-10-14T16:45:00+00:00",
+      "league": "UEFA Champions League",
+      "market_reference": [
+        0.2996871199130721,
+        0.2531880925989289,
+        0.447124787487999
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.13002096884066935,
+        0.113616106584831,
+        0.7563629245744997
+      ],
+      "reasons": [
+        "league_outside_frozen_trial"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:11Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Liverpool",
+      "baseline": [
+        0.09807660202965378,
+        0.21704080180056345,
+        0.6848825961697826
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "2903ee092f7e08c549b130a3d394ac3c",
+      "home_team": "LASK",
+      "kickoff_utc": "2026-10-14T16:45:00+00:00",
+      "league": "UEFA Champions League",
+      "market_reference": [
+        0.11690071354718694,
+        0.17596009388513983,
+        0.7071391925676733
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.07925249051212056,
+        0.2581215097159871,
+        0.6626259997718922
+      ],
+      "reasons": [
+        "league_outside_frozen_trial"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:11Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Real Madrid",
+      "baseline": [
+        0.2741827082032706,
+        0.24040514344965785,
+        0.48541214834707136
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "d4ef112438afa4c2cdbbfc9376a009c9",
+      "home_team": "AS Roma",
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "league": "UEFA Champions League",
+      "market_reference": [
+        0.25813577382969066,
+        0.2484120364294482,
+        0.49345218974086114
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.2902296425768507,
+        0.23239825046986767,
+        0.4773721069532815
+      ],
+      "reasons": [
+        "league_outside_frozen_trial"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:11Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Fenerbahce",
+      "baseline": [
+        0.6586764002078962,
+        0.19951725354004404,
+        0.14180634625205982
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "3f3cb74e560dfcc3e795b667ed9ebdef",
+      "home_team": "Aston Villa",
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "league": "UEFA Champions League",
+      "market_reference": [
+        0.5718159576894635,
+        0.2349984167027958,
+        0.1931856256077407
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.7455368427263289,
+        0.16403609037729236,
+        0.09042706689637886
+      ],
+      "reasons": [
+        "league_outside_frozen_trial"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:11Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Borussia Dortmund",
+      "baseline": [
+        0.33240552782508714,
+        0.2272678673379115,
+        0.44032660483700153
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "ca87a3874b0eae31b4173ae4a9324957",
+      "home_team": "Bodø/Glimt",
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "league": "UEFA Champions League",
+      "market_reference": [
+        0.31408273379695756,
+        0.24678993576828084,
+        0.43912733043476165
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.3507283218532167,
+        0.207745798907542,
+        0.44152587923924136
+      ],
+      "reasons": [
+        "league_outside_frozen_trial"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:11Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Paris Saint Germain",
+      "baseline": [
+        0.3642033798732454,
+        0.21295059924153084,
+        0.4228460208852236
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "5a1a6a04c5561897741105e30d5d7ec4",
+      "home_team": "Manchester City",
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "league": "UEFA Champions League",
+      "market_reference": [
+        0.48419420841944094,
+        0.2313581640317974,
+        0.28444762754876174
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.24421255132705,
+        0.1945430344512644,
+        0.5612444142216857
+      ],
+      "reasons": [
+        "league_outside_frozen_trial"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:11Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "Porto",
+      "baseline": [
+        0.5970900407972628,
+        0.19867891247391264,
+        0.20423104672882453
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "4c7f87780ae5ab8bec9e83d6d6ec9909",
+      "home_team": "Real Betis",
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "league": "UEFA Champions League",
+      "market_reference": [
+        0.4645339635601017,
+        0.2604407629611977,
+        0.2750252734787006
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.7296461180344238,
+        0.13691706198662768,
+        0.13343681997894863
+      ],
+      "reasons": [
+        "league_outside_frozen_trial"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:11Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "AEK Athens",
+      "baseline": [
+        0.3875848388741705,
+        0.2623270368072603,
+        0.35008812431856917
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "0f961390e790ad2c80ecb3f302cad4a6",
+      "home_team": "Shakhtar Donetsk",
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "league": "UEFA Champions League",
+      "market_reference": [
+        0.35027229733143933,
+        0.28392293820381387,
+        0.3658047644647467
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.4248973804169017,
+        0.2407311354107068,
+        0.33437148417239154
+      ],
+      "reasons": [
+        "league_outside_frozen_trial",
+        "unreliable_team_identity"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:11Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    },
+    {
+      "away_team": "VfB Stuttgart",
+      "baseline": [
+        0.15664550863982102,
+        0.16940695322689037,
+        0.6739475381332887
+      ],
+      "baseline_goals": null,
+      "candidate": null,
+      "candidate_goals": null,
+      "fixture_id": "d7576351b8cb2396e32cc3de0446f3de",
+      "home_team": "ŠK Slovan Bratislava",
+      "kickoff_utc": "2026-10-14T19:00:00+00:00",
+      "league": "UEFA Champions League",
+      "market_reference": [
+        0.09244990075591614,
+        0.15262748158537207,
+        0.7549226176587118
+      ],
+      "production_market_weight": 0.5,
+      "production_matrix": null,
+      "raw": [
+        0.2208411165237259,
+        0.1861864248684087,
+        0.5929724586078655
+      ],
+      "reasons": [
+        "league_outside_frozen_trial"
+      ],
+      "reference_source": "The Odds API / Betfair",
+      "reference_updated_at_utc": "2026-10-14T09:46:11Z",
+      "secondary_status": "unavailable",
+      "status": "unavailable"
+    }
+  ],
+  "version": "benchmark-forward-shadow-v1"
+}
