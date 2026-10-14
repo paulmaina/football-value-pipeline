@@ -4,7 +4,7 @@
 **Candidates:** 3 of target 10 distinct matches.
 **Strictly qualified:** 2. **Provisional watchlist:** 1.
 **Pipeline status:** BELOW_TARGET_WITH_PROVISIONAL.
-**Generated (UTC):** 2026-10-14T19:07:50.904906+00:00.
+**Generated (UTC):** 2026-10-14T21:07:53.015698+00:00.
 **Kickoffs within next 72 hours of run:** Yes (span: 19.0 hours).
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. Do not treat ten candidates as a ten-leg betslip.
@@ -14,8 +14,8 @@
 | Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deportivo La Coruña vs Levante | Over 1.5 | STRICT | 2026-10-16T19:00:00+00:00 | 84.9% | 84.9% | 1xBet | 1.27 | +7.8% | — |
-| Venezia vs Napoli | Away win | STRICT | 2026-10-17T13:00:00+00:00 | 65.9% | 65.9% | 1xBet | 1.71 | +12.7% | — |
-| Manchester City vs Ipswich Town | Home win | PROVISIONAL | 2026-10-17T14:00:00+00:00 | 83.8% | 82.4% | 1xBet | 1.26 | +3.9% | 75plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY |
+| Venezia vs Napoli | Away win | STRICT | 2026-10-17T13:00:00+00:00 | 67.3% | 67.3% | 1xBet | 1.71 | +15.1% | — |
+| Manchester City vs Ipswich Town | Home win | PROVISIONAL | 2026-10-17T14:00:00+00:00 | 83.4% | 82.0% | 1xBet | 1.26 | +3.4% | 75plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY |
 
 ## Interpretation
 
