@@ -229,6 +229,9 @@ def add_health_sheet(root, data, history):
     rows += [[], ['EV sensitivity floor', 'Tier', 'Selected', 'Settled', 'Net ROI', 'Drawdown units']]
     for r in data.get('experimental_reports',{}).get('filter_sensitivity_experiment',{}).get('comparisons',[]):
         rows.append([r['ev_floor'],r['tier'],r['selected'],r['graded'],r['flat_stake_roi'],r['max_drawdown_units']])
+    rows += [[], ['Experiment review queue', 'Status', 'Settled evidence', 'First-look or approval']]
+    for r in data.get('review_queue',{}).get('experiments',[]):
+        rows.append([r['name'],r['status'],r['settled_evidence'],r['scope']])
     rows += [[], ['Review dependency versions'], *[[k,v] for k,v in data['dependencies'].items()], [],
              ['Improvement is not established by fresher data or software changes. Compare paired forecasts and settled results.'],
              ['Account access and executable stake sizes are not verified. Exchange targets require a commission/liquidity adapter.']]
