@@ -41,3 +41,23 @@ python format_football_output.py --no-technical
 - `README.md` — definitions for common model terms.
 
 The raw `football_output_v2` files remain the source of truth.
+
+# Performance workbook navigation
+
+The generated `football_performance_report.xlsx` opens on Dashboard. Use its
+links to open experiment readiness, collection health, weekly sample/profit
+trends and metric definitions. Experiments shows each existing review gate,
+the unit being counted, coverage and remaining requirements; readiness does
+not approve a production change.
+
+Pipeline Health separates source freshness, near-close coverage, quote audits
+and capture counts. Capture Details retains all six experiment capture states.
+Selections and Predictions freeze the kickoff, league and match columns;
+technical fields are grouped and collapsed, and can be expanded in Excel.
+ROI Plan retains the editable bankroll and flat stake. Weekly Trends updates
+from the calculated breakdowns and shows simulated offered-price results.
+
+The layout refreshes with the existing formatter and forward-review workflow.
+No new command, API request or dependency is required. Close the workbook in
+Excel before regenerating it.
+
