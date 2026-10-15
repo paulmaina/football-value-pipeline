@@ -25903,7 +25903,7 @@
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 7,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
+        "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
         "version": "local-closing-quotes-v3"
       },
       "dependencies": {
@@ -25944,6 +25944,7 @@
         "model_reliability_experiment:LEGACY_NOT_RECORDED": 23,
         "recency_experiment:CAPTURED": 8,
         "recency_experiment:LEGACY_NOT_RECORDED": 18,
+        "shortlist_policy_experiment:LEGACY_NOT_RECORDED": 26,
         "totals_anchor_experiment:CAPTURED": 5,
         "totals_anchor_experiment:LEGACY_NOT_RECORDED": 21
       },
@@ -26108,7 +26109,7 @@
             "minimum_paired_fixtures": 300,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
+          "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
           "secondary_comparison": {
             "btts_yes": {
               "baseline": {
@@ -27049,7 +27050,7 @@
           ],
           "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
           "rejected_snapshot_commits": [],
-          "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
+          "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
           "total_fixtures": 41,
           "version": "conservative-ev-sensitivity-v1"
         },
@@ -27179,7 +27180,7 @@
           ],
           "graded_fixture_markets": 48,
           "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-          "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
+          "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
           "total_fixture_markets": 357,
           "version": "goal-blend-shadow-v1"
         },
@@ -27602,7 +27603,7 @@
           "observed_fixture_markets": 238,
           "paired_graded_fixture_markets": 32,
           "pending_or_unverified_selections": 0,
-          "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
+          "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
           "selected": 0,
           "settings_observed": [
             {
@@ -28713,7 +28714,7 @@
           },
           "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
           "rejected_snapshot_commits": [],
-          "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
+          "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
           "version": "model-reliability-forward-v1"
         },
         "recency_experiment": {
@@ -43674,7 +43675,7 @@
           ],
           "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
           "rejected_snapshot_commits": [],
-          "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
+          "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
           "total_fixture_markets": 238,
           "version": "goal-recency-shadow-v1",
           "weekly_comparisons": [
@@ -44832,6 +44833,729 @@
             }
           ]
         },
+        "shortlist_policy_experiment": {
+          "automatic_production_change": false,
+          "breakdowns": [],
+          "candidate_decisions": 0,
+          "common_cohort_probability_scores": [
+            {
+              "brier": null,
+              "calibration_gap": null,
+              "log_loss": null,
+              "variant_id": "control",
+              "verified_fixture_markets": 0
+            },
+            {
+              "brier": null,
+              "calibration_gap": null,
+              "log_loss": null,
+              "variant_id": "blended_lower",
+              "verified_fixture_markets": 0
+            },
+            {
+              "brier": null,
+              "calibration_gap": null,
+              "log_loss": null,
+              "variant_id": "blended_higher",
+              "verified_fixture_markets": 0
+            },
+            {
+              "brier": null,
+              "calibration_gap": null,
+              "log_loss": null,
+              "variant_id": "raw_lower",
+              "verified_fixture_markets": 0
+            },
+            {
+              "brier": null,
+              "calibration_gap": null,
+              "log_loss": null,
+              "variant_id": "raw_higher",
+              "verified_fixture_markets": 0
+            },
+            {
+              "brier": null,
+              "calibration_gap": null,
+              "log_loss": null,
+              "variant_id": "adjusted_lower",
+              "verified_fixture_markets": 0
+            },
+            {
+              "brier": null,
+              "calibration_gap": null,
+              "log_loss": null,
+              "variant_id": "adjusted_higher",
+              "verified_fixture_markets": 0
+            },
+            {
+              "brier": null,
+              "calibration_gap": null,
+              "log_loss": null,
+              "variant_id": "penalty_half",
+              "verified_fixture_markets": 0
+            },
+            {
+              "brier": null,
+              "calibration_gap": null,
+              "log_loss": null,
+              "variant_id": "penalty_stronger",
+              "verified_fixture_markets": 0
+            }
+          ],
+          "comparisons": [
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "STRICT",
+              "variant_id": "control",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "PROVISIONAL",
+              "variant_id": "control",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "ALL",
+              "variant_id": "control",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "STRICT",
+              "variant_id": "blended_lower",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "PROVISIONAL",
+              "variant_id": "blended_lower",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "ALL",
+              "variant_id": "blended_lower",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "STRICT",
+              "variant_id": "blended_higher",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "PROVISIONAL",
+              "variant_id": "blended_higher",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "ALL",
+              "variant_id": "blended_higher",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "STRICT",
+              "variant_id": "raw_lower",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "PROVISIONAL",
+              "variant_id": "raw_lower",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "ALL",
+              "variant_id": "raw_lower",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "STRICT",
+              "variant_id": "raw_higher",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "PROVISIONAL",
+              "variant_id": "raw_higher",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "ALL",
+              "variant_id": "raw_higher",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "STRICT",
+              "variant_id": "adjusted_lower",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "PROVISIONAL",
+              "variant_id": "adjusted_lower",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "ALL",
+              "variant_id": "adjusted_lower",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "STRICT",
+              "variant_id": "adjusted_higher",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "PROVISIONAL",
+              "variant_id": "adjusted_higher",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "ALL",
+              "variant_id": "adjusted_higher",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "STRICT",
+              "variant_id": "penalty_half",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "PROVISIONAL",
+              "variant_id": "penalty_half",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "ALL",
+              "variant_id": "penalty_half",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "STRICT",
+              "variant_id": "penalty_stronger",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "PROVISIONAL",
+              "variant_id": "penalty_stronger",
+              "wins": 0
+            },
+            {
+              "assessment": "COLLECT_MORE_DATA",
+              "brier": null,
+              "calibration": [],
+              "calibration_gap": null,
+              "flat_stake_roi": null,
+              "graded": 0,
+              "log_loss": null,
+              "max_drawdown_units": null,
+              "mean_probability": null,
+              "observed_rate": null,
+              "pending": 0,
+              "profit_units": 0,
+              "selected": 0,
+              "tier": "ALL",
+              "variant_id": "penalty_stronger",
+              "wins": 0
+            }
+          ],
+          "gameweeks": 0,
+          "note": "Fixed one-factor comparisons, not an optimisation search. All variants use the same first eligible pre-kickoff fixtures, quotes, development-only calibration evidence and fixed audit/quote/matching gates. Primary returns use STRICT picks only; PROVISIONAL rows are watchlist simulations. Returns are simulated at frozen quotes after configured costs, not actual execution. Selected cohorts can differ: their Brier/ROI differences are not paired forecast improvements. Paired returns below use one unit per strict selection and zero for no selection on every verified fixture. Weekly block bootstrap intervals are exploratory, unadjusted for eight comparisons and unavailable before six weeks/100 verified fixtures. No automatic promotion; choose a policy only after review, then confirm it on a later untouched period.",
+          "paired_probability_deltas": [
+            {
+              "brier_mean_delta": null,
+              "brier_weekly_bootstrap95": null,
+              "log_loss_mean_delta": null,
+              "log_loss_weekly_bootstrap95": null,
+              "paired_fixtures": 0,
+              "variant_id": "blended_lower"
+            },
+            {
+              "brier_mean_delta": null,
+              "brier_weekly_bootstrap95": null,
+              "log_loss_mean_delta": null,
+              "log_loss_weekly_bootstrap95": null,
+              "paired_fixtures": 0,
+              "variant_id": "blended_higher"
+            },
+            {
+              "brier_mean_delta": null,
+              "brier_weekly_bootstrap95": null,
+              "log_loss_mean_delta": null,
+              "log_loss_weekly_bootstrap95": null,
+              "paired_fixtures": 0,
+              "variant_id": "raw_lower"
+            },
+            {
+              "brier_mean_delta": null,
+              "brier_weekly_bootstrap95": null,
+              "log_loss_mean_delta": null,
+              "log_loss_weekly_bootstrap95": null,
+              "paired_fixtures": 0,
+              "variant_id": "raw_higher"
+            },
+            {
+              "brier_mean_delta": null,
+              "brier_weekly_bootstrap95": null,
+              "log_loss_mean_delta": null,
+              "log_loss_weekly_bootstrap95": null,
+              "paired_fixtures": 0,
+              "variant_id": "adjusted_lower"
+            },
+            {
+              "brier_mean_delta": null,
+              "brier_weekly_bootstrap95": null,
+              "log_loss_mean_delta": null,
+              "log_loss_weekly_bootstrap95": null,
+              "paired_fixtures": 0,
+              "variant_id": "adjusted_higher"
+            },
+            {
+              "brier_mean_delta": null,
+              "brier_weekly_bootstrap95": null,
+              "log_loss_mean_delta": null,
+              "log_loss_weekly_bootstrap95": null,
+              "paired_fixtures": 0,
+              "variant_id": "penalty_half"
+            },
+            {
+              "brier_mean_delta": null,
+              "brier_weekly_bootstrap95": null,
+              "log_loss_mean_delta": null,
+              "log_loss_weekly_bootstrap95": null,
+              "paired_fixtures": 0,
+              "variant_id": "penalty_stronger"
+            }
+          ],
+          "paired_strict_returns": [
+            {
+              "iso_weeks": 0,
+              "mean_profit_delta_per_fixture": null,
+              "variant_id": "blended_lower",
+              "verified_fixtures": 0,
+              "weekly_block_bootstrap95": null
+            },
+            {
+              "iso_weeks": 0,
+              "mean_profit_delta_per_fixture": null,
+              "variant_id": "blended_higher",
+              "verified_fixtures": 0,
+              "weekly_block_bootstrap95": null
+            },
+            {
+              "iso_weeks": 0,
+              "mean_profit_delta_per_fixture": null,
+              "variant_id": "raw_lower",
+              "verified_fixtures": 0,
+              "weekly_block_bootstrap95": null
+            },
+            {
+              "iso_weeks": 0,
+              "mean_profit_delta_per_fixture": null,
+              "variant_id": "raw_higher",
+              "verified_fixtures": 0,
+              "weekly_block_bootstrap95": null
+            },
+            {
+              "iso_weeks": 0,
+              "mean_profit_delta_per_fixture": null,
+              "variant_id": "adjusted_lower",
+              "verified_fixtures": 0,
+              "weekly_block_bootstrap95": null
+            },
+            {
+              "iso_weeks": 0,
+              "mean_profit_delta_per_fixture": null,
+              "variant_id": "adjusted_higher",
+              "verified_fixtures": 0,
+              "weekly_block_bootstrap95": null
+            },
+            {
+              "iso_weeks": 0,
+              "mean_profit_delta_per_fixture": null,
+              "variant_id": "penalty_half",
+              "verified_fixtures": 0,
+              "weekly_block_bootstrap95": null
+            },
+            {
+              "iso_weeks": 0,
+              "mean_profit_delta_per_fixture": null,
+              "variant_id": "penalty_stronger",
+              "verified_fixtures": 0,
+              "weekly_block_bootstrap95": null
+            }
+          ],
+          "rejected_snapshot_commits": [],
+          "review_gates": {
+            "minimum_gameweeks": 6,
+            "minimum_paired_fixtures": 300,
+            "minimum_verified_coverage": 0.8
+          },
+          "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
+          "status": "COLLECT_MORE_DATA",
+          "total_fixtures": 0,
+          "variants": {
+            "adjusted_higher": {
+              "adjusted_shift": 0.03
+            },
+            "adjusted_lower": {
+              "adjusted_shift": -0.03
+            },
+            "blended_higher": {
+              "blended_shift": 0.03
+            },
+            "blended_lower": {
+              "blended_shift": -0.03
+            },
+            "control": {},
+            "penalty_half": {
+              "penalty_multiplier": 0.5
+            },
+            "penalty_stronger": {
+              "penalty_multiplier": 1.5
+            },
+            "raw_higher": {
+              "raw_shift": 0.03
+            },
+            "raw_lower": {
+              "raw_shift": -0.03
+            }
+          },
+          "verified_coverage": 0.0,
+          "verified_fixtures": 0,
+          "version": "shortlist-probability-calibration-v1"
+        },
         "totals_anchor_experiment": {
           "automatic_production_change": false,
           "by_league": {
@@ -45249,7 +45973,7 @@
             "minimum_paired_fixtures": 300,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
+          "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
           "status": "COLLECT_MORE_DATA",
           "verified_coverage": null,
           "version": "pinnacle-totals-anchor-v1"
@@ -45312,6 +46036,16 @@
           },
           {
             "automatic_production_change": false,
+            "gameweeks": 0,
+            "key": "shortlist_policy_experiment:shortlist-probability-calibration-v1",
+            "name": "shortlist_policy_experiment",
+            "report": "shortlist_policy_experiment/report.md",
+            "scope": "POLICY_REVIEW_APPROVAL_REQUIRED",
+            "settled_evidence": 0,
+            "status": "COLLECT_MORE_DATA"
+          },
+          {
+            "automatic_production_change": false,
             "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
             "gameweeks": 0,
             "key": "benchmark_forward:761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
@@ -45358,10 +46092,10 @@
           }
         ],
         "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
+        "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
+      "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
       "selection_policy_groups": {
         "72h-all-markets-net-ev15-execution-v7": {
           "brier": null,
@@ -45476,7 +46210,7 @@
             "completed_matches": 36,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 2.0253694408333334,
+            "download_age_hours": 2.6861486880555554,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-14",
             "latest_completed_utc": "2026-10-14T19:00:00+00:00",
