@@ -8,6 +8,7 @@ Existing sidecar first-look thresholds differ from the new benchmark candidate p
 | [market_led_experiment](market_led_experiment/report.md) | COLLECT_MORE_DATA | 32 | FIRST_LOOK_ONLY_NO_PROMOTION |
 | [recency_experiment](recency_experiment/report.md) | COLLECT_MORE_DATA | 30 | FIRST_LOOK_ONLY_NO_PROMOTION |
 | [filter_sensitivity_experiment](filter_sensitivity_experiment/report.md) | COLLECT_MORE_DATA | 3 | FIRST_LOOK_ONLY_NO_PROMOTION |
+| [shortlist_policy_experiment](shortlist_policy_experiment/report.md) | COLLECT_MORE_DATA | 0 | POLICY_REVIEW_APPROVAL_REQUIRED |
 | [benchmark_forward_experiment](benchmark_forward_experiment/report.md) | COLLECT_MORE_DATA | 0 | FORECASTING_REVIEW_APPROVAL_REQUIRED |
 | [totals_anchor_experiment](totals_anchor_experiment/report.md) | COLLECT_MORE_DATA | 0 | FORECASTING_REVIEW_APPROVAL_REQUIRED |
 | [model_reliability_experiment](model_reliability_experiment/report.md) | COLLECT_MORE_DATA | 0 | FORECASTING_REVIEW_APPROVAL_REQUIRED |

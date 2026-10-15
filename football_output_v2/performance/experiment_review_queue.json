@@ -44,6 +44,16 @@
     },
     {
       "automatic_production_change": false,
+      "gameweeks": 0,
+      "key": "shortlist_policy_experiment:shortlist-probability-calibration-v1",
+      "name": "shortlist_policy_experiment",
+      "report": "shortlist_policy_experiment/report.md",
+      "scope": "POLICY_REVIEW_APPROVAL_REQUIRED",
+      "settled_evidence": 0,
+      "status": "COLLECT_MORE_DATA"
+    },
+    {
+      "automatic_production_change": false,
       "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
       "gameweeks": 0,
       "key": "benchmark_forward:761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
@@ -90,6 +100,6 @@
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
+  "reviewed_at_utc": "2026-10-15T09:35:23.616212+00:00",
   "version": "experiment-review-queue-v1"
 }
