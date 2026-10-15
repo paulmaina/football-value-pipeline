@@ -3,6 +3,7 @@
 Offline checks: no network credentials required.
 """
 
+from offline_test_case import OfflineQuotePolicyTestCase
 import inspect
 import unittest
 
@@ -15,7 +16,7 @@ from football_value_pipeline_v2_standalone import (
 )
 
 
-class RecommendedProfileTests(unittest.TestCase):
+class RecommendedProfileTests(OfflineQuotePolicyTestCase):
     def test_one_command_uses_fixed_half_market_blend(self):
         options = build_parser().parse_args([
             "--leagues", "EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1",

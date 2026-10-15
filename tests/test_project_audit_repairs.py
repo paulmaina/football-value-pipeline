@@ -1,4 +1,5 @@
 """Reproductions for ingestion and quote-parser defects found in project audit."""
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import datetime, timezone
 import tempfile
@@ -33,7 +34,7 @@ def event():
                 {'name': 'Over', 'point': 2.5, 'price': 1.9}, {'name': 'Under', 'point': 2.5, 'price': 1.9}]}]}]}
 
 
-class TrainingInputTests(unittest.TestCase):
+class TrainingInputTests(OfflineQuotePolicyTestCase):
     def test_source_does_not_truncate_fractional_or_accept_negative_completed_scores(self):
         for value in (1.8, -1, 31, float('inf')):
             with self.subTest(value=value), tempfile.TemporaryDirectory() as tmp:
@@ -67,7 +68,7 @@ class TrainingInputTests(unittest.TestCase):
                 provider.history(LEAGUES['EPL'], 1, NOW)
 
 
-class QuoteInputTests(unittest.TestCase):
+class QuoteInputTests(OfflineQuotePolicyTestCase):
     def test_duplicate_winner_or_total_outcomes_are_rejected_independently(self):
         self.assertEqual(TheOddsAPI.flatten_odds_event(event())['live_best_home_odds'], 1.6)
         for index, field, unaffected in ((0, 'live_best_home_odds', 'live_best_over_2_5_odds'),

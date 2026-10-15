@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
 import hashlib
@@ -64,7 +65,7 @@ def setup(root,parts=None):
     return raw
 
 
-class RecencyTests(unittest.TestCase):
+class RecencyTests(OfflineQuotePolicyTestCase):
     def test_optional_diagnostics_reuse_fits_and_leave_production_selection_unchanged(self):
         ToyModel.fits=[];ToyModel.matrices=0
         plain=tune_half_life(history(),ToyModel,candidates=[120,240],min_train=30,min_validation_matches=5)

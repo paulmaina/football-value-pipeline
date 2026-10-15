@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 from pathlib import Path
 import subprocess
 import tempfile
@@ -15,7 +16,7 @@ def repo(directory):
     return source,remote
 
 
-class ScheduledPublisherTests(unittest.TestCase):
+class ScheduledPublisherTests(OfflineQuotePolicyTestCase):
     def test_capture_commit_and_safe_retry_preserve_concurrent_main(self):
         with tempfile.TemporaryDirectory() as tmp:
             source,remote=repo(tmp);calls=[];attempt=[0]

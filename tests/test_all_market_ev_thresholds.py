@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 import unittest
 import pandas as pd
@@ -8,7 +9,7 @@ from test_double_chance import event
 from double_chance import parse_quotes
 
 
-class AllMarketEVTests(unittest.TestCase):
+class AllMarketEVTests(OfflineQuotePolicyTestCase):
     def evaluate(self, spec, ev=.015, count=1, remove=None):
         label,key,min_p,min_raw=spec
         row=fixture();row.update(parse_quotes(event()))
