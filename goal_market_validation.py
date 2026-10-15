@@ -13,6 +13,8 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 import math
+import hashlib
+from pathlib import Path
 from typing import Optional
 
 import numpy as np
@@ -36,7 +38,24 @@ MARKETS = {
     "under_3_5": ("p_under_3_5", "raw_p_under_3_5", "actual_under_3_5", 0.76, 0.70),
     "btts_yes": ("p_btts_yes", "raw_p_btts_yes", "actual_btts_yes", 0.70, 0.63),
 }
-VALIDATOR_VERSION = 5
+VALIDATOR_VERSION = 6
+
+
+def training_fingerprint(history):
+    """Include outcomes, identities and price columns used by validation."""
+    frame = history.copy(deep=True)
+    frame['Date'] = pd.to_datetime(frame['Date'], utc=True)
+    frame = frame.reindex(sorted(frame.columns), axis=1).sort_values(
+        ['Date', 'HomeTeam', 'AwayTeam'], kind='stable').reset_index(drop=True)
+    return hashlib.sha256(frame.to_json(orient='split', index=False,
+        date_format='iso', double_precision=15).encode()).hexdigest()
+
+
+def validation_code_fingerprint():
+    root = Path(__file__).resolve().parent
+    files = ('goal_market_validation.py', 'football_value_pipeline_v2_standalone.py',
+             'score_probability.py', 'double_chance.py', 'match_scores.py')
+    return hashlib.sha256(b''.join((name.encode()+b'\0'+(root/name).read_bytes()) for name in files)).hexdigest()
 
 
 def validation_cache_matches(cached: object, config: Mapping) -> bool:
@@ -48,6 +67,10 @@ def validation_cache_matches(cached: object, config: Mapping) -> bool:
     """
     return (
         isinstance(cached, dict)
+        and isinstance(config, Mapping) and config.get('validator_version') == VALIDATOR_VERSION
+        and all(isinstance(config.get(k), str) and len(config[k]) == 64
+                and all(c in '0123456789abcdef' for c in config[k])
+                for k in ('training_sha256', 'validation_code_sha256'))
         and cached.get("config") == config
         and isinstance(cached.get("markets"), dict)
         and all(isinstance(cached["markets"].get(key), dict)
