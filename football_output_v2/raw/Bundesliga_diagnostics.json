@@ -25,7 +25,7 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 16,
-  "additional_event_odds_calls_used_before_this_league": 10,
+  "additional_event_odds_calls_used_before_this_league": 14,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "additional_odds_coverage_mode": "all",

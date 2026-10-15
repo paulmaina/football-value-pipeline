@@ -24,8 +24,8 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 15,
-  "additional_event_odds_calls_used_before_this_league": 17,
+  "live_odds_matched": 16,
+  "additional_event_odds_calls_used_before_this_league": 21,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "additional_odds_coverage_mode": "all",
@@ -84,10 +84,11 @@
       "home_team": "Udinese",
       "away_team": "Lecce",
       "kickoff_utc": "2026-10-18T10:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "3ea32a0aa44a5f0ef7fd088155430087",
@@ -95,10 +96,11 @@
       "home_team": "Fiorentina",
       "away_team": "Como",
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "f9403dd597edbfaa73abdc974e55344c",
@@ -198,12 +200,23 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false
+    },
+    {
+      "fixture_id": "c9b6c7048d8dc33dae618f67f462f67a",
+      "event_id": "c9b6c7048d8dc33dae618f67f462f67a",
+      "home_team": "Inter Milan",
+      "away_team": "Fiorentina",
+      "kickoff_utc": "2026-10-25T11:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 4,
+  "additional_odds_in_window_linked_fixtures": 6,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 4,
+  "additional_event_odds_calls_this_league": 6,
   "decay_tuning": {
     "selected_half_life_days": 240.0,
     "selected_xi_per_day": 0.0028881132523331052,
