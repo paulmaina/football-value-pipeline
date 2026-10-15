@@ -1,5 +1,6 @@
 from offline_test_case import OfflineQuotePolicyTestCase
 import copy
+from datetime import timedelta
 import unittest
 from unittest.mock import patch
 import pandas as pd
@@ -113,11 +114,76 @@ class DoubleChanceTests(OfflineQuotePolicyTestCase):
         import tempfile
         with tempfile.TemporaryDirectory() as cache:
             api=TheOddsAPI('test-key',cache_dir=cache)
-            with patch.object(api,'_get_json',return_value=payload) as fetch:
+            with patch.object(api,'_get_json',return_value=payload) as fetch, patch(
+                    'football_value_pipeline_v2_standalone.datetime') as clock:
+                clock.now.return_value = NOW
                 r=api.extra_markets_for_event(LEAGUES['EPL'],'example')
                 self.assertIn('double_chance',fetch.call_args.kwargs['params']['markets'])
                 self.assertIn('dc_v1',fetch.call_args.args[1])
                 self.assertEqual(r['market_home_draw_odds'],1.35)
+
+    def test_stale_higher_price_cannot_hide_a_fresh_qualifying_offer(self):
+        payload = event()
+        stale = payload['bookmakers'][0]['markets'][0]
+        stale['last_update'] = (NOW-timedelta(hours=25)).isoformat()
+        stale['outcomes'][0]['price'] = 1.50
+        quotes = parse_quotes(payload, as_of=NOW)
+        for key in ('home_draw', 'draw_away', 'home_away'):
+            self.assertEqual(quotes[f'best_{key}_bookmaker'], 'Book B')
+            self.assertEqual(quotes[f'market_{key}_bookmakers'], 1)
+        self.assertEqual(quotes['market_home_draw_odds'], 1.35)
+        row = fixture()
+        row.update(p_home_draw=.84, raw_p_home_draw=.82, **quotes)
+        report = sample_report()
+        report['markets']['home_draw'] = copy.deepcopy(report['markets']['over_1_5'])
+        picks, _, _ = build_conservative_shortlist(pd.DataFrame([row]), as_of=NOW,
+            market_reliability={'Premier League': report})
+        self.assertEqual(picks.market.tolist(), ['Double Chance 1X'])
+
+    def test_bad_timestamps_cannot_poison_reference_or_offer_selection(self):
+        for stamp in (None, '', 'not-a-time', (NOW-timedelta(hours=24, seconds=1)).isoformat(),
+                      (NOW+timedelta(minutes=5, seconds=1)).isoformat()):
+            with self.subTest(stamp=stamp):
+                payload = event()
+                payload['bookmakers'][0]['markets'][0]['last_update'] = stamp
+                quotes = parse_quotes(payload, as_of=NOW)
+                self.assertEqual(quotes['best_home_draw_bookmaker'], 'Book B')
+                self.assertEqual(quotes['market_reference_home_draw_last_update_utc'], NOW.isoformat())
+                payload['bookmakers'] = payload['bookmakers'][:1]
+                self.assertEqual(parse_quotes(payload, as_of=NOW), {})
+        with self.assertRaisesRegex(ValueError, 'evaluation time'):
+            parse_quotes(event(), as_of='bad-clock')
+
+    def test_freshness_boundaries_fallback_and_reference_utc_order(self):
+        for stamp in (NOW-timedelta(hours=24), NOW+timedelta(minutes=5)):
+            payload = event()
+            payload['bookmakers'] = payload['bookmakers'][:1]
+            payload['bookmakers'][0]['markets'][0]['last_update'] = stamp.isoformat()
+            self.assertIn('market_home_draw_odds', parse_quotes(payload, as_of=NOW))
+        payload = event()
+        book = payload['bookmakers'][0]
+        book['last_update'] = NOW.isoformat()
+        book['markets'][0].pop('last_update')
+        self.assertEqual(parse_quotes(payload, as_of=NOW)['market_home_draw_bookmakers'], 2)
+        # 10:00+02:00 is older than 09:00Z despite sorting later as text.
+        payload['bookmakers'][0]['markets'][0]['last_update'] = '2026-10-09T10:00:00+02:00'
+        self.assertEqual(parse_quotes(payload, as_of=NOW)['market_reference_home_draw_last_update_utc'], NOW.isoformat())
+
+    def test_live_api_filters_stale_offers_and_structural_replay_is_stable(self):
+        from football_value_pipeline_v2_standalone import TheOddsAPI, LEAGUES
+        payload = event()
+        payload['id'] = 'example'
+        payload['bookmakers'][0]['markets'][0]['last_update'] = (NOW-timedelta(hours=25)).isoformat()
+        payload['bookmakers'][0]['markets'][0]['outcomes'][0]['price'] = 1.50
+        api = TheOddsAPI.__new__(TheOddsAPI)
+        api.regions = 'eu'; api.api_key = 'fake'; api.force_refresh = False
+        with patch.object(api, '_get_json', return_value=payload), patch(
+                'football_value_pipeline_v2_standalone.datetime') as clock:
+            clock.now.return_value = NOW
+            self.assertEqual(api.extra_markets_for_event(LEAGUES['EPL'], 'example')['market_home_draw_odds'], 1.35)
+        # Closing normalization and market-led archived replay apply their own
+        # frozen time checks, without consulting the present wall clock.
+        self.assertEqual(parse_quotes(payload)['market_home_draw_odds'], 1.50)
 
 
 class DoubleChanceAdjustedThresholdTests(OfflineQuotePolicyTestCase):
