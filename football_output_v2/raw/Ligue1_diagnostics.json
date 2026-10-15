@@ -14,7 +14,7 @@
   "market_weight": 0.5,
   "training_data_health": {
     "training_end": "2026-10-11",
-    "days_since_latest_result": 3,
+    "days_since_latest_result": 4,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -39,6 +39,7 @@
       "status": "RECEIVED_VALID_DC_QUOTES",
       "home_draw_quote": true,
       "draw_away_quote": true,
+      "home_away_quote": true,
       "dc_bookmakers": 1
     },
     {
@@ -50,6 +51,7 @@
       "status": "RECEIVED_VALID_DC_QUOTES",
       "home_draw_quote": true,
       "draw_away_quote": true,
+      "home_away_quote": true,
       "dc_bookmakers": 1
     },
     {
@@ -61,6 +63,7 @@
       "status": "RECEIVED_VALID_DC_QUOTES",
       "home_draw_quote": true,
       "draw_away_quote": true,
+      "home_away_quote": true,
       "dc_bookmakers": 1
     },
     {
@@ -72,6 +75,7 @@
       "status": "RECEIVED_VALID_DC_QUOTES",
       "home_draw_quote": true,
       "draw_away_quote": true,
+      "home_away_quote": true,
       "dc_bookmakers": 1
     },
     {
@@ -82,7 +86,8 @@
       "kickoff_utc": "2026-10-18T13:00:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
-      "draw_away_quote": false
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "d637845b9760bb02b55bbbaa32b5c21e",
@@ -92,7 +97,8 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
-      "draw_away_quote": false
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "53f5fe7ed0ba0fbf6345c73270e4cd00",
@@ -102,7 +108,8 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
-      "draw_away_quote": false
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "27f7222d2abde93fc6e8d17b5b05b272",
@@ -112,7 +119,8 @@
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
-      "draw_away_quote": false
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "471f891b1f6516a864ad94c8eb649f5e",
@@ -122,7 +130,8 @@
       "kickoff_utc": "2026-10-18T18:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
-      "draw_away_quote": false
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "8aa36b30d655d6c81ed98bf9ec1b4039",
@@ -132,7 +141,8 @@
       "kickoff_utc": "2026-10-23T18:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
-      "draw_away_quote": false
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "0bbce95e5764e706e6c428bb52dc5536",
@@ -142,7 +152,8 @@
       "kickoff_utc": "2026-10-24T15:15:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
-      "draw_away_quote": false
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "fc6c50376190b578cfeb38c029db8487",
@@ -152,7 +163,8 @@
       "kickoff_utc": "2026-10-24T18:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
-      "draw_away_quote": false
+      "draw_away_quote": false,
+      "home_away_quote": false
     }
   ],
   "additional_odds_in_window_linked_fixtures": 4,
