@@ -36,9 +36,23 @@ def record(row,h=2,a=1):
 
 
 class SensitivityTests(OfflineQuotePolicyTestCase):
+    def test_v9_six_market_ledger_remains_valid_but_cannot_be_relabelled_v10(self):
+        import conservative_bet_filter as shortlist
+        old_specs = tuple(s for s in shortlist.MARKET_SPECS if s[1] != 'btts_yes')
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.object(shortlist, 'MARKET_SPECS', old_specs):
+                _, data, predictions, _, _, summary = setup(Path(tmp))
+            current = data['selection_policy_version']
+            data['selection_policy_version'] = shortlist.LEGACY_SELECTION_POLICY_VERSION
+            self.assertEqual(len(data['rows']), 18)
+            validate(data, summary['generated_at_utc'], predictions.to_dict('records'))
+            data['selection_policy_version'] = current
+            with self.assertRaises(ValueError):
+                validate(data, summary['generated_at_utc'], predictions.to_dict('records'))
+
     def test_previous_six_market_policy_remains_valid_for_archived_evidence(self):
         import conservative_bet_filter as shortlist
-        old_specs = tuple(s for s in shortlist.MARKET_SPECS if s[1] != "home_away") + (("Both Teams to Score - Yes", "btts_yes", .70, .63),)
+        old_specs = tuple(s for s in shortlist.MARKET_SPECS if s[1] != "home_away")
         with tempfile.TemporaryDirectory() as tmp:
             with patch.object(shortlist, "MARKET_SPECS", old_specs):
                 _, data, predictions, _, _, summary = setup(Path(tmp))
@@ -51,7 +65,7 @@ class SensitivityTests(OfflineQuotePolicyTestCase):
 
     def test_previous_five_market_policy_remains_valid(self):
         import conservative_bet_filter as shortlist
-        old_specs=tuple(s for s in shortlist.MARKET_SPECS if s[1] != 'home_away')
+        old_specs=tuple(s for s in shortlist.MARKET_SPECS if s[1] not in ('home_away', 'btts_yes'))
         with tempfile.TemporaryDirectory() as tmp:
             with patch.object(shortlist, 'MARKET_SPECS', old_specs):
                 _, data, predictions, _, _, summary=setup(Path(tmp))
@@ -63,7 +77,7 @@ class SensitivityTests(OfflineQuotePolicyTestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);raw,data,predictions,picks,decisions,summary=setup(root)
             before=(raw/'conservative_bet_shortlist.csv').read_bytes()
-            self.assertEqual(len(data['rows']),18)
+            self.assertEqual(len(data['rows']),21)
             control=[r for r in data['rows'] if r['ev_floor']==.015]
             self.assertEqual([r['decision'] for r in control],decisions.decision.tolist())
             self.assertEqual([r['market'] for r in control],decisions.market.tolist())
@@ -76,7 +90,7 @@ class SensitivityTests(OfflineQuotePolicyTestCase):
 
     def test_reranks_alternative_market_after_raising_floor(self):
         with tempfile.TemporaryDirectory() as tmp:
-            row=fixture();row['raw_p_over_1_5']=.86;row['market_over_1_5_odds']=1.195 # ~2.77% adjusted EV
+            row=fixture();row['market_btts_yes_odds']=None;row['raw_p_over_1_5']=.86;row['market_over_1_5_odds']=1.195 # ~2.77% adjusted EV
             raw,data,*_=setup(Path(tmp),row)
             chosen={floor:[r['market'] for r in data['rows'] if r['ev_floor']==floor and r['decision']=='SHORTLISTED'] for floor in FLOORS}
             self.assertEqual(chosen[.015],['Over 1.5'])
@@ -111,7 +125,7 @@ class SensitivityTests(OfflineQuotePolicyTestCase):
             sha='a'*40;capture(sha,root=root,captured_at=NOW)
             # Duplicate runs cannot add markets or replace first rejections.
             capture('b'*40,root=root,captured_at=NOW+timedelta(minutes=1))
-            rows,rejected=frozen(root,snapshots(root));self.assertEqual(len(rows),18);self.assertFalse(rejected)
+            rows,rejected=frozen(root,snapshots(root));self.assertEqual(len(rows),21);self.assertFalse(rejected)
             row=predictions.iloc[0].to_dict();rec=record(row);clock=NOW+timedelta(days=3)
             write_json(root/'performance/verified_results.json',{'PL:90002':rec})
             summary=review_experiment(root,snapshots(root),[rec],clock)
@@ -134,7 +148,7 @@ class SensitivityTests(OfflineQuotePolicyTestCase):
             archive.write_text('{}')
             self.assertEqual(len(snapshots(root)),2) # optional failure preserves baseline
             rows,rejected=frozen(root,snapshots(root));self.assertIn(sha,rejected)
-            self.assertEqual(len(rows),18)
+            self.assertEqual(len(rows),21)
 
     def test_only_ev_changes_and_selected_quote_is_bound_to_forecast(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -170,7 +184,7 @@ class SensitivityTests(OfflineQuotePolicyTestCase):
             with patch(__name__+'.NOW',later):setup(root,row)
             capture('b'*40,root=root,captured_at=later)
             rows,_=frozen(root,snapshots(root))
-            self.assertEqual(len(rows),18)
+            self.assertEqual(len(rows),21)
             self.assertTrue(all(r['snapshot_commit']=='b'*40 for r in rows))
 
     def test_late_and_legacy_not_backfilled(self):

@@ -37,11 +37,36 @@ def setup(root, row=None, clock=NOW, reliability=None):
 
 
 class PolicyExperimentTests(OfflineQuotePolicyTestCase):
+    def test_legacy_six_market_capture_replays_without_btts_and_cannot_be_relabelled(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            row = fixture()
+            row.update(p_btts_yes=.83, raw_p_btts_yes=.80, market_btts_yes_odds=1.40,
+                       p_over_1_5=.78)
+            # Produce an original v9 capture with its original winning market.
+            with patch.object(trial, 'BASELINE_POLICY', trial.LEGACY_BASELINE_POLICY), patch(
+                    'conservative_bet_filter.SELECTION_POLICY_VERSION', trial.LEGACY_BASELINE_POLICY):
+                raw, data, predictions, picks, _, summary = setup(root, row=row)
+            self.assertEqual(picks.market.tolist(), ['Home win'])
+            self.assertEqual(len(data['rows']), 54)
+            self.assertFalse(any(r['market'] == 'Both Teams to Score - Yes' for r in data['rows']))
+            trial.validate(data, summary['generated_at_utc'], predictions.to_dict('records'))
+            self.assertIsNotNone(trial.capture_file(raw, summary['generated_at_utc']))
+            self.assertTrue(capture('b'*40, root=root, captured_at=NOW))
+            rows, rejected = trial.frozen(root, snapshots(root))
+            self.assertEqual(len(rows), 54)
+            self.assertFalse(rejected)
+            current, _, _ = build_conservative_shortlist(predictions, as_of=NOW)
+            self.assertEqual(current.market.tolist(), ['Both Teams to Score - Yes'])
+            data['selection_policy_version'] = trial.BASELINE_POLICY
+            with self.assertRaisesRegex(ValueError, 'frozen replay'):
+                trial.validate(data, summary['generated_at_utc'], predictions.to_dict('records'))
+
     def test_missing_bookmakers_replay_identically_from_csv_and_capture(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             row = fixture()
-            for key in ('home', 'away', 'over_1_5', 'home_draw', 'draw_away', 'home_away'):
+            for key in ('home', 'away', 'over_1_5', 'home_draw', 'draw_away', 'home_away', 'btts_yes'):
                 row['best_'+key+'_bookmaker'] = float('nan')
             raw, data, predictions, _, _, summary = setup(root, row=row)
             self.assertTrue(all(r['bookmaker'] is None for r in data['rows']))
@@ -49,14 +74,14 @@ class PolicyExperimentTests(OfflineQuotePolicyTestCase):
             self.assertIsNotNone(trial.capture_file(raw, summary['generated_at_utc']))
             self.assertTrue(capture('a'*40, root=root, captured_at=NOW))
             rows, rejected = trial.frozen(root, snapshots(root))
-            self.assertEqual(len(rows), 54)
+            self.assertEqual(len(rows), 63)
             self.assertFalse(rejected)
 
     def test_control_grid_isolation_and_production_unchanged(self):
         with tempfile.TemporaryDirectory() as tmp:
             raw, data, predictions, picks, decisions, summary = setup(Path(tmp))
             before = {p.name: p.read_bytes() for p in raw.glob('*.csv')}
-            self.assertEqual(len(data['rows']), 54)
+            self.assertEqual(len(data['rows']), 63)
             self.assertEqual(len(trial.VARIANTS), 9)
             self.assertTrue(all(len(v) == 1 for k, v in trial.VARIANTS.items() if k != 'control'))
             trial.validate(data, summary['generated_at_utc'], predictions.to_dict('records'))
@@ -68,7 +93,7 @@ class PolicyExperimentTests(OfflineQuotePolicyTestCase):
             pd.testing.assert_frame_equal(picks, replay[0])
             pd.testing.assert_frame_equal(decisions, replay[1])
             self.assertEqual(summary, replay[2])
-            self.assertFalse(any(r['market'] == 'Both Teams to Score - Yes' for r in data['rows']))
+            self.assertTrue(any(r['market'] == 'Both Teams to Score - Yes' for r in data['rows']))
             self.assertTrue(any(r['market'] == 'Double Chance 12' for r in data['rows']))
 
     def test_probability_dimensions_and_penalty_strength_are_independent(self):
@@ -144,7 +169,7 @@ class PolicyExperimentTests(OfflineQuotePolicyTestCase):
             capture('a'*40, root=root, captured_at=NOW)
             capture('b'*40, root=root, captured_at=NOW+timedelta(minutes=1))
             rows, rejected = trial.frozen(root, snapshots(root))
-            self.assertEqual(len(rows), 54); self.assertFalse(rejected)
+            self.assertEqual(len(rows), 63); self.assertFalse(rejected)
             rec = record(predictions.iloc[0].to_dict())
             write_json(root/'performance/verified_results.json', {'PL:90002': rec})
             clock = NOW+timedelta(days=3)
@@ -172,7 +197,7 @@ class PolicyExperimentTests(OfflineQuotePolicyTestCase):
             archive.write_text('{}')
             self.assertEqual(len(snapshots(root)), 2)
             rows, rejected = trial.frozen(root, snapshots(root))
-            self.assertIn('a'*40, rejected); self.assertEqual(len(rows), 54)
+            self.assertIn('a'*40, rejected); self.assertEqual(len(rows), 63)
             summary = trial.review_experiment(root, snapshots(root), [], clock)
             self.assertEqual(summary['status'], 'DATA_QUALITY_BLOCKED')
 
