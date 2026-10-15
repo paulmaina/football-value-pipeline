@@ -137,8 +137,13 @@ def _evaluate_market(
     validation: Optional[Mapping] = None,
     quote_policy: Optional[Mapping] = None,
     adjusted_ev_floor: Optional[float] = None,
+    research_policy: Optional[Mapping] = None,
 ) -> dict:
     label, key, min_prob, min_raw = spec
+    research = research_policy or {}
+    base_min_prob = min_prob
+    min_prob += research.get('blended_shift', 0.0)
+    min_raw += research.get('raw_shift', 0.0)
     policy = quote_policy or load_policy()
     cost = policy["per_stake_cost_bps"] / 10000
     reasons = []
@@ -226,6 +231,7 @@ def _evaluate_market(
             else:
                 high_penalty = extra_penalty
                 calibration_penalty = max(calibration_penalty, high_penalty)
+    calibration_penalty = min(1.0, calibration_penalty * research.get('penalty_multiplier', 1.0))
     rank_p = (
         max(0.0, p - calibration_penalty) if p is not None else None
     )
@@ -288,7 +294,7 @@ def _evaluate_market(
     min_adjusted_ev = MIN_DOUBLE_CHANCE_ADJUSTED_EV if is_double_chance else MIN_ESTIMATED_EV
     if adjusted_ev_floor is not None:
         min_adjusted_ev = adjusted_ev_floor
-    min_adjusted_probability = MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY if is_double_chance else min_prob
+    min_adjusted_probability = (MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY if is_double_chance else base_min_prob) + research.get('adjusted_shift', 0.0)
     adjusted_tolerance = 1e-12
     if conservative_ev is None or conservative_ev + adjusted_tolerance < min_adjusted_ev:
         reasons.append(f"reliability-adjusted EV below +{min_adjusted_ev:.1%} or missing")
@@ -422,6 +428,8 @@ def build_conservative_shortlist(
     as_of: Optional[datetime] = None,
     market_reliability: Optional[Mapping[str, Mapping]] = None,
     *, adjusted_ev_floor: Optional[float] = None,
+    research_policy: Optional[Mapping] = None,
+    execution_policy: Optional[Mapping] = None,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Aim for ten distinct fixtures; never fabricate a minimum ten.
 
@@ -436,7 +444,17 @@ def build_conservative_shortlist(
 
     if adjusted_ev_floor is not None and (not math.isfinite(adjusted_ev_floor) or adjusted_ev_floor < MIN_ESTIMATED_EV):
         raise ValueError("Research EV floor must be finite and at least the production floor")
-    policy = load_policy()
+    if research_policy is not None:
+        limits = {'blended_shift': (-.03, .03), 'raw_shift': (-.03, .03),
+                  'adjusted_shift': (-.03, .03), 'penalty_multiplier': (.5, 1.5)}
+        if not isinstance(research_policy, Mapping) or set(research_policy) - set(limits):
+            raise ValueError('Unknown research policy setting')
+        for name, value in research_policy.items():
+            lo, hi = limits[name]
+            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or not lo <= value <= hi:
+                raise ValueError('Research policy setting outside fixed bounds')
+    from quote_policy import validate_policy
+    policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
     evaluated = []
     for _, row in predictions.iterrows():
         for spec in MARKET_SPECS:
@@ -444,7 +462,7 @@ def build_conservative_shortlist(
                 market_reliability.get(str(row.get("league") or ""), {})
                 if market_reliability is not None else None
             )
-            evaluated.append(_evaluate_market(row, spec, now, report, policy, adjusted_ev_floor))
+            evaluated.append(_evaluate_market(row, spec, now, report, policy, adjusted_ev_floor, research_policy))
     decisions = pd.DataFrame(evaluated, columns=DECISION_COLUMNS)
 
     eligible = decisions[decisions["decision"] == "ELIGIBLE"].copy()
@@ -486,7 +504,7 @@ def build_conservative_shortlist(
     if market_reliability is not None and n_strict < TARGET_DISTINCT_MATCHES:
         pool = decisions.loc[decisions["decision"] == "REJECTED"].copy()
         minimums = {
-            label: (min_p, min_raw)
+            label: (min_p + (research_policy or {}).get('adjusted_shift', 0.0), min_raw)
             for label, _, min_p, min_raw in MARKET_SPECS
         }
         pool["historical_gap_score"] = pool.apply(

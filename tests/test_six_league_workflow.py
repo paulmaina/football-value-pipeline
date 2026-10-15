@@ -52,7 +52,7 @@ class SixLeagueWorkflowTests(unittest.TestCase):
             with patch.dict(os.environ,{},clear=True),patch('requests.sessions.Session.request',side_effect=AssertionError('Live network disabled')),patch('api_key_config.load_api_keys',side_effect=keys_from_test_file),patch(
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league',new=run_league),patch(
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league',return_value=(pd.DataFrame(),pd.DataFrame(),{},pd.DataFrame())),patch(
-                'goal_market_validation.evaluate_market_history',return_value=reliability),patch(
+                'goal_market_validation.evaluate_market_history',side_effect=lambda historical, league: {**copy.deepcopy(reliability), 'league': league}),patch(
                 'conservative_bet_filter.build_conservative_shortlist',side_effect=partial(build_conservative_shortlist,as_of=NOW)),patch(
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2._history_for_league',return_value=history()),patch(
                 'dc_decay_validation.tune_half_life',side_effect=lambda *args,**kwargs:tuning()),patch(
@@ -79,7 +79,10 @@ class SixLeagueWorkflowTests(unittest.TestCase):
             self.assertEqual(data['experiments']['filter_sensitivity_experiment']['candidate_decisions'],108)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['filter_sensitivity_experiment:CAPTURED'],1)
             self.assertEqual(data['experiments']['benchmark_forward_experiment']['paired_fixtures'],0)
-            self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),6)
+            self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),7)
+            self.assertEqual(data['experiments']['shortlist_policy_experiment']['total_fixtures'],6)
+            self.assertEqual(data['experiments']['shortlist_policy_experiment']['candidate_decisions'],324)
+            self.assertEqual(data['pipeline_health']['experiment_capture_counts']['shortlist_policy_experiment:CAPTURED'],1)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['benchmark_forward_experiment:CAPTURED'],1)
             self.assertTrue((root/'readable/football_performance_report.xlsx').exists())
 

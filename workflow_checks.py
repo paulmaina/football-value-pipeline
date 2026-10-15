@@ -21,15 +21,17 @@ FORECAST_PATHS = (
     'football_output_v2/raw/goal_blend_experiment.json',
     'football_output_v2/raw/market_led_experiment.json',
     'football_output_v2/raw/filter_sensitivity_experiment.json',
+    'football_output_v2/raw/shortlist_policy_experiment.json',
     'football_output_v2/raw/benchmark_forward_experiment.json',
     'football_output_v2/raw/totals_anchor_experiment.json',
     'football_output_v2/raw/model_reliability_experiment.json',
 )
-SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json')
+SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json')
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
              'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'workflow_checks.py')
 COVERAGE_FLOORS = {'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
+    'shortlist_policy_experiment.py':85,
     'double_chance.py':90, 'goal_market_validation.py':85, 'goal_blend_experiment.py':90,
     'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85,
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
@@ -262,13 +264,16 @@ def report_check(root):
     warnings=audit['warnings']
     if metrics.get('provider_errors'):warnings.append('Result provider has errors; cached verified results used where available')
     experiments={}
-    for name in ('goal_blend_experiment','market_led_experiment','recency_experiment','filter_sensitivity_experiment','benchmark_forward_experiment', 'totals_anchor_experiment', 'model_reliability_experiment'):
+    for name in ('goal_blend_experiment','market_led_experiment','recency_experiment','filter_sensitivity_experiment','benchmark_forward_experiment', 'totals_anchor_experiment', 'model_reliability_experiment', 'shortlist_policy_experiment'):
         path=performance/name/'summary.json'
         if path.exists():
             data=read_json(path);experiments[name]=data
             experimental_time=utc(data.get('reviewed_at_utc'))
             if experimental_time is None or abs((experimental_time-utc(metrics['reviewed_at_utc'])).total_seconds()) > 1:
                 warnings.append(f'{name}: report timestamp differs from current baseline review')
+            elif name=='shortlist_policy_experiment':
+                from shortlist_policy_experiment import validate_report
+                validate_report(root)
             elif name=='model_reliability_experiment':
                 from model_reliability_experiment import validate_report
                 validate_report(root)

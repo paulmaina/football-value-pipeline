@@ -37,6 +37,13 @@ def build_queue(root,clock):
             'collection_days':days,'scope':'FIRST_LOOK_ONLY_NO_PROMOTION','report':name+'/report.md',
             'note':'28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.',
             **({'graded_paper_bets':data.get('graded_selections',0)} if name=='market_led_experiment' else {})})
+    policy=load_json(root/'performance/shortlist_policy_experiment/summary.json',{})
+    fresh=utc(policy.get('reviewed_at_utc')) is not None and abs((clock-utc(policy['reviewed_at_utc'])).total_seconds())<1
+    items.append({'name':'shortlist_policy_experiment','key':'shortlist_policy_experiment:'+policy.get('version','not_generated'),
+        'status':policy.get('status','COLLECT_MORE_DATA') if fresh else 'REPORT_UNAVAILABLE_OR_STALE',
+        'settled_evidence':policy.get('verified_fixtures',0),'gameweeks':policy.get('gameweeks',0),
+        'scope':'POLICY_REVIEW_APPROVAL_REQUIRED','report':'shortlist_policy_experiment/report.md',
+        'automatic_production_change':False})
     trial=load_json(root/'performance/benchmark_forward_experiment/summary.json',{})
     fresh=utc(trial.get('reviewed_at_utc')) is not None and abs((clock-utc(trial['reviewed_at_utc'])).total_seconds())<1
     items.append({'name':'benchmark_forward_experiment','key':'benchmark_forward:'+trial.get('registry_sha256','not_generated'),
