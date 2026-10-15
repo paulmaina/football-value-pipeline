@@ -9,8 +9,8 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-14T21:07:53.015698+00:00",
-  "model_code_sha256": "7c6f6dd5bc4273d80cca981de7c804b2322a2f7138db1f8d64d75393a65454b8",
-  "predictions_sha256": "761ff172738d232023a59c9c3191259fd1b7f735e885aa4559d47cd13ae5dbd8",
-  "selection_policy_version": "72h-all-markets-net-ev15-execution-v7"
+  "generated_at_utc": "2026-10-15T06:54:19.720870+00:00",
+  "model_code_sha256": "70f1830a237919be7f53ecc1eed4571ba88c424dfc5a471b5dfc66661f09291e",
+  "predictions_sha256": "d927cda24f5c73a8fae82bcb58bacad5a31f156d0b940f13950c11333bd2d2cd",
+  "selection_policy_version": "72h-six-markets-dc12-probability-odds-net-ev15-v9"
 }

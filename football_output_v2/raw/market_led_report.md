@@ -8,6 +8,5 @@ Candidate markets: 184; available: 50; selected: 0.
 - missing_invalid_or_stale_pinnacle_1x2: 134
 - no_fresh_independent_complete_dc_offer: 134
 - outside_selection_window: 134
-- unlinked_fixture: 36
 
 No automatic promotion. Existing model and conservative shortlist are unchanged.
