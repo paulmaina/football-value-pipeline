@@ -1,5 +1,6 @@
 """Strict-first ten-fixture shortlist and pathological bookmaker odds tests."""
 
+from offline_test_case import OfflineQuotePolicyTestCase
 import json
 from pathlib import Path
 import tempfile
@@ -46,7 +47,7 @@ def only_over_goal(i):
     return row
 
 
-class GradedCandidatesTests(unittest.TestCase):
+class GradedCandidatesTests(OfflineQuotePolicyTestCase):
     def test_four_strict_plus_six_research_only_provisional(self):
         rows = pd.DataFrame([only_over_goal(i) for i in range(12)])
         picks, decisions, summary = build_conservative_shortlist(

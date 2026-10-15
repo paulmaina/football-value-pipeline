@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import subprocess
 import sys
 import tempfile
@@ -7,7 +8,7 @@ from pathlib import Path
 from publish_performance import SNAPSHOTS, git, merge_snapshots, publish
 
 
-class PublisherTests(unittest.TestCase):
+class PublisherTests(OfflineQuotePolicyTestCase):
     def test_conflicting_snapshot_fails_closed(self):
         with tempfile.TemporaryDirectory() as d:
             a, b = Path(d) / 'a', Path(d) / 'b'
@@ -71,7 +72,7 @@ if not marker.exists():
             self.assertFalse((event / 'newer.txt').exists())
             self.assertTrue(captured.exists())
 
-class PublisherValidationTests(unittest.TestCase):
+class PublisherValidationTests(OfflineQuotePolicyTestCase):
     def test_failed_validation_blocks_push_and_retains_attempt_reports(self):
         with tempfile.TemporaryDirectory() as tmp:
             base=Path(tmp);remote=base/'remote.git';repo=base/'event'

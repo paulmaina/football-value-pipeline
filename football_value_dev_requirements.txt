@@ -1,3 +1,4 @@
 -r football_value_requirements.txt
 coverage>=7.6
 PyYAML>=6.0
+pytest>=8.0

@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 import json
 from datetime import timedelta
@@ -123,7 +124,7 @@ def test_cli_flag_preserves_baseline_files(tmp_path):
     assert (tmp_path/'True'/'goal_blend_experiment.json').exists()
 
 
-class ShadowTests(unittest.TestCase):
+class ShadowTests(OfflineQuotePolicyTestCase):
     pass
 
 

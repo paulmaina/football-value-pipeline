@@ -5,6 +5,7 @@ cached HTTP code path used for fixture/odds/event-specific live markets.
 """
 from __future__ import annotations
 
+from offline_test_case import OfflineQuotePolicyTestCase
 from datetime import datetime, timedelta, timezone
 import json
 import os
@@ -48,7 +49,7 @@ class RecordingGet:
         return self.responses.pop(0)
 
 
-class ApiKeyFailoverTests(unittest.TestCase):
+class ApiKeyFailoverTests(OfflineQuotePolicyTestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)

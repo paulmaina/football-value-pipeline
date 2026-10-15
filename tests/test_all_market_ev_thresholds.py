@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 import unittest
 import pandas as pd
@@ -8,7 +9,7 @@ from test_double_chance import event
 from double_chance import parse_quotes
 
 
-class AllMarketEVTests(unittest.TestCase):
+class AllMarketEVTests(OfflineQuotePolicyTestCase):
     def evaluate(self, spec, ev=.015, count=1, remove=None):
         label,key,min_p,min_raw=spec
         row=fixture();row.update(parse_quotes(event()))
@@ -25,14 +26,14 @@ class AllMarketEVTests(unittest.TestCase):
         report['markets'][key]=copy.deepcopy(report['markets']['over_1_5'])
         return _evaluate_market(pd.Series(row),spec,pd.Timestamp(NOW),report)
 
-    def test_all_six_markets_pass_with_one_complete_book_at_one_point_five_percent(self):
+    def test_all_seven_markets_pass_with_one_complete_book_at_one_point_five_percent(self):
         for spec in MARKET_SPECS:
             with self.subTest(market=spec[0]):
                 row=self.evaluate(spec)
                 self.assertNotEqual(row['decision'],'REJECTED',row['rejection_reasons'])
                 self.assertAlmostEqual(row['conservative_estimated_ev'],.015)
 
-    def test_all_six_reject_below_cutoff_or_zero_books(self):
+    def test_all_seven_reject_below_cutoff_or_zero_books(self):
         for spec in MARKET_SPECS:
             with self.subTest(market=spec[0]):
                 row=self.evaluate(spec,ev=.0149)
@@ -55,7 +56,7 @@ class AllMarketEVTests(unittest.TestCase):
         _,_,summary=build_conservative_shortlist(pd.DataFrame([fixture()]),as_of=NOW)
         self.assertEqual(summary['min_estimated_ev'],.015)
         self.assertEqual(summary['min_bookmakers'],1)
-        self.assertEqual(summary['selection_policy_version'],'72h-six-markets-dc12-probability-odds-net-ev15-v9')
+        self.assertEqual(summary['selection_policy_version'],'72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10')
         from market_led_experiment import settings
         self.assertEqual(settings()['min_ev'],.03)
         self.assertEqual(settings()['min_probability'],.8)

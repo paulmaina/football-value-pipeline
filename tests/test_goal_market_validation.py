@@ -1,5 +1,6 @@
 """Offline validation of market-specific risk gates and fair odds quotas."""
 
+from offline_test_case import OfflineQuotePolicyTestCase
 import unittest
 from datetime import datetime, timedelta, timezone
 
@@ -42,7 +43,7 @@ def historical(n=200, p=0.8, observed=0.8):
     return pd.DataFrame(rows)
 
 
-class MarketValidationTests(unittest.TestCase):
+class MarketValidationTests(OfflineQuotePolicyTestCase):
     def test_fair_24_calls_split_across_all_six_competitions(self):
         allocation = distribute_event_odds_budget(
             ["EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1", "UCL"], 24

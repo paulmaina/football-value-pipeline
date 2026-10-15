@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
 import hashlib
@@ -18,7 +19,7 @@ from workflow_checks import raw_check,archive_check,report_check,changed_forecas
 REPO=Path(__file__).resolve().parents[1]
 
 
-class WorkflowChecksTests(unittest.TestCase):
+class WorkflowChecksTests(OfflineQuotePolicyTestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
         self.root=Path(self.tmp.name)/'football_output_v2'
@@ -51,6 +52,25 @@ class WorkflowChecksTests(unittest.TestCase):
         self.assertEqual(result['shortlist']['pending'],1)
         self.assertIsNone(result['shortlist']['win_rate'])
         self.assertIsNone(result['shortlist']['flat_stake_roi'])
+
+    def test_failed_optional_capture_is_a_top_level_warning(self):
+        self.reviewed()
+        path = self.root/'performance/pipeline_health.json'
+        health = json.loads(path.read_text())
+        health['snapshot_capture_history'][-1]['experiments']['shortlist_policy_experiment'] = 'PRESENT_BUT_REJECTED'
+        write_json(path, health)
+        result = report_check(self.root)
+        self.assertEqual(result['status'], 'VERIFIED_WITH_WARNINGS')
+        self.assertTrue(any('shortlist_policy_experiment: latest snapshot PRESENT_BUT_REJECTED' in s for s in result['warnings']))
+
+    def test_raw_check_validates_every_present_optional_sidecar(self):
+        from workflow_checks import SIDECARS
+        raw = self.root/'raw'
+        for name in SIDECARS:
+            write_json(raw/name, {})
+        warnings = raw_check(self.root)['warnings']
+        for name in SIDECARS:
+            self.assertTrue(any(name in warning for warning in warnings), name)
 
     def test_provider_outage_is_visible_while_verified_cache_remains_usable(self):
         self.reviewed({'PL':'temporary provider failure'})

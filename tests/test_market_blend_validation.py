@@ -1,5 +1,6 @@
 """Chronological market blend selection unit tests (offline)."""
 
+from offline_test_case import OfflineQuotePolicyTestCase
 import unittest
 
 import numpy as np
@@ -37,7 +38,7 @@ def sample_predictions(n=160, pattern="market_good"):
     })
 
 
-class MarketBlendTests(unittest.TestCase):
+class MarketBlendTests(OfflineQuotePolicyTestCase):
     def test_market_can_improve_predictive_log_loss(self):
         result = select_market_weight(sample_predictions(pattern="market_good"))
         self.assertEqual(result["status"], "selected")

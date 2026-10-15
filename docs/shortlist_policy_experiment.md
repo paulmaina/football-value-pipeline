@@ -10,7 +10,10 @@ minus/plus 3 percentage points; raw-model entry cutoffs minus/plus 3 points;
 adjusted-probability cutoffs minus/plus 3 points; development-only calibration
 penalties multiplied by 0.5 or 1.5. Each candidate changes exactly one setting.
 Adjusted double-chance cutoffs start at 75%; their blended entry cutoffs start
-at 80%. All three double chances, including 12, are included. BTTS is excluded.
+at 80%. All three double chances, including 12, are included. From shortlist
+policy v10, BTTS Yes is included with the existing 70% model/adjusted and 63%
+raw probability thresholds; v9 captures retain their original six-market replay.
+See [BTTS shortlist rules](conservative-shortlist-btts.md).
 The applied penalty remains the maximum of the overall and matching confidence
 group's development-only penalties, scaled once and capped at 1. Audit results
 never fit the penalty. Missing calibration evidence remains a rejection.

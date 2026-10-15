@@ -1,5 +1,6 @@
 """Regression tests for BTTS Yes/No display in human-readable predictions."""
 
+from offline_test_case import OfflineQuotePolicyTestCase
 from pathlib import Path
 import tempfile
 import unittest
@@ -14,7 +15,7 @@ from format_football_output import (
 from test_conservative_bet_filter import fixture
 
 
-class BttsReportingTests(unittest.TestCase):
+class BttsReportingTests(OfflineQuotePolicyTestCase):
     def test_readable_predictions_show_both_btts_outcomes_as_percentages(self):
         row = fixture()
         row["p_btts_yes"] = 0.61234

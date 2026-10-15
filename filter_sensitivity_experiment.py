@@ -53,6 +53,9 @@ def validate(data, generated, predictions):
         specs.pop("Double Chance 12", None)
     if data.get("selection_policy_version") == "72h-all-markets-net-ev15-execution-v7":
         specs["Both Teams to Score - Yes"] = "btts_yes"
+    if data.get("selection_policy_version") in {"72h-five-markets-probability-odds-net-ev15-v8",
+                                              "72h-six-markets-dc12-probability-odds-net-ev15-v9"}:
+        specs.pop("Both Teams to Score - Yes", None)
     markets = set(specs)
     expected = {(key, market, floor) for key in fixtures for market in markets for floor in FLOORS}
     seen = set()

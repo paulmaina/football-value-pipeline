@@ -34,8 +34,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python }}
           cache: pip
@@ -60,6 +60,10 @@ jobs:
         run: python run_offline_tests.py --model-self-test
       - name: Run complete offline regression and integration suite
         run: python -m coverage run run_offline_tests.py
+      - name: Verify conventional pytest entry point with production policy present
+        run: python -m pytest -q tests
+      - name: Verify dotted unittest entry point
+        run: python -m unittest tests.test_all_market_ev_thresholds tests.test_double_chance
       - name: Export coverage and enforce application and critical-module floors
         if: always()
         run: |
@@ -68,7 +72,7 @@ jobs:
           python workflow_checks.py coverage --output workflow_artifacts/coverage-check.json
       - name: Retain test diagnostics
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pipeline-tests-${{ runner.os }}-python-${{ matrix.python }}
           path: workflow_artifacts/

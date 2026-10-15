@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import json
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -11,7 +12,7 @@ from goal_market_validation import prioritized_additional_events
 from performance_excel import write_workbook
 
 
-class PipelineRepairsTests(unittest.TestCase):
+class PipelineRepairsTests(OfflineQuotePolicyTestCase):
     def test_training_uses_regulation_score_and_rejects_unknown_or_future_results(self):
         now = datetime(2026, 10, 11, tzinfo=timezone.utc)
         base = dict(status='FINISHED', homeTeam={'name':'A'}, awayTeam={'name':'B'})

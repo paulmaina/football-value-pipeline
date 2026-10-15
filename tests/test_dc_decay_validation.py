@@ -1,5 +1,6 @@
 """Offline tests for Dixon-Coles time-decay selection."""
 
+from offline_test_case import OfflineQuotePolicyTestCase
 import unittest
 
 import numpy as np
@@ -44,7 +45,7 @@ class DeterministicModel:
         return {"home": 0.4, "draw": 0.3, "away": 0.3}
 
 
-class DixonColesGradientTests(unittest.TestCase):
+class DixonColesGradientTests(OfflineQuotePolicyTestCase):
     def test_analytic_gradient_matches_finite_differences(self):
         home_idx = np.array([0, 1, 2, 3, 0, 2, 1, 3, 0, 1])
         away_idx = np.array([1, 2, 3, 0, 3, 1, 0, 2, 2, 3])
@@ -87,7 +88,7 @@ class DixonColesGradientTests(unittest.TestCase):
         self.assertLess(model.fit_result.nfev, 30000)
 
 
-class DecayValidationTests(unittest.TestCase):
+class DecayValidationTests(OfflineQuotePolicyTestCase):
     def test_no_future_data_leakage(self):
         folds = make_walkforward_folds(
             sample_results(), validation_days=365, step_days=56, min_train=30

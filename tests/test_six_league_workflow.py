@@ -1,4 +1,5 @@
 """One offline six-league run through both experiments, capture and verified review."""
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
 from functools import partial
@@ -20,7 +21,7 @@ from test_recency_experiment import history,tuning,ToyModel
 from workflow_checks import raw_check,report_check
 
 
-class SixLeagueWorkflowTests(unittest.TestCase):
+class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
     def test_all_leagues_both_experiments_readable_outputs_and_forward_grading(self):
         keys=list(LEAGUES);frames={};records=[]
         for i,key in enumerate(keys):
@@ -76,12 +77,12 @@ class SixLeagueWorkflowTests(unittest.TestCase):
             self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],12)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
             self.assertEqual(data['experiments']['filter_sensitivity_experiment']['total_fixtures'],6)
-            self.assertEqual(data['experiments']['filter_sensitivity_experiment']['candidate_decisions'],108)
+            self.assertEqual(data['experiments']['filter_sensitivity_experiment']['candidate_decisions'],126)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['filter_sensitivity_experiment:CAPTURED'],1)
             self.assertEqual(data['experiments']['benchmark_forward_experiment']['paired_fixtures'],0)
             self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),7)
             self.assertEqual(data['experiments']['shortlist_policy_experiment']['total_fixtures'],6)
-            self.assertEqual(data['experiments']['shortlist_policy_experiment']['candidate_decisions'],324)
+            self.assertEqual(data['experiments']['shortlist_policy_experiment']['candidate_decisions'],378)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['shortlist_policy_experiment:CAPTURED'],1)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['benchmark_forward_experiment:CAPTURED'],1)
             self.assertTrue((root/'readable/football_performance_report.xlsx').exists())
