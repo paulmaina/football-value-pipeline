@@ -1,0 +1,24 @@
+{
+  "captured_at_utc": "2026-10-15T13:21:36Z",
+  "data_origin": "git-tracked prediction output at capture time",
+  "generated_at_utc": "2026-10-15T13:16:08.602703Z",
+  "git_commit_sha": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
+  "n_all_forecasts": 94,
+  "n_pre_kickoff_forecasts": 94,
+  "n_shortlist": 2,
+  "schema_version": 1,
+  "selection_policy_version": "72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10",
+  "sha256": {
+    "benchmark_forward_experiment.json": "b0738045a564f72a80cfb832a5051ca16d8e9cd02c4a8e9adc69e52e4e64d857",
+    "filter_sensitivity_experiment.json": "b1dfdcec0c2ba5454a9cbea8db9867b66b708128bfbfbc8241f216605adbb792",
+    "goal_blend_experiment.json": "7b705bb9976c96668020b0138dbef4404b9c925f85c8a41c494fe100df14fcd3",
+    "market_led_experiment.json": "02e33af9fa9b4c5ae1e969cff516082a1ea593696212e958be842fe0c21c5010",
+    "model_reliability_experiment.json": "3823c458179d9ccdaa97734d2d13e55b3fc890f31caadc5d8738c1eea45c9f10",
+    "pipeline_health.json": "fcce77adee4224a7ea8e16c967483bbf8678f3b5b35333ddf5a203f9b04cf109",
+    "predictions.csv": "546338d131ae6f55bea10e277471fce86749fd463d502aceb4087f8ce41399e3",
+    "selection_summary.json": "14df8780e371edf4bc2bb580e651839c2b3c06f8f33de87c2c48f43ff8787b3f",
+    "shortlist.csv": "737f73f11ad5b598c6aeaf92a6ef24a38620ebc7171f119c459afb4b9a064987",
+    "shortlist_policy_experiment.json": "4ea544f2fae3429f64b6fe8b3f28c63c1b6639452108827dfffbb8134ccaadf0",
+    "totals_anchor_experiment.json": "c4e7a6ca6f432937d669282ae4ef9e1c96a99e24648b9b3aee92f2e625a30093"
+  }
+}
