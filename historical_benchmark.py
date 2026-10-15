@@ -124,7 +124,7 @@ def goals(matrix):
             'btts_yes':float(matrix[1:,1:].sum()),'over_2_5':float(matrix[h+a>=3].sum())}
 
 
-def anchor_totals(lam,mu,rho,target_hda,target_over,max_goals):
+def anchor_totals(lam,mu,rho,target_hda,target_over,max_goals,*,tail_bounded=False):
     """Scale fitted intensities; retain fitted rho and exact HDA target after reweighting.
 
     This constrained proportional scaling is NOT a joint parameter fit.
@@ -132,7 +132,13 @@ def anchor_totals(lam,mu,rho,target_hda,target_over,max_goals):
     """
     from football_value_pipeline_v2_standalone import reweight_matrix_to_1x2
     if not 0<target_over<1:raise ValueError('Invalid totals target')
-    def matrix(scale):return reweight_matrix_to_1x2(adjusted_matrix(lam*scale,mu*scale,rho,max_goals),target_hda)
+    def matrix(scale):
+        if tail_bounded:
+            from score_probability import score_grid
+            raw,_=score_grid(lam*scale,mu*scale,rho,max_goals)
+        else:
+            raw=adjusted_matrix(lam*scale,mu*scale,rho,max_goals)
+        return reweight_matrix_to_1x2(raw,target_hda)
     points=[]
     for scale in np.geomspace(.2,4,22):
         try:points.append((float(scale),goals(matrix(scale))['over_2_5']-target_over))
@@ -222,7 +228,7 @@ def evaluate_league(data, league, cfg, model_class=None):
                 for name,pair in [('totals_opening_anchor',ou_open),('totals_closing_oracle',ou_close)]:
                     if pair is None:continue
                     try:
-                        info=meta['baseline'];m,scale=anchor_totals(info['lambda_home'],info['lambda_away'],models['baseline'].rho,target,float(pair[0]),cfg['max_goals'])
+                        info=meta['baseline'];m,scale=anchor_totals(info['lambda_home'],info['lambda_away'],models['baseline'].rho,target,float(pair[0]),cfg['max_goals'],tail_bounded=bool(info.get('score_engine_version')))
                         append(name,m,timing='closing_oracle_evaluation_only' if 'closing' in name else 'nominal_opening_untimestamped',scale=scale)
                     except ValueError:
                         coverage[name+'_solver_failures']+=1
@@ -434,7 +440,7 @@ def run(cache,output,cfg,source_commit='unrecorded',model_class=None,input_manif
         'input_binding':'PINNED_SHA256' if input_manifest is not None else 'UNPINNED_DIAGNOSTIC',
         'source_files':sources,'coverage':coverage,'excluded_rows':exclusions,'fit_errors':errors,
         'evaluated_fixtures':len({r['fixture_key'] for r in records}),
-        'code_sha256':{p.name:digest(p) for p in (Path(__file__),Path(__file__).with_name('football_value_pipeline_v2_standalone.py'))},
+        'code_sha256':{p.name:digest(p) for p in (Path(__file__),Path(__file__).with_name('football_value_pipeline_v2_standalone.py'),Path(__file__).with_name('score_probability.py'))},
         'runtime':{'python':platform.python_version(),'numpy':np.__version__,'pandas':pd.__version__},
         'limitations':'Retrospective diagnostics only. Historical periods were already examined by Claude and are not untouched evidence. Nominal opening odds lack exact availability timestamps; no historical betting edge/ROI/CLV claim is made. Closing inputs are explicitly oracle/evaluation-only. Baseline fixes half-life at 240 days rather than replaying production tuning. Fitted rho is retained for totals scaling. No bookmaker fallback, new data download or automatic production change.',
         **aggregate(records,cfg)}

@@ -1707,19 +1707,12 @@ class DixonColesModel:
         lam = float(meta["lambda_home"])
         mu = float(meta["lambda_away"])
 
-        g = np.arange(self.max_goals + 1)
-        matrix = np.outer(poisson.pmf(g, lam), poisson.pmf(g, mu))
-
-        # Dixon-Coles adjustment affects only 0-0, 0-1, 1-0, 1-1.
-        for hg, ag in ((0, 0), (0, 1), (1, 0), (1, 1)):
-            matrix[hg, ag] *= self._tau_scalar(hg, ag, lam, mu, self.rho)
-
-        total = float(matrix.sum())
-        if total <= 0 or not math.isfinite(total):
-            raise RuntimeError("Invalid score probability matrix")
-
-        # max_goals truncates tiny tails. Renormalize to exact probability mass 1.
-        matrix /= total
+        from score_probability import score_grid
+        try:
+            matrix, grid_info = score_grid(lam, mu, self.rho, self.max_goals)
+        except ValueError as exc:
+            raise RuntimeError(str(exc)) from exc
+        meta.update(grid_info)
         return matrix, meta
 
     @staticmethod
@@ -2092,7 +2085,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--reliability-experiment", action="store_true",
                    help="Compare stronger L2 and fixed half-life fits prospectively; no production changes or extra odds requests.")
     p.add_argument("--l2", type=float, default=0.08)
-    p.add_argument("--max-goals", type=int, default=10)
+    p.add_argument("--max-goals", type=int, default=10,
+                   help="Minimum score-grid limit; expands automatically to bound omitted probability.")
     p.add_argument("--lookahead-days", type=int, default=10)
     p.add_argument("--cache-dir", default=".football_cache")
     p.add_argument("--out-dir", default="football_output")
@@ -2283,7 +2277,9 @@ def reweight_matrix_to_1x2(
     from one internally consistent score matrix.
     """
     target_arr = np.asarray(target, dtype=float)
-    if target_arr.shape != (3,) or np.any(target_arr < 0):
+    from score_probability import valid_matrix
+    matrix = valid_matrix(matrix)
+    if target_arr.shape != (3,) or not np.isfinite(target_arr).all() or np.any(target_arr < 0) or target_arr.sum() <= 0:
         raise ValueError("target must be [home, draw, away]")
     if not math.isclose(float(target_arr.sum()), 1.0, rel_tol=0, abs_tol=1e-8):
         target_arr = target_arr / target_arr.sum()
@@ -2854,7 +2850,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         if getattr(self, '_benchmark_trial_enabled', False):
             self._benchmark_score_matrices[(home, away, str(row.get('kickoff_utc')))] = matrix.copy()
             if hasattr(self, '_totals_shadow_inputs'):
-                self._totals_shadow_inputs[(home, away, str(row.get('kickoff_utc')))] = {'lambda_home': meta['lambda_home'], 'lambda_away': meta['lambda_away'], 'rho': float(model.rho), 'max_goals': model.max_goals, 'reference': row.get('shadow_pinnacle_totals')}
+                self._totals_shadow_inputs[(home, away, str(row.get('kickoff_utc')))] = {'lambda_home': meta['lambda_home'], 'lambda_away': meta['lambda_away'], 'rho': float(model.rho), 'max_goals': matrix.shape[0]-1, 'score_engine_version': meta.get('score_engine_version'), 'reference': row.get('shadow_pinnacle_totals')}
         pred = prediction_from_matrix(model, matrix, meta)
         pred["raw_p_home"] = raw_x12["home"]
         pred["raw_p_draw"] = raw_x12["draw"]
@@ -2899,6 +2895,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
             now=now,
         )
 
+        # Bind validation to the same immutable input frame used for this fit.
+        self._validation_history = history.copy(deep=True)
         if getattr(self, 'recency_experiment_enabled', False):
             self._recency_history = history.copy(deep=True)
         model = DixonColesModel(
@@ -2912,9 +2910,11 @@ class FootballValuePipelineV2(FootballValuePipeline):
         fixtures = self._current_fixtures(league, now)
         fixtures = self._attach_live_odds(fixtures, league, now)
 
+        from goal_market_validation import training_fingerprint
         diagnostics = {
             "league": league.name,
             "training_matches": model.training_matches,
+            "training_sha256": training_fingerprint(history),
             "training_end": None if model.training_end is None else str(model.training_end.date()),
             "fit_success": bool(model.fit_result.success) if model.fit_result is not None else False,
             "objective": float(model.fit_result.fun) if model.fit_result is not None else None,
@@ -3082,6 +3082,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         max_stake_pct: float = 0.02,
         flat_pct: float = 0.01,
         now: Optional[datetime] = None,
+        history_override: Optional[pd.DataFrame] = None,
     ) -> Tuple[pd.DataFrame, pd.DataFrame, Dict[str, object], pd.DataFrame]:
         """
         Walk-forward historical evaluation.
@@ -3094,10 +3095,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         league = LEAGUES[league_key]
         now = now or datetime.now(timezone.utc)
 
-        hist = self._history_for_league(
-            league,
-            now=now,
-        ).sort_values("Date").reset_index(drop=True)
+        hist = (history_override.copy(deep=True) if history_override is not None else
+                self._history_for_league(league, now=now)).sort_values("Date").reset_index(drop=True)
 
         if test_start:
             start = pd.Timestamp(test_start)
@@ -3476,7 +3475,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--reliability-experiment", action="store_true",
                    help="Compare stronger L2 and fixed half-life fits prospectively; no production changes or extra odds requests.")
     p.add_argument("--l2", type=float, default=0.08)
-    p.add_argument("--max-goals", type=int, default=10)
+    p.add_argument("--max-goals", type=int, default=10,
+                   help="Minimum score-grid limit; expands automatically to bound omitted probability.")
     p.add_argument("--lookahead-days", type=int, default=10)
     p.add_argument("--cache-dir", default=".football_cache")
     p.add_argument(
@@ -3796,7 +3796,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                                     if league_key == "UCL" else args.min_train)
             if validation_min_train < 30:
                 raise ValueError("Validation warm-up must contain at least 30 matches")
-            from goal_market_validation import VALIDATOR_VERSION, validation_cache_matches
+            from goal_market_validation import VALIDATOR_VERSION, validation_cache_matches, validation_code_fingerprint
             config = {
                 "validator_version": VALIDATOR_VERSION,
                 "min_train": validation_min_train,
@@ -3809,6 +3809,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 "max_goals": pipe.max_goals,
                 "training_end": diagnostics["training_end"],
                 "training_matches": diagnostics["training_matches"],
+                "training_sha256": diagnostics.get("training_sha256"),
+                "validation_code_sha256": validation_code_fingerprint(),
             }
             cached = None
             if validation_path.exists() and not args.force_refresh:
@@ -3822,7 +3824,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 print(f"[{league_key}] validating goal markets walk-forward...", file=sys.stderr)
                 try:
                     historical, _, _, _ = pipe.backtest_league(
-                        league_key, min_train=validation_min_train, step_days=56
+                        league_key, min_train=validation_min_train, step_days=56,
+                        history_override=getattr(pipe, '_validation_history', None),
                     )
                     market_validation = evaluate_market_history(
                         historical, LEAGUES[league_key].name
