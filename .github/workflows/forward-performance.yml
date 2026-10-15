@@ -25,6 +25,8 @@ on:
       - 'goal_blend_experiment.py'
       - 'recency_experiment.py'
       - 'filter_sensitivity_experiment.py'
+      - 'shortlist_policy_experiment.py'
+      - 'football_output_v2/raw/shortlist_policy_experiment.json'
       - 'benchmark_forward_experiment.py'
       - 'benchmark_forward_registry.json'
       - 'totals_anchor_experiment.py'

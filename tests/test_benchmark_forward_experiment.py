@@ -166,7 +166,7 @@ class ForwardBridgeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);setup(root)
             bf.review_experiment(root,[],[],NOW)
-            q=eq.write_queue(root,NOW);self.assertEqual(len(q['experiments']),6)
+            q=eq.write_queue(root,NOW);self.assertEqual(len(q['experiments']),7)
             self.assertTrue(all(x['status']!='READY_FOR_REVIEW' for x in q['experiments']))
             q['experiments']=[{'name':'benchmark_forward_experiment','key':'trial-1','status':'READY_FOR_REVIEW','settled_evidence':300,'scope':'REVIEW_ONLY'}]
             payload=json.dumps({'content':base64.b64encode(json.dumps(q).encode()).decode()})

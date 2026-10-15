@@ -14,6 +14,13 @@ def is_exchange(name):
 def load_policy(path=None):
     file = Path(path) if path is not None else CONFIG
     data = json.loads(file.read_text(encoding='utf-8-sig')) if file.exists() else {}
+    return validate_policy(data)
+
+
+def validate_policy(data):
+    """Validate current or frozen execution settings without changing globals."""
+    if not isinstance(data, dict):
+        raise ValueError('Execution policy must be an object')
     names = data.get('allowed_bookmakers', [])
     costs = data.get('per_stake_cost_bps', 0)
     if not isinstance(names, list) or any(not isinstance(n, str) or not n.strip() for n in names):
