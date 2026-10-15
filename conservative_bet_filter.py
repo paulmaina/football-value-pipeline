@@ -1,4 +1,4 @@
-"""Experimental ten-match, six-market shortlist; never guarantee winners.
+"""Experimental ten-match, seven-market shortlist; never guarantee winners.
 
 One market per fixture, up to ten distinct matches across the whole run.
 Only select kickoffs within the next 72 hours of the run, including UCL.
@@ -42,10 +42,13 @@ PROVISIONAL_MIN_HIGH_DEVELOPMENT = 3
 
 # These deliberately selective heuristic thresholds have not yet
 # been optimized or independently backtested for betting profitability.
+SELECTION_POLICY_VERSION = "72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10"
+LEGACY_SELECTION_POLICY_VERSION = "72h-six-markets-dc12-probability-odds-net-ev15-v9"
 MARKET_SPECS = (
     ("Home win", "home", 0.65, 0.50),
     ("Away win", "away", 0.65, 0.50),
     ("Over 1.5", "over_1_5", 0.78, 0.72),
+    ("Both Teams to Score - Yes", "btts_yes", 0.70, 0.63),
     ("Double Chance 1X", "home_draw", 0.80, 0.75),
     ("Double Chance X2", "draw_away", 0.80, 0.75),
     ("Double Chance 12", "home_away", 0.80, 0.75),
@@ -430,10 +433,11 @@ def build_conservative_shortlist(
     *, adjusted_ev_floor: Optional[float] = None,
     research_policy: Optional[Mapping] = None,
     execution_policy: Optional[Mapping] = None,
+    selection_policy_version: Optional[str] = None,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Aim for ten distinct fixtures; never fabricate a minimum ten.
 
-    Returns shortlist (at most 10 rows), all market decisions (6 per
+    Returns shortlist (at most 10 rows), all market decisions (7 per
     fixture), and a summary with any shortfall. A shortlisted row is a
     candidate to study, NOT an automatically constructed accumulator.
     """
@@ -441,6 +445,12 @@ def build_conservative_shortlist(
     if now.tzinfo is None:
         raise ValueError("as_of must be timezone-aware")
     now = now.tz_convert("UTC")
+    policy_version = SELECTION_POLICY_VERSION if selection_policy_version is None else selection_policy_version
+    if policy_version not in (SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
+        raise ValueError("Unsupported baseline shortlist policy; preserve replay compatibility")
+    # Archived v9 comparisons must replay their original six-market ranking.
+    specs = tuple(spec for spec in MARKET_SPECS
+                  if policy_version != LEGACY_SELECTION_POLICY_VERSION or spec[1] != "btts_yes")
 
     if adjusted_ev_floor is not None and (not math.isfinite(adjusted_ev_floor) or adjusted_ev_floor < MIN_ESTIMATED_EV):
         raise ValueError("Research EV floor must be finite and at least the production floor")
@@ -457,7 +467,7 @@ def build_conservative_shortlist(
     policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
     evaluated = []
     for _, row in predictions.iterrows():
-        for spec in MARKET_SPECS:
+        for spec in specs:
             report = (
                 market_reliability.get(str(row.get("league") or ""), {})
                 if market_reliability is not None else None
@@ -505,7 +515,7 @@ def build_conservative_shortlist(
         pool = decisions.loc[decisions["decision"] == "REJECTED"].copy()
         minimums = {
             label: (min_p + (research_policy or {}).get('adjusted_shift', 0.0), min_raw)
-            for label, _, min_p, min_raw in MARKET_SPECS
+            for label, _, min_p, min_raw in specs
         }
         pool["historical_gap_score"] = pool.apply(
             lambda item: _near_miss_score(item, minimums, adjusted_ev_floor), axis=1
@@ -576,7 +586,7 @@ def build_conservative_shortlist(
     return shortlist, decisions, {
         "status": status,
         "generated_at_utc": now.isoformat(),
-        "selection_policy_version": "72h-six-markets-dc12-probability-odds-net-ev15-v9",
+        "selection_policy_version": policy_version,
         "n_fixtures": int(len(predictions)),
         "n_markets_evaluated": int(len(decisions)),
         "n_shortlisted": n,
@@ -599,7 +609,7 @@ def build_conservative_shortlist(
             last_kickoff.isoformat() if last_kickoff is not None else None
         ),
         "selection_method": "Strict-first ranking within 72 hours; highest adjusted probability, then highest quoted odds",
-        "eligible_markets": [x[0] for x in MARKET_SPECS],
+        "eligible_markets": [x[0] for x in specs],
         "eligible_leagues": sorted(SUPPORTED_LEAGUES),
         "quote_execution_policy": policy,
         "min_estimated_ev": MIN_ESTIMATED_EV,

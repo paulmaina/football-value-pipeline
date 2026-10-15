@@ -1,4 +1,4 @@
-"""Offline regression tests for ten-match, five-market candidate selection."""
+"""Offline regression tests for ten-match, seven-market candidate selection."""
 
 from offline_test_case import OfflineQuotePolicyTestCase
 from datetime import datetime, timedelta, timezone
@@ -90,14 +90,14 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
     def evaluate(self, *rows):
         return build_conservative_shortlist(pd.DataFrame(list(rows)), as_of=NOW)
 
-    def test_all_six_markets_are_evaluated_but_one_per_match(self):
+    def test_all_seven_markets_are_evaluated_but_one_per_match(self):
         shortlist, decisions, summary = self.evaluate(fixture())
-        self.assertEqual(len(decisions), 6)
+        self.assertEqual(len(decisions), 7)
         self.assertEqual(len(shortlist), 1)
         self.assertEqual(shortlist.iloc[0]["market"], "Over 1.5")
         self.assertEqual(summary["status"], "BELOW_TARGET")
         self.assertEqual(summary["shortfall"], 9)
-        self.assertEqual(len(decisions[decisions.decision == "NOT_SELECTED"]), 1)
+        self.assertEqual(len(decisions[decisions.decision == "NOT_SELECTED"]), 2)
 
     def test_equal_probability_uses_highest_quoted_odds(self):
         row = fixture()
@@ -110,13 +110,15 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
         picks, _, _ = self.evaluate(fixture())
         self.assertEqual(picks.iloc[0]["market"], "Over 1.5")
 
-    def test_btts_is_excluded_even_with_high_probability_and_value(self):
+    def test_btts_can_win_the_same_fixture_ranking(self):
         row = fixture()
-        row.update(p_btts_yes=0.99, raw_p_btts_yes=0.99, market_btts_yes_odds=2.0)
+        row.update(p_btts_yes=0.83, raw_p_btts_yes=0.80, market_btts_yes_odds=1.40,
+                   p_over_1_5=0.78)
         picks, decisions, summary = self.evaluate(row)
-        self.assertNotIn("Both Teams to Score - Yes", decisions["market"].tolist())
-        self.assertNotIn("Both Teams to Score - Yes", summary["eligible_markets"])
-        self.assertEqual(picks.iloc[0]["market"], "Over 1.5")
+        self.assertIn("Both Teams to Score - Yes", decisions["market"].tolist())
+        self.assertIn("Both Teams to Score - Yes", summary["eligible_markets"])
+        self.assertEqual(picks.iloc[0]["market"], "Both Teams to Score - Yes")
+        self.assertEqual(picks.iloc[0]["selection_tier"], "STRICT")
 
     def test_exactly_ten_distinct_fixtures_selected_across_multiple_days(self):
         rows = [fixture(i) for i in range(12)]
@@ -125,8 +127,49 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
         self.assertEqual(shortlist["fixture_id"].nunique(), 10)
         self.assertEqual(summary["status"], "TARGET_MET")
         self.assertEqual(summary["shortfall"], 0)
-        self.assertEqual(len(decisions), 72)
+        self.assertEqual(len(decisions), 84)
         self.assertEqual(len(decisions[decisions.decision == "SHORTLISTED"]), 10)
+
+    def test_btts_strict_selection_preserves_probability_value_and_evidence_gates(self):
+        from test_graded_candidates import sample_report
+        import copy
+        row = fixture()
+        row.update(p_btts_yes=.83, raw_p_btts_yes=.80, market_btts_yes_odds=1.40)
+        for key in ("home", "away", "over_1_5"):
+            row[f"market_{key}_odds"] = None
+        report = sample_report()
+        def select(candidate, evidence):
+            return build_conservative_shortlist(pd.DataFrame([candidate]), as_of=NOW,
+                market_reliability={"Premier League": evidence})
+        picks, _, _ = select(row, report)
+        self.assertEqual(picks.market.tolist(), ["Both Teams to Score - Yes"])
+        self.assertEqual(picks.selection_tier.tolist(), ["STRICT"])
+        cases = [
+            ({"p_btts_yes": .69}, "blended probability below"),
+            ({"raw_p_btts_yes": .62}, "raw Dixon-Coles probability below"),
+            ({"raw_p_btts_yes": .63}, "independent Dixon-Coles EV is negative"),
+            ({"market_btts_yes_odds": 1.22}, "reliability-adjusted EV below"),
+            ({"market_btts_yes_odds": None}, "no validated bookmaker quote"),
+            ({"market_reference_btts_yes_opposite_odds": None}, "incomplete same-book"),
+            ({"market_best_btts_yes_last_update_utc": (NOW-timedelta(hours=25)).isoformat()}, "stale"),
+        ]
+        for changes, reason in cases:
+            with self.subTest(changes=changes):
+                picks, decisions, _ = select(dict(row, **changes), report)
+                self.assertTrue(picks.empty)
+                btts = decisions.loc[decisions.market.eq("Both Teams to Score - Yes")].iloc[0]
+                self.assertEqual(btts.decision, "REJECTED")
+                self.assertIn(reason, btts.rejection_reasons)
+        for changes, reason in [
+            ({"status": "INSUFFICIENT_HISTORY"}, "market historical reliability"),
+            ({"confidence_penalty": .14}, "reliability-adjusted probability below"),
+        ]:
+            with self.subTest(validation=changes):
+                evidence = copy.deepcopy(report)
+                evidence["markets"]["btts_yes"].update(changes)
+                picks, decisions, _ = select(row, evidence)
+                self.assertTrue(picks.empty)
+                self.assertIn(reason, decisions.loc[decisions.market.eq("Both Teams to Score - Yes")].iloc[0].rejection_reasons)
 
     def test_winner_markets_without_extra_odds_remain_eligible(self):
         row = fixture()
@@ -135,7 +178,7 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
         picks, decisions, _ = self.evaluate(row)
         self.assertEqual(len(picks), 1)
         self.assertEqual(picks.iloc[0]["market"], "Home win")
-        self.assertEqual(len(decisions), 6)
+        self.assertEqual(len(decisions), 7)
 
     def test_away_win_can_be_selected(self):
         row = fixture()
@@ -310,6 +353,3 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
-
