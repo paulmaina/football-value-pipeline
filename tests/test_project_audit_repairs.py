@@ -99,7 +99,9 @@ class QuoteInputTests(OfflineQuotePolicyTestCase):
             response['bookmakers'][0]['markets'] = [{'key': market_key, 'last_update': NOW.isoformat(), 'outcomes': outcomes}]
             with self.subTest(market=market_key, point=point), tempfile.TemporaryDirectory() as tmp:
                 api = TheOddsAPI('offline', cache_dir=tmp)
-                with patch.object(api, '_get_json', return_value=response):
+                with patch.object(api, '_get_json', return_value=response), patch(
+                        'football_value_pipeline_v2_standalone.datetime') as clock:
+                    clock.now.return_value = NOW
                     self.assertEqual(api.extra_markets_for_event(LEAGUES['EPL'], 'e')[result_key], 1.4)
                     outcomes.append(copy.deepcopy(outcomes[0]))
                     self.assertNotIn(result_key, api.extra_markets_for_event(LEAGUES['EPL'], 'e'))
