@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 import unittest
 from unittest.mock import patch
@@ -20,7 +21,7 @@ def event():
          for name in ('Book A','Book B')]}
 
 
-class DoubleChanceTests(unittest.TestCase):
+class DoubleChanceTests(OfflineQuotePolicyTestCase):
     def test_probability_sum_not_synthetic_odds(self):
         r=probabilities({'p_home':.6,'p_draw':.25,'p_away':.15,
                          'raw_p_home':.5,'raw_p_draw':.3,'raw_p_away':.2})
@@ -119,7 +120,7 @@ class DoubleChanceTests(unittest.TestCase):
                 self.assertEqual(r['market_home_draw_odds'],1.35)
 
 
-class DoubleChanceAdjustedThresholdTests(unittest.TestCase):
+class DoubleChanceAdjustedThresholdTests(OfflineQuotePolicyTestCase):
     def candidate(self, key, adjusted=.75, ev=.015):
         row=fixture()
         row.update(parse_quotes(event()))

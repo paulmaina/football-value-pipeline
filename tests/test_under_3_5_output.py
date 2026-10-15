@@ -1,5 +1,6 @@
 """Regression tests for the Under 3.5 probability in prediction reports."""
 
+from offline_test_case import OfflineQuotePolicyTestCase
 from pathlib import Path
 import tempfile
 import unittest
@@ -14,7 +15,7 @@ from format_football_output import (
 from test_conservative_bet_filter import fixture
 
 
-class UnderThreePointFiveReportingTests(unittest.TestCase):
+class UnderThreePointFiveReportingTests(OfflineQuotePolicyTestCase):
     def test_readable_predictions_include_under_three_point_five(self):
         row = fixture()
         row["p_under_3_5"] = 0.79123

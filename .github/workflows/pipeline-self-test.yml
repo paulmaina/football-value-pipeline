@@ -60,6 +60,10 @@ jobs:
         run: python run_offline_tests.py --model-self-test
       - name: Run complete offline regression and integration suite
         run: python -m coverage run run_offline_tests.py
+      - name: Verify conventional pytest entry point with production policy present
+        run: python -m pytest -q tests
+      - name: Verify dotted unittest entry point
+        run: python -m unittest tests.test_all_market_ev_thresholds tests.test_double_chance
       - name: Export coverage and enforce application and critical-module floors
         if: always()
         run: |

@@ -115,7 +115,7 @@ experimental evidence. Older raw experiment files are not retroactively graded.
 
 Daily source, execution and experimental capture evidence is described in [daily evidence](daily-evidence.md). The new UCL refresh CLI is included in smoke checks; its validation/publishing modules, quote policy and health reporting have dedicated regression and coverage gates.
 
-Offline checks use `run_offline_tests.py` to isolate synthetic bookmaker fixtures from personal account allowlists. Use `py run_offline_tests.py --model-self-test` for the model-only check. Production still loads `shortlist_quote_policy.json`.
+Offline cases inject their own quote policy for the test lifecycle, including failures, without editing the personal account allowlist. Both `py run_offline_tests.py` and ordinary `py -m pytest -q tests` / `py -m unittest discover -s tests -q` use this isolation. CI runs the canonical coverage suite, ordinary pytest and a dotted unittest smoke check with the production policy file present. Use `py run_offline_tests.py --model-self-test` for the model-only check. Production still loads `shortlist_quote_policy.json`.
 
 The optional recency extension reuses the goal sidecar manifest. Fresh recency reports are additionally reconciled with first frozen variant probabilities, half-lives, official finished scores, complete graded/coverage cohorts, paired score differences, calibration and weekly aggregates before publication. See [recency experiment](recency-experiment.md).
 

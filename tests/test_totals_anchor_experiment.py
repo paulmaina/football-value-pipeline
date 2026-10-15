@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
 import hashlib
@@ -26,7 +27,7 @@ def sample():
     return row,m,inputs
 
 
-class TotalsTests(unittest.TestCase):
+class TotalsTests(OfflineQuotePolicyTestCase):
     def test_anchor_matches_totals_preserves_hda_and_production(self):
         row,m,inputs=sample();before=m.copy();r,_=t.registry();d=t.decision(row,m,inputs,NOW,r)
         self.assertEqual(d['status'],'available');self.assertAlmostEqual(d['candidate_goals']['over_2_5'],.5,places=7);np.testing.assert_array_equal(before,m)
@@ -110,4 +111,3 @@ class TotalsTests(unittest.TestCase):
             fake['rows']=observations;write_json(directory/t.FILE,fake);meta['sha256'][t.FILE]=hashlib.sha256((directory/t.FILE).read_bytes()).hexdigest()
             with patch.object(t,'registry',return_value=(r,sha)),patch.object(t,'validate'),patch('forecast_integrity.forecast_digest_variants',return_value={'x'}):
                 s,g,c=t.evaluate(root,[(meta,[],[])],records,NOW+timedelta(days=4));self.assertEqual(s['paired_fixtures'],300);self.assertEqual(s['status'],'READY_FOR_REVIEW');self.assertFalse(s['automatic_production_change'])
-

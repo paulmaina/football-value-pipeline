@@ -1,5 +1,6 @@
 """Window-cohort and shortlist formatter regression tests (offline)."""
 
+from offline_test_case import OfflineQuotePolicyTestCase
 from datetime import timedelta
 import json
 from pathlib import Path
@@ -17,7 +18,7 @@ from format_football_output import (
 from test_conservative_bet_filter import NOW, fixture
 
 
-class SeventyTwoHourSelectionTests(unittest.TestCase):
+class SeventyTwoHourSelectionTests(OfflineQuotePolicyTestCase):
     def setUp(self):
         self.clock = NOW
 
@@ -81,7 +82,7 @@ class SeventyTwoHourSelectionTests(unittest.TestCase):
         self.assertEqual(info["shortfall"], 9)
 
 
-class FormatterIntegrationTests(unittest.TestCase):
+class FormatterIntegrationTests(OfflineQuotePolicyTestCase):
     def test_refresh_replaces_stale_outputs_and_uses_all_stored_candidates(self):
         from refresh_conservative_shortlist import refresh
         from test_graded_candidates import sample_report, only_over_goal

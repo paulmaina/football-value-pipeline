@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import datetime, timedelta, timezone
 import json
@@ -29,7 +30,7 @@ def payload():
             'matches': [match(1, 'FINISHED', timedelta(days=-1)), match(2, 'TIMED', timedelta(days=1))]}
 
 
-class DailyHealthTests(unittest.TestCase):
+class DailyHealthTests(OfflineQuotePolicyTestCase):
     def test_ucl_cache_names_are_utf8_under_windows_default_encoding(self):
         p=payload();p['matches'][0]['homeTeam']['name']='Atlético Madrid'
         p['matches'][0]['awayTeam']['name']='Bodø/Glimt'

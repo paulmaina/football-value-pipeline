@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
 import hashlib
@@ -64,7 +65,7 @@ def setup(root, data=None, rows=None):
     return raw, data, result
 
 
-class ReliabilityTests(unittest.TestCase):
+class ReliabilityTests(OfflineQuotePolicyTestCase):
     def test_legacy_truncated_time_recovers_using_verified_summary(self):
         with tempfile.TemporaryDirectory() as tmp, patch(__name__+'.NOW',NOW.replace(microsecond=904906)):
             root=Path(tmp);setup(root)
@@ -255,4 +256,3 @@ class ReliabilityTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
