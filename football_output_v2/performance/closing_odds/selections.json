@@ -1229,5 +1229,63 @@
     "snapshot_commit": "b57f98f7704eb71a9d1b11eddf359e66786ea2fe",
     "snapshot_generated_utc": "2026-10-15T09:51:36.740270Z",
     "validation_status": "RELIABLE_FOR_RANKING"
+  },
+  {
+    "audit_brier": "0.19883193912754513",
+    "audit_validation_matches": "81",
+    "away_team": "SC Freiburg",
+    "bookmaker": "1xBet",
+    "bookmaker_availability": "USER_ALLOWLIST",
+    "calibration_penalty": "0.0",
+    "closing": {
+      "1xbet": {
+        "status": "PENDING_KICKOFF"
+      },
+      "pinnacle": {
+        "status": "PENDING_KICKOFF"
+      }
+    },
+    "conservative_estimated_ev": "0.02106162354762353",
+    "date": "2026-10-18",
+    "decision": "SHORTLISTED",
+    "development_validation_matches": "242",
+    "entry_price_basis": "frozen offered quote; accepted execution unverified",
+    "estimated_edge": "0.0400710854605032",
+    "estimated_ev": "0.02106162354762353",
+    "evaluated_at_utc": "2026-10-15T15:32:56.850870+00:00",
+    "fixture_id": "096d800bcc95c547ef592cbef624d080",
+    "fixture_key": "Bundesliga|bayer leverkusen|freiburg|2026-10-18",
+    "gross_estimated_ev": "0.02106162354762353",
+    "high_confidence_audit_matches": "25.0",
+    "high_confidence_audit_observed_rate": "0.84",
+    "high_confidence_development_matches": "86.0",
+    "high_confidence_overconfidence": "0.010791692104847539",
+    "high_confidence_penalty": "0.0",
+    "high_confidence_status": "PASSED",
+    "high_confidence_tier": "75plus",
+    "high_confidence_wilson95_lower": "0.6534598601976183",
+    "high_confidence_wilson95_upper": "0.9359665239142201",
+    "historical_gap_score": "",
+    "home_team": "Bayer Leverkusen",
+    "kickoff_utc": "2026-10-18T13:30:00+00:00",
+    "league": "Bundesliga",
+    "market": "Double Chance 1X",
+    "market_probability": "0.7833657077230642",
+    "min_team_name_match_score": "90.0",
+    "near_miss_reason": "",
+    "odds_age_hours": "0.011347463888888888",
+    "offered_decimal_odds": "1.24",
+    "per_stake_cost": "0.0",
+    "predicted_probability": "0.8234367931835674",
+    "rank_probability": "0.8234367931835674",
+    "raw_dc_ev": "0.05738694571615066",
+    "raw_dc_probability": "0.8527314078356054",
+    "rejection_reasons": "",
+    "selection_policy_version": "72h-seven-markets-fresh-references-net-ev15-v11",
+    "selection_tier": "STRICT",
+    "snapshot_captured_utc": "2026-10-15T15:39:24Z",
+    "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
+    "snapshot_generated_utc": "2026-10-15T15:32:56.850870Z",
+    "validation_status": "RELIABLE_FOR_RANKING"
   }
 ]

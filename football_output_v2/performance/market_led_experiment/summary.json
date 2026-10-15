@@ -407,17 +407,17 @@
   "graded_selections": 0,
   "late_reference_proxy_count": 0,
   "missing_reasons": {
-    "event_identity_or_kickoff_mismatch": 206,
-    "missing_invalid_or_stale_pinnacle_1x2": 206,
-    "no_fresh_independent_complete_dc_offer": 206,
-    "outside_selection_window": 206,
+    "event_identity_or_kickoff_mismatch": 224,
+    "missing_invalid_or_stale_pinnacle_1x2": 224,
+    "no_fresh_independent_complete_dc_offer": 224,
+    "outside_selection_window": 224,
     "unlinked_fixture": 36
   },
   "note": "Paper results at feed odds, not realized returns. Costs are user-configured per stake. Late reference proxy uses only archived quotes 20–60 minutes before kickoff; not actual closing odds. No automatic collection at close or promotion.",
-  "observed_fixture_markets": 242,
+  "observed_fixture_markets": 260,
   "paired_graded_fixture_markets": 32,
   "pending_or_unverified_selections": 0,
-  "reviewed_at_utc": "2026-10-15T15:13:16.300635+00:00",
+  "reviewed_at_utc": "2026-10-15T15:39:39.237380+00:00",
   "selected": 0,
   "settings_observed": [
     {
