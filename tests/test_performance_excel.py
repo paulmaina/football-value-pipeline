@@ -1,4 +1,5 @@
 """Verify native Excel report calculations, integrity and integration offline."""
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 import tempfile
 from pathlib import Path
@@ -32,7 +33,7 @@ def cell(path, sheet, address):
         return v.text if c.get('t')=='str' else float(v.text)
 
 
-class ExcelReportTests(unittest.TestCase):
+class ExcelReportTests(OfflineQuotePolicyTestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=Path(self.temp.name)

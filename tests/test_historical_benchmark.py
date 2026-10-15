@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import datetime
 import hashlib
@@ -40,7 +41,7 @@ class ToyModel:
         return hb.adjusted_matrix(lam,mu,self.rho,self.max_goals),{'lambda_home':lam,'lambda_away':mu}
 
 
-class HistoricalBenchmarkTests(unittest.TestCase):
+class HistoricalBenchmarkTests(OfflineQuotePolicyTestCase):
     def test_configuration_rejects_leaky_dates_and_invalid_grids(self):
         hb.validate_config(config())
         for key,value in [('audit_start','2025-07-01'),('test_end_exclusive','2025-08-02'),('min_train',10),

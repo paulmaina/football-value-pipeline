@@ -1,4 +1,5 @@
 """Monitoring layout must preserve calculations, uncertainty and source evidence."""
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 import json
 from pathlib import Path
@@ -26,7 +27,7 @@ def row(key, status='WON', price=1.3, week='2026-W41'):
     return dict(fixture_key=key,kickoff_utc='2026-10-12T16:00:00Z',league='EPL',home_team='Home',away_team='Away',market='Over 1.5',selection_tier='STRICT',predicted_probability=.8,offered_decimal_odds=price,status=status,week=week,selection_policy_version='policy',per_stake_cost=.02)
 
 
-class MonitoringLayoutTests(unittest.TestCase):
+class MonitoringLayoutTests(OfflineQuotePolicyTestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup);self.root=Path(self.temp.name)
 

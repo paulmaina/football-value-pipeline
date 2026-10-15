@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import json
 from pathlib import Path
 import subprocess
@@ -10,7 +11,7 @@ from refresh_training_data import git
 from test_daily_health import payload, NOW
 
 
-class UCLPublisherTests(unittest.TestCase):
+class UCLPublisherTests(OfflineQuotePolicyTestCase):
     def test_publish_retries_main_race_and_keeps_unrelated_work(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);remote=root/'remote.git';repo=root/'repo';other=root/'other'

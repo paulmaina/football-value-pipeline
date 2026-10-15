@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 from pathlib import Path
 import subprocess
 import tempfile
@@ -15,13 +16,16 @@ def repo(directory):
     return source,remote
 
 
-class ScheduledPublisherTests(unittest.TestCase):
+class ScheduledPublisherTests(OfflineQuotePolicyTestCase):
     def test_capture_commit_and_safe_retry_preserve_concurrent_main(self):
         with tempfile.TemporaryDirectory() as tmp:
             source,remote=repo(tmp);calls=[];attempt=[0]
             def runner(cmd,cwd,check):
                 work=Path(cwd);calls.append(cmd)
                 if cmd[1]=='football_value_pipeline_v2_standalone.py':
+                    for flag in ('--recency-experiment', '--reliability-experiment',
+                                 '--goal-blend-experiment', '--market-led-experiment'):
+                        self.assertIn(flag, cmd)
                     raw=work/'football_output_v2/raw';raw.mkdir(parents=True,exist_ok=True);(raw/'forecast.csv').write_text(str(len(calls)))
                 if cmd[1]=='performance_tracking.py' and cmd[2]=='capture':
                     self.assertEqual(cmd[-1],git(work,'rev-parse','HEAD').stdout.strip())

@@ -1,4 +1,5 @@
 """Regression coverage for adding markets to cached historical validation."""
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 import json
 from pathlib import Path
@@ -16,7 +17,7 @@ from football_value_pipeline_v2_standalone import main
 from test_conservative_bet_filter import fixture
 
 
-class ValidationCacheTests(unittest.TestCase):
+class ValidationCacheTests(OfflineQuotePolicyTestCase):
     def test_12_gets_real_historical_validation_in_every_competition(self):
         prediction = fixture()
         prediction.update(p_home=.4, p_draw=.2, p_away=.4,

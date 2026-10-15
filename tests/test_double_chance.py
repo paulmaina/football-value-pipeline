@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 import unittest
 from unittest.mock import patch
@@ -20,7 +21,7 @@ def event():
          for name in ('Book A','Book B')]}
 
 
-class DoubleChanceTests(unittest.TestCase):
+class DoubleChanceTests(OfflineQuotePolicyTestCase):
     def test_probability_sum_not_synthetic_odds(self):
         r=probabilities({'p_home':.6,'p_draw':.25,'p_away':.15,
                          'raw_p_home':.5,'raw_p_draw':.3,'raw_p_away':.2})
@@ -74,7 +75,7 @@ class DoubleChanceTests(unittest.TestCase):
         picks,decisions,summary=build_conservative_shortlist(pd.DataFrame([r]),as_of=NOW,
             market_reliability={'Premier League':report})
         self.assertNotIn('Under 3.5',decisions.market.tolist())
-        self.assertEqual(summary['selection_policy_version'],'72h-six-markets-dc12-probability-odds-net-ev15-v9')
+        self.assertEqual(summary['selection_policy_version'],'72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10')
         dc=decisions.loc[decisions.market.eq('Double Chance 1X')].iloc[0]
         self.assertNotEqual(dc.decision,'REJECTED',dc.rejection_reasons)
         r.pop('market_home_draw_odds')
@@ -119,7 +120,7 @@ class DoubleChanceTests(unittest.TestCase):
                 self.assertEqual(r['market_home_draw_odds'],1.35)
 
 
-class DoubleChanceAdjustedThresholdTests(unittest.TestCase):
+class DoubleChanceAdjustedThresholdTests(OfflineQuotePolicyTestCase):
     def candidate(self, key, adjusted=.75, ev=.015):
         row=fixture()
         row.update(parse_quotes(event()))

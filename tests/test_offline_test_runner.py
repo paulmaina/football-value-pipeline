@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 from pathlib import Path
 import unittest
 from unittest.mock import Mock, patch
@@ -5,7 +6,7 @@ import quote_policy
 from run_offline_tests import main
 
 
-class OfflineTestRunnerTests(unittest.TestCase):
+class OfflineTestRunnerTests(OfflineQuotePolicyTestCase):
     def test_suite_uses_test_policy_without_changing_production_setting(self):
         original = quote_policy.CONFIG
         def discover(path):

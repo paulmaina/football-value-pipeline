@@ -12,7 +12,8 @@ import numpy as np
 import pandas as pd
 
 VERSION = 'shortlist-probability-calibration-v1'
-BASELINE_POLICY = '72h-six-markets-dc12-probability-odds-net-ev15-v9'
+BASELINE_POLICY = '72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10'
+LEGACY_BASELINE_POLICY = '72h-six-markets-dc12-probability-odds-net-ev15-v9'
 NAME = 'shortlist_policy_experiment'
 VARIANTS = {
     'control': {},
@@ -53,11 +54,18 @@ def equivalent(actual, expected):
     return type(actual) is type(expected) and actual == expected
 
 
-def decision_rows(predictions, generated, reliability, execution):
+def decision_rows(predictions, generated, reliability, execution, baseline_policy=None):
     from conservative_bet_filter import build_conservative_shortlist
     from filter_sensitivity_experiment import clean as clean_frame
     from performance_tracking import utc
+    baseline_policy = BASELINE_POLICY if baseline_policy is None else baseline_policy
     predictions = predictions.copy()
+    # pandas uses NaN for an absent quote name; the archive CSV reader uses
+    # empty strings. Both mean missing, and must replay as JSON null.
+    for column in predictions.columns:
+        if column == 'fixture_id' or (column.startswith('best_') and column.endswith('_bookmaker')):
+            predictions[column] = predictions[column].map(
+                lambda value: None if pd.isna(value) or value == '' else value)
     if 'market_blend_applied' in predictions:
         # The archive reader returns CSV strings; preserve the original boolean
         # semantics when replaying, rather than accepting truthy text generally.
@@ -67,8 +75,9 @@ def decision_rows(predictions, generated, reliability, execution):
     for variant, policy in VARIANTS.items():
         _, decisions, summary = build_conservative_shortlist(
             predictions, as_of=utc(generated), market_reliability=reliability,
-            research_policy=policy, execution_policy=execution)
-        if summary['selection_policy_version'] != BASELINE_POLICY:
+            research_policy=policy, execution_policy=execution,
+            selection_policy_version=baseline_policy)
+        if summary['selection_policy_version'] != baseline_policy:
             raise ValueError('Unsupported baseline shortlist policy; preserve replay compatibility')
         rows.extend({**row, 'variant_id': variant} for row in clean_frame(decisions))
     return rows
@@ -98,7 +107,7 @@ def validate(data, generated, predictions):
     from quote_policy import validate_policy
     if not isinstance(data, dict) or data.get('version') != VERSION or data.get('variants') != VARIANTS:
         raise ValueError('Invalid shortlist policy version/grid')
-    if data.get('selection_policy_version') != BASELINE_POLICY:
+    if data.get('selection_policy_version') not in (BASELINE_POLICY, LEGACY_BASELINE_POLICY):
         raise ValueError('Unbound baseline policy')
     if utc(generated) is None or utc(data.get('generated_at_utc')) != utc(generated):
         raise ValueError('Unbound shortlist policy generation time')
@@ -111,7 +120,8 @@ def validate(data, generated, predictions):
     execution = validate_policy(data.get('execution_policy'))
     if execution != data.get('execution_policy'):
         raise ValueError('Invalid frozen execution policy')
-    expected = decision_rows(pd.DataFrame(predictions), generated, reliability, execution)
+    expected = decision_rows(pd.DataFrame(predictions), generated, reliability, execution,
+                             baseline_policy=data['selection_policy_version'])
     # JSON is canonicalised so NaN, duplicates, missing rows, altered rankings,
     # rejection reasons, prices, costs, penalties and thresholds all fail closed.
     if not equivalent(clean(data.get('rows')), clean(expected)):
