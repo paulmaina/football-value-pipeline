@@ -227,6 +227,7 @@
   "goal_market_reliability": {
     "home_draw": "RELIABLE_FOR_RANKING",
     "draw_away": "RELIABLE_FOR_RANKING",
+    "home_away": "UNRELIABLE_AUDIT",
     "home": "RELIABLE_FOR_RANKING",
     "away": "RELIABLE_FOR_RANKING",
     "over_1_5": "UNRELIABLE_AUDIT",
