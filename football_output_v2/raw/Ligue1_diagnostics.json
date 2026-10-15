@@ -1,6 +1,7 @@
 {
   "league": "Ligue 1",
   "training_matches": 972,
+  "training_sha256": "5a01317f5065d02765373a5bcd5bbfff9a42a42f06910b25b9dbc0bda50c2129",
   "training_end": "2026-10-11",
   "fit_success": true,
   "objective": 1681.0197991758384,
@@ -24,8 +25,8 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 12,
-  "additional_event_odds_calls_used_before_this_league": 27,
+  "live_odds_matched": 13,
+  "additional_event_odds_calls_used_before_this_league": 31,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "additional_odds_coverage_mode": "all",
@@ -96,10 +97,11 @@
       "home_team": "Le Havre",
       "away_team": "Auxerre",
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "53f5fe7ed0ba0fbf6345c73270e4cd00",
@@ -107,10 +109,11 @@
       "home_team": "Lorient",
       "away_team": "AS Monaco",
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "27f7222d2abde93fc6e8d17b5b05b272",
@@ -118,10 +121,11 @@
       "home_team": "Paris FC",
       "away_team": "Rennes",
       "kickoff_utc": "2026-10-18T15:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "471f891b1f6516a864ad94c8eb649f5e",
@@ -166,12 +170,23 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false
+    },
+    {
+      "fixture_id": "c177a3c900d7febf9870ca8de90a9e35",
+      "event_id": "c177a3c900d7febf9870ca8de90a9e35",
+      "home_team": "AS Monaco",
+      "away_team": "Lille",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 5,
+  "additional_odds_in_window_linked_fixtures": 8,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 5,
+  "additional_event_odds_calls_this_league": 8,
   "decay_tuning": {
     "selected_half_life_days": 730.0,
     "selected_xi_per_day": 0.0009495166856985552,

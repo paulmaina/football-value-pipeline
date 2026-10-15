@@ -9,8 +9,8 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-15T13:16:08.602703+00:00",
-  "model_code_sha256": "db8530fbdc41d8aeeb2371b48095a303989e4f36dc27bfc105f0e445a27fffde",
-  "predictions_sha256": "8c0867dca8cae524a1dc2ac8569e927035747dd0f01f4c6b327afa0a26d88a97",
-  "selection_policy_version": "72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10"
+  "generated_at_utc": "2026-10-15T15:32:56.850870+00:00",
+  "model_code_sha256": "e8eacc892561f8040e4e89eff5fc09e8dda189f8185a1187586c01a2585b5901",
+  "predictions_sha256": "060baac93b3fd4bd6ac88ca64d0a170900ac7574bb1381bcd008dda30e3813ac",
+  "selection_policy_version": "72h-seven-markets-fresh-references-net-ev15-v11"
 }
