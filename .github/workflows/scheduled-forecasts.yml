@@ -32,7 +32,7 @@ jobs:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Check collection credentials
@@ -44,7 +44,7 @@ jobs:
           with open(os.environ['GITHUB_OUTPUT'],'a') as f: f.write('ready='+str(available).lower()+'\n')
           with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f: f.write('Collection credentials ready.\n' if available else 'SETUP REQUIRED: configure at least one THE_ODDS_API_KEY secret and FOOTBALL_DATA_API_KEY. Local .env keys are unavailable to Actions. No forecasts generated.\n')
           PY
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         if: steps.credentials.outputs.ready == 'true'
         with:
           python-version: '3.12'
