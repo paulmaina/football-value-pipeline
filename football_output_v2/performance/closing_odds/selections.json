@@ -1171,5 +1171,63 @@
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "snapshot_generated_utc": "2026-10-14T18:13:48Z",
     "validation_status": "RELIABLE_FOR_RANKING"
+  },
+  {
+    "audit_brier": "0.19883167035660446",
+    "audit_validation_matches": "81",
+    "away_team": "SC Paderborn",
+    "bookmaker": "1xBet",
+    "bookmaker_availability": "USER_ALLOWLIST",
+    "calibration_penalty": "0.0",
+    "closing": {
+      "1xbet": {
+        "status": "PENDING_KICKOFF"
+      },
+      "pinnacle": {
+        "status": "PENDING_KICKOFF"
+      }
+    },
+    "conservative_estimated_ev": "0.018112493216511538",
+    "date": "2026-10-17",
+    "decision": "SHORTLISTED",
+    "development_validation_matches": "242",
+    "entry_price_basis": "frozen offered quote; accepted execution unverified",
+    "estimated_edge": "0.038730643878886806",
+    "estimated_ev": "0.018112493216511538",
+    "evaluated_at_utc": "2026-10-15T09:51:36.740270+00:00",
+    "fixture_id": "9a422e1aad1053828eaf629a58d901de",
+    "fixture_key": "Bundesliga|werder bremen|paderborn|2026-10-17",
+    "gross_estimated_ev": "0.018112493216511538",
+    "high_confidence_audit_matches": "25.0",
+    "high_confidence_audit_observed_rate": "0.84",
+    "high_confidence_development_matches": "86.0",
+    "high_confidence_overconfidence": "0.010785705843382232",
+    "high_confidence_penalty": "0.0",
+    "high_confidence_status": "PASSED",
+    "high_confidence_tier": "75plus",
+    "high_confidence_wilson95_lower": "0.6534598601976183",
+    "high_confidence_wilson95_upper": "0.9359665239142201",
+    "historical_gap_score": "",
+    "home_team": "Werder Bremen",
+    "kickoff_utc": "2026-10-17T13:30:00+00:00",
+    "league": "Bundesliga",
+    "market": "Double Chance 1X",
+    "market_probability": "0.7629327366065554",
+    "min_team_name_match_score": "100.0",
+    "near_miss_reason": "",
+    "odds_age_hours": "0.006872297222222222",
+    "offered_decimal_odds": "1.27",
+    "per_stake_cost": "0.0",
+    "predicted_probability": "0.8016633804854422",
+    "rank_probability": "0.8016633804854422",
+    "raw_dc_ev": "0.05298040092051037",
+    "raw_dc_probability": "0.8291184259216617",
+    "rejection_reasons": "",
+    "selection_policy_version": "72h-six-markets-dc12-probability-odds-net-ev15-v9",
+    "selection_tier": "STRICT",
+    "snapshot_captured_utc": "2026-10-15T09:56:48Z",
+    "snapshot_commit": "b57f98f7704eb71a9d1b11eddf359e66786ea2fe",
+    "snapshot_generated_utc": "2026-10-15T09:51:36.740270Z",
+    "validation_status": "RELIABLE_FOR_RANKING"
   }
 ]
