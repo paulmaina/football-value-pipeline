@@ -16,6 +16,10 @@ Settlement uses regulation-time results: home goals >= away goals wins 1X; away 
 
 ## Live quote freshness
 
+The timing screen is now shared across live markets. Policy v11 also verifies
+the underlying 1X2 blend reference during shortlisting. See
+[live quote freshness and archived replay](live-quote-freshness.md).
+
 Live ingestion screens double-chance books before choosing either the best
 offered price or the reference book. The existing limits remain inclusive:
 quotes may be at most 24 hours old or five minutes ahead of the evaluation

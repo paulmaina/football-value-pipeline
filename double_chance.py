@@ -1,5 +1,6 @@
 """Regulation-time double chance; real quotes only, never synthetic prices."""
 import math
+from quote_freshness import quote_clock, quote_is_fresh, quote_utc
 
 MARKETS = {'home_draw': 'Double Chance 1X', 'draw_away': 'Double Chance X2', 'home_away': 'Double Chance 12'}
 
@@ -31,10 +32,7 @@ def parse_quotes(payload, *, as_of=None):
     """
     clock = None
     if as_of is not None:
-        from conservative_bet_filter import _utc, MAX_ODDS_AGE_HOURS
-        clock = _utc(as_of)
-        if clock is None:
-            raise ValueError('Invalid double-chance quote evaluation time')
+        clock = quote_clock(as_of)
     home,away = payload.get('home_team'),payload.get('away_team')
     if not isinstance(home,str) or not isinstance(away,str) or home==away:
         return {}
@@ -75,12 +73,11 @@ def parse_quotes(payload, *, as_of=None):
             if any(p>1 for p in fair.values()): continue
             stamp=str(market.get('last_update') or book.get('last_update') or '')
             if clock is not None:
-                updated = _utc(stamp)
-                if updated is None or not -5/60 <= (clock-updated).total_seconds()/3600 <= MAX_ODDS_AGE_HOURS:
+                if not quote_is_fresh(stamp, clock):
                     continue
             offers.append((stamp,name,prices,fair))
     if not offers: return {}
-    ref=max(offers,key=lambda x:_utc(x[0]) if clock is not None else x[0]);out={}
+    ref=max(offers,key=lambda x:quote_utc(x[0]) if clock is not None else x[0]);out={}
     for key in MARKETS:
         from quote_policy import usable_bookmaker
         usable=[x for x in offers if usable_bookmaker(x[1])]

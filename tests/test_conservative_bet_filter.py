@@ -49,6 +49,9 @@ def fixture(i=0, kickoff=None):
         "market_reference_home_odds": 1.47,
         "market_reference_draw_odds": 4.3,
         "market_reference_away_odds": 7.3,
+        "market_reference_1x2_last_update_utc": updated.isoformat(),
+        "market_reference_home_last_update_utc": updated.isoformat(),
+        "market_reference_away_last_update_utc": updated.isoformat(),
         "market_home_odds": 1.52,
         "market_away_odds": 7.4,
         "best_home_bookmaker": "Book A",
@@ -63,6 +66,7 @@ def fixture(i=0, kickoff=None):
         "market_best_over_1_5_last_update_utc": updated.isoformat(),
         "market_reference_over_1_5_odds": 1.25,
         "market_reference_over_1_5_opposite_odds": 4.0,
+        "market_reference_over_1_5_last_update_utc": updated.isoformat(),
         "market_over_1_5_bookmakers": 2,
         "p_under_3_5": 0.79,
         "raw_p_under_3_5": 0.77,
@@ -72,6 +76,7 @@ def fixture(i=0, kickoff=None):
         "market_best_under_3_5_last_update_utc": updated.isoformat(),
         "market_reference_under_3_5_odds": 1.38,
         "market_reference_under_3_5_opposite_odds": 3.1,
+        "market_reference_under_3_5_last_update_utc": updated.isoformat(),
         "market_under_3_5_bookmakers": 2,
         "p_btts_yes": 0.73,
         "raw_p_btts_yes": 0.70,
@@ -81,6 +86,7 @@ def fixture(i=0, kickoff=None):
         "market_best_btts_yes_last_update_utc": updated.isoformat(),
         "market_reference_btts_yes_odds": 1.47,
         "market_reference_btts_yes_opposite_odds": 2.4,
+        "market_reference_btts_yes_last_update_utc": updated.isoformat(),
         "market_btts_yes_bookmakers": 2,
     }
     return row
@@ -286,7 +292,9 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
         api.regions = "eu"
         api.api_key = "fake"
         api.force_refresh = False
-        extra = api.extra_markets_for_event(LEAGUES["EPL"], "e42")
+        with patch('football_value_pipeline_v2_standalone.datetime') as clock:
+            clock.now.return_value = NOW
+            extra = api.extra_markets_for_event(LEAGUES["EPL"], "e42")
         self.assertEqual(extra["market_over_1_5_odds"], 1.30)
         self.assertEqual(extra["market_under_3_5_odds"], 1.39)
         self.assertEqual(extra["market_btts_yes_odds"], 1.47)

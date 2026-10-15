@@ -76,7 +76,7 @@ class DoubleChanceTests(OfflineQuotePolicyTestCase):
         picks,decisions,summary=build_conservative_shortlist(pd.DataFrame([r]),as_of=NOW,
             market_reliability={'Premier League':report})
         self.assertNotIn('Under 3.5',decisions.market.tolist())
-        self.assertEqual(summary['selection_policy_version'],'72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10')
+        self.assertEqual(summary['selection_policy_version'],'72h-seven-markets-fresh-references-net-ev15-v11')
         dc=decisions.loc[decisions.market.eq('Double Chance 1X')].iloc[0]
         self.assertNotEqual(dc.decision,'REJECTED',dc.rejection_reasons)
         r.pop('market_home_draw_odds')

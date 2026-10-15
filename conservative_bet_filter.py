@@ -16,6 +16,7 @@ from typing import Mapping, Optional, Tuple
 
 import pandas as pd
 from quote_policy import load_policy, usable_bookmaker
+from quote_freshness import MAX_QUOTE_AGE_HOURS, quote_is_fresh
 
 
 DOMESTIC_LEAGUES = frozenset({
@@ -30,7 +31,7 @@ MIN_DOUBLE_CHANCE_ADJUSTED_EV = 0.015
 MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY = 0.75
 MIN_RAW_DC_EV = 0.0
 MIN_TEAM_NAME_MATCH_SCORE = 90.0
-MAX_ODDS_AGE_HOURS = 24.0
+MAX_ODDS_AGE_HOURS = MAX_QUOTE_AGE_HOURS
 MIN_MINUTES_UNTIL_KICKOFF = 20.0
 MIN_REFERENCE_OVERROUND = 0.98
 MAX_REFERENCE_OVERROUND = 1.20
@@ -42,7 +43,8 @@ PROVISIONAL_MIN_HIGH_DEVELOPMENT = 3
 
 # These deliberately selective heuristic thresholds have not yet
 # been optimized or independently backtested for betting profitability.
-SELECTION_POLICY_VERSION = "72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10"
+SELECTION_POLICY_VERSION = "72h-seven-markets-fresh-references-net-ev15-v11"
+PREVIOUS_SELECTION_POLICY_VERSION = "72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10"
 LEGACY_SELECTION_POLICY_VERSION = "72h-six-markets-dc12-probability-odds-net-ev15-v9"
 MARKET_SPECS = (
     ("Home win", "home", 0.65, 0.50),
@@ -141,6 +143,7 @@ def _evaluate_market(
     quote_policy: Optional[Mapping] = None,
     adjusted_ev_floor: Optional[float] = None,
     research_policy: Optional[Mapping] = None,
+    *, require_fresh_references: bool = True,
 ) -> dict:
     label, key, min_prob, min_raw = spec
     research = research_policy or {}
@@ -279,11 +282,15 @@ def _evaluate_market(
 
     if key in ("home_draw", "draw_away", "home_away"):
         reference_time = _utc(row.get(f"market_reference_{key}_last_update_utc"))
-        if reference_time is None or not -5/60 <= (now-reference_time).total_seconds()/3600 <= MAX_ODDS_AGE_HOURS:
+        if not quote_is_fresh(reference_time, now):
             reasons.append("double chance reference is missing, stale or future-dated")
+    elif require_fresh_references and not quote_is_fresh(row.get(f"market_reference_{key}_last_update_utc"), now):
+        reasons.append("reference market is missing, stale or future-dated")
+    if require_fresh_references and not quote_is_fresh(row.get("market_reference_1x2_last_update_utc"), now):
+        reasons.append("blended 1X2 reference is missing, stale or future-dated")
     updated = _utc(quote["last_update"])
     age = (now - updated).total_seconds() / 3600.0 if updated is not None else None
-    if age is None or age > MAX_ODDS_AGE_HOURS or age < -5.0 / 60.0:
+    if not quote_is_fresh(updated, now):
         reasons.append("specific bookmaker quote is missing, stale or future-dated")
 
     ev = p * price - 1.0 - cost if p is not None and price is not None and price > 1 else None
@@ -446,7 +453,7 @@ def build_conservative_shortlist(
         raise ValueError("as_of must be timezone-aware")
     now = now.tz_convert("UTC")
     policy_version = SELECTION_POLICY_VERSION if selection_policy_version is None else selection_policy_version
-    if policy_version not in (SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
+    if policy_version not in (SELECTION_POLICY_VERSION, PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
         raise ValueError("Unsupported baseline shortlist policy; preserve replay compatibility")
     # Archived v9 comparisons must replay their original six-market ranking.
     specs = tuple(spec for spec in MARKET_SPECS
@@ -472,7 +479,8 @@ def build_conservative_shortlist(
                 market_reliability.get(str(row.get("league") or ""), {})
                 if market_reliability is not None else None
             )
-            evaluated.append(_evaluate_market(row, spec, now, report, policy, adjusted_ev_floor, research_policy))
+            evaluated.append(_evaluate_market(row, spec, now, report, policy, adjusted_ev_floor, research_policy,
+                require_fresh_references=policy_version not in (PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION)))
     decisions = pd.DataFrame(evaluated, columns=DECISION_COLUMNS)
 
     eligible = decisions[decisions["decision"] == "ELIGIBLE"].copy()
@@ -650,7 +658,3 @@ def build_conservative_shortlist(
             "betslips exist; ten-leg accumulators have substantial loss risk."
         ),
     }
-
-
-
-
