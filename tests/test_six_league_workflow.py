@@ -1,4 +1,5 @@
 """One offline six-league run through both experiments, capture and verified review."""
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
 from functools import partial
@@ -20,7 +21,7 @@ from test_recency_experiment import history,tuning,ToyModel
 from workflow_checks import raw_check,report_check
 
 
-class SixLeagueWorkflowTests(unittest.TestCase):
+class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
     def test_all_leagues_both_experiments_readable_outputs_and_forward_grading(self):
         keys=list(LEAGUES);frames={};records=[]
         for i,key in enumerate(keys):

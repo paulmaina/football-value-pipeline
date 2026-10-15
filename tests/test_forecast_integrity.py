@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import hashlib
 import json
 from pathlib import Path
@@ -8,7 +9,7 @@ from goal_blend_experiment import capture_file as goal_capture, VERSION as GOAL_
 from market_led_experiment import capture_file as market_capture, VERSION as MARKET_VERSION
 
 
-class ForecastLineEndingTests(unittest.TestCase):
+class ForecastLineEndingTests(OfflineQuotePolicyTestCase):
     def test_both_sidecars_survive_git_line_ending_conversion_but_not_changed_data(self):
         with tempfile.TemporaryDirectory() as tmp:
             raw=Path(tmp);csv=raw/'all_leagues_predictions.csv'
@@ -33,7 +34,7 @@ class ForecastLineEndingTests(unittest.TestCase):
 
 
 
-class ArchivedTimestampTests(unittest.TestCase):
+class ArchivedTimestampTests(OfflineQuotePolicyTestCase):
     def test_recovery_requires_hash_bound_same_second_summary(self):
         with tempfile.TemporaryDirectory() as tmp:
             directory=Path(tmp);path=directory/'selection_summary.json'

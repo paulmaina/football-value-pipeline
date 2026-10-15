@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
 from functools import partial
@@ -30,7 +31,7 @@ def payload():
             'commence_time':KICK.isoformat(),'bookmakers':[ref,target,second]}
 
 
-class MarketLedTests(unittest.TestCase):
+class MarketLedTests(OfflineQuotePolicyTestCase):
     def test_reference_and_target_are_independent_and_model_does_not_veto(self):
         from football_value_pipeline_v2_standalone import devig
         s,p=source(),payload(); original=copy.deepcopy((s,p))

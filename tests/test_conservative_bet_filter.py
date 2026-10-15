@@ -1,5 +1,6 @@
 """Offline regression tests for ten-match, five-market candidate selection."""
 
+from offline_test_case import OfflineQuotePolicyTestCase
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import json
@@ -85,7 +86,7 @@ def fixture(i=0, kickoff=None):
     return row
 
 
-class TenMarketTests(unittest.TestCase):
+class TenMarketTests(OfflineQuotePolicyTestCase):
     def evaluate(self, *rows):
         return build_conservative_shortlist(pd.DataFrame(list(rows)), as_of=NOW)
 

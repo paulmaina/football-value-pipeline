@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
 import hashlib
@@ -35,7 +36,7 @@ def setup(root, row=None, clock=NOW, reliability=None):
     return raw, data, predictions, picks, decisions, summary
 
 
-class PolicyExperimentTests(unittest.TestCase):
+class PolicyExperimentTests(OfflineQuotePolicyTestCase):
     def test_missing_bookmakers_replay_identically_from_csv_and_capture(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
 import json
@@ -30,7 +31,7 @@ def setup(root,market='Home win'):
     observed=__import__('performance_tracking').utc(row['kickoff_utc'])-timedelta(seconds=60);return row,observed
 
 
-class ClosingTests(unittest.TestCase):
+class ClosingTests(OfflineQuotePolicyTestCase):
     def test_quotes_same_book_complete_and_pre_kickoff(self):
         row,_,_=sample();observed=__import__('performance_tracking').utc(row['kickoff_utc'])-timedelta(seconds=60);p=payload(row,observed);d=c.normalize(row,p,observed)
         self.assertEqual(len(d['quotes']),28);home=next(x for x in d['quotes'] if x['bookmaker']=='pinnacle' and x['selection']=='home');self.assertGreater(home['fair_probability'],.5)
@@ -173,5 +174,3 @@ class ClosingTests(unittest.TestCase):
         with patch('api_key_config.load_api_keys') as load,patch('football_value_pipeline_v2_standalone.TheOddsAPI',API),patch.dict('os.environ',{'THE_ODDS_API_KEY':'dummy'}),patch.object(c,'collect_once',return_value={'requests':1}) as collect:
             self.assertEqual(c.main(['--watch','--max-requests','1']),0);load.assert_called_once_with();collect.assert_called_once()
         with self.assertRaises(SystemExit):c.main(['--max-requests','0'])
-
-

@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
 import hashlib
@@ -18,7 +19,7 @@ from workflow_checks import raw_check,archive_check,report_check,changed_forecas
 REPO=Path(__file__).resolve().parents[1]
 
 
-class WorkflowChecksTests(unittest.TestCase):
+class WorkflowChecksTests(OfflineQuotePolicyTestCase):
     def setUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
         self.root=Path(self.tmp.name)/'football_output_v2'
