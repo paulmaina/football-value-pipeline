@@ -58,6 +58,12 @@ def decision_rows(predictions, generated, reliability, execution):
     from filter_sensitivity_experiment import clean as clean_frame
     from performance_tracking import utc
     predictions = predictions.copy()
+    # pandas uses NaN for an absent quote name; the archive CSV reader uses
+    # empty strings. Both mean missing, and must replay as JSON null.
+    for column in predictions.columns:
+        if column == 'fixture_id' or (column.startswith('best_') and column.endswith('_bookmaker')):
+            predictions[column] = predictions[column].map(
+                lambda value: None if pd.isna(value) or value == '' else value)
     if 'market_blend_applied' in predictions:
         # The archive reader returns CSV strings; preserve the original boolean
         # semantics when replaying, rather than accepting truthy text generally.
