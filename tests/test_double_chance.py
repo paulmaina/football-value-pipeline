@@ -26,13 +26,33 @@ class DoubleChanceTests(unittest.TestCase):
                          'raw_p_home':.5,'raw_p_draw':.3,'raw_p_away':.2})
         self.assertAlmostEqual(r['p_home_draw'],.85)
         self.assertAlmostEqual(r['raw_p_draw_away'],.5)
+        self.assertAlmostEqual(r['p_home_away'],.75)
+        self.assertAlmostEqual(r['raw_p_home_away'],.70)
         self.assertFalse(any('odds' in key for key in r))
         self.assertEqual(probabilities({'p_home':.8,'p_draw':.3,'p_away':.2}),{})
+
+    def test_current_forecast_and_readable_output_include_12(self):
+        from football_value_pipeline_v2_standalone import FootballValuePipelineV2, DixonColesModel
+        from format_football_output import readable_predictions_frame, build_match_summary
+        from test_recency_experiment import history
+        model = DixonColesModel().fit(history())
+        pipeline = FootballValuePipelineV2.__new__(FootballValuePipelineV2)
+        pipeline.market_weight = 0.0; pipeline.devig_method = 'power'
+        row = pd.Series({'HomeTeam': str(history().iloc[0]['HomeTeam']),
+                         'AwayTeam': str(history().iloc[0]['AwayTeam'])})
+        pred, _ = pipeline._predict_row(model, row)
+        self.assertAlmostEqual(pred['p_home_away'], 1-pred['p_draw'])
+        self.assertAlmostEqual(pred['raw_p_home_away'], 1-pred['raw_p_draw'])
+        frame = readable_predictions_frame(pd.DataFrame([{**fixture(), **pred}]), {})
+        self.assertNotEqual(frame.iloc[0]['Double Chance 12'], '—')
+        self.assertIn('Double Chance 12 (either team wins)', build_match_summary(pred, []))
 
     def test_documented_labels_complete_books_and_overlap_reference(self):
         r=parse_quotes(event())
         self.assertEqual(r['market_home_draw_odds'],1.35)
         self.assertEqual(r['market_draw_away_bookmakers'],2)
+        self.assertEqual(r['market_home_away_odds'],1.12)
+        self.assertAlmostEqual(sum(r['market_p_'+k] for k in ('home_draw','draw_away','home_away')),2)
         self.assertGreater(r['market_p_home_draw'],.7)
         self.assertAlmostEqual(r['market_p_home_draw'],2*(1/1.35)/(1/1.35+1/2.4+1/1.12))
         broken=event()
@@ -54,7 +74,7 @@ class DoubleChanceTests(unittest.TestCase):
         picks,decisions,summary=build_conservative_shortlist(pd.DataFrame([r]),as_of=NOW,
             market_reliability={'Premier League':report})
         self.assertNotIn('Under 3.5',decisions.market.tolist())
-        self.assertEqual(summary['selection_policy_version'],'72h-all-markets-net-ev15-execution-v7')
+        self.assertEqual(summary['selection_policy_version'],'72h-six-markets-dc12-probability-odds-net-ev15-v9')
         dc=decisions.loc[decisions.market.eq('Double Chance 1X')].iloc[0]
         self.assertNotEqual(dc.decision,'REJECTED',dc.rejection_reasons)
         r.pop('market_home_draw_odds')
@@ -70,6 +90,9 @@ class DoubleChanceTests(unittest.TestCase):
         r=enrich_historical_goal_markets({'FTHG':1,'FTAG':1},p)
         self.assertEqual(r['actual_home_draw'],1)
         self.assertEqual(r['actual_draw_away'],1)
+        self.assertEqual(r['actual_home_away'],0)
+        self.assertEqual(enrich_historical_goal_markets({'FTHG':2,'FTAG':1},p)['actual_home_away'],1)
+        self.assertIsNone(r['historical_open_home_away_odds'])
         self.assertIsNone(r['historical_open_home_draw_odds'])
         self.assertAlmostEqual(r['p_home_draw'],.85)
         rows=[dict(r,date=f'2026-{1+i//28:02d}-{1+i%28:02d}') for i in range(112)]
@@ -80,6 +103,7 @@ class DoubleChanceTests(unittest.TestCase):
         for h,a,one_x,x_two in [(1,1,True,True),(2,0,True,False),(0,2,False,True)]:
             self.assertEqual(result_for_market('Double Chance 1X',h,a),one_x)
             self.assertEqual(result_for_market('Double Chance X2',h,a),x_two)
+            self.assertEqual(result_for_market('Double Chance 12',h,a),h != a)
         self.assertFalse(result_for_market('Under 3.5',4,1))
 
     def test_event_request_includes_double_chance_and_uses_new_cache(self):
@@ -111,11 +135,11 @@ class DoubleChanceAdjustedThresholdTests(unittest.TestCase):
         row,report=self.candidate(key,**kwargs)
         _,decisions,summary=build_conservative_shortlist(pd.DataFrame([row]),as_of=NOW,
             market_reliability={'Premier League':report})
-        label='Double Chance 1X' if key=='home_draw' else 'Double Chance X2'
+        label={'home_draw':'Double Chance 1X','draw_away':'Double Chance X2','home_away':'Double Chance 12'}[key]
         return decisions.loc[decisions.market.eq(label)].iloc[0],summary
 
     def test_both_double_chances_pass_at_new_thresholds(self):
-        for key in ('home_draw','draw_away'):
+        for key in ('home_draw','draw_away','home_away'):
             row,summary=self.decision(key,ev=.015)
             self.assertNotEqual(row.decision,'REJECTED',row.rejection_reasons)
             self.assertAlmostEqual(row.rank_probability,.75)
@@ -139,8 +163,23 @@ class DoubleChanceAdjustedThresholdTests(unittest.TestCase):
             dc=decisions.loc[decisions.market.eq('Double Chance 1X')].iloc[0]
             self.assertEqual(dc.decision,'REJECTED')
 
+    def test_12_can_win_ranking_and_requires_real_quote_and_history(self):
+        row, report = self.candidate('home_away', adjusted=.81, ev=.04)
+        picks, decisions, _ = build_conservative_shortlist(pd.DataFrame([row]), as_of=NOW,
+            market_reliability={'Premier League':report})
+        self.assertEqual(picks.iloc[0]['market'], 'Double Chance 12')
+        for missing in ('market_home_away_odds', 'market_reference_dc_home_away_odds'):
+            broken = dict(row); broken.pop(missing)
+            _, audit, _ = build_conservative_shortlist(pd.DataFrame([broken]), as_of=NOW,
+                market_reliability={'Premier League':report})
+            self.assertEqual(audit.loc[audit.market.eq('Double Chance 12'), 'decision'].iloc[0], 'REJECTED')
+        _, audit, _ = build_conservative_shortlist(pd.DataFrame([row]), as_of=NOW)
+        self.assertEqual(audit.loc[audit.market.eq('Double Chance 12'), 'decision'].iloc[0], 'REJECTED')
+
     def test_market_led_experiment_remains_at_three_percent(self):
         from market_led_experiment import settings
         self.assertEqual(settings()['min_ev'],.03)
         self.assertEqual(settings()['min_probability'],.80)
+
+
 

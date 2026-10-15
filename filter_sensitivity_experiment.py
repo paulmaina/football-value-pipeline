@@ -47,7 +47,13 @@ def validate(data, generated, predictions):
     originals = {fixture_key(r):r for r in predictions}
     fixtures = set(originals)
     specs = {r[0]:r[1] for r in MARKET_SPECS}
-    markets = {r[0] for r in MARKET_SPECS}
+    # Validate immutable captures using their original market set.
+    if data.get("selection_policy_version") in {"72h-all-markets-net-ev15-execution-v7",
+                                              "72h-five-markets-probability-odds-net-ev15-v8"}:
+        specs.pop("Double Chance 12", None)
+    if data.get("selection_policy_version") == "72h-all-markets-net-ev15-execution-v7":
+        specs["Both Teams to Score - Yes"] = "btts_yes"
+    markets = set(specs)
     expected = {(key, market, floor) for key in fixtures for market in markets for floor in FLOORS}
     seen = set()
     controls = {}
@@ -265,3 +271,5 @@ def validate_report(root):
                     if not math.isfinite(float(a[key])) or abs(float(a[key])-value)>1e-9:raise ValueError('Inconsistent ledger number')
                 elif str(value)!=a.get(key):raise ValueError('Inconsistent ledger decision')
     return True
+
+

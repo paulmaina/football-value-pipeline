@@ -96,7 +96,26 @@ class TenMarketTests(unittest.TestCase):
         self.assertEqual(shortlist.iloc[0]["market"], "Over 1.5")
         self.assertEqual(summary["status"], "BELOW_TARGET")
         self.assertEqual(summary["shortfall"], 9)
-        self.assertEqual(len(decisions[decisions.decision == "NOT_SELECTED"]), 2)
+        self.assertEqual(len(decisions[decisions.decision == "NOT_SELECTED"]), 1)
+
+    def test_equal_probability_uses_highest_quoted_odds(self):
+        row = fixture()
+        row["p_home"] = row["p_over_1_5"]
+        picks, _, _ = self.evaluate(row)
+        self.assertEqual(picks.iloc[0]["market"], "Home win")
+        self.assertEqual(picks.iloc[0]["offered_decimal_odds"], 1.52)
+
+    def test_higher_probability_takes_priority_over_higher_odds(self):
+        picks, _, _ = self.evaluate(fixture())
+        self.assertEqual(picks.iloc[0]["market"], "Over 1.5")
+
+    def test_btts_is_excluded_even_with_high_probability_and_value(self):
+        row = fixture()
+        row.update(p_btts_yes=0.99, raw_p_btts_yes=0.99, market_btts_yes_odds=2.0)
+        picks, decisions, summary = self.evaluate(row)
+        self.assertNotIn("Both Teams to Score - Yes", decisions["market"].tolist())
+        self.assertNotIn("Both Teams to Score - Yes", summary["eligible_markets"])
+        self.assertEqual(picks.iloc[0]["market"], "Over 1.5")
 
     def test_exactly_ten_distinct_fixtures_selected_across_multiple_days(self):
         rows = [fixture(i) for i in range(12)]
@@ -290,4 +309,6 @@ class TenMarketTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
 

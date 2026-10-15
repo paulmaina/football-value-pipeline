@@ -43,7 +43,7 @@ class AllMarketEVTests(unittest.TestCase):
     def test_one_book_still_requires_complete_reference_and_named_offer(self):
         for spec in MARKET_SPECS:
             key=spec[1]
-            reference=('market_reference_dc_home_away_odds' if key in ('home_draw','draw_away')
+            reference=('market_reference_dc_home_away_odds' if key in ('home_draw','draw_away','home_away')
                 else 'market_reference_draw_odds' if key in ('home','away')
                 else 'market_reference_'+key+'_opposite_odds')
             row=self.evaluate(spec,remove=reference)
@@ -55,7 +55,9 @@ class AllMarketEVTests(unittest.TestCase):
         _,_,summary=build_conservative_shortlist(pd.DataFrame([fixture()]),as_of=NOW)
         self.assertEqual(summary['min_estimated_ev'],.015)
         self.assertEqual(summary['min_bookmakers'],1)
-        self.assertEqual(summary['selection_policy_version'],'72h-all-markets-net-ev15-execution-v7')
+        self.assertEqual(summary['selection_policy_version'],'72h-six-markets-dc12-probability-odds-net-ev15-v9')
         from market_led_experiment import settings
         self.assertEqual(settings()['min_ev'],.03)
         self.assertEqual(settings()['min_probability'],.8)
+
+

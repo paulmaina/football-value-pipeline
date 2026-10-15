@@ -33,7 +33,7 @@ def setup(root,market='Home win'):
 class ClosingTests(unittest.TestCase):
     def test_quotes_same_book_complete_and_pre_kickoff(self):
         row,_,_=sample();observed=__import__('performance_tracking').utc(row['kickoff_utc'])-timedelta(seconds=60);p=payload(row,observed);d=c.normalize(row,p,observed)
-        self.assertEqual(len(d['quotes']),26);home=next(x for x in d['quotes'] if x['bookmaker']=='pinnacle' and x['selection']=='home');self.assertGreater(home['fair_probability'],.5)
+        self.assertEqual(len(d['quotes']),28);home=next(x for x in d['quotes'] if x['bookmaker']=='pinnacle' and x['selection']=='home');self.assertGreater(home['fair_probability'],.5)
         for field,value in [('id','bad'),('home_team','Wrong'),('commence_time',NOW.isoformat())]:
             with self.assertRaises(ValueError):c.normalize(row,{**p,field:value},observed)
         for badclock in (observed-timedelta(seconds=301),observed+timedelta(seconds=60)):
@@ -86,13 +86,25 @@ class ClosingTests(unittest.TestCase):
             s=c.collect_once(root,None,observed,fetcher=failed);self.assertEqual(s['written'],0);self.assertEqual(s['errors'][0]['error'],'RuntimeError');self.assertNotIn('secret',json.dumps(s));self.assertEqual(s['daily_requests'],1)
 
     def test_market_specific_requests_and_dc_fair_probability_fallback(self):
-        for market,extra in [('Over 1.5','alternate_totals'),('Both Teams to Score - Yes','btts'),('Double Chance 1X','double_chance')]:
+        for market,extra in [('Over 1.5','alternate_totals'),('Both Teams to Score - Yes','btts'),('Double Chance 1X','double_chance'),('Double Chance 12','double_chance')]:
             with tempfile.TemporaryDirectory() as tmp:
                 root=Path(tmp);row,observed=setup(root,market);requested=[]
                 def fetch(api,source,markets):requested.append(markets);p=payload(row,observed);p['bookmakers'][0]['markets']=[m for m in p['bookmakers'][0]['markets'] if m['key']!='double_chance'];return p
                 c.collect_once(root,None,observed,fetcher=fetch);self.assertIn(extra,requested[0]);s,rows=c.evaluate(root,snapshots(root),observed+timedelta(minutes=2))
                 if extra=='double_chance':
                     q=rows[0]['closing']['pinnacle'];self.assertEqual(q['devig_method'],'power_1x2_sum_no_synthetic_price');self.assertIsNone(q['decimal_odds']);self.assertIsNotNone(q['fair_close_ev'])
+
+    def test_12_quotes_and_legacy_observations_remain_valid(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);row,observed=setup(root,'Double Chance 12')
+            current=c.normalize(row,payload(row,observed),observed)
+            self.assertTrue(any(q['selection']=='home_away' for q in current['quotes']))
+            old=c.normalize(row,payload(row,observed),observed,version=c.LEGACY_VERSION)
+            self.assertFalse(any(q['selection']=='home_away' for q in old['quotes']))
+            folder=root/'closing_odds/observations';folder.mkdir(parents=True)
+            for data in (current,old):write_json(folder/(c.digest(data)+'.json'),data)
+            observations,rejected=c.load_observations(root)
+            self.assertEqual(len(observations),2);self.assertFalse(rejected)
 
     def test_fetch_is_fresh_and_uses_only_configured_bookmakers(self):
         row,_,_=sample()
@@ -108,3 +120,4 @@ class ClosingTests(unittest.TestCase):
         with patch('api_key_config.load_api_keys') as load,patch('football_value_pipeline_v2_standalone.TheOddsAPI',API),patch.dict('os.environ',{'THE_ODDS_API_KEY':'dummy'}),patch.object(c,'collect_once',return_value={'requests':1}) as collect:
             self.assertEqual(c.main(['--watch','--max-requests','1']),0);load.assert_called_once_with();collect.assert_called_once()
         with self.assertRaises(SystemExit):c.main(['--max-requests','0'])
+

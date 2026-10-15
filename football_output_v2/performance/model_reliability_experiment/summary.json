@@ -1059,7 +1059,7 @@
     }
   ],
   "note": "Two separate one-factor trials against actual production, not a combined configuration. First eligible snapshot freezes missing candidates too. Primary 1X2 week-block intervals use 97.5% per trial (familywise 95%); other markets/calibration are guardrails and descriptive. No automatic promotion or betting-edge claim.",
-  "observed_fixtures": 0,
+  "observed_fixtures": 25,
   "registry": {
     "approval_required": true,
     "automatic_production_change": false,
@@ -1093,6 +1093,6 @@
   "rejected_snapshot_commits": [
     "a98524037f736c1c589800f3bd4b329ab00983f7"
   ],
-  "reviewed_at_utc": "2026-10-14T20:34:54.010298+00:00",
+  "reviewed_at_utc": "2026-10-15T04:56:26.160409+00:00",
   "version": "model-reliability-forward-v1"
 }
