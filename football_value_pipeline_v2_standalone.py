@@ -1026,7 +1026,7 @@ class TheOddsAPI:
                         )
 
         from double_chance import parse_quotes
-        result: Dict[str, object] = parse_quotes(payload)
+        result: Dict[str, object] = parse_quotes(payload, as_of=datetime.now(timezone.utc))
         for market, available in offers.items():
             if not available:
                 continue

@@ -14,6 +14,23 @@ Double chance is STRICT-only in v6. Requirements include model probability >=80%
 
 Settlement uses regulation-time results: home goals >= away goals wins 1X; away goals >= home goals wins X2. A draw wins both. The normal performance report and Excel market/policy breakdowns include the new selections. Archived forecasts and policies are not rewritten.
 
+## Live quote freshness
+
+Live ingestion screens double-chance books before choosing either the best
+offered price or the reference book. The existing limits remain inclusive:
+quotes may be at most 24 hours old or five minutes ahead of the evaluation
+clock. Missing or invalid timestamps are unavailable. A bookmaker timestamp
+is used when the market timestamp is absent. References are ordered by their
+actual UTC instant, including when providers use different timezone offsets.
+These rules apply to 1X, X2 and the subsequently added 12 market.
+
+A stale higher price can no longer hide a qualifying fresh lower price.
+Bookmaker coverage counts only fresh, complete, allowed books. If no fresh
+complete reference remains, the live parser returns no double-chance quotes.
+The shortlist still repeats its timing checks. Structural parsing used by
+closing-price evidence and frozen market-led replay retains its existing
+behavior; those callers enforce their own capture-time freshness rules.
+
 ## Use
 
 ```powershell

@@ -19,13 +19,22 @@ def probabilities(pred):
     return out
 
 
-def parse_quotes(payload):
+def parse_quotes(payload, *, as_of=None):
     """Normalize a complete overlapping DC book to total probability two.
 
     Each underlying 1X2 outcome belongs to two double chances. Dividing a DC
     triple by its sum as if it were mutually exclusive would be incorrect.
     Proportional margin removal is a reference estimate, not a calibrated model.
+    Live ingestion supplies as_of to filter both offers and reference books
+    before ranking. Structural-only callers retain their own timing checks
+    and deterministic historical replay when as_of is omitted.
     """
+    clock = None
+    if as_of is not None:
+        from conservative_bet_filter import _utc, MAX_ODDS_AGE_HOURS
+        clock = _utc(as_of)
+        if clock is None:
+            raise ValueError('Invalid double-chance quote evaluation time')
     home,away = payload.get('home_team'),payload.get('away_team')
     if not isinstance(home,str) or not isinstance(away,str) or home==away:
         return {}
@@ -65,9 +74,13 @@ def parse_quotes(payload):
             fair={k:2/(v*total) for k,v in prices.items()}
             if any(p>1 for p in fair.values()): continue
             stamp=str(market.get('last_update') or book.get('last_update') or '')
+            if clock is not None:
+                updated = _utc(stamp)
+                if updated is None or not -5/60 <= (clock-updated).total_seconds()/3600 <= MAX_ODDS_AGE_HOURS:
+                    continue
             offers.append((stamp,name,prices,fair))
     if not offers: return {}
-    ref=max(offers,key=lambda x:x[0]);out={}
+    ref=max(offers,key=lambda x:_utc(x[0]) if clock is not None else x[0]);out={}
     for key in MARKETS:
         from quote_policy import usable_bookmaker
         usable=[x for x in offers if usable_bookmaker(x[1])]
