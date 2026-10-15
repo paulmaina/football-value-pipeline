@@ -110,8 +110,61 @@ class ClosingTests(unittest.TestCase):
         row,_,_=sample()
         class API:
             def _get_json(self,*args,**kwargs):self.args=args;self.kw=kwargs;return {}
-        api=API();c.fetch(api,row,{'h2h','totals'});self.assertFalse(api.kw['allow_stale']);self.assertTrue(api.kw['force_refresh']);self.assertEqual(api.kw['params']['bookmakers'],'pinnacle,1xbet');self.assertNotIn('apiKey',api.kw['params'])
+        api=API();c.fetch(api,row,{'h2h','totals'});self.assertFalse(api.kw['allow_stale']);self.assertTrue(api.kw['force_refresh']);self.assertEqual(api.kw['params']['bookmakers'],'pinnacle,onexbet');self.assertNotIn('apiKey',api.kw['params'])
         with self.assertRaises(ValueError):c.fetch(api,{**row,'odds_event_id':'bad/slash'},{'h2h'})
+
+    def test_documented_onexbet_key_is_normalized_and_old_versions_stay_valid(self):
+        row,_,_=sample();observed=__import__('performance_tracking').utc(row['kickoff_utc'])-timedelta(seconds=60)
+        response=payload(row,observed);response['bookmakers'][1]['key']='onexbet'
+        current=c.normalize(row,response,observed)
+        self.assertTrue(any(q['bookmaker']=='1xbet' for q in current['quotes']))
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);folder=root/'closing_odds/observations';folder.mkdir(parents=True)
+            for version in (c.VERSION,c.PREVIOUS_VERSION,c.LEGACY_VERSION):
+                data=c.normalize(row,response,observed,version=version)
+                if version!=c.VERSION:self.assertFalse(any(q['bookmaker']=='1xbet' for q in data['quotes']))
+                write_json(folder/(c.digest(data)+'.json'),data)
+            observations,rejected=c.load_observations(root)
+            self.assertEqual(len(observations),3);self.assertFalse(rejected)
+
+    def test_frozen_market_survives_current_shortlist_and_fixture_removal(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);row,observed=setup(root,'Over 1.5')
+            # New outputs no longer carry the previously frozen selection.
+            (root/'raw/conservative_bet_shortlist.csv').write_text('market\n')
+            (root/'raw/all_leagues_predictions.csv').write_text('league\n')
+            requested=[]
+            def fetch(api,source,markets):
+                requested.append(markets);response=payload(source,observed)
+                response['bookmakers'][1]['key']='onexbet';return response
+            result=c.collect_once(root,None,observed,fetcher=fetch)
+            self.assertEqual(result['requests'],1);self.assertIn('alternate_totals',requested[0])
+            self.assertEqual(result['coverage_checks'][0]['missing_required_quotes'],[])
+            summary,ledger=c.evaluate(root,snapshots(root),observed+timedelta(minutes=2))
+            self.assertEqual(summary['by_bookmaker']['1xbet']['covered_selections'],1)
+
+    def test_partial_quote_coverage_retries_and_zero_checks_have_reasons(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);row,observed=setup(root)
+            early=observed-timedelta(minutes=3)
+            def partial(*args):
+                response=payload(row,early);response['bookmakers']=response['bookmakers'][:1];return response
+            first=c.collect_once(root,None,early,fetcher=partial)
+            self.assertEqual(first['requests'],1)
+            self.assertIn('1xbet',{q['bookmaker'] for q in first['coverage_checks'][0]['missing_required_quotes']})
+            def complete(*args):
+                response=payload(row,observed);response['bookmakers'][1]['key']='onexbet';return response
+            second=c.collect_once(root,None,observed,fetcher=complete)
+            self.assertEqual(second['requests'],1);self.assertEqual(second['coverage_checks'][0]['missing_required_quotes'],[])
+            done=c.collect_once(root,None,observed,fetcher=complete)
+            self.assertEqual(done['requests'],0);self.assertEqual(done['reason'],'ALL_REQUIRED_QUOTES_ALREADY_COLLECTED')
+            outside=c.collect_once(root,None,observed-timedelta(hours=1),fetcher=complete)
+            self.assertEqual(outside['requests'],0);self.assertEqual(outside['reason'],'NO_FIXTURES_IN_PRE_KICKOFF_WINDOW')
+            write_json(root/'closing_odds/request_budget.json',{'date':observed.date().isoformat(),'requests':100})
+            later={**row,'odds_event_id':'another-event'}
+            pd.DataFrame([later]).to_csv(root/'raw/all_leagues_predictions.csv',index=False)
+            capped=c.collect_once(root,None,observed,fetcher=complete)
+            self.assertEqual(capped['requests'],0);self.assertEqual(capped['reason'],'DAILY_REQUEST_CAP_REACHED')
 
     def test_cli_default_dotenv_and_budget_exit(self):
         class API:
@@ -120,4 +173,5 @@ class ClosingTests(unittest.TestCase):
         with patch('api_key_config.load_api_keys') as load,patch('football_value_pipeline_v2_standalone.TheOddsAPI',API),patch.dict('os.environ',{'THE_ODDS_API_KEY':'dummy'}),patch.object(c,'collect_once',return_value={'requests':1}) as collect:
             self.assertEqual(c.main(['--watch','--max-requests','1']),0);load.assert_called_once_with();collect.assert_called_once()
         with self.assertRaises(SystemExit):c.main(['--max-requests','0'])
+
 
