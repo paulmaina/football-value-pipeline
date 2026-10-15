@@ -75,7 +75,7 @@ class MonitoringLayoutTests(unittest.TestCase):
 
     def test_missing_reports_do_not_look_healthy(self):
         r=experiment_rows(self.root,None)
-        self.assertEqual(len(r),8)
+        self.assertEqual(len(r),9)
         self.assertTrue(all(x[1]=='Report unavailable or stale' and x[2]=='Unavailable' for x in r))
         self.assertTrue(all('Regenerate' in x[8] for x in r))
 
