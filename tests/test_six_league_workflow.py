@@ -82,3 +82,5 @@ class SixLeagueWorkflowTests(unittest.TestCase):
             self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),6)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['benchmark_forward_experiment:CAPTURED'],1)
             self.assertTrue((root/'readable/football_performance_report.xlsx').exists())
+
+

@@ -35,6 +35,29 @@ def record(row,h=2,a=1):
 
 
 class SensitivityTests(unittest.TestCase):
+    def test_previous_six_market_policy_remains_valid_for_archived_evidence(self):
+        import conservative_bet_filter as shortlist
+        old_specs = tuple(s for s in shortlist.MARKET_SPECS if s[1] != "home_away") + (("Both Teams to Score - Yes", "btts_yes", .70, .63),)
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.object(shortlist, "MARKET_SPECS", old_specs):
+                _, data, predictions, _, _, summary = setup(Path(tmp))
+            data["selection_policy_version"] = "72h-all-markets-net-ev15-execution-v7"
+            self.assertEqual(len(data["rows"]), 18)
+            validate(data, summary["generated_at_utc"], predictions.to_dict("records"))
+            data["selection_policy_version"] = summary["selection_policy_version"]
+            with self.assertRaises(ValueError):
+                validate(data, summary["generated_at_utc"], predictions.to_dict("records"))
+
+    def test_previous_five_market_policy_remains_valid(self):
+        import conservative_bet_filter as shortlist
+        old_specs=tuple(s for s in shortlist.MARKET_SPECS if s[1] != 'home_away')
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.object(shortlist, 'MARKET_SPECS', old_specs):
+                _, data, predictions, _, _, summary=setup(Path(tmp))
+            data['selection_policy_version']='72h-five-markets-probability-odds-net-ev15-v8'
+            self.assertEqual(len(data['rows']), 15)
+            validate(data, summary['generated_at_utc'], predictions.to_dict('records'))
+
     def test_production_unchanged_and_all_markets_rejections_retained(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);raw,data,predictions,picks,decisions,summary=setup(root)
@@ -56,8 +79,8 @@ class SensitivityTests(unittest.TestCase):
             raw,data,*_=setup(Path(tmp),row)
             chosen={floor:[r['market'] for r in data['rows'] if r['ev_floor']==floor and r['decision']=='SHORTLISTED'] for floor in FLOORS}
             self.assertEqual(chosen[.015],['Over 1.5'])
-            self.assertEqual(chosen[.03],['Both Teams to Score - Yes'])
-            self.assertEqual(chosen[.05],['Both Teams to Score - Yes'])
+            self.assertEqual(chosen[.03],['Home win'])
+            self.assertEqual(chosen[.05],['Home win'])
             self.assertTrue(any('+3.0%' in r['rejection_reasons'] for r in data['rows'] if r['ev_floor']==.03))
 
     def test_invalid_or_stale_sidecars_and_line_endings(self):
@@ -173,3 +196,5 @@ class SensitivityTests(unittest.TestCase):
         self.assertAlmostEqual(s['flat_stake_roi'],-.405)
         self.assertEqual(s['calibration'][0]['observed_rate'],.5)
         self.assertEqual(statistics([])['graded'],0)
+
+

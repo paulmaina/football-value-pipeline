@@ -2926,7 +2926,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 "home_team": row.get("HomeTeam"), "away_team": row.get("AwayTeam"),
                 "kickoff_utc": str(row.get("kickoff_utc")),
                 "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-                "home_draw_quote": False, "draw_away_quote": False,
+                "home_draw_quote": False, "draw_away_quote": False, "home_away_quote": False,
             }
             coverage_rows.append(coverage_row)
             if idx not in eligible:
@@ -2948,6 +2948,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 pred.update(extra)
                 coverage_row["home_draw_quote"] = bool(extra.get("market_home_draw_odds"))
                 coverage_row["draw_away_quote"] = bool(extra.get("market_draw_away_odds"))
+                coverage_row["home_away_quote"] = bool(extra.get("market_home_away_odds"))
                 coverage_row["status"] = (
                     "RECEIVED_VALID_DC_QUOTES" if coverage_row["home_draw_quote"] and
                     coverage_row["draw_away_quote"] else "RESPONSE_WITHOUT_VALID_DC_QUOTES"
@@ -3922,4 +3923,5 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 

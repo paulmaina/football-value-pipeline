@@ -1,4 +1,4 @@
-"""Experimental ten-match, five-market shortlist; never guarantee winners.
+"""Experimental ten-match, six-market shortlist; never guarantee winners.
 
 One market per fixture, up to ten distinct matches across the whole run.
 Only select kickoffs within the next 72 hours of the run, including UCL.
@@ -48,7 +48,7 @@ MARKET_SPECS = (
     ("Over 1.5", "over_1_5", 0.78, 0.72),
     ("Double Chance 1X", "home_draw", 0.80, 0.75),
     ("Double Chance X2", "draw_away", 0.80, 0.75),
-    ("Both Teams to Score - Yes", "btts_yes", 0.70, 0.63),
+    ("Double Chance 12", "home_away", 0.80, 0.75),
 )
 DECISION_COLUMNS = [
     "evaluated_at_utc", "date", "league", "home_team", "away_team",
@@ -95,7 +95,7 @@ def _utc(value) -> Optional[pd.Timestamp]:
 
 def _market_fields(row: pd.Series, key: str) -> dict:
     """Take the real quoted price, book, complementary market, and timestamp."""
-    if key in ("home_draw", "draw_away"):
+    if key in ("home_draw", "draw_away", "home_away"):
         return {
             "price": row.get(f"market_{key}_odds"),
             "bookmaker": row.get(f"best_{key}_bookmaker"),
@@ -181,7 +181,7 @@ def _evaluate_market(
     high_dev_n, high_overconfidence = None, None
     high_audit_rate, high_wilson_lower, high_wilson_upper = None, None, None
     high_penalty = 0.0
-    if validation is None and key in ("home_draw", "draw_away"):
+    if validation is None and key in ("home_draw", "draw_away", "home_away"):
         reasons.append("double chance historical reliability report required")
     if validation is None and league == "UEFA Champions League":
         reasons.append("UCL historical reliability report required")
@@ -258,9 +258,9 @@ def _evaluate_market(
     ref = [_number(x) for x in quote["reference"]]
     if any(x is None or x <= 1.0 for x in ref):
         reasons.append("incomplete same-book reference market")
-    elif not (MIN_REFERENCE_OVERROUND * (2 if key in ("home_draw", "draw_away") else 1)
+    elif not (MIN_REFERENCE_OVERROUND * (2 if key in ("home_draw", "draw_away", "home_away") else 1)
               <= sum(1.0 / x for x in ref)
-              <= MAX_REFERENCE_OVERROUND * (2 if key in ("home_draw", "draw_away") else 1)):
+              <= MAX_REFERENCE_OVERROUND * (2 if key in ("home_draw", "draw_away", "home_away") else 1)):
         reasons.append("implausible same-book reference market overround")
     n_books = _number(quote["book_count"])
     if n_books is None or n_books < quote["min_books"]:
@@ -268,7 +268,7 @@ def _evaluate_market(
     if market_p is None:
         reasons.append("missing bookmaker reference probability")
 
-    if key in ("home_draw", "draw_away"):
+    if key in ("home_draw", "draw_away", "home_away"):
         reference_time = _utc(row.get(f"market_reference_{key}_last_update_utc"))
         if reference_time is None or not -5/60 <= (now-reference_time).total_seconds()/3600 <= MAX_ODDS_AGE_HOURS:
             reasons.append("double chance reference is missing, stale or future-dated")
@@ -284,7 +284,7 @@ def _evaluate_market(
     )
     raw_ev = raw_p * price - 1.0 - cost if raw_p is not None and price is not None and price > 1 else None
     edge = p - market_p if p is not None and market_p is not None else None
-    is_double_chance = key in ("home_draw", "draw_away")
+    is_double_chance = key in ("home_draw", "draw_away", "home_away")
     min_adjusted_ev = MIN_DOUBLE_CHANCE_ADJUSTED_EV if is_double_chance else MIN_ESTIMATED_EV
     if adjusted_ev_floor is not None:
         min_adjusted_ev = adjusted_ev_floor
@@ -352,7 +352,7 @@ def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple], adjusted_ev_fl
     A missing audit or a demonstrably very overconfident tier is NOT
     treated as nearly reliable.
     """
-    if row.get("market") in ("Double Chance 1X", "Double Chance X2"):
+    if row.get("market") in ("Double Chance 1X", "Double Chance X2", "Double Chance 12"):
         return None
     if row["decision"] != "REJECTED" or row["validation_status"] != "RELIABLE_FOR_RANKING":
         return None
@@ -425,7 +425,7 @@ def build_conservative_shortlist(
 ) -> Tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Aim for ten distinct fixtures; never fabricate a minimum ten.
 
-    Returns shortlist (at most 10 rows), all market decisions (5 per
+    Returns shortlist (at most 10 rows), all market decisions (6 per
     fixture), and a summary with any shortfall. A shortlisted row is a
     candidate to study, NOT an automatically constructed accumulator.
     """
@@ -449,8 +449,8 @@ def build_conservative_shortlist(
 
     eligible = decisions[decisions["decision"] == "ELIGIBLE"].copy()
     eligible = eligible.sort_values(
-        ["rank_probability", "conservative_estimated_ev", "kickoff_utc", "home_team"],
-        ascending=[False, False, True, True], kind="stable",
+        ["rank_probability", "offered_decimal_odds", "conservative_estimated_ev", "kickoff_utc", "home_team"],
+        ascending=[False, False, False, True, True], kind="stable",
     )
 
     # One eligible market per distinct fixture (never stack correlated
@@ -471,7 +471,7 @@ def build_conservative_shortlist(
     overflow = top_per_match.index.difference(chosen)
     if len(alternate):
         decisions.loc[alternate, "decision"] = "NOT_SELECTED"
-        decisions.loc[alternate, "rejection_reasons"] = "higher-probability market chosen for same match"
+        decisions.loc[alternate, "rejection_reasons"] = "higher-ranked market chosen for same match (adjusted probability, then quoted odds)"
     if len(overflow):
         decisions.loc[overflow, "decision"] = "NOT_SELECTED"
         decisions.loc[overflow, "rejection_reasons"] = "below higher-confidence ten-match ranking"
@@ -494,9 +494,9 @@ def build_conservative_shortlist(
         )
         pool = pool.loc[pool["historical_gap_score"].notna()].copy()
         pool = pool.sort_values(
-            ["historical_gap_score", "rank_probability", "conservative_estimated_ev",
+            ["historical_gap_score", "rank_probability", "offered_decimal_odds", "conservative_estimated_ev",
              "kickoff_utc", "home_team"],
-            ascending=[True, False, False, True, True],
+            ascending=[True, False, False, False, True, True],
             kind="stable",
         )
         def fixture_keys(table: pd.DataFrame) -> pd.Series:
@@ -528,8 +528,8 @@ def build_conservative_shortlist(
         decisions.loc[chosen_all, SHORTLIST_COLUMNS]
         .sort_values(
             ["selection_tier", "historical_gap_score", "rank_probability",
-             "conservative_estimated_ev"],
-            ascending=[False, True, False, False], kind="stable"
+             "offered_decimal_odds", "conservative_estimated_ev"],
+            ascending=[False, True, False, False, False], kind="stable"
         ).reset_index(drop=True)
     )
     decisions = decisions.reset_index(drop=True)
@@ -558,7 +558,7 @@ def build_conservative_shortlist(
     return shortlist, decisions, {
         "status": status,
         "generated_at_utc": now.isoformat(),
-        "selection_policy_version": "72h-all-markets-net-ev15-execution-v7",
+        "selection_policy_version": "72h-six-markets-dc12-probability-odds-net-ev15-v9",
         "n_fixtures": int(len(predictions)),
         "n_markets_evaluated": int(len(decisions)),
         "n_shortlisted": n,
@@ -580,7 +580,7 @@ def build_conservative_shortlist(
         "selected_last_kickoff_utc": (
             last_kickoff.isoformat() if last_kickoff is not None else None
         ),
-        "selection_method": "Strict-first ranking within the next 72 hours of the run",
+        "selection_method": "Strict-first ranking within 72 hours; highest adjusted probability, then highest quoted odds",
         "eligible_markets": [x[0] for x in MARKET_SPECS],
         "eligible_leagues": sorted(SUPPORTED_LEAGUES),
         "quote_execution_policy": policy,
@@ -622,5 +622,7 @@ def build_conservative_shortlist(
             "betslips exist; ten-leg accumulators have substantial loss risk."
         ),
     }
+
+
 
 

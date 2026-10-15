@@ -1,7 +1,7 @@
 """Regulation-time double chance; real quotes only, never synthetic prices."""
 import math
 
-MARKETS = {'home_draw': 'Double Chance 1X', 'draw_away': 'Double Chance X2'}
+MARKETS = {'home_draw': 'Double Chance 1X', 'draw_away': 'Double Chance X2', 'home_away': 'Double Chance 12'}
 
 
 def probabilities(pred):
@@ -15,6 +15,7 @@ def probabilities(pred):
             continue
         out[prefix+'home_draw'] = min(1.,h+d)
         out[prefix+'draw_away'] = min(1.,d+a)
+        out[prefix+'home_away'] = min(1.,h+a)
     return out
 
 
@@ -80,3 +81,4 @@ def parse_quotes(payload):
     for key,price in ref[2].items():
         out[f'market_reference_dc_{key}_odds']=price
     return out
+
