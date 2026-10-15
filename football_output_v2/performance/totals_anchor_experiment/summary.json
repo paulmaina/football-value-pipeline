@@ -402,15 +402,11 @@
   "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
   "gameweeks": 0,
   "note": "Separate proportional intensity scaling to fresh Pinnacle O/U 2.5, fitted rho and production HDA preserved. Primary Under 3.5 log loss; other markets are guardrails. No bets, automatic promotion or backfill.",
-  "observed_fixtures": 25,
+  "observed_fixtures": 34,
   "paired_fixtures": 0,
   "primary_log_loss_gain_week_block95": null,
   "registry_sha256": "05c7b4af8e00fc30b8385f253389892160d83d04840f013bff7e7e6ee144ccc2",
-  "rejected_snapshot_commits": [
-    "e5dcb5f670502ffa323617e647aaeb870b634f67",
-    "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
-    "a98524037f736c1c589800f3bd4b329ab00983f7"
-  ],
+  "rejected_snapshot_commits": [],
   "review_gates": {
     "bootstrap_replicates": 2000,
     "bootstrap_seed": 20261014,
@@ -419,7 +415,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-15T08:53:29.053635+00:00",
+  "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
   "status": "COLLECT_MORE_DATA",
   "verified_coverage": null,
   "version": "pinnacle-totals-anchor-v1"

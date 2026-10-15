@@ -1090,9 +1090,7 @@
     "version": "model-reliability-forward-v1"
   },
   "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
-  "rejected_snapshot_commits": [
-    "a98524037f736c1c589800f3bd4b329ab00983f7"
-  ],
-  "reviewed_at_utc": "2026-10-15T08:53:29.053635+00:00",
+  "rejected_snapshot_commits": [],
+  "reviewed_at_utc": "2026-10-15T08:55:44.810922+00:00",
   "version": "model-reliability-forward-v1"
 }
