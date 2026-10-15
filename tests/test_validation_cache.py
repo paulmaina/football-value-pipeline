@@ -38,7 +38,8 @@ class ValidationCacheTests(OfflineQuotePolicyTestCase):
             self.assertIsNone(result["historical_betting"]["roi_per_unit"])
 
     def test_version_configuration_and_market_coverage_are_required(self):
-        config = {"validator_version": VALIDATOR_VERSION, "training_end": "2026-09-20"}
+        config = {"validator_version": VALIDATOR_VERSION, "training_end": "2026-09-20",
+                  "training_sha256": 'a'*64, "validation_code_sha256": 'b'*64}
         report = evaluate_market_history(pd.DataFrame(), "Premier League")
         report["config"] = config.copy()
         self.assertTrue(validation_cache_matches(report, config))
@@ -60,7 +61,7 @@ class ValidationCacheTests(OfflineQuotePolicyTestCase):
             with patch(
                 "football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league",
                 return_value=(frame, {"training_end": "2026-09-20",
-                                     "training_matches": 1000}, {}),
+                                     "training_matches": 1000, "training_sha256": 'a'*64}, {}),
             ), patch(
                 "football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league",
                 return_value=(pd.DataFrame(), pd.DataFrame(), {}, pd.DataFrame()),

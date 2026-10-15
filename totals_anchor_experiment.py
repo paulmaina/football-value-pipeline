@@ -50,12 +50,19 @@ def decision(row,matrix,inputs,clock,r):
         base=secondary(row,matrix,p);baseline=base['baseline_goals']
         if baseline is None:raise ValueError('matrix')
         lam=float(inputs['lambda_home']);mu=float(inputs['lambda_away']);rho=float(inputs['rho']);n=int(inputs['max_goals'])
-        if not all(math.isfinite(x) for x in (lam,mu,rho)) or min(lam,mu)<=0 or not 3<=n<=30:raise ValueError('parameters')
+        from score_probability import SCORE_ENGINE_VERSION, MAX_SCORE_GRID, score_grid
+        engine=inputs.get('score_engine_version')
+        if engine not in (None,SCORE_ENGINE_VERSION):raise ValueError('unknown score engine')
+        adaptive=engine==SCORE_ENGINE_VERSION
+        if not all(math.isfinite(x) for x in (lam,mu,rho)) or min(lam,mu)<=0 or not 3<=n<=(MAX_SCORE_GRID if adaptive else 30):raise ValueError('parameters')
         if any(abs(float(row[k])-inputs[k])>1e-9 for k in ('lambda_home','lambda_away')):raise ValueError('intensity')
         reconstructed=reweight_matrix_to_1x2(adjusted_matrix(lam,mu,rho,n),p)
+        if adaptive:
+            checked,_=score_grid(lam,mu,rho,n)
+            if checked.shape!=np.asarray(matrix).shape:raise ValueError('inadequate score grid')
         if not np.allclose(matrix,reconstructed,rtol=0,atol=1e-8):raise ValueError('model binding')
         if not reasons:
-            target=float(devig(prices,method='power')[0]);anchored,scale=anchor_totals(lam,mu,rho,p,target,n);candidate=goals(anchored)
+            target=float(devig(prices,method='power')[0]);anchored,scale=anchor_totals(lam,mu,rho,p,target,n,tail_bounded=adaptive);candidate=goals(anchored)
     except (ValueError,KeyError,TypeError,OverflowError):reasons.append('invalid_bound_model_or_solver')
     return {'status':'available' if candidate else 'unavailable','reasons':reasons,'baseline_goals':baseline,'candidate_goals':candidate,'scale':scale,'target_over_2_5':target}
 
@@ -159,4 +166,3 @@ def validate_report(root):
     dest=root/'performance/totals_anchor_experiment';actual=load_json(dest/'summary.json',{});expected,g,c=evaluate(root,snapshots(root),list(load_json(root/'performance/verified_results.json',{}).values()),utc(actual['reviewed_at_utc']))
     if actual!=expected or load_json(dest/'graded.json',[])!=g or load_json(dest/'coverage.json',[])!=c:raise ValueError('Totals report evidence mismatch')
     return True
-

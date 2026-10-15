@@ -32,7 +32,8 @@ class CoverageTests(OfflineQuotePolicyTestCase):
                 extra_event_odds_by_league={}, additional_odds_coverage=mode).items():
             setattr(pipeline, key, value)
         pipeline._training_health = Mock(return_value={'status':'OFFLINE_TEST'})
-        pipeline._history_for_league = Mock(return_value=pd.DataFrame())
+        pipeline._history_for_league = Mock(return_value=pd.DataFrame(
+            columns=['Date', 'HomeTeam', 'AwayTeam', 'FTHG', 'FTAG']))
         pipeline._current_fixtures = Mock(return_value=self.fixtures())
         pipeline._attach_live_odds = lambda fixtures, *args: fixtures
         pipeline._predict_row = lambda *args: (dict(home_name_match_score=99,
