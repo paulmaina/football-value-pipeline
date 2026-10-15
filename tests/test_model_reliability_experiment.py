@@ -65,6 +65,21 @@ def setup(root, data=None, rows=None):
 
 
 class ReliabilityTests(unittest.TestCase):
+    def test_legacy_truncated_time_recovers_using_verified_summary(self):
+        with tempfile.TemporaryDirectory() as tmp, patch(__name__+'.NOW',NOW.replace(microsecond=904906)):
+            root=Path(tmp);setup(root)
+            capture('e'*40,root=root,captured_at=NOW+timedelta(minutes=1))
+            directory=root/'performance/snapshots'/('e'*16)
+            metadata=json.loads((directory/'metadata.json').read_text())
+            metadata['generated_at_utc']=NOW.replace(microsecond=0).isoformat()
+            write_json(directory/'metadata.json',metadata)
+            archive=snapshots(root);before=(directory/m.FILE).read_bytes()
+            rows,rejected=m.frozen(root,archive)
+            self.assertEqual(rejected,[]);self.assertEqual(len(rows),1)
+            self.assertEqual(before,(directory/m.FILE).read_bytes())
+            (directory/'selection_summary.json').write_text('{}')
+            self.assertEqual(m.frozen(root,archive)[1],['e'*40])
+
     def test_review_gates_multiple_trials_and_uncertainty(self):
         source = generate()[0]
         rows = []
@@ -240,3 +255,4 @@ class ReliabilityTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

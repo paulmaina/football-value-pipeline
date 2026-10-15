@@ -8,7 +8,8 @@ from pathlib import Path
 import re
 import time
 
-VERSION='local-closing-quotes-v2'
+VERSION='local-closing-quotes-v3'
+PREVIOUS_VERSION='local-closing-quotes-v2'
 LEGACY_VERSION='local-closing-quotes-v1'
 PRE_KICKOFF_WINDOW_SECONDS=6*60
 LABELS={'home':'Home win','away':'Away win','over_1_5':'Over 1.5','under_3_5':'Under 3.5','btts_yes':'Both Teams to Score - Yes','home_draw':'Double Chance 1X','draw_away':'Double Chance X2','home_away':'Double Chance 12'}
@@ -29,6 +30,7 @@ def normalize(source,payload,observed,version=VERSION):
     for book in payload.get('bookmakers',[]):
         if not isinstance(book,dict) or not isinstance(book.get('markets',[]),list):continue
         key=str(book.get('key','')).lower()
+        if version == VERSION and key == 'onexbet':key = '1xbet'
         if key not in ('pinnacle','1xbet'):continue
         for market in book.get('markets',[]):
             if not isinstance(market,dict) or not isinstance(market.get('outcomes',[]),list):continue
@@ -78,7 +80,7 @@ def load_observations(root,clock=None):
     for path in sorted((root/'closing_odds/observations').glob('*.json')):
         try:
             d=json.loads(path.read_text(encoding='utf-8-sig'))
-            if digest(d)!=path.stem or d.get('version') not in (VERSION,LEGACY_VERSION):raise ValueError('Hash')
+            if digest(d)!=path.stem or d.get('version') not in (VERSION,PREVIOUS_VERSION,LEGACY_VERSION):raise ValueError('Hash')
             from performance_tracking import utc
             observed=utc(d['observed_at_utc'])
             if not observed or (clock is not None and observed>clock):raise ValueError('Clock')
@@ -95,21 +97,57 @@ def fetch(api,source,markets):
     event=str(source.get('odds_event_id',''))
     if not re.fullmatch(r'[A-Za-z0-9_-]+',event):raise ValueError('Invalid odds event')
     league=next(l for l in LEAGUES.values() if l.name==source['league'])
-    return api._get_json(f'{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/events/{event}/odds',f'closing_v1_{event}.json',ttl=timedelta(seconds=0),force_refresh=True,allow_stale=False,params={'bookmakers':'pinnacle,1xbet','markets':','.join(sorted(markets)),'oddsFormat':'decimal','dateFormat':'iso'})
+    return api._get_json(f'{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/events/{event}/odds',f'closing_v1_{event}.json',ttl=timedelta(seconds=0),force_refresh=True,allow_stale=False,params={'bookmakers':'pinnacle,onexbet','markets':','.join(sorted(markets)),'oddsFormat':'decimal','dateFormat':'iso'})
+
+
+def collection_targets(root, predictions, picks):
+    """Retain frozen selections even after a new forecast changes the shortlist."""
+    from performance_tracking import snapshots, frozen_rows, fixture_key
+    archive = snapshots(root)
+    frozen_picks = frozen_rows(archive, 'shortlist')
+    sources = {fixture_key(row): row for row in frozen_rows(archive, 'predictions')}
+    sources.update({fixture_key(row): row for row in predictions})
+    selected = {}
+    for pick in frozen_picks + picks:
+        selected.setdefault(fixture_key(pick), set()).add(pick.get('market'))
+    # Archived predictions outside the frozen shortlist do not expand collection.
+    current = {fixture_key(row) for row in predictions}
+    keys = current | (set(selected) & set(sources))
+    return [(sources[key], selected.get(key, set())) for key in sorted(keys)]
+
+
+def required_quotes(source, selected, observations):
+    """Missing exact-market quotes remain retryable until the window closes."""
+    from performance_tracking import fixture_key, utc
+    selections = {key for key, label in LABELS.items() if label in selected}
+    if not selections:selections = {'home', 'draw', 'away'}
+    expected = {(book, selection) for book in ('1xbet', 'pinnacle') for selection in selections}
+    actual = {(q['bookmaker'], q['selection']) for obs in observations
+              if fixture_key(obs['fixture']) == fixture_key(source)
+              and obs['fixture'].get('odds_event_id') == source.get('odds_event_id')
+              and utc(obs['fixture'].get('kickoff_utc')) == utc(source.get('kickoff_utc'))
+              for q in obs['quotes']}
+    return expected - actual
 
 
 def collect_once(root,api,clock=None,limit=100,fetcher=None):
-    from performance_tracking import read_csv,utc,fixture_key,now_utc,write_json,load_json
+    from performance_tracking import read_csv,utc,now_utc,write_json,load_json
     start=clock or now_utc();budget_path=root/'closing_odds/request_budget.json';budget=load_json(budget_path,{})
     used=budget.get('requests',0) if budget.get('date')==start.date().isoformat() else 0
     cap=min(limit,max(0,100-used))
-    observations,_=load_observations(root,start);done={str(x['fixture']['odds_event_id']) for x in observations if x['quotes']};predictions=read_csv(root/'raw/all_leagues_predictions.csv');picks=read_csv(root/'raw/conservative_bet_shortlist.csv');count=0;written=0;errors=[]
-    for source in predictions:
+    observations,_=load_observations(root,start)
+    predictions=read_csv(root/'raw/all_leagues_predictions.csv')
+    picks=read_csv(root/'raw/conservative_bet_shortlist.csv')
+    targets=collection_targets(root,predictions,picks)
+    targets.sort(key=lambda item:(not bool(item[1]),str(item[0].get('kickoff_utc',''))))
+    count=0;written=0;errors=[];checks=[];eligible=0;complete=0
+    for source,selected in targets:
         event=str(source.get('odds_event_id',''));kick=utc(source.get('kickoff_utc'))
-        if event in done or not event or not kick or not 0<(kick-start).total_seconds()<=PRE_KICKOFF_WINDOW_SECONDS:continue
-        if count>=cap:break
+        if not event or not kick or not 0<(kick-start).total_seconds()<=PRE_KICKOFF_WINDOW_SECONDS:continue
+        eligible+=1
+        if not required_quotes(source,selected,observations):complete+=1;continue
+        if count>=cap:continue
         markets={'h2h','totals'}
-        selected=[x.get('market') for x in picks if fixture_key(x)==fixture_key(source)]
         if any(m in ('Over 1.5','Under 3.5') for m in selected):markets.add('alternate_totals')
         if 'Both Teams to Score - Yes' in selected:markets.add('btts')
         if any(str(m).startswith('Double Chance') for m in selected):markets.add('double_chance')
@@ -122,8 +160,18 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None):
             if not path.exists():
                 with path.open('x',encoding='utf-8') as f:json.dump(d,f,sort_keys=True,indent=2,allow_nan=False);f.write('\n')
                 written+=1
+            observations.append(d)
+            missing=required_quotes(source,selected,observations)
+            checks.append({'event_id':event,'requested_markets':sorted(markets),
+                'returned_bookmakers':sorted({str(b.get('key','')) for b in payload.get('bookmakers',[]) if isinstance(b,dict)}),
+                'missing_required_quotes':[{'bookmaker':b,'selection':s} for b,s in sorted(missing)]})
         except Exception as exc:errors.append({'event_id':event,'error':type(exc).__name__})
-    status={'checked_at_utc':start.isoformat(),'requests':count,'written':written,'errors':errors,'request_limit':limit,'daily_requests':used+count,'daily_request_cap':100}
+    reason=('NO_FIXTURES_IN_PRE_KICKOFF_WINDOW' if not eligible else
+            'ALL_REQUIRED_QUOTES_ALREADY_COLLECTED' if complete==eligible else
+            'DAILY_REQUEST_CAP_REACHED' if used>=100 else
+            'REQUEST_LIMIT_REACHED' if count>=cap and not count else 'CHECKED_ELIGIBLE_FIXTURES')
+    status={'checked_at_utc':start.isoformat(),'requests':count,'written':written,'errors':errors,'request_limit':limit,'daily_requests':used+count,'daily_request_cap':100,
+            'eligible_fixtures':eligible,'already_complete_fixtures':complete,'reason':reason,'coverage_checks':checks}
     write_json(root/'closing_odds/collector_status.json',status);return status
 
 
@@ -200,4 +248,5 @@ def main(argv=None):
 
 
 if __name__=='__main__':raise SystemExit(main())
+
 

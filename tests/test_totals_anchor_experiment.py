@@ -65,6 +65,27 @@ class TotalsTests(unittest.TestCase):
             with self.assertRaises(ValueError):t.validate(d,NOW.isoformat(),[row])
             with self.assertRaises(ValueError):t.validate({**d,'registry_sha256':'bad'},NOW.isoformat(),[row])
 
+    def test_legacy_truncated_time_recovers_without_rewriting_archive(self):
+        row,m,inputs=sample();key=fixture_key(row)
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);raw=root/'raw';raw.mkdir()
+            generated=NOW.replace(microsecond=803955).isoformat()
+            data=pd.DataFrame([row]);data.to_csv(raw/'all_leagues_predictions.csv',index=False)
+            pd.DataFrame(columns=['decision']).to_csv(raw/'conservative_bet_shortlist.csv',index=False)
+            write_json(raw/'conservative_bet_summary.json',{'generated_at_utc':generated})
+            t.write_experiment(data,raw,generated,{key:m},{key:inputs})
+            capture('f'*40,root=root,captured_at=NOW+timedelta(minutes=1))
+            directory=root/'performance/snapshots'/('f'*16)
+            meta=json.loads((directory/'metadata.json').read_text());meta['generated_at_utc']=NOW.isoformat()
+            write_json(directory/'metadata.json',meta)
+            archive=snapshots(root);before={p.name:p.read_bytes() for p in directory.iterdir()}
+            summary,_,_=t.evaluate(root,archive,[],NOW+timedelta(days=3))
+            self.assertEqual(summary['rejected_snapshot_commits'],[])
+            self.assertEqual(summary['observed_fixtures'],1)
+            self.assertEqual(before,{p.name:p.read_bytes() for p in directory.iterdir()})
+            (directory/'selection_summary.json').write_text('{}')
+            self.assertIn('f'*40,t.evaluate(root,archive,[],NOW)[0]['rejected_snapshot_commits'])
+
     def test_pinnacle_reference_is_separate_from_production_reference(self):
         row,_,inputs=sample();ref=inputs['reference'];payload={'id':'abc','home_team':row['home_team'],'away_team':row['away_team'],'commence_time':row['kickoff_utc'],'bookmakers':[{'key':'pinnacle','title':'Pinnacle','markets':[{'key':'totals','last_update':NOW.isoformat(),'outcomes':[{'name':'Over','point':2.5,'price':1.95},{'name':'Under','point':2.5,'price':1.95}]}]},{'key':'other','title':'Other','markets':[{'key':'totals','last_update':(NOW+timedelta(seconds=1)).isoformat(),'outcomes':[{'name':'Over','point':2.5,'price':2.0},{'name':'Under','point':2.5,'price':1.9}]}]}]}
         flat=TheOddsAPI.flatten_odds_event(payload);self.assertEqual(flat['live_ref_ou25_bookmaker'],'Other');self.assertEqual(flat['shadow_pinnacle_totals'],ref)
@@ -89,3 +110,4 @@ class TotalsTests(unittest.TestCase):
             fake['rows']=observations;write_json(directory/t.FILE,fake);meta['sha256'][t.FILE]=hashlib.sha256((directory/t.FILE).read_bytes()).hexdigest()
             with patch.object(t,'registry',return_value=(r,sha)),patch.object(t,'validate'),patch('forecast_integrity.forecast_digest_variants',return_value={'x'}):
                 s,g,c=t.evaluate(root,[(meta,[],[])],records,NOW+timedelta(days=4));self.assertEqual(s['paired_fixtures'],300);self.assertEqual(s['status'],'READY_FOR_REVIEW');self.assertFalse(s['automatic_production_change'])
+

@@ -196,7 +196,7 @@ def capture_file(raw, generated):
 
 def frozen(root, archive):
     from performance_tracking import load_json, utc, fixture_key
-    from forecast_integrity import forecast_digest_variants
+    from forecast_integrity import forecast_digest_variants, snapshot_generated_at
     result, rejected = {}, []
     for meta, predictions, _ in archive:
         directory = root/'performance/snapshots'/meta['git_commit_sha'][:16]
@@ -208,10 +208,10 @@ def frozen(root, archive):
             if not path.exists() or hashlib.sha256(path.read_bytes()).hexdigest() != expected:
                 raise ValueError('Reliability snapshot integrity failure')
             data = load_json(path, {})
-            validate(data, meta['generated_at_utc'], predictions)
+            validate(data, snapshot_generated_at(directory, meta), predictions)
             if data['predictions_sha256'] not in forecast_digest_variants(directory/'predictions.csv'):
                 raise ValueError('Reliability snapshot binding failed')
-        except (ValueError, KeyError, TypeError):
+        except (ValueError, KeyError, TypeError, OSError):
             rejected.append(meta['git_commit_sha'])
             continue
         generated, captured = utc(data['generated_at_utc']), utc(meta['captured_at_utc'])
@@ -310,3 +310,4 @@ def validate_report(root):
     if actual != expected or load_json(dest/'graded.json', []) != ledger:
         raise ValueError('Reliability report differs from frozen forecasts/results')
     return True
+
