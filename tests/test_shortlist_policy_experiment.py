@@ -36,6 +36,21 @@ def setup(root, row=None, clock=NOW, reliability=None):
 
 
 class PolicyExperimentTests(unittest.TestCase):
+    def test_missing_bookmakers_replay_identically_from_csv_and_capture(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            row = fixture()
+            for key in ('home', 'away', 'over_1_5', 'home_draw', 'draw_away', 'home_away'):
+                row['best_'+key+'_bookmaker'] = float('nan')
+            raw, data, predictions, _, _, summary = setup(root, row=row)
+            self.assertTrue(all(r['bookmaker'] is None for r in data['rows']))
+            self.assertTrue(all(r['decision'] == 'REJECTED' for r in data['rows']))
+            self.assertIsNotNone(trial.capture_file(raw, summary['generated_at_utc']))
+            self.assertTrue(capture('a'*40, root=root, captured_at=NOW))
+            rows, rejected = trial.frozen(root, snapshots(root))
+            self.assertEqual(len(rows), 54)
+            self.assertFalse(rejected)
+
     def test_control_grid_isolation_and_production_unchanged(self):
         with tempfile.TemporaryDirectory() as tmp:
             raw, data, predictions, picks, decisions, summary = setup(Path(tmp))
