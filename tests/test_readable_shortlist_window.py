@@ -65,7 +65,7 @@ class SeventyTwoHourSelectionTests(OfflineQuotePolicyTestCase):
         picks, _, _ = self.select(rows)
         self.assertEqual(picks.fixture_id.tolist(), ["fixture-1"])
 
-    def test_one_fixture_excludes_btts_and_keeps_qualifying_market_label(self):
+    def test_one_fixture_selects_btts_and_keeps_qualifying_market_label(self):
         row = fixture()
         row["p_over_1_5"] = 0.78
         row["p_under_3_5"] = 0.77
@@ -74,10 +74,10 @@ class SeventyTwoHourSelectionTests(OfflineQuotePolicyTestCase):
         row["market_btts_yes_odds"] = 1.40
         picks, _, info = self.select([row])
         self.assertEqual(picks.iloc[0]["market"],
-                         "Home win")
+                         "Both Teams to Score - Yes")
         readable = readable_shortlist_frame(picks)
         self.assertEqual(readable.iloc[0]["Shortlisted market"],
-                         "Home win")
+                         "Both Teams to Score - Yes")
         self.assertEqual(readable.iloc[0]["Match"], "Home_0 vs Away_0")
         self.assertEqual(info["shortfall"], 9)
 
