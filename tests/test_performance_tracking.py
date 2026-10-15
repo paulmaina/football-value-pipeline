@@ -1,5 +1,6 @@
 """Offline regression tests for forward-only football outcome tracking."""
 
+from offline_test_case import OfflineQuotePolicyTestCase
 from datetime import datetime, timedelta, timezone
 import json
 import os
@@ -81,7 +82,7 @@ class MockSession:
         return MockResponse(self.items)
 
 
-class SnapshotTests(unittest.TestCase):
+class SnapshotTests(OfflineQuotePolicyTestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
@@ -157,7 +158,7 @@ class SnapshotTests(unittest.TestCase):
         self.assertEqual(len(frozen_rows(snapshots(self.root), "shortlist")), 1)
 
 
-class ResultsAndMarketsTests(unittest.TestCase):
+class ResultsAndMarketsTests(OfflineQuotePolicyTestCase):
     def test_provider_finished_regulation_goals_only(self):
         standard = verified_record("PL", final())
         self.assertEqual((standard["home_goals"], standard["away_goals"]), (2, 1))

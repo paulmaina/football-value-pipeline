@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import os
 from pathlib import Path
 import tempfile
@@ -7,7 +8,7 @@ from unittest.mock import patch
 from api_key_config import API_KEY_NAMES, load_api_keys
 
 
-class APIKeyConfigTests(unittest.TestCase):
+class APIKeyConfigTests(OfflineQuotePolicyTestCase):
     def test_file_overrides_all_inherited_keys_without_touching_other_environment(self):
         with tempfile.TemporaryDirectory() as tmp, patch.dict(os.environ,{**{k:'shell-secret' for k in API_KEY_NAMES},'UNRELATED_SETTING':'keep'},clear=True):
             file=Path(tmp)/'.env'

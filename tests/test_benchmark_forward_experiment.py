@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import base64
 import copy
 from datetime import datetime,timedelta,timezone
@@ -35,7 +36,7 @@ def setup(root):
     result=bf.write_experiment(data,raw,NOW.isoformat());return raw,data,result
 
 
-class ForwardBridgeTests(unittest.TestCase):
+class ForwardBridgeTests(OfflineQuotePolicyTestCase):
     def test_missing_reference_round_trip_preserves_unavailable_evidence(self):
         from performance_tracking import read_csv
         with tempfile.TemporaryDirectory() as tmp:

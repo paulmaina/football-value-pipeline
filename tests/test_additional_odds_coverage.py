@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import unittest
 from datetime import datetime, timezone
 from types import SimpleNamespace
@@ -7,7 +8,7 @@ from goal_market_validation import prioritized_additional_events
 from football_value_pipeline_v2_standalone import FootballValuePipelineV2
 
 
-class CoverageTests(unittest.TestCase):
+class CoverageTests(OfflineQuotePolicyTestCase):
     def fixtures(self):
         return pd.DataFrame([dict(Date=pd.Timestamp('2026-10-13'),
             kickoff_utc='2026-10-13T19:00:00Z', HomeTeam=f'Home{i}',

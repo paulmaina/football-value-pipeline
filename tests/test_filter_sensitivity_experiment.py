@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
 import hashlib
@@ -34,7 +35,7 @@ def record(row,h=2,a=1):
     return verified_record('PL',match)
 
 
-class SensitivityTests(unittest.TestCase):
+class SensitivityTests(OfflineQuotePolicyTestCase):
     def test_previous_six_market_policy_remains_valid_for_archived_evidence(self):
         import conservative_bet_filter as shortlist
         old_specs = tuple(s for s in shortlist.MARKET_SPECS if s[1] != "home_away") + (("Both Teams to Score - Yes", "btts_yes", .70, .63),)
@@ -166,7 +167,7 @@ class SensitivityTests(unittest.TestCase):
             for key in row:
                 if key.startswith('market_best_') and key.endswith('_last_update_utc'):
                     row[key]=(later-timedelta(hours=1)).isoformat()
-            with patch('test_filter_sensitivity_experiment.NOW',later):setup(root,row)
+            with patch(__name__+'.NOW',later):setup(root,row)
             capture('b'*40,root=root,captured_at=later)
             rows,_=frozen(root,snapshots(root))
             self.assertEqual(len(rows),18)

@@ -1,3 +1,4 @@
+from offline_test_case import OfflineQuotePolicyTestCase
 import json
 import subprocess
 import tempfile
@@ -22,7 +23,7 @@ def item(data):
             'content':data,'matches':refresh.inspect_csv(data,'E0',2026,CLOCK)}
 
 
-class RefreshTests(unittest.TestCase):
+class RefreshTests(OfflineQuotePolicyTestCase):
     def test_validation_and_scheduled_rows(self):
         data=csv_data('E0,11/10/2026,A,B,0,0\nE0,18/10/2026,A,C,,\n')
         self.assertEqual(len(refresh.inspect_csv(data,'E0',2026,CLOCK)),1)
