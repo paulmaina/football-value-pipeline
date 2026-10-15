@@ -36,6 +36,25 @@ MARKETS = {
     "under_3_5": ("p_under_3_5", "raw_p_under_3_5", "actual_under_3_5", 0.76, 0.70),
     "btts_yes": ("p_btts_yes", "raw_p_btts_yes", "actual_btts_yes", 0.70, 0.63),
 }
+VALIDATOR_VERSION = 5
+
+
+def validation_cache_matches(cached: object, config: Mapping) -> bool:
+    """Reuse only reports with the current configuration and every market.
+
+    A version bump invalidates reports generated before DC12 was introduced.
+    Checking coverage also prevents an incomplete report with a matching
+    configuration from silently disabling a supported market.
+    """
+    return (
+        isinstance(cached, dict)
+        and cached.get("config") == config
+        and isinstance(cached.get("markets"), dict)
+        and all(isinstance(cached["markets"].get(key), dict)
+                and isinstance(cached["markets"][key].get("status"), str)
+                for key in MARKETS)
+    )
+
 # The following are only *optional exact paired* historical opening
 # quotations from one bookmaker. Current source files do not contain
 # these columns, so ROI must report UNAVAILABLE.
@@ -370,5 +389,3 @@ def evaluate_market_history(
         if prices["n_quotes"]:
             results["historical_goal_prices_available"] = True
     return results
-
-

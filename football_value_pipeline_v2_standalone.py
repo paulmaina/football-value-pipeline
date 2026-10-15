@@ -3739,8 +3739,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                                     if league_key == "UCL" else args.min_train)
             if validation_min_train < 30:
                 raise ValueError("Validation warm-up must contain at least 30 matches")
+            from goal_market_validation import VALIDATOR_VERSION, validation_cache_matches
             config = {
-                "validator_version": 4,
+                "validator_version": VALIDATOR_VERSION,
                 "min_train": validation_min_train,
                 "step_days": 56,
                 "devig": pipe.devig_method,
@@ -3758,7 +3759,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                     cached = json.loads(validation_path.read_text(encoding="utf-8"))
                 except (ValueError, OSError):
                     cached = None
-            if isinstance(cached, dict) and cached.get("config") == config:
+            if validation_cache_matches(cached, config):
                 market_validation = cached
             else:
                 print(f"[{league_key}] validating goal markets walk-forward...", file=sys.stderr)
@@ -3923,5 +3924,3 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
-
