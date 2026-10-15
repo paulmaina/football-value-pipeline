@@ -109,7 +109,7 @@ def capture_file(raw,generated):
 
 def evaluate(root,archive,records,clock):
     from performance_tracking import load_json,utc,fixture_key,fixture_match
-    from forecast_integrity import forecast_digest_variants
+    from forecast_integrity import forecast_digest_variants, snapshot_generated_at
     from historical_benchmark import metrics,score
     from benchmark_forward_experiment import block_interval
     r,sha=registry();observations={};rejected=[]
@@ -118,7 +118,7 @@ def evaluate(root,archive,records,clock):
         if not digest:continue
         try:
             if hashlib.sha256(path.read_bytes()).hexdigest()!=digest:raise ValueError('Digest')
-            d=load_json(path,{});validate(d,meta['generated_at_utc'],predictions,False)
+            d=load_json(path,{});validate(d,snapshot_generated_at(directory,meta),predictions,False)
             if d['predictions_sha256'] not in forecast_digest_variants(directory/'predictions.csv'):raise ValueError('Forecast digest')
         except (ValueError,KeyError,TypeError,OSError):rejected.append(meta['git_commit_sha']);continue
         if d['registry_sha256']!=sha:continue
@@ -159,3 +159,4 @@ def validate_report(root):
     dest=root/'performance/totals_anchor_experiment';actual=load_json(dest/'summary.json',{});expected,g,c=evaluate(root,snapshots(root),list(load_json(root/'performance/verified_results.json',{}).values()),utc(actual['reviewed_at_utc']))
     if actual!=expected or load_json(dest/'graded.json',[])!=g or load_json(dest/'coverage.json',[])!=c:raise ValueError('Totals report evidence mismatch')
     return True
+
