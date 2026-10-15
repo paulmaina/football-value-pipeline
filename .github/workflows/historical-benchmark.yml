@@ -28,10 +28,10 @@ jobs:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
           cache: pip
@@ -54,7 +54,7 @@ jobs:
         run: cat workflow_artifacts/historical_benchmark/report.md >> "$GITHUB_STEP_SUMMARY"
       - name: Retain full benchmark evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: historical-model-benchmark-${{ github.sha }}
           path: workflow_artifacts/historical_benchmark/
