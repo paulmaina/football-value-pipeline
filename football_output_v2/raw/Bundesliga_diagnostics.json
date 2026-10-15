@@ -1,6 +1,7 @@
 {
   "league": "Bundesliga",
   "training_matches": 963,
+  "training_sha256": "47b799f8f0667596e8ecf5ac9e081b9af99c50b3b720b48e2faa78ea69fafc96",
   "training_end": "2026-10-11",
   "fit_success": true,
   "objective": 1719.0515108730224,
@@ -24,8 +25,8 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 16,
-  "additional_event_odds_calls_used_before_this_league": 14,
+  "live_odds_matched": 17,
+  "additional_event_odds_calls_used_before_this_league": 16,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "additional_odds_coverage_mode": "all",
@@ -120,10 +121,11 @@
       "home_team": "Bayer Leverkusen",
       "away_team": "SC Freiburg",
       "kickoff_utc": "2026-10-18T13:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "fd9b8c185737a15615aa0c9daaa3dfbf",
@@ -131,10 +133,11 @@
       "home_team": "Borussia Monchengladbach",
       "away_team": "TSG Hoffenheim",
       "kickoff_utc": "2026-10-18T15:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "d4d56a31d8ccd432e3a6183180e093f3",
@@ -212,12 +215,23 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false
+    },
+    {
+      "fixture_id": "2fd479cbb110c8f057e363bb06195f2b",
+      "event_id": "2fd479cbb110c8f057e363bb06195f2b",
+      "home_team": "TSG Hoffenheim",
+      "away_team": "Bayer Leverkusen",
+      "kickoff_utc": "2026-10-25T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 7,
+  "additional_odds_in_window_linked_fixtures": 9,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 7,
+  "additional_event_odds_calls_this_league": 9,
   "decay_tuning": {
     "selected_half_life_days": 730.0,
     "selected_xi_per_day": 0.0009495166856985552,
