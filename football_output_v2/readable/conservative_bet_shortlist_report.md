@@ -1,10 +1,10 @@
 # Conservative shortlisted matches and markets
 
 
-**Candidates:** 2 of target 10 distinct matches.
-**Strictly qualified:** 1. **Provisional watchlist:** 1.
+**Candidates:** 3 of target 10 distinct matches.
+**Strictly qualified:** 2. **Provisional watchlist:** 1.
 **Pipeline status:** BELOW_TARGET_WITH_PROVISIONAL.
-**Generated (UTC):** 2026-10-15T06:54:19.720870+00:00.
+**Generated (UTC):** 2026-10-15T09:51:36.740270+00:00.
 **Kickoffs within next 72 hours of run:** Yes (span: 1.0 hours).
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. Do not treat ten candidates as a ten-leg betslip.
@@ -13,8 +13,9 @@
 
 | Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Venezia vs Napoli | Away win | STRICT | 2026-10-17T13:00:00+00:00 | 65.8% | 65.8% | 1xBet | 1.71 | +12.5% | — |
-| Manchester City vs Ipswich Town | Home win | PROVISIONAL | 2026-10-17T14:00:00+00:00 | 83.4% | 82.0% | 1xBet | 1.26 | +3.3% | 75plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY |
+| Werder Bremen vs SC Paderborn | Double Chance 1X | STRICT | 2026-10-17T13:30:00+00:00 | 80.2% | 80.2% | 1xBet | 1.27 | +1.8% | — |
+| Venezia vs Napoli | Double Chance 12 | STRICT | 2026-10-17T13:00:00+00:00 | 80.1% | 80.1% | 1xBet | 1.27 | +1.7% | — |
+| Manchester City vs Ipswich Town | Home win | PROVISIONAL | 2026-10-17T14:00:00+00:00 | 83.7% | 82.3% | 1xBet | 1.26 | +3.7% | 75plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY |
 
 ## Interpretation
 
