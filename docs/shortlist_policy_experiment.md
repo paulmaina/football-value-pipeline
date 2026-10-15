@@ -55,6 +55,10 @@ freeze one proposed policy and evaluate it on later untouched fixtures before
 considering a production change. There is no automatic promotion. Keep this
 grid fixed and collect evidence rather than adding more experiments.
 
+Policy v11 also checks fresh exact-market and underlying 1X2 reference
+timestamps. Existing v9/v10 captures retain deterministic replay of their
+original reference rules. See [live quote freshness](live-quote-freshness.md).
+
 The version binds the grid and baseline policy. Future shortlist-engine
 changes must retain historical replay compatibility or use a separately
 versioned implementation; do not reinterpret existing captures.

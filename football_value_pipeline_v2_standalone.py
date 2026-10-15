@@ -744,34 +744,35 @@ class TheOddsAPI:
         return low <= margin <= high
 
     @staticmethod
-    def flatten_odds_event(event: Mapping[str, object]) -> Dict[str, object]:
-        """Flatten one API event into best prices + coherent reference markets."""
+    def flatten_odds_event(event: Mapping[str, object], *, as_of=None) -> Dict[str, object]:
+        """Flatten complete books; live callers filter timing before ranking.
+
+        Omitting as_of retains structural parsing for historical fixtures/tests.
+        """
+        from quote_freshness import quote_clock, quote_is_fresh, quote_utc
+        clock = quote_clock(as_of) if as_of is not None else None
         event_id = str(event.get("id") or "")
         home = str(event.get("home_team") or "")
         away = str(event.get("away_team") or "")
         commence = str(event.get("commence_time") or "")
 
-        best_h: Tuple[Optional[float], Optional[str]] = (None, None)
-        best_d: Tuple[Optional[float], Optional[str]] = (None, None)
-        best_a: Tuple[Optional[float], Optional[str]] = (None, None)
-        best_o: Tuple[Optional[float], Optional[str]] = (None, None)
-        best_u: Tuple[Optional[float], Optional[str]] = (None, None)
+        best_h = best_d = best_a = best_o = best_u = (None, None, None)
         complete_h2h: List[Tuple[str, str, float, float, float]] = []
         complete_ou: List[Tuple[str, str, float, float]] = []
         all_updates: List[str] = []
-        h2h_book_updates: Dict[str, str] = {}
         pinnacle_totals = None
 
         def update_best(
-            current: Tuple[Optional[float], Optional[str]],
+            current,
             price: Optional[float],
             bookmaker_name: str,
-        ) -> Tuple[Optional[float], Optional[str]]:
+            updated: str,
+        ):
             from quote_policy import usable_bookmaker
             if price is None or price <= 1.0 or not usable_bookmaker(bookmaker_name):
                 return current
             if current[0] is None or price > float(current[0]):
-                return (price, bookmaker_name)
+                return (price, bookmaker_name, updated)
             return current
 
         bookmakers = event.get("bookmakers")
@@ -787,10 +788,11 @@ class TheOddsAPI:
             book_name = str(bookmaker.get("title") or bookmaker.get("key") or "unknown")
 
             h2h = TheOddsAPI._market(bookmaker, "h2h")
+            if h2h and clock is not None and not quote_is_fresh(TheOddsAPI._last_update(bookmaker, h2h), clock):
+                h2h = None
             if h2h:
                 # Timestamp each bookmaker's selected 1X2 quote, not the
                 # unrelated latest totals/other-bookmaker update.
-                h2h_book_updates[book_name] = TheOddsAPI._last_update(bookmaker, h2h)
                 prices: Dict[str, float] = {}
                 duplicate = False
                 outcomes = h2h.get("outcomes")
@@ -818,10 +820,10 @@ class TheOddsAPI:
                         [prices["home"], prices["draw"], prices["away"]]
                     )
                 ):
-                    best_h = update_best(best_h, prices["home"], book_name)
-                    best_d = update_best(best_d, prices["draw"], book_name)
-                    best_a = update_best(best_a, prices["away"], book_name)
                     updated = TheOddsAPI._last_update(bookmaker, h2h)
+                    best_h = update_best(best_h, prices["home"], book_name, updated)
+                    best_d = update_best(best_d, prices["draw"], book_name, updated)
+                    best_a = update_best(best_a, prices["away"], book_name, updated)
                     complete_h2h.append((
                         updated, book_name, prices["home"], prices["draw"], prices["away"]
                     ))
@@ -829,6 +831,8 @@ class TheOddsAPI:
                         all_updates.append(updated)
 
             totals = TheOddsAPI._market(bookmaker, "totals")
+            if totals and clock is not None and not quote_is_fresh(TheOddsAPI._last_update(bookmaker, totals), clock):
+                totals = None
             if totals:
                 prices: Dict[str, float] = {}
                 duplicate = False
@@ -856,9 +860,9 @@ class TheOddsAPI:
                         [prices["over"], prices["under"]]
                     )
                 ):
-                    best_o = update_best(best_o, prices["over"], book_name)
-                    best_u = update_best(best_u, prices["under"], book_name)
                     updated = TheOddsAPI._last_update(bookmaker, totals)
+                    best_o = update_best(best_o, prices["over"], book_name, updated)
+                    best_u = update_best(best_u, prices["under"], book_name, updated)
                     complete_ou.append((updated, book_name, prices["over"], prices["under"]))
                     if str(bookmaker.get("key", "")).lower() == "pinnacle":
                         pinnacle_totals = {"updated_at_utc": updated, "over": prices["over"], "under": prices["under"], "bookmaker": "pinnacle", "event_id": event_id, "kickoff_utc": commence, "home_team": home, "away_team": away}
@@ -866,8 +870,9 @@ class TheOddsAPI:
                         all_updates.append(updated)
 
         from quote_policy import usable_bookmaker
-        ref_h2h = max(complete_h2h, key=lambda x: x[0], default=None)
-        ref_ou = max(complete_ou, key=lambda x: x[0], default=None)
+        reference_order = lambda x: quote_utc(x[0]) if clock is not None else x[0]
+        ref_h2h = max(complete_h2h, key=reference_order, default=None)
+        ref_ou = max(complete_ou, key=reference_order, default=None)
 
         return {
             "fixture_id": event_id,
@@ -875,27 +880,30 @@ class TheOddsAPI:
             "_odds_away_team": away,
             "_odds_commence_time": commence,
             "odds_source": "The Odds API",
-            "odds_last_update_utc": max(all_updates) if all_updates else None,
+            "odds_last_update_utc": max(all_updates, key=quote_utc if clock is not None else str) if all_updates else None,
             "odds_h2h_last_update_utc": None if ref_h2h is None else ref_h2h[0],
-            "odds_bookmakers_1x2": sum(1 for x in complete_h2h if usable_bookmaker(x[1])),
+            "odds_ou25_last_update_utc": None if ref_ou is None else ref_ou[0],
+            "odds_bookmakers_1x2": len({x[1] for x in complete_h2h if usable_bookmaker(x[1])}),
             "odds_bookmakers_ou25": len(complete_ou),
             "live_best_home_odds": best_h[0],
             "live_best_home_bookmaker": best_h[1],
-            "live_best_home_last_update_utc": h2h_book_updates.get(best_h[1]),
+            "live_best_home_last_update_utc": best_h[2],
             "live_best_draw_odds": best_d[0],
             "live_best_draw_bookmaker": best_d[1],
-            "live_best_draw_last_update_utc": h2h_book_updates.get(best_d[1]),
+            "live_best_draw_last_update_utc": best_d[2],
             "live_best_away_odds": best_a[0],
             "live_best_away_bookmaker": best_a[1],
-            "live_best_away_last_update_utc": h2h_book_updates.get(best_a[1]),
+            "live_best_away_last_update_utc": best_a[2],
             "live_ref_home_odds": None if ref_h2h is None else ref_h2h[2],
             "live_ref_draw_odds": None if ref_h2h is None else ref_h2h[3],
             "live_ref_away_odds": None if ref_h2h is None else ref_h2h[4],
             "live_ref_1x2_bookmaker": None if ref_h2h is None else ref_h2h[1],
             "live_best_over_2_5_odds": best_o[0],
             "live_best_over_2_5_bookmaker": best_o[1],
+            "live_best_over_2_5_last_update_utc": best_o[2],
             "live_best_under_2_5_odds": best_u[0],
             "live_best_under_2_5_bookmaker": best_u[1],
+            "live_best_under_2_5_last_update_utc": best_u[2],
             "live_ref_over_2_5_odds": None if ref_ou is None else ref_ou[2],
             "live_ref_under_2_5_odds": None if ref_ou is None else ref_ou[3],
             "live_ref_ou25_bookmaker": None if ref_ou is None else ref_ou[1],
@@ -929,8 +937,9 @@ class TheOddsAPI:
         )
         if not isinstance(payload, list):
             raise RuntimeError("The Odds API odds response was not a list")
+        clock = datetime.now(timezone.utc)
         rows = [
-            self.flatten_odds_event(event)
+            self.flatten_odds_event(event, as_of=clock)
             for event in payload
             if isinstance(event, dict) and event.get("id")
         ]
@@ -970,6 +979,9 @@ class TheOddsAPI:
         if not isinstance(payload, dict) or str(payload.get("id")) != safe_id:
             raise RuntimeError("Event odds response missing/mismatched ID")
 
+        from quote_freshness import quote_is_fresh, quote_utc
+        clock = datetime.now(timezone.utc)
+
         offers: Dict[str, List[Tuple[str, str, float, float]]] = {
             "over_1_5": [], "under_3_5": [], "btts_yes": [],
         }
@@ -991,6 +1003,8 @@ class TheOddsAPI:
                 if not isinstance(outcomes, list):
                     continue
                 updated = self._last_update(book, market)
+                if not quote_is_fresh(updated, clock):
+                    continue
                 for point in ((1.5, 3.5) if market_key == "alternate_totals" else (None,)):
                     pair: Dict[str, float] = {}
                     duplicate = False
@@ -1026,11 +1040,11 @@ class TheOddsAPI:
                         )
 
         from double_chance import parse_quotes
-        result: Dict[str, object] = parse_quotes(payload, as_of=datetime.now(timezone.utc))
+        result: Dict[str, object] = parse_quotes(payload, as_of=clock)
         for market, available in offers.items():
             if not available:
                 continue
-            ref = max(available, key=lambda x: x[0])
+            ref = max(available, key=lambda x: quote_utc(x[0]))
             from quote_policy import usable_bookmaker
             usable = [x for x in available if usable_bookmaker(x[1])]
             best = max(usable, key=lambda x: x[2]) if usable else (None, None, None, None)
@@ -1041,6 +1055,7 @@ class TheOddsAPI:
             result[f"market_best_{market}_last_update_utc"] = best[0] or None
             result[f"market_reference_{market}_odds"] = ref[2]
             result[f"market_reference_{market}_opposite_odds"] = ref[3]
+            result[f"market_reference_{market}_last_update_utc"] = ref[0]
             result[f"market_{market}_bookmakers"] = len({x[1] for x in usable})
         return result
 
@@ -2345,6 +2360,11 @@ def market_snapshot(row: pd.Series, devig_method: str = "power") -> Dict[str, ob
         best_h = _valid_price(row.get("live_best_home_odds"))
         best_d = _valid_price(row.get("live_best_draw_odds"))
         best_a = _valid_price(row.get("live_best_away_odds"))
+    elif row.get("odds_source") == "The Odds API":
+        # An unavailable live reference must not silently revive unrelated
+        # stored/opening prices from the fixture row.
+        coherent, source = [None, None, None], "The Odds API / unavailable reference"
+        best_h = best_d = best_a = None
     else:
         coherent, source = pick_consistent_market(row, OPEN_1X2_TRIPLES)
         best_h = pick_best_price(row, BEST_1X2_COLUMNS["home"])
@@ -2363,12 +2383,17 @@ def market_snapshot(row: pd.Series, devig_method: str = "power") -> Dict[str, ob
         ou_source = f"The Odds API / {bookmaker}" if bookmaker else "The Odds API"
         best_over = _valid_price(row.get("live_best_over_2_5_odds"))
         best_under = _valid_price(row.get("live_best_under_2_5_odds"))
+    elif row.get("odds_source") == "The Odds API":
+        ou_odds, ou_source = [None, None], "The Odds API / unavailable reference"
+        best_over = best_under = None
     else:
         ou_odds, ou_source = pick_consistent_market(row, OU25_PAIRS)
         best_over = pick_best_price(row, BEST_OU25_COLUMNS["over"])
         best_under = pick_best_price(row, BEST_OU25_COLUMNS["under"])
 
     ou_fair = devig(ou_odds, method=devig_method)
+    h2h_time = row.get("odds_h2h_last_update_utc") if all(v is not None for v in live_ref) else None
+    ou_time = row.get("odds_ou25_last_update_utc") if all(v is not None for v in live_ou) else None
 
     return {
         "market_source_1x2": source,
@@ -2378,6 +2403,10 @@ def market_snapshot(row: pd.Series, devig_method: str = "power") -> Dict[str, ob
         "market_reference_home_odds": coherent[0],
         "market_reference_draw_odds": coherent[1],
         "market_reference_away_odds": coherent[2],
+        "market_reference_1x2_last_update_utc": h2h_time,
+        "market_reference_home_last_update_utc": h2h_time,
+        "market_reference_draw_last_update_utc": h2h_time,
+        "market_reference_away_last_update_utc": h2h_time,
         "market_p_home": fair[0],
         "market_p_draw": fair[1],
         "market_p_away": fair[2],
@@ -2386,6 +2415,10 @@ def market_snapshot(row: pd.Series, devig_method: str = "power") -> Dict[str, ob
         "market_under_2_5_odds": best_under,
         "market_reference_over_2_5_odds": ou_odds[0],
         "market_reference_under_2_5_odds": ou_odds[1],
+        "market_reference_over_2_5_last_update_utc": ou_time,
+        "market_reference_under_2_5_last_update_utc": ou_time,
+        "market_best_over_2_5_last_update_utc": row.get("live_best_over_2_5_last_update_utc"),
+        "market_best_under_2_5_last_update_utc": row.get("live_best_under_2_5_last_update_utc"),
         "market_p_over_2_5": ou_fair[0],
         "market_p_under_2_5": ou_fair[1],
     }

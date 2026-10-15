@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import pandas as pd
 
@@ -183,10 +184,12 @@ class GradedCandidatesTests(OfflineQuotePolicyTestCase):
         api.regions = "eu"
         api.api_key = "fake"
         api.force_refresh = False
-        result = api.odds(
-            LEAGUES["EPL"], lookahead_days=10,
-            now=datetime(2026, 10, 9, 12, 0, tzinfo=timezone.utc),
-        )
+        with patch('football_value_pipeline_v2_standalone.datetime') as clock:
+            clock.now.return_value = datetime(2026, 10, 9, 14, 0, tzinfo=timezone.utc)
+            result = api.odds(
+                LEAGUES["EPL"], lookahead_days=10,
+                now=datetime(2026, 10, 9, 12, 0, tzinfo=timezone.utc),
+            )
 
         self.assertEqual(len(result), 1)
         self.assertEqual(result.iloc[0]["odds_bookmakers_1x2"], 1)

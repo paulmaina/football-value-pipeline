@@ -12,7 +12,8 @@ import numpy as np
 import pandas as pd
 
 VERSION = 'shortlist-probability-calibration-v1'
-BASELINE_POLICY = '72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10'
+BASELINE_POLICY = '72h-seven-markets-fresh-references-net-ev15-v11'
+PREVIOUS_BASELINE_POLICY = '72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10'
 LEGACY_BASELINE_POLICY = '72h-six-markets-dc12-probability-odds-net-ev15-v9'
 NAME = 'shortlist_policy_experiment'
 VARIANTS = {
@@ -107,7 +108,7 @@ def validate(data, generated, predictions):
     from quote_policy import validate_policy
     if not isinstance(data, dict) or data.get('version') != VERSION or data.get('variants') != VARIANTS:
         raise ValueError('Invalid shortlist policy version/grid')
-    if data.get('selection_policy_version') not in (BASELINE_POLICY, LEGACY_BASELINE_POLICY):
+    if data.get('selection_policy_version') not in (BASELINE_POLICY, PREVIOUS_BASELINE_POLICY, LEGACY_BASELINE_POLICY):
         raise ValueError('Unbound baseline policy')
     if utc(generated) is None or utc(data.get('generated_at_utc')) != utc(generated):
         raise ValueError('Unbound shortlist policy generation time')
