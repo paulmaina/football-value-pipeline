@@ -146,6 +146,20 @@ def safe_float(value) -> Optional[float]:
         return None
 
 
+def validated_completed_scores(frame: pd.DataFrame) -> pd.DataFrame:
+    """Never silently round malformed training scores into match outcomes."""
+    result = frame.copy()
+    for field in ('FTHG', 'FTAG'):
+        values = pd.to_numeric(result[field], errors='coerce')
+        invalid = (values.isna() | ~np.isfinite(values) | ~values.between(0, 30)
+                   | values.mod(1).ne(0)
+                   | result[field].map(lambda value: isinstance(value, (bool, np.bool_))))
+        if invalid.any():
+            raise ValueError('Invalid completed goals: require finite integer scores from 0 to 30')
+        result[field] = values.astype(int)
+    return result
+
+
 def fair_odds(probability: float) -> float:
     return math.inf if probability <= 0 else 1.0 / probability
 
@@ -411,8 +425,9 @@ class FootballDataUK:
 
         df = df.dropna(subset=["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG"]).copy()
         df = df[df["Date"] < pd.Timestamp(now.date()) + pd.Timedelta(days=1)]
-        df["FTHG"] = df["FTHG"].astype(int)
-        df["FTAG"] = df["FTAG"].astype(int)
+        df = validated_completed_scores(df)
+        if df.duplicated(['Date', 'HomeTeam', 'AwayTeam']).any():
+            raise ValueError(f'{league.name}: duplicate completed training fixture')
         df = df.sort_values("Date").reset_index(drop=True)
         return df
 
@@ -777,6 +792,7 @@ class TheOddsAPI:
                 # unrelated latest totals/other-bookmaker update.
                 h2h_book_updates[book_name] = TheOddsAPI._last_update(bookmaker, h2h)
                 prices: Dict[str, float] = {}
+                duplicate = False
                 outcomes = h2h.get("outcomes")
                 if isinstance(outcomes, list):
                     for outcome in outcomes:
@@ -788,13 +804,16 @@ class TheOddsAPI:
                             continue
                         key = canonical_team_key(name)
                         if key == home_key:
+                            duplicate |= 'home' in prices
                             prices["home"] = price
                         elif key == away_key:
+                            duplicate |= 'away' in prices
                             prices["away"] = price
                         elif name.strip().lower() == "draw":
+                            duplicate |= 'draw' in prices
                             prices["draw"] = price
                 if (
-                    all(k in prices for k in ("home", "draw", "away"))
+                    not duplicate and all(k in prices for k in ("home", "draw", "away"))
                     and TheOddsAPI._coherent_overround(
                         [prices["home"], prices["draw"], prices["away"]]
                     )
@@ -812,6 +831,7 @@ class TheOddsAPI:
             totals = TheOddsAPI._market(bookmaker, "totals")
             if totals:
                 prices: Dict[str, float] = {}
+                duplicate = False
                 outcomes = totals.get("outcomes")
                 if isinstance(outcomes, list):
                     for outcome in outcomes:
@@ -825,11 +845,13 @@ class TheOddsAPI:
                         if price is None or price <= 1.0:
                             continue
                         if name == "over":
+                            duplicate |= 'over' in prices
                             prices["over"] = price
                         elif name == "under":
+                            duplicate |= 'under' in prices
                             prices["under"] = price
                 if (
-                    all(k in prices for k in ("over", "under"))
+                    not duplicate and all(k in prices for k in ("over", "under"))
                     and TheOddsAPI._coherent_overround(
                         [prices["over"], prices["under"]]
                     )
@@ -971,6 +993,7 @@ class TheOddsAPI:
                 updated = self._last_update(book, market)
                 for point in ((1.5, 3.5) if market_key == "alternate_totals" else (None,)):
                     pair: Dict[str, float] = {}
+                    duplicate = False
                     for outcome in outcomes:
                         if not isinstance(outcome, dict):
                             continue
@@ -979,12 +1002,13 @@ class TheOddsAPI:
                         side = str(outcome.get("name") or "").lower().strip()
                         price = _valid_price(outcome.get("price"))
                         if price is not None:
+                            duplicate |= side in pair
                             pair[side] = price
                     left, right = (
                         ("over", "under") if point is not None else ("yes", "no")
                     )
                     if (
-                        left not in pair or right not in pair
+                        duplicate or left not in pair or right not in pair
                         or not self._coherent_overround([pair[left], pair[right]])
                     ):
                         continue
@@ -1454,7 +1478,7 @@ class DixonColesModel:
         if missing:
             raise ValueError(f"Training data missing {sorted(missing)}")
 
-        df = matches.dropna(subset=list(required)).copy()
+        df = validated_completed_scores(matches.dropna(subset=list(required)))
         if len(df) < 30:
             raise ValueError(f"Need at least 30 completed matches; got {len(df)}")
 

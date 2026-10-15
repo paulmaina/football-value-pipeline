@@ -89,8 +89,8 @@ def raw_check(root):
         ('n_provisional_watchlist',sum(r.get('selection_tier')=='PROVISIONAL' for r in picks))]:
         if field in summary: require(summary[field]==count, f'Forecast summary {field} does not match CSV')
     warnings=[]
-    for name,module in [('goal_blend_experiment.json','goal_blend_experiment'),
-                        ('market_led_experiment.json','market_led_experiment')]:
+    for name in SIDECARS:
+        module = name.removesuffix('.json')
         if (raw/name).exists():
             try:
                 import importlib
@@ -289,7 +289,8 @@ def report_check(root):
             elif name=='recency_experiment':
                 from recency_experiment import validate_report
                 validate_report(root)
-                if data.get('rejected_snapshot_commits'):warnings.append('recency_experiment: invalid archived data excluded; see rejected_snapshot_commits')
+            if data.get('rejected_snapshot_commits'):
+                warnings.append(f'{name}: invalid archived data excluded; see rejected_snapshot_commits')
     closing_path=performance/"closing_odds/summary.json"
     if closing_path.exists():
         from closing_odds import validate_report as validate_closing
@@ -313,6 +314,11 @@ def report_check(root):
         state=info.get('current_source_health',{}).get('status')
         if state and state!='CURRENT_WITHIN_PROVIDER_SCHEDULE': warnings.append('UCL training/source health: '+state)
     if health_data.get('quote_audit',{}).get('exchange_quotes'): warnings.append('Latest stored shortlist includes gross exchange quotes from an older execution policy')
+    capture_history = health_data.get('snapshot_capture_history', [])
+    if capture_history:
+        for name, state in capture_history[-1].get('experiments', {}).items():
+            if state in ('PRESENT_BUT_REJECTED', 'MISSING_OR_TAMPERED'):
+                warnings.append(f'{name}: latest snapshot {state}; experimental evidence was not accepted')
     return {'status':'VERIFIED_WITH_WARNINGS' if warnings else 'VERIFIED','pipeline_health':health_data,'reviewed_at_utc':metrics['reviewed_at_utc'],
         'snapshots':len(audit['snapshots']),'shortlist':metrics['shortlist'],'policy_groups':metrics['groups']['policy'],
         'provider_errors':metrics.get('provider_errors',{}),'training_end_dates':training,'experiments':experiments,'warnings':warnings}
