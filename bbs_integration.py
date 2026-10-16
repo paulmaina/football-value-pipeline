@@ -160,6 +160,9 @@ def build_dataset(store, baseline, cutoff, explicit=None):
             if index in claimed:
                 raise ValueError('Multiple matches attempted to enrich the same baseline row')
             claimed.add(index)
+            row['bbs_home_team_id'] = str(m['home']['id'])
+            row['bbs_away_team_id'] = str(m['away']['id'])
+            row['bbs_kickoff_utc'] = m['kickoff_utc']
             row['bbs_match_id'] = item['entity']
             row['bbs_match_observed_at'] = item['observed']
             row['bbs_source_updated_at'] = m.get('source_updated_at')
@@ -193,6 +196,8 @@ def build_dataset(store, baseline, cutoff, explicit=None):
                 'bbs_statistics_available': False, 'post_match_statistics_not_predictor_features': True}
             result.append(row)
             fixture['join_status'] = 'added'
+        row['bbs_home_team_id'] = str(m['home']['id'])
+        row['bbs_away_team_id'] = str(m['away']['id'])
         row['bbs_kickoff_utc'] = m['kickoff_utc']
         observation = stats.get((league, item['entity']))
         if not observation:
@@ -218,6 +223,9 @@ def build_dataset(store, baseline, cutoff, explicit=None):
                     if differs:
                         issues.append({'type': 'statistic_conflict', 'bbs_match_id': item['entity'],
                             'field': source_col, 'existing': row[source_col], 'bbs': value})
+    for row in result:
+        row['bbs_conflict_flags'] = '|'.join(sorted({i['type'] for i in issues
+            if row.get('bbs_match_id') and i.get('bbs_match_id') == row['bbs_match_id']}))
     result.sort(key=lambda r: (r['league'], r['Date'], r['HomeTeam'], r['AwayTeam']))
     freshness = {}
     for kind in ('match', 'statistics', 'standings', 'team', 'player'):
@@ -244,31 +252,139 @@ def build_dataset(store, baseline, cutoff, explicit=None):
 
 
 def write_dataset(dataset, output):
-    """Atomic manifest points at a complete, immutable output generation."""
+    """Publish CSV/JSON as a timestamped generation, then switch the manifest."""
     import hashlib
-    import os
-    import tempfile
+    from bbs_data import atomic_json
     output = Path(output)
-    output.mkdir(parents=True, exist_ok=True)
-    content = dumps(dataset)
-    digest = hashlib.sha256(content.encode()).hexdigest()
-    generation = output / digest
-    generation.mkdir(exist_ok=True)
-    for filename, value in [('dataset.json', dataset), ('report.json', dataset['report']),
-                            ('team_mappings.json', dataset['team_mappings'])]:
-        path = generation / filename
-        path.write_text(dumps(value) + '\n', encoding='utf-8')
+    digest = hashlib.sha256(dumps(dataset).encode()).hexdigest()
+    stamp = utc(dataset['report']['cutoff_utc']).strftime('%Y%m%dT%H%M%S%fZ')
+    generation = output / 'snapshots' / (stamp + '_' + digest)
+    generation.mkdir(parents=True, exist_ok=True)
+    files = {}
+    for key in ('fixtures', 'standings', 'teams', 'players', 'team_mappings', 'report'):
+        files[key + '.json'] = (dumps(dataset[key]) + '\n').encode()
     for league in LEAGUES:
         rows = [r for r in dataset['matches'] if r['league'] == league]
         if not rows:
             continue
         fields = sorted({k for r in rows for k in r})
-        with (generation / f'{league}_enriched_history.csv').open('w', encoding='utf-8', newline='') as f:
-            writer = csv.DictWriter(f, fields)
-            writer.writeheader()
-            writer.writerows(rows)
-    with tempfile.NamedTemporaryFile('w', dir=output, delete=False, encoding='utf-8') as f:
-        json.dump({'generation': digest, 'dataset': f'{digest}/dataset.json'}, f)
-        temporary = f.name
-    os.replace(temporary, output / 'latest.json')
+        out = io.StringIO(newline='')
+        writer = csv.DictWriter(out, fields)
+        writer.writeheader()
+        writer.writerows(rows)
+        files[f'{league}_enriched_history.csv'] = out.getvalue().encode()
+    for name, content in files.items():
+        path = generation / name
+        if path.exists() and path.read_bytes() != content:
+            raise ValueError('Immutable combined snapshot conflict')
+        path.write_bytes(content)
+    manifest = {'version': 1, 'cutoff_utc': dataset['report']['cutoff_utc'],
+        'generation': generation.relative_to(output).as_posix(),
+        'sha256': {name: hashlib.sha256(data).hexdigest() for name, data in files.items()}}
+    atomic_json(generation / 'manifest.json', manifest)
+    atomic_json(output / 'latest.json', manifest)
     return generation
+
+
+def read_combined(cache_dir, league, cutoff):
+    """Read only complete published CSV snapshots available by the forecast cutoff."""
+    import hashlib
+    from bbs_data import decode
+    root = Path(cache_dir) / 'bbs' / 'combined'
+    if not (root / 'latest.json').exists():
+        return []
+    limit = utc(cutoff)
+    manifest = decode((root / 'latest.json').read_text())
+    if utc(manifest['cutoff_utc']) > limit:
+        candidates = [decode(p.read_text()) for p in (root/'snapshots').glob('*/manifest.json')]
+        candidates = [m for m in candidates if utc(m['cutoff_utc']) <= limit]
+        if not candidates:
+            return []
+        manifest = max(candidates, key=lambda m: utc(m['cutoff_utc']))
+    generation = (root / manifest['generation']).resolve()
+    if not generation.is_relative_to((root / 'snapshots').resolve()):
+        raise ValueError('Combined snapshot escapes cache')
+    name = f'{league}_enriched_history.csv'
+    if name not in manifest['sha256']:
+        return []
+    data = (generation / name).read_bytes()
+    if hashlib.sha256(data).hexdigest() != manifest['sha256'][name]:
+        raise ValueError('Combined training CSV checksum mismatch')
+    return list(csv.DictReader(io.StringIO(data.decode('utf-8'))))
+
+
+def combined_training_history(baseline, cache_dir, league, now, seasons_back):
+    """Reconcile the shared CSV against freshly loaded primary history.
+
+    Never substitute an old exported primary score for a newer primary revision.
+    BBS statistics remain additional columns, not newly fitted model features.
+    """
+    import pandas as pd
+    from football_value_pipeline_v2_standalone import canonical_team_key, current_season_start_year
+    rows = read_combined(cache_dir, league, now.isoformat())
+    if not rows:
+        return baseline
+    records = baseline.to_dict('records')
+    def identity(r):
+        return (pd.Timestamp(r['Date']).date().isoformat(),
+                canonical_team_key(r['HomeTeam']), canonical_team_key(r['AwayTeam']))
+    index = {identity(r): r for r in records}
+    if len(index) != len(records):
+        raise ValueError('Duplicate baseline fixture')
+    first = current_season_start_year(now) - seasons_back + 1
+    last = current_season_start_year(now)
+    pairs = {(season_year(r['Season']), *identity(r)[1:]) for r in records}
+    seen = set()
+    for row in rows:
+        key = identity(row)
+        if key in seen:
+            raise ValueError('Duplicate combined fixture')
+        seen.add(key)
+        if not row.get('bbs_match_id'):
+            continue
+        observed = row.get('bbs_match_observed_at')
+        if not observed or utc(observed) > utc(now.isoformat()):
+            continue
+        year = season_year(row['Season'])
+        if not first <= year <= last:
+            continue
+        if row.get('bbs_kickoff_utc') and utc(row['bbs_kickoff_utc']) >= now:
+            continue
+        existing = index.get(key)
+        if existing is not None:
+            metadata = {k: v for k, v in row.items() if k.startswith('bbs_')}
+            metadata['integration_status'] = row['integration_status']
+            if (int(row['FTHG']), int(row['FTAG'])) != (int(existing['FTHG']), int(existing['FTAG'])):
+                metadata = {k: v for k, v in metadata.items() if k not in
+                    {f'bbs_{side}_{field}' for side in ('home', 'away') for field in STAT_FIELDS}}
+                metadata.update(integration_status='conflict', bbs_statistics_available=False)
+            existing.update(metadata)
+        elif row['integration_status'] == 'added' and league != 'UCL':
+            if (year, *key[1:]) in pairs:
+                continue  # Possible reschedule; never count it twice.
+            if not row.get('bbs_kickoff_utc') or utc(row['bbs_kickoff_utc']) >= now:
+                continue
+            for col in ('FTHG', 'FTAG'):
+                if not row[col].isdigit() or not 0 <= int(row[col]) <= 30:
+                    raise ValueError('Invalid combined score')
+                row[col] = int(row[col])
+            row['Season'] = f'{year % 100:02d}{(year + 1) % 100:02d}'
+            records.append(row)
+            pairs.add((year, *key[1:]))
+    result = pd.DataFrame(records)
+    result['Date'] = pd.to_datetime(result['Date'])
+    for col in ('FTHG', 'FTAG'):
+        result[col] = pd.to_numeric(result[col], errors='raise')
+    # Added rows have no invented bookmaker prices; preserve numeric odds columns.
+    for col in baseline.select_dtypes(include='number').columns:
+        if col in result:
+            result[col] = pd.to_numeric(result[col], errors='coerce')
+    for side in ('home', 'away'):
+        for field in STAT_FIELDS:
+            col = f'bbs_{side}_{field}'
+            if col in result:
+                result[col] = pd.to_numeric(result[col], errors='coerce')
+    if 'bbs_statistics_available' in result:
+        result['bbs_statistics_available'] = result['bbs_statistics_available'].map(
+            lambda value: value is True or value == 'True')
+    return result.sort_values('Date').reset_index(drop=True)

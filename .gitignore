@@ -28,3 +28,7 @@ workflow_artifacts/
 
 # Local collector process lease
 football_output_v2/closing_odds/collector.lock
+
+
+# BBS collector lease and atomic-write temporary files (data stays tracked)
+.football_cache/bbs/state.lock

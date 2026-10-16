@@ -17,13 +17,13 @@ def main(argv=None):
     parser.add_argument('--api-key-source', choices=['dotenv', 'environment'], default='dotenv')
     parser.add_argument('--leagues', nargs='+', choices=list(LEAGUES), default=list(LEAGUES))
     parser.add_argument('--seasons', nargs='+', type=int, help='Explicit season start years; default current season')
-    parser.add_argument('--daily-budget', type=int, default=200)
-    parser.add_argument('--max-requests', type=int, default=150)
-    parser.add_argument('--stats-limit', type=int, default=90)
-    parser.add_argument('--store', type=Path, default=Path('football_data_db/bbs.sqlite3'))
+    parser.add_argument('--daily-budget', type=int, default=500)
+    parser.add_argument('--max-requests', type=int, default=500)
+    parser.add_argument('--stats-limit', type=int, default=500)
+    parser.add_argument('--store', type=Path, default=Path('.football_cache/bbs/state'))
     parser.add_argument('--existing-cache', type=Path, default=Path('.football_cache'))
-    parser.add_argument('--output', type=Path, default=Path('football_data_db/enriched'))
-    parser.add_argument('--team-map', type=Path, default=Path('bbs_team_map.json'))
+    parser.add_argument('--output', type=Path, default=Path('.football_cache/bbs/combined'))
+    parser.add_argument('--team-map', type=Path, default=Path('.football_cache/bbs/team_map.json'))
     parser.add_argument('--offline', action='store_true', help='Rebuild from stored observations without network')
     parser.add_argument('--as-of', help='BBS observation cutoff; offline only, does not rewind existing source caches')
     args = parser.parse_args(argv)
@@ -65,7 +65,7 @@ def main(argv=None):
         print(json.dumps({'output': str(generation), 'rows': dataset['report']['rows'],
                           'join_counts': dataset['report']['join_counts'], 'collection': report}, indent=2))
         return 1 if report['status'] == 'partial' else 0
-    except (FetchError, ValueError, KeyError, TypeError) as exc:
+    except (FetchError, ValueError, KeyError, TypeError, OSError) as exc:
         print(str(exc))
         return 2
     finally:

@@ -2,11 +2,12 @@ name: Collect complementary football data
 
 on:
   schedule:
-    - cron: '43 6 * * *'
+    # 09:43, 17:43 and 01:43 EAT. All share one persisted UTC-day budget.
+    - cron: '43 6,14,22 * * *'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   actions: read
 
 concurrency:
@@ -15,10 +16,14 @@ concurrency:
 
 jobs:
   collect:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
       - name: Check collection configuration
         id: configured
         env:
@@ -33,55 +38,56 @@ jobs:
         if: steps.configured.outputs.enabled == 'true'
         with:
           python-version: '3.12'
-      - name: Restore latest collected observations
-        id: restore
+      - name: Guard against an unpublished request budget after a failed run
         if: steps.configured.outputs.enabled == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          mkdir -p football_data_db
-          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?name=bbs-data-state&per_page=100" > /tmp/bbs-artifacts.json
-          python - <<'PY'
-          import json, os, sqlite3, subprocess, zipfile
+          gh api "repos/$GITHUB_REPOSITORY/actions/workflows/collect-bbs-data.yml/runs?branch=main&status=completed&per_page=10" > /tmp/bbs-previous-runs.json
+          python - <<'PYCODE'
+          import json, os
+          from datetime import datetime, timezone
           from pathlib import Path
-          artifacts = json.loads(Path('/tmp/bbs-artifacts.json').read_text())['artifacts']
-          candidates = [a for a in artifacts if a['workflow_run']['head_branch'] == 'main']
-          if candidates:
-              artifact = max(candidates, key=lambda a: a['id'])
-              if artifact['expired']:
-                  raise SystemExit('Previous BBS state expired: restore a backup before resuming collection.')
-              with open('/tmp/bbs-state.zip', 'wb') as handle:
-                  subprocess.run(['gh','api',f"repos/{os.environ['GITHUB_REPOSITORY']}/actions/artifacts/{artifact['id']}/zip"],stdout=handle,check=True)
-              with zipfile.ZipFile('/tmp/bbs-state.zip') as archive:
-                  Path('football_data_db/bbs.sqlite3').write_bytes(archive.read('bbs.sqlite3'))
-              with sqlite3.connect('football_data_db/bbs.sqlite3') as db:
-                  if db.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
-                      raise SystemExit('Restored BBS state failed SQLite integrity check')
-          else:
-              print('No retained main-branch BBS artifact found; starting a new observation store.')
-          PY
-          echo 'ready=true' >> "$GITHUB_OUTPUT"
+          runs = json.loads(Path('/tmp/bbs-previous-runs.json').read_text())['workflow_runs']
+          runs = [r for r in runs if str(r['id']) != os.environ['GITHUB_RUN_ID']]
+          if runs:
+              previous = max(runs, key=lambda r: r['run_number'])
+              started = datetime.fromisoformat(previous['created_at'].replace('Z', '+00:00'))
+              # An uncommitted allowance matters until the next UTC quota reset.
+              if previous['conclusion'] in ('failure', 'cancelled', 'timed_out') and started.date() == datetime.now(timezone.utc).date():
+                  checkpoint = Path('.football_cache/bbs/state/checkpoint.json')
+                  state = json.loads(checkpoint.read_text()) if checkpoint.exists() else {}
+                  last = float(state.get('settings', {}).get('last_request', 0))
+                  if last < started.timestamp():
+                      raise SystemExit('Previous collection may have unpublished quota usage. Restore its bbs-recovery artifact and commit the recovered state, or wait for the next UTC day before collecting.')
+          PYCODE
       - name: Install runtime dependencies
-        if: steps.restore.outputs.ready == 'true'
+        if: steps.configured.outputs.enabled == 'true'
         run: python -m pip install -r football_value_requirements.txt
       - name: Collect and reconcile data
-        if: steps.restore.outputs.ready == 'true'
+        id: collect
+        if: steps.configured.outputs.enabled == 'true'
         env:
           BBS_API_KEY: ${{ secrets.BBS_API_KEY }}
-        run: python collect_bbs_data.py --api-key-source environment
-      - name: Retain observation history, including partial runs
-        if: always() && steps.restore.outputs.ready == 'true'
+        run: |
+          # Reserve some of the daily allowance for each later freshness pass.
+          set +e
+          python collect_bbs_data.py --api-key-source environment --daily-budget 500 --max-requests 200 --stats-limit 500
+          code=$?
+          set -e
+          echo "result=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" -gt 1 ]; then exit "$code"; fi
+      - name: Publish validated files alongside existing training data
+        if: steps.collect.outputs.result == '0' || steps.collect.outputs.result == '1'
+        run: python publish_bbs_data.py
+      - name: Report incomplete collection
+        if: steps.collect.outputs.result == '1'
+        run: echo 'Partial collection published with coverage/errors recorded. Budget-limited backfill resumes next run.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Recovery copy if publication or collection fails
+        if: failure() && steps.configured.outputs.enabled == 'true'
         uses: actions/upload-artifact@v7
         with:
-          name: bbs-data-state
-          path: football_data_db/bbs.sqlite3
-          if-no-files-found: warn
-          retention-days: 90
-      - name: Retain integrated data and quality reports
-        if: always() && steps.restore.outputs.ready == 'true'
-        uses: actions/upload-artifact@v7
-        with:
-          name: bbs-enriched-data
-          path: football_data_db/enriched/
+          name: bbs-recovery-${{ github.run_id }}
+          path: .football_cache/bbs/
           if-no-files-found: warn
           retention-days: 30

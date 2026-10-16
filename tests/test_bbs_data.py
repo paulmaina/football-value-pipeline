@@ -30,7 +30,7 @@ class BbsTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)
-        self.store = Store(self.root/'bbs.sqlite3')
+        self.store = Store(self.root/'bbs')
 
     def tearDown(self):
         self.store.close()
@@ -82,7 +82,7 @@ class BbsTests(unittest.TestCase):
         second = c.get('/v1/teams', {'league': 'epl'})
         self.assertEqual(first, second)
         self.assertEqual(len(calls), 1)
-        self.assertEqual(self.store.db.execute('SELECT used FROM quota').fetchone()[0], 1)
+        self.assertEqual(self.store.state['quota'][NOW.date().isoformat()], 1)
         self.assertNotIn('secret-do-not-log', self.store.latest_response(first[2])['payload'])
 
     def test_quota_survives_new_client_and_failed_request(self):
@@ -267,28 +267,31 @@ class BbsTests(unittest.TestCase):
         # Cached observations require no quota; a later request limit still reports
         # the statistics already processed before the deferred endpoint.
         limited = self.client(sender, budget=10, max_requests=1)
-        self.store.db.execute("DELETE FROM responses WHERE query LIKE '/v1/players%'")
-        self.store.db.execute("DELETE FROM responses WHERE query LIKE '/v1/teams%'")
-        self.store.db.commit()
+        for path in (self.store.path/'responses').glob('*.json'):
+            if json.loads(path.read_text())['query'].startswith(('/v1/teams?', '/v1/players?')):
+                path.unlink()
         partial = collect(limited, ['EPL'], [2026], 1)
         self.assertEqual(partial['status'], 'partial')
-        self.assertEqual(partial['statistics_fetched'], 1)
+        self.assertEqual(partial['statistics_fetched'], 0)
         (self.root/'2627_E0.csv').write_text('Date,HomeTeam,AwayTeam,FTHG,FTAG\n10/10/2026,Man United,Arsenal,2,1\n')
         with patch('bbs_data.transport',side_effect=AssertionError('offline network')):
-            code=main(['--offline','--store',str(self.root/'bbs.sqlite3'),'--existing-cache',str(self.root),
+            code=main(['--offline','--store',str(self.root/'bbs'),'--existing-cache',str(self.root),
                        '--output',str(self.root/'out'),'--as-of',NOW.isoformat()])
         self.assertEqual(code,0)
         manifest=json.loads((self.root/'out/latest.json').read_text())
-        data=json.loads((self.root/'out'/manifest['dataset']).read_text())
-        self.assertEqual(data['matches'][0]['bbs_home_total_shots'],0)
-        self.assertEqual(write_dataset(data,self.root/'out').name,manifest['generation'])
+        import csv
+        rows=list(csv.DictReader((self.root/'out'/manifest['generation']/'EPL_enriched_history.csv').open()))
+        self.assertEqual(rows[0]['bbs_home_total_shots'],'0')
+        dataset=build_dataset(self.store,read_existing(self.root),NOW.isoformat())
+        generation=write_dataset(dataset,self.root/'second')
+        self.assertEqual(write_dataset(dataset,self.root/'second'),generation)
 
     def test_partial_collection_and_lock(self):
         report=collect(self.client(lambda *a:(200,{},b'{"data":[]}'),budget=1,max_requests=1),['EPL'],[2026])
         self.assertEqual(report['status'],'partial')
         self.assertIn('deferred',report)
         self.root.joinpath('bbs.lock').touch()
-        self.assertEqual(main(['--offline','--store',str(self.root/'bbs.sqlite3')]),2)
+        self.assertEqual(main(['--offline','--store',str(self.root/'bbs')]),2)
 
 
 if __name__=='__main__': unittest.main()

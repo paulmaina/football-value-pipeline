@@ -1,130 +1,142 @@
-# Big Balls Data collection and integration
+# Big Balls Data in the shared training cache
 
-The collector joins Big Balls Data observations to the existing football-data.co.uk
-and football-data.org training caches. It exports a combined dataset with one row
-per resolved match, provider identities, additional statistics, new eligible results,
-and conflict reports. Standings, teams, players and upcoming fixtures are included
-in the dataset. This is the collection/integration stage: the production fitter does
-not yet consume these exports. No qualification thresholds, prediction commands,
-existing caches, archived forecasts or model experiments are changed.
+All BBS data now lives under `.football_cache/bbs`, alongside the existing domestic
+CSV and UCL JSON caches. There is no SQLite dependency or routine artifact download.
+After GitHub publishes a successful or partial collection, `git pull` brings the
+new data and collection checkpoints to local machines.
 
-## Setup and commands
+## Layout and future database migration
 
-Install `football_value_requirements.txt`. Set `BBS_API_KEY` in your local `.env`
-(see `.env.example`), or use an environment variable with `--api-key-source environment`.
-Never commit the key. Existing training caches in `.football_cache` must be present;
-refresh them with the project's existing refresh commands when needed.
+- `state/checkpoint.json`: UTC-day request counters, pacing and retry checkpoints.
+- `state/responses/*.json`: latest cached response per query, with original retrieval
+  time. API keys and request headers are never written.
+- `state/observations/<kind>/<UTC timestamp>_<hash>.json`: immutable normalized
+  observations for matches, statistics, standings, teams, players and coverage.
+- `combined/snapshots/<UTC timestamp>_<hash>/<league>_enriched_history.csv`:
+  normalized combined results/statistics, provider match/team IDs, observation times,
+  source update times where supplied, integration status and conflict flags.
+- The same generation includes `fixtures.json`, `standings.json`, `teams.json`,
+  `players.json`, `team_mappings.json`, `report.json` and `manifest.json`.
+- `combined/latest.json`: atomic pointer to a complete generation, including CSV
+  checksums and cutoff. Incomplete generations are never selected.
+- `team_map.json`: optional reviewed provider-ID to canonical-team mappings.
+
+Immutable timestamped observations preserve corrections rather than rewriting
+what was previously received. Combined snapshots retain each published view.
+The CSV/JSON boundary can later be imported into a dedicated database. This does
+increase Git history size; the first implementation intentionally retains history
+rather than automatically pruning records needed for replay.
+
+## Local usage
+
+Pull data published by GitHub, then run the existing prediction command normally.
+The pipeline's history loader reads the combined CSV in this cache automatically.
+It joins additional fields onto freshly loaded primary history, preserves original
+scores and bookmaker prices, and adds only eligible, mapped domestic results that
+are absent from primary history. It does not double-count matches or restore stale
+primary scores from an older combined snapshot. Different dates for the same ordered
+team pair/season are held rather than assumed to be separate fixtures.
+
+The fitter still uses its existing goal-history model. Additional basic statistics
+are present as columns, but no shot/possession weights or other new features are
+fitted in this PR. Adding verified results may change fitted predictions; thresholds,
+commands and existing experiment definitions are unchanged.
+
+If no BBS snapshot exists yet, the primary history works as before. A corrupt CSV
+or checksum mismatch fails explicitly instead of silently entering model training.
+A forecast cutoff before the first collected snapshot does not use BBS data.
+For an older cutoff, the loader selects a complete snapshot no later than that cutoff.
+The existing primary caches remain current revisions: this does not retroactively
+make the legacy primary feed fully point-in-time. Archived forecasts are not rewritten.
+
+Manual collection is possible, but GitHub should own routine collection to avoid
+independent quota counters on multiple machines:
 
 ```sh
 python collect_bbs_data.py
-python collect_bbs_data.py --leagues EPL --seasons 2026 2025 --max-requests 100
+python collect_bbs_data.py --leagues EPL --max-requests 20
 python collect_bbs_data.py --offline
 python collect_bbs_data.py --offline --as-of 2026-10-16T00:00:00Z
 ```
 
-The default season starts in July; `--seasons` accepts explicit start years. Start
-with one league to check your account's actual coverage. Defaults are 200 requests
-per UTC day, 150 per run, and up to 90 statistics responses per run. Requests are
-paced, retried for transient network/server failures, and counted before sending,
-including failures. Provider rate-limit/retry headers pause collection across runs.
-Other applications using the same key are not included in this local counter.
+For local collection put `BBS_API_KEY` in the project `.env`. For Actions use the
+repository secret of the same name. Existing source caches must be populated.
+`--store` now takes a directory, default `.football_cache/bbs/state`; old SQLite
+files are not accepted. The earlier draft was not deployed by this change; if an
+old SQLite collector was manually used, preserve its file for a separate migration
+before starting a new observation history.
 
-The daily GitHub workflow is `Collect complementary football data`. Configure the
-repository Actions secret `BBS_API_KEY`, merge the workflow, then run it manually
-and inspect its reports before relying on scheduled collection. Without the secret,
-it reports that setup is pending. It reads existing caches from the checked-out
-repository and does not commit source data or forecasts.
+## 500-request plan and schedule
 
-## Storage and recovery
+The user's GitHub-linked account has a 500-request/day allowance. The collector's
+local defaults are 500/day, 500/run, and up to 500 statistics responses. The Actions
+workflow runs at **06:43, 14:43 and 22:43 UTC** (**09:43, 17:43 and 01:43 EAT**) with
+**500/day and 200/run**. A busy day can use 200 + 200 + 100 requests, preserving some
+capacity for later freshness checks. It does not issue unnecessary calls just to
+spend quota. Provider headers remain authoritative if another application consumes
+part of the same account's allowance.
 
-`football_data_db/bbs.sqlite3` contains raw response envelopes, timestamped normalized
-observations, request counters and retry checkpoints. Headers/credentials are not
-stored. Repeated cached imports retain the original observation time. Corrections
-create new observations instead of rewriting earlier ones. Concurrent local runs
-are blocked by `bbs.lock`; only remove a leftover lock after confirming no collector
-is running. Back up the SQLite file while collection is stopped.
+Requests are paced at least 0.7 seconds apart. Failed attempts and retries consume
+the persisted budget; cache hits do not. A quota/defer response checkpoints progress
+and ends the run rather than sleeping through long cooldowns. The daily counter
+resets at midnight UTC (03:00 EAT). Fixture/standings pages refresh after six hours;
+entities after seven days. Recent completed matches get priority over older backfill,
+with statistics refreshed after six hours for the first two days, daily for the first
+week, and weekly thereafter. Collection rotates statistics across competitions.
 
-The workflow restores the newest main-branch `bbs-data-state` artifact and saves
-state even after a partial collection. Restore failures stop collection. State
-artifacts request 90-day retention; repository policy may shorten it. Artifacts are
-not permanent backups: deleting/expiring all retained artifacts removes the ability
-to reconstruct earlier observations. Keep independent backups for long-term replay.
-A first run with no retained state starts a new store and logs that fact. Manual
-runs on another branch do not replace the main branch's state on subsequent runs.
+## GitHub publishing and recovery
 
-`football_data_db/enriched/latest.json` points atomically to a complete generation:
+The workflow runs on `main`, requires `BBS_API_KEY`, and commits only
+`.football_cache/bbs`. It restores state from Git, not artifacts. Partial runs publish
+validated observations plus explicit errors, coverage and quota counts. Publication
+uses a fresh remote checkout, rebuilds combined CSVs against its current primary
+caches/mappings, and retries ordinary push races without force-pushing. A concurrent
+BBS checkpoint change stops publication rather than overwriting another collector.
+Other workflows' results, forecasts and source caches are preserved.
 
-- `dataset.json`: combined match rows plus fixtures, standings, teams and players.
-- `<league>_enriched_history.csv`: original source columns plus prefixed `bbs_*` data.
-- `team_mappings.json`: resolved identities and mapping method.
-- `report.json`: matched/added/unmapped/conflicting counts, per-league observation ages,
-  record counts and collection errors. Observation age is not provider freshness.
+After a failed run, a recovery artifact retains unpublished local BBS files where
+possible. The next run checks whether the prior failed run's request budget was
+published; an uncertain same-UTC-day allowance stops collection until recovered or
+the day resets. Restore the failed run's state and observations carefully before
+resuming if its unpublished observations are needed. Recovery artifacts are only
+failure backups, not the normal distribution mechanism. Their retention is 30 days.
+A force-killed job can still lose its last unpublished observations; Git holds all
+successfully published history.
 
-Exit code 0 means collection finished (or an offline rebuild succeeded), 1 means
-partial collection, and 2 means setup/integration failed. A partial run still exports
-validated records and persists progress; it does not imply complete league coverage.
-Statistics rotate across leagues, prioritizing unseen/old observations. Recent games
-are rechecked daily and older statistics weekly; matches/standings are cached for a
-day and entities for a week. Quota limits can delay backfill and entity collection.
+A `state.lock` lease prevents overlapping local collector writes. It is ignored by
+Git; only remove a leftover lease after verifying no collector is running. Avoid
+collecting locally while pulling or publishing: GitHub and local counters are not a
+live distributed lock. Use the GitHub feed as the authoritative collector.
 
-## Joining and validation
+## Identity, conflicts and timing
 
-Existing canonical aliases are reused. No fuzzy team-name guesses are accepted.
-Unresolved identities remain in fixtures and reports. To resolve a reviewed identity,
-create `bbs_team_map.json` with actual provider IDs and canonical team names:
+Existing canonical aliases are reused; no fuzzy team-name guesses are accepted.
+Unresolved teams and duplicate fixtures are reported, not silently added. Example
+mapping structure (use actual IDs, never this placeholder):
 
 ```json
 {"EPL": {"actual-provider-team-id": "Man United"}}
 ```
 
-Do not use this example's placeholder ID. Multiple provider IDs mapped to the same
-league/team are held as collisions. Fixtures join by league, UTC date and ordered
-canonical teams. Duplicate fixtures, rescheduled dates, conflicting scores/statuses
-and statistics belonging to different teams are reported. Existing values are never
-silently overwritten or averaged. Missing statistics remain null, not zero.
+Each match retains provider IDs and timestamps. Scores, statuses, kickoff-date and
+statistic disagreements are flagged, not averaged or silently overwritten. Missing
+statistics stay missing, not zero. New UCL results are held unless regulation scores
+can be established: a generic final score may include extra time.
 
-New mapped finished domestic results can enter the combined export. New UCL results
-are held because a generic final score does not establish the 90-minute result when
-extra time is possible. Existing football-data.org UCL results use the project's
-regulation-score helper. Original odds columns remain unchanged; this collector
-never fetches or fabricates betting prices.
+A retrieval timestamp means when the response was received; it does not establish
+when the provider last refreshed it. Reported observation ages are not claims of
+source freshness. Current standings and same-match statistics cannot be used as
+pre-match features for that same historical fixture.
 
-## Timing and model use
+## Contract and operational verification
 
-An observation timestamp means when we received a response, not when the provider
-last refreshed it. Preserve any provider update timestamp separately; its absence
-means source freshness is unknown. A cache hit does not refresh observation time.
-`--as-of` restricts BBS observations only: existing caches are current revisions,
-so this export is not a complete point-in-time reconstruction of legacy inputs.
+The adapter follows https://bigballsdata.com/openapi.json, requesting Free endpoints
+only: matches, standings, basic statistics, teams, players and coverage. No xG or
+paid odds feed is requested. Codes: `epl`, `laliga`, `bundesliga`, `serie_a`, `ligue1`,
+`cl`. Season filters are start years; pagination uses limit/offset and rejects
+repeated IDs, truncated totals and explicitly ignored filters.
 
-Same-match statistics are post-match outcomes. They must not be used to predict
-that match. A later feature-building change must use only earlier settled fixtures
-and observations available before prediction time. Current standings must not be
-backfilled into historical forecasts. Identity records alone are not predictive
-features. Adding data does not establish improved calibration or profitability;
-future model use needs validation against the existing evaluation process.
-
-## Documented contract and unverified assumptions
-
-References: https://bigballsdata.com/docs and https://bigballsdata.com/openapi.json.
-The implementation targets `/v1/matches`, `/v1/standings`,
-`/v1/matches/{id}/statistics`, `/v1/teams`, `/v1/players`, and `/v1/coverage`.
-It uses Bearer authentication, league filters, season-start years, and limit/offset
-pagination. It rejects explicitly ignored query filters and inconsistent scopes.
-Free-plan basic statistics exclude xG; no paid endpoints or xG features are requested.
-The published Free allowance is 250 requests/day (500 with GitHub linking), with
-100/minute throttling. The lower defaults are our operating recommendation.
-
-Documentation contains differing statements about Free historical access. The
-collector therefore does not assume previous seasons or every statistic/league is
-available. API errors and unavailable data are reported, and partial records remain
-usable. Provider plan/coverage/schema changes can require adapter updates.
-
-No authenticated live response was available during implementation. Offline tests
-cover the documented contracts, not actual account entitlements. Verify pagination,
-league coverage, team/player filters, scores and statistics
-against a small authenticated run before treating this as an operational feed.
-
-The documented request codes used here are `epl`, `laliga`, `bundesliga`,
-`serie_a`, `ligue1` and `cl`. A coverage-endpoint outage is recorded as a partial
-run while other endpoint collection and export continue.
+No authenticated key is available in this implementation environment. Actual
+account coverage, historical access and response compatibility must still be checked
+with a small live run. Tests exercise offline contracts, quota restart, corrections,
+cutoff selection, CSV integrity, normal pipeline loading and publication push races.
