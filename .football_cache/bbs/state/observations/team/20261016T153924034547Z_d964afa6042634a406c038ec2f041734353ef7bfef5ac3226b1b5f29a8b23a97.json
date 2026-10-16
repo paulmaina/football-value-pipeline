@@ -1,0 +1,1 @@
+{"entity":"5c942759-f18d-49c9-95cb-8620be931d40","kind":"team","league":"SerieA","observed":"2026-10-16T15:39:24.034547+00:00","payload":{"conference":null,"flag_url":null,"id":"5c942759-f18d-49c9-95cb-8620be931d40","league":"Serie A","logo_url":null,"name":"Spezia","short_name":null,"sport":"football"},"query":"/v1/teams?league=serie_a&limit=100&offset=0&sport=football"}

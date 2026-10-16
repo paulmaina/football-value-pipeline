@@ -1,0 +1,1 @@
+{"entity":"8e413609-c2b1-42fe-b55b-379ebfc1b7f7","kind":"team","league":"Ligue1","observed":"2026-10-16T15:39:30.337011+00:00","payload":{"conference":null,"flag_url":null,"id":"8e413609-c2b1-42fe-b55b-379ebfc1b7f7","league":"Ligue 1","logo_url":null,"name":"Ajaccio","short_name":null,"sport":"football"},"query":"/v1/teams?league=ligue1&limit=100&offset=0&sport=football"}

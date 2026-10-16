@@ -1,0 +1,1 @@
+{"entity":"1befdfa1-91d4-4c60-80d9-1c4edb356d7e","kind":"team","league":"SerieA","observed":"2026-10-16T15:39:24.034547+00:00","payload":{"conference":null,"flag_url":null,"id":"1befdfa1-91d4-4c60-80d9-1c4edb356d7e","league":"Serie A","logo_url":null,"name":"Cesena","short_name":null,"sport":"football"},"query":"/v1/teams?league=serie_a&limit=100&offset=0&sport=football"}

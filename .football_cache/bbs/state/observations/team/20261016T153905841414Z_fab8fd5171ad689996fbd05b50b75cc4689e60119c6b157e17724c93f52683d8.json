@@ -1,0 +1,1 @@
+{"entity":"fa2b9242-de68-4942-a5ab-a85c58bf733d","kind":"team","league":"EPL","observed":"2026-10-16T15:39:05.841414+00:00","payload":{"conference":null,"flag_url":null,"id":"fa2b9242-de68-4942-a5ab-a85c58bf733d","league":"EPL","logo_url":null,"name":"West Brom","short_name":null,"sport":"football"},"query":"/v1/teams?league=epl&limit=100&offset=0&sport=football"}
