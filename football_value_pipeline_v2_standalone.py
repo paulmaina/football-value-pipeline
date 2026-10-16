@@ -2679,17 +2679,19 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     "Champions League training results. Create a football-data.org "
                     "API token and put FOOTBALL_DATA_API_KEY in the project .env before running UCL."
                 )
-            return self.football_data_org.history(
+            history = self.football_data_org.history(
                 league,
                 seasons_back=self.seasons_back,
                 now=now,
             )
 
-        return self.source.history(
-            league,
-            seasons_back=self.seasons_back,
-            now=now,
-        )
+        else:
+            history = self.source.history(
+                league, seasons_back=self.seasons_back, now=now,
+            )
+        from bbs_integration import combined_training_history
+        return combined_training_history(history, self.source.http.cache_dir,
+                                         league.key, now, self.seasons_back)
 
     def _current_fixtures(
         self,
