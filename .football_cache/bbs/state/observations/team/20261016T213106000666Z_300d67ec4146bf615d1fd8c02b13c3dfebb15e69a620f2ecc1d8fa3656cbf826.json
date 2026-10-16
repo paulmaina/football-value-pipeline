@@ -1,0 +1,1 @@
+{"entity":"c0203a9d-25fe-424d-8dc6-56191c707308","kind":"team","league":"SerieA","observed":"2026-10-16T21:31:06.000666+00:00","payload":{"conference":null,"flag_url":null,"id":"c0203a9d-25fe-424d-8dc6-56191c707308","league":"Serie A","logo_url":null,"name":"Pescara","short_name":null,"sport":"football"},"query":"/v1/teams?league=serie_a&limit=200&offset=0&sport=football"}

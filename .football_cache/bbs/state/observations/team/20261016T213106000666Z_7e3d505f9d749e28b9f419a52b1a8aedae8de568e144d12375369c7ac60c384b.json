@@ -1,0 +1,1 @@
+{"entity":"0a98a5d0-5366-4115-8b4b-968a1c4118d9","kind":"team","league":"SerieA","observed":"2026-10-16T21:31:06.000666+00:00","payload":{"conference":null,"flag_url":null,"id":"0a98a5d0-5366-4115-8b4b-968a1c4118d9","league":"Serie A","logo_url":null,"name":"Spal","short_name":null,"sport":"football"},"query":"/v1/teams?league=serie_a&limit=200&offset=0&sport=football"}

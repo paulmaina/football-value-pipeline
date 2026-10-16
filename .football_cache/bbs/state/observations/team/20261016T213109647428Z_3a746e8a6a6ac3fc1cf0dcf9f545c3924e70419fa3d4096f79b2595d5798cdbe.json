@@ -1,0 +1,1 @@
+{"entity":"29e8f788-ecfb-44eb-914a-14c951c793d5","kind":"team","league":"Ligue1","observed":"2026-10-16T21:31:09.647428+00:00","payload":{"conference":null,"flag_url":null,"id":"29e8f788-ecfb-44eb-914a-14c951c793d5","league":"Ligue 1","logo_url":null,"name":"Amiens","short_name":null,"sport":"football"},"query":"/v1/teams?league=ligue1&limit=200&offset=0&sport=football"}

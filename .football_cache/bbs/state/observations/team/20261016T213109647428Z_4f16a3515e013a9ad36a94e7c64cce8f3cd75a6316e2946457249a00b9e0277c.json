@@ -1,0 +1,1 @@
+{"entity":"5ec5b585-772a-4a36-9ab3-d0d5aeb4095a","kind":"team","league":"Ligue1","observed":"2026-10-16T21:31:09.647428+00:00","payload":{"conference":null,"flag_url":null,"id":"5ec5b585-772a-4a36-9ab3-d0d5aeb4095a","league":"Ligue 1","logo_url":null,"name":"Reims","short_name":null,"sport":"football"},"query":"/v1/teams?league=ligue1&limit=200&offset=0&sport=football"}

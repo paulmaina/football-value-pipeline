@@ -1,0 +1,1 @@
+{"entity":"3f02a93b-8819-4a36-ab8f-be4f78a3f5d2","kind":"team","league":"SerieA","observed":"2026-10-16T21:31:06.000666+00:00","payload":{"conference":null,"flag_url":null,"id":"3f02a93b-8819-4a36-ab8f-be4f78a3f5d2","league":"Serie A","logo_url":null,"name":"Sampdoria","short_name":null,"sport":"football"},"query":"/v1/teams?league=serie_a&limit=200&offset=0&sport=football"}

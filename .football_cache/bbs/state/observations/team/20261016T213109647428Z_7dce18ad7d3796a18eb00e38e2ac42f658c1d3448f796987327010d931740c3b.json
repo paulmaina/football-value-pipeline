@@ -1,0 +1,1 @@
+{"entity":"0f5b1ffc-51cd-466d-acd4-a1fceb08d22f","kind":"team","league":"Ligue1","observed":"2026-10-16T21:31:09.647428+00:00","payload":{"conference":null,"flag_url":null,"id":"0f5b1ffc-51cd-466d-acd4-a1fceb08d22f","league":"Ligue 1","logo_url":null,"name":"Evian TG","short_name":null,"sport":"football"},"query":"/v1/teams?league=ligue1&limit=200&offset=0&sport=football"}

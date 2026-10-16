@@ -1,0 +1,1 @@
+{"entity":"9921b3a8-38e0-4a4f-9b38-3ee00854a089","kind":"team","league":"SerieA","observed":"2026-10-16T21:31:06.000666+00:00","payload":{"conference":null,"flag_url":null,"id":"9921b3a8-38e0-4a4f-9b38-3ee00854a089","league":"Serie A","logo_url":null,"name":"Chievo","short_name":null,"sport":"football"},"query":"/v1/teams?league=serie_a&limit=200&offset=0&sport=football"}
