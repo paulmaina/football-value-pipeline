@@ -57,7 +57,7 @@ class LiveCoverageTests(unittest.TestCase):
             elif path.endswith('/statistics'): data = {'home': {'team_id':'h1','total_shots':0}, 'away':None}
             else: data = []
             return 200, {}, json.dumps({'data':data}).encode()
-        report = collect(self.client(sender, max_requests=8), ['EPL'], [2026])
+        report = collect(self.client(sender, max_requests=7), ['EPL'], [2026])
         self.assertEqual(report['statistics_fetched'], 1)
         self.assertEqual(report['coverage']['EPL']['statistics_available'], 1)
         self.assertEqual(report['status'], 'partial')  # Directories deferred by budget.

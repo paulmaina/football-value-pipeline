@@ -190,3 +190,37 @@ no differences in the compared totals. This replay verifies mapping/reconciliati
 it does not prove completed-match retrieval or actual statistics coverage. Those
 require the next authenticated collection after deployment. Existing observations
 and published snapshots are preserved; no historical outputs were rewritten.
+
+
+## Recovery after the second live run
+
+The live Free key refused previous-season requests and `status=suspended` returned
+400. Defaults therefore collect only the current season and omit suspended queries.
+Explicit `--seasons` remains available for accounts with verified historical access.
+Postponed/cancelled records are still checked.
+
+Statistics with missing IDs can now use exact, reviewed club-name equivalents for
+the expected fixture side. Non-empty contradictory IDs, missing names, opposite-side
+names and ambiguous clubs are rejected. Normalized records retain original provider
+IDs and identify whether each side was resolved by ID or verified name. Replay of
+all 69 previously rejected cached responses passed these checks; cached responses
+retain their original observation time and cost no new API requests.
+
+Each malformed match is quarantined individually, with ID, reason and raw record.
+Valid neighbors and later pages continue. A quarantined newer revision prevents
+reusing older BBS data for that fixture until a later valid observation arrives.
+Unscored finished UCL records never become zero-goal results.
+
+Statistical disagreements retain both provider values and flag the disputed fields.
+The existing primary value stays authoritative for existing inputs. Disputed BBS
+statistics are explicitly ineligible for future features pending reconciliation;
+this does not assert that either provider's differing value is correct. Identity
+resolution and source timestamps remain in the exports. Standings refresh when newer
+finished fixtures postdate their cached view; the report identifies possible timing
+skew using available source update times without hiding differences.
+
+Manual Actions runs now accept `max_requests` (default 500); scheduled runs remain
+200/run. Both share the same persisted 500/UTC-day budget. If 271 requests have
+already been used, a manual 500-request run can make at most the remaining 229.
+Unavailable provider data may remain partial after all fetchable statistics are
+collected. This is reported explicitly rather than fabricated or silently dropped.

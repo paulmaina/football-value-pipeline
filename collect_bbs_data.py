@@ -16,7 +16,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--api-key-source', choices=['dotenv', 'environment'], default='dotenv')
     parser.add_argument('--leagues', nargs='+', choices=list(LEAGUES), default=list(LEAGUES))
-    parser.add_argument('--seasons', nargs='+', type=int, help='Explicit season start years; default current and previous seasons')
+    parser.add_argument('--seasons', nargs='+', type=int, help='Explicit season start years; default current season')
     parser.add_argument('--daily-budget', type=int, default=500)
     parser.add_argument('--max-requests', type=int, default=500)
     parser.add_argument('--stats-limit', type=int, default=500)
@@ -33,7 +33,7 @@ def main(argv=None):
         parser.error('--stats-limit cannot be negative')
     now = datetime.now(timezone.utc)
     current = now.year if now.month >= 7 else now.year - 1
-    seasons = args.seasons or [current, current - 1]
+    seasons = args.seasons or [current]
     if any(s < 2000 or s > now.year for s in seasons):
         parser.error('Season outside supported year range')
     args.store.parent.mkdir(parents=True, exist_ok=True)
