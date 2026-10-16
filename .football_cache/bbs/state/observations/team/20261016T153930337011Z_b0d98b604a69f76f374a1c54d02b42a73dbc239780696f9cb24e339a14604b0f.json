@@ -1,0 +1,1 @@
+{"entity":"943cf4d8-9036-4c29-80c5-98be5cbb468e","kind":"team","league":"Ligue1","observed":"2026-10-16T15:39:30.337011+00:00","payload":{"conference":null,"flag_url":null,"id":"943cf4d8-9036-4c29-80c5-98be5cbb468e","league":"Ligue 1","logo_url":null,"name":"Bastia","short_name":null,"sport":"football"},"query":"/v1/teams?league=ligue1&limit=100&offset=0&sport=football"}

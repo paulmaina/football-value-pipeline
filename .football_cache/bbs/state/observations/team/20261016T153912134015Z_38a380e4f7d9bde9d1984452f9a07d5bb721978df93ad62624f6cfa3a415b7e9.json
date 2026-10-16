@@ -1,0 +1,1 @@
+{"entity":"96348aae-a551-4226-b028-eca3861664f3","kind":"team","league":"LaLiga","observed":"2026-10-16T15:39:12.134015+00:00","payload":{"conference":null,"flag_url":null,"id":"96348aae-a551-4226-b028-eca3861664f3","league":"La Liga","logo_url":null,"name":"Huesca","short_name":null,"sport":"football"},"query":"/v1/teams?league=laliga&limit=100&offset=0&sport=football"}
