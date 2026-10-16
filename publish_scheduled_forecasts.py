@@ -21,6 +21,18 @@ def publish(repo,attempts=3,runner=None):
                 runner([sys.executable,'workflow_checks.py','raw'],cwd=work,check=True)
                 runner([sys.executable,'format_football_output.py'],cwd=work,check=True)
                 git(work,'add','football_output_v2/raw')
+                # Preserve the exact validated source revision used by this
+                # forecast, including downloads newer than the refresh job.
+                # Odds response caches and collection checkpoints are separate.
+                cache = work/'.football_cache'
+                training = [p for div in ('E0','SP1','D1','I1','F1')
+                            for p in cache.glob(f'????_{div}.csv')]
+                training += list(cache.glob('fdorg_history_UCL_????.json'))
+                training += list(cache.glob('fdorg_history_UCL_????.meta.json'))
+                status = work/'docs/ucl_training_refresh_status.json'
+                if status.exists(): training.append(status)
+                if training:
+                    git(work,'add','--',*[str(p.relative_to(work)) for p in training])
                 if git(work,'diff','--cached','--quiet',check=False).returncode==0:return
                 git(work,'-c','user.name=github-actions[bot]','-c','user.email=41898282+github-actions[bot]@users.noreply.github.com','commit','-m','Generate automated pre-match forecasts')
                 # Capture forecast commit before review output is committed. Token pushes do not trigger other workflows.

@@ -46,6 +46,7 @@
     "Inter": "Inter Milan"
   },
   "Ligue1": {
+    "RC Lens": "Lens",
     "AS Monaco": "Monaco",
     "Stade Rennais": "Rennes",
     "AJ Auxerre": "Auxerre",
@@ -57,6 +58,7 @@
     "Le Havre": "Le Havre AC"
   },
   "UCL": {
+    "RC Lens": "Racing Club de Lens",
     "Lille": "Lille OSC",
     "Napoli": "SSC Napoli",
     "Real Betis": "Real Betis Balompié",

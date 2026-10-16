@@ -21,6 +21,7 @@ import os
 from pathlib import Path
 import shutil
 import sys
+import tempfile
 from typing import Any
 import warnings
 
@@ -207,30 +208,36 @@ def capture(commit_sha: str, *, root: Path = ROOT,
         if experiment is not None: files["totals_anchor_experiment.json"] = experiment
     except Exception as exc:
         warnings.warn(f"Totals anchoring capture skipped ({type(exc).__name__})")
-    directory.mkdir(parents=True, exist_ok=False)
-    digests = {}
-    for output_name, source in files.items():
-        dest = directory / output_name
-        shutil.copyfile(source, dest)
-        digests[output_name] = hashlib.sha256(dest.read_bytes()).hexdigest()
-    from pipeline_health import capture_health
-    write_json(directory / "pipeline_health.json", capture_health(root, created, files))
-    digests["pipeline_health.json"] = hashlib.sha256((directory / "pipeline_health.json").read_bytes()).hexdigest()
-    write_json(directory / "metadata.json", {
-        "schema_version": 1,
-        "git_commit_sha": commit_sha,
-        "captured_at_utc": iso(created),
-        # Sidecars bind to the exact generation instant, including microseconds.
-        # Do not truncate here: capture succeeds against the raw summary but
-        # later archive validation compares against this stored timestamp.
-        "generated_at_utc": generated.astimezone(timezone.utc).isoformat().replace("+00:00", "Z"),
-        "selection_policy_version": summary.get("selection_policy_version") or "legacy/unspecified",
-        "n_all_forecasts": len(forecast),
-        "n_shortlist": len(picks),
-        "n_pre_kickoff_forecasts": eligible,
-        "sha256": digests,
-        "data_origin": "git-tracked prediction output at capture time",
-    })
+    directory.parent.mkdir(parents=True, exist_ok=True)
+    # Publish the directory only after every artifact and metadata file exists.
+    # A failed health capture or interrupted copy must leave the commit retryable.
+    with tempfile.TemporaryDirectory(prefix='.capture-', dir=directory.parent) as temporary:
+        staging = Path(temporary) / 'snapshot'
+        staging.mkdir()
+        digests = {}
+        for output_name, source in files.items():
+            dest = staging / output_name
+            shutil.copyfile(source, dest)
+            digests[output_name] = hashlib.sha256(dest.read_bytes()).hexdigest()
+        from pipeline_health import capture_health
+        write_json(staging / "pipeline_health.json", capture_health(root, created, files))
+        digests["pipeline_health.json"] = hashlib.sha256((staging / "pipeline_health.json").read_bytes()).hexdigest()
+        write_json(staging / "metadata.json", {
+            "schema_version": 1,
+            "git_commit_sha": commit_sha,
+            "captured_at_utc": iso(created),
+            # Sidecars bind to the exact generation instant, including microseconds.
+            # Do not truncate here: capture succeeds against the raw summary but
+            # later archive validation compares against this stored timestamp.
+            "generated_at_utc": generated.astimezone(timezone.utc).isoformat().replace("+00:00", "Z"),
+            "selection_policy_version": summary.get("selection_policy_version") or "legacy/unspecified",
+            "n_all_forecasts": len(forecast),
+            "n_shortlist": len(picks),
+            "n_pre_kickoff_forecasts": eligible,
+            "sha256": digests,
+            "data_origin": "git-tracked prediction output at capture time",
+        })
+        staging.rename(directory)
     print(f"Archived immutable prediction snapshot: {directory}; {eligible} pre-kickoff fixtures")
     return True
 
@@ -242,6 +249,8 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
     output = []
     for meta_path in base.glob("*/metadata.json"):
         directory = meta_path.parent
+        if directory.name.startswith('.capture-'):
+            continue
         meta = load_json(meta_path, {})
         if utc(meta.get("captured_at_utc")) is None or utc(meta.get("generated_at_utc")) is None:
             warnings.warn(f"Invalid snapshot metadata ignored: {directory}")
@@ -283,7 +292,7 @@ def frozen_rows(archive: list[tuple[dict, list[dict], list[dict]]],
             kickoff = utc(item.get("kickoff_utc"))
             if (
                 kickoff is None or captured is None or generated is None
-                or max(captured, generated) >= kickoff - timedelta(minutes=MIN_LEAD_MINUTES)
+                or max(captured, generated) > kickoff - timedelta(minutes=MIN_LEAD_MINUTES)
             ):
                 continue
             if which == "shortlist" and item.get("decision") not in (
