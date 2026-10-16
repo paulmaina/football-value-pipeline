@@ -291,6 +291,12 @@ def normal_stats(payload, match):
     result = {'available': available, 'source_meta': payload.get('meta', {}),
               'team_ids': {side: str(match[side]['id']) for side in ('home', 'away')},
               'identity_resolution': {}, 'provider_team_ids': {}}
+    from football_value_pipeline_v2_standalone import canonical_team_key
+    league = match.get('league_key') or next((key for key, names in DISPLAY_NAMES.items()
+        if str(match.get('league', '')).lower() in names), None)
+    aliases = decode(Path(__file__).with_name('bbs_team_aliases.json').read_text(encoding='utf-8')).get(league, {})
+    def identity(name):
+        return canonical_team_key(aliases.get(name, name)) if isinstance(name, str) and name.strip() else None
     for side in ('home', 'away'):
         values = data.get(side)
         if not available or values is None:
@@ -303,14 +309,10 @@ def normal_stats(payload, match):
         if provider_id not in (None, ''):
             if str(provider_id) != str(match[side]['id']):
                 raise ValueError('Statistics team does not match fixture side')
+            if values.get('team_name') not in (None, '') and identity(values['team_name']) != identity(match[side]['name']):
+                raise ValueError('Statistics team name contradicts fixture side')
             result['identity_resolution'][side] = 'provider_id'
         else:
-            from football_value_pipeline_v2_standalone import canonical_team_key
-            league = match.get('league_key') or next((key for key, names in DISPLAY_NAMES.items()
-                if str(match.get('league', '')).lower() in names), None)
-            aliases = decode(Path(__file__).with_name('bbs_team_aliases.json').read_text(encoding='utf-8')).get(league, {})
-            def identity(name):
-                return canonical_team_key(aliases.get(name, name)) if isinstance(name, str) and name.strip() else None
             expected = identity(match[side]['name'])
             other = identity(match['away' if side == 'home' else 'home']['name'])
             if not expected or expected == other or identity(values.get('team_name')) != expected:
@@ -328,7 +330,7 @@ def normal_stats(payload, match):
         for part, whole in [('shots_on_target', 'total_shots'), ('accurate_passes', 'total_passes')]:
             if cleaned[part] is not None and cleaned[whole] is not None and cleaned[part] > cleaned[whole]:
                 raise ValueError('Inconsistent statistics')
-        result[side] = cleaned
+        result[side] = cleaned if any(v is not None for v in cleaned.values()) else None
     result['available'] = available and any(result[s] is not None for s in ('home', 'away'))
     return result
 
@@ -337,6 +339,15 @@ def collect(client, leagues, seasons, stats_limit=500):
     """Checkpoint pages; incomplete pagination never claims full competition coverage."""
     store = client.store
     report = {'errors': [], 'completed_lists': [], 'statistics_fetched': 0}
+
+    def eligible_matches():
+        latest = store.latest('match', client.clock().isoformat())
+        rejected = {(x['league'], x['entity']): utc(x['observed'])
+                    for x in store.latest('quarantine', client.clock().isoformat())}
+        return [x for x in latest if x['league'] in leagues
+                and x['payload'].get('requested_season') in seasons
+                and ((x['league'], x['entity']) not in rejected
+                     or rejected[(x['league'], x['entity'])] < utc(x['observed']))]
 
     def statistics_ttl(item):
         age = (client.clock() - utc(item['payload']['kickoff_utc'])).total_seconds()
@@ -410,7 +421,7 @@ def collect(client, leagues, seasons, stats_limit=500):
         prior = {(x['league'], x['entity']): x for x in store.latest('statistics', client.clock().isoformat())}
         queue = []
         for league in leagues:
-            matches = [x for x in store.latest('match', client.clock().isoformat()) if x['league'] == league and x['payload']['status'] == 'finished']
+            matches = [x for x in eligible_matches() if x['league'] == league and x['payload']['status'] == 'finished']
             matches = [x for x in matches if statistics_due(x, prior.get((league, x['entity'])))]
             matches.sort(key=lambda x: (int(x['payload']['requested_season']) < max(seasons), (client.clock() - utc(x['payload']['kickoff_utc'])).total_seconds() >= 2 * 86400, prior.get((league, x['entity']), {}).get('observed', ''),
                                         -utc(x['payload']['kickoff_utc']).timestamp()))
@@ -450,7 +461,7 @@ def collect(client, leagues, seasons, stats_limit=500):
         report['deferred'] = str(exc)
     report['coverage'] = {}
     for league in leagues:
-        matches = [x for x in store.latest('match', client.clock().isoformat()) if x['league'] == league]
+        matches = [x for x in eligible_matches() if x['league'] == league]
         finished = [x for x in matches if x['payload']['status'] == 'finished']
         statistics = {x['entity']: x for x in store.latest('statistics', client.clock().isoformat()) if x['league'] == league}
         missing = sum(x['entity'] not in statistics for x in finished)
@@ -473,5 +484,5 @@ def collect(client, leagues, seasons, stats_limit=500):
     report['daily_budget'] = client.budget
     report['requests_this_run'] = client.requests
     report['observed_at_utc'] = client.clock().isoformat()
-    report['status'] = 'partial' if report['errors'] or report.get('deferred') else 'complete'
+    report['status'] = 'partial' if report['errors'] or report.get('deferred') or report['quarantined_records'] else 'complete'
     return report
