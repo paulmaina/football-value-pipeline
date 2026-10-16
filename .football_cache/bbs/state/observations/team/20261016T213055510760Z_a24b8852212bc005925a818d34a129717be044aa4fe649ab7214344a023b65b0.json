@@ -1,0 +1,1 @@
+{"entity":"94f93fa3-fff1-4a19-b5f1-b6a8e0eba828","kind":"team","league":"EPL","observed":"2026-10-16T21:30:55.510760+00:00","payload":{"conference":null,"flag_url":null,"id":"94f93fa3-fff1-4a19-b5f1-b6a8e0eba828","league":"EPL","logo_url":null,"name":"Sheffield Utd","short_name":null,"sport":"football"},"query":"/v1/teams?league=epl&limit=200&offset=0&sport=football"}
