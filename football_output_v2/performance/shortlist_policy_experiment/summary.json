@@ -1142,70 +1142,70 @@
       "wins": 0
     }
   ],
-  "candidate_decisions": 2457,
+  "candidate_decisions": 3024,
   "common_cohort_probability_scores": [
     {
-      "brier": null,
-      "calibration_gap": null,
-      "log_loss": null,
+      "brier": 0.21194406338066601,
+      "calibration_gap": 0.024461524761983686,
+      "log_loss": 0.6148289866795235,
       "variant_id": "control",
-      "verified_fixture_markets": 0
+      "verified_fixture_markets": 28
     },
     {
-      "brier": null,
-      "calibration_gap": null,
-      "log_loss": null,
+      "brier": 0.21194406338066601,
+      "calibration_gap": 0.024461524761983686,
+      "log_loss": 0.6148289866795235,
       "variant_id": "blended_lower",
-      "verified_fixture_markets": 0
+      "verified_fixture_markets": 28
     },
     {
-      "brier": null,
-      "calibration_gap": null,
-      "log_loss": null,
+      "brier": 0.21194406338066601,
+      "calibration_gap": 0.024461524761983686,
+      "log_loss": 0.6148289866795235,
       "variant_id": "blended_higher",
-      "verified_fixture_markets": 0
+      "verified_fixture_markets": 28
     },
     {
-      "brier": null,
-      "calibration_gap": null,
-      "log_loss": null,
+      "brier": 0.21194406338066601,
+      "calibration_gap": 0.024461524761983686,
+      "log_loss": 0.6148289866795235,
       "variant_id": "raw_lower",
-      "verified_fixture_markets": 0
+      "verified_fixture_markets": 28
     },
     {
-      "brier": null,
-      "calibration_gap": null,
-      "log_loss": null,
+      "brier": 0.21194406338066601,
+      "calibration_gap": 0.024461524761983686,
+      "log_loss": 0.6148289866795235,
       "variant_id": "raw_higher",
-      "verified_fixture_markets": 0
+      "verified_fixture_markets": 28
     },
     {
-      "brier": null,
-      "calibration_gap": null,
-      "log_loss": null,
+      "brier": 0.21194406338066601,
+      "calibration_gap": 0.024461524761983686,
+      "log_loss": 0.6148289866795235,
       "variant_id": "adjusted_lower",
-      "verified_fixture_markets": 0
+      "verified_fixture_markets": 28
     },
     {
-      "brier": null,
-      "calibration_gap": null,
-      "log_loss": null,
+      "brier": 0.21194406338066601,
+      "calibration_gap": 0.024461524761983686,
+      "log_loss": 0.6148289866795235,
       "variant_id": "adjusted_higher",
-      "verified_fixture_markets": 0
+      "verified_fixture_markets": 28
     },
     {
-      "brier": null,
-      "calibration_gap": null,
-      "log_loss": null,
+      "brier": 0.2115349165890302,
+      "calibration_gap": 0.029035546554313067,
+      "log_loss": 0.6146302125579041,
       "variant_id": "penalty_half",
-      "verified_fixture_markets": 0
+      "verified_fixture_markets": 28
     },
     {
-      "brier": null,
-      "calibration_gap": null,
-      "log_loss": null,
+      "brier": 0.21247449746886563,
+      "calibration_gap": 0.019887502969654355,
+      "log_loss": 0.6153414448951808,
       "variant_id": "penalty_stronger",
-      "verified_fixture_markets": 0
+      "verified_fixture_markets": 28
     }
   ],
   "comparisons": [
@@ -1696,129 +1696,129 @@
       "wins": 0
     }
   ],
-  "gameweeks": 0,
+  "gameweeks": 1,
   "note": "Fixed one-factor comparisons, not an optimisation search. All variants use the same first eligible pre-kickoff fixtures, quotes, development-only calibration evidence and fixed audit/quote/matching gates. Primary returns use STRICT picks only; PROVISIONAL rows are watchlist simulations. Returns are simulated at frozen quotes after configured costs, not actual execution. Selected cohorts can differ: their Brier/ROI differences are not paired forecast improvements. Paired returns below use one unit per strict selection and zero for no selection on every verified fixture. Weekly block bootstrap intervals are exploratory, unadjusted for eight comparisons and unavailable before six weeks/100 verified fixtures. No automatic promotion; choose a policy only after review, then confirm it on a later untouched period.",
   "paired_probability_deltas": [
     {
-      "brier_mean_delta": null,
+      "brier_mean_delta": 0.0,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": null,
+      "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 0,
+      "paired_fixtures": 4,
       "variant_id": "blended_lower"
     },
     {
-      "brier_mean_delta": null,
+      "brier_mean_delta": 0.0,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": null,
+      "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 0,
+      "paired_fixtures": 4,
       "variant_id": "blended_higher"
     },
     {
-      "brier_mean_delta": null,
+      "brier_mean_delta": 0.0,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": null,
+      "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 0,
+      "paired_fixtures": 4,
       "variant_id": "raw_lower"
     },
     {
-      "brier_mean_delta": null,
+      "brier_mean_delta": 0.0,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": null,
+      "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 0,
+      "paired_fixtures": 4,
       "variant_id": "raw_higher"
     },
     {
-      "brier_mean_delta": null,
+      "brier_mean_delta": 0.0,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": null,
+      "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 0,
+      "paired_fixtures": 4,
       "variant_id": "adjusted_lower"
     },
     {
-      "brier_mean_delta": null,
+      "brier_mean_delta": 0.0,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": null,
+      "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 0,
+      "paired_fixtures": 4,
       "variant_id": "adjusted_higher"
     },
     {
-      "brier_mean_delta": null,
+      "brier_mean_delta": -0.00040914679163580426,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": null,
+      "log_loss_mean_delta": -0.0001987741216192692,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 0,
+      "paired_fixtures": 4,
       "variant_id": "penalty_half"
     },
     {
-      "brier_mean_delta": null,
+      "brier_mean_delta": 0.0005304340881995874,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": null,
+      "log_loss_mean_delta": 0.0005124582156573732,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 0,
+      "paired_fixtures": 4,
       "variant_id": "penalty_stronger"
     }
   ],
   "paired_strict_returns": [
     {
-      "iso_weeks": 0,
-      "mean_profit_delta_per_fixture": null,
+      "iso_weeks": 1,
+      "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "blended_lower",
-      "verified_fixtures": 0,
+      "verified_fixtures": 4,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 0,
-      "mean_profit_delta_per_fixture": null,
+      "iso_weeks": 1,
+      "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "blended_higher",
-      "verified_fixtures": 0,
+      "verified_fixtures": 4,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 0,
-      "mean_profit_delta_per_fixture": null,
+      "iso_weeks": 1,
+      "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "raw_lower",
-      "verified_fixtures": 0,
+      "verified_fixtures": 4,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 0,
-      "mean_profit_delta_per_fixture": null,
+      "iso_weeks": 1,
+      "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "raw_higher",
-      "verified_fixtures": 0,
+      "verified_fixtures": 4,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 0,
-      "mean_profit_delta_per_fixture": null,
+      "iso_weeks": 1,
+      "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "adjusted_lower",
-      "verified_fixtures": 0,
+      "verified_fixtures": 4,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 0,
-      "mean_profit_delta_per_fixture": null,
+      "iso_weeks": 1,
+      "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "adjusted_higher",
-      "verified_fixtures": 0,
+      "verified_fixtures": 4,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 0,
-      "mean_profit_delta_per_fixture": null,
+      "iso_weeks": 1,
+      "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "penalty_half",
-      "verified_fixtures": 0,
+      "verified_fixtures": 4,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 0,
-      "mean_profit_delta_per_fixture": null,
+      "iso_weeks": 1,
+      "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "penalty_stronger",
-      "verified_fixtures": 0,
+      "verified_fixtures": 4,
       "weekly_block_bootstrap95": null
     }
   ],
@@ -1828,9 +1828,9 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-16T15:38:35.955634+00:00",
+  "reviewed_at_utc": "2026-10-16T22:22:58.238634+00:00",
   "status": "COLLECT_MORE_DATA",
-  "total_fixtures": 39,
+  "total_fixtures": 48,
   "variants": {
     "adjusted_higher": {
       "adjusted_shift": 0.03
@@ -1858,7 +1858,7 @@
       "raw_shift": -0.03
     }
   },
-  "verified_coverage": 0.0,
-  "verified_fixtures": 0,
+  "verified_coverage": 0.08333333333333333,
+  "verified_fixtures": 4,
   "version": "shortlist-probability-calibration-v1"
 }

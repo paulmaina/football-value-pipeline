@@ -1065,10 +1065,10 @@
     "calibration_penalty": "0.0",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "conservative_estimated_ev": "0.07831607193097412",
@@ -1286,6 +1286,64 @@
     "snapshot_captured_utc": "2026-10-15T15:39:24Z",
     "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
     "snapshot_generated_utc": "2026-10-15T15:32:56.850870Z",
+    "validation_status": "RELIABLE_FOR_RANKING"
+  },
+  {
+    "audit_brier": "0.19552546822214417",
+    "audit_validation_matches": "100",
+    "away_team": "Genoa",
+    "bookmaker": "1xBet",
+    "bookmaker_availability": "USER_ALLOWLIST",
+    "calibration_penalty": "0.004463674099964664",
+    "closing": {
+      "1xbet": {
+        "status": "PENDING_KICKOFF"
+      },
+      "pinnacle": {
+        "status": "PENDING_KICKOFF"
+      }
+    },
+    "conservative_estimated_ev": "0.03256193425655152",
+    "date": "2026-10-17",
+    "decision": "SHORTLISTED",
+    "development_validation_matches": "297",
+    "entry_price_basis": "frozen offered quote; accepted execution unverified",
+    "estimated_edge": "0.030108733687865263",
+    "estimated_ev": "0.03961453933449555",
+    "evaluated_at_utc": "2026-10-16T22:16:28.500933+00:00",
+    "fixture_id": "18d478f469da3bcc654dd4555b85c7e3",
+    "fixture_key": "Serie A|as roma|genoa|2026-10-17",
+    "gross_estimated_ev": "0.03961453933449555",
+    "high_confidence_audit_matches": "",
+    "high_confidence_audit_observed_rate": "",
+    "high_confidence_development_matches": "",
+    "high_confidence_overconfidence": "",
+    "high_confidence_penalty": "0.0",
+    "high_confidence_status": "NOT_REQUIRED",
+    "high_confidence_tier": "",
+    "high_confidence_wilson95_lower": "",
+    "high_confidence_wilson95_upper": "",
+    "historical_gap_score": "",
+    "home_team": "AS Roma",
+    "kickoff_utc": "2026-10-17T18:45:00+00:00",
+    "league": "Serie A",
+    "market": "Home win",
+    "market_probability": "0.6278751519668787",
+    "min_team_name_match_score": "90.0",
+    "near_miss_reason": "",
+    "odds_age_hours": "0.021250259166666667",
+    "offered_decimal_odds": "1.58",
+    "per_stake_cost": "0.0",
+    "predicted_probability": "0.657983885654744",
+    "rank_probability": "0.6535202115547794",
+    "raw_dc_ev": "0.08718633856132274",
+    "raw_dc_probability": "0.6880926193426093",
+    "rejection_reasons": "",
+    "selection_policy_version": "72h-seven-markets-fresh-references-net-ev15-v11",
+    "selection_tier": "STRICT",
+    "snapshot_captured_utc": "2026-10-16T22:22:42Z",
+    "snapshot_commit": "7a6c9d44b7c20308d3ed85270f7cabc2a98df58e",
+    "snapshot_generated_utc": "2026-10-16T22:16:28.500933Z",
     "validation_status": "RELIABLE_FOR_RANKING"
   }
 ]

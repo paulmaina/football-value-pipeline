@@ -134,6 +134,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "BL1:565828": {
+    "away_goals": 0,
+    "away_short_name": "1. FC Köln",
+    "away_team": "1. FC Köln",
+    "first_verified_at_utc": "2026-10-16T22:22:58Z",
+    "home_goals": 1,
+    "home_short_name": "Frankfurt",
+    "home_team": "Eintracht Frankfurt",
+    "kickoff_utc": "2026-10-16T18:30:00Z",
+    "league_code": "BL1",
+    "match_id": 565828,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "CL:575341": {
     "away_goals": 2,
     "away_short_name": "Sporting CP",
@@ -400,6 +415,21 @@
     "kickoff_utc": "2026-10-14T19:00:00Z",
     "league_code": "CL",
     "match_id": 575358,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "FL1:559661": {
+    "away_goals": 3,
+    "away_short_name": "Toulouse",
+    "away_team": "Toulouse FC",
+    "first_verified_at_utc": "2026-10-16T22:22:58Z",
+    "home_goals": 0,
+    "home_short_name": "Le Mans",
+    "home_team": "Le Mans FC",
+    "kickoff_utc": "2026-10-16T18:45:00Z",
+    "league_code": "FL1",
+    "match_id": 559661,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -674,6 +704,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564716": {
+    "away_goals": 1,
+    "away_short_name": "Levante",
+    "away_team": "Levante UD",
+    "first_verified_at_utc": "2026-10-16T22:22:58Z",
+    "home_goals": 1,
+    "home_short_name": "Deportivo",
+    "home_team": "RC Deportivo La Coruña",
+    "kickoff_utc": "2026-10-16T19:00:00Z",
+    "league_code": "PD",
+    "match_id": 564716,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560592": {
     "away_goals": 2,
     "away_short_name": "Brighton Hove",
@@ -820,6 +865,21 @@
     "kickoff_utc": "2026-10-10T14:00:00Z",
     "league_code": "PL",
     "match_id": 560601,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558573": {
+    "away_goals": 2,
+    "away_short_name": "Sassuolo",
+    "away_team": "US Sassuolo Calcio",
+    "first_verified_at_utc": "2026-10-16T22:22:58Z",
+    "home_goals": 4,
+    "home_short_name": "Frosinone",
+    "home_team": "Frosinone Calcio",
+    "kickoff_utc": "2026-10-16T18:45:00Z",
+    "league_code": "SA",
+    "match_id": 558573,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
