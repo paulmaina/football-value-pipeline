@@ -81,6 +81,7 @@ def build_dataset(store, baseline, cutoff, explicit=None):
     from football_value_pipeline_v2_standalone import canonical_team_key
     cutoff = utc(cutoff)
     explicit = explicit or {}
+    reviewed = json.loads(Path(__file__).with_name('bbs_team_aliases.json').read_text(encoding='utf-8'))
     if not isinstance(explicit, dict) or any(not isinstance(v, dict) for v in explicit.values()):
         raise ValueError('Team map must contain league objects keyed by provider team ID')
     matches = [x for x in store.latest('match', cutoff.isoformat()) if x['league'] in LEAGUES]
@@ -115,20 +116,37 @@ def build_dataset(store, baseline, cutoff, explicit=None):
         for side in ('home', 'away'):
             team = item['payload'][side]
             provider_names[(item['league'], str(team['id']))].add(team['name'])
+    # Team and standings surfaces can use different IDs for one reviewed club.
+    for item in store.latest('team', cutoff.isoformat()):
+        if item['league'] in LEAGUES and item['payload'].get('name'):
+            provider_names[(item['league'], item['entity'])].add(item['payload']['name'])
+    for item in store.latest('standings', cutoff.isoformat()):
+        for group in item['payload']['data']['standings']:
+            for team in group['rows']:
+                if team.get('team_id') and team.get('team_name'):
+                    provider_names[(item['league'], str(team['team_id']))].add(team['team_name'])
     for (league, entity), aliases in provider_names.items():
         configured = explicit.get(league, {}).get(entity)
-        candidates = {n for alias in aliases for n in names.get((league, canonical_team_key(alias)), set())}
+        candidates = {n for alias in aliases for n in names.get((league, canonical_team_key(
+            reviewed.get(league, {}).get(alias, alias))), set())}
         if configured is not None:
             if not isinstance(configured, str) or not configured.strip():
                 raise ValueError('Invalid explicit team mapping')
             mappings[(league, entity)] = {'name': configured, 'method': 'explicit'}
         elif len(candidates) == 1:
-            mappings[(league, entity)] = {'name': next(iter(candidates)), 'method': 'unique_existing_alias'}
+            mappings[(league, entity)] = {'name': next(iter(candidates)),
+                'method': 'reviewed_name_alias' if any(a in reviewed.get(league, {}) for a in aliases) else 'unique_existing_alias'}
     collisions = Counter((league, canonical_team_key(value['name'])) for (league, _), value in mappings.items())
     for key in list(mappings):
         if collisions[(key[0], canonical_team_key(mappings[key]['name']))] > 1:
-            issues.append({'type': 'team_mapping_collision', 'league': key[0], 'bbs_team_id': key[1]})
-            del mappings[key]
+            # Multiple explicitly reviewed or exact-name identities may refer to
+            # one club across surfaces. Duplicate match records are still held.
+            aliases = provider_names[key]
+            target = canonical_team_key(mappings[key]['name'])
+            proven = all(canonical_team_key(reviewed.get(key[0], {}).get(a, a)) == target for a in aliases)
+            if not proven:
+                issues.append({'type': 'team_mapping_collision', 'league': key[0], 'bbs_team_id': key[1]})
+                del mappings[key]
     claimed = set()
     # Multiple provider IDs representing one fixture are also ambiguous.
     signatures = Counter()
@@ -239,7 +257,52 @@ def build_dataset(store, baseline, cutoff, explicit=None):
                 'oldest_observation_age_hours': max(ages) if ages else None,
                 'newest_observation_age_hours': min(ages) if ages else None,
             }
-    report = {'observation_freshness': freshness, 'cutoff_utc': cutoff.isoformat(), 'rows': len(result), 'bbs_matches': len(matches),
+    standings_checks = []
+    for item in store.latest('standings', cutoff.isoformat()):
+        league = item['league']
+        year = int(item['entity'])
+        totals = defaultdict(lambda: Counter(games_played=0, wins=0, losses=0, ties=0, points_for=0, points_against=0))
+        for row in result:
+            if row['league'] != league or season_year(row['Season']) != year:
+                continue
+            for side, hg, ag in [('HomeTeam', row['FTHG'], row['FTAG']), ('AwayTeam', row['FTAG'], row['FTHG'])]:
+                t = totals[canonical_team_key(row[side])]
+                t.update(games_played=1, wins=int(hg > ag), losses=int(hg < ag), ties=int(hg == ag), points_for=hg, points_against=ag)
+        compared, unmapped, differences = 0, [], []
+        for group in item['payload']['data']['standings']:
+            for team in group['rows']:
+                identity = mappings.get((league, str(team.get('team_id'))))
+                if not identity:
+                    unmapped.append(team.get('team_name'))
+                    continue
+                total = totals.get(canonical_team_key(identity['name']))
+                if not total:
+                    continue
+                compared += 1
+                for field, expected in total.items():
+                    if team.get(field) is not None and team[field] != expected:
+                        differences.append({'team': identity['name'], 'field': field, 'history': expected, 'standings': team[field]})
+        standings_checks.append(dict(league=league, season=year, compared_teams=compared, unmapped_teams=unmapped, differences=differences))
+    training_coverage = []
+    for league in LEAGUES:
+        seasons = {int(x['payload']['requested_season']) for x in matches if x['league'] == league}
+        for year in sorted(seasons):
+            rows = [r for r in result if r['league'] == league and season_year(r['Season']) == year]
+            baseline_rows = [r for r in rows if r.get('history_source') != 'bigballsdata']
+            matched = sum(r['integration_status'] == 'matched' for r in baseline_rows)
+            observed = sum(x['league'] == league and int(x['payload']['requested_season']) == year and x['payload']['status'] == 'finished' for x in matches)
+            training_coverage.append(dict(league=league, season=year, baseline_matches=len(baseline_rows),
+                bbs_finished_matches=observed, matched_results=matched,
+                existing_results_without_bbs_confirmation=len(baseline_rows)-matched,
+                rows_with_statistics=sum(r['bbs_statistics_available'] for r in rows)))
+    field_coverage = {}
+    for league in LEAGUES:
+        rows = [r for r in result if r['league'] == league]
+        field_coverage[league] = {field: sum(r.get(f'bbs_{side}_{field}') is not None for r in rows for side in ('home', 'away'))
+                                  for field in STAT_FIELDS}
+    report = {'training_coverage': training_coverage, 'standings_checks': standings_checks, 'statistic_populated_team_sides': field_coverage,
+        'data_quality_status': 'partial' if issues or any(x['differences'] or x['unmapped_teams'] for x in standings_checks) or any(x['existing_results_without_bbs_confirmation'] for x in training_coverage) else 'verified_joins',
+        'observation_freshness': freshness, 'cutoff_utc': cutoff.isoformat(), 'rows': len(result), 'bbs_matches': len(matches),
         'join_counts': dict(Counter(r['join_status'] for r in fixtures)),
         'rows_with_bbs_statistics': sum(bool(r['bbs_statistics_available']) for r in result),
         'issues': issues, 'baseline_history_is_current_revision_not_point_in_time': True,

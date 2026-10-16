@@ -140,3 +140,53 @@ No authenticated key is available in this implementation environment. Actual
 account coverage, historical access and response compatibility must still be checked
 with a small live run. Tests exercise offline contracts, quota restart, corrections,
 cutoff selection, CSV integrity, normal pipeline loading and publication push races.
+
+
+## Live-coverage corrections and request strategy
+
+The first live run returned 1,562 scheduled fixtures and no completed matches.
+A bare `/v1/matches` request served upcoming rows, so a successful HTTP response
+was insufficient to establish training coverage. Collection now sends explicit
+`status=finished` and `status=scheduled` filters and rejects responses that do not
+honor the status or requested season. Current-season postponed, cancelled and
+suspended fixtures are checked too, so previously saved schedules can be corrected.
+
+List requests use the documented maximum `limit=200` with `offset` pagination.
+Current and previous season results are requested by default (explicit `--seasons`
+still overrides this). Previous-season result pages are cached for seven days;
+current results and scheduled fixtures for six hours; terminal status lists for a
+day. The implementation uses the typed `/v1/matches` response contract. It does
+not assume that GraphQL aliases or an undocumented batch request reduce quota.
+The reviewed API contract exposes basic statistics per match; each uncached
+statistics call costs a request.
+
+After fixture/result and current standings refreshes, remaining requests go to
+due current-season match statistics across the selected leagues, then older backfill.
+Fresh cached statistics do not consume backfill slots. Team/player directory
+backfill follows statistics. Free-plan historical access remains account-dependent:
+a 403 is reported and cached for 24 hours rather than repeatedly spending quota on
+the same denied request. Provider request limits and the shared 500/day budget still
+apply. Missing/withheld xG is not requested or replaced with fabricated values.
+
+`bbs_team_aliases.json` records reviewed league-specific club-name equivalents from
+the first live audit. Fixture, team-directory and standings identities contribute
+to mapping; reviewed aliases may bridge different IDs for the same club across
+surfaces. Conflicting or duplicate fixtures are still quarantined. The core model's
+global team-name rules are unchanged.
+
+Coverage reports now distinguish completed results, scheduled fixtures, statistics
+available/unfetched/unavailable, and team/player record counts. A run with no
+completed results or incomplete statistics is partial even if every HTTP request
+succeeds. Dataset reports additionally show baseline results lacking BBS confirmation,
+per-field populated statistics, and standings-versus-history differences. Standings
+comparison covers games played, wins, draws, losses, goals for and goals against;
+missing identities and differences are explicit. Current standings remain a
+cross-check, not historical predictor features.
+
+Saved-response replay on commit `0c14c197d393cac3160d7b8d8d0829e35ad89fa1`
+resolved all 1,562 scheduled fixtures (previously 908) and reconciled all 132
+current-season standings teams with 333 existing completed fixtures. There were
+no differences in the compared totals. This replay verifies mapping/reconciliation;
+it does not prove completed-match retrieval or actual statistics coverage. Those
+require the next authenticated collection after deployment. Existing observations
+and published snapshots are preserved; no historical outputs were rewritten.
