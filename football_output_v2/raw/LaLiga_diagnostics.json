@@ -1,13 +1,13 @@
 {
   "league": "La Liga",
   "training_matches": 1218,
-  "training_sha256": "24e4ff685bc9d043dfd999f14263b1239924c80c9adfc23f087cb89f852fb86d",
+  "training_sha256": "933866e5cdf52ddb62e284f2a6deed7c9cafdfbe21045f67a142005996f4f3fe",
   "training_end": "2026-10-12",
   "fit_success": true,
-  "objective": 1999.3361238080006,
-  "base": 0.09082537891987681,
-  "home_adv": 0.2821836373304968,
-  "rho": -0.01991447140100237,
+  "objective": 1999.336133861818,
+  "base": 0.09079388124920867,
+  "home_adv": 0.2821897903742349,
+  "rho": -0.019877647972511146,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
   "max_goals": 10,
@@ -15,7 +15,7 @@
   "market_weight": 0.5,
   "training_data_health": {
     "training_end": "2026-10-12",
-    "days_since_latest_result": 3,
+    "days_since_latest_result": 4,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -25,24 +25,12 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 18,
-  "additional_event_odds_calls_used_before_this_league": 9,
+  "live_odds_matched": 20,
+  "additional_event_odds_calls_used_before_this_league": 10,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "19ee731602634e5c9e3106630e087464",
-      "event_id": "19ee731602634e5c9e3106630e087464",
-      "home_team": "Deportivo La Coru\u00f1a",
-      "away_team": "Levante",
-      "kickoff_utc": "2026-10-16T19:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
-    },
     {
       "fixture_id": "6436925dd15916d7041ba32b60000d48",
       "event_id": "6436925dd15916d7041ba32b60000d48",
@@ -121,10 +109,11 @@
       "home_team": "M\u00e1laga",
       "away_team": "Real Sociedad",
       "kickoff_utc": "2026-10-18T16:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "eccd63bf768e2f2a358b871d3f33a63d",
@@ -132,10 +121,11 @@
       "home_team": "Real Madrid",
       "away_team": "Sevilla",
       "kickoff_utc": "2026-10-18T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "4a88bc4de574d43ef34677fd8d78722f",
@@ -143,10 +133,11 @@
       "home_team": "Getafe",
       "away_team": "Rayo Vallecano",
       "kickoff_utc": "2026-10-19T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "a362cccad837f1ffae61ff43a3536688",
@@ -235,12 +226,45 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false
+    },
+    {
+      "fixture_id": "3cb8660cd2375b60e81144a7572cfb89",
+      "event_id": "3cb8660cd2375b60e81144a7572cfb89",
+      "home_team": "Real Sociedad",
+      "away_team": "Levante",
+      "kickoff_utc": "2026-10-25T17:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
+    },
+    {
+      "fixture_id": "72089d103a5fe6a922c35e17efba6ffc",
+      "event_id": "72089d103a5fe6a922c35e17efba6ffc",
+      "home_team": "Barcelona",
+      "away_team": "Real Madrid",
+      "kickoff_utc": "2026-10-25T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
+    },
+    {
+      "fixture_id": "85e464708d03287f24590e1478aeca31",
+      "event_id": "85e464708d03287f24590e1478aeca31",
+      "home_team": "Sevilla",
+      "away_team": "CA Osasuna",
+      "kickoff_utc": "2026-10-26T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 7,
+  "additional_odds_in_window_linked_fixtures": 9,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 7,
+  "additional_event_odds_calls_this_league": 9,
   "decay_tuning": {
     "selected_half_life_days": 730.0,
     "selected_xi_per_day": 0.0009495166856985552,
