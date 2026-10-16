@@ -1,13 +1,13 @@
 {
   "league": "Premier League",
   "training_matches": 1200,
-  "training_sha256": "55d1951271ab7b6fe97dac4b7c997367d53f528828c576b121d9c0b42d15be3a",
+  "training_sha256": "5e47fcac22b19c93fdbf5582097b19308a37c09cba726b46511adb6796b7a5ac",
   "training_end": "2026-10-12",
   "fit_success": true,
-  "objective": 897.6230219503293,
-  "base": 0.21703147972945164,
-  "home_adv": 0.17879041943218402,
-  "rho": -0.11544439700644936,
+  "objective": 897.6230218382317,
+  "base": 0.21703760685823675,
+  "home_adv": 0.17879563985311708,
+  "rho": -0.11544741549096345,
   "half_life_days": 240.0,
   "xi_per_day": 0.0028881132523331052,
   "max_goals": 10,
@@ -15,7 +15,7 @@
   "market_weight": 0.5,
   "training_data_health": {
     "training_end": "2026-10-12",
-    "days_since_latest_result": 3,
+    "days_since_latest_result": 4,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -25,7 +25,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 19,
+  "live_odds_matched": 20,
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
@@ -145,10 +145,11 @@
       "home_team": "Tottenham Hotspur",
       "away_team": "Coventry City",
       "kickoff_utc": "2026-10-19T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "d0202960708a442401d7fc7bd74a0183",
@@ -248,12 +249,23 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false
+    },
+    {
+      "fixture_id": "e82f6b60fa41b82c8510f5b67ce61849",
+      "event_id": "e82f6b60fa41b82c8510f5b67ce61849",
+      "home_team": "Sunderland",
+      "away_team": "Leeds United",
+      "kickoff_utc": "2026-10-25T16:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 9,
+  "additional_odds_in_window_linked_fixtures": 10,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 9,
+  "additional_event_odds_calls_this_league": 10,
   "decay_tuning": {
     "selected_half_life_days": 240.0,
     "selected_xi_per_day": 0.0028881132523331052,

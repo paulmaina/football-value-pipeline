@@ -1,13 +1,13 @@
 {
   "league": "Serie A",
   "training_matches": 1200,
-  "training_sha256": "71efbd751a88a2a4da02ae33ce94c3c5fea33f44781adbbc7808ade99635adcd",
+  "training_sha256": "80621aabc4748832a2597f51e5acf50b59b403a8fcdfc3362297a8635cc0f4ea",
   "training_end": "2026-10-12",
   "fit_success": true,
-  "objective": 849.5862990123923,
-  "base": 0.12680547256384003,
-  "home_adv": 0.11067743902551781,
-  "rho": -0.021088842765235555,
+  "objective": 849.586297786308,
+  "base": 0.12677493255038536,
+  "home_adv": 0.1107105950946419,
+  "rho": -0.021082781628334747,
   "half_life_days": 240.0,
   "xi_per_day": 0.0028881132523331052,
   "max_goals": 10,
@@ -15,7 +15,7 @@
   "market_weight": 0.5,
   "training_data_health": {
     "training_end": "2026-10-12",
-    "days_since_latest_result": 3,
+    "days_since_latest_result": 4,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -25,24 +25,12 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 18,
-  "additional_event_odds_calls_used_before_this_league": 25,
+  "live_odds_matched": 19,
+  "additional_event_odds_calls_used_before_this_league": 27,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "7d3160040958fe21778fd5ee485666c3",
-      "event_id": "7d3160040958fe21778fd5ee485666c3",
-      "home_team": "Frosinone",
-      "away_team": "Sassuolo",
-      "kickoff_utc": "2026-10-16T18:45:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
-    },
     {
       "fixture_id": "907639dade64cca45d1ab639195d201e",
       "event_id": "907639dade64cca45d1ab639195d201e",
@@ -109,10 +97,11 @@
       "home_team": "AC Milan",
       "away_team": "Atalanta BC",
       "kickoff_utc": "2026-10-18T16:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "4c4026e2782f09d6f0ff2bde2a390513",
@@ -120,10 +109,11 @@
       "home_team": "Juventus",
       "away_team": "Lazio",
       "kickoff_utc": "2026-10-18T18:45:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "ce94aca384a20f6af459366da6e1dd21",
@@ -131,10 +121,11 @@
       "home_team": "Monza",
       "away_team": "Cagliari",
       "kickoff_utc": "2026-10-19T16:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "07014d9adc65ca39710bd9f0c7c0d3f0",
@@ -142,10 +133,11 @@
       "home_team": "Parma",
       "away_team": "Torino",
       "kickoff_utc": "2026-10-19T18:45:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "124c70f8f3248a845bdb983a54e74720",
@@ -234,12 +226,34 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false
+    },
+    {
+      "fixture_id": "63af660d4d0d52f8ac7685172ef939c4",
+      "event_id": "63af660d4d0d52f8ac7685172ef939c4",
+      "home_team": "Lecce",
+      "away_team": "Juventus",
+      "kickoff_utc": "2026-10-25T17:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
+    },
+    {
+      "fixture_id": "3564688383b255192409c9deb8e526ed",
+      "event_id": "3564688383b255192409c9deb8e526ed",
+      "home_team": "Udinese",
+      "away_team": "AC Milan",
+      "kickoff_utc": "2026-10-25T19:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 6,
+  "additional_odds_in_window_linked_fixtures": 9,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 6,
+  "additional_event_odds_calls_this_league": 9,
   "decay_tuning": {
     "selected_half_life_days": 240.0,
     "selected_xi_per_day": 0.0028881132523331052,

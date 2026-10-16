@@ -9,8 +9,8 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-15T15:32:56.850870+00:00",
-  "model_code_sha256": "e8eacc892561f8040e4e89eff5fc09e8dda189f8185a1187586c01a2585b5901",
-  "predictions_sha256": "060baac93b3fd4bd6ac88ca64d0a170900ac7574bb1381bcd008dda30e3813ac",
+  "generated_at_utc": "2026-10-16T22:16:28.500933+00:00",
+  "model_code_sha256": "1d0ddb49884e1edc677e472ed6b051034be6141894cd6e9de4ca9e925f507ff3",
+  "predictions_sha256": "875a4011680d3890c6762b35d19e5dd0c55db7333e5687526c88671ebacf2865",
   "selection_policy_version": "72h-seven-markets-fresh-references-net-ev15-v11"
 }
