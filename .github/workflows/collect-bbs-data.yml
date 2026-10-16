@@ -5,6 +5,11 @@ on:
     # 09:43, 17:43 and 01:43 EAT. All share one persisted UTC-day budget.
     - cron: '43 6,14,22 * * *'
   workflow_dispatch:
+    inputs:
+      max_requests:
+        description: Maximum requests this run (shared 500/day budget still applies)
+        type: number
+        default: 500
 
 permissions:
   contents: write
@@ -69,10 +74,11 @@ jobs:
         if: steps.configured.outputs.enabled == 'true'
         env:
           BBS_API_KEY: ${{ secrets.BBS_API_KEY }}
+          MAX_REQUESTS: ${{ inputs.max_requests || 200 }}
         run: |
           # Reserve some of the daily allowance for each later freshness pass.
           set +e
-          python collect_bbs_data.py --api-key-source environment --daily-budget 500 --max-requests 200 --stats-limit 500
+          python collect_bbs_data.py --api-key-source environment --daily-budget 500 --max-requests "$MAX_REQUESTS" --stats-limit 500
           code=$?
           set -e
           echo "result=$code" >> "$GITHUB_OUTPUT"

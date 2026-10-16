@@ -1,8 +1,80 @@
 {
-  "EPL": {"Coventry City":"Coventry", "Hull City":"Hull", "Ipswich Town":"Ipswich"},
-  "LaLiga": {"RC Deportivo La Coruña":"La Coruna", "Espanyol":"Espanol", "Real Racing Club de Santander":"Santander", "Rayo Vallecano":"Vallecano", "Real Sociedad":"Sociedad", "Real Betis":"Betis", "Athletic Club":"Ath Bilbao", "Celta Vigo":"Celta"},
-  "Bundesliga": {"1. FC Union Berlin":"Union Berlin", "SC Paderborn 07":"Paderborn", "Eintracht Frankfurt":"Ein Frankfurt", "Hamburger SV":"Hamburg", "Bayer Leverkusen":"Leverkusen", "VfB Stuttgart":"Stuttgart", "FC Cologne":"FC Koln", "Borussia Dortmund":"Dortmund", "TSG Hoffenheim":"Hoffenheim"},
-  "SerieA": {"Como 1907":"Como", "AS Roma":"Roma"},
-  "Ligue1": {"AS Monaco":"Monaco", "Stade Rennais":"Rennes", "AJ Auxerre":"Auxerre"},
-  "UCL": {"Lille":"Lille OSC", "Napoli":"SSC Napoli", "Real Betis":"Real Betis Balompié", "Lens":"Racing Club de Lens", "Shakhtar Donetsk":"FK Shakhtar Donetsk", "AEK Athens":"PAE AEK", "Fenerbahce":"Fenerbahçe SK", "Slovan Bratislava":"ŠK Slovan Bratislava"}
+  "EPL": {
+    "Coventry City": "Coventry",
+    "Hull City": "Hull",
+    "Ipswich Town": "Ipswich",
+    "Coventry": "Coventry",
+    "Newcastle": "Newcastle United",
+    "Bournemouth": "AFC Bournemouth",
+    "Tottenham": "Tottenham Hotspur",
+    "Ipswich": "Ipswich",
+    "Brighton": "Brighton & Hove Albion",
+    "Leeds": "Leeds United"
+  },
+  "LaLiga": {
+    "RC Deportivo La Coruña": "La Coruna",
+    "Espanyol": "Espanol",
+    "Real Racing Club de Santander": "Santander",
+    "Rayo Vallecano": "Vallecano",
+    "Real Sociedad": "Sociedad",
+    "Real Betis": "Betis",
+    "Athletic Club": "Ath Bilbao",
+    "Celta Vigo": "Celta",
+    "Deportivo La Coruna": "La Coruna",
+    "Racing Santander": "Santander"
+  },
+  "Bundesliga": {
+    "1. FC Union Berlin": "Union Berlin",
+    "SC Paderborn 07": "Paderborn",
+    "Eintracht Frankfurt": "Ein Frankfurt",
+    "Hamburger SV": "Hamburg",
+    "Bayer Leverkusen": "Leverkusen",
+    "VfB Stuttgart": "Stuttgart",
+    "FC Cologne": "FC Koln",
+    "Borussia Dortmund": "Dortmund",
+    "TSG Hoffenheim": "Hoffenheim",
+    "FSV Mainz 05": "Mainz",
+    "Bayern München": "Bayern Munich",
+    "1. FC Köln": "FC Koln",
+    "1899 Hoffenheim": "Hoffenheim",
+    "Union Berlin": "Union Berlin"
+  },
+  "SerieA": {
+    "Como 1907": "Como",
+    "AS Roma": "Roma",
+    "Como": "Como",
+    "Inter": "Inter Milan"
+  },
+  "Ligue1": {
+    "AS Monaco": "Monaco",
+    "Stade Rennais": "Rennes",
+    "AJ Auxerre": "Auxerre",
+    "Estac Troyes": "Troyes",
+    "Stade Brestois 29": "Brest",
+    "Rennes": "Rennes",
+    "Auxerre": "Auxerre",
+    "Monaco": "Monaco",
+    "Le Havre": "Le Havre AC"
+  },
+  "UCL": {
+    "Lille": "Lille OSC",
+    "Napoli": "SSC Napoli",
+    "Real Betis": "Real Betis Balompié",
+    "Lens": "Racing Club de Lens",
+    "Shakhtar Donetsk": "FK Shakhtar Donetsk",
+    "AEK Athens": "PAE AEK",
+    "Fenerbahce": "Fenerbahçe SK",
+    "Slovan Bratislava": "ŠK Slovan Bratislava",
+    "Feyenoord": "Feyenoord Rotterdam",
+    "Como": "Como 1907",
+    "Viking": "Viking FK",
+    "Bayern München": "Bayern Munich",
+    "Fenerbahçe": "Fenerbahçe SK",
+    "Bodo/Glimt": "FK Bodø/Glimt",
+    "PSV Eindhoven": "PSV",
+    "Slavia Praha": "SK Slavia Praha",
+    "Inter": "Inter Milan",
+    "Sporting CP": "Sporting Clube de Portugal",
+    "Galatasaray": "Galatasaray SK"
+  }
 }
