@@ -6,7 +6,9 @@ from __future__ import annotations
 
 import json
 import math
-import sqlite3
+import hashlib
+import os
+import tempfile
 import time
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
@@ -51,74 +53,93 @@ class Deferred(FetchError):
     pass
 
 
+def atomic_json(path, value):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile('w', dir=path.parent, delete=False, encoding='utf-8') as f:
+        f.write(dumps(value) + '\n')
+        temporary = Path(f.name)
+    try:
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
 class Store:
+    """File-backed observations; caller holds the collection lock while writing.
+
+    Each observation is an immutable timestamped JSON snapshot. Request budgets
+    are persisted before network I/O. Malformed checkpoints fail closed.
+    """
     def __init__(self, path):
-        path = Path(path)
-        path.parent.mkdir(parents=True, exist_ok=True)
-        self.db = sqlite3.connect(path, timeout=30)
-        self.db.row_factory = sqlite3.Row
-        self.db.executescript('''
-          CREATE TABLE IF NOT EXISTS responses (
-            query TEXT, observed TEXT, payload TEXT, PRIMARY KEY(query,observed));
-          CREATE TABLE IF NOT EXISTS observations (
-            kind TEXT, league TEXT, entity TEXT, observed TEXT, payload TEXT, query TEXT,
-            PRIMARY KEY(kind,league,entity,observed));
-          CREATE TABLE IF NOT EXISTS quota (day TEXT PRIMARY KEY, used INTEGER NOT NULL);
-          CREATE TABLE IF NOT EXISTS settings (name TEXT PRIMARY KEY, value TEXT);
-        ''')
+        self.path = Path(path)
+        if self.path.is_file():
+            raise ValueError('Store must be a directory; SQLite stores are not supported')
+        self.path.mkdir(parents=True, exist_ok=True)
+        checkpoint = self.path / 'checkpoint.json'
+        self.state = decode(checkpoint.read_text()) if checkpoint.exists() else {
+            'version': 1, 'quota': {}, 'settings': {}}
+        if (self.state.get('version') != 1 or not isinstance(self.state.get('quota'), dict)
+                or not isinstance(self.state.get('settings'), dict)):
+            raise ValueError('Invalid collection checkpoint')
+        self.observations = []
+        for file in sorted((self.path / 'observations').glob('*/*.json')):
+            row = decode(file.read_text())
+            utc(row['observed'])
+            self.observations.append(row)
 
     def close(self):
-        self.db.close()
+        pass  # Every write is persisted immediately, including interrupted runs.
 
     def setting(self, name, default=''):
-        row = self.db.execute('SELECT value FROM settings WHERE name=?', (name,)).fetchone()
-        return row[0] if row else default
+        return self.state['settings'].get(name, default)
 
     def set(self, name, value):
-        with self.db:
-            self.db.execute('INSERT OR REPLACE INTO settings VALUES (?,?)', (name, str(value)))
+        self.state['settings'][name] = str(value)
+        atomic_json(self.path / 'checkpoint.json', self.state)
+
+    def response_path(self, query):
+        return self.path / 'responses' / (hashlib.sha256(query.encode()).hexdigest() + '.json')
 
     def latest_response(self, query):
-        row = self.db.execute('SELECT * FROM responses WHERE query=? ORDER BY observed DESC LIMIT 1', (query,)).fetchone()
-        return dict(row) if row else None
+        path = self.response_path(query)
+        return decode(path.read_text()) if path.exists() else None
 
     def response(self, query, observed, payload):
-        with self.db:
-            self.db.execute('INSERT OR REPLACE INTO responses VALUES (?,?,?)', (query, observed, dumps(payload)))
+        atomic_json(self.response_path(query), {
+            'query': query, 'observed': observed, 'payload': dumps(payload)})
 
     def put(self, kind, league, entity, observed, payload, query=''):
-        with self.db:
-            self.db.execute('INSERT OR REPLACE INTO observations VALUES (?,?,?,?,?,?)',
-                            (kind, league, str(entity), observed, dumps(payload), query))
+        observed = utc(observed).isoformat()
+        row = dict(kind=kind, league=league, entity=str(entity), observed=observed,
+                   payload=payload, query=query)
+        digest = hashlib.sha256(dumps(row).encode()).hexdigest()
+        stamp = utc(observed).strftime('%Y%m%dT%H%M%S%fZ')
+        path = self.path / 'observations' / kind / (stamp + '_' + digest + '.json')
+        if not path.exists():
+            atomic_json(path, row)
+            self.observations.append(row)
 
     def latest(self, kind, cutoff=None):
         cutoff = utc(cutoff or datetime.now(timezone.utc).isoformat())
-        # ISO strings with offsets or different fractional precision do not sort
-        # chronologically. Parse before cutoff filtering, including older stores.
-        rows = sorted(self.db.execute('SELECT * FROM observations WHERE kind=?', (kind,)),
-                      key=lambda row: utc(row['observed']))
         result = {}
-        for row in rows:
-            if utc(row['observed']) > cutoff:
-                continue
-            result[(row['league'], row['entity'])] = {
-                **dict(row), 'payload': decode(row['payload'])}
+        for row in sorted(self.observations, key=lambda r: utc(r['observed'])):
+            if row['kind'] == kind and utc(row['observed']) <= cutoff:
+                key = (row['league'], row['entity'])
+                if key in result and result[key]['observed'] == row['observed'] and result[key]['payload'] != row['payload']:
+                    raise ValueError('Conflicting observations at identical timestamp')
+                result[key] = row
         return list(result.values())
 
     def reserve(self, now, limit):
-        """Commit before I/O: failures and interrupted requests also consume budget."""
-        day = now.date().isoformat()
-        self.db.execute('BEGIN IMMEDIATE')
-        try:
-            row = self.db.execute('SELECT used FROM quota WHERE day=?', (day,)).fetchone()
-            used = row[0] if row else 0
-            if used >= limit:
-                raise Deferred('Local daily request budget exhausted')
-            self.db.execute('INSERT OR REPLACE INTO quota VALUES (?,?)', (day, used + 1))
-            self.db.commit()
-        except Exception:
-            self.db.rollback()
-            raise
+        day = now.astimezone(timezone.utc).date().isoformat()
+        used = self.state['quota'].get(day, 0)
+        if type(used) is not int or used < 0:
+            raise ValueError('Invalid request checkpoint')
+        if used >= limit:
+            raise Deferred('Local daily request budget exhausted')
+        self.state['quota'][day] = used + 1
+        atomic_json(self.path / 'checkpoint.json', self.state)
 
 
 def transport(path, params, key):
@@ -135,7 +156,7 @@ def transport(path, params, key):
 
 
 class Client:
-    def __init__(self, store, key, budget=200, max_requests=150, sender=transport,
+    def __init__(self, store, key, budget=500, max_requests=500, sender=transport,
                  clock=lambda: datetime.now(timezone.utc), sleeper=time.sleep):
         if not key.strip():
             raise FetchError('BBS_API_KEY is missing; configure .env or CI secret')
@@ -288,7 +309,7 @@ def normal_stats(payload, match):
     return result
 
 
-def collect(client, leagues, seasons, stats_limit=90):
+def collect(client, leagues, seasons, stats_limit=500):
     """Checkpoint pages; incomplete pagination never claims full competition coverage."""
     store = client.store
     report = {'errors': [], 'completed_lists': [], 'statistics_fetched': 0}
@@ -303,7 +324,7 @@ def collect(client, leagues, seasons, stats_limit=90):
 
     def list_matches(league, season):
         params = {'sport': 'football', 'league': LEAGUES[league], 'season': season}
-        for rows, observed, query, meta in client.pages('/v1/matches', params):
+        for rows, observed, query, meta in client.pages('/v1/matches', params, ttl=6 * 3600):
             for row in rows:
                 parsed = normal_match(row, league, observed, meta)
                 # Requested season is context, never inferred solely from kickoff year.
@@ -313,7 +334,7 @@ def collect(client, leagues, seasons, stats_limit=90):
 
     def standings(league, season):
         payload, observed, query = client.get('/v1/standings',
-            {'sport': 'football', 'league': LEAGUES[league], 'season': season})
+            {'sport': 'football', 'league': LEAGUES[league], 'season': season}, ttl=6 * 3600)
         if not isinstance(payload['data'], dict):
             raise ValueError('Expected standings object')
         groups = payload['data'].get('standings')
@@ -335,13 +356,24 @@ def collect(client, leagues, seasons, stats_limit=90):
             for league in leagues:
                 attempt(f'matches/{league}/{season}', lambda l=league, s=season: list_matches(l, s))
                 attempt(f'standings/{league}/{season}', lambda l=league, s=season: standings(l, s))
+        for league in leagues:
+            for kind, path in [('team', '/v1/teams'), ('player', '/v1/players')]:
+                def entities():
+                    for rows, observed, query, meta in client.pages(path,
+                        {'sport': 'football', 'league': LEAGUES[league]}, ttl=7 * 86400):
+                        for row in rows:
+                            if row.get('sport') not in (None, 'football'):
+                                raise ValueError('Wrong entity sport')
+                            store.put(kind, league, row['id'], observed, row, query)
+                    report['completed_lists'].append(f'{kind}/{league}')
+                attempt(f'{kind}/{league}', entities)
         # Fair across leagues, unseen/oldest observations first. New data progressively
         # backfills; weekly rechecks capture post-match corrections.
         prior = {(x['league'], x['entity']): x for x in store.latest('statistics', client.clock().isoformat())}
         queue = []
         for league in leagues:
             matches = [x for x in store.latest('match', client.clock().isoformat()) if x['league'] == league and x['payload']['status'] == 'finished']
-            matches.sort(key=lambda x: (prior.get((league, x['entity']), {}).get('observed', ''),
+            matches.sort(key=lambda x: ((client.clock() - utc(x['payload']['kickoff_utc'])).total_seconds() >= 2 * 86400, prior.get((league, x['entity']), {}).get('observed', ''),
                                         -utc(x['payload']['kickoff_utc']).timestamp()))
             queue.append(matches)
         fetched = 0
@@ -354,7 +386,7 @@ def collect(client, leagues, seasons, stats_limit=90):
                     nonlocal fetched
                     path = '/v1/matches/' + item['entity'] + '/statistics'
                     age = (client.clock() - utc(item['payload']['kickoff_utc'])).total_seconds()
-                    ttl = 86400 if age < 7 * 86400 else 7 * 86400
+                    ttl = 6 * 3600 if age < 2 * 86400 else (86400 if age < 7 * 86400 else 7 * 86400)
                     payload, observed, query = client.get(path, ttl=ttl)
                     store.put('statistics', item['league'], item['entity'], observed,
                               normal_stats(payload, item['payload']), query)
@@ -362,19 +394,10 @@ def collect(client, leagues, seasons, stats_limit=90):
                     report['statistics_fetched'] = fetched
                 attempt('statistics/' + item['entity'], statistics)
         report['statistics_fetched'] = fetched
-        for league in leagues:
-            for kind, path in [('team', '/v1/teams'), ('player', '/v1/players')]:
-                def entities():
-                    for rows, observed, query, meta in client.pages(path,
-                        {'sport': 'football', 'league': LEAGUES[league]}, ttl=7 * 86400):
-                        for row in rows:
-                            if row.get('sport') not in (None, 'football'):
-                                raise ValueError('Wrong entity sport')
-                            store.put(kind, league, row['id'], observed, row, query)
-                    report['completed_lists'].append(f'{kind}/{league}')
-                attempt(f'{kind}/{league}', entities)
     except Deferred as exc:
         report['deferred'] = str(exc)
+    report['requests_used_today'] = store.state['quota'].get(client.clock().astimezone(timezone.utc).date().isoformat(), 0)
+    report['daily_budget'] = client.budget
     report['requests_this_run'] = client.requests
     report['observed_at_utc'] = client.clock().isoformat()
     report['status'] = 'partial' if report['errors'] or report.get('deferred') else 'complete'
