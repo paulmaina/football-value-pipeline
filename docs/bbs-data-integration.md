@@ -148,11 +148,11 @@ The first live run returned 1,562 scheduled fixtures and no completed matches.
 A bare `/v1/matches` request served upcoming rows, so a successful HTTP response
 was insufficient to establish training coverage. Collection now sends explicit
 `status=finished` and `status=scheduled` filters and rejects responses that do not
-honor the status or requested season. Current-season postponed, cancelled and
-suspended fixtures are checked too, so previously saved schedules can be corrected.
+honor the status or requested season. Current-season postponed and cancelled
+fixtures are checked too, so previously saved schedules can be corrected.
 
 List requests use the documented maximum `limit=200` with `offset` pagination.
-Current and previous season results are requested by default (explicit `--seasons`
+Current-season results are requested by default (explicit `--seasons`
 still overrides this). Previous-season result pages are cached for seven days;
 current results and scheduled fixtures for six hours; terminal status lists for a
 day. The implementation uses the typed `/v1/matches` response contract. It does
@@ -224,3 +224,20 @@ Manual Actions runs now accept `max_requests` (default 500); scheduled runs rema
 already been used, a manual 500-request run can make at most the remaining 229.
 Unavailable provider data may remain partial after all fetchable statistics are
 collected. This is reported explicitly rather than fabricated or silently dropped.
+
+
+## Pre-merge data safeguards
+
+Quarantined revisions are excluded from statistics requests and coverage counts until
+a later valid match observation arrives. Backfill and coverage respect the selected
+seasons, and persisted unresolved quarantines keep the collection status partial.
+Empty statistics objects remain unavailable; a present team name must agree with
+the reviewed fixture identity even when its provider ID matches.
+
+Multiple completed provider fixtures for the same ordered clubs in one domestic
+league season are held as ambiguous even if their dates differ. The loader rechecks
+BBS values against newly loaded primary statistics and disables disputed records
+for future feature use while preserving the primary values. These checks do not
+activate statistical predictor features. Failed or cancelled collections attempt a
+recovery upload including the hidden cache directory; hard termination may still
+prevent an upload, so the unpublished-budget guard remains in place.

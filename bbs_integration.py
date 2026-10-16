@@ -158,10 +158,14 @@ def build_dataset(store, baseline, cutoff, explicit=None):
     claimed = set()
     # Multiple provider IDs representing one fixture are also ambiguous.
     signatures = Counter()
+    completed_pairs = Counter()
     for item in matches:
         m, league = item['payload'], item['league']
         mapped = [mappings.get((league, str(m[s]['id']))) for s in ('home', 'away')]
         if all(mapped):
+            if league != 'UCL' and m['status'] == 'finished':
+                completed_pairs[(league, int(m['requested_season']),
+                    *(canonical_team_key(x['name']) for x in mapped))] += 1
             signatures[(league, utc(m['kickoff_utc']).date().isoformat(),
                         *(canonical_team_key(x['name']) for x in mapped))] += 1
     for item in matches:
@@ -175,7 +179,8 @@ def build_dataset(store, baseline, cutoff, explicit=None):
         home, away = [x['name'] for x in mapped]
         day = utc(m['kickoff_utc']).date().isoformat()
         key = (league, day, canonical_team_key(home), canonical_team_key(away))
-        if signatures[key] > 1:
+        pair = (league, int(m['requested_season']), key[2], key[3])
+        if signatures[key] > 1 or (m['status'] == 'finished' and completed_pairs[pair] > 1):
             fixture['join_status'] = 'ambiguous'
             issues.append({'type': 'duplicate_provider_fixture', 'bbs_match_id': item['entity']})
             continue
@@ -219,7 +224,8 @@ def build_dataset(store, baseline, cutoff, explicit=None):
                 'Season': str(m['requested_season']), 'history_source': 'bigballsdata',
                 'bbs_match_id': item['entity'], 'bbs_match_observed_at': item['observed'],
                 'bbs_source_updated_at': m.get('source_updated_at'), 'integration_status': 'added',
-                'bbs_statistics_available': False, 'post_match_statistics_not_predictor_features': True}
+                'bbs_statistics_available': False, 'bbs_statistics_feature_eligible': False,
+                'post_match_statistics_not_predictor_features': True}
             result.append(row)
             fixture['join_status'] = 'added'
         row['bbs_home_team_id'] = str(m['home']['id'])
@@ -442,6 +448,29 @@ def combined_training_history(baseline, cache_dir, league, now, seasons_back):
                 metadata = {k: v for k, v in metadata.items() if k not in
                     {f'bbs_{side}_{field}' for side in ('home', 'away') for field in STAT_FIELDS}}
                 metadata.update(integration_status='conflict', bbs_statistics_available=False, bbs_statistics_feature_eligible=False)
+                flags = set(filter(None, str(metadata.get('bbs_conflict_flags', '')).split('|')))
+                flags.add('result_or_status_conflict')
+                metadata['bbs_conflict_flags'] = '|'.join(sorted(flags))
+            disputed = set(filter(None, str(metadata.get('bbs_disputed_fields', '')).split('|')))
+            for side, prefix in [('home', 'H'), ('away', 'A')]:
+                for field, suffix in CSV_STATS.items():
+                    source = existing.get(prefix + suffix)
+                    value = metadata.get(f'bbs_{side}_{field}')
+                    # NaN in a primary DataFrame means missing, never a disagreement.
+                    if source is None or pd.isna(source) or source == '' or value in (None, ''):
+                        continue
+                    try:
+                        differs = float(source) != float(value)
+                    except (TypeError, ValueError):
+                        differs = True
+                    if differs:
+                        disputed.add(prefix + suffix)
+            if disputed:
+                metadata['bbs_disputed_fields'] = '|'.join(sorted(disputed))
+                flags = set(filter(None, str(metadata.get('bbs_conflict_flags', '')).split('|')))
+                flags.add('statistic_conflict')
+                metadata['bbs_conflict_flags'] = '|'.join(sorted(flags))
+                metadata['bbs_statistics_feature_eligible'] = False
             existing.update(metadata)
         elif row['integration_status'] == 'added' and league != 'UCL':
             if (year, *key[1:]) in pairs:
