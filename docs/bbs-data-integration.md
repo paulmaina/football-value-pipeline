@@ -148,11 +148,11 @@ The first live run returned 1,562 scheduled fixtures and no completed matches.
 A bare `/v1/matches` request served upcoming rows, so a successful HTTP response
 was insufficient to establish training coverage. Collection now sends explicit
 `status=finished` and `status=scheduled` filters and rejects responses that do not
-honor the status or requested season. Current-season postponed, cancelled and
-suspended fixtures are checked too, so previously saved schedules can be corrected.
+honor the status or requested season. Current-season postponed and cancelled
+fixtures are checked too, so previously saved schedules can be corrected.
 
 List requests use the documented maximum `limit=200` with `offset` pagination.
-Current and previous season results are requested by default (explicit `--seasons`
+Current-season results are requested by default (explicit `--seasons`
 still overrides this). Previous-season result pages are cached for seven days;
 current results and scheduled fixtures for six hours; terminal status lists for a
 day. The implementation uses the typed `/v1/matches` response contract. It does
@@ -190,3 +190,54 @@ no differences in the compared totals. This replay verifies mapping/reconciliati
 it does not prove completed-match retrieval or actual statistics coverage. Those
 require the next authenticated collection after deployment. Existing observations
 and published snapshots are preserved; no historical outputs were rewritten.
+
+
+## Recovery after the second live run
+
+The live Free key refused previous-season requests and `status=suspended` returned
+400. Defaults therefore collect only the current season and omit suspended queries.
+Explicit `--seasons` remains available for accounts with verified historical access.
+Postponed/cancelled records are still checked.
+
+Statistics with missing IDs can now use exact, reviewed club-name equivalents for
+the expected fixture side. Non-empty contradictory IDs, missing names, opposite-side
+names and ambiguous clubs are rejected. Normalized records retain original provider
+IDs and identify whether each side was resolved by ID or verified name. Replay of
+all 69 previously rejected cached responses passed these checks; cached responses
+retain their original observation time and cost no new API requests.
+
+Each malformed match is quarantined individually, with ID, reason and raw record.
+Valid neighbors and later pages continue. A quarantined newer revision prevents
+reusing older BBS data for that fixture until a later valid observation arrives.
+Unscored finished UCL records never become zero-goal results.
+
+Statistical disagreements retain both provider values and flag the disputed fields.
+The existing primary value stays authoritative for existing inputs. Disputed BBS
+statistics are explicitly ineligible for future features pending reconciliation;
+this does not assert that either provider's differing value is correct. Identity
+resolution and source timestamps remain in the exports. Standings refresh when newer
+finished fixtures postdate their cached view; the report identifies possible timing
+skew using available source update times without hiding differences.
+
+Manual Actions runs now accept `max_requests` (default 500); scheduled runs remain
+200/run. Both share the same persisted 500/UTC-day budget. If 271 requests have
+already been used, a manual 500-request run can make at most the remaining 229.
+Unavailable provider data may remain partial after all fetchable statistics are
+collected. This is reported explicitly rather than fabricated or silently dropped.
+
+
+## Pre-merge data safeguards
+
+Quarantined revisions are excluded from statistics requests and coverage counts until
+a later valid match observation arrives. Backfill and coverage respect the selected
+seasons, and persisted unresolved quarantines keep the collection status partial.
+Empty statistics objects remain unavailable; a present team name must agree with
+the reviewed fixture identity even when its provider ID matches.
+
+Multiple completed provider fixtures for the same ordered clubs in one domestic
+league season are held as ambiguous even if their dates differ. The loader rechecks
+BBS values against newly loaded primary statistics and disables disputed records
+for future feature use while preserving the primary values. These checks do not
+activate statistical predictor features. Failed or cancelled collections attempt a
+recovery upload including the hidden cache directory; hard termination may still
+prevent an upload, so the unpublished-budget guard remains in place.

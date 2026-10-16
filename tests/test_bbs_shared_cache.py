@@ -70,6 +70,7 @@ class SharedCacheTests(unittest.TestCase):
         changed = combined_training_history(baseline, self.cache, 'EPL', NOW, 3)
         self.assertEqual(changed.iloc[0]['FTHG'], 4)
         self.assertEqual(changed.iloc[0]['integration_status'], 'conflict')
+        self.assertIn('result_or_status_conflict', changed.iloc[0]['bbs_conflict_flags'])
 
     def test_cutoff_selects_old_snapshot_and_tampering_fails(self):
         self.add(match())
