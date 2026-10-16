@@ -64,7 +64,7 @@ class BbsTests(unittest.TestCase):
         report = collect(self.client(sender), ['EPL'], [2026], 0)
         self.assertEqual(report['status'], 'partial')
         self.assertEqual(report['errors'][0]['scope'], 'coverage')
-        self.assertIn('matches/EPL/2026', report['completed_lists'])
+        self.assertIn('matches/EPL/2026/finished', report['completed_lists'])
         self.assertIn('player/EPL', report['completed_lists'])
 
     def test_freshness_reports_missing_and_observation_age(self):
@@ -92,7 +92,7 @@ class BbsTests(unittest.TestCase):
         self.assertNotIn('secret-do-not-log', str(error.exception))
         other = self.client(lambda *a: self.fail('must not request'), budget=1, max_requests=1)
         with self.assertRaises(Deferred):
-            other.get('/v1/teams')
+            other.get('/v1/other-teams')
 
     def test_429_and_header_zero_defer_across_runs(self):
         c = self.client(lambda *a: (429, {'Retry-After': '600'}, b'{}'))
@@ -120,7 +120,7 @@ class BbsTests(unittest.TestCase):
                 calls.append(a)
                 return status, {}, b'{}'
             with self.assertRaises(FetchError):
-                self.client(fail).get('/v1/players', ttl=0)
+                self.client(fail).get('/v1/players', {'case': status}, ttl=0)
             self.assertEqual(len(calls), 1)
 
     def test_invalid_envelopes_and_ignored_filter(self):
@@ -254,7 +254,7 @@ class BbsTests(unittest.TestCase):
     def test_complete_collection_and_offline_cli(self):
         def sender(path,params,key):
             if path=='/v1/coverage': body={'data':{'football':{}}}
-            elif path=='/v1/matches': body={'data':[match()]}
+            elif path=='/v1/matches': body={'data':[match()] if params['status']=='finished' else []}
             elif path=='/v1/standings': body={'data':{'standings':[{'league_name':'Premier League',
                 'sport':'football','season':'2026','rows':[]}]}}
             elif path.endswith('/statistics'): body={'data':{'home':{'team_id':'h1','total_shots':0},'away':None}}

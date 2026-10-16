@@ -12,6 +12,7 @@ on:
       - 'assets/**'
       - '.env.example'
       - 'shortlist_quote_policy.json'
+      - 'bbs_team_aliases.json'
   pull_request:
     branches: [main]
   workflow_dispatch:
