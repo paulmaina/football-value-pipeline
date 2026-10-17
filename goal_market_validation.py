@@ -14,6 +14,7 @@ from __future__ import annotations
 from collections.abc import Mapping, Sequence
 import math
 import hashlib
+import json
 from pathlib import Path
 from typing import Optional
 
@@ -47,14 +48,21 @@ def training_fingerprint(history):
     frame['Date'] = pd.to_datetime(frame['Date'], utc=True)
     frame = frame.reindex(sorted(frame.columns), axis=1).sort_values(
         ['Date', 'HomeTeam', 'AwayTeam'], kind='stable').reset_index(drop=True)
-    return hashlib.sha256(frame.to_json(orient='split', index=False,
-        date_format='iso', double_precision=15).encode()).hexdigest()
+    content = frame.to_json(orient='split', index=False, date_format='iso', double_precision=15).encode()
+    observations = history.attrs.get('bbs_statistics_observations')
+    if observations:
+        content += json.dumps(observations, sort_keys=True, allow_nan=False).encode()
+        content += json.dumps({'bbs_statistics_enabled': history.attrs.get('bbs_statistics_enabled', True),
+            'bbs_statistics_validation': history.attrs.get('bbs_statistics_validation', 'auto')},
+            sort_keys=True).encode()
+    return hashlib.sha256(content).hexdigest()
 
 
 def validation_code_fingerprint():
     root = Path(__file__).resolve().parent
     files = ('goal_market_validation.py', 'football_value_pipeline_v2_standalone.py',
-             'score_probability.py', 'double_chance.py', 'match_scores.py', 'bbs_team_aliases.json')
+             'score_probability.py', 'double_chance.py', 'match_scores.py', 'bbs_team_aliases.json',
+             'bbs_statistics_model.py', 'bbs_integration.py')
     return hashlib.sha256(b''.join((name.encode()+b'\0'+(root/name).read_bytes()) for name in files)).hexdigest()
 
 
