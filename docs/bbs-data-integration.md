@@ -37,10 +37,11 @@ are absent from primary history. It does not double-count matches or restore sta
 primary scores from an older combined snapshot. Different dates for the same ordered
 team pair/season are held rather than assumed to be separate fixtures.
 
-The fitter still uses its existing goal-history model. Additional basic statistics
-are present as columns, but no shot/possession weights or other new features are
-fitted in this PR. Adding verified results may change fitted predictions; thresholds,
-commands and existing experiment definitions are unchanged.
+The fitter keeps Dixon–Coles as its baseline and automatically evaluates lagged
+BBS team-form features. Statistical adjustments apply only after chronological
+validation and per-fixture coverage checks pass; otherwise the baseline is used.
+Raw statistics from the match being predicted are never predictor inputs. Existing
+commands and selection thresholds are unchanged. See the feature policy below.
 
 If no BBS snapshot exists yet, the primary history works as before. A corrupt CSV
 or checksum mismatch fails explicitly instead of silently entering model training.
@@ -237,7 +238,97 @@ the reviewed fixture identity even when its provider ID matches.
 Multiple completed provider fixtures for the same ordered clubs in one domestic
 league season are held as ambiguous even if their dates differ. The loader rechecks
 BBS values against newly loaded primary statistics and disables disputed records
-for future feature use while preserving the primary values. These checks do not
-activate statistical predictor features. Failed or cancelled collections attempt a
+for feature use while preserving the primary values. Statistical feature
+activation additionally requires the chronological validation policy below. Failed or cancelled collections attempt a
 recovery upload including the hidden cache directory; hard termination may still
 prevent an upload, so the unpublished-budget guard remains in place.
+
+
+## Validated statistical features
+
+The normal prediction command now evaluates `bbs_statistics_model.py` automatically.
+No new BBS request is made by feature construction or fitting. Results, observations,
+model assessments and coefficients remain under `.football_cache`.
+
+Each team gets recency-weighted form from its most recent eight eligible matches,
+using a 30-day half-life and excluding observations more than 180 days old. At
+least three matches with shots and shots on target are required for both sides.
+The same inputs are constructed for the opponent's conceded statistics.
+
+| Feature group | Included BBS fields |
+|---|---|
+| Shooting | Shots on/off target, total/blocked shots, shots inside/outside the box |
+| Possession | Ball-possession percentage |
+| Passing | Total/accurate passes and pass percentage |
+| Other | Corners, fouls, offsides, yellow/red cards and goalkeeper saves |
+
+Missing observations are not zeroes. Unsupported columns remain masked until
+there is sufficient fitting-partition coverage. Median imputation, missing-value
+indicators and scaling are learned from fitting data only. Reviewed team identities,
+provider IDs, current conflicts, unavailable responses and observation timestamps
+remain authoritative. Immutable revisions are resolved as-of each prediction
+origin; a later unavailable response prevents reuse of an earlier usable value.
+CSV-only copies can use their latest exported revision without inventing earlier
+availability. Newly rejected identity/schema responses also leave statistics-only
+quarantine markers: previous normalized values cannot keep influencing features
+after a rejected correction. Recovery requests still obey the persisted daily
+budget, and a later valid observation releases the hold without quarantining
+otherwise valid score history.
+
+A separate regularized Poisson model estimates home/away goal rates from form.
+Three ridge strengths and three modest blend weights are compared on an earlier
+chronological tuning partition. A later untouched partition tests the chosen
+configuration against a Dixon–Coles control fitted before that partition. Both
+arms use statistics frozen at the audit origin. Matchdays are never split across
+fitting, tuning and audit.
+
+The fixed activation policy requires at least 60 fitting matches, 20 tuning
+matches and 40 paired audit matches across at least eight matchdays. The candidate
+must improve mean Poisson score by at least 0.01, have a positive lower bound from
+a paired matchday bootstrap, and worsen none of the 1X2, Over 1.5, Under 3.5 or
+BTTS Yes Brier scores. The audit cannot select a ridge or blend weight. Coefficients
+are then refitted on available examples with the same supported-feature mask.
+This is an activation guard, not a guarantee of future improvement.
+
+Accepted goal rates are blended at a validated weight of 10%, 20% or 30%, with each
+rate bounded to `[baseline/1.25, baseline*1.25]`. They generate the same coherent
+Dixon–Coles score grid used by all markets before the existing bookmaker blend.
+An invalid adjusted score grid reverts to the original grid. No market threshold,
+bookmaker rule or experiment registry is relaxed. Existing historical validation
+replays this conditional policy; independent shadow fits inherit its enabled/
+disabled mode through their shared input frame.
+
+Diagnostics and prediction columns expose status, application, weight, cutoff,
+latest input observation and per-team form coverage. Model assessments and, when
+qualified, coefficients are timestamped and content-addressed at:
+
+```
+.football_cache/bbs/feature_models/<league>/<cutoff>_<sha256>.json
+```
+
+These assessments are also referenced in league diagnostics and frozen forecast
+health. Scheduled forecast publication retains them alongside its training inputs.
+Validation cache fingerprints include observations, feature code and reviewed
+aliases. Existing archived forecasts are not refitted or overwritten.
+
+To explicitly use the original goal model for a run, append:
+
+```sh
+--no-bbs-statistics
+```
+
+With no usable observations, no sufficient chronological evidence, a failed audit,
+missing team form, a source error or this switch, goal probabilities retain the
+existing model. A source error is reported rather than silently repaired.
+
+### Initial data assessment
+
+Offline replay of the saved collection at `2026-10-16T21:31:13.338100+00:00`
+found zero cutoff-valid statistical training examples in each of the six leagues.
+The statistics were collected after the historical results they describe. Using
+those values to predict earlier matches would be look-ahead leakage. The
+implementation is therefore connected and ready to learn, but appropriately
+keeps the baseline until later matches supply enough valid supervised examples.
+Keep collecting observations and run predictions normally; activation is evaluated
+automatically as that evidence accumulates. This assessment uses saved data and
+is not a live account/quota query.

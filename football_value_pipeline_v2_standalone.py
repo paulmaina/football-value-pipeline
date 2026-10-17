@@ -1473,6 +1473,7 @@ class DixonColesModel:
         half_life_days: float = 240.0,
         l2: float = 0.08,
         max_goals: int = 10,
+        bbs_statistics: bool = True,
     ):
         if not math.isfinite(half_life_days) or half_life_days <= 0:
             raise ValueError("half_life_days must be > 0")
@@ -1484,6 +1485,9 @@ class DixonColesModel:
         self.half_life_days = float(half_life_days)
         self.l2 = float(l2)
         self.max_goals = int(max_goals)
+        self.bbs_statistics_enabled = bool(bbs_statistics)
+        self.statistics_model = None
+        self.bbs_statistics_report = {'status': 'NOT_FITTED'}
 
         self.teams: List[str] = []
         self.team_to_idx: Dict[str, int] = {}
@@ -1665,6 +1669,25 @@ class DixonColesModel:
         self.training_matches = len(df)
         self.training_end = latest
         self.training_as_of = reference
+        self.statistics_model = None
+        enabled = self.bbs_statistics_enabled and df.attrs.get('bbs_statistics_enabled', True)
+        self.bbs_statistics_report = {'status': 'DISABLED' if not enabled else
+                                      'NO_OBSERVATIONS' if as_of is not None else 'NO_PREDICTION_CUTOFF'}
+        if enabled and df.attrs.get('bbs_statistics_source_error'):
+            self.bbs_statistics_report = {'status': 'BASELINE_RETAINED_SOURCE_ERROR',
+                                         'error_type': df.attrs['bbs_statistics_source_error']}
+        if enabled and as_of is not None and df.attrs.get('bbs_statistics_observations'):
+            from bbs_statistics_model import fit_statistics
+            def baseline_factory(past, origin):
+                return DixonColesModel(half_life_days=self.half_life_days, l2=self.l2,
+                    max_goals=self.max_goals, bbs_statistics=False).fit(past, as_of=origin)
+            try:
+                self.statistics_model = fit_statistics(df, reference, baseline_factory)
+                self.bbs_statistics_report = self.statistics_model.report
+            except (ValueError, RuntimeError, OSError, KeyError, TypeError) as exc:
+                self.bbs_statistics_report = {'status': 'BASELINE_RETAINED_FEATURE_ERROR',
+                                             'error_type': type(exc).__name__}
+                warnings.warn('BBS feature fit unavailable; retained Dixon-Coles ('+type(exc).__name__+')')
         return self
 
     def _check_fitted(self) -> None:
@@ -1760,7 +1783,7 @@ class DixonColesModel:
         lam = math.exp(self.base + self.home_adv + h_attack + a_weak)
         mu = math.exp(self.base + a_attack + h_weak)
 
-        return {
+        meta = {
             "lambda_home": lam,
             "lambda_away": mu,
             "model_home_team": home_model_name,
@@ -1768,6 +1791,16 @@ class DixonColesModel:
             "home_name_match_score": home_match_score,
             "away_name_match_score": away_match_score,
         }
+        meta.update(dc_lambda_home=lam, dc_lambda_away=mu, bbs_statistics_applied=False,
+                    bbs_statistics_status=self.bbs_statistics_report['status'])
+        if self.statistics_model is not None:
+            if home is None or away is None:
+                meta['bbs_statistics_status'] = 'UNKNOWN_TEAM_BASELINE_RETAINED'
+            else:
+                rates, info = self.statistics_model.apply(home, away, [lam, mu])
+                meta.update(info)
+                meta.update(lambda_home=float(rates[0]), lambda_away=float(rates[1]))
+        return meta
 
     def score_matrix(self, home: str, away: str) -> Tuple[np.ndarray, Dict[str, object]]:
         self._check_fitted()
@@ -1781,7 +1814,13 @@ class DixonColesModel:
         try:
             matrix, grid_info = score_grid(lam, mu, self.rho, self.max_goals)
         except ValueError as exc:
-            raise RuntimeError(str(exc)) from exc
+            if not meta.get('bbs_statistics_applied'):
+                raise RuntimeError(str(exc)) from exc
+            # A rate adjustment must never invalidate the existing DC grid.
+            matrix, grid_info = score_grid(meta['dc_lambda_home'], meta['dc_lambda_away'], self.rho, self.max_goals)
+            meta.update(lambda_home=meta['dc_lambda_home'], lambda_away=meta['dc_lambda_away'],
+                bbs_statistics_applied=False, bbs_statistics_weight=0.,
+                bbs_statistics_status='UNSAFE_ADJUSTMENT_BASELINE_RETAINED')
         meta.update(grid_info)
         return matrix, meta
 
@@ -1962,6 +2001,7 @@ class FootballValuePipeline:
         max_goals: int = 10,
         lookahead_days: int = 10,
         force_refresh: bool = False,
+        bbs_statistics: bool = True,
     ):
         self.source = FootballDataUK(cache_dir=cache_dir, force_refresh=force_refresh)
         self.seasons_back = int(seasons_back)
@@ -1969,6 +2009,7 @@ class FootballValuePipeline:
         self.l2 = float(l2)
         self.max_goals = int(max_goals)
         self.lookahead_days = int(lookahead_days)
+        self.bbs_statistics = bool(bbs_statistics)
 
     def _training_health(self, league, model, now):
         end = None if model.training_end is None else str(model.training_end.date())
@@ -2010,6 +2051,7 @@ class FootballValuePipeline:
             half_life_days=self.half_life_days,
             l2=self.l2,
             max_goals=self.max_goals,
+            bbs_statistics=getattr(self, 'bbs_statistics', True),
         ).fit(history, as_of=pd.Timestamp(now))
         model.league_key = league.key
 
@@ -2757,8 +2799,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 league, seasons_back=self.seasons_back, now=now,
             )
         from bbs_integration import combined_training_history
-        return combined_training_history(history, self.source.http.cache_dir,
+        result = combined_training_history(history, self.source.http.cache_dir,
                                          league.key, now, self.seasons_back)
+        result.attrs['bbs_statistics_enabled'] = getattr(self, 'bbs_statistics', True)
+        return result
 
     def _current_fixtures(
         self,
@@ -2989,6 +3033,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             half_life_days=self.half_life_days,
             l2=self.l2,
             max_goals=self.max_goals,
+            bbs_statistics=getattr(self, 'bbs_statistics', True),
         ).fit(history, as_of=pd.Timestamp(now))
         model.league_key = league.key
 
@@ -3005,6 +3050,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "training_sha256": training_fingerprint(history),
             "training_as_of_utc": now.astimezone(timezone.utc).isoformat(),
             "training_data_provenance": training_provenance(history),
+            "bbs_statistics_model": getattr(model, 'bbs_statistics_report', {}),
             "training_end": None if model.training_end is None else str(model.training_end.date()),
             "fit_success": bool(model.fit_result.success) if model.fit_result is not None else False,
             "objective": float(model.fit_result.fun) if model.fit_result is not None else None,
@@ -3038,6 +3084,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 if self.additional_odds_coverage == "ranked" else None),
         }
 
+        feature_model = getattr(model, 'statistics_model', None)
+        if feature_model is not None and hasattr(self.source, 'http'):
+            artifact = feature_model.save(self.source.http.cache_dir, league.key)
+            diagnostics['bbs_statistics_model_artifact'] = artifact.relative_to(self.source.http.cache_dir).as_posix()
         if fixtures.empty:
             return pd.DataFrame(), diagnostics, {}
 
@@ -3154,6 +3204,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 **pred,
             })
 
+        diagnostics['bbs_statistics_applied_fixtures'] = sum(r.get('bbs_statistics_applied') is True for r in records)
+        diagnostics['training_data_provenance']['bbs_statistics_used_as_predictor_features'] = bool(diagnostics['bbs_statistics_applied_fixtures'])
         return pd.DataFrame(records), diagnostics, scorelines
 
     def backtest_league(
@@ -3218,6 +3270,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 half_life_days=self.half_life_days,
                 l2=self.l2,
                 max_goals=self.max_goals,
+                bbs_statistics=getattr(self, 'bbs_statistics', True),
             ).fit(train, as_of=s)
             model.league_key = league.key
 
@@ -3544,6 +3597,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--goal-blend-experiment", action="store_true",
                    help="Write separate uncalibrated goal-market shadow variants; no baseline changes.")
     p.add_argument("--seasons-back", type=int, default=4)
+    p.add_argument('--no-bbs-statistics', action='store_true',
+        help='Use the original goal model without validated BBS statistical features')
     p.add_argument("--half-life-days", type=float, default=240.0)
     p.add_argument(
         "--tune-half-life",
@@ -3729,6 +3784,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         fixture_provider=args.fixture_provider,
         live_odds=not args.no_live_odds,
         additional_odds_coverage=args.additional_odds_coverage,
+        bbs_statistics=not args.no_bbs_statistics,
     )
 
     # Fair reservations across requested competitions; never allow the
@@ -3896,6 +3952,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 "step_days": 56,
                 "devig": pipe.devig_method,
                 "score_basis": "regulation_time",
+                "bbs_statistics": not args.no_bbs_statistics,
                 "half_life_days": pipe.half_life_days,
                 "market_weight": pipe.market_weight,
                 "l2": pipe.l2,

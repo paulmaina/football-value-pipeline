@@ -29,6 +29,7 @@ def publish(repo,attempts=3,runner=None):
                             for p in cache.glob(f'????_{div}.csv')]
                 training += list(cache.glob('fdorg_history_UCL_????.json'))
                 training += list(cache.glob('fdorg_history_UCL_????.meta.json'))
+                training += list((cache/'bbs/feature_models').glob('*/*.json'))
                 status = work/'docs/ucl_training_refresh_status.json'
                 if status.exists(): training.append(status)
                 if training:

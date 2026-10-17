@@ -1,6 +1,6 @@
 """Join collected BBS observations to existing cached history without duplicate games.
 
-Exports enriched rows for future feature construction; never changes legacy caches
+Exports enriched rows and timestamped lagged-form inputs; never changes legacy caches
 or invokes the production fitter. Every BBS field has an observation timestamp.
 """
 from __future__ import annotations
@@ -407,7 +407,7 @@ def combined_training_history(baseline, cache_dir, league, now, seasons_back):
     """Reconcile the shared CSV against freshly loaded primary history.
 
     Never substitute an old exported primary score for a newer primary revision.
-    BBS statistics remain additional columns, not newly fitted model features.
+    Raw same-match statistics stay separate; the gated fitter uses lagged form.
     """
     import pandas as pd
     from football_value_pipeline_v2_standalone import canonical_team_key, current_season_start_year
@@ -500,7 +500,87 @@ def combined_training_history(baseline, cache_dir, league, now, seasons_back):
     for col in ('bbs_statistics_available','bbs_statistics_feature_eligible'):
         if col in result:
             result[col] = result[col].map(lambda value: value is True or value == 'True')
-    return result.sort_values('Date').reset_index(drop=True)
+    result = result.sort_values('Date').reset_index(drop=True)
+    try:
+        result.attrs['bbs_statistics_observations'] = feature_observations(result, cache_dir, league)
+    except (ValueError, OSError, KeyError, TypeError) as exc:
+        # Optional feature provenance must not invalidate already verified score
+        # history. Expose the failure and keep the original probability model.
+        result.attrs['bbs_statistics_observations'] = []
+        result.attrs['bbs_statistics_source_error'] = type(exc).__name__
+    return result
+
+
+def feature_observations(history, cache_dir, league):
+    """Bind immutable statistics revisions to verified training identities.
+
+    Unavailable/corrected responses remain tombstones, preventing reuse of an
+    older valid response after a newer unavailable one. CSV-only installations
+    can use the latest exported revision without inventing older availability.
+    """
+    import pandas as pd
+    from bbs_data import decode
+    matched = {}
+    for row in history.to_dict('records'):
+        entity = row.get('bbs_match_id')
+        if isinstance(entity, str) and entity.strip():
+            matched[entity] = row
+    if not matched:
+        return []
+    observations = []
+
+    def bind(entity, observed, values):
+        row = matched[entity]
+        expected = {s: str(row.get(f'bbs_{s}_team_id', '')) for s in ('home', 'away')}
+        flags = str(row.get('bbs_conflict_flags', '') or '')
+        available = (values.get('available') is True and values.get('team_ids') == expected
+            and all(v.strip() and v not in ('nan', 'None') for v in expected.values())
+            and row.get('integration_status') in ('matched', 'added')
+            and not any(f in flags for f in ('statistic_conflict', 'identity_conflict', 'result_or_status_conflict'))
+            and all(isinstance(values.get(s), dict) and any(v is not None for v in values[s].values())
+                    for s in ('home', 'away')))
+        # Reconcile EACH saved revision against the authoritative primary fields.
+        for side, prefix in [('home', 'H'), ('away', 'A')]:
+            for field, suffix in CSV_STATS.items():
+                primary = row.get(prefix+suffix)
+                value = (values.get(side) or {}).get(field)
+                if primary is not None and not pd.isna(primary) and primary != '' and value is not None:
+                    try:
+                        if float(primary) != float(value): available = False
+                    except (ValueError, TypeError):
+                        available = False
+        return {'match_id': league+':'+entity, 'home_team': row['HomeTeam'], 'away_team': row['AwayTeam'],
+                'kickoff_utc': utc(row['bbs_kickoff_utc']).isoformat(),
+                'observed_at_utc': utc(observed).isoformat(), 'available': available,
+                'home': values.get('home') if available else None,
+                'away': values.get('away') if available else None}
+
+    for path in sorted((Path(cache_dir)/'bbs/state/observations/statistics').glob('*.json')):
+        item = decode(path.read_text(encoding='utf-8'))
+        if item.get('league') == league and item.get('entity') in matched:
+            observations.append(bind(item['entity'], item['observed'], item['payload']))
+    for path in sorted((Path(cache_dir)/'bbs/state/observations/statistics_quarantine').glob('*.json')):
+        item = decode(path.read_text(encoding='utf-8'))
+        if item.get('league') == league and item.get('entity') in matched:
+            observations.append(bind(item['entity'], item['observed'], {'available': False}))
+    for entity, row in matched.items():
+        # The export may be newer than a locally incomplete observation directory.
+        observed = row.get('bbs_statistics_observed_at')
+        if not isinstance(observed, str) or not observed.strip():
+            continue
+        values = {'available': row.get('bbs_statistics_available') is True or row.get('bbs_statistics_available') == 'True',
+            'team_ids': {s: str(row.get(f'bbs_{s}_team_id', '')) for s in ('home', 'away')}}
+        for side in ('home', 'away'):
+            values[side] = {field: None if pd.isna(row.get(f'bbs_{side}_{field}')) else row.get(f'bbs_{side}_{field}')
+                            for field in STAT_FIELDS}
+        exported = bind(entity, observed, values)
+        if not any(x['match_id'] == exported['match_id'] and utc(x['observed_at_utc']) >= utc(observed)
+                   for x in observations):
+            observations.append(exported)
+    held = {(x['match_id'], x['observed_at_utc']) for x in observations if not x['available']}
+    return sorted((x for x in observations if not x['available'] or
+                   (x['match_id'], x['observed_at_utc']) not in held),
+                  key=lambda x: (x['observed_at_utc'], x['match_id']))
 
 
 def training_provenance(history):
@@ -517,4 +597,4 @@ def training_provenance(history):
             'bbs_result_conflicts': int(statuses.eq('conflict').sum()),
             'bbs_rows_with_statistics': count_true('bbs_statistics_available'),
             'bbs_statistics_used_as_predictor_features': False,
-            'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics are stored, not predictor features.'}
+            'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.'}
