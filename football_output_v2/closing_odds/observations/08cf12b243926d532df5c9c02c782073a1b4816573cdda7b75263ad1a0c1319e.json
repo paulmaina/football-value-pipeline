@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Aston Villa",
+    "home_team": "Newcastle United",
+    "kickoff_utc": "2026-10-17T16:30:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "d1bbbdcd3d430e70091b518369b559cf"
+  },
+  "observed_at_utc": "2026-10-17T16:24:16.454196+00:00",
+  "payload": {
+    "away_team": "Aston Villa",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T16:23:58Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 3.06
+              },
+              {
+                "name": "Newcastle United",
+                "price": 2.22
+              },
+              {
+                "name": "Draw",
+                "price": 3.8
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T16:23:58Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.08
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.74
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T16:23:57Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 3.26
+              },
+              {
+                "name": "Newcastle United",
+                "price": 2.19
+              },
+              {
+                "name": "Draw",
+                "price": 3.78
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T16:23:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.85
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.07
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-17T16:30:00Z",
+    "home_team": "Newcastle United",
+    "id": "d1bbbdcd3d430e70091b518369b559cf",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.19,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4472618964159337,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T16:23:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.78,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25541817560362495,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T16:23:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2973199279804413,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T16:23:57+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.22,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4368878965876695,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T16:23:58+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2500294222807514,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T16:23:58+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.06,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3130826811315791,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T16:23:58+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.08,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.45173481760507084,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-17T16:23:58+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.74,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.548265182394929,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-17T16:23:58+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}

@@ -1,0 +1,152 @@
+{
+  "fixture": {
+    "away_team": "Barcelona",
+    "home_team": "Real Betis",
+    "kickoff_utc": "2026-10-17T16:30:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "846e496fc232b2fc20214754836727d0"
+  },
+  "observed_at_utc": "2026-10-17T16:24:16.364303+00:00",
+  "payload": {
+    "away_team": "Barcelona",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T16:24:01Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 1.42
+              },
+              {
+                "name": "Real Betis",
+                "price": 6.57
+              },
+              {
+                "name": "Draw",
+                "price": 5.54
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T16:24:01Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 2.02
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 1.89
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T16:24:00Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 1.44
+              },
+              {
+                "name": "Real Betis",
+                "price": 5.93
+              },
+              {
+                "name": "Draw",
+                "price": 5.58
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T16:24:00Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 2.4
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.57
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-17T16:30:00Z",
+    "home_team": "Real Betis",
+    "id": "846e496fc232b2fc20214754836727d0",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.93,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15406206265249792,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T16:24:00+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.58,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.16423194115872328,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T16:24:00+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.44,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6817059961887789,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T16:24:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1397890346034096,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T16:24:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.54,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.16706162809312475,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T16:24:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.42,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6931493373034657,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T16:24:01+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
