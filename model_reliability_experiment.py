@@ -73,20 +73,25 @@ def candidate_probabilities(row, matrix):
     return probabilities(reweight_matrix_to_1x2(np.asarray(matrix), target))
 
 
-def generate_league(predictions, history, model_class, *, half_life, l2, max_goals):
+def generate_league(predictions, history, model_class, *, half_life, l2, max_goals, as_of=None):
     """Two extra fits; identical private training copies; no odds/provider calls."""
     canonical = history[['Date', 'HomeTeam', 'AwayTeam', 'FTHG', 'FTAG']].to_csv(index=False, lineterminator='\n')
     provenance = {'training_sha256': hashlib.sha256(canonical.encode()).hexdigest(),
                   'training_end': pd.to_datetime(history.Date).max().isoformat(),
                   'training_matches': len(history), 'production_half_life_days': half_life,
-                  'production_l2': l2, 'max_goals': max_goals}
+                  'production_l2': l2, 'max_goals': max_goals,
+                  'training_as_of_utc': None if as_of is None else pd.Timestamp(as_of).isoformat()}
     models, errors = {}, {}
     for name, change in REGISTRY['candidates'].items():
         params = {'half_life_days': half_life, 'l2': l2, 'max_goals': max_goals, **change}
         try:
             if name == 'stronger_l2' and l2 >= change['l2']:
                 raise ValueError('Production regularisation already at least as strong')
-            model = model_class(**params).fit(history.copy(deep=True))
+            model = model_class(**params).fit(history.copy(deep=True),
+                **({'as_of': pd.Timestamp(as_of)} if as_of is not None else {}))
+            from football_value_pipeline_v2_standalone import LEAGUES
+            leagues = set(predictions['league'].dropna())
+            model.league_key = next((c.key for c in LEAGUES.values() if leagues == {c.name}), None)
             fit = getattr(model, 'fit_result', None)
             if fit is not None and not fit.success:
                 raise ValueError('Optimizer did not converge')

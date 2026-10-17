@@ -32,3 +32,5 @@ football_output_v2/closing_odds/collector.lock
 
 # BBS collector lease and atomic-write temporary files (data stays tracked)
 .football_cache/bbs/state.lock
+# Interrupted archive staging is never a published forecast snapshot.
+football_output_v2/performance/snapshots/.capture-*/

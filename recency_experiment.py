@@ -101,7 +101,7 @@ def historical_audit(tuning):
     return result
 
 
-def generate_league(predictions, history, model_class, tuning, *, league, production_half_life, l2, max_goals):
+def generate_league(predictions, history, model_class, tuning, *, league, production_half_life, l2, max_goals, as_of=None):
     """Fit alternates on the exact production history; no provider/odds requests."""
     options = sorted({float(c['half_life_days']) for c in tuning['candidates']})
     if not options or any(not math.isfinite(h) or h <= 0 for h in options):
@@ -111,7 +111,10 @@ def generate_league(predictions, history, model_class, tuning, *, league, produc
         if half == production_half_life:
             continue
         try:
-            model = model_class(half_life_days=half,l2=l2,max_goals=max_goals).fit(history.copy(deep=True))
+            model = model_class(half_life_days=half,l2=l2,max_goals=max_goals).fit(history.copy(deep=True),
+                **({'as_of': pd.Timestamp(as_of)} if as_of is not None else {}))
+            from football_value_pipeline_v2_standalone import LEAGUES
+            model.league_key = next((c.key for c in LEAGUES.values() if c.name == league), None)
             fit = getattr(model,'fit_result',None)
             if fit is not None and not fit.success:
                 raise ValueError('Optimizer did not converge')
@@ -152,6 +155,7 @@ def generate_league(predictions, history, model_class, tuning, *, league, produc
     return {'league':league,'training_end':pd.to_datetime(history.Date).max().isoformat(),
         'training_matches':len(history),'training_sha256':hashlib.sha256(canonical).hexdigest(),
         'production_half_life_days':production_half_life,'l2':l2,'max_goals':max_goals,
+        'training_as_of_utc':None if as_of is None else pd.Timestamp(as_of).isoformat(),
         'candidate_fit_errors':failures,
         'historical_diagnostic_errors':{variant_name(c['half_life_days']):c['recency_diagnostics_error'] for c in tuning['candidates'] if c.get('recency_diagnostics_error')},
         'historical_audit':audit,'rows':rows}

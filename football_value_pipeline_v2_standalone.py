@@ -59,6 +59,7 @@ import math
 import os
 import re
 import sys
+import tempfile
 import unicodedata
 import warnings
 from dataclasses import dataclass
@@ -246,6 +247,27 @@ def canonical_team_key(name: str) -> str:
     return normalize_team_name(alias if alias else name)
 
 
+def validated_match_history(frame: pd.DataFrame) -> pd.DataFrame:
+    """Validate completed rows before they can acquire model training weight."""
+    result = validated_completed_scores(frame)
+    dates = pd.to_datetime(result['Date'], errors='coerce', utc=True)
+    if dates.isna().any():
+        raise ValueError('Invalid completed match date')
+    result['Date'] = dates.dt.tz_localize(None)
+    for side in ('HomeTeam', 'AwayTeam'):
+        if result[side].map(lambda x: not isinstance(x, str) or not canonical_team_key(x)).any():
+            raise ValueError('Invalid completed team identity')
+        result[side] = result[side].str.strip()
+    keys = pd.DataFrame({'Date': result['Date'],
+        'home': result['HomeTeam'].map(canonical_team_key),
+        'away': result['AwayTeam'].map(canonical_team_key)})
+    if keys['home'].eq(keys['away']).any():
+        raise ValueError('Same team on both sides of completed fixture')
+    if keys.duplicated().any():
+        raise ValueError('duplicate completed training fixture')
+    return result
+
+
 # ---------------------------------------------------------------------------
 # HTTP + cache
 # ---------------------------------------------------------------------------
@@ -282,6 +304,7 @@ class CachedHttpClient:
         params: Optional[Mapping[str, object]] = None,
         headers: Optional[Mapping[str, str]] = None,
         allow_stale: bool = True,
+        validator=None,
     ) -> bytes:
         """GET bytes with TTL caching. Secrets in params are never written to cache names/logs."""
         path = self.cache_dir / cache_name
@@ -289,7 +312,10 @@ class CachedHttpClient:
         if path.exists() and not force_refresh:
             age = datetime.now(timezone.utc).timestamp() - path.stat().st_mtime
             if age <= ttl.total_seconds():
-                return path.read_bytes()
+                content = path.read_bytes()
+                if validator is not None:
+                    validator(content)
+                return content
 
         try:
             r = self.session.get(
@@ -302,7 +328,15 @@ class CachedHttpClient:
             content = r.content
             if len(content) < 2:
                 raise RuntimeError(f"Suspiciously small response from {url}")
-            path.write_bytes(content)
+            if validator is not None:
+                validator(content)
+            with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as handle:
+                temporary = Path(handle.name)
+                handle.write(content)
+            try:
+                os.replace(temporary, path)
+            finally:
+                temporary.unlink(missing_ok=True)
             return content
         except Exception:
             if allow_stale and path.exists():
@@ -310,7 +344,10 @@ class CachedHttpClient:
                     f"Live download failed for {url}; using stale cache {path}",
                     RuntimeWarning,
                 )
-                return path.read_bytes()
+                content = path.read_bytes()
+                if validator is not None:
+                    validator(content)
+                return content
             raise
 
     def get_json(
@@ -346,7 +383,7 @@ def read_csv_bytes(content: bytes) -> pd.DataFrame:
             return pd.read_csv(
                 io.BytesIO(content),
                 encoding=encoding,
-                on_bad_lines="skip",
+                on_bad_lines="error",
                 low_memory=False,
             )
         except Exception as exc:
@@ -366,6 +403,7 @@ class FootballDataUK:
     ):
         self.http = CachedHttpClient(cache_dir=cache_dir)
         self.force_refresh = force_refresh
+        self._current_refresh_attempts = set()
 
     def season(
         self,
@@ -380,11 +418,28 @@ class FootballDataUK:
         )
         # Current season changes frequently; older seasons effectively do not.
         ttl = timedelta(hours=4) if start_year == current_start_year else timedelta(days=30)
+        cache_name = f"{season_code}_{league.football_data_div}.csv"
+        def validate(content):
+            from refresh_training_data import inspect_csv
+            clock = datetime.now(timezone.utc)
+            new = inspect_csv(content, league.football_data_div, start_year, clock)
+            path = self.http.cache_dir / cache_name
+            if path.exists() and path.read_bytes() != content:
+                old = inspect_csv(path.read_bytes(), league.football_data_div, start_year, clock)
+                if not set(old).issubset(new):
+                    raise ValueError('Refusing removed completed training fixtures')
+        current = start_year == current_start_year
+        # A git checkout resets mtimes. Attempt a live refresh once per current
+        # season/provider instance rather than treating git pull as a download.
+        refresh_current = current and cache_name not in self._current_refresh_attempts
+        if current:
+            self._current_refresh_attempts.add(cache_name)
         content = self.http.get_bytes(
             url,
-            f"{season_code}_{league.football_data_div}.csv",
+            cache_name,
             ttl=ttl,
-            force_refresh=self.force_refresh,
+            force_refresh=self.force_refresh or refresh_current,
+            validator=validate,
         )
         df = read_csv_bytes(content).copy()
         df["Season"] = season_code
@@ -420,14 +475,11 @@ class FootballDataUK:
             raise ValueError(f"{league.name}: historical data missing columns {sorted(missing)}")
 
         df["Date"] = pd.to_datetime(df["Date"], dayfirst=True, errors="coerce")
-        df["FTHG"] = pd.to_numeric(df["FTHG"], errors="coerce")
-        df["FTAG"] = pd.to_numeric(df["FTAG"], errors="coerce")
-
-        df = df.dropna(subset=["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG"]).copy()
+        # Only rows with neither score are schedules. A malformed or one-sided
+        # completed score must not disappear through numeric coercion/dropna.
+        df = df.loc[~(df['FTHG'].isna() & df['FTAG'].isna())].copy()
+        df = validated_match_history(df)
         df = df[df["Date"] < pd.Timestamp(now.date()) + pd.Timedelta(days=1)]
-        df = validated_completed_scores(df)
-        if df.duplicated(['Date', 'HomeTeam', 'AwayTeam']).any():
-            raise ValueError(f'{league.name}: duplicate completed training fixture')
         df = df.sort_values("Date").reset_index(drop=True)
         return df
 
@@ -1422,10 +1474,12 @@ class DixonColesModel:
         l2: float = 0.08,
         max_goals: int = 10,
     ):
-        if half_life_days <= 0:
+        if not math.isfinite(half_life_days) or half_life_days <= 0:
             raise ValueError("half_life_days must be > 0")
-        if max_goals < 5:
-            raise ValueError("max_goals should be >= 5")
+        if not math.isfinite(l2) or l2 < 0:
+            raise ValueError('l2 must be finite and nonnegative')
+        if isinstance(max_goals, bool) or not isinstance(max_goals, (int, np.integer)) or not 5 <= max_goals <= 100:
+            raise ValueError("max_goals should be an integer from 5 to 100")
 
         self.half_life_days = float(half_life_days)
         self.l2 = float(l2)
@@ -1441,6 +1495,8 @@ class DixonColesModel:
         self.fit_result = None
         self.training_matches = 0
         self.training_end: Optional[pd.Timestamp] = None
+        self.training_as_of: Optional[pd.Timestamp] = None
+        self.league_key: Optional[str] = None
 
     def _unpack(self, params: np.ndarray) -> Tuple[np.ndarray, np.ndarray, float, float, float]:
         n = len(self.teams)
@@ -1493,7 +1549,7 @@ class DixonColesModel:
         if missing:
             raise ValueError(f"Training data missing {sorted(missing)}")
 
-        df = validated_completed_scores(matches.dropna(subset=list(required)))
+        df = validated_match_history(matches)
         if len(df) < 30:
             raise ValueError(f"Need at least 30 completed matches; got {len(df)}")
 
@@ -1513,6 +1569,8 @@ class DixonColesModel:
         # During rolling-origin validation, anchor recency at prediction time.
         # With as_of=None, retain the original training behavior.
         reference = latest if as_of is None else pd.Timestamp(as_of)
+        if pd.isna(reference):
+            raise ValueError('Invalid as_of timestamp')
         if reference.tzinfo is not None:
             reference = reference.tz_convert("UTC").tz_localize(None)
         if reference < latest:
@@ -1606,6 +1664,7 @@ class DixonColesModel:
         self.fit_result = result
         self.training_matches = len(df)
         self.training_end = latest
+        self.training_as_of = reference
         return self
 
     def _check_fitted(self) -> None:
@@ -1630,6 +1689,17 @@ class DixonColesModel:
         explicit = TEAM_ALIASES.get(normalize_team_name(raw_name))
         if explicit in self.team_to_idx:
             return explicit, 100.0
+
+        # Reuse the existing reviewed competition-specific provider identities.
+        # Keep global canonical keys stable for immutable archived forecasts.
+        if self.league_key is not None:
+            aliases = json.loads(Path(__file__).with_name('bbs_team_aliases.json').read_text(encoding='utf-8'))
+            target = aliases.get(self.league_key, {}).get(raw_name)
+            if target:
+                candidates = [team for team in self.teams
+                              if canonical_team_key(team) == canonical_team_key(target)]
+                if len(candidates) == 1:
+                    return candidates[0], 100.0
 
         # Use the same canonical cross-provider key used by fixture/odds matching.
         # This is especially important for UCL names such as PSG, Inter and Bayern.
@@ -1940,7 +2010,8 @@ class FootballValuePipeline:
             half_life_days=self.half_life_days,
             l2=self.l2,
             max_goals=self.max_goals,
-        ).fit(history)
+        ).fit(history, as_of=pd.Timestamp(now))
+        model.league_key = league.key
 
         diagnostics = {
             "league": league.name,
@@ -2207,12 +2278,8 @@ def pick_consistent_market(
 
 
 def pick_best_price(row: pd.Series, columns: Sequence[str]) -> Optional[float]:
-    for col in columns:
-        if col in row.index:
-            x = _valid_price(row[col])
-            if x is not None:
-                return x
-    return None
+    prices = [_valid_price(row[col]) for col in columns if col in row.index]
+    return max((price for price in prices if price is not None), default=None)
 
 
 def devig(odds: Sequence[Optional[float]], method: str = "power") -> List[Optional[float]]:
@@ -2764,7 +2831,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
 
         result = fixtures.copy()
         odds_rows = odds_df.to_dict("records")
-        by_id = {str(r.get("fixture_id")): r for r in odds_rows if r.get("fixture_id")}
+        by_id = {}
+        for r in odds_rows:
+            if r.get('fixture_id'):
+                by_id.setdefault(str(r['fixture_id']), []).append(r)
 
         by_match: Dict[Tuple[str, str, str], Dict[str, object]] = {}
         for r in odds_rows:
@@ -2776,8 +2846,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 canonical_team_key(str(r.get("_odds_home_team") or "")),
                 canonical_team_key(str(r.get("_odds_away_team") or "")),
             )
-            if key not in by_match:
-                by_match[key] = r
+            by_match.setdefault(key, []).append(r)
 
         copied_fields = [
             c for c in odds_df.columns
@@ -2792,7 +2861,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
             method = None
             fixture_id = str(row.get("fixture_id") or "")
             if fixture_id in by_id:
-                match = by_id[fixture_id]
+                candidates = by_id[fixture_id]
+                match = candidates[0] if len(candidates) == 1 else None
                 method = "event_id"
             else:
                 date = pd.Timestamp(row["Date"]).date().isoformat()
@@ -2801,12 +2871,26 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     canonical_team_key(str(row["HomeTeam"])),
                     canonical_team_key(str(row["AwayTeam"])),
                 )
-                match = by_match.get(key)
+                candidates = by_match.get(key, [])
+                match = candidates[0] if len(candidates) == 1 else None
                 if match is not None:
                     method = "date+teams"
 
             if match is None:
                 continue
+            # IDs and dates alone cannot establish a safe cross-provider join.
+            if any(canonical_team_key(str(row[side])) != canonical_team_key(str(match.get(provider, '')))
+                   for side, provider in [('HomeTeam', '_odds_home_team'), ('AwayTeam', '_odds_away_team')]):
+                continue
+            quote_kickoff = pd.to_datetime(match.get('_odds_commence_time'), utc=True, errors='coerce')
+            fixture_kickoff = pd.to_datetime(row.get('kickoff_utc'), utc=True, errors='coerce')
+            if pd.isna(quote_kickoff) or (not pd.isna(fixture_kickoff)
+                    and abs((quote_kickoff - fixture_kickoff).total_seconds()) > 300):
+                continue
+            if pd.isna(fixture_kickoff):
+                if pd.Timestamp(row['Date']).date() != quote_kickoff.date():
+                    continue
+                result.at[idx, 'kickoff_utc'] = quote_kickoff.isoformat()
             for field in copied_fields:
                 result.at[idx, field] = match.get(field)
             result.at[idx, "odds_match_method"] = method
@@ -2905,7 +2989,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
             half_life_days=self.half_life_days,
             l2=self.l2,
             max_goals=self.max_goals,
-        ).fit(history)
+        ).fit(history, as_of=pd.Timestamp(now))
+        model.league_key = league.key
 
         if getattr(self, '_benchmark_trial_enabled', False):
             self._benchmark_score_matrices = {}
@@ -2913,10 +2998,13 @@ class FootballValuePipelineV2(FootballValuePipeline):
         fixtures = self._attach_live_odds(fixtures, league, now)
 
         from goal_market_validation import training_fingerprint
+        from bbs_integration import training_provenance
         diagnostics = {
             "league": league.name,
             "training_matches": model.training_matches,
             "training_sha256": training_fingerprint(history),
+            "training_as_of_utc": now.astimezone(timezone.utc).isoformat(),
+            "training_data_provenance": training_provenance(history),
             "training_end": None if model.training_end is None else str(model.training_end.date()),
             "fit_success": bool(model.fit_result.success) if model.fit_result is not None else False,
             "objective": float(model.fit_result.fun) if model.fit_result is not None else None,
@@ -3130,7 +3218,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 half_life_days=self.half_life_days,
                 l2=self.l2,
                 max_goals=self.max_goals,
-            ).fit(train)
+            ).fit(train, as_of=s)
+            model.league_key = league.key
 
             for _, row in test.iterrows():
                 pred, _ = self._predict_row(model, row)
@@ -3756,7 +3845,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             try:
                 from model_reliability_experiment import generate_league as reliability_generate
                 reliability_rows.extend(reliability_generate(predictions, pipe._recency_history,
-                    DixonColesModel, half_life=pipe.half_life_days, l2=pipe.l2, max_goals=pipe.max_goals))
+                    DixonColesModel, half_life=pipe.half_life_days, l2=pipe.l2, max_goals=pipe.max_goals,
+                    as_of=diagnostics.get('training_as_of_utc')))
             except Exception as exc:
                 warnings.warn(f'{league_key}: reliability trial unavailable ({type(exc).__name__}); production outputs complete')
         if args.recency_experiment and not predictions.empty:
@@ -3764,7 +3854,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 from recency_experiment import generate_league
                 recency_parts.append(generate_league(predictions,pipe._recency_history,
                     DixonColesModel,tuning,league=LEAGUES[league_key].name,
-                    production_half_life=pipe.half_life_days,l2=pipe.l2,max_goals=pipe.max_goals))
+                    production_half_life=pipe.half_life_days,l2=pipe.l2,max_goals=pipe.max_goals,
+                    as_of=diagnostics.get('training_as_of_utc')))
             except Exception as exc:
                 # Freeze failure coverage, not a fabricated replacement prediction.
                 recency_parts.append({'league':LEAGUES[league_key].name,
