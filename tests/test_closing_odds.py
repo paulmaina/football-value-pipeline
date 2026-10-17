@@ -172,5 +172,5 @@ class ClosingTests(OfflineQuotePolicyTestCase):
             KEY_ENV_NAMES=('THE_ODDS_API_KEY',)
             def __init__(self,*a,**kw):pass
         with patch('api_key_config.load_api_keys') as load,patch('football_value_pipeline_v2_standalone.TheOddsAPI',API),patch.dict('os.environ',{'THE_ODDS_API_KEY':'dummy'}),patch.object(c,'collect_once',return_value={'requests':1}) as collect:
-            self.assertEqual(c.main(['--watch','--max-requests','1']),0);load.assert_called_once_with();collect.assert_called_once()
+            self.assertEqual(c.main(['--watch','--max-requests','1']),0);load.assert_called_once_with('dotenv');collect.assert_called_once()
         with self.assertRaises(SystemExit):c.main(['--max-requests','0'])
