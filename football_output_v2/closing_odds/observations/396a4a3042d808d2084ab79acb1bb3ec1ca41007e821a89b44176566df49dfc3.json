@@ -1,0 +1,474 @@
+{
+  "fixture": {
+    "away_team": "Ipswich Town",
+    "home_team": "Manchester City",
+    "kickoff_utc": "2026-10-17T14:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "bf2142d1ca76ba2fc9e61afce80f86c0"
+  },
+  "observed_at_utc": "2026-10-17T13:57:17.788258+00:00",
+  "payload": {
+    "away_team": "Ipswich Town",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T13:57:16Z",
+            "outcomes": [
+              {
+                "name": "Ipswich Town",
+                "price": 11.8
+              },
+              {
+                "name": "Manchester City",
+                "price": 1.23
+              },
+              {
+                "name": "Draw",
+                "price": 7.07
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T13:57:16Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.0
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-17T13:57:05Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 0.5,
+                "price": 1.01
+              },
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.1
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.12
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.32
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.5
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.86
+              },
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 2.34
+              },
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 2.96
+              },
+              {
+                "name": "Over",
+                "point": 5.0,
+                "price": 4.3
+              },
+              {
+                "name": "Over",
+                "point": 5.5,
+                "price": 5.11
+              },
+              {
+                "name": "Over",
+                "point": 6.0,
+                "price": 7.2
+              },
+              {
+                "name": "Over",
+                "point": 6.5,
+                "price": 8.41
+              },
+              {
+                "name": "Over",
+                "point": 7.5,
+                "price": 13.0
+              },
+              {
+                "name": "Over",
+                "point": 8.5,
+                "price": 29.0
+              },
+              {
+                "name": "Under",
+                "point": 0.5,
+                "price": 29.0
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 7.0
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 6.14
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 3.4
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.6
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.0
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 1.6
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.4
+              },
+              {
+                "name": "Under",
+                "point": 5.0,
+                "price": 1.22
+              },
+              {
+                "name": "Under",
+                "point": 5.5,
+                "price": 1.17
+              },
+              {
+                "name": "Under",
+                "point": 6.0,
+                "price": 1.03
+              },
+              {
+                "name": "Under",
+                "point": 6.5,
+                "price": 1.07
+              },
+              {
+                "name": "Under",
+                "point": 7.5,
+                "price": 1.02
+              },
+              {
+                "name": "Under",
+                "point": 8.5,
+                "price": 1.01
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T13:56:52Z",
+            "outcomes": [
+              {
+                "name": "Ipswich Town",
+                "price": 10.5
+              },
+              {
+                "name": "Manchester City",
+                "price": 1.25
+              },
+              {
+                "name": "Draw",
+                "price": 7.15
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T13:56:52Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.01
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-17T13:56:52Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.88
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.32
+              },
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.38
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.47
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.67
+              },
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 2.08
+              },
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 2.41
+              },
+              {
+                "name": "Over",
+                "point": 4.25,
+                "price": 2.68
+              },
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 2.97
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.01
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 3.42
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 3.08
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.75
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 2.27
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 1.79
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 1.59
+              },
+              {
+                "name": "Under",
+                "point": 4.25,
+                "price": 1.48
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.41
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-17T14:00:00Z",
+    "home_team": "Manchester City",
+    "id": "bf2142d1ca76ba2fc9e61afce80f86c0",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7903995609806163,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T13:56:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.12573955028607214,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T13:56:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 10.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.08386088873331154,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T13:56:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.88,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5174392635007726,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-17T13:56:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.01,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4825607364992273,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-17T13:56:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.32,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.7386293793821226,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-17T13:56:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.42,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.2613706206178775,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-17T13:56:52+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.1,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.8953416334602374,
+      "selection": "over_1_5",
+      "updated_at_utc": "2026-10-17T13:57:05+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 7.0,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.10465836653976265,
+      "selection": "under_1_5",
+      "updated_at_utc": "2026-10-17T13:57:05+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.32,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.7379757362427404,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-17T13:57:05+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.4,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.2620242637572597,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-17T13:57:05+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.86,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5191557873792018,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-17T13:57:16+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.0,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4808442126207982,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-17T13:57:16+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.23,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.8024566150579763,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T13:57:16+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 7.07,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.125019929498672,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T13:57:16+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 11.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.07252345544335163,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T13:57:16+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
