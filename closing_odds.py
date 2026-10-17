@@ -1,4 +1,4 @@
-"""Local pre-kickoff quote collection and evidence-only CLV reporting."""
+"""Pre-kickoff quote collection and evidence-only CLV reporting."""
 import argparse
 from datetime import datetime,timedelta,timezone
 import hashlib
@@ -130,11 +130,18 @@ def required_quotes(source, selected, observations):
     return expected - actual
 
 
-def collect_once(root,api,clock=None,limit=100,fetcher=None):
+def collect_once(root,api,clock=None,limit=100,fetcher=None,reservation_id=None):
     from performance_tracking import read_csv,utc,now_utc,write_json,load_json
     start=clock or now_utc();budget_path=root/'closing_odds/request_budget.json';budget=load_json(budget_path,{})
     used=budget.get('requests',0) if budget.get('date')==start.date().isoformat() else 0
     cap=min(limit,max(0,100-used))
+    reservation = None
+    if reservation_id is not None:
+        reservation = budget.get('reservations', {}).get(reservation_id)
+        if (budget.get('date') != start.date().isoformat() or not reservation
+                or reservation.get('status') != 'reserved'):
+            raise ValueError('Missing or expired committed request reservation')
+        cap = min(limit, max(0, reservation['allowance']-reservation['used']))
     observations,_=load_observations(root,start)
     predictions=read_csv(root/'raw/all_leagues_predictions.csv')
     picks=read_csv(root/'raw/conservative_bet_shortlist.csv')
@@ -152,7 +159,12 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None):
         if 'Both Teams to Score - Yes' in selected:markets.add('btts')
         if any(str(m).startswith('Double Chance') for m in selected):markets.add('double_chance')
         count+=1
-        write_json(budget_path,{"date":start.date().isoformat(),"requests":used+count,"daily_request_cap":100})
+        if reservation is not None:
+            reservation['used'] += 1
+        else:
+            budget = {**(budget if budget.get('date')==start.date().isoformat() else {}),
+                      'date':start.date().isoformat(),'requests':used+count,'daily_request_cap':100}
+        write_json(budget_path,budget)
         try:
             payload=(fetcher or fetch)(api,source,markets)
             observed=clock or now_utc()  # RESPONSE time, never request-start time.
@@ -168,10 +180,13 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None):
         except Exception as exc:errors.append({'event_id':event,'error':type(exc).__name__})
     reason=('NO_FIXTURES_IN_PRE_KICKOFF_WINDOW' if not eligible else
             'ALL_REQUIRED_QUOTES_ALREADY_COLLECTED' if complete==eligible else
-            'DAILY_REQUEST_CAP_REACHED' if used>=100 else
+            'DAILY_REQUEST_CAP_REACHED' if used>=100 and reservation is None else
             'REQUEST_LIMIT_REACHED' if count>=cap and not count else 'CHECKED_ELIGIBLE_FIXTURES')
-    status={'checked_at_utc':start.isoformat(),'requests':count,'written':written,'errors':errors,'request_limit':limit,'daily_requests':used+count,'daily_request_cap':100,
+    status={'checked_at_utc':start.isoformat(),'requests':count,'written':written,'errors':errors,'request_limit':limit,'daily_requests':used if reservation is not None else used+count,'daily_request_cap':100,
             'eligible_fixtures':eligible,'already_complete_fixtures':complete,'reason':reason,'coverage_checks':checks}
+    if reservation is not None:
+        status.update(reservation_id=reservation_id,reservation_used=reservation['used'],
+                      reservation_allowance=reservation['allowance'])
     write_json(root/'closing_odds/collector_status.json',status);return status
 
 
@@ -221,26 +236,48 @@ def validate_report(root):
     return True
 
 
+def pending_window(root, deadline, clock):
+    """Do not keep a runner awake once its collection targets are complete."""
+    from performance_tracking import read_csv, utc
+    observations, _ = load_observations(root,clock)
+    return any((kick := utc(source.get('kickoff_utc'))) and clock < kick <= deadline
+               and required_quotes(source,selected,observations)
+               for source,selected in collection_targets(root,
+                   read_csv(root/'raw/all_leagues_predictions.csv'),
+                   read_csv(root/'raw/conservative_bet_shortlist.csv')))
+
+
 def main(argv=None):
     from api_key_config import load_api_keys
     from football_value_pipeline_v2_standalone import TheOddsAPI
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--root',type=Path,default=Path('football_output_v2'));parser.add_argument('--watch',action='store_true');parser.add_argument('--max-requests',type=int,default=100);parser.add_argument('--hours',type=float,default=12);args=parser.parse_args(argv)
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--root',type=Path,default=Path('football_output_v2'));parser.add_argument('--watch',action='store_true');parser.add_argument('--max-requests',type=int,default=100);parser.add_argument('--hours',type=float,default=12)
+    parser.add_argument('--api-key-source',choices=('dotenv','environment'),default='dotenv')
+    parser.add_argument('--budget-reservation',help='Committed Actions reservation ID')
+    parser.add_argument('--stop-when-idle',action='store_true')
+    args=parser.parse_args(argv)
     if not 1<=args.max_requests<=1000 or not 0<args.hours<=24:parser.error('Requests must be 1..1000 and hours >0..24')
-    load_api_keys();key=next((os.getenv(k,'').strip() for k in TheOddsAPI.KEY_ENV_NAMES if os.getenv(k,'').strip()),'')
-    if not key:parser.error('Configure an Odds API key in local .env')
+    load_api_keys(args.api_key_source);key=next((os.getenv(k,'').strip() for k in TheOddsAPI.KEY_ENV_NAMES if os.getenv(k,'').strip()),'')
+    if not key:parser.error('Configure an Odds API key using the selected credential source')
     api=TheOddsAPI(key,cache_dir=Path('.football_cache'),force_refresh=True,regions='eu');remaining=args.max_requests;deadline=time.monotonic()+args.hours*3600
     lock=args.root/'closing_odds/collector.lock';lock.parent.mkdir(parents=True,exist_ok=True)
     if lock.exists() and time.time()-lock.stat().st_mtime>1200:lock.unlink()
     try:
         with lock.open('x') as file:file.write(str(os.getpid()))
     except FileExistsError:
-        print('Another local closing collector is active; skipped.');return 0
+        print('Another closing collector is active; skipped.');return 0
     try:
         while True:
             os.utime(lock,None)
-            result=collect_once(args.root,api,limit=remaining);remaining-=result['requests']
+            kwargs = {'reservation_id':args.budget_reservation} if args.budget_reservation else {}
+            result=collect_once(args.root,api,limit=remaining,**kwargs);remaining-=result['requests']
             if result['requests'] or not args.watch:print(json.dumps(result))
             if not args.watch or remaining<=0 or time.monotonic()>=deadline:break
+            if args.stop_when_idle:
+                from performance_tracking import now_utc
+                clock = now_utc()
+                if (result['reason']=='DAILY_REQUEST_CAP_REACHED' or
+                        not pending_window(args.root,clock+timedelta(seconds=max(0,deadline-time.monotonic())),clock)):
+                    break
             time.sleep(30)
     finally:
         lock.unlink(missing_ok=True)
