@@ -1,9 +1,9 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-17T16:24:15.810047+00:00",
+  "checked_at_utc": "2026-10-17T18:39:01.624247+00:00",
   "coverage_checks": [
     {
-      "event_id": "9a64448205fdc4b95f45641bb946706c",
+      "event_id": "18d478f469da3bcc654dd4555b85c7e3",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -15,7 +15,7 @@
       ]
     },
     {
-      "event_id": "846e496fc232b2fc20214754836727d0",
+      "event_id": "ad25a350c89b64715e15c59cde5653d3",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "event_id": "d1bbbdcd3d430e70091b518369b559cf",
+      "event_id": "b077aa049133c0358bcd643bfee48da3",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -40,14 +40,14 @@
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 41,
+  "daily_requests": 44,
   "eligible_fixtures": 3,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
   "request_limit": 10,
   "requests": 3,
   "reservation_allowance": 10,
-  "reservation_id": "actions-39034305271-1-8",
+  "reservation_id": "actions-39048992795-1-1",
   "reservation_used": 3,
   "written": 3
 }

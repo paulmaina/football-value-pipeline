@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Brest",
+    "home_team": "Lille",
+    "kickoff_utc": "2026-10-17T18:45:00+00:00",
+    "league": "Ligue 1",
+    "odds_event_id": "ad25a350c89b64715e15c59cde5653d3"
+  },
+  "observed_at_utc": "2026-10-17T18:39:02.155960+00:00",
+  "payload": {
+    "away_team": "Brest",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T18:38:40Z",
+            "outcomes": [
+              {
+                "name": "Brest",
+                "price": 3.58
+              },
+              {
+                "name": "Lille",
+                "price": 2.15
+              },
+              {
+                "name": "Draw",
+                "price": 3.53
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T18:38:40Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.09
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.83
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T18:38:40Z",
+            "outcomes": [
+              {
+                "name": "Brest",
+                "price": 3.7
+              },
+              {
+                "name": "Lille",
+                "price": 2.07
+              },
+              {
+                "name": "Draw",
+                "price": 3.48
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T18:38:40Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.0
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-17T18:45:00Z",
+    "home_team": "Lille",
+    "id": "ad25a350c89b64715e15c59cde5653d3",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4558445759181282,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.53,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2740413859789159,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.58,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.27011403810295576,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.07,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.46953742745190025,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.48,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.273675828298671,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2567867442494287,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.86,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5191557873792018,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.0,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4808442126207982,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
