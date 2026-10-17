@@ -1,0 +1,152 @@
+{
+  "fixture": {
+    "away_team": "RB Leipzig",
+    "home_team": "Bayern Munich",
+    "kickoff_utc": "2026-10-17T16:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "9a64448205fdc4b95f45641bb946706c"
+  },
+  "observed_at_utc": "2026-10-17T16:24:16.242894+00:00",
+  "payload": {
+    "away_team": "RB Leipzig",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T16:23:55Z",
+            "outcomes": [
+              {
+                "name": "Bayern Munich",
+                "price": 1.25
+              },
+              {
+                "name": "RB Leipzig",
+                "price": 10.5
+              },
+              {
+                "name": "Draw",
+                "price": 7.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T16:23:55Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.75,
+                "price": 2.08
+              },
+              {
+                "name": "Under",
+                "point": 4.75,
+                "price": 1.82
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T16:23:55Z",
+            "outcomes": [
+              {
+                "name": "Bayern Munich",
+                "price": 1.26
+              },
+              {
+                "name": "RB Leipzig",
+                "price": 9.11
+              },
+              {
+                "name": "Draw",
+                "price": 7.08
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T16:23:55Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 2.0
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-17T16:30:00Z",
+    "home_team": "Bayern Munich",
+    "id": "9a64448205fdc4b95f45641bb946706c",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7921604315804892,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T16:23:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.12198893909186398,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T16:23:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 10.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.08585062932764691,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T16:23:55+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7814544783181301,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T16:23:55+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 7.08,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.12388151824729392,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T16:23:55+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 9.11,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.09466400343457614,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T16:23:55+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
