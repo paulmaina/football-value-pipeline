@@ -40,7 +40,8 @@ def publish(repo,attempts=3,runner=None):
                 sha=git(work,'rev-parse','HEAD').stdout.strip()
                 runner([sys.executable,'performance_tracking.py','capture','--commit-sha',sha],cwd=work,check=True)
                 runner([sys.executable,'performance_tracking.py','review','--api-key-source','environment'],cwd=work,check=True)
-                runner([sys.executable,'workflow_checks.py','reports'],cwd=work,check=True)
+                runner([sys.executable,'workflow_checks.py','reports','--output',
+                    'football_output_v2/performance/workflow_health.json'],cwd=work,check=True)
                 git(work,'add','football_output_v2/performance','football_output_v2/readable')
                 if git(work,'diff','--cached','--quiet',check=False).returncode:
                     git(work,'-c','user.name=github-actions[bot]','-c','user.email=41898282+github-actions[bot]@users.noreply.github.com','commit','-m','Capture and grade automated forecasts')
