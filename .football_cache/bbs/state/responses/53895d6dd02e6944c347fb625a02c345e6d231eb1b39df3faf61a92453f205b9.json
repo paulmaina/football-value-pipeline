@@ -1,0 +1,1 @@
+{"observed":"2026-10-17T17:33:25.900511+00:00","payload":"{\"data\":{\"away\":null,\"home\":null},\"meta\":{\"available\":false,\"note\":\"No team statistics for this match yet. They post within ~30 min of full-time, on covered leagues only (top-5 Europe, MLS, UCL).\",\"source\":\"aggregator-paid\"}}","query":"/v1/matches/e63fcf74-e9f1-4852-990a-86671f4ce8ea/statistics?"}
