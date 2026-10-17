@@ -92,18 +92,17 @@ A missing, ambiguous or unverified result is **never called a win**.
 |---|---|---:|---:|---|
 | Bundesliga | 2026-10-16 | 964 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | EPL | 2026-10-12 | 1200 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-12 | 1218 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-11 | 972 | 6 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-12 | 1200 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-16 | 1219 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-16 | 973 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-16 | 1201 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-14 | 539 | 3 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 
-Latest shortlist audit: {"selected_quotes": 5, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 5, "bookmakers": {"1xBet": 5}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
+Latest shortlist audit: {"selected_quotes": 4, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 4, "bookmakers": {"1xBet": 4}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| f6306ebd6d74 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | fbfe5af89d06 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 87b1676077a4 | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 0dba961b0bbe | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
@@ -123,6 +122,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 2db2af40cdce | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 9425e536c27c | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 7a6c9d44b7c2 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| 98adf7e32c9e | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
