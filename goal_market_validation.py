@@ -14,6 +14,7 @@ from __future__ import annotations
 from collections.abc import Mapping, Sequence
 import math
 import hashlib
+import json
 from pathlib import Path
 from typing import Optional
 
@@ -51,6 +52,9 @@ def training_fingerprint(history):
     observations = history.attrs.get('bbs_statistics_observations')
     if observations:
         content += json.dumps(observations, sort_keys=True, allow_nan=False).encode()
+        content += json.dumps({'bbs_statistics_enabled': history.attrs.get('bbs_statistics_enabled', True),
+            'bbs_statistics_validation': history.attrs.get('bbs_statistics_validation', 'auto')},
+            sort_keys=True).encode()
     return hashlib.sha256(content).hexdigest()
 
 

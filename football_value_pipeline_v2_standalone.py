@@ -1682,7 +1682,8 @@ class DixonColesModel:
                 return DixonColesModel(half_life_days=self.half_life_days, l2=self.l2,
                     max_goals=self.max_goals, bbs_statistics=False).fit(past, as_of=origin)
             try:
-                self.statistics_model = fit_statistics(df, reference, baseline_factory)
+                self.statistics_model = fit_statistics(df, reference, baseline_factory,
+                    validation_mode=df.attrs.get('bbs_statistics_validation', 'auto'))
                 self.bbs_statistics_report = self.statistics_model.report
             except (ValueError, RuntimeError, OSError, KeyError, TypeError) as exc:
                 self.bbs_statistics_report = {'status': 'BASELINE_RETAINED_FEATURE_ERROR',
@@ -2002,6 +2003,7 @@ class FootballValuePipeline:
         lookahead_days: int = 10,
         force_refresh: bool = False,
         bbs_statistics: bool = True,
+        bbs_statistics_validation: str = 'auto',
     ):
         self.source = FootballDataUK(cache_dir=cache_dir, force_refresh=force_refresh)
         self.seasons_back = int(seasons_back)
@@ -2010,6 +2012,9 @@ class FootballValuePipeline:
         self.max_goals = int(max_goals)
         self.lookahead_days = int(lookahead_days)
         self.bbs_statistics = bool(bbs_statistics)
+        if bbs_statistics_validation not in ('auto', 'strict'):
+            raise ValueError('Unknown BBS statistics validation mode')
+        self.bbs_statistics_validation = bbs_statistics_validation
 
     def _training_health(self, league, model, now):
         end = None if model.training_end is None else str(model.training_end.date())
@@ -2802,6 +2807,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         result = combined_training_history(history, self.source.http.cache_dir,
                                          league.key, now, self.seasons_back)
         result.attrs['bbs_statistics_enabled'] = getattr(self, 'bbs_statistics', True)
+        result.attrs['bbs_statistics_validation'] = getattr(self, 'bbs_statistics_validation', 'auto')
         return result
 
     def _current_fixtures(
@@ -2960,6 +2966,16 @@ class FootballValuePipelineV2(FootballValuePipeline):
         raw_over_1_5 = model.over_under(matrix, 1.5)["over"]
         raw_under_3_5 = model.over_under(matrix, 3.5)["under"]
         raw_btts_yes = float(matrix[1:, 1:].sum())
+        control = {}
+        if meta.get('bbs_statistics_applied'):
+            from score_probability import score_grid
+            control_matrix, _ = score_grid(meta['dc_lambda_home'], meta['dc_lambda_away'],
+                                           model.rho, model.max_goals)
+            control.update({'bbs_control_p_'+key: value
+                            for key, value in model.one_x_two(control_matrix).items()})
+            control.update(bbs_control_p_over_1_5=model.over_under(control_matrix, 1.5)['over'],
+                bbs_control_p_under_3_5=model.over_under(control_matrix, 3.5)['under'],
+                bbs_control_p_btts_yes=float(control_matrix[1:, 1:].sum()))
         snapshot = market_snapshot(row, devig_method=self.devig_method)
         market_probs = [
             snapshot["market_p_home"],
@@ -2988,6 +3004,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         pred["raw_p_over_1_5"] = raw_over_1_5
         pred["raw_p_under_3_5"] = raw_under_3_5
         pred["raw_p_btts_yes"] = raw_btts_yes
+        pred.update(control)
         from double_chance import probabilities as double_chance_probabilities
         pred.update(double_chance_probabilities(pred))
         pred["market_weight"] = self.market_weight if blend_applied else 0.0
@@ -3599,6 +3616,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--seasons-back", type=int, default=4)
     p.add_argument('--no-bbs-statistics', action='store_true',
         help='Use the original goal model without validated BBS statistical features')
+    p.add_argument('--bbs-statistics-validation', choices=('auto', 'strict'), default='auto',
+        help='auto: assess labelled retrospective backfill when strict history is insufficient; strict: observed-before-origin inputs only')
     p.add_argument("--half-life-days", type=float, default=240.0)
     p.add_argument(
         "--tune-half-life",
@@ -3785,6 +3804,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         live_odds=not args.no_live_odds,
         additional_odds_coverage=args.additional_odds_coverage,
         bbs_statistics=not args.no_bbs_statistics,
+        bbs_statistics_validation=args.bbs_statistics_validation,
     )
 
     # Fair reservations across requested competitions; never allow the
@@ -3890,6 +3910,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         pipe._benchmark_score_matrices = {}
         pipe._totals_shadow_inputs = {}
         predictions, diagnostics, scorelines = pipe.run_league(league_key)
+        assessment = diagnostics.get('bbs_statistics_model', {})
+        print(f"[{league_key}] BBS statistics: {assessment.get('status', 'NOT_RECORDED')}; "
+              f"validation={assessment.get('validation_mode', 'none')}; "
+              f"eligible={assessment.get('eligible_training_matches', 0)}/"
+              f"{assessment.get('required_training_matches', 120)}; "
+              f"applied fixtures={diagnostics.get('bbs_statistics_applied_fixtures', 0)}", file=sys.stderr)
         from performance_tracking import fixture_key as benchmark_fixture_key
         for source in predictions.to_dict('records'):
             matrix = getattr(pipe, '_benchmark_score_matrices', {}).get((source['home_team'], source['away_team'], str(source.get('kickoff_utc'))))
@@ -3953,6 +3979,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 "devig": pipe.devig_method,
                 "score_basis": "regulation_time",
                 "bbs_statistics": not args.no_bbs_statistics,
+                "bbs_statistics_validation": args.bbs_statistics_validation,
                 "half_life_days": pipe.half_life_days,
                 "market_weight": pipe.market_weight,
                 "l2": pipe.l2,

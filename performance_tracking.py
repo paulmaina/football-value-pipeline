@@ -812,6 +812,12 @@ def review(*, root: Path = ROOT, token: str = "",
         predictions_graded.append(score_prediction(row, match, state))
     result = report(root, selections_graded, predictions_graded, errors, reviewed_at=iso(clock))
     try:
+        from bbs_statistics_model import forward_assessment
+        write_json(root/'performance/bbs_statistics_forward.json',
+                   forward_assessment(predictions, records, clock))
+    except Exception as exc:
+        warnings.warn(f'BBS forward comparison failed ({type(exc).__name__}); production report complete')
+    try:
         from goal_blend_experiment import review_experiment
         review_experiment(root, archived, records, clock)
     except Exception as exc:

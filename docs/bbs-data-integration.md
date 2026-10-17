@@ -266,14 +266,51 @@ Missing observations are not zeroes. Unsupported columns remain masked until
 there is sufficient fitting-partition coverage. Median imputation, missing-value
 indicators and scaling are learned from fitting data only. Reviewed team identities,
 provider IDs, current conflicts, unavailable responses and observation timestamps
-remain authoritative. Immutable revisions are resolved as-of each prediction
-origin; a later unavailable response prevents reuse of an earlier usable value.
-CSV-only copies can use their latest exported revision without inventing earlier
-availability. Newly rejected identity/schema responses also leave statistics-only
+remain authoritative. Source revisions are always bounded by the outer model
+cutoff. Strict evaluation additionally resolves revisions as-of each historical
+prediction origin; a later unavailable response prevents reuse of an earlier usable
+value. CSV-only copies retain their latest exported revision's real observation
+time. Newly rejected identity/schema responses also leave statistics-only
 quarantine markers: previous normalized values cannot keep influencing features
 after a rejected correction. Recovery requests still obey the persisted daily
 budget, and a later valid observation releases the hold without quarantining
 otherwise valid score history.
+
+### Automated retrospective development and strict replay
+
+Normal prediction runs use `--bbs-statistics-validation auto` by default. The
+policy chooses its evaluation basis by coverage before examining audit outcomes:
+
+- With at least 120 strict examples, use observation-before-origin evaluation.
+- Otherwise, assess retrospective examples from the latest verified revision of
+  each match actually available before the current model cutoff. Assume a fixed
+  **24-hour delay after kickoff** before those statistics can enter a later match's
+  form. The exact delay boundary is excluded. This assumption is conservative
+  about ordinary publication but does not establish historical revision timing.
+- Retrospective inputs keep their real `observed_at_utc`; the assumed availability
+  time is separate. The latest unavailable, quarantined or disputed revision stays
+  excluded rather than reviving an older valid value. Future outer-cutoff
+  observations cannot enter either mode.
+- An assessment is explicitly labelled `retrospective_backfill`, with a warning
+  that later corrections may be present. It is not evidence of what the system
+  actually knew historically or proof of forward accuracy improvement.
+
+All sample-size, paired audit, coverage and probability safeguards below apply
+to both modes. Insufficient retrospective history is reported as
+`INSUFFICIENT_RETROSPECTIVE_EXAMPLES`. Nothing lowers the thresholds to force
+activation. A failed strict audit does not trigger a second retrospective audit.
+Once a model qualifies, serving always uses the strict, actually observed form
+at its current prediction cutoff, even when coefficients were developed from
+retrospective examples. Historical replay with an earlier outer cutoff cannot
+see later-downloaded backfill.
+
+The normal command loads fresh committed data, rebuilds lagged features, assesses
+eligibility, fits/tunes/audits when enough examples exist, and saves its assessment
+automatically. No separate training command, BBS call or manual model promotion
+is required. Console output shows mode, eligible example count, status and applied
+fixtures per league. Use `--bbs-statistics-validation strict` for only verified
+observation-before-origin evaluations. Validation fingerprints include this mode
+and the enabled/disabled policy so cached evaluations cannot cross policies.
 
 A separate regularized Poisson model estimates home/away goal rates from form.
 Three ridge strengths and three modest blend weights are compared on an earlier
@@ -311,6 +348,20 @@ health. Scheduled forecast publication retains them alongside its training input
 Validation cache fingerprints include observations, feature code and reviewed
 aliases. Existing archived forecasts are not refitted or overwritten.
 
+### Automatic forward comparison
+
+Whenever statistical adjustments actually apply, the prediction also stores
+`bbs_control_p_*`: probabilities from the same fitted Dixon–Coles model with the
+statistical adjustment removed. These and `raw_p_*` are both before bookmaker
+blending, isolating the statistical feature effect. Existing immutable forecast
+capture freezes both sides before kickoff. Normal performance review automatically
+writes `football_output_v2/performance/bbs_statistics_forward.json` with paired
+1X2, Over 1.5, Under 3.5 and BTTS Brier scores on verified later results, split by
+strict versus retrospective training basis. The existing report publisher includes
+this file. Missing pairs, late captures and invalid provenance cannot enter the
+comparison; unresolved outcomes remain pending. This report is descriptive and
+does not automatically promote a model or claim significant improvement.
+
 To explicitly use the original goal model for a run, append:
 
 ```sh
@@ -323,12 +374,11 @@ existing model. A source error is reported rather than silently repaired.
 
 ### Initial data assessment
 
-Offline replay of the saved collection at `2026-10-16T21:31:13.338100+00:00`
-found zero cutoff-valid statistical training examples in each of the six leagues.
-The statistics were collected after the historical results they describe. Using
-those values to predict earlier matches would be look-ahead leakage. The
-implementation is therefore connected and ready to learn, but appropriately
-keeps the baseline until later matches supply enough valid supervised examples.
-Keep collecting observations and run predictions normally; activation is evaluated
-automatically as that evidence accumulates. This assessment uses saved data and
-is not a live account/quota query.
+The saved refresh at `2026-10-17T07:28:46.410149+00:00` has zero strict examples in
+all leagues because the backfill was downloaded after those historical matches.
+The automated retrospective assessment finds EPL 11, LaLiga 37, Bundesliga 9,
+SerieA 12, Ligue1 10 and UCL 0 examples under the 24-hour assumption. These are
+development examples, not verified historical availability. None meets the 120
+example minimum, so probabilities currently retain the existing model. More
+verified coverage or later matches can improve eligibility; ordinary prediction
+runs reassess automatically. This uses saved data, not a live account/quota query.
