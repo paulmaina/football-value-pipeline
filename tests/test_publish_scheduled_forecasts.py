@@ -27,6 +27,9 @@ class ScheduledPublisherTests(OfflineQuotePolicyTestCase):
                                  '--goal-blend-experiment', '--market-led-experiment'):
                         self.assertIn(flag, cmd)
                     raw=work/'football_output_v2/raw';raw.mkdir(parents=True,exist_ok=True);(raw/'forecast.csv').write_text(str(len(calls)))
+                    cache=work/'.football_cache';cache.mkdir(exist_ok=True)
+                    (cache/'2627_E0.csv').write_text('validated training revision '+str(len(calls)))
+                    (cache/'oddsapi_events_EPL.json').write_text('temporary odds response')
                 if cmd[1]=='performance_tracking.py' and cmd[2]=='capture':
                     self.assertEqual(cmd[-1],git(work,'rev-parse','HEAD').stdout.strip())
                     p=work/'football_output_v2/performance';p.mkdir(parents=True,exist_ok=True);(p/'snapshot.json').write_text(cmd[-1])
@@ -36,6 +39,8 @@ class ScheduledPublisherTests(OfflineQuotePolicyTestCase):
                         attempt[0]+=1;(source/'keep.txt').write_text('concurrent update');git(source,'add','keep.txt');git(source,'commit','-m','concurrent');git(source,'push','origin','main')
             publish(source,runner=runner)
             git(source,'fetch','origin','main');self.assertEqual(git(source,'show','FETCH_HEAD:keep.txt').stdout,'concurrent update')
+            self.assertIn('validated training revision',git(source,'show','FETCH_HEAD:.football_cache/2627_E0.csv').stdout)
+            self.assertNotEqual(git(source,'show','FETCH_HEAD:.football_cache/oddsapi_events_EPL.json',check=False).returncode,0)
             self.assertTrue(any(c[1]=='workflow_checks.py' and c[2]=='reports' for c in calls))
             self.assertEqual(sum(c[1]=='football_value_pipeline_v2_standalone.py' for c in calls),2)
             with patch('publish_scheduled_forecasts.publish') as p: self.assertEqual(main(['--repo',str(source)]),0);p.assert_called_once()

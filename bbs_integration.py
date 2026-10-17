@@ -501,3 +501,20 @@ def combined_training_history(baseline, cache_dir, league, now, seasons_back):
         if col in result:
             result[col] = result[col].map(lambda value: value is True or value == 'True')
     return result.sort_values('Date').reset_index(drop=True)
+
+
+def training_provenance(history):
+    """Report the BBS contribution actually present in the fitted input frame."""
+    import pandas as pd
+    def count_true(column):
+        return int(history.get(column, pd.Series(dtype=object)).map(
+            lambda x: x is True or x == 'True').sum())
+    ids = history.get('bbs_match_id', pd.Series(dtype=object))
+    confirmed = ids.notna() & ids.astype(str).str.strip().ne('')
+    statuses = history.get('integration_status', pd.Series(dtype=object))
+    return {'bbs_confirmed_rows': int((confirmed & statuses.isin(['matched', 'added'])).sum()),
+            'bbs_added_results': int(statuses.eq('added').sum()),
+            'bbs_result_conflicts': int(statuses.eq('conflict').sum()),
+            'bbs_rows_with_statistics': count_true('bbs_statistics_available'),
+            'bbs_statistics_used_as_predictor_features': False,
+            'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics are stored, not predictor features.'}
