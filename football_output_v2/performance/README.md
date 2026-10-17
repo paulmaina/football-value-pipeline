@@ -9,27 +9,27 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 14 | 10-4 | 71.4% | -2.5% |
+| All selections | 17 | 13-4 | 76.5% | +4.5% |
 
-Unsettled / unverified entries: **10**.
-Whole-fixture 1X2 multiclass Brier (n=46): 0.5747
+Unsettled / unverified entries: **7**.
+Whole-fixture 1X2 multiclass Brier (n=58): 0.5429
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| PROVISIONAL | 5 | 2-3 | 40.0% | -49.6% |
-| STRICT | 9 | 8-1 | 88.9% | +23.7% |
+| PROVISIONAL | 7 | 4-3 | 57.1% | -27.9% |
+| STRICT | 10 | 9-1 | 90.0% | +27.1% |
 
 ## By policy
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | 72h-all-markets-net-ev15-execution-v7 | 2 | 1-1 | 50.0% | -36.5% |
-| 72h-seven-markets-fresh-references-net-ev15-v11 | 0 | 0-0 | — | — |
+| 72h-seven-markets-fresh-references-net-ev15-v11 | 1 | 1-0 | 100.0% | +58.0% |
 | 72h-six-markets-dc12-probability-odds-net-ev15-v9 | 1 | 1-0 | 100.0% | +27.0% |
 | 72h-ucl-v3 | 6 | 5-1 | 83.3% | +16.0% |
-| legacy/unspecified | 5 | 3-2 | 60.0% | -17.0% |
+| legacy/unspecified | 7 | 5-2 | 71.4% | -4.6% |
 
 ## By market
 
@@ -40,9 +40,9 @@ Whole-fixture 1X2 multiclass Brier (n=46): 0.5747
 | Double Chance 12 | 0 | 0-0 | — | — |
 | Double Chance 1X | 1 | 1-0 | 100.0% | +27.0% |
 | Double Chance X2 | 0 | 0-0 | — | — |
-| Home win | 2 | 2-0 | 100.0% | +68.5% |
-| Over 1.5 | 5 | 5-0 | 100.0% | +24.8% |
-| Under 3.5 | 4 | 1-3 | 25.0% | -68.0% |
+| Home win | 3 | 3-0 | 100.0% | +65.0% |
+| Over 1.5 | 6 | 6-0 | 100.0% | +22.5% |
+| Under 3.5 | 5 | 2-3 | 40.0% | -46.0% |
 
 ## By league
 
@@ -50,8 +50,8 @@ Whole-fixture 1X2 multiclass Brier (n=46): 0.5747
 |---|---:|---:|---:|---:|
 | Bundesliga | 1 | 1-0 | 100.0% | +27.0% |
 | La Liga | 3 | 3-0 | 100.0% | +28.3% |
-| Premier League | 3 | 0-3 | 0.0% | -100.0% |
-| Serie A | 3 | 2-1 | 66.7% | -3.0% |
+| Premier League | 5 | 2-3 | 40.0% | -49.4% |
+| Serie A | 4 | 3-1 | 75.0% | +12.2% |
 | UEFA Champions League | 4 | 4-0 | 100.0% | +40.5% |
 
 ## Gameweeks
@@ -59,17 +59,17 @@ Whole-fixture 1X2 multiclass Brier (n=46): 0.5747
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
-| 2026-W42 | 10 | 8-2 | 80.0% | +11.3% |
+| 2026-W42 | 13 | 11-2 | 84.6% | +17.2% |
 | 2026-W43 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
 
 | Forecast bin | Samples | Average forecast | Observed win rate | Binary Brier |
 |---|---:|---:|---:|---:|
-| 60%–70% | 3 | 66.9% | 66.7% | 0.2167 |
+| 60%–70% | 4 | 66.5% | 75.0% | 0.1926 |
 | 70%–80% | 4 | 76.0% | 75.0% | 0.1865 |
-| 80%–90% | 5 | 84.4% | 60.0% | 0.2934 |
-| 90%–100% | 2 | 93.0% | 100.0% | 0.0052 |
+| 80%–90% | 6 | 83.7% | 66.7% | 0.2510 |
+| 90%–100% | 3 | 92.5% | 100.0% | 0.0058 |
 
 Calibration bins report observed outcomes against the originally
 recorded reliability-adjusted chance; small buckets are unstable.
