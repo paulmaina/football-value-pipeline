@@ -1,9 +1,58 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-17T12:54:15.914351+00:00",
+  "checked_at_utc": "2026-10-17T13:24:24.495937+00:00",
   "coverage_checks": [
     {
-      "event_id": "907639dade64cca45d1ab639195d201e",
+      "event_id": "9a422e1aad1053828eaf629a58d901de",
+      "missing_required_quotes": [],
+      "requested_markets": [
+        "double_chance",
+        "h2h",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "onexbet",
+        "pinnacle"
+      ]
+    },
+    {
+      "event_id": "0bf757f3bd903496ce2fa27bd0481869",
+      "missing_required_quotes": [],
+      "requested_markets": [
+        "h2h",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "onexbet",
+        "pinnacle"
+      ]
+    },
+    {
+      "event_id": "221916b8b36706ec52aa655a64e5f1d2",
+      "missing_required_quotes": [],
+      "requested_markets": [
+        "h2h",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "onexbet",
+        "pinnacle"
+      ]
+    },
+    {
+      "event_id": "606d65d57a9a6d8f9b53faee1ad10009",
+      "missing_required_quotes": [],
+      "requested_markets": [
+        "h2h",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "onexbet",
+        "pinnacle"
+      ]
+    },
+    {
+      "event_id": "d8eac776adb07b0e7f01d8736d097291",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -16,14 +65,14 @@
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 10,
-  "eligible_fixtures": 1,
+  "daily_requests": 16,
+  "eligible_fixtures": 5,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "request_limit": 10,
-  "requests": 1,
-  "reservation_allowance": 10,
-  "reservation_id": "actions-39034305271-1-1",
-  "reservation_used": 1,
-  "written": 1
+  "request_limit": 15,
+  "requests": 5,
+  "reservation_allowance": 15,
+  "reservation_id": "actions-39034305271-1-2",
+  "reservation_used": 5,
+  "written": 5
 }
