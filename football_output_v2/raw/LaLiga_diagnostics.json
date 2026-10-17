@@ -2,7 +2,7 @@
   "league": "La Liga",
   "training_matches": 1219,
   "training_sha256": "a32bcfcb0abd89d95f4fb6e942cb1d377383bf1fa987ec46f60f0411154b793c",
-  "training_as_of_utc": "2026-10-17T09:44:55.167943+00:00",
+  "training_as_of_utc": "2026-10-17T14:10:12.025416+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 79,
     "bbs_added_results": 1,
@@ -14,7 +14,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-17T09:44:55.167943+00:00",
+    "cutoff_utc": "2026-10-17T14:10:12.025416+00:00",
     "observations": 79,
     "observations_sha256": "09ee652fb0801385b9b93d539e5236e3b3e94f2d69791645c860852e9e1dbc09",
     "eligible_training_matches": 37,
@@ -56,10 +56,10 @@
   },
   "training_end": "2026-10-16",
   "fit_success": true,
-  "objective": 1991.3940414378617,
-  "base": 0.08743340190726273,
-  "home_adv": 0.2817959584144003,
-  "rho": -0.022560700477945513,
+  "objective": 1991.0457978857073,
+  "base": 0.08744805019757025,
+  "home_adv": 0.2817901799828576,
+  "rho": -0.022553304870658777,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
   "max_goals": 10,
@@ -78,10 +78,10 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 20,
-  "additional_event_odds_calls_used_before_this_league": 10,
+  "additional_event_odds_calls_used_before_this_league": 6,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261017T094455167943Z_2aad77ff3cf467903bebbc6a5de598f2f5858d89eff9e115781b48045e3fcff9.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261017T141012025416Z_d033a790d231d4e73ac54226eb72b7eca41dba1fd0d2af84ee548ca6a4156ee2.json",
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -90,11 +90,10 @@
       "home_team": "Espanyol",
       "away_team": "Atl\u00e9tico Madrid",
       "kickoff_utc": "2026-10-17T12:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "aef660734585649651415961a9d177c6",
@@ -102,11 +101,10 @@
       "home_team": "Villarreal",
       "away_team": "Elche CF",
       "kickoff_utc": "2026-10-17T14:15:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "846e496fc232b2fc20214754836727d0",
@@ -314,10 +312,10 @@
       "home_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 9,
+  "additional_odds_in_window_linked_fixtures": 7,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 9,
+  "additional_event_odds_calls_this_league": 7,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 730.0,

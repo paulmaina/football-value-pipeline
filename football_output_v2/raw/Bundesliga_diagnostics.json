@@ -2,7 +2,7 @@
   "league": "Bundesliga",
   "training_matches": 964,
   "training_sha256": "55c56458ea548a5d0670a302c859faecd8a7cb07bbad6e099edb1d6d98199e8c",
-  "training_as_of_utc": "2026-10-17T09:45:16.687359+00:00",
+  "training_as_of_utc": "2026-10-17T14:10:30.481376+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 46,
     "bbs_added_results": 1,
@@ -14,7 +14,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-17T09:45:16.687359+00:00",
+    "cutoff_utc": "2026-10-17T14:10:30.481376+00:00",
     "observations": 47,
     "observations_sha256": "cc0861631709c5d9d1d7ed9e4cfead9f902902a7c8ab568fcd1484a042263577",
     "eligible_training_matches": 9,
@@ -56,10 +56,10 @@
   },
   "training_end": "2026-10-16",
   "fit_success": true,
-  "objective": 2920.8267667131568,
-  "base": 0.23273982748890257,
-  "home_adv": 0.19365617854871925,
-  "rho": -0.09903972172037642,
+  "objective": 2920.826739210934,
+  "base": 0.23266778812155975,
+  "home_adv": 0.1936646518410428,
+  "rho": -0.09903902362181821,
   "half_life_days": 1000000000.0,
   "xi_per_day": 6.931471805599453e-10,
   "max_goals": 10,
@@ -78,10 +78,10 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 17,
-  "additional_event_odds_calls_used_before_this_league": 19,
+  "additional_event_odds_calls_used_before_this_league": 13,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261017T094516687359Z_03a052ea377d6f701c3e7c4e2dedb111704cea34552b492aedb3e7d7d8bcf717.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261017T141030481376Z_c8976d19f9ef7ee6fa70bf4e481a6c4a9bf97e0dfe08888477c3610256c12f5d.json",
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -90,11 +90,10 @@
       "home_team": "Elversberg",
       "away_team": "Augsburg",
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "606d65d57a9a6d8f9b53faee1ad10009",
@@ -102,11 +101,10 @@
       "home_team": "FC Schalke 04",
       "away_team": "FSV Mainz 05",
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "221916b8b36706ec52aa655a64e5f1d2",
@@ -114,11 +112,10 @@
       "home_team": "Hamburger SV",
       "away_team": "VfB Stuttgart",
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "d8eac776adb07b0e7f01d8736d097291",
@@ -126,11 +123,10 @@
       "home_team": "Union Berlin",
       "away_team": "Borussia Dortmund",
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "9a422e1aad1053828eaf629a58d901de",
@@ -138,11 +134,10 @@
       "home_team": "Werder Bremen",
       "away_team": "SC Paderborn",
       "kickoff_utc": "2026-10-17T13:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "9a64448205fdc4b95f45641bb946706c",
@@ -280,10 +275,10 @@
       "home_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 8,
+  "additional_odds_in_window_linked_fixtures": 3,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 8,
+  "additional_event_odds_calls_this_league": 3,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 1000000000.0,
