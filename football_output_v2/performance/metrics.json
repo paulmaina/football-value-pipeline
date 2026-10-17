@@ -321,10 +321,10 @@
     "PENDING_KICKOFF_OR_FINAL_SCORE": 10,
     "UNVERIFIED_FIXTURE_OR_RESULT": 2
   },
-  "prediction_1x2_multiclass_brier": 0.543106,
-  "prediction_fixtures_graded": 38,
+  "prediction_1x2_multiclass_brier": 0.538489,
+  "prediction_fixtures_graded": 40,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-10-17T12:17:53Z",
+  "reviewed_at_utc": "2026-10-17T14:12:07Z",
   "shortlist": {
     "brier": 0.199836,
     "flat_stake_roi": 0.031667,

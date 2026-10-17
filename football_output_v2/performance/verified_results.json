@@ -704,6 +704,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564710": {
+    "away_goals": 1,
+    "away_short_name": "Atleti",
+    "away_team": "Club Atlético de Madrid",
+    "first_verified_at_utc": "2026-10-17T14:12:07Z",
+    "home_goals": 0,
+    "home_short_name": "Espanyol",
+    "home_team": "RCD Espanyol de Barcelona",
+    "kickoff_utc": "2026-10-17T12:00:00Z",
+    "league_code": "PD",
+    "match_id": 564710,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564716": {
     "away_goals": 1,
     "away_short_name": "Levante",
@@ -865,6 +880,21 @@
     "kickoff_utc": "2026-10-10T14:00:00Z",
     "league_code": "PL",
     "match_id": 560601,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PL:560603": {
+    "away_goals": 2,
+    "away_short_name": "Chelsea",
+    "away_team": "Chelsea FC",
+    "first_verified_at_utc": "2026-10-17T14:12:07Z",
+    "home_goals": 0,
+    "home_short_name": "Everton",
+    "home_team": "Everton FC",
+    "kickoff_utc": "2026-10-17T11:30:00Z",
+    "league_code": "PL",
+    "match_id": 560603,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"

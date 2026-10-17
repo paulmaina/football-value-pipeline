@@ -1145,67 +1145,67 @@
   "candidate_decisions": 3024,
   "common_cohort_probability_scores": [
     {
-      "brier": 0.21194406338066601,
-      "calibration_gap": 0.024461524761983686,
-      "log_loss": 0.6148289866795235,
+      "brier": 0.20891582884254992,
+      "calibration_gap": 0.03967887578652633,
+      "log_loss": 0.6067542443444262,
       "variant_id": "control",
-      "verified_fixture_markets": 28
+      "verified_fixture_markets": 42
     },
     {
-      "brier": 0.21194406338066601,
-      "calibration_gap": 0.024461524761983686,
-      "log_loss": 0.6148289866795235,
+      "brier": 0.20891582884254992,
+      "calibration_gap": 0.03967887578652633,
+      "log_loss": 0.6067542443444262,
       "variant_id": "blended_lower",
-      "verified_fixture_markets": 28
+      "verified_fixture_markets": 42
     },
     {
-      "brier": 0.21194406338066601,
-      "calibration_gap": 0.024461524761983686,
-      "log_loss": 0.6148289866795235,
+      "brier": 0.20891582884254992,
+      "calibration_gap": 0.03967887578652633,
+      "log_loss": 0.6067542443444262,
       "variant_id": "blended_higher",
-      "verified_fixture_markets": 28
+      "verified_fixture_markets": 42
     },
     {
-      "brier": 0.21194406338066601,
-      "calibration_gap": 0.024461524761983686,
-      "log_loss": 0.6148289866795235,
+      "brier": 0.20891582884254992,
+      "calibration_gap": 0.03967887578652633,
+      "log_loss": 0.6067542443444262,
       "variant_id": "raw_lower",
-      "verified_fixture_markets": 28
+      "verified_fixture_markets": 42
     },
     {
-      "brier": 0.21194406338066601,
-      "calibration_gap": 0.024461524761983686,
-      "log_loss": 0.6148289866795235,
+      "brier": 0.20891582884254992,
+      "calibration_gap": 0.03967887578652633,
+      "log_loss": 0.6067542443444262,
       "variant_id": "raw_higher",
-      "verified_fixture_markets": 28
+      "verified_fixture_markets": 42
     },
     {
-      "brier": 0.21194406338066601,
-      "calibration_gap": 0.024461524761983686,
-      "log_loss": 0.6148289866795235,
+      "brier": 0.20891582884254992,
+      "calibration_gap": 0.03967887578652633,
+      "log_loss": 0.6067542443444262,
       "variant_id": "adjusted_lower",
-      "verified_fixture_markets": 28
+      "verified_fixture_markets": 42
     },
     {
-      "brier": 0.21194406338066601,
-      "calibration_gap": 0.024461524761983686,
-      "log_loss": 0.6148289866795235,
+      "brier": 0.20891582884254992,
+      "calibration_gap": 0.03967887578652633,
+      "log_loss": 0.6067542443444262,
       "variant_id": "adjusted_higher",
-      "verified_fixture_markets": 28
+      "verified_fixture_markets": 42
     },
     {
-      "brier": 0.2115349165890302,
-      "calibration_gap": 0.029035546554313067,
-      "log_loss": 0.6146302125579041,
+      "brier": 0.2080600815713717,
+      "calibration_gap": 0.04392251651992804,
+      "log_loss": 0.6052547937354528,
       "variant_id": "penalty_half",
-      "verified_fixture_markets": 28
+      "verified_fixture_markets": 42
     },
     {
-      "brier": 0.21247449746886563,
-      "calibration_gap": 0.019887502969654355,
-      "log_loss": 0.6153414448951808,
+      "brier": 0.2098803984202146,
+      "calibration_gap": 0.03543523505312457,
+      "log_loss": 0.60849562338855,
       "variant_id": "penalty_stronger",
-      "verified_fixture_markets": 28
+      "verified_fixture_markets": 42
     }
   ],
   "comparisons": [
@@ -1704,7 +1704,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 4,
+      "paired_fixtures": 6,
       "variant_id": "blended_lower"
     },
     {
@@ -1712,7 +1712,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 4,
+      "paired_fixtures": 6,
       "variant_id": "blended_higher"
     },
     {
@@ -1720,7 +1720,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 4,
+      "paired_fixtures": 6,
       "variant_id": "raw_lower"
     },
     {
@@ -1728,7 +1728,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 4,
+      "paired_fixtures": 6,
       "variant_id": "raw_higher"
     },
     {
@@ -1736,7 +1736,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 4,
+      "paired_fixtures": 6,
       "variant_id": "adjusted_lower"
     },
     {
@@ -1744,23 +1744,23 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 4,
+      "paired_fixtures": 6,
       "variant_id": "adjusted_higher"
     },
     {
-      "brier_mean_delta": -0.00040914679163580426,
+      "brier_mean_delta": -0.0008557472711782231,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": -0.0001987741216192692,
+      "log_loss_mean_delta": -0.0014994506089733494,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 4,
+      "paired_fixtures": 6,
       "variant_id": "penalty_half"
     },
     {
-      "brier_mean_delta": 0.0005304340881995874,
+      "brier_mean_delta": 0.0009645695776646923,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": 0.0005124582156573732,
+      "log_loss_mean_delta": 0.0017413790441238011,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 4,
+      "paired_fixtures": 6,
       "variant_id": "penalty_stronger"
     }
   ],
@@ -1769,56 +1769,56 @@
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "blended_lower",
-      "verified_fixtures": 4,
+      "verified_fixtures": 6,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "blended_higher",
-      "verified_fixtures": 4,
+      "verified_fixtures": 6,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "raw_lower",
-      "verified_fixtures": 4,
+      "verified_fixtures": 6,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "raw_higher",
-      "verified_fixtures": 4,
+      "verified_fixtures": 6,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "adjusted_lower",
-      "verified_fixtures": 4,
+      "verified_fixtures": 6,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "adjusted_higher",
-      "verified_fixtures": 4,
+      "verified_fixtures": 6,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "penalty_half",
-      "verified_fixtures": 4,
+      "verified_fixtures": 6,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "penalty_stronger",
-      "verified_fixtures": 4,
+      "verified_fixtures": 6,
       "weekly_block_bootstrap95": null
     }
   ],
@@ -1828,7 +1828,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-17T12:17:53.259912+00:00",
+  "reviewed_at_utc": "2026-10-17T14:12:07.567383+00:00",
   "status": "COLLECT_MORE_DATA",
   "total_fixtures": 48,
   "variants": {
@@ -1858,7 +1858,7 @@
       "raw_shift": -0.03
     }
   },
-  "verified_coverage": 0.08333333333333333,
-  "verified_fixtures": 4,
+  "verified_coverage": 0.125,
+  "verified_fixtures": 6,
   "version": "shortlist-probability-calibration-v1"
 }

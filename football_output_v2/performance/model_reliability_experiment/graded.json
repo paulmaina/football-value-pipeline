@@ -1,5 +1,40 @@
 [
   {
+    "away_team": "Chelsea",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.5704999284172011,
+      "home_goals": 0,
+      "over_1_5": 0.7776759780842742,
+      "over_2_5": 0.5289294643074103,
+      "p_away": 0.40225927018913243,
+      "p_draw": 0.2630648059794203,
+      "p_home": 0.33467592383144723,
+      "under_3_5": 0.6989959485564678,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.5719811157517039,
+      "home_goals": 0,
+      "over_1_5": 0.7785047639289233,
+      "over_2_5": 0.5312230565403945,
+      "p_away": 0.3997920396926961,
+      "p_draw": 0.2616720792414061,
+      "p_home": 0.33853588106589794,
+      "under_3_5": 0.6965570195998001,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Everton",
+    "kickoff_utc": "2026-10-17T11:30:00+00:00",
+    "league": "Premier League",
+    "log_loss_gain": -0.006152320302465486,
+    "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
+    "source_match_id": 560603,
+    "week": "2026-W42"
+  },
+  {
     "away_team": "Levante",
     "baseline": {
       "away_goals": 1,
@@ -32,6 +67,41 @@
     "log_loss_gain": 0.021398486755969115,
     "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
     "source_match_id": 564716,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Atlético Madrid",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.5102042367439633,
+      "home_goals": 0,
+      "over_1_5": 0.7392050718751464,
+      "over_2_5": 0.48736295544345526,
+      "p_away": 0.5296668194454276,
+      "p_draw": 0.25072438417160364,
+      "p_home": 0.21960879638296876,
+      "under_3_5": 0.7315824012312293,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.5118778593680262,
+      "home_goals": 0,
+      "over_1_5": 0.7378625919344989,
+      "over_2_5": 0.48598254453730233,
+      "p_away": 0.5234764840731814,
+      "p_draw": 0.2518175264142626,
+      "p_home": 0.22470598951255624,
+      "under_3_5": 0.7329851299990072,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Espanyol",
+    "kickoff_utc": "2026-10-17T12:00:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.01175605759624776,
+    "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
+    "source_match_id": 564710,
     "week": "2026-W42"
   },
   {
@@ -105,6 +175,41 @@
     "week": "2026-W42"
   },
   {
+    "away_team": "Chelsea",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.5704999284172011,
+      "home_goals": 0,
+      "over_1_5": 0.7776759780842742,
+      "over_2_5": 0.5289294643074103,
+      "p_away": 0.40225927018913243,
+      "p_draw": 0.2630648059794203,
+      "p_home": 0.33467592383144723,
+      "under_3_5": 0.6989959485564678,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.5395391574001259,
+      "home_goals": 0,
+      "over_1_5": 0.7499589114642712,
+      "over_2_5": 0.4939739700057182,
+      "p_away": 0.4136027546828765,
+      "p_draw": 0.2656348046577951,
+      "p_home": 0.32076244065932835,
+      "under_3_5": 0.7307825953208958,
+      "y": 2
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Everton",
+    "kickoff_utc": "2026-10-17T11:30:00+00:00",
+    "league": "Premier League",
+    "log_loss_gain": 0.02780915198352285,
+    "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
+    "source_match_id": 560603,
+    "week": "2026-W42"
+  },
+  {
     "away_team": "Levante",
     "baseline": {
       "away_goals": 1,
@@ -137,6 +242,41 @@
     "log_loss_gain": -0.0004682982441184258,
     "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
     "source_match_id": 564716,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Atlético Madrid",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.5102042367439633,
+      "home_goals": 0,
+      "over_1_5": 0.7392050718751464,
+      "over_2_5": 0.48736295544345526,
+      "p_away": 0.5296668194454276,
+      "p_draw": 0.25072438417160364,
+      "p_home": 0.21960879638296876,
+      "under_3_5": 0.7315824012312293,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.5142708107036451,
+      "home_goals": 0,
+      "over_1_5": 0.7418732300644526,
+      "over_2_5": 0.49078333960116505,
+      "p_away": 0.5275865345489754,
+      "p_draw": 0.25076706917787145,
+      "p_home": 0.22164639627315305,
+      "under_3_5": 0.7285684146772041,
+      "y": 2
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Espanyol",
+    "kickoff_utc": "2026-10-17T12:00:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.003935267877387072,
+    "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
+    "source_match_id": 564710,
     "week": "2026-W42"
   },
   {
