@@ -14,6 +14,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 
 from publish_performance import git, merge_snapshots
 
@@ -39,11 +40,14 @@ def utc(value):
     return value.astimezone(timezone.utc)
 
 
-def plan(repo, clock=None, minutes=18):
+def plan(repo, clock=None, minutes=18, *, horizon_hours=None):
     """Cheap scheduling gate; the collector revalidates archived identities."""
     clock = clock or datetime.now(timezone.utc)
     if not 1 <= minutes <= 20:
         raise ValueError('Collection horizon must be 1..20 minutes')
+    if horizon_hours is not None and not 0 < horizon_hours <= 5:
+        raise ValueError('Standby horizon must be >0..5 hours')
+    horizon_seconds = horizon_hours*3600 if horizon_hours is not None else minutes*60
     root = Path(repo)/ROOT
     files = [root/'raw/all_leagues_predictions.csv']
     # Include archived fixtures so a newer forecast cannot hide a frozen pick.
@@ -57,7 +61,7 @@ def plan(repo, clock=None, minutes=18):
                 try:
                     kick = utc(row.get('kickoff_utc'))
                     event = str(row.get('odds_event_id',''))
-                    if re.fullmatch(r'[A-Za-z0-9_-]+',event) and 0 < (kick-clock).total_seconds() <= minutes*60:
+                    if re.fullmatch(r'[A-Za-z0-9_-]+',event) and 0 < (kick-clock).total_seconds() <= horizon_seconds:
                         upcoming.add((kick,event))
                 except (ValueError, TypeError):
                     continue
@@ -205,16 +209,66 @@ def collect(repo, reservation_id, *, allowance=100, minutes=18, attempts=3,
     raise RuntimeError('Could not reserve closing quota on latest main; no API calls made')
 
 
+def standby(repo, reservation_id, *, hours=5, poll_seconds=30, clock=None,
+            monotonic=None, sleep=None, collector=None):
+    """Stay warm between kickoff groups instead of depending on on-time cron.
+
+    Standby only reads Git/main. The existing collector alone can call the odds
+    provider, inside its unchanged acceptance window and committed allowance.
+    A failure aborts this session so an uncertain reservation is never retried.
+    """
+    from closing_odds import pending_window
+    if not 0 < hours <= 5 or not 1 <= poll_seconds <= 60:
+        raise ValueError('Standby requires >0..5 hours and 1..60 second polling')
+    if not re.fullmatch(r'[A-Za-z0-9_-]{1,80}',reservation_id):
+        raise ValueError('Invalid standby reservation prefix')
+    repo = Path(repo).resolve()
+    clock = clock or (lambda: datetime.now(timezone.utc))
+    monotonic = monotonic or time.monotonic
+    sleep = sleep or time.sleep
+    collector = collector or collect
+    deadline = monotonic()+hours*3600
+    sequence = 0
+    with tempfile.TemporaryDirectory(prefix='closing-standby-') as directory:
+        work = Path(directory)/'latest'
+        git(repo,'fetch','origin','main')
+        git(repo,'worktree','add','--detach',str(work),'FETCH_HEAD')
+        try:
+            while monotonic() < deadline:
+                # This is our disposable read-only checkout, never the user's tree.
+                git(repo,'fetch','origin','main')
+                latest = git(repo,'rev-parse','FETCH_HEAD').stdout.strip()
+                git(work,'checkout','--detach',latest)
+                now = clock()
+                remaining = max(0,deadline-monotonic())
+                assessment = plan(work,now,horizon_hours=min(5,max(remaining,1)/3600))
+                print(json.dumps({'standby':True,**assessment}),flush=True)
+                if not assessment['ready']:
+                    return assessment
+                # Include only incomplete targets. A completed group must not
+                # reserve/release repeatedly while waiting for its kickoff.
+                if pending_window(work/ROOT,now+timedelta(minutes=18),now):
+                    sequence += 1
+                    collector(repo,f'{reservation_id}-{sequence}',clock=clock)
+                delay = min(poll_seconds,max(0,deadline-monotonic()))
+                if delay:
+                    sleep(delay)
+        finally:
+            git(repo,'worktree','remove','--force',str(work))
+    return {'reason':'STANDBY_SESSION_COMPLETE','collection_groups':sequence}
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command',choices=('plan','collect'))
+    parser.add_argument('command',choices=('plan','collect','standby'))
     parser.add_argument('--repo',type=Path,default=Path(__file__).resolve().parent)
     parser.add_argument('--minutes',type=int,default=18)
     parser.add_argument('--allowance',type=int,default=100)
     parser.add_argument('--reservation-id')
+    parser.add_argument('--standby-hours',type=float,default=None)
     args = parser.parse_args(argv)
     if args.command=='plan':
-        result = plan(args.repo,minutes=args.minutes)
+        result = plan(args.repo,minutes=args.minutes,horizon_hours=args.standby_hours)
         configured = any(os.getenv(name,'').strip() for name in
             ('THE_ODDS_API_KEY','THE_ODDS_API_KEY_FALLBACK_1','THE_ODDS_API_KEY_FALLBACK_2'))
         result['configured'] = configured
@@ -229,7 +283,10 @@ def main(argv=None):
     else:
         if not args.reservation_id:
             parser.error('--reservation-id is required for collection')
-        collect(args.repo,args.reservation_id,allowance=args.allowance,minutes=args.minutes)
+        if args.command=='standby':
+            standby(args.repo,args.reservation_id,hours=5 if args.standby_hours is None else args.standby_hours)
+        else:
+            collect(args.repo,args.reservation_id,allowance=args.allowance,minutes=args.minutes)
     return 0
 
 
