@@ -1,0 +1,296 @@
+{
+  "fixture": {
+    "away_team": "Hull City",
+    "home_team": "Fulham",
+    "kickoff_utc": "2026-10-17T14:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "7895f97f2f9577f3b13287a3d086859d"
+  },
+  "observed_at_utc": "2026-10-17T13:59:29.741652+00:00",
+  "payload": {
+    "away_team": "Hull City",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T13:59:25Z",
+            "outcomes": [
+              {
+                "name": "Fulham",
+                "price": 1.66
+              },
+              {
+                "name": "Hull City",
+                "price": 5.01
+              },
+              {
+                "name": "Draw",
+                "price": 4.15
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T13:59:25Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.78
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.1
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T13:59:24Z",
+            "outcomes": [
+              {
+                "name": "Fulham",
+                "price": 1.65
+              },
+              {
+                "name": "Hull City",
+                "price": 5.55
+              },
+              {
+                "name": "Draw",
+                "price": 4.1
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T13:59:24Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.95
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-17T13:59:24Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.95
+              },
+              {
+                "name": "Over",
+                "point": 1.75,
+                "price": 1.28
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.34
+              },
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.55
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.75
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.25
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.55
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.84
+              },
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 3.43
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 1.75,
+                "price": 3.9
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 3.41
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.59
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.17
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.7
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.56
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.46
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 1.34
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-17T14:00:00Z",
+    "home_team": "Fulham",
+    "id": "7895f97f2f9577f3b13287a3d086859d",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.65,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.596385200012734,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T13:59:24+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.1,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23308983942770864,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T13:59:24+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.17052496055955732,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T13:59:24+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.75,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5561452687831517,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-17T13:59:24+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.17,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.44385473121684826,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-17T13:59:24+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.84,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.33056879284908797,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-17T13:59:24+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.46,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6694312071509121,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-17T13:59:24+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.66,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5886697345991512,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T13:59:25+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22584780396763218,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T13:59:25+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.01,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18548246143321676,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T13:59:25+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.78,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5435826572395897,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-17T13:59:25+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.1,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.45641734276041024,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-17T13:59:25+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
