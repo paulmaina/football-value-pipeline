@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Napoli",
+    "home_team": "Venezia",
+    "kickoff_utc": "2026-10-17T13:00:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "907639dade64cca45d1ab639195d201e"
+  },
+  "observed_at_utc": "2026-10-17T12:54:16.263491+00:00",
+  "payload": {
+    "away_team": "Napoli",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T12:53:59Z",
+            "outcomes": [
+              {
+                "name": "Napoli",
+                "price": 1.85
+              },
+              {
+                "name": "Venezia",
+                "price": 4.55
+              },
+              {
+                "name": "Draw",
+                "price": 3.75
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T12:53:59Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.95
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T12:54:00Z",
+            "outcomes": [
+              {
+                "name": "Napoli",
+                "price": 1.79
+              },
+              {
+                "name": "Venezia",
+                "price": 4.48
+              },
+              {
+                "name": "Draw",
+                "price": 3.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T12:54:00Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.78
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.1
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-17T13:00:00Z",
+    "home_team": "Venezia",
+    "id": "907639dade64cca45d1ab639195d201e",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21099509444367662,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T12:53:59+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.75,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2573437121411858,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T12:53:59+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.85,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5316611934151377,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T12:53:59+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.48,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2095250928934751,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T12:54:00+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.85,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24537539916150045,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T12:54:00+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.79,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5450995079450245,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T12:54:00+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.78,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5435826572395897,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-17T12:54:00+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.1,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.45641734276041024,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-17T12:54:00+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
