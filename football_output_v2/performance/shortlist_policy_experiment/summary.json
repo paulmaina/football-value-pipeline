@@ -1333,67 +1333,67 @@
   "candidate_decisions": 3024,
   "common_cohort_probability_scores": [
     {
-      "brier": 0.2551708000824905,
-      "calibration_gap": 0.06301125693246054,
-      "log_loss": 0.7120045109173724,
+      "brier": 0.20794645211536378,
+      "calibration_gap": 0.021352769313323226,
+      "log_loss": 0.6023797999419692,
       "variant_id": "control",
-      "verified_fixture_markets": 84
+      "verified_fixture_markets": 168
     },
     {
-      "brier": 0.2551708000824905,
-      "calibration_gap": 0.06301125693246054,
-      "log_loss": 0.7120045109173724,
+      "brier": 0.20794645211536378,
+      "calibration_gap": 0.021352769313323226,
+      "log_loss": 0.6023797999419692,
       "variant_id": "blended_lower",
-      "verified_fixture_markets": 84
+      "verified_fixture_markets": 168
     },
     {
-      "brier": 0.2551708000824905,
-      "calibration_gap": 0.06301125693246054,
-      "log_loss": 0.7120045109173724,
+      "brier": 0.20794645211536378,
+      "calibration_gap": 0.021352769313323226,
+      "log_loss": 0.6023797999419692,
       "variant_id": "blended_higher",
-      "verified_fixture_markets": 84
+      "verified_fixture_markets": 168
     },
     {
-      "brier": 0.2551708000824905,
-      "calibration_gap": 0.06301125693246054,
-      "log_loss": 0.7120045109173724,
+      "brier": 0.20794645211536378,
+      "calibration_gap": 0.021352769313323226,
+      "log_loss": 0.6023797999419692,
       "variant_id": "raw_lower",
-      "verified_fixture_markets": 84
+      "verified_fixture_markets": 168
     },
     {
-      "brier": 0.2551708000824905,
-      "calibration_gap": 0.06301125693246054,
-      "log_loss": 0.7120045109173724,
+      "brier": 0.20794645211536378,
+      "calibration_gap": 0.021352769313323226,
+      "log_loss": 0.6023797999419692,
       "variant_id": "raw_higher",
-      "verified_fixture_markets": 84
+      "verified_fixture_markets": 168
     },
     {
-      "brier": 0.2551708000824905,
-      "calibration_gap": 0.06301125693246054,
-      "log_loss": 0.7120045109173724,
+      "brier": 0.20794645211536378,
+      "calibration_gap": 0.021352769313323226,
+      "log_loss": 0.6023797999419692,
       "variant_id": "adjusted_lower",
-      "verified_fixture_markets": 84
+      "verified_fixture_markets": 168
     },
     {
-      "brier": 0.2551708000824905,
-      "calibration_gap": 0.06301125693246054,
-      "log_loss": 0.7120045109173724,
+      "brier": 0.20794645211536378,
+      "calibration_gap": 0.021352769313323226,
+      "log_loss": 0.6023797999419692,
       "variant_id": "adjusted_higher",
-      "verified_fixture_markets": 84
+      "verified_fixture_markets": 168
     },
     {
-      "brier": 0.25498261315916704,
-      "calibration_gap": 0.06615874032901545,
-      "log_loss": 0.7118416676924637,
+      "brier": 0.20716216252887976,
+      "calibration_gap": 0.025392235707497348,
+      "log_loss": 0.6007073752557941,
       "variant_id": "penalty_half",
-      "verified_fixture_markets": 84
+      "verified_fixture_markets": 168
     },
     {
-      "brier": 0.2554248420699208,
-      "calibration_gap": 0.05986377353590572,
-      "log_loss": 0.7123273348528346,
+      "brier": 0.2088263865440356,
+      "calibration_gap": 0.01731330291914919,
+      "log_loss": 0.6042681075392123,
       "variant_id": "penalty_stronger",
-      "verified_fixture_markets": 84
+      "verified_fixture_markets": 168
     }
   ],
   "comparisons": [
@@ -1424,46 +1424,53 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
-      "selected": 1,
-      "tier": "PROVISIONAL",
-      "variant_id": "control",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.03881635967862205,
+      "brier": 0.028716890666425368,
       "calibration": [
         {
           "band": "80%-90%",
-          "mean_probability": 0.802981321498133,
+          "mean_probability": 0.830539412645815,
           "n": 1,
           "observed_rate": 1.0
         }
       ],
-      "calibration_gap": -0.19701867850186705,
-      "flat_stake_roi": 0.27,
+      "calibration_gap": -0.169460587354185,
+      "flat_stake_roi": 0.26,
       "graded": 1,
-      "log_loss": 0.219423826204877,
+      "log_loss": 0.18567989452764247,
       "max_drawdown_units": 0.0,
-      "mean_probability": 0.802981321498133,
+      "mean_probability": 0.830539412645815,
       "observed_rate": 1.0,
-      "pending": 2,
-      "profit_units": 0.27,
+      "pending": 0,
+      "profit_units": 0.26,
+      "selected": 1,
+      "tier": "PROVISIONAL",
+      "variant_id": "control",
+      "wins": 1
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": 0.03376662517252371,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.816760367071974,
+          "n": 2,
+          "observed_rate": 1.0
+        }
+      ],
+      "calibration_gap": -0.18323963292802603,
+      "flat_stake_roi": 0.265,
+      "graded": 2,
+      "log_loss": 0.20255186036625972,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.816760367071974,
+      "observed_rate": 1.0,
+      "pending": 1,
+      "profit_units": 0.53,
       "selected": 3,
       "tier": "ALL",
       "variant_id": "control",
-      "wins": 1
+      "wins": 2
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -1498,25 +1505,32 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
+      "brier": 0.028716890666425368,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.830539412645815,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "calibration_gap": -0.169460587354185,
+      "flat_stake_roi": 0.26,
+      "graded": 1,
+      "log_loss": 0.18567989452764247,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.830539412645815,
+      "observed_rate": 1.0,
+      "pending": 0,
+      "profit_units": 0.26,
       "selected": 1,
       "tier": "PROVISIONAL",
       "variant_id": "blended_lower",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.039415431583242254,
+      "brier": 0.03584925127763663,
       "calibration": [
         {
           "band": "70%-80%",
@@ -1526,24 +1540,24 @@
         },
         {
           "band": "80%-90%",
-          "mean_probability": 0.802981321498133,
-          "n": 1,
+          "mean_probability": 0.816760367071974,
+          "n": 2,
           "observed_rate": 1.0
         }
       ],
-      "calibration_gap": -0.19852746696769108,
-      "flat_stake_roi": 0.27,
-      "graded": 2,
-      "log_loss": 0.22130634891896533,
+      "calibration_gap": -0.18883850709652228,
+      "flat_stake_roi": 0.26666666666666666,
+      "graded": 3,
+      "log_loss": 0.2094308641218577,
       "max_drawdown_units": 0.0,
-      "mean_probability": 0.8014725330323089,
+      "mean_probability": 0.8111614929034777,
       "observed_rate": 1.0,
-      "pending": 3,
-      "profit_units": 0.54,
+      "pending": 2,
+      "profit_units": 0.8,
       "selected": 5,
       "tier": "ALL",
       "variant_id": "blended_lower",
-      "wins": 2
+      "wins": 3
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -1565,39 +1579,53 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
+      "brier": 0.028716890666425368,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.830539412645815,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "calibration_gap": -0.169460587354185,
+      "flat_stake_roi": 0.26,
+      "graded": 1,
+      "log_loss": 0.18567989452764247,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.830539412645815,
+      "observed_rate": 1.0,
+      "pending": 0,
+      "profit_units": 0.26,
       "selected": 1,
       "tier": "PROVISIONAL",
       "variant_id": "blended_higher",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
+      "brier": 0.028716890666425368,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.830539412645815,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "calibration_gap": -0.169460587354185,
+      "flat_stake_roi": 0.26,
+      "graded": 1,
+      "log_loss": 0.18567989452764247,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.830539412645815,
+      "observed_rate": 1.0,
+      "pending": 0,
+      "profit_units": 0.26,
       "selected": 1,
       "tier": "ALL",
       "variant_id": "blended_higher",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -1626,46 +1654,53 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
+      "brier": 0.028716890666425368,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.830539412645815,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "calibration_gap": -0.169460587354185,
+      "flat_stake_roi": 0.26,
+      "graded": 1,
+      "log_loss": 0.18567989452764247,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.830539412645815,
+      "observed_rate": 1.0,
+      "pending": 0,
+      "profit_units": 0.26,
       "selected": 1,
       "tier": "PROVISIONAL",
       "variant_id": "raw_lower",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.03881635967862205,
+      "brier": 0.03376662517252371,
       "calibration": [
         {
           "band": "80%-90%",
-          "mean_probability": 0.802981321498133,
-          "n": 1,
+          "mean_probability": 0.816760367071974,
+          "n": 2,
           "observed_rate": 1.0
         }
       ],
-      "calibration_gap": -0.19701867850186705,
-      "flat_stake_roi": 0.27,
-      "graded": 1,
-      "log_loss": 0.219423826204877,
+      "calibration_gap": -0.18323963292802603,
+      "flat_stake_roi": 0.265,
+      "graded": 2,
+      "log_loss": 0.20255186036625972,
       "max_drawdown_units": 0.0,
-      "mean_probability": 0.802981321498133,
+      "mean_probability": 0.816760367071974,
       "observed_rate": 1.0,
-      "pending": 2,
-      "profit_units": 0.27,
+      "pending": 1,
+      "profit_units": 0.53,
       "selected": 3,
       "tier": "ALL",
       "variant_id": "raw_lower",
-      "wins": 1
+      "wins": 2
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -1694,46 +1729,53 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
+      "brier": 0.028716890666425368,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.830539412645815,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "calibration_gap": -0.169460587354185,
+      "flat_stake_roi": 0.26,
+      "graded": 1,
+      "log_loss": 0.18567989452764247,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.830539412645815,
+      "observed_rate": 1.0,
+      "pending": 0,
+      "profit_units": 0.26,
       "selected": 1,
       "tier": "PROVISIONAL",
       "variant_id": "raw_higher",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.03881635967862205,
+      "brier": 0.03376662517252371,
       "calibration": [
         {
           "band": "80%-90%",
-          "mean_probability": 0.802981321498133,
-          "n": 1,
+          "mean_probability": 0.816760367071974,
+          "n": 2,
           "observed_rate": 1.0
         }
       ],
-      "calibration_gap": -0.19701867850186705,
-      "flat_stake_roi": 0.27,
-      "graded": 1,
-      "log_loss": 0.219423826204877,
+      "calibration_gap": -0.18323963292802603,
+      "flat_stake_roi": 0.265,
+      "graded": 2,
+      "log_loss": 0.20255186036625972,
       "max_drawdown_units": 0.0,
-      "mean_probability": 0.802981321498133,
+      "mean_probability": 0.816760367071974,
       "observed_rate": 1.0,
-      "pending": 2,
-      "profit_units": 0.27,
+      "pending": 1,
+      "profit_units": 0.53,
       "selected": 3,
       "tier": "ALL",
       "variant_id": "raw_higher",
-      "wins": 1
+      "wins": 2
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -1762,46 +1804,53 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
+      "brier": 0.028716890666425368,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.830539412645815,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
+      "calibration_gap": -0.169460587354185,
+      "flat_stake_roi": 0.26,
+      "graded": 1,
+      "log_loss": 0.18567989452764247,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.830539412645815,
+      "observed_rate": 1.0,
+      "pending": 0,
+      "profit_units": 0.26,
       "selected": 1,
       "tier": "PROVISIONAL",
       "variant_id": "adjusted_lower",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.03881635967862205,
+      "brier": 0.03376662517252371,
       "calibration": [
         {
           "band": "80%-90%",
-          "mean_probability": 0.802981321498133,
-          "n": 1,
+          "mean_probability": 0.816760367071974,
+          "n": 2,
           "observed_rate": 1.0
         }
       ],
-      "calibration_gap": -0.19701867850186705,
-      "flat_stake_roi": 0.27,
-      "graded": 1,
-      "log_loss": 0.219423826204877,
+      "calibration_gap": -0.18323963292802603,
+      "flat_stake_roi": 0.265,
+      "graded": 2,
+      "log_loss": 0.20255186036625972,
       "max_drawdown_units": 0.0,
-      "mean_probability": 0.802981321498133,
+      "mean_probability": 0.816760367071974,
       "observed_rate": 1.0,
-      "pending": 2,
-      "profit_units": 0.27,
+      "pending": 1,
+      "profit_units": 0.53,
       "selected": 3,
       "tier": "ALL",
       "variant_id": "adjusted_lower",
-      "wins": 1
+      "wins": 2
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -1830,46 +1879,53 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
-      "selected": 1,
-      "tier": "PROVISIONAL",
-      "variant_id": "adjusted_higher",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.03881635967862205,
+      "brier": 0.028716890666425368,
       "calibration": [
         {
           "band": "80%-90%",
-          "mean_probability": 0.802981321498133,
+          "mean_probability": 0.830539412645815,
           "n": 1,
           "observed_rate": 1.0
         }
       ],
-      "calibration_gap": -0.19701867850186705,
-      "flat_stake_roi": 0.27,
+      "calibration_gap": -0.169460587354185,
+      "flat_stake_roi": 0.26,
       "graded": 1,
-      "log_loss": 0.219423826204877,
+      "log_loss": 0.18567989452764247,
       "max_drawdown_units": 0.0,
-      "mean_probability": 0.802981321498133,
+      "mean_probability": 0.830539412645815,
       "observed_rate": 1.0,
-      "pending": 2,
-      "profit_units": 0.27,
+      "pending": 0,
+      "profit_units": 0.26,
+      "selected": 1,
+      "tier": "PROVISIONAL",
+      "variant_id": "adjusted_higher",
+      "wins": 1
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": 0.03376662517252371,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.816760367071974,
+          "n": 2,
+          "observed_rate": 1.0
+        }
+      ],
+      "calibration_gap": -0.18323963292802603,
+      "flat_stake_roi": 0.265,
+      "graded": 2,
+      "log_loss": 0.20255186036625972,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.816760367071974,
+      "observed_rate": 1.0,
+      "pending": 1,
+      "profit_units": 0.53,
       "selected": 3,
       "tier": "ALL",
       "variant_id": "adjusted_higher",
-      "wins": 1
+      "wins": 2
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -1898,46 +1954,53 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
-      "selected": 1,
-      "tier": "PROVISIONAL",
-      "variant_id": "penalty_half",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.03881635967862205,
+      "brier": 0.026411140144598073,
       "calibration": [
         {
           "band": "80%-90%",
-          "mean_probability": 0.802981321498133,
+          "mean_probability": 0.837484954097788,
           "n": 1,
           "observed_rate": 1.0
         }
       ],
-      "calibration_gap": -0.19701867850186705,
-      "flat_stake_roi": 0.27,
+      "calibration_gap": -0.162515045902212,
+      "flat_stake_roi": 0.26,
       "graded": 1,
-      "log_loss": 0.219423826204877,
+      "log_loss": 0.17735198070066524,
       "max_drawdown_units": 0.0,
-      "mean_probability": 0.802981321498133,
+      "mean_probability": 0.837484954097788,
       "observed_rate": 1.0,
-      "pending": 2,
-      "profit_units": 0.27,
+      "pending": 0,
+      "profit_units": 0.26,
+      "selected": 1,
+      "tier": "PROVISIONAL",
+      "variant_id": "penalty_half",
+      "wins": 1
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": 0.03261374991161006,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.8202331377979605,
+          "n": 2,
+          "observed_rate": 1.0
+        }
+      ],
+      "calibration_gap": -0.17976686220203952,
+      "flat_stake_roi": 0.265,
+      "graded": 2,
+      "log_loss": 0.19838790345277113,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.8202331377979605,
+      "observed_rate": 1.0,
+      "pending": 1,
+      "profit_units": 0.53,
       "selected": 3,
       "tier": "ALL",
       "variant_id": "penalty_half",
-      "wins": 1
+      "wins": 2
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -1966,46 +2029,53 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
-      "selected": 1,
-      "tier": "PROVISIONAL",
-      "variant_id": "penalty_stronger",
-      "wins": 0
-    },
-    {
-      "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.03881635967862205,
+      "brier": 0.03111912228037517,
       "calibration": [
         {
           "band": "80%-90%",
-          "mean_probability": 0.802981321498133,
+          "mean_probability": 0.823593871193841,
           "n": 1,
           "observed_rate": 1.0
         }
       ],
-      "calibration_gap": -0.19701867850186705,
-      "flat_stake_roi": 0.27,
+      "calibration_gap": -0.17640612880615902,
+      "flat_stake_roi": 0.26,
       "graded": 1,
-      "log_loss": 0.219423826204877,
+      "log_loss": 0.1940777453401137,
       "max_drawdown_units": 0.0,
-      "mean_probability": 0.802981321498133,
+      "mean_probability": 0.823593871193841,
       "observed_rate": 1.0,
-      "pending": 2,
-      "profit_units": 0.27,
+      "pending": 0,
+      "profit_units": 0.26,
+      "selected": 1,
+      "tier": "PROVISIONAL",
+      "variant_id": "penalty_stronger",
+      "wins": 1
+    },
+    {
+      "assessment": "COLLECT_MORE_DATA",
+      "brier": 0.03496774097949861,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.8132875963459869,
+          "n": 2,
+          "observed_rate": 1.0
+        }
+      ],
+      "calibration_gap": -0.1867124036540131,
+      "flat_stake_roi": 0.265,
+      "graded": 2,
+      "log_loss": 0.20675078577249534,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.8132875963459869,
+      "observed_rate": 1.0,
+      "pending": 1,
+      "profit_units": 0.53,
       "selected": 3,
       "tier": "ALL",
       "variant_id": "penalty_stronger",
-      "wins": 1
+      "wins": 2
     }
   ],
   "gameweeks": 1,
@@ -2016,7 +2086,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 12,
+      "paired_fixtures": 24,
       "variant_id": "blended_lower"
     },
     {
@@ -2024,7 +2094,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 12,
+      "paired_fixtures": 24,
       "variant_id": "blended_higher"
     },
     {
@@ -2032,7 +2102,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 12,
+      "paired_fixtures": 24,
       "variant_id": "raw_lower"
     },
     {
@@ -2040,7 +2110,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 12,
+      "paired_fixtures": 24,
       "variant_id": "raw_higher"
     },
     {
@@ -2048,7 +2118,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 12,
+      "paired_fixtures": 24,
       "variant_id": "adjusted_lower"
     },
     {
@@ -2056,81 +2126,81 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 12,
+      "paired_fixtures": 24,
       "variant_id": "adjusted_higher"
     },
     {
-      "brier_mean_delta": -0.00018818692332349653,
+      "brier_mean_delta": -0.0007842895864839942,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": -0.00016284322490873833,
+      "log_loss_mean_delta": -0.0016724246861750537,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 12,
+      "paired_fixtures": 24,
       "variant_id": "penalty_half"
     },
     {
-      "brier_mean_delta": 0.0002540419874302757,
+      "brier_mean_delta": 0.0008799344286718339,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": 0.0003228239354622357,
+      "log_loss_mean_delta": 0.0018883075972431407,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 12,
+      "paired_fixtures": 24,
       "variant_id": "penalty_stronger"
     }
   ],
   "paired_strict_returns": [
     {
       "iso_weeks": 1,
-      "mean_profit_delta_per_fixture": 0.022500000000000003,
+      "mean_profit_delta_per_fixture": 0.011250000000000001,
       "variant_id": "blended_lower",
-      "verified_fixtures": 12,
+      "verified_fixtures": 24,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
-      "mean_profit_delta_per_fixture": -0.022500000000000003,
+      "mean_profit_delta_per_fixture": -0.011250000000000001,
       "variant_id": "blended_higher",
-      "verified_fixtures": 12,
+      "verified_fixtures": 24,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "raw_lower",
-      "verified_fixtures": 12,
+      "verified_fixtures": 24,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "raw_higher",
-      "verified_fixtures": 12,
+      "verified_fixtures": 24,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "adjusted_lower",
-      "verified_fixtures": 12,
+      "verified_fixtures": 24,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "adjusted_higher",
-      "verified_fixtures": 12,
+      "verified_fixtures": 24,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "penalty_half",
-      "verified_fixtures": 12,
+      "verified_fixtures": 24,
       "weekly_block_bootstrap95": null
     },
     {
       "iso_weeks": 1,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "penalty_stronger",
-      "verified_fixtures": 12,
+      "verified_fixtures": 24,
       "weekly_block_bootstrap95": null
     }
   ],
@@ -2140,7 +2210,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-17T15:46:52.377489+00:00",
+  "reviewed_at_utc": "2026-10-17T21:25:38.892367+00:00",
   "status": "COLLECT_MORE_DATA",
   "total_fixtures": 48,
   "variants": {
@@ -2170,7 +2240,7 @@
       "raw_shift": -0.03
     }
   },
-  "verified_coverage": 0.25,
-  "verified_fixtures": 12,
+  "verified_coverage": 0.5,
+  "verified_fixtures": 24,
   "version": "shortlist-probability-calibration-v1"
 }

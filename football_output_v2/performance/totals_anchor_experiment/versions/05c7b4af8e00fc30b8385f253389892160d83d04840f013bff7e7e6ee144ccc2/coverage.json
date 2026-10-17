@@ -2673,7 +2673,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "unavailable",
@@ -2850,7 +2850,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "unavailable",
@@ -3027,7 +3027,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "unavailable",
@@ -3204,7 +3204,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "unavailable",
@@ -3558,7 +3558,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "unavailable",
@@ -3735,7 +3735,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "unavailable",
@@ -4798,7 +4798,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "unavailable",
@@ -5152,7 +5152,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "unavailable",
@@ -5329,7 +5329,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "unavailable",
@@ -5515,7 +5515,7 @@
       ]
     ],
     "reasons": [],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "scale": 1.121626790618202,
     "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
     "status": "available",
@@ -5692,7 +5692,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
     "status": "unavailable",
@@ -5869,7 +5869,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
     "status": "unavailable",
@@ -6046,7 +6046,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
     "status": "unavailable",
