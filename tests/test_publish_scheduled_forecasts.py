@@ -1,5 +1,6 @@
 from offline_test_case import OfflineQuotePolicyTestCase
 from pathlib import Path
+import json
 import subprocess
 import tempfile
 import unittest
@@ -37,13 +38,40 @@ class ScheduledPublisherTests(OfflineQuotePolicyTestCase):
                     p=work/'football_output_v2/readable';p.mkdir(parents=True,exist_ok=True);(p/'football_performance_report.xlsx').write_bytes(b'workbook')
                     if attempt[0]==0:
                         attempt[0]+=1;(source/'keep.txt').write_text('concurrent update');git(source,'add','keep.txt');git(source,'commit','-m','concurrent');git(source,'push','origin','main')
+                if cmd[1:3]==['workflow_checks.py','reports']:
+                    self.assertEqual(cmd[3:],['--output','football_output_v2/performance/workflow_health.json'])
+                    output=work/cmd[-1]
+                    output.write_text(json.dumps({'status':'VERIFIED',
+                        'forecast_commit':git(work,'rev-parse','HEAD').stdout.strip()}))
             publish(source,runner=runner)
             git(source,'fetch','origin','main');self.assertEqual(git(source,'show','FETCH_HEAD:keep.txt').stdout,'concurrent update')
             self.assertIn('validated training revision',git(source,'show','FETCH_HEAD:.football_cache/2627_E0.csv').stdout)
             self.assertNotEqual(git(source,'show','FETCH_HEAD:.football_cache/oddsapi_events_EPL.json',check=False).returncode,0)
+            health=json.loads(git(source,'show','FETCH_HEAD:football_output_v2/performance/workflow_health.json').stdout)
+            self.assertEqual(health['status'],'VERIFIED')
+            self.assertEqual(health['forecast_commit'],git(source,'rev-parse','FETCH_HEAD^').stdout.strip())
             self.assertTrue(any(c[1]=='workflow_checks.py' and c[2]=='reports' for c in calls))
             self.assertEqual(sum(c[1]=='football_value_pipeline_v2_standalone.py' for c in calls),2)
             with patch('publish_scheduled_forecasts.publish') as p: self.assertEqual(main(['--repo',str(source)]),0);p.assert_called_once()
+
+    def test_report_validation_failure_never_publishes_forecast_or_health(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source,_=repo(tmp);old=git(source,'rev-parse','HEAD').stdout.strip()
+            def runner(cmd,cwd,check):
+                work=Path(cwd)
+                if cmd[1]=='football_value_pipeline_v2_standalone.py':
+                    raw=work/'football_output_v2/raw';raw.mkdir(parents=True)
+                    (raw/'forecast.csv').write_text('new forecast')
+                if cmd[1]=='performance_tracking.py' and cmd[2]=='review':
+                    (work/'football_output_v2/performance').mkdir(parents=True)
+                if cmd[1:3]==['workflow_checks.py','reports']:
+                    (work/cmd[-1]).write_text('{"status":"incomplete"}')
+                    raise subprocess.CalledProcessError(1,cmd)
+            with self.assertRaises(subprocess.CalledProcessError):
+                publish(source,runner=runner)
+            git(source,'fetch','origin','main')
+            self.assertEqual(git(source,'rev-parse','FETCH_HEAD').stdout.strip(),old)
+            self.assertNotEqual(git(source,'show','FETCH_HEAD:football_output_v2/performance/workflow_health.json',check=False).returncode,0)
 
     def test_failure_and_empty_run_never_publish_outputs(self):
         with tempfile.TemporaryDirectory() as tmp:
