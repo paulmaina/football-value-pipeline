@@ -48,27 +48,43 @@ publishers. A failed quota-reservation push causes zero provider requests.
 
 ### Schedule and timing
 
-Lightweight checks run at UTC 08:52, then 09:07/22/37/52 through 21:52
-(**11:52 EAT through 00:52 EAT the following day**). This covers kickoff slots
-from 09:00 through 22:00 UTC, including every slot in the currently saved
-six-league forecasts. Matches outside these times need a manual workflow run
-within 18 minutes before kickoff. GitHub cron runs are best effort and can be
-queued or dropped; no GitHub-only schedule guarantees an exact closing window.
+Checks run at UTC 05:52, then 06:07/22/37/52 through 21:52
+(**08:52 EAT through 00:52 EAT the following day**). A main-branch change to
+the collector launcher/workflow also starts a session, and manual dispatch remains
+available. GitHub cron runs are best effort and can be delayed or dropped.
 
-The dependency-free gate examines current and archived fixture times. If nothing
-is due within 18 minutes or credentials are missing, it skips Python setup and
-dependency installation. Otherwise it checks latest `main` again, reserves quota,
-then polls every 30 seconds. It accepts responses only within the existing
+The dependency-free gate examines current and archived fixture times up to five
+hours ahead. With configured credentials and approaching fixtures it starts a
+**standby session lasting up to five hours**, rather than exiting merely because
+the next kickoff is more than 18 minutes away. It refreshes main every 30 seconds,
+discovers newly pushed fixtures, and hands incomplete kickoff groups to the
+existing collector within 18 minutes before kickoff. Standby makes no Odds API
+requests and holds no quota reservation between groups. Completed groups are not
+collected again. Exhausted daily allowance or no fixtures remaining in the session
+horizon ends standby early. Publication failures stop the session without replay.
+
+Each group checks latest `main` again, reserves quota, then polls every 30 seconds.
+It accepts responses only within the existing
 **six minutes before scheduled kickoff**, with bookmaker timestamps no more than
 120 seconds old. It stops early when required quotes are complete, its allocation
 is exhausted, or the planned last kickoff is reached. It does not extend the
 collection window to rescue delayed runs; missing coverage remains missing.
 
-This uses one Linux/Python 3.12 job, not a matrix or an all-day watcher. These checks
-still consume Actions minutes: there are 53 scheduled checks per day, plus the
-time spent in active collection windows. Review actual usage in GitHub billing;
-this is not a promise to remain within the repository's free allowance. There is
-no full test-suite run inside each scheduled collection.
+One serialized Linux/Python 3.12 job stays ready between kickoff groups. Queued
+checks cannot cancel the active collector; GitHub may replace older pending runs.
+There are 65 scheduled opportunities/day, not 65 simultaneous watchers. The job
+limit is six hours: five hours standby plus up to 18 minutes to finish a started
+group, setup, publication and recovery. **Idle standby consumes Actions runner
+minutes**, potentially hundreds per matchday; it does not spend provider credits.
+Review actual GitHub billing/usage. There is no full test suite in collection jobs.
+This reduces dependence on minute-accurate cron delivery; it cannot guarantee
+coverage during an Actions outage, a delay longer than the warm session, or a
+runner handoff gap. Missed quotes cannot be reconstructed. For timing guarantees,
+an independently scheduled persistent host would still be needed.
+
+The 17 October incident showed the difference: the first scheduled check arrived
+at 12:30 UTC after 11:30/12:00 kickoffs and exited because 13:00 was outside its
+old 18-minute horizon. Standby would retain that runner until the 13:00 window.
 
 ### Requests, interruptions and publication
 

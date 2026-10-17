@@ -27,6 +27,77 @@ def seeded(directory):
 
 
 class ActionsClosingTests(OfflineQuotePolicyTestCase):
+    def test_delayed_schedule_stays_warm_until_window_without_early_provider_calls(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source,_,row,observed=seeded(tmp)
+            kick=g.utc(row['kickoff_utc'])
+            start=kick-timedelta(minutes=30);elapsed=[0];calls=[]
+            clock=lambda:start+timedelta(seconds=elapsed[0])
+            self.assertFalse(g.plan(source,start)['ready'])
+            self.assertTrue(g.plan(source,start,horizon_hours=5)['ready'])
+            def sleep(seconds):elapsed[0]+=seconds
+            def collector(repo,reservation_id,clock):
+                calls.append(reservation_id)
+                def runner(cmd,cwd,check):
+                    # Simulate the existing watcher waiting until six minutes.
+                    self.assertGreater((kick-clock()).total_seconds(),360)
+                    elapsed[0]=(kick-timedelta(minutes=6)-start).total_seconds()
+                    result=c.collect_once(Path(cwd)/g.ROOT,None,clock(),
+                        fetcher=lambda *a:payload(row,clock()),reservation_id=reservation_id)
+                    self.assertEqual(result['written'],1)
+                g.collect(repo,reservation_id,runner=runner,clock=clock)
+            g.standby(source,'session',hours=1,poll_seconds=60,clock=clock,
+                      monotonic=lambda:elapsed[0],sleep=sleep,collector=collector)
+            self.assertEqual(calls,['session-1'])
+            git(source,'fetch','origin','main')
+            budget=json.loads(git(source,'show','FETCH_HEAD:'+g.BUDGET.as_posix()).stdout)
+            self.assertEqual(budget['requests'],1)
+            self.assertEqual(budget['reservations']['session-1']['status'],'complete')
+            # Standby uses disposable checkouts and leaves the original intact.
+            self.assertEqual(git(source,'status','--porcelain','--untracked-files=no').stdout,'')
+
+    def test_standby_refreshes_main_and_propagates_publication_failure_without_replay(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source,_,row,observed=seeded(tmp)
+            elapsed=[0];calls=[];start=observed-timedelta(minutes=30)
+            def sleep(seconds):
+                elapsed[0]+=seconds
+                if elapsed[0]==60:
+                    # A corrected kickoff is pushed while this runner waits.
+                    path=source/g.ROOT/'raw/all_leagues_predictions.csv'
+                    path.write_text(path.read_text().replace(row['kickoff_utc'],
+                        (start+timedelta(minutes=10)).isoformat()))
+                    git(source,'add','--',str(path));git(source,'commit','-m','new fixture time')
+                    git(source,'push','origin','main')
+            def fail(*args,**kwargs):
+                calls.append(args[1]);raise RuntimeError('publication failed')
+            # Only a refreshed main can discover the now-approaching fixture.
+            with self.assertRaisesRegex(RuntimeError,'publication failed'):
+                g.standby(source,'session',hours=1,poll_seconds=60,
+                    clock=lambda:start+timedelta(seconds=elapsed[0]),
+                    monotonic=lambda:elapsed[0],sleep=sleep,collector=fail)
+            self.assertEqual(calls,['session-1'])
+            self.assertEqual(elapsed[0],60)
+            self.assertEqual(len(git(source,'worktree','list','--porcelain').stdout.split('worktree ')),2)
+        for hours,poll in [(0,30),(6,30),(1,0),(1,61)]:
+            with self.assertRaises(ValueError):g.standby('.', 'id',hours=hours,poll_seconds=poll)
+
+    def test_standby_daily_cap_and_session_deadline_bound_collection(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            source,_,row,clock=seeded(tmp)
+            with patch.object(g,'collect') as collector:
+                g.write(source/g.BUDGET,{'date':clock.date().isoformat(),'requests':100})
+                git(source,'add','--',str(g.BUDGET));git(source,'commit','-m','daily cap')
+                git(source,'push','origin','main')
+                result=g.standby(source,'capped',clock=lambda:clock,sleep=lambda _:None)
+                self.assertEqual(result['reason'],'DAILY_REQUEST_CAP_REACHED')
+                collector.assert_not_called()
+            with self.assertRaises(ValueError):g.plan(source,clock,horizon_hours=6)
+            with self.assertRaises(ValueError):g.standby(source,'bad/id')
+            with patch.object(g,'standby') as standby:
+                self.assertEqual(g.main(['standby','--reservation-id','session','--standby-hours','2']),0)
+                self.assertEqual(standby.call_args.kwargs['hours'],2)
+
     def test_plan_uses_current_and_archived_fixtures_with_utc_and_daily_bounds(self):
         with tempfile.TemporaryDirectory() as tmp:
             base=Path(tmp);root=base/g.ROOT;root.mkdir();row,clock=setup(root)
@@ -179,6 +250,10 @@ class ActionsClosingTests(OfflineQuotePolicyTestCase):
         self.assertFalse(workflow['concurrency']['cancel-in-progress'])
         self.assertEqual(workflow['permissions'],{'contents':'write'})
         self.assertEqual(workflow['jobs']['collect']['if'],"github.ref == 'refs/heads/main'")
+        job=workflow['jobs']['collect']
+        self.assertEqual(job['timeout-minutes'],360)
+        self.assertIn('--standby-hours 5',job['steps'][1]['run'])
+        self.assertIn(' standby ',next(s['run'] for s in job['steps'] if s.get('id')=='collect'))
 
     def test_environment_watch_exits_idle_and_carries_reservation(self):
         class API:
