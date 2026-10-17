@@ -20,8 +20,8 @@
   },
   "frozen_selections": 24,
   "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-  "observations": 37,
+  "observations": 38,
   "rejected_files": [],
-  "reviewed_at_utc": "2026-10-17T15:46:52.377489+00:00",
+  "reviewed_at_utc": "2026-10-17T15:54:04.318193+00:00",
   "version": "local-closing-quotes-v3"
 }

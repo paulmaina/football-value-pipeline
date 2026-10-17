@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Inter Milan",
+    "home_team": "Bologna",
+    "kickoff_utc": "2026-10-17T16:00:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "bfefc309177723410230fee52f650315"
+  },
+  "observed_at_utc": "2026-10-17T15:54:01.928331+00:00",
+  "payload": {
+    "away_team": "Inter Milan",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T15:53:44Z",
+            "outcomes": [
+              {
+                "name": "Bologna",
+                "price": 6.1
+              },
+              {
+                "name": "Inter Milan",
+                "price": 1.59
+              },
+              {
+                "name": "Draw",
+                "price": 4.16
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T15:53:44Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.95
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T15:53:22Z",
+            "outcomes": [
+              {
+                "name": "Bologna",
+                "price": 5.79
+              },
+              {
+                "name": "Inter Milan",
+                "price": 1.58
+              },
+              {
+                "name": "Draw",
+                "price": 4.23
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T15:53:22Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.58
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.38
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-17T16:00:00Z",
+    "home_team": "Bologna",
+    "id": "bfefc309177723410230fee52f650315",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.79,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.159221568528823,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T15:53:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.23,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22113317282079484,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T15:53:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.58,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6196452586503822,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T15:53:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.58,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6091863957604269,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-17T15:53:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.38,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3908136042395731,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-17T15:53:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.1,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15345260031429747,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T15:53:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.16,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22818391653042921,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T15:53:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.59,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6183634831552735,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T15:53:44+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
