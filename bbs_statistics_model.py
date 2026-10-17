@@ -16,7 +16,8 @@ from scipy.optimize import minimize
 
 from bbs_data import STAT_FIELDS, dumps, utc
 
-VERSION = 'bbs-lagged-poisson-v1'
+VERSION = 'bbs-lagged-poisson-v2'
+PUBLICATION_DELAY_HOURS = 24
 MIN_FORM = 3
 FORM_MATCHES = 8
 MAX_AGE_DAYS = 180
@@ -94,6 +95,21 @@ class FormIndex:
         self.sha256 = hashlib.sha256(dumps(self.records).encode()).hexdigest()
         self._cache = {}
         self._latest_cache = {}
+        self.availability_field = 'observed_at_utc'
+
+    def retrospective(self):
+        """Latest revisions actually known at the OUTER cutoff, with an explicit
+        post-match availability assumption for retrospective development only.
+        Actual observation timestamps are never rewritten or backdated.
+        """
+        latest = {r['match_id']: r for r in self.records}
+        result = FormIndex(list(latest.values()), self.cutoff)
+        result.availability_field = 'assumed_available_at_utc'
+        for item in result.records:
+            item['assumed_available_at_utc'] = (stamp(item['kickoff_utc']) +
+                pd.Timedelta(hours=PUBLICATION_DELAY_HOURS)).isoformat()
+        result.sha256 = hashlib.sha256(dumps(result.records).encode()).hexdigest()
+        return result
 
     def form(self, team, cutoff):
         from football_value_pipeline_v2_standalone import canonical_team_key
@@ -105,7 +121,7 @@ class FormIndex:
         if cutoff.isoformat() not in self._latest_cache:
             latest = {}
             for item in self.records:
-                if pd.Timestamp(item['observed_at_utc']) < cutoff:
+                if pd.Timestamp(item[self.availability_field]) < cutoff:
                     latest[item['match_id']] = item
             self._latest_cache[cutoff.isoformat()] = latest
         latest = self._latest_cache[cutoff.isoformat()]
@@ -230,6 +246,7 @@ class StatisticsModel:
     def apply(self, home, away, base):
         info = {'bbs_statistics_applied': False, 'bbs_statistics_version': VERSION,
                 'bbs_statistics_status': self.report['status'],
+                'bbs_statistics_validation_mode': self.report.get('validation_mode', 'strict'),
                 'bbs_statistics_cutoff_utc': self.cutoff.isoformat(),
                 'bbs_statistics_weight': 0.}
         if self.model is None:
@@ -264,26 +281,56 @@ class StatisticsModel:
         return path
 
 
-def fit_statistics(history, cutoff, baseline_factory):
-    """Chronological fit/tune/audit. Audit cannot select ridge or blend weight."""
+def fit_statistics(history, cutoff, baseline_factory, validation_mode='auto'):
+    """Auto chooses strict evidence when sufficient, otherwise labelled backfill.
+    Both modes admit only source revisions actually observed before outer cutoff.
+    Audit cannot select ridge, blend weight, or the validation mode.
+    """
+    if validation_mode not in ('auto', 'strict'):
+        raise ValueError('Unknown BBS statistics validation mode')
     index = FormIndex(history.attrs.get('bbs_statistics_observations', []), cutoff)
     result = StatisticsModel(index, cutoff)
+    result.report.update(validation_policy=validation_mode, validation_mode='strict',
+        strict_eligible_training_matches=0, retrospective_eligible_training_matches=0,
+        retrospective_publication_delay_hours=PUBLICATION_DELAY_HOURS,
+        forward_accuracy_improvement_established=False)
     if not index.records:
         return result
     first_observed = min(pd.Timestamp(r['observed_at_utc']) for r in index.records)
     result.report['first_observed_at_utc'] = first_observed.isoformat()
-    examples = []
-    for row in history.sort_values('Date', kind='stable').to_dict('records'):
-        origin = stamp(row['Date']).normalize()
-        # Both labels must be known at the fitting cutoff; same-day results are
-        # held out because domestic CSVs do not establish an observation instant.
-        if origin >= stamp(cutoff).normalize() or origin <= first_observed:
-            continue
-        x, _ = index.pair(row['HomeTeam'], row['AwayTeam'], origin)
-        if x is not None:
-            examples.append((origin, x, [int(row['FTHG']), int(row['FTAG'])], row['HomeTeam'], row['AwayTeam']))
+    rows = history.sort_values('Date', kind='stable').to_dict('records')
+    def examples_from(inputs, earliest):
+        examples = []
+        for row in rows:
+            origin = stamp(row['Date']).normalize()
+            # Domestic labels are date-only: same-day results remain excluded.
+            if origin >= stamp(cutoff).normalize() or origin <= earliest:
+                continue
+            x, _ = inputs.pair(row['HomeTeam'], row['AwayTeam'], origin)
+            if x is not None:
+                examples.append((origin, x, [int(row['FTHG']), int(row['FTAG'])], row['HomeTeam'], row['AwayTeam']))
+        return examples
+
+    examples = examples_from(index, first_observed)
+    result.report['strict_eligible_training_matches'] = len(examples)
+    required = MIN_TRAIN+MIN_TUNE+MIN_AUDIT
+    if validation_mode == 'auto' and len(examples) < required:
+        # Choose by coverage alone, before outcomes or audit scores are examined.
+        development_index = index.retrospective()
+        examples = examples_from(development_index,
+            min(stamp(r['assumed_available_at_utc']) for r in development_index.records))
+        result.report.update(validation_mode='retrospective_backfill',
+            retrospective_eligible_training_matches=len(examples),
+            retrospective_inputs_sha256=development_index.sha256,
+            historical_corrections_may_be_present=True,
+            evaluation_note='Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.')
+    else:
+        development_index = index
+        result.report['historical_corrections_may_be_present'] = False
     result.report['eligible_training_matches'] = len(examples)
-    if len(examples) < MIN_TRAIN+MIN_TUNE+MIN_AUDIT:
+    if len(examples) < required:
+        if result.report['validation_mode'] == 'retrospective_backfill':
+            result.report['status'] = 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES'
         return result
     # Date boundaries, never arbitrary row cuts within a matchday.
     tune_origin = examples[-(MIN_TUNE+MIN_AUDIT)][0]
@@ -329,7 +376,7 @@ def fit_statistics(history, cutoff, baseline_factory):
     # frozen control fit; no within-audit result or statistic enters either arm.
     paired = []
     for example, base, rho in zip(audit, audit_base, rhos):
-        x, _ = index.pair(example[3], example[4], audit_origin)
+        x, _ = development_index.pair(example[3], example[4], audit_origin)
         if x is not None:
             paired.append((x, example[2], base, rho, example[0].date().isoformat()))
     result.report['paired_audit_matches'] = len(paired)
@@ -375,3 +422,58 @@ def fit_statistics(history, cutoff, baseline_factory):
     result.weight = weight
     result.report.update(status='VALIDATED', selected_weight=weight)
     return result
+
+
+def forward_assessment(predictions, records, clock):
+    """Paired raw-model Briers from frozen pre-kickoff forecasts only.
+    No fitting, promotion, new forecasts or provider calls during grading.
+    """
+    from performance_tracking import fixture_match, number, MIN_LEAD_MINUTES
+    paired, pending, invalid = [], 0, 0
+    clock = stamp(clock)
+    for row in predictions:
+        if row.get('bbs_statistics_applied') not in (True, 'True'):
+            continue
+        try:
+            kickoff = stamp(utc(row['kickoff_utc']))
+            generated = stamp(utc(row['snapshot_generated_utc']))
+            captured = stamp(utc(row['snapshot_captured_utc']))
+            model_cutoff = stamp(utc(row['bbs_statistics_cutoff_utc']))
+            observed = stamp(utc(row['bbs_statistics_latest_observed_utc']))
+            mode = row['bbs_statistics_validation_mode']
+            if (mode not in ('strict', 'retrospective_backfill') or observed >= model_cutoff
+                    or model_cutoff > generated or max(generated, captured) > kickoff-pd.Timedelta(minutes=MIN_LEAD_MINUTES)):
+                raise ValueError('Invalid forward provenance')
+            arrays = []
+            for prefix in ('raw_p_', 'bbs_control_p_'):
+                p = [number(row.get(prefix+key), min_value=0, max_value=1)
+                     for key in ('home','draw','away','over_1_5','under_3_5','btts_yes')]
+                if any(v is None for v in p) or abs(sum(p[:3])-1) > 1e-6:
+                    raise ValueError('Invalid paired probabilities')
+                arrays.append(np.array(p))
+        except (ValueError, KeyError, TypeError):
+            invalid += 1
+            continue
+        final, state = fixture_match(row, records)
+        if kickoff > clock-pd.Timedelta(hours=2) or final is None or state != 'VERIFIED_FINISHED':
+            pending += 1
+            continue
+        h, a = final['home_goals'], final['away_goals']
+        target = np.array([h>a,h==a,h<a,h+a>=2,h+a<=3,h>0 and a>0], dtype=float)
+        briers = [np.r_[np.sum((p[:3]-target[:3])**2), (p[3:]-target[3:])**2] for p in arrays]
+        paired.append({'fixture_key': row['fixture_key'], 'league': row['league'],
+            'snapshot_commit': row['snapshot_commit'], 'kickoff_utc': kickoff.isoformat(),
+            'source_match_id': final['match_id'], 'validation_mode': mode,
+            'candidate_briers': briers[0].tolist(), 'control_briers': briers[1].tolist()})
+    def summarize(rows):
+        return {'paired_matches': len(rows),
+            'candidate_mean_briers': np.mean([r['candidate_briers'] for r in rows],axis=0).tolist() if rows else None,
+            'control_mean_briers': np.mean([r['control_briers'] for r in rows],axis=0).tolist() if rows else None}
+    return {'version': VERSION, 'reviewed_at_utc': clock.isoformat(),
+        'basis': 'Frozen pre-kickoff raw model versus same-fit Dixon-Coles control, before bookmaker blending',
+        'status': 'DESCRIPTIVE_FORWARD_COMPARISON' if paired else 'AWAITING_ELIGIBLE_FORWARD_RESULTS',
+        'brier_order': ['1x2','over_1_5','under_3_5','btts_yes'],
+        'pending_matches': pending, 'invalid_forecasts': invalid, **summarize(paired),
+        'by_validation_mode': {mode: summarize([r for r in paired if r['validation_mode']==mode])
+                               for mode in ('strict','retrospective_backfill')},
+        'automatic_promotion': False, 'paired_rows': paired}

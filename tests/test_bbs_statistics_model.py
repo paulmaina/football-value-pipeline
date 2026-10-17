@@ -132,10 +132,78 @@ class LearningTests(OfflineQuotePolicyTestCase):
         frame, observations, cutoff = sample()
         for row in observations: row['observed_at_utc'] = cutoff.isoformat()
         frame.attrs['bbs_statistics_observations'] = observations
-        learned = fit_statistics(frame, cutoff+pd.Timedelta(days=1), constant_baseline)
+        learned = fit_statistics(frame, cutoff+pd.Timedelta(days=1), constant_baseline,
+                                 validation_mode='strict')
         self.assertEqual(learned.report['eligible_training_matches'], 0)
         self.assertIsNone(learned.model)
         self.assertEqual(learned.report['status'], 'INSUFFICIENT_PAST_OBSERVATIONS')
+
+    def test_auto_backfill_is_labelled_and_live_serving_keeps_actual_observation_time(self):
+        frame, observations, cutoff = sample()
+        fetched = cutoff + pd.Timedelta(days=1)
+        for row in observations:
+            row['observed_at_utc'] = fetched.isoformat()
+        frame.attrs['bbs_statistics_observations'] = observations
+        learned = fit_statistics(frame, fetched+pd.Timedelta(days=1), constant_baseline)
+        self.assertEqual(learned.report['validation_mode'], 'retrospective_backfill')
+        self.assertEqual(learned.report['strict_eligible_training_matches'], 0)
+        self.assertGreater(learned.report['eligible_training_matches'], 120)
+        self.assertEqual(learned.report['status'], 'VALIDATED')
+        self.assertFalse(learned.report['forward_accuracy_improvement_established'])
+        self.assertTrue(learned.report['historical_corrections_may_be_present'])
+        self.assertEqual(learned.index.availability_field, 'observed_at_utc')
+        self.assertTrue(all(r['observed_at_utc'] == fetched.isoformat() for r in learned.index.records))
+        self.assertIsNone(learned.index.pair('A','B',cutoff)[0])
+        _, info = learned.apply('A','B',[1.,1.])
+        self.assertTrue(info['bbs_statistics_applied'])
+        self.assertEqual(info['bbs_statistics_validation_mode'], 'retrospective_backfill')
+        with tempfile.TemporaryDirectory() as tmp:
+            import json
+            payload=json.loads(learned.save(tmp,'EPL').read_text())
+            self.assertEqual(payload['report']['validation_mode'], 'retrospective_backfill')
+        # A historical outer cutoff cannot see backfill fetched in the future,
+        # even though auto mode permits retrospective development at today's cutoff.
+        replay = fit_statistics(frame, cutoff, constant_baseline)
+        self.assertEqual(replay.report['observations'], 0)
+        self.assertIsNone(replay.model)
+
+    def test_retrospective_delay_tombstones_and_latest_revision_are_explicit(self):
+        frame, observations, cutoff = sample(9)
+        for row in observations: row['observed_at_utc'] = cutoff.isoformat()
+        revised = copy.deepcopy(observations[0]); revised['home']['total_shots'] = 40
+        revised['observed_at_utc'] = (cutoff+pd.Timedelta(hours=1)).isoformat()
+        held = {**copy.deepcopy(observations[1]), 'available': False,
+                'observed_at_utc': (cutoff+pd.Timedelta(hours=2)).isoformat()}
+        future = {**copy.deepcopy(revised), 'observed_at_utc': (cutoff+pd.Timedelta(days=3)).isoformat(),
+                  'home': {**revised['home'], 'total_shots': 999}}
+        strict = FormIndex(observations+[revised,held,future],cutoff+pd.Timedelta(days=1))
+        retro = strict.retrospective()
+        self.assertEqual(len(retro.records),9)
+        first=next(r for r in retro.records if r['match_id']=='0')
+        self.assertEqual(first['home']['total_shots'],40)
+        self.assertEqual(first['observed_at_utc'], revised['observed_at_utc'])
+        self.assertEqual(retro.form('A','2025-01-02T12:00:00Z')[1],0)  # Delay equality excluded.
+        self.assertEqual(retro.form('A','2025-01-02T12:00:01Z')[1],1)
+        self.assertEqual(retro.form('A','2025-01-10T00:00:00Z')[1],7)  # Held and last-day not ready.
+        frame.attrs['bbs_statistics_observations'] = observations+[revised,held,future]
+        result=fit_statistics(frame,cutoff+pd.Timedelta(days=1),constant_baseline)
+        self.assertEqual(result.report['status'],'INSUFFICIENT_RETROSPECTIVE_EXAMPLES')
+        self.assertIsNone(result.model)
+        with self.assertRaisesRegex(ValueError,'validation mode'):
+            fit_statistics(frame,cutoff,constant_baseline,validation_mode='invalid')
+
+    def test_validation_policy_is_bound_to_fingerprints_and_cli(self):
+        from goal_market_validation import training_fingerprint
+        frame, _, _ = sample(9)
+        original=training_fingerprint(frame)
+        frame.attrs['bbs_statistics_validation']='strict'
+        self.assertNotEqual(original,training_fingerprint(frame))
+        self.assertEqual(build_parser().parse_args([]).bbs_statistics_validation,'auto')
+        self.assertEqual(build_parser().parse_args(['--bbs-statistics-validation','strict']).bbs_statistics_validation,'strict')
+        pipe=FootballValuePipelineV2(bbs_statistics_validation='strict')
+        self.assertEqual(pipe.bbs_statistics_validation,'strict')
+        with self.assertRaisesRegex(ValueError,'validation mode'):
+            FootballValuePipelineV2(bbs_statistics_validation='invalid')
 
     def test_scaling_uses_training_only_and_missing_fields_are_not_zero_statistics(self):
         x = np.array([[1., np.nan], [2., np.nan], [3., np.nan], [4., np.nan]])
@@ -173,6 +241,7 @@ class IntegrationTests(OfflineQuotePolicyTestCase):
         self.assertTrue(enhanced['bbs_statistics_applied'])
         for field in ('p_home','p_away','p_over_1_5','p_under_3_5','p_btts_yes'):
             self.assertNotAlmostEqual(enhanced[field], baseline[field], places=6)
+            self.assertAlmostEqual(enhanced['bbs_control_'+field], baseline[field])
         self.assertAlmostEqual(sum(enhanced[k] for k in ('p_home','p_draw','p_away')),1.)
         model.statistics_model=learned;model.bbs_statistics_report=learned.report
         pipeline.market_weight=.5
@@ -183,6 +252,43 @@ class IntegrationTests(OfflineQuotePolicyTestCase):
         self.assertTrue(blended['market_blend_applied'])
         for side, market in [('home',.4),('draw',.3),('away',.3)]:
             self.assertAlmostEqual(blended['p_'+side],.5*enhanced['p_'+side]+.5*market)
+            self.assertAlmostEqual(blended['bbs_control_p_'+side],baseline['p_'+side])
+
+    def test_forward_comparison_uses_only_paired_frozen_forecasts_and_verified_results(self):
+        from bbs_statistics_model import forward_assessment
+        from tests.test_performance_tracking import fixture, final, KICK, T0
+        from performance_tracking import fixture_key, verified_record
+        row=fixture()
+        row.update(fixture_key=fixture_key(row),snapshot_commit='a'*40,
+            snapshot_generated_utc=T0.isoformat(),snapshot_captured_utc=T0.isoformat(),
+            bbs_statistics_applied='True',bbs_statistics_validation_mode='retrospective_backfill',
+            bbs_statistics_cutoff_utc=T0.isoformat(),
+            bbs_statistics_latest_observed_utc=(T0-timedelta(hours=1)).isoformat())
+        for key in ('home','draw','away','over_1_5','under_3_5','btts_yes'):
+            row['raw_p_'+key]=row['p_'+key]
+            row['bbs_control_p_'+key]=row['p_'+key]
+        row.update(bbs_control_p_home=.4,bbs_control_p_draw=.3,bbs_control_p_away=.3)
+        record=verified_record('PL',final())
+        clock=KICK+timedelta(hours=3)
+        report=forward_assessment([row],[record],clock)
+        self.assertEqual(report['paired_matches'],1)
+        self.assertLess(report['candidate_mean_briers'][0],report['control_mean_briers'][0])
+        self.assertFalse(report['automatic_promotion'])
+        self.assertEqual(report['by_validation_mode']['retrospective_backfill']['paired_matches'],1)
+        for records,when in [([],clock),([record],KICK)]:
+            waiting=forward_assessment([row],records,when)
+            self.assertEqual(waiting['pending_matches'],1)
+            self.assertEqual(waiting['paired_matches'],0)
+        self.assertEqual(forward_assessment([{}],[],clock)['paired_matches'],0)
+        for change in ({'snapshot_captured_utc':(KICK+timedelta(hours=1)).isoformat()},
+                       {'bbs_statistics_latest_observed_utc':T0.isoformat()},
+                       {'raw_p_home':'nan'}, {'bbs_control_p_draw':.9},
+                       {'bbs_statistics_validation_mode':'unknown'},
+                       {'bbs_statistics_cutoff_utc':None}):
+            with self.subTest(change=change):
+                rejected=forward_assessment([{**row,**change}],[record],clock)
+                self.assertEqual(rejected['invalid_forecasts'],1)
+                self.assertEqual(rejected['paired_matches'],0)
 
     def test_feature_sources_preserve_revisions_and_hold_disputes_and_wrong_ids(self):
         from tests.test_bbs_data import base, match, NOW
