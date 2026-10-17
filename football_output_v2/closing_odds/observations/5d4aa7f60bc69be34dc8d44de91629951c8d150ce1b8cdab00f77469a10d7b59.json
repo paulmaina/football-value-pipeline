@@ -1,0 +1,184 @@
+{
+  "fixture": {
+    "away_team": "Genoa",
+    "home_team": "AS Roma",
+    "kickoff_utc": "2026-10-17T18:45:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "18d478f469da3bcc654dd4555b85c7e3"
+  },
+  "observed_at_utc": "2026-10-17T18:39:02.050073+00:00",
+  "payload": {
+    "away_team": "Genoa",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T18:38:40Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "price": 1.62
+              },
+              {
+                "name": "Genoa",
+                "price": 6.15
+              },
+              {
+                "name": "Draw",
+                "price": 3.95
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T18:38:40Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.98
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.93
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T18:38:19Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "price": 1.61
+              },
+              {
+                "name": "Genoa",
+                "price": 6.2
+              },
+              {
+                "name": "Draw",
+                "price": 3.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T18:38:19Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.84
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.03
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-17T18:45:00Z",
+    "home_team": "AS Roma",
+    "id": "18d478f469da3bcc654dd4555b85c7e3",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.61,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6076307047598722,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T18:38:19+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.85,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2440901577082076,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T18:38:19+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 6.2,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.14827913753192018,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T18:38:19+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.84,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5258713129034284,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-17T18:38:19+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.03,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.47412868709657163,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-17T18:38:19+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6066838762017003,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.95,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24098076673696078,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15233535706133897,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.98,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49338747720592563,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5066125227940743,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}

@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "RC Lens",
+    "home_team": "Troyes",
+    "kickoff_utc": "2026-10-17T18:45:00+00:00",
+    "league": "Ligue 1",
+    "odds_event_id": "b077aa049133c0358bcd643bfee48da3"
+  },
+  "observed_at_utc": "2026-10-17T18:39:02.381420+00:00",
+  "payload": {
+    "away_team": "RC Lens",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T18:38:40Z",
+            "outcomes": [
+              {
+                "name": "RC Lens",
+                "price": 1.83
+              },
+              {
+                "name": "Troyes",
+                "price": 4.45
+              },
+              {
+                "name": "Draw",
+                "price": 3.89
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T18:38:40Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.02
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T18:38:40Z",
+            "outcomes": [
+              {
+                "name": "RC Lens",
+                "price": 1.78
+              },
+              {
+                "name": "Troyes",
+                "price": 4.4
+              },
+              {
+                "name": "Draw",
+                "price": 3.96
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T18:38:40Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.67
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.2
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-17T18:45:00Z",
+    "home_team": "Troyes",
+    "id": "b077aa049133c0358bcd643bfee48da3",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.45,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21542947075258972,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.89,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2473815482754318,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.83,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5371889809719784,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21347572705575651,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.96,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2382539812896198,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.78,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5482702916546238,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5740358949483358,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.2,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.42596410505166415,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-17T18:38:40+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
