@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Liverpool",
+    "home_team": "Brentford",
+    "kickoff_utc": "2026-10-17T14:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "8f1945e7272bc7e89016439f5ab321c7"
+  },
+  "observed_at_utc": "2026-10-17T13:54:04.175949+00:00",
+  "payload": {
+    "away_team": "Liverpool",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T13:53:40Z",
+            "outcomes": [
+              {
+                "name": "Brentford",
+                "price": 2.84
+              },
+              {
+                "name": "Liverpool",
+                "price": 2.36
+              },
+              {
+                "name": "Draw",
+                "price": 3.76
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T13:53:40Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.19
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.68
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T13:53:39Z",
+            "outcomes": [
+              {
+                "name": "Brentford",
+                "price": 2.8
+              },
+              {
+                "name": "Liverpool",
+                "price": 2.51
+              },
+              {
+                "name": "Draw",
+                "price": 3.68
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T13:53:39Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.91
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.99
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-17T14:00:00Z",
+    "home_team": "Brentford",
+    "id": "8f1945e7272bc7e89016439f5ab321c7",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.34791747183302485,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T13:53:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.68,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.26288731441340646,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T13:53:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.51,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.38919521375356875,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T13:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.84,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.33792754112900847,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T13:53:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.76,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2524370770868222,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T13:53:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.36,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.40963538178416947,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T13:53:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.19,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.42891577275324255,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-17T13:53:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.68,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5710842272467576,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-17T13:53:40+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
