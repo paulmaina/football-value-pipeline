@@ -94,7 +94,7 @@ Calibration buckets, approximate paired-gain intervals, gameweek comparisons and
 
 | League | Market | Goal half-life | Development N | Audit N | Audit log-loss gain | Development fold wins |
 |---|---|---:|---:|---:|---:|---|
-| Premier League | over_1_5 | 1000000000.0 | 310 | 60 | +0.0039 | {'240.0': 1, '1000000000.0': 3} |
+| Premier League | over_1_5 | 1000000000.0 | 310 | 60 | +0.0040 | {'240.0': 1, '1000000000.0': 3} |
 | Premier League | btts_yes | 730.0 | 310 | 60 | -0.0000 | {'1000000000.0': 2, '365.0': 1, '120.0': 1} |
 | La Liga | over_1_5 | 120.0 | 300 | 79 | -0.0017 | {'120.0': 3, '240.0': 1} |
 | La Liga | btts_yes | 240.0 | 300 | 79 | +0.0020 | {'365.0': 1, '120.0': 3} |
@@ -104,5 +104,5 @@ Calibration buckets, approximate paired-gain intervals, gameweek comparisons and
 | Serie A | btts_yes | 1000000000.0 | 320 | 61 | -0.0037 | {'1000000000.0': 2, '120.0': 1, '365.0': 1} |
 | Ligue 1 | over_1_5 | 1000000000.0 | 243 | 55 | -0.0197 | {'1000000000.0': 3, '120.0': 1} |
 | Ligue 1 | btts_yes | 1000000000.0 | 243 | 55 | -0.0087 | {'1000000000.0': 3, '120.0': 1} |
-| UEFA Champions League | over_1_5 | 120.0 | 152 | 37 | -0.0230 | {'240.0': 2, '120.0': 2} |
-| UEFA Champions League | btts_yes | 730.0 | 152 | 37 | +0.0030 | {'240.0': 1, '1000000000.0': 3} |
+| UEFA Champions League | over_1_5 | 120.0 | 152 | 37 | -0.0232 | {'240.0': 2, '120.0': 2} |
+| UEFA Champions League | btts_yes | 730.0 | 152 | 37 | +0.0027 | {'240.0': 1, '1000000000.0': 3} |

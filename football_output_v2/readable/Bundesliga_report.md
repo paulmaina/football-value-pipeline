@@ -23,9 +23,9 @@ Fixtures in this report: **17**.
 | Parameter | Value |
 | --- | --- |
 | Training sha256 | 55c56458ea548a5d0670a302c859faecd8a7cb07bbad6e099edb1d6d98199e8c |
-| Training as of utc | 2026-10-17T09:09:56.531661+00:00 |
+| Training as of utc | 2026-10-17T09:45:16.687359+00:00 |
 | Training data provenance | {'bbs_confirmed_rows': 46, 'bbs_added_results': 1, 'bbs_result_conflicts': 0, 'bbs_rows_with_statistics': 46, 'bbs_statistics_used_as_predictor_features': False, 'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.'} |
-| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES', 'cutoff_utc': '2026-10-17T09:09:56.531661+00:00', 'observations': 47, 'observations_sha256': 'cc0861631709c5d9d1d7ed9e4cfead9f902902a7c8ab568fcd1484a042263577', 'eligible_training_matches': 9, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 37, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 0, 'retrospective_eligible_training_matches': 9, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:27.947476+00:00', 'retrospective_inputs_sha256': '3889e4fb76130a3eef5a75ab5ee997e7e3a4475ca0163fb9ea9e738b100222ef', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.'} |
+| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES', 'cutoff_utc': '2026-10-17T09:45:16.687359+00:00', 'observations': 47, 'observations_sha256': 'cc0861631709c5d9d1d7ed9e4cfead9f902902a7c8ab568fcd1484a042263577', 'eligible_training_matches': 9, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 37, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 0, 'retrospective_eligible_training_matches': 9, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:27.947476+00:00', 'retrospective_inputs_sha256': '3889e4fb76130a3eef5a75ab5ee997e7e3a4475ca0163fb9ea9e738b100222ef', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.'} |
 | Optimizer objective | 2920.827 |
 | Base scoring parameter | 0.233 |
 | Home-advantage parameter | 0.194 |
@@ -39,7 +39,7 @@ Fixtures in this report: **17**.
 | Odds regions | — |
 | Live odds matched | 17.00 |
 | Additional event odds calls used before this league | 19.00 |
-| Bbs statistics model artifact | bbs/feature_models/Bundesliga/20261017T090956531661Z_9569b57a50e37896bd47cb07203f3e10648e2f88a4da0344a0d0a7547b3cb8f6.json |
+| Bbs statistics model artifact | bbs/feature_models/Bundesliga/20261017T094516687359Z_03a052ea377d6f701c3e7c4e2dedb111704cea34552b492aedb3e7d7d8bcf717.json |
 | Additional odds coverage mode | — |
 | Additional odds coverage | — |
 | Additional odds in window linked fixtures | 8.00 |
@@ -144,7 +144,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 19 |
@@ -335,7 +335,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
@@ -530,7 +530,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 12 |
@@ -723,7 +723,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
@@ -914,7 +914,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
@@ -1105,7 +1105,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
@@ -1296,7 +1296,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 18 |
@@ -1487,7 +1487,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
@@ -1678,7 +1678,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 18 |
@@ -1825,7 +1825,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 12 |
@@ -1970,7 +1970,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
@@ -2113,7 +2113,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
@@ -2256,7 +2256,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
@@ -2399,7 +2399,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
@@ -2546,7 +2546,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 12 |
@@ -2691,7 +2691,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 19 |
@@ -2834,7 +2834,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:09:56.531661+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:45:16.687359+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 18 |

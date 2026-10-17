@@ -23,15 +23,15 @@ Fixtures in this report: **18**.
 | Parameter | Value |
 | --- | --- |
 | Training sha256 | 69681f50534010abc80aed2668b760ed900e1ae77b384daae0a91fec7f9a1851 |
-| Training as of utc | 2026-10-17T09:11:08.188978+00:00 |
+| Training as of utc | 2026-10-17T09:46:08.436394+00:00 |
 | Training data provenance | {'bbs_confirmed_rows': 36, 'bbs_added_results': 0, 'bbs_result_conflicts': 0, 'bbs_rows_with_statistics': 27, 'bbs_statistics_used_as_predictor_features': False, 'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.'} |
-| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES', 'cutoff_utc': '2026-10-17T09:11:08.188978+00:00', 'observations': 36, 'observations_sha256': '96abc7ff010eab6c78efed87a87e63f37f9f974a2555387c520682be6c8465c7', 'eligible_training_matches': 0, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 27, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 0, 'retrospective_eligible_training_matches': 0, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:29.957146+00:00', 'retrospective_inputs_sha256': 'd79830c5086bda43682fc8825e0b02bb4182c5cc89f61b19e957edc892610489', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.'} |
-| Optimizer objective | 968.127 |
+| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES', 'cutoff_utc': '2026-10-17T09:46:08.436394+00:00', 'observations': 36, 'observations_sha256': '96abc7ff010eab6c78efed87a87e63f37f9f974a2555387c520682be6c8465c7', 'eligible_training_matches': 0, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 27, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 0, 'retrospective_eligible_training_matches': 0, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:29.957146+00:00', 'retrospective_inputs_sha256': 'd79830c5086bda43682fc8825e0b02bb4182c5cc89f61b19e957edc892610489', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.'} |
+| Optimizer objective | 968.105 |
 | Base scoring parameter | 0.203 |
 | Home-advantage parameter | 0.306 |
 | Dixon-Coles low-score adjustment | 0.050 |
 | Xi per day | 0.0009 |
-| Training data health | {'completed_matches': 36, 'latest_completed_utc': '2026-10-14T19:00:00+00:00', 'latest_completed_date': '2026-10-14', 'next_fixture_utc': '2026-10-20T16:45:00+00:00', 'overdue_unfinished_match_ids': [], 'source_schedule_matches': 144, 'provider': 'football-data.org', 'season_start': 2026, 'checked_at_utc': '2026-10-17T09:11:01.252865+00:00', 'download_status': 'VERIFIED_LIVE', 'added_matches': 0, 'corrected_scores': 0, 'sha256': '1107dc7c46d6e7b4db47bd6e12b654b35cd0cc81b6c7f0fbe37933c6c273e13e', 'coverage_status': 'CURRENT_WITHIN_PROVIDER_SCHEDULE', 'note': 'Provider schedule comparison is not independent proof of complete coverage.', 'status': 'CURRENT_WITHIN_PROVIDER_SCHEDULE', 'download_age_hours': 0.0019266980555555555, 'training_end': '2026-10-14', 'cache_hash_verified': True, 'last_refresh_error': None, 'last_refresh_error_reason': None} |
+| Training data health | {'completed_matches': 36, 'latest_completed_utc': '2026-10-14T19:00:00+00:00', 'latest_completed_date': '2026-10-14', 'next_fixture_utc': '2026-10-20T16:45:00+00:00', 'overdue_unfinished_match_ids': [], 'source_schedule_matches': 144, 'provider': 'football-data.org', 'season_start': 2026, 'checked_at_utc': '2026-10-17T09:46:01.982404+00:00', 'download_status': 'VERIFIED_LIVE', 'added_matches': 0, 'corrected_scores': 0, 'sha256': '1107dc7c46d6e7b4db47bd6e12b654b35cd0cc81b6c7f0fbe37933c6c273e13e', 'coverage_status': 'CURRENT_WITHIN_PROVIDER_SCHEDULE', 'note': 'Provider schedule comparison is not independent proof of complete coverage.', 'status': 'CURRENT_WITHIN_PROVIDER_SCHEDULE', 'download_age_hours': 0.001792775, 'training_end': '2026-10-14', 'cache_hash_verified': True, 'last_refresh_error': None, 'last_refresh_error_reason': None} |
 | Training source | football-data.org |
 | Fixture provider mode | auto |
 | Fixture sources | ['The Odds API'] |
@@ -39,7 +39,7 @@ Fixtures in this report: **18**.
 | Odds regions | — |
 | Live odds matched | 18.00 |
 | Additional event odds calls used before this league | 44.00 |
-| Bbs statistics model artifact | bbs/feature_models/UCL/20261017T091108188978Z_e92a8f3796377802b3bb71e57abbbd66605ec5c7fc98d4469581508ff3708382.json |
+| Bbs statistics model artifact | bbs/feature_models/UCL/20261017T094608436394Z_16aeb420ceeb20c46ee5f686435f5be6fc81c5a40e148dfc42f94faedf719422.json |
 | Additional odds coverage mode | — |
 | Additional odds coverage | — |
 | Additional odds in window linked fixtures | 0.00 |
@@ -101,8 +101,8 @@ The model's most likely 1X2 outcome is **AS Roma win** at **82.8%**. Expected go
 | 1 | 3-1 | 7.44% |
 | 2 | 4-1 | 6.99% |
 | 3 | 2-1 | 5.94% |
-| 4 | 3-0 | 5.66% |
-| 5 | 4-0 | 5.32% |
+| 4 | 3-0 | 5.65% |
+| 5 | 4-0 | 5.31% |
 
 ### Market comparison
 
@@ -138,13 +138,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | ŠK Slovan Bratislava |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 3.7592 |
-| Dc lambda away | 1.3151 |
+| Dc lambda home | 3.7594 |
+| Dc lambda away | 1.3153 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 22 |
@@ -152,9 +152,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 71.2% |
 | P btts no | 28.8% |
 | Fair Over 0.5 odds | 1.00 |
-| Fair Under 0.5 odds | 205.88 |
+| Fair Under 0.5 odds | 205.99 |
 | Fair Over 1.5 odds | 1.04 |
-| Fair Under 1.5 odds | 26.35 |
+| Fair Under 1.5 odds | 26.36 |
 | Fair Over 2.5 odds | 1.13 |
 | Fair Under 2.5 odds | 8.51 |
 | Fair Over 3.5 odds | 1.33 |
@@ -198,7 +198,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob draw | -0.0064 |
 | Raw ev draw | -0.2952 |
 | Raw edge prob away | 0.0408 |
-| Raw ev away | 0.4455 |
+| Raw ev away | 0.4457 |
 
 </details>
 
@@ -207,7 +207,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-20 — Fenerbahce vs Slavia Praha
 
-The model's most likely 1X2 outcome is **Fenerbahce win** at **43.0%**. Expected goals are 0.78 for Fenerbahce and 1.07 for Slavia Praha (1.84 combined). The most likely exact score is 1-0 at 20.7%. Goal-market probabilities: at least one goal: 86.9%; Over 2.5 goals: 28.7%; Under 3.5 goals: 88.8%; Double Chance 1X: 69.5%; Double Chance X2: 57.0%; Double Chance 12 (either team wins): 73.6%; Under 4.5 goals: 96.0%; BTTS Yes (both teams score): 34.0%; BTTS No (at least one team does not score): 66.0%.
+The model's most likely 1X2 outcome is **Fenerbahce win** at **43.0%**. Expected goals are 0.78 for Fenerbahce and 1.07 for Slavia Praha (1.84 combined). The most likely exact score is 1-0 at 20.7%. Goal-market probabilities: at least one goal: 86.9%; Over 2.5 goals: 28.7%; Under 3.5 goals: 88.8%; Double Chance 1X: 69.5%; Double Chance X2: 57.0%; Double Chance 12 (either team wins): 73.6%; Under 4.5 goals: 96.0%; BTTS Yes (both teams score): 33.9%; BTTS No (at least one team does not score): 66.1%.
 
 **Fixture source:** The Odds API
 
@@ -241,7 +241,7 @@ The model's most likely 1X2 outcome is **Fenerbahce win** at **43.0%**. Expected
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 20.73% |
+| 1 | 1-0 | 20.74% |
 | 2 | 0-0 | 13.10% |
 | 3 | 0-1 | 12.60% |
 | 4 | 1-1 | 10.76% |
@@ -285,28 +285,28 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | SK Slavia Praha |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 0.7764 |
+| Dc lambda home | 0.7762 |
 | Dc lambda away | 1.0672 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 13 |
 | Score grid omitted mass | 0 |
-| P btts yes | 34.0% |
-| P btts no | 66.0% |
+| P btts yes | 33.9% |
+| P btts no | 66.1% |
 | Fair Over 0.5 odds | 1.15 |
 | Fair Under 0.5 odds | 7.63 |
 | Fair Over 1.5 odds | 1.87 |
 | Fair Under 1.5 odds | 2.15 |
 | Fair Over 2.5 odds | 3.48 |
 | Fair Under 2.5 odds | 1.40 |
-| Fair Over 3.5 odds | 8.89 |
+| Fair Over 3.5 odds | 8.90 |
 | Fair Under 3.5 odds | 1.13 |
-| Fair Over 4.5 odds | 24.97 |
+| Fair Over 4.5 odds | 24.98 |
 | Fair Under 4.5 odds | 1.04 |
 | Unadjusted home-win probability | 26.9% |
 | Unadjusted draw probability | 30.6% |
@@ -342,12 +342,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | +12.0% |
 | Over 2.5 probability edge | -29.3% |
 | Under 2.5 probability edge | +29.3% |
-| Raw edge prob home | -0.3234 |
-| Raw ev home | -0.5327 |
+| Raw edge prob home | -0.3235 |
+| Raw ev home | -0.5328 |
 | Raw edge prob draw | 0.0835 |
-| Raw ev draw | 0.3191 |
-| Raw edge prob away | 0.2399 |
-| Raw ev away | 1.0545 |
+| Raw ev draw | 0.3192 |
+| Raw edge prob away | 0.2400 |
+| Raw ev away | 1.0547 |
 
 </details>
 
@@ -436,7 +436,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 21 |
@@ -499,7 +499,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-20 — Manchester City vs AEK Athens
 
-The model's most likely 1X2 outcome is **Manchester City win** at **84.5%**. Expected goals are 1.97 for Manchester City and 0.39 for AEK Athens (2.37 combined). The most likely exact score is 1-0 at 21.1%. Goal-market probabilities: at least one goal: 94.2%; Over 2.5 goals: 45.3%; Under 3.5 goals: 77.1%; Double Chance 1X: 95.7%; Double Chance X2: 15.5%; Double Chance 12 (either team wins): 88.8%; Under 4.5 goals: 90.0%; BTTS Yes (both teams score): 25.8%; BTTS No (at least one team does not score): 74.2%.
+The model's most likely 1X2 outcome is **Manchester City win** at **84.5%**. Expected goals are 1.97 for Manchester City and 0.39 for AEK Athens (2.36 combined). The most likely exact score is 1-0 at 21.1%. Goal-market probabilities: at least one goal: 94.2%; Over 2.5 goals: 45.3%; Under 3.5 goals: 77.1%; Double Chance 1X: 95.7%; Double Chance X2: 15.5%; Double Chance 12 (either team wins): 88.8%; Under 4.5 goals: 90.0%; BTTS Yes (both teams score): 25.8%; BTTS No (at least one team does not score): 74.2%.
 
 **Fixture source:** The Odds API
 
@@ -509,7 +509,7 @@ The model's most likely 1X2 outcome is **Manchester City win** at **84.5%**. Exp
 | --- | --- | --- |
 | Manchester City win | 84.5% | 1.18 |
 | Draw | 11.2% | 8.92 |
-| AEK Athens win | 4.3% | 23.26 |
+| AEK Athens win | 4.3% | 23.27 |
 
 ### Goals outlook
 
@@ -517,7 +517,7 @@ The model's most likely 1X2 outcome is **Manchester City win** at **84.5%**. Exp
 | --- | --- |
 | Manchester City expected goals | 1.97 |
 | AEK Athens expected goals | 0.39 |
-| Expected total goals | 2.37 |
+| Expected total goals | 2.36 |
 | Over 0.5 | 94.2% |
 | Under 0.5 | 5.8% |
 | Over 1.5 | 70.5% |
@@ -533,7 +533,7 @@ The model's most likely 1X2 outcome is **Manchester City win** at **84.5%**. Exp
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 21.05% |
+| 1 | 1-0 | 21.06% |
 | 2 | 2-0 | 20.39% |
 | 3 | 3-0 | 13.42% |
 | 4 | 2-1 | 7.96% |
@@ -545,7 +545,7 @@ The model's most likely 1X2 outcome is **Manchester City win** at **84.5%**. Exp
 | --- | --- | --- | --- | --- |
 | Manchester City win | 84.5% | 93.1% | 1.07 | -9.6% |
 | Draw | 11.2% | 5.0% | 17.00 | +90.6% |
-| AEK Athens win | 4.3% | 1.9% | 42.00 | +80.6% |
+| AEK Athens win | 4.3% | 1.9% | 42.00 | +80.5% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -573,13 +573,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | PAE AEK |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.9748 |
-| Dc lambda away | 0.3905 |
+| Dc lambda home | 1.9744 |
+| Dc lambda away | 0.3903 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
@@ -587,14 +587,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 25.8% |
 | P btts no | 74.2% |
 | Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 17.22 |
+| Fair Under 0.5 odds | 17.21 |
 | Fair Over 1.5 odds | 1.42 |
-| Fair Under 1.5 odds | 3.40 |
+| Fair Under 1.5 odds | 3.39 |
 | Fair Over 2.5 odds | 2.21 |
 | Fair Under 2.5 odds | 1.83 |
-| Fair Over 3.5 odds | 4.36 |
+| Fair Over 3.5 odds | 4.37 |
 | Fair Under 3.5 odds | 1.30 |
-| Fair Over 4.5 odds | 9.97 |
+| Fair Over 4.5 odds | 9.98 |
 | Fair Under 4.5 odds | 1.11 |
 | Unadjusted home-win probability | 75.9% |
 | Unadjusted draw probability | 17.4% |
@@ -630,10 +630,10 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Under 2.5 probability edge | +32.4% |
 | Raw edge prob home | -0.1721 |
 | Raw ev home | -0.1880 |
-| Raw edge prob draw | 0.1244 |
-| Raw ev draw | 1.9636 |
+| Raw edge prob draw | 0.1245 |
+| Raw ev draw | 1.9642 |
 | Raw edge prob away | 0.0476 |
-| Raw ev away | 1.8062 |
+| Raw ev away | 1.8053 |
 
 </details>
 
@@ -722,7 +722,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
@@ -772,7 +772,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | -10.6% |
 | Under 2.5 probability edge | +10.6% |
 | Raw edge prob home | -0.3493 |
-| Raw ev home | -0.5817 |
+| Raw ev home | -0.5818 |
 | Raw edge prob draw | 0.0141 |
 | Raw ev draw | 0.0383 |
 | Raw edge prob away | 0.3352 |
@@ -859,13 +859,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | FC Barcelona |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 3.2228 |
-| Dc lambda away | 1.5230 |
+| Dc lambda home | 3.2231 |
+| Dc lambda away | 1.5228 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 20 |
@@ -873,7 +873,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 76.8% |
 | P btts no | 23.2% |
 | Fair Over 0.5 odds | 1.01 |
-| Fair Under 0.5 odds | 118.38 |
+| Fair Under 0.5 odds | 118.37 |
 | Fair Over 1.5 odds | 1.06 |
 | Fair Under 1.5 odds | 16.90 |
 | Fair Over 2.5 odds | 1.20 |
@@ -914,12 +914,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -11.7% |
 | Over 2.5 probability edge | +4.0% |
 | Under 2.5 probability edge | -4.0% |
-| Raw edge prob home | 0.3144 |
-| Raw ev home | 0.7683 |
-| Raw edge prob draw | -0.0800 |
-| Raw ev draw | -0.3663 |
+| Raw edge prob home | 0.3145 |
+| Raw ev home | 0.7684 |
+| Raw edge prob draw | -0.0801 |
+| Raw ev draw | -0.3664 |
 | Raw edge prob away | -0.2344 |
-| Raw ev away | -0.6160 |
+| Raw ev away | -0.6161 |
 
 </details>
 
@@ -928,7 +928,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-20 — Porto vs PSV Eindhoven
 
-The model's most likely 1X2 outcome is **Porto win** at **57.9%**. Expected goals are 2.11 for Porto and 1.17 for PSV Eindhoven (3.28 combined). The most likely exact score is 2-1 at 9.5%. Goal-market probabilities: at least one goal: 96.5%; Over 2.5 goals: 63.2%; Under 3.5 goals: 58.6%; Double Chance 1X: 78.8%; Double Chance X2: 42.1%; Double Chance 12 (either team wins): 79.1%; Under 4.5 goals: 76.9%; BTTS Yes (both teams score): 60.5%; BTTS No (at least one team does not score): 39.5%.
+The model's most likely 1X2 outcome is **Porto win** at **57.9%**. Expected goals are 2.11 for Porto and 1.17 for PSV Eindhoven (3.28 combined). The most likely exact score is 2-1 at 9.5%. Goal-market probabilities: at least one goal: 96.5%; Over 2.5 goals: 63.2%; Under 3.5 goals: 58.6%; Double Chance 1X: 78.8%; Double Chance X2: 42.1%; Double Chance 12 (either team wins): 79.1%; Under 4.5 goals: 76.9%; BTTS Yes (both teams score): 60.4%; BTTS No (at least one team does not score): 39.6%.
 
 **Fixture source:** The Odds API
 
@@ -972,7 +972,7 @@ The model's most likely 1X2 outcome is **Porto win** at **57.9%**. Expected goal
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Porto win | 57.9% | 56.3% | 1.76 | +1.8% |
+| Porto win | 57.9% | 56.3% | 1.76 | +1.9% |
 | Draw | 20.9% | 22.1% | 4.41 | -7.8% |
 | PSV Eindhoven win | 21.2% | 21.6% | 4.51 | -4.2% |
 
@@ -1002,19 +1002,19 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | PSV |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.1109 |
-| Dc lambda away | 1.1672 |
+| Dc lambda home | 2.1111 |
+| Dc lambda away | 1.1671 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
 | Score grid omitted mass | 0 |
-| P btts yes | 60.5% |
-| P btts no | 39.5% |
+| P btts yes | 60.4% |
+| P btts no | 39.6% |
 | Fair Over 0.5 odds | 1.04 |
 | Fair Under 0.5 odds | 28.50 |
 | Fair Over 1.5 odds | 1.20 |
@@ -1057,12 +1057,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -0.4% |
 | Over 2.5 probability edge | +2.0% |
 | Under 2.5 probability edge | -2.0% |
-| Raw edge prob home | 0.0318 |
-| Raw ev home | 0.0465 |
+| Raw edge prob home | 0.0319 |
+| Raw ev home | 0.0466 |
 | Raw edge prob draw | -0.0243 |
-| Raw ev draw | -0.1319 |
+| Raw ev draw | -0.1320 |
 | Raw edge prob away | -0.0076 |
-| Raw ev away | -0.0594 |
+| Raw ev away | -0.0596 |
 
 </details>
 
@@ -1071,7 +1071,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-20 — Sabah FK vs Borussia Dortmund
 
-The model's most likely 1X2 outcome is **Borussia Dortmund win** at **75.9%**. Expected goals are 0.75 for Sabah FK and 2.48 for Borussia Dortmund (3.23 combined). The most likely exact score is 0-2 at 12.2%. Goal-market probabilities: at least one goal: 96.4%; Over 2.5 goals: 62.7%; Under 3.5 goals: 59.5%; Double Chance 1X: 24.1%; Double Chance X2: 90.8%; Double Chance 12 (either team wins): 85.1%; Under 4.5 goals: 77.5%; BTTS Yes (both teams score): 48.1%; BTTS No (at least one team does not score): 51.9%.
+The model's most likely 1X2 outcome is **Borussia Dortmund win** at **75.9%**. Expected goals are 0.75 for Sabah FK and 2.47 for Borussia Dortmund (3.23 combined). The most likely exact score is 0-2 at 12.2%. Goal-market probabilities: at least one goal: 96.4%; Over 2.5 goals: 62.7%; Under 3.5 goals: 59.5%; Double Chance 1X: 24.1%; Double Chance X2: 90.8%; Double Chance 12 (either team wins): 85.1%; Under 4.5 goals: 77.5%; BTTS Yes (both teams score): 48.1%; BTTS No (at least one team does not score): 51.9%.
 
 **Fixture source:** The Odds API
 
@@ -1088,7 +1088,7 @@ The model's most likely 1X2 outcome is **Borussia Dortmund win** at **75.9%**. E
 | Measure | Model estimate |
 | --- | --- |
 | Sabah FK expected goals | 0.75 |
-| Borussia Dortmund expected goals | 2.48 |
+| Borussia Dortmund expected goals | 2.47 |
 | Expected total goals | 3.23 |
 | Over 0.5 | 96.4% |
 | Under 0.5 | 3.6% |
@@ -1145,13 +1145,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Borussia Dortmund |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 0.7544 |
-| Dc lambda away | 2.4751 |
+| Dc lambda home | 0.7543 |
+| Dc lambda away | 2.4749 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 18 |
@@ -1159,7 +1159,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 48.1% |
 | P btts no | 51.9% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 27.78 |
+| Fair Under 0.5 odds | 27.77 |
 | Fair Over 1.5 odds | 1.20 |
 | Fair Under 1.5 odds | 5.88 |
 | Fair Over 2.5 odds | 1.60 |
@@ -1203,7 +1203,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob home | 0.0100 |
 | Raw ev home | -0.0878 |
 | Raw edge prob draw | -0.0009 |
-| Raw ev draw | -0.0918 |
+| Raw ev draw | -0.0917 |
 | Raw edge prob away | -0.0091 |
 | Raw ev away | 0.0108 |
 
@@ -1288,13 +1288,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Club Atlético de Madrid |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.4142 |
-| Dc lambda away | 2.0958 |
+| Dc lambda home | 1.4143 |
+| Dc lambda away | 2.0957 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
@@ -1302,7 +1302,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 66.7% |
 | P btts no | 33.3% |
 | Fair Over 0.5 odds | 1.03 |
-| Fair Under 0.5 odds | 35.25 |
+| Fair Under 0.5 odds | 35.24 |
 | Fair Over 1.5 odds | 1.16 |
 | Fair Under 1.5 odds | 7.09 |
 | Fair Over 2.5 odds | 1.49 |
@@ -1344,11 +1344,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | +3.5% |
 | Under 2.5 probability edge | -3.5% |
 | Raw edge prob home | -0.0649 |
-| Raw ev home | -0.2116 |
+| Raw ev home | -0.2115 |
 | Raw edge prob draw | -0.0460 |
-| Raw ev draw | -0.2023 |
+| Raw ev draw | -0.2022 |
 | Raw edge prob away | 0.1109 |
-| Raw ev away | 0.2450 |
+| Raw ev away | 0.2449 |
 
 </details>
 
@@ -1367,7 +1367,7 @@ The model's most likely 1X2 outcome is **Aston Villa win** at **80.8%**. Expecte
 | --- | --- | --- |
 | Aston Villa win | 80.8% | 1.24 |
 | Draw | 12.3% | 8.10 |
-| Viking FK win | 6.9% | 14.55 |
+| Viking FK win | 6.9% | 14.54 |
 
 ### Goals outlook
 
@@ -1431,13 +1431,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Viking FK |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 4.0063 |
-| Dc lambda away | 1.1640 |
+| Dc lambda home | 4.0061 |
+| Dc lambda away | 1.1641 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 23 |
@@ -1445,7 +1445,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 68.8% |
 | P btts no | 31.2% |
 | Fair Over 0.5 odds | 1.01 |
-| Fair Under 0.5 odds | 152.56 |
+| Fair Under 0.5 odds | 152.57 |
 | Fair Over 1.5 odds | 1.04 |
 | Fair Under 1.5 odds | 26.21 |
 | Fair Over 2.5 odds | 1.14 |
@@ -1487,11 +1487,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | +13.4% |
 | Under 2.5 probability edge | -13.4% |
 | Raw edge prob home | 0.0972 |
-| Raw ev home | 0.1219 |
+| Raw ev home | 0.1218 |
 | Raw edge prob draw | -0.0828 |
-| Raw ev draw | -0.5197 |
+| Raw ev draw | -0.5196 |
 | Raw edge prob away | -0.0144 |
-| Raw ev away | -0.2310 |
+| Raw ev away | -0.2307 |
 
 </details>
 
@@ -1578,13 +1578,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Arsenal FC |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.0182 |
+| Dc lambda home | 1.0183 |
 | Dc lambda away | 1.3102 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
@@ -1635,12 +1635,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | +6.6% |
 | Over 2.5 probability edge | -17.7% |
 | Under 2.5 probability edge | +17.7% |
-| Raw edge prob home | -0.1473 |
-| Raw ev home | -0.3397 |
+| Raw edge prob home | -0.1472 |
+| Raw ev home | -0.3396 |
 | Raw edge prob draw | 0.0146 |
 | Raw ev draw | 0.0380 |
-| Raw edge prob away | 0.1327 |
-| Raw ev away | 0.4095 |
+| Raw edge prob away | 0.1326 |
+| Raw ev away | 0.4094 |
 
 </details>
 
@@ -1733,7 +1733,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 20 |
@@ -1741,7 +1741,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 70.7% |
 | P btts no | 29.3% |
 | Fair Over 0.5 odds | 1.02 |
-| Fair Under 0.5 odds | 65.92 |
+| Fair Under 0.5 odds | 65.93 |
 | Fair Over 1.5 odds | 1.09 |
 | Fair Under 1.5 odds | 12.28 |
 | Fair Over 2.5 odds | 1.28 |
@@ -1788,7 +1788,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw ev home | 0.5826 |
 | Raw edge prob draw | -0.1154 |
 | Raw ev draw | -0.4677 |
-| Raw edge prob away | -0.1596 |
+| Raw edge prob away | -0.1595 |
 | Raw ev away | -0.5588 |
 
 </details>
@@ -1798,7 +1798,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-21 — Como vs Manchester United
 
-The model's most likely 1X2 outcome is **Como win** at **50.6%**. Expected goals are 2.99 for Como and 1.94 for Manchester United (4.94 combined). The most likely exact score is 2-2 at 7.8%. Goal-market probabilities: at least one goal: 99.3%; Over 2.5 goals: 86.0%; Under 3.5 goals: 27.9%; Double Chance 1X: 71.4%; Double Chance X2: 49.4%; Double Chance 12 (either team wins): 79.1%; Under 4.5 goals: 46.6%; BTTS Yes (both teams score): 82.3%; BTTS No (at least one team does not score): 17.7%.
+The model's most likely 1X2 outcome is **Como win** at **50.6%**. Expected goals are 2.99 for Como and 1.94 for Manchester United (4.93 combined). The most likely exact score is 2-2 at 7.8%. Goal-market probabilities: at least one goal: 99.3%; Over 2.5 goals: 86.0%; Under 3.5 goals: 27.9%; Double Chance 1X: 71.4%; Double Chance X2: 49.4%; Double Chance 12 (either team wins): 79.1%; Under 4.5 goals: 46.6%; BTTS Yes (both teams score): 82.3%; BTTS No (at least one team does not score): 17.7%.
 
 **Fixture source:** The Odds API
 
@@ -1816,7 +1816,7 @@ The model's most likely 1X2 outcome is **Como win** at **50.6%**. Expected goals
 | --- | --- |
 | Como expected goals | 2.99 |
 | Manchester United expected goals | 1.94 |
-| Expected total goals | 4.94 |
+| Expected total goals | 4.93 |
 | Over 0.5 | 99.3% |
 | Under 0.5 | 0.7% |
 | Over 1.5 | 95.4% |
@@ -1836,7 +1836,7 @@ The model's most likely 1X2 outcome is **Como win** at **50.6%**. Expected goals
 | 2 | 2-1 | 5.30% |
 | 3 | 3-1 | 5.29% |
 | 4 | 3-2 | 5.13% |
-| 5 | 1-1 | 5.08% |
+| 5 | 1-1 | 5.09% |
 
 ### Market comparison
 
@@ -1876,13 +1876,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Manchester United FC |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.9931 |
-| Dc lambda away | 1.9421 |
+| Dc lambda home | 2.9924 |
+| Dc lambda away | 1.9419 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 20 |
@@ -1890,15 +1890,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 82.3% |
 | P btts no | 17.7% |
 | Fair Over 0.5 odds | 1.01 |
-| Fair Under 0.5 odds | 153.12 |
+| Fair Under 0.5 odds | 152.99 |
 | Fair Over 1.5 odds | 1.05 |
-| Fair Under 1.5 odds | 21.92 |
+| Fair Under 1.5 odds | 21.91 |
 | Fair Over 2.5 odds | 1.16 |
 | Fair Under 2.5 odds | 7.15 |
 | Fair Over 3.5 odds | 1.39 |
 | Fair Under 3.5 odds | 3.59 |
 | Fair Over 4.5 odds | 1.87 |
-| Fair Under 4.5 odds | 2.15 |
+| Fair Under 4.5 odds | 2.14 |
 | Unadjusted home-win probability | 59.7% |
 | Unadjusted draw probability | 16.3% |
 | Unadjusted away-win probability | 24.0% |
@@ -1933,12 +1933,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -4.5% |
 | Over 2.5 probability edge | +27.9% |
 | Under 2.5 probability edge | -27.9% |
-| Raw edge prob home | 0.1823 |
-| Raw ev home | 0.4205 |
-| Raw edge prob draw | -0.0915 |
-| Raw ev draw | -0.3728 |
+| Raw edge prob home | 0.1822 |
+| Raw ev home | 0.4203 |
+| Raw edge prob draw | -0.0914 |
+| Raw ev draw | -0.3727 |
 | Raw edge prob away | -0.0908 |
-| Raw ev away | -0.2865 |
+| Raw ev away | -0.2864 |
 
 </details>
 
@@ -2021,13 +2021,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | FK Shakhtar Donetsk |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.0511 |
+| Dc lambda home | 2.0512 |
 | Dc lambda away | 0.9214 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
@@ -2035,7 +2035,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 50.7% |
 | P btts no | 49.3% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 26.19 |
+| Fair Under 0.5 odds | 26.20 |
 | Fair Over 1.5 odds | 1.25 |
 | Fair Under 1.5 odds | 5.02 |
 | Fair Over 2.5 odds | 1.70 |
@@ -2079,7 +2079,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob home | -0.1616 |
 | Raw ev home | -0.2064 |
 | Raw edge prob draw | 0.0686 |
-| Raw ev draw | 0.4605 |
+| Raw ev draw | 0.4604 |
 | Raw edge prob away | 0.0930 |
 | Raw ev away | 1.1316 |
 
@@ -2090,7 +2090,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-21 — Lille vs Galatasaray
 
-The model's most likely 1X2 outcome is **Lille win** at **57.5%**. Expected goals are 2.57 for Lille and 1.04 for Galatasaray (3.61 combined). The most likely exact score is 1-1 at 9.0%. Goal-market probabilities: at least one goal: 96.9%; Over 2.5 goals: 67.1%; Under 3.5 goals: 53.5%; Double Chance 1X: 78.1%; Double Chance X2: 42.5%; Double Chance 12 (either team wins): 79.3%; Under 4.5 goals: 72.7%; BTTS Yes (both teams score): 61.4%; BTTS No (at least one team does not score): 38.6%.
+The model's most likely 1X2 outcome is **Lille win** at **57.5%**. Expected goals are 2.57 for Lille and 1.04 for Galatasaray (3.61 combined). The most likely exact score is 1-1 at 9.0%. Goal-market probabilities: at least one goal: 96.9%; Over 2.5 goals: 67.1%; Under 3.5 goals: 53.5%; Double Chance 1X: 78.1%; Double Chance X2: 42.5%; Double Chance 12 (either team wins): 79.3%; Under 4.5 goals: 72.6%; BTTS Yes (both teams score): 61.4%; BTTS No (at least one team does not score): 38.6%.
 
 **Fixture source:** The Odds API
 
@@ -2117,8 +2117,8 @@ The model's most likely 1X2 outcome is **Lille win** at **57.5%**. Expected goal
 | Under 2.5 | 32.9% |
 | Over 3.5 | 46.5% |
 | Under 3.5 | 53.5% |
-| Over 4.5 | 27.3% |
-| Under 4.5 | 72.7% |
+| Over 4.5 | 27.4% |
+| Under 4.5 | 72.6% |
 
 ### 5 most likely scorelines
 
@@ -2168,13 +2168,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Galatasaray SK |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.5689 |
+| Dc lambda home | 2.5691 |
 | Dc lambda away | 1.0368 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 18 |
@@ -2225,8 +2225,8 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -8.4% |
 | Over 2.5 probability edge | +9.7% |
 | Under 2.5 probability edge | -9.7% |
-| Raw edge prob home | 0.2660 |
-| Raw ev home | 0.5849 |
+| Raw edge prob home | 0.2661 |
+| Raw ev home | 0.5850 |
 | Raw edge prob draw | -0.0983 |
 | Raw ev draw | -0.3957 |
 | Raw edge prob away | -0.1677 |
@@ -2313,13 +2313,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Feyenoord Rotterdam |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 5.7509 |
-| Dc lambda away | 1.6458 |
+| Dc lambda home | 5.7516 |
+| Dc lambda away | 1.6457 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 27 |
@@ -2327,16 +2327,16 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 82.8% |
 | P btts no | 17.2% |
 | Fair Over 0.5 odds | 1.00 |
-| Fair Under 0.5 odds | 1197.29 |
+| Fair Under 0.5 odds | 1197.83 |
 | Fair Over 1.5 odds | 1.01 |
-| Fair Under 1.5 odds | 133.42 |
+| Fair Under 1.5 odds | 133.47 |
 | Fair Over 2.5 odds | 1.03 |
-| Fair Under 2.5 odds | 30.70 |
+| Fair Under 2.5 odds | 30.71 |
 | Fair Over 3.5 odds | 1.08 |
-| Fair Under 3.5 odds | 12.97 |
+| Fair Under 3.5 odds | 12.98 |
 | Fair Over 4.5 odds | 1.21 |
 | Fair Under 4.5 odds | 5.85 |
-| Unadjusted home-win probability | 91.5% |
+| Unadjusted home-win probability | 91.6% |
 | Unadjusted draw probability | 4.7% |
 | Unadjusted away-win probability | 3.8% |
 | Raw p over 1 5 | 99.5% |
@@ -2346,7 +2346,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P draw away | 22.0% |
 | P home away | 87.9% |
 | Raw p home draw | 96.2% |
-| Raw p draw away | 8.5% |
+| Raw p draw away | 8.4% |
 | Raw p home away | 95.3% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
@@ -2371,9 +2371,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob home | 0.2707 |
 | Raw ev home | 0.4282 |
 | Raw edge prob draw | -0.1485 |
-| Raw ev draw | -0.7691 |
+| Raw ev draw | -0.7692 |
 | Raw edge prob away | -0.1222 |
-| Raw ev away | -0.7815 |
+| Raw ev away | -0.7816 |
 
 </details>
 
@@ -2382,7 +2382,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-21 — Real Madrid vs RB Leipzig
 
-The model's most likely 1X2 outcome is **Real Madrid win** at **76.1%**. Expected goals are 2.80 for Real Madrid and 0.88 for RB Leipzig (3.68 combined). The most likely exact score is 2-0 at 9.7%. Goal-market probabilities: at least one goal: 97.6%; Over 2.5 goals: 70.6%; Under 3.5 goals: 50.2%; Double Chance 1X: 90.2%; Double Chance X2: 23.9%; Double Chance 12 (either team wins): 86.0%; Under 4.5 goals: 69.5%; BTTS Yes (both teams score): 54.9%; BTTS No (at least one team does not score): 45.1%.
+The model's most likely 1X2 outcome is **Real Madrid win** at **76.1%**. Expected goals are 2.80 for Real Madrid and 0.88 for RB Leipzig (3.68 combined). The most likely exact score is 2-0 at 9.7%. Goal-market probabilities: at least one goal: 97.6%; Over 2.5 goals: 70.7%; Under 3.5 goals: 50.1%; Double Chance 1X: 90.2%; Double Chance X2: 23.9%; Double Chance 12 (either team wins): 86.0%; Under 4.5 goals: 69.5%; BTTS Yes (both teams score): 54.9%; BTTS No (at least one team does not score): 45.1%.
 
 **Fixture source:** The Odds API
 
@@ -2391,7 +2391,7 @@ The model's most likely 1X2 outcome is **Real Madrid win** at **76.1%**. Expecte
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
 | Real Madrid win | 76.1% | 1.31 |
-| Draw | 14.0% | 7.12 |
+| Draw | 14.0% | 7.13 |
 | RB Leipzig win | 9.8% | 10.18 |
 
 ### Goals outlook
@@ -2405,10 +2405,10 @@ The model's most likely 1X2 outcome is **Real Madrid win** at **76.1%**. Expecte
 | Under 0.5 | 2.4% |
 | Over 1.5 | 87.7% |
 | Under 1.5 | 12.3% |
-| Over 2.5 | 70.6% |
-| Under 2.5 | 29.4% |
-| Over 3.5 | 49.8% |
-| Under 3.5 | 50.2% |
+| Over 2.5 | 70.7% |
+| Under 2.5 | 29.3% |
+| Over 3.5 | 49.9% |
+| Under 3.5 | 50.1% |
 | Over 4.5 | 30.5% |
 | Under 4.5 | 69.5% |
 
@@ -2456,13 +2456,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | RB Leipzig |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.8006 |
+| Dc lambda home | 2.8009 |
 | Dc lambda away | 0.8771 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 19 |
@@ -2470,7 +2470,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 54.9% |
 | P btts no | 45.1% |
 | Fair Over 0.5 odds | 1.02 |
-| Fair Under 0.5 odds | 42.24 |
+| Fair Under 0.5 odds | 42.25 |
 | Fair Over 1.5 odds | 1.14 |
 | Fair Under 1.5 odds | 8.14 |
 | Fair Over 2.5 odds | 1.42 |
@@ -2512,11 +2512,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | -7.1% |
 | Under 2.5 probability edge | +7.1% |
 | Raw edge prob home | 0.0281 |
-| Raw ev home | 0.0158 |
+| Raw ev home | 0.0159 |
 | Raw edge prob draw | -0.0178 |
-| Raw ev draw | -0.1059 |
-| Raw edge prob away | -0.0103 |
-| Raw ev away | -0.1063 |
+| Raw ev draw | -0.1061 |
+| Raw edge prob away | -0.0104 |
+| Raw ev away | -0.1065 |
 
 </details>
 
@@ -2534,7 +2534,7 @@ The model's most likely 1X2 outcome is **Sporting Lisbon win** at **86.7%**. Exp
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
 | Sporting Lisbon win | 86.7% | 1.15 |
-| Draw | 8.1% | 12.33 |
+| Draw | 8.1% | 12.34 |
 | LASK win | 5.2% | 19.25 |
 
 ### Goals outlook
@@ -2599,13 +2599,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | LASK Linz |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 90/100 |
-| Dc lambda home | 6.0991 |
-| Dc lambda away | 1.3147 |
+| Dc lambda home | 6.0999 |
+| Dc lambda away | 1.3148 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-17T09:11:08.188978+00:00 |
+| Bbs statistics cutoff utc | 2026-10-17T09:46:08.436394+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 28 |
@@ -2613,13 +2613,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 75.0% |
 | P btts no | 25.0% |
 | Fair Over 0.5 odds | 1.00 |
-| Fair Under 0.5 odds | 1002.55 |
+| Fair Under 0.5 odds | 1003.41 |
 | Fair Over 1.5 odds | 1.01 |
-| Fair Under 1.5 odds | 134.82 |
+| Fair Under 1.5 odds | 134.92 |
 | Fair Over 2.5 odds | 1.03 |
-| Fair Under 2.5 odds | 31.50 |
+| Fair Under 2.5 odds | 31.51 |
 | Fair Over 3.5 odds | 1.08 |
-| Fair Under 3.5 odds | 13.27 |
+| Fair Under 3.5 odds | 13.28 |
 | Fair Over 4.5 odds | 1.20 |
 | Fair Under 4.5 odds | 6.06 |
 | Unadjusted home-win probability | 95.2% |
@@ -2659,7 +2659,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob draw | -0.1034 |
 | Raw ev draw | -0.7907 |
 | Raw edge prob away | -0.0662 |
-| Raw ev away | -0.7926 |
+| Raw ev away | -0.7927 |
 
 </details>
 
