@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "SC Paderborn",
+    "home_team": "Werder Bremen",
+    "kickoff_utc": "2026-10-17T13:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "9a422e1aad1053828eaf629a58d901de"
+  },
+  "observed_at_utc": "2026-10-17T13:24:24.844300+00:00",
+  "payload": {
+    "away_team": "SC Paderborn",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T13:24:23Z",
+            "outcomes": [
+              {
+                "name": "SC Paderborn",
+                "price": 4.93
+              },
+              {
+                "name": "Werder Bremen",
+                "price": 1.67
+              },
+              {
+                "name": "Draw",
+                "price": 4.32
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T13:24:23Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.79
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.15
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-17T13:23:56Z",
+            "outcomes": [
+              {
+                "name": "SC Paderborn or Draw",
+                "price": 2.33
+              },
+              {
+                "name": "Werder Bremen or Draw",
+                "price": 1.21
+              },
+              {
+                "name": "SC Paderborn or Werder Bremen",
+                "price": 1.25
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T13:24:23Z",
+            "outcomes": [
+              {
+                "name": "SC Paderborn",
+                "price": 4.5
+              },
+              {
+                "name": "Werder Bremen",
+                "price": 1.7
+              },
+              {
+                "name": "Draw",
+                "price": 4.33
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T13:24:23Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.21
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.67
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-17T13:24:23Z",
+            "outcomes": [
+              {
+                "name": "SC Paderborn or Draw",
+                "price": 2.15
+              },
+              {
+                "name": "Werder Bremen or Draw",
+                "price": 1.21
+              },
+              {
+                "name": "SC Paderborn or Werder Bremen",
+                "price": 1.22
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-17T13:30:00Z",
+    "home_team": "Werder Bremen",
+    "id": "9a422e1aad1053828eaf629a58d901de",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.21,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8040804494568143,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-17T13:23:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.33,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.4175696754689894,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-17T13:23:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7783498750741963,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-17T13:23:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.588183070368155,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T13:24:23+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.32,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21995963746680033,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T13:24:23+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.93,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19185729216504463,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T13:24:23+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5749289261475704,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T13:24:23+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.33,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2168037810336216,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T13:24:23+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20826729281880801,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T13:24:23+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.21,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4249905039595596,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-17T13:24:23+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5750094960404405,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-17T13:24:23+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.21,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7829032787619205,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-17T13:24:23+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.15,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.44061068246601104,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-17T13:24:23+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.22,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7764860387720687,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-17T13:24:23+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
