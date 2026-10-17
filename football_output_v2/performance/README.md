@@ -9,25 +9,25 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 12 | 9-3 | 75.0% | +3.2% |
+| All selections | 14 | 10-4 | 71.4% | -2.5% |
 
-Unsettled / unverified entries: **12**.
-Whole-fixture 1X2 multiclass Brier (n=40): 0.5385
+Unsettled / unverified entries: **10**.
+Whole-fixture 1X2 multiclass Brier (n=46): 0.5747
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | PROVISIONAL | 5 | 2-3 | 40.0% | -49.6% |
-| STRICT | 7 | 7-0 | 100.0% | +40.9% |
+| STRICT | 9 | 8-1 | 88.9% | +23.7% |
 
 ## By policy
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| 72h-all-markets-net-ev15-execution-v7 | 1 | 1-0 | 100.0% | +27.0% |
+| 72h-all-markets-net-ev15-execution-v7 | 2 | 1-1 | 50.0% | -36.5% |
 | 72h-seven-markets-fresh-references-net-ev15-v11 | 0 | 0-0 | — | — |
-| 72h-six-markets-dc12-probability-odds-net-ev15-v9 | 0 | 0-0 | — | — |
+| 72h-six-markets-dc12-probability-odds-net-ev15-v9 | 1 | 1-0 | 100.0% | +27.0% |
 | 72h-ucl-v3 | 6 | 5-1 | 83.3% | +16.0% |
 | legacy/unspecified | 5 | 3-2 | 60.0% | -17.0% |
 
@@ -35,10 +35,10 @@ Whole-fixture 1X2 multiclass Brier (n=40): 0.5385
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Away win | 0 | 0-0 | — | — |
+| Away win | 1 | 0-1 | 0.0% | -100.0% |
 | Both Teams to Score - Yes | 1 | 1-0 | 100.0% | +49.0% |
 | Double Chance 12 | 0 | 0-0 | — | — |
-| Double Chance 1X | 0 | 0-0 | — | — |
+| Double Chance 1X | 1 | 1-0 | 100.0% | +27.0% |
 | Double Chance X2 | 0 | 0-0 | — | — |
 | Home win | 2 | 2-0 | 100.0% | +68.5% |
 | Over 1.5 | 5 | 5-0 | 100.0% | +24.8% |
@@ -48,10 +48,10 @@ Whole-fixture 1X2 multiclass Brier (n=40): 0.5385
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Bundesliga | 0 | 0-0 | — | — |
+| Bundesliga | 1 | 1-0 | 100.0% | +27.0% |
 | La Liga | 3 | 3-0 | 100.0% | +28.3% |
 | Premier League | 3 | 0-3 | 0.0% | -100.0% |
-| Serie A | 2 | 2-0 | 100.0% | +45.5% |
+| Serie A | 3 | 2-1 | 66.7% | -3.0% |
 | UEFA Champions League | 4 | 4-0 | 100.0% | +40.5% |
 
 ## Gameweeks
@@ -59,16 +59,16 @@ Whole-fixture 1X2 multiclass Brier (n=40): 0.5385
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
-| 2026-W42 | 8 | 7-1 | 87.5% | +23.2% |
+| 2026-W42 | 10 | 8-2 | 80.0% | +11.3% |
 | 2026-W43 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
 
 | Forecast bin | Samples | Average forecast | Observed win rate | Binary Brier |
 |---|---:|---:|---:|---:|
-| 60%–70% | 2 | 67.3% | 100.0% | 0.1071 |
+| 60%–70% | 3 | 66.9% | 66.7% | 0.2167 |
 | 70%–80% | 4 | 76.0% | 75.0% | 0.1865 |
-| 80%–90% | 4 | 85.5% | 50.0% | 0.3569 |
+| 80%–90% | 5 | 84.4% | 60.0% | 0.2934 |
 | 90%–100% | 2 | 93.0% | 100.0% | 0.0052 |
 
 Calibration bins report observed outcomes against the originally
@@ -124,7 +124,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 2a86586863a4 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 3a3ff5eef038 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Locally observed near-close quotes, coverage and offered-price comparisons; official close and accepted execution are unverified.
 

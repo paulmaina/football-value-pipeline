@@ -29,7 +29,7 @@
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
       "report": "recency_experiment/report.md",
       "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 40,
+      "settled_evidence": 50,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -39,7 +39,7 @@
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
       "report": "filter_sensitivity_experiment/report.md",
       "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 4,
+      "settled_evidence": 5,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -49,7 +49,7 @@
       "name": "shortlist_policy_experiment",
       "report": "shortlist_policy_experiment/report.md",
       "scope": "POLICY_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 6,
+      "settled_evidence": 12,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -60,7 +60,7 @@
       "name": "benchmark_forward_experiment",
       "report": "benchmark_forward_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 5,
+      "settled_evidence": 10,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -83,7 +83,7 @@
       "name": "model_reliability_experiment",
       "report": "model_reliability_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 5,
+      "settled_evidence": 10,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -95,11 +95,11 @@
       "name": "model_reliability_experiment",
       "report": "model_reliability_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 5,
+      "settled_evidence": 10,
       "status": "COLLECT_MORE_DATA"
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-17T14:12:07.567383+00:00",
+  "reviewed_at_utc": "2026-10-17T15:46:52.377489+00:00",
   "version": "experiment-review-queue-v1"
 }
