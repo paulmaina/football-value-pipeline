@@ -1,0 +1,184 @@
+{
+  "fixture": {
+    "away_team": "Paris Saint Germain",
+    "home_team": "Strasbourg",
+    "kickoff_utc": "2026-10-17T15:15:00+00:00",
+    "league": "Ligue 1",
+    "odds_event_id": "f3034246520a2ee4ff0ac0d5074966f8"
+  },
+  "observed_at_utc": "2026-10-17T15:09:29.954304+00:00",
+  "payload": {
+    "away_team": "Paris Saint Germain",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T15:09:28Z",
+            "outcomes": [
+              {
+                "name": "Paris Saint Germain",
+                "price": 1.46
+              },
+              {
+                "name": "Strasbourg",
+                "price": 6.19
+              },
+              {
+                "name": "Draw",
+                "price": 5.36
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T15:09:28Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.95
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-17T15:08:47Z",
+            "outcomes": [
+              {
+                "name": "Paris Saint Germain",
+                "price": 1.46
+              },
+              {
+                "name": "Strasbourg",
+                "price": 5.9
+              },
+              {
+                "name": "Draw",
+                "price": 5.35
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-17T15:08:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.91
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-17T15:15:00Z",
+    "home_team": "Strasbourg",
+    "id": "f3034246520a2ee4ff0ac0d5074966f8",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.9,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15541008616990823,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T15:08:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.35,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1722083349703245,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T15:08:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.46,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6723815788597673,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T15:08:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49453701116582316,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-17T15:08:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5054629888341767,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-17T15:08:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.19,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15042985945681775,
+      "selection": "home",
+      "updated_at_utc": "2026-10-17T15:09:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.36,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.17470537441774472,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-17T15:09:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.46,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6748647661254376,
+      "selection": "away",
+      "updated_at_utc": "2026-10-17T15:09:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-17T15:09:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-17T15:09:28+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
