@@ -1,0 +1,66 @@
+name: Closing odds collection
+
+on:
+  schedule:
+    # Start ahead of standard European kickoff slots, away from hour boundaries.
+    # UTC 08:52..21:52 = EAT 11:52..00:52. Manual runs cover unusual slots.
+    - cron: '52 8-21 * * *'
+    - cron: '7,22,37 9-21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: closing-odds-main
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Check upcoming fixtures and credentials without installing dependencies
+        id: plan
+        env:
+          THE_ODDS_API_KEY: ${{ secrets.THE_ODDS_API_KEY }}
+          THE_ODDS_API_KEY_FALLBACK_1: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_1 }}
+          THE_ODDS_API_KEY_FALLBACK_2: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_2 }}
+        run: python github_closing_odds.py plan
+      - uses: actions/setup-python@v7
+        if: steps.plan.outputs.ready == 'true'
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: football_value_requirements.txt
+      - name: Install runtime dependencies only for an upcoming fixture
+        if: steps.plan.outputs.ready == 'true'
+        run: python -m pip install -r football_value_requirements.txt
+      - name: Reserve quota, collect pre-kickoff quotes and publish evidence
+        id: collect
+        if: steps.plan.outputs.ready == 'true'
+        env:
+          THE_ODDS_API_KEY: ${{ secrets.THE_ODDS_API_KEY }}
+          THE_ODDS_API_KEY_FALLBACK_1: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_1 }}
+          THE_ODDS_API_KEY_FALLBACK_2: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_2 }}
+          RESERVATION_ID: actions-${{ github.run_id }}-${{ github.run_attempt }}
+        run: python github_closing_odds.py collect --reservation-id "$RESERVATION_ID"
+      - name: Retain quote evidence and quota checkpoint for recovery
+        if: always() && steps.collect.outcome != 'skipped' && steps.plan.outputs.ready == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: closing-odds-recovery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: workflow_artifacts/closing-odds-recovery/
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Explain scheduled timing
+        if: always()
+        run: echo 'Quotes are accepted only inside the existing 6-minute pre-kickoff window, with market age <=120 seconds. GitHub queue delays can cause a missed window; missing quotes stay missing. No bets are placed.' >> "$GITHUB_STEP_SUMMARY"

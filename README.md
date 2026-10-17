@@ -211,4 +211,4 @@ A separate [historical benchmark](docs/historical-benchmark.md) compares regular
 
 The [benchmark forward bridge](docs/benchmark-forward-automation.md) automatically captures a frozen 85% market-weight candidate and reports review readiness. Daily scheduled forecast collection requires Odds API keys in GitHub Secrets; local `.env` files are not available to Actions. GitHub issues request review once evidence gates are reached; production changes require approval.
 
-Local closing quote collection and the separate Pinnacle totals trial: [setup and evidence limits](docs/closing-odds-and-totals-trial.md). Normal forecasts generate the totals sidecar automatically; closing collection uses local `.env` credentials.
+GitHub Actions closing quote collection and the separate Pinnacle totals trial: [setup, Windows-task migration and evidence limits](docs/closing-odds-and-totals-trial.md). Normal forecasts generate the totals sidecar automatically; closing collection reuses the existing Odds API repository secrets and publishes observations back to the repository.
