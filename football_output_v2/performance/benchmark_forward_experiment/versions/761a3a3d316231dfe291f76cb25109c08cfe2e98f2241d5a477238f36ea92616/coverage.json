@@ -2703,7 +2703,7 @@
     "reference_source": "The Odds API / Marathon Bet",
     "reference_updated_at_utc": "2026-10-14T18:13:12Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "available"
@@ -2897,7 +2897,7 @@
     "reference_source": "The Odds API / Marathon Bet",
     "reference_updated_at_utc": "2026-10-14T18:13:12Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "available"
@@ -2935,7 +2935,7 @@
     "reference_source": "The Odds API / Marathon Bet",
     "reference_updated_at_utc": "2026-10-14T18:13:12Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "unavailable"
@@ -3129,7 +3129,7 @@
     "reference_source": "The Odds API / Marathon Bet",
     "reference_updated_at_utc": "2026-10-14T18:13:12Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "available"
@@ -3323,7 +3323,7 @@
     "reference_source": "The Odds API / Marathon Bet",
     "reference_updated_at_utc": "2026-10-14T18:13:12Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "available"
@@ -3711,7 +3711,7 @@
     "reference_source": "The Odds API / Winamax (DE)",
     "reference_updated_at_utc": "2026-10-14T18:13:12Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
     "status": "available"
