@@ -30,7 +30,7 @@ SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
              'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'workflow_checks.py')
-COVERAGE_FLOORS = {'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
+COVERAGE_FLOORS = {'bbs_statistics_model.py':85, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
     'publish_bbs_data.py':75, 'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
     'shortlist_policy_experiment.py':85, 'quote_freshness.py':95, 'score_probability.py':95,
     'double_chance.py':90, 'goal_market_validation.py':85, 'goal_blend_experiment.py':90,

@@ -33,6 +33,8 @@ def current_health(root, clock):
             'training_end': end, 'training_matches': data.get('training_matches'),
             'days_since_latest_result': (clock.date()-datetime.fromisoformat(end).date()).days if end else None,
             'forecast_training_health': data.get('training_data_health', {'status': 'LEGACY_NOT_RECORDED'}),
+            'bbs_statistics_model': data.get('bbs_statistics_model', {'status': 'LEGACY_NOT_RECORDED'}),
+            'bbs_statistics_model_artifact': data.get('bbs_statistics_model_artifact'),
             'diagnostics_sha256': hashlib.sha256(path.read_bytes()).hexdigest()}
     if 'UCL' in training:
         training['UCL']['current_source_health'] = health(root.parent, training['UCL']['training_end'], clock)

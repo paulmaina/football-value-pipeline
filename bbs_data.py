@@ -339,6 +339,8 @@ def collect(client, leagues, seasons, stats_limit=500):
     """Checkpoint pages; incomplete pagination never claims full competition coverage."""
     store = client.store
     report = {'errors': [], 'completed_lists': [], 'statistics_fetched': 0}
+    rejected_stats = {(q['league'], q['entity']): q
+                      for q in store.latest('statistics_quarantine', client.clock().isoformat())}
 
     def eligible_matches():
         latest = store.latest('match', client.clock().isoformat())
@@ -354,7 +356,9 @@ def collect(client, leagues, seasons, stats_limit=500):
         return 6 * 3600 if age < 2 * 86400 else (86400 if age < 7 * 86400 else 7 * 86400)
 
     def statistics_due(item, previous):
+        rejected = rejected_stats.get((item['league'], item['entity']))
         return (previous is None or
+            (rejected is not None and utc(rejected['observed']) >= utc(previous['observed'])) or
             (client.clock() - utc(previous['observed'])).total_seconds() >= statistics_ttl(item) or
             previous['payload'].get('team_ids') != {side: str(item['payload'][side]['id']) for side in ('home', 'away')})
 
@@ -439,9 +443,18 @@ def collect(client, leagues, seasons, stats_limit=500):
                     previous = prior.get((item['league'], item['entity']))
                     if previous and previous['payload'].get('team_ids') != {side: str(item['payload'][side]['id']) for side in ('home', 'away')}:
                         ttl = 0
+                    rejected = rejected_stats.get((item['league'], item['entity']))
+                    if previous and rejected and utc(rejected['observed']) >= utc(previous['observed']):
+                        ttl = 0
                     payload, observed, query = client.get(path, ttl=ttl)
-                    store.put('statistics', item['league'], item['entity'], observed,
-                              normal_stats(payload, item['payload']), query)
+                    try:
+                        normalized = normal_stats(payload, item['payload'])
+                    except (ValueError, KeyError, TypeError) as exc:
+                        store.put('statistics_quarantine', item['league'], item['entity'], observed,
+                                  {'reason': str(exc)}, query)
+                        rejected_stats[(item['league'], item['entity'])] = {'observed': observed}
+                        raise
+                    store.put('statistics', item['league'], item['entity'], observed, normalized, query)
                     fetched += 1
                     report['statistics_fetched'] = fetched
                 attempt('statistics/' + item['entity'], statistics)
@@ -464,19 +477,24 @@ def collect(client, leagues, seasons, stats_limit=500):
         matches = [x for x in eligible_matches() if x['league'] == league]
         finished = [x for x in matches if x['payload']['status'] == 'finished']
         statistics = {x['entity']: x for x in store.latest('statistics', client.clock().isoformat()) if x['league'] == league}
+        rejected = {entity for (scope, entity), q in rejected_stats.items()
+                    if scope == league and (entity not in statistics
+                    or utc(q['observed']) >= utc(statistics[entity]['observed']))}
+        held = sum(x['entity'] in rejected and x['entity'] in statistics for x in finished)
         missing = sum(x['entity'] not in statistics for x in finished)
-        unavailable = sum(not statistics[x['entity']]['payload']['available'] for x in finished if x['entity'] in statistics)
+        unavailable = sum(not statistics[x['entity']]['payload']['available'] for x in finished
+                          if x['entity'] in statistics and x['entity'] not in rejected)
         stale = sum(statistics_due(x, statistics[x['entity']]) for x in finished if x['entity'] in statistics)
         report['coverage'][league] = dict(completed_matches=len(finished), statistics_stale=stale,
             team_records=sum(x['league'] == league for x in store.latest('team', client.clock().isoformat())),
             player_records=sum(x['league'] == league for x in store.latest('player', client.clock().isoformat())),
             scheduled_matches=sum(x['payload']['status'] == 'scheduled' for x in matches),
-            statistics_missing=missing, statistics_unavailable=unavailable,
-            statistics_available=len(finished)-missing-unavailable)
+            statistics_missing=missing, statistics_unavailable=unavailable, statistics_quarantined=held,
+            statistics_available=len(finished)-missing-unavailable-held)
         if not finished:
             report['errors'].append({'scope': league, 'error': 'No completed results collected; training coverage unverified'})
-        if missing or unavailable or stale:
-            report['errors'].append({'scope': league, 'error': f'Statistics incomplete: {missing} unfetched, {unavailable} unavailable, {stale} stale'})
+        if missing or unavailable or stale or held:
+            report['errors'].append({'scope': league, 'error': f'Statistics incomplete: {missing} unfetched, {unavailable} unavailable, {stale} stale, {held} quarantined'})
     report['quarantined_records'] = [dict(league=x['league'], bbs_match_id=x['entity'], reason=x['payload']['reason'])
         for x in store.latest('quarantine', client.clock().isoformat())
         if x['league'] in leagues and not any(m['league']==x['league'] and m['entity']==x['entity'] and utc(m['observed']) > utc(x['observed']) for m in store.latest('match', client.clock().isoformat()))]
