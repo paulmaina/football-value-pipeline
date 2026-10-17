@@ -99,7 +99,7 @@ class ActionsClosingTests(OfflineQuotePolicyTestCase):
             def runner(cmd,cwd,check):
                 calls.append(cmd);work=Path(cwd)
                 git(source,'fetch','origin','main')
-                committed=json.loads(git(source,'show','FETCH_HEAD:'+str(g.BUDGET)).stdout)
+                committed=json.loads(git(source,'show','FETCH_HEAD:'+g.BUDGET.as_posix()).stdout)
                 self.assertEqual(committed['reservations']['id']['status'],'reserved')
                 self.assertIn('--api-key-source',cmd);self.assertIn('environment',cmd)
                 result=c.collect_once(work/g.ROOT,None,clock,fetcher=lambda *args:payload(row,clock),reservation_id='id')
@@ -115,11 +115,11 @@ class ActionsClosingTests(OfflineQuotePolicyTestCase):
                 g.collect(source,'id',runner=runner,clock=lambda:clock)
             self.assertEqual(len(calls),1)
             git(source,'fetch','origin','main')
-            budget=json.loads(git(source,'show','FETCH_HEAD:'+str(g.BUDGET)).stdout)
+            budget=json.loads(git(source,'show','FETCH_HEAD:'+g.BUDGET.as_posix()).stdout)
             self.assertEqual(budget['requests'],1)
             self.assertEqual(budget['reservations']['id']['status'],'complete')
             self.assertEqual(git(source,'show','FETCH_HEAD:keep.txt').stdout,'concurrent main data')
-            self.assertEqual(git(source,'show','FETCH_HEAD:'+str(g.ROOT/'performance/closing_odds/summary.json')).returncode,0)
+            self.assertEqual(git(source,'show','FETCH_HEAD:'+(g.ROOT/'performance/closing_odds/summary.json').as_posix()).returncode,0)
             self.assertTrue(list((source/'workflow_artifacts/closing-odds-recovery/observations').glob('*.json')))
             with self.assertRaises(ValueError):g.collect(source,'id',runner=runner,clock=lambda:clock)
 
@@ -132,7 +132,7 @@ class ActionsClosingTests(OfflineQuotePolicyTestCase):
             with self.assertRaisesRegex(RuntimeError,'Interrupted'):
                 g.collect(source,'fail',runner=failed,clock=lambda:clock)
             git(source,'fetch','origin','main')
-            budget=json.loads(git(source,'show','FETCH_HEAD:'+str(g.BUDGET)).stdout)
+            budget=json.loads(git(source,'show','FETCH_HEAD:'+g.BUDGET.as_posix()).stdout)
             self.assertEqual(budget['requests'],1)
             self.assertEqual(budget['reservations']['fail']['status'],'complete')
 
@@ -148,7 +148,7 @@ class ActionsClosingTests(OfflineQuotePolicyTestCase):
                 g.collect(source,'fail',runner=runner,clock=lambda:clock,attempts=2)
             self.assertEqual(len(calls),1)
             git(source,'fetch','origin','main')
-            budget=json.loads(git(source,'show','FETCH_HEAD:'+str(g.BUDGET)).stdout)
+            budget=json.loads(git(source,'show','FETCH_HEAD:'+g.BUDGET.as_posix()).stdout)
             self.assertEqual(budget['requests'],10)
             self.assertEqual(budget['reservations']['fail']['status'],'reserved')
             self.assertTrue((source/'workflow_artifacts/closing-odds-recovery/request_budget.json').exists())
