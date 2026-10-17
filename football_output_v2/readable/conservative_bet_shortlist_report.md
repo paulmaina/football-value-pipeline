@@ -4,7 +4,7 @@
 **Candidates:** 4 of target 10 distinct matches.
 **Strictly qualified:** 3. **Provisional watchlist:** 1.
 **Pipeline status:** BELOW_TARGET_WITH_PROVISIONAL.
-**Generated (UTC):** 2026-10-17T09:11:14.277086+00:00.
+**Generated (UTC):** 2026-10-17T09:46:12.155774+00:00.
 **Kickoffs within next 72 hours of run:** Yes (span: 24.5 hours).
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. Do not treat ten candidates as a ten-leg betslip.
