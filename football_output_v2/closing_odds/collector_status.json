@@ -1,11 +1,21 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-18T10:24:20.413791+00:00",
+  "checked_at_utc": "2026-10-18T11:58:58.546895+00:00",
   "coverage_checks": [
     {
-      "event_id": "367da93aa21a1e13eeafb94fd2263c75",
-      "missing_required_quotes": [],
+      "event_id": "1f566f17c50fe5162724ec2863d2207b",
+      "missing_required_quotes": [
+        {
+          "bookmaker": "1xbet",
+          "selection": "over_1_5"
+        },
+        {
+          "bookmaker": "pinnacle",
+          "selection": "over_1_5"
+        }
+      ],
       "requested_markets": [
+        "alternate_totals",
         "h2h",
         "totals"
       ],
@@ -16,14 +26,14 @@
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 10,
+  "daily_requests": 11,
   "eligible_fixtures": 1,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "request_limit": 10,
+  "request_limit": 1,
   "requests": 1,
   "reservation_allowance": 10,
-  "reservation_id": "actions-39117285588-1-1",
-  "reservation_used": 1,
+  "reservation_id": "actions-39117285588-1-2",
+  "reservation_used": 10,
   "written": 1
 }
