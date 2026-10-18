@@ -1441,5 +1441,63 @@
     "snapshot_commit": "7a6c9d44b7c20308d3ed85270f7cabc2a98df58e",
     "snapshot_generated_utc": "2026-10-16T22:16:28.500933Z",
     "validation_status": "RELIABLE_FOR_RANKING"
+  },
+  {
+    "audit_brier": "0.2105826307803414",
+    "audit_validation_matches": "45",
+    "away_team": "Villarreal",
+    "bookmaker": "1xBet",
+    "bookmaker_availability": "USER_ALLOWLIST",
+    "calibration_penalty": "0.05613815163617222",
+    "closing": {
+      "1xbet": {
+        "status": "PENDING_KICKOFF"
+      },
+      "pinnacle": {
+        "status": "PENDING_KICKOFF"
+      }
+    },
+    "conservative_estimated_ev": "0.1135426291558761",
+    "date": "2026-10-20",
+    "decision": "SHORTLISTED_PROVISIONAL",
+    "development_validation_matches": "135",
+    "entry_price_basis": "frozen offered quote; accepted execution unverified",
+    "estimated_edge": "0.11479777395231616",
+    "estimated_ev": "0.19943400115921972",
+    "evaluated_at_utc": "2026-10-18T08:37:07.802036+00:00",
+    "fixture_id": "b9567e9c3df909f8f6f21425b4b38d3f",
+    "fixture_key": "UEFA Champions League|liverpool|villarreal|2026-10-20",
+    "gross_estimated_ev": "0.19943400115921972",
+    "high_confidence_audit_matches": "8.0",
+    "high_confidence_audit_observed_rate": "0.875",
+    "high_confidence_development_matches": "25.0",
+    "high_confidence_overconfidence": "-0.041876981155465454",
+    "high_confidence_penalty": "0.05613815163617222",
+    "high_confidence_status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+    "high_confidence_tier": "75plus",
+    "high_confidence_wilson95_lower": "0.5291051942301386",
+    "high_confidence_wilson95_upper": "0.9775830911367038",
+    "historical_gap_score": "0.5",
+    "home_team": "Liverpool",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market": "Home win",
+    "market_probability": "0.6691460176550169",
+    "min_team_name_match_score": "100.0",
+    "near_miss_reason": "75plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+    "odds_age_hours": "0.012167232222222223",
+    "offered_decimal_odds": "1.53",
+    "per_stake_cost": "0.0",
+    "predicted_probability": "0.7839437916073331",
+    "rank_probability": "0.7278056399711609",
+    "raw_dc_ev": "0.3750745953062631",
+    "raw_dc_probability": "0.898741565559649",
+    "rejection_reasons": "75plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+    "selection_policy_version": "72h-seven-markets-fresh-references-net-ev15-v11",
+    "selection_tier": "PROVISIONAL",
+    "snapshot_captured_utc": "2026-10-18T08:57:07Z",
+    "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
+    "snapshot_generated_utc": "2026-10-18T08:37:07.802036Z",
+    "validation_status": "RELIABLE_FOR_RANKING"
   }
 ]
