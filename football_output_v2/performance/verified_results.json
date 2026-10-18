@@ -524,6 +524,36 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "FL1:559657": {
+    "away_goals": 0,
+    "away_short_name": "Monaco",
+    "away_team": "AS Monaco FC",
+    "first_verified_at_utc": "2026-10-18T18:45:10Z",
+    "home_goals": 1,
+    "home_short_name": "Lorient",
+    "home_team": "FC Lorient",
+    "kickoff_utc": "2026-10-18T15:15:00Z",
+    "league_code": "FL1",
+    "match_id": 559657,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "FL1:559658": {
+    "away_goals": 3,
+    "away_short_name": "Stade Rennais",
+    "away_team": "Stade Rennais FC 1901",
+    "first_verified_at_utc": "2026-10-18T18:45:10Z",
+    "home_goals": 4,
+    "home_short_name": "Paris FC",
+    "home_team": "Paris FC",
+    "kickoff_utc": "2026-10-18T15:15:00Z",
+    "league_code": "FL1",
+    "match_id": 559658,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559659": {
     "away_goals": 3,
     "away_short_name": "RC Lens",
@@ -580,6 +610,21 @@
     "kickoff_utc": "2026-10-17T15:15:00Z",
     "league_code": "FL1",
     "match_id": 559662,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "FL1:559663": {
+    "away_goals": 3,
+    "away_short_name": "Auxerre",
+    "away_team": "AJ Auxerre",
+    "first_verified_at_utc": "2026-10-18T18:45:10Z",
+    "home_goals": 1,
+    "home_short_name": "Le Havre",
+    "home_team": "Le Havre AC",
+    "kickoff_utc": "2026-10-18T15:15:00Z",
+    "league_code": "FL1",
+    "match_id": 559663,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -944,6 +989,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564714": {
+    "away_goals": 5,
+    "away_short_name": "Real Sociedad",
+    "away_team": "Real Sociedad de Fútbol",
+    "first_verified_at_utc": "2026-10-18T18:45:10Z",
+    "home_goals": 2,
+    "home_short_name": "Málaga",
+    "home_team": "Málaga CF",
+    "kickoff_utc": "2026-10-18T16:30:00Z",
+    "league_code": "PD",
+    "match_id": 564714,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564715": {
     "away_goals": 0,
     "away_short_name": "Santander",
@@ -1199,6 +1259,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PL:560608": {
+    "away_goals": 1,
+    "away_short_name": "Arsenal",
+    "away_team": "Arsenal FC",
+    "first_verified_at_utc": "2026-10-18T18:45:10Z",
+    "home_goals": 0,
+    "home_short_name": "Nottingham",
+    "home_team": "Nottingham Forest FC",
+    "kickoff_utc": "2026-10-18T15:30:00Z",
+    "league_code": "PL",
+    "match_id": 560608,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560609": {
     "away_goals": 0,
     "away_short_name": "Crystal Palace",
@@ -1240,6 +1315,21 @@
     "kickoff_utc": "2026-10-17T14:00:00Z",
     "league_code": "PL",
     "match_id": 560611,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558569": {
+    "away_goals": 2,
+    "away_short_name": "Atalanta",
+    "away_team": "Atalanta BC",
+    "first_verified_at_utc": "2026-10-18T18:45:10Z",
+    "home_goals": 3,
+    "home_short_name": "Milan",
+    "home_team": "AC Milan",
+    "kickoff_utc": "2026-10-18T16:00:00Z",
+    "league_code": "SA",
+    "match_id": 558569,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
