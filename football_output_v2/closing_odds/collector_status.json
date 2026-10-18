@@ -1,16 +1,25 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-18T16:30:21.339274+00:00",
+  "checked_at_utc": "2026-10-18T18:41:12.557187+00:00",
   "coverage_checks": [],
   "daily_request_cap": 100,
-  "daily_requests": 45,
-  "eligible_fixtures": 0,
-  "errors": [],
-  "reason": "NO_FIXTURES_IN_PRE_KICKOFF_WINDOW",
-  "request_limit": 8,
-  "requests": 0,
+  "daily_requests": 47,
+  "eligible_fixtures": 2,
+  "errors": [
+    {
+      "error": "RuntimeError",
+      "event_id": "471f891b1f6516a864ad94c8eb649f5e"
+    },
+    {
+      "error": "RuntimeError",
+      "event_id": "4c4026e2782f09d6f0ff2bde2a390513"
+    }
+  ],
+  "reason": "CHECKED_ELIGIBLE_FIXTURES",
+  "request_limit": 2,
+  "requests": 2,
   "reservation_allowance": 10,
-  "reservation_id": "actions-39134758015-1-5",
-  "reservation_used": 2,
+  "reservation_id": "actions-39134758015-1-6",
+  "reservation_used": 10,
   "written": 0
 }
