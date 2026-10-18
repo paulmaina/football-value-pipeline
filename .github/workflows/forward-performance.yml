@@ -26,6 +26,8 @@ on:
       - 'recency_experiment.py'
       - 'filter_sensitivity_experiment.py'
       - 'shortlist_policy_experiment.py'
+      - 'shortlist_weight_experiment.py'
+      - 'football_output_v2/raw/shortlist_weight_experiment.json'
       - 'football_output_v2/raw/shortlist_policy_experiment.json'
       - 'benchmark_forward_experiment.py'
       - 'benchmark_forward_registry.json'
