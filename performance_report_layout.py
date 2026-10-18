@@ -482,7 +482,7 @@ def add_guide(parts, st):
 
 def ledger_layout(parts, st):
     settings={
-        'Selections':([12,23,22,44,20,18,32,18,14,12,36,12,14,14,14,16,24,26,18,16,18],(0,5,'A6'),(1,7,12,17,18,19,20,21),{'B':'date','H':'percent','I':'units','M':'units','N':'units','O':'decimal','S':'percent','U':'units'}),
+        'Selections':([12,23,22,44,20,18,32,18,14,12,36,12,14,14,14,16,24,26,18,16,18,28,28],(0,5,'A6'),(1,7,12,17,18,19,20,21),{'B':'date','H':'percent','I':'units','M':'units','N':'units','O':'decimal','S':'percent','U':'units'}),
         'Predictions':([12,23,22,44,32,34,12,16,16,16,16,16,16,16,24,26],(0,5,'A6'),(1,5,15,16),{'B':'date','I':'decimal'}),
         'Breakdowns':([18,38,13,13,13,13,13,15,16,16,15,15,18,18,18,18,48],(2,5,'C6'),(),{'H':'percent','I':'units','J':'units','K':'percent','L':'decimal','M':'percent','N':'percent','O':'percent'}),
         'Calibration':([18,16,16,14,20,20,20,16,48],(1,5,'B6'),(),{'B':'percent','C':'percent','E':'percent','F':'percent','G':'percent','H':'decimal'}),
@@ -518,7 +518,7 @@ def ledger_layout(parts, st):
                 if table.get('name') == 'BreakdownsTable':
                     table.find(q('tableColumns'))[14].set('name', 'Calibration gap')
                     parts[path] = xml_bytes(table)
-        if name=='Selections':sheet.put('A4','Frozen selections. Technical fields are grouped; expand them for source details. Kickoff times are UTC.',st['note'])
+        if name=='Selections':sheet.put('A4','Latest eligible pre-match selection per fixture. Generated/captured times and source commits show which prediction is graded. Times are UTC.',st['note'])
         if name in ('Selections','Predictions'):
             for nr in (2,4):
                 merges=sheet.root.find(q('mergeCells'))
@@ -551,6 +551,7 @@ def dashboard(parts, st, health, rows):
     sheet.put('A14','Simulated net profit (units)',st['body'])
     sheet.put('A15','Selection Brier (lower is better)',st['body'])
     if health:sheet.put('A27','Review UTC: '+str(health.get('reviewed_at_utc') or 'Unavailable'),st['note'])
+    link(sheet,'D43','Run Tracking','Results by prediction run',st)
     link(sheet,'A31','Experiments','Experiment readiness',st);link(sheet,'D31','Pipeline Health','Collection health',st)
     sheet.put('A33','Monitoring and next actions',st['section']);sheet.merge('A33:F33')
     sheet.row(34,['Check','Status',None,'Next action'],st,True);sheet.merge('D34:F34')
@@ -661,6 +662,34 @@ def add_trend_charts(parts,path,sheet,end,start):
     parts[path]=sheet.finish();parts['[Content_Types].xml']=xml_bytes(types)
 
 
+def add_run_tracking(parts, root, st):
+    metrics = load(root, 'metrics.json')
+    sheet = Sheet()
+    title(sheet, 'Prediction run tracking',
+        'Main totals count each match once using its latest eligible pre-kickoff shortlist entry. The history below preserves earlier predictions; it is excluded from main win rate and ROI.',
+        [30,24,14,14,14,17,17,20,14], st, (2,11,'C12'))
+    unique = metrics.get('shortlist', {})
+    sheet.put('A6', 'Main totals — latest eligible prediction per match', st['section']); sheet.merge('A6:I6')
+    sheet.row(7, ['Unique matches','Settled','Wins','Losses','Pending','Win rate','Net ROI','Profit (units)','Runs tracked'], st, True)
+    sheet.row(8, [metrics.get('unique_shortlisted_fixtures','Unavailable'), unique.get('graded','Unavailable'),
+        unique.get('wins','Unavailable'), unique.get('losses','Unavailable'), unique.get('pending','Unavailable'),
+        unique.get('win_rate','Unavailable'), unique.get('flat_stake_roi','Unavailable'),
+        unique.get('profit_per_unit_staked','Unavailable'), metrics.get('tracked_prediction_runs','Unavailable')], st)
+    for c in ('F','G'): sheet.cell(c+'8').set('s',str(st['percent']))
+    sheet.put('A10', 'Historical runs — descriptive results, excluded from main totals', st['section']); sheet.merge('A10:I10')
+    sheet.row(11, ['Generated UTC','First snapshot','Selected','Settled','Wins','Win rate','Net ROI','Profit (units)','Pending'], st, True)
+    nr = 12
+    for run, values in sorted(metrics.get('run_history_groups',{}).items()):
+        source = metrics.get('run_provenance',{}).get(run,{})
+        sheet.row(nr, [run, source.get('first_snapshot_commit','Unavailable'), values['total'],values['graded'],
+            values['wins'],values['win_rate'],values['flat_stake_roi'],values['profit_per_unit_staked'],values['pending']], st)
+        for c in ('F','G'): sheet.cell(f'{c}{nr}').set('s',str(st['percent']))
+        nr += 1
+    if nr == 12: sheet.put('A12','No tracked prediction runs yet',st['note'])
+    link(sheet,f'A{nr+2}','Dashboard','Back to dashboard',st)
+    put_sheet(parts,'Run Tracking',sheet)
+
+
 def format_report(destination, root, health=None, history=None):
     """Apply presentation atomically without recomputing evidence or changing it."""
     destination=Path(destination)
@@ -669,12 +698,12 @@ def format_report(destination, root, health=None, history=None):
         health = load(root, 'pipeline_health.json') or None
         history = load(root, 'health_history.json') if health else None
     st=styles(parts);ledger_layout(parts,st)
-    add_experiments(parts,root,health,st);add_trends(parts,st);add_guide(parts,st)
+    add_experiments(parts,root,health,st);add_trends(parts,st);add_guide(parts,st);add_run_tracking(parts,root,st)
     if health is not None:add_health(parts,health,history,st)
     dashboard(parts,st,health,experiment_rows(root,health))
     # Show monitoring views first; source and simulation tabs remain available.
     wb=ET.fromstring(parts['xl/workbook.xml']);sheets=wb.find(q('sheets'))
-    order=['Dashboard','Experiments','Pipeline Health','Weekly Trends','Breakdowns','Calibration','Selections','Predictions','ROI Plan','Capture Details','Metric Guide']
+    order=['Dashboard','Run Tracking','Experiments','Pipeline Health','Weekly Trends','Breakdowns','Calibration','Selections','Predictions','ROI Plan','Capture Details','Metric Guide']
     sheets[:]=sorted(sheets,key=lambda s:order.index(s.get('name')) if s.get('name') in order else len(order))
     parts['xl/workbook.xml']=xml_bytes(wb)
     fd,name=tempfile.mkstemp(prefix='layout.',suffix='.tmp',dir=destination.parent);os.close(fd)

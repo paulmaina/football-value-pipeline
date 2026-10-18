@@ -262,18 +262,39 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
         if utc(meta.get("captured_at_utc")) is None or utc(meta.get("generated_at_utc")) is None:
             warnings.warn(f"Invalid snapshot metadata ignored: {directory}")
             continue
+        required = {'predictions.csv', 'shortlist.csv', 'selection_summary.json'}
+        optional = {'goal_blend_experiment.json', 'market_led_experiment.json',
+            'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json',
+            'totals_anchor_experiment.json', 'model_reliability_experiment.json',
+            'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json'}
+        digests = meta.get('sha256')
+        if not isinstance(digests, dict) or not required.issubset(digests) or set(digests)-required-optional:
+            warnings.warn(f'Missing required or invalid snapshot manifest ignored: {directory}')
+            continue
+        if any(not isinstance(digests[name], str) or len(digests[name]) != 64 or
+               any(c not in '0123456789abcdef' for c in digests[name].lower()) for name in required):
+            warnings.warn(f'Invalid snapshot digest ignored: {directory}')
+            continue
         # Fail closed if an archived artifact changes after capture.
         if any(
             not (directory / name).exists() or hashlib.sha256(
                 (directory / name).read_bytes()
             ).hexdigest() != digest
-            for name, digest in meta.get("sha256", {}).items()
+            for name, digest in digests.items()
             if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "filter_sensitivity_experiment.json", "benchmark_forward_experiment.json", "totals_anchor_experiment.json", "model_reliability_experiment.json", "shortlist_policy_experiment.json", "shortlist_weight_experiment.json", "pipeline_health.json"}
         ):
             warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
             continue
         summary = load_json(directory / "selection_summary.json", {})
-        meta = {**meta, "selection_policy_version": (
+        # The immutable summary restores legacy subsecond generation precision;
+        # a different generation instant cannot relabel an archived forecast.
+        from forecast_integrity import snapshot_generated_at
+        try:
+            generated = snapshot_generated_at(directory, meta)
+        except (ValueError, TypeError, KeyError, OSError):
+            warnings.warn(f'Unbound snapshot generation ignored: {directory}')
+            continue
+        meta = {**meta, 'generated_at_utc': generated, "selection_policy_version": (
             meta.get("selection_policy_version") or summary.get("selection_policy_version")
             or "legacy/unspecified"
         )}
@@ -287,10 +308,23 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
     ))
 
 
+def tracking_key(row: dict) -> tuple[str, str]:
+    """One fixture per actual forecast generation, not per upload commit."""
+    generated = utc(row.get('snapshot_generated_utc'))
+    run = generated.isoformat() if generated is not None else str(row.get('snapshot_commit') or '')
+    return run, row.get('fixture_key') or fixture_key(row)
+
+
 def frozen_rows(archive: list[tuple[dict, list[dict], list[dict]]],
-                which: str) -> list[dict]:
-    """First qualifying pre-kickoff snapshot wins; no postgame selection."""
-    frozen: dict[str, dict] = {}
+                which: str, *, all_runs: bool = False, latest: bool = False) -> list[dict]:
+    """Freeze the first/latest eligible record per fixture, or per generation/fixture.
+
+    Re-uploading one generation never adds another stake. Default unique-fixture
+    semantics remain for model/experiment comparisons and near-close evaluation.
+    """
+    if all_runs and latest:
+        raise ValueError('Choose either all runs or latest per fixture')
+    frozen = {}
     for meta, predictions, picks in archive:
         source = picks if which == "shortlist" else predictions
         captured = utc(meta["captured_at_utc"])
@@ -309,16 +343,16 @@ def frozen_rows(archive: list[tuple[dict, list[dict], list[dict]]],
             if item.get("league") not in LEAGUE_CODES:
                 continue
             key = fixture_key(item)
-            if not key.strip("|") or key in frozen:
-                continue
-            frozen[key] = {
-                **item,
-                "snapshot_commit": meta["git_commit_sha"],
+            row = {**item, "snapshot_commit": meta["git_commit_sha"],
                 "snapshot_captured_utc": meta["captured_at_utc"],
-                "snapshot_generated_utc": meta["generated_at_utc"],
-                "fixture_key": key,
-                "selection_policy_version": meta.get("selection_policy_version", "legacy/unspecified"),
-            }
+                "snapshot_generated_utc": meta["generated_at_utc"], "fixture_key": key,
+                "selection_policy_version": meta.get("selection_policy_version", "legacy/unspecified")}
+            identity = tracking_key(row) if all_runs else key
+            if not key.strip("|"):
+                continue
+            if identity in frozen and (not latest or generated <= utc(frozen[identity]['snapshot_generated_utc'])):
+                continue
+            frozen[identity] = row
     return list(frozen.values())
 
 
@@ -431,6 +465,7 @@ def score_shortlist(row: dict, final: dict | None, state: str) -> dict:
         "snapshot_commit": row["snapshot_commit"],
         "selection_policy_version": row.get("selection_policy_version") or "legacy/unspecified",
         "snapshot_captured_utc": row["snapshot_captured_utc"],
+        "snapshot_generated_utc": row.get("snapshot_generated_utc") or "",
         "market": row.get("market"), "selection_tier": row.get("selection_tier") or (
             "STRICT" if row.get("decision") == "SHORTLISTED" else "PROVISIONAL"
         ),
@@ -578,7 +613,7 @@ def collect_results(eligible: list[dict], *, root: Path, token: str,
 
 SHORTLIST_COLUMNS = [
     "fixture_key", "league", "home_team", "away_team", "kickoff_utc",
-    "snapshot_commit", "selection_policy_version", "snapshot_captured_utc", "market", "selection_tier",
+    "snapshot_commit", "selection_policy_version", "snapshot_captured_utc", "snapshot_generated_utc", "market", "selection_tier",
     "predicted_probability", "offered_decimal_odds", "per_stake_cost", "bookmaker", "match_source",
     "source_match_id", "final_score", "status", "unit_profit", "brier", "week",
 ]
@@ -665,11 +700,14 @@ def report_table(groups: dict[str, dict]) -> str:
 
 
 def report(root: Path, selections: list[dict], all_predictions: list[dict],
-           failures: dict, reviewed_at: str | None = None) -> dict:
+           failures: dict, reviewed_at: str | None = None, *,
+           selection_history: list[dict] | None = None) -> dict:
     output = root / "performance"
     output.mkdir(parents=True, exist_ok=True)
     write_csv(output / "shortlist_grades.csv", selections, SHORTLIST_COLUMNS)
     write_csv(output / "prediction_grades.csv", all_predictions, PREDICTION_COLUMNS)
+    selection_history = selections if selection_history is None else selection_history
+    write_csv(output / "shortlist_run_history.csv", selection_history, SHORTLIST_COLUMNS)
 
     groupings = {
         "tier": {tier: stats([r for r in selections if r["selection_tier"] == tier])
@@ -685,6 +723,18 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
     weeks = sorted({r["week"] for r in selections if r["week"]})
     groupings["week"] = {week: stats([r for r in selections if r["week"] == week])
                          for week in weeks}
+    # First archived selection per unique fixture remains a transparent reference.
+    first = {}
+    for row in selection_history:
+        first.setdefault(row['fixture_key'], row)
+    unique_selections = list(first.values())
+    run_rows = {}
+    for row in selection_history:
+        run_rows.setdefault(tracking_key(row)[0], []).append(row)
+    latest_run_rows = {}
+    for row in selections:
+        latest_run_rows.setdefault(tracking_key(row)[0], []).append(row)
+    groupings['run'] = {key: stats(rows) for key, rows in latest_run_rows.items()}
     graded_prediction = [r for r in all_predictions if r["status"] == "GRADED"]
     one_x_two = [float(r["one_x_two_brier"]) for r in graded_prediction
                  if number(r.get("one_x_two_brier")) is not None]
@@ -702,6 +752,14 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "source": "football-data.org v4 FINISHED regulation-time scorelines",
         "reviewed_at_utc": reviewed_at,
         "shortlist": stats(selections),
+        "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
+        "first_prediction_reference": stats(unique_selections),
+        "shortlist_run_history": stats(selection_history),
+        "run_history_groups": {key:stats(rows) for key, rows in run_rows.items()},
+        "unique_shortlisted_fixtures": len(first),
+        "tracked_prediction_runs": len(run_rows),
+        "run_provenance": {key: {'generated_at_utc': rows[0].get('snapshot_generated_utc'),
+            'first_snapshot_commit': rows[0]['snapshot_commit']} for key, rows in run_rows.items()},
         "groups": groupings,
         "calibration": calibration_buckets(selections),
         "prediction_fixtures_graded": len(graded_prediction),
@@ -725,7 +783,14 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "normal 90-minute results are used, never extra-time/penalty scorelines.",
         "**PROVISIONAL candidates are not audited betting recommendations.**",
         "",
-        "## Cumulative shortlist",
+        "The main totals use the latest eligible pre-kickoff shortlist entry for each match,",
+        "with that prediction's original market, probability, odds and costs. Each match counts once.",
+        "Later uploads of an older generation never replace a newer prediction.",
+        "Earlier predictions remain in shortlist_run_history.csv and the Run Tracking tab;",
+        "history rows are correlated records and are excluded from main win-rate/ROI totals.",
+        "Whole-fixture model metrics and research experiments retain their unique-fixture cohorts.",
+        "",
+        "## Cumulative shortlist — latest prediction per match",
         "",
         report_table({"All selections": result["shortlist"]}),
         "",
@@ -733,7 +798,10 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         f"Whole-fixture 1X2 multiclass Brier (n={len(one_x_two)}): "
         + ("—" if not one_x_two else f"{result['prediction_1x2_multiclass_brier']:.4f}"),
         "",
-        "## STRICT versus PROVISIONAL", "", report_table(groupings["tier"]),
+        "## First-prediction reference — historical comparison", "",
+        report_table({"Unique fixtures": result['first_prediction_reference']}),
+        "", "## Latest selections by prediction run (generation UTC)", "", report_table(groupings['run']),
+        "", "## STRICT versus PROVISIONAL", "", report_table(groupings["tier"]),
         "", "## By policy", "", report_table(groupings["policy"]),
         "", "## By market", "", report_table(groupings["market"]),
         "", "## By league", "", report_table(groupings["league"]),
@@ -778,14 +846,14 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
                 for tier in ("STRICT", "PROVISIONAL")
             }),
             "",
-            "| Match | Market | Tier | Result | Grade |",
-            "|---|---|---|---|---|",
+            "| Match | Market | Tier | Generated UTC | Snapshot | Result | Grade |",
+            "|---|---|---|---|---|---|---|",
         ]
         for r in subset:
             label = f"{r['home_team']} – {r['away_team']}".replace("|", "/")
             lines.append(
                 f"| {label} | {r['market']} | {r['selection_tier']} "
-                f"| {r['final_score'] or '—'} | {r['status']} |"
+                f"| {r.get('snapshot_generated_utc') or 'legacy'} | {r['snapshot_commit'][:12]} | {r['final_score'] or '—'} | {r['status']} |"
             )
         lines += ["", "Pending/unverified fixtures are excluded from win-rate and ROI denominators.", ""]
         (weeks_dir / f"{week}.md").write_text("\n".join(lines), encoding="utf-8")
@@ -799,25 +867,35 @@ def review(*, root: Path = ROOT, token: str = "",
            session: requests.Session | None = None) -> dict:
     clock = clock or now_utc()
     archived = snapshots(root)
-    selections = frozen_rows(archived, "shortlist")
+    selections = frozen_rows(archived, "shortlist", latest=True)
+    history = frozen_rows(archived, "shortlist", all_runs=True)
     predictions = frozen_rows(archived, "predictions")
     unique = {r["fixture_key"]: r for r in (selections + predictions)}
     records, errors = collect_results(
         list(unique.values()), root=root, token=token,
         clock=clock, session=session
     )
-    selections_graded, predictions_graded = [], []
-    for row in selections:
-        match, state = fixture_match(row, records)
-        if (kick := utc(row["kickoff_utc"])) and kick > clock - timedelta(hours=2):
-            match, state = None, "PENDING_KICKOFF_OR_FINAL_SCORE"
-        selections_graded.append(score_shortlist(row, match, state))
+    matches = {}
+    def verified_for(row):
+        # Keep exact identities and kickoff instants in the cache key so a
+        # rescheduled or renamed fixture cannot borrow another match's result.
+        key = (row.get('league'), row.get('home_team'), row.get('away_team'), utc(row.get('kickoff_utc')))
+        if key not in matches:
+            matches[key] = fixture_match(row, records)
+        match, state = matches[key]
+        if key[-1] is not None and key[-1] > clock-timedelta(hours=2):
+            return None, 'PENDING_KICKOFF_OR_FINAL_SCORE'
+        return match, state
+    selections_graded, predictions_graded, history_graded = [], [], []
+    for row in history:
+        match, state = verified_for(row)
+        history_graded.append(score_shortlist(row, match, state))
+    latest_keys = {tracking_key(r) for r in selections}
+    selections_graded = [r for r in history_graded if tracking_key(r) in latest_keys]
     for row in predictions:
-        match, state = fixture_match(row, records)
-        if (kick := utc(row["kickoff_utc"])) and kick > clock - timedelta(hours=2):
-            match, state = None, "PENDING_KICKOFF_OR_FINAL_SCORE"
+        match, state = verified_for(row)
         predictions_graded.append(score_prediction(row, match, state))
-    result = report(root, selections_graded, predictions_graded, errors, reviewed_at=iso(clock))
+    result = report(root, selections_graded, predictions_graded, errors, reviewed_at=iso(clock), selection_history=history_graded)
     try:
         from bbs_statistics_model import forward_assessment
         write_json(root/'performance/bbs_statistics_forward.json',
