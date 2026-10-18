@@ -1,0 +1,268 @@
+{
+  "fixture": {
+    "away_team": "TSG Hoffenheim",
+    "home_team": "Borussia Monchengladbach",
+    "kickoff_utc": "2026-10-18T15:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "fd9b8c185737a15615aa0c9daaa3dfbf"
+  },
+  "observed_at_utc": "2026-10-18T15:24:27.759197+00:00",
+  "payload": {
+    "away_team": "TSG Hoffenheim",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T15:24:16Z",
+            "outcomes": [
+              {
+                "name": "Borussia Monchengladbach",
+                "price": 3.06
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "price": 2.2
+              },
+              {
+                "name": "Draw",
+                "price": 4.05
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T15:24:16Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.95
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-18T15:24:16Z",
+            "outcomes": [
+              {
+                "name": "Borussia Monchengladbach or Draw",
+                "price": 1.73
+              },
+              {
+                "name": "TSG Hoffenheim or Draw",
+                "price": 1.42
+              },
+              {
+                "name": "Borussia Monchengladbach or TSG Hoffenheim",
+                "price": 1.28
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T15:23:39Z",
+            "outcomes": [
+              {
+                "name": "Borussia Monchengladbach",
+                "price": 2.86
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "price": 2.24
+              },
+              {
+                "name": "Draw",
+                "price": 4.08
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T15:23:39Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.91
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-18T15:23:39Z",
+            "outcomes": [
+              {
+                "name": "Borussia Monchengladbach or Draw",
+                "price": 1.65
+              },
+              {
+                "name": "TSG Hoffenheim or Draw",
+                "price": 1.42
+              },
+              {
+                "name": "Borussia Monchengladbach or TSG Hoffenheim",
+                "price": 1.24
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-18T15:30:00Z",
+    "home_team": "Borussia Monchengladbach",
+    "id": "fd9b8c185737a15615aa0c9daaa3dfbf",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.86,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.33552974921490664,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T15:23:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.08,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23194448285472108,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T15:23:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.24,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4325257679303722,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T15:23:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49453701116582316,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-18T15:23:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5054629888341767,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-18T15:23:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.65,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.5726365085043417,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-18T15:23:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.42,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6653874922761716,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-18T15:23:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.24,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7619759992194868,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-18T15:23:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.06,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.31714129723839773,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T15:24:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.05,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23782342301432127,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T15:24:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.2,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.44503527974728097,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T15:24:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-18T15:24:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-18T15:24:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.73,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.5602441204574177,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-18T15:24:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.42,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.682550935486854,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-18T15:24:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.28,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7572049440557286,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-18T15:24:16+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
