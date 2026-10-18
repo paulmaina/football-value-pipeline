@@ -239,8 +239,10 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
             (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(H{i})),(H{i}-L{i})^2,"")',r['brier_value']),
             r.get('week'),r.get('snapshot_commit'),r.get('match_source'),
             (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(H{i})),H{i},"")',r['scored_p']),
-            (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(H{i})),1,0)',1 if r['scored_p'] is not None else 0), r['cost']])
+            (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(H{i})),1,0)',1 if r['scored_p'] is not None else 0), r['cost'], r.get('snapshot_generated_utc'), r.get('snapshot_captured_utc')])
     sheets['Selections'].set('U5','Cost per unit stake')
+    sheets['Selections'].set('V5','Generated UTC')
+    sheets['Selections'].set('W5','Captured UTC')
     sheets['Selections'].fill(selection_data)
     ps=[]
     for p in sorted(predictions,key=lambda r:(r.get('kickoff_utc',''),r.get('fixture_key',''))):
@@ -302,6 +304,11 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
     for address,sign,value in [('B18','-',centre-radius),('B19','+',centre+radius)]:
         f=f'IF(B8=0,"n.a.",(B12+1.96^2/(2*B8){sign}1.96*SQRT(B12*(1-B12)/B8+1.96^2/(4*B8^2)))/(1+1.96^2/B8))'
         dash.set(address,value if n else 'n.a.',f)
+    dash.set('A7','Shortlisted matches (latest)')
+    dash.set('A8','Settled shortlisted matches')
+    dash.set('A18','Latest-match win rate: 95% lower')
+    dash.set('A19','Latest-match win rate: 95% upper')
+    n=stats[1]
     for i,br in [(7,7),(8,8)]:
         dash.set(f'E{i}',breakdown[br-6][3][1],f'Breakdowns!D{br}')
         dash.set(f'F{i}',breakdown[br-6][7][1],f'Breakdowns!H{br}')
@@ -311,7 +318,7 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
     dash.set('A21','Conclusion: '+('No settled selections yet. Win rate and ROI are unavailable.' if not n else f'{stats[2]} wins from {n} settled selections. '+('Early evidence; do not retune from this sample.' if n < 30 else 'Compare calibration and simulated ROI across policies before any manual change.')))
     errors=metrics.get('provider_errors') or {}
     dash.set('A26','Result-source issues: '+('; '.join(f'{k}: {v}' for k,v in sorted(errors.items())) if errors else 'none recorded'))
-    dash.set('A29','Review notes use 30 scored samples as a prompt, not statistical proof. Reassess on a future holdout.')
+    dash.set('A29','Each match counts once using its latest eligible pre-kickoff prediction. Earlier forecasts remain in Run Tracking; they do not add stakes to the main totals.')
     dash.set('A27','Review as of UTC: '+str(metrics.get('reviewed_at_utc') or 'not recorded in source'))
     dash.set('A28','PROVISIONAL is a research watchlist. Positive simulated ROI does not establish profitability.')
     dash.set('D16','Forecast metric');dash.set('E16','Samples');dash.set('F16','Accuracy')
@@ -325,6 +332,13 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
     for path in list(parts):
         if path.startswith('xl/tables/') and path.endswith('.xml'):
             xml=ET.fromstring(parts[path]);sheet=sheets[table_sheets[xml.get('name')]]
+            if xml.get('name') == 'SelectionsTable':
+                columns = xml.find(tag('tableColumns'))
+                for name in ('Cost per unit stake', 'Generated UTC', 'Captured UTC'):
+                    if not any(c.get('name') == name for c in columns):
+                        ET.SubElement(columns, tag('tableColumn'), {'id':str(len(columns)+1), 'name':name})
+                columns.set('count',str(len(columns)))
+                xml.set('ref',xml.get('ref').split(':')[0]+':W'+str(sheet.end))
             ref=xml.get('ref');last=re.sub(r'\d+$',str(sheet.end),ref.split(':')[-1]);xml.set('ref',ref.split(':')[0]+':'+last)
             af=xml.find(tag('autoFilter'))
             if af is not None:af.set('ref',xml.get('ref'))

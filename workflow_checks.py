@@ -195,23 +195,28 @@ def expected_stats(rows):
 
 
 def report_check(root):
-    from performance_tracking import read_csv,utc,frozen_rows,snapshots,result_for_market,number,fixture_match
+    from performance_tracking import read_csv,utc,frozen_rows,snapshots,result_for_market,number,fixture_match,tracking_key
     from performance_excel import REPORT_NAME
+    from datetime import timedelta
     audit=archive_check(root)
     performance=root/'performance'
     metrics=read_json(performance/'metrics.json')
     require(utc(metrics.get('reviewed_at_utc')) is not None, 'Missing report review timestamp')
     selections=read_csv(performance/'shortlist_grades.csv');predictions=read_csv(performance/'prediction_grades.csv')
-    frozen={r['fixture_key']:r for r in frozen_rows(snapshots(root),'shortlist')}
+    latest = metrics.get('tracking_basis') == 'LATEST_PREMATCH_PER_FIXTURE'
+    frozen={tracking_key(r) if latest else r['fixture_key']:r for r in frozen_rows(snapshots(root),'shortlist',latest=latest)}
     require(len(selections)==len(frozen), 'Report omitted or added frozen selections')
     cache_path=performance/'verified_results.json'
     records=list(read_json(cache_path).values()) if cache_path.exists() else []
     seen=set()
     for row in selections:
-        key=row['fixture_key'];require(key not in seen,'Duplicate graded fixture');seen.add(key)
+        key=tracking_key(row) if latest else row['fixture_key'];require(key not in seen,'Duplicate graded fixture/run');seen.add(key)
         original=frozen.get(key);require(original is not None,'Graded selection without immutable snapshot')
         require(row['snapshot_commit']==original['snapshot_commit'] and row['market']==original['market'], 'Report selection provenance changed')
         require(row['selection_policy_version']==original['selection_policy_version'], 'Report policy provenance changed')
+        if latest:
+            require(utc(row.get('snapshot_generated_utc'))==utc(original['snapshot_generated_utc']), 'Report generation provenance changed')
+            require(utc(row.get('snapshot_captured_utc'))==utc(original['snapshot_captured_utc']), 'Report capture provenance changed')
         close(row.get('offered_decimal_odds'),number(original.get('offered_decimal_odds')),'Frozen selection price')
         close(row.get('predicted_probability'),number(original.get('rank_probability') or original.get('predicted_probability')),'Frozen selection probability')
         from quote_policy import stake_cost
@@ -236,6 +241,51 @@ def report_check(root):
         else:
             require(row.get('unit_profit') in ('',None) and row.get('brier') in ('',None),'Pending result included in scored metrics')
     for field,value in expected_stats(selections).items():close(metrics['shortlist'].get(field),value,'Shortlist '+field)
+    if latest:
+        from performance_tracking import score_shortlist
+        history = read_csv(performance/'shortlist_run_history.csv')
+        originals = {tracking_key(r):r for r in frozen_rows(snapshots(root),'shortlist',all_runs=True)}
+        require(len(history)==len(originals) and len({tracking_key(r) for r in history})==len(history),
+                'Prediction history coverage mismatch')
+        require(len({r['fixture_key'] for r in selections})==len(selections), 'Duplicate latest fixture')
+        for row in history:
+            original=originals.get(tracking_key(row))
+            require(original is not None,'History without frozen prediction')
+            match,state=fixture_match(original,records)
+            if utc(original['kickoff_utc']) > utc(metrics['reviewed_at_utc'])-timedelta(hours=2):
+                match,state=None,'PENDING_KICKOFF_OR_FINAL_SCORE'
+            if match is not None:
+                require(match.get('source_status')=='FINISHED' and match.get('source')=='football-data.org/v4',
+                        'History cache source is not verified finished')
+            expected=score_shortlist(original,match,state)
+            for field,value in expected.items():
+                if value is None:
+                    require(row.get(field) in ('',None), 'History '+field+' differs from frozen replay')
+                elif isinstance(value,(int,float)):
+                    close(row.get(field),value,'History '+field)
+                else:
+                    require(row.get(field) == str(value), 'History '+field+' differs from frozen replay')
+        first = {}
+        for original in frozen_rows(snapshots(root),'shortlist'):
+            first[original['fixture_key']] = tracking_key(original)
+        first_rows = [r for r in history if tracking_key(r)==first.get(r['fixture_key'])]
+        require(metrics.get('unique_shortlisted_fixtures')==len(first), 'Unique fixture count mismatch')
+        history_groups=metrics.get('run_history_groups',{})
+        history_runs={tracking_key(r)[0] for r in history}
+        require(metrics.get('tracked_prediction_runs')==len(history_runs), 'Prediction run count mismatch')
+        for key,rows in [('first_prediction_reference',first_rows),('shortlist_run_history',history)]:
+            for field,value in expected_stats(rows).items(): close(metrics.get(key,{}).get(field),value,key+' '+field)
+        for groups,rows in [(metrics.get('groups',{}).get('run',{}),selections),(history_groups,history)]:
+            require(set(groups)=={tracking_key(r)[0] for r in rows}, 'Prediction run groups mismatch')
+            for run,values in groups.items():
+                cohort=[r for r in rows if tracking_key(r)[0]==run]
+                for field,value in expected_stats(cohort).items(): close(values.get(field),value,'Prediction run '+field)
+        for run in history_runs:
+            cohort=[r for r in history if tracking_key(r)[0]==run]
+            provenance=metrics.get('run_provenance',{}).get(run,{})
+            require(provenance.get('first_snapshot_commit')==cohort[0]['snapshot_commit'] and
+                    utc(provenance.get('generated_at_utc'))==utc(cohort[0].get('snapshot_generated_utc')),
+                    'Prediction run provenance mismatch')
     for dimension,column in [('tier','selection_tier'),('market','market'),('league','league'),('week','week'),('policy','selection_policy_version')]:
         groups=metrics.get('groups',{}).get(dimension,{})
         require(all(r.get(column) in groups for r in selections),f'Missing {dimension} group')
