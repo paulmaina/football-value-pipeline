@@ -44,6 +44,7 @@ PROVISIONAL_MIN_HIGH_DEVELOPMENT = 3
 # These deliberately selective heuristic thresholds have not yet
 # been optimized or independently backtested for betting profitability.
 SELECTION_POLICY_VERSION = "72h-seven-markets-fresh-references-net-ev15-v11"
+PROBABILITY_SELECTION_POLICY_VERSION = "72h-top-ten-adjusted-probability-v12"
 PREVIOUS_SELECTION_POLICY_VERSION = "72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10"
 LEGACY_SELECTION_POLICY_VERSION = "72h-six-markets-dc12-probability-odds-net-ev15-v9"
 MARKET_SPECS = (
@@ -55,6 +56,7 @@ MARKET_SPECS = (
     ("Double Chance X2", "draw_away", 0.80, 0.75),
     ("Double Chance 12", "home_away", 0.80, 0.75),
 )
+PROBABILITY_MARKET_SPECS = (*MARKET_SPECS, ("Under 3.5", "under_3_5", 0.80, 0.75))
 DECISION_COLUMNS = [
     "evaluated_at_utc", "date", "league", "home_team", "away_team",
     "fixture_id", "kickoff_utc", "market", "decision",
@@ -433,6 +435,62 @@ def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple], adjusted_ev_fl
 
 
 
+def _probability_choices(decisions, adjusted_ev_floor=None):
+    """Rank usable quotes globally; strict-rule failures remain visible warnings."""
+    from performance_tracking import fixture_key, canonical_team_key
+    soft_prefixes = (
+        'blended probability below ', 'raw Dixon-Coles probability below ',
+        'reliability-adjusted EV below ', 'reliability-adjusted probability below minimum',
+        'independent Dixon-Coles EV is negative or missing',
+        'raw Dixon-Coles does not favor chosen winner',
+        'market historical reliability: ', '75plus market history: ', '85plus market history: ',
+        'missing high-confidence development calibration',
+        'double chance historical reliability report required', 'UCL historical reliability report required',
+    )
+    candidates = []
+    for i, row in decisions.iterrows():
+        reasons = [x for x in str(row['rejection_reasons']).split('; ') if x]
+        if row.get('validation_status') == 'NOT_ASSESSED':
+            reasons.append('market historical reliability: NOT_ASSESSED')
+            decisions.loc[i, 'rejection_reasons'] = '; '.join(reasons)
+        valid = all(_valid_probability(row.get(k)) is not None
+                    for k in ('predicted_probability', 'raw_dc_probability', 'rank_probability'))
+        valid = valid and all(isinstance(row.get(k), str) and row[k].strip()
+                              for k in ('home_team', 'away_team'))
+        if valid:
+            home, away = (canonical_team_key(row[k]) for k in ('home_team', 'away_team'))
+            valid = bool(home and away and home != away)
+        hard = [x for x in reasons if not x.startswith(soft_prefixes)]
+        ev = _number(row.get('conservative_estimated_ev'))
+        if adjusted_ev_floor is not None and (ev is None or ev + 1e-12 < adjusted_ev_floor):
+            hard.append('experimental adjusted EV floor not met')
+        decisions.loc[i, 'decision'] = 'REJECTED'
+        if not valid:
+            hard.append('missing valid probability or fixture identity')
+        if hard:
+            decisions.loc[i, 'rejection_reasons'] = '; '.join(dict.fromkeys(reasons + hard))
+            continue
+        candidates.append(i)
+    pool = decisions.loc[candidates].sort_values(
+        ['rank_probability', 'offered_decimal_odds', 'conservative_estimated_ev',
+         'kickoff_utc', 'league', 'home_team', 'away_team'],
+        ascending=[False, False, False, True, True, True, True], kind='stable')
+    pool = pool.assign(_fixture_key=pool.apply(lambda r: fixture_key(r), axis=1)) if len(pool) else pool.assign(_fixture_key=[])
+    top = pool.drop_duplicates('_fixture_key').head(TARGET_DISTINCT_MATCHES)
+    strict, ranked = [], []
+    for i in candidates:
+        if i not in top.index:
+            decisions.loc[i, 'decision'] = 'NOT_SELECTED'
+            continue
+        warning = decisions.loc[i, 'rejection_reasons']
+        tier = 'PROVISIONAL' if warning else 'STRICT'
+        decisions.loc[i, 'decision'] = 'SHORTLISTED_PROVISIONAL' if warning else 'SHORTLISTED'
+        decisions.loc[i, 'selection_tier'] = tier
+        decisions.loc[i, 'near_miss_reason'] = warning or None
+        (ranked if warning else strict).append(i)
+    return pd.Index(strict, dtype='int64'), pd.Index(ranked, dtype='int64'), len(pool.drop_duplicates('_fixture_key'))
+
+
 def build_conservative_shortlist(
     predictions: pd.DataFrame,
     as_of: Optional[datetime] = None,
@@ -444,8 +502,8 @@ def build_conservative_shortlist(
 ) -> Tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Aim for ten distinct fixtures; never fabricate a minimum ten.
 
-    Returns shortlist (at most 10 rows), all market decisions (7 per
-    fixture), and a summary with any shortfall. A shortlisted row is a
+    Returns shortlist (at most 10 rows), all market decisions, and a
+    summary with any shortfall. A shortlisted row is a
     candidate to study, NOT an automatically constructed accumulator.
     """
     now = pd.Timestamp(as_of if as_of is not None else datetime.now(timezone.utc))
@@ -453,10 +511,11 @@ def build_conservative_shortlist(
         raise ValueError("as_of must be timezone-aware")
     now = now.tz_convert("UTC")
     policy_version = SELECTION_POLICY_VERSION if selection_policy_version is None else selection_policy_version
-    if policy_version not in (SELECTION_POLICY_VERSION, PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
+    probability_policy = policy_version == PROBABILITY_SELECTION_POLICY_VERSION
+    if policy_version not in (PROBABILITY_SELECTION_POLICY_VERSION, SELECTION_POLICY_VERSION, PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
         raise ValueError("Unsupported baseline shortlist policy; preserve replay compatibility")
     # Archived v9 comparisons must replay their original six-market ranking.
-    specs = tuple(spec for spec in MARKET_SPECS
+    specs = tuple(spec for spec in (PROBABILITY_MARKET_SPECS if probability_policy else MARKET_SPECS)
                   if policy_version != LEGACY_SELECTION_POLICY_VERSION or spec[1] != "btts_yes")
 
     if adjusted_ev_floor is not None and (not math.isfinite(adjusted_ev_floor) or adjusted_ev_floor < MIN_ESTIMATED_EV):
@@ -482,6 +541,7 @@ def build_conservative_shortlist(
             evaluated.append(_evaluate_market(row, spec, now, report, policy, adjusted_ev_floor, research_policy,
                 require_fresh_references=policy_version not in (PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION)))
     decisions = pd.DataFrame(evaluated, columns=DECISION_COLUMNS)
+    original_decisions = decisions.copy() if probability_policy else None
 
     eligible = decisions[decisions["decision"] == "ELIGIBLE"].copy()
     eligible = eligible.sort_values(
@@ -559,6 +619,10 @@ def build_conservative_shortlist(
             decisions.loc[provisional_ids, "near_miss_reason"] = (
                 pool.loc[provisional_ids, "rejection_reasons"]
             )
+    if probability_policy:
+        decisions = original_decisions
+        chosen, provisional_ids, available_fixtures = _probability_choices(decisions, adjusted_ev_floor)
+        n_strict = len(chosen)
     chosen_all = chosen.append(provisional_ids)
     shortlist = (
         decisions.loc[chosen_all, SHORTLIST_COLUMNS]
@@ -569,6 +633,11 @@ def build_conservative_shortlist(
         ).reset_index(drop=True)
     )
     decisions = decisions.reset_index(drop=True)
+    if probability_policy:
+        shortlist = shortlist.sort_values(
+            ['rank_probability', 'offered_decimal_odds', 'conservative_estimated_ev',
+             'kickoff_utc', 'league', 'home_team', 'away_team'],
+            ascending=[False, False, False, True, True, True, True], kind='stable').reset_index(drop=True)
     n = len(shortlist)
     kickoff_times = pd.to_datetime(
         shortlist["kickoff_utc"], utc=True, errors="coerce"
@@ -616,7 +685,12 @@ def build_conservative_shortlist(
         "selected_last_kickoff_utc": (
             last_kickoff.isoformat() if last_kickoff is not None else None
         ),
-        "selection_method": "Strict-first ranking within 72 hours; highest adjusted probability, then highest quoted odds",
+        "selection_method": ("Top ten distinct fixtures within 72 hours; highest adjusted probability, then highest quoted odds; strict status does not change ranking"
+                             if probability_policy else "Strict-first ranking within 72 hours; highest adjusted probability, then highest quoted odds"),
+        **({'selection_objective': 'PROBABILITY_FIRST', 'usable_distinct_fixtures': available_fixtures,
+            'ev_required_for_selection': False, 'probability_thresholds_required_for_selection': False,
+            'shortfall_reason': 'Fewer than ten distinct fixtures have usable predictions and fresh allowed-bookmaker quotes inside the window' if n < TARGET_DISTINCT_MATCHES else None}
+           if probability_policy else {}),
         "eligible_markets": [x[0] for x in specs],
         "eligible_leagues": sorted(SUPPORTED_LEAGUES),
         "quote_execution_policy": policy,
@@ -626,6 +700,7 @@ def build_conservative_shortlist(
         "double_chance_min_adjusted_probability": MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY,
         "validation_required": market_reliability is not None,
         "ranking_metric": (
+            "development-calibration-adjusted probability; historical/EV failures are warnings" if probability_policy else
             "development-calibration-adjusted probability, audit-qualified"
             if market_reliability is not None else "uncalibrated model probability"
         ),
@@ -640,11 +715,13 @@ def build_conservative_shortlist(
         "min_team_name_match_score": MIN_TEAM_NAME_MATCH_SCORE,
         "max_quote_age_hours": MAX_ODDS_AGE_HOURS,
         "rule": (
+            "Top ten by adjusted probability, one real quoted market per fixture; EV and confidence thresholds annotate qualification rather than limit ranking" if probability_policy else
             "one independently quoted market per distinct fixture; "
             "strict qualifications first, then up to ten clearly labeled "
             "provisional near-miss watchlist candidates"
         ),
         "near_miss_policy": (
+            "PROVISIONAL identifies a probability-ranked candidate that fails one or more legacy strict rules, including negative EV or insufficient historical evidence. The warnings are not waived or relabelled as strict qualifications." if probability_policy else
             "PROVISIONAL is not strictly qualified. Only limited "
             "historical sample gaps, modest audit overconfidence, "
             "or small adjusted probability misses are considered; adjusted EV must remain at least +1.5%; "
