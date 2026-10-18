@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "SC Freiburg",
+    "home_team": "Bayer Leverkusen",
+    "kickoff_utc": "2026-10-18T13:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "096d800bcc95c547ef592cbef624d080"
+  },
+  "observed_at_utc": "2026-10-18T13:24:20.633160+00:00",
+  "payload": {
+    "away_team": "SC Freiburg",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T13:24:09Z",
+            "outcomes": [
+              {
+                "name": "Bayer Leverkusen",
+                "price": 1.63
+              },
+              {
+                "name": "SC Freiburg",
+                "price": 4.96
+              },
+              {
+                "name": "Draw",
+                "price": 4.55
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T13:24:09Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.93
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.98
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-18T13:23:59Z",
+            "outcomes": [
+              {
+                "name": "Bayer Leverkusen or Draw",
+                "price": 1.21
+              },
+              {
+                "name": "SC Freiburg or Draw",
+                "price": 2.39
+              },
+              {
+                "name": "Bayer Leverkusen or SC Freiburg",
+                "price": 1.23
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T13:23:30Z",
+            "outcomes": [
+              {
+                "name": "Bayer Leverkusen",
+                "price": 1.62
+              },
+              {
+                "name": "SC Freiburg",
+                "price": 4.82
+              },
+              {
+                "name": "Draw",
+                "price": 4.57
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T13:23:30Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.98
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.88
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-18T13:23:30Z",
+            "outcomes": [
+              {
+                "name": "Bayer Leverkusen or Draw",
+                "price": 1.18
+              },
+              {
+                "name": "SC Freiburg or Draw",
+                "price": 2.29
+              },
+              {
+                "name": "Bayer Leverkusen or SC Freiburg",
+                "price": 1.2
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-18T13:30:00Z",
+    "home_team": "Bayer Leverkusen",
+    "id": "096d800bcc95c547ef592cbef624d080",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6034879857686403,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T13:23:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20378157008185277,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T13:23:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.82,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19273044414950702,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T13:23:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.98,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.48633076857000923,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-18T13:23:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.88,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5136692314299909,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-18T13:23:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.18,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8004427485363083,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-18T13:23:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.29,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.4124552154029885,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-18T13:23:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.2,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7871020360607031,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-18T13:23:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.21,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8032076940941817,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-18T13:23:59+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.39,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.40664489952048527,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-18T13:23:59+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.23,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7901474063853332,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-18T13:23:59+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.63,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6024034740666058,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T13:24:09+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20768864050772706,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T13:24:09+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.96,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1899078854256672,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T13:24:09+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
