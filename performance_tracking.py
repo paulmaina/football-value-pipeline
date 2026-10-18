@@ -162,6 +162,13 @@ def capture(commit_sha: str, *, root: Path = ROOT,
         return False
     # Optional sidecar; stale/broken experiments must not block baseline capture.
     try:
+        from shortlist_weight_experiment import capture_file as capture_weights
+        experiment = capture_weights(raw, summary.get('generated_at_utc'))
+        if experiment is not None:
+            files['shortlist_weight_experiment.json'] = experiment
+    except Exception as exc:
+        warnings.warn(f'Shortlist weight capture skipped ({type(exc).__name__})')
+    try:
         from shortlist_policy_experiment import capture_file as capture_policy
         experiment = capture_policy(raw, summary.get('generated_at_utc'))
         if experiment is not None:
@@ -261,7 +268,7 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
                 (directory / name).read_bytes()
             ).hexdigest() != digest
             for name, digest in meta.get("sha256", {}).items()
-            if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "filter_sensitivity_experiment.json", "benchmark_forward_experiment.json", "totals_anchor_experiment.json", "model_reliability_experiment.json", "shortlist_policy_experiment.json", "pipeline_health.json"}
+            if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "filter_sensitivity_experiment.json", "benchmark_forward_experiment.json", "totals_anchor_experiment.json", "model_reliability_experiment.json", "shortlist_policy_experiment.json", "shortlist_weight_experiment.json", "pipeline_health.json"}
         ):
             warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
             continue
@@ -832,6 +839,11 @@ def review(*, root: Path = ROOT, token: str = "",
         review_recency(root, archived, records, clock)
     except Exception as exc:
         warnings.warn(f'Recency report failed ({type(exc).__name__}); baseline report complete')
+    try:
+        from shortlist_weight_experiment import review_experiment as review_weights
+        review_weights(root, archived, records, clock)
+    except Exception as exc:
+        warnings.warn(f'Shortlist weight report failed ({type(exc).__name__}); baseline report complete')
     try:
         from shortlist_policy_experiment import review_experiment as review_policy
         review_policy(root, archived, records, clock)

@@ -59,7 +59,7 @@ def equivalent(actual, expected):
     return type(actual) is type(expected) and actual == expected
 
 
-def decision_rows(predictions, generated, reliability, execution, baseline_policy=None):
+def decision_rows(predictions, generated, reliability, execution, baseline_policy=None, variants=None):
     from conservative_bet_filter import build_conservative_shortlist
     from filter_sensitivity_experiment import clean as clean_frame
     from performance_tracking import utc
@@ -77,7 +77,7 @@ def decision_rows(predictions, generated, reliability, execution, baseline_polic
         predictions['market_blend_applied'] = predictions['market_blend_applied'].map(
             lambda value: value if not isinstance(value, str) else value in ('True', '1', '1.0'))
     rows = []
-    for variant, policy in VARIANTS.items():
+    for variant, policy in (VARIANTS if variants is None else variants).items():
         _, decisions, summary = build_conservative_shortlist(
             predictions, as_of=utc(generated), market_reliability=reliability,
             research_policy=policy, execution_policy=execution,

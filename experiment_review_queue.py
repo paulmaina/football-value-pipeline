@@ -44,6 +44,13 @@ def build_queue(root,clock):
         'settled_evidence':policy.get('verified_fixtures',0),'gameweeks':policy.get('gameweeks',0),
         'scope':'POLICY_REVIEW_APPROVAL_REQUIRED','report':'shortlist_policy_experiment/report.md',
         'automatic_production_change':False})
+    weights=load_json(root/'performance/shortlist_weight_experiment/summary.json',{})
+    fresh=utc(weights.get('reviewed_at_utc')) is not None and abs((clock-utc(weights['reviewed_at_utc'])).total_seconds())<1
+    items.append({'name':'shortlist_weight_experiment','key':'shortlist_weight_experiment:'+weights.get('version','not_generated'),
+        'status':weights.get('status','COLLECT_MORE_DATA') if fresh else 'REPORT_UNAVAILABLE_OR_STALE',
+        'settled_evidence':weights.get('verified_fixtures',0),'gameweeks':weights.get('gameweeks',0),
+        'scope':'POLICY_REVIEW_APPROVAL_REQUIRED','report':'shortlist_weight_experiment/report.md',
+        'automatic_production_change':False})
     trial=load_json(root/'performance/benchmark_forward_experiment/summary.json',{})
     fresh=utc(trial.get('reviewed_at_utc')) is not None and abs((clock-utc(trial['reviewed_at_utc'])).total_seconds())<1
     items.append({'name':'benchmark_forward_experiment','key':'benchmark_forward:'+trial.get('registry_sha256','not_generated'),
