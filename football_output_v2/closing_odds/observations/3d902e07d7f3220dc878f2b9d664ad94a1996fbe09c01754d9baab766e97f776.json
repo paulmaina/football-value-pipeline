@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Lecce",
+    "home_team": "Udinese",
+    "kickoff_utc": "2026-10-18T10:30:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "367da93aa21a1e13eeafb94fd2263c75"
+  },
+  "observed_at_utc": "2026-10-18T10:24:20.790260+00:00",
+  "payload": {
+    "away_team": "Lecce",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T10:24:06Z",
+            "outcomes": [
+              {
+                "name": "Lecce",
+                "price": 4.9
+              },
+              {
+                "name": "Udinese",
+                "price": 1.86
+              },
+              {
+                "name": "Draw",
+                "price": 3.47
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T10:24:06Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.84
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.08
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T10:24:06Z",
+            "outcomes": [
+              {
+                "name": "Lecce",
+                "price": 4.59
+              },
+              {
+                "name": "Udinese",
+                "price": 1.84
+              },
+              {
+                "name": "Draw",
+                "price": 3.57
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T10:24:06Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.19
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.73
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-18T10:30:00Z",
+    "home_team": "Udinese",
+    "id": "367da93aa21a1e13eeafb94fd2263c75",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.86,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5277430632296486,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T10:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.47,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2776530663413564,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T10:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.9,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19460387042899502,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T10:24:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.84,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5298600020246038,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T10:24:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.26566304544061625,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T10:24:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.59,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20447695253477993,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T10:24:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.19,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.43829030396387864,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-18T10:24:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.73,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5617096960361214,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-18T10:24:06+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
