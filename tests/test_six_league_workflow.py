@@ -26,7 +26,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
         keys=list(LEAGUES);frames={};records=[]
         for i,key in enumerate(keys):
             cfg=LEAGUES[key];row=fixture(i,kickoff=NOW+timedelta(days=1))
-            row.update(league=cfg.name,odds_event_id='event'+str(i),fixture_id='event'+str(i),
+            row.update(p_under_3_5=.99, raw_p_under_3_5=.98, league=cfg.name,odds_event_id='event'+str(i),fixture_id='event'+str(i),
                        market_best_over_1_5_last_update_utc=NOW.isoformat())
             frames[key]=pd.DataFrame([row])
             match={'id':i+1,'status':'FINISHED','utcDate':row['kickoff_utc'],
@@ -62,7 +62,15 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 dt.now.return_value=NOW
                 self.assertEqual(main(['--leagues',*keys,'--out-dir',str(raw),'--goal-blend-experiment','--market-led-experiment','--tune-half-life','--recency-experiment']),0)
                 self.assertEqual(raw_check(root)['forecasts'],6)
+                picks = pd.read_csv(raw/'conservative_bet_shortlist.csv')
+                self.assertNotIn('Under 3.5', picks.market.tolist())
+                self.assertTrue(pd.read_csv(raw/'all_leagues_predictions.csv').p_under_3_5.eq(.99).all())
+                summary = json.loads((raw/'conservative_bet_summary.json').read_text())
+                self.assertEqual(summary['selection_policy_version'], '48h-top-ten-probability-ev-no-under35-v14')
+                self.assertNotIn('Under 3.5', summary['eligible_markets'])
                 self.assertEqual(format_main(['--root-dir',str(root)]),0)
+                readable = pd.read_csv(root/'readable/conservative_bet_shortlist_readable.csv')
+                self.assertNotIn('Under 3.5', readable.to_string(index=False))
                 self.assertTrue(capture('f'*40,root=root,captured_at=NOW+timedelta(minutes=1)))
                 write_json(root/'performance/verified_results.json',{str(r['match_id']):r for r in records})
                 with patch('performance_tracking.collect_results',return_value=(records,{})):
@@ -77,13 +85,13 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],12)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
             self.assertEqual(data['experiments']['filter_sensitivity_experiment']['total_fixtures'],6)
-            # Eight markets per fixture; probability-only control plus three EV gates.
-            self.assertEqual(data['experiments']['filter_sensitivity_experiment']['candidate_decisions'],6*8*4)
+            # Seven markets per fixture; balanced control plus three EV gates.
+            self.assertEqual(data['experiments']['filter_sensitivity_experiment']['candidate_decisions'],6*7*4)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['filter_sensitivity_experiment:CAPTURED'],1)
             self.assertEqual(data['experiments']['benchmark_forward_experiment']['paired_fixtures'],0)
             self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),7)
             self.assertEqual(data['experiments']['shortlist_policy_experiment']['total_fixtures'],6)
-            self.assertEqual(data['experiments']['shortlist_policy_experiment']['candidate_decisions'],6*8*9)
+            self.assertEqual(data['experiments']['shortlist_policy_experiment']['candidate_decisions'],6*7*9)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['shortlist_policy_experiment:CAPTURED'],1)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['benchmark_forward_experiment:CAPTURED'],1)
             self.assertTrue((root/'readable/football_performance_report.xlsx').exists())

@@ -77,7 +77,8 @@ def raw_check(root):
             if (field.startswith('p_') or field.startswith('raw_p_')) and value not in ('',None):
                 require(number(value,min_value=0,max_value=1) is not None, f'Invalid probability column {field}')
     selected=set()
-    balanced = summary.get('selection_policy_version') == '48h-top-ten-probability-ev-v13'
+    balanced = summary.get('selection_policy_version') in ('48h-top-ten-probability-ev-v13', '48h-top-ten-probability-ev-no-under35-v14')
+    excludes_under = summary.get('selection_policy_version') == '48h-top-ten-probability-ev-no-under35-v14'
     previous_score = float('inf')
     if balanced:
         require(summary.get('shortlist_lookahead_hours') == 48, 'Balanced shortlist must use 48 hours')
@@ -86,6 +87,7 @@ def raw_check(root):
         key=fixture_key(row);require(key in keys, 'Selection without matching forecast')
         require(key not in selected, 'Multiple selected markets for one fixture');selected.add(key)
         require(row.get('market') in summary.get('eligible_markets',SUPPORTED_MARKETS), 'Unsupported selected market')
+        require(not excludes_under or row.get('market') != 'Under 3.5', 'Under 3.5 is excluded from this shortlist policy')
         require(row.get('selection_tier') in ('STRICT','PROVISIONAL'), 'Invalid selection tier')
         require(number(row.get('offered_decimal_odds'),min_value=1.000001) is not None, 'Missing real selection price')
         require(number(row.get('rank_probability') or row.get('predicted_probability'),min_value=0,max_value=1) is not None,

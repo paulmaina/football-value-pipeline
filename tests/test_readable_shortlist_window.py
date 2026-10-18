@@ -103,6 +103,8 @@ class FormatterIntegrationTests(OfflineQuotePolicyTestCase):
             summary = refresh(root, as_of=NOW)
             picks = pd.read_csv(raw / 'conservative_bet_shortlist.csv')
             self.assertEqual(picks.fixture_id.tolist(), [rows[1]['fixture_id']])
+            self.assertNotIn('Under 3.5', picks.market.tolist())
+            self.assertNotIn('Under 3.5', summary['eligible_markets'])
             self.assertTrue(summary['selected_matches_within_48_hours'])
             self.assertEqual(summary['shortlist_lookahead_hours'], 48)
             self.assertTrue(summary['ucl_validation_available'])
