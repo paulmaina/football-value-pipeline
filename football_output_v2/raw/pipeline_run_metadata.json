@@ -1,16 +1,16 @@
 {
   "dependencies": {
-    "PyYAML": "NOT_INSTALLED",
-    "coverage": "NOT_INSTALLED",
-    "numpy": "2.5.3",
+    "PyYAML": "6.0.3",
+    "coverage": "7.16.2",
+    "numpy": "2.5.4",
     "pandas": "3.0.6",
-    "python": "3.14.8",
+    "python": "3.12.15",
     "python-dotenv": "1.2.4",
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-18T08:37:07.802036+00:00",
-  "model_code_sha256": "e234425979db0905b9d571cba633b253886fd25be258ee1cdb602837c587b08c",
-  "predictions_sha256": "0e681546d61006ab5f67b60d010396a7444d4137fca666d82421815b732b4ef1",
+  "generated_at_utc": "2026-10-18T09:58:14.607821+00:00",
+  "model_code_sha256": "e143d1e70becb20cd2ec3e532e9a3dd444860c1b867d5d90ee659f0402cbe478",
+  "predictions_sha256": "b183cc59fbe5916c9cce14ba8847883f21b152bf7657b02abee888d7802a70a0",
   "selection_policy_version": "72h-seven-markets-fresh-references-net-ev15-v11"
 }

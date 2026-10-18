@@ -1,6 +1,6 @@
 {
   "status": "BELOW_TARGET_WITH_PROVISIONAL",
-  "generated_at_utc": "2026-10-18T08:37:07.802036+00:00",
+  "generated_at_utc": "2026-10-18T09:58:14.607821+00:00",
   "selection_policy_version": "72h-seven-markets-fresh-references-net-ev15-v11",
   "n_fixtures": 90,
   "n_markets_evaluated": 630,
@@ -11,8 +11,8 @@
   "target_distinct_matches": 10,
   "shortfall": 8,
   "shortlist_lookahead_hours": 72.0,
-  "shortlist_window_start_utc": "2026-10-18T08:37:07.802036+00:00",
-  "shortlist_window_end_utc": "2026-10-21T08:37:07.802036+00:00",
+  "shortlist_window_start_utc": "2026-10-18T09:58:14.607821+00:00",
+  "shortlist_window_end_utc": "2026-10-21T09:58:14.607821+00:00",
   "selected_matches_within_72_hours": true,
   "selected_kickoff_span_hours": 53.5,
   "selected_first_kickoff_utc": "2026-10-18T13:30:00+00:00",

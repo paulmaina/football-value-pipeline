@@ -2,7 +2,7 @@
   "league": "UEFA Champions League",
   "training_matches": 539,
   "training_sha256": "3f292aa5544a878ac95e765c54edc273d9c08302c24c35a79ca284e8d6057842",
-  "training_as_of_utc": "2026-10-18T08:36:58.439845+00:00",
+  "training_as_of_utc": "2026-10-18T09:58:10.219833+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 36,
     "bbs_added_results": 0,
@@ -14,7 +14,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-18T08:36:58.439845+00:00",
+    "cutoff_utc": "2026-10-18T09:58:10.219833+00:00",
     "observations": 54,
     "observations_sha256": "0edc36b296a2e980e3a8e9c1bb30620bc3d5c291e8f29f1e98b505cc0aae317e",
     "eligible_training_matches": 0,
@@ -56,9 +56,9 @@
   },
   "training_end": "2026-10-14",
   "fit_success": true,
-  "objective": 967.2320828208317,
-  "base": 0.20289514729585978,
-  "home_adv": 0.30579191511655346,
+  "objective": 967.1804017096141,
+  "base": 0.20288973228704457,
+  "home_adv": 0.3058156826471892,
   "rho": 0.05,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
@@ -81,12 +81,12 @@
     "sha256": "2217b36d746063d412e90f633195640580308995d5c6ce928aa37c3aa5a6809e",
     "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
     "note": "Provider schedule comparison is not independent proof of complete coverage.",
-    "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-    "download_age_hours": 0.001527330277777778,
+    "status": "LIVE_REFRESH_FAILED_USING_CACHE",
+    "download_age_hours": 1.3547995491666667,
     "training_end": "2026-10-14",
     "cache_hash_verified": true,
-    "last_refresh_error": null,
-    "last_refresh_error_reason": null
+    "last_refresh_error": "ValueError",
+    "last_refresh_error_reason": "Refusing UCL refresh that removes completed matches"
   },
   "training_source": "football-data.org",
   "fixture_provider_mode": "auto",
@@ -99,7 +99,7 @@
   "additional_event_odds_calls_used_before_this_league": 23,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261018T083658439845Z_5ca89b1d627449eb3682fccf752979a6152faa5cd7fba8936025f7936ad22815.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261018T095810219833Z_99c3a355e2a4d36b143ce6057f789a36886a4eaa991983fd76f65f8545fb4b57.json",
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
