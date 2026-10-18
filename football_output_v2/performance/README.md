@@ -11,7 +11,7 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 |---|---:|---:|---:|---:|
 | All selections | 18 | 14-4 | 77.8% | +5.4% |
 
-Unsettled / unverified entries: **7**.
+Unsettled / unverified entries: **15**.
 Whole-fixture 1X2 multiclass Brier (n=60): 0.5451
 
 ## STRICT versus PROVISIONAL
@@ -25,6 +25,7 @@ Whole-fixture 1X2 multiclass Brier (n=60): 0.5451
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
+| 48h-top-ten-probability-ev-no-under35-v14 | 0 | 0-0 | — | — |
 | 72h-all-markets-net-ev15-execution-v7 | 2 | 1-1 | 50.0% | -36.5% |
 | 72h-seven-markets-fresh-references-net-ev15-v11 | 1 | 1-0 | 100.0% | +58.0% |
 | 72h-six-markets-dc12-probability-odds-net-ev15-v9 | 1 | 1-0 | 100.0% | +27.0% |
@@ -50,6 +51,7 @@ Whole-fixture 1X2 multiclass Brier (n=60): 0.5451
 |---|---:|---:|---:|---:|
 | Bundesliga | 1 | 1-0 | 100.0% | +27.0% |
 | La Liga | 4 | 4-0 | 100.0% | +26.8% |
+| Ligue 1 | 0 | 0-0 | — | — |
 | Premier League | 5 | 2-3 | 40.0% | -49.4% |
 | Serie A | 4 | 3-1 | 75.0% | +12.2% |
 | UEFA Champions League | 4 | 4-0 | 100.0% | +40.5% |
@@ -103,7 +105,6 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| aea62120d25e | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 95dc22b24994 | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | ea202e9e045b | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 6556638142ba | CAPTURED | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED |
@@ -123,6 +124,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 3a3ff5eef038 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | b4dfb7c51677 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 67fd2fe2099c | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| 4827bd2b8014 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
