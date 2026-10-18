@@ -2,10 +2,10 @@
 
 
 **Candidates:** 2 of target 10 distinct matches.
-**Strictly qualified:** 2. **Provisional watchlist:** 0.
-**Pipeline status:** BELOW_TARGET.
-**Generated (UTC):** 2026-10-17T14:11:18.520879+00:00.
-**Kickoffs within next 72 hours of run:** Yes (span: 18.8 hours).
+**Strictly qualified:** 1. **Provisional watchlist:** 1.
+**Pipeline status:** BELOW_TARGET_WITH_PROVISIONAL.
+**Generated (UTC):** 2026-10-18T08:37:07.802036+00:00.
+**Kickoffs within next 72 hours of run:** Yes (span: 53.5 hours).
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. Do not treat ten candidates as a ten-leg betslip.
 
@@ -13,8 +13,8 @@
 
 | Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Bayer Leverkusen vs SC Freiburg | Double Chance 1X | STRICT | 2026-10-18T13:30:00+00:00 | 83.4% | 83.4% | 1xBet | 1.24 | +3.4% | — |
-| AS Roma vs Genoa | Home win | STRICT | 2026-10-17T18:45:00+00:00 | 65.7% | 65.2% | 1xBet | 1.61 | +4.9% | — |
+| Bayer Leverkusen vs SC Freiburg | Double Chance 1X | STRICT | 2026-10-18T13:30:00+00:00 | 84.8% | 84.8% | 1xBet | 1.20 | +1.7% | — |
+| Liverpool vs Villarreal | Home win | PROVISIONAL | 2026-10-20T19:00:00+00:00 | 78.4% | 72.8% | 1xBet | 1.53 | +11.4% | 75plus market history: INSUFFICIENT_HIGH_CONFIDENCE_HISTORY |
 
 ## Interpretation
 
