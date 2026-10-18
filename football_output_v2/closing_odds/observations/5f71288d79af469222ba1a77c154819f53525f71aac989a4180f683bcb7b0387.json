@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Crystal Palace",
+    "home_team": "Brighton and Hove Albion",
+    "kickoff_utc": "2026-10-18T13:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "9fc08b390a49c4434f7cf631a0bb88fb"
+  },
+  "observed_at_utc": "2026-10-18T12:54:02.233542+00:00",
+  "payload": {
+    "away_team": "Crystal Palace",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T12:53:37Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.45
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 7.03
+              },
+              {
+                "name": "Draw",
+                "price": 4.77
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T12:53:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.31
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.62
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T12:53:54Z",
+            "outcomes": [
+              {
+                "name": "Brighton and Hove Albion",
+                "price": 1.43
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 7.2
+              },
+              {
+                "name": "Draw",
+                "price": 5.1
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T12:53:54Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.87
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.05
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-18T13:00:00Z",
+    "home_team": "Brighton and Hove Albion",
+    "id": "9fc08b390a49c4434f7cf631a0bb88fb",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.45,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6769974582716357,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T12:53:37+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.77,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19393413811644214,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T12:53:37+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 7.03,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.12906840361192215,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T12:53:37+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.31,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.40552185891679066,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-18T12:53:37+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5944781410832094,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-18T12:53:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.43,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6889291407314307,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T12:53:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.1,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.183176588579377,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T12:53:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.2,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.12789427068919224,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T12:53:54+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
