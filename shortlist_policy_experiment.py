@@ -15,6 +15,7 @@ VERSION = 'shortlist-probability-calibration-v1'
 BASELINE_POLICY = '72h-seven-markets-fresh-references-net-ev15-v11'
 PREVIOUS_BASELINE_POLICY = '72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10'
 LEGACY_BASELINE_POLICY = '72h-six-markets-dc12-probability-odds-net-ev15-v9'
+PROBABILITY_POLICY = '72h-top-ten-adjusted-probability-v12'
 NAME = 'shortlist_policy_experiment'
 VARIANTS = {
     'control': {},
@@ -89,7 +90,8 @@ def write_experiment(predictions, raw, summary, production_decisions, reliabilit
     from performance_tracking import write_json
     from quote_policy import load_policy
     execution = load_policy()
-    rows = decision_rows(predictions, summary['generated_at_utc'], reliability, execution)
+    rows = decision_rows(predictions, summary['generated_at_utc'], reliability, execution,
+                         baseline_policy=summary['selection_policy_version'])
     if [dict((k, v) for k, v in row.items() if k != 'variant_id')
             for row in rows if row['variant_id'] == 'control'] != clean_frame(production_decisions):
         raise ValueError('Research control differs from production decisions')
@@ -108,7 +110,7 @@ def validate(data, generated, predictions):
     from quote_policy import validate_policy
     if not isinstance(data, dict) or data.get('version') != VERSION or data.get('variants') != VARIANTS:
         raise ValueError('Invalid shortlist policy version/grid')
-    if data.get('selection_policy_version') not in (BASELINE_POLICY, PREVIOUS_BASELINE_POLICY, LEGACY_BASELINE_POLICY):
+    if data.get('selection_policy_version') not in (PROBABILITY_POLICY, BASELINE_POLICY, PREVIOUS_BASELINE_POLICY, LEGACY_BASELINE_POLICY):
         raise ValueError('Unbound baseline policy')
     if utc(generated) is None or utc(data.get('generated_at_utc')) != utc(generated):
         raise ValueError('Unbound shortlist policy generation time')

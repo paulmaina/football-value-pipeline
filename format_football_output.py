@@ -1168,6 +1168,7 @@ def process_conservative_shortlist(
         raw = pd.DataFrame()
 
     summary = load_json_file(input_dir / "conservative_bet_summary.json")
+    probability_first = summary.get('selection_objective') == 'PROBABILITY_FIRST'
     if "decision" in raw.columns:
         # Fail closed if a mistakenly supplied mixed decision file slips in.
         raw = raw.loc[
@@ -1175,6 +1176,8 @@ def process_conservative_shortlist(
         ].copy()
 
     readable = readable_shortlist_frame(raw)
+    if probability_first:
+        readable = readable.rename(columns={'Near-miss reasons': 'Selection warnings'})
     readable.to_csv(
         output_dir / "conservative_bet_shortlist_readable.csv",
         index=False,
@@ -1201,14 +1204,24 @@ def process_conservative_shortlist(
     if summary.get("ucl_validation_available") is False:
         refresh_note += "; UCL historical validation missing: rerun the full six-league pipeline"
 
+    ranking_notes = []
+    if probability_first:
+        ranking_notes = [
+            "**Ranking:** highest reliability-adjusted probability across all usable markets; strict qualifications do not take priority.",
+            "**Selection warnings:** EV and historical qualification failures are disclosed, not used to fill a smaller strict-only list.",
+        ]
+        if summary.get('shortfall_reason'):
+            ranking_notes.append(f"**Shortfall:** {summary['shortfall_reason']}")
+
     lines = [
-        "# Conservative shortlisted matches and markets",
+        "# Top 10 probability-ranked matches" if probability_first else "# Conservative shortlisted matches and markets",
         "",
         refresh_note,
         f"**Candidates:** {count} of target {target} distinct matches.",
         f"**Strictly qualified:** {n_strict}. **Provisional watchlist:** {n_provisional}.",
         f"**Pipeline status:** {status}.",
         f"**Generated (UTC):** {generated}.",
+        *ranking_notes,
         (
             f"**{window_label}:** "
             + window_text
@@ -1228,7 +1241,7 @@ def process_conservative_shortlist(
             "Match", "Shortlisted market", "Qualification", "Kickoff (UTC)",
             "Model chance", "Reliability-adjusted chance",
             "Bookmaker", "Quoted decimal odds", "Conservative estimated EV",
-            "Near-miss reasons",
+            "Selection warnings" if probability_first else "Near-miss reasons",
         ]
         lines.append(markdown_table(
             headers,
@@ -1242,28 +1255,27 @@ def process_conservative_shortlist(
         "## Interpretation",
         "",
         "**STRICT** means every configured historical, probability, odds "
-        "and EV rule passed. **PROVISIONAL** means the specified historical "
+        "and EV rule passed. " + ("**PROVISIONAL** means a probability-ranked selection failed at least one legacy strict rule. Negative EV, lower probability and weak historical evidence remain explicit warnings; essential identity, quote and timing checks still apply. " if probability_first else "**PROVISIONAL** means the specified historical "
         "or small adjusted-EV checks FAILED, although the essential source, "
         "reference-market integrity, team and price rules passed. "
-        "Never count provisional candidates as verified reliable bets. "
+        "Never count provisional candidates as verified reliable bets. ") +
         "Model chance describes the selected market, not necessarily the "
         "home or away match winner.",
         "",
         "Reliability-adjusted chance discounts historical overconfidence "
-        "using an earlier chronological development sample; a later audit "
-        "must pass the predefined quality gate. It remains an estimate.",
+        "using an earlier chronological development sample; " + ("audit failures are shown as selection warnings. It remains an estimate." if probability_first else "a later audit must pass the predefined quality gate. It remains an estimate."),
         "",
-        "When forecast probability is 75% or higher, the chosen market "
+        ("Historical >=75% and >=85% audit status, sample sizes and Wilson uncertainty ranges are shown for context; these checks no longer shorten the probability-ranked shortlist." if probability_first else "When forecast probability is 75% or higher, the chosen market "
         "must separately pass the >=75% historical audit; >=85% forecasts "
         "must pass the >=85% audit. The readable CSV includes the group "
-        "sample size, observed rate and Wilson 95% uncertainty range.",
+        "sample size, observed rate and Wilson 95% uncertainty range."),
         "",
         "Conservative estimated EV uses that adjusted chance and the quoted "
         "price. Neither the original EV nor the adjusted EV is assured; "
         "bookmaker prices may change before kickoff.",
         "",
         (
-            "**Four-day selection:** "
+            "**Selection method:** "
             + str(summary.get("selection_method") or
                   "See the raw summary JSON for selection details.")
         ),
