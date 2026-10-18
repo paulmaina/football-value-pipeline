@@ -45,6 +45,7 @@ PROVISIONAL_MIN_HIGH_DEVELOPMENT = 3
 # been optimized or independently backtested for betting profitability.
 SELECTION_POLICY_VERSION = "72h-seven-markets-fresh-references-net-ev15-v11"
 PROBABILITY_SELECTION_POLICY_VERSION = "72h-top-ten-adjusted-probability-v12"
+BALANCED_SELECTION_POLICY_VERSION = "48h-top-ten-probability-ev-v13"
 PREVIOUS_SELECTION_POLICY_VERSION = "72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10"
 LEGACY_SELECTION_POLICY_VERSION = "72h-six-markets-dc12-probability-odds-net-ev15-v9"
 MARKET_SPECS = (
@@ -145,7 +146,7 @@ def _evaluate_market(
     quote_policy: Optional[Mapping] = None,
     adjusted_ev_floor: Optional[float] = None,
     research_policy: Optional[Mapping] = None,
-    *, require_fresh_references: bool = True,
+    *, require_fresh_references: bool = True, lookahead_hours: float = SHORTLIST_LOOKAHEAD_HOURS,
 ) -> dict:
     label, key, min_prob, min_raw = spec
     research = research_policy or {}
@@ -164,8 +165,8 @@ def _evaluate_market(
         reasons.append("missing or invalid UTC kickoff")
     elif (kickoff - now).total_seconds() / 60.0 < MIN_MINUTES_UNTIL_KICKOFF:
         reasons.append("kickoff has passed or is less than 20 minutes away")
-    elif kickoff > now + pd.Timedelta(hours=SHORTLIST_LOOKAHEAD_HOURS):
-        reasons.append("kickoff outside next 72 hours")
+    elif kickoff > now + pd.Timedelta(hours=lookahead_hours):
+        reasons.append(f"kickoff outside next {lookahead_hours:g} hours")
 
     date = kickoff.date().isoformat() if kickoff is not None else str(row.get("date") or "")
     if row.get("odds_source") != "The Odds API" or row.get("market_blend_applied") not in (True, 1):
@@ -435,7 +436,7 @@ def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple], adjusted_ev_fl
 
 
 
-def _probability_choices(decisions, adjusted_ev_floor=None):
+def _probability_choices(decisions, adjusted_ev_floor=None, *, balanced=False):
     """Rank usable quotes globally; strict-rule failures remain visible warnings."""
     from performance_tracking import fixture_key, canonical_team_key
     soft_prefixes = (
@@ -448,6 +449,9 @@ def _probability_choices(decisions, adjusted_ev_floor=None):
         'double chance historical reliability report required', 'UCL historical reliability report required',
     )
     candidates = []
+    if balanced:
+        for field in ('probability_percentile', 'ev_percentile', 'selection_score'):
+            decisions[field] = None
     for i, row in decisions.iterrows():
         reasons = [x for x in str(row['rejection_reasons']).split('; ') if x]
         if row.get('validation_status') == 'NOT_ASSESSED':
@@ -462,8 +466,8 @@ def _probability_choices(decisions, adjusted_ev_floor=None):
             valid = bool(home and away and home != away)
         hard = [x for x in reasons if not x.startswith(soft_prefixes)]
         ev = _number(row.get('conservative_estimated_ev'))
-        if adjusted_ev_floor is not None and (ev is None or ev + 1e-12 < adjusted_ev_floor):
-            hard.append('experimental adjusted EV floor not met')
+        if ev is None:
+            hard.append('missing finite adjusted EV')
         decisions.loc[i, 'decision'] = 'REJECTED'
         if not valid:
             hard.append('missing valid probability or fixture identity')
@@ -476,6 +480,26 @@ def _probability_choices(decisions, adjusted_ev_floor=None):
          'kickoff_utc', 'league', 'home_team', 'away_team'],
         ascending=[False, False, False, True, True, True, True], kind='stable')
     pool = pool.assign(_fixture_key=pool.apply(lambda r: fixture_key(r), axis=1)) if len(pool) else pool.assign(_fixture_key=[])
+    # Duplicate provider rows must not influence empirical percentile ranks.
+    pool = pool.drop_duplicates(['_fixture_key', 'market'])
+    if balanced:
+        for field, source in [('probability_percentile', 'rank_probability'),
+                              ('ev_percentile', 'conservative_estimated_ev')]:
+            pool[field] = pool[source].rank(method='average', pct=True)
+        pool['selection_score'] = .5*pool.probability_percentile + .5*pool.ev_percentile
+        fields = ['probability_percentile', 'ev_percentile', 'selection_score']
+        decisions.loc[pool.index, fields] = pool[fields]
+        pool = pool.sort_values(
+            ['selection_score', 'rank_probability', 'conservative_estimated_ev',
+             'offered_decimal_odds', 'kickoff_utc', 'league', 'home_team', 'away_team'],
+            ascending=[False, False, False, False, True, True, True, True], kind='stable')
+    if adjusted_ev_floor is not None:
+        rejected = pool.index[pool.conservative_estimated_ev + 1e-12 < adjusted_ev_floor]
+        for i in rejected:
+            reasons = decisions.loc[i, 'rejection_reasons']
+            decisions.loc[i, 'rejection_reasons'] = '; '.join(filter(None, [reasons, 'experimental adjusted EV floor not met']))
+        pool = pool.drop(index=rejected)
+        candidates = [i for i in candidates if i not in rejected]
     top = pool.drop_duplicates('_fixture_key').head(TARGET_DISTINCT_MATCHES)
     strict, ranked = [], []
     for i in candidates:
@@ -511,8 +535,10 @@ def build_conservative_shortlist(
         raise ValueError("as_of must be timezone-aware")
     now = now.tz_convert("UTC")
     policy_version = SELECTION_POLICY_VERSION if selection_policy_version is None else selection_policy_version
-    probability_policy = policy_version == PROBABILITY_SELECTION_POLICY_VERSION
-    if policy_version not in (PROBABILITY_SELECTION_POLICY_VERSION, SELECTION_POLICY_VERSION, PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
+    balanced_policy = policy_version == BALANCED_SELECTION_POLICY_VERSION
+    probability_policy = balanced_policy or policy_version == PROBABILITY_SELECTION_POLICY_VERSION
+    lookahead_hours = 48.0 if balanced_policy else SHORTLIST_LOOKAHEAD_HOURS
+    if policy_version not in (BALANCED_SELECTION_POLICY_VERSION, PROBABILITY_SELECTION_POLICY_VERSION, SELECTION_POLICY_VERSION, PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
         raise ValueError("Unsupported baseline shortlist policy; preserve replay compatibility")
     # Archived v9 comparisons must replay their original six-market ranking.
     specs = tuple(spec for spec in (PROBABILITY_MARKET_SPECS if probability_policy else MARKET_SPECS)
@@ -539,7 +565,8 @@ def build_conservative_shortlist(
                 if market_reliability is not None else None
             )
             evaluated.append(_evaluate_market(row, spec, now, report, policy, adjusted_ev_floor, research_policy,
-                require_fresh_references=policy_version not in (PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION)))
+                require_fresh_references=policy_version not in (PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION),
+                lookahead_hours=lookahead_hours))
     decisions = pd.DataFrame(evaluated, columns=DECISION_COLUMNS)
     original_decisions = decisions.copy() if probability_policy else None
 
@@ -621,11 +648,11 @@ def build_conservative_shortlist(
             )
     if probability_policy:
         decisions = original_decisions
-        chosen, provisional_ids, available_fixtures = _probability_choices(decisions, adjusted_ev_floor)
+        chosen, provisional_ids, available_fixtures = _probability_choices(decisions, adjusted_ev_floor, balanced=balanced_policy)
         n_strict = len(chosen)
     chosen_all = chosen.append(provisional_ids)
     shortlist = (
-        decisions.loc[chosen_all, SHORTLIST_COLUMNS]
+        decisions.loc[chosen_all, SHORTLIST_COLUMNS + (['probability_percentile', 'ev_percentile', 'selection_score'] if balanced_policy else [])]
         .sort_values(
             ["selection_tier", "historical_gap_score", "rank_probability",
              "offered_decimal_odds", "conservative_estimated_ev"],
@@ -634,10 +661,13 @@ def build_conservative_shortlist(
     )
     decisions = decisions.reset_index(drop=True)
     if probability_policy:
+        sort_fields = (['selection_score', 'rank_probability', 'conservative_estimated_ev', 'offered_decimal_odds',
+                        'kickoff_utc', 'league', 'home_team', 'away_team'] if balanced_policy else
+                       ['rank_probability', 'offered_decimal_odds', 'conservative_estimated_ev',
+                        'kickoff_utc', 'league', 'home_team', 'away_team'])
         shortlist = shortlist.sort_values(
-            ['rank_probability', 'offered_decimal_odds', 'conservative_estimated_ev',
-             'kickoff_utc', 'league', 'home_team', 'away_team'],
-            ascending=[False, False, False, True, True, True, True], kind='stable').reset_index(drop=True)
+            sort_fields, ascending=([False]*4+[True]*4 if balanced_policy else [False]*3+[True]*4),
+            kind='stable').reset_index(drop=True)
     n = len(shortlist)
     kickoff_times = pd.to_datetime(
         shortlist["kickoff_utc"], utc=True, errors="coerce"
@@ -650,7 +680,7 @@ def build_conservative_shortlist(
     )
     inside_window = (
         bool(len(kickoff_times))
-        and bool((kickoff_times <= now + pd.Timedelta(hours=SHORTLIST_LOOKAHEAD_HOURS)).all())
+        and bool((kickoff_times <= now + pd.Timedelta(hours=lookahead_hours)).all())
         and bool((kickoff_times >= now + pd.Timedelta(minutes=MIN_MINUTES_UNTIL_KICKOFF)).all())
     )
     status = (
@@ -672,12 +702,13 @@ def build_conservative_shortlist(
         "n_total_candidates": n,
         "target_distinct_matches": TARGET_DISTINCT_MATCHES,
         "shortfall": TARGET_DISTINCT_MATCHES - n,
-        "shortlist_lookahead_hours": SHORTLIST_LOOKAHEAD_HOURS,
+        "shortlist_lookahead_hours": lookahead_hours,
         "shortlist_window_start_utc": now.isoformat(),
         "shortlist_window_end_utc": (
-            now + pd.Timedelta(hours=SHORTLIST_LOOKAHEAD_HOURS)
+            now + pd.Timedelta(hours=lookahead_hours)
         ).isoformat(),
         "selected_matches_within_72_hours": inside_window,
+        **({'selected_matches_within_48_hours': inside_window} if balanced_policy else {}),
         "selected_kickoff_span_hours": actual_span,
         "selected_first_kickoff_utc": (
             first_kickoff.isoformat() if first_kickoff is not None else None
@@ -685,12 +716,17 @@ def build_conservative_shortlist(
         "selected_last_kickoff_utc": (
             last_kickoff.isoformat() if last_kickoff is not None else None
         ),
-        "selection_method": ("Top ten distinct fixtures within 72 hours; highest adjusted probability, then highest quoted odds; strict status does not change ranking"
+        "selection_method": ("Top ten distinct fixtures within 48 hours; equal-weight adjusted probability and adjusted EV percentile score; strict status does not change ranking" if balanced_policy else
+                             "Top ten distinct fixtures within 72 hours; highest adjusted probability, then highest quoted odds; strict status does not change ranking"
                              if probability_policy else "Strict-first ranking within 72 hours; highest adjusted probability, then highest quoted odds"),
-        **({'selection_objective': 'PROBABILITY_FIRST', 'usable_distinct_fixtures': available_fixtures,
+        **({'selection_objective': 'BALANCED_PROBABILITY_EV' if balanced_policy else 'PROBABILITY_FIRST', 'usable_distinct_fixtures': available_fixtures,
             'ev_required_for_selection': False, 'probability_thresholds_required_for_selection': False,
             'shortfall_reason': 'Fewer than ten distinct fixtures have usable predictions and fresh allowed-bookmaker quotes inside the window' if n < TARGET_DISTINCT_MATCHES else None}
            if probability_policy else {}),
+        **({'ranking_weights': {'adjusted_probability_percentile': .5, 'adjusted_ev_percentile': .5},
+            'score_formula': '0.5 * probability_percentile + 0.5 * ev_percentile',
+            'score_population': 'usable unique fixture-market candidates within 48 hours before experimental EV filters',
+            'ranking_is_empirically_optimized': False} if balanced_policy else {}),
         "eligible_markets": [x[0] for x in specs],
         "eligible_leagues": sorted(SUPPORTED_LEAGUES),
         "quote_execution_policy": policy,
@@ -700,6 +736,7 @@ def build_conservative_shortlist(
         "double_chance_min_adjusted_probability": MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY,
         "validation_required": market_reliability is not None,
         "ranking_metric": (
+            "equal-weight adjusted probability and adjusted EV percentile score" if balanced_policy else
             "development-calibration-adjusted probability; historical/EV failures are warnings" if probability_policy else
             "development-calibration-adjusted probability, audit-qualified"
             if market_reliability is not None else "uncalibrated model probability"
@@ -715,6 +752,7 @@ def build_conservative_shortlist(
         "min_team_name_match_score": MIN_TEAM_NAME_MATCH_SCORE,
         "max_quote_age_hours": MAX_ODDS_AGE_HOURS,
         "rule": (
+            "Top ten by equal-weight adjusted probability/EV percentile score, one market per fixture, within 48 hours; no probability or EV cutoff" if balanced_policy else
             "Top ten by adjusted probability, one real quoted market per fixture; EV and confidence thresholds annotate qualification rather than limit ranking" if probability_policy else
             "one independently quoted market per distinct fixture; "
             "strict qualifications first, then up to ten clearly labeled "

@@ -88,8 +88,8 @@ class FormatterIntegrationTests(OfflineQuotePolicyTestCase):
         from test_graded_candidates import sample_report, only_over_goal
         rows = [only_over_goal(i) for i in range(3)]
         rows[0]['kickoff_utc'] = (NOW + timedelta(days=8)).isoformat()
-        rows[1]['kickoff_utc'] = (NOW + timedelta(hours=71)).isoformat()
-        rows[2]['kickoff_utc'] = (NOW + timedelta(hours=72, seconds=1)).isoformat()
+        rows[1]['kickoff_utc'] = (NOW + timedelta(hours=47)).isoformat()
+        rows[2]['kickoff_utc'] = (NOW + timedelta(hours=48, seconds=1)).isoformat()
         rows[1]['league'] = 'UEFA Champions League'
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -103,9 +103,10 @@ class FormatterIntegrationTests(OfflineQuotePolicyTestCase):
             summary = refresh(root, as_of=NOW)
             picks = pd.read_csv(raw / 'conservative_bet_shortlist.csv')
             self.assertEqual(picks.fixture_id.tolist(), [rows[1]['fixture_id']])
-            self.assertTrue(summary['selected_matches_within_72_hours'])
+            self.assertTrue(summary['selected_matches_within_48_hours'])
+            self.assertEqual(summary['shortlist_lookahead_hours'], 48)
             self.assertTrue(summary['ucl_validation_available'])
-            self.assertIn('72 hours', (root / 'readable' / 'conservative_bet_shortlist_report.md').read_text())
+            self.assertIn('48 hours', (root / 'readable' / 'conservative_bet_shortlist_report.md').read_text())
 
     def test_formatter_creates_both_readable_reports_and_does_not_edit_raw(self):
         picks, _, summary = build_conservative_shortlist(

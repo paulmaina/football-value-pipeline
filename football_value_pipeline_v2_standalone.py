@@ -4065,7 +4065,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     # One conservative shortlist across all requested leagues, not an
     # independent quota of two picks per league. Do not alter predictions.
-    from conservative_bet_filter import build_conservative_shortlist, PROBABILITY_SELECTION_POLICY_VERSION
+    from conservative_bet_filter import build_conservative_shortlist, BALANCED_SELECTION_POLICY_VERSION
 
     all_predictions = (
         pd.concat(combined, ignore_index=True, sort=False)
@@ -4078,7 +4078,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     shortlist, decisions, selection_summary = build_conservative_shortlist(
         all_predictions, market_reliability=market_reliability,
-        selection_policy_version=PROBABILITY_SELECTION_POLICY_VERSION,
+        selection_policy_version=BALANCED_SELECTION_POLICY_VERSION,
     )
     shortlist.to_csv(out_dir / "conservative_bet_shortlist.csv", index=False)
     strictly_qualified = shortlist.loc[
