@@ -68,6 +68,20 @@ jobs:
           path: workflow_artifacts/closing-odds-recovery/
           if-no-files-found: ignore
           retention-days: 14
+      - name: Report persistent provider failures
+        if: always() && steps.collect.outcome != 'skipped' && steps.plan.outputs.ready == 'true'
+        run: |
+          python - <<'PYTHON'
+          import os
+          from odds_provider_health import alert_summary_from_path
+          message = alert_summary_from_path('workflow_artifacts/closing-odds-recovery/provider_status.json')
+          if message:
+              print('::error::'+message)
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as handle:
+                  handle.write('### Closing odds provider alert\n\n'+message+'\n')
+              raise SystemExit(1)
+          PYTHON
       - name: Explain scheduled timing
         if: always()
         run: echo 'Quotes are accepted only inside the existing 6-minute pre-kickoff window, with market age <=120 seconds. GitHub queue delays can cause a missed window; missing quotes stay missing. No bets are placed.' >> "$GITHUB_STEP_SUMMARY"
+
