@@ -33,3 +33,10 @@ push/archive before kickoff as usual. A GitHub review cannot recover a local
 prediction that was never uploaded. Existing full-fixture model assessments,
 closing-price studies and research experiments keep their fixed first-eligible
 cohorts, preventing repeated reruns from inflating experimental sample counts.
+
+The archive loader requires all three core file hashes and binds generation time
+to the immutable summary, restoring legacy subsecond precision where appropriate.
+The report checker compares each latest grade with its fully replayed history
+record, including result status and bookmaker. Equivalent numeric and timezone
+representations are accepted; changed outcomes, prices or provenance are rejected.
+Archive reads and repeated fixture-result matching are reused within a review.

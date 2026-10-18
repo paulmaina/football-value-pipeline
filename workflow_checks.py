@@ -199,12 +199,15 @@ def report_check(root):
     from performance_excel import REPORT_NAME
     from datetime import timedelta
     audit=archive_check(root)
+    archived=snapshots(root)
     performance=root/'performance'
     metrics=read_json(performance/'metrics.json')
     require(utc(metrics.get('reviewed_at_utc')) is not None, 'Missing report review timestamp')
     selections=read_csv(performance/'shortlist_grades.csv');predictions=read_csv(performance/'prediction_grades.csv')
     latest = metrics.get('tracking_basis') == 'LATEST_PREMATCH_PER_FIXTURE'
-    frozen={tracking_key(r) if latest else r['fixture_key']:r for r in frozen_rows(snapshots(root),'shortlist',latest=latest)}
+    history = read_csv(performance/'shortlist_run_history.csv') if latest else []
+    history_by_key = {tracking_key(r): r for r in history}
+    frozen={tracking_key(r) if latest else r['fixture_key']:r for r in frozen_rows(archived,'shortlist',latest=latest)}
     require(len(selections)==len(frozen), 'Report omitted or added frozen selections')
     cache_path=performance/'verified_results.json'
     records=list(read_json(cache_path).values()) if cache_path.exists() else []
@@ -212,6 +215,16 @@ def report_check(root):
     for row in selections:
         key=tracking_key(row) if latest else row['fixture_key'];require(key not in seen,'Duplicate graded fixture/run');seen.add(key)
         original=frozen.get(key);require(original is not None,'Graded selection without immutable snapshot')
+        if latest:
+            history_row=history_by_key.get(key)
+            label='Latest grade differs from immutable run history'
+            require(history_row is not None and row.keys()==history_row.keys(),label)
+            numeric={'predicted_probability','offered_decimal_odds','per_stake_cost','source_match_id','unit_profit','brier'}
+            timestamps={'kickoff_utc','snapshot_generated_utc','snapshot_captured_utc'}
+            for field,value in history_row.items():
+                if field in numeric: close(row.get(field),number(value),label+' '+field)
+                elif field in timestamps: require(utc(row.get(field))==utc(value),label+' '+field)
+                else: require(row.get(field)==value,label+' '+field)
         require(row['snapshot_commit']==original['snapshot_commit'] and row['market']==original['market'], 'Report selection provenance changed')
         require(row['selection_policy_version']==original['selection_policy_version'], 'Report policy provenance changed')
         if latest:
@@ -243,8 +256,7 @@ def report_check(root):
     for field,value in expected_stats(selections).items():close(metrics['shortlist'].get(field),value,'Shortlist '+field)
     if latest:
         from performance_tracking import score_shortlist
-        history = read_csv(performance/'shortlist_run_history.csv')
-        originals = {tracking_key(r):r for r in frozen_rows(snapshots(root),'shortlist',all_runs=True)}
+        originals = {tracking_key(r):r for r in frozen_rows(archived,'shortlist',all_runs=True)}
         require(len(history)==len(originals) and len({tracking_key(r) for r in history})==len(history),
                 'Prediction history coverage mismatch')
         require(len({r['fixture_key'] for r in selections})==len(selections), 'Duplicate latest fixture')
@@ -266,7 +278,7 @@ def report_check(root):
                 else:
                     require(row.get(field) == str(value), 'History '+field+' differs from frozen replay')
         first = {}
-        for original in frozen_rows(snapshots(root),'shortlist'):
+        for original in frozen_rows(archived,'shortlist'):
             first[original['fixture_key']] = tracking_key(original)
         first_rows = [r for r in history if tracking_key(r)==first.get(r['fixture_key'])]
         require(metrics.get('unique_shortlisted_fixtures')==len(first), 'Unique fixture count mismatch')
@@ -292,7 +304,7 @@ def report_check(root):
         for label,values in groups.items():
             for field,value in expected_stats([r for r in selections if r.get(column)==label]).items():
                 close(values.get(field),value,f'{dimension} {label}: {field}')
-    frozen_predictions={r['fixture_key']:r for r in frozen_rows(snapshots(root),'predictions')}
+    frozen_predictions={r['fixture_key']:r for r in frozen_rows(archived,'predictions')}
     require(len(predictions)==len(frozen_predictions) and len({r['fixture_key'] for r in predictions})==len(predictions), 'Prediction report coverage mismatch')
     require(all(r['fixture_key'] in frozen_predictions and r['snapshot_commit']==frozen_predictions[r['fixture_key']]['snapshot_commit'] for r in predictions), 'Prediction provenance changed')
     require(metrics['prediction_fixtures_graded']==sum(r['status']=='GRADED' for r in predictions), 'Prediction graded count mismatch')

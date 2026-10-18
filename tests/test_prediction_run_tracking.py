@@ -166,3 +166,48 @@ class PredictionRunTrackingTests(OfflineQuotePolicyTestCase):
         self.assertEqual(len(frozen_rows(archive,'shortlist',all_runs=True)),4)
         self.assertEqual(frozen_rows(archive,'shortlist')[0]['snapshot_commit'],'a'*40)
         with self.assertRaises(ValueError): frozen_rows(archive,'shortlist',latest=True,all_runs=True)
+
+    def test_latest_grade_cannot_hide_a_result_or_change_its_bookmaker(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            save_run(root,T0,[fixture()],[pick(market='Away win')])
+            capture('a'*40,root=root,captured_at=T0)
+            review(root=root,token='fake',clock=KICK+timedelta(days=1),session=MockSession([final()]))
+            path=root/'performance/shortlist_grades.csv';original=pd.read_csv(path)
+            for changes in ({'status':'PENDING_KICKOFF_OR_FINAL_SCORE','unit_profit':'','brier':''},
+                            {'bookmaker':'Fabricated bookmaker'}):
+                changed=original.copy()
+                for field,value in changes.items():
+                    changed[field]=changed[field].astype(object)
+                    changed.loc[0,field]=value
+                changed.to_csv(path,index=False)
+                with self.assertRaisesRegex(ValueError,'Latest grade differs from immutable run history'):
+                    report_check(root)
+            original.to_csv(path,index=False)
+            self.assertEqual(report_check(root)['shortlist']['losses'],1)
+            # Equivalent numeric CSV representations must not look like tampering.
+            compatible=original.copy();compatible['brier']=compatible['brier'].astype(object)
+            compatible.loc[0,'brier']='0.6400000000000001';compatible.to_csv(path,index=False)
+            self.assertEqual(report_check(root)['shortlist']['losses'],1)
+
+    def test_required_snapshot_binding_and_legacy_generation_precision(self):
+        from performance_tracking import utc
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);generated=T0.replace(microsecond=123456)
+            save_run(root,generated,[fixture()],[pick()])
+            capture('a'*40,root=root,captured_at=T0+timedelta(minutes=1))
+            path=root/'performance/snapshots'/('a'*16)/'metadata.json'
+            original=json.loads(path.read_text())
+            for manifest in ({}, {'predictions.csv':original['sha256']['predictions.csv']},
+                             {**original['sha256'],'shortlist.csv':'bad'},
+                             {**original['sha256'],'../unbound.csv':'a'*64}):
+                changed=copy.deepcopy(original);changed['sha256']=manifest;write_json(path,changed)
+                with self.assertWarns(UserWarning): self.assertEqual(snapshots(root),[])
+            # Older archives truncated only metadata, not the hash-bound summary.
+            legacy=copy.deepcopy(original);legacy['generated_at_utc']=T0.isoformat();write_json(path,legacy)
+            archived=snapshots(root)
+            self.assertEqual(utc(archived[0][0]['generated_at_utc']),generated)
+            self.assertEqual(utc(frozen_rows(archived,'shortlist',latest=True)[0]['snapshot_generated_utc']),generated)
+            wrong=copy.deepcopy(original);wrong['generated_at_utc']=(T0-timedelta(seconds=1)).isoformat();write_json(path,wrong)
+            with self.assertWarnsRegex(UserWarning,'Unbound snapshot generation'):
+                self.assertEqual(snapshots(root),[])
