@@ -1,8 +1,8 @@
 {
   "league": "La Liga",
   "training_matches": 1223,
-  "training_sha256": "1aa705e00f91bb215ff362c8f1f2e11e693c7f666ed51e06165fd488a243f18f",
-  "training_as_of_utc": "2026-10-18T09:56:48.741714+00:00",
+  "training_sha256": "dd0a3492e0e34113febb071c360185f56a9bd5ae879331fbafe0e82847d46971",
+  "training_as_of_utc": "2026-10-18T11:56:55.150173+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 83,
     "bbs_added_results": 5,
@@ -14,9 +14,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-18T09:56:48.741714+00:00",
-    "observations": 92,
-    "observations_sha256": "1a43270a9604934dcb9704f8e505df61b4519dd2b23fa52572f0745dfdc35444",
+    "cutoff_utc": "2026-10-18T11:56:55.150173+00:00",
+    "observations": 97,
+    "observations_sha256": "0718e1ca9a242ccbcd438a2ed7a7e4114300226c2ff33980426c06842d97102d",
     "eligible_training_matches": 41,
     "required_training_matches": 120,
     "feature_fields": [
@@ -50,16 +50,16 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.155286+00:00",
-    "retrospective_inputs_sha256": "e3fc44bb94a661b71870b111b107b4941167282fe42a40893b7249a21f0bbbc9",
+    "retrospective_inputs_sha256": "2fb2a3551ebba0e1748b88759b7124e0d6de36819e8118ca2ff1e6e13649b77d",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement."
   },
   "training_end": "2026-10-17",
   "fit_success": true,
-  "objective": 2001.8458290624474,
-  "base": 0.08727335316129112,
-  "home_adv": 0.2784958930691807,
-  "rho": -0.02899661040674861,
+  "objective": 2001.6873195763178,
+  "base": 0.08721669551568535,
+  "home_adv": 0.27847395595743896,
+  "rho": -0.02898007219721224,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
   "max_goals": 10,
@@ -81,7 +81,7 @@
   "additional_event_odds_calls_used_before_this_league": 5,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261018T095648741714Z_c417b2be0cc47d3ed0c4b61939e84af3a9ad63a96552b41a9bf560b8933ad814.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261018T115655150173Z_363edff488e458d545b1f2980db96a242a884a7637e0976a383554adc09f474c.json",
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -90,11 +90,10 @@
       "home_team": "CA Osasuna",
       "away_team": "Real Racing Club de Santander",
       "kickoff_utc": "2026-10-18T12:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "aabe899ecc4c19a1fafe5440151b62e4",
@@ -266,10 +265,10 @@
       "home_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 5,
+  "additional_odds_in_window_linked_fixtures": 4,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 5,
+  "additional_event_odds_calls_this_league": 4,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 730.0,
