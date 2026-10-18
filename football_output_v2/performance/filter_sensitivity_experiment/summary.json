@@ -2,20 +2,27 @@
   "breakdowns": [
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.03117456600130214,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.823436793183568,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "league",
       "ev_floor": 0.015,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
+      "flat_stake_roi": 0.24,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.823436793183568,
+      "observed_rate": 1.0,
+      "pending": 0,
+      "profit_units": 0.24,
       "selected": 1,
       "value": "Bundesliga",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -475,20 +482,27 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.03117456600130214,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.823436793183568,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "market",
       "ev_floor": 0.015,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
+      "flat_stake_roi": 0.24,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.823436793183568,
+      "observed_rate": 1.0,
+      "pending": 0,
+      "profit_units": 0.24,
       "selected": 1,
       "value": "Double Chance 1X",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -700,7 +714,7 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.10142142905335418,
+      "brier": 0.09138616290306104,
       "calibration": [
         {
           "band": "60%-70%",
@@ -710,8 +724,8 @@
         },
         {
           "band": "80%-90%",
-          "mean_probability": 0.836776253982973,
-          "n": 2,
+          "mean_probability": 0.832329767049838,
+          "n": 3,
           "observed_rate": 1.0
         },
         {
@@ -723,16 +737,16 @@
       ],
       "dimension": "week",
       "ev_floor": 0.015,
-      "flat_stake_roi": 0.10166666666666664,
-      "graded": 6,
+      "flat_stake_roi": 0.12142857142857141,
+      "graded": 7,
       "max_drawdown_units": 1.0,
-      "mean_probability": 0.8107741366369733,
-      "observed_rate": 0.8333333333333334,
-      "pending": 2,
-      "profit_units": 0.6099999999999999,
+      "mean_probability": 0.8125830875722011,
+      "observed_rate": 0.8571428571428571,
+      "pending": 1,
+      "profit_units": 0.8499999999999999,
       "selected": 8,
       "value": "2026-W42",
-      "wins": 5
+      "wins": 6
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -967,20 +981,27 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": null,
-      "calibration": [],
+      "brier": 0.03117456600130214,
+      "calibration": [
+        {
+          "band": "80%-90%",
+          "mean_probability": 0.823436793183568,
+          "n": 1,
+          "observed_rate": 1.0
+        }
+      ],
       "dimension": "selection_policy_version",
       "ev_floor": 0.015,
-      "flat_stake_roi": null,
-      "graded": 0,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 2,
-      "profit_units": 0,
+      "flat_stake_roi": 0.24,
+      "graded": 1,
+      "max_drawdown_units": 0.0,
+      "mean_probability": 0.823436793183568,
+      "observed_rate": 1.0,
+      "pending": 1,
+      "profit_units": 0.24,
       "selected": 2,
       "value": "72h-seven-markets-fresh-references-net-ev15-v11",
-      "wins": 0
+      "wins": 1
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -1021,7 +1042,7 @@
   "comparisons": [
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.10142142905335418,
+      "brier": 0.09138616290306104,
       "calibration": [
         {
           "band": "60%-70%",
@@ -1031,8 +1052,8 @@
         },
         {
           "band": "80%-90%",
-          "mean_probability": 0.836776253982973,
-          "n": 2,
+          "mean_probability": 0.832329767049838,
+          "n": 3,
           "observed_rate": 1.0
         },
         {
@@ -1043,20 +1064,20 @@
         }
       ],
       "ev_floor": 0.015,
-      "flat_stake_roi": 0.10166666666666664,
-      "graded": 6,
+      "flat_stake_roi": 0.12142857142857141,
+      "graded": 7,
       "max_drawdown_units": 1.0,
-      "mean_probability": 0.8107741366369733,
-      "observed_rate": 0.8333333333333334,
-      "pending": 3,
-      "profit_units": 0.6099999999999999,
+      "mean_probability": 0.8125830875722011,
+      "observed_rate": 0.8571428571428571,
+      "pending": 2,
+      "profit_units": 0.8499999999999999,
       "selected": 9,
       "tier": "ALL",
-      "wins": 5
+      "wins": 6
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.11554459319981465,
+      "brier": 0.10148292200006258,
       "calibration": [
         {
           "band": "60%-70%",
@@ -1066,8 +1087,8 @@
         },
         {
           "band": "80%-90%",
-          "mean_probability": 0.849067773173995,
-          "n": 1,
+          "mean_probability": 0.8362522831787815,
+          "n": 2,
           "observed_rate": 1.0
         },
         {
@@ -1078,16 +1099,16 @@
         }
       ],
       "ev_floor": 0.015,
-      "flat_stake_roi": 0.06999999999999998,
-      "graded": 5,
+      "flat_stake_roi": 0.09833333333333331,
+      "graded": 6,
       "max_drawdown_units": 1.0,
-      "mean_probability": 0.8080320170059778,
-      "observed_rate": 0.8,
-      "pending": 2,
-      "profit_units": 0.34999999999999987,
+      "mean_probability": 0.8105994797022428,
+      "observed_rate": 0.8333333333333334,
+      "pending": 1,
+      "profit_units": 0.5899999999999999,
       "selected": 7,
       "tier": "STRICT",
-      "wins": 4
+      "wins": 5
     },
     {
       "assessment": "COLLECT_MORE_DATA",
@@ -1294,7 +1315,7 @@
   ],
   "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
   "rejected_snapshot_commits": [],
-  "reviewed_at_utc": "2026-10-18T14:41:03.834284+00:00",
+  "reviewed_at_utc": "2026-10-18T17:08:05.115054+00:00",
   "total_fixtures": 73,
   "version": "conservative-ev-sensitivity-v1"
 }

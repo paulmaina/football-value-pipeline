@@ -6232,7 +6232,7 @@
       ]
     ],
     "reasons": [],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": 1.0397033165027376,
     "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
     "status": "available",
@@ -6409,7 +6409,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
     "status": "unavailable",
@@ -6586,7 +6586,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
     "status": "unavailable",
@@ -7126,7 +7126,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "scale": null,
     "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
     "status": "unavailable",
@@ -7303,7 +7303,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "scale": null,
     "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
     "status": "unavailable",
@@ -7958,7 +7958,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "scale": null,
     "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
     "status": "unavailable",
@@ -8392,7 +8392,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
     "status": "unavailable",

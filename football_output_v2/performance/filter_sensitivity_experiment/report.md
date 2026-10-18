@@ -6,8 +6,8 @@ Frozen fixtures: 73; candidate decisions: 1410; rejected snapshots: 0.
 
 | EV floor | Tier | Selected | Settled | Pending | Net ROI | Drawdown (units) | Brier |
 |---|---|---:|---:|---:|---:|---:|---:|
-| 1.5% | ALL | 9 | 6 | 3 | +10.2% | 1.00 | 0.1014 |
-| 1.5% | STRICT | 7 | 5 | 2 | +7.0% | 1.00 | 0.1155 |
+| 1.5% | ALL | 9 | 7 | 2 | +12.1% | 1.00 | 0.0914 |
+| 1.5% | STRICT | 7 | 6 | 1 | +9.8% | 1.00 | 0.1015 |
 | 1.5% | PROVISIONAL | 2 | 1 | 1 | +26.0% | 0.00 | 0.0308 |
 | 3.0% | ALL | 8 | 6 | 2 | +10.2% | 1.00 | 0.1014 |
 | 3.0% | STRICT | 6 | 5 | 1 | +7.0% | 1.00 | 0.1155 |

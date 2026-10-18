@@ -2,14 +2,14 @@
 
 Separate proportional intensity scaling to fresh Pinnacle O/U 2.5, fitted rho and production HDA preserved. Primary Under 3.5 log loss; other markets are guardrails. No bets, automatic promotion or backfill.
 
-Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
+Status: COLLECT_MORE_DATA; paired fixtures: 3; gameweeks: 1
 
 {
   "under_3_5": {
     "baseline": {
-      "n": 2,
-      "log_loss": 0.391858896884581,
-      "brier": 0.11223130758995786,
+      "n": 3,
+      "log_loss": 0.3682831033356357,
+      "brier": 0.09996913462911304,
       "rps": null,
       "calibration": [
         {
@@ -19,6 +19,18 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
           "mean_probability": 0.5698150907054242,
           "observed_rate": 1.0,
           "overconfidence": -0.43018490929457576,
+          "observed_wilson95": [
+            0.20654329147389294,
+            1
+          ]
+        },
+        {
+          "low": 0.7000000000000001,
+          "high": 0.8,
+          "n": 1,
+          "mean_probability": 0.7253278523267723,
+          "observed_rate": 1.0,
+          "overconfidence": -0.2746721476732277,
           "observed_wilson95": [
             0.20654329147389294,
             1
@@ -45,20 +57,20 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
       }
     },
     "candidate": {
-      "n": 2,
-      "log_loss": 0.3069162758955836,
-      "brier": 0.06991930444415273,
+      "n": 3,
+      "log_loss": 0.3221735257386445,
+      "brier": 0.07605619351429467,
       "rps": null,
       "calibration": [
         {
           "low": 0.7000000000000001,
           "high": 0.8,
-          "n": 2,
-          "mean_probability": 0.7357877632225872,
+          "n": 3,
+          "mean_probability": 0.724790646745903,
           "observed_rate": 1.0,
-          "overconfidence": -0.2642122367774128,
+          "overconfidence": -0.275209353254097,
           "observed_wilson95": [
-            0.34237195288961925,
+            0.43849391955098227,
             1
           ]
         }
@@ -73,9 +85,9 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
   },
   "over_1_5": {
     "baseline": {
-      "n": 2,
-      "log_loss": 0.28270780596373263,
-      "brier": 0.06611307647285647,
+      "n": 3,
+      "log_loss": 0.2817914730595817,
+      "brier": 0.06395084275418021,
       "rps": null,
       "calibration": [
         {
@@ -85,6 +97,18 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
           "mean_probability": 0.6692560364388662,
           "observed_rate": 1.0,
           "overconfidence": -0.3307439635611338,
+          "observed_wilson95": [
+            0.20654329147389294,
+            1
+          ]
+        },
+        {
+          "low": 0.7000000000000001,
+          "high": 0.8,
+          "n": 1,
+          "mean_probability": 0.7558148749067058,
+          "observed_rate": 1.0,
+          "overconfidence": -0.24418512509329415,
           "observed_wilson95": [
             0.20654329147389294,
             1
@@ -111,20 +135,20 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
       }
     },
     "candidate": {
-      "n": 2,
-      "log_loss": 0.30810686236975965,
-      "brier": 0.07036692211542356,
+      "n": 3,
+      "log_loss": 0.29084182778749357,
+      "brier": 0.0639515851128066,
       "rps": null,
       "calibration": [
         {
           "low": 0.7000000000000001,
           "high": 0.8,
-          "n": 2,
-          "mean_probability": 0.7348957494830407,
+          "n": 3,
+          "mean_probability": 0.7478973866470046,
           "observed_rate": 1.0,
-          "overconfidence": -0.2651042505169593,
+          "overconfidence": -0.25210261335299544,
           "observed_wilson95": [
-            0.34237195288961925,
+            0.43849391955098227,
             1
           ]
         }
@@ -139,9 +163,9 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
   },
   "btts_yes": {
     "baseline": {
-      "n": 2,
-      "log_loss": 0.5035189055951986,
-      "brier": 0.15708491661150692,
+      "n": 3,
+      "log_loss": 0.588623030944056,
+      "brier": 0.19898896986036654,
       "rps": null,
       "calibration": [
         {
@@ -151,6 +175,18 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
           "mean_probability": 0.43526626872051316,
           "observed_rate": 0.0,
           "overconfidence": 0.43526626872051316,
+          "observed_wilson95": [
+            0,
+            0.7934567085261071
+          ]
+        },
+        {
+          "low": 0.5,
+          "high": 0.6,
+          "n": 1,
+          "mean_probability": 0.5317866831334589,
+          "observed_rate": 0.0,
+          "overconfidence": 0.5317866831334589,
           "observed_wilson95": [
             0,
             0.7934567085261071
@@ -177,9 +213,9 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
       }
     },
     "candidate": {
-      "n": 2,
-      "log_loss": 0.6702386177905468,
-      "brier": 0.23854925967427693,
+      "n": 3,
+      "log_loss": 0.7150355634266689,
+      "brier": 0.260875691995438,
       "rps": null,
       "calibration": [
         {
@@ -197,13 +233,13 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
         {
           "low": 0.5,
           "high": 0.6,
-          "n": 1,
-          "mean_probability": 0.5173743490665484,
-          "observed_rate": 1.0,
-          "overconfidence": -0.48262565093345156,
+          "n": 2,
+          "mean_probability": 0.5350603627398005,
+          "observed_rate": 0.5,
+          "overconfidence": 0.03506036273980051,
           "observed_wilson95": [
-            0.20654329147389294,
-            1
+            0.09452865480086614,
+            0.9054713451991339
           ]
         }
       ],
@@ -217,21 +253,21 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
   },
   "over_2_5": {
     "baseline": {
-      "n": 2,
-      "log_loss": 0.9712478185094237,
-      "brier": 0.385793831810575,
+      "n": 3,
+      "log_loss": 0.8765802911481261,
+      "brier": 0.33954557532323676,
       "rps": null,
       "calibration": [
         {
           "low": 0.4,
           "high": 0.5,
-          "n": 1,
-          "mean_probability": 0.4020677237487148,
-          "observed_rate": 1.0,
-          "overconfidence": -0.5979322762512852,
+          "n": 2,
+          "mean_probability": 0.44955401314410864,
+          "observed_rate": 0.5,
+          "overconfidence": -0.050445986855891356,
           "observed_wilson95": [
-            0.20654329147389294,
-            1
+            0.09452865480086614,
+            0.9054713451991339
           ]
         },
         {
@@ -255,9 +291,9 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
       }
     },
     "candidate": {
-      "n": 2,
-      "log_loss": 0.7265609340960775,
-      "brier": 0.26667716260888685,
+      "n": 3,
+      "log_loss": 0.7291230588355572,
+      "brier": 0.2679643892799674,
       "rps": null,
       "calibration": [
         {
@@ -270,6 +306,18 @@ Status: COLLECT_MORE_DATA; paired fixtures: 2; gameweeks: 1
           "observed_wilson95": [
             0.09452865480086614,
             0.9054713451991339
+          ]
+        },
+        {
+          "low": 0.5,
+          "high": 0.6,
+          "n": 1,
+          "mean_probability": 0.5201334853882498,
+          "observed_rate": 0.0,
+          "overconfidence": 0.5201334853882498,
+          "observed_wilson95": [
+            0,
+            0.7934567085261071
           ]
         }
       ],

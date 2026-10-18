@@ -63,7 +63,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-11T06:38:09Z",
     "snapshot_commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
-    "snapshot_generated_utc": "2026-10-11T06:32:27Z",
+    "snapshot_generated_utc": "2026-10-11T06:32:27.587243+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -118,7 +118,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-11T06:38:09Z",
     "snapshot_commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
-    "snapshot_generated_utc": "2026-10-11T06:32:27Z",
+    "snapshot_generated_utc": "2026-10-11T06:32:27.587243+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -173,7 +173,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-11T06:38:09Z",
     "snapshot_commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
-    "snapshot_generated_utc": "2026-10-11T06:32:27Z",
+    "snapshot_generated_utc": "2026-10-11T06:32:27.587243+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -228,7 +228,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-11T06:38:09Z",
     "snapshot_commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
-    "snapshot_generated_utc": "2026-10-11T06:32:27Z",
+    "snapshot_generated_utc": "2026-10-11T06:32:27.587243+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -283,7 +283,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-11T06:38:09Z",
     "snapshot_commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
-    "snapshot_generated_utc": "2026-10-11T06:32:27Z",
+    "snapshot_generated_utc": "2026-10-11T06:32:27.587243+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -338,7 +338,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-11T06:38:09Z",
     "snapshot_commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
-    "snapshot_generated_utc": "2026-10-11T06:32:27Z",
+    "snapshot_generated_utc": "2026-10-11T06:32:27.587243+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -405,7 +405,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-11T06:38:09Z",
     "snapshot_commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
-    "snapshot_generated_utc": "2026-10-11T06:32:27Z",
+    "snapshot_generated_utc": "2026-10-11T06:32:27.587243+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -460,7 +460,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-11T06:38:09Z",
     "snapshot_commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
-    "snapshot_generated_utc": "2026-10-11T06:32:27Z",
+    "snapshot_generated_utc": "2026-10-11T06:32:27.587243+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -527,7 +527,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-11T06:38:09Z",
     "snapshot_commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
-    "snapshot_generated_utc": "2026-10-11T06:32:27Z",
+    "snapshot_generated_utc": "2026-10-11T06:32:27.587243+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -582,7 +582,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-11T06:38:09Z",
     "snapshot_commit": "bdc690a8c70643c93f1595d53c067b7d91325270",
-    "snapshot_generated_utc": "2026-10-11T06:32:27Z",
+    "snapshot_generated_utc": "2026-10-11T06:32:27.587243+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -637,7 +637,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-11T06:44:04Z",
     "snapshot_commit": "b9c15c09504aaf57de5ad0957adb91c0e9b37243",
-    "snapshot_generated_utc": "2026-10-11T06:38:36Z",
+    "snapshot_generated_utc": "2026-10-11T06:38:36.451450+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -692,7 +692,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-11T10:46:00Z",
     "snapshot_commit": "a2cdead106b513fd623cffd1e43a491685d68cc3",
-    "snapshot_generated_utc": "2026-10-11T10:39:00Z",
+    "snapshot_generated_utc": "2026-10-11T10:39:00.749009+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -747,7 +747,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-11T10:46:00Z",
     "snapshot_commit": "a2cdead106b513fd623cffd1e43a491685d68cc3",
-    "snapshot_generated_utc": "2026-10-11T10:39:00Z",
+    "snapshot_generated_utc": "2026-10-11T10:39:00.749009+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -802,7 +802,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-11T10:46:00Z",
     "snapshot_commit": "a2cdead106b513fd623cffd1e43a491685d68cc3",
-    "snapshot_generated_utc": "2026-10-11T10:39:00Z",
+    "snapshot_generated_utc": "2026-10-11T10:39:00.749009+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -857,7 +857,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-11T10:46:00Z",
     "snapshot_commit": "a2cdead106b513fd623cffd1e43a491685d68cc3",
-    "snapshot_generated_utc": "2026-10-11T10:39:00Z",
+    "snapshot_generated_utc": "2026-10-11T10:39:00.749009+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -912,7 +912,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-11T10:46:00Z",
     "snapshot_commit": "a2cdead106b513fd623cffd1e43a491685d68cc3",
-    "snapshot_generated_utc": "2026-10-11T10:39:00Z",
+    "snapshot_generated_utc": "2026-10-11T10:39:00.749009+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -967,7 +967,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-12T16:34:11Z",
     "snapshot_commit": "4f7af2f470a0b5cdb7b8ae974c859f87b0236fc4",
-    "snapshot_generated_utc": "2026-10-12T16:32:02Z",
+    "snapshot_generated_utc": "2026-10-12T16:32:02.915037+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1022,7 +1022,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-12T16:34:11Z",
     "snapshot_commit": "4f7af2f470a0b5cdb7b8ae974c859f87b0236fc4",
-    "snapshot_generated_utc": "2026-10-12T16:32:02Z",
+    "snapshot_generated_utc": "2026-10-12T16:32:02.915037+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1089,7 +1089,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-12T16:34:11Z",
     "snapshot_commit": "4f7af2f470a0b5cdb7b8ae974c859f87b0236fc4",
-    "snapshot_generated_utc": "2026-10-12T16:32:02Z",
+    "snapshot_generated_utc": "2026-10-12T16:32:02.915037+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1147,7 +1147,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-14T09:52:36Z",
     "snapshot_commit": "d3f12df5a2a20809c3ac84f9a31766ba965813e3",
-    "snapshot_generated_utc": "2026-10-14T09:46:32Z",
+    "snapshot_generated_utc": "2026-10-14T09:46:32.015572+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1229,7 +1229,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-14T18:20:17Z",
     "snapshot_commit": "54bb8a2c2c957dda77ef247b3e042f6a945bda8f",
-    "snapshot_generated_utc": "2026-10-14T18:13:48Z",
+    "snapshot_generated_utc": "2026-10-14T18:13:48.803955+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1311,7 +1311,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-15T09:56:48Z",
     "snapshot_commit": "b57f98f7704eb71a9d1b11eddf359e66786ea2fe",
-    "snapshot_generated_utc": "2026-10-15T09:51:36.740270Z",
+    "snapshot_generated_utc": "2026-10-15T09:51:36.740270+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1393,7 +1393,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-15T15:39:24Z",
     "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
-    "snapshot_generated_utc": "2026-10-15T15:32:56.850870Z",
+    "snapshot_generated_utc": "2026-10-15T15:32:56.850870+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1475,7 +1475,7 @@
     "selection_tier": "STRICT",
     "snapshot_captured_utc": "2026-10-16T22:22:42Z",
     "snapshot_commit": "7a6c9d44b7c20308d3ed85270f7cabc2a98df58e",
-    "snapshot_generated_utc": "2026-10-16T22:16:28.500933Z",
+    "snapshot_generated_utc": "2026-10-16T22:16:28.500933+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1533,7 +1533,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-18T08:57:07Z",
     "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
-    "snapshot_generated_utc": "2026-10-18T08:37:07.802036Z",
+    "snapshot_generated_utc": "2026-10-18T08:37:07.802036+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1618,7 +1618,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-18T14:40:44Z",
     "snapshot_commit": "4827bd2b80141dd5a2ca775319253a1753eca90c",
-    "snapshot_generated_utc": "2026-10-18T14:35:10.311946Z",
+    "snapshot_generated_utc": "2026-10-18T14:35:10.311946+00:00",
     "validation_status": "UNRELIABLE_AUDIT"
   },
   {
@@ -1703,7 +1703,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-18T14:40:44Z",
     "snapshot_commit": "4827bd2b80141dd5a2ca775319253a1753eca90c",
-    "snapshot_generated_utc": "2026-10-18T14:35:10.311946Z",
+    "snapshot_generated_utc": "2026-10-18T14:35:10.311946+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1764,7 +1764,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-18T14:40:44Z",
     "snapshot_commit": "4827bd2b80141dd5a2ca775319253a1753eca90c",
-    "snapshot_generated_utc": "2026-10-18T14:35:10.311946Z",
+    "snapshot_generated_utc": "2026-10-18T14:35:10.311946+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1825,7 +1825,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-18T14:40:44Z",
     "snapshot_commit": "4827bd2b80141dd5a2ca775319253a1753eca90c",
-    "snapshot_generated_utc": "2026-10-18T14:35:10.311946Z",
+    "snapshot_generated_utc": "2026-10-18T14:35:10.311946+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1886,7 +1886,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-18T14:40:44Z",
     "snapshot_commit": "4827bd2b80141dd5a2ca775319253a1753eca90c",
-    "snapshot_generated_utc": "2026-10-18T14:35:10.311946Z",
+    "snapshot_generated_utc": "2026-10-18T14:35:10.311946+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -1971,7 +1971,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-18T14:40:44Z",
     "snapshot_commit": "4827bd2b80141dd5a2ca775319253a1753eca90c",
-    "snapshot_generated_utc": "2026-10-18T14:35:10.311946Z",
+    "snapshot_generated_utc": "2026-10-18T14:35:10.311946+00:00",
     "validation_status": "UNRELIABLE_AUDIT"
   },
   {
@@ -2056,7 +2056,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-18T14:40:44Z",
     "snapshot_commit": "4827bd2b80141dd5a2ca775319253a1753eca90c",
-    "snapshot_generated_utc": "2026-10-18T14:35:10.311946Z",
+    "snapshot_generated_utc": "2026-10-18T14:35:10.311946+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   },
   {
@@ -2141,7 +2141,7 @@
     "selection_tier": "PROVISIONAL",
     "snapshot_captured_utc": "2026-10-18T14:40:44Z",
     "snapshot_commit": "4827bd2b80141dd5a2ca775319253a1753eca90c",
-    "snapshot_generated_utc": "2026-10-18T14:35:10.311946Z",
+    "snapshot_generated_utc": "2026-10-18T14:35:10.311946+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   }
 ]

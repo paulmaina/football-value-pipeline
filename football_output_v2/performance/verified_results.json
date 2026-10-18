@@ -209,6 +209,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "BL1:565827": {
+    "away_goals": 1,
+    "away_short_name": "Freiburg",
+    "away_team": "SC Freiburg",
+    "first_verified_at_utc": "2026-10-18T17:08:05Z",
+    "home_goals": 2,
+    "home_short_name": "Leverkusen",
+    "home_team": "Bayer 04 Leverkusen",
+    "kickoff_utc": "2026-10-18T13:30:00Z",
+    "league_code": "BL1",
+    "match_id": 565827,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "BL1:565828": {
     "away_goals": 0,
     "away_short_name": "1. FC Köln",
@@ -569,6 +584,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "FL1:559664": {
+    "away_goals": 5,
+    "away_short_name": "Marseille",
+    "away_team": "Olympique de Marseille",
+    "first_verified_at_utc": "2026-10-18T17:08:05Z",
+    "home_goals": 2,
+    "home_short_name": "Angers SCO",
+    "home_team": "Angers SCO",
+    "kickoff_utc": "2026-10-18T13:00:00Z",
+    "league_code": "FL1",
+    "match_id": 559664,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559666": {
     "away_goals": 1,
     "away_short_name": "Angers SCO",
@@ -884,6 +914,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564712": {
+    "away_goals": 1,
+    "away_short_name": "Alavés",
+    "away_team": "Deportivo Alavés",
+    "first_verified_at_utc": "2026-10-18T17:08:05Z",
+    "home_goals": 2,
+    "home_short_name": "Celta",
+    "home_team": "RC Celta de Vigo",
+    "kickoff_utc": "2026-10-18T14:15:00Z",
+    "league_code": "PD",
+    "match_id": 564712,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564713": {
     "away_goals": 5,
     "away_short_name": "Barça",
@@ -1109,6 +1154,36 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PL:560604": {
+    "away_goals": 0,
+    "away_short_name": "Sunderland",
+    "away_team": "Sunderland AFC",
+    "first_verified_at_utc": "2026-10-18T17:08:05Z",
+    "home_goals": 2,
+    "home_short_name": "Bournemouth",
+    "home_team": "AFC Bournemouth",
+    "kickoff_utc": "2026-10-18T13:00:00Z",
+    "league_code": "PL",
+    "match_id": 560604,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PL:560605": {
+    "away_goals": 1,
+    "away_short_name": "Man United",
+    "away_team": "Manchester United FC",
+    "first_verified_at_utc": "2026-10-18T17:08:05Z",
+    "home_goals": 1,
+    "home_short_name": "Leeds United",
+    "home_team": "Leeds United FC",
+    "kickoff_utc": "2026-10-18T13:00:00Z",
+    "league_code": "PL",
+    "match_id": 560605,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560607": {
     "away_goals": 1,
     "away_short_name": "Aston Villa",
@@ -1120,6 +1195,21 @@
     "kickoff_utc": "2026-10-17T16:30:00Z",
     "league_code": "PL",
     "match_id": 560607,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PL:560609": {
+    "away_goals": 0,
+    "away_short_name": "Crystal Palace",
+    "away_team": "Crystal Palace FC",
+    "first_verified_at_utc": "2026-10-18T17:08:05Z",
+    "home_goals": 5,
+    "home_short_name": "Brighton Hove",
+    "home_team": "Brighton & Hove Albion FC",
+    "kickoff_utc": "2026-10-18T13:00:00Z",
+    "league_code": "PL",
+    "match_id": 560609,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -1225,6 +1315,21 @@
     "kickoff_utc": "2026-10-17T13:00:00Z",
     "league_code": "SA",
     "match_id": 558575,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558577": {
+    "away_goals": 3,
+    "away_short_name": "Como 1907",
+    "away_team": "Como 1907",
+    "first_verified_at_utc": "2026-10-18T17:08:05Z",
+    "home_goals": 1,
+    "home_short_name": "Fiorentina",
+    "home_team": "ACF Fiorentina",
+    "kickoff_utc": "2026-10-18T13:00:00Z",
+    "league_code": "SA",
+    "match_id": 558577,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"

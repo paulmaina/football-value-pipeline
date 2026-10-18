@@ -770,6 +770,111 @@
     "week": "2026-W42"
   },
   {
+    "away_team": "Sunderland",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.5317866831334589,
+      "home_goals": 2,
+      "over_1_5": 0.7558148749067058,
+      "over_2_5": 0.4970403025395025,
+      "p_away": 0.25287730820328924,
+      "p_draw": 0.268026239199226,
+      "p_home": 0.4790964525974846,
+      "under_3_5": 0.7253278523267723,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.5399475724729074,
+      "home_goals": 2,
+      "over_1_5": 0.7613655532818725,
+      "over_2_5": 0.5052890732168155,
+      "p_away": 0.2570342782799262,
+      "p_draw": 0.26664294696548896,
+      "p_home": 0.47632277475458484,
+      "under_3_5": 0.7175098635809815,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Bournemouth",
+    "kickoff_utc": "2026-10-18T13:00:00+00:00",
+    "league": "Premier League",
+    "log_loss_gain": -0.0058062169060675295,
+    "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
+    "source_match_id": 560604,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Crystal Palace",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.5592024151051619,
+      "home_goals": 5,
+      "over_1_5": 0.8181693661416434,
+      "over_2_5": 0.589760067533872,
+      "p_away": 0.16717481350252097,
+      "p_draw": 0.21660916348980783,
+      "p_home": 0.6162160230076713,
+      "under_3_5": 0.6389381674143391,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.5609246074758779,
+      "home_goals": 5,
+      "over_1_5": 0.813802158101754,
+      "over_2_5": 0.5842670585115155,
+      "p_away": 0.1738788788873825,
+      "p_draw": 0.21897637075047946,
+      "p_home": 0.6071447503621379,
+      "under_3_5": 0.6448485534176699,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Brighton and Hove Albion",
+    "kickoff_utc": "2026-10-18T13:00:00+00:00",
+    "league": "Premier League",
+    "log_loss_gain": -0.014830357656267334,
+    "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
+    "source_match_id": 560609,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Manchester United",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.5582104784801739,
+      "home_goals": 1,
+      "over_1_5": 0.7659701938137605,
+      "over_2_5": 0.5108916349102636,
+      "p_away": 0.32999242227590797,
+      "p_draw": 0.27219101240204596,
+      "p_home": 0.3978165653220461,
+      "under_3_5": 0.7137207449116144,
+      "y": 1
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.5616658620028225,
+      "home_goals": 1,
+      "over_1_5": 0.7684798449753127,
+      "over_2_5": 0.5153025489168679,
+      "p_away": 0.33284985890265456,
+      "p_draw": 0.2706589535949279,
+      "p_home": 0.39649118750241774,
+      "under_3_5": 0.7093063325534618,
+      "y": 1
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Leeds United",
+    "kickoff_utc": "2026-10-18T13:00:00+00:00",
+    "league": "Premier League",
+    "log_loss_gain": -0.005644516793847698,
+    "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
+    "source_match_id": 560605,
+    "week": "2026-W42"
+  },
+  {
     "away_team": "Real Racing Club de Santander",
     "baseline": {
       "away_goals": 0,
@@ -837,6 +942,41 @@
     "log_loss_gain": 0.044092816084544406,
     "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
     "source_match_id": 558574,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "SC Freiburg",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.6114970862973824,
+      "home_goals": 2,
+      "over_1_5": 0.8651940799007826,
+      "over_2_5": 0.669191304534304,
+      "p_away": 0.1765632068164325,
+      "p_draw": 0.20244908000202114,
+      "p_home": 0.6209877131815463,
+      "under_3_5": 0.5473851469732305,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.6125666029648604,
+      "home_goals": 2,
+      "over_1_5": 0.8625893768648353,
+      "over_2_5": 0.664396467951698,
+      "p_away": 0.18036119132686587,
+      "p_draw": 0.2051127675584916,
+      "p_home": 0.6145260411146427,
+      "under_3_5": 0.5533754279876986,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Bayer Leverkusen",
+    "kickoff_utc": "2026-10-18T13:30:00+00:00",
+    "league": "Bundesliga",
+    "log_loss_gain": -0.010459990363320903,
+    "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
+    "source_match_id": 565827,
     "week": "2026-W42"
   },
   {
@@ -1610,6 +1750,111 @@
     "week": "2026-W42"
   },
   {
+    "away_team": "Sunderland",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.5317866831334589,
+      "home_goals": 2,
+      "over_1_5": 0.7558148749067058,
+      "over_2_5": 0.4970403025395025,
+      "p_away": 0.25287730820328924,
+      "p_draw": 0.268026239199226,
+      "p_home": 0.4790964525974846,
+      "under_3_5": 0.7253278523267723,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.5156727835695503,
+      "home_goals": 2,
+      "over_1_5": 0.7377521998926369,
+      "over_2_5": 0.47582367864312486,
+      "p_away": 0.25829486969383875,
+      "p_draw": 0.2701591046697583,
+      "p_home": 0.47154602563640274,
+      "under_3_5": 0.7440426418713267,
+      "y": 0
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Bournemouth",
+    "kickoff_utc": "2026-10-18T13:00:00+00:00",
+    "league": "Premier League",
+    "log_loss_gain": -0.015885226899621574,
+    "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
+    "source_match_id": 560604,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Crystal Palace",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.5592024151051619,
+      "home_goals": 5,
+      "over_1_5": 0.8181693661416434,
+      "over_2_5": 0.589760067533872,
+      "p_away": 0.16717481350252097,
+      "p_draw": 0.21660916348980783,
+      "p_home": 0.6162160230076713,
+      "under_3_5": 0.6389381674143391,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.5586787655587124,
+      "home_goals": 5,
+      "over_1_5": 0.8000484798621875,
+      "over_2_5": 0.5653354201516361,
+      "p_away": 0.18976938134601468,
+      "p_draw": 0.2257972729791651,
+      "p_home": 0.5844333456748203,
+      "under_3_5": 0.6650313292981065,
+      "y": 0
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Brighton and Hove Albion",
+    "kickoff_utc": "2026-10-18T13:00:00+00:00",
+    "league": "Premier League",
+    "log_loss_gain": -0.052954850833089095,
+    "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
+    "source_match_id": 560609,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Manchester United",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.5582104784801739,
+      "home_goals": 1,
+      "over_1_5": 0.7659701938137605,
+      "over_2_5": 0.5108916349102636,
+      "p_away": 0.32999242227590797,
+      "p_draw": 0.27219101240204596,
+      "p_home": 0.3978165653220461,
+      "under_3_5": 0.7137207449116144,
+      "y": 1
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.5560259724238598,
+      "home_goals": 1,
+      "over_1_5": 0.7634164271011333,
+      "over_2_5": 0.509508399029148,
+      "p_away": 0.32981037898970694,
+      "p_draw": 0.2703229093512063,
+      "p_home": 0.39986671165908677,
+      "under_3_5": 0.7144541354362397,
+      "y": 1
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Leeds United",
+    "kickoff_utc": "2026-10-18T13:00:00+00:00",
+    "league": "Premier League",
+    "log_loss_gain": -0.0068868663436583155,
+    "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
+    "source_match_id": 560605,
+    "week": "2026-W42"
+  },
+  {
     "away_team": "Real Racing Club de Santander",
     "baseline": {
       "away_goals": 0,
@@ -1677,6 +1922,41 @@
     "log_loss_gain": 0.007694902996826292,
     "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
     "source_match_id": 558574,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "SC Freiburg",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.6114970862973824,
+      "home_goals": 2,
+      "over_1_5": 0.8651940799007826,
+      "over_2_5": 0.669191304534304,
+      "p_away": 0.1765632068164325,
+      "p_draw": 0.20244908000202114,
+      "p_home": 0.6209877131815463,
+      "under_3_5": 0.5473851469732305,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.6218939278884177,
+      "home_goals": 2,
+      "over_1_5": 0.8673533844821967,
+      "over_2_5": 0.6738495236109979,
+      "p_away": 0.18236550416104566,
+      "p_draw": 0.2037515708029801,
+      "p_home": 0.6138829250359742,
+      "under_3_5": 0.5418699583080793,
+      "y": 0
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Bayer Leverkusen",
+    "kickoff_utc": "2026-10-18T13:30:00+00:00",
+    "league": "Bundesliga",
+    "log_loss_gain": -0.01150706207176172,
+    "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
+    "source_match_id": 565827,
     "week": "2026-W42"
   }
 ]
