@@ -16,16 +16,16 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 19 | 15-4 | 78.9% | +9.3% |
+| All selections | 24 | 19-5 | 79.2% | +9.4% |
 
-Unsettled / unverified entries: **14**.
-Whole-fixture 1X2 multiclass Brier (n=64): 0.5374
+Unsettled / unverified entries: **9**.
+Whole-fixture 1X2 multiclass Brier (n=69): 0.5353
 
 ## First-prediction reference — historical comparison
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Unique fixtures | 19 | 15-4 | 78.9% | +6.4% |
+| Unique fixtures | 24 | 18-6 | 75.0% | +1.4% |
 
 ## Latest selections by prediction run (generation UTC)
 
@@ -44,20 +44,20 @@ Whole-fixture 1X2 multiclass Brier (n=64): 0.5374
 | 2026-10-17T09:46:12.155774+00:00 | 2 | 1-1 | 50.0% | -36.0% |
 | 2026-10-17T14:11:18.520879+00:00 | 1 | 1-0 | 100.0% | +61.0% |
 | 2026-10-18T09:58:14.607821+00:00 | 1 | 1-0 | 100.0% | +20.0% |
-| 2026-10-18T14:35:10.311946+00:00 | 0 | 0-0 | — | — |
+| 2026-10-18T14:35:10.311946+00:00 | 5 | 4-1 | 80.0% | +9.8% |
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| PROVISIONAL | 8 | 5-3 | 62.5% | -19.5% |
+| PROVISIONAL | 13 | 9-4 | 69.2% | -8.2% |
 | STRICT | 11 | 10-1 | 90.9% | +30.2% |
 
 ## By policy
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| 48h-top-ten-probability-ev-no-under35-v14 | 0 | 0-0 | — | — |
+| 48h-top-ten-probability-ev-no-under35-v14 | 5 | 4-1 | 80.0% | +9.8% |
 | 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
 | 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
 | 72h-seven-markets-fresh-references-net-ev15-v11 | 5 | 4-1 | 80.0% | +7.2% |
@@ -71,11 +71,11 @@ Whole-fixture 1X2 multiclass Brier (n=64): 0.5374
 |---|---:|---:|---:|---:|
 | Away win | 1 | 0-1 | 0.0% | -100.0% |
 | Both Teams to Score - Yes | 2 | 2-0 | 100.0% | +51.0% |
-| Double Chance 12 | 0 | 0-0 | — | — |
+| Double Chance 12 | 1 | 1-0 | 100.0% | +28.0% |
 | Double Chance 1X | 2 | 2-0 | 100.0% | +23.5% |
-| Double Chance X2 | 0 | 0-0 | — | — |
+| Double Chance X2 | 3 | 3-0 | 100.0% | +40.3% |
 | Home win | 4 | 4-0 | 100.0% | +56.0% |
-| Over 1.5 | 5 | 5-0 | 100.0% | +26.6% |
+| Over 1.5 | 6 | 5-1 | 83.3% | +5.5% |
 | Under 3.5 | 5 | 2-3 | 40.0% | -46.0% |
 
 ## By league
@@ -83,10 +83,10 @@ Whole-fixture 1X2 multiclass Brier (n=64): 0.5374
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | Bundesliga | 2 | 2-0 | 100.0% | +23.5% |
-| La Liga | 4 | 4-0 | 100.0% | +28.7% |
-| Ligue 1 | 0 | 0-0 | — | — |
-| Premier League | 5 | 2-3 | 40.0% | -46.0% |
-| Serie A | 4 | 3-1 | 75.0% | +13.0% |
+| La Liga | 5 | 5-0 | 100.0% | +30.6% |
+| Ligue 1 | 2 | 1-1 | 50.0% | -16.5% |
+| Premier League | 6 | 3-3 | 50.0% | -35.7% |
+| Serie A | 5 | 4-1 | 80.0% | +16.0% |
 | UEFA Champions League | 4 | 4-0 | 100.0% | +48.0% |
 
 ## Gameweeks
@@ -94,16 +94,16 @@ Whole-fixture 1X2 multiclass Brier (n=64): 0.5374
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
-| 2026-W42 | 15 | 13-2 | 86.7% | +21.6% |
+| 2026-W42 | 20 | 17-3 | 85.0% | +18.6% |
 | 2026-W43 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
 
 | Forecast bin | Samples | Average forecast | Observed win rate | Binary Brier |
 |---|---:|---:|---:|---:|
-| 60%–70% | 4 | 66.3% | 75.0% | 0.1898 |
-| 70%–80% | 5 | 75.2% | 80.0% | 0.1645 |
-| 80%–90% | 8 | 83.5% | 75.0% | 0.1958 |
+| 60%–70% | 5 | 65.3% | 80.0% | 0.1819 |
+| 70%–80% | 8 | 75.2% | 75.0% | 0.1960 |
+| 80%–90% | 9 | 83.6% | 77.8% | 0.1769 |
 | 90%–100% | 2 | 93.3% | 100.0% | 0.0047 |
 
 Calibration bins report observed outcomes against the originally
@@ -159,7 +159,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 67fd2fe2099c | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 4827bd2b8014 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Locally observed near-close quotes, coverage and offered-price comparisons; official close and accepted execution are unverified.
 

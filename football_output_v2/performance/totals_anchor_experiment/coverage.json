@@ -7635,7 +7635,7 @@
       ]
     ],
     "reasons": [],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": 1.1642034500927052,
     "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
     "status": "available",
@@ -8750,7 +8750,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "scale": null,
     "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
     "status": "unavailable",
@@ -9018,7 +9018,7 @@
       ]
     ],
     "reasons": [],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": 1.1772866292239261,
     "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
     "status": "available",
@@ -9385,7 +9385,7 @@
       ]
     ],
     "reasons": [],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": 0.8150082204806578,
     "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
     "status": "available",
@@ -9708,7 +9708,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "scale": null,
     "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
     "status": "unavailable",
@@ -10288,7 +10288,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "7a6c9d44b7c20308d3ed85270f7cabc2a98df58e",
     "status": "unavailable",
@@ -11283,7 +11283,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "7a6c9d44b7c20308d3ed85270f7cabc2a98df58e",
     "status": "unavailable",

@@ -945,6 +945,41 @@
     "week": "2026-W42"
   },
   {
+    "away_team": "Arsenal",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.4258063770365387,
+      "home_goals": 0,
+      "over_1_5": 0.6849569428941358,
+      "over_2_5": 0.4107302799504554,
+      "p_away": 0.5725655122533485,
+      "p_draw": 0.26365912110685297,
+      "p_home": 0.163775366639799,
+      "under_3_5": 0.7978772082453106,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.45716500364321416,
+      "home_goals": 0,
+      "over_1_5": 0.7037272820102263,
+      "over_2_5": 0.4333289838826475,
+      "p_away": 0.55750179273103,
+      "p_draw": 0.2641514145717031,
+      "p_home": 0.1783467926972672,
+      "under_3_5": 0.780055248353013,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Nottingham Forest",
+    "kickoff_utc": "2026-10-18T15:30:00+00:00",
+    "league": "Premier League",
+    "log_loss_gain": -0.026661441775000405,
+    "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
+    "source_match_id": 560608,
+    "week": "2026-W42"
+  },
+  {
     "away_team": "SC Freiburg",
     "baseline": {
       "away_goals": 1,
@@ -977,6 +1012,146 @@
     "log_loss_gain": -0.010459990363320903,
     "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
     "source_match_id": 565827,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Auxerre",
+    "baseline": {
+      "away_goals": 3,
+      "btts_yes": 0.47977768560902295,
+      "home_goals": 1,
+      "over_1_5": 0.6846315849374471,
+      "over_2_5": 0.41734759501812346,
+      "p_away": 0.3314725385699622,
+      "p_draw": 0.2846993661458881,
+      "p_home": 0.38382809528414963,
+      "under_3_5": 0.7905872242432217,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 3,
+      "btts_yes": 0.48642588951778404,
+      "home_goals": 1,
+      "over_1_5": 0.6913647083298499,
+      "over_2_5": 0.4251061134914294,
+      "p_away": 0.32973490133341643,
+      "p_draw": 0.28343881308842206,
+      "p_home": 0.3868262855781614,
+      "under_3_5": 0.7842015919097132,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Le Havre",
+    "kickoff_utc": "2026-10-18T15:15:00+00:00",
+    "league": "Ligue 1",
+    "log_loss_gain": -0.00525596395892447,
+    "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
+    "source_match_id": 559663,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "AS Monaco",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.6315738320428054,
+      "home_goals": 1,
+      "over_1_5": 0.8296005546277987,
+      "over_2_5": 0.6090368622122667,
+      "p_away": 0.46917441675135607,
+      "p_draw": 0.2557840566374613,
+      "p_home": 0.2750415266111827,
+      "under_3_5": 0.6087377362101049,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.6288284292122355,
+      "home_goals": 1,
+      "over_1_5": 0.8262077921449088,
+      "over_2_5": 0.6039510701419051,
+      "p_away": 0.4636931617902702,
+      "p_draw": 0.2568569621939296,
+      "p_home": 0.27944987601580035,
+      "under_3_5": 0.6143408487479672,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Lorient",
+    "kickoff_utc": "2026-10-18T15:15:00+00:00",
+    "league": "Ligue 1",
+    "log_loss_gain": 0.015900849918216275,
+    "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
+    "source_match_id": 559657,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Real Sociedad",
+    "baseline": {
+      "away_goals": 5,
+      "btts_yes": 0.33273041380522994,
+      "home_goals": 2,
+      "over_1_5": 0.5601141609102019,
+      "over_2_5": 0.2954709040953651,
+      "p_away": 0.48020516490093645,
+      "p_draw": 0.2809658794940651,
+      "p_home": 0.2388289556049983,
+      "under_3_5": 0.8790441239618488,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 5,
+      "btts_yes": 0.4454884252034826,
+      "home_goals": 2,
+      "over_1_5": 0.657078860391731,
+      "over_2_5": 0.39137288891080674,
+      "p_away": 0.4334365064756903,
+      "p_draw": 0.27523607426136487,
+      "p_home": 0.29132741926294503,
+      "under_3_5": 0.811821554055129,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Málaga",
+    "kickoff_utc": "2026-10-18T16:30:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.10246812114891535,
+    "snapshot_commit": "7a6c9d44b7c20308d3ed85270f7cabc2a98df58e",
+    "source_match_id": 564714,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Atalanta BC",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.4918193562931293,
+      "home_goals": 3,
+      "over_1_5": 0.7050698753356072,
+      "over_2_5": 0.44908065186684265,
+      "p_away": 0.2735727349544753,
+      "p_draw": 0.25576269048163314,
+      "p_home": 0.47066457456389155,
+      "under_3_5": 0.7683302565944347,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.49650571618195116,
+      "home_goals": 3,
+      "over_1_5": 0.7095421291151621,
+      "over_2_5": 0.45501402520219253,
+      "p_away": 0.27370787288788057,
+      "p_draw": 0.2542362993777518,
+      "p_home": 0.47205582773436794,
+      "under_3_5": 0.7631191272226558,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "AC Milan",
+    "kickoff_utc": "2026-10-18T16:00:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": 0.0029515732917403392,
+    "snapshot_commit": "7a6c9d44b7c20308d3ed85270f7cabc2a98df58e",
+    "source_match_id": 558569,
     "week": "2026-W42"
   },
   {
@@ -1925,6 +2100,41 @@
     "week": "2026-W42"
   },
   {
+    "away_team": "Arsenal",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.4258063770365387,
+      "home_goals": 0,
+      "over_1_5": 0.6849569428941358,
+      "over_2_5": 0.4107302799504554,
+      "p_away": 0.5725655122533485,
+      "p_draw": 0.26365912110685297,
+      "p_home": 0.163775366639799,
+      "under_3_5": 0.7978772082453106,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.4368955699844684,
+      "home_goals": 0,
+      "over_1_5": 0.7007659810362054,
+      "over_2_5": 0.4304735653227185,
+      "p_away": 0.5824133468442381,
+      "p_draw": 0.2567629117902836,
+      "p_home": 0.1608237413654784,
+      "under_3_5": 0.7812711572280774,
+      "y": 2
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Nottingham Forest",
+    "kickoff_utc": "2026-10-18T15:30:00+00:00",
+    "league": "Premier League",
+    "log_loss_gain": 0.017053252826304766,
+    "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
+    "source_match_id": 560608,
+    "week": "2026-W42"
+  },
+  {
     "away_team": "SC Freiburg",
     "baseline": {
       "away_goals": 1,
@@ -1957,6 +2167,146 @@
     "log_loss_gain": -0.01150706207176172,
     "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
     "source_match_id": 565827,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Auxerre",
+    "baseline": {
+      "away_goals": 3,
+      "btts_yes": 0.47977768560902295,
+      "home_goals": 1,
+      "over_1_5": 0.6846315849374471,
+      "over_2_5": 0.41734759501812346,
+      "p_away": 0.3314725385699622,
+      "p_draw": 0.2846993661458881,
+      "p_home": 0.38382809528414963,
+      "under_3_5": 0.7905872242432217,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 3,
+      "btts_yes": 0.4747281897387512,
+      "home_goals": 1,
+      "over_1_5": 0.6796381142283079,
+      "over_2_5": 0.4118891204790313,
+      "p_away": 0.328393873741508,
+      "p_draw": 0.28521089933752963,
+      "p_home": 0.3863952269209624,
+      "under_3_5": 0.7949083862892076,
+      "y": 2
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Le Havre",
+    "kickoff_utc": "2026-10-18T15:15:00+00:00",
+    "league": "Ligue 1",
+    "log_loss_gain": -0.009331243748132323,
+    "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
+    "source_match_id": 559663,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "AS Monaco",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.6315738320428054,
+      "home_goals": 1,
+      "over_1_5": 0.8296005546277987,
+      "over_2_5": 0.6090368622122667,
+      "p_away": 0.46917441675135607,
+      "p_draw": 0.2557840566374613,
+      "p_home": 0.2750415266111827,
+      "under_3_5": 0.6087377362101049,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.6210297915661928,
+      "home_goals": 1,
+      "over_1_5": 0.8192116890418866,
+      "over_2_5": 0.5933933953678217,
+      "p_away": 0.45963357772217994,
+      "p_draw": 0.25830204670260126,
+      "p_home": 0.28206437557521885,
+      "under_3_5": 0.6257189870728348,
+      "y": 0
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Lorient",
+    "kickoff_utc": "2026-10-18T15:15:00+00:00",
+    "league": "Ligue 1",
+    "log_loss_gain": 0.02521323494214789,
+    "snapshot_commit": "9425e536c27cdb34914535517891f53a7af4191b",
+    "source_match_id": 559657,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Real Sociedad",
+    "baseline": {
+      "away_goals": 5,
+      "btts_yes": 0.33273041380522994,
+      "home_goals": 2,
+      "over_1_5": 0.5601141609102019,
+      "over_2_5": 0.2954709040953651,
+      "p_away": 0.48020516490093645,
+      "p_draw": 0.2809658794940651,
+      "p_home": 0.2388289556049983,
+      "under_3_5": 0.8790441239618488,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 5,
+      "btts_yes": 0.3471100081469906,
+      "home_goals": 2,
+      "over_1_5": 0.5758347465786265,
+      "over_2_5": 0.30993893035361886,
+      "p_away": 0.4807721621773012,
+      "p_draw": 0.2785352629907002,
+      "p_home": 0.24069257483199852,
+      "under_3_5": 0.8696255862113328,
+      "y": 2
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Málaga",
+    "kickoff_utc": "2026-10-18T16:30:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": 0.0011800431210672313,
+    "snapshot_commit": "7a6c9d44b7c20308d3ed85270f7cabc2a98df58e",
+    "source_match_id": 564714,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Atalanta BC",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.4918193562931293,
+      "home_goals": 3,
+      "over_1_5": 0.7050698753356072,
+      "over_2_5": 0.44908065186684265,
+      "p_away": 0.2735727349544753,
+      "p_draw": 0.25576269048163314,
+      "p_home": 0.47066457456389155,
+      "under_3_5": 0.7683302565944347,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.5329891804822086,
+      "home_goals": 3,
+      "over_1_5": 0.743218226307941,
+      "over_2_5": 0.494348593780106,
+      "p_away": 0.28298375082996197,
+      "p_draw": 0.2525363785005145,
+      "p_home": 0.4644798706695236,
+      "under_3_5": 0.7295651878502522,
+      "y": 0
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "AC Milan",
+    "kickoff_utc": "2026-10-18T16:00:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.013227462562782288,
+    "snapshot_commit": "7a6c9d44b7c20308d3ed85270f7cabc2a98df58e",
+    "source_match_id": 558569,
     "week": "2026-W42"
   }
 ]
