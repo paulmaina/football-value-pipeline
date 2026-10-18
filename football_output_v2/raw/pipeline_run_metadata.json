@@ -9,8 +9,8 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-18T11:58:20.799760+00:00",
-  "model_code_sha256": "d2555e8728ba68aac7fbfee3a9bbefa53757578de2428b8dcbb37baef3acf846",
-  "predictions_sha256": "588daed94cd5d549d8db40f5b879f5e43fae4c5a7fc452f968f44b9407b9ff89",
+  "generated_at_utc": "2026-10-18T14:35:10.311946+00:00",
+  "model_code_sha256": "f6631bacce63f3cef0c6a2c00dcca49667d2291560d0e3230cafb3dcdffefb80",
+  "predictions_sha256": "0c44e032eebe2c34c63c4532ba30a31ff39d6d19aab05b5ea62f46d1b1af95e0",
   "selection_policy_version": "48h-top-ten-probability-ev-no-under35-v14"
 }
