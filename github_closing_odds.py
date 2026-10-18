@@ -153,6 +153,10 @@ def publish_results(repo, source, reservation_id, temp, remote, branch, attempts
             previous = read(work/DATA/'collector_status.json')
             if status and (not previous or status['checked_at_utc']>=previous['checked_at_utc']):
                 write(work/DATA/'collector_status.json',status)
+            health = read(source/DATA/'provider_status.json')
+            previous_health = read(work/DATA/'provider_status.json')
+            if health and (not previous_health or health['checked_at_utc'] >= previous_health['checked_at_utc']):
+                write(work/DATA/'provider_status.json', health)
             review(work/ROOT,snapshots(work/ROOT),datetime.now(timezone.utc))
             if commit_push(work,[DATA,ROOT/'performance/closing_odds'],
                            'Publish pre-kickoff closing quote evidence',remote,branch):
@@ -292,3 +296,4 @@ def main(argv=None):
 
 if __name__=='__main__':
     raise SystemExit(main())
+
