@@ -12,7 +12,7 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 | All selections | 17 | 13-4 | 76.5% | +4.5% |
 
 Unsettled / unverified entries: **8**.
-Whole-fixture 1X2 multiclass Brier (n=58): 0.5429
+Whole-fixture 1X2 multiclass Brier (n=59): 0.5498
 
 ## STRICT versus PROVISIONAL
 
@@ -124,7 +124,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | b4dfb7c51677 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 67fd2fe2099c | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Locally observed near-close quotes, coverage and offered-price comparisons; official close and accepted execution are unverified.
 
