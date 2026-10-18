@@ -1,16 +1,16 @@
 {
   "dependencies": {
-    "PyYAML": "6.0.3",
-    "coverage": "7.16.2",
-    "numpy": "2.5.4",
+    "PyYAML": "NOT_INSTALLED",
+    "coverage": "NOT_INSTALLED",
+    "numpy": "2.5.3",
     "pandas": "3.0.6",
-    "python": "3.12.15",
+    "python": "3.14.8",
     "python-dotenv": "1.2.4",
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-18T09:58:14.607821+00:00",
-  "model_code_sha256": "e143d1e70becb20cd2ec3e532e9a3dd444860c1b867d5d90ee659f0402cbe478",
-  "predictions_sha256": "b183cc59fbe5916c9cce14ba8847883f21b152bf7657b02abee888d7802a70a0",
-  "selection_policy_version": "72h-seven-markets-fresh-references-net-ev15-v11"
+  "generated_at_utc": "2026-10-18T11:58:20.799760+00:00",
+  "model_code_sha256": "d2555e8728ba68aac7fbfee3a9bbefa53757578de2428b8dcbb37baef3acf846",
+  "predictions_sha256": "588daed94cd5d549d8db40f5b879f5e43fae4c5a7fc452f968f44b9407b9ff89",
+  "selection_policy_version": "48h-top-ten-probability-ev-no-under35-v14"
 }

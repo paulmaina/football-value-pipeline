@@ -1,8 +1,8 @@
 {
   "league": "Premier League",
   "training_matches": 1205,
-  "training_sha256": "f6d988748d86cafa4f93679cd23949b2c8c78f2143041abee2f3869ed56381b8",
-  "training_as_of_utc": "2026-10-18T09:56:19.378962+00:00",
+  "training_sha256": "ff75dd96de15007c8cc41acef6b16ce522ef237c4977a391c2e0a0df9ffc8e13",
+  "training_as_of_utc": "2026-10-18T11:56:28.580790+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 65,
     "bbs_added_results": 5,
@@ -14,9 +14,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-18T09:56:19.378962+00:00",
-    "observations": 73,
-    "observations_sha256": "1d27299b21954ae6e9630aa457cf07c6550f57c023866140a025a2bd43095bd4",
+    "cutoff_utc": "2026-10-18T11:56:28.580790+00:00",
+    "observations": 78,
+    "observations_sha256": "450aea933785c85418c78670ab356ec59d4c2865409b43720840f601937b8288",
     "eligible_training_matches": 15,
     "required_training_matches": 120,
     "feature_fields": [
@@ -50,16 +50,16 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
-    "retrospective_inputs_sha256": "cd8481836ceaa1e52231bfc6e4b497ca09731370509b93f6bf72b8feb32e4166",
+    "retrospective_inputs_sha256": "e32ff2d076e239f96dd776a89521890955df11fd7826b407263adc2a3514fbeb",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement."
   },
   "training_end": "2026-10-17",
   "fit_success": true,
-  "objective": 1310.8778166340014,
-  "base": 0.22280045085354103,
-  "home_adv": 0.16476190094124143,
-  "rho": -0.0918086384111733,
+  "objective": 1310.670166733602,
+  "base": 0.22285166896830594,
+  "home_adv": 0.16473753494163484,
+  "rho": -0.09181360533393079,
   "half_life_days": 365.0,
   "xi_per_day": 0.0018990333713971104,
   "max_goals": 10,
@@ -81,7 +81,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261018T095619378962Z_2c3b998bf857d0452b3ff14932391321ffef60cc80106c48b8ea4a7dab202e28.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261018T115628580790Z_3cbcb41cf5e6dda389149b92aebc8cba0d8fba7de38934a23187b296e07891ec.json",
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
