@@ -770,6 +770,41 @@
     "week": "2026-W42"
   },
   {
+    "away_team": "Real Racing Club de Santander",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.7518121432065497,
+      "home_goals": 2,
+      "over_1_5": 0.9282004976195146,
+      "over_2_5": 0.7915796133265822,
+      "p_away": 0.22374701298060368,
+      "p_draw": 0.21763687402765686,
+      "p_home": 0.5586161129917396,
+      "under_3_5": 0.3797088875172221,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.6966814230727096,
+      "home_goals": 2,
+      "over_1_5": 0.8923161298226768,
+      "over_2_5": 0.7198460107592917,
+      "p_away": 0.2312955182584251,
+      "p_draw": 0.22751704373134424,
+      "p_home": 0.5411874380102306,
+      "under_3_5": 0.4771302599427102,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "CA Osasuna",
+    "kickoff_utc": "2026-10-18T12:00:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.03169681374384059,
+    "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
+    "source_match_id": 564715,
+    "week": "2026-W42"
+  },
+  {
     "away_team": "Lecce",
     "baseline": {
       "away_goals": 3,
@@ -1572,6 +1607,41 @@
     "log_loss_gain": 0.006090058494992112,
     "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
     "source_match_id": 559659,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Real Racing Club de Santander",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.7518121432065497,
+      "home_goals": 2,
+      "over_1_5": 0.9282004976195146,
+      "over_2_5": 0.7915796133265822,
+      "p_away": 0.22374701298060368,
+      "p_draw": 0.21763687402765686,
+      "p_home": 0.5586161129917396,
+      "under_3_5": 0.3797088875172221,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.7548436102662641,
+      "home_goals": 2,
+      "over_1_5": 0.9290054835628815,
+      "over_2_5": 0.7932811807870929,
+      "p_away": 0.22595651291467445,
+      "p_draw": 0.21820709312745593,
+      "p_home": 0.5558363939578697,
+      "under_3_5": 0.3773704120059401,
+      "y": 0
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "CA Osasuna",
+    "kickoff_utc": "2026-10-18T12:00:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.00498850293038644,
+    "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
+    "source_match_id": 564715,
     "week": "2026-W42"
   },
   {
