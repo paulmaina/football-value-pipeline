@@ -209,6 +209,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "BL1:565826": {
+    "away_goals": 2,
+    "away_short_name": "Hoffenheim",
+    "away_team": "TSG 1899 Hoffenheim",
+    "first_verified_at_utc": "2026-10-18T22:30:32Z",
+    "home_goals": 1,
+    "home_short_name": "M'gladbach",
+    "home_team": "Borussia Mönchengladbach",
+    "kickoff_utc": "2026-10-18T15:30:00Z",
+    "league_code": "BL1",
+    "match_id": 565826,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "BL1:565827": {
     "away_goals": 1,
     "away_short_name": "Freiburg",
@@ -644,6 +659,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "FL1:559665": {
+    "away_goals": 1,
+    "away_short_name": "Nice",
+    "away_team": "OGC Nice",
+    "first_verified_at_utc": "2026-10-18T22:30:32Z",
+    "home_goals": 2,
+    "home_short_name": "Olympique Lyon",
+    "home_team": "Olympique Lyonnais",
+    "kickoff_utc": "2026-10-18T18:45:00Z",
+    "league_code": "FL1",
+    "match_id": 559665,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559666": {
     "away_goals": 1,
     "away_short_name": "Angers SCO",
@@ -925,6 +955,21 @@
     "kickoff_utc": "2026-10-17T14:15:00Z",
     "league_code": "PD",
     "match_id": 564708,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PD:564709": {
+    "away_goals": 1,
+    "away_short_name": "Sevilla FC",
+    "away_team": "Sevilla FC",
+    "first_verified_at_utc": "2026-10-18T22:30:32Z",
+    "home_goals": 4,
+    "home_short_name": "Real Madrid",
+    "home_team": "Real Madrid CF",
+    "kickoff_utc": "2026-10-18T19:00:00Z",
+    "league_code": "PD",
+    "match_id": 564709,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -1330,6 +1375,21 @@
     "kickoff_utc": "2026-10-18T16:00:00Z",
     "league_code": "SA",
     "match_id": 558569,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558570": {
+    "away_goals": 3,
+    "away_short_name": "Lazio",
+    "away_team": "SS Lazio",
+    "first_verified_at_utc": "2026-10-18T22:30:32Z",
+    "home_goals": 0,
+    "home_short_name": "Juventus",
+    "home_team": "Juventus FC",
+    "kickoff_utc": "2026-10-18T18:45:00Z",
+    "league_code": "SA",
+    "match_id": 558570,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
