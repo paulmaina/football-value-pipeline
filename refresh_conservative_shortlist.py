@@ -10,7 +10,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from conservative_bet_filter import build_conservative_shortlist, PROBABILITY_SELECTION_POLICY_VERSION
+from conservative_bet_filter import build_conservative_shortlist, BALANCED_SELECTION_POLICY_VERSION
 from format_football_output import process_conservative_shortlist
 
 
@@ -25,7 +25,7 @@ def refresh(root, as_of=None):
     clock = as_of if as_of is not None else datetime.now(timezone.utc)
     picks, decisions, summary = build_conservative_shortlist(
         predictions, market_reliability=reliability, as_of=clock,
-        selection_policy_version=PROBABILITY_SELECTION_POLICY_VERSION)
+        selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)
     summary['refresh_source'] = 'Stored forecasts re-ranked; no new odds or model fitting'
     summary['ucl_forecasts_available'] = bool(
         predictions.get('league', pd.Series(dtype=str)).eq('UEFA Champions League').any())

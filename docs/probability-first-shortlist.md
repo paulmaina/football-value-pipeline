@@ -1,41 +1,60 @@
-# Probability-first shortlist
+# Probability and EV shortlist
 
-Policy `72h-top-ten-adjusted-probability-v12` selects the ten distinct upcoming
-fixtures with the highest available reliability-adjusted probabilities, across
-all requested leagues. Each fixture contributes its best-ranked usable market:
-home win, away win, Over 1.5, Under 3.5, BTTS Yes, or double chance 1X/X2/12.
-Quoted decimal odds break probability ties; strict qualification does not take
-priority over a higher-ranked selection. Probabilities and model fitting are unchanged.
+Production policy `48h-top-ten-probability-ev-v13` ranks ten distinct upcoming
+fixtures using both adjusted probability and adjusted EV, across all requested
+leagues. No fixed probability or EV cutoff is required for selection.
 
-The window is anchored to generation time and ends 72 hours later. The existing
+## Combined rating
+
+1. Evaluate usable fixture-market candidates with valid model probabilities,
+   identities, fresh allowed-bookmaker prices and coherent reference markets.
+2. Deduplicate repeated provider rows by fixture and market.
+3. Calculate the percentile rank of adjusted probability and of adjusted EV
+   across this candidate pool. Tied values receive the average rank.
+4. Score each candidate as `0.5 * probability percentile + 0.5 * EV percentile`.
+5. Choose each fixture's highest-scoring market, then the top ten fixtures.
+
+Equal weights give both criteria influence without letting an extreme EV value
+dominate because of its numeric scale. They are an explicit policy choice, not
+an optimized or proven profitable weighting. Scores are relative to the candidates
+available at generation time, not win probabilities. The report shows a combined
+score out of 100 and both percentile components.
+
+Ties use adjusted probability, adjusted EV, quoted odds, kickoff, league and team
+names in that order. Strict qualification does not take priority over a better
+combined score. Underlying prediction probabilities and model fits are unchanged.
+
+Markets are home win, away win, Over 1.5, Under 3.5, BTTS Yes and double chance
+1X/X2/12. Each fixture contributes one market; no same-fixture stacking.
+
+## Eligibility and warnings
+
+The rolling window ends 48 hours after generation, inclusive. The existing
 20-minute minimum kickoff lead, allowed-bookmaker policy, valid team mappings,
-real exact-market quotes and reference-market freshness/integrity checks still
-apply. One fixture is counted once even when duplicate provider IDs are present.
+real exact-market quotes and reference-market freshness/integrity checks remain.
 If fewer than ten distinct fixtures have usable data, the summary records the
-available count and an explicit shortfall. Missing prices, duplicate fixtures or
-out-of-window matches are never manufactured to reach ten.
+available count and a shortfall rather than fabricating matches or prices.
 
-The old probability, adjusted EV, raw EV and historical-audit thresholds now
-annotate qualification rather than eliminate otherwise usable candidates.
-`STRICT` means the selected market also passes those reference rules.
-`PROVISIONAL` means one or more rules failed; the readable report shows the
-selection warnings. A high chance of winning does not imply good value: a
-selection can have negative estimated EV. None of these labels establishes
-accuracy or profitability, and ten selections do not establish accumulator safety.
+Legacy probability, adjusted EV, raw EV and historical-audit thresholds annotate
+qualification instead of eliminating usable candidates. `STRICT` means those
+reference rules also passed. `PROVISIONAL` means at least one failed; the report
+shows why. Under 3.5 reference thresholds are 80% blended/adjusted and 75% raw.
+Unassessed calibration is disclosed; invalid calibration data is rejected.
 
-For Under 3.5 the reference probability thresholds are 80% blended/adjusted and
-75% raw; failed historical validation remains a warning. Ranking uses the existing
-development calibration adjustment where available. Unassessed calibration is
-disclosed; invalid calibration data is rejected. No thresholds are changed to
-make the underlying model report higher probabilities.
+Negative EV remains possible because there is no EV floor; high EV with a lower
+win probability is also possible. The rating balances the two criteria without
+guaranteeing a minimum for either. Ten selections do not establish accumulator
+safety, prediction accuracy or profitability.
 
-The prediction command is unchanged. The stored-data refresh command is also
-unchanged: `py refresh_conservative_shortlist.py --root football_output_v2`.
-Refreshing ranks the saved forecasts and prices; it does not fetch new odds.
+## Commands and historical evidence
 
-Historical v9–v11 shortlists and their policy experiments replay with their
-original rules. The new policy comparison captures v12 decisions explicitly.
-EV sensitivity v2 compares the probability-first control (labelled `No EV gate`)
-with +1.5%, +3% and +5% EV-filtered alternatives. Older experiment captures retain
-their original grids and versions. Frozen predictions, selections and prices are
-not rewritten when the policy changes.
+The prediction command is unchanged. To re-rank stored forecasts without API
+calls: `py refresh_conservative_shortlist.py --root football_output_v2`.
+This uses saved probabilities and prices; it does not fetch fresh odds.
+
+Historical v9-v11 strict policies and the v12 72-hour probability-first policy
+replay with their original rules. New captures identify v13 explicitly. EV
+sensitivity v3 compares the combined-score control (`No EV gate`) with +1.5%,
++3% and +5% EV-filtered alternatives. Percentiles use the same underlying valid
+candidate pool before experimental EV gates, keeping scores comparable.
+Older experiment grids and immutable forecasts, prices and selections are not rewritten.

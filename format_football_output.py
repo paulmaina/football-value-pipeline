@@ -1139,6 +1139,14 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
                 if not is_missing(item.get("historical_gap_score")) else "—"
             ),
         })
+    if 'selection_score' in df.columns:
+        for output, source in [('Combined ranking score', 'selection_score'),
+                               ('Probability percentile', 'probability_percentile'),
+                               ('EV percentile', 'ev_percentile')]:
+            columns.append(output)
+            for result, (_, original) in zip(rows, df.iterrows()):
+                value = to_float(original.get(source))
+                result[output] = (decimal(100*value) + ' / 100' if value is not None else '—') if source == 'selection_score' else pct(value)
     return pd.DataFrame(rows, columns=columns)
 
 
@@ -1168,7 +1176,8 @@ def process_conservative_shortlist(
         raw = pd.DataFrame()
 
     summary = load_json_file(input_dir / "conservative_bet_summary.json")
-    probability_first = summary.get('selection_objective') == 'PROBABILITY_FIRST'
+    balanced = summary.get('selection_objective') == 'BALANCED_PROBABILITY_EV'
+    probability_first = balanced or summary.get('selection_objective') == 'PROBABILITY_FIRST'
     if "decision" in raw.columns:
         # Fail closed if a mistakenly supplied mixed decision file slips in.
         raw = raw.loc[
@@ -1212,9 +1221,12 @@ def process_conservative_shortlist(
         ]
         if summary.get('shortfall_reason'):
             ranking_notes.append(f"**Shortfall:** {summary['shortfall_reason']}")
+    if balanced:
+        ranking_notes[0] = "**Ranking:** 50% adjusted-probability percentile + 50% adjusted-EV percentile across usable fixture-market candidates; no probability or EV cutoff."
+        ranking_notes.append("Percentiles and the combined score are relative ranks, not win probabilities. The equal weights are a transparent policy choice, not a proven optimum.")
 
     lines = [
-        "# Top 10 probability-ranked matches" if probability_first else "# Conservative shortlisted matches and markets",
+        "# Top 10 probability-and-EV-ranked matches" if balanced else "# Top 10 probability-ranked matches" if probability_first else "# Conservative shortlisted matches and markets",
         "",
         refresh_note,
         f"**Candidates:** {count} of target {target} distinct matches.",
@@ -1243,6 +1255,8 @@ def process_conservative_shortlist(
             "Bookmaker", "Quoted decimal odds", "Conservative estimated EV",
             "Selection warnings" if probability_first else "Near-miss reasons",
         ]
+        if balanced:
+            headers = ['Combined ranking score', *headers]
         lines.append(markdown_table(
             headers,
             [[r[c] for c in headers] for _, r in readable.iterrows()],

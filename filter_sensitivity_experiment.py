@@ -7,6 +7,8 @@ import math
 VERSION = 'conservative-ev-sensitivity-v1'
 PROBABILITY_VERSION = 'probability-shortlist-ev-sensitivity-v2'
 PROBABILITY_POLICY = '72h-top-ten-adjusted-probability-v12'
+BALANCED_POLICY = '48h-top-ten-probability-ev-v13'
+BALANCED_VERSION = 'balanced-shortlist-ev-sensitivity-v3'
 FLOORS = (0.015, 0.03, 0.05)
 PROBABILITY_FLOORS = (0.0, *FLOORS)  # zero labels the control with no EV gate
 SELECTED = {'SHORTLISTED', 'SHORTLISTED_PROVISIONAL'}
@@ -22,7 +24,7 @@ def write_experiment(predictions, raw, summary, production_decisions, reliabilit
     from quote_policy import load_policy
     from performance_tracking import utc, write_json
     rows = []
-    probability_policy = summary['selection_policy_version'] == PROBABILITY_POLICY
+    probability_policy = summary['selection_policy_version'] in (PROBABILITY_POLICY, BALANCED_POLICY)
     floors = PROBABILITY_FLOORS if probability_policy else FLOORS
     for floor in floors:
         decisions = production_decisions
@@ -31,7 +33,8 @@ def write_experiment(predictions, raw, summary, production_decisions, reliabilit
                 as_of=utc(summary['generated_at_utc']), market_reliability=reliability,
                 adjusted_ev_floor=floor, selection_policy_version=summary['selection_policy_version'])
         rows.extend({**r, 'ev_floor': floor} for r in clean(decisions))
-    data = {'version': PROBABILITY_VERSION if probability_policy else VERSION, 'generated_at_utc': summary['generated_at_utc'],
+    version = BALANCED_VERSION if summary['selection_policy_version'] == BALANCED_POLICY else PROBABILITY_VERSION if probability_policy else VERSION
+    data = {'version': version, 'generated_at_utc': summary['generated_at_utc'],
         'selection_policy_version': summary['selection_policy_version'],
         'execution_policy': load_policy(), 'floors': list(floors),
         'predictions_sha256': hashlib.sha256((raw/'all_leagues_predictions.csv').read_bytes()).hexdigest(),
@@ -45,9 +48,9 @@ def validate(data, generated, predictions):
     from conservative_bet_filter import MARKET_SPECS, PROBABILITY_MARKET_SPECS, _market_fields
     if not isinstance(data,dict):
         raise ValueError('Invalid filter experiment document')
-    probability_policy = data.get('selection_policy_version') == PROBABILITY_POLICY
+    probability_policy = data.get('selection_policy_version') in (PROBABILITY_POLICY, BALANCED_POLICY)
     floors = PROBABILITY_FLOORS if probability_policy else FLOORS
-    version = PROBABILITY_VERSION if probability_policy else VERSION
+    version = BALANCED_VERSION if data.get('selection_policy_version') == BALANCED_POLICY else PROBABILITY_VERSION if probability_policy else VERSION
     if data.get('version') != version or data.get('floors') != list(floors):
         raise ValueError('Invalid filter experiment version/grid')
     if utc(generated) is None or utc(data.get('generated_at_utc')) is None or abs((utc(generated)-utc(data['generated_at_utc'])).total_seconds()) >= 1:
@@ -167,7 +170,7 @@ def frozen(root, archived):
             key = fixture_key(row); kick = utc(row.get('kickoff_utc'))
             if key in seen or kick is None or max(utc(meta['captured_at_utc']),utc(meta['generated_at_utc'])) > kick-timedelta(minutes=20):
                 continue
-            if kick > utc(meta['generated_at_utc'])+timedelta(hours=72):
+            if kick > utc(meta['generated_at_utc'])+timedelta(hours=48 if data['selection_policy_version']==BALANCED_POLICY else 72):
                 continue
             new.add(key)
             rows.append({**row,'fixture_key':key,'snapshot_commit':meta['git_commit_sha'],
@@ -257,7 +260,7 @@ def review_experiment(root, archived, records, clock):
         roi=f"{r['flat_stake_roi']:+.1%}" if r['flat_stake_roi'] is not None else 'n.a.'
         dd=f"{r['max_drawdown_units']:.2f}" if r['max_drawdown_units'] is not None else 'n.a.'
         brier=f"{r['brier']:.4f}" if r['brier'] is not None else 'n.a.'
-        label = 'No EV gate (probability ranking)' if r['ev_floor'] == 0 else f"{r['ev_floor']:.1%}"
+        label = 'No EV gate (ranking control)' if r['ev_floor'] == 0 else f"{r['ev_floor']:.1%}"
         lines.append(f"| {label} | {r['tier']} | {r['selected']} | {r['graded']} | {r['pending']} | {roi} | {dd} | {brier} |")
     lines+=['','Calibration buckets, league/market/gameweek/policy breakdowns and all rejected candidates are in summary.json and candidate_decisions.csv. Older snapshots are not backfilled. Upload fresh outputs before kickoff; reporting runs in the existing forward-review workflow.','']
     (dest/'report.md').write_text('\n'.join(lines),encoding='utf-8')
