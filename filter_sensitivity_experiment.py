@@ -5,7 +5,14 @@ import json
 import math
 
 VERSION = 'conservative-ev-sensitivity-v1'
+PROBABILITY_VERSION = 'probability-shortlist-ev-sensitivity-v2'
+PROBABILITY_POLICY = '72h-top-ten-adjusted-probability-v12'
+BALANCED_POLICY = '48h-top-ten-probability-ev-v13'
+CURRENT_BALANCED_POLICY = '48h-top-ten-probability-ev-no-under35-v14'
+BALANCED_POLICIES = (BALANCED_POLICY, CURRENT_BALANCED_POLICY)
+BALANCED_VERSION = 'balanced-shortlist-ev-sensitivity-v3'
 FLOORS = (0.015, 0.03, 0.05)
+PROBABILITY_FLOORS = (0.0, *FLOORS)  # zero labels the control with no EV gate
 SELECTED = {'SHORTLISTED', 'SHORTLISTED_PROVISIONAL'}
 
 
@@ -19,16 +26,19 @@ def write_experiment(predictions, raw, summary, production_decisions, reliabilit
     from quote_policy import load_policy
     from performance_tracking import utc, write_json
     rows = []
-    for floor in FLOORS:
+    probability_policy = summary['selection_policy_version'] in (PROBABILITY_POLICY, *BALANCED_POLICIES)
+    floors = PROBABILITY_FLOORS if probability_policy else FLOORS
+    for floor in floors:
         decisions = production_decisions
-        if floor != FLOORS[0]:
+        if floor != floors[0]:
             _, decisions, _ = build_conservative_shortlist(predictions,
                 as_of=utc(summary['generated_at_utc']), market_reliability=reliability,
-                adjusted_ev_floor=floor)
+                adjusted_ev_floor=floor, selection_policy_version=summary['selection_policy_version'])
         rows.extend({**r, 'ev_floor': floor} for r in clean(decisions))
-    data = {'version': VERSION, 'generated_at_utc': summary['generated_at_utc'],
+    version = BALANCED_VERSION if summary['selection_policy_version'] in BALANCED_POLICIES else PROBABILITY_VERSION if probability_policy else VERSION
+    data = {'version': version, 'generated_at_utc': summary['generated_at_utc'],
         'selection_policy_version': summary['selection_policy_version'],
-        'execution_policy': load_policy(), 'floors': list(FLOORS),
+        'execution_policy': load_policy(), 'floors': list(floors),
         'predictions_sha256': hashlib.sha256((raw/'all_leagues_predictions.csv').read_bytes()).hexdigest(),
         'rows': rows}
     write_json(raw/'filter_sensitivity_experiment.json', data)
@@ -37,16 +47,19 @@ def write_experiment(predictions, raw, summary, production_decisions, reliabilit
 
 def validate(data, generated, predictions):
     from performance_tracking import utc, fixture_key, number
-    from conservative_bet_filter import MARKET_SPECS, _market_fields
+    from conservative_bet_filter import MARKET_SPECS, PROBABILITY_MARKET_SPECS, _market_fields
     if not isinstance(data,dict):
         raise ValueError('Invalid filter experiment document')
-    if data.get('version') != VERSION or data.get('floors') != list(FLOORS):
+    probability_policy = data.get('selection_policy_version') in (PROBABILITY_POLICY, *BALANCED_POLICIES)
+    floors = PROBABILITY_FLOORS if probability_policy else FLOORS
+    version = BALANCED_VERSION if data.get('selection_policy_version') in BALANCED_POLICIES else PROBABILITY_VERSION if probability_policy else VERSION
+    if data.get('version') != version or data.get('floors') != list(floors):
         raise ValueError('Invalid filter experiment version/grid')
     if utc(generated) is None or utc(data.get('generated_at_utc')) is None or abs((utc(generated)-utc(data['generated_at_utc'])).total_seconds()) >= 1:
         raise ValueError('Unbound filter experiment generation time')
     originals = {fixture_key(r):r for r in predictions}
     fixtures = set(originals)
-    specs = {r[0]:r[1] for r in MARKET_SPECS}
+    specs = {r[0]:r[1] for r in (PROBABILITY_MARKET_SPECS if probability_policy and data.get('selection_policy_version') != CURRENT_BALANCED_POLICY else MARKET_SPECS)}
     # Validate immutable captures using their original market set.
     if data.get("selection_policy_version") in {"72h-all-markets-net-ev15-execution-v7",
                                               "72h-five-markets-probability-odds-net-ev15-v8"}:
@@ -57,7 +70,7 @@ def validate(data, generated, predictions):
                                               "72h-six-markets-dc12-probability-odds-net-ev15-v9"}:
         specs.pop("Both Teams to Score - Yes", None)
     markets = set(specs)
-    expected = {(key, market, floor) for key in fixtures for market in markets for floor in FLOORS}
+    expected = {(key, market, floor) for key in fixtures for market in markets for floor in floors}
     seen = set()
     controls = {}
     for row in data.get('rows', []):
@@ -87,7 +100,8 @@ def validate(data, generated, predictions):
             odds = number(row.get('offered_decimal_odds'), min_value=1.000001)
             cost = number(row.get('per_stake_cost'), min_value=0, max_value=1)
             ev = number(row.get('conservative_estimated_ev'))
-            if None in (p, odds, cost, ev) or abs(p*odds-1-cost-ev)>1e-9 or ev+1e-12<row['ev_floor']:
+            enforce_floor = not (probability_policy and row['ev_floor'] == 0.0)
+            if None in (p, odds, cost, ev) or abs(p*odds-1-cost-ev)>1e-9 or (enforce_floor and ev+1e-12<row['ev_floor']):
                 raise ValueError('Invalid selected net EV')
             fields=_market_fields(original,market_key)
             original_price=number(fields['price'],min_value=1.000001)
@@ -101,7 +115,7 @@ def validate(data, generated, predictions):
                 raise ValueError('Invalid selection tier')
     if seen != expected:
         raise ValueError('Missing candidate decisions')
-    for floor in FLOORS:
+    for floor in floors:
         selected = [r for r in data['rows'] if r['ev_floor']==floor and r['decision'] in SELECTED]
         if len(selected)>10 or len({fixture_key(r) for r in selected})!=len(selected):
             raise ValueError('Duplicate fixture or policy cap exceeded')
@@ -111,9 +125,9 @@ def validate_control(data, picks):
     from performance_tracking import fixture_key
     actual={(fixture_key(r),r['market'],r.get('selection_tier')) for r in picks}
     control={(fixture_key(r),r['market'],r.get('selection_tier')) for r in data['rows']
-             if r['ev_floor']==FLOORS[0] and r['decision'] in SELECTED}
+             if r['ev_floor']==data['floors'][0] and r['decision'] in SELECTED}
     if actual != control:
-        raise ValueError('1.5% control differs from production shortlist')
+        raise ValueError('EV experiment control differs from production shortlist')
 
 
 def capture_file(raw, generated):
@@ -158,7 +172,7 @@ def frozen(root, archived):
             key = fixture_key(row); kick = utc(row.get('kickoff_utc'))
             if key in seen or kick is None or max(utc(meta['captured_at_utc']),utc(meta['generated_at_utc'])) > kick-timedelta(minutes=20):
                 continue
-            if kick > utc(meta['generated_at_utc'])+timedelta(hours=72):
+            if kick > utc(meta['generated_at_utc'])+timedelta(hours=48 if data['selection_policy_version'] in BALANCED_POLICIES else 72):
                 continue
             new.add(key)
             rows.append({**row,'fixture_key':key,'snapshot_commit':meta['git_commit_sha'],
@@ -210,7 +224,8 @@ def evaluate(root, archived, records, clock):
             selections.append({**coverage[-1], 'unit_profit':
                 outcome*row['offered_decimal_odds']-1-row['per_stake_cost'] if outcome is not None else None})
     comparisons=[]
-    for floor in FLOORS:
+    floors = sorted({r['ev_floor'] for r in candidates}) if candidates else list(FLOORS)
+    for floor in floors:
         cohort=[r for r in selections if r['ev_floor']==floor]
         for tier in ('ALL','STRICT','PROVISIONAL'):
             comparisons.append({'ev_floor':floor,'tier':tier,
@@ -221,7 +236,7 @@ def evaluate(root, archived, records, clock):
             if field=='week':
                 year,week,_=utc(row['kickoff_utc']).isocalendar(); row['week']=f'{year}-W{week:02d}'
         for value in sorted({r[field] for r in selections}):
-            for floor in FLOORS:
+            for floor in floors:
                 breakdown.append({'dimension':field,'value':value,'ev_floor':floor,
                     **statistics([r for r in selections if r[field]==value and r['ev_floor']==floor])})
     summary={'version':VERSION,'reviewed_at_utc':clock.isoformat(),
@@ -247,7 +262,8 @@ def review_experiment(root, archived, records, clock):
         roi=f"{r['flat_stake_roi']:+.1%}" if r['flat_stake_roi'] is not None else 'n.a.'
         dd=f"{r['max_drawdown_units']:.2f}" if r['max_drawdown_units'] is not None else 'n.a.'
         brier=f"{r['brier']:.4f}" if r['brier'] is not None else 'n.a.'
-        lines.append(f"| {r['ev_floor']:.1%} | {r['tier']} | {r['selected']} | {r['graded']} | {r['pending']} | {roi} | {dd} | {brier} |")
+        label = 'No EV gate (ranking control)' if r['ev_floor'] == 0 else f"{r['ev_floor']:.1%}"
+        lines.append(f"| {label} | {r['tier']} | {r['selected']} | {r['graded']} | {r['pending']} | {roi} | {dd} | {brier} |")
     lines+=['','Calibration buckets, league/market/gameweek/policy breakdowns and all rejected candidates are in summary.json and candidate_decisions.csv. Older snapshots are not backfilled. Upload fresh outputs before kickoff; reporting runs in the existing forward-review workflow.','']
     (dest/'report.md').write_text('\n'.join(lines),encoding='utf-8')
     return summary
