@@ -5,73 +5,106 @@ Actual results come from football-data.org v4 FINISHED matches;
 normal 90-minute results are used, never extra-time/penalty scorelines.
 **PROVISIONAL candidates are not audited betting recommendations.**
 
-## Cumulative shortlist
+The main totals use the latest eligible pre-kickoff shortlist entry for each match,
+with that prediction's original market, probability, odds and costs. Each match counts once.
+Later uploads of an older generation never replace a newer prediction.
+Earlier predictions remain in shortlist_run_history.csv and the Run Tracking tab;
+history rows are correlated records and are excluded from main win-rate/ROI totals.
+Whole-fixture model metrics and research experiments retain their unique-fixture cohorts.
+
+## Cumulative shortlist — latest prediction per match
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 18 | 14-4 | 77.8% | +5.4% |
+| All selections | 19 | 15-4 | 78.9% | +9.3% |
 
-Unsettled / unverified entries: **15**.
-Whole-fixture 1X2 multiclass Brier (n=60): 0.5451
+Unsettled / unverified entries: **14**.
+Whole-fixture 1X2 multiclass Brier (n=64): 0.5374
+
+## First-prediction reference — historical comparison
+
+| Group | Graded | W-L | Win rate | Simulated ROI |
+|---|---:|---:|---:|---:|
+| Unique fixtures | 19 | 15-4 | 78.9% | +6.4% |
+
+## Latest selections by prediction run (generation UTC)
+
+| Group | Graded | W-L | Win rate | Simulated ROI |
+|---|---:|---:|---:|---:|
+| 2026-10-11T06:38:36.451450+00:00 | 2 | 2-0 | 100.0% | +32.0% |
+| 2026-10-11T08:16:48.175077+00:00 | 1 | 1-0 | 100.0% | +28.0% |
+| 2026-10-11T11:26:44.338551+00:00 | 4 | 2-2 | 50.0% | -28.2% |
+| 2026-10-12T16:32:02.915037+00:00 | 2 | 1-1 | 50.0% | -29.0% |
+| 2026-10-13T11:03:50.762232+00:00 | 1 | 1-0 | 100.0% | +45.0% |
+| 2026-10-13T17:02:53.437005+00:00 | 1 | 1-0 | 100.0% | +18.0% |
+| 2026-10-14T11:23:06.552356+00:00 | 0 | 0-0 | — | — |
+| 2026-10-14T18:13:48.803955+00:00 | 2 | 2-0 | 100.0% | +64.5% |
+| 2026-10-14T21:07:53.015698+00:00 | 1 | 1-0 | 100.0% | +27.0% |
+| 2026-10-16T22:16:28.500933+00:00 | 1 | 1-0 | 100.0% | +27.0% |
+| 2026-10-17T09:46:12.155774+00:00 | 2 | 1-1 | 50.0% | -36.0% |
+| 2026-10-17T14:11:18.520879+00:00 | 1 | 1-0 | 100.0% | +61.0% |
+| 2026-10-18T09:58:14.607821+00:00 | 1 | 1-0 | 100.0% | +20.0% |
+| 2026-10-18T14:35:10.311946+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| PROVISIONAL | 8 | 5-3 | 62.5% | -21.6% |
-| STRICT | 10 | 9-1 | 90.0% | +27.1% |
+| PROVISIONAL | 8 | 5-3 | 62.5% | -19.5% |
+| STRICT | 11 | 10-1 | 90.9% | +30.2% |
 
 ## By policy
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | 48h-top-ten-probability-ev-no-under35-v14 | 0 | 0-0 | — | — |
-| 72h-all-markets-net-ev15-execution-v7 | 2 | 1-1 | 50.0% | -36.5% |
-| 72h-seven-markets-fresh-references-net-ev15-v11 | 1 | 1-0 | 100.0% | +58.0% |
-| 72h-six-markets-dc12-probability-odds-net-ev15-v9 | 1 | 1-0 | 100.0% | +27.0% |
-| 72h-ucl-v3 | 6 | 5-1 | 83.3% | +16.0% |
-| legacy/unspecified | 8 | 6-2 | 75.0% | -1.2% |
+| 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
+| 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
+| 72h-seven-markets-fresh-references-net-ev15-v11 | 5 | 4-1 | 80.0% | +7.2% |
+| 72h-ucl-v2 | 1 | 1-0 | 100.0% | +28.0% |
+| 72h-ucl-v3 | 6 | 3-3 | 50.0% | -28.5% |
+| legacy/unspecified | 2 | 2-0 | 100.0% | +32.0% |
 
 ## By market
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | Away win | 1 | 0-1 | 0.0% | -100.0% |
-| Both Teams to Score - Yes | 1 | 1-0 | 100.0% | +49.0% |
+| Both Teams to Score - Yes | 2 | 2-0 | 100.0% | +51.0% |
 | Double Chance 12 | 0 | 0-0 | — | — |
-| Double Chance 1X | 1 | 1-0 | 100.0% | +27.0% |
+| Double Chance 1X | 2 | 2-0 | 100.0% | +23.5% |
 | Double Chance X2 | 0 | 0-0 | — | — |
-| Home win | 3 | 3-0 | 100.0% | +65.0% |
-| Over 1.5 | 7 | 7-0 | 100.0% | +22.4% |
+| Home win | 4 | 4-0 | 100.0% | +56.0% |
+| Over 1.5 | 5 | 5-0 | 100.0% | +26.6% |
 | Under 3.5 | 5 | 2-3 | 40.0% | -46.0% |
 
 ## By league
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Bundesliga | 1 | 1-0 | 100.0% | +27.0% |
-| La Liga | 4 | 4-0 | 100.0% | +26.8% |
+| Bundesliga | 2 | 2-0 | 100.0% | +23.5% |
+| La Liga | 4 | 4-0 | 100.0% | +28.7% |
 | Ligue 1 | 0 | 0-0 | — | — |
-| Premier League | 5 | 2-3 | 40.0% | -49.4% |
-| Serie A | 4 | 3-1 | 75.0% | +12.2% |
-| UEFA Champions League | 4 | 4-0 | 100.0% | +40.5% |
+| Premier League | 5 | 2-3 | 40.0% | -46.0% |
+| Serie A | 4 | 3-1 | 75.0% | +13.0% |
+| UEFA Champions League | 4 | 4-0 | 100.0% | +48.0% |
 
 ## Gameweeks
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
-| 2026-W42 | 14 | 12-2 | 85.7% | +17.6% |
+| 2026-W42 | 15 | 13-2 | 86.7% | +21.6% |
 | 2026-W43 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
 
 | Forecast bin | Samples | Average forecast | Observed win rate | Binary Brier |
 |---|---:|---:|---:|---:|
-| 60%–70% | 4 | 66.5% | 75.0% | 0.1926 |
-| 70%–80% | 4 | 76.0% | 75.0% | 0.1865 |
-| 80%–90% | 6 | 83.7% | 66.7% | 0.2510 |
-| 90%–100% | 4 | 92.4% | 100.0% | 0.0059 |
+| 60%–70% | 4 | 66.3% | 75.0% | 0.1898 |
+| 70%–80% | 5 | 75.2% | 80.0% | 0.1645 |
+| 80%–90% | 8 | 83.5% | 75.0% | 0.1958 |
+| 90%–100% | 2 | 93.3% | 100.0% | 0.0047 |
 
 Calibration bins report observed outcomes against the originally
 recorded reliability-adjusted chance; small buckets are unstable.
