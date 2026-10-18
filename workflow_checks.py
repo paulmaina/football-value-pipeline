@@ -77,14 +77,31 @@ def raw_check(root):
             if (field.startswith('p_') or field.startswith('raw_p_')) and value not in ('',None):
                 require(number(value,min_value=0,max_value=1) is not None, f'Invalid probability column {field}')
     selected=set()
+    balanced = summary.get('selection_policy_version') in ('48h-top-ten-probability-ev-v13', '48h-top-ten-probability-ev-no-under35-v14')
+    excludes_under = summary.get('selection_policy_version') == '48h-top-ten-probability-ev-no-under35-v14'
+    previous_score = float('inf')
+    if balanced:
+        require(summary.get('shortlist_lookahead_hours') == 48, 'Balanced shortlist must use 48 hours')
+        require(len(picks) <= 10, 'Balanced shortlist exceeds ten fixtures')
     for row in picks:
         key=fixture_key(row);require(key in keys, 'Selection without matching forecast')
         require(key not in selected, 'Multiple selected markets for one fixture');selected.add(key)
         require(row.get('market') in summary.get('eligible_markets',SUPPORTED_MARKETS), 'Unsupported selected market')
+        require(not excludes_under or row.get('market') != 'Under 3.5', 'Under 3.5 is excluded from this shortlist policy')
         require(row.get('selection_tier') in ('STRICT','PROVISIONAL'), 'Invalid selection tier')
         require(number(row.get('offered_decimal_odds'),min_value=1.000001) is not None, 'Missing real selection price')
         require(number(row.get('rank_probability') or row.get('predicted_probability'),min_value=0,max_value=1) is not None,
                 'Missing selection probability')
+        if balanced:
+            from datetime import timedelta
+            generated, kickoff = utc(summary['generated_at_utc']), utc(row['kickoff_utc'])
+            require(generated+timedelta(minutes=20) <= kickoff <= generated+timedelta(hours=48),
+                    'Balanced selection outside 48-hour window')
+            a, b, score = [number(row.get(field),min_value=0,max_value=1)
+                           for field in ('probability_percentile','ev_percentile','selection_score')]
+            require(None not in (a,b,score) and abs(score-.5*(a+b))<1e-9, 'Invalid combined shortlist score')
+            require(score <= previous_score+1e-9, 'Shortlist not ordered by combined score')
+            previous_score = score
     for field,count in [('n_fixtures',len(predictions)),('n_shortlisted',len(picks)),
         ('n_strict_qualified',sum(r.get('selection_tier')=='STRICT' for r in picks)),
         ('n_provisional_watchlist',sum(r.get('selection_tier')=='PROVISIONAL' for r in picks))]:
