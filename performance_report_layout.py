@@ -32,6 +32,7 @@ NAMES = {
     'reliability:stronger_l2': 'Stronger regularisation (L2=3)',
     'reliability:fixed_half_life': 'Fixed half-life (480 days)',
     'shortlist_policy_experiment': 'Probability / calibration policy',
+    'shortlist_weight_experiment': 'Shortlist probability / EV weights',
 }
 
 
@@ -301,7 +302,7 @@ def experiment_rows(root, health):
         state = item.get('status', 'REPORT_UNAVAILABLE_OR_STALE')
         n = item.get('settled_evidence')
         requirements = []
-        if name in ('benchmark_forward_experiment', 'totals_anchor_experiment', 'model_reliability_experiment', 'shortlist_policy_experiment'):
+        if name in ('benchmark_forward_experiment', 'totals_anchor_experiment', 'model_reliability_experiment', 'shortlist_policy_experiment', 'shortlist_weight_experiment'):
             gates = summary.get('review_gates', {})
             minimum = gates.get('minimum_paired_fixtures'); weeks = gates.get('minimum_gameweeks')
             coverage_min = gates.get('minimum_verified_coverage'); coverage = summary.get('verified_coverage')
@@ -313,6 +314,10 @@ def experiment_rows(root, health):
                 if progress is None or progress < weeks: requirements.append(f'{max(0, weeks-(progress or 0))} more ISO weeks')
                 if coverage is None: requirements.append('Verified coverage unavailable')
                 elif coverage < coverage_min: requirements.append(f'Coverage below {coverage_min:.0%}')
+            if name == 'shortlist_weight_experiment':
+                needed = gates.get('minimum_settled_per_weighting', 100)
+                have = summary.get('minimum_settled_per_weighting', 0)
+                if have < needed: requirements.append(f'{needed-have} more settled picks in the least-sampled weighting')
             if summary.get('rejected_snapshot_commits'): requirements.append('Rejected snapshots need review')
             scope = 'Approval review'
             threshold = f'{minimum} paired fixtures' if minimum is not None else 'Unavailable'
@@ -329,7 +334,7 @@ def experiment_rows(root, health):
             next_action = 'Review the paired results; approval is separate'
         else:
             next_action = '; '.join(requirements) or 'Continue collection; see detailed report'
-        unit = 'Paired fixtures' if name in ('benchmark_forward_experiment','totals_anchor_experiment','model_reliability_experiment','shortlist_policy_experiment') else 'Settled observations'
+        unit = 'Paired fixtures' if name in ('benchmark_forward_experiment','totals_anchor_experiment','model_reliability_experiment','shortlist_policy_experiment', 'shortlist_weight_experiment') else 'Settled observations'
         result.append([display, label(state), n if n is not None else 'Unavailable', unit, threshold, period,
             coverage_text if coverage_text is not None else 'Unavailable' if scope=='Approval review' else 'Not applicable',
             scope, next_action, label(item.get('evidence')) if 'evidence' in item else 'Initial review only'])
@@ -370,6 +375,22 @@ def add_experiments(parts, root, health, st):
             values = [item['variant_id'], item['tier'], item['selected'], item['graded'], item['flat_stake_roi'], item['brier'], item['log_loss'], item['calibration_gap'], item['max_drawdown_units'], interval_text]
             sheet.row(nr, [v if v is not None else 'Unavailable' for v in values], st)
             for col in ('E', 'H'): sheet.cell(f'{col}{nr}').set('s', str(st['percent']))
+    weights = load(root, 'shortlist_weight_experiment/summary.json')
+    if weights.get('comparisons'):
+        nr = (nr+3) if policy.get('comparisons') else end+8
+        sheet.put(f'A{nr}', 'Shortlist probability / EV weights — ALL selections primary', st['section']); sheet.merge(f'A{nr}:J{nr}')
+        nr += 1
+        sheet.row(nr, ['Probability / EV', 'Tier', 'Selected', 'Settled', 'Win rate', 'Win rate 95% interval', 'Net ROI', 'Profit (units)', 'Drawdown (units)', 'Profit delta / fixture 95% vs 50/50'], st, True)
+        paired = {r['variant_id']: r for r in weights.get('paired_all_returns', [])}
+        for item in weights['comparisons']:
+            nr += 1
+            interval = paired.get(item['variant_id'], {}).get('weekly_block_bootstrap95') if item['tier'] == 'ALL' else None
+            win = item.get('win_rate_wilson95')
+            row = [f"{item['probability_weight']:.0%} / {item['ev_weight']:.0%}", item['tier'], item['selected'], item['graded'], item['observed_rate'],
+                f'{win[0]:.1%} to {win[1]:.1%}' if win else 'Collect more data', item['flat_stake_roi'], item['profit_units'], item['max_drawdown_units'],
+                f'{interval[0]:+.4f} to {interval[1]:+.4f}' if interval else 'Control' if item['variant_id'] == 'control' and item['tier'] == 'ALL' else 'Collect more data' if item['tier'] == 'ALL' else 'Not applicable']
+            sheet.row(nr, [v if v is not None else 'Unavailable' for v in row], st)
+            for col in ('E', 'G'): sheet.cell(f'{col}{nr}').set('s', str(st['percent']))
     put_sheet(parts, 'Experiments', sheet)
 
 
