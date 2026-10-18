@@ -1184,6 +1184,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "SA:558574": {
+    "away_goals": 3,
+    "away_short_name": "Lecce",
+    "away_team": "US Lecce",
+    "first_verified_at_utc": "2026-10-18T12:45:10Z",
+    "home_goals": 0,
+    "home_short_name": "Udinese",
+    "home_team": "Udinese Calcio",
+    "kickoff_utc": "2026-10-18T10:30:00Z",
+    "league_code": "SA",
+    "match_id": 558574,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "SA:558575": {
     "away_goals": 0,
     "away_short_name": "Napoli",

@@ -770,6 +770,41 @@
     "week": "2026-W42"
   },
   {
+    "away_team": "Lecce",
+    "baseline": {
+      "away_goals": 3,
+      "btts_yes": 0.43526626872051316,
+      "home_goals": 0,
+      "over_1_5": 0.6692560364388662,
+      "over_2_5": 0.4020677237487148,
+      "p_away": 0.21543860729272873,
+      "p_draw": 0.2688935849310349,
+      "p_home": 0.5156678077762364,
+      "under_3_5": 0.8014967028104235,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 3,
+      "btts_yes": 0.4508099060274577,
+      "home_goals": 0,
+      "over_1_5": 0.678640195794486,
+      "over_2_5": 0.4131639625079602,
+      "p_away": 0.22515043979511165,
+      "p_draw": 0.26901926407293864,
+      "p_home": 0.5058302961319496,
+      "under_3_5": 0.7927511895439523,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Udinese",
+    "kickoff_utc": "2026-10-18T10:30:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": 0.044092816084544406,
+    "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
+    "source_match_id": 558574,
+    "week": "2026-W42"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,
@@ -1537,6 +1572,41 @@
     "log_loss_gain": 0.006090058494992112,
     "snapshot_commit": "a98524037f736c1c589800f3bd4b329ab00983f7",
     "source_match_id": 559659,
+    "week": "2026-W42"
+  },
+  {
+    "away_team": "Lecce",
+    "baseline": {
+      "away_goals": 3,
+      "btts_yes": 0.43526626872051316,
+      "home_goals": 0,
+      "over_1_5": 0.6692560364388662,
+      "over_2_5": 0.4020677237487148,
+      "p_away": 0.21543860729272873,
+      "p_draw": 0.2688935849310349,
+      "p_home": 0.5156678077762364,
+      "under_3_5": 0.8014967028104235,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 3,
+      "btts_yes": 0.4189755808780342,
+      "home_goals": 0,
+      "over_1_5": 0.6499834205211626,
+      "over_2_5": 0.37936487435721444,
+      "p_away": 0.217102781094088,
+      "p_draw": 0.2758472730796707,
+      "p_home": 0.5070499458262413,
+      "under_3_5": 0.819685031257172,
+      "y": 2
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Udinese",
+    "kickoff_utc": "2026-10-18T10:30:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": 0.007694902996826292,
+    "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
+    "source_match_id": 558574,
     "week": "2026-W42"
   }
 ]

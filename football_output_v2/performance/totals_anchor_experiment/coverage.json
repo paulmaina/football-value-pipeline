@@ -6949,7 +6949,7 @@
       ]
     ],
     "reasons": [],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": 1.1182657992358511,
     "snapshot_commit": "2db2af40cdce5284e5f00551472a6cbbd381dbcd",
     "status": "available",
