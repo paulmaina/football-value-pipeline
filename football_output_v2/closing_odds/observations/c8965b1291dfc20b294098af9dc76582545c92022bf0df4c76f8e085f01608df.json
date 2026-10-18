@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "Alav\u00e9s",
+    "home_team": "Celta Vigo",
+    "kickoff_utc": "2026-10-18T14:15:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "aabe899ecc4c19a1fafe5440151b62e4"
+  },
+  "observed_at_utc": "2026-10-18T14:09:27.271396+00:00",
+  "payload": {
+    "away_team": "Alav\u00e9s",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T14:09:10Z",
+            "outcomes": [
+              {
+                "name": "Alav\u00e9s",
+                "price": 3.8
+              },
+              {
+                "name": "Celta Vigo",
+                "price": 2.23
+              },
+              {
+                "name": "Draw",
+                "price": 3.16
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T14:09:10Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 1.95
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-18T14:09:25Z",
+            "outcomes": [
+              {
+                "name": "Alav\u00e9s or Draw",
+                "price": 1.71
+              },
+              {
+                "name": "Celta Vigo or Draw",
+                "price": 1.31
+              },
+              {
+                "name": "Alav\u00e9s or Celta Vigo",
+                "price": 1.4
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T14:08:30Z",
+            "outcomes": [
+              {
+                "name": "Alav\u00e9s",
+                "price": 3.57
+              },
+              {
+                "name": "Celta Vigo",
+                "price": 2.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.17
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T14:08:30Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.35
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.59
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-18T14:08:30Z",
+            "outcomes": [
+              {
+                "name": "Alav\u00e9s or Draw",
+                "price": 1.64
+              },
+              {
+                "name": "Celta Vigo or Draw",
+                "price": 1.29
+              },
+              {
+                "name": "Alav\u00e9s or Celta Vigo",
+                "price": 1.35
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-18T14:15:00Z",
+    "home_team": "Celta Vigo",
+    "id": "aabe899ecc4c19a1fafe5440151b62e4",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4310342663186551,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T14:08:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.17,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3020023988196116,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T14:08:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.26696333486173324,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T14:08:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.35,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3955343076377562,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-18T14:08:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.59,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6044656923622438,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-18T14:08:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.29,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7293571181499234,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-18T14:08:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.64,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.5737016356179276,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-18T14:08:30+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.35,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.696941246232149,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-18T14:08:30+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4390127332684719,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T14:09:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.16,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3069647520836957,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T14:09:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2540225146478323,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T14:09:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7402482954808987,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-18T14:09:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.71,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.5670907994619749,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-18T14:09:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6926609050571266,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-18T14:09:25+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
