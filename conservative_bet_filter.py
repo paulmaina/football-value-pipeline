@@ -45,7 +45,8 @@ PROVISIONAL_MIN_HIGH_DEVELOPMENT = 3
 # been optimized or independently backtested for betting profitability.
 SELECTION_POLICY_VERSION = "72h-seven-markets-fresh-references-net-ev15-v11"
 PROBABILITY_SELECTION_POLICY_VERSION = "72h-top-ten-adjusted-probability-v12"
-BALANCED_SELECTION_POLICY_VERSION = "48h-top-ten-probability-ev-v13"
+PREVIOUS_BALANCED_SELECTION_POLICY_VERSION = "48h-top-ten-probability-ev-v13"
+BALANCED_SELECTION_POLICY_VERSION = "48h-top-ten-probability-ev-no-under35-v14"
 PREVIOUS_SELECTION_POLICY_VERSION = "72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10"
 LEGACY_SELECTION_POLICY_VERSION = "72h-six-markets-dc12-probability-odds-net-ev15-v9"
 MARKET_SPECS = (
@@ -535,13 +536,13 @@ def build_conservative_shortlist(
         raise ValueError("as_of must be timezone-aware")
     now = now.tz_convert("UTC")
     policy_version = SELECTION_POLICY_VERSION if selection_policy_version is None else selection_policy_version
-    balanced_policy = policy_version == BALANCED_SELECTION_POLICY_VERSION
+    balanced_policy = policy_version in (BALANCED_SELECTION_POLICY_VERSION, PREVIOUS_BALANCED_SELECTION_POLICY_VERSION)
     probability_policy = balanced_policy or policy_version == PROBABILITY_SELECTION_POLICY_VERSION
     lookahead_hours = 48.0 if balanced_policy else SHORTLIST_LOOKAHEAD_HOURS
-    if policy_version not in (BALANCED_SELECTION_POLICY_VERSION, PROBABILITY_SELECTION_POLICY_VERSION, SELECTION_POLICY_VERSION, PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
+    if policy_version not in (BALANCED_SELECTION_POLICY_VERSION, PREVIOUS_BALANCED_SELECTION_POLICY_VERSION, PROBABILITY_SELECTION_POLICY_VERSION, SELECTION_POLICY_VERSION, PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
         raise ValueError("Unsupported baseline shortlist policy; preserve replay compatibility")
     # Archived v9 comparisons must replay their original six-market ranking.
-    specs = tuple(spec for spec in (PROBABILITY_MARKET_SPECS if probability_policy else MARKET_SPECS)
+    specs = tuple(spec for spec in (PROBABILITY_MARKET_SPECS if probability_policy and policy_version != BALANCED_SELECTION_POLICY_VERSION else MARKET_SPECS)
                   if policy_version != LEGACY_SELECTION_POLICY_VERSION or spec[1] != "btts_yes")
 
     if adjusted_ev_floor is not None and (not math.isfinite(adjusted_ev_floor) or adjusted_ev_floor < MIN_ESTIMATED_EV):

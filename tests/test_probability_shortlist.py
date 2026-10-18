@@ -114,7 +114,7 @@ class ProbabilityShortlistTests(OfflineQuotePolicyTestCase):
             pdataset = policy.write_experiment(predictions, raw, summary, decisions, reports)
             edataset = ev.write_experiment(predictions, raw, summary, decisions, reports)
             self.assertEqual(edataset['floors'], [0., .015, .03, .05])
-            self.assertEqual(len(edataset['rows']), 32)
+            self.assertEqual(len(edataset['rows']), 4*len(summary['eligible_markets']))
             self.assertIsNotNone(policy.capture_file(raw, summary['generated_at_utc']))
             self.assertIsNotNone(ev.capture_file(raw, summary['generated_at_utc']))
             self.assertEqual(raw_check(root)['warnings'], [])
@@ -138,6 +138,39 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
     def select(self, rows, **kwargs):
         return select(rows, {'Premier League':sample_report()},
                       selection_policy_version=BALANCED_SELECTION_POLICY_VERSION, **kwargs)
+
+    def test_under_35_excluded_before_scoring_and_historical_replay_preserved(self):
+        from conservative_bet_filter import PREVIOUS_BALANCED_SELECTION_POLICY_VERSION
+        row = fixture(); row.update(p_under_3_5=.99, raw_p_under_3_5=.98)
+        picks, decisions, summary = self.select([row])
+        self.assertNotIn('Under 3.5', summary['eligible_markets'])
+        self.assertNotIn('Under 3.5', decisions.market.tolist())
+        self.assertNotIn('Under 3.5', picks.market.tolist())
+        changed = dict(row, p_under_3_5=.01, raw_p_under_3_5=.01)
+        other, _, _ = self.select([changed])
+        pd.testing.assert_frame_equal(picks, other)
+        # Integrity validation rejects excluded markets even with a forged allow-list.
+        from workflow_checks import raw_check
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); raw = root/'raw'; raw.mkdir()
+            pd.DataFrame([row]).to_csv(raw/'all_leagues_predictions.csv', index=False)
+            forged = picks.copy(); forged['market'] = 'Under 3.5'
+            forged.to_csv(raw/'conservative_bet_shortlist.csv', index=False)
+            forged_summary = dict(summary, eligible_markets=[*summary['eligible_markets'], 'Under 3.5'])
+            (raw/'conservative_bet_summary.json').write_text(json.dumps(forged_summary))
+            with self.assertRaisesRegex(ValueError, 'Under 3.5 is excluded'):
+                raw_check(root)
+        old, old_decisions, old_summary = select([row], {'Premier League':sample_report()},
+            selection_policy_version=PREVIOUS_BALANCED_SELECTION_POLICY_VERSION)
+        self.assertIn('Under 3.5', old_decisions.market.tolist())
+        self.assertIn('Under 3.5', old_summary['eligible_markets'])
+        self.assertEqual(old.iloc[0].market, 'Under 3.5')
+
+    def test_v13_experiments_and_archive_reports_still_replay(self):
+        from conservative_bet_filter import PREVIOUS_BALANCED_SELECTION_POLICY_VERSION
+        from unittest.mock import patch
+        with patch(__name__+'.PROBABILITY_SELECTION_POLICY_VERSION', PREVIOUS_BALANCED_SELECTION_POLICY_VERSION):
+            ProbabilityShortlistTests('test_new_experiments_capture_replay_and_reporting_include_control_without_ev_gate').test_new_experiments_capture_replay_and_reporting_include_control_without_ev_gate()
 
     def test_both_probability_and_ev_contribute_to_the_score(self):
         rows = [only_over_goal(i) for i in range(4)]
