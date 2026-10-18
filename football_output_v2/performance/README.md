@@ -11,7 +11,7 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 |---|---:|---:|---:|---:|
 | All selections | 17 | 13-4 | 76.5% | +4.5% |
 
-Unsettled / unverified entries: **7**.
+Unsettled / unverified entries: **8**.
 Whole-fixture 1X2 multiclass Brier (n=58): 0.5429
 
 ## STRICT versus PROVISIONAL
@@ -90,11 +90,11 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-10-16 | 964 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-10-12 | 1200 | 6 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-16 | 1219 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-16 | 973 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-16 | 1201 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Bundesliga | 2026-10-17 | 970 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-10-17 | 1205 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-17 | 1223 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-17 | 976 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-17 | 1204 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-14 | 539 | 4 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 
 Latest shortlist audit: {"selected_quotes": 2, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 2, "bookmakers": {"1xBet": 2}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
@@ -103,7 +103,6 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| 0dba961b0bbe | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 962a7a22cb5b | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | aea62120d25e | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 95dc22b24994 | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
@@ -123,8 +122,9 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 98adf7e32c9e | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 2a86586863a4 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 3a3ff5eef038 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| b4dfb7c51677 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Locally observed near-close quotes, coverage and offered-price comparisons; official close and accepted execution are unverified.
 

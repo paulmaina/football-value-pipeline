@@ -7,32 +7,32 @@ Status: COLLECT_MORE_DATA
 | Variant | Tier | Selected | Settled | Net ROI | Brier | Log loss |
 |---|---|---:|---:|---:|---:|---:|
 | control | STRICT | 2 | 1 | 0.2700 | 0.0388 | 0.2194 |
-| control | PROVISIONAL | 1 | 1 | 0.2600 | 0.0287 | 0.1857 |
-| control | ALL | 3 | 2 | 0.2650 | 0.0338 | 0.2026 |
+| control | PROVISIONAL | 2 | 1 | 0.2600 | 0.0287 | 0.1857 |
+| control | ALL | 4 | 2 | 0.2650 | 0.0338 | 0.2026 |
 | blended_lower | STRICT | 4 | 2 | 0.2700 | 0.0394 | 0.2213 |
-| blended_lower | PROVISIONAL | 1 | 1 | 0.2600 | 0.0287 | 0.1857 |
-| blended_lower | ALL | 5 | 3 | 0.2667 | 0.0358 | 0.2094 |
+| blended_lower | PROVISIONAL | 2 | 1 | 0.2600 | 0.0287 | 0.1857 |
+| blended_lower | ALL | 6 | 3 | 0.2667 | 0.0358 | 0.2094 |
 | blended_higher | STRICT | 0 | 0 | n.a. | n.a. | n.a. |
-| blended_higher | PROVISIONAL | 1 | 1 | 0.2600 | 0.0287 | 0.1857 |
-| blended_higher | ALL | 1 | 1 | 0.2600 | 0.0287 | 0.1857 |
+| blended_higher | PROVISIONAL | 2 | 1 | 0.2600 | 0.0287 | 0.1857 |
+| blended_higher | ALL | 2 | 1 | 0.2600 | 0.0287 | 0.1857 |
 | raw_lower | STRICT | 2 | 1 | 0.2700 | 0.0388 | 0.2194 |
-| raw_lower | PROVISIONAL | 1 | 1 | 0.2600 | 0.0287 | 0.1857 |
-| raw_lower | ALL | 3 | 2 | 0.2650 | 0.0338 | 0.2026 |
+| raw_lower | PROVISIONAL | 2 | 1 | 0.2600 | 0.0287 | 0.1857 |
+| raw_lower | ALL | 4 | 2 | 0.2650 | 0.0338 | 0.2026 |
 | raw_higher | STRICT | 2 | 1 | 0.2700 | 0.0388 | 0.2194 |
-| raw_higher | PROVISIONAL | 1 | 1 | 0.2600 | 0.0287 | 0.1857 |
-| raw_higher | ALL | 3 | 2 | 0.2650 | 0.0338 | 0.2026 |
+| raw_higher | PROVISIONAL | 2 | 1 | 0.2600 | 0.0287 | 0.1857 |
+| raw_higher | ALL | 4 | 2 | 0.2650 | 0.0338 | 0.2026 |
 | adjusted_lower | STRICT | 2 | 1 | 0.2700 | 0.0388 | 0.2194 |
-| adjusted_lower | PROVISIONAL | 1 | 1 | 0.2600 | 0.0287 | 0.1857 |
-| adjusted_lower | ALL | 3 | 2 | 0.2650 | 0.0338 | 0.2026 |
+| adjusted_lower | PROVISIONAL | 2 | 1 | 0.2600 | 0.0287 | 0.1857 |
+| adjusted_lower | ALL | 4 | 2 | 0.2650 | 0.0338 | 0.2026 |
 | adjusted_higher | STRICT | 2 | 1 | 0.2700 | 0.0388 | 0.2194 |
-| adjusted_higher | PROVISIONAL | 1 | 1 | 0.2600 | 0.0287 | 0.1857 |
-| adjusted_higher | ALL | 3 | 2 | 0.2650 | 0.0338 | 0.2026 |
+| adjusted_higher | PROVISIONAL | 2 | 1 | 0.2600 | 0.0287 | 0.1857 |
+| adjusted_higher | ALL | 4 | 2 | 0.2650 | 0.0338 | 0.2026 |
 | penalty_half | STRICT | 2 | 1 | 0.2700 | 0.0388 | 0.2194 |
-| penalty_half | PROVISIONAL | 1 | 1 | 0.2600 | 0.0264 | 0.1774 |
-| penalty_half | ALL | 3 | 2 | 0.2650 | 0.0326 | 0.1984 |
+| penalty_half | PROVISIONAL | 2 | 1 | 0.2600 | 0.0264 | 0.1774 |
+| penalty_half | ALL | 4 | 2 | 0.2650 | 0.0326 | 0.1984 |
 | penalty_stronger | STRICT | 2 | 1 | 0.2700 | 0.0388 | 0.2194 |
-| penalty_stronger | PROVISIONAL | 1 | 1 | 0.2600 | 0.0311 | 0.1941 |
-| penalty_stronger | ALL | 3 | 2 | 0.2650 | 0.0350 | 0.2068 |
+| penalty_stronger | PROVISIONAL | 2 | 1 | 0.2600 | 0.0311 | 0.1941 |
+| penalty_stronger | ALL | 4 | 2 | 0.2650 | 0.0350 | 0.2068 |
 
 Frozen grid: blended/raw/adjusted cutoffs each ±3 percentage points independently; calibration penalty ×0.5 or ×1.5. All other settings stay fixed.
 

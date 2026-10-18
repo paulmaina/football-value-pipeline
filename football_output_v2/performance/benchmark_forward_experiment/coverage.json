@@ -11676,5 +11676,347 @@
     "secondary_status": "available",
     "snapshot_commit": "7a6c9d44b7c20308d3ed85270f7cabc2a98df58e",
     "status": "available"
+  },
+  {
+    "away_team": "Slavia Praha",
+    "baseline": [
+      0.42351962533098875,
+      0.2659483560188243,
+      0.3105320186501871
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "16e237246e9bef441e69998d1ef9536d",
+    "fixture_key": "UEFA Champions League|fenerbahce|slavia prague|2026-10-20",
+    "home_team": "Fenerbahce",
+    "kickoff_utc": "2026-10-20T16:45:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.5786274986084482,
+      0.2258322640579545,
+      0.19554023733359735
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.26841175205352924,
+      0.30606444797969407,
+      0.4255237999667766
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Betsson",
+    "reference_updated_at_utc": "2026-10-18T08:36:47Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Borussia Dortmund",
+    "baseline": [
+      0.09221184581906003,
+      0.14374016034119463,
+      0.7640479938397452
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "464c74a35c648d4910cc16976ce2f7cd",
+    "fixture_key": "UEFA Champions League|sabah fk|borussia dortmund|2026-10-20",
+    "home_team": "Sabah FK",
+    "kickoff_utc": "2026-10-20T16:45:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.08736969861367758,
+      0.13881704510689857,
+      0.7738132562794238
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.09705399302444252,
+      0.14866327557549078,
+      0.7542827314000669
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Betsson",
+    "reference_updated_at_utc": "2026-10-18T08:36:47Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "ŠK Slovan Bratislava",
+    "baseline": [
+      0.8418362232056029,
+      0.0949640776597927,
+      0.06319969913460455
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "e3b50e57c4cf46191ab068d1e880e595",
+    "fixture_key": "UEFA Champions League|as roma|sk slovan bratislava|2026-10-20",
+    "home_team": "AS Roma",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.8726714113544417,
+      0.08861205733385333,
+      0.03871653131170484
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.8110010350567637,
+      0.10131609798573207,
+      0.08768286695750427
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Betsson",
+    "reference_updated_at_utc": "2026-10-18T08:36:47Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Villarreal",
+    "baseline": [
+      0.7839437916073331,
+      0.13032756168636986,
+      0.0857286467062972
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "b9567e9c3df909f8f6f21425b4b38d3f",
+    "fixture_key": "UEFA Champions League|liverpool|villarreal|2026-10-20",
+    "home_team": "Liverpool",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.6691460176550169,
+      0.1891409446626635,
+      0.14171303768231955
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.898741565559649,
+      0.07151417871007619,
+      0.0297442557302748
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Betsson",
+    "reference_updated_at_utc": "2026-10-18T08:36:47Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "AEK Athens",
+    "baseline": [
+      0.8466345142488038,
+      0.11140859065028985,
+      0.04195689510090659
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "00625830dd764a06f12f78c0d0a72ff8",
+    "fixture_key": "UEFA Champions League|man city|aek athens|2026-10-20",
+    "home_team": "Manchester City",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.9344600721719812,
+      0.04842179152946085,
+      0.017118136298557803
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.7588089563256257,
+      0.1743953897711188,
+      0.06679565390325536
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Betsson",
+    "reference_updated_at_utc": "2026-10-18T08:36:47Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Bodø/Glimt",
+    "baseline": [
+      0.4317659314748709,
+      0.21562649282364654,
+      0.3526075757014824
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "49dba87d5ac664efdf2a64c72db31702",
+    "fixture_key": "UEFA Champions League|napoli|bod glimt|2026-10-20",
+    "home_team": "Napoli",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.6085380509976405,
+      0.2089318677779843,
+      0.1825300812243753
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.2549938119521017,
+      0.22232111786930883,
+      0.5226850701785896
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Betsson",
+    "reference_updated_at_utc": "2026-10-18T08:36:47Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Barcelona",
+    "baseline": [
+      0.5503145693033346,
+      0.1788543128492609,
+      0.2708311178474046
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "46b790335fa98338b7e1ed0b614078fb",
+    "fixture_key": "UEFA Champions League|paris sg|barcelona|2026-10-20",
+    "home_team": "Paris Saint Germain",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.3904750413440627,
+      0.21904991731187454,
+      0.3904750413440627
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.7101540972626064,
+      0.13865870838664718,
+      0.15118719435074635
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Betsson",
+    "reference_updated_at_utc": "2026-10-18T08:36:47Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "PSV Eindhoven",
+    "baseline": [
+      0.5977162770140317,
+      0.20679355637503866,
+      0.19549016661092983
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "0686ce05e8489734fd66e5ee97fbbfa2",
+    "fixture_key": "UEFA Champions League|porto|psv|2026-10-20",
+    "home_team": "Porto",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.6006453238283082,
+      0.21678002239503638,
+      0.18257465377665544
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.5947872301997549,
+      0.196807090355041,
+      0.20840567944520422
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Betsson",
+    "reference_updated_at_utc": "2026-10-18T08:36:47Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Atlético Madrid",
+    "baseline": [
+      0.27862351313299005,
+      0.2257413893765469,
+      0.4956350974904631
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "56989e10c299aba1a0fce210bb214775",
+    "fixture_key": "UEFA Champions League|vfb stuttgart|ath madrid|2026-10-20",
+    "home_team": "VfB Stuttgart",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.29526279695531554,
+      0.25001576838219014,
+      0.45472143466249443
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.2619842293106645,
+      0.20146701037090362,
+      0.5365487603184319
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Betsson",
+    "reference_updated_at_utc": "2026-10-18T08:36:47Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
+    "status": "unavailable"
   }
 ]
