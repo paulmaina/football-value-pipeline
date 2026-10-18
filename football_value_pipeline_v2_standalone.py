@@ -4113,6 +4113,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     if combined and not args.backtest:
         try:
+            from shortlist_weight_experiment import write_experiment as write_weights
+            write_weights(all_predictions, out_dir, selection_summary, decisions, market_reliability)
+        except Exception as exc:
+            warnings.warn(f"Shortlist weight comparison failed ({type(exc).__name__}); baseline outputs complete")
+
+    if combined and not args.backtest:
+        try:
             from shortlist_policy_experiment import write_experiment as write_policy_comparison
             write_policy_comparison(all_predictions, out_dir, selection_summary,
                                     decisions, market_reliability)

@@ -1,0 +1,296 @@
+{
+  "fixture": {
+    "away_team": "Real Racing Club de Santander",
+    "home_team": "CA Osasuna",
+    "kickoff_utc": "2026-10-18T12:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "1f566f17c50fe5162724ec2863d2207b"
+  },
+  "observed_at_utc": "2026-10-18T11:54:54.332148+00:00",
+  "payload": {
+    "away_team": "Real Racing Club de Santander",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T11:54:37Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "price": 2.01
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "price": 3.76
+              },
+              {
+                "name": "Draw",
+                "price": 3.77
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T11:54:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.83
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.09
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-18T11:54:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.83
+              },
+              {
+                "name": "Over",
+                "point": 1.75,
+                "price": 1.24
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.29
+              },
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.48
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.67
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.07
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.35
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.61
+              },
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 3.09
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.09
+              },
+              {
+                "name": "Under",
+                "point": 1.75,
+                "price": 4.33
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 3.81
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.8
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.32
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.83
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.65
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.53
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 1.4
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T11:54:37Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "price": 1.95
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "price": 3.8
+              },
+              {
+                "name": "Draw",
+                "price": 3.76
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T11:54:37Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.67
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.2
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-18T12:00:00Z",
+    "home_team": "CA Osasuna",
+    "id": "1f566f17c50fe5162724ec2863d2207b",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.01,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4879706384671476,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.77,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25566525689443337,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.76,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.256364104638419,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5850688992413472,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.32,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.41493110075865275,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.61,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3623625283423966,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6376374716576035,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4989657135030444,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.76,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2518969896136345,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2491372968833211,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5740358949483358,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.2,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4259641050516641,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-18T11:54:37+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
