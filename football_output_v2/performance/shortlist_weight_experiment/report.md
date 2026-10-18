@@ -6,18 +6,18 @@ Status: COLLECT_MORE_DATA
 
 | Probability / EV | Tier | Selected | Settled | Win rate | Win rate 95% interval | Net ROI | Profit (units) | Drawdown (units) |
 |---|---|---:|---:|---:|---|---:|---:|---:|
-| 50% / 50% | ALL | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
+| 50% / 50% | ALL | 10 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
 | 50% / 50% | STRICT | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
-| 50% / 50% | PROVISIONAL | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
-| 100% / 0% | ALL | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
+| 50% / 50% | PROVISIONAL | 10 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
+| 100% / 0% | ALL | 10 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
 | 100% / 0% | STRICT | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
-| 100% / 0% | PROVISIONAL | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
-| 75% / 25% | ALL | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
+| 100% / 0% | PROVISIONAL | 10 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
+| 75% / 25% | ALL | 10 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
 | 75% / 25% | STRICT | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
-| 75% / 25% | PROVISIONAL | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
-| 25% / 75% | ALL | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
+| 75% / 25% | PROVISIONAL | 10 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
+| 25% / 75% | ALL | 10 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
 | 25% / 75% | STRICT | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
-| 25% / 75% | PROVISIONAL | 0 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
+| 25% / 75% | PROVISIONAL | 10 | 0 | n.a. | Collect more data | n.a. | 0.0000 | n.a. |
 
 | Alternative | Profit delta / usable fixture vs 50/50 | Weekly bootstrap 95% interval |
 |---|---:|---|
