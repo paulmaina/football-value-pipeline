@@ -82,7 +82,7 @@ class ExcelReportTests(OfflineQuotePolicyTestCase):
             self.assertIsNone(sheet.find(f'.//{{{NS}}}c[@r="D6"]/{{{NS}}}f'))
             tables=[ET.fromstring(z.read(n)) for n in z.namelist() if n.startswith('xl/tables/') and n.endswith('.xml')]
             table=next(t for t in tables if t.get('name')=='SelectionsTable')
-            self.assertEqual(table.get('ref'),'A5:T30')
+            self.assertEqual(table.get('ref'),'A5:W30')
             roi_charts=[z.read(n).decode() for n in charts if 'ROI Plan' in z.read(n).decode()]
             self.assertIn('$34',roi_charts[0])
             self.assertIn('60h-ucl-v1',z.read('xl/worksheets/sheet3.xml').decode())
