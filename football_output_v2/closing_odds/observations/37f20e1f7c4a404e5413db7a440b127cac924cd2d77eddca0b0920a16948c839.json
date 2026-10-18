@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Marseille",
+    "home_team": "Angers",
+    "kickoff_utc": "2026-10-18T13:00:00+00:00",
+    "league": "Ligue 1",
+    "odds_event_id": "c7a60aa94470fe959fbf6b0c68060fc1"
+  },
+  "observed_at_utc": "2026-10-18T12:54:01.802833+00:00",
+  "payload": {
+    "away_team": "Marseille",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T12:54:00Z",
+            "outcomes": [
+              {
+                "name": "Angers",
+                "price": 4.29
+              },
+              {
+                "name": "Marseille",
+                "price": 1.84
+              },
+              {
+                "name": "Draw",
+                "price": 3.95
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T12:54:00Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.93
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.98
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-18T12:53:40Z",
+            "outcomes": [
+              {
+                "name": "Angers",
+                "price": 4.01
+              },
+              {
+                "name": "Marseille",
+                "price": 1.84
+              },
+              {
+                "name": "Draw",
+                "price": 4.01
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-18T12:53:40Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.53
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.5
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-18T13:00:00Z",
+    "home_team": "Angers",
+    "id": "c7a60aa94470fe959fbf6b0c68060fc1",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.01,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23516981169835116,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T12:53:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.01,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23516981169835116,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T12:53:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.84,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5296603766032977,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T12:53:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.53,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6302056146445001,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-18T12:53:40+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.5,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3697943853555,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-18T12:53:40+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.29,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22323281181050872,
+      "selection": "home",
+      "updated_at_utc": "2026-10-18T12:54:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.95,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24304310982015612,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-18T12:54:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.84,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5337240783693351,
+      "selection": "away",
+      "updated_at_utc": "2026-10-18T12:54:00+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}

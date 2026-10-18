@@ -437,7 +437,7 @@ def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple], adjusted_ev_fl
 
 
 
-def _probability_choices(decisions, adjusted_ev_floor=None, *, balanced=False):
+def _probability_choices(decisions, adjusted_ev_floor=None, *, balanced=False, probability_weight=.5):
     """Rank usable quotes globally; strict-rule failures remain visible warnings."""
     from performance_tracking import fixture_key, canonical_team_key
     soft_prefixes = (
@@ -487,7 +487,7 @@ def _probability_choices(decisions, adjusted_ev_floor=None, *, balanced=False):
         for field, source in [('probability_percentile', 'rank_probability'),
                               ('ev_percentile', 'conservative_estimated_ev')]:
             pool[field] = pool[source].rank(method='average', pct=True)
-        pool['selection_score'] = .5*pool.probability_percentile + .5*pool.ev_percentile
+        pool['selection_score'] = probability_weight*pool.probability_percentile + (1-probability_weight)*pool.ev_percentile
         fields = ['probability_percentile', 'ev_percentile', 'selection_score']
         decisions.loc[pool.index, fields] = pool[fields]
         pool = pool.sort_values(
@@ -549,13 +549,15 @@ def build_conservative_shortlist(
         raise ValueError("Research EV floor must be finite and at least the production floor")
     if research_policy is not None:
         limits = {'blended_shift': (-.03, .03), 'raw_shift': (-.03, .03),
-                  'adjusted_shift': (-.03, .03), 'penalty_multiplier': (.5, 1.5)}
+                  'adjusted_shift': (-.03, .03), 'penalty_multiplier': (.5, 1.5),
+                  **({'probability_weight': (.25, 1.0)} if policy_version == BALANCED_SELECTION_POLICY_VERSION else {})}
         if not isinstance(research_policy, Mapping) or set(research_policy) - set(limits):
             raise ValueError('Unknown research policy setting')
         for name, value in research_policy.items():
             lo, hi = limits[name]
             if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or not lo <= value <= hi:
                 raise ValueError('Research policy setting outside fixed bounds')
+    probability_weight = (research_policy or {}).get('probability_weight', .5)
     from quote_policy import validate_policy
     policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
     evaluated = []
@@ -649,7 +651,7 @@ def build_conservative_shortlist(
             )
     if probability_policy:
         decisions = original_decisions
-        chosen, provisional_ids, available_fixtures = _probability_choices(decisions, adjusted_ev_floor, balanced=balanced_policy)
+        chosen, provisional_ids, available_fixtures = _probability_choices(decisions, adjusted_ev_floor, balanced=balanced_policy, probability_weight=probability_weight)
         n_strict = len(chosen)
     chosen_all = chosen.append(provisional_ids)
     shortlist = (
@@ -724,8 +726,8 @@ def build_conservative_shortlist(
             'ev_required_for_selection': False, 'probability_thresholds_required_for_selection': False,
             'shortfall_reason': 'Fewer than ten distinct fixtures have usable predictions and fresh allowed-bookmaker quotes inside the window' if n < TARGET_DISTINCT_MATCHES else None}
            if probability_policy else {}),
-        **({'ranking_weights': {'adjusted_probability_percentile': .5, 'adjusted_ev_percentile': .5},
-            'score_formula': '0.5 * probability_percentile + 0.5 * ev_percentile',
+        **({'ranking_weights': {'adjusted_probability_percentile': probability_weight, 'adjusted_ev_percentile': 1-probability_weight},
+            'score_formula': f'{probability_weight:g} * probability_percentile + {1-probability_weight:g} * ev_percentile',
             'score_population': 'usable unique fixture-market candidates within 48 hours before experimental EV filters',
             'ranking_is_empirically_optimized': False} if balanced_policy else {}),
         "eligible_markets": [x[0] for x in specs],
