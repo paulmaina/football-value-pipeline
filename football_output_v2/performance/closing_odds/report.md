@@ -4,19 +4,19 @@ Last observed live quote within 6 minutes of scheduled kickoff, market age <=120
 
 {
   "1xbet": {
-    "covered_selections": 7,
+    "covered_selections": 9,
     "missing_selections": 16,
-    "pending_selections": 10,
-    "mean_fair_close_ev": -0.020142041825583972,
-    "mean_same_book_offered_price_clv": 0.018112706657956574,
+    "pending_selections": 8,
+    "mean_fair_close_ev": -0.019606182183574978,
+    "mean_same_book_offered_price_clv": 0.023426905360036332,
     "positive_fair_close_ev": 1
   },
   "pinnacle": {
-    "covered_selections": 8,
+    "covered_selections": 10,
     "missing_selections": 15,
-    "pending_selections": 10,
-    "mean_fair_close_ev": -0.017775263347615824,
+    "pending_selections": 8,
+    "mean_fair_close_ev": -0.01724546431613404,
     "mean_same_book_offered_price_clv": null,
-    "positive_fair_close_ev": 2
+    "positive_fair_close_ev": 3
   }
 }
