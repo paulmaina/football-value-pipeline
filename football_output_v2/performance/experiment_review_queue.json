@@ -100,6 +100,6 @@
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-18T08:57:17.874573+00:00",
+  "reviewed_at_utc": "2026-10-18T09:58:56.846945+00:00",
   "version": "experiment-review-queue-v1"
 }

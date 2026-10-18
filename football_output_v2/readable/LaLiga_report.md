@@ -23,10 +23,10 @@ Fixtures in this report: **16**.
 | Parameter | Value |
 | --- | --- |
 | Training sha256 | 1aa705e00f91bb215ff362c8f1f2e11e693c7f666ed51e06165fd488a243f18f |
-| Training as of utc | 2026-10-18T08:35:54.071035+00:00 |
+| Training as of utc | 2026-10-18T09:56:48.741714+00:00 |
 | Training data provenance | {'bbs_confirmed_rows': 83, 'bbs_added_results': 5, 'bbs_result_conflicts': 0, 'bbs_rows_with_statistics': 83, 'bbs_statistics_used_as_predictor_features': False, 'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.'} |
-| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES', 'cutoff_utc': '2026-10-18T08:35:54.071035+00:00', 'observations': 92, 'observations_sha256': '1a43270a9604934dcb9704f8e505df61b4519dd2b23fa52572f0745dfdc35444', 'eligible_training_matches': 41, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 69, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 4, 'retrospective_eligible_training_matches': 41, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:27.155286+00:00', 'retrospective_inputs_sha256': 'e3fc44bb94a661b71870b111b107b4941167282fe42a40893b7249a21f0bbbc9', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.'} |
-| Optimizer objective | 2001.953 |
+| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES', 'cutoff_utc': '2026-10-18T09:56:48.741714+00:00', 'observations': 92, 'observations_sha256': '1a43270a9604934dcb9704f8e505df61b4519dd2b23fa52572f0745dfdc35444', 'eligible_training_matches': 41, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 69, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 4, 'retrospective_eligible_training_matches': 41, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:27.155286+00:00', 'retrospective_inputs_sha256': 'e3fc44bb94a661b71870b111b107b4941167282fe42a40893b7249a21f0bbbc9', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.'} |
+| Optimizer objective | 2001.846 |
 | Base scoring parameter | 0.087 |
 | Home-advantage parameter | 0.278 |
 | Dixon-Coles low-score adjustment | -0.029 |
@@ -39,7 +39,7 @@ Fixtures in this report: **16**.
 | Odds regions | — |
 | Live odds matched | 16.00 |
 | Additional event odds calls used before this league | 5.00 |
-| Bbs statistics model artifact | bbs/feature_models/LaLiga/20261018T083554071035Z_3c5c10e3eef8e77e20194fb7af22e44328382340a40656a54a9f738c467094cd.json |
+| Bbs statistics model artifact | bbs/feature_models/LaLiga/20261018T095648741714Z_c417b2be0cc47d3ed0c4b61939e84af3a9ad63a96552b41a9bf560b8933ad814.json |
 | Additional odds coverage mode | — |
 | Additional odds coverage | — |
 | Additional odds in window linked fixtures | 5.00 |
@@ -99,8 +99,8 @@ The model's most likely 1X2 outcome is **CA Osasuna win** at **55.9%**. Expected
 | Rank | Score | Probability |
 | --- | --- | --- |
 | 1 | 2-2 | 7.62% |
-| 2 | 1-1 | 7.23% |
-| 3 | 2-1 | 6.98% |
+| 2 | 1-1 | 7.22% |
+| 3 | 2-1 | 6.97% |
 | 4 | 3-1 | 6.46% |
 | 5 | 1-2 | 5.06% |
 
@@ -142,13 +142,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Santander |
 | Home-name matching confidence | 95/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.7784 |
-| Dc lambda away | 1.5621 |
+| Dc lambda home | 2.7782 |
+| Dc lambda away | 1.5629 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 19 |
@@ -156,9 +156,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 75.4% |
 | P btts no | 24.6% |
 | Fair Over 0.5 odds | 1.02 |
-| Fair Under 0.5 odds | 54.89 |
+| Fair Under 0.5 odds | 54.93 |
 | Fair Over 1.5 odds | 1.08 |
-| Fair Under 1.5 odds | 14.22 |
+| Fair Under 1.5 odds | 14.23 |
 | Fair Over 2.5 odds | 1.26 |
 | Fair Under 2.5 odds | 4.87 |
 | Fair Over 3.5 odds | 1.60 |
@@ -194,17 +194,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market reference under 2 5 last update utc | 2026-10-18T08:35:53Z |
 | Market best over 2 5 last update utc | 2026-10-18T08:35:08Z |
 | Market best under 2 5 last update utc | 2026-10-18T08:35:08Z |
-| Home probability edge | +7.1% |
+| Home probability edge | +7.0% |
 | Draw probability edge | -4.2% |
 | Away probability edge | -2.9% |
 | Over 2.5 probability edge | +20.2% |
 | Under 2.5 probability edge | -20.2% |
-| Raw edge prob home | 0.1411 |
-| Raw ev home | 0.2840 |
+| Raw edge prob home | 0.1409 |
+| Raw ev home | 0.2836 |
 | Raw edge prob draw | -0.0839 |
-| Raw ev draw | -0.3445 |
-| Raw edge prob away | -0.0572 |
-| Raw ev away | -0.2467 |
+| Raw ev draw | -0.3444 |
+| Raw edge prob away | -0.0571 |
+| Raw ev away | -0.2461 |
 | Market p home draw | 74.1% |
 | Market home draw odds | 1.31 |
 | Best home draw bookmaker | 1xBet |
@@ -255,7 +255,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Celta Vigo vs Alavés
 
-The model's most likely 1X2 outcome is **Celta Vigo win** at **46.1%**. Expected goals are 1.49 for Celta Vigo and 0.95 for Alavés (2.44 combined). The most likely exact score is 1-1 at 13.3%. Goal-market probabilities: at least one goal: 90.5%; Over 2.5 goals: 43.5%; Under 3.5 goals: 77.3%; Double Chance 1X: 74.3%; Double Chance X2: 53.9%; Double Chance 12 (either team wins): 71.8%; Under 4.5 goals: 90.1%; BTTS Yes (both teams score): 48.2%; BTTS No (at least one team does not score): 51.8%.
+The model's most likely 1X2 outcome is **Celta Vigo win** at **46.1%**. Expected goals are 1.49 for Celta Vigo and 0.95 for Alavés (2.44 combined). The most likely exact score is 1-1 at 13.3%. Goal-market probabilities: at least one goal: 90.5%; Over 2.5 goals: 43.5%; Under 3.5 goals: 77.3%; Double Chance 1X: 74.3%; Double Chance X2: 53.9%; Double Chance 12 (either team wins): 71.8%; Under 4.5 goals: 90.1%; BTTS Yes (both teams score): 48.3%; BTTS No (at least one team does not score): 51.7%.
 
 **Fixture source:** The Odds API
 
@@ -290,7 +290,7 @@ The model's most likely 1X2 outcome is **Celta Vigo win** at **46.1%**. Expected
 | Rank | Score | Probability |
 | --- | --- | --- |
 | 1 | 1-1 | 13.33% |
-| 2 | 1-0 | 11.77% |
+| 2 | 1-0 | 11.76% |
 | 3 | 0-0 | 9.53% |
 | 4 | 2-0 | 9.03% |
 | 5 | 0-1 | 8.60% |
@@ -333,19 +333,19 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Alaves |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.4926 |
+| Dc lambda home | 1.4929 |
 | Dc lambda away | 0.9475 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
 | Score grid omitted mass | 0 |
-| P btts yes | 48.2% |
-| P btts no | 51.8% |
+| P btts yes | 48.3% |
+| P btts no | 51.7% |
 | Fair Over 0.5 odds | 1.11 |
 | Fair Under 0.5 odds | 10.49 |
 | Fair Over 1.5 odds | 1.43 |
@@ -390,12 +390,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -2.1% |
 | Over 2.5 probability edge | +3.5% |
 | Under 2.5 probability edge | -3.5% |
-| Raw edge prob home | 0.0693 |
-| Raw ev home | 0.1540 |
+| Raw edge prob home | 0.0694 |
+| Raw ev home | 0.1541 |
 | Raw edge prob draw | -0.0274 |
-| Raw ev draw | -0.1109 |
+| Raw ev draw | -0.1110 |
 | Raw edge prob away | -0.0419 |
-| Raw ev away | -0.1689 |
+| Raw ev away | -0.1690 |
 | Market p home draw | 72.3% |
 | Market home draw odds | 1.35 |
 | Best home draw bookmaker | 1xBet |
@@ -480,8 +480,8 @@ The model's most likely 1X2 outcome is **Real Sociedad win** at **48.5%**. Expec
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 0-1 | 17.32% |
-| 2 | 0-0 | 14.31% |
+| 1 | 0-1 | 17.31% |
+| 2 | 0-0 | 14.30% |
 | 3 | 1-1 | 11.67% |
 | 4 | 1-0 | 11.45% |
 | 5 | 0-2 | 11.31% |
@@ -524,13 +524,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Sociedad |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 0.6328 |
-| Dc lambda away | 1.2827 |
+| Dc lambda home | 0.6329 |
+| Dc lambda away | 1.2828 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
@@ -543,9 +543,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 1.5 odds | 2.32 |
 | Fair Over 2.5 odds | 3.31 |
 | Fair Under 2.5 odds | 1.43 |
-| Fair Over 3.5 odds | 7.96 |
+| Fair Over 3.5 odds | 7.95 |
 | Fair Under 3.5 odds | 1.14 |
-| Fair Over 4.5 odds | 22.16 |
+| Fair Over 4.5 odds | 22.15 |
 | Fair Under 4.5 odds | 1.05 |
 | Unadjusted home-win probability | 18.0% |
 | Unadjusted draw probability | 30.0% |
@@ -637,7 +637,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-18 — Real Madrid vs Sevilla
 
-The model's most likely 1X2 outcome is **Real Madrid win** at **77.6%**. Expected goals are 2.63 for Real Madrid and 0.75 for Sevilla (3.37 combined). The most likely exact score is 2-0 at 11.9%. Goal-market probabilities: at least one goal: 96.5%; Over 2.5 goals: 65.7%; Under 3.5 goals: 56.4%; Double Chance 1X: 91.8%; Double Chance X2: 22.4%; Double Chance 12 (either team wins): 85.8%; Under 4.5 goals: 74.8%; BTTS Yes (both teams score): 48.8%; BTTS No (at least one team does not score): 51.2%.
+The model's most likely 1X2 outcome is **Real Madrid win** at **77.6%**. Expected goals are 2.63 for Real Madrid and 0.74 for Sevilla (3.37 combined). The most likely exact score is 2-0 at 11.9%. Goal-market probabilities: at least one goal: 96.5%; Over 2.5 goals: 65.7%; Under 3.5 goals: 56.4%; Double Chance 1X: 91.8%; Double Chance X2: 22.4%; Double Chance 12 (either team wins): 85.8%; Under 4.5 goals: 74.8%; BTTS Yes (both teams score): 48.8%; BTTS No (at least one team does not score): 51.2%.
 
 **Fixture source:** The Odds API
 
@@ -654,7 +654,7 @@ The model's most likely 1X2 outcome is **Real Madrid win** at **77.6%**. Expecte
 | Measure | Model estimate |
 | --- | --- |
 | Real Madrid expected goals | 2.63 |
-| Sevilla expected goals | 0.75 |
+| Sevilla expected goals | 0.74 |
 | Expected total goals | 3.37 |
 | Over 0.5 | 96.5% |
 | Under 0.5 | 3.5% |
@@ -672,7 +672,7 @@ The model's most likely 1X2 outcome is **Real Madrid win** at **77.6%**. Expecte
 | Rank | Score | Probability |
 | --- | --- | --- |
 | 1 | 2-0 | 11.88% |
-| 2 | 3-0 | 10.40% |
+| 2 | 3-0 | 10.41% |
 | 3 | 2-1 | 8.85% |
 | 4 | 1-0 | 8.84% |
 | 5 | 3-1 | 7.75% |
@@ -711,13 +711,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Sevilla |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.6284 |
+| Dc lambda home | 2.6285 |
 | Dc lambda away | 0.7450 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 19 |
@@ -771,7 +771,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob draw | 0.0078 |
 | Raw ev draw | -0.0203 |
 | Raw edge prob away | -0.0029 |
-| Raw ev away | -0.1259 |
+| Raw ev away | -0.1260 |
 | Market p home draw | 91.4% |
 | Market home draw odds | 1.06 |
 | Best home draw bookmaker | 1xBet |
@@ -902,7 +902,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 12 |
@@ -913,11 +913,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 0.5 odds | 5.40 |
 | Fair Over 1.5 odds | 2.03 |
 | Fair Under 1.5 odds | 1.97 |
-| Fair Over 2.5 odds | 4.29 |
+| Fair Over 2.5 odds | 4.30 |
 | Fair Under 2.5 odds | 1.30 |
 | Fair Over 3.5 odds | 11.75 |
 | Fair Under 3.5 odds | 1.09 |
-| Fair Over 4.5 odds | 37.38 |
+| Fair Over 4.5 odds | 37.39 |
 | Fair Under 4.5 odds | 1.03 |
 | Unadjusted home-win probability | 37.1% |
 | Unadjusted draw probability | 35.3% |
@@ -952,11 +952,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | -12.5% |
 | Under 2.5 probability edge | +12.5% |
 | Raw edge prob home | 0.0412 |
-| Raw ev home | 0.1079 |
+| Raw ev home | 0.1078 |
 | Raw edge prob draw | 0.0427 |
-| Raw ev draw | 0.1160 |
+| Raw ev draw | 0.1161 |
 | Raw edge prob away | -0.0839 |
-| Raw ev away | -0.2430 |
+| Raw ev away | -0.2429 |
 | Market p home draw | 64.3% |
 | Market home draw odds | 1.51 |
 | Best home draw bookmaker | 1xBet |
@@ -1085,13 +1085,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Ath Bilbao |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.2662 |
-| Dc lambda away | 1.3630 |
+| Dc lambda home | 1.2663 |
+| Dc lambda away | 1.3631 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
@@ -1137,16 +1137,16 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market reference under 2 5 last update utc | 2026-10-18T08:35:53Z |
 | Market best over 2 5 last update utc | 2026-10-18T08:35:08Z |
 | Market best under 2 5 last update utc | 2026-10-18T08:35:08Z |
-| Home probability edge | +3.3% |
+| Home probability edge | +3.2% |
 | Draw probability edge | -0.4% |
 | Away probability edge | -2.8% |
 | Over 2.5 probability edge | +0.2% |
 | Under 2.5 probability edge | -0.2% |
 | Raw edge prob home | 0.0650 |
-| Raw ev home | 0.2071 |
+| Raw ev home | 0.2070 |
 | Raw edge prob draw | -0.0089 |
-| Raw ev draw | -0.0529 |
-| Raw edge prob away | -0.0562 |
+| Raw ev draw | -0.0530 |
+| Raw edge prob away | -0.0561 |
 | Raw ev away | -0.1308 |
 
 </details>
@@ -1190,7 +1190,7 @@ The model's most likely 1X2 outcome is **Alavés win** at **56.8%**. Expected go
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 20.53% |
+| 1 | 1-0 | 20.52% |
 | 2 | 0-0 | 15.64% |
 | 3 | 2-0 | 14.49% |
 | 4 | 1-1 | 9.77% |
@@ -1234,13 +1234,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Malaga |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.3934 |
-| Dc lambda away | 0.4434 |
+| Dc lambda home | 1.3936 |
+| Dc lambda away | 0.4435 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
@@ -1254,8 +1254,8 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Over 2.5 odds | 3.61 |
 | Fair Under 2.5 odds | 1.38 |
 | Fair Over 3.5 odds | 9.00 |
-| Fair Under 3.5 odds | 1.12 |
-| Fair Over 4.5 odds | 26.19 |
+| Fair Under 3.5 odds | 1.13 |
+| Fair Over 4.5 odds | 26.18 |
 | Fair Under 4.5 odds | 1.04 |
 | Unadjusted home-win probability | 60.6% |
 | Unadjusted draw probability | 28.0% |
@@ -1292,9 +1292,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | -19.6% |
 | Under 2.5 probability edge | +19.6% |
 | Raw edge prob home | 0.0767 |
-| Raw ev home | 0.1455 |
+| Raw ev home | 0.1456 |
 | Raw edge prob draw | 0.0199 |
-| Raw ev draw | 0.0435 |
+| Raw ev draw | 0.0434 |
 | Raw edge prob away | -0.0966 |
 | Raw ev away | -0.4784 |
 
@@ -1350,7 +1350,7 @@ The model's most likely 1X2 outcome is **Atlético Madrid win** at **73.2%**. Ex
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
 | Atlético Madrid win | 73.2% | 78.8% | 1.27 | -7.0% |
-| Draw | 16.7% | 14.4% | 6.46 | +8.0% |
+| Draw | 16.7% | 14.4% | 6.46 | +7.9% |
 | Deportivo La Coruña win | 10.1% | 6.8% | 13.10 | +32.0% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
@@ -1379,13 +1379,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | La Coruna |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 90/100 |
-| Dc lambda home | 2.2466 |
-| Dc lambda away | 0.8989 |
+| Dc lambda home | 2.2469 |
+| Dc lambda away | 0.8991 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
@@ -1393,7 +1393,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 52.3% |
 | P btts no | 47.7% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 24.97 |
+| Fair Under 0.5 odds | 24.98 |
 | Fair Over 1.5 odds | 1.20 |
 | Fair Under 1.5 odds | 5.91 |
 | Fair Over 2.5 odds | 1.61 |
@@ -1437,9 +1437,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob home | -0.1122 |
 | Raw ev home | -0.1414 |
 | Raw edge prob draw | 0.0460 |
-| Raw ev draw | 0.2280 |
+| Raw ev draw | 0.2279 |
 | Raw edge prob away | 0.0662 |
-| Raw ev away | 0.7532 |
+| Raw ev away | 0.7533 |
 
 </details>
 
@@ -1526,13 +1526,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Elche |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.3457 |
+| Dc lambda home | 1.3458 |
 | Dc lambda away | 1.0442 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
@@ -1540,7 +1540,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 47.8% |
 | P btts no | 52.2% |
 | Fair Over 0.5 odds | 1.10 |
-| Fair Under 0.5 odds | 11.19 |
+| Fair Under 0.5 odds | 11.20 |
 | Fair Over 1.5 odds | 1.44 |
 | Fair Under 1.5 odds | 3.29 |
 | Fair Over 2.5 odds | 2.30 |
@@ -1583,12 +1583,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | +4.3% |
 | Over 2.5 probability edge | -9.2% |
 | Under 2.5 probability edge | +9.2% |
-| Raw edge prob home | -0.1215 |
+| Raw edge prob home | -0.1214 |
 | Raw ev home | -0.2171 |
 | Raw edge prob draw | 0.0356 |
-| Raw ev draw | 0.1065 |
+| Raw ev draw | 0.1064 |
 | Raw edge prob away | 0.0858 |
-| Raw ev away | 0.3701 |
+| Raw ev away | 0.3700 |
 
 </details>
 
@@ -1597,7 +1597,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-24 — Real Racing Club de Santander vs Espanyol
 
-The model's most likely 1X2 outcome is **Real Racing Club de Santander win** at **38.8%**. Expected goals are 1.95 for Real Racing Club de Santander and 1.97 for Espanyol (3.93 combined). The most likely exact score is 1-1 at 8.7%. Goal-market probabilities: at least one goal: 97.6%; Over 2.5 goals: 74.4%; Under 3.5 goals: 44.8%; Double Chance 1X: 62.6%; Double Chance X2: 61.2%; Double Chance 12 (either team wins): 76.2%; Under 4.5 goals: 64.8%; BTTS Yes (both teams score): 74.6%; BTTS No (at least one team does not score): 25.4%.
+The model's most likely 1X2 outcome is **Real Racing Club de Santander win** at **38.8%**. Expected goals are 1.96 for Real Racing Club de Santander and 1.97 for Espanyol (3.93 combined). The most likely exact score is 1-1 at 8.7%. Goal-market probabilities: at least one goal: 97.6%; Over 2.5 goals: 74.4%; Under 3.5 goals: 44.8%; Double Chance 1X: 62.6%; Double Chance X2: 61.2%; Double Chance 12 (either team wins): 76.2%; Under 4.5 goals: 64.8%; BTTS Yes (both teams score): 74.6%; BTTS No (at least one team does not score): 25.4%.
 
 **Fixture source:** The Odds API
 
@@ -1613,7 +1613,7 @@ The model's most likely 1X2 outcome is **Real Racing Club de Santander win** at 
 
 | Measure | Model estimate |
 | --- | --- |
-| Real Racing Club de Santander expected goals | 1.95 |
+| Real Racing Club de Santander expected goals | 1.96 |
 | Espanyol expected goals | 1.97 |
 | Expected total goals | 3.93 |
 | Over 0.5 | 97.6% |
@@ -1634,18 +1634,18 @@ The model's most likely 1X2 outcome is **Real Racing Club de Santander win** at 
 | 1 | 1-1 | 8.71% |
 | 2 | 2-2 | 8.16% |
 | 3 | 2-1 | 7.38% |
-| 4 | 1-2 | 7.07% |
+| 4 | 1-2 | 7.06% |
 | 5 | 3-1 | 4.81% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Real Racing Club de Santander win | 38.8% | 38.6% | 2.57 | -0.4% |
+| Real Racing Club de Santander win | 38.8% | 38.6% | 2.57 | -0.3% |
 | Draw | 23.8% | 26.2% | 3.71 | -11.7% |
 | Espanyol win | 37.4% | 35.2% | 2.80 | +4.8% |
-| Over 2.5 | 74.4% | 55.9% | 1.77 | +31.7% |
-| Under 2.5 | 25.6% | 44.1% | 2.22 | -43.2% |
+| Over 2.5 | 74.4% | 55.9% | 1.77 | +31.8% |
+| Under 2.5 | 25.6% | 44.1% | 2.22 | -43.3% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1675,13 +1675,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Espanol |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.9549 |
-| Dc lambda away | 1.9732 |
+| Dc lambda home | 1.9560 |
+| Dc lambda away | 1.9729 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
@@ -1689,9 +1689,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 74.6% |
 | P btts no | 25.4% |
 | Fair Over 0.5 odds | 1.02 |
-| Fair Under 0.5 odds | 41.00 |
-| Fair Over 1.5 odds | 1.11 |
-| Fair Under 1.5 odds | 10.52 |
+| Fair Under 0.5 odds | 41.02 |
+| Fair Over 1.5 odds | 1.10 |
+| Fair Under 1.5 odds | 10.53 |
 | Fair Over 2.5 odds | 1.34 |
 | Fair Under 2.5 odds | 3.91 |
 | Fair Over 3.5 odds | 1.81 |
@@ -1702,7 +1702,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Unadjusted draw probability | 21.3% |
 | Unadjusted away-win probability | 39.7% |
 | Raw p over 1 5 | 90.5% |
-| Raw p under 3 5 | 44.8% |
+| Raw p under 3 5 | 44.7% |
 | Raw p btts yes | 74.1% |
 | P home draw | 62.6% |
 | P draw away | 61.2% |
@@ -1732,12 +1732,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | +2.2% |
 | Over 2.5 probability edge | +18.5% |
 | Under 2.5 probability edge | -18.5% |
-| Raw edge prob home | 0.0041 |
-| Raw ev home | 0.0015 |
+| Raw edge prob home | 0.0043 |
+| Raw ev home | 0.0023 |
 | Raw edge prob draw | -0.0490 |
-| Raw ev draw | -0.2081 |
-| Raw edge prob away | 0.0449 |
-| Raw ev away | 0.1112 |
+| Raw ev draw | -0.2082 |
+| Raw edge prob away | 0.0447 |
+| Raw ev away | 0.1104 |
 
 </details>
 
@@ -1825,12 +1825,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
 | Dc lambda home | 1.2935 |
-| Dc lambda away | 1.5838 |
+| Dc lambda away | 1.5837 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
@@ -1849,14 +1849,14 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 4.5 odds | 1.20 |
 | Unadjusted home-win probability | 30.9% |
 | Unadjusted draw probability | 25.3% |
-| Unadjusted away-win probability | 43.9% |
+| Unadjusted away-win probability | 43.8% |
 | Raw p over 1 5 | 78.5% |
 | Raw p under 3 5 | 67.5% |
 | Raw p btts yes | 58.0% |
 | P home draw | 55.1% |
 | P draw away | 70.4% |
 | P home away | 74.5% |
-| Raw p home draw | 56.1% |
+| Raw p home draw | 56.2% |
 | Raw p draw away | 69.1% |
 | Raw p home away | 74.7% |
 | Market blending weight | 50.0% |
@@ -1878,15 +1878,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market best under 2 5 last update utc | 2026-10-18T08:35:08Z |
 | Home probability edge | +1.3% |
 | Draw probability edge | -0.2% |
-| Away probability edge | -1.0% |
+| Away probability edge | -1.1% |
 | Over 2.5 probability edge | -0.7% |
 | Under 2.5 probability edge | +0.7% |
 | Raw edge prob home | 0.0258 |
-| Raw ev home | 0.0655 |
+| Raw ev home | 0.0656 |
 | Raw edge prob draw | -0.0048 |
-| Raw ev draw | -0.0450 |
+| Raw ev draw | -0.0449 |
 | Raw edge prob away | -0.0210 |
-| Raw ev away | -0.0484 |
+| Raw ev away | -0.0485 |
 
 </details>
 
@@ -1973,13 +1973,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Getafe |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.1993 |
+| Dc lambda home | 1.1994 |
 | Dc lambda away | 0.6104 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 13 |
@@ -2030,12 +2030,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | +0.8% |
 | Over 2.5 probability edge | -14.6% |
 | Under 2.5 probability edge | +14.6% |
-| Raw edge prob home | -0.0916 |
+| Raw edge prob home | -0.0915 |
 | Raw ev home | -0.1489 |
 | Raw edge prob draw | 0.0761 |
 | Raw ev draw | 0.2697 |
-| Raw edge prob away | 0.0155 |
-| Raw ev away | 0.0366 |
+| Raw edge prob away | 0.0154 |
+| Raw ev away | 0.0364 |
 
 </details>
 
@@ -2124,7 +2124,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
@@ -2176,9 +2176,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob home | -0.1322 |
 | Raw ev home | -0.1969 |
 | Raw edge prob draw | 0.0428 |
-| Raw ev draw | 0.1794 |
+| Raw ev draw | 0.1795 |
 | Raw edge prob away | 0.0894 |
-| Raw ev away | 0.4369 |
+| Raw ev away | 0.4368 |
 
 </details>
 
@@ -2265,13 +2265,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Betis |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.4879 |
-| Dc lambda away | 1.3115 |
+| Dc lambda home | 1.4881 |
+| Dc lambda away | 1.3117 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
@@ -2284,7 +2284,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 1.5 odds | 4.38 |
 | Fair Over 2.5 odds | 1.90 |
 | Fair Under 2.5 odds | 2.12 |
-| Fair Over 3.5 odds | 3.26 |
+| Fair Over 3.5 odds | 3.25 |
 | Fair Under 3.5 odds | 1.44 |
 | Fair Over 4.5 odds | 6.62 |
 | Fair Under 4.5 odds | 1.18 |
@@ -2322,7 +2322,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Away probability edge | -2.0% |
 | Over 2.5 probability edge | +1.1% |
 | Under 2.5 probability edge | -1.1% |
-| Raw edge prob home | 0.0545 |
+| Raw edge prob home | 0.0546 |
 | Raw ev home | 0.1375 |
 | Raw edge prob draw | -0.0149 |
 | Raw ev draw | -0.0768 |
@@ -2372,7 +2372,7 @@ The model's most likely 1X2 outcome is **Real Sociedad win** at **54.8%**. Expec
 | --- | --- | --- |
 | 1 | 1-1 | 10.59% |
 | 2 | 2-1 | 10.15% |
-| 3 | 1-0 | 8.72% |
+| 3 | 1-0 | 8.71% |
 | 4 | 2-0 | 8.43% |
 | 5 | 3-1 | 6.31% |
 
@@ -2383,7 +2383,7 @@ The model's most likely 1X2 outcome is **Real Sociedad win** at **54.8%**. Expec
 | Real Sociedad win | 54.8% | 57.1% | 1.76 | -3.5% |
 | Draw | 22.9% | 22.6% | 4.26 | -2.4% |
 | Levante win | 22.3% | 20.3% | 4.72 | +5.1% |
-| Over 2.5 | 59.4% | 58.1% | 1.71 | +1.6% |
+| Over 2.5 | 59.4% | 58.1% | 1.71 | +1.7% |
 | Under 2.5 | 40.6% | 41.9% | 2.32 | -5.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
@@ -2414,13 +2414,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Levante |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.8661 |
-| Dc lambda away | 1.2046 |
+| Dc lambda home | 1.8664 |
+| Dc lambda away | 1.2045 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
@@ -2437,7 +2437,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 3.5 odds | 1.59 |
 | Fair Over 4.5 odds | 5.05 |
 | Fair Under 4.5 odds | 1.25 |
-| Unadjusted home-win probability | 52.5% |
+| Unadjusted home-win probability | 52.6% |
 | Unadjusted draw probability | 23.2% |
 | Unadjusted away-win probability | 24.2% |
 | Raw p over 1 5 | 81.4% |
@@ -2447,7 +2447,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P draw away | 45.2% |
 | P home away | 77.1% |
 | Raw p home draw | 75.8% |
-| Raw p draw away | 47.5% |
+| Raw p draw away | 47.4% |
 | Raw p home away | 76.8% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
@@ -2472,11 +2472,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | +1.4% |
 | Under 2.5 probability edge | -1.4% |
 | Raw edge prob home | -0.0454 |
-| Raw ev home | -0.0752 |
+| Raw ev home | -0.0750 |
 | Raw edge prob draw | 0.0061 |
-| Raw ev draw | -0.0108 |
+| Raw ev draw | -0.0109 |
 | Raw edge prob away | 0.0393 |
-| Raw ev away | 0.1438 |
+| Raw ev away | 0.1435 |
 
 </details>
 
@@ -2563,13 +2563,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Osasuna |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 95/100 |
-| Dc lambda home | 1.5458 |
+| Dc lambda home | 1.5459 |
 | Dc lambda away | 1.1349 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-18T08:35:54.071035+00:00 |
+| Bbs statistics cutoff utc | 2026-10-18T09:56:48.741714+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
@@ -2584,7 +2584,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 2.5 odds | 2.00 |
 | Fair Over 3.5 odds | 3.54 |
 | Fair Under 3.5 odds | 1.39 |
-| Fair Over 4.5 odds | 7.47 |
+| Fair Over 4.5 odds | 7.46 |
 | Fair Under 4.5 odds | 1.15 |
 | Unadjusted home-win probability | 46.4% |
 | Unadjusted draw probability | 26.0% |
@@ -2621,11 +2621,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Over 2.5 probability edge | +5.3% |
 | Under 2.5 probability edge | -5.3% |
 | Raw edge prob home | -0.0289 |
-| Raw ev home | -0.0620 |
+| Raw ev home | -0.0619 |
 | Raw edge prob draw | -0.0111 |
 | Raw ev draw | -0.0644 |
 | Raw edge prob away | 0.0400 |
-| Raw ev away | 0.1333 |
+| Raw ev away | 0.1332 |
 
 </details>
 
