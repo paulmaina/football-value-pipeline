@@ -9,16 +9,16 @@ normal 90-minute results are used, never extra-time/penalty scorelines.
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 17 | 13-4 | 76.5% | +4.5% |
+| All selections | 18 | 14-4 | 77.8% | +5.4% |
 
-Unsettled / unverified entries: **8**.
-Whole-fixture 1X2 multiclass Brier (n=59): 0.5498
+Unsettled / unverified entries: **7**.
+Whole-fixture 1X2 multiclass Brier (n=60): 0.5451
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| PROVISIONAL | 7 | 4-3 | 57.1% | -27.9% |
+| PROVISIONAL | 8 | 5-3 | 62.5% | -21.6% |
 | STRICT | 10 | 9-1 | 90.0% | +27.1% |
 
 ## By policy
@@ -29,7 +29,7 @@ Whole-fixture 1X2 multiclass Brier (n=59): 0.5498
 | 72h-seven-markets-fresh-references-net-ev15-v11 | 1 | 1-0 | 100.0% | +58.0% |
 | 72h-six-markets-dc12-probability-odds-net-ev15-v9 | 1 | 1-0 | 100.0% | +27.0% |
 | 72h-ucl-v3 | 6 | 5-1 | 83.3% | +16.0% |
-| legacy/unspecified | 7 | 5-2 | 71.4% | -4.6% |
+| legacy/unspecified | 8 | 6-2 | 75.0% | -1.2% |
 
 ## By market
 
@@ -41,7 +41,7 @@ Whole-fixture 1X2 multiclass Brier (n=59): 0.5498
 | Double Chance 1X | 1 | 1-0 | 100.0% | +27.0% |
 | Double Chance X2 | 0 | 0-0 | — | — |
 | Home win | 3 | 3-0 | 100.0% | +65.0% |
-| Over 1.5 | 6 | 6-0 | 100.0% | +22.5% |
+| Over 1.5 | 7 | 7-0 | 100.0% | +22.4% |
 | Under 3.5 | 5 | 2-3 | 40.0% | -46.0% |
 
 ## By league
@@ -49,7 +49,7 @@ Whole-fixture 1X2 multiclass Brier (n=59): 0.5498
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | Bundesliga | 1 | 1-0 | 100.0% | +27.0% |
-| La Liga | 3 | 3-0 | 100.0% | +28.3% |
+| La Liga | 4 | 4-0 | 100.0% | +26.8% |
 | Premier League | 5 | 2-3 | 40.0% | -49.4% |
 | Serie A | 4 | 3-1 | 75.0% | +12.2% |
 | UEFA Champions League | 4 | 4-0 | 100.0% | +40.5% |
@@ -59,7 +59,7 @@ Whole-fixture 1X2 multiclass Brier (n=59): 0.5498
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
-| 2026-W42 | 13 | 11-2 | 84.6% | +17.2% |
+| 2026-W42 | 14 | 12-2 | 85.7% | +17.6% |
 | 2026-W43 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
@@ -69,7 +69,7 @@ Whole-fixture 1X2 multiclass Brier (n=59): 0.5498
 | 60%–70% | 4 | 66.5% | 75.0% | 0.1926 |
 | 70%–80% | 4 | 76.0% | 75.0% | 0.1865 |
 | 80%–90% | 6 | 83.7% | 66.7% | 0.2510 |
-| 90%–100% | 3 | 92.5% | 100.0% | 0.0058 |
+| 90%–100% | 4 | 92.4% | 100.0% | 0.0059 |
 
 Calibration bins report observed outcomes against the originally
 recorded reliability-adjusted chance; small buckets are unstable.
@@ -97,7 +97,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | SerieA | 2026-10-17 | 1204 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-14 | 539 | 4 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 
-Latest shortlist audit: {"selected_quotes": 2, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 2, "bookmakers": {"1xBet": 2}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
+Latest shortlist audit: {"selected_quotes": 10, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 10, "bookmakers": {"1xBet": 10}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
@@ -124,7 +124,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | b4dfb7c51677 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 67fd2fe2099c | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Locally observed near-close quotes, coverage and offered-price comparisons; official close and accepted execution are unverified.
 
@@ -133,6 +133,8 @@ Totals anchoring: [report](totals_anchor_experiment/report.md). Separate Pinnacl
 Experiment review queue: [report](experiment_review_queue.md). Benchmark candidate capture and readiness are evaluated automatically; no production promotion.
 
 Filter sensitivity: [report](filter_sensitivity_experiment/report.md). Frozen 1.5%, 3% and 5% adjusted EV policies; production unchanged.
+
+Shortlist probability/EV weights: [report](shortlist_weight_experiment/report.md). Four frozen weightings; production stays 50/50.
 
 Probability/calibration policies: [report](shortlist_policy_experiment/report.md). Fixed one-factor cutoffs and development-only penalty strengths; production unchanged.
 

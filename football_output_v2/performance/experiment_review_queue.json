@@ -29,7 +29,7 @@
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
       "report": "recency_experiment/report.md",
       "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 76,
+      "settled_evidence": 78,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -49,7 +49,17 @@
       "name": "shortlist_policy_experiment",
       "report": "shortlist_policy_experiment/report.md",
       "scope": "POLICY_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 25,
+      "settled_evidence": 26,
+      "status": "COLLECT_MORE_DATA"
+    },
+    {
+      "automatic_production_change": false,
+      "gameweeks": 0,
+      "key": "shortlist_weight_experiment:shortlist-probability-ev-weights-v1",
+      "name": "shortlist_weight_experiment",
+      "report": "shortlist_weight_experiment/report.md",
+      "scope": "POLICY_REVIEW_APPROVAL_REQUIRED",
+      "settled_evidence": 0,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -60,7 +70,7 @@
       "name": "benchmark_forward_experiment",
       "report": "benchmark_forward_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 23,
+      "settled_evidence": 24,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -83,7 +93,7 @@
       "name": "model_reliability_experiment",
       "report": "model_reliability_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 23,
+      "settled_evidence": 24,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -95,11 +105,11 @@
       "name": "model_reliability_experiment",
       "report": "model_reliability_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 23,
+      "settled_evidence": 24,
       "status": "COLLECT_MORE_DATA"
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-18T12:45:10.912224+00:00",
+  "reviewed_at_utc": "2026-10-18T14:18:16.482695+00:00",
   "version": "experiment-review-queue-v1"
 }

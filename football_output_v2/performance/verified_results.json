@@ -899,6 +899,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564715": {
+    "away_goals": 0,
+    "away_short_name": "Santander",
+    "away_team": "Real Racing Club de Santander",
+    "first_verified_at_utc": "2026-10-18T14:18:16Z",
+    "home_goals": 2,
+    "home_short_name": "Osasuna",
+    "home_team": "CA Osasuna",
+    "kickoff_utc": "2026-10-18T12:00:00Z",
+    "league_code": "PD",
+    "match_id": 564715,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564716": {
     "away_goals": 1,
     "away_short_name": "Levante",
