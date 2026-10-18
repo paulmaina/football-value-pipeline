@@ -262,18 +262,39 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
         if utc(meta.get("captured_at_utc")) is None or utc(meta.get("generated_at_utc")) is None:
             warnings.warn(f"Invalid snapshot metadata ignored: {directory}")
             continue
+        required = {'predictions.csv', 'shortlist.csv', 'selection_summary.json'}
+        optional = {'goal_blend_experiment.json', 'market_led_experiment.json',
+            'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json',
+            'totals_anchor_experiment.json', 'model_reliability_experiment.json',
+            'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json'}
+        digests = meta.get('sha256')
+        if not isinstance(digests, dict) or not required.issubset(digests) or set(digests)-required-optional:
+            warnings.warn(f'Missing required or invalid snapshot manifest ignored: {directory}')
+            continue
+        if any(not isinstance(digests[name], str) or len(digests[name]) != 64 or
+               any(c not in '0123456789abcdef' for c in digests[name].lower()) for name in required):
+            warnings.warn(f'Invalid snapshot digest ignored: {directory}')
+            continue
         # Fail closed if an archived artifact changes after capture.
         if any(
             not (directory / name).exists() or hashlib.sha256(
                 (directory / name).read_bytes()
             ).hexdigest() != digest
-            for name, digest in meta.get("sha256", {}).items()
+            for name, digest in digests.items()
             if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "filter_sensitivity_experiment.json", "benchmark_forward_experiment.json", "totals_anchor_experiment.json", "model_reliability_experiment.json", "shortlist_policy_experiment.json", "shortlist_weight_experiment.json", "pipeline_health.json"}
         ):
             warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
             continue
         summary = load_json(directory / "selection_summary.json", {})
-        meta = {**meta, "selection_policy_version": (
+        # The immutable summary restores legacy subsecond generation precision;
+        # a different generation instant cannot relabel an archived forecast.
+        from forecast_integrity import snapshot_generated_at
+        try:
+            generated = snapshot_generated_at(directory, meta)
+        except (ValueError, TypeError, KeyError, OSError):
+            warnings.warn(f'Unbound snapshot generation ignored: {directory}')
+            continue
+        meta = {**meta, 'generated_at_utc': generated, "selection_policy_version": (
             meta.get("selection_policy_version") or summary.get("selection_policy_version")
             or "legacy/unspecified"
         )}
@@ -710,8 +731,10 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
     run_rows = {}
     for row in selection_history:
         run_rows.setdefault(tracking_key(row)[0], []).append(row)
-    groupings['run'] = {key: stats([r for r in selections if tracking_key(r)[0]==key]) for key in run_rows
-                        if any(tracking_key(r)[0]==key for r in selections)}
+    latest_run_rows = {}
+    for row in selections:
+        latest_run_rows.setdefault(tracking_key(row)[0], []).append(row)
+    groupings['run'] = {key: stats(rows) for key, rows in latest_run_rows.items()}
     graded_prediction = [r for r in all_predictions if r["status"] == "GRADED"]
     one_x_two = [float(r["one_x_two_brier"]) for r in graded_prediction
                  if number(r.get("one_x_two_brier")) is not None]
@@ -852,18 +875,25 @@ def review(*, root: Path = ROOT, token: str = "",
         list(unique.values()), root=root, token=token,
         clock=clock, session=session
     )
+    matches = {}
+    def verified_for(row):
+        # Keep exact identities and kickoff instants in the cache key so a
+        # rescheduled or renamed fixture cannot borrow another match's result.
+        key = (row.get('league'), row.get('home_team'), row.get('away_team'), utc(row.get('kickoff_utc')))
+        if key not in matches:
+            matches[key] = fixture_match(row, records)
+        match, state = matches[key]
+        if key[-1] is not None and key[-1] > clock-timedelta(hours=2):
+            return None, 'PENDING_KICKOFF_OR_FINAL_SCORE'
+        return match, state
     selections_graded, predictions_graded, history_graded = [], [], []
     for row in history:
-        match, state = fixture_match(row, records)
-        if (kick := utc(row["kickoff_utc"])) and kick > clock - timedelta(hours=2):
-            match, state = None, "PENDING_KICKOFF_OR_FINAL_SCORE"
+        match, state = verified_for(row)
         history_graded.append(score_shortlist(row, match, state))
     latest_keys = {tracking_key(r) for r in selections}
     selections_graded = [r for r in history_graded if tracking_key(r) in latest_keys]
     for row in predictions:
-        match, state = fixture_match(row, records)
-        if (kick := utc(row["kickoff_utc"])) and kick > clock - timedelta(hours=2):
-            match, state = None, "PENDING_KICKOFF_OR_FINAL_SCORE"
+        match, state = verified_for(row)
         predictions_graded.append(score_prediction(row, match, state))
     result = report(root, selections_graded, predictions_graded, errors, reviewed_at=iso(clock), selection_history=history_graded)
     try:
