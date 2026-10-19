@@ -66,7 +66,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertNotIn('Under 3.5', picks.market.tolist())
                 self.assertTrue(pd.read_csv(raw/'all_leagues_predictions.csv').p_under_3_5.eq(.99).all())
                 summary = json.loads((raw/'conservative_bet_summary.json').read_text())
-                self.assertEqual(summary['selection_policy_version'], '48h-top-ten-probability-ev-no-under35-v14')
+                self.assertEqual(summary['selection_policy_version'], '48h-top-twelve-probability-ev-no-under35-v15')
                 self.assertNotIn('Under 3.5', summary['eligible_markets'])
                 self.assertEqual(format_main(['--root-dir',str(root)]),0)
                 readable = pd.read_csv(root/'readable/conservative_bet_shortlist_readable.csv')

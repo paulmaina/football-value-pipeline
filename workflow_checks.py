@@ -78,12 +78,17 @@ def raw_check(root):
             if (field.startswith('p_') or field.startswith('raw_p_')) and value not in ('',None):
                 require(number(value,min_value=0,max_value=1) is not None, f'Invalid probability column {field}')
     selected=set()
-    balanced = summary.get('selection_policy_version') in ('48h-top-ten-probability-ev-v13', '48h-top-ten-probability-ev-no-under35-v14')
-    excludes_under = summary.get('selection_policy_version') == '48h-top-ten-probability-ev-no-under35-v14'
+    from conservative_bet_filter import (BALANCED_SELECTION_POLICIES,
+        BALANCED_SELECTION_POLICY_VERSION, NO_UNDER35_SELECTION_POLICIES, TARGET_DISTINCT_MATCHES)
+    policy_version = summary.get('selection_policy_version')
+    balanced = policy_version in BALANCED_SELECTION_POLICIES
+    excludes_under = policy_version in NO_UNDER35_SELECTION_POLICIES
+    target = TARGET_DISTINCT_MATCHES if policy_version == BALANCED_SELECTION_POLICY_VERSION else 10
     previous_score = float('inf')
     if balanced:
         require(summary.get('shortlist_lookahead_hours') == 48, 'Balanced shortlist must use 48 hours')
-        require(len(picks) <= 10, 'Balanced shortlist exceeds ten fixtures')
+        require(summary.get('target_distinct_matches') == target, 'Balanced shortlist target differs from policy')
+        require(len(picks) <= target, f'Balanced shortlist exceeds {target} fixtures')
     for row in picks:
         key=fixture_key(row);require(key in keys, 'Selection without matching forecast')
         require(key not in selected, 'Multiple selected markets for one fixture');selected.add(key)
@@ -484,3 +489,4 @@ def main(argv=None):
 
 
 if __name__=='__main__':raise SystemExit(main())
+

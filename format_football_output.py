@@ -1226,7 +1226,7 @@ def process_conservative_shortlist(
         ranking_notes.append("Percentiles and the combined score are relative ranks, not win probabilities. The equal weights are a transparent policy choice, not a proven optimum.")
 
     lines = [
-        "# Top 10 probability-and-EV-ranked matches" if balanced else "# Top 10 probability-ranked matches" if probability_first else "# Conservative shortlisted matches and markets",
+        f"# Top {target} probability-and-EV-ranked matches" if balanced else f"# Top {target} probability-ranked matches" if probability_first else "# Conservative shortlisted matches and markets",
         "",
         refresh_note,
         f"**Candidates:** {count} of target {target} distinct matches.",
@@ -1243,7 +1243,7 @@ def process_conservative_shortlist(
         "> WARNING: PROVISIONAL watchlist entries FAILED one or more strict "
         "historical/EV rules; they are for research only, NOT qualified bets. "
         "Even STRICT candidates are not guaranteed outcomes or proven "
-        "profitable selections. Do not treat ten candidates as a ten-leg betslip.",
+        "profitable selections. The shortlist is not an accumulator recommendation.",
         "",
         "## Shortlisted market for each match",
         "",
