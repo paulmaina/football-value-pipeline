@@ -23,6 +23,13 @@ class CoverageTests(OfflineQuotePolicyTestCase):
         self.assertEqual(prioritized_additional_events(rows, 4, now, 'all'), list(range(18)))
         self.assertEqual(prioritized_additional_events(rows, 4, now, 'ranked'), [])
 
+    def test_additional_fetches_stop_at_current_48_hour_boundary(self):
+        now=datetime(2026,10,12,tzinfo=timezone.utc)
+        base={'odds_source':'The Odds API','odds_event_id':'event'}
+        rows=[({**base,'kickoff_utc':(pd.Timestamp(now)+delta).isoformat()}, {})
+              for delta in (pd.Timedelta(hours=48),pd.Timedelta(hours=48,seconds=1),pd.Timedelta(hours=72))]
+        self.assertEqual(prioritized_additional_events(rows,100,now,'all'),[0])
+
     def run_pipeline(self, mode='all', mixed=False):
         pipeline = object.__new__(FootballValuePipelineV2)
         for key, value in dict(half_life_days=365, l2=0.1, max_goals=10,

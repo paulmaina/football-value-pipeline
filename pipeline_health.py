@@ -35,14 +35,19 @@ def current_health(root, clock):
             'forecast_training_health': data.get('training_data_health', {'status': 'LEGACY_NOT_RECORDED'}),
             'bbs_statistics_model': data.get('bbs_statistics_model', {'status': 'LEGACY_NOT_RECORDED'}),
             'bbs_statistics_model_artifact': data.get('bbs_statistics_model_artifact'),
-            'diagnostics_sha256': hashlib.sha256(path.read_bytes()).hexdigest()}
+            'diagnostics_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+            'odds_provider_health': data.get('odds_provider_health', {'state': 'NOT_RECORDED'})}
     if 'UCL' in training:
         training['UCL']['current_source_health'] = health(root.parent, training['UCL']['training_end'], clock)
     picks = read_csv(raw/'conservative_bet_shortlist.csv')
     quote = {'selected_quotes': len(picks), 'exchange_quotes': 0, 'missing_quote_age': 0,
              'quote_age_over_24h': 0, 'costs_recorded': 0, 'bookmakers': dict(Counter(r.get('bookmaker', '') for r in picks)),
-             'account_availability': 'NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS'}
+             'account_availability': 'NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS',
+             'past_kickoff_count': 0, 'upcoming_kickoff_count': 0, 'unknown_kickoff_count': 0}
     for row in picks:
+        kickoff = utc(row.get('kickoff_utc'))
+        quote['unknown_kickoff_count' if kickoff is None else
+              'past_kickoff_count' if kickoff <= clock else 'upcoming_kickoff_count'] += 1
         quote['exchange_quotes'] += int(is_exchange(row.get('bookmaker')))
         try:
             age = float(row.get('odds_age_hours'))
@@ -55,12 +60,21 @@ def current_health(root, clock):
             quote['missing_quote_age'] += 1
         quote['costs_recorded'] += int(row.get('per_stake_cost') not in ('', None))
     dependencies = {'python': platform.python_version()}
-    for package in ('numpy', 'pandas', 'scipy', 'requests', 'python-dotenv', 'coverage', 'PyYAML'):
+    for package in ('numpy', 'pandas', 'scipy', 'requests', 'rapidfuzz', 'python-dotenv', 'coverage', 'PyYAML'):
         try:
             dependencies[package] = version(package)
         except PackageNotFoundError:
             dependencies[package] = 'NOT_INSTALLED'
-    return {'training': training, 'quote_audit': quote, 'execution_policy': load_policy(),
+    generated = utc(read(raw/'conservative_bet_summary.json', {}).get('generated_at_utc'))
+    upcoming = sum(1 for row in read_csv(raw/'all_leagues_predictions.csv')
+                   if (kickoff := utc(row.get('kickoff_utc'))) is not None and kickoff > clock)
+    forecast = {'generated_at_utc': generated.isoformat() if generated else None,
+        'upcoming_fixture_count': upcoming,
+        'age_hours': (clock-generated).total_seconds()/3600 if generated else None,
+        'status': ('NOT_RECORDED' if generated is None else
+                   'INVALID_FUTURE_TIME' if generated > clock else
+                   'OLDER_THAN_24_HOURS' if (clock-generated).total_seconds() > 86400 else 'WITHIN_24_HOURS')}
+    return {'training': training, 'quote_audit': quote, 'forecast_freshness': forecast, 'execution_policy': load_policy(),
             'dependencies': dependencies}
 
 
@@ -91,12 +105,28 @@ def capture_health(root, clock, files):
     return data
 
 
+def model_component_hashes():
+    """Cross-platform provenance for probability, identity and selection helpers."""
+    repo = Path(__file__).resolve().parent
+    names = ('football_value_pipeline_v2_standalone.py', 'score_probability.py',
+        'double_chance.py', 'quote_freshness.py', 'quote_policy.py',
+        'conservative_bet_filter.py', 'goal_market_validation.py',
+        'dc_decay_validation.py', 'market_blend_validation.py',
+        'bbs_statistics_model.py', 'bbs_integration.py', 'bbs_data.py',
+        'match_scores.py', 'ucl_training.py', 'api_key_config.py', 'refresh_training_data.py',
+        'odds_provider_health.py',
+        'bbs_team_aliases.json', 'shortlist_quote_policy.json')
+    return {name: hashlib.sha256((repo/name).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
+            for name in names}
+
+
 def write_generation_metadata(raw, summary):
     clock = utc(summary['generated_at_utc'])
     data = {'generated_at_utc': summary['generated_at_utc'],
         'predictions_sha256': hashlib.sha256((raw/'all_leagues_predictions.csv').read_bytes()).hexdigest(),
         'dependencies': current_health(raw.parent, clock)['dependencies'],
         'selection_policy_version': summary['selection_policy_version'],
+        'model_component_sha256': model_component_hashes(),
         'model_code_sha256': hashlib.sha256(Path(__file__).with_name('football_value_pipeline_v2_standalone.py').read_bytes()).hexdigest()}
     from performance_tracking import write_json
     write_json(raw/'pipeline_run_metadata.json', data)
