@@ -317,6 +317,11 @@ class CachedHttpClient:
                     validator(content)
                 return content
 
+        # Odds clients can stop live calls after confirmed terminal quota
+        # exhaustion while still accepting an otherwise valid fresh cache hit.
+        guard = getattr(self, '_request_guard', None)
+        if guard is not None:
+            guard()
         try:
             r = self.session.get(
                 url,
@@ -579,6 +584,7 @@ class TheOddsAPI:
         self.http = CachedHttpClient(cache_dir=cache_dir)
         self.force_refresh = force_refresh
         self.regions = regions
+        self.credit_exhaustion = None
 
         # The generic historical-data client retries 429 automatically.
         # Do not do that for this Odds API instance: quota/rate-limit
@@ -698,13 +704,27 @@ class TheOddsAPI:
                     f"The Odds API network request failed using {name}; "
                     "other keys were not attempted."
                 ) from None
-        raise OddsProviderError(
+        error = OddsProviderError(
             "The Odds API: all configured keys returned quota/rate-limit "
             "errors. No bookmaker odds were retrieved.",
             "CREDITS_EXHAUSTED" if failures and all(
                 item.get("error_code") == "OUT_OF_USAGE_CREDITS" for item in failures
             ) else "RATE_LIMITED", failures
         )
+        if error.category == "CREDITS_EXHAUSTED":
+            blocked_day = datetime.now(timezone.utc).date()
+            self.credit_exhaustion = {'state': error.category,
+                'attempts': failures, 'blocked_utc_day': blocked_day.isoformat()}
+            def stop_exhausted_requests():
+                if (self._configured_keys() == keys and
+                        datetime.now(timezone.utc).date() == blocked_day):
+                    raise error from None
+                # A changed credential set or UTC quota-reset boundary allows
+                # a new attempt. No persistent lockout across prediction runs.
+                self.http._request_guard = None
+                self.credit_exhaustion = None
+            self.http._request_guard = stop_exhausted_requests
+        raise error from None
 
     @staticmethod
     def _window(now: datetime, lookahead_days: int) -> Tuple[str, str]:
@@ -3190,7 +3210,14 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 coverage_row["status"] = "REQUEST_FAILED"
                 # Do not persist exception URLs, which may contain credentials.
                 coverage_row["error_type"] = type(exc).__name__
+                from odds_provider_health import OddsProviderError
+                if isinstance(exc, OddsProviderError):
+                    coverage_row['provider_category'] = exc.category
+                    coverage_row['provider_attempts'] = exc.attempts
                 warnings.warn(f"Additional odds missing for {event_id}: {exc}", RuntimeWarning)
+        credit_health = getattr(self.odds_api, 'credit_exhaustion', None)
+        if isinstance(credit_health, dict):
+            diagnostics['odds_provider_health'] = credit_health
         diagnostics["additional_odds_coverage_mode"] = self.additional_odds_coverage
         diagnostics["additional_odds_coverage"] = coverage_rows
         diagnostics["additional_odds_in_window_linked_fixtures"] = len(eligible)
@@ -3631,7 +3658,7 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Default: project .env only, ignoring inherited API keys; environment is for explicit CI use.")
     p.add_argument("--leagues", nargs="+", choices=list(LEAGUES), default=["EPL"])
     p.add_argument("--additional-odds-coverage", choices=["all", "ranked"], default="all",
-                   help="all: request every linked fixture in the 72h window (more API credits); ranked: capped legacy mode")
+                   help="all: request every linked fixture in the 48h window (more API credits); ranked: capped legacy mode")
     p.add_argument("--market-led-experiment", action="store_true",
                    help="Write a separate Pinnacle-reference double-chance paper experiment.")
     p.add_argument("--market-led-max-age-minutes", type=float, default=10.0)

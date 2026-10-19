@@ -22,16 +22,20 @@ from publish_performance import git
 class ProviderClassificationTests(OfflineQuotePolicyTestCase):
     setUp = failover.ApiKeyFailoverTests.setUp
     request = failover.ApiKeyFailoverTests.request
-    def test_confirmed_credits_and_mixed_throttle_are_distinct(self):
-        for codes, expected in [(['OUT_OF_USAGE_CREDITS']*3, 'CREDITS_EXHAUSTED'),
-                                (['OUT_OF_USAGE_CREDITS', 'EXCEEDED_FREQ_LIMIT', 'OUT_OF_USAGE_CREDITS'], 'RATE_LIMITED')]:
-            get = RecordingGet(*(fake_response(429 if code == 'EXCEEDED_FREQ_LIMIT' else 401,
-                                               {'error_code': code}) for code in codes))
-            with self.assertWarns(RuntimeWarning), self.assertRaises(OddsProviderError) as caught:
-                self.request(get)
-            self.assertEqual(caught.exception.category, expected)
-            self.assertEqual(len(caught.exception.attempts), 3)
-            self.assertNotIn('secret', json.dumps(caught.exception.attempts))
+    def assert_category(self, codes, expected):
+        get = RecordingGet(*(fake_response(429 if code == 'EXCEEDED_FREQ_LIMIT' else 401,
+                                           {'error_code': code}) for code in codes))
+        with self.assertWarns(RuntimeWarning), self.assertRaises(OddsProviderError) as caught:
+            self.request(get)
+        self.assertEqual(caught.exception.category, expected)
+        self.assertEqual(len(caught.exception.attempts), 3)
+        self.assertNotIn('secret', json.dumps(caught.exception.attempts))
+
+    def test_confirmed_credits_are_classified(self):
+        self.assert_category(['OUT_OF_USAGE_CREDITS']*3, 'CREDITS_EXHAUSTED')
+
+    def test_mixed_throttle_is_not_confirmed_monthly_exhaustion(self):
+        self.assert_category(['OUT_OF_USAGE_CREDITS', 'EXCEEDED_FREQ_LIMIT', 'OUT_OF_USAGE_CREDITS'], 'RATE_LIMITED')
 
     def test_headers_and_codes_are_whitelisted(self):
         response = fake_response(401, {'error_code': 'secret', 'message': 'secret'})
@@ -98,3 +102,4 @@ class ProviderCheckpointTests(unittest.TestCase):
             self.assertEqual(budget['reservations']['quota']['status'], 'complete')
             self.assertEqual(budget['requests'], 1)
             self.assertTrue((source/'workflow_artifacts/closing-odds-recovery/provider_status.json').exists())
+
