@@ -663,6 +663,8 @@ class TheOddsAPI:
         original.pop("apiKey", None)
         # Normal pipeline uses allow_stale=False for current odds;
         # never turn a quota error into a fabricated or stale live price.
+        from odds_provider_health import OddsProviderError, http_details
+        failures = []
         for name, key in keys:
             try:
                 return self.http.get_json(
@@ -672,7 +674,9 @@ class TheOddsAPI:
                     **kwargs,
                 )
             except requests.HTTPError as exc:
+                details = http_details(exc, name) if exc.response is not None else {"credential": name}
                 if self._is_quota_http_error(exc):
+                    failures.append(details)
                     code = exc.response.status_code if exc.response is not None else "?"
                     warnings.warn(
                         f"The Odds API {name} returned HTTP {code} "
@@ -684,18 +688,22 @@ class TheOddsAPI:
                     exc.response.status_code
                     if exc.response is not None else "unknown"
                 )
-                raise RuntimeError(
+                raise OddsProviderError(
                     f"The Odds API returned HTTP {status} using {name}; "
-                    "not a confirmed quota/rate-limit error."
+                    "not a confirmed quota/rate-limit error.",
+                    "HTTP_ERROR", failures + [details]
                 ) from None
             except requests.RequestException:
                 raise RuntimeError(
                     f"The Odds API network request failed using {name}; "
                     "other keys were not attempted."
                 ) from None
-        raise RuntimeError(
+        raise OddsProviderError(
             "The Odds API: all configured keys returned quota/rate-limit "
-            "errors. No bookmaker odds were retrieved."
+            "errors. No bookmaker odds were retrieved.",
+            "CREDITS_EXHAUSTED" if failures and all(
+                item.get("error_code") == "OUT_OF_USAGE_CREDITS" for item in failures
+            ) else "RATE_LIMITED", failures
         )
 
     @staticmethod
@@ -4177,3 +4185,4 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
