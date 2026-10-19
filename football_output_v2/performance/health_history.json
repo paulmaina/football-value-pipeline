@@ -181499,14 +181499,14 @@
         },
         "frozen_selections": 41,
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-        "observations": 76,
+        "observations": 77,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+        "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
         "version": "local-closing-quotes-v3"
       },
       "dependencies": {
-        "PyYAML": "NOT_INSTALLED",
-        "coverage": "NOT_INSTALLED",
+        "PyYAML": "6.0.3",
+        "coverage": "7.16.2",
         "numpy": "2.5.4",
         "pandas": "3.0.6",
         "python": "3.12.15",
@@ -182088,7 +182088,7 @@
             "minimum_paired_fixtures": 300,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+          "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
           "secondary_comparison": {
             "btts_yes": {
               "baseline": {
@@ -183715,7 +183715,7 @@
           ],
           "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
           "rejected_snapshot_commits": [],
-          "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+          "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
           "total_fixtures": 73,
           "version": "conservative-ev-sensitivity-v1"
         },
@@ -183845,7 +183845,7 @@
           ],
           "graded_fixture_markets": 48,
           "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-          "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+          "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
           "total_fixture_markets": 450,
           "version": "goal-blend-shadow-v1"
         },
@@ -184268,7 +184268,7 @@
           "observed_fixture_markets": 300,
           "paired_graded_fixture_markets": 32,
           "pending_or_unverified_selections": 0,
-          "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+          "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
           "selected": 0,
           "settings_observed": [
             {
@@ -190759,7 +190759,7 @@
           },
           "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
           "rejected_snapshot_commits": [],
-          "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+          "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
           "version": "model-reliability-forward-v1"
         },
         "recency_experiment": {
@@ -230195,7 +230195,7 @@
           ],
           "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
           "rejected_snapshot_commits": [],
-          "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+          "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
           "total_fixture_markets": 300,
           "version": "goal-recency-shadow-v1",
           "weekly_comparisons": [
@@ -234198,7 +234198,7 @@
             "minimum_paired_fixtures": 300,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+          "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
           "status": "COLLECT_MORE_DATA",
           "total_fixtures": 57,
           "variants": {
@@ -236225,7 +236225,7 @@
           ],
           "gameweeks": 1,
           "minimum_settled_per_weighting": 7,
-          "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights. All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match top ten. Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for three comparisons, and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. No automatic production change. Confirm any chosen weighting on a later untouched period.",
+          "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights. All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for three comparisons, and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. No automatic production change. Confirm any chosen weighting on a later untouched period.",
           "paired_all_returns": [
             {
               "iso_weeks": 1,
@@ -236257,7 +236257,7 @@
             "minimum_settled_per_weighting": 100,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+          "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
           "status": "COLLECT_MORE_DATA",
           "total_fixtures": 23,
           "variants": {
@@ -237705,14 +237705,14 @@
             "minimum_paired_fixtures": 300,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+          "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
           "status": "COLLECT_MORE_DATA",
           "verified_coverage": 0.18421052631578946,
           "version": "pinnacle-totals-anchor-v1"
         }
       },
       "forecast_freshness": {
-        "age_hours": 3.627004503611111,
+        "age_hours": 4.288569742777778,
         "generated_at_utc": "2026-10-19T12:08:39.172353+00:00",
         "status": "WITHIN_24_HOURS",
         "upcoming_fixture_count": 79
@@ -237756,7 +237756,7 @@
             "status": "COLLECT_MORE_DATA"
           },
           {
-            "collection_days": 5,
+            "collection_days": 6,
             "key": "recency_experiment",
             "name": "recency_experiment",
             "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
@@ -237843,10 +237843,10 @@
           }
         ],
         "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+        "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-10-19T15:46:16.388566+00:00",
+      "reviewed_at_utc": "2026-10-19T16:25:58.023427+00:00",
       "selection_policy_groups": {
         "48h-top-ten-probability-ev-no-under35-v14": {
           "brier": 0.146956,
@@ -238288,7 +238288,7 @@
             "completed_matches": 36,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.0024786725,
+            "download_age_hours": 0.6640439116666667,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-14",
             "latest_completed_utc": "2026-10-14T19:00:00+00:00",
