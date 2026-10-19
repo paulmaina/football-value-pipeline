@@ -18,7 +18,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 26 | 21-5 | 80.8% | +10.8% |
 
-Unsettled / unverified entries: **15**.
+Unsettled / unverified entries: **16**.
 Whole-fixture 1X2 multiclass Brier (n=72): 0.5348
 
 ## First-prediction reference — historical comparison
@@ -46,7 +46,7 @@ Whole-fixture 1X2 multiclass Brier (n=72): 0.5348
 | 2026-10-18T09:58:14.607821+00:00 | 1 | 1-0 | 100.0% | +20.0% |
 | 2026-10-18T14:35:10.311946+00:00 | 7 | 6-1 | 85.7% | +15.0% |
 | 2026-10-19T11:20:16.296665+00:00 | 0 | 0-0 | — | — |
-| 2026-10-19T12:08:39.172353+00:00 | 0 | 0-0 | — | — |
+| 2026-10-19T16:28:42.464993+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -60,6 +60,7 @@ Whole-fixture 1X2 multiclass Brier (n=72): 0.5348
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | 48h-top-ten-probability-ev-no-under35-v14 | 7 | 6-1 | 85.7% | +15.0% |
+| 48h-top-twelve-probability-ev-no-under35-v15 | 0 | 0-0 | — | — |
 | 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
 | 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
 | 72h-seven-markets-fresh-references-net-ev15-v11 | 5 | 4-1 | 80.0% | +7.2% |
@@ -134,13 +135,12 @@ A missing, ambiguous or unverified result is **never called a win**.
 | SerieA | 2026-10-18 | 1968 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-14 | 539 | 5 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 
-Latest shortlist audit: {"selected_quotes": 10, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 10, "bookmakers": {"1xBet": 10}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 10, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 12, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 12, "bookmakers": {"1xBet": 12}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 12, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| 6556638142ba | CAPTURED | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED |
 | 010ef527d5bf | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | d3f12df5a2a2 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | e5dcb5f67050 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
@@ -160,6 +160,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 4827bd2b8014 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | f7295b8c0c24 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | ca1e126489f9 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| a18515a42a8d | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
