@@ -7,8 +7,9 @@ from shortlist_policy_experiment import clean, equivalent, statistics, block_int
 
 NAME = 'shortlist_weight_experiment'
 VERSION = 'shortlist-probability-ev-weights-v1'
-BASELINE_POLICY = '48h-top-ten-probability-ev-no-under35-v14'
-BALANCED_POLICIES = (BASELINE_POLICY,)
+TEN_MATCH_BASELINE_POLICY = '48h-top-ten-probability-ev-no-under35-v14'
+BASELINE_POLICY = '48h-top-twelve-probability-ev-no-under35-v15'
+BALANCED_POLICIES = (TEN_MATCH_BASELINE_POLICY, BASELINE_POLICY)
 VARIANTS = {
     'control': {},
     'probability_100_ev_0': {'probability_weight': 1.0},
@@ -17,7 +18,7 @@ VARIANTS = {
 }
 SELECTED = {'SHORTLISTED', 'SHORTLISTED_PROVISIONAL'}
 NOTE = ('Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights. '
-        'All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match top ten. '
+        'All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15; 10 in archived v14). '
         'Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. '
         'First eligible usable capture per fixture only; no historical backfill or repeated stakes. '
         'Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, '
