@@ -23,7 +23,7 @@
     "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
     "observations": 76,
     "rejected_files": [],
-    "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+    "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
     "version": "local-closing-quotes-v3"
   },
   "dependencies": {
@@ -33,6 +33,7 @@
     "pandas": "3.0.6",
     "python": "3.12.15",
     "python-dotenv": "1.2.4",
+    "rapidfuzz": "3.14.6",
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
@@ -609,7 +610,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+      "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
       "secondary_comparison": {
         "btts_yes": {
           "baseline": {
@@ -2236,7 +2237,7 @@
       ],
       "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+      "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
       "total_fixtures": 73,
       "version": "conservative-ev-sensitivity-v1"
     },
@@ -2366,7 +2367,7 @@
       ],
       "graded_fixture_markets": 48,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+      "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
       "total_fixture_markets": 426,
       "version": "goal-blend-shadow-v1"
     },
@@ -2789,7 +2790,7 @@
       "observed_fixture_markets": 284,
       "paired_graded_fixture_markets": 32,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+      "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -9280,7 +9281,7 @@
       },
       "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+      "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
       "version": "model-reliability-forward-v1"
     },
     "recency_experiment": {
@@ -45532,7 +45533,7 @@
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+      "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
       "total_fixture_markets": 284,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": [
@@ -49535,7 +49536,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+      "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 57,
       "variants": {
@@ -51454,7 +51455,7 @@
         "minimum_settled_per_weighting": 100,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+      "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 14,
       "variants": {
@@ -52902,11 +52903,17 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+      "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
       "status": "COLLECT_MORE_DATA",
       "verified_coverage": 0.18421052631578946,
       "version": "pinnacle-totals-anchor-v1"
     }
+  },
+  "forecast_freshness": {
+    "age_hours": 20.660430976666667,
+    "generated_at_utc": "2026-10-18T14:35:10.311946+00:00",
+    "status": "WITHIN_24_HOURS",
+    "upcoming_fixture_count": 71
   },
   "quote_audit": {
     "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -52916,14 +52923,17 @@
     "costs_recorded": 10,
     "exchange_quotes": 0,
     "missing_quote_age": 0,
+    "past_kickoff_count": 8,
     "quote_age_over_24h": 0,
-    "selected_quotes": 10
+    "selected_quotes": 10,
+    "unknown_kickoff_count": 0,
+    "upcoming_kickoff_count": 2
   },
   "review_queue": {
     "automatic_promotion": false,
     "experiments": [
       {
-        "collection_days": 5,
+        "collection_days": 6,
         "key": "goal_blend_experiment",
         "name": "goal_blend_experiment",
         "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
@@ -52933,7 +52943,7 @@
         "status": "COLLECT_MORE_DATA"
       },
       {
-        "collection_days": 5,
+        "collection_days": 6,
         "graded_paper_bets": 0,
         "key": "market_led_experiment",
         "name": "market_led_experiment",
@@ -53031,10 +53041,10 @@
       }
     ],
     "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-    "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+    "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
     "version": "experiment-review-queue-v1"
   },
-  "reviewed_at_utc": "2026-10-19T10:19:55.856775+00:00",
+  "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
   "selection_policy_groups": {
     "48h-top-ten-probability-ev-no-under35-v14": {
       "brier": 0.146956,
@@ -58819,6 +58829,9 @@
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-17"
       },
+      "odds_provider_health": {
+        "state": "NOT_RECORDED"
+      },
       "training_end": "2026-10-17",
       "training_matches": 970
     },
@@ -58873,6 +58886,9 @@
         "days_since_latest_result": 1,
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-17"
+      },
+      "odds_provider_health": {
+        "state": "NOT_RECORDED"
       },
       "training_end": "2026-10-17",
       "training_matches": 1205
@@ -58929,6 +58945,9 @@
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-17"
       },
+      "odds_provider_health": {
+        "state": "NOT_RECORDED"
+      },
       "training_end": "2026-10-17",
       "training_matches": 1223
     },
@@ -58983,6 +59002,9 @@
         "days_since_latest_result": 1,
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-17"
+      },
+      "odds_provider_health": {
+        "state": "NOT_RECORDED"
       },
       "training_end": "2026-10-17",
       "training_matches": 976
@@ -59039,6 +59061,9 @@
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-17"
       },
+      "odds_provider_health": {
+        "state": "NOT_RECORDED"
+      },
       "training_end": "2026-10-17",
       "training_matches": 1204
     },
@@ -59094,7 +59119,7 @@
         "completed_matches": 36,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 5.337975952777778,
+        "download_age_hours": 6.252422254722222,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-10-14",
         "latest_completed_utc": "2026-10-14T19:00:00+00:00",
@@ -59132,6 +59157,9 @@
         "source_schedule_matches": 144,
         "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
         "training_end": "2026-10-14"
+      },
+      "odds_provider_health": {
+        "state": "NOT_RECORDED"
       },
       "training_end": "2026-10-14",
       "training_matches": 539
