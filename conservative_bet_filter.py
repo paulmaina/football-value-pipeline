@@ -1,7 +1,8 @@
 """Experimental ten-match, seven-market shortlist; never guarantee winners.
 
 One market per fixture, up to ten distinct matches across the whole run.
-Only select kickoffs within the next 72 hours of the run, including UCL.
+Current balanced policy selects kickoffs within 48 hours, including UCL.
+Archived legacy policies retain their original 72-hour window.
 Strict selections retain every rule. When fewer than ten qualify, a clearly
 marked PROVISIONAL WATCHLIST may include nearest historical-evidence misses,
 never malformed odds, stale quotes or unknown teams. It is not a ten-leg
@@ -24,7 +25,8 @@ DOMESTIC_LEAGUES = frozenset({
 })
 SUPPORTED_LEAGUES = DOMESTIC_LEAGUES | {"UEFA Champions League"}
 TARGET_DISTINCT_MATCHES = 10
-SHORTLIST_LOOKAHEAD_HOURS = 72.0
+SHORTLIST_LOOKAHEAD_HOURS = 72.0  # Archived legacy policy contract.
+BALANCED_SHORTLIST_LOOKAHEAD_HOURS = 48.0
 MIN_ESTIMATED_EV = 0.015
 MIN_BOOKMAKERS = 1
 MIN_DOUBLE_CHANCE_ADJUSTED_EV = 0.015
@@ -538,7 +540,7 @@ def build_conservative_shortlist(
     policy_version = SELECTION_POLICY_VERSION if selection_policy_version is None else selection_policy_version
     balanced_policy = policy_version in (BALANCED_SELECTION_POLICY_VERSION, PREVIOUS_BALANCED_SELECTION_POLICY_VERSION)
     probability_policy = balanced_policy or policy_version == PROBABILITY_SELECTION_POLICY_VERSION
-    lookahead_hours = 48.0 if balanced_policy else SHORTLIST_LOOKAHEAD_HOURS
+    lookahead_hours = BALANCED_SHORTLIST_LOOKAHEAD_HOURS if balanced_policy else SHORTLIST_LOOKAHEAD_HOURS
     if policy_version not in (BALANCED_SELECTION_POLICY_VERSION, PREVIOUS_BALANCED_SELECTION_POLICY_VERSION, PROBABILITY_SELECTION_POLICY_VERSION, SELECTION_POLICY_VERSION, PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
         raise ValueError("Unsupported baseline shortlist policy; preserve replay compatibility")
     # Archived v9 comparisons must replay their original six-market ranking.
