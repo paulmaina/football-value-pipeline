@@ -66,8 +66,11 @@ def inspect_csv(content, division, year, clock):
                 break
             except (ValueError, TypeError):
                 pass
-        if date is None or date > clock.date() or not year <= date.year <= year + 1:
+        if date is None or date > clock.date() or not (datetime(year, 7, 1).date() <= date < datetime(year + 1, 7, 1).date()):
             raise ValueError('Invalid, future or wrong-season match date')
+        expected_result = 'H' if int(hg) > int(ag) else 'A' if int(ag) > int(hg) else 'D'
+        if row.get('FTR') and row['FTR'] != expected_result:
+            raise ValueError('Final result contradicts final score')
         home, away = [(row.get(k) or '').strip() for k in ('HomeTeam', 'AwayTeam')]
         if not home or not away or home == away:
             raise ValueError('Invalid team identities')
@@ -133,10 +136,19 @@ def apply_batch(repo, batch, clock):
             if not set(old_matches).issubset(new_matches):
                 raise ValueError(f"Refusing removed completed fixtures in {item['path']}")
         latest = max(key[0] for key in new_matches)
+        try:
+            source_text = item['content'].decode('utf-8-sig')
+        except UnicodeDecodeError:
+            source_text = item['content'].decode('latin-1')
+        source_rows = list(csv.DictReader(io.StringIO(source_text)))
+        statistic_coverage = {field: sum(bool((row.get(field) or '').strip())
+            for row in source_rows if row.get('FTHG') and row.get('FTAG'))
+            for field in ('HS','AS','HST','AST','HC','AC','HF','AF','HY','AY','HR','AR')}
         entries.append({k: item[k] for k in ('league','division','year','path','source_url')} | {
             'checked_at_utc': clock.isoformat(),
             'sha256': hashlib.sha256(item['content']).hexdigest(),
             'completed_matches': len(new_matches), 'latest_completed_date': latest,
+            'statistic_nonempty_rows': statistic_coverage,
             'added_matches': len(set(new_matches)-set(old_matches)),
             'corrected_scores': sum(new_matches[k] != v for k,v in old_matches.items()),
             'download_status': 'unchanged' if previous == item['content'] else 'updated',

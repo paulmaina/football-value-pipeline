@@ -3,7 +3,7 @@
 `Refresh domestic training data` is a separate GitHub Actions workflow. It downloads football-data.co.uk data without running forecasts, consuming odds API credits, or using an API key.
 
 - Current season in EPL, La Liga, Bundesliga, Serie A and Ligue 1: every four hours at 03:17, 07:17, 11:17, 15:17, 19:17 and 23:17 EAT (GitHub may delay scheduled jobs).
-- Four seasons: automatically when the refresh code/workflow is merged, or manually via Actions → Refresh domestic training data → Run workflow → full_history.
+- Six seasons (including current): automatically when the refresh code/workflow is merged, or manually via Actions → Refresh domestic training data → Run workflow → full_history.
 - UCL is excluded because its training provider is football-data.org.
 
 Validated CSVs are published to the existing `.football_cache` paths. A machine-readable audit at `docs/training_refresh_status.json` records each source URL, content hash, match count, newest completed result, download time and additions/corrections. The Actions run summary displays those dates. A successful request or recent check time does NOT mean the source has published recent results.
@@ -24,9 +24,16 @@ Training is refitted when the prediction command runs; the background job only r
 For a training-only download locally, without odds calls:
 
 ```powershell
-py refresh_training_data.py --seasons-back 4
+py refresh_training_data.py --seasons-back 6
 ```
 
 This validates all downloaded files before writing; publishing all files atomically is a Git workflow property, while local replacement is atomic per file. Upstream removals/date or team-name corrections fail closed and require review. The first version deliberately does not merge a second provider, invent missing results, regenerate predictions, or claim completeness from a latest-date check.
 
 UCL now has a separate four-hour validated current-season refresh. See [daily evidence](daily-evidence.md) for its schedule/finished-match comparison, cache provenance, model/source freshness distinction and report integration. The domestic behavior documented above remains unchanged.
+
+
+## Prediction history window
+
+The normal prediction command now reads six domestic seasons by default, including the current season. `--domestic-seasons-back 6` controls this window; use `--domestic-seasons-back 4` to reproduce the prior domestic window. UCL defaults to four seasons; this change makes no additional UCL provider requests. An explicit `--seasons-back N` still overrides both competitions as before; `--domestic-seasons-back` takes precedence for domestic leagues. Programmatic pipeline callers that omit the domestic override retain their existing shared window.
+
+Original CSV statistics columns are retained, with their provider definitions. Loading more score history does not automatically make those columns BBS predictor features. Additional seasons do not establish improved accuracy; historical evaluations remain retrospective.
