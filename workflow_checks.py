@@ -78,12 +78,17 @@ def raw_check(root):
             if (field.startswith('p_') or field.startswith('raw_p_')) and value not in ('',None):
                 require(number(value,min_value=0,max_value=1) is not None, f'Invalid probability column {field}')
     selected=set()
-    balanced = summary.get('selection_policy_version') in ('48h-top-ten-probability-ev-v13', '48h-top-ten-probability-ev-no-under35-v14')
-    excludes_under = summary.get('selection_policy_version') == '48h-top-ten-probability-ev-no-under35-v14'
+    from conservative_bet_filter import (BALANCED_SELECTION_POLICIES,
+        BALANCED_SELECTION_POLICY_VERSION, NO_UNDER35_SELECTION_POLICIES, TARGET_DISTINCT_MATCHES)
+    policy_version = summary.get('selection_policy_version')
+    balanced = policy_version in BALANCED_SELECTION_POLICIES
+    excludes_under = policy_version in NO_UNDER35_SELECTION_POLICIES
+    target = TARGET_DISTINCT_MATCHES if policy_version == BALANCED_SELECTION_POLICY_VERSION else 10
     previous_score = float('inf')
     if balanced:
         require(summary.get('shortlist_lookahead_hours') == 48, 'Balanced shortlist must use 48 hours')
-        require(len(picks) <= 10, 'Balanced shortlist exceeds ten fixtures')
+        require(summary.get('target_distinct_matches') == target, 'Balanced shortlist target differs from policy')
+        require(len(picks) <= target, f'Balanced shortlist exceeds {target} fixtures')
     for row in picks:
         key=fixture_key(row);require(key in keys, 'Selection without matching forecast')
         require(key not in selected, 'Multiple selected markets for one fixture');selected.add(key)
@@ -107,6 +112,39 @@ def raw_check(root):
         ('n_strict_qualified',sum(r.get('selection_tier')=='STRICT' for r in picks)),
         ('n_provisional_watchlist',sum(r.get('selection_tier')=='PROVISIONAL' for r in picks))]:
         if field in summary: require(summary[field]==count, f'Forecast summary {field} does not match CSV')
+    if policy_version == BALANCED_SELECTION_POLICY_VERSION:
+        # The current production policy must be reproducible even if optional
+        # experiment sidecars are absent. Checking score arithmetic alone does
+        # not bind the selected market, price, EV or top-twelve membership.
+        import pandas as pd
+        from conservative_bet_filter import build_conservative_shortlist
+        from filter_sensitivity_experiment import clean as clean_frame
+        from shortlist_policy_experiment import equivalent
+        reliability = None
+        if summary.get('validation_required'):
+            reliability = {}
+            for path in sorted(raw.glob('*_goal_market_validation.json')):
+                report = read_json(path)
+                require(isinstance(report, dict) and isinstance(report.get('league'), str),
+                        'Invalid current shortlist reliability evidence')
+                require(report['league'] not in reliability, 'Duplicate shortlist reliability evidence')
+                reliability[report['league']] = report
+            require(bool(reliability), 'Missing current shortlist reliability evidence')
+        expected, _, replay = build_conservative_shortlist(
+            pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False),
+            as_of=utc(summary['generated_at_utc']), market_reliability=reliability,
+            execution_policy=summary.get('quote_execution_policy'),
+            selection_policy_version=policy_version)
+        actual = pd.read_csv(raw/'conservative_bet_shortlist.csv', low_memory=False)
+        require(set(expected.columns).issubset(actual.columns), 'Missing current shortlist replay columns')
+        # CSV blank strings deserialize as null, including empty strict-rule
+        # warnings. Normalize only that representation difference for replay.
+        require(equivalent(clean_frame(actual[list(expected.columns)]), clean_frame(expected.replace('', None))),
+                'Current shortlist differs from deterministic ranking replay')
+        for field in ('target_distinct_matches', 'shortfall', 'usable_distinct_fixtures',
+                      'ranking_weights', 'eligible_markets', 'quote_execution_policy'):
+            require(equivalent(summary.get(field), replay[field]),
+                    f'Current shortlist summary {field} differs from ranking replay')
     warnings=[]
     for name in SIDECARS:
         module = name.removesuffix('.json')
@@ -484,3 +522,5 @@ def main(argv=None):
 
 
 if __name__=='__main__':raise SystemExit(main())
+
+

@@ -1,12 +1,11 @@
-"""Experimental ten-match, seven-market shortlist; never guarantee winners.
+"""Experimental twelve-match, seven-market shortlist; never guarantee winners.
 
-One market per fixture, up to ten distinct matches across the whole run.
+One market per fixture, up to twelve distinct matches across the whole run.
 Current balanced policy selects kickoffs within 48 hours, including UCL.
-Archived legacy policies retain their original 72-hour window.
-Strict selections retain every rule. When fewer than ten qualify, a clearly
-marked PROVISIONAL WATCHLIST may include nearest historical-evidence misses,
-never malformed odds, stale quotes or unknown teams. It is not a ten-leg
-betting recommendation. The strategy is not validated for profitability.
+Archived policies retain their original match caps and windows.
+Strict-rule failures remain visible as PROVISIONAL warnings. Malformed odds,
+stale quotes and unknown teams remain excluded. The shortlist is not an
+accumulator recommendation. The strategy is not validated for profitability.
 """
 
 from __future__ import annotations
@@ -24,7 +23,7 @@ DOMESTIC_LEAGUES = frozenset({
     "Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1"
 })
 SUPPORTED_LEAGUES = DOMESTIC_LEAGUES | {"UEFA Champions League"}
-TARGET_DISTINCT_MATCHES = 10
+TARGET_DISTINCT_MATCHES = 12
 SHORTLIST_LOOKAHEAD_HOURS = 72.0  # Archived legacy policy contract.
 BALANCED_SHORTLIST_LOOKAHEAD_HOURS = 48.0
 MIN_ESTIMATED_EV = 0.015
@@ -48,7 +47,10 @@ PROVISIONAL_MIN_HIGH_DEVELOPMENT = 3
 SELECTION_POLICY_VERSION = "72h-seven-markets-fresh-references-net-ev15-v11"
 PROBABILITY_SELECTION_POLICY_VERSION = "72h-top-ten-adjusted-probability-v12"
 PREVIOUS_BALANCED_SELECTION_POLICY_VERSION = "48h-top-ten-probability-ev-v13"
-BALANCED_SELECTION_POLICY_VERSION = "48h-top-ten-probability-ev-no-under35-v14"
+TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION = "48h-top-ten-probability-ev-no-under35-v14"
+BALANCED_SELECTION_POLICY_VERSION = "48h-top-twelve-probability-ev-no-under35-v15"
+BALANCED_SELECTION_POLICIES = (BALANCED_SELECTION_POLICY_VERSION, TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION, PREVIOUS_BALANCED_SELECTION_POLICY_VERSION)
+NO_UNDER35_SELECTION_POLICIES = (BALANCED_SELECTION_POLICY_VERSION, TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION)
 PREVIOUS_SELECTION_POLICY_VERSION = "72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10"
 LEGACY_SELECTION_POLICY_VERSION = "72h-six-markets-dc12-probability-odds-net-ev15-v9"
 MARKET_SPECS = (
@@ -439,7 +441,7 @@ def _near_miss_score(row: pd.Series, limits: Mapping[str, tuple], adjusted_ev_fl
 
 
 
-def _probability_choices(decisions, adjusted_ev_floor=None, *, balanced=False, probability_weight=.5):
+def _probability_choices(decisions, adjusted_ev_floor=None, *, balanced=False, probability_weight=.5, target=10):
     """Rank usable quotes globally; strict-rule failures remain visible warnings."""
     from performance_tracking import fixture_key, canonical_team_key
     soft_prefixes = (
@@ -503,7 +505,7 @@ def _probability_choices(decisions, adjusted_ev_floor=None, *, balanced=False, p
             decisions.loc[i, 'rejection_reasons'] = '; '.join(filter(None, [reasons, 'experimental adjusted EV floor not met']))
         pool = pool.drop(index=rejected)
         candidates = [i for i in candidates if i not in rejected]
-    top = pool.drop_duplicates('_fixture_key').head(TARGET_DISTINCT_MATCHES)
+    top = pool.drop_duplicates('_fixture_key').head(target)
     strict, ranked = [], []
     for i in candidates:
         if i not in top.index:
@@ -527,9 +529,9 @@ def build_conservative_shortlist(
     execution_policy: Optional[Mapping] = None,
     selection_policy_version: Optional[str] = None,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, dict]:
-    """Aim for ten distinct fixtures; never fabricate a minimum ten.
+    """Rank up to twelve fixtures for the current policy; replay legacy caps.
 
-    Returns shortlist (at most 10 rows), all market decisions, and a
+    Returns shortlist (at most the policy target), all market decisions, and a
     summary with any shortfall. A shortlisted row is a
     candidate to study, NOT an automatically constructed accumulator.
     """
@@ -538,13 +540,15 @@ def build_conservative_shortlist(
         raise ValueError("as_of must be timezone-aware")
     now = now.tz_convert("UTC")
     policy_version = SELECTION_POLICY_VERSION if selection_policy_version is None else selection_policy_version
-    balanced_policy = policy_version in (BALANCED_SELECTION_POLICY_VERSION, PREVIOUS_BALANCED_SELECTION_POLICY_VERSION)
+    target = TARGET_DISTINCT_MATCHES if policy_version == BALANCED_SELECTION_POLICY_VERSION else 10
+    target_label = "twelve" if target == 12 else "ten"
+    balanced_policy = policy_version in BALANCED_SELECTION_POLICIES
     probability_policy = balanced_policy or policy_version == PROBABILITY_SELECTION_POLICY_VERSION
     lookahead_hours = BALANCED_SHORTLIST_LOOKAHEAD_HOURS if balanced_policy else SHORTLIST_LOOKAHEAD_HOURS
-    if policy_version not in (BALANCED_SELECTION_POLICY_VERSION, PREVIOUS_BALANCED_SELECTION_POLICY_VERSION, PROBABILITY_SELECTION_POLICY_VERSION, SELECTION_POLICY_VERSION, PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
+    if policy_version not in (*BALANCED_SELECTION_POLICIES, PROBABILITY_SELECTION_POLICY_VERSION, SELECTION_POLICY_VERSION, PREVIOUS_SELECTION_POLICY_VERSION, LEGACY_SELECTION_POLICY_VERSION):
         raise ValueError("Unsupported baseline shortlist policy; preserve replay compatibility")
     # Archived v9 comparisons must replay their original six-market ranking.
-    specs = tuple(spec for spec in (PROBABILITY_MARKET_SPECS if probability_policy and policy_version != BALANCED_SELECTION_POLICY_VERSION else MARKET_SPECS)
+    specs = tuple(spec for spec in (PROBABILITY_MARKET_SPECS if probability_policy and policy_version not in NO_UNDER35_SELECTION_POLICIES else MARKET_SPECS)
                   if policy_version != LEGACY_SELECTION_POLICY_VERSION or spec[1] != "btts_yes")
 
     if adjusted_ev_floor is not None and (not math.isfinite(adjusted_ev_floor) or adjusted_ev_floor < MIN_ESTIMATED_EV):
@@ -552,7 +556,7 @@ def build_conservative_shortlist(
     if research_policy is not None:
         limits = {'blended_shift': (-.03, .03), 'raw_shift': (-.03, .03),
                   'adjusted_shift': (-.03, .03), 'penalty_multiplier': (.5, 1.5),
-                  **({'probability_weight': (.25, 1.0)} if policy_version == BALANCED_SELECTION_POLICY_VERSION else {})}
+                  **({'probability_weight': (.25, 1.0)} if policy_version in NO_UNDER35_SELECTION_POLICIES else {})}
         if not isinstance(research_policy, Mapping) or set(research_policy) - set(limits):
             raise ValueError('Unknown research policy setting')
         for name, value in research_policy.items():
@@ -593,7 +597,7 @@ def build_conservative_shortlist(
     eligible["_fixture_key"] = id_series.where(id_series.str.len() > 0, fallback)
     top_per_match = eligible.drop_duplicates("_fixture_key", keep="first").copy()
     # The horizon is a hard eligibility rule above, including provisional picks.
-    chosen = top_per_match.head(TARGET_DISTINCT_MATCHES).index
+    chosen = top_per_match.head(target).index
 
     alternate = eligible.index.difference(top_per_match.index)
     overflow = top_per_match.index.difference(chosen)
@@ -611,7 +615,7 @@ def build_conservative_shortlist(
     provisional_ids = pd.Index([], dtype="int64")
     # A visible research/watchlist supplement: actual strict qualifiers
     # retain their statuses. A near miss is NEVER reclassified as strict.
-    if market_reliability is not None and n_strict < TARGET_DISTINCT_MATCHES:
+    if market_reliability is not None and n_strict < target:
         pool = decisions.loc[decisions["decision"] == "REJECTED"].copy()
         minimums = {
             label: (min_p + (research_policy or {}).get('adjusted_shift', 0.0), min_raw)
@@ -641,7 +645,7 @@ def build_conservative_shortlist(
         pool["_fixture_key"] = fixture_keys(pool)
         pool = pool.loc[~pool["_fixture_key"].isin(excluded_keys)]
         pool = pool.drop_duplicates("_fixture_key", keep="first")
-        provisional_ids = pool.head(TARGET_DISTINCT_MATCHES-n_strict).index
+        provisional_ids = pool.head(target-n_strict).index
         if len(provisional_ids):
             decisions.loc[provisional_ids, "decision"] = "SHORTLISTED_PROVISIONAL"
             decisions.loc[provisional_ids, "selection_tier"] = "PROVISIONAL"
@@ -653,7 +657,7 @@ def build_conservative_shortlist(
             )
     if probability_policy:
         decisions = original_decisions
-        chosen, provisional_ids, available_fixtures = _probability_choices(decisions, adjusted_ev_floor, balanced=balanced_policy, probability_weight=probability_weight)
+        chosen, provisional_ids, available_fixtures = _probability_choices(decisions, adjusted_ev_floor, balanced=balanced_policy, probability_weight=probability_weight, target=target)
         n_strict = len(chosen)
     chosen_all = chosen.append(provisional_ids)
     shortlist = (
@@ -689,8 +693,8 @@ def build_conservative_shortlist(
         and bool((kickoff_times >= now + pd.Timedelta(minutes=MIN_MINUTES_UNTIL_KICKOFF)).all())
     )
     status = (
-        "TARGET_MET" if n == TARGET_DISTINCT_MATCHES and not len(provisional_ids)
-        else "TARGET_WITH_PROVISIONAL" if n == TARGET_DISTINCT_MATCHES
+        "TARGET_MET" if n == target and not len(provisional_ids)
+        else "TARGET_WITH_PROVISIONAL" if n == target
         else "BELOW_TARGET_WITH_PROVISIONAL" if len(provisional_ids)
         else "BELOW_TARGET" if n
         else "NO BET"
@@ -705,8 +709,8 @@ def build_conservative_shortlist(
         "n_strict_qualified": int(n_strict),
         "n_provisional_watchlist": int(len(provisional_ids)),
         "n_total_candidates": n,
-        "target_distinct_matches": TARGET_DISTINCT_MATCHES,
-        "shortfall": TARGET_DISTINCT_MATCHES - n,
+        "target_distinct_matches": target,
+        "shortfall": target - n,
         "shortlist_lookahead_hours": lookahead_hours,
         "shortlist_window_start_utc": now.isoformat(),
         "shortlist_window_end_utc": (
@@ -721,12 +725,12 @@ def build_conservative_shortlist(
         "selected_last_kickoff_utc": (
             last_kickoff.isoformat() if last_kickoff is not None else None
         ),
-        "selection_method": ("Top ten distinct fixtures within 48 hours; equal-weight adjusted probability and adjusted EV percentile score; strict status does not change ranking" if balanced_policy else
+        "selection_method": (f"Top {target_label} distinct fixtures within 48 hours; equal-weight adjusted probability and adjusted EV percentile score; strict status does not change ranking" if balanced_policy else
                              "Top ten distinct fixtures within 72 hours; highest adjusted probability, then highest quoted odds; strict status does not change ranking"
                              if probability_policy else "Strict-first ranking within 72 hours; highest adjusted probability, then highest quoted odds"),
         **({'selection_objective': 'BALANCED_PROBABILITY_EV' if balanced_policy else 'PROBABILITY_FIRST', 'usable_distinct_fixtures': available_fixtures,
             'ev_required_for_selection': False, 'probability_thresholds_required_for_selection': False,
-            'shortfall_reason': 'Fewer than ten distinct fixtures have usable predictions and fresh allowed-bookmaker quotes inside the window' if n < TARGET_DISTINCT_MATCHES else None}
+            'shortfall_reason': f'Fewer than {target_label} distinct fixtures have usable predictions and fresh allowed-bookmaker quotes inside the window' if n < target else None}
            if probability_policy else {}),
         **({'ranking_weights': {'adjusted_probability_percentile': probability_weight, 'adjusted_ev_percentile': 1-probability_weight},
             'score_formula': f'{probability_weight:g} * probability_percentile + {1-probability_weight:g} * ev_percentile',
@@ -757,7 +761,7 @@ def build_conservative_shortlist(
         "min_team_name_match_score": MIN_TEAM_NAME_MATCH_SCORE,
         "max_quote_age_hours": MAX_ODDS_AGE_HOURS,
         "rule": (
-            "Top ten by equal-weight adjusted probability/EV percentile score, one market per fixture, within 48 hours; no probability or EV cutoff" if balanced_policy else
+            f"Top {target_label} by equal-weight adjusted probability/EV percentile score, one market per fixture, within 48 hours; no probability or EV cutoff" if balanced_policy else
             "Top ten by adjusted probability, one real quoted market per fixture; EV and confidence thresholds annotate qualification rather than limit ranking" if probability_policy else
             "one independently quoted market per distinct fixture; "
             "strict qualifications first, then up to ten clearly labeled "
@@ -778,3 +782,4 @@ def build_conservative_shortlist(
             "betslips exist; ten-leg accumulators have substantial loss risk."
         ),
     }
+

@@ -39,27 +39,27 @@ def setup(root, rows=None):
 
 class WeightTrialTests(OfflineQuotePolicyTestCase):
     def test_fixed_weights_change_selection_on_identical_pool_without_changing_production(self):
-        rows = [only_over_goal(i) for i in range(12)]
+        rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(14)]
         for i, row in enumerate(rows):
             p = .95-.02*i; ev = -.03+.03*i
             row.update(p_over_1_5=p, raw_p_over_1_5=p-.02, market_over_1_5_odds=(1+ev)/p)
         with tempfile.TemporaryDirectory() as tmp:
             raw, data, frame, picks, decisions, summary = setup(Path(tmp), rows)
-            self.assertEqual(len(data['rows']), 12*7*4)
+            self.assertEqual(len(data['rows']), 14*7*4)
             self.assertNotIn('Under 3.5', {r['market'] for r in data['rows']})
             by_variant = {v:[r for r in data['rows'] if r['variant_id']==v] for v in trial.VARIANTS}
             for v, policy in trial.VARIANTS.items():
                 w = policy.get('probability_weight', .5)
                 chosen = [r for r in by_variant[v] if r['decision'] in trial.SELECTED]
-                self.assertEqual(len(chosen), 10)
-                self.assertEqual(len({r['fixture_id'] for r in chosen}), 10)
+                self.assertEqual(len(chosen), 12)
+                self.assertEqual(len({r['fixture_id'] for r in chosen}), 12)
                 for r in by_variant[v]:
                     if r['selection_score'] is not None:
                         self.assertAlmostEqual(r['selection_score'], w*r['probability_percentile']+(1-w)*r['ev_percentile'])
             hi = {r['fixture_id'] for r in by_variant['probability_100_ev_0'] if r['decision'] in trial.SELECTED}
             ev = {r['fixture_id'] for r in by_variant['probability_25_ev_75'] if r['decision'] in trial.SELECTED}
             self.assertIn('fixture-0', hi); self.assertNotIn('fixture-0', ev)
-            self.assertIn('fixture-11', ev); self.assertNotIn('fixture-11', hi)
+            self.assertIn('fixture-13', ev); self.assertNotIn('fixture-13', hi)
             replay = build_conservative_shortlist(frame, as_of=NOW, market_reliability=data['validation_evidence'], selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)
             pd.testing.assert_frame_equal(picks, replay[0]); pd.testing.assert_frame_equal(decisions, replay[1])
             self.assertEqual(summary, replay[2])
