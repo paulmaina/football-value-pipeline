@@ -1715,10 +1715,34 @@
     "calibration_penalty": "0.0",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "1xbet",
+        "decimal_odds": 1.35,
+        "devig_method": "proportional_overlap_sum_two",
+        "fair_close_ev": -0.02867469879518092,
+        "fair_probability": 0.6987951807228915,
+        "observation_sha256": "e242de6de0a98b4a07fc78901dd6138229d0b66e59d146b2c84c596643e0c619",
+        "observed_at_utc": "2026-10-19T16:24:05.167336+00:00",
+        "offered_price_clv": 0.02962962962962945,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 354.832664,
+        "selection": "home_away",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-19T16:23:56+00:00"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.39,
+        "devig_method": "proportional_overlap_sum_two",
+        "fair_close_ev": -0.030641215132551358,
+        "fair_probability": 0.6973804207679487,
+        "observation_sha256": "e242de6de0a98b4a07fc78901dd6138229d0b66e59d146b2c84c596643e0c619",
+        "observed_at_utc": "2026-10-19T16:24:05.167336+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 354.832664,
+        "selection": "home_away",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-19T16:24:03+00:00"
       }
     },
     "conservative_estimated_ev": "0.009507329796842212",
@@ -2630,6 +2654,67 @@
     "snapshot_captured_utc": "2026-10-19T13:00:42Z",
     "snapshot_commit": "ca1e126489f9dedd7d4f5072a6bfa57835dec39c",
     "snapshot_generated_utc": "2026-10-19T12:08:39.172353+00:00",
+    "validation_status": "RELIABLE_FOR_RANKING"
+  },
+  {
+    "audit_brier": "0.20580869931844953",
+    "audit_validation_matches": "164",
+    "away_team": "Torino",
+    "bookmaker": "1xBet",
+    "bookmaker_availability": "USER_ALLOWLIST",
+    "calibration_penalty": "0.0010922195512849324",
+    "closing": {
+      "1xbet": {
+        "status": "PENDING_KICKOFF"
+      },
+      "pinnacle": {
+        "status": "PENDING_KICKOFF"
+      }
+    },
+    "conservative_estimated_ev": "-0.007321788059417855",
+    "date": "2026-10-19",
+    "decision": "SHORTLISTED_PROVISIONAL",
+    "development_validation_matches": "486",
+    "entry_price_basis": "frozen offered quote; accepted execution unverified",
+    "estimated_edge": "0.01551859777116471",
+    "estimated_ev": "-0.005552392386336313",
+    "ev_percentile": "0.7236842105263158",
+    "evaluated_at_utc": "2026-10-19T16:28:42.464993+00:00",
+    "fixture_id": "07014d9adc65ca39710bd9f0c7c0d3f0",
+    "fixture_key": "Serie A|parma|torino|2026-10-19",
+    "gross_estimated_ev": "-0.005552392386336313",
+    "high_confidence_audit_matches": "",
+    "high_confidence_audit_observed_rate": "",
+    "high_confidence_development_matches": "",
+    "high_confidence_overconfidence": "",
+    "high_confidence_penalty": "0.0",
+    "high_confidence_status": "NOT_REQUIRED",
+    "high_confidence_tier": "",
+    "high_confidence_wilson95_lower": "",
+    "high_confidence_wilson95_upper": "",
+    "historical_gap_score": "",
+    "home_team": "Parma",
+    "kickoff_utc": "2026-10-19T18:45:00+00:00",
+    "league": "Serie A",
+    "market": "Double Chance 1X",
+    "market_probability": "0.5983379501385042",
+    "min_team_name_match_score": "100.0",
+    "near_miss_reason": "blended probability below 80% or missing; raw Dixon-Coles probability below 75% or missing; reliability-adjusted EV below +1.5% or missing; reliability-adjusted probability below minimum",
+    "odds_age_hours": "0.021240275833333336",
+    "offered_decimal_odds": "1.62",
+    "per_stake_cost": "0.0",
+    "predicted_probability": "0.6138565479096689",
+    "probability_percentile": "0.5394736842105263",
+    "rank_probability": "0.612764328358384",
+    "raw_dc_ev": "0.024061737600589606",
+    "raw_dc_probability": "0.6321368750620924",
+    "rejection_reasons": "blended probability below 80% or missing; raw Dixon-Coles probability below 75% or missing; reliability-adjusted EV below +1.5% or missing; reliability-adjusted probability below minimum",
+    "selection_policy_version": "48h-top-twelve-probability-ev-no-under35-v15",
+    "selection_score": "0.631578947368421",
+    "selection_tier": "PROVISIONAL",
+    "snapshot_captured_utc": "2026-10-19T16:41:24Z",
+    "snapshot_commit": "a18515a42a8daaed253da4026cd3842636af06e7",
+    "snapshot_generated_utc": "2026-10-19T16:28:42.464993+00:00",
     "validation_status": "RELIABLE_FOR_RANKING"
   }
 ]
