@@ -1,0 +1,350 @@
+{
+  "snapshot_checksums": {
+    "Bundesliga_enriched_history.csv": true,
+    "EPL_enriched_history.csv": true,
+    "LaLiga_enriched_history.csv": true,
+    "Ligue1_enriched_history.csv": true,
+    "SerieA_enriched_history.csv": true,
+    "UCL_enriched_history.csv": true,
+    "fixtures.json": true,
+    "players.json": true,
+    "report.json": true,
+    "standings.json": true,
+    "team_mappings.json": true,
+    "teams.json": true
+  },
+  "source_history_rows": 9744,
+  "combined_leagues": {
+    "LaLiga_enriched_history.csv": {
+      "rows": 1987,
+      "latest": "2026-10-18"
+    },
+    "UCL_enriched_history.csv": {
+      "rows": 539,
+      "latest": "2026-10-14"
+    },
+    "SerieA_enriched_history.csv": {
+      "rows": 1968,
+      "latest": "2026-10-18"
+    },
+    "Bundesliga_enriched_history.csv": {
+      "rows": 1584,
+      "latest": "2026-10-18"
+    },
+    "EPL_enriched_history.csv": {
+      "rows": 1969,
+      "latest": "2026-10-18"
+    },
+    "Ligue1_enriched_history.csv": {
+      "rows": 1741,
+      "latest": "2026-10-18"
+    }
+  },
+  "bbs": {
+    "cutoff": "2026-10-19T13:58:20.264342+00:00",
+    "coverage": {
+      "Bundesliga": {
+        "completed_matches": 54,
+        "player_records": 663,
+        "scheduled_matches": 252,
+        "statistics_available": 54,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 0,
+        "team_records": 31
+      },
+      "EPL": {
+        "completed_matches": 69,
+        "player_records": 775,
+        "scheduled_matches": 311,
+        "statistics_available": 69,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 0,
+        "team_records": 36
+      },
+      "LaLiga": {
+        "completed_matches": 87,
+        "player_records": 765,
+        "scheduled_matches": 292,
+        "statistics_available": 87,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 0,
+        "team_records": 33
+      },
+      "Ligue1": {
+        "completed_matches": 63,
+        "player_records": 556,
+        "scheduled_matches": 243,
+        "statistics_available": 63,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 0,
+        "team_records": 35
+      },
+      "SerieA": {
+        "completed_matches": 68,
+        "player_records": 741,
+        "scheduled_matches": 312,
+        "statistics_available": 68,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 0,
+        "team_records": 36
+      },
+      "UCL": {
+        "completed_matches": 36,
+        "player_records": 0,
+        "scheduled_matches": 108,
+        "statistics_available": 27,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 9,
+        "team_records": 27
+      }
+    },
+    "quarantines": [
+      {
+        "bbs_match_id": "e83c2540-60f6-4625-a843-63f9371af806",
+        "league": "UCL",
+        "reason": "Invalid completed score or future completed fixture"
+      },
+      {
+        "bbs_match_id": "473512a0-57b6-4c6f-8483-1a430cd18ad5",
+        "league": "UCL",
+        "reason": "Invalid completed score or future completed fixture"
+      }
+    ],
+    "conflicts": 163,
+    "conflicted_matches": 80
+  },
+  "forecasts": {
+    "generated": "2026-10-19T12:08:39.172353+00:00",
+    "rows": 79,
+    "leagues": {
+      "Premier League": 11,
+      "La Liga": 12,
+      "Bundesliga": 9,
+      "Serie A": 20,
+      "Ligue 1": 9,
+      "UEFA Champions League": 18
+    }
+  },
+  "twelve_replay": {
+    "selected": 12,
+    "usable": 13,
+    "negative_ev": 5,
+    "under35": 0,
+    "markets": {
+      "Double Chance 12": 7,
+      "Both Teams to Score - Yes": 1,
+      "Double Chance 1X": 2,
+      "Double Chance X2": 2
+    },
+    "old_ten_prefix_unchanged": true
+  },
+  "sidecars": {
+    "shortlist_weight_experiment": "BOUND",
+    "filter_sensitivity_experiment": "BOUND",
+    "goal_blend_experiment": "BOUND",
+    "benchmark_forward_experiment": "BOUND",
+    "totals_anchor_experiment": "BOUND",
+    "model_reliability_experiment": "BOUND",
+    "market_led_experiment": "BOUND"
+  },
+  "archive": {
+    "snapshots": 38,
+    "core_checksums": 114,
+    "first_eligible": 41,
+    "latest_eligible": 41,
+    "all_run_records": 170
+  },
+  "health": {
+    "metrics": {
+      "reviewed_at_utc": "2026-10-19T14:50:03Z",
+      "status": "PARTIALLY_GRADED",
+      "tracked_prediction_runs": 34,
+      "unique_shortlisted_fixtures": 41
+    },
+    "workflow_health": {
+      "reviewed_at_utc": "2026-10-19T14:50:03Z",
+      "snapshots": 38,
+      "status": "VERIFIED",
+      "warnings": []
+    },
+    "pipeline_health": {
+      "reviewed_at_utc": "2026-10-19T14:50:03.723645+00:00",
+      "forecast_freshness": {
+        "age_hours": 2.690153136666667,
+        "generated_at_utc": "2026-10-19T12:08:39.172353+00:00",
+        "status": "WITHIN_24_HOURS",
+        "upcoming_fixture_count": 79
+      }
+    }
+  },
+  "fits": {
+    "Ligue1_diagnostics": {
+      "rows": 1741,
+      "seasons": 6,
+      "fit_success": true,
+      "eligible_bbs": 17,
+      "bbs_weight": 0.0
+    },
+    "LaLiga_diagnostics": {
+      "rows": 1987,
+      "seasons": 6,
+      "fit_success": true,
+      "eligible_bbs": 45,
+      "bbs_weight": 0.0
+    },
+    "UCL_diagnostics": {
+      "rows": 539,
+      "seasons": 4,
+      "fit_success": true,
+      "eligible_bbs": 0,
+      "bbs_weight": 0.0
+    },
+    "EPL_diagnostics": {
+      "rows": 1969,
+      "seasons": 6,
+      "fit_success": true,
+      "eligible_bbs": 18,
+      "bbs_weight": 0.0
+    },
+    "SerieA_diagnostics": {
+      "rows": 1968,
+      "seasons": 6,
+      "fit_success": true,
+      "eligible_bbs": 18,
+      "bbs_weight": 0.0
+    },
+    "Bundesliga_diagnostics": {
+      "rows": 1584,
+      "seasons": 6,
+      "fit_success": true,
+      "eligible_bbs": 15,
+      "bbs_weight": 0.0
+    }
+  },
+  "model_smoke": {
+    "EPL": {
+      "training_rows": 1969,
+      "fitted": true,
+      "checked_score_grids": 11,
+      "bbs_eligible": 18,
+      "bbs_status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
+      "bbs_weight": 0.0,
+      "source_error": null
+    },
+    "LaLiga": {
+      "training_rows": 1987,
+      "fitted": true,
+      "checked_score_grids": 12,
+      "bbs_eligible": 45,
+      "bbs_status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
+      "bbs_weight": 0.0,
+      "source_error": null
+    },
+    "Bundesliga": {
+      "training_rows": 1584,
+      "fitted": true,
+      "checked_score_grids": 9,
+      "bbs_eligible": 15,
+      "bbs_status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
+      "bbs_weight": 0.0,
+      "source_error": null
+    },
+    "SerieA": {
+      "training_rows": 1968,
+      "fitted": true,
+      "checked_score_grids": 20,
+      "bbs_eligible": 18,
+      "bbs_status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
+      "bbs_weight": 0.0,
+      "source_error": null
+    },
+    "Ligue1": {
+      "training_rows": 1741,
+      "fitted": true,
+      "checked_score_grids": 9,
+      "bbs_eligible": 17,
+      "bbs_status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
+      "bbs_weight": 0.0,
+      "source_error": null
+    },
+    "UCL": {
+      "training_rows": 539,
+      "fitted": true,
+      "checked_score_grids": 18,
+      "bbs_eligible": 0,
+      "bbs_status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
+      "bbs_weight": 0.0,
+      "source_error": null
+    }
+  },
+  "end_to_end": {
+    "selections": 12,
+    "raw_validation": "passed",
+    "sidecars": "all three frozen and replayed",
+    "captured": 1,
+    "tracked_latest": 12,
+    "pending": 12,
+    "workbook": "created and verified",
+    "report_status": "VERIFIED",
+    "warnings": [],
+    "prediction_bytes_unchanged": true
+  },
+  "tracking_reconciled": {
+    "unique_latest": 41,
+    "all_run_records": 170,
+    "runs": 34,
+    "snapshots": 38
+  },
+  "audited_pr": 71,
+  "audited_head": "a5be3c45dd28ad2c2991efef30cada3b753cdf89",
+  "data_commit": "27cf7cb2105047bb27c39a612465f70eb19bfef9",
+  "data_blob_checks": {
+    "checked": 97,
+    "mismatches": 0
+  },
+  "domestic_csv_validation": {
+    "files": 30,
+    "passed": true
+  },
+  "validation": {
+    "pytest_tests": 472,
+    "pytest_subtests": 176,
+    "offline_tests": 465,
+    "coverage_percent": 89.57073170731708,
+    "coverage_floors_passed": true,
+    "model_self_test_passed": true,
+    "compiled_modules": 101,
+    "cli_help_checks": 16,
+    "dependency_check_passed": true
+  },
+  "fixes": [
+    {
+      "component": "filter_sensitivity_experiment.py",
+      "problem": "Hard-coded ten-selection validation cap rejected valid v15 twelve-match experiment captures.",
+      "change": "Use twelve for v15 and retain ten for archived policies."
+    },
+    {
+      "component": "workflow_checks.py",
+      "problem": "The pre-archive raw check accepted altered EV, price, calibration and lower-ranked membership when structural fields remained plausible.",
+      "change": "Replay current v15 selections from frozen predictions, generation time, reliability evidence and execution policy; reconcile selected rows and summary."
+    }
+  ],
+  "limits": [
+    "No live provider requests were made. Cached-data fitting and mocked provider-failure tests do not establish live API availability or notification delivery.",
+    "Existing BBS statistics remain below the 120-example gate in every league; nine UCL statistics are unavailable, two UCL fixtures are quarantined, and 163 statistical disagreements span 80 matches.",
+    "All 38 snapshot core manifests were verified. Seven current experiment sidecars were individually verified; retrieval of the existing 11.9 MB probability/calibration sidecar failed at the connector. A freshly generated v15 sidecar was successfully frozen, replayed, captured and reported in the end-to-end run.",
+    "Historical latest-revision training and these smoke fits do not prove improved forward prediction accuracy."
+  ]
+}
