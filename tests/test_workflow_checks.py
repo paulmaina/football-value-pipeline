@@ -63,6 +63,20 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertEqual(result['status'], 'VERIFIED_WITH_WARNINGS')
         self.assertTrue(any('shortlist_policy_experiment: latest snapshot PRESENT_BUT_REJECTED' in s for s in result['warnings']))
 
+    def test_live_health_warnings_surface_quota_and_stale_active_forecasts(self):
+        self.reviewed()
+        path=self.root/'performance/pipeline_health.json'
+        health=json.loads(path.read_text())
+        health['training']={'EPL':{'odds_provider_health':{'state':'CREDITS_EXHAUSTED'}}}
+        health['forecast_freshness']={'status':'OLDER_THAN_24_HOURS','upcoming_fixture_count':2}
+        health['quote_audit'].update(past_kickoff_count=1,upcoming_kickoff_count=0)
+        write_json(path,health)
+        result=report_check(self.root)
+        self.assertEqual(result['status'],'VERIFIED_WITH_WARNINGS')
+        self.assertTrue(any('credentials confirmed exhausted' in x for x in result['warnings']))
+        self.assertTrue(any('OLDER_THAN_24_HOURS' in x for x in result['warnings']))
+        self.assertTrue(any('no remaining future kickoffs' in x for x in result['warnings']))
+
     def test_raw_check_validates_every_present_optional_sidecar(self):
         from workflow_checks import SIDECARS
         raw = self.root/'raw'

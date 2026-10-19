@@ -44,7 +44,7 @@ class PipelineRepairsTests(OfflineQuotePolicyTestCase):
                     {'home_name_match_score':100,'away_name_match_score':100,
                      'p_over_1_5':p,'raw_p_over_1_5':p})
         self.assertEqual(prioritized_additional_events(
-            [candidate(73,.99),candidate(72,.85),candidate(-1,.98)],1,as_of=now),[1])
+            [candidate(49,.99),candidate(48,.85),candidate(-1,.98)],1,as_of=now),[1])
 
     def test_locked_workbook_preserves_previous_file_and_removes_temporary_file(self):
         with tempfile.TemporaryDirectory() as tmp:

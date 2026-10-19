@@ -398,6 +398,18 @@ def report_check(root):
     for info in health_data.get('training',{}).values():
         state=info.get('current_source_health',{}).get('status')
         if state and state!='CURRENT_WITHIN_PROVIDER_SCHEDULE': warnings.append('UCL training/source health: '+state)
+    for league, info in health_data.get('training', {}).items():
+        if info.get('odds_provider_health', {}).get('state') == 'CREDITS_EXHAUSTED':
+            warnings.append(league+': all configured Odds API credentials confirmed exhausted during forecast generation')
+    freshness = health_data.get('forecast_freshness', {})
+    if freshness.get('status') == 'INVALID_FUTURE_TIME' or (freshness.get('upcoming_fixture_count', 0)
+            and freshness.get('status') == 'OLDER_THAN_24_HOURS'):
+        warnings.append('Stored forecast freshness: '+freshness['status'])
+    quote_audit = health_data.get('quote_audit', {})
+    if (quote_audit.get('selected_quotes', 0) and quote_audit.get('past_kickoff_count', 0)
+            and not quote_audit.get('upcoming_kickoff_count', 0)
+            and freshness.get('upcoming_fixture_count', 0)):
+        warnings.append('Stored shortlist has no remaining future kickoffs; regenerate forecasts for current selections')
     if health_data.get('quote_audit',{}).get('exchange_quotes'): warnings.append('Latest stored shortlist includes gross exchange quotes from an older execution policy')
     capture_history = health_data.get('snapshot_capture_history', [])
     if capture_history:

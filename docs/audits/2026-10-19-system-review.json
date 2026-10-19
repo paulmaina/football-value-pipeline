@@ -1,0 +1,318 @@
+{
+  "base_commit": "2f8cf406b097efeabb8bc1db9be530be2cfca184",
+  "workflow_inventory": [
+    "closing-odds.yml",
+    "collect-bbs-data.yml",
+    "forward-performance.yml",
+    "historical-benchmark.yml",
+    "pipeline-self-test.yml",
+    "refresh-training-data.yml",
+    "refresh-ucl-training.yml",
+    "scheduled-forecasts.yml"
+  ],
+  "latest_generation": "2026-10-18T14:35:10.311946+00:00",
+  "source_csv_comparison": {
+    "files": 30,
+    "mismatch": []
+  },
+  "workflow_health": {
+    "status": "VERIFIED",
+    "warnings": [],
+    "reviewed_at_utc": "2026-10-19T07:59:36Z"
+  },
+  "forward_metrics": {
+    "graded": 26,
+    "win_rate": 0.807692,
+    "roi": 0.108077
+  },
+  "bbs_eligible": {
+    "EPL": 15,
+    "LaLiga": 41,
+    "Bundesliga": 14,
+    "SerieA": 14,
+    "Ligue1": 13,
+    "UCL": 0
+  },
+  "reviewed_at_utc": "2026-10-19T10:34:46.325655+00:00",
+  "probability_checks": {
+    "1x2": {
+      "invalid": 0,
+      "sum_errors": 0
+    },
+    "double_chance": {
+      "invalid": 0,
+      "sum_errors": 0
+    },
+    "rows": 81,
+    "duplicates": 0,
+    "shortlist_rows": 10,
+    "shortlist_negative_adjusted_ev": 5,
+    "shortlist_expired": 8,
+    "upcoming_remaining": 2,
+    "under35_selected": 0
+  },
+  "bbs_dataset": {
+    "checksums": {
+      "players.json": "PASS",
+      "teams.json": "PASS",
+      "Ligue1_enriched_history.csv": "PASS",
+      "team_mappings.json": "PASS",
+      "standings.json": "PASS",
+      "report.json": "PASS",
+      "LaLiga_enriched_history.csv": "PASS",
+      "UCL_enriched_history.csv": "PASS",
+      "EPL_enriched_history.csv": "PASS",
+      "fixtures.json": "PASS",
+      "Bundesliga_enriched_history.csv": "PASS",
+      "SerieA_enriched_history.csv": "PASS"
+    },
+    "leagues": {
+      "Ligue1_enriched_history.csv": {
+        "rows": 981,
+        "duplicates": 0
+      },
+      "LaLiga_enriched_history.csv": {
+        "rows": 1227,
+        "duplicates": 0
+      },
+      "UCL_enriched_history.csv": {
+        "rows": 539,
+        "duplicates": 0
+      },
+      "EPL_enriched_history.csv": {
+        "rows": 1209,
+        "duplicates": 0
+      },
+      "Bundesliga_enriched_history.csv": {
+        "rows": 972,
+        "duplicates": 0
+      },
+      "SerieA_enriched_history.csv": {
+        "rows": 1208,
+        "duplicates": 0
+      }
+    },
+    "issues": 163,
+    "conflict_matches": 80,
+    "coverage": {
+      "Bundesliga": {
+        "completed_matches": 54,
+        "player_records": 663,
+        "scheduled_matches": 252,
+        "statistics_available": 54,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 0,
+        "team_records": 31
+      },
+      "EPL": {
+        "completed_matches": 69,
+        "player_records": 775,
+        "scheduled_matches": 311,
+        "statistics_available": 69,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 0,
+        "team_records": 36
+      },
+      "LaLiga": {
+        "completed_matches": 87,
+        "player_records": 765,
+        "scheduled_matches": 292,
+        "statistics_available": 87,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 0,
+        "team_records": 33
+      },
+      "Ligue1": {
+        "completed_matches": 63,
+        "player_records": 556,
+        "scheduled_matches": 243,
+        "statistics_available": 63,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 0,
+        "team_records": 35
+      },
+      "SerieA": {
+        "completed_matches": 68,
+        "player_records": 741,
+        "scheduled_matches": 312,
+        "statistics_available": 68,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 0,
+        "team_records": 36
+      },
+      "UCL": {
+        "completed_matches": 36,
+        "player_records": 0,
+        "scheduled_matches": 108,
+        "statistics_available": 27,
+        "statistics_missing": 0,
+        "statistics_quarantined": 0,
+        "statistics_stale": 0,
+        "statistics_unavailable": 9,
+        "team_records": 27
+      }
+    },
+    "quarantined_records": [
+      {
+        "bbs_match_id": "e83c2540-60f6-4625-a843-63f9371af806",
+        "league": "UCL",
+        "reason": "Invalid completed score or future completed fixture"
+      },
+      {
+        "bbs_match_id": "473512a0-57b6-4c6f-8483-1a430cd18ad5",
+        "league": "UCL",
+        "reason": "Invalid completed score or future completed fixture"
+      }
+    ],
+    "collection_at": "2026-10-19T00:31:12.822341+00:00"
+  },
+  "score_only_fit_smoke": {
+    "EPL": {
+      "training_matches": 1969,
+      "training_end": "2026-10-18 00:00:00",
+      "fit_success": true,
+      "forecast_grids_checked": 12,
+      "rho": -0.09043900966570706,
+      "six_season_domestic": true,
+      "bbs_features": "DISABLED_FOR_SCORE_ONLY_SMOKE"
+    },
+    "LaLiga": {
+      "training_matches": 1987,
+      "training_end": "2026-10-18 00:00:00",
+      "fit_success": true,
+      "forecast_grids_checked": 14,
+      "rho": -0.04387335976648292,
+      "six_season_domestic": true,
+      "bbs_features": "DISABLED_FOR_SCORE_ONLY_SMOKE"
+    },
+    "Bundesliga": {
+      "training_matches": 1584,
+      "training_end": "2026-10-18 00:00:00",
+      "fit_success": true,
+      "forecast_grids_checked": 10,
+      "rho": -0.03521207028648732,
+      "six_season_domestic": true,
+      "bbs_features": "DISABLED_FOR_SCORE_ONLY_SMOKE"
+    },
+    "SerieA": {
+      "training_matches": 1968,
+      "training_end": "2026-10-18 00:00:00",
+      "fit_success": true,
+      "forecast_grids_checked": 14,
+      "rho": -0.004064704926821947,
+      "six_season_domestic": true,
+      "bbs_features": "DISABLED_FOR_SCORE_ONLY_SMOKE"
+    },
+    "Ligue1": {
+      "training_matches": 1741,
+      "training_end": "2026-10-18 00:00:00",
+      "fit_success": true,
+      "forecast_grids_checked": 13,
+      "rho": -0.03848605711617827,
+      "six_season_domestic": true,
+      "bbs_features": "DISABLED_FOR_SCORE_ONLY_SMOKE"
+    },
+    "UCL": {
+      "training_matches": 539,
+      "training_end": "2026-10-14 00:00:00",
+      "fit_success": true,
+      "forecast_grids_checked": 18,
+      "rho": 0.05,
+      "six_season_domestic": false,
+      "bbs_features": "DISABLED_FOR_SCORE_ONLY_SMOKE"
+    }
+  },
+  "production_requests_outside_current_window": [
+    {
+      "league": "UEFA Champions League",
+      "home": "Fenerbahce",
+      "away": "Slavia Praha",
+      "hours_from_generation": 50.16380223722222,
+      "status": "RECEIVED_VALID_DC_QUOTES"
+    },
+    {
+      "league": "UEFA Champions League",
+      "home": "Sabah FK",
+      "away": "Borussia Dortmund",
+      "hours_from_generation": 50.16380223722222,
+      "status": "RECEIVED_VALID_DC_QUOTES"
+    },
+    {
+      "league": "UEFA Champions League",
+      "home": "AS Roma",
+      "away": "\u0160K Slovan Bratislava",
+      "hours_from_generation": 52.41380223722222,
+      "status": "RECEIVED_VALID_DC_QUOTES"
+    },
+    {
+      "league": "UEFA Champions League",
+      "home": "Liverpool",
+      "away": "Villarreal",
+      "hours_from_generation": 52.41380223722222,
+      "status": "RECEIVED_VALID_DC_QUOTES"
+    },
+    {
+      "league": "UEFA Champions League",
+      "home": "Manchester City",
+      "away": "AEK Athens",
+      "hours_from_generation": 52.41380223722222,
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES"
+    },
+    {
+      "league": "UEFA Champions League",
+      "home": "Napoli",
+      "away": "Bod\u00f8/Glimt",
+      "hours_from_generation": 52.41380223722222,
+      "status": "RECEIVED_VALID_DC_QUOTES"
+    },
+    {
+      "league": "UEFA Champions League",
+      "home": "Paris Saint Germain",
+      "away": "Barcelona",
+      "hours_from_generation": 52.41380223722222,
+      "status": "RECEIVED_VALID_DC_QUOTES"
+    },
+    {
+      "league": "UEFA Champions League",
+      "home": "Porto",
+      "away": "PSV Eindhoven",
+      "hours_from_generation": 52.41380223722222,
+      "status": "RECEIVED_VALID_DC_QUOTES"
+    },
+    {
+      "league": "UEFA Champions League",
+      "home": "VfB Stuttgart",
+      "away": "Atl\u00e9tico Madrid",
+      "hours_from_generation": 52.41380223722222,
+      "status": "RECEIVED_VALID_DC_QUOTES"
+    }
+  ],
+  "live_provider_requests_made": 0,
+  "limits": [
+    "Read-only repository/data inspection and offline tests do not prove best possible forecasting accuracy.",
+    "Historical BBS disputes, nine unavailable UCL statistics and two quarantined UCL records remain.",
+    "Latest archived forecast predates six-season consumption; new prediction generation is needed.",
+    "Current account quota/billing state was not independently probed.",
+    "Training fit smoke disables statistical features and does not overwrite production predictions."
+  ],
+  "validation": {
+    "pytest_tests": 468,
+    "pytest_subtests": 173,
+    "offline_tests": 461,
+    "coverage_percent": 89.52725849075071,
+    "critical_floors": "PASS",
+    "model_self_test": "PASS",
+    "compiled_modules": 101,
+    "cli_help_checks": 16
+  }
+}
