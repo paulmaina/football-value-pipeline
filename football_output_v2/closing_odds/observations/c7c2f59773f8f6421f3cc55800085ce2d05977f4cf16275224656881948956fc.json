@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "Rayo Vallecano",
+    "home_team": "Getafe",
+    "kickoff_utc": "2026-10-19T19:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "4a88bc4de574d43ef34677fd8d78722f"
+  },
+  "observed_at_utc": "2026-10-19T18:54:11.201762+00:00",
+  "payload": {
+    "away_team": "Rayo Vallecano",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-19T18:53:56Z",
+            "outcomes": [
+              {
+                "name": "Getafe",
+                "price": 3.11
+              },
+              {
+                "name": "Rayo Vallecano",
+                "price": 2.7
+              },
+              {
+                "name": "Draw",
+                "price": 2.98
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-19T18:53:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 2.1
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 1.83
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-19T18:54:00Z",
+            "outcomes": [
+              {
+                "name": "Getafe or Draw",
+                "price": 1.52
+              },
+              {
+                "name": "Rayo Vallecano or Draw",
+                "price": 1.42
+              },
+              {
+                "name": "Getafe or Rayo Vallecano",
+                "price": 1.43
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-19T18:53:32Z",
+            "outcomes": [
+              {
+                "name": "Getafe",
+                "price": 3.06
+              },
+              {
+                "name": "Rayo Vallecano",
+                "price": 2.65
+              },
+              {
+                "name": "Draw",
+                "price": 2.96
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-19T18:53:32Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.52
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 2.52
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-19T18:53:32Z",
+            "outcomes": [
+              {
+                "name": "Getafe or Draw",
+                "price": 1.48
+              },
+              {
+                "name": "Rayo Vallecano or Draw",
+                "price": 1.38
+              },
+              {
+                "name": "Getafe or Rayo Vallecano",
+                "price": 1.4
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-19T19:00:00Z",
+    "home_team": "Getafe",
+    "id": "4a88bc4de574d43ef34677fd8d78722f",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.06,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3128585589856853,
+      "selection": "home",
+      "updated_at_utc": "2026-10-19T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.96,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3238471955853984,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-19T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.65,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3632942454289163,
+      "selection": "away",
+      "updated_at_utc": "2026-10-19T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.52,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6341290140006339,
+      "selection": "over_1_5",
+      "updated_at_utc": "2026-10-19T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.52,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.36587098599936607,
+      "selection": "under_1_5",
+      "updated_at_utc": "2026-10-19T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.48,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6390579518391108,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-19T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.38,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6853664990738292,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-19T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.4,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6755755490870601,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-19T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.11,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.31242764604609174,
+      "selection": "home",
+      "updated_at_utc": "2026-10-19T18:53:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.98,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.32641012776874506,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-19T18:53:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3611622261851632,
+      "selection": "away",
+      "updated_at_utc": "2026-10-19T18:53:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.52,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6382925219249992,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-19T18:54:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.42,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6832426995253512,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-19T18:54:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.43,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6784647785496495,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-19T18:54:00+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}

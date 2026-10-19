@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "Coventry City",
+    "home_team": "Tottenham Hotspur",
+    "kickoff_utc": "2026-10-19T19:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "9baaf4e48b041cfef04e70e42532502e"
+  },
+  "observed_at_utc": "2026-10-19T18:54:11.253243+00:00",
+  "payload": {
+    "away_team": "Coventry City",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-19T18:53:09Z",
+            "outcomes": [
+              {
+                "name": "Coventry City",
+                "price": 5.89
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.5
+              },
+              {
+                "name": "Draw",
+                "price": 4.83
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-19T18:53:09Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.53
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.5
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-19T18:53:09Z",
+            "outcomes": [
+              {
+                "name": "Coventry City or Draw",
+                "price": 2.58
+              },
+              {
+                "name": "Tottenham Hotspur or Draw",
+                "price": 1.14
+              },
+              {
+                "name": "Coventry City or Tottenham Hotspur",
+                "price": 1.18
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-19T18:53:49Z",
+            "outcomes": [
+              {
+                "name": "Coventry City",
+                "price": 5.65
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.57
+              },
+              {
+                "name": "Draw",
+                "price": 4.6
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-19T18:53:49Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.95
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-19T18:53:47Z",
+            "outcomes": [
+              {
+                "name": "Coventry City or Draw",
+                "price": 2.58
+              },
+              {
+                "name": "Tottenham Hotspur or Draw",
+                "price": 1.17
+              },
+              {
+                "name": "Coventry City or Tottenham Hotspur",
+                "price": 1.23
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-19T19:00:00Z",
+    "home_team": "Tottenham Hotspur",
+    "id": "9baaf4e48b041cfef04e70e42532502e",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6532798885325368,
+      "selection": "home",
+      "updated_at_utc": "2026-10-19T18:53:09+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.83,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19135354907747484,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-19T18:53:09+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.89,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15536656238998833,
+      "selection": "away",
+      "updated_at_utc": "2026-10-19T18:53:09+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.53,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6302056146445001,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-19T18:53:09+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.5,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3697943853555,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-19T18:53:09+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.14,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.830577835979702,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-19T18:53:09+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.58,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.36699950892126365,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-19T18:53:09+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.18,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8024226550990342,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-19T18:53:09+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.17,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8317018516334473,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-19T18:53:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.58,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.3771671187640052,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-19T18:53:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.23,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7911310296025476,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-19T18:53:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6270829219841453,
+      "selection": "home",
+      "updated_at_utc": "2026-10-19T18:53:49+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.6,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2062149102879209,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-19T18:53:49+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.65,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1667021677279338,
+      "selection": "away",
+      "updated_at_utc": "2026-10-19T18:53:49+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
