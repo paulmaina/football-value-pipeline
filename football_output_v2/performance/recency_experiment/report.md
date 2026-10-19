@@ -2,7 +2,7 @@
 
 Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.
 
-Coverage: 268/284 fixture-markets; 102 graded.
+Coverage: 284/300 fixture-markets; 102 graded.
 Rejected snapshot data: 0 commit(s); details in summary.json.
 
 | League | Market | Variant | N | Brier | Log loss | Brier gain | Log-loss gain | Overconfidence |
@@ -129,12 +129,12 @@ Calibration buckets, approximate paired-gain intervals, gameweek comparisons and
 | Premier League | over_1_5 | 1000000000.0 | 303 | 69 | -0.0107 | {'1000000000.0': 3, '240.0': 1} |
 | Premier League | btts_yes | 1000000000.0 | 303 | 69 | -0.0117 | {'1000000000.0': 2, '365.0': 1, '120.0': 1} |
 | La Liga | over_1_5 | 120.0 | 295 | 87 | -0.0125 | {'120.0': 2, '730.0': 1, '1000000000.0': 1} |
-| La Liga | btts_yes | 120.0 | 295 | 87 | -0.0019 | {'240.0': 1, '1000000000.0': 1, '120.0': 2} |
-| Bundesliga | over_1_5 | 1000000000.0 | 245 | 54 | +0.0033 | {'1000000000.0': 3, '240.0': 1} |
+| La Liga | btts_yes | 120.0 | 295 | 87 | -0.0020 | {'240.0': 1, '1000000000.0': 1, '120.0': 2} |
+| Bundesliga | over_1_5 | 1000000000.0 | 245 | 54 | +0.0032 | {'1000000000.0': 3, '240.0': 1} |
 | Bundesliga | btts_yes | 240.0 | 245 | 54 | +0.0005 | {'730.0': 1, '240.0': 1, '1000000000.0': 1, '120.0': 1} |
 | Serie A | over_1_5 | 240.0 | 316 | 68 | -0.0085 | {'240.0': 2, '120.0': 1, '1000000000.0': 1} |
 | Serie A | btts_yes | 365.0 | 316 | 68 | -0.0037 | {'730.0': 1, '120.0': 1, '1000000000.0': 1, '240.0': 1} |
 | Ligue 1 | over_1_5 | 1000000000.0 | 239 | 63 | +0.0000 | {'1000000000.0': 2, '120.0': 1, '240.0': 1} |
 | Ligue 1 | btts_yes | 1000000000.0 | 239 | 63 | +0.0000 | {'1000000000.0': 3, '120.0': 1} |
-| UEFA Champions League | over_1_5 | 120.0 | 152 | 37 | -0.0231 | {'240.0': 2, '120.0': 2} |
+| UEFA Champions League | over_1_5 | 120.0 | 152 | 37 | -0.0230 | {'240.0': 2, '120.0': 2} |
 | UEFA Champions League | btts_yes | 730.0 | 152 | 37 | +0.0030 | {'240.0': 1, '1000000000.0': 3} |
