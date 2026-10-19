@@ -824,6 +824,41 @@ class TheOddsAPI:
         return low <= margin <= high
 
     @staticmethod
+    def _goal_quote_fields(
+        market: str, available: Sequence[Tuple[str, str, float, float]], *, as_of=None
+    ) -> Dict[str, object]:
+        """Keep each bookmaker's newest complete pair, with atomic provenance."""
+        from quote_freshness import quote_is_fresh, quote_utc
+        from quote_policy import usable_bookmaker
+        newest = {}
+        for updated, name, price, opposite in available:
+            if (quote_utc(updated) is None
+                    or (as_of is not None and not quote_is_fresh(updated, as_of))
+                    or not TheOddsAPI._coherent_overround([price, opposite])):
+                continue
+            identity = name.strip().casefold()
+            previous = newest.get(identity)
+            if previous is None or quote_utc(updated) > quote_utc(previous[0]):
+                newest[identity] = (updated, name, price, opposite)
+        if not newest:
+            return {}
+        available = list(newest.values())
+        ref = max(available, key=lambda x: quote_utc(x[0]))
+        usable = [x for x in available if usable_bookmaker(x[1])]
+        best = max(usable, key=lambda x: x[2]) if usable else (None, None, None, None)
+        fair = devig([ref[2], ref[3]], method="power")
+        return {
+            f"market_p_{market}": fair[0],
+            f"market_{market}_odds": best[2],
+            f"best_{market}_bookmaker": best[1],
+            f"market_best_{market}_last_update_utc": best[0],
+            f"market_reference_{market}_odds": ref[2],
+            f"market_reference_{market}_opposite_odds": ref[3],
+            f"market_reference_{market}_last_update_utc": ref[0],
+            f"market_{market}_bookmakers": len(usable),
+        }
+
+    @staticmethod
     def flatten_odds_event(event: Mapping[str, object], *, as_of=None) -> Dict[str, object]:
         """Flatten complete books; live callers filter timing before ranking.
 
@@ -839,6 +874,7 @@ class TheOddsAPI:
         best_h = best_d = best_a = best_o = best_u = (None, None, None)
         complete_h2h: List[Tuple[str, str, float, float, float]] = []
         complete_ou: List[Tuple[str, str, float, float]] = []
+        main_over15 = []
         all_updates: List[str] = []
         pinnacle_totals = None
 
@@ -914,6 +950,25 @@ class TheOddsAPI:
             if totals and clock is not None and not quote_is_fresh(TheOddsAPI._last_update(bookmaker, totals), clock):
                 totals = None
             if totals:
+                # A bookmaker may publish 1.5 as its main line, omitting it
+                # from alternate_totals. Keep only an exact, complete pair.
+                pair = {}
+                duplicate = False
+                outcomes = totals.get("outcomes")
+                for outcome in outcomes if isinstance(outcomes, list) else []:
+                    if not isinstance(outcome, dict) or safe_float(outcome.get("point")) != 1.5:
+                        continue
+                    side = str(outcome.get("name") or "").strip().lower()
+                    if side not in ("over", "under"):
+                        continue
+                    duplicate |= side in pair
+                    pair[side] = _valid_price(outcome.get("price"))
+                if (not duplicate and set(pair) == {"over", "under"}
+                        and all(v is not None for v in pair.values())
+                        and TheOddsAPI._coherent_overround(list(pair.values()))):
+                    main_over15.append((
+                        TheOddsAPI._last_update(bookmaker, totals), book_name,
+                        pair["over"], pair["under"]))
                 prices: Dict[str, float] = {}
                 duplicate = False
                 outcomes = totals.get("outcomes")
@@ -988,6 +1043,7 @@ class TheOddsAPI:
             "live_ref_under_2_5_odds": None if ref_ou is None else ref_ou[3],
             "live_ref_ou25_bookmaker": None if ref_ou is None else ref_ou[1],
             "shadow_pinnacle_totals": pinnacle_totals,
+            "_main_over_1_5_offers": main_over15,
         }
 
     def odds(
@@ -1026,13 +1082,14 @@ class TheOddsAPI:
         return pd.DataFrame(rows)
 
     def extra_markets_for_event(
-        self, league: LeagueConfig, event_id: str
+        self, league: LeagueConfig, event_id: str, *, main_over_1_5_offers=None
     ) -> Dict[str, object]:
         """Per-event real-price request for alternate totals and BTTS.
 
         Additional markets are bookmaker/competition dependent. All
         returned prices must be verified complementary outcome pairs
-        from the same bookmaker; never estimate unlisted odds.
+        from the same bookmaker; never estimate unlisted odds. Validated
+        main-line O1.5 pairs join this response without an additional request.
         """
         safe_id = str(event_id)
         if not re.fullmatch(r"[A-Za-z0-9_-]+", safe_id):
@@ -1059,15 +1116,15 @@ class TheOddsAPI:
         if not isinstance(payload, dict) or str(payload.get("id")) != safe_id:
             raise RuntimeError("Event odds response missing/mismatched ID")
 
-        from quote_freshness import quote_is_fresh, quote_utc
+        from quote_freshness import quote_is_fresh
         clock = datetime.now(timezone.utc)
 
         offers: Dict[str, List[Tuple[str, str, float, float]]] = {
-            "over_1_5": [], "under_3_5": [], "btts_yes": [],
+            "over_1_5": list(main_over_1_5_offers or []), "under_3_5": [], "btts_yes": [],
         }
         books = payload.get("bookmakers")
         if not isinstance(books, list):
-            return {}
+            books = []
 
         for book in books:
             if not isinstance(book, dict):
@@ -1122,21 +1179,7 @@ class TheOddsAPI:
         from double_chance import parse_quotes
         result: Dict[str, object] = parse_quotes(payload, as_of=clock)
         for market, available in offers.items():
-            if not available:
-                continue
-            ref = max(available, key=lambda x: quote_utc(x[0]))
-            from quote_policy import usable_bookmaker
-            usable = [x for x in available if usable_bookmaker(x[1])]
-            best = max(usable, key=lambda x: x[2]) if usable else (None, None, None, None)
-            fair = devig([ref[2], ref[3]], method="power")
-            result[f"market_p_{market}"] = fair[0]
-            result[f"market_{market}_odds"] = best[2]
-            result[f"best_{market}_bookmaker"] = best[1]
-            result[f"market_best_{market}_last_update_utc"] = best[0] or None
-            result[f"market_reference_{market}_odds"] = ref[2]
-            result[f"market_reference_{market}_opposite_odds"] = ref[3]
-            result[f"market_reference_{market}_last_update_utc"] = ref[0]
-            result[f"market_{market}_bookmakers"] = len({x[1] for x in usable})
+            result.update(self._goal_quote_fields(market, available, as_of=clock))
         return result
 
 
@@ -3046,6 +3089,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
         pred["market_weight"] = self.market_weight if blend_applied else 0.0
         pred["market_blend_applied"] = blend_applied
         add_value_metrics(pred, snapshot)
+        primary = row.get("_main_over_1_5_offers")
+        if isinstance(primary, (list, tuple)):
+            pred.update(TheOddsAPI._goal_quote_fields(
+                "over_1_5", primary, as_of=datetime.now(timezone.utc)))
 
         # Preserve the independent Dixon-Coles signal for bet-value auditing.
         # Blended EV uses market-informed probabilities and can look less
@@ -3196,7 +3243,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 self.extra_event_odds_by_league.get(league.key, 0) + 1
             )
             try:
-                extra = self.odds_api.extra_markets_for_event(league, event_id)
+                primary = row.get("_main_over_1_5_offers")
+                extra = self.odds_api.extra_markets_for_event(league, event_id,
+                    main_over_1_5_offers=primary if isinstance(primary, (list, tuple)) else None)
                 pred.update(extra)
                 coverage_row["home_draw_quote"] = bool(extra.get("market_home_draw_odds"))
                 coverage_row["draw_away_quote"] = bool(extra.get("market_draw_away_odds"))
@@ -3215,6 +3264,11 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     coverage_row['provider_category'] = exc.category
                     coverage_row['provider_attempts'] = exc.attempts
                 warnings.warn(f"Additional odds missing for {event_id}: {exc}", RuntimeWarning)
+        for coverage_row, (_, pred, _) in zip(coverage_rows, prepared):
+            coverage_row["over_1_5_quote"] = _valid_price(pred.get("market_over_1_5_odds")) is not None
+            coverage_row["over_1_5_bookmakers"] = pred.get("market_over_1_5_bookmakers", 0)
+        diagnostics["over_1_5_in_window_quote_fixtures"] = sum(
+            bool(coverage_rows[i]["over_1_5_quote"]) for i in eligible)
         credit_health = getattr(self.odds_api, 'credit_exhaustion', None)
         if isinstance(credit_health, dict):
             diagnostics['odds_provider_health'] = credit_health
