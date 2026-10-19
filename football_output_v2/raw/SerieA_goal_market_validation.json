@@ -1319,7 +1319,7 @@
     "max_goals": 10,
     "training_end": "2026-10-18",
     "training_matches": 1968,
-    "training_sha256": "f92312438a998cae15e949932daf07bc0514d3e7702d7311116ff3f5086dcbd7",
+    "training_sha256": "9da7f8899ce338f16efc44629a2e053696e86a4110a909809c193d30cec5c7b7",
     "validation_code_sha256": "a37c43716a916cadeeff25b541d553be2bba318d18133a431b2f527b0f411155"
   }
 }
