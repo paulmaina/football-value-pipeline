@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "f92312438a998cae15e949932daf07bc0514d3e7702d7311116ff3f5086dcbd7",
-  "training_as_of_utc": "2026-10-19T12:07:23.276304+00:00",
+  "training_sha256": "9da7f8899ce338f16efc44629a2e053696e86a4110a909809c193d30cec5c7b7",
+  "training_as_of_utc": "2026-10-19T16:27:34.363041+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 68,
     "bbs_added_results": 8,
@@ -23,9 +23,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-19T12:07:23.276304+00:00",
-    "observations": 87,
-    "observations_sha256": "5b474ebec0290e8d778e27013e9ccc47cd8a79147adae9b01e55b48ff813d9ce",
+    "cutoff_utc": "2026-10-19T16:27:34.363041+00:00",
+    "observations": 94,
+    "observations_sha256": "bd2cc9704e0cde6e04ed2c0efebf8db1f428c3eee108103050f90cc20711c00e",
     "eligible_training_matches": 18,
     "required_training_matches": 120,
     "feature_fields": [
@@ -59,16 +59,16 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:28.568690+00:00",
-    "retrospective_inputs_sha256": "17c3401e954c5514854d0870edada48bc827821c1d0c63856be54225797f449b",
+    "retrospective_inputs_sha256": "568702e380d5655769790b5dd145e94d116861f046a8cb350b66c72d83f20455",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement."
   },
   "training_end": "2026-10-18",
   "fit_success": true,
-  "objective": 2437.952356614178,
-  "base": 0.13138428500870275,
-  "home_adv": 0.1248142359666263,
-  "rho": -0.033811044842493816,
+  "objective": 2437.5341749001045,
+  "base": 0.13139674143895844,
+  "home_adv": 0.1248188819486967,
+  "rho": -0.03383302209753985,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
   "max_goals": 10,
@@ -90,7 +90,7 @@
   "additional_event_odds_calls_used_before_this_league": 2,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261019T120723276304Z_aed5bc8810b490411ea0d093388fecbe04be987888a8b7ad18bbd40b128cfc16.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261019T162734363041Z_1e20d5b188b8920431ad83d871a265e2c40b40939358d011510b3a9daef14505.json",
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -99,11 +99,10 @@
       "home_team": "Monza",
       "away_team": "Cagliari",
       "kickoff_utc": "2026-10-19T16:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false
     },
     {
       "fixture_id": "07014d9adc65ca39710bd9f0c7c0d3f0",
@@ -316,10 +315,10 @@
       "home_away_quote": false
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 2,
+  "additional_odds_in_window_linked_fixtures": 1,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 2,
+  "additional_event_odds_calls_this_league": 1,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 730.0,

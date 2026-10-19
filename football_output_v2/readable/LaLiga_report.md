@@ -1,6 +1,6 @@
 # La Liga — football model report
 
-Fixtures in this report: **14**.
+Fixtures in this report: **12**.
 
 > Probabilities are model estimates. They describe uncertainty; they are not guarantees. Market EV figures are only shown when bookmaker prices are available.
 
@@ -24,10 +24,10 @@ Fixtures in this report: **14**.
 | --- | --- |
 | Training seasons requested | 6 |
 | Training seasons loaded | ['2122', '2223', '2324', '2425', '2526', '2627'] |
-| Training sha256 | be0a8dd32aac079fb0106994a7e51426250cd236e9f3884cde0ee53788d6fa2a |
-| Training as of utc | 2026-10-19T11:19:05.367220+00:00 |
+| Training sha256 | 437ef5b7ad7af538e8d6066022551497a82f0ec48e2cb27c83b3b9761b5f8d57 |
+| Training as of utc | 2026-10-19T16:26:13.700059+00:00 |
 | Training data provenance | {'bbs_confirmed_rows': 87, 'bbs_added_results': 9, 'bbs_result_conflicts': 0, 'bbs_rows_with_statistics': 87, 'bbs_statistics_used_as_predictor_features': False, 'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.'} |
-| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES', 'cutoff_utc': '2026-10-19T11:19:05.367220+00:00', 'observations': 106, 'observations_sha256': '8d570194510323203e756d6dad7442317066873eb859a76b2d1ebd0f96921734', 'eligible_training_matches': 45, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 73, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 8, 'retrospective_eligible_training_matches': 45, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:27.155286+00:00', 'retrospective_inputs_sha256': '3e47382096de29d01d9d75ff6e34cdea596d346a0827343481150a62111aca9d', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.'} |
+| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES', 'cutoff_utc': '2026-10-19T16:26:13.700059+00:00', 'observations': 114, 'observations_sha256': 'aae7cdb1222b4b7df745c2fce7acbd0fddf1c6b4e9fb7cd21cbc27eae89ead6a', 'eligible_training_matches': 45, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 73, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 8, 'retrospective_eligible_training_matches': 45, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:27.155286+00:00', 'retrospective_inputs_sha256': '6eb0790a88b6bb7f59269645951f726ec63120fd440313a671f3714270b29459', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.'} |
 | Optimizer objective | 5519.514 |
 | Base scoring parameter | 0.090 |
 | Home-advantage parameter | 0.278 |
@@ -39,9 +39,9 @@ Fixtures in this report: **14**.
 | Fixture sources | ['The Odds API'] |
 | The odds api enabled | 1.00 |
 | Odds regions | — |
-| Live odds matched | 14.00 |
+| Live odds matched | 12.00 |
 | Additional event odds calls used before this league | 1.00 |
-| Bbs statistics model artifact | bbs/feature_models/LaLiga/20261019T111905367220Z_8370b2956c3e6e2db85b262f2e525700679f912336677cb8a6bb16694edf0921.json |
+| Bbs statistics model artifact | bbs/feature_models/LaLiga/20261019T162613700059Z_ccedf88ca99b79ceb63475919d161d84189c8c070c5619a179a8c60f137e8edc.json |
 | Additional odds coverage mode | — |
 | Additional odds coverage | — |
 | Additional odds in window linked fixtures | 1.00 |
@@ -64,301 +64,9 @@ Fixtures in this report: **14**.
 
 ---
 
-## 2026-10-18 — Málaga vs Real Sociedad
-
-The model's most likely 1X2 outcome is **Real Sociedad win** at **50.9%**. Expected goals are 0.68 for Málaga and 1.55 for Real Sociedad (2.23 combined). The most likely exact score is 0-1 at 14.4%. Goal-market probabilities: at least one goal: 88.9%; Over 2.5 goals: 37.7%; Under 3.5 goals: 82.1%; Double Chance 1X: 49.1%; Double Chance X2: 77.1%; Double Chance 12 (either team wins): 73.8%; Under 4.5 goals: 92.7%; BTTS Yes (both teams score): 39.5%; BTTS No (at least one team does not score): 60.5%.
-
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
-| --- | --- | --- |
-| Málaga win | 22.9% | 4.38 |
-| Draw | 26.2% | 3.81 |
-| Real Sociedad win | 50.9% | 1.96 |
-
-### Goals outlook
-
-| Measure | Model estimate |
-| --- | --- |
-| Málaga expected goals | 0.68 |
-| Real Sociedad expected goals | 1.55 |
-| Expected total goals | 2.23 |
-| Over 0.5 | 88.9% |
-| Under 0.5 | 11.1% |
-| Over 1.5 | 64.3% |
-| Under 1.5 | 35.7% |
-| Over 2.5 | 37.7% |
-| Under 2.5 | 62.3% |
-| Over 3.5 | 17.9% |
-| Under 3.5 | 82.1% |
-| Over 4.5 | 7.3% |
-| Under 4.5 | 92.7% |
-
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
-| --- | --- | --- |
-| 1 | 0-1 | 14.44% |
-| 2 | 1-1 | 11.70% |
-| 3 | 0-2 | 11.33% |
-| 4 | 0-0 | 11.12% |
-| 5 | 1-0 | 10.11% |
-
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
-| --- | --- | --- | --- | --- |
-| Málaga win | 22.9% | 29.6% | 3.31 | -24.4% |
-| Draw | 26.2% | 26.5% | 3.67 | -3.8% |
-| Real Sociedad win | 50.9% | 43.8% | 2.27 | +15.6% |
-| Over 2.5 | 37.7% | 57.0% | 1.74 | -34.3% |
-| Under 2.5 | 62.3% | 43.0% | 2.27 | +41.3% |
-
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
-<details>
-<summary>Additional technical details</summary>
-
-| Field | Value |
-| --- | --- |
-| Kickoff utc | 2026-10-18T16:30:00+00:00 |
-| Fixture id | 1051298b4aca6f07113309bff598a5c1 |
-| Odds source | — |
-| Odds match method | — |
-| Odds event id | — |
-| Odds last update utc | — |
-| Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
-| Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 11.00 |
-| Best home bookmaker | 1xBet |
-| Best draw bookmaker | 1xBet |
-| Best away bookmaker | 1xBet |
-| Best over 2 5 bookmaker | 1xBet |
-| Best under 2 5 bookmaker | 1xBet |
-| Matched home-team name | Malaga |
-| Matched away-team name | Sociedad |
-| Home-name matching confidence | 100/100 |
-| Away-name matching confidence | 100/100 |
-| Dc lambda home | 0.6804 |
-| Dc lambda away | 1.5479 |
-| Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
-| Bbs statistics version | bbs-lagged-poisson-v2 |
-| Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
-| Bbs statistics weight | 0 |
-| Score engine version | dc-positive-tail-bounded-v1 |
-| Score grid max goals | 15 |
-| Score grid omitted mass | 0 |
-| P btts yes | 39.5% |
-| P btts no | 60.5% |
-| Fair Over 0.5 odds | 1.13 |
-| Fair Under 0.5 odds | 8.99 |
-| Fair Over 1.5 odds | 1.55 |
-| Fair Under 1.5 odds | 2.80 |
-| Fair Over 2.5 odds | 2.65 |
-| Fair Under 2.5 odds | 1.61 |
-| Fair Over 3.5 odds | 5.58 |
-| Fair Under 3.5 odds | 1.22 |
-| Fair Over 4.5 odds | 13.76 |
-| Fair Under 4.5 odds | 1.08 |
-| Unadjusted home-win probability | 16.1% |
-| Unadjusted draw probability | 25.9% |
-| Unadjusted away-win probability | 58.0% |
-| Raw p over 1 5 | 65.4% |
-| Raw p under 3 5 | 81.4% |
-| Raw p btts yes | 39.1% |
-| P home draw | 49.1% |
-| P draw away | 77.1% |
-| P home away | 73.8% |
-| Raw p home draw | 42.0% |
-| Raw p draw away | 83.9% |
-| Raw p home away | 74.1% |
-| Market blending weight | 50.0% |
-| Market blend applied | Yes |
-| 1X2 market source | The Odds API / Marathon Bet |
-| Reference home odds | 3.22 |
-| Reference draw odds | 3.58 |
-| Reference away odds | 2.21 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
-| O/U 2.5 market source | The Odds API / Marathon Bet |
-| Reference Over 2.5 odds | 1.69 |
-| Reference Under 2.5 odds | 2.20 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market best over 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Market best under 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Home probability edge | -6.8% |
-| Draw probability edge | -0.3% |
-| Away probability edge | +7.1% |
-| Over 2.5 probability edge | -19.3% |
-| Under 2.5 probability edge | +19.3% |
-| Raw edge prob home | -0.1356 |
-| Raw ev home | -0.4681 |
-| Raw edge prob draw | -0.0063 |
-| Raw ev draw | -0.0492 |
-| Raw edge prob away | 0.1419 |
-| Raw ev away | 0.3171 |
-
-</details>
-
-
----
-
-## 2026-10-18 — Real Madrid vs Sevilla
-
-The model's most likely 1X2 outcome is **Real Madrid win** at **76.0%**. Expected goals are 2.43 for Real Madrid and 0.76 for Sevilla (3.19 combined). The most likely exact score is 2-0 at 12.5%. Goal-market probabilities: at least one goal: 96.1%; Over 2.5 goals: 62.4%; Under 3.5 goals: 60.1%; Double Chance 1X: 91.1%; Double Chance X2: 24.0%; Double Chance 12 (either team wins): 84.9%; Under 4.5 goals: 77.9%; BTTS Yes (both teams score): 48.2%; BTTS No (at least one team does not score): 51.8%.
-
-**Fixture source:** The Odds API
-
-### Match outcome probabilities
-
-| Outcome | Model probability | Model fair odds |
-| --- | --- | --- |
-| Real Madrid win | 76.0% | 1.32 |
-| Draw | 15.1% | 6.63 |
-| Sevilla win | 8.9% | 11.19 |
-
-### Goals outlook
-
-| Measure | Model estimate |
-| --- | --- |
-| Real Madrid expected goals | 2.43 |
-| Sevilla expected goals | 0.76 |
-| Expected total goals | 3.19 |
-| Over 0.5 | 96.1% |
-| Under 0.5 | 3.9% |
-| Over 1.5 | 83.2% |
-| Under 1.5 | 16.8% |
-| Over 2.5 | 62.4% |
-| Under 2.5 | 37.6% |
-| Over 3.5 | 39.9% |
-| Under 3.5 | 60.1% |
-| Over 4.5 | 22.1% |
-| Under 4.5 | 77.9% |
-
-### 5 most likely scorelines
-
-| Rank | Score | Probability |
-| --- | --- | --- |
-| 1 | 2-0 | 12.47% |
-| 2 | 1-0 | 10.12% |
-| 3 | 3-0 | 10.11% |
-| 4 | 2-1 | 9.47% |
-| 5 | 3-1 | 7.67% |
-
-### Market comparison
-
-| Selection | Model | Market fair | Available odds | Model EV |
-| --- | --- | --- | --- | --- |
-| Real Madrid win | 76.0% | 77.8% | 1.29 | -2.0% |
-| Draw | 15.1% | 13.8% | 6.70 | +1.1% |
-| Sevilla win | 8.9% | 8.3% | 10.90 | -2.6% |
-
-_EV is a model estimate, not a guarantee or a recommendation to bet._
-
-<details>
-<summary>Additional technical details</summary>
-
-| Field | Value |
-| --- | --- |
-| Kickoff utc | 2026-10-18T19:00:00+00:00 |
-| Fixture id | eccd63bf768e2f2a358b871d3f33a63d |
-| Odds source | — |
-| Odds match method | — |
-| Odds event id | — |
-| Odds last update utc | — |
-| Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
-| Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 3.00 |
-| Best home bookmaker | 1xBet |
-| Best draw bookmaker | 1xBet |
-| Best away bookmaker | 1xBet |
-| Matched home-team name | Real Madrid |
-| Matched away-team name | Sevilla |
-| Home-name matching confidence | 100/100 |
-| Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.4305 |
-| Dc lambda away | 0.7589 |
-| Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
-| Bbs statistics version | bbs-lagged-poisson-v2 |
-| Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
-| Bbs statistics weight | 0 |
-| Score engine version | dc-positive-tail-bounded-v1 |
-| Score grid max goals | 18 |
-| Score grid omitted mass | 0 |
-| P btts yes | 48.2% |
-| P btts no | 51.8% |
-| Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 25.37 |
-| Fair Over 1.5 odds | 1.20 |
-| Fair Under 1.5 odds | 5.94 |
-| Fair Over 2.5 odds | 1.60 |
-| Fair Under 2.5 odds | 2.66 |
-| Fair Over 3.5 odds | 2.51 |
-| Fair Under 3.5 odds | 1.66 |
-| Fair Over 4.5 odds | 4.53 |
-| Fair Under 4.5 odds | 1.28 |
-| Unadjusted home-win probability | 74.1% |
-| Unadjusted draw probability | 16.3% |
-| Unadjusted away-win probability | 9.6% |
-| Raw p over 1 5 | 82.9% |
-| Raw p under 3 5 | 60.5% |
-| Raw p btts yes | 48.6% |
-| P home draw | 91.1% |
-| P draw away | 24.0% |
-| P home away | 84.9% |
-| Raw p home draw | 90.4% |
-| Raw p draw away | 25.9% |
-| Raw p home away | 83.7% |
-| Market blending weight | 50.0% |
-| Market blend applied | Yes |
-| 1X2 market source | The Odds API / Marathon Bet |
-| Reference home odds | 1.27 |
-| Reference draw odds | 6.60 |
-| Reference away odds | 10.75 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
-| O/U 2.5 market source | The Odds API / Betsson |
-| Reference Over 2.5 odds | 1.40 |
-| Reference Under 2.5 odds | 2.99 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:55Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:55Z |
-| Home probability edge | -1.9% |
-| Draw probability edge | +1.2% |
-| Away probability edge | +0.6% |
-| Over 2.5 probability edge | -7.0% |
-| Under 2.5 probability edge | +7.0% |
-| Raw edge prob home | -0.0374 |
-| Raw ev home | -0.0440 |
-| Raw edge prob draw | 0.0247 |
-| Raw ev draw | 0.0935 |
-| Raw edge prob away | 0.0126 |
-| Raw ev away | 0.0431 |
-
-</details>
-
-
----
-
 ## 2026-10-19 — Getafe vs Rayo Vallecano
 
-The model's most likely 1X2 outcome is **Getafe win** at **36.1%**. Expected goals are 1.00 for Getafe and 0.78 for Rayo Vallecano (1.77 combined). The most likely exact score is 0-0 at 16.6%. Goal-market probabilities: at least one goal: 83.4%; Over 2.5 goals: 26.4%; Under 3.5 goals: 89.6%; Double Chance 1X: 68.3%; Double Chance X2: 63.9%; Double Chance 12 (either team wins): 67.8%; Under 4.5 goals: 96.5%; BTTS Yes (both teams score): 34.1%; BTTS No (at least one team does not score): 65.9%.
+The model's most likely 1X2 outcome is **Getafe win** at **35.3%**. Expected goals are 1.00 for Getafe and 0.78 for Rayo Vallecano (1.77 combined). The most likely exact score is 0-0 at 16.8%. Goal-market probabilities: at least one goal: 83.2%; Over 2.5 goals: 26.3%; Under 3.5 goals: 89.6%; Double Chance 1X: 68.0%; Double Chance X2: 64.7%; Double Chance 12 (either team wins): 67.4%; Under 4.5 goals: 96.6%; BTTS Yes (both teams score): 34.2%; BTTS No (at least one team does not score): 65.8%.
 
 **Fixture source:** The Odds API
 
@@ -366,9 +74,9 @@ The model's most likely 1X2 outcome is **Getafe win** at **36.1%**. Expected goa
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Getafe win | 36.1% | 2.77 |
-| Draw | 32.2% | 3.10 |
-| Rayo Vallecano win | 31.7% | 3.16 |
+| Getafe win | 35.3% | 2.83 |
+| Draw | 32.6% | 3.07 |
+| Rayo Vallecano win | 32.0% | 3.12 |
 
 ### Goals outlook
 
@@ -377,34 +85,34 @@ The model's most likely 1X2 outcome is **Getafe win** at **36.1%**. Expected goa
 | Getafe expected goals | 1.00 |
 | Rayo Vallecano expected goals | 0.78 |
 | Expected total goals | 1.77 |
-| Over 0.5 | 83.4% |
-| Under 0.5 | 16.6% |
+| Over 0.5 | 83.2% |
+| Under 0.5 | 16.8% |
 | Over 1.5 | 53.0% |
 | Under 1.5 | 47.0% |
-| Over 2.5 | 26.4% |
-| Under 2.5 | 73.6% |
+| Over 2.5 | 26.3% |
+| Under 2.5 | 73.7% |
 | Over 3.5 | 10.4% |
 | Under 3.5 | 89.6% |
-| Over 4.5 | 3.5% |
-| Under 4.5 | 96.5% |
+| Over 4.5 | 3.4% |
+| Under 4.5 | 96.6% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 0-0 | 16.63% |
-| 2 | 1-0 | 15.33% |
-| 3 | 0-1 | 15.01% |
-| 4 | 1-1 | 12.92% |
-| 5 | 2-0 | 7.74% |
+| 1 | 0-0 | 16.83% |
+| 2 | 0-1 | 15.20% |
+| 3 | 1-0 | 14.99% |
+| 4 | 1-1 | 13.07% |
+| 5 | 2-0 | 7.57% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Getafe win | 36.1% | 33.0% | 2.98 | +7.7% |
-| Draw | 32.2% | 31.0% | 3.17 | +2.1% |
-| Rayo Vallecano win | 31.7% | 36.0% | 2.74 | -13.3% |
+| Getafe win | 35.3% | 31.4% | 3.13 | +10.6% |
+| Draw | 32.6% | 31.8% | 3.09 | +0.8% |
+| Rayo Vallecano win | 32.0% | 36.8% | 2.69 | -13.8% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -420,11 +128,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 9.00 |
+| Odds bookmakers ou25 | 8.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | 1xBet |
@@ -433,27 +141,27 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
 | Dc lambda home | 0.9953 |
-| Dc lambda away | 0.7770 |
+| Dc lambda away | 0.7769 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 13 |
 | Score grid omitted mass | 0 |
-| P btts yes | 34.1% |
-| P btts no | 65.9% |
+| P btts yes | 34.2% |
+| P btts no | 65.8% |
 | Fair Over 0.5 odds | 1.20 |
-| Fair Under 0.5 odds | 6.01 |
+| Fair Under 0.5 odds | 5.94 |
 | Fair Over 1.5 odds | 1.89 |
 | Fair Under 1.5 odds | 2.13 |
-| Fair Over 2.5 odds | 3.78 |
+| Fair Over 2.5 odds | 3.80 |
 | Fair Under 2.5 odds | 1.36 |
-| Fair Over 3.5 odds | 9.63 |
+| Fair Over 3.5 odds | 9.65 |
 | Fair Under 3.5 odds | 1.12 |
-| Fair Over 4.5 odds | 28.84 |
+| Fair Over 4.5 odds | 29.02 |
 | Fair Under 4.5 odds | 1.04 |
 | Unadjusted home-win probability | 39.3% |
 | Unadjusted draw probability | 33.4% |
@@ -461,79 +169,79 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p over 1 5 | 53.1% |
 | Raw p under 3 5 | 89.6% |
 | Raw p btts yes | 34.3% |
-| P home draw | 68.3% |
-| P draw away | 63.9% |
-| P home away | 67.8% |
+| P home draw | 68.0% |
+| P draw away | 64.7% |
+| P home away | 67.4% |
 | Raw p home draw | 72.7% |
 | Raw p draw away | 60.7% |
 | Raw p home away | 66.6% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Marathon Bet |
-| Reference home odds | 2.94 |
-| Reference draw odds | 3.12 |
-| Reference away odds | 2.70 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
+| Reference home odds | 3.08 |
+| Reference draw odds | 3.04 |
+| Reference away odds | 2.64 |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
 | O/U 2.5 market source | The Odds API / Marathon Bet |
-| Reference Over 2.5 odds | 2.60 |
-| Reference Under 2.5 odds | 1.51 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Home probability edge | +3.2% |
-| Draw probability edge | +1.2% |
-| Away probability edge | -4.3% |
-| Over 2.5 probability edge | -9.4% |
-| Under 2.5 probability edge | +9.4% |
-| Raw edge prob home | 0.0631 |
-| Raw ev home | 0.1707 |
-| Raw edge prob draw | 0.0239 |
-| Raw ev draw | 0.0591 |
-| Raw edge prob away | -0.0869 |
-| Raw ev away | -0.2518 |
-| Market p home draw | 64.3% |
-| Market home draw odds | 1.51 |
+| Reference Over 2.5 odds | 2.72 |
+| Reference Under 2.5 odds | 1.47 |
+| Market reference over 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Home probability edge | +3.9% |
+| Draw probability edge | +0.8% |
+| Away probability edge | -4.7% |
+| Over 2.5 probability edge | -7.7% |
+| Under 2.5 probability edge | +7.7% |
+| Raw edge prob home | 0.0790 |
+| Raw ev home | 0.2297 |
+| Raw edge prob draw | 0.0159 |
+| Raw ev draw | 0.0323 |
+| Raw edge prob away | -0.0949 |
+| Raw ev away | -0.2655 |
+| Market p home draw | 63.2% |
+| Market home draw odds | 1.53 |
 | Best home draw bookmaker | 1xBet |
-| Market best home draw last update utc | 2026-10-18T14:33:36Z |
-| Market reference home draw last update utc | 2026-10-18T14:34:05Z |
+| Market best home draw last update utc | 2026-10-19T16:25:49Z |
+| Market reference home draw last update utc | 2026-10-19T16:26:14Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 68.4% |
-| Market draw away odds | 1.45 |
+| Market p draw away | 68.6% |
+| Market draw away odds | 1.42 |
 | Best draw away bookmaker | 1xBet |
-| Market best draw away last update utc | 2026-10-18T14:33:36Z |
-| Market reference draw away last update utc | 2026-10-18T14:34:05Z |
+| Market best draw away last update utc | 2026-10-19T16:25:49Z |
+| Market reference draw away last update utc | 2026-10-19T16:26:14Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market p home away | 67.4% |
-| Market home away odds | 1.41 |
+| Market p home away | 68.1% |
+| Market home away odds | 1.42 |
 | Best home away bookmaker | 1xBet |
-| Market best home away last update utc | 2026-10-18T14:33:36Z |
-| Market reference home away last update utc | 2026-10-18T14:34:05Z |
+| Market best home away last update utc | 2026-10-19T16:25:49Z |
+| Market reference home away last update utc | 2026-10-19T16:26:14Z |
 | Market home away bookmakers | 1 |
 | Market reference home away method | proportional_overlap_sum_two |
-| Market reference dc home draw odds | 1.50 |
+| Market reference dc home draw odds | 1.53 |
 | Market reference dc draw away odds | 1.41 |
-| Market reference dc home away odds | 1.43 |
-| Market p over 1 5 | 63.8% |
-| Market reference over 1 5 odds | 1.53 |
-| Market reference over 1 5 opposite odds | 2.61 |
-| Market reference over 1 5 last update utc | 2026-10-18T14:33:56Z |
+| Market reference dc home away odds | 1.42 |
+| Market p over 1 5 | 60.9% |
+| Market reference over 1 5 odds | 1.60 |
+| Market reference over 1 5 opposite odds | 2.44 |
+| Market reference over 1 5 last update utc | 2026-10-19T16:26:09Z |
 | Market over 1 5 bookmakers | 0 |
-| Market p under 3 5 | 83.8% |
-| Market reference under 3 5 odds | 1.18 |
-| Market reference under 3 5 opposite odds | 5.50 |
-| Market reference under 3 5 last update utc | 2026-10-18T14:33:38Z |
+| Market p under 3 5 | 84.6% |
+| Market reference under 3 5 odds | 1.17 |
+| Market reference under 3 5 opposite odds | 5.80 |
+| Market reference under 3 5 last update utc | 2026-10-19T16:25:32Z |
 | Market under 3 5 bookmakers | 0 |
-| Market p btts yes | 45.0% |
-| Market btts yes odds | 2.07 |
+| Market p btts yes | 43.5% |
+| Market btts yes odds | 2.16 |
 | Best btts yes bookmaker | 1xBet |
-| Market best btts yes last update utc | 2026-10-18T14:33:36Z |
-| Market reference btts yes odds | 2.13 |
+| Market best btts yes last update utc | 2026-10-19T16:25:49Z |
+| Market reference btts yes odds | 2.28 |
 | Market reference btts yes opposite odds | 1.76 |
-| Market reference btts yes last update utc | 2026-10-18T14:34:05Z |
+| Market reference btts yes last update utc | 2026-10-19T16:26:09Z |
 | Market btts yes bookmakers | 1 |
 
 </details>
@@ -607,11 +315,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 11.00 |
+| Odds bookmakers ou25 | 12.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | 1xBet |
@@ -621,13 +329,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Ath Bilbao |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.2403 |
+| Dc lambda home | 1.2402 |
 | Dc lambda away | 1.5395 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
@@ -635,9 +343,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 56.3% |
 | P btts no | 43.7% |
 | Fair Over 0.5 odds | 1.07 |
-| Fair Under 0.5 odds | 14.89 |
+| Fair Under 0.5 odds | 14.88 |
 | Fair Over 1.5 odds | 1.30 |
-| Fair Under 1.5 odds | 4.31 |
+| Fair Under 1.5 odds | 4.30 |
 | Fair Over 2.5 odds | 1.92 |
 | Fair Under 2.5 odds | 2.09 |
 | Fair Over 3.5 odds | 3.30 |
@@ -662,17 +370,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 3.42 |
 | Reference draw odds | 3.42 |
 | Reference away odds | 2.18 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
 | O/U 2.5 market source | The Odds API / Marathon Bet |
 | Reference Over 2.5 odds | 1.96 |
 | Reference Under 2.5 odds | 1.86 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market best over 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Market best under 2 5 last update utc | 2026-10-18T14:33:36Z |
+| Market reference over 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market best over 2 5 last update utc | 2026-10-19T16:25:49Z |
+| Market best under 2 5 last update utc | 2026-10-19T16:25:49Z |
 | Home probability edge | +1.3% |
 | Draw probability edge | -1.1% |
 | Away probability edge | -0.2% |
@@ -680,7 +388,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Under 2.5 probability edge | -3.6% |
 | Raw edge prob home | 0.0267 |
 | Raw ev home | 0.0721 |
-| Raw edge prob draw | -0.0228 |
+| Raw edge prob draw | -0.0227 |
 | Raw ev draw | -0.1018 |
 | Raw edge prob away | -0.0039 |
 | Raw ev away | -0.0138 |
@@ -692,7 +400,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-23 — Alavés vs Málaga
 
-The model's most likely 1X2 outcome is **Alavés win** at **57.5%**. Expected goals are 1.63 for Alavés and 0.60 for Málaga (2.23 combined). The most likely exact score is 1-0 at 16.0%. Goal-market probabilities: at least one goal: 88.8%; Over 2.5 goals: 37.9%; Under 3.5 goals: 81.8%; Double Chance 1X: 82.8%; Double Chance X2: 42.5%; Double Chance 12 (either team wins): 74.7%; Under 4.5 goals: 92.6%; BTTS Yes (both teams score): 37.0%; BTTS No (at least one team does not score): 63.0%.
+The model's most likely 1X2 outcome is **Alavés win** at **58.3%**. Expected goals are 1.63 for Alavés and 0.60 for Málaga (2.23 combined). The most likely exact score is 1-0 at 16.2%. Goal-market probabilities: at least one goal: 88.7%; Over 2.5 goals: 38.0%; Under 3.5 goals: 81.7%; Double Chance 1X: 83.6%; Double Chance X2: 41.7%; Double Chance 12 (either team wins): 74.7%; Under 4.5 goals: 92.6%; BTTS Yes (both teams score): 37.0%; BTTS No (at least one team does not score): 63.0%.
 
 **Fixture source:** The Odds API
 
@@ -700,9 +408,9 @@ The model's most likely 1X2 outcome is **Alavés win** at **57.5%**. Expected go
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Alavés win | 57.5% | 1.74 |
-| Draw | 25.3% | 3.96 |
-| Málaga win | 17.2% | 5.82 |
+| Alavés win | 58.3% | 1.72 |
+| Draw | 25.3% | 3.95 |
+| Málaga win | 16.4% | 6.11 |
 
 ### Goals outlook
 
@@ -711,14 +419,14 @@ The model's most likely 1X2 outcome is **Alavés win** at **57.5%**. Expected go
 | Alavés expected goals | 1.63 |
 | Málaga expected goals | 0.60 |
 | Expected total goals | 2.23 |
-| Over 0.5 | 88.8% |
-| Under 0.5 | 11.2% |
-| Over 1.5 | 64.7% |
-| Under 1.5 | 35.3% |
-| Over 2.5 | 37.9% |
-| Under 2.5 | 62.1% |
-| Over 3.5 | 18.2% |
-| Under 3.5 | 81.8% |
+| Over 0.5 | 88.7% |
+| Under 0.5 | 11.3% |
+| Over 1.5 | 64.8% |
+| Under 1.5 | 35.2% |
+| Over 2.5 | 38.0% |
+| Under 2.5 | 62.0% |
+| Over 3.5 | 18.3% |
+| Under 3.5 | 81.7% |
 | Over 4.5 | 7.4% |
 | Under 4.5 | 92.6% |
 
@@ -726,21 +434,21 @@ The model's most likely 1X2 outcome is **Alavés win** at **57.5%**. Expected go
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 15.99% |
-| 2 | 2-0 | 13.17% |
-| 3 | 0-0 | 11.24% |
-| 4 | 1-1 | 11.06% |
-| 5 | 0-1 | 8.11% |
+| 1 | 1-0 | 16.20% |
+| 2 | 2-0 | 13.34% |
+| 3 | 0-0 | 11.26% |
+| 4 | 1-1 | 11.09% |
+| 5 | 2-1 | 8.06% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Alavés win | 57.5% | 52.9% | 1.89 | +8.7% |
-| Draw | 25.3% | 26.0% | 3.73 | -5.7% |
-| Málaga win | 17.2% | 21.1% | 4.57 | -21.5% |
-| Over 2.5 | 37.9% | 47.3% | 2.07 | -21.6% |
-| Under 2.5 | 62.1% | 52.7% | 1.88 | +16.8% |
+| Alavés win | 58.3% | 54.5% | 1.84 | +7.2% |
+| Draw | 25.3% | 26.1% | 3.72 | -5.7% |
+| Málaga win | 16.4% | 19.4% | 4.93 | -19.2% |
+| Over 2.5 | 38.0% | 46.1% | 2.12 | -19.5% |
+| Under 2.5 | 62.0% | 53.9% | 1.84 | +14.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -756,11 +464,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 12.00 |
+| Odds bookmakers ou25 | 13.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | 1xBet |
@@ -770,13 +478,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Malaga |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.6283 |
-| Dc lambda away | 0.6041 |
+| Dc lambda home | 1.6280 |
+| Dc lambda away | 0.6046 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
@@ -784,23 +492,23 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 37.0% |
 | P btts no | 63.0% |
 | Fair Over 0.5 odds | 1.13 |
-| Fair Under 0.5 odds | 8.90 |
-| Fair Over 1.5 odds | 1.55 |
-| Fair Under 1.5 odds | 2.83 |
-| Fair Over 2.5 odds | 2.64 |
+| Fair Under 0.5 odds | 8.88 |
+| Fair Over 1.5 odds | 1.54 |
+| Fair Under 1.5 odds | 2.84 |
+| Fair Over 2.5 odds | 2.63 |
 | Fair Under 2.5 odds | 1.61 |
-| Fair Over 3.5 odds | 5.51 |
+| Fair Over 3.5 odds | 5.48 |
 | Fair Under 3.5 odds | 1.22 |
-| Fair Over 4.5 odds | 13.59 |
+| Fair Over 4.5 odds | 13.52 |
 | Fair Under 4.5 odds | 1.08 |
 | Unadjusted home-win probability | 62.1% |
 | Unadjusted draw probability | 24.6% |
 | Unadjusted away-win probability | 13.3% |
 | Raw p over 1 5 | 65.5% |
 | Raw p under 3 5 | 81.3% |
-| Raw p btts yes | 36.6% |
-| P home draw | 82.8% |
-| P draw away | 42.5% |
+| Raw p btts yes | 36.7% |
+| P home draw | 83.6% |
+| P draw away | 41.7% |
 | P home away | 74.7% |
 | Raw p home draw | 86.7% |
 | Raw p draw away | 37.9% |
@@ -808,31 +516,31 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Marathon Bet |
-| Reference home odds | 1.84 |
-| Reference draw odds | 3.64 |
-| Reference away odds | 4.45 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
+| Reference home odds | 1.79 |
+| Reference draw odds | 3.62 |
+| Reference away odds | 4.80 |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
 | O/U 2.5 market source | The Odds API / Marathon Bet |
-| Reference Over 2.5 odds | 2.01 |
-| Reference Under 2.5 odds | 1.82 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market best over 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Market best under 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Home probability edge | +4.6% |
-| Draw probability edge | -0.7% |
-| Away probability edge | -3.9% |
-| Over 2.5 probability edge | -9.4% |
-| Under 2.5 probability edge | +9.4% |
-| Raw edge prob home | 0.0918 |
-| Raw ev home | 0.1741 |
-| Raw edge prob draw | -0.0141 |
-| Raw ev draw | -0.0832 |
-| Raw edge prob away | -0.0777 |
-| Raw ev away | -0.3922 |
+| Reference Over 2.5 odds | 2.06 |
+| Reference Under 2.5 odds | 1.78 |
+| Market reference over 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market best over 2 5 last update utc | 2026-10-19T16:25:49Z |
+| Market best under 2 5 last update utc | 2026-10-19T16:25:49Z |
+| Home probability edge | +3.8% |
+| Draw probability edge | -0.8% |
+| Away probability edge | -3.1% |
+| Over 2.5 probability edge | -8.1% |
+| Under 2.5 probability edge | +8.1% |
+| Raw edge prob home | 0.0765 |
+| Raw ev home | 0.1426 |
+| Raw edge prob draw | -0.0152 |
+| Raw ev draw | -0.0855 |
+| Raw edge prob away | -0.0613 |
+| Raw ev away | -0.3436 |
 
 </details>
 
@@ -841,7 +549,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-24 — Atlético Madrid vs Deportivo La Coruña
 
-The model's most likely 1X2 outcome is **Atlético Madrid win** at **73.7%**. Expected goals are 2.28 for Atlético Madrid and 0.89 for Deportivo La Coruña (3.17 combined). The most likely exact score is 2-0 at 11.7%. Goal-market probabilities: at least one goal: 96.1%; Over 2.5 goals: 62.5%; Under 3.5 goals: 60.1%; Double Chance 1X: 90.1%; Double Chance X2: 26.3%; Double Chance 12 (either team wins): 83.6%; Under 4.5 goals: 77.9%; BTTS Yes (both teams score): 52.2%; BTTS No (at least one team does not score): 47.8%.
+The model's most likely 1X2 outcome is **Atlético Madrid win** at **72.5%**. Expected goals are 2.28 for Atlético Madrid and 0.89 for Deportivo La Coruña (3.17 combined). The most likely exact score is 2-0 at 11.6%. Goal-market probabilities: at least one goal: 96.1%; Over 2.5 goals: 62.4%; Under 3.5 goals: 60.3%; Double Chance 1X: 88.9%; Double Chance X2: 27.5%; Double Chance 12 (either team wins): 83.5%; Under 4.5 goals: 78.0%; BTTS Yes (both teams score): 52.3%; BTTS No (at least one team does not score): 47.7%.
 
 **Fixture source:** The Odds API
 
@@ -849,9 +557,9 @@ The model's most likely 1X2 outcome is **Atlético Madrid win** at **73.7%**. Ex
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Atlético Madrid win | 73.7% | 1.36 |
-| Draw | 16.4% | 6.08 |
-| Deportivo La Coruña win | 9.9% | 10.13 |
+| Atlético Madrid win | 72.5% | 1.38 |
+| Draw | 16.5% | 6.07 |
+| Deportivo La Coruña win | 11.1% | 9.05 |
 
 ### Goals outlook
 
@@ -862,32 +570,32 @@ The model's most likely 1X2 outcome is **Atlético Madrid win** at **73.7%**. Ex
 | Expected total goals | 3.17 |
 | Over 0.5 | 96.1% |
 | Under 0.5 | 3.9% |
-| Over 1.5 | 83.3% |
-| Under 1.5 | 16.7% |
-| Over 2.5 | 62.5% |
-| Under 2.5 | 37.5% |
-| Over 3.5 | 39.9% |
-| Under 3.5 | 60.1% |
-| Over 4.5 | 22.1% |
-| Under 4.5 | 77.9% |
+| Over 1.5 | 83.1% |
+| Under 1.5 | 16.9% |
+| Over 2.5 | 62.4% |
+| Under 2.5 | 37.6% |
+| Over 3.5 | 39.7% |
+| Under 3.5 | 60.3% |
+| Over 4.5 | 22.0% |
+| Under 4.5 | 78.0% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 2-0 | 11.74% |
-| 2 | 2-1 | 10.44% |
-| 3 | 1-0 | 10.12% |
-| 4 | 3-0 | 8.93% |
-| 5 | 3-1 | 7.94% |
+| 1 | 2-0 | 11.55% |
+| 2 | 2-1 | 10.27% |
+| 3 | 1-0 | 9.96% |
+| 4 | 3-0 | 8.78% |
+| 5 | 3-1 | 7.81% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Atlético Madrid win | 73.7% | 78.8% | 1.27 | -6.4% |
-| Draw | 16.4% | 14.4% | 6.46 | +6.2% |
-| Deportivo La Coruña win | 9.9% | 6.8% | 13.10 | +29.4% |
+| Atlético Madrid win | 72.5% | 76.4% | 1.31 | -5.1% |
+| Draw | 16.5% | 14.5% | 6.48 | +6.8% |
+| Deportivo La Coruña win | 11.1% | 9.1% | 10.00 | +10.6% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -903,9 +611,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
@@ -915,67 +623,67 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | La Coruna |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 90/100 |
-| Dc lambda home | 2.2806 |
-| Dc lambda away | 0.8894 |
+| Dc lambda home | 2.2804 |
+| Dc lambda away | 0.8892 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 18 |
 | Score grid omitted mass | 0 |
-| P btts yes | 52.2% |
-| P btts no | 47.8% |
+| P btts yes | 52.3% |
+| P btts no | 47.7% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 25.75 |
+| Fair Under 0.5 odds | 25.67 |
 | Fair Over 1.5 odds | 1.20 |
-| Fair Under 1.5 odds | 5.98 |
+| Fair Under 1.5 odds | 5.92 |
 | Fair Over 2.5 odds | 1.60 |
-| Fair Under 2.5 odds | 2.67 |
-| Fair Over 3.5 odds | 2.51 |
+| Fair Under 2.5 odds | 2.66 |
+| Fair Over 3.5 odds | 2.52 |
 | Fair Under 3.5 odds | 1.66 |
-| Fair Over 4.5 odds | 4.52 |
+| Fair Over 4.5 odds | 4.55 |
 | Fair Under 4.5 odds | 1.28 |
 | Unadjusted home-win probability | 68.5% |
 | Unadjusted draw probability | 18.5% |
 | Unadjusted away-win probability | 13.0% |
 | Raw p over 1 5 | 82.6% |
 | Raw p under 3 5 | 60.9% |
-| Raw p btts yes | 53.1% |
-| P home draw | 90.1% |
-| P draw away | 26.3% |
-| P home away | 83.6% |
+| Raw p btts yes | 53.0% |
+| P home draw | 88.9% |
+| P draw away | 27.5% |
+| P home away | 83.5% |
 | Raw p home draw | 87.0% |
 | Raw p draw away | 31.5% |
 | Raw p home away | 81.5% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Marathon Bet |
-| Reference home odds | 1.25 |
-| Reference draw odds | 6.15 |
-| Reference away odds | 12.50 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
-| O/U 2.5 market source | The Odds API / Betsson |
-| Reference Over 2.5 odds | 1.51 |
-| Reference Under 2.5 odds | 2.60 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:55Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:55Z |
-| Home probability edge | -5.1% |
+| Reference home odds | 1.29 |
+| Reference draw odds | 6.20 |
+| Reference away odds | 9.60 |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.44 |
+| Reference Under 2.5 odds | 2.50 |
+| Market reference over 2 5 last update utc | 2026-10-19T16:25:48Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:25:48Z |
+| Home probability edge | -3.9% |
 | Draw probability edge | +2.0% |
-| Away probability edge | +3.1% |
-| Over 2.5 probability edge | -1.7% |
-| Under 2.5 probability edge | +1.7% |
-| Raw edge prob home | -0.1028 |
-| Raw ev home | -0.1295 |
-| Raw edge prob draw | 0.0406 |
-| Raw ev draw | 0.1934 |
-| Raw edge prob away | 0.0622 |
-| Raw ev away | 0.7013 |
+| Away probability edge | +1.9% |
+| Over 2.5 probability edge | -3.1% |
+| Under 2.5 probability edge | +3.1% |
+| Raw edge prob home | -0.0783 |
+| Raw ev home | -0.1021 |
+| Raw edge prob draw | 0.0398 |
+| Raw ev draw | 0.1971 |
+| Raw edge prob away | 0.0386 |
+| Raw ev away | 0.2984 |
 
 </details>
 
@@ -1048,11 +756,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 12.00 |
+| Odds bookmakers ou25 | 14.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | 1xBet |
@@ -1063,12 +771,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
 | Dc lambda home | 1.3954 |
-| Dc lambda away | 0.8984 |
+| Dc lambda away | 0.8983 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
@@ -1103,17 +811,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.76 |
 | Reference draw odds | 3.84 |
 | Reference away odds | 4.65 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
 | O/U 2.5 market source | The Odds API / Marathon Bet |
 | Reference Over 2.5 odds | 1.82 |
 | Reference Under 2.5 odds | 2.01 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market best over 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Market best under 2 5 last update utc | 2026-10-18T14:33:36Z |
+| Market reference over 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market best over 2 5 last update utc | 2026-10-19T16:25:49Z |
+| Market best under 2 5 last update utc | 2026-10-19T16:25:49Z |
 | Home probability edge | -3.6% |
 | Draw probability edge | +1.6% |
 | Away probability edge | +1.9% |
@@ -1124,7 +832,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw edge prob draw | 0.0326 |
 | Raw ev draw | 0.0945 |
 | Raw edge prob away | 0.0388 |
-| Raw ev away | 0.1452 |
+| Raw ev away | 0.1451 |
 
 </details>
 
@@ -1133,7 +841,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-24 — Real Racing Club de Santander vs Espanyol
 
-The model's most likely 1X2 outcome is **Espanyol win** at **39.6%**. Expected goals are 1.91 for Real Racing Club de Santander and 2.13 for Espanyol (4.04 combined). The most likely exact score is 1-1 at 8.3%. Goal-market probabilities: at least one goal: 97.8%; Over 2.5 goals: 76.0%; Under 3.5 goals: 42.7%; Double Chance 1X: 60.4%; Double Chance X2: 63.1%; Double Chance 12 (either team wins): 76.5%; Under 4.5 goals: 62.8%; BTTS Yes (both teams score): 75.7%; BTTS No (at least one team does not score): 24.3%.
+The model's most likely 1X2 outcome is **Espanyol win** at **39.6%**. Expected goals are 1.90 for Real Racing Club de Santander and 2.13 for Espanyol (4.04 combined). The most likely exact score is 1-1 at 8.3%. Goal-market probabilities: at least one goal: 97.8%; Over 2.5 goals: 76.0%; Under 3.5 goals: 42.8%; Double Chance 1X: 60.4%; Double Chance X2: 63.1%; Double Chance 12 (either team wins): 76.5%; Under 4.5 goals: 62.8%; BTTS Yes (both teams score): 75.7%; BTTS No (at least one team does not score): 24.3%.
 
 **Fixture source:** The Odds API
 
@@ -1149,7 +857,7 @@ The model's most likely 1X2 outcome is **Espanyol win** at **39.6%**. Expected g
 
 | Measure | Model estimate |
 | --- | --- |
-| Real Racing Club de Santander expected goals | 1.91 |
+| Real Racing Club de Santander expected goals | 1.90 |
 | Espanyol expected goals | 2.13 |
 | Expected total goals | 4.04 |
 | Over 0.5 | 97.8% |
@@ -1158,8 +866,8 @@ The model's most likely 1X2 outcome is **Espanyol win** at **39.6%**. Expected g
 | Under 1.5 | 8.8% |
 | Over 2.5 | 76.0% |
 | Under 2.5 | 24.0% |
-| Over 3.5 | 57.3% |
-| Under 3.5 | 42.7% |
+| Over 3.5 | 57.2% |
+| Under 3.5 | 42.8% |
 | Over 4.5 | 37.2% |
 | Under 4.5 | 62.8% |
 
@@ -1167,7 +875,7 @@ The model's most likely 1X2 outcome is **Espanyol win** at **39.6%**. Expected g
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 8.27% |
+| 1 | 1-1 | 8.28% |
 | 2 | 2-2 | 8.24% |
 | 3 | 2-1 | 7.15% |
 | 4 | 1-2 | 6.88% |
@@ -1177,11 +885,11 @@ The model's most likely 1X2 outcome is **Espanyol win** at **39.6%**. Expected g
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Real Racing Club de Santander win | 36.9% | 38.6% | 2.57 | -5.1% |
+| Real Racing Club de Santander win | 36.9% | 38.6% | 2.57 | -5.2% |
 | Draw | 23.5% | 26.2% | 3.71 | -12.8% |
-| Espanyol win | 39.6% | 35.2% | 2.80 | +10.8% |
-| Over 2.5 | 76.0% | 55.9% | 1.77 | +34.5% |
-| Under 2.5 | 24.0% | 44.1% | 2.22 | -46.7% |
+| Espanyol win | 39.6% | 35.2% | 2.80 | +10.9% |
+| Over 2.5 | 76.0% | 55.9% | 1.77 | +34.4% |
+| Under 2.5 | 24.0% | 44.1% | 2.22 | -46.6% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1197,9 +905,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | 1xBet |
@@ -1211,13 +919,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Espanol |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.9051 |
-| Dc lambda away | 2.1322 |
+| Dc lambda home | 1.9036 |
+| Dc lambda away | 2.1320 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
@@ -1225,26 +933,26 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 75.7% |
 | P btts no | 24.3% |
 | Fair Over 0.5 odds | 1.02 |
-| Fair Under 0.5 odds | 46.45 |
+| Fair Under 0.5 odds | 46.38 |
 | Fair Over 1.5 odds | 1.10 |
-| Fair Under 1.5 odds | 11.37 |
+| Fair Under 1.5 odds | 11.36 |
 | Fair Over 2.5 odds | 1.32 |
 | Fair Under 2.5 odds | 4.16 |
 | Fair Over 3.5 odds | 1.75 |
 | Fair Under 3.5 odds | 2.34 |
 | Fair Over 4.5 odds | 2.69 |
 | Fair Under 4.5 odds | 1.59 |
-| Unadjusted home-win probability | 35.3% |
+| Unadjusted home-win probability | 35.2% |
 | Unadjusted draw probability | 20.8% |
 | Unadjusted away-win probability | 44.0% |
 | Raw p over 1 5 | 91.2% |
-| Raw p under 3 5 | 42.6% |
-| Raw p btts yes | 75.2% |
+| Raw p under 3 5 | 42.7% |
+| Raw p btts yes | 75.1% |
 | P home draw | 60.4% |
 | P draw away | 63.1% |
 | P home away | 76.5% |
 | Raw p home draw | 56.0% |
-| Raw p draw away | 64.7% |
+| Raw p draw away | 64.8% |
 | Raw p home away | 79.2% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
@@ -1252,28 +960,28 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.50 |
 | Reference draw odds | 3.62 |
 | Reference away odds | 2.73 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
 | O/U 2.5 market source | The Odds API / Marathon Bet |
 | Reference Over 2.5 odds | 1.72 |
 | Reference Under 2.5 odds | 2.15 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market best over 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Market best under 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Home probability edge | -1.6% |
+| Market reference over 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market best over 2 5 last update utc | 2026-10-19T16:25:49Z |
+| Market best under 2 5 last update utc | 2026-10-19T16:25:49Z |
+| Home probability edge | -1.7% |
 | Draw probability edge | -2.7% |
 | Away probability edge | +4.4% |
 | Over 2.5 probability edge | +20.0% |
 | Under 2.5 probability edge | -20.0% |
-| Raw edge prob home | -0.0330 |
-| Raw ev home | -0.0936 |
-| Raw edge prob draw | -0.0549 |
-| Raw ev draw | -0.2300 |
-| Raw edge prob away | 0.0878 |
-| Raw ev away | 0.2313 |
+| Raw edge prob home | -0.0333 |
+| Raw ev home | -0.0943 |
+| Raw edge prob draw | -0.0548 |
+| Raw ev draw | -0.2298 |
+| Raw edge prob away | 0.0881 |
+| Raw ev away | 0.2320 |
 
 </details>
 
@@ -1346,11 +1054,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 12.00 |
+| Odds bookmakers ou25 | 13.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | 1xBet |
@@ -1360,13 +1068,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Villarreal |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.2725 |
-| Dc lambda away | 1.5058 |
+| Dc lambda home | 1.2724 |
+| Dc lambda away | 1.5060 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
@@ -1374,7 +1082,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 56.2% |
 | P btts no | 43.8% |
 | Fair Over 0.5 odds | 1.07 |
-| Fair Under 0.5 odds | 15.49 |
+| Fair Under 0.5 odds | 15.50 |
 | Fair Over 1.5 odds | 1.30 |
 | Fair Under 1.5 odds | 4.31 |
 | Fair Over 2.5 odds | 1.90 |
@@ -1401,28 +1109,28 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 3.36 |
 | Reference draw odds | 3.68 |
 | Reference away odds | 2.11 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
 | O/U 2.5 market source | The Odds API / Marathon Bet |
 | Reference Over 2.5 odds | 1.73 |
 | Reference Under 2.5 odds | 2.13 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market best over 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Market best under 2 5 last update utc | 2026-10-18T14:33:36Z |
+| Market reference over 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market best over 2 5 last update utc | 2026-10-19T16:25:49Z |
+| Market best under 2 5 last update utc | 2026-10-19T16:25:49Z |
 | Home probability edge | +1.8% |
 | Draw probability edge | -0.0% |
 | Away probability edge | -1.7% |
 | Over 2.5 probability edge | -3.0% |
 | Under 2.5 probability edge | +3.0% |
-| Raw edge prob home | 0.0357 |
-| Raw ev home | 0.0997 |
+| Raw edge prob home | 0.0356 |
+| Raw ev home | 0.0995 |
 | Raw edge prob draw | -0.0009 |
-| Raw ev draw | -0.0303 |
-| Raw edge prob away | -0.0348 |
-| Raw ev away | -0.0784 |
+| Raw ev draw | -0.0304 |
+| Raw edge prob away | -0.0347 |
+| Raw ev away | -0.0782 |
 
 </details>
 
@@ -1466,7 +1174,7 @@ The model's most likely 1X2 outcome is **Athletic Bilbao win** at **55.5%**. Exp
 | Rank | Score | Probability |
 | --- | --- | --- |
 | 1 | 1-0 | 20.25% |
-| 2 | 0-0 | 13.74% |
+| 2 | 0-0 | 13.75% |
 | 3 | 2-0 | 12.97% |
 | 4 | 1-1 | 10.90% |
 | 5 | 0-1 | 8.91% |
@@ -1475,10 +1183,10 @@ The model's most likely 1X2 outcome is **Athletic Bilbao win** at **55.5%**. Exp
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Athletic Bilbao win | 55.5% | 59.2% | 1.70 | -5.6% |
+| Athletic Bilbao win | 55.5% | 59.2% | 1.70 | -5.7% |
 | Draw | 27.0% | 23.8% | 4.04 | +8.9% |
 | Getafe win | 17.5% | 17.0% | 5.60 | -1.7% |
-| Over 2.5 | 30.4% | 43.0% | 2.27 | -31.0% |
+| Over 2.5 | 30.4% | 43.0% | 2.27 | -31.1% |
 | Under 2.5 | 69.6% | 57.0% | 1.74 | +21.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
@@ -1495,9 +1203,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 12.00 |
 | Best home bookmaker | 1xBet |
@@ -1509,13 +1217,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Getafe |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.2652 |
+| Dc lambda home | 1.2651 |
 | Dc lambda away | 0.6243 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
@@ -1523,20 +1231,20 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 32.8% |
 | P btts no | 67.2% |
 | Fair Over 0.5 odds | 1.16 |
-| Fair Under 0.5 odds | 7.28 |
+| Fair Under 0.5 odds | 7.27 |
 | Fair Over 1.5 odds | 1.75 |
 | Fair Under 1.5 odds | 2.33 |
 | Fair Over 2.5 odds | 3.29 |
 | Fair Under 2.5 odds | 1.44 |
 | Fair Over 3.5 odds | 7.93 |
 | Fair Under 3.5 odds | 1.14 |
-| Fair Over 4.5 odds | 22.14 |
+| Fair Over 4.5 odds | 22.15 |
 | Fair Under 4.5 odds | 1.05 |
 | Unadjusted home-win probability | 51.8% |
 | Unadjusted draw probability | 30.1% |
 | Unadjusted away-win probability | 18.1% |
 | Raw p over 1 5 | 56.6% |
-| Raw p under 3 5 | 87.6% |
+| Raw p under 3 5 | 87.7% |
 | Raw p btts yes | 33.6% |
 | P home draw | 82.5% |
 | P draw away | 44.5% |
@@ -1550,26 +1258,26 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.65 |
 | Reference draw odds | 3.94 |
 | Reference away odds | 5.45 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
 | O/U 2.5 market source | The Odds API / Marathon Bet |
 | Reference Over 2.5 odds | 2.20 |
 | Reference Under 2.5 odds | 1.69 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market best over 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Market best under 2 5 last update utc | 2026-10-18T14:33:36Z |
+| Market reference over 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market best over 2 5 last update utc | 2026-10-19T16:25:49Z |
+| Market best under 2 5 last update utc | 2026-10-19T16:25:49Z |
 | Home probability edge | -3.7% |
 | Draw probability edge | +3.1% |
 | Away probability edge | +0.6% |
 | Over 2.5 probability edge | -12.6% |
 | Under 2.5 probability edge | +12.6% |
-| Raw edge prob home | -0.0743 |
+| Raw edge prob home | -0.0744 |
 | Raw ev home | -0.1197 |
-| Raw edge prob draw | 0.0626 |
-| Raw ev draw | 0.2154 |
+| Raw edge prob draw | 0.0627 |
+| Raw ev draw | 0.2155 |
 | Raw edge prob away | 0.0117 |
 | Raw ev away | 0.0154 |
 
@@ -1580,7 +1288,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-25 — Barcelona vs Real Madrid
 
-The model's most likely 1X2 outcome is **Barcelona win** at **56.5%**. Expected goals are 1.78 for Barcelona and 1.33 for Real Madrid (3.11 combined). The most likely exact score is 2-1 at 11.1%. Goal-market probabilities: at least one goal: 95.9%; Over 2.5 goals: 61.3%; Under 3.5 goals: 61.8%; Double Chance 1X: 77.0%; Double Chance X2: 43.5%; Double Chance 12 (either team wins): 79.5%; Under 4.5 goals: 79.0%; BTTS Yes (both teams score): 60.4%; BTTS No (at least one team does not score): 39.6%.
+The model's most likely 1X2 outcome is **Barcelona win** at **55.4%**. Expected goals are 1.78 for Barcelona and 1.33 for Real Madrid (3.11 combined). The most likely exact score is 2-1 at 10.9%. Goal-market probabilities: at least one goal: 95.9%; Over 2.5 goals: 61.2%; Under 3.5 goals: 61.9%; Double Chance 1X: 76.1%; Double Chance X2: 44.6%; Double Chance 12 (either team wins): 79.3%; Under 4.5 goals: 79.0%; BTTS Yes (both teams score): 60.5%; BTTS No (at least one team does not score): 39.5%.
 
 **Fixture source:** The Odds API
 
@@ -1588,9 +1296,9 @@ The model's most likely 1X2 outcome is **Barcelona win** at **56.5%**. Expected 
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Barcelona win | 56.5% | 1.77 |
-| Draw | 20.5% | 4.88 |
-| Real Madrid win | 23.0% | 4.35 |
+| Barcelona win | 55.4% | 1.80 |
+| Draw | 20.7% | 4.84 |
+| Real Madrid win | 23.9% | 4.18 |
 
 ### Goals outlook
 
@@ -1601,12 +1309,12 @@ The model's most likely 1X2 outcome is **Barcelona win** at **56.5%**. Expected 
 | Expected total goals | 3.11 |
 | Over 0.5 | 95.9% |
 | Under 0.5 | 4.1% |
-| Over 1.5 | 82.2% |
-| Under 1.5 | 17.8% |
-| Over 2.5 | 61.3% |
-| Under 2.5 | 38.7% |
-| Over 3.5 | 38.2% |
-| Under 3.5 | 61.8% |
+| Over 1.5 | 82.1% |
+| Under 1.5 | 17.9% |
+| Over 2.5 | 61.2% |
+| Under 2.5 | 38.8% |
+| Over 3.5 | 38.1% |
+| Under 3.5 | 61.9% |
 | Over 4.5 | 21.0% |
 | Under 4.5 | 79.0% |
 
@@ -1614,19 +1322,19 @@ The model's most likely 1X2 outcome is **Barcelona win** at **56.5%**. Expected 
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 2-1 | 11.12% |
-| 2 | 1-1 | 9.36% |
-| 3 | 1-0 | 9.16% |
-| 4 | 2-0 | 8.34% |
-| 5 | 3-1 | 6.58% |
+| 1 | 2-1 | 10.91% |
+| 2 | 1-1 | 9.44% |
+| 3 | 1-0 | 8.98% |
+| 4 | 2-0 | 8.18% |
+| 5 | 3-1 | 6.45% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Barcelona win | 56.5% | 65.4% | 1.54 | -12.9% |
-| Draw | 20.5% | 17.4% | 5.44 | +11.6% |
-| Real Madrid win | 23.0% | 17.2% | 5.49 | +26.1% |
+| Barcelona win | 55.4% | 63.2% | 1.59 | -11.9% |
+| Draw | 20.7% | 17.7% | 5.34 | +10.4% |
+| Real Madrid win | 23.9% | 19.1% | 4.99 | +19.2% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1642,9 +1350,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | 1xBet |
@@ -1660,22 +1368,22 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
 | Score grid omitted mass | 0 |
-| P btts yes | 60.4% |
-| P btts no | 39.6% |
+| P btts yes | 60.5% |
+| P btts no | 39.5% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 24.66 |
+| Fair Under 0.5 odds | 24.46 |
 | Fair Over 1.5 odds | 1.22 |
-| Fair Under 1.5 odds | 5.61 |
+| Fair Under 1.5 odds | 5.60 |
 | Fair Over 2.5 odds | 1.63 |
 | Fair Under 2.5 odds | 2.58 |
 | Fair Over 3.5 odds | 2.62 |
 | Fair Under 3.5 odds | 1.62 |
-| Fair Over 4.5 odds | 4.76 |
+| Fair Over 4.5 odds | 4.77 |
 | Fair Under 4.5 odds | 1.27 |
 | Unadjusted home-win probability | 47.7% |
 | Unadjusted draw probability | 23.6% |
@@ -1683,38 +1391,38 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p over 1 5 | 81.9% |
 | Raw p under 3 5 | 62.3% |
 | Raw p btts yes | 61.4% |
-| P home draw | 77.0% |
-| P draw away | 43.5% |
-| P home away | 79.5% |
+| P home draw | 76.1% |
+| P draw away | 44.6% |
+| P home away | 79.3% |
 | Raw p home draw | 71.3% |
 | Raw p draw away | 52.3% |
 | Raw p home away | 76.4% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
 | 1X2 market source | The Odds API / Marathon Bet |
-| Reference home odds | 1.50 |
-| Reference draw odds | 5.30 |
-| Reference away odds | 5.35 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
-| O/U 2.5 market source | The Odds API / Betsson |
-| Reference Over 2.5 odds | 1.23 |
-| Reference Under 2.5 odds | 4.23 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:56Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:56Z |
-| Home probability edge | -8.8% |
-| Draw probability edge | +3.1% |
-| Away probability edge | +5.7% |
-| Over 2.5 probability edge | -18.3% |
-| Under 2.5 probability edge | +18.3% |
-| Raw edge prob home | -0.1768 |
-| Raw ev home | -0.2656 |
-| Raw edge prob draw | 0.0621 |
-| Raw ev draw | 0.2845 |
-| Raw edge prob away | 0.1147 |
-| Raw ev away | 0.5756 |
+| Reference home odds | 1.55 |
+| Reference draw odds | 5.20 |
+| Reference away odds | 4.85 |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.22 |
+| Reference Under 2.5 odds | 4.20 |
+| Market reference over 2 5 last update utc | 2026-10-19T16:25:48Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:25:48Z |
+| Home probability edge | -7.7% |
+| Draw probability edge | +2.9% |
+| Away probability edge | +4.8% |
+| Over 2.5 probability edge | -18.8% |
+| Under 2.5 probability edge | +18.8% |
+| Raw edge prob home | -0.1547 |
+| Raw ev home | -0.2417 |
+| Raw edge prob draw | 0.0586 |
+| Raw ev draw | 0.2608 |
+| Raw edge prob away | 0.0960 |
+| Raw ev away | 0.4321 |
 
 </details>
 
@@ -1787,11 +1495,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 12.00 |
+| Odds bookmakers ou25 | 14.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | 1xBet |
@@ -1807,7 +1515,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
@@ -1842,25 +1550,25 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 2.70 |
 | Reference draw odds | 3.48 |
 | Reference away odds | 2.60 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
 | O/U 2.5 market source | The Odds API / Marathon Bet |
 | Reference Over 2.5 odds | 1.85 |
 | Reference Under 2.5 odds | 1.97 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market best over 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Market best under 2 5 last update utc | 2026-10-18T14:33:36Z |
+| Market reference over 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market best over 2 5 last update utc | 2026-10-19T16:25:49Z |
+| Market best under 2 5 last update utc | 2026-10-19T16:25:49Z |
 | Home probability edge | +1.0% |
 | Draw probability edge | -0.3% |
 | Away probability edge | -0.7% |
 | Over 2.5 probability edge | -3.4% |
 | Under 2.5 probability edge | +3.4% |
-| Raw edge prob home | 0.0205 |
-| Raw ev home | 0.0431 |
-| Raw edge prob draw | -0.0056 |
+| Raw edge prob home | 0.0204 |
+| Raw ev home | 0.0430 |
+| Raw edge prob draw | -0.0055 |
 | Raw ev draw | -0.0433 |
 | Raw edge prob away | -0.0149 |
 | Raw ev away | -0.0509 |
@@ -1936,11 +1644,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
-| Odds bookmakers ou25 | 11.00 |
+| Odds bookmakers ou25 | 12.00 |
 | Best home bookmaker | 1xBet |
 | Best draw bookmaker | 1xBet |
 | Best away bookmaker | 1xBet |
@@ -1950,13 +1658,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Levante |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.0053 |
-| Dc lambda away | 1.0441 |
+| Dc lambda home | 2.0054 |
+| Dc lambda away | 1.0440 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
@@ -1964,7 +1672,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 56.4% |
 | P btts no | 43.6% |
 | Fair Over 0.5 odds | 1.05 |
-| Fair Under 0.5 odds | 19.84 |
+| Fair Under 0.5 odds | 19.83 |
 | Fair Over 1.5 odds | 1.24 |
 | Fair Under 1.5 odds | 5.24 |
 | Fair Over 2.5 odds | 1.71 |
@@ -1991,17 +1699,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.71 |
 | Reference draw odds | 4.15 |
 | Reference away odds | 4.60 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
 | O/U 2.5 market source | The Odds API / Marathon Bet |
 | Reference Over 2.5 odds | 1.66 |
 | Reference Under 2.5 odds | 2.25 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market best over 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Market best under 2 5 last update utc | 2026-10-18T14:33:36Z |
+| Market reference over 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market best over 2 5 last update utc | 2026-10-19T16:25:49Z |
+| Market best under 2 5 last update utc | 2026-10-19T16:25:49Z |
 | Home probability edge | +1.2% |
 | Draw probability edge | -0.5% |
 | Away probability edge | -0.7% |
@@ -2009,10 +1717,10 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Under 2.5 probability edge | -0.5% |
 | Raw edge prob home | 0.0236 |
 | Raw ev home | 0.0463 |
-| Raw edge prob draw | -0.0099 |
+| Raw edge prob draw | -0.0100 |
 | Raw ev draw | -0.0793 |
 | Raw edge prob away | -0.0136 |
-| Raw ev away | -0.1060 |
+| Raw ev away | -0.1061 |
 
 </details>
 
@@ -2042,8 +1750,8 @@ The model's most likely 1X2 outcome is **Sevilla win** at **49.0%**. Expected go
 | Expected total goals | 2.46 |
 | Over 0.5 | 91.2% |
 | Under 0.5 | 8.8% |
-| Over 1.5 | 70.7% |
-| Under 1.5 | 29.3% |
+| Over 1.5 | 70.8% |
+| Under 1.5 | 29.2% |
 | Over 2.5 | 44.6% |
 | Under 2.5 | 55.4% |
 | Over 3.5 | 23.5% |
@@ -2056,7 +1764,7 @@ The model's most likely 1X2 outcome is **Sevilla win** at **49.0%**. Expected go
 | Rank | Score | Probability |
 | --- | --- | --- |
 | 1 | 1-1 | 12.72% |
-| 2 | 1-0 | 12.50% |
+| 2 | 1-0 | 12.49% |
 | 3 | 2-0 | 9.44% |
 | 4 | 2-1 | 9.25% |
 | 5 | 0-0 | 8.83% |
@@ -2085,9 +1793,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-18T14:33:36Z |
-| Market best draw last update utc | 2026-10-18T14:33:36Z |
-| Market best away last update utc | 2026-10-18T14:33:36Z |
+| Market best home last update utc | 2026-10-19T16:25:49Z |
+| Market best draw last update utc | 2026-10-19T16:25:49Z |
+| Market best away last update utc | 2026-10-19T16:25:49Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | 1xBet |
@@ -2099,13 +1807,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Osasuna |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 95/100 |
-| Dc lambda home | 1.4831 |
-| Dc lambda away | 0.9791 |
+| Dc lambda home | 1.4832 |
+| Dc lambda away | 0.9792 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-19T11:19:05.367220+00:00 |
+| Bbs statistics cutoff utc | 2026-10-19T16:26:13.700059+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
@@ -2117,7 +1825,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Over 1.5 odds | 1.41 |
 | Fair Under 1.5 odds | 3.42 |
 | Fair Over 2.5 odds | 2.24 |
-| Fair Under 2.5 odds | 1.80 |
+| Fair Under 2.5 odds | 1.81 |
 | Fair Over 3.5 odds | 4.26 |
 | Fair Under 3.5 odds | 1.31 |
 | Fair Over 4.5 odds | 9.64 |
@@ -2140,17 +1848,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Reference home odds | 1.97 |
 | Reference draw odds | 3.50 |
 | Reference away odds | 4.00 |
-| Market reference 1x2 last update utc | 2026-10-18T14:33:58Z |
-| Market reference home last update utc | 2026-10-18T14:33:58Z |
-| Market reference draw last update utc | 2026-10-18T14:33:58Z |
-| Market reference away last update utc | 2026-10-18T14:33:58Z |
+| Market reference 1x2 last update utc | 2026-10-19T16:26:14Z |
+| Market reference home last update utc | 2026-10-19T16:26:14Z |
+| Market reference draw last update utc | 2026-10-19T16:26:14Z |
+| Market reference away last update utc | 2026-10-19T16:26:14Z |
 | O/U 2.5 market source | The Odds API / Marathon Bet |
 | Reference Over 2.5 odds | 2.12 |
 | Reference Under 2.5 odds | 1.74 |
-| Market reference over 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market reference under 2 5 last update utc | 2026-10-18T14:33:58Z |
-| Market best over 2 5 last update utc | 2026-10-18T14:33:36Z |
-| Market best under 2 5 last update utc | 2026-10-18T14:33:36Z |
+| Market reference over 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market reference under 2 5 last update utc | 2026-10-19T16:26:14Z |
+| Market best over 2 5 last update utc | 2026-10-19T16:25:49Z |
+| Market best under 2 5 last update utc | 2026-10-19T16:25:49Z |
 | Home probability edge | -0.4% |
 | Draw probability edge | -0.2% |
 | Away probability edge | +0.6% |

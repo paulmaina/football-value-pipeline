@@ -10,7 +10,7 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-19T12:08:39.172353+00:00",
+  "generated_at_utc": "2026-10-19T16:28:42.464993+00:00",
   "model_code_sha256": "04e19e80dbc133e0c584542532c48c97aa97fb893023631b7bbdbb8df2ba1660",
   "model_component_sha256": {
     "api_key_config.py": "30cd48be062d3f89e9043d84292b8594c05de6a85ee1ae516950908f5efc78b0",
@@ -18,7 +18,7 @@
     "bbs_integration.py": "79e8ccc98c330d23830d6f7f4cfc261477ba51ba7d936811ae8c6cf5a4d43fee",
     "bbs_statistics_model.py": "7556eaba6bf50051c0203b7bb9c78bb3bc6387f9c3639636da57f9327129726b",
     "bbs_team_aliases.json": "f515446ae0b6b20b8dc0da348fbc99b1ed134945526316c4da28c7fa8d2f5812",
-    "conservative_bet_filter.py": "1ea631e53f1034d43a85746c6913bfbcd0e0701cfe5b559ff7c762ad3be3e182",
+    "conservative_bet_filter.py": "d9245d791f778ddf76395a221f18e94053aed792689d91b96b2433da4c874ce3",
     "dc_decay_validation.py": "0bdd59436fc7693ace85b2eb92e9cf23f575ce6ceac3e04d1714b3e7d415d17a",
     "double_chance.py": "ef0d8af8ce760d2a61034198511d4913f69305e5a823e6de9c7f3b39d5127354",
     "football_value_pipeline_v2_standalone.py": "bef2438f4caa10513cf016358cd857d3d9d7277eb7e20cae6922db1c74822550",
@@ -33,6 +33,6 @@
     "shortlist_quote_policy.json": "bd76b211f72faaca2514057fa0f29aecda33afd05dc8c7fb2565cd95e27ed776",
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47"
   },
-  "predictions_sha256": "a7c3c549aa6b5cd42ca24473c3f090f87f2b4fb5ae894e7abf5baef275e28ec3",
-  "selection_policy_version": "48h-top-ten-probability-ev-no-under35-v14"
+  "predictions_sha256": "60ba4046ae2526bb2d8b53d4993ae66cfbbb859e9debd6670fad4436c05bd945",
+  "selection_policy_version": "48h-top-twelve-probability-ev-no-under35-v15"
 }

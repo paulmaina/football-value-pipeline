@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "c736b4386263e7d589d674450cebef781014107b1eac01908840954e73b9544c",
-  "training_as_of_utc": "2026-10-19T12:06:22.231571+00:00",
+  "training_sha256": "86419600d85effc83fdd569a2b0b03458ba1cd4e7b70ce49b60d3c87d9d4e7dc",
+  "training_as_of_utc": "2026-10-19T16:25:33.358592+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 69,
     "bbs_added_results": 9,
@@ -23,9 +23,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-19T12:06:22.231571+00:00",
-    "observations": 88,
-    "observations_sha256": "d86f7a4520641bf97de242b306e0dea9484b1d40099eef414af45b13ee142da2",
+    "cutoff_utc": "2026-10-19T16:25:33.358592+00:00",
+    "observations": 96,
+    "observations_sha256": "67e7a0ebe5508caf5663e4c386e06942fadad59ec55e2b7968c1a901f88cc193",
     "eligible_training_matches": 18,
     "required_training_matches": 120,
     "feature_fields": [
@@ -59,16 +59,16 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
-    "retrospective_inputs_sha256": "52f1cde52d38f74244588d4d20a698e6aac858d03914a9dbea94526f9b2a90eb",
+    "retrospective_inputs_sha256": "4ef09f78e0e59a69a0e1c8d1f31010b0f7f3615b2b84e65dc1084865f94c4b8f",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement."
   },
   "training_end": "2026-10-18",
   "fit_success": true,
-  "objective": 933.0586190581038,
-  "base": 0.2098150767842794,
-  "home_adv": 0.18262236055858094,
-  "rho": -0.09041678983479921,
+  "objective": 932.573876110969,
+  "base": 0.2098854539359196,
+  "home_adv": 0.18262199704977164,
+  "rho": -0.09041813740531887,
   "half_life_days": 240.0,
   "xi_per_day": 0.0028881132523331052,
   "max_goals": 10,
@@ -90,7 +90,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261019T120622231571Z_d4080270f14a4cd4cd7134196550688f642dcd8611ba37795a82cc788ed2a3a2.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261019T162533358592Z_313d7ffe0f051368b2be842f51b24733378e3d7098e1e3e6c9252d36d9f11e2a.json",
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {

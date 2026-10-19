@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "ddef9182f39b5da858ffcd246948f093a52d0699a7614848c1a03192c104ac4e",
-  "training_as_of_utc": "2026-10-19T12:07:46.188175+00:00",
+  "training_sha256": "b220396b4c5eca6ad05b84187c4e9d1ef5b15accc2804b0e7bd2dd584c68676e",
+  "training_as_of_utc": "2026-10-19T16:28:05.805695+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 63,
     "bbs_added_results": 9,
@@ -23,9 +23,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-19T12:07:46.188175+00:00",
-    "observations": 76,
-    "observations_sha256": "2787aa3b89fdfbe359cc22efa66e26638042c51a7ceb9bc0ecb3fa5c36c064e0",
+    "cutoff_utc": "2026-10-19T16:28:05.805695+00:00",
+    "observations": 85,
+    "observations_sha256": "452543417f7dbd804ab8869ed03935fe5f7cffae398e23344fb26bc15376cb6b",
     "eligible_training_matches": 17,
     "required_training_matches": 120,
     "feature_fields": [
@@ -59,16 +59,16 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:29.253586+00:00",
-    "retrospective_inputs_sha256": "6451d322e757cf80e7b777ac8793016e3ff63c5c9ce7ff33ce5b8fc64bce2561",
+    "retrospective_inputs_sha256": "56c1e03ad8f06b5eae0de5c2783f40728a2da70b6eb5917b267cd4c3667b1ca6",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement."
   },
   "training_end": "2026-10-18",
   "fit_success": true,
-  "objective": 5075.35198062234,
-  "base": 0.2156997959121407,
-  "home_adv": 0.18703164120017493,
-  "rho": -0.05506115707097556,
+  "objective": 5075.351978178177,
+  "base": 0.21569812665027616,
+  "home_adv": 0.18703149528077948,
+  "rho": -0.05506022008553385,
   "half_life_days": 1000000000.0,
   "xi_per_day": 6.931471805599453e-10,
   "max_goals": 10,
@@ -87,10 +87,10 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 9,
-  "additional_event_odds_calls_used_before_this_league": 4,
+  "additional_event_odds_calls_used_before_this_league": 3,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261019T120746188175Z_1ac9afc05fce79617ff7fe9f8105b50813e225e5cbf96714c4f65c3834a50890.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261019T162805805695Z_9a0dafe1d854a842f8bd59aaeef7d74b3003f0f47a773b5d955de448bf5e8647.json",
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
