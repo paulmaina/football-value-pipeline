@@ -118,7 +118,8 @@ def validate(data, generated, predictions):
         raise ValueError('Missing candidate decisions')
     for floor in floors:
         selected = [r for r in data['rows'] if r['ev_floor']==floor and r['decision'] in SELECTED]
-        if len(selected)>10 or len({fixture_key(r) for r in selected})!=len(selected):
+        cap = 12 if data.get('selection_policy_version') == CURRENT_BALANCED_POLICY else 10
+        if len(selected)>cap or len({fixture_key(r) for r in selected})!=len(selected):
             raise ValueError('Duplicate fixture or policy cap exceeded')
 
 
@@ -291,5 +292,6 @@ def validate_report(root):
                     if not math.isfinite(float(a[key])) or abs(float(a[key])-value)>1e-9:raise ValueError('Inconsistent ledger number')
                 elif str(value)!=a.get(key):raise ValueError('Inconsistent ledger decision')
     return True
+
 
 

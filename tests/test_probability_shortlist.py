@@ -175,6 +175,7 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
             pd.DataFrame(rows).to_csv(raw/'all_leagues_predictions.csv', index=False)
             picks.to_csv(raw/'conservative_bet_shortlist.csv', index=False)
             write_json(raw/'conservative_bet_summary.json', summary)
+            write_json(raw/'EPL_goal_market_validation.json', dict(sample_report(), league='Premier League'))
             self.assertEqual(raw_check(root)['selections'], 12)
             process_conservative_shortlist(raw, readable)
             self.assertIn('Top 12', (readable/'conservative_bet_shortlist_report.md').read_text())
@@ -190,6 +191,74 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
         self.assertEqual(len(short), 4)
         self.assertEqual(shortage['shortfall'], 8)
         self.assertIn('Fewer than twelve', shortage['shortfall_reason'])
+
+    def test_archive_gate_replays_membership_prices_ev_and_summary_without_sidecars(self):
+        from performance_tracking import write_json
+        from workflow_checks import raw_check
+        rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]
+        picks, decisions, summary = self.select(rows)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); raw = root/'raw'; raw.mkdir()
+            pd.DataFrame(rows).to_csv(raw/'all_leagues_predictions.csv', index=False)
+            write_json(raw/'conservative_bet_summary.json', summary)
+            write_json(raw/'EPL_goal_market_validation.json', dict(sample_report(), league='Premier League'))
+            source = raw/'conservative_bet_shortlist.csv'
+            picks.to_csv(source, index=False)
+            self.assertEqual(raw_check(root)['warnings'], [])
+            for field, value in [('conservative_estimated_ev', 999),
+                                 ('offered_decimal_odds', 99), ('calibration_penalty', .99)]:
+                changed = picks.copy(); changed.loc[0, field] = value
+                changed.to_csv(source, index=False)
+                with self.subTest(field=field), self.assertRaisesRegex(ValueError, 'ranking replay'):
+                    raw_check(root)
+            # Replacing the twelfth selection by a lower-ranked valid candidate
+            # preserves score ordering and counts, but must fail exact replay.
+            alternative = decisions.loc[decisions.decision.eq('NOT_SELECTED') & decisions.selection_score.notna()]
+            alternative = alternative.loc[~alternative.fixture_id.isin(picks.fixture_id)].iloc[0]
+            changed = picks.copy()
+            changed.loc[11] = alternative.reindex(changed.columns)
+            changed.loc[11, ['decision', 'selection_tier']] = picks.loc[11, ['decision', 'selection_tier']]
+            changed.to_csv(source, index=False)
+            with self.assertRaisesRegex(ValueError, 'ranking replay'):
+                raw_check(root)
+            picks.to_csv(source, index=False)
+            write_json(raw/'conservative_bet_summary.json', dict(summary, shortfall=5))
+            with self.assertRaisesRegex(ValueError, 'shortfall differs'):
+                raw_check(root)
+            write_json(raw/'conservative_bet_summary.json', summary)
+            (raw/'EPL_goal_market_validation.json').unlink()
+            with self.assertRaisesRegex(ValueError, 'Missing.*reliability evidence'):
+                raw_check(root)
+
+    def test_ev_sensitivity_captures_twelve_and_keeps_archived_ten_cap(self):
+        import filter_sensitivity_experiment as ev
+        from conservative_bet_filter import TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION
+        from performance_tracking import capture, snapshots, write_json
+        rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]
+        reports = {'Premier League': dict(sample_report(), league='Premier League')}
+        frame = pd.DataFrame(rows)
+        picks, decisions, summary = select(rows, reports, selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); raw = root/'raw'; raw.mkdir()
+            frame.to_csv(raw/'all_leagues_predictions.csv', index=False)
+            picks.to_csv(raw/'conservative_bet_shortlist.csv', index=False)
+            write_json(raw/'conservative_bet_summary.json', summary)
+            write_json(raw/'EPL_goal_market_validation.json', reports['Premier League'])
+            data = ev.write_experiment(frame, raw, summary, decisions, reports)
+            self.assertEqual(sum(r['ev_floor']==0 and r['decision'] in ev.SELECTED for r in data['rows']), 12)
+            self.assertIsNotNone(ev.capture_file(raw, summary['generated_at_utc']))
+            self.assertTrue(capture('e'*40, root=root, captured_at=NOW))
+            self.assertEqual(len(ev.frozen(root, snapshots(root))[0]), 15*7*4)
+            mislabeled = copy.deepcopy(data)
+            mislabeled['selection_policy_version'] = TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION
+            with self.assertRaisesRegex(ValueError, 'policy cap exceeded'):
+                ev.validate(mislabeled, summary['generated_at_utc'], rows)
+            overflow = copy.deepcopy(data)
+            extra = next(r for r in overflow['rows'] if r['ev_floor']==0 and r['decision']=='NOT_SELECTED'
+                         and r['market']=='Over 1.5' and r['fixture_id'] not in set(picks.fixture_id))
+            extra.update(decision='SHORTLISTED', selection_tier='STRICT')
+            with self.assertRaisesRegex(ValueError, 'policy cap exceeded'):
+                ev.validate(overflow, summary['generated_at_utc'], rows)
 
     def test_under_35_excluded_before_scoring_and_historical_replay_preserved(self):
         from conservative_bet_filter import PREVIOUS_BALANCED_SELECTION_POLICY_VERSION
@@ -277,3 +346,4 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
         # Exercise the same capture/grading/report checks under the new policy.
         with patch(__name__+'.PROBABILITY_SELECTION_POLICY_VERSION', BALANCED_SELECTION_POLICY_VERSION):
             ProbabilityShortlistTests('test_new_experiments_capture_replay_and_reporting_include_control_without_ev_gate').test_new_experiments_capture_replay_and_reporting_include_control_without_ev_gate()
+
