@@ -1,1607 +1,31 @@
 {
   "automatic_production_change": false,
-  "breakdowns": [
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.05667407816908256,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.761936818955382,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.238063181044618,
-      "dimension": "league",
-      "flat_stake_roi": 0.27,
-      "graded": 1,
-      "log_loss": 0.27189164148982575,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.761936818955382,
-      "observed_rate": 1.0,
-      "pending": 0,
-      "profit_units": 0.27,
-      "selected": 1,
-      "value": "Bundesliga",
-      "variant_id": "control",
-      "win_rate_wilson95": [
-        0.20654329147389294,
-        1.0
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.06178630713078491,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7525405817041,
-          "n": 2,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.2474594182959,
-      "dimension": "league",
-      "flat_stake_roi": 0.33499999999999996,
-      "graded": 2,
-      "log_loss": 0.2847863108240389,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.7525405817041,
-      "observed_rate": 1.0,
-      "pending": 1,
-      "profit_units": 0.6699999999999999,
-      "selected": 3,
-      "value": "La Liga",
-      "variant_id": "control",
-      "win_rate_wilson95": [
-        0.34237195288961925,
-        1.0
-      ],
-      "wins": 2
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.3792501884216126,
-      "calibration": [
-        {
-          "band": "60%-70%",
-          "mean_probability": 0.612317273921159,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.779873374813696,
-          "n": 1,
-          "observed_rate": 0.0
-        }
-      ],
-      "calibration_gap": 0.1960953243674275,
-      "dimension": "league",
-      "flat_stake_roi": -0.16500000000000004,
-      "graded": 2,
-      "log_loss": 1.0020285192707106,
-      "max_drawdown_units": 0.33000000000000007,
-      "mean_probability": 0.6960953243674275,
-      "observed_rate": 0.5,
-      "pending": 1,
-      "profit_units": -0.33000000000000007,
-      "selected": 3,
-      "value": "Ligue 1",
-      "variant_id": "control",
-      "win_rate_wilson95": [
-        0.09452865480086614,
-        0.9054713451991339
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.02583005299739653,
-      "calibration": [
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.83928269229048,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.16071730770951997,
-      "dimension": "league",
-      "flat_stake_roi": 0.15999999999999992,
-      "graded": 1,
-      "log_loss": 0.17520768970674583,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.83928269229048,
-      "observed_rate": 1.0,
-      "pending": 0,
-      "profit_units": 0.15999999999999992,
-      "selected": 1,
-      "value": "Premier League",
-      "variant_id": "control",
-      "win_rate_wilson95": [
-        0.20654329147389294,
-        1.0
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.06411563489004338,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.746789346807755,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.253210653192245,
-      "dimension": "league",
-      "flat_stake_roi": 0.28,
-      "graded": 1,
-      "log_loss": 0.2919721325371596,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.746789346807755,
-      "observed_rate": 1.0,
-      "pending": 1,
-      "profit_units": 0.28,
-      "selected": 2,
-      "value": "Serie A",
-      "variant_id": "control",
-      "win_rate_wilson95": [
-        0.20654329147389294,
-        1.0
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "league",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 8,
-      "profit_units": 0,
-      "selected": 8,
-      "value": "UEFA Champions League",
-      "variant_id": "control",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.060394856529562974,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7543630828815685,
-          "n": 2,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.2456369171184315,
-      "dimension": "market",
-      "flat_stake_roi": 0.275,
-      "graded": 2,
-      "log_loss": 0.2819318870134927,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.7543630828815685,
-      "observed_rate": 1.0,
-      "pending": 7,
-      "profit_units": 0.55,
-      "selected": 9,
-      "value": "Double Chance 12",
-      "variant_id": "control",
-      "win_rate_wilson95": [
-        0.34237195288961925,
-        1.0
-      ],
-      "wins": 2
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "market",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 2,
-      "profit_units": 0,
-      "selected": 2,
-      "value": "Double Chance 1X",
-      "variant_id": "control",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.08317421502946966,
-      "calibration": [
-        {
-          "band": "60%-70%",
-          "mean_probability": 0.612317273921159,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.729085445221024,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.83928269229048,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.27310486285577895,
-      "dimension": "market",
-      "flat_stake_roi": 0.40333333333333327,
-      "graded": 3,
-      "log_loss": 0.3272255813682096,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.726895137144221,
-      "observed_rate": 1.0,
-      "pending": 1,
-      "profit_units": 1.2099999999999997,
-      "selected": 4,
-      "value": "Double Chance X2",
-      "variant_id": "control",
-      "win_rate_wilson95": [
-        0.43849391955098227,
-        1.0
-      ],
-      "wins": 3
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.05017791827047905,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.775995718187176,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.22400428181282395,
-      "dimension": "market",
-      "flat_stake_roi": 0.29000000000000004,
-      "graded": 1,
-      "log_loss": 0.2536082766141723,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.775995718187176,
-      "observed_rate": 1.0,
-      "pending": 0,
-      "profit_units": 0.29000000000000004,
-      "selected": 1,
-      "value": "Home win",
-      "variant_id": "control",
-      "win_rate_wilson95": [
-        0.20654329147389294,
-        1.0
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.6082024807433036,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.779873374813696,
-          "n": 1,
-          "observed_rate": 0.0
-        }
-      ],
-      "calibration_gap": 0.779873374813696,
-      "dimension": "market",
-      "flat_stake_roi": -1.0,
-      "graded": 1,
-      "log_loss": 1.5135523291774438,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.779873374813696,
-      "observed_rate": 0.0,
-      "pending": 1,
-      "profit_units": -1.0,
-      "selected": 2,
-      "value": "Over 1.5",
-      "variant_id": "control",
-      "win_rate_wilson95": [
-        0.0,
-        0.7934567085261071
-      ],
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.14695610816590252,
-      "calibration": [
-        {
-          "band": "60%-70%",
-          "mean_probability": 0.612317273921159,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7587361407970066,
-          "n": 5,
-          "observed_rate": 0.8
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.83928269229048,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.10781704711476103,
-      "dimension": "week",
-      "flat_stake_roi": 0.14999999999999997,
-      "graded": 7,
-      "log_loss": 0.4732430177033186,
-      "max_drawdown_units": 0.33000000000000007,
-      "mean_probability": 0.7493258100280961,
-      "observed_rate": 0.8571428571428571,
-      "pending": 1,
-      "profit_units": 1.0499999999999998,
-      "selected": 8,
-      "value": "2026-W42",
-      "variant_id": "control",
-      "win_rate_wilson95": [
-        0.48686549668097007,
-        0.9743210440510253
-      ],
-      "wins": 6
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "week",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 10,
-      "profit_units": 0,
-      "selected": 10,
-      "value": "2026-W43",
-      "variant_id": "control",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.05667407816908256,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.761936818955382,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.238063181044618,
-      "dimension": "league",
-      "flat_stake_roi": 0.27,
-      "graded": 1,
-      "log_loss": 0.27189164148982575,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.761936818955382,
-      "observed_rate": 1.0,
-      "pending": 0,
-      "profit_units": 0.27,
-      "selected": 1,
-      "value": "Bundesliga",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.20654329147389294,
-        1.0
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.04002973838996995,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.729085445221024,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "90%-100%",
-          "mean_probability": 0.91836189131999,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.17627633172949297,
-      "dimension": "league",
-      "flat_stake_roi": 0.21999999999999997,
-      "graded": 2,
-      "log_loss": 0.20056404697726754,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.823723668270507,
-      "observed_rate": 1.0,
-      "pending": 0,
-      "profit_units": 0.43999999999999995,
-      "selected": 2,
-      "value": "La Liga",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.34237195288961925,
-        1.0
-      ],
-      "wins": 2
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.6082024807433036,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.779873374813696,
-          "n": 1,
-          "observed_rate": 0.0
-        }
-      ],
-      "calibration_gap": 0.779873374813696,
-      "dimension": "league",
-      "flat_stake_roi": -1.0,
-      "graded": 1,
-      "log_loss": 1.5135523291774438,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.779873374813696,
-      "observed_rate": 0.0,
-      "pending": 1,
-      "profit_units": -1.0,
-      "selected": 2,
-      "value": "Ligue 1",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.0,
-        0.7934567085261071
-      ],
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.02583005299739653,
-      "calibration": [
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.83928269229048,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.16071730770951997,
-      "dimension": "league",
-      "flat_stake_roi": 0.15999999999999992,
-      "graded": 1,
-      "log_loss": 0.17520768970674583,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.83928269229048,
-      "observed_rate": 1.0,
-      "pending": 1,
-      "profit_units": 0.15999999999999992,
-      "selected": 2,
-      "value": "Premier League",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.20654329147389294,
-        1.0
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.3523149577473364,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.746789346807755,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.800321360832403,
-          "n": 1,
-          "observed_rate": 0.0
-        }
-      ],
-      "calibration_gap": 0.273555353820079,
-      "dimension": "league",
-      "flat_stake_roi": -0.36,
-      "graded": 2,
-      "log_loss": 0.9515090707137887,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.773555353820079,
-      "observed_rate": 0.5,
-      "pending": 1,
-      "profit_units": -0.72,
-      "selected": 3,
-      "value": "Serie A",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.09452865480086614,
-        0.9054713451991339
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "league",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 9,
-      "profit_units": 0,
-      "selected": 9,
-      "value": "UEFA Champions League",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.060394856529562974,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7543630828815685,
-          "n": 2,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.2456369171184315,
-      "dimension": "market",
-      "flat_stake_roi": 0.275,
-      "graded": 2,
-      "log_loss": 0.2819318870134927,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.7543630828815685,
-      "observed_rate": 1.0,
-      "pending": 2,
-      "profit_units": 0.55,
-      "selected": 4,
-      "value": "Double Chance 12",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.34237195288961925,
-        1.0
-      ],
-      "wins": 2
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.3235895306967393,
-      "calibration": [
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.800321360832403,
-          "n": 1,
-          "observed_rate": 0.0
-        },
-        {
-          "band": "90%-100%",
-          "mean_probability": 0.91836189131999,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": 0.3593416260761966,
-      "dimension": "market",
-      "flat_stake_roi": -0.47,
-      "graded": 2,
-      "log_loss": 0.8481048789055237,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.8593416260761966,
-      "observed_rate": 0.5,
-      "pending": 3,
-      "profit_units": -0.94,
-      "selected": 5,
-      "value": "Double Chance 1X",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.09452865480086614,
-        0.9054713451991339
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.049612374494243654,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.729085445221024,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.83928269229048,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.21581593124424803,
-      "dimension": "market",
-      "flat_stake_roi": 0.2699999999999999,
-      "graded": 2,
-      "log_loss": 0.24558601737032565,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.784184068755752,
-      "observed_rate": 1.0,
-      "pending": 1,
-      "profit_units": 0.5399999999999998,
-      "selected": 3,
-      "value": "Double Chance X2",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.34237195288961925,
-        1.0
-      ],
-      "wins": 2
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "market",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
-      "selected": 1,
-      "value": "Home win",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.6082024807433036,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.779873374813696,
-          "n": 1,
-          "observed_rate": 0.0
-        }
-      ],
-      "calibration_gap": 0.779873374813696,
-      "dimension": "market",
-      "flat_stake_roi": -1.0,
-      "graded": 1,
-      "log_loss": 1.5135523291774438,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.779873374813696,
-      "observed_rate": 0.0,
-      "pending": 5,
-      "profit_units": -1.0,
-      "selected": 6,
-      "value": "Over 1.5",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.0,
-        0.7934567085261071
-      ],
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.21077085774062793,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7544212464494643,
-          "n": 4,
-          "observed_rate": 0.75
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.8198020265614415,
-          "n": 2,
-          "observed_rate": 0.5
-        },
-        {
-          "band": "90%-100%",
-          "mean_probability": 0.91836189131999,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": 0.08223584717724719,
-      "dimension": "week",
-      "flat_stake_roi": -0.12142857142857144,
-      "graded": 7,
-      "log_loss": 0.6092568422508754,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.7965215614629615,
-      "observed_rate": 0.7142857142857143,
-      "pending": 1,
-      "profit_units": -0.8500000000000001,
-      "selected": 8,
-      "value": "2026-W42",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.35892909014821267,
-        0.9177828342909844
-      ],
-      "wins": 5
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "week",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 11,
-      "profit_units": 0,
-      "selected": 11,
-      "value": "2026-W43",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.05667407816908256,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.761936818955382,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.238063181044618,
-      "dimension": "league",
-      "flat_stake_roi": 0.27,
-      "graded": 1,
-      "log_loss": 0.27189164148982575,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.761936818955382,
-      "observed_rate": 1.0,
-      "pending": 0,
-      "profit_units": 0.27,
-      "selected": 1,
-      "value": "Bundesliga",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.20654329147389294,
-        1.0
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.04002973838996995,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.729085445221024,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "90%-100%",
-          "mean_probability": 0.91836189131999,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.17627633172949297,
-      "dimension": "league",
-      "flat_stake_roi": 0.21999999999999997,
-      "graded": 2,
-      "log_loss": 0.20056404697726754,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.823723668270507,
-      "observed_rate": 1.0,
-      "pending": 0,
-      "profit_units": 0.43999999999999995,
-      "selected": 2,
-      "value": "La Liga",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.34237195288961925,
-        1.0
-      ],
-      "wins": 2
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.6082024807433036,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.779873374813696,
-          "n": 1,
-          "observed_rate": 0.0
-        }
-      ],
-      "calibration_gap": 0.779873374813696,
-      "dimension": "league",
-      "flat_stake_roi": -1.0,
-      "graded": 1,
-      "log_loss": 1.5135523291774438,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.779873374813696,
-      "observed_rate": 0.0,
-      "pending": 1,
-      "profit_units": -1.0,
-      "selected": 2,
-      "value": "Ligue 1",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.0,
-        0.7934567085261071
-      ],
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.02583005299739653,
-      "calibration": [
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.83928269229048,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.16071730770951997,
-      "dimension": "league",
-      "flat_stake_roi": 0.15999999999999992,
-      "graded": 1,
-      "log_loss": 0.17520768970674583,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.83928269229048,
-      "observed_rate": 1.0,
-      "pending": 1,
-      "profit_units": 0.15999999999999992,
-      "selected": 2,
-      "value": "Premier League",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.20654329147389294,
-        1.0
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.3523149577473364,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.746789346807755,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.800321360832403,
-          "n": 1,
-          "observed_rate": 0.0
-        }
-      ],
-      "calibration_gap": 0.273555353820079,
-      "dimension": "league",
-      "flat_stake_roi": -0.36,
-      "graded": 2,
-      "log_loss": 0.9515090707137887,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.773555353820079,
-      "observed_rate": 0.5,
-      "pending": 1,
-      "profit_units": -0.72,
-      "selected": 3,
-      "value": "Serie A",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.09452865480086614,
-        0.9054713451991339
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "league",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 9,
-      "profit_units": 0,
-      "selected": 9,
-      "value": "UEFA Champions League",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.060394856529562974,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7543630828815685,
-          "n": 2,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.2456369171184315,
-      "dimension": "market",
-      "flat_stake_roi": 0.275,
-      "graded": 2,
-      "log_loss": 0.2819318870134927,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.7543630828815685,
-      "observed_rate": 1.0,
-      "pending": 4,
-      "profit_units": 0.55,
-      "selected": 6,
-      "value": "Double Chance 12",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.34237195288961925,
-        1.0
-      ],
-      "wins": 2
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.3235895306967393,
-      "calibration": [
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.800321360832403,
-          "n": 1,
-          "observed_rate": 0.0
-        },
-        {
-          "band": "90%-100%",
-          "mean_probability": 0.91836189131999,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": 0.3593416260761966,
-      "dimension": "market",
-      "flat_stake_roi": -0.47,
-      "graded": 2,
-      "log_loss": 0.8481048789055237,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.8593416260761966,
-      "observed_rate": 0.5,
-      "pending": 3,
-      "profit_units": -0.94,
-      "selected": 5,
-      "value": "Double Chance 1X",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.09452865480086614,
-        0.9054713451991339
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.049612374494243654,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.729085445221024,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.83928269229048,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.21581593124424803,
-      "dimension": "market",
-      "flat_stake_roi": 0.2699999999999999,
-      "graded": 2,
-      "log_loss": 0.24558601737032565,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.784184068755752,
-      "observed_rate": 1.0,
-      "pending": 0,
-      "profit_units": 0.5399999999999998,
-      "selected": 2,
-      "value": "Double Chance X2",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.34237195288961925,
-        1.0
-      ],
-      "wins": 2
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "market",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
-      "selected": 1,
-      "value": "Home win",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.6082024807433036,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.779873374813696,
-          "n": 1,
-          "observed_rate": 0.0
-        }
-      ],
-      "calibration_gap": 0.779873374813696,
-      "dimension": "market",
-      "flat_stake_roi": -1.0,
-      "graded": 1,
-      "log_loss": 1.5135523291774438,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.779873374813696,
-      "observed_rate": 0.0,
-      "pending": 4,
-      "profit_units": -1.0,
-      "selected": 5,
-      "value": "Over 1.5",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.0,
-        0.7934567085261071
-      ],
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.21077085774062793,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7544212464494643,
-          "n": 4,
-          "observed_rate": 0.75
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.8198020265614415,
-          "n": 2,
-          "observed_rate": 0.5
-        },
-        {
-          "band": "90%-100%",
-          "mean_probability": 0.91836189131999,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": 0.08223584717724719,
-      "dimension": "week",
-      "flat_stake_roi": -0.12142857142857144,
-      "graded": 7,
-      "log_loss": 0.6092568422508754,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.7965215614629615,
-      "observed_rate": 0.7142857142857143,
-      "pending": 1,
-      "profit_units": -0.8500000000000001,
-      "selected": 8,
-      "value": "2026-W42",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.35892909014821267,
-        0.9177828342909844
-      ],
-      "wins": 5
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "week",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 11,
-      "profit_units": 0,
-      "selected": 11,
-      "value": "2026-W43",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.35640415428094124,
-      "calibration": [
-        {
-          "band": "0%-60%",
-          "mean_probability": 0.596995941595034,
-          "n": 1,
-          "observed_rate": 0.0
-        }
-      ],
-      "calibration_gap": 0.596995941595034,
-      "dimension": "league",
-      "flat_stake_roi": -1.0,
-      "graded": 1,
-      "log_loss": 0.9088086466023745,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.596995941595034,
-      "observed_rate": 0.0,
-      "pending": 0,
-      "profit_units": -1.0,
-      "selected": 1,
-      "value": "Bundesliga",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": [
-        0.0,
-        0.7934567085261071
-      ],
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.06178630713078491,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7525405817041,
-          "n": 2,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.2474594182959,
-      "dimension": "league",
-      "flat_stake_roi": 0.33499999999999996,
-      "graded": 2,
-      "log_loss": 0.2847863108240389,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.7525405817041,
-      "observed_rate": 1.0,
-      "pending": 1,
-      "profit_units": 0.6699999999999999,
-      "selected": 3,
-      "value": "La Liga",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": [
-        0.34237195288961925,
-        1.0
-      ],
-      "wins": 2
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.25746169532003227,
-      "calibration": [
-        {
-          "band": "60%-70%",
-          "mean_probability": 0.6080797750662705,
-          "n": 2,
-          "observed_rate": 0.5
-        }
-      ],
-      "calibration_gap": 0.10807977506627053,
-      "dimension": "league",
-      "flat_stake_roi": -0.16500000000000004,
-      "graded": 2,
-      "log_loss": 0.7082237819967476,
-      "max_drawdown_units": 0.33000000000000007,
-      "mean_probability": 0.6080797750662705,
-      "observed_rate": 0.5,
-      "pending": 0,
-      "profit_units": -0.33000000000000007,
-      "selected": 2,
-      "value": "Ligue 1",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": [
-        0.09452865480086614,
-        0.9054713451991339
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "league",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 1,
-      "profit_units": 0,
-      "selected": 1,
-      "value": "Premier League",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.2865896648749104,
-      "calibration": [
-        {
-          "band": "0%-60%",
-          "mean_probability": 0.472919186048,
-          "n": 2,
-          "observed_rate": 0.5
-        }
-      ],
-      "calibration_gap": -0.027080813952000016,
-      "dimension": "league",
-      "flat_stake_roi": 0.24,
-      "graded": 2,
-      "log_loss": 0.7666730797087142,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.472919186048,
-      "observed_rate": 0.5,
-      "pending": 1,
-      "profit_units": 0.48,
-      "selected": 3,
-      "value": "Serie A",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": [
-        0.09452865480086614,
-        0.9054713451991339
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "league",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 8,
-      "profit_units": 0,
-      "selected": 8,
-      "value": "UEFA Champions League",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.3646254945401429,
-      "calibration": [
-        {
-          "band": "60%-70%",
-          "mean_probability": 0.603842276211382,
-          "n": 1,
-          "observed_rate": 0.0
-        }
-      ],
-      "calibration_gap": 0.603842276211382,
-      "dimension": "market",
-      "flat_stake_roi": -1.0,
-      "graded": 1,
-      "log_loss": 0.9259428546295176,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.603842276211382,
-      "observed_rate": 0.0,
-      "pending": 1,
-      "profit_units": -1.0,
-      "selected": 2,
-      "value": "Both Teams to Score - Yes",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": [
-        0.0,
-        0.7934567085261071
-      ],
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "market",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 4,
-      "profit_units": 0,
-      "selected": 4,
-      "value": "Double Chance 12",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": null,
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.35640415428094124,
-      "calibration": [
-        {
-          "band": "0%-60%",
-          "mean_probability": 0.596995941595034,
-          "n": 1,
-          "observed_rate": 0.0
-        }
-      ],
-      "calibration_gap": 0.596995941595034,
-      "dimension": "market",
-      "flat_stake_roi": -1.0,
-      "graded": 1,
-      "log_loss": 0.9088086466023745,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.596995941595034,
-      "observed_rate": 0.0,
-      "pending": 2,
-      "profit_units": -1.0,
-      "selected": 3,
-      "value": "Double Chance 1X",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": [
-        0.0,
-        0.7934567085261071
-      ],
-      "wins": 0
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.1992179804602083,
-      "calibration": [
-        {
-          "band": "0%-60%",
-          "mean_probability": 0.472919186048,
-          "n": 2,
-          "observed_rate": 0.5
-        },
-        {
-          "band": "60%-70%",
-          "mean_probability": 0.612317273921159,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.729085445221024,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.17818972719045423,
-      "dimension": "market",
-      "flat_stake_roi": 0.38249999999999995,
-      "graded": 4,
-      "log_loss": 0.584953803453828,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.5718102728095458,
-      "observed_rate": 0.75,
-      "pending": 4,
-      "profit_units": 1.5299999999999998,
-      "selected": 8,
-      "value": "Double Chance X2",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": [
-        0.3006360524426366,
-        0.9544139373553637
-      ],
-      "wins": 3
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.05017791827047905,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.775995718187176,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.22400428181282395,
-      "dimension": "market",
-      "flat_stake_roi": 0.29000000000000004,
-      "graded": 1,
-      "log_loss": 0.2536082766141723,
-      "max_drawdown_units": 0.0,
-      "mean_probability": 0.775995718187176,
-      "observed_rate": 1.0,
-      "pending": 0,
-      "profit_units": 0.29000000000000004,
-      "selected": 1,
-      "value": "Home win",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": [
-        0.20654329147389294,
-        1.0
-      ],
-      "wins": 1
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.2240113555617709,
-      "calibration": [
-        {
-          "band": "0%-60%",
-          "mean_probability": 0.5142781045636781,
-          "n": 3,
-          "observed_rate": 0.3333333333333333
-        },
-        {
-          "band": "60%-70%",
-          "mean_probability": 0.6080797750662705,
-          "n": 2,
-          "observed_rate": 0.5
-        },
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7525405817041,
-          "n": 2,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": 0.03772500389025357,
-      "dimension": "week",
-      "flat_stake_roi": -0.025714285714285738,
-      "graded": 7,
-      "log_loss": 0.6325964273801966,
-      "max_drawdown_units": 2.33,
-      "mean_probability": 0.609153575318825,
-      "observed_rate": 0.5714285714285714,
-      "pending": 0,
-      "profit_units": -0.18000000000000016,
-      "selected": 7,
-      "value": "2026-W42",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": [
-        0.2504542304090258,
-        0.8417830777373732
-      ],
-      "wins": 4
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": null,
-      "calibration": [],
-      "calibration_gap": null,
-      "dimension": "week",
-      "flat_stake_roi": null,
-      "graded": 0,
-      "log_loss": null,
-      "max_drawdown_units": null,
-      "mean_probability": null,
-      "observed_rate": null,
-      "pending": 11,
-      "profit_units": 0,
-      "selected": 11,
-      "value": "2026-W43",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": null,
-      "wins": 0
-    }
-  ],
-  "candidate_decisions": 644,
+  "breakdowns": [],
+  "candidate_decisions": 0,
   "comparisons": [
     {
       "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.14695610816590252,
-      "calibration": [
-        {
-          "band": "60%-70%",
-          "mean_probability": 0.612317273921159,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7587361407970066,
-          "n": 5,
-          "observed_rate": 0.8
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.83928269229048,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.10781704711476103,
+      "brier": null,
+      "calibration": [],
+      "calibration_gap": null,
       "ev_weight": 0.5,
-      "flat_stake_roi": 0.14999999999999997,
-      "graded": 7,
-      "log_loss": 0.4732430177033186,
-      "max_drawdown_units": 0.33000000000000007,
-      "mean_probability": 0.7493258100280961,
-      "observed_rate": 0.8571428571428571,
-      "pending": 11,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "log_loss": null,
+      "max_drawdown_units": null,
+      "maximum_probability_weight": 0.5,
+      "mean_probability": null,
+      "mean_probability_weight": 0.5,
+      "minimum_probability_weight": 0.5,
+      "observed_rate": null,
+      "pending": 0,
       "probability_weight": 0.5,
-      "profit_units": 1.0499999999999998,
-      "selected": 18,
+      "profit_units": 0,
+      "selected": 0,
       "tier": "ALL",
       "variant_id": "control",
-      "win_rate_wilson95": [
-        0.48686549668097007,
-        0.9743210440510253
-      ],
-      "wins": 6
+      "win_rate_wilson95": null,
+      "wins": 0
     },
     {
       "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -1613,7 +37,10 @@
       "graded": 0,
       "log_loss": null,
       "max_drawdown_units": null,
+      "maximum_probability_weight": 0.5,
       "mean_probability": null,
+      "mean_probability_weight": 0.5,
+      "minimum_probability_weight": 0.5,
       "observed_rate": null,
       "pending": 0,
       "probability_weight": 0.5,
@@ -1626,89 +53,27 @@
     },
     {
       "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.14695610816590252,
-      "calibration": [
-        {
-          "band": "60%-70%",
-          "mean_probability": 0.612317273921159,
-          "n": 1,
-          "observed_rate": 1.0
-        },
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7587361407970066,
-          "n": 5,
-          "observed_rate": 0.8
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.83928269229048,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": -0.10781704711476103,
+      "brier": null,
+      "calibration": [],
+      "calibration_gap": null,
       "ev_weight": 0.5,
-      "flat_stake_roi": 0.14999999999999997,
-      "graded": 7,
-      "log_loss": 0.4732430177033186,
-      "max_drawdown_units": 0.33000000000000007,
-      "mean_probability": 0.7493258100280961,
-      "observed_rate": 0.8571428571428571,
-      "pending": 11,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "log_loss": null,
+      "max_drawdown_units": null,
+      "maximum_probability_weight": 0.5,
+      "mean_probability": null,
+      "mean_probability_weight": 0.5,
+      "minimum_probability_weight": 0.5,
+      "observed_rate": null,
+      "pending": 0,
       "probability_weight": 0.5,
-      "profit_units": 1.0499999999999998,
-      "selected": 18,
+      "profit_units": 0,
+      "selected": 0,
       "tier": "PROVISIONAL",
       "variant_id": "control",
-      "win_rate_wilson95": [
-        0.48686549668097007,
-        0.9743210440510253
-      ],
-      "wins": 6
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.21077085774062793,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7544212464494643,
-          "n": 4,
-          "observed_rate": 0.75
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.8198020265614415,
-          "n": 2,
-          "observed_rate": 0.5
-        },
-        {
-          "band": "90%-100%",
-          "mean_probability": 0.91836189131999,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": 0.08223584717724719,
-      "ev_weight": 0.0,
-      "flat_stake_roi": -0.12142857142857144,
-      "graded": 7,
-      "log_loss": 0.6092568422508754,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.7965215614629615,
-      "observed_rate": 0.7142857142857143,
-      "pending": 12,
-      "probability_weight": 1.0,
-      "profit_units": -0.8500000000000001,
-      "selected": 19,
-      "tier": "ALL",
-      "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.35892909014821267,
-        0.9177828342909844
-      ],
-      "wins": 5
+      "win_rate_wilson95": null,
+      "wins": 0
     },
     {
       "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -1720,7 +85,34 @@
       "graded": 0,
       "log_loss": null,
       "max_drawdown_units": null,
+      "maximum_probability_weight": 1.0,
       "mean_probability": null,
+      "mean_probability_weight": 1.0,
+      "minimum_probability_weight": 1.0,
+      "observed_rate": null,
+      "pending": 0,
+      "probability_weight": 1.0,
+      "profit_units": 0,
+      "selected": 0,
+      "tier": "ALL",
+      "variant_id": "probability_100_ev_0",
+      "win_rate_wilson95": null,
+      "wins": 0
+    },
+    {
+      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+      "brier": null,
+      "calibration": [],
+      "calibration_gap": null,
+      "ev_weight": 0.0,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "log_loss": null,
+      "max_drawdown_units": null,
+      "maximum_probability_weight": 1.0,
+      "mean_probability": null,
+      "mean_probability_weight": 1.0,
+      "minimum_probability_weight": 1.0,
       "observed_rate": null,
       "pending": 0,
       "probability_weight": 1.0,
@@ -1733,89 +125,27 @@
     },
     {
       "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.21077085774062793,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7544212464494643,
-          "n": 4,
-          "observed_rate": 0.75
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.8198020265614415,
-          "n": 2,
-          "observed_rate": 0.5
-        },
-        {
-          "band": "90%-100%",
-          "mean_probability": 0.91836189131999,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": 0.08223584717724719,
+      "brier": null,
+      "calibration": [],
+      "calibration_gap": null,
       "ev_weight": 0.0,
-      "flat_stake_roi": -0.12142857142857144,
-      "graded": 7,
-      "log_loss": 0.6092568422508754,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.7965215614629615,
-      "observed_rate": 0.7142857142857143,
-      "pending": 12,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "log_loss": null,
+      "max_drawdown_units": null,
+      "maximum_probability_weight": 1.0,
+      "mean_probability": null,
+      "mean_probability_weight": 1.0,
+      "minimum_probability_weight": 1.0,
+      "observed_rate": null,
+      "pending": 0,
       "probability_weight": 1.0,
-      "profit_units": -0.8500000000000001,
-      "selected": 19,
+      "profit_units": 0,
+      "selected": 0,
       "tier": "PROVISIONAL",
       "variant_id": "probability_100_ev_0",
-      "win_rate_wilson95": [
-        0.35892909014821267,
-        0.9177828342909844
-      ],
-      "wins": 5
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.21077085774062793,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7544212464494643,
-          "n": 4,
-          "observed_rate": 0.75
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.8198020265614415,
-          "n": 2,
-          "observed_rate": 0.5
-        },
-        {
-          "band": "90%-100%",
-          "mean_probability": 0.91836189131999,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": 0.08223584717724719,
-      "ev_weight": 0.25,
-      "flat_stake_roi": -0.12142857142857144,
-      "graded": 7,
-      "log_loss": 0.6092568422508754,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.7965215614629615,
-      "observed_rate": 0.7142857142857143,
-      "pending": 12,
-      "probability_weight": 0.75,
-      "profit_units": -0.8500000000000001,
-      "selected": 19,
-      "tier": "ALL",
-      "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.35892909014821267,
-        0.9177828342909844
-      ],
-      "wins": 5
+      "win_rate_wilson95": null,
+      "wins": 0
     },
     {
       "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -1827,7 +157,34 @@
       "graded": 0,
       "log_loss": null,
       "max_drawdown_units": null,
+      "maximum_probability_weight": 0.75,
       "mean_probability": null,
+      "mean_probability_weight": 0.75,
+      "minimum_probability_weight": 0.75,
+      "observed_rate": null,
+      "pending": 0,
+      "probability_weight": 0.75,
+      "profit_units": 0,
+      "selected": 0,
+      "tier": "ALL",
+      "variant_id": "probability_75_ev_25",
+      "win_rate_wilson95": null,
+      "wins": 0
+    },
+    {
+      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+      "brier": null,
+      "calibration": [],
+      "calibration_gap": null,
+      "ev_weight": 0.25,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "log_loss": null,
+      "max_drawdown_units": null,
+      "maximum_probability_weight": 0.75,
+      "mean_probability": null,
+      "mean_probability_weight": 0.75,
+      "minimum_probability_weight": 0.75,
       "observed_rate": null,
       "pending": 0,
       "probability_weight": 0.75,
@@ -1840,89 +197,27 @@
     },
     {
       "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.21077085774062793,
-      "calibration": [
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7544212464494643,
-          "n": 4,
-          "observed_rate": 0.75
-        },
-        {
-          "band": "80%-90%",
-          "mean_probability": 0.8198020265614415,
-          "n": 2,
-          "observed_rate": 0.5
-        },
-        {
-          "band": "90%-100%",
-          "mean_probability": 0.91836189131999,
-          "n": 1,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": 0.08223584717724719,
+      "brier": null,
+      "calibration": [],
+      "calibration_gap": null,
       "ev_weight": 0.25,
-      "flat_stake_roi": -0.12142857142857144,
-      "graded": 7,
-      "log_loss": 0.6092568422508754,
-      "max_drawdown_units": 1.0,
-      "mean_probability": 0.7965215614629615,
-      "observed_rate": 0.7142857142857143,
-      "pending": 12,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "log_loss": null,
+      "max_drawdown_units": null,
+      "maximum_probability_weight": 0.75,
+      "mean_probability": null,
+      "mean_probability_weight": 0.75,
+      "minimum_probability_weight": 0.75,
+      "observed_rate": null,
+      "pending": 0,
       "probability_weight": 0.75,
-      "profit_units": -0.8500000000000001,
-      "selected": 19,
+      "profit_units": 0,
+      "selected": 0,
       "tier": "PROVISIONAL",
       "variant_id": "probability_75_ev_25",
-      "win_rate_wilson95": [
-        0.35892909014821267,
-        0.9177828342909844
-      ],
-      "wins": 5
-    },
-    {
-      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.2240113555617709,
-      "calibration": [
-        {
-          "band": "0%-60%",
-          "mean_probability": 0.5142781045636781,
-          "n": 3,
-          "observed_rate": 0.3333333333333333
-        },
-        {
-          "band": "60%-70%",
-          "mean_probability": 0.6080797750662705,
-          "n": 2,
-          "observed_rate": 0.5
-        },
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7525405817041,
-          "n": 2,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": 0.03772500389025357,
-      "ev_weight": 0.75,
-      "flat_stake_roi": -0.025714285714285738,
-      "graded": 7,
-      "log_loss": 0.6325964273801966,
-      "max_drawdown_units": 2.33,
-      "mean_probability": 0.609153575318825,
-      "observed_rate": 0.5714285714285714,
-      "pending": 11,
-      "probability_weight": 0.25,
-      "profit_units": -0.18000000000000016,
-      "selected": 18,
-      "tier": "ALL",
-      "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": [
-        0.2504542304090258,
-        0.8417830777373732
-      ],
-      "wins": 4
+      "win_rate_wilson95": null,
+      "wins": 0
     },
     {
       "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -1934,7 +229,34 @@
       "graded": 0,
       "log_loss": null,
       "max_drawdown_units": null,
+      "maximum_probability_weight": 0.25,
       "mean_probability": null,
+      "mean_probability_weight": 0.25,
+      "minimum_probability_weight": 0.25,
+      "observed_rate": null,
+      "pending": 0,
+      "probability_weight": 0.25,
+      "profit_units": 0,
+      "selected": 0,
+      "tier": "ALL",
+      "variant_id": "probability_25_ev_75",
+      "win_rate_wilson95": null,
+      "wins": 0
+    },
+    {
+      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+      "brier": null,
+      "calibration": [],
+      "calibration_gap": null,
+      "ev_weight": 0.75,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "log_loss": null,
+      "max_drawdown_units": null,
+      "maximum_probability_weight": 0.25,
+      "mean_probability": null,
+      "mean_probability_weight": 0.25,
+      "minimum_probability_weight": 0.25,
       "observed_rate": null,
       "pending": 0,
       "probability_weight": 0.25,
@@ -1947,71 +269,2321 @@
     },
     {
       "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-      "brier": 0.2240113555617709,
-      "calibration": [
-        {
-          "band": "0%-60%",
-          "mean_probability": 0.5142781045636781,
-          "n": 3,
-          "observed_rate": 0.3333333333333333
-        },
-        {
-          "band": "60%-70%",
-          "mean_probability": 0.6080797750662705,
-          "n": 2,
-          "observed_rate": 0.5
-        },
-        {
-          "band": "70%-80%",
-          "mean_probability": 0.7525405817041,
-          "n": 2,
-          "observed_rate": 1.0
-        }
-      ],
-      "calibration_gap": 0.03772500389025357,
+      "brier": null,
+      "calibration": [],
+      "calibration_gap": null,
       "ev_weight": 0.75,
-      "flat_stake_roi": -0.025714285714285738,
-      "graded": 7,
-      "log_loss": 0.6325964273801966,
-      "max_drawdown_units": 2.33,
-      "mean_probability": 0.609153575318825,
-      "observed_rate": 0.5714285714285714,
-      "pending": 11,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "log_loss": null,
+      "max_drawdown_units": null,
+      "maximum_probability_weight": 0.25,
+      "mean_probability": null,
+      "mean_probability_weight": 0.25,
+      "minimum_probability_weight": 0.25,
+      "observed_rate": null,
+      "pending": 0,
       "probability_weight": 0.25,
-      "profit_units": -0.18000000000000016,
-      "selected": 18,
+      "profit_units": 0,
+      "selected": 0,
       "tier": "PROVISIONAL",
       "variant_id": "probability_25_ev_75",
-      "win_rate_wilson95": [
-        0.2504542304090258,
-        0.8417830777373732
-      ],
-      "wins": 4
+      "win_rate_wilson95": null,
+      "wins": 0
+    },
+    {
+      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+      "brier": null,
+      "calibration": [],
+      "calibration_gap": null,
+      "ev_weight": null,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "log_loss": null,
+      "max_drawdown_units": null,
+      "maximum_probability_weight": null,
+      "mean_probability": null,
+      "mean_probability_weight": null,
+      "minimum_probability_weight": null,
+      "observed_rate": null,
+      "pending": 0,
+      "probability_weight": null,
+      "profit_units": 0,
+      "selected": 0,
+      "tier": "ALL",
+      "variant_id": "adaptive_evidence",
+      "win_rate_wilson95": null,
+      "wins": 0
+    },
+    {
+      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+      "brier": null,
+      "calibration": [],
+      "calibration_gap": null,
+      "ev_weight": null,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "log_loss": null,
+      "max_drawdown_units": null,
+      "maximum_probability_weight": null,
+      "mean_probability": null,
+      "mean_probability_weight": null,
+      "minimum_probability_weight": null,
+      "observed_rate": null,
+      "pending": 0,
+      "probability_weight": null,
+      "profit_units": 0,
+      "selected": 0,
+      "tier": "STRICT",
+      "variant_id": "adaptive_evidence",
+      "win_rate_wilson95": null,
+      "wins": 0
+    },
+    {
+      "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+      "brier": null,
+      "calibration": [],
+      "calibration_gap": null,
+      "ev_weight": null,
+      "flat_stake_roi": null,
+      "graded": 0,
+      "log_loss": null,
+      "max_drawdown_units": null,
+      "maximum_probability_weight": null,
+      "mean_probability": null,
+      "mean_probability_weight": null,
+      "minimum_probability_weight": null,
+      "observed_rate": null,
+      "pending": 0,
+      "probability_weight": null,
+      "profit_units": 0,
+      "selected": 0,
+      "tier": "PROVISIONAL",
+      "variant_id": "adaptive_evidence",
+      "win_rate_wilson95": null,
+      "wins": 0
     }
   ],
-  "gameweeks": 1,
-  "minimum_settled_per_weighting": 7,
-  "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights. All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for three comparisons, and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. No automatic production change. Confirm any chosen weighting on a later untouched period.",
+  "gameweeks": 0,
+  "legacy_cohorts": [
+    {
+      "automatic_production_change": false,
+      "breakdowns": [
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.05667407816908256,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.761936818955382,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.238063181044618,
+          "dimension": "league",
+          "flat_stake_roi": 0.27,
+          "graded": 1,
+          "log_loss": 0.27189164148982575,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.761936818955382,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.27,
+          "selected": 1,
+          "value": "Bundesliga",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.07492717933955471,
+          "calibration": [
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.681866500102403,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7525405817041,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.27101744549646567,
+          "dimension": "league",
+          "flat_stake_roi": 0.3933333333333333,
+          "graded": 3,
+          "log_loss": 0.31749800319942,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.7289825545035343,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 1.18,
+          "selected": 3,
+          "value": "La Liga",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.43849391955098227,
+            1.0
+          ],
+          "wins": 3
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.3792501884216126,
+          "calibration": [
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.612317273921159,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.779873374813696,
+              "n": 1,
+              "observed_rate": 0.0
+            }
+          ],
+          "calibration_gap": 0.1960953243674275,
+          "dimension": "league",
+          "flat_stake_roi": -0.16500000000000004,
+          "graded": 2,
+          "log_loss": 1.0020285192707106,
+          "max_drawdown_units": 0.33000000000000007,
+          "mean_probability": 0.6960953243674275,
+          "observed_rate": 0.5,
+          "pending": 1,
+          "profit_units": -0.33000000000000007,
+          "selected": 3,
+          "value": "Ligue 1",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.09452865480086614,
+            0.9054713451991339
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.02583005299739653,
+          "calibration": [
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.83928269229048,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.16071730770951997,
+          "dimension": "league",
+          "flat_stake_roi": 0.15999999999999992,
+          "graded": 1,
+          "log_loss": 0.17520768970674583,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.83928269229048,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.15999999999999992,
+          "selected": 1,
+          "value": "Premier League",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.06952344346808692,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7365268064243244,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.26347319357567556,
+          "dimension": "league",
+          "flat_stake_roi": 0.33499999999999996,
+          "graded": 2,
+          "log_loss": 0.30590673005815144,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.7365268064243244,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.6699999999999999,
+          "selected": 2,
+          "value": "Serie A",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "dimension": "league",
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 8,
+          "profit_units": 0,
+          "selected": 8,
+          "value": "UEFA Champions League",
+          "variant_id": "control",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.06524032170175213,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7449968106013437,
+              "n": 3,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.2550031893986563,
+          "dimension": "market",
+          "flat_stake_roi": 0.3133333333333333,
+          "graded": 3,
+          "log_loss": 0.2945683672020429,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.7449968106013437,
+          "observed_rate": 1.0,
+          "pending": 6,
+          "profit_units": 0.94,
+          "selected": 9,
+          "value": "Double Chance 12",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.43849391955098227,
+            1.0
+          ],
+          "wins": 3
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.10120892375709434,
+          "calibration": [
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.681866500102403,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.318133499897597,
+          "dimension": "market",
+          "flat_stake_roi": 0.51,
+          "graded": 1,
+          "log_loss": 0.38292138795018227,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.681866500102403,
+          "observed_rate": 1.0,
+          "pending": 1,
+          "profit_units": 0.51,
+          "selected": 2,
+          "value": "Double Chance 1X",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.08317421502946966,
+          "calibration": [
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.612317273921159,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.729085445221024,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.83928269229048,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.27310486285577895,
+          "dimension": "market",
+          "flat_stake_roi": 0.40333333333333327,
+          "graded": 3,
+          "log_loss": 0.3272255813682096,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.726895137144221,
+          "observed_rate": 1.0,
+          "pending": 1,
+          "profit_units": 1.2099999999999997,
+          "selected": 4,
+          "value": "Double Chance X2",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.43849391955098227,
+            1.0
+          ],
+          "wins": 3
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.05017791827047905,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.775995718187176,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.22400428181282395,
+          "dimension": "market",
+          "flat_stake_roi": 0.29000000000000004,
+          "graded": 1,
+          "log_loss": 0.2536082766141723,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.775995718187176,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.29000000000000004,
+          "selected": 1,
+          "value": "Home win",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.6082024807433036,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.779873374813696,
+              "n": 1,
+              "observed_rate": 0.0
+            }
+          ],
+          "calibration_gap": 0.779873374813696,
+          "dimension": "market",
+          "flat_stake_roi": -1.0,
+          "graded": 1,
+          "log_loss": 1.5135523291774438,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.779873374813696,
+          "observed_rate": 0.0,
+          "pending": 1,
+          "profit_units": -1.0,
+          "selected": 2,
+          "value": "Over 1.5",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.0,
+            0.7934567085261071
+          ],
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.14695610816590252,
+          "calibration": [
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.612317273921159,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7587361407970066,
+              "n": 5,
+              "observed_rate": 0.8
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.83928269229048,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.10781704711476103,
+          "dimension": "week",
+          "flat_stake_roi": 0.14999999999999997,
+          "graded": 7,
+          "log_loss": 0.4732430177033186,
+          "max_drawdown_units": 0.33000000000000007,
+          "mean_probability": 0.7493258100280961,
+          "observed_rate": 0.8571428571428571,
+          "pending": 1,
+          "profit_units": 1.0499999999999998,
+          "selected": 8,
+          "value": "2026-W42",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.48686549668097007,
+            0.9743210440510253
+          ],
+          "wins": 6
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.08807008790161239,
+          "calibration": [
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.681866500102403,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.726264266040894,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.29593461692835143,
+          "dimension": "week",
+          "flat_stake_roi": 0.44999999999999996,
+          "graded": 2,
+          "log_loss": 0.3513813577646628,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.7040653830716486,
+          "observed_rate": 1.0,
+          "pending": 8,
+          "profit_units": 0.8999999999999999,
+          "selected": 10,
+          "value": "2026-W43",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.05667407816908256,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.761936818955382,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.238063181044618,
+          "dimension": "league",
+          "flat_stake_roi": 0.27,
+          "graded": 1,
+          "log_loss": 0.27189164148982575,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.761936818955382,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.27,
+          "selected": 1,
+          "value": "Bundesliga",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.04002973838996995,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.729085445221024,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.91836189131999,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.17627633172949297,
+          "dimension": "league",
+          "flat_stake_roi": 0.21999999999999997,
+          "graded": 2,
+          "log_loss": 0.20056404697726754,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.823723668270507,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.43999999999999995,
+          "selected": 2,
+          "value": "La Liga",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.6082024807433036,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.779873374813696,
+              "n": 1,
+              "observed_rate": 0.0
+            }
+          ],
+          "calibration_gap": 0.779873374813696,
+          "dimension": "league",
+          "flat_stake_roi": -1.0,
+          "graded": 1,
+          "log_loss": 1.5135523291774438,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.779873374813696,
+          "observed_rate": 0.0,
+          "pending": 1,
+          "profit_units": -1.0,
+          "selected": 2,
+          "value": "Ligue 1",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.0,
+            0.7934567085261071
+          ],
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.0320487283812048,
+          "calibration": [
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8218310657998016,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.17816893420019841,
+          "dimension": "league",
+          "flat_stake_roi": 0.15499999999999992,
+          "graded": 2,
+          "log_loss": 0.1964459356995502,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.8218310657998016,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.30999999999999983,
+          "selected": 2,
+          "value": "Premier League",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.25685570150274356,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7450034850248091,
+              "n": 2,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.800321360832403,
+              "n": 1,
+              "observed_rate": 0.0
+            }
+          ],
+          "calibration_gap": 0.09677611029400701,
+          "dimension": "league",
+          "flat_stake_roi": -0.1333333333333333,
+          "graded": 3,
+          "log_loss": 0.7332615068469036,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.7634427769606736,
+          "observed_rate": 0.6666666666666666,
+          "pending": 0,
+          "profit_units": -0.3999999999999999,
+          "selected": 3,
+          "value": "Serie A",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "dimension": "league",
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 9,
+          "profit_units": 0,
+          "selected": 9,
+          "value": "UEFA Champions League",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.060394856529562974,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7543630828815685,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.2456369171184315,
+          "dimension": "market",
+          "flat_stake_roi": 0.275,
+          "graded": 2,
+          "log_loss": 0.2819318870134927,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.7543630828815685,
+          "observed_rate": 1.0,
+          "pending": 2,
+          "profit_units": 0.55,
+          "selected": 4,
+          "value": "Double Chance 12",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.22848215505283054,
+          "calibration": [
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8023504000707631,
+              "n": 2,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.91836189131999,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.17435423048717202,
+          "dimension": "market",
+          "flat_stake_roi": -0.26333333333333336,
+          "graded": 3,
+          "log_loss": 0.6379646465011339,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.8410208971538387,
+          "observed_rate": 0.6666666666666666,
+          "pending": 2,
+          "profit_units": -0.79,
+          "selected": 5,
+          "value": "Double Chance 1X",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.049612374494243654,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.729085445221024,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.83928269229048,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.21581593124424803,
+          "dimension": "market",
+          "flat_stake_roi": 0.2699999999999999,
+          "graded": 2,
+          "log_loss": 0.24558601737032565,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.784184068755752,
+          "observed_rate": 1.0,
+          "pending": 1,
+          "profit_units": 0.5399999999999998,
+          "selected": 3,
+          "value": "Double Chance X2",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "dimension": "market",
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 1,
+          "profit_units": 0,
+          "selected": 1,
+          "value": "Home win",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.33706983487843073,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7615454990277795,
+              "n": 2,
+              "observed_rate": 0.5
+            }
+          ],
+          "calibration_gap": 0.26154549902777946,
+          "dimension": "market",
+          "flat_stake_roi": -0.33999999999999997,
+          "graded": 2,
+          "log_loss": 0.9051593541452886,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.7615454990277795,
+          "observed_rate": 0.5,
+          "pending": 4,
+          "profit_units": -0.6799999999999999,
+          "selected": 6,
+          "value": "Over 1.5",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.09452865480086614,
+            0.9054713451991339
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.21077085774062793,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7544212464494643,
+              "n": 4,
+              "observed_rate": 0.75
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8198020265614415,
+              "n": 2,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.91836189131999,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.08223584717724719,
+          "dimension": "week",
+          "flat_stake_roi": -0.12142857142857144,
+          "graded": 7,
+          "log_loss": 0.6092568422508754,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.7965215614629615,
+          "observed_rate": 0.7142857142857143,
+          "pending": 1,
+          "profit_units": -0.8500000000000001,
+          "selected": 8,
+          "value": "2026-W42",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.35892909014821267,
+            0.9177828342909844
+          ],
+          "wins": 5
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.052102296389285443,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.743217623241863,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.804379439309123,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.22620146872450697,
+          "dimension": "week",
+          "flat_stake_roi": 0.235,
+          "graded": 2,
+          "log_loss": 0.25722528040274395,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.773798531275493,
+          "observed_rate": 1.0,
+          "pending": 9,
+          "profit_units": 0.47,
+          "selected": 11,
+          "value": "2026-W43",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.05667407816908256,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.761936818955382,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.238063181044618,
+          "dimension": "league",
+          "flat_stake_roi": 0.27,
+          "graded": 1,
+          "log_loss": 0.27189164148982575,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.761936818955382,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.27,
+          "selected": 1,
+          "value": "Bundesliga",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.04002973838996995,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.729085445221024,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.91836189131999,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.17627633172949297,
+          "dimension": "league",
+          "flat_stake_roi": 0.21999999999999997,
+          "graded": 2,
+          "log_loss": 0.20056404697726754,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.823723668270507,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.43999999999999995,
+          "selected": 2,
+          "value": "La Liga",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.6082024807433036,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.779873374813696,
+              "n": 1,
+              "observed_rate": 0.0
+            }
+          ],
+          "calibration_gap": 0.779873374813696,
+          "dimension": "league",
+          "flat_stake_roi": -1.0,
+          "graded": 1,
+          "log_loss": 1.5135523291774438,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.779873374813696,
+          "observed_rate": 0.0,
+          "pending": 1,
+          "profit_units": -1.0,
+          "selected": 2,
+          "value": "Ligue 1",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.0,
+            0.7934567085261071
+          ],
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.0320487283812048,
+          "calibration": [
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8218310657998016,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.17816893420019841,
+          "dimension": "league",
+          "flat_stake_roi": 0.15499999999999992,
+          "graded": 2,
+          "log_loss": 0.1964459356995502,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.8218310657998016,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.30999999999999983,
+          "selected": 2,
+          "value": "Premier League",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.25685570150274356,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7450034850248091,
+              "n": 2,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.800321360832403,
+              "n": 1,
+              "observed_rate": 0.0
+            }
+          ],
+          "calibration_gap": 0.09677611029400701,
+          "dimension": "league",
+          "flat_stake_roi": -0.1333333333333333,
+          "graded": 3,
+          "log_loss": 0.7332615068469036,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.7634427769606736,
+          "observed_rate": 0.6666666666666666,
+          "pending": 0,
+          "profit_units": -0.3999999999999999,
+          "selected": 3,
+          "value": "Serie A",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "dimension": "league",
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 9,
+          "profit_units": 0,
+          "selected": 9,
+          "value": "UEFA Champions League",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.060394856529562974,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7543630828815685,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.2456369171184315,
+          "dimension": "market",
+          "flat_stake_roi": 0.275,
+          "graded": 2,
+          "log_loss": 0.2819318870134927,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.7543630828815685,
+          "observed_rate": 1.0,
+          "pending": 4,
+          "profit_units": 0.55,
+          "selected": 6,
+          "value": "Double Chance 12",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.22848215505283054,
+          "calibration": [
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8023504000707631,
+              "n": 2,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.91836189131999,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.17435423048717202,
+          "dimension": "market",
+          "flat_stake_roi": -0.26333333333333336,
+          "graded": 3,
+          "log_loss": 0.6379646465011339,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.8410208971538387,
+          "observed_rate": 0.6666666666666666,
+          "pending": 2,
+          "profit_units": -0.79,
+          "selected": 5,
+          "value": "Double Chance 1X",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.049612374494243654,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.729085445221024,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.83928269229048,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.21581593124424803,
+          "dimension": "market",
+          "flat_stake_roi": 0.2699999999999999,
+          "graded": 2,
+          "log_loss": 0.24558601737032565,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.784184068755752,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.5399999999999998,
+          "selected": 2,
+          "value": "Double Chance X2",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "dimension": "market",
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 1,
+          "profit_units": 0,
+          "selected": 1,
+          "value": "Home win",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.33706983487843073,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7615454990277795,
+              "n": 2,
+              "observed_rate": 0.5
+            }
+          ],
+          "calibration_gap": 0.26154549902777946,
+          "dimension": "market",
+          "flat_stake_roi": -0.33999999999999997,
+          "graded": 2,
+          "log_loss": 0.9051593541452886,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.7615454990277795,
+          "observed_rate": 0.5,
+          "pending": 3,
+          "profit_units": -0.6799999999999999,
+          "selected": 5,
+          "value": "Over 1.5",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.09452865480086614,
+            0.9054713451991339
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.21077085774062793,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7544212464494643,
+              "n": 4,
+              "observed_rate": 0.75
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8198020265614415,
+              "n": 2,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.91836189131999,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.08223584717724719,
+          "dimension": "week",
+          "flat_stake_roi": -0.12142857142857144,
+          "graded": 7,
+          "log_loss": 0.6092568422508754,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.7965215614629615,
+          "observed_rate": 0.7142857142857143,
+          "pending": 1,
+          "profit_units": -0.8500000000000001,
+          "selected": 8,
+          "value": "2026-W42",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.35892909014821267,
+            0.9177828342909844
+          ],
+          "wins": 5
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.052102296389285443,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.743217623241863,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.804379439309123,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.22620146872450697,
+          "dimension": "week",
+          "flat_stake_roi": 0.235,
+          "graded": 2,
+          "log_loss": 0.25722528040274395,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.773798531275493,
+          "observed_rate": 1.0,
+          "pending": 9,
+          "profit_units": 0.47,
+          "selected": 11,
+          "value": "2026-W43",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.34237195288961925,
+            1.0
+          ],
+          "wins": 2
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.35640415428094124,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.596995941595034,
+              "n": 1,
+              "observed_rate": 0.0
+            }
+          ],
+          "calibration_gap": 0.596995941595034,
+          "dimension": "league",
+          "flat_stake_roi": -1.0,
+          "graded": 1,
+          "log_loss": 0.9088086466023745,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.596995941595034,
+          "observed_rate": 0.0,
+          "pending": 0,
+          "profit_units": -1.0,
+          "selected": 1,
+          "value": "Bundesliga",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.0,
+            0.7934567085261071
+          ],
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.07492717933955471,
+          "calibration": [
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.681866500102403,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7525405817041,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.27101744549646567,
+          "dimension": "league",
+          "flat_stake_roi": 0.3933333333333333,
+          "graded": 3,
+          "log_loss": 0.31749800319942,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.7289825545035343,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 1.18,
+          "selected": 3,
+          "value": "La Liga",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.43849391955098227,
+            1.0
+          ],
+          "wins": 3
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.25746169532003227,
+          "calibration": [
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.6080797750662705,
+              "n": 2,
+              "observed_rate": 0.5
+            }
+          ],
+          "calibration_gap": 0.10807977506627053,
+          "dimension": "league",
+          "flat_stake_roi": -0.16500000000000004,
+          "graded": 2,
+          "log_loss": 0.7082237819967476,
+          "max_drawdown_units": 0.33000000000000007,
+          "mean_probability": 0.6080797750662705,
+          "observed_rate": 0.5,
+          "pending": 0,
+          "profit_units": -0.33000000000000007,
+          "selected": 2,
+          "value": "Ligue 1",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.09452865480086614,
+            0.9054713451991339
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.1787245421414544,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.422758254965476,
+              "n": 1,
+              "observed_rate": 0.0
+            }
+          ],
+          "calibration_gap": 0.422758254965476,
+          "dimension": "league",
+          "flat_stake_roi": -1.0,
+          "graded": 1,
+          "log_loss": 0.5494941313529921,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.422758254965476,
+          "observed_rate": 0.0,
+          "pending": 0,
+          "profit_units": -1.0,
+          "selected": 1,
+          "value": "Premier League",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.0,
+            0.7934567085261071
+          ],
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.3399356897747266,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.472919186048,
+              "n": 2,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.668302131954073,
+              "n": 1,
+              "observed_rate": 0.0
+            }
+          ],
+          "calibration_gap": 0.20471350135002436,
+          "dimension": "league",
+          "flat_stake_roi": -0.17333333333333334,
+          "graded": 3,
+          "log_loss": 0.878958973274493,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.5380468346833577,
+          "observed_rate": 0.3333333333333333,
+          "pending": 0,
+          "profit_units": -0.52,
+          "selected": 3,
+          "value": "Serie A",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.0614903152761605,
+            0.7923450448735121
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "dimension": "league",
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 8,
+          "profit_units": 0,
+          "selected": 8,
+          "value": "UEFA Champions League",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.3646254945401429,
+          "calibration": [
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.603842276211382,
+              "n": 1,
+              "observed_rate": 0.0
+            }
+          ],
+          "calibration_gap": 0.603842276211382,
+          "dimension": "market",
+          "flat_stake_roi": -1.0,
+          "graded": 1,
+          "log_loss": 0.9259428546295176,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.603842276211382,
+          "observed_rate": 0.0,
+          "pending": 1,
+          "profit_units": -1.0,
+          "selected": 2,
+          "value": "Both Teams to Score - Yes",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.0,
+            0.7934567085261071
+          ],
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "dimension": "market",
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "mean_probability": null,
+          "observed_rate": null,
+          "pending": 4,
+          "profit_units": 0,
+          "selected": 4,
+          "value": "Double Chance 12",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.2288065390190178,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.596995941595034,
+              "n": 1,
+              "observed_rate": 0.0
+            },
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.681866500102403,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.1394312208487185,
+          "dimension": "market",
+          "flat_stake_roi": -0.245,
+          "graded": 2,
+          "log_loss": 0.6458650172762783,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.6394312208487185,
+          "observed_rate": 0.5,
+          "pending": 1,
+          "profit_units": -0.49,
+          "selected": 3,
+          "value": "Double Chance 1X",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.09452865480086614,
+            0.9054713451991339
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.23703736725944113,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.45619887568715867,
+              "n": 3,
+              "observed_rate": 0.3333333333333333
+            },
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.6403097029376159,
+              "n": 2,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.729085445221024,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.06305024635962198,
+          "dimension": "market",
+          "flat_stake_roi": -0.07833333333333337,
+          "graded": 6,
+          "log_loss": 0.665473350929059,
+          "max_drawdown_units": 2.0,
+          "mean_probability": 0.563050246359622,
+          "observed_rate": 0.5,
+          "pending": 2,
+          "profit_units": -0.4700000000000002,
+          "selected": 8,
+          "value": "Double Chance X2",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.18761280689940868,
+            0.8123871931005913
+          ],
+          "wins": 3
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.05017791827047905,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.775995718187176,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.22400428181282395,
+          "dimension": "market",
+          "flat_stake_roi": 0.29000000000000004,
+          "graded": 1,
+          "log_loss": 0.2536082766141723,
+          "max_drawdown_units": 0.0,
+          "mean_probability": 0.775995718187176,
+          "observed_rate": 1.0,
+          "pending": 0,
+          "profit_units": 0.29000000000000004,
+          "selected": 1,
+          "value": "Home win",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "wins": 1
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.2240113555617709,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.5142781045636781,
+              "n": 3,
+              "observed_rate": 0.3333333333333333
+            },
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.6080797750662705,
+              "n": 2,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7525405817041,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.03772500389025357,
+          "dimension": "week",
+          "flat_stake_roi": -0.025714285714285738,
+          "graded": 7,
+          "log_loss": 0.6325964273801966,
+          "max_drawdown_units": 2.33,
+          "mean_probability": 0.609153575318825,
+          "observed_rate": 0.5714285714285714,
+          "pending": 0,
+          "profit_units": -0.18000000000000016,
+          "selected": 7,
+          "value": "2026-W42",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.2504542304090258,
+            0.8417830777373732
+          ],
+          "wins": 4
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.24218706849096927,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.422758254965476,
+              "n": 1,
+              "observed_rate": 0.0
+            },
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.675084316028238,
+              "n": 2,
+              "observed_rate": 0.5
+            }
+          ],
+          "calibration_gap": 0.25764229567398395,
+          "dimension": "week",
+          "flat_stake_roi": -0.49666666666666665,
+          "graded": 3,
+          "log_loss": 0.6786487599030749,
+          "max_drawdown_units": 1.49,
+          "mean_probability": 0.5909756290073173,
+          "observed_rate": 0.3333333333333333,
+          "pending": 8,
+          "profit_units": -1.49,
+          "selected": 11,
+          "value": "2026-W43",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.0614903152761605,
+            0.7923450448735121
+          ],
+          "wins": 1
+        }
+      ],
+      "candidate_decisions": 644,
+      "comparisons": [
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.13387032588494915,
+          "calibration": [
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.647091887011781,
+              "n": 2,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7533241616709878,
+              "n": 6,
+              "observed_rate": 0.8333333333333334
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.83928269229048,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.1496209515177812,
+          "ev_weight": 0.5,
+          "flat_stake_roi": 0.21666666666666665,
+          "graded": 9,
+          "log_loss": 0.4461626488280618,
+          "max_drawdown_units": 0.33000000000000007,
+          "maximum_probability_weight": 0.5,
+          "mean_probability": 0.7392679373711076,
+          "mean_probability_weight": 0.5,
+          "minimum_probability_weight": 0.5,
+          "observed_rate": 0.8888888888888888,
+          "pending": 9,
+          "probability_weight": 0.5,
+          "profit_units": 1.9499999999999997,
+          "selected": 18,
+          "tier": "ALL",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.5649937852319399,
+            0.9801096286728695
+          ],
+          "wins": 8
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "ev_weight": 0.5,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "maximum_probability_weight": 0.5,
+          "mean_probability": null,
+          "mean_probability_weight": 0.5,
+          "minimum_probability_weight": 0.5,
+          "observed_rate": null,
+          "pending": 0,
+          "probability_weight": 0.5,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "STRICT",
+          "variant_id": "control",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.13387032588494915,
+          "calibration": [
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.647091887011781,
+              "n": 2,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7533241616709878,
+              "n": 6,
+              "observed_rate": 0.8333333333333334
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.83928269229048,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.1496209515177812,
+          "ev_weight": 0.5,
+          "flat_stake_roi": 0.21666666666666665,
+          "graded": 9,
+          "log_loss": 0.4461626488280618,
+          "max_drawdown_units": 0.33000000000000007,
+          "maximum_probability_weight": 0.5,
+          "mean_probability": 0.7392679373711076,
+          "mean_probability_weight": 0.5,
+          "minimum_probability_weight": 0.5,
+          "observed_rate": 0.8888888888888888,
+          "pending": 9,
+          "probability_weight": 0.5,
+          "profit_units": 1.9499999999999997,
+          "selected": 18,
+          "tier": "PROVISIONAL",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.5649937852319399,
+            0.9801096286728695
+          ],
+          "wins": 8
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.1755111774403296,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.752180521807944,
+              "n": 5,
+              "observed_rate": 0.8
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.814661164144002,
+              "n": 3,
+              "observed_rate": 0.6666666666666666
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.91836189131999,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.013694221421301833,
+          "ev_weight": 0.0,
+          "flat_stake_roi": -0.04222222222222224,
+          "graded": 9,
+          "log_loss": 0.531027606284624,
+          "max_drawdown_units": 1.0,
+          "maximum_probability_weight": 1.0,
+          "mean_probability": 0.7914719991990796,
+          "mean_probability_weight": 1.0,
+          "minimum_probability_weight": 1.0,
+          "observed_rate": 0.7777777777777778,
+          "pending": 10,
+          "probability_weight": 1.0,
+          "profit_units": -0.3800000000000001,
+          "selected": 19,
+          "tier": "ALL",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.4525833436728054,
+            0.9367762376877727
+          ],
+          "wins": 7
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "ev_weight": 0.0,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "maximum_probability_weight": 1.0,
+          "mean_probability": null,
+          "mean_probability_weight": 1.0,
+          "minimum_probability_weight": 1.0,
+          "observed_rate": null,
+          "pending": 0,
+          "probability_weight": 1.0,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "STRICT",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.1755111774403296,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.752180521807944,
+              "n": 5,
+              "observed_rate": 0.8
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.814661164144002,
+              "n": 3,
+              "observed_rate": 0.6666666666666666
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.91836189131999,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.013694221421301833,
+          "ev_weight": 0.0,
+          "flat_stake_roi": -0.04222222222222224,
+          "graded": 9,
+          "log_loss": 0.531027606284624,
+          "max_drawdown_units": 1.0,
+          "maximum_probability_weight": 1.0,
+          "mean_probability": 0.7914719991990796,
+          "mean_probability_weight": 1.0,
+          "minimum_probability_weight": 1.0,
+          "observed_rate": 0.7777777777777778,
+          "pending": 10,
+          "probability_weight": 1.0,
+          "profit_units": -0.3800000000000001,
+          "selected": 19,
+          "tier": "PROVISIONAL",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.4525833436728054,
+            0.9367762376877727
+          ],
+          "wins": 7
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.1755111774403296,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.752180521807944,
+              "n": 5,
+              "observed_rate": 0.8
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.814661164144002,
+              "n": 3,
+              "observed_rate": 0.6666666666666666
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.91836189131999,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.013694221421301833,
+          "ev_weight": 0.25,
+          "flat_stake_roi": -0.04222222222222224,
+          "graded": 9,
+          "log_loss": 0.531027606284624,
+          "max_drawdown_units": 1.0,
+          "maximum_probability_weight": 0.75,
+          "mean_probability": 0.7914719991990796,
+          "mean_probability_weight": 0.75,
+          "minimum_probability_weight": 0.75,
+          "observed_rate": 0.7777777777777778,
+          "pending": 10,
+          "probability_weight": 0.75,
+          "profit_units": -0.3800000000000001,
+          "selected": 19,
+          "tier": "ALL",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.4525833436728054,
+            0.9367762376877727
+          ],
+          "wins": 7
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "ev_weight": 0.25,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "maximum_probability_weight": 0.75,
+          "mean_probability": null,
+          "mean_probability_weight": 0.75,
+          "minimum_probability_weight": 0.75,
+          "observed_rate": null,
+          "pending": 0,
+          "probability_weight": 0.75,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "STRICT",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.1755111774403296,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.752180521807944,
+              "n": 5,
+              "observed_rate": 0.8
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.814661164144002,
+              "n": 3,
+              "observed_rate": 0.6666666666666666
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.91836189131999,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.013694221421301833,
+          "ev_weight": 0.25,
+          "flat_stake_roi": -0.04222222222222224,
+          "graded": 9,
+          "log_loss": 0.531027606284624,
+          "max_drawdown_units": 1.0,
+          "maximum_probability_weight": 0.75,
+          "mean_probability": 0.7914719991990796,
+          "mean_probability_weight": 0.75,
+          "minimum_probability_weight": 0.75,
+          "observed_rate": 0.7777777777777778,
+          "pending": 10,
+          "probability_weight": 0.75,
+          "profit_units": -0.3800000000000001,
+          "selected": 19,
+          "tier": "PROVISIONAL",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.4525833436728054,
+            0.9367762376877727
+          ],
+          "wins": 7
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.2294640694405304,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.49139814216412747,
+              "n": 4,
+              "observed_rate": 0.25
+            },
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.6415820455472543,
+              "n": 4,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7525405817041,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.10370019142537268,
+          "ev_weight": 0.75,
+          "flat_stake_roi": -0.167,
+          "graded": 10,
+          "log_loss": 0.6464121271370601,
+          "max_drawdown_units": 2.33,
+          "maximum_probability_weight": 0.25,
+          "mean_probability": 0.6037001914253727,
+          "mean_probability_weight": 0.25,
+          "minimum_probability_weight": 0.25,
+          "observed_rate": 0.5,
+          "pending": 8,
+          "probability_weight": 0.25,
+          "profit_units": -1.6700000000000002,
+          "selected": 18,
+          "tier": "ALL",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.23658959361548731,
+            0.7634104063845126
+          ],
+          "wins": 5
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "ev_weight": 0.75,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "maximum_probability_weight": 0.25,
+          "mean_probability": null,
+          "mean_probability_weight": 0.25,
+          "minimum_probability_weight": 0.25,
+          "observed_rate": null,
+          "pending": 0,
+          "probability_weight": 0.25,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "STRICT",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.2294640694405304,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.49139814216412747,
+              "n": 4,
+              "observed_rate": 0.25
+            },
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.6415820455472543,
+              "n": 4,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7525405817041,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.10370019142537268,
+          "ev_weight": 0.75,
+          "flat_stake_roi": -0.167,
+          "graded": 10,
+          "log_loss": 0.6464121271370601,
+          "max_drawdown_units": 2.33,
+          "maximum_probability_weight": 0.25,
+          "mean_probability": 0.6037001914253727,
+          "mean_probability_weight": 0.25,
+          "minimum_probability_weight": 0.25,
+          "observed_rate": 0.5,
+          "pending": 8,
+          "probability_weight": 0.25,
+          "profit_units": -1.6700000000000002,
+          "selected": 18,
+          "tier": "PROVISIONAL",
+          "variant_id": "probability_25_ev_75",
+          "win_rate_wilson95": [
+            0.23658959361548731,
+            0.7634104063845126
+          ],
+          "wins": 5
+        }
+      ],
+      "gameweeks": 2,
+      "minimum_settled_per_weighting": 9,
+      "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for four comparisons in v2 (three in legacy v1), and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. Adaptive probability weight ranges from 50% to 90%, using only frozen development support, development calibration penalties, raw model/reference disagreement and quote age. These bounds are a pre-registered hypothesis, not fitted optimal weights or a safety guarantee. Legacy v1 results remain a separate cohort; v2 readiness and paired returns use only contemporaneous v2 captures. No automatic production change. Confirm any chosen weighting on a later untouched period.",
+      "paired_all_returns": [
+        {
+          "iso_weeks": 2,
+          "mean_profit_delta_per_fixture": -0.19416666666666668,
+          "variant_id": "probability_100_ev_0",
+          "verified_fixtures": 12,
+          "weekly_block_bootstrap95": null
+        },
+        {
+          "iso_weeks": 2,
+          "mean_profit_delta_per_fixture": -0.19416666666666668,
+          "variant_id": "probability_75_ev_25",
+          "verified_fixtures": 12,
+          "weekly_block_bootstrap95": null
+        },
+        {
+          "iso_weeks": 2,
+          "mean_profit_delta_per_fixture": -0.3016666666666667,
+          "variant_id": "probability_25_ev_75",
+          "verified_fixtures": 12,
+          "weekly_block_bootstrap95": null
+        }
+      ],
+      "primary_tier": "ALL",
+      "rejected_snapshot_commits": [],
+      "review_gates": {
+        "minimum_gameweeks": 6,
+        "minimum_paired_fixtures": 300,
+        "minimum_settled_per_weighting": 100,
+        "minimum_verified_coverage": 0.8
+      },
+      "reviewed_at_utc": "2026-10-19T21:11:10.924454+00:00",
+      "status": "COLLECT_MORE_DATA",
+      "total_fixtures": 23,
+      "variants": {
+        "control": {},
+        "probability_100_ev_0": {
+          "probability_weight": 1.0
+        },
+        "probability_25_ev_75": {
+          "probability_weight": 0.25
+        },
+        "probability_75_ev_25": {
+          "probability_weight": 0.75
+        }
+      },
+      "verified_coverage": 0.5217391304347826,
+      "verified_fixtures": 12,
+      "version": "shortlist-probability-ev-weights-v1"
+    }
+  ],
+  "minimum_settled_per_weighting": 0,
+  "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for four comparisons in v2 (three in legacy v1), and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. Adaptive probability weight ranges from 50% to 90%, using only frozen development support, development calibration penalties, raw model/reference disagreement and quote age. These bounds are a pre-registered hypothesis, not fitted optimal weights or a safety guarantee. Legacy v1 results remain a separate cohort; v2 readiness and paired returns use only contemporaneous v2 captures. No automatic production change. Confirm any chosen weighting on a later untouched period.",
   "paired_all_returns": [
     {
-      "iso_weeks": 1,
-      "mean_profit_delta_per_fixture": -0.2375,
+      "iso_weeks": 0,
+      "mean_profit_delta_per_fixture": null,
       "variant_id": "probability_100_ev_0",
-      "verified_fixtures": 8,
+      "verified_fixtures": 0,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 1,
-      "mean_profit_delta_per_fixture": -0.2375,
+      "iso_weeks": 0,
+      "mean_profit_delta_per_fixture": null,
       "variant_id": "probability_75_ev_25",
-      "verified_fixtures": 8,
+      "verified_fixtures": 0,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 1,
-      "mean_profit_delta_per_fixture": -0.15375,
+      "iso_weeks": 0,
+      "mean_profit_delta_per_fixture": null,
       "variant_id": "probability_25_ev_75",
-      "verified_fixtures": 8,
+      "verified_fixtures": 0,
+      "weekly_block_bootstrap95": null
+    },
+    {
+      "iso_weeks": 0,
+      "mean_profit_delta_per_fixture": null,
+      "variant_id": "adaptive_evidence",
+      "verified_fixtures": 0,
       "weekly_block_bootstrap95": null
     }
   ],
@@ -2023,10 +2595,21 @@
     "minimum_settled_per_weighting": 100,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-19T18:06:32.533749+00:00",
+  "reviewed_at_utc": "2026-10-19T21:11:10.924454+00:00",
   "status": "COLLECT_MORE_DATA",
-  "total_fixtures": 23,
+  "total_fixtures": 0,
   "variants": {
+    "adaptive_evidence": {
+      "adaptive_rule": {
+        "development_target": 300,
+        "disagreement_limit": 0.25,
+        "max_quote_age_hours": 24,
+        "maximum_probability_weight": 0.9,
+        "minimum_probability_weight": 0.5,
+        "penalty_limit": 0.1,
+        "version": "development-evidence-v1"
+      }
+    },
     "control": {},
     "probability_100_ev_0": {
       "probability_weight": 1.0
@@ -2038,7 +2621,7 @@
       "probability_weight": 0.75
     }
   },
-  "verified_coverage": 0.34782608695652173,
-  "verified_fixtures": 8,
-  "version": "shortlist-probability-ev-weights-v1"
+  "verified_coverage": 0.0,
+  "verified_fixtures": 0,
+  "version": "shortlist-probability-ev-weights-v2"
 }

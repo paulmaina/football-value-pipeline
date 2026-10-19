@@ -1798,67 +1798,67 @@
   "candidate_decisions": 3591,
   "common_cohort_probability_scores": [
     {
-      "brier": 0.2007714112199227,
-      "calibration_gap": -0.0018396015353772113,
-      "log_loss": 0.585791988587088,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "control",
-      "verified_fixture_markets": 266
+      "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2007714112199227,
-      "calibration_gap": -0.0018396015353772113,
-      "log_loss": 0.585791988587088,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "blended_lower",
-      "verified_fixture_markets": 266
+      "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2007714112199227,
-      "calibration_gap": -0.0018396015353772113,
-      "log_loss": 0.585791988587088,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "blended_higher",
-      "verified_fixture_markets": 266
+      "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2007714112199227,
-      "calibration_gap": -0.0018396015353772113,
-      "log_loss": 0.585791988587088,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "raw_lower",
-      "verified_fixture_markets": 266
+      "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2007714112199227,
-      "calibration_gap": -0.0018396015353772113,
-      "log_loss": 0.585791988587088,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "raw_higher",
-      "verified_fixture_markets": 266
+      "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2007714112199227,
-      "calibration_gap": -0.0018396015353772113,
-      "log_loss": 0.585791988587088,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "adjusted_lower",
-      "verified_fixture_markets": 266
+      "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2007714112199227,
-      "calibration_gap": -0.0018396015353772113,
-      "log_loss": 0.585791988587088,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "adjusted_higher",
-      "verified_fixture_markets": 266
+      "verified_fixture_markets": 294
     },
     {
-      "brier": 0.20033234382506188,
-      "calibration_gap": 0.0021523361075261494,
-      "log_loss": 0.5850377894106261,
+      "brier": 0.20001900767625394,
+      "calibration_gap": -0.004275341920385249,
+      "log_loss": 0.5845252722802916,
       "variant_id": "penalty_half",
-      "verified_fixture_markets": 266
+      "verified_fixture_markets": 294
     },
     {
-      "brier": 0.20130443266406375,
-      "calibration_gap": -0.0058315391782804964,
-      "log_loss": 0.5867812171150768,
+      "brier": 0.20107440600257123,
+      "calibration_gap": -0.012021171161299962,
+      "log_loss": 0.5864880590740094,
       "variant_id": "penalty_stronger",
-      "verified_fixture_markets": 266
+      "verified_fixture_markets": 294
     }
   ],
   "comparisons": [
@@ -2543,7 +2543,7 @@
       "wins": 3
     }
   ],
-  "gameweeks": 1,
+  "gameweeks": 2,
   "note": "Fixed one-factor comparisons, not an optimisation search. All variants use the same first eligible pre-kickoff fixtures, quotes, development-only calibration evidence and fixed audit/quote/matching gates. Primary returns use STRICT picks only; PROVISIONAL rows are watchlist simulations. Returns are simulated at frozen quotes after configured costs, not actual execution. Selected cohorts can differ: their Brier/ROI differences are not paired forecast improvements. Paired returns below use one unit per strict selection and zero for no selection on every verified fixture. Weekly block bootstrap intervals are exploratory, unadjusted for eight comparisons and unavailable before six weeks/100 verified fixtures. No automatic promotion; choose a policy only after review, then confirm it on a later untouched period.",
   "paired_probability_deltas": [
     {
@@ -2551,7 +2551,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 38,
+      "paired_fixtures": 42,
       "variant_id": "blended_lower"
     },
     {
@@ -2559,7 +2559,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 38,
+      "paired_fixtures": 42,
       "variant_id": "blended_higher"
     },
     {
@@ -2567,7 +2567,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 38,
+      "paired_fixtures": 42,
       "variant_id": "raw_lower"
     },
     {
@@ -2575,7 +2575,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 38,
+      "paired_fixtures": 42,
       "variant_id": "raw_higher"
     },
     {
@@ -2583,7 +2583,7 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 38,
+      "paired_fixtures": 42,
       "variant_id": "adjusted_lower"
     },
     {
@@ -2591,81 +2591,81 @@
       "brier_weekly_bootstrap95": null,
       "log_loss_mean_delta": 0.0,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 38,
+      "paired_fixtures": 42,
       "variant_id": "adjusted_higher"
     },
     {
-      "brier_mean_delta": -0.00043906739486081913,
+      "brier_mean_delta": -0.00048199669959436654,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": -0.0007541991764619261,
+      "log_loss_mean_delta": -0.0008711831786492934,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 38,
+      "paired_fixtures": 42,
       "variant_id": "penalty_half"
     },
     {
-      "brier_mean_delta": 0.000533021444141078,
+      "brier_mean_delta": 0.0005734016267229216,
       "brier_weekly_bootstrap95": null,
-      "log_loss_mean_delta": 0.0009892285279888364,
+      "log_loss_mean_delta": 0.001091603615068479,
       "log_loss_weekly_bootstrap95": null,
-      "paired_fixtures": 38,
+      "paired_fixtures": 42,
       "variant_id": "penalty_stronger"
     }
   ],
   "paired_strict_returns": [
     {
-      "iso_weeks": 1,
-      "mean_profit_delta_per_fixture": 0.015526315789473687,
+      "iso_weeks": 2,
+      "mean_profit_delta_per_fixture": 0.01404761904761905,
       "variant_id": "blended_lower",
-      "verified_fixtures": 38,
+      "verified_fixtures": 42,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 1,
-      "mean_profit_delta_per_fixture": -0.013421052631578948,
+      "iso_weeks": 2,
+      "mean_profit_delta_per_fixture": -0.012142857142857143,
       "variant_id": "blended_higher",
-      "verified_fixtures": 38,
+      "verified_fixtures": 42,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 1,
+      "iso_weeks": 2,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "raw_lower",
-      "verified_fixtures": 38,
+      "verified_fixtures": 42,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 1,
+      "iso_weeks": 2,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "raw_higher",
-      "verified_fixtures": 38,
+      "verified_fixtures": 42,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 1,
+      "iso_weeks": 2,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "adjusted_lower",
-      "verified_fixtures": 38,
+      "verified_fixtures": 42,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 1,
+      "iso_weeks": 2,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "adjusted_higher",
-      "verified_fixtures": 38,
+      "verified_fixtures": 42,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 1,
+      "iso_weeks": 2,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "penalty_half",
-      "verified_fixtures": 38,
+      "verified_fixtures": 42,
       "weekly_block_bootstrap95": null
     },
     {
-      "iso_weeks": 1,
+      "iso_weeks": 2,
       "mean_profit_delta_per_fixture": 0.0,
       "variant_id": "penalty_stronger",
-      "verified_fixtures": 38,
+      "verified_fixtures": 42,
       "weekly_block_bootstrap95": null
     }
   ],
@@ -2675,7 +2675,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-19T18:06:32.533749+00:00",
+  "reviewed_at_utc": "2026-10-19T21:11:10.924454+00:00",
   "status": "COLLECT_MORE_DATA",
   "total_fixtures": 57,
   "variants": {
@@ -2705,7 +2705,7 @@
       "raw_shift": -0.03
     }
   },
-  "verified_coverage": 0.6666666666666666,
-  "verified_fixtures": 38,
+  "verified_coverage": 0.7368421052631579,
+  "verified_fixtures": 42,
   "version": "shortlist-probability-calibration-v1"
 }

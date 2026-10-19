@@ -1079,6 +1079,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564717": {
+    "away_goals": 1,
+    "away_short_name": "Rayo Vallecano",
+    "away_team": "Rayo Vallecano de Madrid",
+    "first_verified_at_utc": "2026-10-19T21:11:10Z",
+    "home_goals": 1,
+    "home_short_name": "Getafe",
+    "home_team": "Getafe CF",
+    "kickoff_utc": "2026-10-19T19:00:00Z",
+    "league_code": "PD",
+    "match_id": 564717,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560592": {
     "away_goals": 2,
     "away_short_name": "Brighton Hove",
@@ -1289,6 +1304,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PL:560606": {
+    "away_goals": 1,
+    "away_short_name": "Coventry City",
+    "away_team": "Coventry City FC",
+    "first_verified_at_utc": "2026-10-19T21:11:10Z",
+    "home_goals": 3,
+    "home_short_name": "Tottenham",
+    "home_team": "Tottenham Hotspur FC",
+    "kickoff_utc": "2026-10-19T19:00:00Z",
+    "league_code": "PL",
+    "match_id": 560606,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560607": {
     "away_goals": 1,
     "away_short_name": "Aston Villa",
@@ -1469,6 +1499,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "SA:558576": {
+    "away_goals": 0,
+    "away_short_name": "Cagliari",
+    "away_team": "Cagliari Calcio",
+    "first_verified_at_utc": "2026-10-19T21:11:10Z",
+    "home_goals": 4,
+    "home_short_name": "Monza",
+    "home_team": "AC Monza",
+    "kickoff_utc": "2026-10-19T16:30:00Z",
+    "league_code": "SA",
+    "match_id": 558576,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "SA:558577": {
     "away_goals": 3,
     "away_short_name": "Como 1907",
@@ -1480,6 +1525,21 @@
     "kickoff_utc": "2026-10-18T13:00:00Z",
     "league_code": "SA",
     "match_id": 558577,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558578": {
+    "away_goals": 3,
+    "away_short_name": "Torino",
+    "away_team": "Torino FC",
+    "first_verified_at_utc": "2026-10-19T21:11:10Z",
+    "home_goals": 0,
+    "home_short_name": "Parma",
+    "home_team": "Parma Calcio 1913",
+    "kickoff_utc": "2026-10-19T18:45:00Z",
+    "league_code": "SA",
+    "match_id": 558578,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"

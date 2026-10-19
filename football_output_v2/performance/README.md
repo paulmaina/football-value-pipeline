@@ -16,16 +16,16 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 26 | 21-5 | 80.8% | +10.8% |
+| All selections | 30 | 22-8 | 73.3% | +1.1% |
 
-Unsettled / unverified entries: **16**.
-Whole-fixture 1X2 multiclass Brier (n=72): 0.5348
+Unsettled / unverified entries: **12**.
+Whole-fixture 1X2 multiclass Brier (n=76): 0.5338
 
 ## First-prediction reference — historical comparison
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Unique fixtures | 26 | 20-6 | 76.9% | +3.5% |
+| Unique fixtures | 30 | 23-7 | 76.7% | +4.5% |
 
 ## Latest selections by prediction run (generation UTC)
 
@@ -45,22 +45,22 @@ Whole-fixture 1X2 multiclass Brier (n=72): 0.5348
 | 2026-10-17T14:11:18.520879+00:00 | 1 | 1-0 | 100.0% | +61.0% |
 | 2026-10-18T09:58:14.607821+00:00 | 1 | 1-0 | 100.0% | +20.0% |
 | 2026-10-18T14:35:10.311946+00:00 | 7 | 6-1 | 85.7% | +15.0% |
-| 2026-10-19T11:20:16.296665+00:00 | 0 | 0-0 | — | — |
-| 2026-10-19T16:28:42.464993+00:00 | 0 | 0-0 | — | — |
+| 2026-10-19T11:20:16.296665+00:00 | 1 | 0-1 | 0.0% | -100.0% |
+| 2026-10-19T16:28:42.464993+00:00 | 3 | 1-2 | 33.3% | -49.0% |
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| PROVISIONAL | 15 | 11-4 | 73.3% | -3.4% |
+| PROVISIONAL | 19 | 12-7 | 63.2% | -15.7% |
 | STRICT | 11 | 10-1 | 90.9% | +30.2% |
 
 ## By policy
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| 48h-top-ten-probability-ev-no-under35-v14 | 7 | 6-1 | 85.7% | +15.0% |
-| 48h-top-twelve-probability-ev-no-under35-v15 | 0 | 0-0 | — | — |
+| 48h-top-ten-probability-ev-no-under35-v14 | 8 | 6-2 | 75.0% | +0.6% |
+| 48h-top-twelve-probability-ev-no-under35-v15 | 3 | 1-2 | 33.3% | -49.0% |
 | 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
 | 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
 | 72h-seven-markets-fresh-references-net-ev15-v11 | 5 | 4-1 | 80.0% | +7.2% |
@@ -75,8 +75,8 @@ Whole-fixture 1X2 multiclass Brier (n=72): 0.5348
 | Away win | 1 | 0-1 | 0.0% | -100.0% |
 | Both Teams to Score - Yes | 2 | 2-0 | 100.0% | +51.0% |
 | Double Chance 12 | 2 | 2-0 | 100.0% | +27.5% |
-| Double Chance 1X | 2 | 2-0 | 100.0% | +23.5% |
-| Double Chance X2 | 3 | 3-0 | 100.0% | +40.3% |
+| Double Chance 1X | 4 | 3-1 | 75.0% | +0.0% |
+| Double Chance X2 | 5 | 3-2 | 60.0% | -15.8% |
 | Home win | 5 | 5-0 | 100.0% | +50.6% |
 | Over 1.5 | 6 | 5-1 | 83.3% | +5.5% |
 | Under 3.5 | 5 | 2-3 | 40.0% | -46.0% |
@@ -86,10 +86,10 @@ Whole-fixture 1X2 multiclass Brier (n=72): 0.5348
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | Bundesliga | 3 | 3-0 | 100.0% | +24.7% |
-| La Liga | 6 | 6-0 | 100.0% | +30.3% |
+| La Liga | 7 | 7-0 | 100.0% | +33.6% |
 | Ligue 1 | 2 | 1-1 | 50.0% | -16.5% |
-| Premier League | 6 | 3-3 | 50.0% | -35.7% |
-| Serie A | 5 | 4-1 | 80.0% | +16.0% |
+| Premier League | 7 | 3-4 | 42.9% | -44.9% |
+| Serie A | 7 | 4-3 | 57.1% | -17.1% |
 | UEFA Champions League | 4 | 4-0 | 100.0% | +48.0% |
 
 ## Gameweeks
@@ -98,13 +98,14 @@ Whole-fixture 1X2 multiclass Brier (n=72): 0.5348
 |---|---:|---:|---:|---:|
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
 | 2026-W42 | 22 | 19-3 | 86.4% | +19.5% |
-| 2026-W43 | 0 | 0-0 | — | — |
+| 2026-W43 | 4 | 1-3 | 25.0% | -61.8% |
 
 ## Confidence calibration of shortlisted markets
 
 | Forecast bin | Samples | Average forecast | Observed win rate | Binary Brier |
 |---|---:|---:|---:|---:|
-| 60%–70% | 5 | 65.3% | 80.0% | 0.1819 |
+| 0%–50% | 1 | 45.4% | 0.0% | 0.2059 |
+| 60%–70% | 8 | 64.9% | 62.5% | 0.2235 |
 | 70%–80% | 10 | 75.6% | 80.0% | 0.1675 |
 | 80%–90% | 9 | 83.6% | 77.8% | 0.1769 |
 | 90%–100% | 2 | 93.3% | 100.0% | 0.0047 |
@@ -135,7 +136,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | SerieA | 2026-10-18 | 1968 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-14 | 539 | 5 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 
-Latest shortlist audit: {"selected_quotes": 12, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 12, "bookmakers": {"1xBet": 12}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 12, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 12, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 12, "bookmakers": {"1xBet": 12}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 3, "upcoming_kickoff_count": 9, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
@@ -162,7 +163,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | ca1e126489f9 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | a18515a42a8d | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Locally observed near-close quotes, coverage and offered-price comparisons; official close and accepted execution are unverified.
 
