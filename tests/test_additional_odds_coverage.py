@@ -30,7 +30,7 @@ class CoverageTests(OfflineQuotePolicyTestCase):
               for delta in (pd.Timedelta(hours=48),pd.Timedelta(hours=48,seconds=1),pd.Timedelta(hours=72))]
         self.assertEqual(prioritized_additional_events(rows,100,now,'all'),[0])
 
-    def run_pipeline(self, mode='all', mixed=False):
+    def run_pipeline(self, mode='all', mixed=False, primary_prediction=None):
         pipeline = object.__new__(FootballValuePipelineV2)
         for key, value in dict(half_life_days=365, l2=0.1, max_goals=10,
                 devig_method='power', market_weight=0.5, fixture_provider='auto',
@@ -44,7 +44,8 @@ class CoverageTests(OfflineQuotePolicyTestCase):
         pipeline._current_fixtures = Mock(return_value=self.fixtures())
         pipeline._attach_live_odds = lambda fixtures, *args: fixtures
         pipeline._predict_row = lambda *args: (dict(home_name_match_score=99,
-            away_name_match_score=99, p_home_draw=.9, raw_p_home_draw=.9), {})
+            away_name_match_score=99, p_home_draw=.9, raw_p_home_draw=.9,
+            **(primary_prediction or {})), {})
         quote = dict(market_home_draw_odds=1.2, market_draw_away_odds=1.3,
                      market_home_draw_bookmakers=2)
         pipeline.odds_api = Mock()
@@ -80,3 +81,13 @@ class CoverageTests(OfflineQuotePolicyTestCase):
         self.assertEqual(rows[1]['status'], 'REQUEST_FAILED')
         self.assertEqual(rows[2]['status'], 'RECEIVED_VALID_DC_QUOTES')
         self.assertEqual(rows[1]['error_type'], 'RuntimeError')
+
+    def test_primary_o15_quote_survives_extra_failure_and_is_reported(self):
+        quote = dict(market_over_1_5_odds=1.63, best_over_1_5_bookmaker='1xBet',
+                     market_over_1_5_bookmakers=1)
+        with self.assertWarns(RuntimeWarning):
+            _, (frame, diagnostics, _) = self.run_pipeline(mixed=True, primary_prediction=quote)
+        self.assertEqual(frame['market_over_1_5_odds'].tolist(), [1.63]*18)
+        self.assertEqual(diagnostics['over_1_5_in_window_quote_fixtures'], 18)
+        self.assertTrue(diagnostics['additional_odds_coverage'][1]['over_1_5_quote'])
+        self.assertEqual(diagnostics['additional_odds_coverage'][1]['status'], 'REQUEST_FAILED')
