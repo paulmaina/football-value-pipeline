@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       full_history:
-        description: Refresh four seasons instead of just the current season
+        description: Refresh six seasons instead of just the current season
         type: boolean
         default: false
   push:
@@ -42,6 +42,6 @@ jobs:
         run: |
           seasons=1
           if [ "$EVENT_NAME" = "push" ] || [ "$FULL_HISTORY" = "true" ]; then
-            seasons=4
+            seasons=6
           fi
           python refresh_training_data.py --seasons-back "$seasons" --publish

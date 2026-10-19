@@ -2721,6 +2721,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         fixture_provider: str = "auto",
         live_odds: bool = True,
         additional_odds_coverage: str = "all",
+        domestic_seasons_back: Optional[int] = None,
         **kwargs,
     ):
         cache_dir = kwargs.get("cache_dir", ".football_cache")
@@ -2742,6 +2743,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
         self.live_odds = bool(live_odds)
         if additional_odds_coverage not in {"all", "ranked"}:
             raise ValueError("additional_odds_coverage must be all or ranked")
+        if domestic_seasons_back is not None and (isinstance(domestic_seasons_back, bool) or
+                not isinstance(domestic_seasons_back, int) or not 1 <= domestic_seasons_back <= 10):
+            raise ValueError("domestic_seasons_back must be between 1 and 10")
+        self.domestic_seasons_back = domestic_seasons_back
         self.additional_odds_coverage = additional_odds_coverage
         # Per-event BTTS and alternate totals requests consume additional API credits.
         self.extra_event_odds_requests = 0
@@ -2794,6 +2799,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         UCL uses football-data.org Champions League results because a domestic
         league model cannot validly estimate cross-country matchups on its own.
         """
+        seasons_back = (self.seasons_back if league.key == "UCL" else
+                        self.domestic_seasons_back or self.seasons_back)
         if league.key == "UCL":
             if self.football_data_org is None:
                 raise RuntimeError(
@@ -2803,17 +2810,18 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 )
             history = self.football_data_org.history(
                 league,
-                seasons_back=self.seasons_back,
+                seasons_back=seasons_back,
                 now=now,
             )
 
         else:
             history = self.source.history(
-                league, seasons_back=self.seasons_back, now=now,
+                league, seasons_back=seasons_back, now=now,
             )
         from bbs_integration import combined_training_history
         result = combined_training_history(history, self.source.http.cache_dir,
-                                         league.key, now, self.seasons_back)
+                                         league.key, now, seasons_back)
+        result.attrs['training_seasons_requested'] = seasons_back
         result.attrs['bbs_statistics_enabled'] = getattr(self, 'bbs_statistics', True)
         result.attrs['bbs_statistics_validation'] = getattr(self, 'bbs_statistics_validation', 'auto')
         return result
@@ -3072,6 +3080,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         diagnostics = {
             "league": league.name,
             "training_matches": model.training_matches,
+            "training_seasons_requested": history.attrs.get("training_seasons_requested"),
+            "training_seasons_loaded": sorted(history["Season"].astype(str).unique().tolist()) if "Season" in history else [],
             "training_sha256": training_fingerprint(history),
             "training_as_of_utc": now.astimezone(timezone.utc).isoformat(),
             "training_data_provenance": training_provenance(history),
@@ -3604,6 +3614,15 @@ def self_test() -> None:
 # CLI
 # ---------------------------------------------------------------------------
 
+def history_windows(args):
+    """Six domestic seasons by default; preserve explicit shared overrides."""
+    shared = args.seasons_back
+    domestic = args.domestic_seasons_back
+    return {'seasons_back': shared if shared is not None else 4,
+            'domestic_seasons_back': (domestic if domestic is not None else
+                                      shared if shared is not None else 6)}
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         description="Multi-league scoreline/value pipeline with walk-forward evaluation."
@@ -3621,7 +3640,10 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Experiment cost per unit staked in basis points; 100 bps = 1%%.")
     p.add_argument("--goal-blend-experiment", action="store_true",
                    help="Write separate uncalibrated goal-market shadow variants; no baseline changes.")
-    p.add_argument("--seasons-back", type=int, default=4)
+    p.add_argument("--seasons-back", type=int, choices=range(1, 11), default=None,
+                   help="Explicit shared history override; otherwise domestic uses six seasons and UCL four.")
+    p.add_argument("--domestic-seasons-back", type=int, choices=range(1, 11), default=None,
+                   help="Domestic CSV seasons including current season (default: 6); independent of UCL.")
     p.add_argument('--no-bbs-statistics', action='store_true',
         help='Use the original goal model without validated BBS statistical features')
     p.add_argument('--bbs-statistics-validation', choices=('auto', 'strict'), default='auto',
@@ -3799,7 +3821,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     pipe = FootballValuePipelineV2(
         cache_dir=args.cache_dir,
-        seasons_back=args.seasons_back,
+        **history_windows(args),
         half_life_days=args.half_life_days,
         l2=args.l2,
         max_goals=args.max_goals,
@@ -4185,4 +4207,5 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 

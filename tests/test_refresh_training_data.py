@@ -37,6 +37,22 @@ class RefreshTests(OfflineQuotePolicyTestCase):
             with self.subTest(bad=bad),self.assertRaises(ValueError):
                 refresh.inspect_csv(bad,'E0',2026,CLOCK)
 
+    def test_six_seasons_preserve_statistics_and_reject_season_or_result_mismatch(self):
+        def fake(url):
+            division=url.split('/')[-1][:-4]
+            year=2000+int(url.split('/')[-2][:2])
+            return f'Div,Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HS,AS,HST,AST\n{division},01/09/{year},A,B,1,0,H,12,8,5,2\n'.encode()
+        batch=refresh.fetch_batch(CLOCK,6,fake)
+        self.assertEqual(len(batch),30)
+        self.assertEqual({x['year'] for x in batch},set(range(2021,2027)))
+        with tempfile.TemporaryDirectory() as tmp:
+            entries=refresh.apply_batch(Path(tmp),batch,CLOCK)
+            self.assertTrue(all(x['statistic_nonempty_rows']['HST']==1 for x in entries))
+            self.assertEqual((Path(tmp)/batch[0]['path']).read_bytes(),batch[0]['content'])
+        for data in [csv_data('E0,01/01/2026,A,B,1,0\n'),
+                     b'Div,Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR\nE0,11/10/2026,A,B,1,0,A\n']:
+            with self.assertRaises(ValueError):refresh.inspect_csv(data,'E0',2026,CLOCK)
+
     def test_fetch_all_leagues_and_years_without_cache_fallback(self):
         def fake(url):
             division=url.split('/')[-1][:-4]
