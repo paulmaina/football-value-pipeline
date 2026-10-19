@@ -168,6 +168,8 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None,reservation_id=None)
         try:
             payload=(fetcher or fetch)(api,source,markets)
             observed=clock or now_utc()  # RESPONSE time, never request-start time.
+            from odds_provider_health import checkpoint
+            checkpoint(root, observed)
             d=normalize(source,payload,observed);directory=root/'closing_odds/observations';directory.mkdir(parents=True,exist_ok=True);path=directory/(digest(d)+'.json')
             if not path.exists():
                 with path.open('x',encoding='utf-8') as f:json.dump(d,f,sort_keys=True,indent=2,allow_nan=False);f.write('\n')
@@ -177,7 +179,12 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None,reservation_id=None)
             checks.append({'event_id':event,'requested_markets':sorted(markets),
                 'returned_bookmakers':sorted({str(b.get('key','')) for b in payload.get('bookmakers',[]) if isinstance(b,dict)}),
                 'missing_required_quotes':[{'bookmaker':b,'selection':s} for b,s in sorted(missing)]})
-        except Exception as exc:errors.append({'event_id':event,'error':type(exc).__name__})
+        except Exception as exc:
+            from odds_provider_health import checkpoint, OddsProviderError
+            state = checkpoint(root, clock or now_utc(), exc)
+            errors.append({'event_id':event, **state['last_failure']})
+            if isinstance(exc, OddsProviderError):
+                break  # Stop this session; never spin on exhausted/throttled keys.
     reason=('NO_FIXTURES_IN_PRE_KICKOFF_WINDOW' if not eligible else
             'ALL_REQUIRED_QUOTES_ALREADY_COLLECTED' if complete==eligible else
             'DAILY_REQUEST_CAP_REACHED' if used>=100 and reservation is None else
@@ -271,6 +278,11 @@ def main(argv=None):
             kwargs = {'reservation_id':args.budget_reservation} if args.budget_reservation else {}
             result=collect_once(args.root,api,limit=remaining,**kwargs);remaining-=result['requests']
             if result['requests'] or not args.watch:print(json.dumps(result))
+            from odds_provider_health import alert_summary
+            if any(error.get('category') in ('CREDITS_EXHAUSTED', 'RATE_LIMITED', 'HTTP_ERROR')
+                   for error in result.get('errors', [])) and (message := alert_summary(args.root)):
+                print('::error::'+message, flush=True)
+                return 1
             if not args.watch or remaining<=0 or time.monotonic()>=deadline:break
             if args.stop_when_idle:
                 from performance_tracking import now_utc
@@ -285,5 +297,6 @@ def main(argv=None):
 
 
 if __name__=='__main__':raise SystemExit(main())
+
 
 
