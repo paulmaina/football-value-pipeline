@@ -33,7 +33,7 @@
       "status": "COLLECT_MORE_DATA"
     },
     {
-      "collection_days": 5,
+      "collection_days": 6,
       "key": "filter_sensitivity_experiment",
       "name": "filter_sensitivity_experiment",
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
@@ -110,6 +110,6 @@
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-19T16:41:41.942859+00:00",
+  "reviewed_at_utc": "2026-10-19T17:30:28.114801+00:00",
   "version": "experiment-review-queue-v1"
 }
