@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "Cagliari",
+    "home_team": "Monza",
+    "kickoff_utc": "2026-10-19T16:30:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "ce94aca384a20f6af459366da6e1dd21"
+  },
+  "observed_at_utc": "2026-10-19T16:24:05.167336+00:00",
+  "payload": {
+    "away_team": "Cagliari",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-19T16:23:57Z",
+            "outcomes": [
+              {
+                "name": "Cagliari",
+                "price": 2.96
+              },
+              {
+                "name": "Monza",
+                "price": 2.65
+              },
+              {
+                "name": "Draw",
+                "price": 3.18
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-19T16:23:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.05
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-19T16:24:03Z",
+            "outcomes": [
+              {
+                "name": "Cagliari or Draw",
+                "price": 1.54
+              },
+              {
+                "name": "Monza or Draw",
+                "price": 1.44
+              },
+              {
+                "name": "Cagliari or Monza",
+                "price": 1.39
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-19T16:23:56Z",
+            "outcomes": [
+              {
+                "name": "Cagliari",
+                "price": 2.77
+              },
+              {
+                "name": "Monza",
+                "price": 2.75
+              },
+              {
+                "name": "Draw",
+                "price": 3.16
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-19T16:23:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.19
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.73
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-19T16:23:56Z",
+            "outcomes": [
+              {
+                "name": "Cagliari or Draw",
+                "price": 1.45
+              },
+              {
+                "name": "Monza or Draw",
+                "price": 1.45
+              },
+              {
+                "name": "Cagliari or Monza",
+                "price": 1.35
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-19T16:30:00Z",
+    "home_team": "Monza",
+    "id": "ce94aca384a20f6af459366da6e1dd21",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.75,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.34987558249632195,
+      "selection": "home",
+      "updated_at_utc": "2026-10-19T16:23:56+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.16,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3028709847855309,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-19T16:23:56+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.77,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3472534327181473,
+      "selection": "away",
+      "updated_at_utc": "2026-10-19T16:23:56+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.19,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.43829030396387864,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-19T16:23:56+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.73,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5617096960361214,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-19T16:23:56+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.45,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6506024096385543,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-19T16:23:56+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.45,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6506024096385543,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-19T16:23:56+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.35,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6987951807228915,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-19T16:23:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.65,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.36741214205942063,
+      "selection": "home",
+      "updated_at_utc": "2026-10-19T16:23:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.18,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.30465057563829745,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-19T16:23:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.96,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.32793728230228203,
+      "selection": "away",
+      "updated_at_utc": "2026-10-19T16:23:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6731658228246171,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-19T16:24:03+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.54,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6294537564074341,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-19T16:24:03+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.39,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6973804207679487,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-19T16:24:03+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
