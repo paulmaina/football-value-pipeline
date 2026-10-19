@@ -66,30 +66,38 @@ Older experiment grids and immutable forecasts, prices and selections are not re
 
 `shortlist_weight_experiment` runs automatically during normal prediction runs
 and scheduled forecasts. Its four fixed alternatives are probability/EV weights
-100/0, 75/25, 50/50 (production control), and 25/75. No extra provider requests
+100/0, 75/25, 50/50 (production control), and 25/75. V2 also includes an
+[adaptive evidence variant](adaptive-shortlist-weight-experiment.md), with
+50–90% probability weight and 10–50% EV weight per fixture and market.
+No extra provider requests
 are made: each alternative reuses the same forecasts, prices, calibration,
 seven-market pool, 48-hour window and top-twelve distinct-match rule.
 
 A separate JSON sidecar freezes every candidate decision and the registry before
 kickoff. Archiving verifies hashes, replays all alternatives and checks the control
 against the production shortlist. The first eligible usable capture of each fixture
-counts once; later refreshes cannot add repeated stakes or rewrite its selection.
+counts once per experiment version; later refreshes cannot add repeated stakes
+or rewrite its selection. V1 results remain a separate legacy cohort; the v2
+adaptive comparison freezes all five alternatives together on new eligible
+captures and never backfills adaptive selections from old v1 archives.
 Fixtures need at least 20 minutes of lead at generation and capture. Snapshots
 without this experiment are never backfilled; invalid sidecars are reported while
 baseline capture remains available.
 
 Normal forward review grades against verified final results, then updates
 `performance/shortlist_weight_experiment/report.md`, its JSON summary and CSV
-ledgers. The Excel Experiments sheet shows the four weightings, win rate and
-Wilson interval, simulated net ROI/profit, drawdown and paired profit uncertainty.
+ledgers. The Excel Experiments sheet shows the five weightings, win rate and
+Wilson interval, simulated net ROI/profit, drawdown, paired profit uncertainty,
+Brier/log loss, calibration gap and selected adaptive weight ranges. Legacy v1
+fixed-weight results remain separately labelled.
 ALL selections are primary, including provisional picks, with STRICT/PROVISIONAL
 breakdowns kept separately. Paired returns use the same verified usable fixture
 opportunities, assigning one unit to a selection and zero if an alternative skips
 that fixture. Net profit includes the frozen execution cost. Weekly blocks retain
-correlated fixtures; bootstrap intervals are exploratory and unadjusted for three
-comparisons. Selected-cohort Brier differences do not establish better forecasts.
+correlated fixtures; bootstrap intervals are exploratory and unadjusted for four
+comparisons in v2 (three in legacy v1). Selected-cohort Brier differences do not establish better forecasts.
 
-Review readiness requires 300 verified usable fixtures over six ISO weeks,
+V2 review readiness requires 300 verified usable v2 fixtures over six ISO weeks,
 80% verified coverage and at least 100 settled selections for every weighting.
 These are minimum review gates, not a guarantee of sufficient statistical power.
 The existing health checks and review queue monitor capture/report integrity and

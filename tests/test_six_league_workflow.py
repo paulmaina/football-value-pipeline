@@ -91,7 +91,11 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             self.assertEqual(data['experiments']['benchmark_forward_experiment']['paired_fixtures'],0)
             self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),8)
             self.assertEqual(data['experiments']['shortlist_weight_experiment']['total_fixtures'],6)
-            self.assertEqual(data['experiments']['shortlist_weight_experiment']['candidate_decisions'],6*7*4)
+            self.assertEqual(data['experiments']['shortlist_weight_experiment']['candidate_decisions'],6*7*5)
+            adaptive = [r for r in data['experiments']['shortlist_weight_experiment']['comparisons']
+                        if r['variant_id'] == 'adaptive_evidence' and r['tier'] == 'ALL']
+            self.assertEqual(len(adaptive), 1)
+            self.assertEqual(adaptive[0]['selected'], 6)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['shortlist_weight_experiment:CAPTURED'],1)
             self.assertEqual(data['experiments']['shortlist_policy_experiment']['total_fixtures'],6)
             self.assertEqual(data['experiments']['shortlist_policy_experiment']['candidate_decisions'],6*7*9)

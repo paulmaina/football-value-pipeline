@@ -45,7 +45,7 @@ class WeightTrialTests(OfflineQuotePolicyTestCase):
             row.update(p_over_1_5=p, raw_p_over_1_5=p-.02, market_over_1_5_odds=(1+ev)/p)
         with tempfile.TemporaryDirectory() as tmp:
             raw, data, frame, picks, decisions, summary = setup(Path(tmp), rows)
-            self.assertEqual(len(data['rows']), 14*7*4)
+            self.assertEqual(len(data['rows']), 14*7*5)
             self.assertNotIn('Under 3.5', {r['market'] for r in data['rows']})
             by_variant = {v:[r for r in data['rows'] if r['variant_id']==v] for v in trial.VARIANTS}
             for v, policy in trial.VARIANTS.items():
@@ -55,7 +55,8 @@ class WeightTrialTests(OfflineQuotePolicyTestCase):
                 self.assertEqual(len({r['fixture_id'] for r in chosen}), 12)
                 for r in by_variant[v]:
                     if r['selection_score'] is not None:
-                        self.assertAlmostEqual(r['selection_score'], w*r['probability_percentile']+(1-w)*r['ev_percentile'])
+                        actual_weight = r.get('probability_weight_used', w)
+                        self.assertAlmostEqual(r['selection_score'], actual_weight*r['probability_percentile']+(1-actual_weight)*r['ev_percentile'])
             hi = {r['fixture_id'] for r in by_variant['probability_100_ev_0'] if r['decision'] in trial.SELECTED}
             ev = {r['fixture_id'] for r in by_variant['probability_25_ev_75'] if r['decision'] in trial.SELECTED}
             self.assertIn('fixture-0', hi); self.assertNotIn('fixture-0', ev)
@@ -79,12 +80,12 @@ class WeightTrialTests(OfflineQuotePolicyTestCase):
             self.assertTrue(capture('a'*40, root=root, captured_at=NOW))
             self.assertTrue(capture('b'*40, root=root, captured_at=NOW+timedelta(minutes=1)))
             frozen, rejected = trial.frozen(root, snapshots(root))
-            self.assertEqual(len(frozen), 28); self.assertEqual(rejected, [])
+            self.assertEqual(len(frozen), 35); self.assertEqual(rejected, [])
             rec = record(frame.iloc[0].to_dict())
             write_json(root/'performance/verified_results.json', {'PL:90002':rec})
             summary = trial.review_experiment(root, snapshots(root), [rec], NOW+timedelta(days=3))
             self.assertEqual(summary['verified_fixtures'], 1)
-            self.assertEqual(len(summary['comparisons']), 12)
+            self.assertEqual(len(summary['comparisons']), 15)
             all_rows = [r for r in summary['comparisons'] if r['tier']=='ALL']
             self.assertTrue(all(r['graded']==1 for r in all_rows))
             self.assertTrue(all(r['win_rate_wilson95'] is not None for r in all_rows))
@@ -158,7 +159,7 @@ class WeightTrialTests(OfflineQuotePolicyTestCase):
                 rows.append({'fixture_key':str(i), 'kickoff_utc':(NOW+timedelta(days=i//5)).isoformat(),
                     'variant_id':variant,'decision':'SHORTLISTED_PROVISIONAL','selection_tier':'PROVISIONAL',
                     'market':'Home win','league':'Premier League','rank_probability':.8,
-                    'offered_decimal_odds':1.5,'per_stake_cost':.02})
+                    'offered_decimal_odds':1.5,'per_stake_cost':.02, 'probability_weight_used':.75})
         match={'home_goals':2,'away_goals':0,'match_id':90002}
         with patch.object(trial,'frozen',return_value=(rows,[])),patch('performance_tracking.fixture_match',return_value=(match,'VERIFIED')):
             summary, selections, coverage=trial.evaluate(Path('.'),[],[],NOW+timedelta(days=90))
@@ -199,9 +200,12 @@ class WeightTrialTests(OfflineQuotePolicyTestCase):
             workbook=write_workbook(root,[],[],{})
             with ZipFile(workbook) as z: parts={n:z.read(n) for n in z.namelist()}
             sheet=get_sheet(parts,'Experiments')
-            displayed=' '.join(text(c) or '' for c in sheet.root.iter(q('c')))
+            displayed=' '.join(str(text(c) or '') for c in sheet.root.iter(q('c')))
             self.assertIn('ALL selections primary',displayed)
             self.assertIn('75% / 25%',displayed)
+            self.assertIn('Adaptive evidence',displayed)
+            self.assertIn('Calibration gap',displayed)
+            self.assertIn('Mean probability weight',displayed)
             self.assertIn('Win rate 95% interval',displayed)
             report=root/'performance'/trial.NAME/'report.md'
             self.assertIn('No automatic production change',report.read_text())
