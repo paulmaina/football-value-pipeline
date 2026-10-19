@@ -92,9 +92,9 @@ class ProviderCheckpointTests(unittest.TestCase):
             with self.assertRaises(subprocess.CalledProcessError):
                 g.collect(source, 'quota', runner=runner, clock=lambda: clock)
             git(source, 'fetch', 'origin', 'main')
-            health = json.loads(git(source, 'show', 'FETCH_HEAD:'+str(g.DATA/'provider_status.json')).stdout)
+            health = json.loads(git(source, 'show', 'FETCH_HEAD:'+(g.DATA/'provider_status.json').as_posix()).stdout)
             self.assertEqual(health['state'], 'CREDITS_EXHAUSTED')
-            budget = json.loads(git(source, 'show', 'FETCH_HEAD:'+str(g.BUDGET)).stdout)
+            budget = json.loads(git(source, 'show', 'FETCH_HEAD:'+g.BUDGET.as_posix()).stdout)
             self.assertEqual(budget['reservations']['quota']['status'], 'complete')
             self.assertEqual(budget['requests'], 1)
             self.assertTrue((source/'workflow_artifacts/closing-odds-recovery/provider_status.json').exists())
