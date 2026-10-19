@@ -381,16 +381,36 @@ def add_experiments(parts, root, health, st):
         sheet.put(f'A{nr}', 'Shortlist probability / EV weights — ALL selections primary', st['section']); sheet.merge(f'A{nr}:J{nr}')
         nr += 1
         sheet.row(nr, ['Probability / EV', 'Tier', 'Selected', 'Settled', 'Win rate', 'Win rate 95% interval', 'Net ROI', 'Profit (units)', 'Drawdown (units)', 'Profit delta / fixture 95% vs 50/50'], st, True)
-        paired = {r['variant_id']: r for r in weights.get('paired_all_returns', [])}
-        for item in weights['comparisons']:
-            nr += 1
-            interval = paired.get(item['variant_id'], {}).get('weekly_block_bootstrap95') if item['tier'] == 'ALL' else None
-            win = item.get('win_rate_wilson95')
-            row = [f"{item['probability_weight']:.0%} / {item['ev_weight']:.0%}", item['tier'], item['selected'], item['graded'], item['observed_rate'],
-                f'{win[0]:.1%} to {win[1]:.1%}' if win else 'Collect more data', item['flat_stake_roi'], item['profit_units'], item['max_drawdown_units'],
-                f'{interval[0]:+.4f} to {interval[1]:+.4f}' if interval else 'Control' if item['variant_id'] == 'control' and item['tier'] == 'ALL' else 'Collect more data' if item['tier'] == 'ALL' else 'Not applicable']
-            sheet.row(nr, [v if v is not None else 'Unavailable' for v in row], st)
-            for col in ('E', 'G'): sheet.cell(f'{col}{nr}').set('s', str(st['percent']))
+        from shortlist_weight_experiment import weight_label
+        for cohort in [weights, *weights.get('legacy_cohorts', [])]:
+            if cohort is not weights:
+                nr += 2
+                sheet.put(f'A{nr}', 'Legacy v1 fixed weights — separate cohort', st['section']); sheet.merge(f'A{nr}:J{nr}')
+                nr += 1
+                sheet.row(nr, ['Probability / EV', 'Tier', 'Selected', 'Settled', 'Win rate', 'Win rate 95% interval', 'Net ROI', 'Profit (units)', 'Drawdown (units)', 'Profit delta / fixture 95% vs 50/50'], st, True)
+            paired = {r['variant_id']: r for r in cohort.get('paired_all_returns', [])}
+            for item in cohort['comparisons']:
+                nr += 1
+                interval = paired.get(item['variant_id'], {}).get('weekly_block_bootstrap95') if item['tier'] == 'ALL' else None
+                win = item.get('win_rate_wilson95')
+                row = [weight_label(item), item['tier'], item['selected'], item['graded'], item['observed_rate'],
+                    f'{win[0]:.1%} to {win[1]:.1%}' if win else 'Collect more data', item['flat_stake_roi'], item['profit_units'], item['max_drawdown_units'],
+                    f'{interval[0]:+.4f} to {interval[1]:+.4f}' if interval else 'Control' if item['variant_id'] == 'control' and item['tier'] == 'ALL' else 'Collect more data' if item['tier'] == 'ALL' else 'Not applicable']
+                sheet.row(nr, [v if v is not None else 'Unavailable' for v in row], st)
+                for col in ('E', 'G'): sheet.cell(f'{col}{nr}').set('s', str(st['percent']))
+            nr += 2
+            sheet.row(nr, ['Weighting', 'Tier', 'Mean probability', 'Win rate', 'Calibration gap', 'Brier', 'Log loss', 'Mean probability weight', 'Min probability weight', 'Max probability weight'], st, True)
+            for item in cohort['comparisons']:
+                if item['tier'] != 'ALL':
+                    continue
+                nr += 1
+                row = [weight_label(item), 'ALL', item.get('mean_probability'), item.get('observed_rate'),
+                    item.get('calibration_gap'), item.get('brier'), item.get('log_loss'),
+                    item.get('mean_probability_weight', item.get('probability_weight')),
+                    item.get('minimum_probability_weight', item.get('probability_weight')),
+                    item.get('maximum_probability_weight', item.get('probability_weight'))]
+                sheet.row(nr, [v if v is not None else 'Unavailable' for v in row], st)
+                for col in ('C', 'D', 'E', 'H', 'I', 'J'): sheet.cell(f'{col}{nr}').set('s', str(st['percent']))
     put_sheet(parts, 'Experiments', sheet)
 
 
