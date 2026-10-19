@@ -8,8 +8,9 @@ VERSION = 'conservative-ev-sensitivity-v1'
 PROBABILITY_VERSION = 'probability-shortlist-ev-sensitivity-v2'
 PROBABILITY_POLICY = '72h-top-ten-adjusted-probability-v12'
 BALANCED_POLICY = '48h-top-ten-probability-ev-v13'
-CURRENT_BALANCED_POLICY = '48h-top-ten-probability-ev-no-under35-v14'
-BALANCED_POLICIES = (BALANCED_POLICY, CURRENT_BALANCED_POLICY)
+TEN_MATCH_BALANCED_POLICY = '48h-top-ten-probability-ev-no-under35-v14'
+CURRENT_BALANCED_POLICY = '48h-top-twelve-probability-ev-no-under35-v15'
+BALANCED_POLICIES = (BALANCED_POLICY, TEN_MATCH_BALANCED_POLICY, CURRENT_BALANCED_POLICY)
 BALANCED_VERSION = 'balanced-shortlist-ev-sensitivity-v3'
 FLOORS = (0.015, 0.03, 0.05)
 PROBABILITY_FLOORS = (0.0, *FLOORS)  # zero labels the control with no EV gate
@@ -59,7 +60,7 @@ def validate(data, generated, predictions):
         raise ValueError('Unbound filter experiment generation time')
     originals = {fixture_key(r):r for r in predictions}
     fixtures = set(originals)
-    specs = {r[0]:r[1] for r in (PROBABILITY_MARKET_SPECS if probability_policy and data.get('selection_policy_version') != CURRENT_BALANCED_POLICY else MARKET_SPECS)}
+    specs = {r[0]:r[1] for r in (PROBABILITY_MARKET_SPECS if probability_policy and data.get('selection_policy_version') not in (TEN_MATCH_BALANCED_POLICY, CURRENT_BALANCED_POLICY) else MARKET_SPECS)}
     # Validate immutable captures using their original market set.
     if data.get("selection_policy_version") in {"72h-all-markets-net-ev15-execution-v7",
                                               "72h-five-markets-probability-odds-net-ev15-v8"}:

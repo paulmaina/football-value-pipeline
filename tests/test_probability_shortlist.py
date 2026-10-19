@@ -128,7 +128,7 @@ class ProbabilityShortlistTests(OfflineQuotePolicyTestCase):
             self.assertIn('No EV gate', (root/'performance/filter_sensitivity_experiment/report.md').read_text())
             process_conservative_shortlist(raw, root/'readable')
             text = (root/'readable/conservative_bet_shortlist_report.md').read_text()
-            self.assertIn('Top 10', text)
+            self.assertIn(f"Top {summary['target_distinct_matches']}", text)
             self.assertIn('Negative EV', text)
             forged = copy.deepcopy(pdataset); forged['rows'][0]['rank_probability'] = .99
             with self.assertRaises(ValueError): policy.validate(forged, summary['generated_at_utc'], predictions.to_dict('records'))
@@ -138,6 +138,58 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
     def select(self, rows, **kwargs):
         return select(rows, {'Premier League':sample_report()},
                       selection_policy_version=BALANCED_SELECTION_POLICY_VERSION, **kwargs)
+
+    def test_twelve_cap_preserves_top_ten_and_frozen_v14_weighting_replay(self):
+        from conservative_bet_filter import TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION
+        import shortlist_weight_experiment as trial
+        rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]
+        reports = {'Premier League': sample_report()}
+        current, _, summary = self.select(rows)
+        legacy, decisions, old_summary = select(rows, reports,
+            selection_policy_version=TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION)
+        self.assertEqual(current.fixture_id.nunique(), 12)
+        self.assertEqual(legacy.fixture_id.nunique(), 10)
+        self.assertEqual(summary['target_distinct_matches'], 12)
+        self.assertEqual(old_summary['target_distinct_matches'], 10)
+        self.assertEqual(legacy.fixture_id.tolist(), current.fixture_id.iloc[:10].tolist())
+        pd.testing.assert_frame_equal(legacy, current.iloc[:10].reset_index(drop=True))
+        execution = old_summary['quote_execution_policy']
+        frozen = {'version': trial.VERSION, 'variants': trial.VARIANTS,
+            'selection_policy_version': TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION,
+            'generated_at_utc': NOW.isoformat(), 'execution_policy': execution,
+            'validation_evidence': reports,
+            'rows': trial.decision_rows(pd.DataFrame(rows), NOW.isoformat(), reports, execution,
+                baseline_policy=TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION)}
+        trial.validate(frozen, NOW.isoformat(), rows)
+        trial.validate_control(frozen, legacy.to_dict('records'))
+
+    def test_twelve_target_shortfall_and_raw_integrity_cap(self):
+        from format_football_output import process_conservative_shortlist
+        from performance_tracking import write_json
+        from workflow_checks import raw_check
+        rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]
+        picks, _, summary = self.select(rows)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); raw = root/'raw'; raw.mkdir()
+            readable = root/'readable'; readable.mkdir()
+            pd.DataFrame(rows).to_csv(raw/'all_leagues_predictions.csv', index=False)
+            picks.to_csv(raw/'conservative_bet_shortlist.csv', index=False)
+            write_json(raw/'conservative_bet_summary.json', summary)
+            self.assertEqual(raw_check(root)['selections'], 12)
+            process_conservative_shortlist(raw, readable)
+            self.assertIn('Top 12', (readable/'conservative_bet_shortlist_report.md').read_text())
+            # A forged target cannot bypass the policy's twelve-fixture cap.
+            write_json(raw/'conservative_bet_summary.json', dict(summary, target_distinct_matches=13))
+            with self.assertRaisesRegex(ValueError, 'target differs'):
+                raw_check(root)
+            write_json(raw/'conservative_bet_summary.json', summary)
+            pd.concat([picks, picks.iloc[:1]]).to_csv(raw/'conservative_bet_shortlist.csv', index=False)
+            with self.assertRaisesRegex(ValueError, 'exceeds 12'):
+                raw_check(root)
+        short, _, shortage = self.select(rows[:4])
+        self.assertEqual(len(short), 4)
+        self.assertEqual(shortage['shortfall'], 8)
+        self.assertIn('Fewer than twelve', shortage['shortfall_reason'])
 
     def test_under_35_excluded_before_scoring_and_historical_replay_preserved(self):
         from conservative_bet_filter import PREVIOUS_BALANCED_SELECTION_POLICY_VERSION
@@ -199,18 +251,18 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
             row['kickoff_utc'] = (NOW+delta).isoformat()
         picks, _, summary = self.select(rows)
         self.assertEqual(set(picks.fixture_id), {'fixture-1','fixture-2'})
-        self.assertEqual(summary['shortfall'], 8)
+        self.assertEqual(summary['shortfall'], 10)
         self.assertEqual(pd.Timestamp(summary['shortlist_window_end_utc']), pd.Timestamp(NOW)+pd.Timedelta(hours=48))
         legacy, _, old_summary = select(rows, {'Premier League':sample_report()})
         self.assertIn('fixture-3', legacy.fixture_id.tolist())
         self.assertEqual(old_summary['shortlist_lookahead_hours'], 72)
 
-    def test_ten_are_selected_without_probability_or_ev_cutoff(self):
-        rows = [only_over_goal(i) for i in range(12)]
+    def test_twelve_are_selected_without_probability_or_ev_cutoff(self):
+        rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]
         for row in rows:
             row.update(p_over_1_5=.60, raw_p_over_1_5=.55, market_over_1_5_odds=1.05)
         picks, decisions, summary = self.select(rows)
-        self.assertEqual(len(picks), 10)
+        self.assertEqual(len(picks), 12)
         self.assertTrue(picks.conservative_estimated_ev.lt(0).all())
         self.assertTrue(picks.selection_tier.eq('PROVISIONAL').all())
         self.assertTrue(picks.selection_score.is_monotonic_decreasing)
