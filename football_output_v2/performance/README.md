@@ -18,7 +18,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 26 | 21-5 | 80.8% | +10.8% |
 
-Unsettled / unverified entries: **14**.
+Unsettled / unverified entries: **15**.
 Whole-fixture 1X2 multiclass Brier (n=72): 0.5348
 
 ## First-prediction reference — historical comparison
@@ -46,6 +46,7 @@ Whole-fixture 1X2 multiclass Brier (n=72): 0.5348
 | 2026-10-18T09:58:14.607821+00:00 | 1 | 1-0 | 100.0% | +20.0% |
 | 2026-10-18T14:35:10.311946+00:00 | 7 | 6-1 | 85.7% | +15.0% |
 | 2026-10-19T11:20:16.296665+00:00 | 0 | 0-0 | — | — |
+| 2026-10-19T12:08:39.172353+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -139,7 +140,6 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| ea202e9e045b | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED | LEGACY_NOT_RECORDED |
 | 6556638142ba | CAPTURED | CAPTURED | CAPTURED | LEGACY_NOT_RECORDED |
 | 010ef527d5bf | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | d3f12df5a2a2 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
@@ -159,6 +159,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 67fd2fe2099c | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 4827bd2b8014 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | f7295b8c0c24 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| ca1e126489f9 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
