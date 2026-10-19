@@ -771,17 +771,17 @@
     },
     {
       "assessment": "REVIEW_ON_LATER_HOLDOUT",
-      "brier": 0.2612464722676811,
+      "brier": 0.2639098093722519,
       "calibration": [
         {
-          "brier": 0.2617949714477693,
-          "event_rate": 0.47619047619047616,
-          "log_loss": 0.7246263473835294,
+          "brier": 0.26877037815021676,
+          "event_rate": 0.5238095238095238,
+          "log_loss": 0.738678248319166,
           "mean_probability": 0.4031888652573668,
           "n": 21,
           "observed_wilson95": [
-            0.28343712296762946,
-            0.6763078209973324
+            0.32369217900266756,
+            0.7165628770323705
           ],
           "probability_band": "0%-50%"
         },
@@ -822,38 +822,38 @@
           "probability_band": "70%-80%"
         }
       ],
-      "event_rate": 0.5272727272727272,
+      "event_rate": 0.5454545454545454,
       "league": "ALL",
-      "log_loss": 0.7213984511189927,
+      "log_loss": 0.7267637223853267,
       "market": "btts_yes",
       "mean_probability": 0.5347026141974406,
       "n": 55,
-      "overconfidence": 0.007429886924713358,
-      "paired_brier_gain": 0.002727720287068131,
+      "overconfidence": -0.01075193125710483,
+      "paired_brier_gain": 0.002753545115790148,
       "paired_brier_gain_approx95": [
-        -0.0007362185724384997,
-        0.006191659146574761
+        -0.0007089953325589843,
+        0.00621608556413928
       ],
-      "paired_log_loss_gain": 0.0056248784784449024,
+      "paired_log_loss_gain": 0.005677671968905981,
       "paired_log_loss_gain_approx95": [
-        -0.0016686830046210395,
-        0.012918439961510843
+        -0.001613088934977299,
+        0.012968432872789261
       ],
       "variant": "development_1x2"
     },
     {
       "assessment": "REVIEW_ON_LATER_HOLDOUT",
-      "brier": 0.25081870267135126,
+      "brier": 0.25454437001257835,
       "calibration": [
         {
-          "brier": 0.2623245392871239,
-          "event_rate": 0.4666666666666667,
-          "log_loss": 0.7209917464636982,
+          "brier": 0.27225965219706266,
+          "event_rate": 0.5333333333333333,
+          "log_loss": 0.7410110630609169,
           "mean_probability": 0.4214943182577549,
           "n": 15,
           "observed_wilson95": [
-            0.24809225259746442,
-            0.6988336984894921
+            0.3011663015105079,
+            0.7519077474025355
           ],
           "probability_band": "0%-50%"
         },
@@ -894,38 +894,38 @@
           "probability_band": "70%-80%"
         }
       ],
-      "event_rate": 0.525,
+      "event_rate": 0.55,
       "league": "ALL",
-      "log_loss": 0.6971950058645693,
+      "log_loss": 0.7047022495885262,
       "market": "btts_yes",
       "mean_probability": 0.5339839488594117,
       "n": 40,
-      "overconfidence": 0.008983948859411672,
-      "paired_brier_gain": 0.004134181582184932,
+      "overconfidence": -0.01601605114058835,
+      "paired_brier_gain": 0.004106111899235548,
       "paired_brier_gain_approx95": [
-        -0.002512500539531318,
-        0.010780863703901182
+        -0.0025423185929913886,
+        0.010754542391462485
       ],
-      "paired_log_loss_gain": 0.008119067438518658,
+      "paired_log_loss_gain": 0.008061662755154856,
       "paired_log_loss_gain_approx95": [
-        -0.005888769246573401,
-        0.022126904123610715
+        -0.005949508156601724,
+        0.022072833666911436
       ],
       "variant": "goal_selected"
     },
     {
       "assessment": "REVIEW_ON_LATER_HOLDOUT",
-      "brier": 0.2626259764151579,
+      "brier": 0.26544204212248845,
       "calibration": [
         {
-          "brier": 0.2681465754515192,
-          "event_rate": 0.47619047619047616,
-          "log_loss": 0.7379112921941454,
+          "brier": 0.27552198563738495,
+          "event_rate": 0.5238095238095238,
+          "log_loss": 0.7527817920892288,
           "mean_probability": 0.39985922454985484,
           "n": 21,
           "observed_wilson95": [
-            0.28343712296762946,
-            0.6763078209973324
+            0.32369217900266756,
+            0.7165628770323705
           ],
           "probability_band": "0%-50%"
         },
@@ -966,38 +966,38 @@
           "probability_band": "70%-80%"
         }
       ],
-      "event_rate": 0.5272727272727272,
+      "event_rate": 0.5454545454545454,
       "league": "ALL",
-      "log_loss": 0.7243505768287068,
+      "log_loss": 0.730028404061375,
       "market": "btts_yes",
       "mean_probability": 0.5336233240687613,
       "n": 55,
-      "overconfidence": 0.006350596796034114,
-      "paired_brier_gain": 0.0013482161395913692,
+      "overconfidence": -0.011831221385784074,
+      "paired_brier_gain": 0.0012213123655536583,
       "paired_brier_gain_approx95": [
-        -0.004245367891244447,
-        0.006941800170427185
+        -0.004375197248606799,
+        0.006817821979714115
       ],
-      "paired_log_loss_gain": 0.002672752768730824,
+      "paired_log_loss_gain": 0.0024129902928577305,
       "paired_log_loss_gain_approx95": [
-        -0.008791235386306485,
-        0.014136740923768133
+        -0.009056838757427615,
+        0.013882819343143074
       ],
       "variant": "half_life_1000000000"
     },
     {
       "assessment": "REVIEW_ON_LATER_HOLDOUT",
-      "brier": 0.2729085163837234,
+      "brier": 0.275881194537944,
       "calibration": [
         {
-          "brier": 0.2811190470046428,
-          "event_rate": 0.5,
-          "log_loss": 0.767718214282204,
+          "brier": 0.28855074239019446,
+          "event_rate": 0.5454545454545454,
+          "log_loss": 0.7827162102312869,
           "mean_probability": 0.4061473633525756,
           "n": 22,
           "observed_wilson95": [
-            0.3072180469247956,
-            0.6927819530752044
+            0.34659473289041554,
+            0.7307998556799515
           ],
           "probability_band": "0%-50%"
         },
@@ -1038,38 +1038,38 @@
           "probability_band": "70%-80%"
         }
       ],
-      "event_rate": 0.5272727272727272,
+      "event_rate": 0.5454545454545454,
       "league": "ALL",
-      "log_loss": 0.7490665477325786,
+      "log_loss": 0.7550657461122118,
       "market": "btts_yes",
       "mean_probability": 0.5394406484095268,
       "n": 55,
-      "overconfidence": 0.012167921136799542,
-      "paired_brier_gain": -0.008934323828974149,
+      "overconfidence": -0.006013897045018646,
+      "paired_brier_gain": -0.009217840049901957,
       "paired_brier_gain_approx95": [
-        -0.0341132771775466,
-        0.0162446295195983
+        -0.03439049466461802,
+        0.015954814564814103
       ],
-      "paired_log_loss_gain": -0.022043218135140957,
+      "paired_log_loss_gain": -0.022624351757979094,
       "paired_log_loss_gain_approx95": [
-        -0.07805126522703687,
-        0.03396482895675495
+        -0.07861774807191359,
+        0.03336904455595539
       ],
       "variant": "half_life_120"
     },
     {
       "assessment": "REVIEW_ON_LATER_HOLDOUT",
-      "brier": 0.2658356204189629,
+      "brier": 0.26852478235225574,
       "calibration": [
         {
-          "brier": 0.26619097775018347,
-          "event_rate": 0.47619047619047616,
-          "log_loss": 0.7345151482997997,
+          "brier": 0.2732340209088076,
+          "event_rate": 0.5238095238095238,
+          "log_loss": 0.7487053179009295,
           "mean_probability": 0.4033676581281156,
           "n": 21,
           "observed_wilson95": [
-            0.28343712296762946,
-            0.6763078209973324
+            0.32369217900266756,
+            0.7165628770323705
           ],
           "probability_band": "0%-50%"
         },
@@ -1110,13 +1110,13 @@
           "probability_band": "70%-80%"
         }
       ],
-      "event_rate": 0.5272727272727272,
+      "event_rate": 0.5454545454545454,
       "league": "ALL",
-      "log_loss": 0.7316903987815351,
+      "log_loss": 0.7371084635383301,
       "market": "btts_yes",
       "mean_probability": 0.5350134047790406,
       "n": 55,
-      "overconfidence": 0.007740677506313354,
+      "overconfidence": -0.010441140675504834,
       "paired_brier_gain": -0.0018614278642136676,
       "paired_brier_gain_approx95": [
         -0.014126326584552243,
@@ -1131,17 +1131,17 @@
     },
     {
       "assessment": "REVIEW_ON_LATER_HOLDOUT",
-      "brier": 0.26275694341820205,
+      "brier": 0.26542028052277283,
       "calibration": [
         {
-          "brier": 0.2638099257080272,
-          "event_rate": 0.45,
-          "log_loss": 0.7296602600667923,
+          "brier": 0.27113410274559696,
+          "event_rate": 0.5,
+          "log_loss": 0.7444147560492108,
           "mean_probability": 0.39918895388894643,
           "n": 20,
           "observed_wilson95": [
-            0.25819502085709295,
-            0.6579179916924003
+            0.2992949144298199,
+            0.7007050855701801
           ],
           "probability_band": "0%-50%"
         },
@@ -1182,38 +1182,38 @@
           "probability_band": "70%-80%"
         }
       ],
-      "event_rate": 0.5272727272727272,
+      "event_rate": 0.5454545454545454,
       "league": "ALL",
-      "log_loss": 0.7250335723584235,
+      "log_loss": 0.7303988436247575,
       "market": "btts_yes",
       "mean_probability": 0.5348719985294462,
       "n": 55,
-      "overconfidence": 0.007599271256718998,
-      "paired_brier_gain": 0.001217249136547197,
+      "overconfidence": -0.01058254692509919,
+      "paired_brier_gain": 0.0012430739652692139,
       "paired_brier_gain_approx95": [
-        -0.00554280308605484,
-        0.007977301359149234
+        -0.005516672335727354,
+        0.008002820266265783
       ],
-      "paired_log_loss_gain": 0.001989757239014119,
+      "paired_log_loss_gain": 0.002042550729475197,
       "paired_log_loss_gain_approx95": [
-        -0.013321938027800715,
-        0.017301452505828954
+        -0.013268702411215565,
+        0.017353803870165958
       ],
       "variant": "half_life_365"
     },
     {
       "assessment": "REVIEW_ON_LATER_HOLDOUT",
-      "brier": 0.261784036651484,
+      "brier": 0.26449361289964907,
       "calibration": [
         {
-          "brier": 0.26532546297839404,
-          "event_rate": 0.47619047619047616,
-          "log_loss": 0.7319379379409152,
+          "brier": 0.2724219721997789,
+          "event_rate": 0.5238095238095238,
+          "log_loss": 0.7462374497960715,
           "mean_probability": 0.4013897110331851,
           "n": 21,
           "observed_wilson95": [
-            0.28343712296762946,
-            0.6763078209973324
+            0.32369217900266756,
+            0.7165628770323705
           ],
           "probability_band": "0%-50%"
         },
@@ -1254,38 +1254,38 @@
           "probability_band": "70%-80%"
         }
       ],
-      "event_rate": 0.5272727272727272,
+      "event_rate": 0.5454545454545454,
       "league": "ALL",
-      "log_loss": 0.7226504788258818,
+      "log_loss": 0.728110292443305,
       "market": "btts_yes",
       "mean_probability": 0.5343510499808044,
       "n": 55,
-      "overconfidence": 0.007078322708077178,
-      "paired_brier_gain": 0.002190155903265259,
+      "overconfidence": -0.01110349547374101,
+      "paired_brier_gain": 0.00216974158839298,
       "paired_brier_gain_approx95": [
-        -0.00233963782446238,
-        0.006719949630992898
+        -0.002360777712786572,
+        0.0067002608895725315
       ],
-      "paired_log_loss_gain": 0.004372850771555859,
+      "paired_log_loss_gain": 0.00433110191092764,
       "paired_log_loss_gain_approx95": [
-        -0.005397871148560476,
-        0.014143572691672195
+        -0.005440994612903402,
+        0.014103198434758681
       ],
       "variant": "half_life_730"
     },
     {
       "assessment": "REVIEW_ON_LATER_HOLDOUT",
-      "brier": 0.26397419255474924,
+      "brier": 0.26666335448804207,
       "calibration": [
         {
-          "brier": 0.2633816628734819,
-          "event_rate": 0.47619047619047616,
-          "log_loss": 0.728083983102405,
+          "brier": 0.27042470603210605,
+          "event_rate": 0.5238095238095238,
+          "log_loss": 0.7422741527035349,
           "mean_probability": 0.40123932192170414,
           "n": 21,
           "observed_wilson95": [
-            0.28343712296762946,
-            0.6763078209973324
+            0.32369217900266756,
+            0.7165628770323705
           ],
           "probability_band": "0%-50%"
         },
@@ -1326,13 +1326,13 @@
           "probability_band": "70%-80%"
         }
       ],
-      "event_rate": 0.5272727272727272,
+      "event_rate": 0.5454545454545454,
       "league": "ALL",
-      "log_loss": 0.7270233295974375,
+      "log_loss": 0.7324413943542327,
       "market": "btts_yes",
       "mean_probability": 0.5341787028485522,
       "n": 55,
-      "overconfidence": 0.006905975575824952,
+      "overconfidence": -0.011275842605993236,
       "paired_brier_gain": 0.0,
       "paired_brier_gain_approx95": [
         0.0,
@@ -6255,17 +6255,17 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.19535859561562072,
+      "brier": 0.21163454458799802,
       "calibration": [
         {
-          "brier": 0.1832547316473658,
-          "event_rate": 0.0,
-          "log_loss": 0.5587338684468086,
+          "brier": 0.21255143979764496,
+          "event_rate": 0.2,
+          "log_loss": 0.6177518523764824,
           "mean_probability": 0.42802110044828146,
           "n": 5,
           "observed_wilson95": [
-            0,
-            0.43449149475208104
+            0.03622316096978745,
+            0.6244717358814613
           ],
           "probability_band": "0%-50%"
         },
@@ -6294,38 +6294,38 @@
           "probability_band": "60%-70%"
         }
       ],
-      "event_rate": 0.3333333333333333,
+      "event_rate": 0.4444444444444444,
       "league": "Serie A",
-      "log_loss": 0.5829467395037413,
+      "log_loss": 0.6157345083535603,
       "market": "btts_yes",
       "mean_probability": 0.48535923129659125,
       "n": 9,
-      "overconfidence": 0.15202589796325794,
-      "paired_brier_gain": 0.006263105976334175,
+      "overconfidence": 0.040914786852146834,
+      "paired_brier_gain": 0.006420924374079833,
       "paired_brier_gain_approx95": [
-        -0.001865544622499011,
-        0.01439175657516736
+        -0.0016493639204390575,
+        0.014491212668598723
       ],
-      "paired_log_loss_gain": 0.012636672700347358,
+      "paired_log_loss_gain": 0.012959299586498392,
       "paired_log_loss_gain_approx95": [
-        -0.0038225201945355156,
-        0.02909586559523023
+        -0.0033810118714263024,
+        0.029299611044423086
       ],
       "variant": "development_1x2"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.19073665426968694,
+      "brier": 0.2072951757862516,
       "calibration": [
         {
-          "brier": 0.18331278807308773,
-          "event_rate": 0.0,
-          "log_loss": 0.5588455978356168,
+          "brier": 0.2131181268029041,
+          "event_rate": 0.2,
+          "log_loss": 0.6189035476272731,
           "mean_probability": 0.4280722829853142,
           "n": 5,
           "observed_wilson95": [
-            0,
-            0.43449149475208104
+            0.03622316096978745,
+            0.6244717358814613
           ],
           "probability_band": "0%-50%"
         },
@@ -6354,38 +6354,38 @@
           "probability_band": "60%-70%"
         }
       ],
-      "event_rate": 0.3333333333333333,
+      "event_rate": 0.4444444444444444,
       "league": "Serie A",
-      "log_loss": 0.5735320926985747,
+      "log_loss": 0.606897620360606,
       "market": "btts_yes",
       "mean_probability": 0.48766468873410485,
       "n": 9,
-      "overconfidence": 0.15433135540077153,
-      "paired_brier_gain": 0.010885047322267962,
+      "overconfidence": 0.043220244289660426,
+      "paired_brier_gain": 0.010760293175826255,
       "paired_brier_gain_approx95": [
-        -0.005502914100519665,
-        0.027273008745055588
+        -0.005667487316938403,
+        0.027188073668590912
       ],
-      "paired_log_loss_gain": 0.02205131950551393,
+      "paired_log_loss_gain": 0.021796187579452588,
       "paired_log_loss_gain_approx95": [
-        -0.011171078666884923,
-        0.05527371767791278
+        -0.011507587804921702,
+        0.05509996296382688
       ],
       "variant": "goal_selected"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.1883138622431532,
+      "brier": 0.20552315267683993,
       "calibration": [
         {
-          "brier": 0.18438547857487028,
-          "event_rate": 0.0,
-          "log_loss": 0.5609999910337575,
+          "brier": 0.2153622013555064,
+          "event_rate": 0.2,
+          "log_loss": 0.6234560905931074,
           "mean_probability": 0.42924370766685505,
           "n": 5,
           "observed_wilson95": [
-            0,
-            0.43449149475208104
+            0.03622316096978745,
+            0.6244717358814613
           ],
           "probability_band": "0%-50%"
         },
@@ -6414,38 +6414,38 @@
           "probability_band": "60%-70%"
         }
       ],
-      "event_rate": 0.3333333333333333,
+      "event_rate": 0.4444444444444444,
       "league": "Serie A",
-      "log_loss": 0.5683978422047788,
+      "log_loss": 0.6030956752933065,
       "market": "btts_yes",
       "mean_probability": 0.49057635707782843,
       "n": 9,
-      "overconfidence": 0.15724302374449511,
-      "paired_brier_gain": 0.013307839348801706,
+      "overconfidence": 0.04613191263338401,
+      "paired_brier_gain": 0.012532316285237917,
       "paired_brier_gain_approx95": [
-        -0.011613921063579788,
-        0.0382295997611832
+        -0.012589600267603114,
+        0.03765423283807895
       ],
-      "paired_log_loss_gain": 0.027185569999309836,
+      "paired_log_loss_gain": 0.025598132646752043,
       "paired_log_loss_gain_approx95": [
-        -0.023463800296461258,
-        0.07783494029508092
+        -0.02546304506429216,
+        0.07665931035779625
       ],
       "variant": "half_life_1000000000"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.21322606369159267,
+      "brier": 0.23139243018960778,
       "calibration": [
         {
-          "brier": 0.20494114378014394,
-          "event_rate": 0.16666666666666666,
-          "log_loss": 0.6020685552844229,
+          "brier": 0.2321906935271666,
+          "event_rate": 0.3333333333333333,
+          "log_loss": 0.6570612070977273,
           "mean_probability": 0.43746919715513516,
           "n": 6,
           "observed_wilson95": [
-            0.03005258587173032,
-            0.563509436563646
+            0.09676933255921683,
+            0.7000116786584712
           ],
           "probability_band": "0%-50%"
         },
@@ -6462,38 +6462,38 @@
           "probability_band": "50%-60%"
         }
       ],
-      "event_rate": 0.3333333333333333,
+      "event_rate": 0.4444444444444444,
       "league": "Serie A",
-      "log_loss": 0.6188293495830912,
+      "log_loss": 0.6554911174586274,
       "market": "btts_yes",
       "mean_probability": 0.48490308928944414,
       "n": 9,
-      "overconfidence": 0.15156975595611083,
-      "paired_brier_gain": -0.011604362099637762,
+      "overconfidence": 0.040458644844999725,
+      "paired_brier_gain": -0.01333696122752992,
       "paired_brier_gain_approx95": [
-        -0.02646525604713789,
-        0.003256531847862369
+        -0.027553681453072073,
+        0.0008797589980122332
       ],
-      "paired_log_loss_gain": -0.023245937379002497,
+      "paired_log_loss_gain": -0.026797309518568877,
       "paired_log_loss_gain_approx95": [
-        -0.05346783174182875,
-        0.006975956983823757
+        -0.05571975616462786,
+        0.002125137127490108
       ],
       "variant": "half_life_120"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.20162170159195492,
+      "brier": 0.21805546896207784,
       "calibration": [
         {
-          "brier": 0.1954331400425724,
-          "event_rate": 0.16666666666666666,
-          "log_loss": 0.5832428006070256,
+          "brier": 0.2200837910977568,
+          "event_rate": 0.3333333333333333,
+          "log_loss": 0.6329083942109804,
           "mean_probability": 0.44045207379569784,
           "n": 6,
           "observed_wilson95": [
-            0.03005258587173032,
-            0.563509436563646
+            0.09676933255921683,
+            0.7000116786584712
           ],
           "probability_band": "0%-50%"
         },
@@ -6510,13 +6510,13 @@
           "probability_band": "50%-60%"
         }
       ],
-      "event_rate": 0.3333333333333333,
+      "event_rate": 0.4444444444444444,
       "league": "Serie A",
-      "log_loss": 0.5955834122040886,
+      "log_loss": 0.6286938079400586,
       "market": "btts_yes",
       "mean_probability": 0.48421427139718076,
       "n": 9,
-      "overconfidence": 0.15088093806384745,
+      "overconfidence": 0.03976982695273634,
       "paired_brier_gain": 0.0,
       "paired_brier_gain_approx95": [
         0.0,
@@ -6531,17 +6531,17 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.19535859561562072,
+      "brier": 0.21163454458799802,
       "calibration": [
         {
-          "brier": 0.1832547316473658,
-          "event_rate": 0.0,
-          "log_loss": 0.5587338684468086,
+          "brier": 0.21255143979764496,
+          "event_rate": 0.2,
+          "log_loss": 0.6177518523764824,
           "mean_probability": 0.42802110044828146,
           "n": 5,
           "observed_wilson95": [
-            0,
-            0.43449149475208104
+            0.03622316096978745,
+            0.6244717358814613
           ],
           "probability_band": "0%-50%"
         },
@@ -6570,38 +6570,38 @@
           "probability_band": "60%-70%"
         }
       ],
-      "event_rate": 0.3333333333333333,
+      "event_rate": 0.4444444444444444,
       "league": "Serie A",
-      "log_loss": 0.5829467395037413,
+      "log_loss": 0.6157345083535603,
       "market": "btts_yes",
       "mean_probability": 0.48535923129659125,
       "n": 9,
-      "overconfidence": 0.15202589796325794,
-      "paired_brier_gain": 0.006263105976334175,
+      "overconfidence": 0.040914786852146834,
+      "paired_brier_gain": 0.006420924374079833,
       "paired_brier_gain_approx95": [
-        -0.001865544622499011,
-        0.01439175657516736
+        -0.0016493639204390575,
+        0.014491212668598723
       ],
-      "paired_log_loss_gain": 0.012636672700347358,
+      "paired_log_loss_gain": 0.012959299586498392,
       "paired_log_loss_gain_approx95": [
-        -0.0038225201945355156,
-        0.02909586559523023
+        -0.0033810118714263024,
+        0.029299611044423086
       ],
       "variant": "half_life_365"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.19073665426968694,
+      "brier": 0.2072951757862516,
       "calibration": [
         {
-          "brier": 0.18331278807308773,
-          "event_rate": 0.0,
-          "log_loss": 0.5588455978356168,
+          "brier": 0.2131181268029041,
+          "event_rate": 0.2,
+          "log_loss": 0.6189035476272731,
           "mean_probability": 0.4280722829853142,
           "n": 5,
           "observed_wilson95": [
-            0,
-            0.43449149475208104
+            0.03622316096978745,
+            0.6244717358814613
           ],
           "probability_band": "0%-50%"
         },
@@ -6630,38 +6630,38 @@
           "probability_band": "60%-70%"
         }
       ],
-      "event_rate": 0.3333333333333333,
+      "event_rate": 0.4444444444444444,
       "league": "Serie A",
-      "log_loss": 0.5735320926985747,
+      "log_loss": 0.606897620360606,
       "market": "btts_yes",
       "mean_probability": 0.48766468873410485,
       "n": 9,
-      "overconfidence": 0.15433135540077153,
-      "paired_brier_gain": 0.010885047322267962,
+      "overconfidence": 0.043220244289660426,
+      "paired_brier_gain": 0.010760293175826255,
       "paired_brier_gain_approx95": [
-        -0.005502914100519665,
-        0.027273008745055588
+        -0.005667487316938403,
+        0.027188073668590912
       ],
-      "paired_log_loss_gain": 0.02205131950551393,
+      "paired_log_loss_gain": 0.021796187579452588,
       "paired_log_loss_gain_approx95": [
-        -0.011171078666884923,
-        0.05527371767791278
+        -0.011507587804921702,
+        0.05509996296382688
       ],
       "variant": "half_life_730"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.20162170159195492,
+      "brier": 0.21805546896207784,
       "calibration": [
         {
-          "brier": 0.1954331400425724,
-          "event_rate": 0.16666666666666666,
-          "log_loss": 0.5832428006070256,
+          "brier": 0.2200837910977568,
+          "event_rate": 0.3333333333333333,
+          "log_loss": 0.6329083942109804,
           "mean_probability": 0.44045207379569784,
           "n": 6,
           "observed_wilson95": [
-            0.03005258587173032,
-            0.563509436563646
+            0.09676933255921683,
+            0.7000116786584712
           ],
           "probability_band": "0%-50%"
         },
@@ -6678,13 +6678,13 @@
           "probability_band": "50%-60%"
         }
       ],
-      "event_rate": 0.3333333333333333,
+      "event_rate": 0.4444444444444444,
       "league": "Serie A",
-      "log_loss": 0.5955834122040886,
+      "log_loss": 0.6286938079400586,
       "market": "btts_yes",
       "mean_probability": 0.48421427139718076,
       "n": 9,
-      "overconfidence": 0.15088093806384745,
+      "overconfidence": 0.03976982695273634,
       "paired_brier_gain": 0.0,
       "paired_brier_gain_approx95": [
         0.0,
@@ -41131,7 +41131,7 @@
   ],
   "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
   "rejected_snapshot_commits": [],
-  "reviewed_at_utc": "2026-10-19T21:11:10.924454+00:00",
+  "reviewed_at_utc": "2026-10-19T21:17:38.454269+00:00",
   "total_fixture_markets": 300,
   "version": "goal-recency-shadow-v1",
   "weekly_comparisons": [
@@ -42937,17 +42937,17 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.2914129354545473,
+      "brier": 0.32803382064239617,
       "calibration": [
         {
-          "brier": 0.33095167723367835,
-          "event_rate": 0.5,
-          "log_loss": 0.8681275795147008,
+          "brier": 0.40419344760937614,
+          "event_rate": 1.0,
+          "log_loss": 1.0156725393388855,
           "mean_probability": 0.36704807089777425,
           "n": 2,
           "observed_wilson95": [
-            0.09452865480086614,
-            0.9054713451991339
+            0.34237195288961925,
+            1
           ],
           "probability_band": "0%-50%"
         },
@@ -42964,38 +42964,38 @@
           "probability_band": "50%-60%"
         }
       ],
-      "event_rate": 0.5,
-      "log_loss": 0.7825154809550421,
+      "event_rate": 0.75,
+      "log_loss": 0.8562879608671344,
       "market": "btts_yes",
       "mean_probability": 0.4459909807873745,
       "n": 4,
-      "overconfidence": -0.05400901921262552,
-      "paired_brier_gain": 0.006083572732826968,
+      "overconfidence": -0.3040090192126255,
+      "paired_brier_gain": 0.006438664127754699,
       "paired_brier_gain_approx95": [
-        -0.006526022115533112,
-        0.018693167581187047
+        -0.005946932602410332,
+        0.01882426085791973
       ],
-      "paired_log_loss_gain": 0.011540115361451914,
+      "paired_log_loss_gain": 0.01226602585529174,
       "paired_log_loss_gain_approx95": [
-        -0.0147663836933139,
-        0.03784661441621773
+        -0.013624129056592098,
+        0.03815618076717558
       ],
       "variant": "development_1x2",
       "week": "2026-W43"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.28693256132493145,
+      "brier": 0.32418923473720196,
       "calibration": [
         {
-          "brier": 0.33309580936143324,
-          "event_rate": 0.5,
-          "log_loss": 0.8733506806770766,
+          "brier": 0.40760915618597415,
+          "event_rate": 1.0,
+          "log_loss": 1.023495555156217,
           "mean_probability": 0.36447879828617646,
           "n": 2,
           "observed_wilson95": [
-            0.09452865480086614,
-            0.9054713451991339
+            0.34237195288961925,
+            1
           ],
           "probability_band": "0%-50%"
         },
@@ -43012,38 +43012,38 @@
           "probability_band": "50%-60%"
         }
       ],
-      "event_rate": 0.5,
-      "log_loss": 0.7739966662663686,
+      "event_rate": 0.75,
+      "log_loss": 0.8490691035059388,
       "market": "btts_yes",
       "mean_probability": 0.44390121741823185,
       "n": 4,
-      "overconfidence": -0.05609878258176815,
-      "paired_brier_gain": 0.010563946862442768,
+      "overconfidence": -0.30609878258176815,
+      "paired_brier_gain": 0.010283250032948929,
       "paired_brier_gain_approx95": [
-        -0.010134872418845076,
-        0.03126276614373061
+        -0.010597228590172578,
+        0.031163728656070436
       ],
-      "paired_log_loss_gain": 0.020058930050125323,
+      "paired_log_loss_gain": 0.01948488321648731,
       "paired_log_loss_gain_approx95": [
-        -0.023197079820578205,
-        0.06331493992082884
+        -0.024108706811995534,
+        0.06307847324497015
       ],
       "variant": "goal_selected",
       "week": "2026-W43"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.2770400900959399,
+      "brier": 0.31576099357173504,
       "calibration": [
         {
-          "brier": 0.31935901190667754,
-          "event_rate": 0.5,
-          "log_loss": 0.8417238846800793,
+          "brier": 0.39680081885826785,
+          "event_rate": 1.0,
+          "log_loss": 0.9978641335784537,
           "mean_probability": 0.37210266850295437,
           "n": 2,
           "observed_wilson95": [
-            0.09452865480086614,
-            0.9054713451991339
+            0.34237195288961925,
+            1
           ],
           "probability_band": "0%-50%"
         },
@@ -43060,38 +43060,38 @@
           "probability_band": "50%-60%"
         }
       ],
-      "event_rate": 0.5,
-      "log_loss": 0.7521203005112204,
+      "event_rate": 0.75,
+      "log_loss": 0.8301904249604076,
       "market": "btts_yes",
       "mean_probability": 0.4473883176080037,
       "n": 4,
-      "overconfidence": -0.05261168239199632,
-      "paired_brier_gain": 0.020456418091434378,
+      "overconfidence": -0.3026116823919963,
+      "paired_brier_gain": 0.01871149119841585,
       "paired_brier_gain_approx95": [
-        0.004098816078837043,
-        0.03681402010403172
+        -0.00019486925484917678,
+        0.03761785165168088
       ],
-      "paired_log_loss_gain": 0.041935295805273554,
+      "paired_log_loss_gain": 0.03836356176201852,
       "paired_log_loss_gain_approx95": [
-        0.009727528516179078,
-        0.07414306309436802
+        0.0007537497547458333,
+        0.07597337376929121
       ],
       "variant": "half_life_1000000000",
       "week": "2026-W43"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.32216580439832876,
+      "brier": 0.36304012901886273,
       "calibration": [
         {
-          "brier": 0.31759476914806845,
-          "event_rate": 0.6666666666666666,
-          "log_loss": 0.8383626223871206,
+          "brier": 0.37209386864211375,
+          "event_rate": 1.0,
+          "log_loss": 0.9483479260137293,
           "mean_probability": 0.39399261236187133,
           "n": 3,
           "observed_wilson95": [
-            0.2076549551264879,
-            0.9385096847238394
+            0.43849391955098227,
+            1
           ],
           "probability_band": "0%-50%"
         },
@@ -43108,38 +43108,38 @@
           "probability_band": "50%-60%"
         }
       ],
-      "event_rate": 0.5,
-      "log_loss": 0.8453797579796656,
+      "event_rate": 0.75,
+      "log_loss": 0.927868735699622,
       "market": "btts_yes",
       "mean_probability": 0.44038211190032617,
       "n": 4,
-      "overconfidence": -0.05961788809967383,
-      "paired_brier_gain": -0.024669296210954532,
+      "overconfidence": -0.30961788809967383,
+      "paired_brier_gain": -0.028567644248711888,
       "paired_brier_gain_approx95": [
-        -0.04805890740118245,
-        -0.0012796850207266106
+        -0.04569764666197308,
+        -0.011437641835450697
       ],
-      "paired_log_loss_gain": -0.05132416166317158,
+      "paired_log_loss_gain": -0.059314748977195936,
       "paired_log_loss_gain_approx95": [
-        -0.09814276435760265,
-        -0.004505558968740511
+        -0.09264377419410949,
+        -0.025985723760282388
       ],
       "variant": "half_life_120",
       "week": "2026-W43"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.3008676453628655,
+      "brier": 0.3378436219456421,
       "calibration": [
         {
-          "brier": 0.33333483245192996,
-          "event_rate": 0.5,
-          "log_loss": 0.8738395014570399,
+          "brier": 0.4072867856174832,
+          "event_rate": 1.0,
+          "log_loss": 1.0228362822689043,
           "mean_probability": 0.3647594951156703,
           "n": 2,
           "observed_wilson95": [
-            0.09452865480086614,
-            0.9054713451991339
+            0.34237195288961925,
+            1
           ],
           "probability_band": "0%-50%"
         },
@@ -43156,12 +43156,12 @@
           "probability_band": "50%-60%"
         }
       ],
-      "event_rate": 0.5,
-      "log_loss": 0.8019597650972399,
+      "event_rate": 0.75,
+      "log_loss": 0.8764581555031721,
       "market": "btts_yes",
       "mean_probability": 0.4464016065049859,
       "n": 4,
-      "overconfidence": -0.05359839349501411,
+      "overconfidence": -0.3035983934950141,
       "paired_brier_gain": -0.0033711371754912567,
       "paired_brier_gain_approx95": [
         -0.00997856603945412,
@@ -43177,17 +43177,17 @@
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.2914129354545473,
+      "brier": 0.32803382064239617,
       "calibration": [
         {
-          "brier": 0.33095167723367835,
-          "event_rate": 0.5,
-          "log_loss": 0.8681275795147008,
+          "brier": 0.40419344760937614,
+          "event_rate": 1.0,
+          "log_loss": 1.0156725393388855,
           "mean_probability": 0.36704807089777425,
           "n": 2,
           "observed_wilson95": [
-            0.09452865480086614,
-            0.9054713451991339
+            0.34237195288961925,
+            1
           ],
           "probability_band": "0%-50%"
         },
@@ -43204,38 +43204,38 @@
           "probability_band": "50%-60%"
         }
       ],
-      "event_rate": 0.5,
-      "log_loss": 0.7825154809550421,
+      "event_rate": 0.75,
+      "log_loss": 0.8562879608671344,
       "market": "btts_yes",
       "mean_probability": 0.4459909807873745,
       "n": 4,
-      "overconfidence": -0.05400901921262552,
-      "paired_brier_gain": 0.006083572732826968,
+      "overconfidence": -0.3040090192126255,
+      "paired_brier_gain": 0.006438664127754699,
       "paired_brier_gain_approx95": [
-        -0.006526022115533112,
-        0.018693167581187047
+        -0.005946932602410332,
+        0.01882426085791973
       ],
-      "paired_log_loss_gain": 0.011540115361451914,
+      "paired_log_loss_gain": 0.01226602585529174,
       "paired_log_loss_gain_approx95": [
-        -0.0147663836933139,
-        0.03784661441621773
+        -0.013624129056592098,
+        0.03815618076717558
       ],
       "variant": "half_life_365",
       "week": "2026-W43"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.2835614241494402,
+      "brier": 0.32081809756171065,
       "calibration": [
         {
-          "brier": 0.3263535350104507,
-          "event_rate": 0.5,
-          "log_loss": 0.8575423431155849,
+          "brier": 0.40086688183499164,
+          "event_rate": 1.0,
+          "log_loss": 1.0076872175947251,
           "mean_probability": 0.36935281347239607,
           "n": 2,
           "observed_wilson95": [
-            0.09452865480086614,
-            0.9054713451991339
+            0.34237195288961925,
+            1
           ],
           "probability_band": "0%-50%"
         },
@@ -43252,38 +43252,38 @@
           "probability_band": "50%-60%"
         }
       ],
-      "event_rate": 0.5,
-      "log_loss": 0.7660924974856227,
+      "event_rate": 0.75,
+      "log_loss": 0.8411649347251929,
       "market": "btts_yes",
       "mean_probability": 0.4463382250113417,
       "n": 4,
-      "overconfidence": -0.05366177498865832,
-      "paired_brier_gain": 0.013935084037934024,
+      "overconfidence": -0.3036617749886583,
+      "paired_brier_gain": 0.013654387208440186,
       "paired_brier_gain_approx95": [
-        -0.002327497865367772,
-        0.03019766594123582
+        -0.002912093777219623,
+        0.030220868194099994
       ],
-      "paired_log_loss_gain": 0.027963098830871225,
+      "paired_log_loss_gain": 0.02738905199723321,
       "paired_log_loss_gain_approx95": [
-        -0.00467147085093296,
-        0.06059766851267541
+        -0.005866839649871801,
+        0.06064494364433822
       ],
       "variant": "half_life_730",
       "week": "2026-W43"
     },
     {
       "assessment": "COLLECT_MORE_DATA",
-      "brier": 0.2974965081873742,
+      "brier": 0.33447248477015085,
       "calibration": [
         {
-          "brier": 0.32659255810094745,
-          "event_rate": 0.5,
-          "log_loss": 0.858031163895548,
+          "brier": 0.4005445112665007,
+          "event_rate": 1.0,
+          "log_loss": 1.0070279447074124,
           "mean_probability": 0.3696335103018899,
           "n": 2,
           "observed_wilson95": [
-            0.09452865480086614,
-            0.9054713451991339
+            0.34237195288961925,
+            1
           ],
           "probability_band": "0%-50%"
         },
@@ -43300,12 +43300,12 @@
           "probability_band": "50%-60%"
         }
       ],
-      "event_rate": 0.5,
-      "log_loss": 0.7940555963164939,
+      "event_rate": 0.75,
+      "log_loss": 0.8685539867224261,
       "market": "btts_yes",
       "mean_probability": 0.44883861409809567,
       "n": 4,
-      "overconfidence": -0.05116138590190433,
+      "overconfidence": -0.30116138590190433,
       "paired_brier_gain": 0.0,
       "paired_brier_gain_approx95": [
         0.0,
