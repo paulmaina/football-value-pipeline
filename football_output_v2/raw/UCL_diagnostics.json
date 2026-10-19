@@ -9,7 +9,7 @@
     "2026"
   ],
   "training_sha256": "d8fc1031dc129661959e9d0d9043fe513fc5bc3b9202e4992d40cd3ed8d5e446",
-  "training_as_of_utc": "2026-10-19T11:20:13.687497+00:00",
+  "training_as_of_utc": "2026-10-19T12:08:23.027613+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 36,
     "bbs_added_results": 0,
@@ -21,7 +21,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-19T11:20:13.687497+00:00",
+    "cutoff_utc": "2026-10-19T12:08:23.027613+00:00",
     "observations": 72,
     "observations_sha256": "61cbc313444366e1c4e1403cb207fdec9c5604378c50f0632bb17910c0c683a3",
     "eligible_training_matches": 0,
@@ -63,9 +63,9 @@
   },
   "training_end": "2026-10-14",
   "fit_success": true,
-  "objective": 966.2121135838848,
-  "base": 0.20291540079112055,
-  "home_adv": 0.305798943546783,
+  "objective": 966.1814954839022,
+  "base": 0.20292026783816183,
+  "home_adv": 0.305794854782918,
   "rho": 0.05,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
@@ -81,7 +81,7 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-10-19T11:20:05.481317+00:00",
+    "checked_at_utc": "2026-10-19T12:08:06.439568+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
@@ -89,7 +89,7 @@
     "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
     "note": "Provider schedule comparison is not independent proof of complete coverage.",
     "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-    "download_age_hours": 0.0022794944444444443,
+    "download_age_hours": 0.004607790277777778,
     "training_end": "2026-10-14",
     "cache_hash_verified": true,
     "last_refresh_error": null,
@@ -106,7 +106,7 @@
   "additional_event_odds_calls_used_before_this_league": 4,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261019T112013687497Z_abf630469b8516fcd9b25f03a00ee3b2674e495b147206109ba4e45443f9c1b6.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261019T120823027613Z_628b303f49f6336b6f85702510c247436835deb1e33da974b88a1c26d7b0d16e.json",
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -163,11 +163,11 @@
       "home_team": "Manchester City",
       "away_team": "AEK Athens",
       "kickoff_utc": "2026-10-20T19:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "dc_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 1
     },
     {
       "fixture_id": "49dba87d5ac664efdf2a64c72db31702",

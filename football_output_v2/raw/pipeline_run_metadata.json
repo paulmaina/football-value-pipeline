@@ -1,17 +1,17 @@
 {
   "dependencies": {
-    "PyYAML": "6.0.3",
-    "coverage": "7.16.2",
-    "numpy": "2.5.4",
+    "PyYAML": "NOT_INSTALLED",
+    "coverage": "NOT_INSTALLED",
+    "numpy": "2.5.3",
     "pandas": "3.0.6",
-    "python": "3.12.15",
+    "python": "3.14.8",
     "python-dotenv": "1.2.4",
     "rapidfuzz": "3.14.6",
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-19T11:20:16.296665+00:00",
-  "model_code_sha256": "bef2438f4caa10513cf016358cd857d3d9d7277eb7e20cae6922db1c74822550",
+  "generated_at_utc": "2026-10-19T12:08:39.172353+00:00",
+  "model_code_sha256": "04e19e80dbc133e0c584542532c48c97aa97fb893023631b7bbdbb8df2ba1660",
   "model_component_sha256": {
     "api_key_config.py": "30cd48be062d3f89e9043d84292b8594c05de6a85ee1ae516950908f5efc78b0",
     "bbs_data.py": "d5804e22dfcf6efa519219e778a591879ab1e16bfbdbfe77f00201375d9742e4",
@@ -33,6 +33,6 @@
     "shortlist_quote_policy.json": "bd76b211f72faaca2514057fa0f29aecda33afd05dc8c7fb2565cd95e27ed776",
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47"
   },
-  "predictions_sha256": "f5b33ca6d66f42f4f06cc9910be1edda7edd3a14c3d9c7f41db98434e12be59c",
+  "predictions_sha256": "a7c3c549aa6b5cd42ca24473c3f090f87f2b4fb5ae894e7abf5baef275e28ec3",
   "selection_policy_version": "48h-top-ten-probability-ev-no-under35-v14"
 }
