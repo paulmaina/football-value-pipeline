@@ -1,6 +1,6 @@
 {
   "provider": "football-data.co.uk",
-  "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+  "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
   "scope": "Five domestic leagues only; UCL is not supplied by this provider.",
   "files": [
     {
@@ -9,15 +9,10 @@
       "year": 2021,
       "path": ".football_cache/2122_D1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2122/D1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "034d0e1296e944dddf25e3c91b85ef5bd1ad25661b89d73878f5c73bfea4b9fc",
       "completed_matches": 306,
       "latest_completed_date": "2022-05-14",
-      "added_matches": 306,
-      "corrected_scores": 0,
-      "download_status": "updated",
-      "days_since_latest_match": 1619,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 306,
         "AS": 306,
@@ -31,7 +26,12 @@
         "AY": 306,
         "HR": 306,
         "AR": 306
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 1619,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "EPL",
@@ -39,15 +39,10 @@
       "year": 2021,
       "path": ".football_cache/2122_E0.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2122/E0.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "335afcbabeb2939fa10ab39ba3e8215072d0b577cb8d0705c1e44c56e934e703",
       "completed_matches": 380,
       "latest_completed_date": "2022-05-22",
-      "added_matches": 380,
-      "corrected_scores": 0,
-      "download_status": "updated",
-      "days_since_latest_match": 1611,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -61,7 +56,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 1611,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Ligue1",
@@ -69,15 +69,10 @@
       "year": 2021,
       "path": ".football_cache/2122_F1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2122/F1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "9e9eaefb8704264f8d55a718a119d940de4af7d7b4217ac4097b957406e16213",
       "completed_matches": 380,
       "latest_completed_date": "2022-05-21",
-      "added_matches": 380,
-      "corrected_scores": 0,
-      "download_status": "updated",
-      "days_since_latest_match": 1612,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -91,7 +86,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 1612,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "SerieA",
@@ -99,15 +99,10 @@
       "year": 2021,
       "path": ".football_cache/2122_I1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2122/I1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "6a9555d5a90e652a883fd2862a52545c06e264016cd770347c067a6d7c993170",
       "completed_matches": 380,
       "latest_completed_date": "2022-05-22",
-      "added_matches": 380,
-      "corrected_scores": 0,
-      "download_status": "updated",
-      "days_since_latest_match": 1611,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -121,7 +116,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 1611,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "LaLiga",
@@ -129,15 +129,10 @@
       "year": 2021,
       "path": ".football_cache/2122_SP1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2122/SP1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "2d9e619700712823d15716c07715133f8c3b1a09046930dcfc785a38633dee2e",
       "completed_matches": 380,
       "latest_completed_date": "2022-05-22",
-      "added_matches": 380,
-      "corrected_scores": 0,
-      "download_status": "updated",
-      "days_since_latest_match": 1611,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -151,7 +146,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 1611,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Bundesliga",
@@ -159,15 +159,10 @@
       "year": 2022,
       "path": ".football_cache/2223_D1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2223/D1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "b716517b25033ce8e0243e967aa961876425a4c41e97c8aa8fa59f2aca061341",
       "completed_matches": 306,
       "latest_completed_date": "2023-05-27",
-      "added_matches": 306,
-      "corrected_scores": 0,
-      "download_status": "updated",
-      "days_since_latest_match": 1241,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 306,
         "AS": 306,
@@ -181,7 +176,12 @@
         "AY": 306,
         "HR": 306,
         "AR": 306
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 1241,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "EPL",
@@ -189,15 +189,10 @@
       "year": 2022,
       "path": ".football_cache/2223_E0.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2223/E0.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "8442792d3b614c94ea3cf381bd2736805889cc1713169035368fff19c3d02380",
       "completed_matches": 380,
       "latest_completed_date": "2023-05-28",
-      "added_matches": 380,
-      "corrected_scores": 0,
-      "download_status": "updated",
-      "days_since_latest_match": 1240,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -211,7 +206,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 1240,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Ligue1",
@@ -219,15 +219,10 @@
       "year": 2022,
       "path": ".football_cache/2223_F1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2223/F1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "18ea07d922e8b6360b81189637efd5aaf44779765db856bff208d5b1acf69b2f",
       "completed_matches": 380,
       "latest_completed_date": "2023-06-03",
-      "added_matches": 380,
-      "corrected_scores": 0,
-      "download_status": "updated",
-      "days_since_latest_match": 1234,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -241,7 +236,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 1234,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "SerieA",
@@ -249,15 +249,10 @@
       "year": 2022,
       "path": ".football_cache/2223_I1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2223/I1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "9960837f37a97ae700f876c87b85a8b7a2f5a5d05a53077830c21b9db8880c45",
       "completed_matches": 380,
       "latest_completed_date": "2023-06-04",
-      "added_matches": 380,
-      "corrected_scores": 0,
-      "download_status": "updated",
-      "days_since_latest_match": 1233,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -271,7 +266,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 1233,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "LaLiga",
@@ -279,15 +279,10 @@
       "year": 2022,
       "path": ".football_cache/2223_SP1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2223/SP1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "53348112526b5165539df240be350083989bb258f30c0ff7cacbc0165ca7e4b3",
       "completed_matches": 380,
       "latest_completed_date": "2023-06-04",
-      "added_matches": 380,
-      "corrected_scores": 0,
-      "download_status": "updated",
-      "days_since_latest_match": 1233,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -301,7 +296,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 1233,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Bundesliga",
@@ -309,15 +309,10 @@
       "year": 2023,
       "path": ".football_cache/2324_D1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2324/D1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "1de8bc12a133dbbf71bc6ffda62082642f087f61b1b7c15ae9f2d320876fb07e",
       "completed_matches": 306,
       "latest_completed_date": "2024-05-18",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 884,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 306,
         "AS": 306,
@@ -331,7 +326,12 @@
         "AY": 306,
         "HR": 306,
         "AR": 306
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 884,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "EPL",
@@ -339,15 +339,10 @@
       "year": 2023,
       "path": ".football_cache/2324_E0.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2324/E0.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "b2e057b0ed959f198b0f63d2391c01239f3608e6de5db68edab3f88e04d07ff3",
       "completed_matches": 380,
       "latest_completed_date": "2024-05-19",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 883,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -361,7 +356,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 883,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Ligue1",
@@ -369,15 +369,10 @@
       "year": 2023,
       "path": ".football_cache/2324_F1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2324/F1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "ca0a4bf51d5b1ccfd0e1558ea41de6bb829df6c96c759888a87248d296d5adb7",
       "completed_matches": 306,
       "latest_completed_date": "2024-05-19",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 883,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 306,
         "AS": 306,
@@ -391,7 +386,12 @@
         "AY": 306,
         "HR": 306,
         "AR": 306
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 883,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "SerieA",
@@ -399,15 +399,10 @@
       "year": 2023,
       "path": ".football_cache/2324_I1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2324/I1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "343a89db026fe4204ebeabd663cdfee8d02a45457828fc1cb63fa630ca170723",
       "completed_matches": 380,
       "latest_completed_date": "2024-06-02",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 869,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -421,7 +416,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 869,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "LaLiga",
@@ -429,15 +429,10 @@
       "year": 2023,
       "path": ".football_cache/2324_SP1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2324/SP1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "5323f596c7ed318e4bce95557a369d809d98501fa499ea5f41350cd45cf3c7d9",
       "completed_matches": 380,
       "latest_completed_date": "2024-05-26",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 876,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -451,7 +446,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 876,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Bundesliga",
@@ -459,15 +459,10 @@
       "year": 2024,
       "path": ".football_cache/2425_D1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2425/D1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "a295c58033cfe6393cbbc28f7db85671839b960c5f1153fd3678e20ad2adb92e",
       "completed_matches": 306,
       "latest_completed_date": "2025-05-17",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 520,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 305,
         "AS": 305,
@@ -481,7 +476,12 @@
         "AY": 305,
         "HR": 305,
         "AR": 305
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 520,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "EPL",
@@ -489,15 +489,10 @@
       "year": 2024,
       "path": ".football_cache/2425_E0.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2425/E0.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "d0c8ce4a96d886cf60cf101f570f4a3893844226f91c7bd769eb568c49edbfa4",
       "completed_matches": 380,
       "latest_completed_date": "2025-05-25",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 512,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -511,7 +506,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 512,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Ligue1",
@@ -519,15 +519,10 @@
       "year": 2024,
       "path": ".football_cache/2425_F1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2425/F1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "fe6ae6a0c30d05f0ac88e0fc4a31452c7203e2b444703dfa941e22f38f20ab63",
       "completed_matches": 306,
       "latest_completed_date": "2025-05-17",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 520,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 306,
         "AS": 306,
@@ -541,7 +536,12 @@
         "AY": 306,
         "HR": 306,
         "AR": 306
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 520,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "SerieA",
@@ -549,15 +549,10 @@
       "year": 2024,
       "path": ".football_cache/2425_I1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2425/I1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "79d87a5b18771e066ac7419b7876bfd9771a68ca117a9712375d6bc9685abee3",
       "completed_matches": 380,
       "latest_completed_date": "2025-05-25",
-      "added_matches": 33,
-      "corrected_scores": 0,
-      "download_status": "updated",
-      "days_since_latest_match": 512,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -571,7 +566,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 512,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "LaLiga",
@@ -579,15 +579,10 @@
       "year": 2024,
       "path": ".football_cache/2425_SP1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2425/SP1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "c086e96d6a53f6e6c0fce4e35db0d1728c773b4362323da0161a34769e315a36",
       "completed_matches": 380,
       "latest_completed_date": "2025-05-25",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 512,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -601,7 +596,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 512,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Bundesliga",
@@ -609,15 +609,10 @@
       "year": 2025,
       "path": ".football_cache/2526_D1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2526/D1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "618301a4b39918225a8ccc57f0f839d675e1abd92fa3a3ccd9a67acd7c79dd7f",
       "completed_matches": 306,
       "latest_completed_date": "2026-05-16",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 156,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 306,
         "AS": 306,
@@ -631,7 +626,12 @@
         "AY": 306,
         "HR": 306,
         "AR": 306
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 156,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "EPL",
@@ -639,15 +639,10 @@
       "year": 2025,
       "path": ".football_cache/2526_E0.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2526/E0.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "3e3a8352f9ada6789c508d6ca184424421fed56a30400904a4a327c583407e62",
       "completed_matches": 380,
       "latest_completed_date": "2026-05-24",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 148,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -661,7 +656,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 148,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Ligue1",
@@ -669,15 +669,10 @@
       "year": 2025,
       "path": ".football_cache/2526_F1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2526/F1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "898b7ddcd373cfe955ae353b1a98cf7f1c8757ca10b69d53039f4e098e88f192",
       "completed_matches": 306,
       "latest_completed_date": "2026-05-17",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 155,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 306,
         "AS": 306,
@@ -691,7 +686,12 @@
         "AY": 306,
         "HR": 306,
         "AR": 306
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 155,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "SerieA",
@@ -699,15 +699,10 @@
       "year": 2025,
       "path": ".football_cache/2526_I1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2526/I1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "709ae279617d16af226312bcceac941e71241745ddaf950bdac2b83afad4fcbb",
       "completed_matches": 380,
       "latest_completed_date": "2026-05-24",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 148,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -721,7 +716,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 148,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "LaLiga",
@@ -729,15 +729,10 @@
       "year": 2025,
       "path": ".football_cache/2526_SP1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2526/SP1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "4ca2e285f3ee0702f6bc55fcaa4f5a15cb3aef6220735a1d15398131e21d63f5",
       "completed_matches": 380,
       "latest_completed_date": "2026-05-24",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 148,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 380,
         "AS": 380,
@@ -751,7 +746,12 @@
         "AY": 380,
         "HR": 380,
         "AR": 380
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 148,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Bundesliga",
@@ -759,15 +759,10 @@
       "year": 2026,
       "path": ".football_cache/2627_D1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/D1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "5eda3818e95fea577b46e9af172c8190d007c4e48b486d65418423e55d66acf9",
       "completed_matches": 45,
       "latest_completed_date": "2026-10-11",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 8,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 45,
         "AS": 45,
@@ -781,7 +776,12 @@
         "AY": 45,
         "HR": 45,
         "AR": 45
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 8,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "EPL",
@@ -789,15 +789,10 @@
       "year": 2026,
       "path": ".football_cache/2627_E0.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/E0.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "6731e95dd7120f5c7dc9f37650cc11ccccda8e7e0a3626830263c2cd77daa787",
       "completed_matches": 60,
       "latest_completed_date": "2026-10-12",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 7,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 60,
         "AS": 60,
@@ -811,7 +806,12 @@
         "AY": 60,
         "HR": 60,
         "AR": 60
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 7,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Ligue1",
@@ -819,15 +819,10 @@
       "year": 2026,
       "path": ".football_cache/2627_F1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/F1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "821dd8fb2d734b9389e80504c6eb39cfe26936305c27e383a76eff9b6b8e1d20",
       "completed_matches": 54,
       "latest_completed_date": "2026-10-11",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 8,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 54,
         "AS": 54,
@@ -841,7 +836,12 @@
         "AY": 54,
         "HR": 54,
         "AR": 54
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 8,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "SerieA",
@@ -849,15 +849,10 @@
       "year": 2026,
       "path": ".football_cache/2627_I1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/I1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "9faa2c5914ba4925721a81a1618d2531eec6bd4a59c430a964a6815cb2f3dc75",
       "completed_matches": 60,
       "latest_completed_date": "2026-10-12",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 7,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 60,
         "AS": 60,
@@ -871,7 +866,12 @@
         "AY": 60,
         "HR": 60,
         "AR": 60
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 7,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "LaLiga",
@@ -879,15 +879,10 @@
       "year": 2026,
       "path": ".football_cache/2627_SP1.csv",
       "source_url": "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
-      "checked_at_utc": "2026-10-19T09:10:18.430502+00:00",
+      "checked_at_utc": "2026-10-19T10:18:14.749034+00:00",
       "sha256": "a2a27803e477b9a671f7fc1fdcd0b9a6a9bb52a3ff50806b4151845716b60abb",
       "completed_matches": 78,
       "latest_completed_date": "2026-10-12",
-      "added_matches": 0,
-      "corrected_scores": 0,
-      "download_status": "unchanged",
-      "days_since_latest_match": 7,
-      "note": "A successful download does not establish source completeness.",
       "statistic_nonempty_rows": {
         "HS": 78,
         "AS": 78,
@@ -901,7 +896,12 @@
         "AY": 78,
         "HR": 78,
         "AR": 78
-      }
+      },
+      "added_matches": 0,
+      "corrected_scores": 0,
+      "download_status": "unchanged",
+      "days_since_latest_match": 7,
+      "note": "A successful download does not establish source completeness."
     },
     {
       "league": "Bundesliga",
