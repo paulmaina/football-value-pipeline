@@ -521,7 +521,7 @@
   "gameweeks": 1,
   "log_loss_gain_week_block95": null,
   "note": "Primary 1X2 log loss; week-block bootstrap, one preregistered candidate. Calibration and subgroup metrics are descriptive. Ready means enough evidence to review, including negative findings; it does not mean approval or profitability. Baseline is the actual production forecast. No closing odds, backfill, bets or automatic promotion.",
-  "observed_fixtures": 66,
+  "observed_fixtures": 76,
   "other_archived_registry_versions": [],
   "paired_fixtures": 36,
   "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
@@ -534,7 +534,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-19T11:14:47.863462+00:00",
+  "reviewed_at_utc": "2026-10-19T11:20:47.701402+00:00",
   "secondary_comparison": {
     "btts_yes": {
       "baseline": {

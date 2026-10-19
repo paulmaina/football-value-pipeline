@@ -1,0 +1,25 @@
+{
+  "captured_at_utc": "2026-10-19T11:20:39Z",
+  "data_origin": "git-tracked prediction output at capture time",
+  "generated_at_utc": "2026-10-19T11:20:16.296665Z",
+  "git_commit_sha": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
+  "n_all_forecasts": 81,
+  "n_pre_kickoff_forecasts": 71,
+  "n_shortlist": 10,
+  "schema_version": 1,
+  "selection_policy_version": "48h-top-ten-probability-ev-no-under35-v14",
+  "sha256": {
+    "benchmark_forward_experiment.json": "faa9905453d220287f1f89c140b3e0027a36287fb4e42dab9e4c208a1c0cfc67",
+    "filter_sensitivity_experiment.json": "d84d601a478df20932cdf61f8071756e33703d04c6aa63de3c20d8c094382e37",
+    "goal_blend_experiment.json": "051c1f4efec828da7c43f529ccdf5e6767f007dabd8886db96326d0ff61521f2",
+    "market_led_experiment.json": "75d60d4b02dc47f1ca5ab13416cdbe44cf56c2f6f4557cea731e9c15fd47b5af",
+    "model_reliability_experiment.json": "39f0cae87d1ed1c1b239b761026f67eae07bc58cc285cc29ae0bf04277d30291",
+    "pipeline_health.json": "31a7a0272da6d4d39fd7c220464df9c97d4ffabdfaeb69b3f7415d71658bef1c",
+    "predictions.csv": "f5b33ca6d66f42f4f06cc9910be1edda7edd3a14c3d9c7f41db98434e12be59c",
+    "selection_summary.json": "892ceea8d895ebb1286351beaa05dfd507604f7a0ef9dc411ccae5f1fdcb4424",
+    "shortlist.csv": "43b0f4317ca357075858e309e933c3177548abda113b81d46fed9d2aad959e08",
+    "shortlist_policy_experiment.json": "c1a55a8aa009cc8ef919d4aa5109afe4dc068d42aa2f5137bb6d4d118b696cff",
+    "shortlist_weight_experiment.json": "4c7aa9c8a554edb45bcc438d2bff7cacc719a1ea4c666d0dbf52afa10b3a58a9",
+    "totals_anchor_experiment.json": "c3320a7b6d20e080ae794ebb86e1128d325290784e7b48e18b1451965ae640f8"
+  }
+}

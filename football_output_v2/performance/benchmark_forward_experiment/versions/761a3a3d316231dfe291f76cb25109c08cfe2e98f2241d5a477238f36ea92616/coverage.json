@@ -12018,5 +12018,686 @@
     "secondary_status": "unavailable",
     "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
     "status": "unavailable"
+  },
+  {
+    "away_team": "Athletic Bilbao",
+    "baseline": [
+      0.29124749879537304,
+      0.26653564353199893,
+      0.44221685767262814
+    ],
+    "baseline_goals": {
+      "btts_yes": 0.5632328533755862,
+      "over_1_5": 0.7677124221291347,
+      "over_2_5": 0.5220884259728045,
+      "under_3_5": 0.6965506982760311
+    },
+    "candidate": [
+      0.2819119385756058,
+      0.27449838199659354,
+      0.44358967942780075
+    ],
+    "candidate_goals": {
+      "btts_yes": 0.5651269566218659,
+      "over_1_5": 0.7677041138542043,
+      "over_2_5": 0.5195455861481433,
+      "under_3_5": 0.6966388531190906
+    },
+    "fixture_id": "a362cccad837f1ffae61ff43a3536688",
+    "fixture_key": "La Liga|levante|ath bilbao|2026-10-21",
+    "home_team": "Levante",
+    "kickoff_utc": "2026-10-21T18:00:00+00:00",
+    "league": "La Liga",
+    "market_reference": [
+      0.27791098419570553,
+      0.27791098419570553,
+      0.44417803160858904
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": [
+      [
+        0.06717866750158333,
+        0.09368253222848005,
+        0.0738629575328799,
+        0.037905124473677165,
+        0.014589164609933598,
+        0.004492136131378148,
+        0.001152641221662386,
+        0.0002535062060872575,
+        4.878553786065383e-05,
+        8.345283151798155e-06,
+        1.2847941940160327e-06,
+        1.79818085253196e-07,
+        2.3069841541027442e-08,
+        2.732082112423865e-09,
+        3.004403096223366e-10,
+        3.083609894195026e-11
+      ],
+      [
+        0.07142637814080191,
+        0.12612591861045375,
+        0.09161003423006077,
+        0.047012600991268326,
+        0.01809450790958462,
+        0.005571463132632562,
+        0.0014295867008096118,
+        0.0003144162242196778,
+        6.05072548219715e-05,
+        1.0350407033937924e-05,
+        1.5934921105751585e-06,
+        2.230230347586109e-07,
+        2.8612839829962333e-08,
+        3.38852036525985e-09,
+        3.726271999918278e-10,
+        3.8245098408577926e-11
+      ],
+      [
+        0.04563512001299678,
+        0.07025733719207579,
+        0.05908010591913307,
+        0.02915416691876377,
+        0.011221040588817873,
+        0.003455060190791755,
+        0.0008865369799043703,
+        0.00019498055605497022,
+        3.752267625446988e-05,
+        6.4186513398954144e-06,
+        9.881804876966884e-07,
+        1.383044257281027e-07,
+        1.774382805532303e-08,
+        2.101340624713878e-09,
+        2.310792289295167e-10,
+        2.3717130286735627e-11
+      ],
+      [
+        0.018866628353021508,
+        0.029046030107914803,
+        0.022358840415033093,
+        0.012534516799175792,
+        0.004639041213501879,
+        0.001428402873454107,
+        0.0003665151689379218,
+        8.060953244139463e-05,
+        1.5512753938243454e-05,
+        2.6536209244753117e-06,
+        4.085369776998789e-07,
+        5.7178291610650875e-08,
+        7.33571445378812e-09,
+        8.687434720954369e-10,
+        9.553357000210229e-11,
+        9.80521761732182e-12
+      ],
+      [
+        0.00584992981243932,
+        0.009006232289199065,
+        0.0069327515583635195,
+        0.003557761827339092,
+        0.0014958789643535568,
+        0.0004429014234679054,
+        0.00011364447178172165,
+        2.4994402718501005e-05,
+        4.810002086134928e-06,
+        8.228018205762141e-07,
+        1.2667407236797733e-07,
+        1.772913455752293e-08,
+        2.274567234578749e-09,
+        2.693691867820803e-10,
+        2.962186294163971e-11,
+        3.0402801064261126e-12
+      ],
+      [
+        0.0014510988681233346,
+        0.002234032526872843,
+        0.0017196972035339163,
+        0.0008825172824682867,
+        0.0003396688464638112,
+        0.00011425238831155201,
+        2.8189973154937077e-05,
+        6.199963188808227e-06,
+        1.1931405686303133e-06,
+        2.0409933602777697e-07,
+        3.142201854163732e-08,
+        4.397783890419058e-09,
+        5.642156479466107e-10,
+        6.681812168337607e-11,
+        7.347823506346352e-12,
+        7.541538381933509e-13
+      ],
+      [
+        0.0002999591437534961,
+        0.00046180070744930194,
+        0.00035548156780966636,
+        0.00018242666589575896,
+        7.021353167809292e-05,
+        2.1619383357157207e-05,
+        6.0599860915843325e-06,
+        1.2816050582571641e-06,
+        2.4663613982881937e-07,
+        4.2189724918416524e-08,
+        6.495299516665954e-09,
+        9.090734747033786e-10,
+        1.1662998736210497e-10,
+        1.3812088898727529e-11,
+        1.5188812394746712e-12,
+        1.5589243747081697e-13
+      ],
+      [
+        5.3147203463435564e-05,
+        8.182253039946039e-05,
+        6.298474844096566e-05,
+        3.2322625702271435e-05,
+        1.2440537092106864e-05,
+        3.830554227015308e-06,
+        9.82885329994748e-07,
+        2.36148063363516e-07,
+        4.3699354988460245e-08,
+        7.475237681529509e-09,
+        1.1508467474886793e-09,
+        1.6107097892964195e-10,
+        2.0664673164174765e-11,
+        2.4472462808434587e-12,
+        2.6911761802298686e-13,
+        2.7621251977839895e-14
+      ],
+      [
+        8.239612403737688e-06,
+        1.2685257030474364e-05,
+        9.764764290138456e-06,
+        5.011099179301772e-06,
+        1.928703620385303e-06,
+        5.938653412652183e-07,
+        1.523804382679935e-07,
+        3.3513799490460456e-08,
+        7.045523296150162e-09,
+        1.158914432139274e-09,
+        1.7842013346822143e-10,
+        2.497144439187503e-11,
+        3.2037226086573307e-12,
+        3.7940586703703884e-13,
+        4.172232439383374e-14,
+        4.282227390571001e-15
+      ],
+      [
+        1.1354829712291213e-06,
+        1.748127537799494e-06,
+        1.345660818279362e-06,
+        6.905686222153191e-07,
+        2.657904292320869e-07,
+        8.183928432166743e-08,
+        2.099921505084978e-08,
+        4.61846343710812e-09,
+        8.887917433923878e-10,
+        1.6608754943943346e-10,
+        2.4587688516233044e-11,
+        3.4412601569834383e-12,
+        4.414980084526738e-13,
+        5.2285093047526424e-14,
+        5.749662307878117e-15,
+        5.901243945308139e-16
+      ],
+      [
+        1.4083058319949603e-07,
+        2.1681507067332742e-07,
+        1.6689831783373668e-07,
+        8.564917684373777e-08,
+        3.296519816328108e-08,
+        1.0150283563630959e-08,
+        2.6044703243251624e-09,
+        5.728143140970463e-10,
+        1.1023420230543446e-10,
+        1.8856728276299102e-11,
+        3.171362731286986e-12,
+        4.268092847967297e-13,
+        5.475768777448263e-14,
+        6.4847649265514724e-15,
+        7.131135530303307e-16,
+        7.319137736787275e-17
+      ],
+      [
+        1.5878908452370482e-08,
+        2.444629980292748e-08,
+        1.8818093694765156e-08,
+        9.657102933359638e-09,
+        3.7168869989516936e-09,
+        1.1444632253221653e-09,
+        2.936588410508187e-10,
+        6.458587223820386e-11,
+        1.2429109977117133e-11,
+        2.1261309525816885e-12,
+        3.2732750392131927e-13,
+        5.0046001986946345e-14,
+        6.1740304661154554e-15,
+        7.311692266301877e-16,
+        8.040487064285468e-17,
+        8.252463025598765e-18
+      ],
+      [
+        1.6411782435173113e-09,
+        2.5266683469717156e-09,
+        1.944960262788617e-09,
+        9.981181815599566e-10,
+        3.8416205336716486e-10,
+        1.182869812202987e-10,
+        3.035136214776557e-11,
+        6.675328387582281e-12,
+        1.2846213542898423e-12,
+        2.1974809368744081e-13,
+        3.383121576346771e-14,
+        4.734971926794519e-15,
+        6.636143026465628e-16,
+        7.557062443392977e-17,
+        8.310314576577678e-18,
+        8.529404154995216e-19
+      ],
+      [
+        1.565772823785752e-10,
+        2.4105782830323335e-10,
+        1.8555973032465365e-10,
+        9.52258738370576e-11,
+        3.66511380142905e-11,
+        1.1285217881359612e-11,
+        2.89568413446675e-12,
+        6.368624383370732e-13,
+        1.2255982635323465e-13,
+        2.0965156864199604e-14,
+        3.2276809936586945e-15,
+        4.517419356275493e-16,
+        5.7956433345902e-17,
+        7.49786944268793e-18,
+        7.928489652183641e-19,
+        8.137512961635793e-20
+      ],
+      [
+        1.3871296904295336e-11,
+        2.1355490762792384e-11,
+        1.6438873339178902e-11,
+        8.436130381743923e-12,
+        3.2469513428347398e-12,
+        9.997657737060186e-13,
+        2.565307927182537e-13,
+        5.6420113027685376e-14,
+        1.0857665390909998e-14,
+        1.8573187060770628e-15,
+        2.859426392849249e-16,
+        4.0020151186812474e-17,
+        5.134403166554214e-18,
+        6.08049735598248e-19,
+        7.304502524775238e-20,
+        7.209082737844674e-21
+      ],
+      [
+        1.1469438598746993e-12,
+        1.7657720957159384e-12,
+        1.3592431168992375e-12,
+        6.9753881048047e-13,
+        2.6847315947963256e-13,
+        8.26653213017105e-14,
+        2.1211168617253173e-14,
+        4.6650794555844455e-15,
+        8.977626777509216e-16,
+        1.5357181815536414e-16,
+        2.3643077980881193e-17,
+        3.309053723791193e-18,
+        4.2453652507265136e-19,
+        5.027640281615563e-20,
+        5.528771613449832e-21,
+        6.1989333419096775e-22
+      ]
+    ],
+    "raw": [
+      0.3045840133950406,
+      0.25516030286829217,
+      0.440255683736667
+    ],
+    "reasons": [],
+    "reference_source": "The Odds API / Marathon Bet",
+    "reference_updated_at_utc": "2026-10-18T14:33:58Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "available",
+    "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
+    "status": "available"
+  },
+  {
+    "away_team": "Manchester United",
+    "baseline": [
+      0.5064843978842873,
+      0.20774102709732192,
+      0.2857745750183906
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "8af9379136075f45b290208b35a706c8",
+    "fixture_key": "UEFA Champions League|como|man united|2026-10-21",
+    "home_team": "Como",
+    "kickoff_utc": "2026-10-21T16:45:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.41631297239598647,
+      0.25250227588522944,
+      0.33118475171878414
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.5966558233725885,
+      0.1629797783094145,
+      0.24036439831799714
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Marathon Bet",
+    "reference_updated_at_utc": "2026-10-18T14:35:00Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Galatasaray",
+    "baseline": [
+      0.5760523479431848,
+      0.20541552552264156,
+      0.21853212653417353
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "015d619d774655965e17ba67a025634e",
+    "fixture_key": "UEFA Champions League|lille|galatasaray|2026-10-21",
+    "home_team": "Lille",
+    "kickoff_utc": "2026-10-21T16:45:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.4444696580804594,
+      0.25347633776727924,
+      0.3020540041522614
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.7076350378059103,
+      0.1573547132780039,
+      0.13501024891608576
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Marathon Bet",
+    "reference_updated_at_utc": "2026-10-18T14:35:00Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Viking FK",
+    "baseline": [
+      0.8188801682279867,
+      0.11502308024298827,
+      0.06609675152902508
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "d3b3e714b6af9e5430e3030ed639e6dd",
+    "fixture_key": "UEFA Champions League|aston villa|viking fk|2026-10-21",
+    "home_team": "Aston Villa",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.781507992698552,
+      0.1478889966412095,
+      0.07060301066023836
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.8562523437574212,
+      0.08215716384476708,
+      0.06159049239781182
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Marathon Bet",
+    "reference_updated_at_utc": "2026-10-18T14:35:00Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Arsenal",
+    "baseline": [
+      0.3712540783745822,
+      0.2562734398700527,
+      0.37247248175536496
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "2ebbccdeea2dab59717d5c3d802c3fed",
+    "fixture_key": "UEFA Champions League|bayern munich|arsenal|2026-10-21",
+    "home_team": "Bayern Munich",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.44638505855176164,
+      0.24774800298193375,
+      0.3058669384663045
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.29612309819740285,
+      0.2647988767581716,
+      0.4390780250444255
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Marathon Bet",
+    "reference_updated_at_utc": "2026-10-18T14:35:00Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "RC Lens",
+    "baseline": [
+      0.5982606434288248,
+      0.19164968970340812,
+      0.21008966686776706
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "d306a78e402e5f505e8644fdf3f75dcd",
+    "fixture_key": "UEFA Champions League|brugge|rc lens|2026-10-21",
+    "home_team": "Club Brugge",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.46387138798811633,
+      0.2460983154894453,
+      0.2900302965224384
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.7326498988695334,
+      0.13720106391737094,
+      0.13014903721309573
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Marathon Bet",
+    "reference_updated_at_utc": "2026-10-18T14:35:00Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Shakhtar Donetsk",
+    "baseline": [
+      0.7242314502501445,
+      0.15883547118068977,
+      0.11693307856916577
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "a889456204e8ef1b64294efbee8dc3e5",
+    "fixture_key": "UEFA Champions League|inter|shakhtar|2026-10-21",
+    "home_team": "Inter Milan",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.8084455368818203,
+      0.122942902456815,
+      0.06861156066136459
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.6400173636184686,
+      0.19472803990456444,
+      0.16525459647696683
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Marathon Bet",
+    "reference_updated_at_utc": "2026-10-18T14:35:00Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Feyenoord",
+    "baseline": [
+      0.7801614795985654,
+      0.11889111225653337,
+      0.10094740814490119
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "f5905225efa837b0dc89b7dcdbb6c625",
+    "fixture_key": "UEFA Champions League|real betis|feyenoord|2026-10-21",
+    "home_team": "Real Betis",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.6446971396897783,
+      0.1910163212412807,
+      0.16428653906894108
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.9156258195073527,
+      0.046765903271786015,
+      0.037608277220861276
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Marathon Bet",
+    "reference_updated_at_utc": "2026-10-18T14:35:00Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "RB Leipzig",
+    "baseline": [
+      0.7723001664592937,
+      0.13399474546446744,
+      0.09370508807623884
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "30f27b8e9719e9ae71c25b4c8aa265f7",
+    "fixture_key": "UEFA Champions League|real madrid|rb leipzig|2026-10-21",
+    "home_team": "Real Madrid",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.7690662892140265,
+      0.13656108562355496,
+      0.09437262516241857
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.7755340437045609,
+      0.13142840530537994,
+      0.09303755099005913
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Marathon Bet",
+    "reference_updated_at_utc": "2026-10-18T14:35:00Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "LASK",
+    "baseline": [
+      0.8799448984945821,
+      0.07410853025019189,
+      0.0459465712552261
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "fixture_id": "8fdcaee14b3e8966e09d468a0b17ce18",
+    "fixture_key": "UEFA Champions League|sporting cp|lask|2026-10-21",
+    "home_team": "Sporting Lisbon",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.8081116620680098,
+      0.11885264862638256,
+      0.07303568930560755
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.9517781349211542,
+      0.02936441187400121,
+      0.018857453204844634
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Marathon Bet",
+    "reference_updated_at_utc": "2026-10-18T14:35:00Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
+    "status": "unavailable"
   }
 ]
