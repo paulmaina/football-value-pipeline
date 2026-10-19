@@ -125,12 +125,12 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-10-17 | 970 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-10-17 | 1205 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-17 | 1223 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-17 | 976 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-17 | 1204 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-10-14 | 539 | 4 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| Bundesliga | 2026-10-17 | 970 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-10-17 | 1205 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-17 | 1223 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-17 | 976 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-17 | 1204 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| UCL | 2026-10-14 | 539 | 5 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 
 Latest shortlist audit: {"selected_quotes": 10, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 10, "bookmakers": {"1xBet": 10}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS"}.
 

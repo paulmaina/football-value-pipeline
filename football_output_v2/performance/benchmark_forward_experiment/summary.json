@@ -534,7 +534,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-18T22:30:32.745981+00:00",
+  "reviewed_at_utc": "2026-10-19T04:59:47.443637+00:00",
   "secondary_comparison": {
     "btts_yes": {
       "baseline": {
