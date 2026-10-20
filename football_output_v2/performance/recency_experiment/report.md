@@ -15,14 +15,14 @@ Rejected snapshot data: 0 commit(s); details in summary.json.
 | ALL | over_1_5 | half_life_365 | 55 | 0.1734 | 0.5294 | +0.0007 | +0.0001 | -2.2% |
 | ALL | over_1_5 | half_life_730 | 55 | 0.1741 | 0.5303 | -0.0000 | -0.0008 | -2.5% |
 | ALL | over_1_5 | production_raw | 55 | 0.1741 | 0.5295 | +0.0000 | +0.0000 | -2.4% |
-| ALL | btts_yes | development_1x2 | 55 | 0.2639 | 0.7268 | +0.0028 | +0.0057 | -1.1% |
-| ALL | btts_yes | goal_selected | 40 | 0.2545 | 0.7047 | +0.0041 | +0.0081 | -1.6% |
-| ALL | btts_yes | half_life_1000000000 | 55 | 0.2654 | 0.7300 | +0.0012 | +0.0024 | -1.2% |
-| ALL | btts_yes | half_life_120 | 55 | 0.2759 | 0.7551 | -0.0092 | -0.0226 | -0.6% |
-| ALL | btts_yes | half_life_240 | 55 | 0.2685 | 0.7371 | -0.0019 | -0.0047 | -1.0% |
-| ALL | btts_yes | half_life_365 | 55 | 0.2654 | 0.7304 | +0.0012 | +0.0020 | -1.1% |
-| ALL | btts_yes | half_life_730 | 55 | 0.2645 | 0.7281 | +0.0022 | +0.0043 | -1.1% |
-| ALL | btts_yes | production_raw | 55 | 0.2667 | 0.7324 | +0.0000 | +0.0000 | -1.1% |
+| ALL | btts_yes | development_1x2 | 55 | 0.2612 | 0.7214 | +0.0027 | +0.0056 | +0.7% |
+| ALL | btts_yes | goal_selected | 40 | 0.2508 | 0.6972 | +0.0041 | +0.0081 | +0.9% |
+| ALL | btts_yes | half_life_1000000000 | 55 | 0.2626 | 0.7244 | +0.0013 | +0.0027 | +0.6% |
+| ALL | btts_yes | half_life_120 | 55 | 0.2729 | 0.7491 | -0.0089 | -0.0220 | +1.2% |
+| ALL | btts_yes | half_life_240 | 55 | 0.2658 | 0.7317 | -0.0019 | -0.0047 | +0.8% |
+| ALL | btts_yes | half_life_365 | 55 | 0.2628 | 0.7250 | +0.0012 | +0.0020 | +0.8% |
+| ALL | btts_yes | half_life_730 | 55 | 0.2618 | 0.7227 | +0.0022 | +0.0044 | +0.7% |
+| ALL | btts_yes | production_raw | 55 | 0.2640 | 0.7270 | +0.0000 | +0.0000 | +0.7% |
 | Bundesliga | over_1_5 | development_1x2 | 7 | 0.1684 | 0.4912 | +0.0035 | +0.0091 | +6.3% |
 | Bundesliga | over_1_5 | goal_selected | 7 | 0.1751 | 0.5081 | -0.0032 | -0.0077 | +6.2% |
 | Bundesliga | over_1_5 | half_life_1000000000 | 7 | 0.1684 | 0.4912 | +0.0035 | +0.0091 | +6.3% |
@@ -95,14 +95,14 @@ Rejected snapshot data: 0 commit(s); details in summary.json.
 | Serie A | over_1_5 | half_life_365 | 9 | 0.1381 | 0.4555 | +0.0050 | +0.0147 | -16.4% |
 | Serie A | over_1_5 | half_life_730 | 9 | 0.1343 | 0.4449 | +0.0088 | +0.0253 | -16.8% |
 | Serie A | over_1_5 | production_raw | 9 | 0.1431 | 0.4702 | +0.0000 | +0.0000 | -15.8% |
-| Serie A | btts_yes | development_1x2 | 9 | 0.2116 | 0.6157 | +0.0064 | +0.0130 | +4.1% |
-| Serie A | btts_yes | goal_selected | 9 | 0.2073 | 0.6069 | +0.0108 | +0.0218 | +4.3% |
-| Serie A | btts_yes | half_life_1000000000 | 9 | 0.2055 | 0.6031 | +0.0125 | +0.0256 | +4.6% |
-| Serie A | btts_yes | half_life_120 | 9 | 0.2314 | 0.6555 | -0.0133 | -0.0268 | +4.0% |
-| Serie A | btts_yes | half_life_240 | 9 | 0.2181 | 0.6287 | +0.0000 | +0.0000 | +4.0% |
-| Serie A | btts_yes | half_life_365 | 9 | 0.2116 | 0.6157 | +0.0064 | +0.0130 | +4.1% |
-| Serie A | btts_yes | half_life_730 | 9 | 0.2073 | 0.6069 | +0.0108 | +0.0218 | +4.3% |
-| Serie A | btts_yes | production_raw | 9 | 0.2181 | 0.6287 | +0.0000 | +0.0000 | +4.0% |
+| Serie A | btts_yes | development_1x2 | 9 | 0.1954 | 0.5829 | +0.0063 | +0.0126 | +15.2% |
+| Serie A | btts_yes | goal_selected | 9 | 0.1907 | 0.5735 | +0.0109 | +0.0221 | +15.4% |
+| Serie A | btts_yes | half_life_1000000000 | 9 | 0.1883 | 0.5684 | +0.0133 | +0.0272 | +15.7% |
+| Serie A | btts_yes | half_life_120 | 9 | 0.2132 | 0.6188 | -0.0116 | -0.0232 | +15.2% |
+| Serie A | btts_yes | half_life_240 | 9 | 0.2016 | 0.5956 | +0.0000 | +0.0000 | +15.1% |
+| Serie A | btts_yes | half_life_365 | 9 | 0.1954 | 0.5829 | +0.0063 | +0.0126 | +15.2% |
+| Serie A | btts_yes | half_life_730 | 9 | 0.1907 | 0.5735 | +0.0109 | +0.0221 | +15.4% |
+| Serie A | btts_yes | production_raw | 9 | 0.2016 | 0.5956 | +0.0000 | +0.0000 | +15.1% |
 | UEFA Champions League | over_1_5 | development_1x2 | 15 | 0.1595 | 0.4958 | +0.0000 | +0.0000 | -6.8% |
 | UEFA Champions League | over_1_5 | half_life_1000000000 | 15 | 0.1595 | 0.4958 | +0.0000 | +0.0000 | -6.8% |
 | UEFA Champions League | over_1_5 | half_life_120 | 15 | 0.1612 | 0.5371 | -0.0016 | -0.0413 | -4.0% |

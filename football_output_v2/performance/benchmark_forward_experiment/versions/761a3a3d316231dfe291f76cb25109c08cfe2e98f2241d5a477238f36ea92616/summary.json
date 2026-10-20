@@ -565,11 +565,11 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-19T21:17:38.454269+00:00",
+  "reviewed_at_utc": "2026-10-20T05:04:20.305464+00:00",
   "secondary_comparison": {
     "btts_yes": {
       "baseline": {
-        "brier": 0.25946254408665664,
+        "brier": 0.2557217610396888,
         "calibration": [
           {
             "high": 0.4,
@@ -588,12 +588,12 @@
             "low": 0.4,
             "mean_probability": 0.44986899659414786,
             "n": 12,
-            "observed_rate": 0.5,
+            "observed_rate": 0.4166666666666667,
             "observed_wilson95": [
-              0.2537781703934222,
-              0.7462218296065778
+              0.19325746190524656,
+              0.6804926643446272
             ],
-            "overconfidence": -0.05013100340585214
+            "overconfidence": 0.03320232992748118
           },
           {
             "high": 0.6,
@@ -638,12 +638,12 @@
           "observed_rate": 0.5,
           "threshold": 0.7
         },
-        "log_loss": 0.7148774964142699,
+        "log_loss": 0.7073393317674268,
         "n": 40,
         "rps": null
       },
       "candidate": {
-        "brier": 0.26007619150530653,
+        "brier": 0.2563053851972565,
         "calibration": [
           {
             "high": 0.4,
@@ -662,12 +662,12 @@
             "low": 0.4,
             "mean_probability": 0.44855085524145655,
             "n": 12,
-            "observed_rate": 0.5,
+            "observed_rate": 0.4166666666666667,
             "observed_wilson95": [
-              0.2537781703934222,
-              0.7462218296065778
+              0.19325746190524656,
+              0.6804926643446272
             ],
-            "overconfidence": -0.05144914475854345
+            "overconfidence": 0.03188418857478986
           },
           {
             "high": 0.6,
@@ -712,7 +712,7 @@
           "observed_rate": 0.5,
           "threshold": 0.7
         },
-        "log_loss": 0.7164804895776877,
+        "log_loss": 0.7088808918818964,
         "n": 40,
         "rps": null
       }

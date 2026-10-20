@@ -1798,65 +1798,65 @@
   "candidate_decisions": 3591,
   "common_cohort_probability_scores": [
     {
-      "brier": 0.2010099544502657,
-      "calibration_gap": -0.01154961708506033,
-      "log_loss": 0.5864220560911645,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "control",
       "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2010099544502657,
-      "calibration_gap": -0.01154961708506033,
-      "log_loss": 0.5864220560911645,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "blended_lower",
       "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2010099544502657,
-      "calibration_gap": -0.01154961708506033,
-      "log_loss": 0.5864220560911645,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "blended_higher",
       "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2010099544502657,
-      "calibration_gap": -0.01154961708506033,
-      "log_loss": 0.5864220560911645,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "raw_lower",
       "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2010099544502657,
-      "calibration_gap": -0.01154961708506033,
-      "log_loss": 0.5864220560911645,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "raw_higher",
       "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2010099544502657,
-      "calibration_gap": -0.01154961708506033,
-      "log_loss": 0.5864220560911645,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "adjusted_lower",
       "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2010099544502657,
-      "calibration_gap": -0.01154961708506033,
-      "log_loss": 0.5864220560911645,
+      "brier": 0.2005010043758483,
+      "calibration_gap": -0.008148256540842643,
+      "log_loss": 0.5853964554589409,
       "variant_id": "adjusted_higher",
       "verified_fixture_markets": 294
     },
     {
-      "brier": 0.20052795775067134,
-      "calibration_gap": -0.0076767024646029365,
-      "log_loss": 0.5855508729125152,
+      "brier": 0.20001900767625394,
+      "calibration_gap": -0.004275341920385249,
+      "log_loss": 0.5845252722802916,
       "variant_id": "penalty_half",
       "verified_fixture_markets": 294
     },
     {
-      "brier": 0.2015833560769886,
-      "calibration_gap": -0.015422531705517651,
-      "log_loss": 0.5875136597062329,
+      "brier": 0.20107440600257123,
+      "calibration_gap": -0.012021171161299962,
+      "log_loss": 0.5864880590740094,
       "variant_id": "penalty_stronger",
       "verified_fixture_markets": 294
     }
@@ -2675,7 +2675,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-19T21:17:38.454269+00:00",
+  "reviewed_at_utc": "2026-10-20T05:04:20.305464+00:00",
   "status": "COLLECT_MORE_DATA",
   "total_fixtures": 57,
   "variants": {
