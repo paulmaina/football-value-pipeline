@@ -85,6 +85,16 @@ class BbsTests(unittest.TestCase):
         self.assertEqual(self.store.state['quota'][NOW.date().isoformat()], 1)
         self.assertNotIn('secret-do-not-log', self.store.latest_response(first[2])['payload'])
 
+    def test_default_client_uses_provider_allowance_beyond_old_daily_and_run_caps(self):
+        self.store.state['quota'][NOW.date().isoformat()] = 500
+        client = self.client(lambda *a: (200, {}, b'{"data":[]}'))
+        client.requests = 500
+        client.get('/v1/teams')
+        self.assertEqual(client.requests, 501)
+        self.assertEqual(self.store.state['quota'][NOW.date().isoformat()], 501)
+        self.assertIsNone(client.budget)
+        self.assertIsNone(client.max_requests)
+
     def test_quota_survives_new_client_and_failed_request(self):
         c = self.client(lambda *a: (403, {}, b'secret-do-not-log'), budget=1, max_requests=1)
         with self.assertRaises(FetchError) as error:
