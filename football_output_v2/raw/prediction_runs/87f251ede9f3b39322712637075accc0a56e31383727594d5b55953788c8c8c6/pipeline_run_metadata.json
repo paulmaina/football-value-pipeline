@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "PyYAML": "NOT_INSTALLED",
+    "coverage": "NOT_INSTALLED",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "python": "3.14.8",
+    "python-dotenv": "1.2.4",
+    "rapidfuzz": "3.14.6",
+    "requests": "2.34.2",
+    "scipy": "1.18.1"
+  },
+  "generated_at_utc": "2026-10-20T05:44:17.344335+00:00",
+  "model_code_sha256": "c8f8324eb24f98dada09cec949fb78f44eca8dec35cb56bdf8fa714eef0ad52f",
+  "model_component_sha256": {
+    "api_key_config.py": "30cd48be062d3f89e9043d84292b8594c05de6a85ee1ae516950908f5efc78b0",
+    "bbs_data.py": "d5804e22dfcf6efa519219e778a591879ab1e16bfbdbfe77f00201375d9742e4",
+    "bbs_integration.py": "79e8ccc98c330d23830d6f7f4cfc261477ba51ba7d936811ae8c6cf5a4d43fee",
+    "bbs_statistics_model.py": "7556eaba6bf50051c0203b7bb9c78bb3bc6387f9c3639636da57f9327129726b",
+    "bbs_team_aliases.json": "f515446ae0b6b20b8dc0da348fbc99b1ed134945526316c4da28c7fa8d2f5812",
+    "conservative_bet_filter.py": "d9245d791f778ddf76395a221f18e94053aed792689d91b96b2433da4c874ce3",
+    "dc_decay_validation.py": "0bdd59436fc7693ace85b2eb92e9cf23f575ce6ceac3e04d1714b3e7d415d17a",
+    "double_chance.py": "ef0d8af8ce760d2a61034198511d4913f69305e5a823e6de9c7f3b39d5127354",
+    "football_value_pipeline_v2_standalone.py": "746272842e346e0441eca41a40327247b6ff38b149dac83e8dcb9c288ff20bf1",
+    "goal_market_validation.py": "e53b72a923414f1ef34f66639c4af786e3899c48670ab11b4e4c57070fe67f52",
+    "market_blend_validation.py": "1136fba8bdc85eaaed468ef3f8458781a366d1fcc7913e1057783b023692ea04",
+    "match_scores.py": "1e39b0fd63354fa734e768d5a34e2ea6782b3590f2af7ba7989123b17a7eec1a",
+    "odds_provider_health.py": "8554bc4e6f47957e0e996466308123ba98c9ad65cab2986bc2230832f64675e2",
+    "prediction_runs.py": "547ad9fdd46700513ee23b63c100b0d83161fa793337608f87dc099081ece4c2",
+    "quote_freshness.py": "b682731ba7c20bb30d885b726a299b62ef3695419ce612a5da1d4b67d75e47c6",
+    "quote_policy.py": "f3be63961af3c94b2ad872af0ba1528577e5ffe1284002d675b859dbb9947b8e",
+    "refresh_training_data.py": "5bb2883d0d350d77d8bcfc27042bde76974e409c2c5a0693177e98888ae56d73",
+    "score_probability.py": "c49cc8992a0e3d962f63a213aebd32d959e001d894689d3eea8a5816ca9fbc9e",
+    "shortlist_quote_policy.json": "1d734f94e07618e38bf5832d43cdb34bcb9664e6fa4b255fbc86a1001c9ad12b",
+    "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47"
+  },
+  "predictions_sha256": "8681c894776915263c98642533fc8e285bf9b08b5e14ecc7741e73c1cd7acd12",
+  "selection_policy_version": "48h-top-twelve-probability-ev-no-under35-v15"
+}

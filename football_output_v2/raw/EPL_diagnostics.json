@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "86419600d85effc83fdd569a2b0b03458ba1cd4e7b70ce49b60d3c87d9d4e7dc",
-  "training_as_of_utc": "2026-10-19T16:25:33.358592+00:00",
+  "training_sha256": "c48bdc48c5fd2ee80d97cea695a952f70d52927306e6012953c78682ccb233b4",
+  "training_as_of_utc": "2026-10-20T05:41:32.620650+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 69,
     "bbs_added_results": 9,
@@ -23,9 +23,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-19T16:25:33.358592+00:00",
-    "observations": 96,
-    "observations_sha256": "67e7a0ebe5508caf5663e4c386e06942fadad59ec55e2b7968c1a901f88cc193",
+    "cutoff_utc": "2026-10-20T05:41:32.620650+00:00",
+    "observations": 101,
+    "observations_sha256": "ca7836a42829a073c775bfd8f6034bd32e04db206769d09a875a847d1b6924a9",
     "eligible_training_matches": 18,
     "required_training_matches": 120,
     "feature_fields": [
@@ -59,16 +59,16 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
-    "retrospective_inputs_sha256": "4ef09f78e0e59a69a0e1c8d1f31010b0f7f3615b2b84e65dc1084865f94c4b8f",
+    "retrospective_inputs_sha256": "d86404451dcc40fd688b80ebb547ef56889b0e431c2ec946b9fe3e3b33315eab",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement."
   },
   "training_end": "2026-10-18",
   "fit_success": true,
-  "objective": 932.573876110969,
-  "base": 0.2098854539359196,
-  "home_adv": 0.18262199704977164,
-  "rho": -0.09041813740531887,
+  "objective": 931.0867531570158,
+  "base": 0.21005613447274982,
+  "home_adv": 0.18262015594756312,
+  "rho": -0.09041647722307744,
   "half_life_days": 240.0,
   "xi_per_day": 0.0028881132523331052,
   "max_goals": 10,
@@ -76,7 +76,7 @@
   "market_weight": 0.5,
   "training_data_health": {
     "training_end": "2026-10-18",
-    "days_since_latest_result": 1,
+    "days_since_latest_result": 2,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -86,25 +86,14 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 11,
+  "live_odds_matched": 10,
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261019T162533358592Z_313d7ffe0f051368b2be842f51b24733378e3d7098e1e3e6c9252d36d9f11e2a.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261020T054132620650Z_c2da396e8ef0b3e60e8138a02378269d5843b03ab61240119f548952e6dde72c.json",
+  "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "9baaf4e48b041cfef04e70e42532502e",
-      "event_id": "9baaf4e48b041cfef04e70e42532502e",
-      "home_team": "Tottenham Hotspur",
-      "away_team": "Coventry City",
-      "kickoff_utc": "2026-10-19T19:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
-    },
     {
       "fixture_id": "d0202960708a442401d7fc7bd74a0183",
       "event_id": "d0202960708a442401d7fc7bd74a0183",
@@ -114,7 +103,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "aca5dd297dbee71f576f7641569fe578",
@@ -125,7 +116,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "f66e4f29c1b7bcfc5ab58c0b88c8850b",
@@ -136,7 +129,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "0fbb2626ed9534b9dcf21d16925f9bd7",
@@ -147,7 +142,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "0382a9faef0bb8df1bcc436536cffb05",
@@ -158,7 +155,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "fe235b26408c477368c40672a4488694",
@@ -169,7 +168,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "69493b5ebb84f24ab1d6023a30ee89f0",
@@ -180,7 +181,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "290ba8cd3f3a2e9252effca673bf5549",
@@ -191,7 +194,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "33fb7467b23c91d57dc976d9ab05ea97",
@@ -202,7 +207,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "e82f6b60fa41b82c8510f5b67ce61849",
@@ -213,13 +220,15 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_in_window_linked_fixtures": 0,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 1,
+  "additional_event_odds_calls_this_league": 0,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 240.0,
