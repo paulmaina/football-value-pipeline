@@ -7,11 +7,13 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 import hashlib
 import json
+import logging
 import os
 from pathlib import Path
 import re
 import shutil
 import tempfile
+import time
 
 RUNS = 'prediction_runs'
 POINTER = 'current_run.json'
@@ -105,6 +107,30 @@ def resolve_raw(raw):
     return directory
 
 
+def release_lock(lock):
+    """Retry Windows sharing/access denials without masking the run's outcome.
+
+    A persistent failure leaves the lock in place, so another writer cannot
+    start until the user verifies the previous process stopped and removes it.
+    """
+    for attempt in range(6):
+        try:
+            lock.rmdir()
+            return
+        except FileNotFoundError:
+            return
+        except OSError as exc:
+            if isinstance(exc, PermissionError) and attempt < 5:
+                time.sleep(0.1 * 2**attempt)
+                continue
+            logging.getLogger(__name__).warning(
+                'Prediction writer stopped, but its lock could not be removed: %s (%s). '
+                'Before the next run, verify no prediction writer is running and remove '
+                'this lock directory. Published outputs are unchanged by this cleanup failure.',
+                lock, type(exc).__name__)
+            return
+
+
 @contextmanager
 def stage_run(raw, *, seed=False):
     """Serialize writers; failed fits never modify the published generation."""
@@ -129,7 +155,7 @@ def stage_run(raw, *, seed=False):
                         shutil.copyfile(source, staging/source.name)
             yield staging
     finally:
-        lock.rmdir()
+        release_lock(lock)
 
 
 def publish_run(staging, raw):

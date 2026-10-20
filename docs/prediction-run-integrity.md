@@ -35,6 +35,13 @@ through ordinary Git reconciliation; never merge the contents of two bundles.
 Keep one valid pointer and matching compatibility copies, and run
 `py workflow_checks.py raw` after resolving a Git conflict.
 
+Windows access/sharing denials during lock removal are retried for up to 3.1
+seconds. A persistent cleanup failure logs a warning and leaves the lock in
+place; it does not turn a successful publication into an error or hide an
+earlier generation/publication exception. Before removing a leftover lock,
+verify the writer has stopped. Use `py workflow_checks.py raw` to validate the
+currently published generation before deciding whether another run is needed.
+
 The standalone shortlist refresh also publishes a new complete bundle. It
 retains its explicit stored-forecast/no-new-odds provenance; re-ranking does not
 make the underlying forecast inputs fresh.
