@@ -7,3 +7,5 @@ football_output_v2/performance/snapshots/** -text
 
 # Complete local prediction generations are immutable byte-bound bundles.
 football_output_v2/raw/prediction_runs/** -text
+# Preserve complementary-source observation/recovery bytes across Windows/Linux.
+.football_cache/api_football/** -text

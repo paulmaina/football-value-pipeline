@@ -126,7 +126,31 @@ class FormIndex:
             self._latest_cache[cutoff.isoformat()] = latest
         latest = self._latest_cache[cutoff.isoformat()]
         matches = []
-        for item in latest.values():
+        values = list(latest.values())
+        if any(r.get('source') == 'api-football' for r in values):
+            # Resolve each provider's revisions first, then count one physical
+            # fixture. BBS remains preferred when both sources have valid stats.
+            groups = {}
+            for item in values:
+                if not item['available']:
+                    continue
+                identity = (pd.Timestamp(item['kickoff_utc']).date().isoformat(),
+                            item['home_key'], item['away_key'])
+                groups.setdefault(identity, []).append(item)
+            values = []
+            for group in groups.values():
+                primary = next((r for r in group if r.get('source') != 'api-football'), group[0])
+                secondary = next((r for r in group if r.get('source') == 'api-football'), None)
+                if secondary is not None and primary is not secondary:
+                    agrees = all(primary[s][f] is None or secondary[s][f] is None
+                                 or primary[s][f] == secondary[s][f]
+                                 for s in ('home', 'away') for f in STAT_FIELDS)
+                    if agrees:
+                        primary = {**primary, **{s: {f: primary[s][f] if primary[s][f] is not None
+                            else secondary[s][f] for f in STAT_FIELDS} for s in ('home', 'away')},
+                            'observed_at_utc': max(primary['observed_at_utc'], secondary['observed_at_utc'])}
+                values.append(primary)
+        for item in values:
             if not item['available']:
                 continue
             age = (cutoff - pd.Timestamp(item['kickoff_utc'])).total_seconds()/86400
@@ -242,6 +266,10 @@ class StatisticsModel:
             'max_goal_rate_ratio': MAX_RATE_RATIO, 'selected_weight': 0.}
         latest = {r['match_id']: r for r in index.records}
         self.report['usable_current_matches'] = sum(r['available'] for r in latest.values())
+        if any(r.get('source') == 'api-football' for r in latest.values()):
+            self.report['usable_current_matches'] = len({
+                (stamp(r['kickoff_utc']).date().isoformat(), r['home_key'], r['away_key'])
+                for r in latest.values() if r['available']})
 
     def apply(self, home, away, base):
         info = {'bbs_statistics_applied': False, 'bbs_statistics_version': VERSION,

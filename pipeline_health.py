@@ -36,6 +36,7 @@ def current_health(root, clock, *, raw_dir=None):
             'forecast_training_health': data.get('training_data_health', {'status': 'LEGACY_NOT_RECORDED'}),
             'bbs_statistics_model': data.get('bbs_statistics_model', {'status': 'LEGACY_NOT_RECORDED'}),
             'bbs_statistics_model_artifact': data.get('bbs_statistics_model_artifact'),
+            'api_football': data.get('training_data_provenance', {}).get('api_football', {'status': 'NOT_COLLECTED'}),
             'diagnostics_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'odds_provider_health': data.get('odds_provider_health', {'state': 'NOT_RECORDED'})}
     if 'UCL' in training:
@@ -115,6 +116,7 @@ def model_component_hashes():
         'conservative_bet_filter.py', 'goal_market_validation.py',
         'dc_decay_validation.py', 'market_blend_validation.py',
         'bbs_statistics_model.py', 'bbs_integration.py', 'bbs_data.py',
+        'api_football_data.py', 'api_football_integration.py',
         'match_scores.py', 'ucl_training.py', 'api_key_config.py', 'refresh_training_data.py',
         'odds_provider_health.py', 'prediction_runs.py',
         'bbs_team_aliases.json', 'shortlist_quote_policy.json')
