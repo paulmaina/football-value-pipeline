@@ -108,6 +108,50 @@ class PublicationTests(OfflineQuotePolicyTestCase):
             with self.assertRaisesRegex(ValueError,'archive identity'):
                 runs.archive_identity(metadata,'b'*16)
 
+    def test_windows_lock_denial_retries_and_releases_writer(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);lock=root/'raw/.prediction-run.lock'
+            original=Path.rmdir;denials=[]
+            def remove(path):
+                if path==lock and len(denials)<2:
+                    denials.append(path)
+                    raise PermissionError(5,'Access is denied',str(path))
+                return original(path)
+            with patch.object(Path,'rmdir',remove), patch.object(runs.time,'sleep') as delay:
+                first=publish(root)
+            self.assertEqual(delay.call_count,2)
+            self.assertFalse(lock.exists())
+            self.assertEqual(runs.resolve_raw(root/'raw'),first)
+            publish(root,T0+timedelta(hours=1))
+
+    def test_persistent_lock_denial_preserves_success_and_original_failure(self):
+        from football_value_pipeline_v2_standalone import main
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);lock=root/'raw/.prediction-run.lock'
+            original=Path.rmdir
+            def remove(path):
+                if path==lock:raise PermissionError(5,'Access is denied',str(path))
+                return original(path)
+            def generate(argv):
+                populate(Path(argv[-1]),T0)
+                return 0
+            with patch.object(Path,'rmdir',remove), patch.object(runs.time,'sleep'):
+                with patch('football_value_pipeline_v2_standalone._generate_main',side_effect=generate):
+                    with self.assertLogs('prediction_runs',level='WARNING'):
+                        self.assertEqual(main(['--out-dir',str(root/'raw')]),0)
+                self.assertTrue(lock.exists())
+                bundle=runs.resolve_raw(root/'raw')
+                self.assertEqual(raw_check(root)['forecasts'],1)
+                with self.assertRaisesRegex(RuntimeError,'Another prediction writer'):
+                    with runs.stage_run(root/'raw'):pass
+                original(lock)  # Explicit recovery after the previous writer stopped.
+                with patch('football_value_pipeline_v2_standalone._generate_main',
+                           side_effect=ValueError('original model failure')):
+                    with self.assertLogs('prediction_runs',level='WARNING'):
+                        with self.assertRaisesRegex(ValueError,'original model failure'):
+                            main(['--out-dir',str(root/'raw')])
+                self.assertEqual(runs.resolve_raw(root/'raw'),bundle)
+
     def test_failed_model_run_never_changes_current_or_legacy_outputs(self):
         from football_value_pipeline_v2_standalone import main
         with tempfile.TemporaryDirectory() as temp:
