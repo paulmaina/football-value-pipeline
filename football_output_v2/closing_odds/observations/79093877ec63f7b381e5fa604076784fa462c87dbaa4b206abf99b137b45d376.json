@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "Slavia Praha",
+    "home_team": "Fenerbahce",
+    "kickoff_utc": "2026-10-20T16:45:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "16e237246e9bef441e69998d1ef9536d"
+  },
+  "observed_at_utc": "2026-10-20T16:39:25.468978+00:00",
+  "payload": {
+    "away_team": "Slavia Praha",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T16:39:22Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce",
+                "price": 1.41
+              },
+              {
+                "name": "Slavia Praha",
+                "price": 7.04
+              },
+              {
+                "name": "Draw",
+                "price": 5.28
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T16:39:22Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.08
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.8
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T16:39:22Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce or Draw",
+                "price": 1.1
+              },
+              {
+                "name": "Slavia Praha or Draw",
+                "price": 2.93
+              },
+              {
+                "name": "Fenerbahce or Slavia Praha",
+                "price": 1.16
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T16:39:23Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce",
+                "price": 1.43
+              },
+              {
+                "name": "Slavia Praha",
+                "price": 7.15
+              },
+              {
+                "name": "Draw",
+                "price": 5.25
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T16:39:23Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 2.05
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T16:39:12Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce or Draw",
+                "price": 1.12
+              },
+              {
+                "name": "Slavia Praha or Draw",
+                "price": 3.11
+              },
+              {
+                "name": "Fenerbahce or Slavia Praha",
+                "price": 1.19
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-20T16:45:00Z",
+    "home_team": "Fenerbahce",
+    "id": "16e237246e9bef441e69998d1ef9536d",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.12,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8690720802169803,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T16:39:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.11,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.31297772663762635,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T16:39:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.19,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8179501931453933,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T16:39:12+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.41,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6970619668156139,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T16:39:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.28,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.17418040344194813,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T16:39:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 7.04,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1287576297424379,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T16:39:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.08,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4619585192762564,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-20T16:39:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.8,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5380414807237436,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-20T16:39:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.1,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8606953835245258,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T16:39:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.93,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.32312795968497554,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T16:39:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.16,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8161766567904987,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T16:39:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.43,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6903260892434947,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T16:39:23+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.17940455525194904,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T16:39:23+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.13026935550455626,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T16:39:23+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
