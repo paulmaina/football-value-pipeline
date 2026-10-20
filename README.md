@@ -86,6 +86,7 @@ THE_ODDS_API_KEY_FALLBACK_1=
 THE_ODDS_API_KEY_FALLBACK_2=
 FOOTBALL_DATA_API_KEY=your-football-data-org-key
 BBS_API_KEY=
+API_FOOTBALL_KEY=
 ```
 
 Never commit `.env`. Missing or blank file entries clear inherited shell API keys.
@@ -243,3 +244,9 @@ A separate [historical benchmark](docs/historical-benchmark.md) compares regular
 The [benchmark forward bridge](docs/benchmark-forward-automation.md) automatically captures a frozen 85% market-weight candidate and reports review readiness. Daily scheduled forecast collection requires Odds API keys in GitHub Secrets; local `.env` files are not available to Actions. GitHub issues request review once evidence gates are reached; production changes require approval.
 
 GitHub Actions closing quote collection and the separate Pinnacle totals trial: [setup, Windows-task migration and evidence limits](docs/closing-odds-and-totals-trial.md). Normal forecasts generate the totals sidecar automatically; closing collection reuses the existing Odds API repository secrets and publishes observations back to the repository.
+
+## Supplementary API-Football collection
+
+API-Football can add cached, validated results, fixtures and lagged statistics
+alongside existing providers. Configure the optional `API_FOOTBALL_KEY` repository
+secret for the free-plan collector. See [setup, limits and model eligibility](docs/api-football-integration.md).

@@ -592,9 +592,12 @@ def training_provenance(history):
     ids = history.get('bbs_match_id', pd.Series(dtype=object))
     confirmed = ids.notna() & ids.astype(str).str.strip().ne('')
     statuses = history.get('integration_status', pd.Series(dtype=object))
-    return {'bbs_confirmed_rows': int((confirmed & statuses.isin(['matched', 'added'])).sum()),
+    result = {'bbs_confirmed_rows': int((confirmed & statuses.isin(['matched', 'added'])).sum()),
             'bbs_added_results': int(statuses.eq('added').sum()),
             'bbs_result_conflicts': int(statuses.eq('conflict').sum()),
             'bbs_rows_with_statistics': count_true('bbs_statistics_available'),
             'bbs_statistics_used_as_predictor_features': False,
             'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.'}
+    if 'api_football' in history.attrs:
+        result['api_football'] = history.attrs['api_football']
+    return result
