@@ -229,21 +229,29 @@ def collect(client, leagues, seasons, stats_limit=10):
                     utc(held[(r['league'], r['entity'])]['observed']) < utc(r['observed']))]
     # Current results before old backfill. Statistics already saved remain cached.
     matches.sort(key=lambda r: r['payload']['kickoff_utc'], reverse=True)
+    saved_stats = {(r['league'], r['entity']): r for r in client.store.latest('statistics', client.clock().isoformat())}
     count = 0
     for row in matches:
         if count >= stats_limit:
             break
         query = '/fixtures/statistics?'+urlencode([('fixture', row['payload']['id'])])
         old = client.store.latest_response(query)
-        if old and (client.clock()-utc(old['observed'])).total_seconds() < 7*86400:
+        saved = saved_stats.get((row['league'], row['entity']))
+        ttl = 7*86400 if saved and saved['payload'].get('available') else 21600
+        if (old and saved and old['observed'] == saved['observed']
+                and (client.clock()-utc(old['observed'])).total_seconds() < ttl):
+            if not saved['payload'].get('available'):
+                report['status'] = 'partial'
             continue
         count += 1
         try:
-            data, observed = client.get('/fixtures/statistics', {'fixture': row['payload']['id']}, ttl=7*86400)
+            data, observed = client.get('/fixtures/statistics', {'fixture': row['payload']['id']}, ttl=ttl)
             try:
                 value = normal_statistics(data['response'], row['payload'])
             except (ValueError, KeyError, TypeError, AttributeError):
                 value = {'available': False}
+                report['status'] = 'partial'
+            if not value.get('available'):
                 report['status'] = 'partial'
             client.store.put('statistics', row['league'], row['entity'], observed, value)
             report['statistics_saved'] += 1
