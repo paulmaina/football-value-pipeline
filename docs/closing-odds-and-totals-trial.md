@@ -148,3 +148,14 @@ py closing_odds.py --watch --hours 1
 Avoid running it while the Actions collector is enabled. The normal automated
 path uses `--api-key-source environment`; local `.env` contents are never
 uploaded to GitHub.
+
+## Latest-selection comparison (20 October 2026)
+
+Closing report primary summaries now follow the latest eligible archived selection
+per fixture, matching headline win rate/ROI. The first-entry reference is retained
+in `first_prediction_summary.json` and `first_prediction_selections.json`, and both
+cohorts are labelled in `report.md`. Collection retains both first and latest
+selected market requirements; one event fetch is shared where possible. Missing
+historic quotes remain missing. Existing experimental first-entry baselines and
+the collector's request/timing limits are unchanged. See
+[complete generations and capture timing](prediction-run-integrity.md).

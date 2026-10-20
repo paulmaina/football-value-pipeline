@@ -49,7 +49,8 @@ def plan(repo, clock=None, minutes=18, *, horizon_hours=None):
         raise ValueError('Standby horizon must be >0..5 hours')
     horizon_seconds = horizon_hours*3600 if horizon_hours is not None else minutes*60
     root = Path(repo)/ROOT
-    files = [root/'raw/all_leagues_predictions.csv']
+    from prediction_runs import resolve_raw
+    files = [resolve_raw(root/'raw')/'all_leagues_predictions.csv']
     # Include archived fixtures so a newer forecast cannot hide a frozen pick.
     files += sorted((root/'performance/snapshots').glob('*/predictions.csv'))
     upcoming = set()

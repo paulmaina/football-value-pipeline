@@ -1,5 +1,29 @@
 # Football Value Pipeline V2
 
+## Current operating rules (20 October 2026)
+
+This section takes precedence over older policy/change notes retained below.
+See [complete prediction generations](docs/prediction-run-integrity.md) and
+[Commands.txt](Commands.txt) for current execution and recovery instructions.
+
+- Local CLI credentials come exclusively from project `.env`. Shell-key usage
+  requires `--api-key-source environment`; Actions uses that mode explicitly.
+- Training defaults to six domestic seasons and four UCL seasons. Explicit
+  `--seasons-back` changes both; domestic override is separate.
+- Fixture lookahead is ten days, but the shortlist window is 48 hours with a
+  twenty-minute minimum lead and a twelve-match cap. Under 3.5 is excluded.
+- Additional event-market coverage defaults to `all`, with no ranked 24-attempt
+  cap. The older 24-attempt allocation descriptions apply only to explicit
+  `--additional-odds-coverage ranked`. Attempts are not provider-credit limits.
+- Every successful run saves a complete immutable bundle and switches a current
+  pointer after validation. Standard readers never consume partial projections.
+- Publish all saved run bundles before kickoff. Batch upload preserves each run,
+  but actual forward capture time still controls eligibility. Local save time
+  is not independent historical proof and cannot rescue a late upload.
+- Closing collection is cloud-owned. Primary CLV uses latest selections, aligned
+  with headline ROI; first-entry analysis is retained as a separate reference.
+- No probabilities, model weights or selection thresholds changed in this repair.
+
 ## Consolidated Excel performance report
 
 The single readable performance report is
@@ -81,7 +105,7 @@ The normal command remains **unchanged**. The pipeline now uses the
 following data-driven quality controls while leaving its 50/50
 Dixon-Coles prediction engine unchanged:
 
-1. **Fair extra-market API allocation**. The maximum **24**
+1. **Ranked-mode extra-market API allocation** (`--additional-odds-coverage ranked` only; default `all` has no such cap). The maximum **24**
    per-event `alternate_totals,btts` bookmaker requests are reserved
    across the competitions requested for a run. With all six
    competitions, quotas are **4 each**, including UCL. Within each league, fixtures with the strongest
@@ -464,7 +488,8 @@ Optional reliability plots require matplotlib.
 
 ## Configure current fixtures and live odds
 
-Do **not** commit API keys to GitHub. The pipeline reads them from environment variables.
+Do **not** commit API keys to GitHub. The pipeline loads project `.env` by default.
+The shell-variable examples in this section require `--api-key-source environment`.
 
 PowerShell (primary credential and optional **provider-authorized** failovers):
 
@@ -474,7 +499,7 @@ $env:THE_ODDS_API_KEY_FALLBACK_1="your-secondary-key"
 $env:THE_ODDS_API_KEY_FALLBACK_2="your-tertiary-key"
 ```
 
-**No new CLI flags or changed model parameters.** Every current The Odds API
+**Credential mode:** use `.env` normally, or explicitly select environment mode. Every current The Odds API
 endpoint (fixtures `/events`, featured `/odds`, and the per-event
 `alternate_totals,btts` endpoint) uses the existing cached HTTP client
 with an ordered primary -> secondary -> tertiary retry:
@@ -496,7 +521,7 @@ with an ordered primary -> secondary -> tertiary retry:
   **variable names only**, never secret values or URLs containing
   `apiKey`. Successful results use the **existing TTL cache**;
   no failed quota response is cached.
-- The per-run budget of **24 extra event-market requests** is unchanged.
+- Only explicit `--additional-odds-coverage ranked` has the **24 extra event-market attempt** budget; default `all` is not capped by it.
   Fallover does not multiply, increase, or bypass this pipeline budget.
 
 **Usage-policy note:** The provider's terms do not explicitly confirm

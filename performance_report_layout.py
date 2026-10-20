@@ -445,8 +445,11 @@ def add_health(parts, data, history, st):
         closing.append([book,info.get('covered_selections'),info.get('missing_selections'),info.get('pending_selections'),
             info.get('mean_fair_close_ev') if info.get('mean_fair_close_ev') is not None else 'Unavailable',
             info.get('mean_same_book_offered_price_clv') if info.get('mean_same_book_offered_price_clv') is not None else 'Unavailable'])
+    basis=data.get('closing_odds',{}).get('tracking_basis')
+    closing_title = ('Near-close quotes: latest selections' if basis=='LATEST_PREMATCH_PER_FIXTURE'
+                     else 'Near-close quotes: first-entry reference')
     section('Near-close quote coverage', ['Bookmaker','Covered selections','Missing selections','Pending selections','Mean fair-close EV','Same-book offer CLV'],closing,{5:'percent',6:'percent'})
-    sheet.put(f'A{nr}', 'Observed near-close quotes are not guaranteed official closes. Accepted bet prices and execution remain unverified.',st['note']);sheet.merge(f'A{nr}:F{nr}');nr+=2
+    sheet.put(f'A{nr}', closing_title+'. Observed quotes are not guaranteed official closes; accepted execution is unverified.',st['note']);sheet.merge(f'A{nr}:F{nr}');nr+=2
     audit=[]
     for key,value in data.get('quote_audit',{}).items():
         if isinstance(value,dict): audit.extend([[label(key)+': '+str(k),v] for k,v in value.items()])
@@ -538,7 +541,7 @@ def ledger_layout(parts, st):
                 if table.get('name') == 'BreakdownsTable':
                     table.find(q('tableColumns'))[14].set('name', 'Calibration gap')
                     parts[path] = xml_bytes(table)
-        if name=='Selections':sheet.put('A4','Latest eligible pre-match selection per fixture. Generated/captured times and source commits show which prediction is graded. Times are UTC.',st['note'])
+        if name=='Selections':sheet.put('A4','Latest eligible pre-match selection per fixture. Generated/captured times and archive IDs show which prediction is graded. Times are UTC.',st['note'])
         if name in ('Selections','Predictions'):
             for nr in (2,4):
                 merges=sheet.root.find(q('mergeCells'))
@@ -584,7 +587,7 @@ def dashboard(parts, st, health, rows):
     messages=[
         ['Experiments ready',ready,None,'Open Experiments and review results' if ready else 'Continue generating and pushing forecasts'],
         ['Unavailable / stale reports',stale,None,'Run or check the forward review' if stale else 'No stale experiment reports recorded'],
-        ['Missing near-close quotes',missing if coverage else 'Unavailable',None,'Check local collection and push quotes; counts overlap across bookmakers' if missing else 'See coverage by bookmaker'],
+        ['Missing near-close quotes',missing if coverage else 'Unavailable',None,'Check cloud collection; latest-selection counts overlap across bookmakers' if missing else 'See coverage by bookmaker'],
         ['Rejected quote files',rejected if health else 'Unavailable',None,'Review the closing report' if rejected else 'No rejected quote files recorded' if health else 'Run the forward review'],
         ['Latest frozen capture',str(capture[-1].get('captured_at_utc', 'Unavailable')).replace('T',' ').replace('Z',' UTC') if capture else 'Unavailable',None,'See Capture Details for all six experiment states'],
     ]
