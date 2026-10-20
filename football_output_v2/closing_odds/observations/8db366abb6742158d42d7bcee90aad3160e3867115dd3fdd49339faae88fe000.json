@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "Villarreal",
+    "home_team": "Liverpool",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "b9567e9c3df909f8f6f21425b4b38d3f"
+  },
+  "observed_at_utc": "2026-10-20T18:54:03.733547+00:00",
+  "payload": {
+    "away_team": "Villarreal",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "Liverpool",
+                "price": 1.54
+              },
+              {
+                "name": "Villarreal",
+                "price": 6.37
+              },
+              {
+                "name": "Draw",
+                "price": 4.23
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.4
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.57
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "Liverpool or Draw",
+                "price": 1.11
+              },
+              {
+                "name": "Villarreal or Draw",
+                "price": 2.48
+              },
+              {
+                "name": "Liverpool or Villarreal",
+                "price": 1.23
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:53:41Z",
+            "outcomes": [
+              {
+                "name": "Liverpool",
+                "price": 1.57
+              },
+              {
+                "name": "Villarreal",
+                "price": 5.75
+              },
+              {
+                "name": "Draw",
+                "price": 4.55
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:53:41Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.93
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.98
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T18:53:52Z",
+            "outcomes": [
+              {
+                "name": "Liverpool or Draw",
+                "price": 1.17
+              },
+              {
+                "name": "Villarreal or Draw",
+                "price": 2.54
+              },
+              {
+                "name": "Liverpool or Villarreal",
+                "price": 1.25
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-20T19:00:00Z",
+    "home_team": "Liverpool",
+    "id": "b9567e9c3df909f8f6f21425b4b38d3f",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.54,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6359474119504818,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.23,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22049799275219914,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 6.37,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.14355459529731923,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.4,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3869128436199944,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.57,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6130871563800057,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.11,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.851056706423938,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.48,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.3809165097300691,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.23,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7680267838459931,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6272917183734243,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20879317254771554,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.75,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1639151090788602,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.17,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8345051450199098,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T18:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.54,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.3843980392414545,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T18:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7810968157386355,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T18:53:52+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}

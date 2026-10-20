@@ -1,0 +1,572 @@
+{
+  "fixture": {
+    "away_team": "Barcelona",
+    "home_team": "Paris Saint Germain",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "46b790335fa98338b7e1ed0b614078fb"
+  },
+  "observed_at_utc": "2026-10-20T18:56:37.275989+00:00",
+  "payload": {
+    "away_team": "Barcelona",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:56:35Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 2.55
+              },
+              {
+                "name": "Paris Saint Germain",
+                "price": 2.4
+              },
+              {
+                "name": "Draw",
+                "price": 4.51
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:56:35Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.25,
+                "price": 2.07
+              },
+              {
+                "name": "Under",
+                "point": 4.25,
+                "price": 1.85
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-20T18:56:35Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.25,
+                "price": 2.07
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.42
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.56
+              },
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 1.68
+              },
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 1.85
+              },
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 2.26
+              },
+              {
+                "name": "Over",
+                "point": 4.75,
+                "price": 2.53
+              },
+              {
+                "name": "Over",
+                "point": 5.0,
+                "price": 2.96
+              },
+              {
+                "name": "Over",
+                "point": 5.25,
+                "price": 3.19
+              },
+              {
+                "name": "Under",
+                "point": 4.25,
+                "price": 1.85
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 2.79
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.43
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 2.23
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 2.03
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.69
+              },
+              {
+                "name": "Under",
+                "point": 4.75,
+                "price": 1.54
+              },
+              {
+                "name": "Under",
+                "point": 5.0,
+                "price": 1.4
+              },
+              {
+                "name": "Under",
+                "point": 5.25,
+                "price": 1.34
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T18:56:07Z",
+            "outcomes": [
+              {
+                "name": "Barcelona or Draw",
+                "price": 1.61
+              },
+              {
+                "name": "Paris Saint Germain or Draw",
+                "price": 1.5
+              },
+              {
+                "name": "Barcelona or Paris Saint Germain",
+                "price": 1.23
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:56:08Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 2.39
+              },
+              {
+                "name": "Paris Saint Germain",
+                "price": 2.47
+              },
+              {
+                "name": "Draw",
+                "price": 4.57
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:56:08Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 2.08
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.74
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T18:56:08Z",
+            "outcomes": [
+              {
+                "name": "Barcelona or Draw",
+                "price": 1.54
+              },
+              {
+                "name": "Paris Saint Germain or Draw",
+                "price": 1.57
+              },
+              {
+                "name": "Barcelona or Paris Saint Germain",
+                "price": 1.2
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-20T18:56:27Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 0.5,
+                "price": 1.01
+              },
+              {
+                "name": "Over",
+                "point": 1.0,
+                "price": 1.02
+              },
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.04
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.03
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.2
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.24
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.48
+              },
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 1.75
+              },
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 2.08
+              },
+              {
+                "name": "Over",
+                "point": 5.0,
+                "price": 2.56
+              },
+              {
+                "name": "Over",
+                "point": 5.5,
+                "price": 3.33
+              },
+              {
+                "name": "Over",
+                "point": 6.0,
+                "price": 4.63
+              },
+              {
+                "name": "Over",
+                "point": 6.5,
+                "price": 5.31
+              },
+              {
+                "name": "Over",
+                "point": 7.0,
+                "price": 8.9
+              },
+              {
+                "name": "Over",
+                "point": 7.5,
+                "price": 9.41
+              },
+              {
+                "name": "Over",
+                "point": 8.5,
+                "price": 13.1
+              },
+              {
+                "name": "Over",
+                "point": 9.5,
+                "price": 34.0
+              },
+              {
+                "name": "Under",
+                "point": 0.5,
+                "price": 29.0
+              },
+              {
+                "name": "Under",
+                "point": 1.0,
+                "price": 26.0
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 10.6
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 9.1
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 4.61
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 4.06
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.66
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 2.15
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.74
+              },
+              {
+                "name": "Under",
+                "point": 5.0,
+                "price": 1.51
+              },
+              {
+                "name": "Under",
+                "point": 5.5,
+                "price": 1.33
+              },
+              {
+                "name": "Under",
+                "point": 6.0,
+                "price": 1.2
+              },
+              {
+                "name": "Under",
+                "point": 6.5,
+                "price": 1.16
+              },
+              {
+                "name": "Under",
+                "point": 7.0,
+                "price": 1.01
+              },
+              {
+                "name": "Under",
+                "point": 7.5,
+                "price": 1.06
+              },
+              {
+                "name": "Under",
+                "point": 8.5,
+                "price": 1.02
+              },
+              {
+                "name": "Under",
+                "point": 9.5,
+                "price": 1.0
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-20T19:00:00Z",
+    "home_team": "Paris Saint Germain",
+    "id": "46b790335fa98338b7e1ed0b614078fb",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6346810249507236,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T18:56:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.61,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.5913177251093699,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T18:56:07+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.23,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7740012499399068,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T18:56:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.47,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.39031363931772395,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:56:08+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20577008911540473,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:56:08+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.39,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.40391627156687143,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:56:08+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.57,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6009951543139614,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T18:56:08+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.54,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6127028521252723,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T18:56:08+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.2,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7863019935607661,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T18:56:08+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.04,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.9510989938251985,
+      "selection": "over_1_5",
+      "updated_at_utc": "2026-10-20T18:56:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 10.6,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.04890100617480163,
+      "selection": "under_1_5",
+      "updated_at_utc": "2026-10-20T18:56:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.2,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.8167378300787902,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-20T18:56:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.61,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.1832621699212099,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-20T18:56:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.48,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6537578505278984,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-20T18:56:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.66,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.34624214947210175,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-20T18:56:27+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.40617722685187463,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:56:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.51,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2122126971637187,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:56:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3816100759844067,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:56:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6177600750603568,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-20T18:56:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.43,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3822399249396433,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-20T18:56:35+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}

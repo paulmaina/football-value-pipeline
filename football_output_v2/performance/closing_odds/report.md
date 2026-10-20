@@ -8,18 +8,18 @@ Last observed live quote within 6 minutes of scheduled kickoff, market age <=120
 
 {
   "1xbet": {
-    "covered_selections": 15,
+    "covered_selections": 17,
     "missing_selections": 18,
-    "pending_selections": 9,
-    "mean_fair_close_ev": -0.015263869459869432,
-    "mean_same_book_offered_price_clv": 0.03261078246378731,
+    "pending_selections": 7,
+    "mean_fair_close_ev": -0.03052552495580303,
+    "mean_same_book_offered_price_clv": 0.017300261637032615,
     "positive_fair_close_ev": 4
   },
   "pinnacle": {
-    "covered_selections": 18,
+    "covered_selections": 20,
     "missing_selections": 15,
-    "pending_selections": 9,
-    "mean_fair_close_ev": -0.01801841732721175,
+    "pending_selections": 7,
+    "mean_fair_close_ev": -0.0320020417086705,
     "mean_same_book_offered_price_clv": null,
     "positive_fair_close_ev": 6
   }
@@ -29,18 +29,18 @@ Last observed live quote within 6 minutes of scheduled kickoff, market age <=120
 
 {
   "1xbet": {
-    "covered_selections": 14,
+    "covered_selections": 16,
     "missing_selections": 19,
-    "pending_selections": 9,
-    "mean_fair_close_ev": -0.021446042147450845,
-    "mean_same_book_offered_price_clv": 0.02408939517813151,
+    "pending_selections": 7,
+    "mean_fair_close_ev": -0.037369591155617915,
+    "mean_same_book_offered_price_clv": 0.007331238213376246,
     "positive_fair_close_ev": 2
   },
   "pinnacle": {
-    "covered_selections": 16,
+    "covered_selections": 18,
     "missing_selections": 17,
-    "pending_selections": 9,
-    "mean_fair_close_ev": -0.02964126462503832,
+    "pending_selections": 7,
+    "mean_fair_close_ev": -0.044287642241482156,
     "mean_same_book_offered_price_clv": null,
     "positive_fair_close_ev": 3
   }

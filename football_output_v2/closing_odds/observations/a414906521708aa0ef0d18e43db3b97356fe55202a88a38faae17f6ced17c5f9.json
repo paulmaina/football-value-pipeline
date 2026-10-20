@@ -1,0 +1,496 @@
+{
+  "fixture": {
+    "away_team": "\u0160K Slovan Bratislava",
+    "home_team": "AS Roma",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "e3b50e57c4cf46191ab068d1e880e595"
+  },
+  "observed_at_utc": "2026-10-20T18:56:06.590245+00:00",
+  "payload": {
+    "away_team": "\u0160K Slovan Bratislava",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:55:22Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "price": 1.06
+              },
+              {
+                "name": "\u0160K Slovan Bratislava",
+                "price": 28.0
+              },
+              {
+                "name": "Draw",
+                "price": 11.0
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:55:22Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.67
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.2
+              }
+            ]
+          },
+          {
+            "key": "btts",
+            "last_update": "2026-10-20T18:55:22Z",
+            "outcomes": [
+              {
+                "name": "Yes",
+                "price": 2.22
+              },
+              {
+                "name": "No",
+                "price": 1.66
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-20T18:42:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 0.5,
+                "price": 1.01
+              },
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.01
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.03
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.21
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.3
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.67
+              },
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 1.86
+              },
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 2.24
+              },
+              {
+                "name": "Over",
+                "point": 5.0,
+                "price": 3.04
+              },
+              {
+                "name": "Over",
+                "point": 5.5,
+                "price": 3.5
+              },
+              {
+                "name": "Over",
+                "point": 6.0,
+                "price": 5.55
+              },
+              {
+                "name": "Over",
+                "point": 6.5,
+                "price": 6.5
+              },
+              {
+                "name": "Over",
+                "point": 7.5,
+                "price": 13.0
+              },
+              {
+                "name": "Over",
+                "point": 8.5,
+                "price": 21.0
+              },
+              {
+                "name": "Over",
+                "point": 9.5,
+                "price": 41.0
+              },
+              {
+                "name": "Under",
+                "point": 0.5,
+                "price": 29.0
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 8.7
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 7.8
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 3.84
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 3.26
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.41
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.56
+              },
+              {
+                "name": "Under",
+                "point": 5.0,
+                "price": 1.3
+              },
+              {
+                "name": "Under",
+                "point": 5.5,
+                "price": 1.22
+              },
+              {
+                "name": "Under",
+                "point": 6.0,
+                "price": 1.08
+              },
+              {
+                "name": "Under",
+                "point": 6.5,
+                "price": 1.11
+              },
+              {
+                "name": "Under",
+                "point": 7.5,
+                "price": 1.04
+              },
+              {
+                "name": "Under",
+                "point": 8.5,
+                "price": 1.01
+              },
+              {
+                "name": "Under",
+                "point": 9.5,
+                "price": 1.0
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:55:44Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "price": 1.13
+              },
+              {
+                "name": "\u0160K Slovan Bratislava",
+                "price": 25.0
+              },
+              {
+                "name": "Draw",
+                "price": 9.25
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:55:44Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 2.09
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 1.81
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-20T18:55:44Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 2.09
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.34
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.5
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.67
+              },
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 1.83
+              },
+              {
+                "name": "Over",
+                "point": 4.25,
+                "price": 2.34
+              },
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 2.57
+              },
+              {
+                "name": "Over",
+                "point": 4.75,
+                "price": 2.94
+              },
+              {
+                "name": "Over",
+                "point": 5.0,
+                "price": 3.63
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 1.81
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 3.24
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 2.58
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.24
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 2.03
+              },
+              {
+                "name": "Under",
+                "point": 4.25,
+                "price": 1.64
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.52
+              },
+              {
+                "name": "Under",
+                "point": 4.75,
+                "price": 1.39
+              },
+              {
+                "name": "Under",
+                "point": 5.0,
+                "price": 1.28
+              }
+            ]
+          },
+          {
+            "key": "btts",
+            "last_update": "2026-10-20T18:55:28Z",
+            "outcomes": [
+              {
+                "name": "Yes",
+                "price": 2.28
+              },
+              {
+                "name": "No",
+                "price": 1.64
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-20T19:00:00Z",
+    "home_team": "AS Roma",
+    "id": "e3b50e57c4cf46191ab068d1e880e595",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.06,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.93088259693177,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:55:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 11.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.052475472197140195,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:55:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 28.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.01664193087108971,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:55:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5740358949483358,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-20T18:55:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.2,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4259641050516641,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-20T18:55:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.22,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.42203032034048565,
+      "selection": "btts_yes",
+      "updated_at_utc": "2026-10-20T18:55:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.66,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5779696796595143,
+      "selection": "btts_no",
+      "updated_at_utc": "2026-10-20T18:55:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.28,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4123852177824193,
+      "selection": "btts_yes",
+      "updated_at_utc": "2026-10-20T18:55:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.64,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5876147822175807,
+      "selection": "btts_no",
+      "updated_at_utc": "2026-10-20T18:55:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.13,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.8769339087901779,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:55:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 9.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.09159554588468283,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:55:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 25.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.03147054532513921,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:55:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5778684194390435,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-20T18:55:44+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.24,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4221315805609564,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-20T18:55:44+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}

@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "PSV Eindhoven",
+    "home_team": "Porto",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "0686ce05e8489734fd66e5ee97fbbfa2"
+  },
+  "observed_at_utc": "2026-10-20T18:54:04.163673+00:00",
+  "payload": {
+    "away_team": "PSV Eindhoven",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:53:41Z",
+            "outcomes": [
+              {
+                "name": "Porto",
+                "price": 1.51
+              },
+              {
+                "name": "PSV Eindhoven",
+                "price": 6.3
+              },
+              {
+                "name": "Draw",
+                "price": 4.7
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:53:41Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.96
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.94
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T18:53:51Z",
+            "outcomes": [
+              {
+                "name": "Porto or Draw",
+                "price": 1.15
+              },
+              {
+                "name": "PSV Eindhoven or Draw",
+                "price": 2.71
+              },
+              {
+                "name": "Porto or PSV Eindhoven",
+                "price": 1.23
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "Porto",
+                "price": 1.51
+              },
+              {
+                "name": "PSV Eindhoven",
+                "price": 6.13
+              },
+              {
+                "name": "Draw",
+                "price": 4.6
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.4
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.57
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "Porto or Draw",
+                "price": 1.12
+              },
+              {
+                "name": "PSV Eindhoven or Draw",
+                "price": 2.56
+              },
+              {
+                "name": "Porto or PSV Eindhoven",
+                "price": 1.2
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-20T19:00:00Z",
+    "home_team": "Porto",
+    "id": "0686ce05e8489734fd66e5ee97fbbfa2",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.51,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6490111966848918,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.6,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2017266876177986,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 6.13,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.14926211569730954,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.4,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3869128436199944,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.57,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6130871563800057,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.12,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8435852372583479,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.56,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.36906854130052724,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.2,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7873462214411248,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.51,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6517772200868922,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20040172985773733,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.3,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1478210500553705,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.15,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8477041821904048,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T18:53:51+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.71,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.35972686698116807,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T18:53:51+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.23,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.792568950828427,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T18:53:51+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}

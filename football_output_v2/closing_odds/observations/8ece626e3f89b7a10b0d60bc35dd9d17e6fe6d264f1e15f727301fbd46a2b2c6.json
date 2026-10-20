@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "Bod\u00f8/Glimt",
+    "home_team": "Napoli",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "49dba87d5ac664efdf2a64c72db31702"
+  },
+  "observed_at_utc": "2026-10-20T18:54:03.972765+00:00",
+  "payload": {
+    "away_team": "Bod\u00f8/Glimt",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "Bod\u00f8/Glimt",
+                "price": 4.58
+              },
+              {
+                "name": "Napoli",
+                "price": 1.7
+              },
+              {
+                "name": "Draw",
+                "price": 4.27
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.19
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.73
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "Bod\u00f8/Glimt or Draw",
+                "price": 2.15
+              },
+              {
+                "name": "Napoli or Draw",
+                "price": 1.2
+              },
+              {
+                "name": "Bod\u00f8/Glimt or Napoli",
+                "price": 1.22
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:53:41Z",
+            "outcomes": [
+              {
+                "name": "Bod\u00f8/Glimt",
+                "price": 4.99
+              },
+              {
+                "name": "Napoli",
+                "price": 1.69
+              },
+              {
+                "name": "Draw",
+                "price": 4.12
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:53:41Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.99
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.92
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T18:53:51Z",
+            "outcomes": [
+              {
+                "name": "Bod\u00f8/Glimt or Draw",
+                "price": 2.27
+              },
+              {
+                "name": "Napoli or Draw",
+                "price": 1.2
+              },
+              {
+                "name": "Bod\u00f8/Glimt or Napoli",
+                "price": 1.27
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-20T19:00:00Z",
+    "home_team": "Napoli",
+    "id": "49dba87d5ac664efdf2a64c72db31702",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5751292790693314,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.27,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22019230274575974,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.58,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20467841818490878,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.19,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.43829030396387864,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.73,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5617096960361214,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.2,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7868606569671517,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.15,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.4391780410979451,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.22,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7739613019349032,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.69,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5805020362827055,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.12,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2305055977389938,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.99,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18899236597830063,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8085655387118036,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T18:53:51+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.27,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.427435527072319,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T18:53:51+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.27,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7639989342158774,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T18:53:51+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}

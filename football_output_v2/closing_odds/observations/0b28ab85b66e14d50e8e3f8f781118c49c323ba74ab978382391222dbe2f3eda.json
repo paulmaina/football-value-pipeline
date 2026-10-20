@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "AEK Athens",
+    "home_team": "Manchester City",
+    "kickoff_utc": "2026-10-20T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "00625830dd764a06f12f78c0d0a72ff8"
+  },
+  "observed_at_utc": "2026-10-20T18:54:03.853321+00:00",
+  "payload": {
+    "away_team": "AEK Athens",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "AEK Athens",
+                "price": 15.2
+              },
+              {
+                "name": "Manchester City",
+                "price": 1.16
+              },
+              {
+                "name": "Draw",
+                "price": 9.09
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.67
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.2
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T18:53:39Z",
+            "outcomes": [
+              {
+                "name": "AEK Athens or Draw",
+                "price": 5.5
+              },
+              {
+                "name": "Manchester City or Draw",
+                "price": 1.02
+              },
+              {
+                "name": "AEK Athens or Manchester City",
+                "price": 1.06
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-20T18:53:41Z",
+            "outcomes": [
+              {
+                "name": "AEK Athens",
+                "price": 16.0
+              },
+              {
+                "name": "Manchester City",
+                "price": 1.17
+              },
+              {
+                "name": "Draw",
+                "price": 8.75
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-20T18:53:41Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 1.93
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 1.96
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-20T18:53:53Z",
+            "outcomes": [
+              {
+                "name": "AEK Athens or Draw",
+                "price": 5.55
+              },
+              {
+                "name": "Manchester City or Draw",
+                "price": 1.05
+              },
+              {
+                "name": "AEK Athens or Manchester City",
+                "price": 1.1
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-20T19:00:00Z",
+    "home_team": "Manchester City",
+    "id": "00625830dd764a06f12f78c0d0a72ff8",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.16,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.8526853788759403,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 9.09,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.09348688438425336,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 15.2,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.05382773673980625,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5740358949483358,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.2,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4259641050516641,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.02,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.9312206497779767,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.5,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.17269910232246113,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.06,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8960802478995623,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T18:53:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.17,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.8467010413208038,
+      "selection": "home",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 8.75,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.10036208009006936,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 16.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.052936878589126955,
+      "selection": "away",
+      "updated_at_utc": "2026-10-20T18:53:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.05,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.9329512893982809,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-20T18:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.55,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.17650429799426937,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-20T18:53:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.1,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8905444126074499,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-20T18:53:53+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v3"
+}
