@@ -18,13 +18,13 @@ def main(argv=None):
     parser.add_argument('--leagues', nargs='+', choices=list(LEAGUES), default=list(LEAGUES))
     parser.add_argument('--seasons', nargs='+', type=int,
                         help='Season start years; defaults to free-plan historical seasons 2022 2023 2024')
-    parser.add_argument('--daily-budget', type=int, default=80)
-    parser.add_argument('--max-requests', type=int, default=20)
-    parser.add_argument('--stats-limit', type=int, default=10)
+    parser.add_argument('--daily-budget', type=int, help='Optional local ceiling; default uses provider allowance')
+    parser.add_argument('--max-requests', type=int, help='Optional local ceiling; default has no per-run cap')
+    parser.add_argument('--stats-limit', type=int, help='Optional statistics cap; default processes all due candidates')
     args = parser.parse_args(argv)
     now = datetime.now(timezone.utc)
     seasons = sorted(set(args.seasons or FREE_SEASONS), reverse=True)
-    if any(not 2000 <= year <= now.year for year in seasons) or args.stats_limit < 0:
+    if any(not 2000 <= year <= now.year for year in seasons) or (args.stats_limit is not None and args.stats_limit < 0):
         parser.error('Invalid season or statistics limit')
     root = args.cache/'api_football'; root.mkdir(parents=True, exist_ok=True)
     lock = root/'.collect.lock'

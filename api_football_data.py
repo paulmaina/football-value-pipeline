@@ -1,9 +1,10 @@
 """Supplementary API-Football observations, independent of production predictions.
 
-The account's 100/day free allowance is not a reason to spend it all. Persist
-reservations before requests, leave 20 calls in reserve, and never call from fits.
+Use the provider's full available allowance for due data, with durable request
+telemetry and provider cooldowns. Prediction fitting never makes these calls.
 """
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 import hashlib
 import json
 from pathlib import Path
@@ -68,12 +69,13 @@ def transport(path, params, token):
 
 
 class Client:
-    def __init__(self, store, token, daily_budget=80, max_requests=20, *, sender=transport,
+    def __init__(self, store, token, daily_budget=None, max_requests=None, *, sender=transport,
                  clock=lambda: datetime.now(timezone.utc), sleeper=time.sleep):
         if not token.strip():
             raise ValueError('API_FOOTBALL_KEY is required')
-        if not 1 <= daily_budget <= 80 or not 1 <= max_requests <= 80:
-            raise ValueError('API-Football free-plan budgets must be between 1 and 80')
+        if any(value is not None and (type(value) is not int or value < 1)
+               for value in (daily_budget, max_requests)):
+            raise ValueError('Explicit request limits must be positive integers')
         self.store, self.token = store, token
         self.daily_budget, self.max_requests = daily_budget, max_requests
         self.sender, self.clock, self.sleeper = sender, clock, sleeper
@@ -91,8 +93,13 @@ class Client:
                                     {'PLAN_RESTRICTED', 'CREDENTIALS_REJECTED', 'REQUEST_LIMIT', 'QUERY_REJECTED'}
                                     else 'QUERY_REJECTED')
             return payload, cached['observed']
-        if self.requests >= self.max_requests or self.store.setting('blocked_day') == day:
-            raise Deferred('API-Football request budget exhausted or provider rate limited')
+        if self.max_requests is not None and self.requests >= self.max_requests:
+            raise Deferred('Explicit per-run request limit exhausted')
+        # Legacy blocked_day could mean 20 calls remained; it is not exhaustion.
+        if self.store.setting('provider_exhausted_day') == day:
+            raise Deferred('API-Football daily provider allowance exhausted')
+        if now.timestamp() < float(self.store.setting('blocked_until', '0')):
+            raise Deferred('API-Football provider retry window active')
         last = float(self.store.setting('last_request', '0'))
         self.sleeper(max(0., 7.-(now.timestamp()-last)))
         now = self.clock()
@@ -105,13 +112,20 @@ class Client:
         remaining = headers.get('x-ratelimit-requests-remaining')
         if remaining is not None:
             try:
-                if int(remaining) <= 20:
-                    self.store.set('blocked_day', self.clock().date().isoformat())
+                if int(remaining) <= 0:
+                    self.store.set('provider_exhausted_day', self.clock().date().isoformat())
             except (ValueError, TypeError):
                 raise FetchError('Invalid API-Football quota header') from None
         if status == 429:
-            self.store.set('blocked_day', self.clock().date().isoformat())
-            raise Deferred('API-Football rate limited; stopped until next UTC day')
+            try:
+                delay = max(60., float(headers.get('retry-after', 60)))
+            except (ValueError, TypeError):
+                try:
+                    delay = max(60., parsedate_to_datetime(headers['retry-after']).timestamp()-self.clock().timestamp())
+                except (KeyError, ValueError, TypeError, OverflowError):
+                    delay = 60.
+            self.store.set('blocked_until', self.clock().timestamp()+delay)
+            raise Deferred('API-Football provider rate limited; retry window saved')
         if status != 200:
             raise FetchError('API-Football HTTP '+str(status))
         try:
@@ -123,6 +137,12 @@ class Client:
         if data.get('errors'):
             # Do not log or persist arbitrary server errors that could echo a key.
             reason = rejection_reason(data['errors'])
+            if isinstance(data['errors'], dict) and 'requests' in data['errors']:
+                self.store.set('provider_exhausted_day', self.clock().date().isoformat())
+                raise Deferred('API-Football provider request allowance exhausted')
+            if isinstance(data['errors'], dict) and 'rateLimit' in data['errors']:
+                self.store.set('blocked_until', self.clock().timestamp()+60)
+                raise Deferred('API-Football provider rate limited; retry window saved')
             self.store.response(query, observed, {'unavailable': True, 'reason': reason})
             raise QueryRejected(reason)
         if not isinstance(data.get('response'), list):
@@ -205,13 +225,18 @@ def observations(cache, kind, cutoff):
     return result
 
 
-def collect(client, leagues, seasons, stats_limit=10):
+def collect(client, leagues, seasons, stats_limit=None):
     report = {'status': 'complete', 'queries': [], 'quarantined_matches': 0,
               'statistics_saved': 0, 'statistics_failures': [], 'requests': 0}
     known = {(r['league'], r['entity']): r for r in client.store.latest('match', client.clock().isoformat())}
     quarantine = {(r['league'], r['entity']): r for r in client.store.latest('quarantine', client.clock().isoformat())}
+    deferred = False
     for league in leagues:
         for year in seasons:
+            if deferred:
+                report['queries'].append({'league': league, 'season': year, 'status': 'Deferred',
+                                          'reason': 'REQUEST_BUDGET_OR_RATE_LIMIT'})
+                continue
             try:
                 # Closed seasons do not need three downloads every day.
                 historical = year < client.clock().year - (client.clock().month < 7) - 1
@@ -241,6 +266,7 @@ def collect(client, leagues, seasons, stats_limit=10):
                 report['queries'].append({'league': league, 'season': year, 'status': 'collected',
                                           'fixtures': len(data['response'])})
             except (FetchError, ValueError, OSError) as exc:
+                deferred = isinstance(exc, Deferred)
                 report['status'] = 'partial'
                 report['queries'].append({'league': league, 'season': year, 'status': type(exc).__name__,
                                           'reason': exc.reason if isinstance(exc, QueryRejected) else
@@ -258,7 +284,7 @@ def collect(client, leagues, seasons, stats_limit=10):
     saved_stats = {(r['league'], r['entity']): r for r in client.store.latest('statistics', client.clock().isoformat())}
     count = 0
     for row in matches:
-        if count >= stats_limit:
+        if deferred or (stats_limit is not None and count >= stats_limit):
             break
         query = '/fixtures/statistics?'+urlencode([('fixture', row['payload']['id'])])
         old = client.store.latest_response(query)
@@ -291,6 +317,7 @@ def collect(client, leagues, seasons, stats_limit=10):
             client.store.put('statistics', row['league'], row['entity'], observed, value)
             report['statistics_saved'] += 1
         except (FetchError, ValueError, OSError) as exc:
+            deferred = isinstance(exc, Deferred)
             report['status'] = 'partial'
             report['statistics_failures'].append({'league': row['league'], 'fixture': row['entity'],
                 'reason': exc.reason if isinstance(exc, QueryRejected) else
@@ -300,5 +327,6 @@ def collect(client, leagues, seasons, stats_limit=10):
             # above can supersede them with an unavailable tombstone.
     report['fixtures_collected'] = sum(q.get('fixtures', 0) for q in report['queries'])
     report['plan_restricted_queries'] = sum(q.get('reason') == 'PLAN_RESTRICTED' for q in report['queries'])
+    report['request_limit_policy'] = 'PROVIDER_ALLOWANCE' if client.daily_budget is None and client.max_requests is None else 'EXPLICIT_LOCAL_LIMIT'
     report['requests'] = client.requests
     return report

@@ -17,9 +17,9 @@ def main(argv=None):
     parser.add_argument('--api-key-source', choices=['dotenv', 'environment'], default='dotenv')
     parser.add_argument('--leagues', nargs='+', choices=list(LEAGUES), default=list(LEAGUES))
     parser.add_argument('--seasons', nargs='+', type=int, help='Explicit season start years; default current season')
-    parser.add_argument('--daily-budget', type=int, default=500)
-    parser.add_argument('--max-requests', type=int, default=500)
-    parser.add_argument('--stats-limit', type=int, default=500)
+    parser.add_argument('--daily-budget', type=int, help='Optional local ceiling; default uses provider allowance')
+    parser.add_argument('--max-requests', type=int, help='Optional local ceiling; default has no per-run cap')
+    parser.add_argument('--stats-limit', type=int, help='Optional statistics cap; default processes all due candidates')
     parser.add_argument('--store', type=Path, default=Path('.football_cache/bbs/state'))
     parser.add_argument('--existing-cache', type=Path, default=Path('.football_cache'))
     parser.add_argument('--output', type=Path, default=Path('.football_cache/bbs/combined'))
@@ -29,7 +29,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
     if args.as_of and not args.offline:
         parser.error('--as-of requires --offline')
-    if args.stats_limit < 0:
+    if args.stats_limit is not None and args.stats_limit < 0:
         parser.error('--stats-limit cannot be negative')
     now = datetime.now(timezone.utc)
     current = now.year if now.month >= 7 else now.year - 1

@@ -13,27 +13,30 @@ RapidAPI subscription key. No key belongs in a commit, report, command argument,
 or chat. Missing configuration leaves the scheduled collector inactive.
 
 The **Collect supplementary API-Football data** workflow runs at 06:13, 14:13
-and 22:13 EAT, and can be started manually on main. Each pass allows at most
-20 requests, including at most 10 statistics queries; there is also a persisted
-80-request UTC-day ceiling. The client spaces requests seven seconds apart and
-stops when the provider reports 20 or fewer daily calls remaining. The account's
-allowance is shared by all uses of the key; avoid running a second independent
-collector with the same key at the same time. Default scheduled volume is at
-most 60/day, leaving room under the provider's advertised 100/day free quota.
+and 22:13 EAT, and can be started manually on main. Collection has no default
+local daily ceiling, per-run ceiling, statistics-candidate cap or reserved calls.
+Due queries can use the provider's full remaining free allowance. Requests remain
+seven seconds apart; confirmed zero remaining daily calls stops further requests
+until the next UTC day. HTTP 429 respects the provider's retry window. Request
+counts remain persisted as telemetry, not a local allowance. Old reserve-based
+`blocked_day` entries no longer prevent use of the last 20 calls.
+
+Caches, entitlement checks and data validation remain active. Collection ends
+when all due work is processed, the provider refuses further calls, or the workflow
+reaches its execution timeout. It does not issue duplicate calls just to burn quota.
+Optional `--daily-budget`, `--max-requests` and `--stats-limit` arguments remain
+available for deliberately restricted local runs; scheduled runs set none of them.
 
 The account's live response confirmed free-plan access to season start years
 **2022–2024**, with 2026 rejected. Both the CLI default and scheduled workflow now
 collect 2024, 2023 and 2022 for all six competitions, newest first. Current-season
 fixtures/results continue through the existing sources. These historical seasons
 can fill training gaps only where they overlap the model's requested training window.
-Historical statistics are collected gradually (at most ten candidates per pass,
-subject to remaining budget), rather than excluded by a recent-match filter.
-The first pass may spend 18 requests on six leagues times three seasons, leaving
-only two statistics requests. Later passes reuse the season cache and advance the
-statistics backfill. Completed-season fixture responses are cached for 30 days;
-valid historical statistics are retained without routine weekly downloads.
-Unavailable historical statistics retry after seven days, allowing other matches
-to be attempted on intervening passes.
+Historical statistics backfill continues through all due candidates until the
+provider allowance is exhausted. Completed-season fixture responses are cached
+for 30 days; valid historical statistics are retained without routine weekly
+downloads. Unavailable historical statistics retry after seven days, allowing
+other matches to be attempted on intervening passes.
 
 Review `.football_cache/api_football/collection_status.json` and the Actions
 summary. Reports give fixture totals, saved statistics, requested seasons and safe
@@ -101,7 +104,7 @@ Raw successful responses and immutable normalized observations are retained
 with actual observation timestamps. Training/feature fingerprints include the
 new inputs and adapter code. Newer quarantine records suppress old valid match
 records; received invalid/empty statistics revisions suppress older revisions.
-Network failures, plan denials and exhausted budgets retain existing valid
+Network failures, plan denials and provider quota exhaustion retain existing valid
 statistics rather than manufacturing a newer unavailable observation. Optional source
 corruption is reported and retains the existing primary/BBS history.
 Recent-season valid statistics refresh weekly; unavailable/invalid responses retry
@@ -114,9 +117,10 @@ successful downloads without copying every season match on each polling pass.
 The publisher merges immutable observations onto current main, preserves other
 providers' changes and refuses to overwrite an advanced API-Football quota
 checkpoint. It never force-pushes. Interrupted/unpublished collection state is
-saved as a recovery artifact. After a failed Actions run with unpublished quota,
-restore and commit the recovery state or wait for the next UTC day before
-collecting. The guard fails closed rather than granting a fresh daily allowance.
+saved as a recovery artifact. A failed previous run no longer blocks a new run
+merely because its request counter was unpublished: the provider controls the
+allowance. Recover unpublished observations when needed; concurrent checkpoint
+changes still stop publication to protect observation history.
 
 Scope: fixture/results and the match-statistics fields consumed by the existing
 model. Standings, injuries, lineups, vendor predictions and bookmaker odds are

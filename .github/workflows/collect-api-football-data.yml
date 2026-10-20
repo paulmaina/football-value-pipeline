@@ -37,28 +37,6 @@ jobs:
         if: steps.configured.outputs.enabled == 'true'
         with:
           python-version: '3.12'
-      - name: Guard unpublished quota after a failed run
-        if: steps.configured.outputs.enabled == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api "repos/$GITHUB_REPOSITORY/actions/workflows/collect-api-football-data.yml/runs?branch=main&status=completed&per_page=10" > /tmp/api-football-previous-runs.json
-          python - <<'PY'
-          import json, os
-          from datetime import datetime, timezone
-          from pathlib import Path
-          runs = json.loads(Path('/tmp/api-football-previous-runs.json').read_text())['workflow_runs']
-          runs = [r for r in runs if str(r['id']) != os.environ['GITHUB_RUN_ID']]
-          if runs:
-              previous = max(runs, key=lambda r: r['run_number'])
-              started = datetime.fromisoformat(previous['created_at'].replace('Z', '+00:00'))
-              if previous['conclusion'] in ('failure', 'cancelled', 'timed_out') and started.date() == datetime.now(timezone.utc).date():
-                  path = Path('.football_cache/api_football/state/checkpoint.json')
-                  state = json.loads(path.read_text()) if path.exists() else {}
-                  last = float(state.get('settings', {}).get('last_request', 0))
-                  if last < started.timestamp():
-                      raise SystemExit('Previous collection may have unpublished quota. Restore the recovery artifact and commit its state, or wait for the next UTC day.')
-          PY
       - name: Install dependencies
         if: steps.configured.outputs.enabled == 'true'
         run: python -m pip install -r football_value_requirements.txt
@@ -69,7 +47,7 @@ jobs:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: |
           set +e
-          python collect_api_football_data.py --api-key-source environment --seasons 2024 2023 2022 --daily-budget 80 --max-requests 20 --stats-limit 10
+          python collect_api_football_data.py --api-key-source environment --seasons 2024 2023 2022
           code=$?
           set -e
           echo "result=$code" >> "$GITHUB_OUTPUT"
