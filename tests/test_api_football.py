@@ -193,6 +193,23 @@ class ApiFootballTests(unittest.TestCase):
         self.assertTrue(supplement_fixtures(pd.DataFrame(), baseline(), self.cache, 'EPL',
                         later-timedelta(seconds=1), 10).empty)
 
+    def test_incomplete_statistics_retry_and_cached_responses_recover_interrupted_normalization(self):
+        body = api.dumps(envelope([match()])).encode()
+        client = self.client([(200, {}, body), (200, {}, api.dumps(envelope([])).encode())])
+        self.assertEqual(api.collect(client, ['EPL'], [2026], 1)['status'], 'partial')
+        later = NOW+timedelta(hours=8)
+        replies = iter([(200, {}, body), (200, {}, api.dumps(envelope(stats())).encode())])
+        client = api.Client(self.store, 'test', sender=lambda *args: next(replies),
+                            clock=lambda: later, sleeper=lambda _: None)
+        self.assertEqual(api.collect(client, ['EPL'], [2026], 1)['status'], 'complete')
+        self.assertTrue(self.store.latest('statistics', later.isoformat())[0]['payload']['available'])
+        for file in (self.store.path/'observations/statistics').glob('*.json'):file.unlink()
+        self.store = Store(self.store.path)
+        client = api.Client(self.store, 'test', sender=lambda *args: self.fail('cached recovery must not request'),
+                            clock=lambda: later, sleeper=lambda _: None)
+        self.assertEqual(api.collect(client, ['EPL'], [2026], 1)['statistics_saved'], 1)
+        self.assertEqual(client.requests, 0)
+
     def test_no_access_empty_queries_and_failed_statistics_are_visible(self):
         client = self.client([(200, {}, api.dumps(envelope([], {'plan': 'not allowed'})).encode())])
         report = api.collect(client, ['EPL'], [2026], 0)

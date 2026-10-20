@@ -88,6 +88,9 @@ records; received invalid/empty statistics revisions suppress older revisions.
 Network failures, plan denials and exhausted budgets retain existing valid
 statistics rather than manufacturing a newer unavailable observation. Optional source
 corruption is reported and retains the existing primary/BBS history.
+Valid statistics refresh weekly; unavailable/invalid responses can be retried
+after six hours. Cached successful responses can rebuild an interrupted
+normalization step without another request.
 Unchanged normalized matches reuse their original observations. Compact,
 timestamped schedule manifests bind unchanged upcoming fixtures to later
 successful downloads without copying every season match on each polling pass.
