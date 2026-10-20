@@ -67,23 +67,24 @@ files are not accepted. The earlier draft was not deployed by this change; if an
 old SQLite collector was manually used, preserve its file for a separate migration
 before starting a new observation history.
 
-## 500-request plan and schedule
+## Provider allowance and schedule
 
-The user's GitHub-linked account has a 500-request/day allowance. The collector's
-local defaults are 500/day, 500/run, and up to 500 statistics responses. The Actions
-workflow runs at **06:43, 14:43 and 22:43 UTC** (**09:43, 17:43 and 01:43 EAT**) with
-**500/day and 200/run**. A busy day can use 200 + 200 + 100 requests, preserving some
-capacity for later freshness checks. It does not issue unnecessary calls just to
-spend quota. Provider headers remain authoritative if another application consumes
-part of the same account's allowance.
+The workflow runs at **06:43, 14:43 and 22:43 UTC** (**09:43, 17:43 and 01:43 EAT**).
+There is no default local daily limit, per-run limit, statistics-response cap or
+reserve for later passes. Due requests can use the provider's full remaining
+free-plan allowance. `--daily-budget`, `--max-requests` and `--stats-limit` remain
+optional for deliberately restricted local runs; the workflow sets none of them.
 
-Requests are paced at least 0.7 seconds apart. Failed attempts and retries consume
-the persisted budget; cache hits do not. A quota/defer response checkpoints progress
-and ends the run rather than sleeping through long cooldowns. The daily counter
-resets at midnight UTC (03:00 EAT). Fixture/standings pages refresh after six hours;
-entities after seven days. Recent completed matches get priority over older backfill,
-with statistics refreshed after six hours for the first two days, daily for the first
-week, and weekly thereafter. Collection rotates statistics across competitions.
+Requests are paced at least 0.7 seconds apart. Failed attempts and retries are
+counted in persisted telemetry; cache hits are not. Provider quota headers and
+retry windows remain authoritative. A provider defer response checkpoints progress
+and ends the run rather than sleeping through long cooldowns. Collection also ends
+when all due work is processed or the workflow execution timeout is reached.
+It does not generate unnecessary requests solely to consume quota.
+Fixture/standings pages refresh after six hours; entities after seven days.
+Recent completed matches get priority over older backfill, with statistics refreshed
+after six hours for the first two days, daily for the first week, and weekly
+thereafter. Collection rotates statistics across competitions.
 
 ## GitHub publishing and recovery
 
@@ -96,9 +97,8 @@ BBS checkpoint change stops publication rather than overwriting another collecto
 Other workflows' results, forecasts and source caches are preserved.
 
 After a failed run, a recovery artifact retains unpublished local BBS files where
-possible. The next run checks whether the prior failed run's request budget was
-published; an uncertain same-UTC-day allowance stops collection until recovered or
-the day resets. Restore the failed run's state and observations carefully before
+possible. An unpublished request counter no longer blocks the next run: the
+provider controls available allowance. Restore the failed run's state and observations carefully before
 resuming if its unpublished observations are needed. Recovery artifacts are only
 failure backups, not the normal distribution mechanism. Their retention is 30 days.
 A force-killed job can still lose its last unpublished observations; Git holds all
@@ -166,7 +166,7 @@ due current-season match statistics across the selected leagues, then older back
 Fresh cached statistics do not consume backfill slots. Team/player directory
 backfill follows statistics. Free-plan historical access remains account-dependent:
 a 403 is reported and cached for 24 hours rather than repeatedly spending quota on
-the same denied request. Provider request limits and the shared 500/day budget still
+the same denied request. Provider request limits still
 apply. Missing/withheld xG is not requested or replaced with fabricated values.
 
 `bbs_team_aliases.json` records reviewed league-specific club-name equivalents from
@@ -220,11 +220,9 @@ resolution and source timestamps remain in the exports. Standings refresh when n
 finished fixtures postdate their cached view; the report identifies possible timing
 skew using available source update times without hiding differences.
 
-Manual Actions runs now accept `max_requests` (default 500); scheduled runs remain
-200/run. Both share the same persisted 500/UTC-day budget. If 271 requests have
-already been used, a manual 500-request run can make at most the remaining 229.
-Unavailable provider data may remain partial after all fetchable statistics are
-collected. This is reported explicitly rather than fabricated or silently dropped.
+Manual and scheduled Actions runs both use the full provider allowance for due
+work. Unavailable provider data may remain partial after all fetchable statistics
+are collected. This is reported explicitly rather than fabricated or silently dropped.
 
 
 ## Pre-merge data safeguards
@@ -241,7 +239,7 @@ BBS values against newly loaded primary statistics and disables disputed records
 for feature use while preserving the primary values. Statistical feature
 activation additionally requires the chronological validation policy below. Failed or cancelled collections attempt a
 recovery upload including the hidden cache directory; hard termination may still
-prevent an upload, so the unpublished-budget guard remains in place.
+prevent an upload; successfully published history remains in Git.
 
 
 ## Validated statistical features

@@ -86,16 +86,60 @@ class ApiFootballTests(unittest.TestCase):
         reopened.reserve(NOW+timedelta(days=1), 2)
 
     def test_account_limit_and_429_stop_further_calls(self):
-        for reply in ((429, {}, b''), (200, {'x-ratelimit-requests-remaining': '20'}, api.dumps(envelope([])).encode())):
-            self.store.state['settings'].clear(); self.store.set('blocked_day', '')
+        for reply in ((429, {}, b''), (200, {'x-ratelimit-requests-remaining': '0'}, api.dumps(envelope([])).encode())):
+            self.store.state['settings'].clear(); self.store.set('provider_exhausted_day', '')
             client = self.client([reply])
             try:client.get('/fixtures', {'league': 39})
             except Deferred:pass
             with self.assertRaises(Deferred):client.get('/fixtures', {'league': 2})
             self.assertEqual(len(self.calls), 1)
 
+    def test_provider_allowance_uses_final_twenty_calls_and_ignores_legacy_reserve_block(self):
+        self.store.set('blocked_day', NOW.date().isoformat())
+        self.store.state['quota'][NOW.date().isoformat()] = 100
+        client = self.client([(200, {'x-ratelimit-requests-remaining': '20'}, api.dumps(envelope([])).encode()),
+                              (200, {'x-ratelimit-requests-remaining': '1'}, api.dumps(envelope([])).encode()),
+                              (200, {'x-ratelimit-requests-remaining': '0'}, api.dumps(envelope([])).encode())])
+        for league in (39, 2, 140):client.get('/fixtures', {'league': league})
+        with self.assertRaises(Deferred):client.get('/fixtures', {'league': 78})
+        self.assertEqual(len(self.calls), 3)
+        self.assertEqual(self.store.state['quota'][NOW.date().isoformat()], 103)
+        self.assertIsNone(client.daily_budget)
+        self.assertIsNone(client.max_requests)
+
+    def test_provider_429_cooldown_expires_and_daily_error_stops_collection(self):
+        client = self.client([(429, {'Retry-After': '120'}, b''),
+                              (200, {}, api.dumps(envelope([])).encode())])
+        with self.assertRaises(Deferred):client.get('/fixtures', {'league': 39})
+        with self.assertRaises(Deferred):client.get('/fixtures', {'league': 2})
+        client.clock = lambda: NOW + timedelta(seconds=121)
+        client.get('/fixtures', {'league': 2})
+        self.assertEqual(len(self.calls), 2)
+        self.store.set('blocked_until', 0)
+        client = self.client([(200, {}, api.dumps(envelope([], {'requests': 'daily allowance used'})).encode())])
+        report = api.collect(client, ['EPL', 'UCL'], [2024])
+        self.assertEqual(report['requests'], 1)
+        self.assertEqual(report['status'], 'partial')
+        self.assertEqual(report['request_limit_policy'], 'PROVIDER_ALLOWANCE')
+
+    def test_429_retry_after_http_date_and_invalid_value(self):
+        from email.utils import format_datetime
+        for header, delay in ((format_datetime(NOW+timedelta(seconds=180)), 180), ('invalid', 60)):
+            self.store.set('blocked_until', 0)
+            client = self.client([(429, {'Retry-After': header}, b'')])
+            with self.assertRaises(Deferred):client.get('/fixtures', {'league': 39})
+            self.assertEqual(float(self.store.setting('blocked_until')), NOW.timestamp()+delay)
+
+    def test_default_collect_processes_more_than_ten_statistics(self):
+        rows = [match(i) for i in range(1, 13)]
+        replies = [(200, {}, api.dumps(envelope(rows)).encode())]
+        replies += [(200, {}, api.dumps(envelope(stats())).encode())]*12
+        report = api.collect(self.client(replies), ['EPL'], [2026])
+        self.assertEqual(report['statistics_saved'], 12)
+        self.assertEqual(report['requests'], 13)
+
     def test_budget_denied_plan_and_malformed_envelopes_never_silently_succeed(self):
-        for budget in (0, 81):
+        for budget in (0, -1):
             with self.assertRaises(ValueError):self.client(daily_budget=budget)
         with self.assertRaises(ValueError):api.Client(self.store, '')
         client = self.client(max_requests=1)
