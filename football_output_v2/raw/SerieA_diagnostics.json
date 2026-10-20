@@ -1,6 +1,6 @@
 {
   "league": "Serie A",
-  "training_matches": 1968,
+  "training_matches": 1969,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,23 +10,23 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "9da7f8899ce338f16efc44629a2e053696e86a4110a909809c193d30cec5c7b7",
-  "training_as_of_utc": "2026-10-19T16:27:34.363041+00:00",
+  "training_sha256": "d5253304468b210b2f7561ac9ac9cd3f24e629d934a19d6f4233faf88560f9ad",
+  "training_as_of_utc": "2026-10-20T05:43:07.772166+00:00",
   "training_data_provenance": {
-    "bbs_confirmed_rows": 68,
-    "bbs_added_results": 8,
+    "bbs_confirmed_rows": 69,
+    "bbs_added_results": 9,
     "bbs_result_conflicts": 0,
-    "bbs_rows_with_statistics": 68,
+    "bbs_rows_with_statistics": 69,
     "bbs_statistics_used_as_predictor_features": false,
     "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass."
   },
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-19T16:27:34.363041+00:00",
-    "observations": 94,
-    "observations_sha256": "bd2cc9704e0cde6e04ed2c0efebf8db1f428c3eee108103050f90cc20711c00e",
-    "eligible_training_matches": 18,
+    "cutoff_utc": "2026-10-20T05:43:07.772166+00:00",
+    "observations": 100,
+    "observations_sha256": "b8cde538f8f80687eff19983d55e1c13c1c3f05983d5dcb605cf2aedd97a4624",
+    "eligible_training_matches": 19,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -51,31 +51,31 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 44,
+    "usable_current_matches": 45,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
-    "strict_eligible_training_matches": 6,
-    "retrospective_eligible_training_matches": 18,
+    "strict_eligible_training_matches": 7,
+    "retrospective_eligible_training_matches": 19,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:28.568690+00:00",
-    "retrospective_inputs_sha256": "568702e380d5655769790b5dd145e94d116861f046a8cb350b66c72d83f20455",
+    "retrospective_inputs_sha256": "ce20a98c71564d556c697faf42f4e2ecedb7e188b0b5511fa24cafd55dace92c",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement."
   },
-  "training_end": "2026-10-18",
+  "training_end": "2026-10-19",
   "fit_success": true,
-  "objective": 2437.5341749001045,
-  "base": 0.13139674143895844,
-  "home_adv": 0.1248188819486967,
-  "rho": -0.03383302209753985,
+  "objective": 2441.048508076667,
+  "base": 0.13059631947035133,
+  "home_adv": 0.12833571398137433,
+  "rho": -0.03360152238803393,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
   "max_goals": 10,
   "devig_method": "power",
   "market_weight": 0.5,
   "training_data_health": {
-    "training_end": "2026-10-18",
+    "training_end": "2026-10-19",
     "days_since_latest_result": 1,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
@@ -87,35 +87,13 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 20,
-  "additional_event_odds_calls_used_before_this_league": 2,
+  "additional_event_odds_calls_used_before_this_league": 1,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261019T162734363041Z_1e20d5b188b8920431ad83d871a265e2c40b40939358d011510b3a9daef14505.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261020T054307772166Z_f0853e9a10ade28bdc8934b2b4c25d66aea64a98b1584324f587abea8bc72664.json",
+  "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "ce94aca384a20f6af459366da6e1dd21",
-      "event_id": "ce94aca384a20f6af459366da6e1dd21",
-      "home_team": "Monza",
-      "away_team": "Cagliari",
-      "kickoff_utc": "2026-10-19T16:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
-    },
-    {
-      "fixture_id": "07014d9adc65ca39710bd9f0c7c0d3f0",
-      "event_id": "07014d9adc65ca39710bd9f0c7c0d3f0",
-      "home_team": "Parma",
-      "away_team": "Torino",
-      "kickoff_utc": "2026-10-19T18:45:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "dc_bookmakers": 1
-    },
     {
       "fixture_id": "124c70f8f3248a845bdb983a54e74720",
       "event_id": "124c70f8f3248a845bdb983a54e74720",
@@ -125,7 +103,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "b7f0880e3da978f9481f7cb5697e2aa5",
@@ -136,7 +116,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "08ffd99b2249c81d8a7410598f32b9b0",
@@ -147,7 +129,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "0b4894e9fb123ef3045269f97e339eba",
@@ -158,7 +142,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "b27cb3ea731fa3f18d05e6a627bdf984",
@@ -169,7 +155,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "c9b6c7048d8dc33dae618f67f462f67a",
@@ -180,7 +168,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "63aa6e3f679ee4c68de5b4bd8d3361bb",
@@ -191,7 +181,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "95cfaecfe96bb7ced1fb6af974a4110b",
@@ -202,7 +194,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "63af660d4d0d52f8ac7685172ef939c4",
@@ -213,7 +207,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "3564688383b255192409c9deb8e526ed",
@@ -224,7 +220,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "c7445242bf16a8f37afef7863af45a78",
@@ -235,7 +233,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "7eecf109ae6a5f87441a79b0e4111982",
@@ -246,7 +246,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "7d989a0a7bae47eb957731e97c5bd9c1",
@@ -257,7 +259,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "3d0b0fbec194258530882514714c74be",
@@ -268,7 +272,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "482c18a8081afdfa310324fa8f37e95a",
@@ -279,7 +285,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "33320ad169692216a91dec030e7ef6a6",
@@ -290,7 +298,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "34848497b90b1392f6a767fc183d3ac1",
@@ -301,7 +311,9 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "abec89862e33762414fcb8b2232aba08",
@@ -312,13 +324,41 @@
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
-      "home_away_quote": false
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "667cf69986b200753742c90cb9c5126c",
+      "event_id": "667cf69986b200753742c90cb9c5126c",
+      "home_team": "Frosinone",
+      "away_team": "Lecce",
+      "kickoff_utc": "2026-10-29T17:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "da159a6b84dbb548b4d7b94c722caac5",
+      "event_id": "da159a6b84dbb548b4d7b94c722caac5",
+      "home_team": "Fiorentina",
+      "away_team": "Atalanta BC",
+      "kickoff_utc": "2026-10-29T19:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_in_window_linked_fixtures": 0,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 1,
+  "additional_event_odds_calls_this_league": 0,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 730.0,

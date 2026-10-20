@@ -8,8 +8,8 @@
     "2025",
     "2026"
   ],
-  "training_sha256": "2c73884bab97bdb405e9f8058c656817e215c06f01488766d48339f95bfab846",
-  "training_as_of_utc": "2026-10-19T16:28:28.687092+00:00",
+  "training_sha256": "056d196e8a59c0ce6b7d8ec047c46c9b920d1f0f1e5408934bf1a4db21202e6f",
+  "training_as_of_utc": "2026-10-20T05:43:57.422675+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 36,
     "bbs_added_results": 0,
@@ -21,9 +21,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-19T16:28:28.687092+00:00",
-    "observations": 72,
-    "observations_sha256": "61cbc313444366e1c4e1403cb207fdec9c5604378c50f0632bb17910c0c683a3",
+    "cutoff_utc": "2026-10-20T05:43:57.422675+00:00",
+    "observations": 90,
+    "observations_sha256": "f5d8c20e76b17b358422497f114c5f42db583ab2b7e1e3bc4401b0f636ae680a",
     "eligible_training_matches": 0,
     "required_training_matches": 120,
     "feature_fields": [
@@ -57,15 +57,15 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:29.957146+00:00",
-    "retrospective_inputs_sha256": "c04fa61a8a77a7f4e2926d6978de98c106c73c7d87f97ab2cdd331435bbcf1b2",
+    "retrospective_inputs_sha256": "74a644453a99c64eb29870884c2ab52202e2baa36409c53c8629f08367eb967c",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement."
   },
   "training_end": "2026-10-14",
   "fit_success": true,
-  "objective": 966.0161354707877,
-  "base": 0.20294119685024936,
-  "home_adv": 0.30580189059258034,
+  "objective": 965.5105581248514,
+  "base": 0.20292368448162676,
+  "home_adv": 0.3058069913163287,
   "rho": 0.05,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
@@ -81,19 +81,19 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-10-19T16:28:17.953007+00:00",
+    "checked_at_utc": "2026-10-20T05:04:10.781512+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
-    "sha256": "11271982db58bf0e54aca919510c8ba50df847df963cfb1b90e039aa6d6fd0f4",
+    "sha256": "88cc817532193de59b6090581451b4d53ddbf3916512fa74597ef848a3d783a1",
     "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
     "note": "Provider schedule comparison is not independent proof of complete coverage.",
-    "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-    "download_age_hours": 0.0029816902777777777,
+    "status": "LIVE_REFRESH_FAILED_USING_CACHE",
+    "download_age_hours": 0.662955878611111,
     "training_end": "2026-10-14",
     "cache_hash_verified": true,
-    "last_refresh_error": null,
-    "last_refresh_error_reason": null
+    "last_refresh_error": "ValueError",
+    "last_refresh_error_reason": "Unknown match status"
   },
   "training_source": "football-data.org",
   "fixture_provider_mode": "auto",
@@ -103,10 +103,11 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 18,
-  "additional_event_odds_calls_used_before_this_league": 3,
+  "additional_event_odds_calls_used_before_this_league": 1,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261019T162828687092Z_1e4231ddc9bc322a530059d3c606e4b2917d2b178ad7f750bd46913cf0db5a46.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261020T054357422675Z_feeb72c69d0bce2ce8234a75db02faeb2f98b64352a98a453dd22c01143cbb85.json",
+  "over_1_5_in_window_quote_fixtures": 4,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -119,7 +120,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "dc_bookmakers": 1
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "464c74a35c648d4910cc16976ce2f7cd",
@@ -131,7 +134,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "dc_bookmakers": 1
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "e3b50e57c4cf46191ab068d1e880e595",
@@ -143,7 +148,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "dc_bookmakers": 1
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "b9567e9c3df909f8f6f21425b4b38d3f",
@@ -155,7 +162,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "dc_bookmakers": 1
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "00625830dd764a06f12f78c0d0a72ff8",
@@ -167,7 +176,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "dc_bookmakers": 1
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "49dba87d5ac664efdf2a64c72db31702",
@@ -179,7 +190,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "dc_bookmakers": 1
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "46b790335fa98338b7e1ed0b614078fb",
@@ -191,7 +204,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "dc_bookmakers": 1
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "0686ce05e8489734fd66e5ee97fbbfa2",
@@ -203,7 +218,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "dc_bookmakers": 1
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "56989e10c299aba1a0fce210bb214775",
@@ -215,7 +232,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "dc_bookmakers": 1
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "8af9379136075f45b290208b35a706c8",
@@ -223,10 +242,13 @@
       "home_team": "Como",
       "away_team": "Manchester United",
       "kickoff_utc": "2026-10-21T16:45:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "015d619d774655965e17ba67a025634e",
@@ -234,10 +256,13 @@
       "home_team": "Lille",
       "away_team": "Galatasaray",
       "kickoff_utc": "2026-10-21T16:45:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "d3b3e714b6af9e5430e3030ed639e6dd",
@@ -245,10 +270,13 @@
       "home_team": "Aston Villa",
       "away_team": "Viking FK",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "2ebbccdeea2dab59717d5c3d802c3fed",
@@ -256,10 +284,13 @@
       "home_team": "Bayern Munich",
       "away_team": "Arsenal",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "d306a78e402e5f505e8644fdf3f75dcd",
@@ -267,10 +298,13 @@
       "home_team": "Club Brugge",
       "away_team": "RC Lens",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "a889456204e8ef1b64294efbee8dc3e5",
@@ -278,10 +312,13 @@
       "home_team": "Inter Milan",
       "away_team": "Shakhtar Donetsk",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "f5905225efa837b0dc89b7dcdbb6c625",
@@ -289,10 +326,13 @@
       "home_team": "Real Betis",
       "away_team": "Feyenoord",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "30f27b8e9719e9ae71c25b4c8aa265f7",
@@ -300,10 +340,13 @@
       "home_team": "Real Madrid",
       "away_team": "RB Leipzig",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "8fdcaee14b3e8966e09d468a0b17ce18",
@@ -311,16 +354,19 @@
       "home_team": "Sporting Lisbon",
       "away_team": "LASK",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 9,
+  "additional_odds_in_window_linked_fixtures": 18,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 9,
+  "additional_event_odds_calls_this_league": 18,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 730.0,
