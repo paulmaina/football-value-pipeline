@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
     paths:
+      - 'football_output_v2/raw/current_run.json'
+      - 'football_output_v2/raw/prediction_runs/**'
+      - 'prediction_runs.py'
       - 'football_output_v2/raw/all_leagues_predictions.csv'
       - 'football_output_v2/raw/conservative_bet_shortlist.csv'
       - 'football_output_v2/raw/conservative_bet_summary.json'

@@ -320,7 +320,7 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
                 return_value=(pd.DataFrame(), pd.DataFrame(), {}, pd.DataFrame()),
             ) as backtest, patch(
                 "goal_market_validation.evaluate_market_history",
-                return_value=sample_report(),
+                return_value={**sample_report(), "league": "UEFA Champions League"},
             ):
                 self.assertEqual(main(["--leagues", "UCL", "--out-dir", str(raw)]), 0)
             self.assertEqual(backtest.call_count, 1)

@@ -1577,6 +1577,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         # Backward compatibility for existing projects created before raw/ existed.
         input_dir = root_dir
 
+    from prediction_runs import resolve_raw
+    input_dir = resolve_raw(input_dir)
     output_dir: Path = args.output_dir or readable_dir
 
     if not input_dir.exists():
@@ -1624,7 +1626,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     shortlist_count = process_conservative_shortlist(input_dir, output_dir)
     from performance_excel import export_existing, REPORT_NAME
-    performance_path = export_existing(input_dir.parent, output_dir / REPORT_NAME)
+    performance_path = export_existing(root_dir, output_dir / REPORT_NAME)
 
     print(f"Raw input folder:       {input_dir.resolve()}")
     print(f"Readable output folder: {output_dir.resolve()}")

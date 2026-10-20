@@ -32,6 +32,36 @@ def setup(root,market='Home win'):
 
 
 class ClosingTests(OfflineQuotePolicyTestCase):
+    def test_latest_market_matches_roi_and_first_entry_reference_is_preserved(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);row,observed=setup(root,'Home win')
+            raw=root/'raw'
+            later={**row,'market':'Both Teams to Score - Yes','bookmaker':'1xBet',
+                   'offered_decimal_odds':2.2,'per_stake_cost':0,'decision':'SHORTLISTED'}
+            pd.DataFrame([later]).to_csv(raw/'conservative_bet_shortlist.csv',index=False)
+            write_json(raw/'conservative_bet_summary.json',{'generated_at_utc':(NOW+timedelta(hours=1)).isoformat()})
+            capture('e'*40,root=root,captured_at=NOW+timedelta(hours=1))
+            # Both archived markets must still be requested after current picks disappear.
+            (raw/'conservative_bet_shortlist.csv').write_text('market\n')
+            requested=[]
+            def fetcher(api,source,markets):
+                requested.append(markets);return payload(source,observed)
+            c.collect_once(root,None,observed,fetcher=fetcher)
+            self.assertIn('btts',requested[0])
+            clock=observed+timedelta(minutes=2)
+            summary=c.review(root,snapshots(root),clock)
+            self.assertEqual(summary['tracking_basis'],'LATEST_PREMATCH_PER_FIXTURE')
+            latest=json.loads((root/'performance/closing_odds/selections.json').read_text())
+            first=json.loads((root/'performance/closing_odds/first_prediction_selections.json').read_text())
+            self.assertEqual(latest[0]['market'],'Both Teams to Score - Yes')
+            self.assertEqual(first[0]['market'],'Home win')
+            self.assertAlmostEqual(latest[0]['closing']['1xbet']['offered_price_clv'],2.2/1.9-1)
+            self.assertAlmostEqual(first[0]['closing']['1xbet']['offered_price_clv'],1.7/1.6-1)
+            self.assertTrue(c.validate_report(root))
+            write_json(root/'performance/closing_odds/first_prediction_selections.json',[])
+            with self.assertRaisesRegex(ValueError,'First-entry'):
+                c.validate_report(root)
+
     def test_quotes_same_book_complete_and_pre_kickoff(self):
         row,_,_=sample();observed=__import__('performance_tracking').utc(row['kickoff_utc'])-timedelta(seconds=60);p=payload(row,observed);d=c.normalize(row,p,observed)
         self.assertEqual(len(d['quotes']),28);home=next(x for x in d['quotes'] if x['bookmaker']=='pinnacle' and x['selection']=='home');self.assertGreater(home['fair_probability'],.5)

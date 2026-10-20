@@ -77,25 +77,31 @@ pip install -r football_value_requirements.txt
 
 ## Configuration
 
-This project reads API credentials from environment variables instead of storing secrets in source files.
+Local commands read credentials exclusively from the project `.env` beside the
+pipeline script. Copy `.env.example`, then fill in your own keys:
 
-PowerShell example:
-
-```powershell
-$env:THE_ODDS_API_KEY="your-primary-key"
-$env:THE_ODDS_API_KEY_FALLBACK_1="your-secondary-key"
-$env:THE_ODDS_API_KEY_FALLBACK_2="your-tertiary-key"
-$env:FOOTBALL_DATA_API_KEY="your-football-data-org-key"
+```dotenv
+THE_ODDS_API_KEY=your-primary-key
+THE_ODDS_API_KEY_FALLBACK_1=
+THE_ODDS_API_KEY_FALLBACK_2=
+FOOTBALL_DATA_API_KEY=your-football-data-org-key
+BBS_API_KEY=
 ```
 
-bash/zsh example:
+Never commit `.env`. Missing or blank file entries clear inherited shell API keys.
+If deliberately using PowerShell or shell variables, add
+`--api-key-source environment` to the prediction/collection/review command.
+GitHub Actions explicitly uses environment mode and repository Secrets.
 
-```bash
-export THE_ODDS_API_KEY="your-primary-key"
-export THE_ODDS_API_KEY_FALLBACK_1="your-secondary-key"
-export THE_ODDS_API_KEY_FALLBACK_2="your-tertiary-key"
-export FOOTBALL_DATA_API_KEY="your-football-data-org-key"
-```
+The default training window is **six domestic seasons and four UCL seasons**.
+An explicit `--seasons-back N` overrides both; `--domestic-seasons-back N`
+overrides domestic history separately.
+
+Additional event-market coverage defaults to **all** eligible linked fixtures
+inside the 48-hour shortlist window. It has no ranked 24-attempt cap. Use
+`--additional-odds-coverage ranked` for that capped alternative, with reduced
+market coverage. A logical attempt is not a provider-credit limit: markets,
+regions, retries, failover and optional market-led research can add usage.
 
 ## Quick start
 
@@ -114,8 +120,32 @@ python football_value_pipeline_v2_standalone.py --leagues EPL --tune-half-life
 ### Format raw outputs into readable reports
 
 ```powershell
+python workflow_checks.py raw
 python format_football_output.py
 ```
+
+## Complete prediction runs and tracking
+
+Every successful prediction command saves a complete immutable bundle in
+`football_output_v2/raw/prediction_runs/<run-id>/`. An atomic
+`raw/current_run.json` pointer selects the current validated generation;
+standard readers use that bundle. Top-level raw files remain compatibility
+copies. Failed generation leaves the previous completed generation selected.
+
+Push the raw directory, including **all run bundles**, before kickoff. One push
+can carry several runs, and capture records each separately. Forward eligibility
+still requires actual capture at least twenty minutes before kickoff; local
+save times never backdate cloud evidence. Headline performance uses the latest
+eligible archived selection per fixture; all eligible runs remain in Run Tracking.
+
+The current shortlist is capped at twelve distinct matches within 48 hours.
+Under 3.5 stays excluded from selection. Provisional entries can fail strict EV
+or reliability rules; twelve entries do not imply twelve strict qualifiers.
+
+Closing collection runs in GitHub Actions; the PC can be off. Its primary
+closing analysis now uses the latest-selection ROI cohort, with a separate
+first-entry reference. Existing experimental first-entry baselines are preserved.
+See [run integrity and recovery](docs/prediction-run-integrity.md).
 
 ## Output formats
 
@@ -150,6 +180,7 @@ For daily use, the usual workflow is:
 
 ```powershell
 python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life
+python workflow_checks.py raw
 python format_football_output.py
 ```
 

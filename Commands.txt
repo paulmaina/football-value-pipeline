@@ -1,56 +1,74 @@
+DAILY LOCAL WORKFLOW
 
-python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life (main)
+Install/update runtime dependencies:
+py -m pip install -r football_value_requirements.txt
 
+Credentials: copy .env.example to .env beside the script and fill in your keys.
+Local commands read .env exclusively. If deliberately using PowerShell API-key
+variables instead, append --api-key-source environment to each relevant command.
+Never commit .env.
+
+Full prediction/experiment command:
 py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life --goal-blend-experiment --additional-odds-coverage all --market-led-experiment --recency-experiment --reliability-experiment
 
-python format_football_output.py
+After the WHOLE prediction command succeeds:
+py workflow_checks.py raw
+py format_football_output.py
 
+Every successful prediction run is saved under raw/prediction_runs/<run-id>.
+raw/current_run.json selects one complete validated generation. Standard readers
+follow it; raw root files are compatibility copies. Failed generation does not
+switch the current run. Do not edit immutable bundles or current_run.json.
+If a process is force-killed and leaves raw/.prediction-run.lock, verify that
+no prediction or refresh process is running before removing that lock directory.
 
-Parameter    |	  Default |	Meaning
-===================================================================================================================
---leagues	        EPL	    Predict English Premier League matches only
---seasons-back	    4	      Use up to four seasons of historical match data for training
---lookahead-days	10	    Look for upcoming fixtures within the next 10 days
---half-life-days	240 days
---tune-half-life	Disabled
---market-weight	    0.50 (50% Dixon–Coles / 50% bookmaker)
---devig	power
---odds-regions	    eu
---fixture-provider	auto
---max-goals	10
---l2	0.08
---out-dir	        football_output_v2/raw
+Commit/push complete raw outputs, including all run bundles, BEFORE kickoff.
+Multiple runs can be uploaded together; each is preserved separately. Forward
+capture uses actual receipt time and the existing 20-minute minimum lead.
+Saving locally does not make a late upload eligible for forward grading.
+Headline win rate/ROI use latest eligible archived shortlist per fixture; Run
+Tracking retains all eligible runs without duplicating repeated uploads.
 
-Fetch training datasets:
-=====================================================================================================================
-py football_value_pipeline_v2_standalone.py --leagues UCL --tune-half-life --out-dir football_output_v2/raw
-py football_value_pipeline_v2_standalone.py --leagues EPL --tune-half-life --out-dir football_output_v2/raw
-py football_value_pipeline_v2_standalone.py --leagues LaLiga --tune-half-life --out-dir football_output_v2/raw
-py football_value_pipeline_v2_standalone.py --leagues Bundesliga --tune-half-life --out-dir football_output_v2/raw
-py football_value_pipeline_v2_standalone.py --leagues SerieA --tune-half-life --out-dir football_output_v2/raw
-py football_value_pipeline_v2_standalone.py --leagues Ligue1 --tune-half-life --out-dir football_output_v2/raw
+Closing odds are collected by GitHub Actions; the PC can be off. Do not enable
+the old Windows collector alongside cloud collection. Pull to receive results,
+updated performance reports and closing evidence. The closing report's primary
+comparison uses the latest-selection ROI cohort; first-entry evidence is separate.
 
+CURRENT DEFAULTS
+--leagues                   EPL
+--seasons-back              unset: six domestic seasons, four UCL seasons
+--domestic-seasons-back      unset: 6 (or explicit shared --seasons-back)
+--lookahead-days            10 (fixture retrieval)
+shortlist horizon           48 hours, minimum 20-minute lead, up to 12 matches
+--half-life-days            240 (unless --tune-half-life selects another value)
+--market-weight             0.50
+--devig                     power
+--odds-regions              eu
+--fixture-provider          auto
+--max-goals                 10 minimum; grid expands as needed
+--l2                        0.08
+--additional-odds-coverage   all
+--out-dir                   football_output_v2/raw
+--api-key-source            dotenv
 
-Practical workflow:
-======================================================================================================================
-1. Run the prediction command and formatter.
-2. Push forecasts so GitHub can archive them before kickoff.
-3. The local scheduled task collects near-close quotes.
-4. Push those collected files later.
-5. GitHub verifies results, grades experiments and updates reports.
+API USAGE
+'all' requests linked in-window event markets without the ranked 24-request cap.
+For the capped alternative append --additional-odds-coverage ranked (24 logical
+event-market attempts shared across leagues). This reduces market coverage.
+Neither cap is a guarantee of provider credits: retries, markets, regions,
+failover and the optional market-led experiment can add usage.
+BBS model fitting reads the shared cache and makes no additional BBS requests.
+GitHub owns routine BBS collection and its persisted 500/day allowance.
 
-
-Reconcile:
-=======================================================================================================================
-git status
-git add .
-git commit -m "Update local forecasts and collected data"
+RECONCILE LOCAL AND REMOTE
+Inspect git status first. Preserve local forecasts before pulling:
+git add football_output_v2/raw football_output_v2/readable
+git commit -m "Save complete prediction generations"
 git pull --rebase origin main
 git push origin main
 
-If there are conflicts:
-1. Run git status to identify the affected files.
-2. Resolve each conflict, removing the <<<<<<<, ======= and >>>>>>> markers.
-3. Continue:
-  >git add .
-  >git rebase --continue
+If conflicts occur, inspect git status. Preserve both distinct immutable run
+bundles. Resolve current_run.json and compatibility views to one complete run;
+verify with py workflow_checks.py raw before publishing. Never combine or
+hand-edit hash-bound files within a run. Continue with git add of resolved files
+and git rebase --continue. Details: docs/prediction-run-integrity.md.
