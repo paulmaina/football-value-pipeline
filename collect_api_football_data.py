@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 
 from api_key_config import load_api_keys
-from api_football_data import Client, LEAGUES, Store, collect, atomic_json
+from api_football_data import Client, LEAGUES, FREE_SEASONS, Store, collect, atomic_json
 from bbs_data import FetchError
 from prediction_runs import release_lock
 
@@ -16,13 +16,14 @@ def main(argv=None):
     parser.add_argument('--api-key-source', choices=('dotenv', 'environment'), default='dotenv')
     parser.add_argument('--cache', type=Path, default=Path('.football_cache'))
     parser.add_argument('--leagues', nargs='+', choices=list(LEAGUES), default=list(LEAGUES))
-    parser.add_argument('--seasons', nargs='+', type=int)
+    parser.add_argument('--seasons', nargs='+', type=int,
+                        help='Season start years; defaults to free-plan historical seasons 2022 2023 2024')
     parser.add_argument('--daily-budget', type=int, default=80)
     parser.add_argument('--max-requests', type=int, default=20)
     parser.add_argument('--stats-limit', type=int, default=10)
     args = parser.parse_args(argv)
     now = datetime.now(timezone.utc)
-    seasons = args.seasons or [now.year if now.month >= 7 else now.year-1]
+    seasons = sorted(set(args.seasons or FREE_SEASONS), reverse=True)
     if any(not 2000 <= year <= now.year for year in seasons) or args.stats_limit < 0:
         parser.error('Invalid season or statistics limit')
     root = args.cache/'api_football'; root.mkdir(parents=True, exist_ok=True)
@@ -39,7 +40,9 @@ def main(argv=None):
         report = collect(client, args.leagues, seasons, args.stats_limit)
         report.update(collected_at_utc=datetime.now(timezone.utc).isoformat(),
                       daily_budget=args.daily_budget, max_requests=args.max_requests,
-                      role='supplementary', current_season_access='CHECK_QUERY_STATUSES')
+                      role='supplementary', requested_seasons=seasons,
+                      current_season_access='NOT_REQUESTED' if
+                      (now.year if now.month >= 7 else now.year-1) not in seasons else 'CHECK_QUERY_STATUSES')
         atomic_json(root/'collection_status.json', report)
         print(json.dumps(report, indent=2))
         return 1 if report['status'] == 'partial' else 0

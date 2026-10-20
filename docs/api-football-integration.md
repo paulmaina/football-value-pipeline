@@ -21,12 +21,26 @@ allowance is shared by all uses of the key; avoid running a second independent
 collector with the same key at the same time. Default scheduled volume is at
 most 60/day, leaving room under the provider's advertised 100/day free quota.
 
-The free plan restricts season access. The collector requests the current season
-for all six competitions, records rejected/empty queries as partial coverage and
-leaves existing sources intact. It does not assume that advertised competition
-coverage means your subscription permits current-season downloads. Review
-`.football_cache/api_football/collection_status.json` and the Actions summary
-after the first run. A denied season provides no supplementary coverage.
+The account's live response confirmed free-plan access to season start years
+**2022–2024**, with 2026 rejected. Both the CLI default and scheduled workflow now
+collect 2024, 2023 and 2022 for all six competitions, newest first. Current-season
+fixtures/results continue through the existing sources. These historical seasons
+can fill training gaps only where they overlap the model's requested training window.
+Historical statistics are collected gradually (at most ten candidates per pass,
+subject to remaining budget), rather than excluded by a recent-match filter.
+The first pass may spend 18 requests on six leagues times three seasons, leaving
+only two statistics requests. Later passes reuse the season cache and advance the
+statistics backfill. Completed-season fixture responses are cached for 30 days;
+valid historical statistics are retained without routine weekly downloads.
+Unavailable historical statistics retry after seven days, allowing other matches
+to be attempted on intervening passes.
+
+Review `.football_cache/api_football/collection_status.json` and the Actions
+summary. Reports give fixture totals, saved statistics, requested seasons and safe
+query failure categories such as `PLAN_RESTRICTED`. Arbitrary provider error text
+and credentials are never saved. Partial coverage produces an Actions warning;
+a green workflow means collection state was safely published, not that every query
+returned usable data. Current-season access is `NOT_REQUESTED` by default.
 
 For a deliberate local collection, run:
 
@@ -34,8 +48,10 @@ For a deliberate local collection, run:
 py collect_api_football_data.py
 ```
 
-Historical backfill is optional, explicitly budgeted and subject to account
-access, for example `--leagues UCL --seasons 2023 2024 2025 2026`.
+Override seasons only when your account permits them, for example
+`--leagues UCL --seasons 2024 2023`. The permitted years are an explicit default
+based on this account's observed response, not a guarantee for every subscription;
+update them when the provider changes access.
 Commit/push the `.football_cache/api_football` directory after local collection
 so observations and its quota checkpoint reach Actions together. Existing
 prediction commands remain the same. A Git pull brings cloud observations into
@@ -88,8 +104,8 @@ records; received invalid/empty statistics revisions suppress older revisions.
 Network failures, plan denials and exhausted budgets retain existing valid
 statistics rather than manufacturing a newer unavailable observation. Optional source
 corruption is reported and retains the existing primary/BBS history.
-Valid statistics refresh weekly; unavailable/invalid responses can be retried
-after six hours. Cached successful responses can rebuild an interrupted
+Recent-season valid statistics refresh weekly; unavailable/invalid responses retry
+after six hours. Historical statistics use the longer cache periods described above. Cached successful responses can rebuild an interrupted
 normalization step without another request.
 Unchanged normalized matches reuse their original observations. Compact,
 timestamped schedule manifests bind unchanged upcoming fixtures to later
