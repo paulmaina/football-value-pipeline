@@ -26,6 +26,23 @@ STAT_NAMES = dict(zip(('Shots on Goal', 'Shots off Goal', 'Total Shots', 'Blocke
     'accurate_passes', 'pass_percentage')))
 STATUSES = set('TBD NS 1H HT 2H ET BT P SUSP INT FT AET PEN PST CANC ABD AWD WO LIVE'.split())
 FINISHED = {'FT', 'AET', 'PEN'}
+FREE_SEASONS = (2022, 2023, 2024)
+
+
+class QueryRejected(FetchError):
+    def __init__(self, reason):
+        self.reason = reason
+        super().__init__('API-Football query unavailable: '+reason)
+
+
+def rejection_reason(errors):
+    # Only fixed categories survive; arbitrary provider text may echo credentials.
+    if isinstance(errors, dict):
+        for key, reason in (('plan', 'PLAN_RESTRICTED'), ('token', 'CREDENTIALS_REJECTED'),
+                            ('requests', 'REQUEST_LIMIT'), ('rateLimit', 'REQUEST_LIMIT')):
+            if key in errors:
+                return reason
+    return 'QUERY_REJECTED'
 
 
 def payload_digest(value):
@@ -66,10 +83,13 @@ class Client:
         query = path+'?'+urlencode(sorted(params.items()))
         now = self.clock(); day = now.date().isoformat()
         cached = self.store.latest_response(query)
-        if cached and 0 <= (now-utc(cached['observed'])).total_seconds() < ttl:
-            payload = decode(cached['payload'])
+        payload = decode(cached['payload']) if cached else {}
+        cache_ttl = min(ttl, 21600) if payload.get('unavailable') else ttl
+        if cached and 0 <= (now-utc(cached['observed'])).total_seconds() < cache_ttl:
             if payload.get('unavailable'):
-                raise FetchError('API-Football query unavailable for this account; retry after cache expiry')
+                raise QueryRejected(cached_reason if (cached_reason := payload.get('reason')) in
+                                    {'PLAN_RESTRICTED', 'CREDENTIALS_REJECTED', 'REQUEST_LIMIT', 'QUERY_REJECTED'}
+                                    else 'QUERY_REJECTED')
             return payload, cached['observed']
         if self.requests >= self.max_requests or self.store.setting('blocked_day') == day:
             raise Deferred('API-Football request budget exhausted or provider rate limited')
@@ -102,8 +122,9 @@ class Client:
             raise FetchError('Malformed API-Football response envelope')
         if data.get('errors'):
             # Do not log or persist arbitrary server errors that could echo a key.
-            self.store.response(query, observed, {'unavailable': True})
-            raise FetchError('API-Football query rejected; check account season access')
+            reason = rejection_reason(data['errors'])
+            self.store.response(query, observed, {'unavailable': True, 'reason': reason})
+            raise QueryRejected(reason)
         if not isinstance(data.get('response'), list):
             raise FetchError('Malformed API-Football response envelope')
         if data.get('paging', {}).get('total') != 1 or data.get('results') != len(data['response']):
@@ -186,13 +207,16 @@ def observations(cache, kind, cutoff):
 
 def collect(client, leagues, seasons, stats_limit=10):
     report = {'status': 'complete', 'queries': [], 'quarantined_matches': 0,
-              'statistics_saved': 0, 'requests': 0}
+              'statistics_saved': 0, 'statistics_failures': [], 'requests': 0}
     known = {(r['league'], r['entity']): r for r in client.store.latest('match', client.clock().isoformat())}
     quarantine = {(r['league'], r['entity']): r for r in client.store.latest('quarantine', client.clock().isoformat())}
     for league in leagues:
         for year in seasons:
             try:
-                data, observed = client.get('/fixtures', {'league': LEAGUES[league], 'season': year})
+                # Closed seasons do not need three downloads every day.
+                historical = year < client.clock().year - (client.clock().month < 7) - 1
+                data, observed = client.get('/fixtures', {'league': LEAGUES[league], 'season': year},
+                                            ttl=30*86400 if historical else 21600)
                 if not data['response']:
                     report['status'] = 'partial'
                 seen = set(); schedule = {}
@@ -218,16 +242,18 @@ def collect(client, leagues, seasons, stats_limit=10):
                                           'fixtures': len(data['response'])})
             except (FetchError, ValueError, OSError) as exc:
                 report['status'] = 'partial'
-                report['queries'].append({'league': league, 'season': year, 'status': type(exc).__name__})
+                report['queries'].append({'league': league, 'season': year, 'status': type(exc).__name__,
+                                          'reason': exc.reason if isinstance(exc, QueryRejected) else
+                                          'REQUEST_BUDGET_OR_RATE_LIMIT' if isinstance(exc, Deferred) else 'FETCH_FAILED'})
     matches = client.store.latest('match', client.clock().isoformat())
     held = {(r['league'], r['entity']): r for r in client.store.latest('quarantine', client.clock().isoformat())}
     matches = [r for r in matches if r['league'] in leagues and r['payload']['season'] in seasons
                and r['payload']['status'] == 'FT'
                and r['payload']['training_scope_eligible']
-               and 0 < (client.clock()-utc(r['payload']['kickoff_utc'])).total_seconds() < 180*86400
+               and utc(r['payload']['kickoff_utc']) < client.clock()
                and ((r['league'], r['entity']) not in held or
                     utc(held[(r['league'], r['entity'])]['observed']) < utc(r['observed']))]
-    # Current results before old backfill. Statistics already saved remain cached.
+    # Newest results first; cached historical statistics allow backfill to advance.
     matches.sort(key=lambda r: r['payload']['kickoff_utc'], reverse=True)
     saved_stats = {(r['league'], r['entity']): r for r in client.store.latest('statistics', client.clock().isoformat())}
     count = 0
@@ -237,11 +263,20 @@ def collect(client, leagues, seasons, stats_limit=10):
         query = '/fixtures/statistics?'+urlencode([('fixture', row['payload']['id'])])
         old = client.store.latest_response(query)
         saved = saved_stats.get((row['league'], row['entity']))
-        ttl = 7*86400 if saved and saved['payload'].get('available') else 21600
+        historical = row['payload']['season'] < client.clock().year - (client.clock().month < 7) - 1
+        if saved and saved['payload'].get('available'):
+            ttl = 36500*86400 if historical else 7*86400
+        else:
+            ttl = 7*86400 if historical else 21600
         if (old and saved and old['observed'] == saved['observed']
                 and (client.clock()-utc(old['observed'])).total_seconds() < ttl):
             if not saved['payload'].get('available'):
                 report['status'] = 'partial'
+            continue
+        if old and decode(old['payload']).get('unavailable') and 0 <= (client.clock()-utc(old['observed'])).total_seconds() < 21600:
+            report['status'] = 'partial'
+            report['statistics_failures'].append({'league': row['league'], 'fixture': row['entity'],
+                                                  'reason': 'CACHED_QUERY_REJECTED'})
             continue
         count += 1
         try:
@@ -255,10 +290,15 @@ def collect(client, leagues, seasons, stats_limit=10):
                 report['status'] = 'partial'
             client.store.put('statistics', row['league'], row['entity'], observed, value)
             report['statistics_saved'] += 1
-        except (FetchError, ValueError, OSError):
+        except (FetchError, ValueError, OSError) as exc:
             report['status'] = 'partial'
+            report['statistics_failures'].append({'league': row['league'], 'fixture': row['entity'],
+                'reason': exc.reason if isinstance(exc, QueryRejected) else
+                          'REQUEST_BUDGET_OR_RATE_LIMIT' if isinstance(exc, Deferred) else 'FETCH_FAILED'})
             # A failed request is not a new observation about the match. Keep
             # valid saved statistics; only a received invalid/empty revision
             # above can supersede them with an unavailable tombstone.
+    report['fixtures_collected'] = sum(q.get('fixtures', 0) for q in report['queries'])
+    report['plan_restricted_queries'] = sum(q.get('reason') == 'PLAN_RESTRICTED' for q in report['queries'])
     report['requests'] = client.requests
     return report

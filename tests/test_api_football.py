@@ -118,6 +118,55 @@ class ApiFootballTests(unittest.TestCase):
         with self.assertRaises(FetchError):client.get('/fixtures', {'case': 'header'})
         self.assertNotIn('SECRET_TOKEN', ''.join(p.read_text() for p in self.cache.rglob('*.json')))
 
+    def test_plan_rejections_report_safe_reason_live_and_cached(self):
+        client = self.client([(200, {}, api.dumps(envelope([], {'plan':
+            'SECRET_TOKEN: Free plans do not have access to this season'})).encode())])
+        for attempt in range(2):
+            report = api.collect(client, ['EPL'], [2026], 0)
+            self.assertEqual(report['queries'][0]['reason'], 'PLAN_RESTRICTED')
+            self.assertEqual(report['plan_restricted_queries'], 1)
+            self.assertEqual(report['fixtures_collected'], 0)
+        self.assertEqual(len(self.calls), 1)
+        self.assertNotIn('SECRET_TOKEN', json.dumps(report))
+        self.assertNotIn('SECRET_TOKEN', ''.join(p.read_text() for p in self.cache.rglob('*.json')))
+        self.assertEqual(api.rejection_reason({'token': 'secret'}), 'CREDENTIALS_REJECTED')
+        self.assertEqual(api.rejection_reason({'requests': 'limit'}), 'REQUEST_LIMIT')
+        self.assertEqual(api.rejection_reason(['secret']), 'QUERY_REJECTED')
+
+    def test_historical_statistics_backfill_advances_with_cached_season_and_budget(self):
+        rows = [match(1, day='2024-10-10T15:00:00Z'),
+                match(2, day='2024-10-09T15:00:00Z')]
+        for row in rows:row['league']['season'] = 2024
+        client = self.client([(200, {}, api.dumps(envelope(rows)).encode()),
+                              (200, {}, api.dumps(envelope(stats())).encode())], max_requests=2)
+        first = api.collect(client, ['EPL'], [2024], 10)
+        self.assertEqual(first['fixtures_collected'], 2)
+        self.assertEqual(first['statistics_saved'], 1)
+        self.assertEqual(first['status'], 'partial')
+        self.assertEqual(first['requests'], 2)
+        client = self.client([(200, {}, api.dumps(envelope(stats())).encode())])
+        second = api.collect(client, ['EPL'], [2024], 10)
+        self.assertEqual(second['status'], 'complete')
+        self.assertEqual(second['requests'], 1)
+        self.assertEqual(self.calls, [('/fixtures/statistics', {'fixture': 2})])
+        self.assertEqual(len(self.store.latest('statistics', NOW.isoformat())), 2)
+        # Historical season cache lasts beyond the former six-hour polling TTL.
+        client.clock = lambda: NOW + timedelta(days=8)
+        self.assertEqual(api.collect(client, ['EPL'], [2024], 10)['requests'], 1)
+        self.assertEqual(len(self.calls), 1)
+
+    def test_cached_statistics_denial_does_not_block_other_backfill_candidates(self):
+        rows = [match(1, day='2024-10-10T15:00:00Z'), match(2, day='2024-10-09T15:00:00Z')]
+        for row in rows:row['league']['season'] = 2024
+        client = self.client([(200, {}, api.dumps(envelope(rows)).encode()),
+                              (200, {}, api.dumps(envelope([], {'plan': 'denied'})).encode())])
+        first = api.collect(client, ['EPL'], [2024], 1)
+        self.assertEqual(first['statistics_failures'][0]['reason'], 'PLAN_RESTRICTED')
+        client = self.client([(200, {}, api.dumps(envelope(stats())).encode())])
+        second = api.collect(client, ['EPL'], [2024], 1)
+        self.assertEqual(second['statistics_saved'], 1)
+        self.assertEqual(self.calls, [('/fixtures/statistics', {'fixture': 2})])
+
     def test_normal_match_uses_regulation_scores_for_extra_time_and_penalties(self):
         for status in ('FT', 'AET', 'PEN', 'NS', 'TBD', 'PST', 'AWD', 'WO', 'ABD'):
             row = match(status=status)
@@ -389,8 +438,13 @@ class ApiFootballTests(unittest.TestCase):
         from collect_api_football_data import main
         args = ['--cache', str(self.cache), '--leagues', 'EPL', '--stats-limit', '0']
         with patch('collect_api_football_data.load_api_keys'), patch.dict('os.environ', {'API_FOOTBALL_KEY': 'test'}):
-            with patch('collect_api_football_data.collect', return_value={'status': 'complete'}):
+            with patch('collect_api_football_data.collect', return_value={'status': 'complete'}) as collect_mock:
                 self.assertEqual(main(args), 0)
+                self.assertEqual(collect_mock.call_args.args[2], [2024, 2023, 2022])
+                report = json.loads((self.cache/'api_football/collection_status.json').read_text())
+                self.assertEqual(report['current_season_access'], 'NOT_REQUESTED')
+                self.assertEqual(main(args+['--seasons', '2026']), 0)
+                self.assertEqual(collect_mock.call_args.args[2], [2026])
             with patch('collect_api_football_data.collect', return_value={'status': 'partial'}):
                 self.assertEqual(main(args), 1)
             with patch.dict('os.environ', {'API_FOOTBALL_KEY': ''}):
