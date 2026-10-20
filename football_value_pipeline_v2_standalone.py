@@ -1756,6 +1756,9 @@ class DixonColesModel:
                 self.statistics_model = fit_statistics(df, reference, baseline_factory,
                     validation_mode=df.attrs.get('bbs_statistics_validation', 'auto'))
                 self.bbs_statistics_report = self.statistics_model.report
+                if any(x.get('source') == 'api-football' for x in df.attrs['bbs_statistics_observations']):
+                    self.bbs_statistics_report['input_providers'] = sorted({
+                        x.get('source', 'bigballsdata') for x in df.attrs['bbs_statistics_observations']})
             except (ValueError, RuntimeError, OSError, KeyError, TypeError) as exc:
                 self.bbs_statistics_report = {'status': 'BASELINE_RETAINED_FEATURE_ERROR',
                                              'error_type': type(exc).__name__}
@@ -2884,6 +2887,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         from bbs_integration import combined_training_history
         result = combined_training_history(history, self.source.http.cache_dir,
                                          league.key, now, seasons_back)
+        from api_football_integration import augment_history
+        result = augment_history(result, self.source.http.cache_dir, league.key, now, seasons_back)
         result.attrs['training_seasons_requested'] = seasons_back
         result.attrs['bbs_statistics_enabled'] = getattr(self, 'bbs_statistics', True)
         result.attrs['bbs_statistics_validation'] = getattr(self, 'bbs_statistics_validation', 'auto')
@@ -2922,6 +2927,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     df = self.source.fixtures(league, self.lookahead_days, now)
 
                 if not df.empty:
+                    from api_football_integration import supplement_fixtures
+                    df = supplement_fixtures(df, getattr(self, '_validation_history', pd.DataFrame()),
+                        self.source.http.cache_dir, league.key, now, self.lookahead_days)
                     print(
                         f"[{league.key}] fixtures: {df.iloc[0]['fixture_source']} "
                         f"({len(df)} matches)",
@@ -2932,6 +2940,11 @@ class FootballValuePipelineV2(FootballValuePipeline):
             except Exception as exc:
                 failures.append(f"{provider}: {exc}")
 
+        from api_football_integration import supplement_fixtures
+        supplemental = supplement_fixtures(pd.DataFrame(), getattr(self, '_validation_history', pd.DataFrame()),
+            self.source.http.cache_dir, league.key, now, self.lookahead_days)
+        if not supplemental.empty:
+            return supplemental
         raise RuntimeError(
             f"No reliable upcoming {league.name} fixtures found. "
             + " | ".join(failures)
@@ -3726,7 +3739,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--domestic-seasons-back", type=int, choices=range(1, 11), default=None,
                    help="Domestic CSV seasons including current season (default: 6); independent of UCL.")
     p.add_argument('--no-bbs-statistics', action='store_true',
-        help='Use the original goal model without validated BBS statistical features')
+        help='Use the original goal model without validated BBS/API-Football statistical features')
     p.add_argument('--bbs-statistics-validation', choices=('auto', 'strict'), default='auto',
         help='auto: assess labelled retrospective backfill when strict history is insufficient; strict: observed-before-origin inputs only')
     p.add_argument("--half-life-days", type=float, default=240.0)
