@@ -104,7 +104,7 @@ def collection_targets(root, predictions, picks):
     """Retain frozen selections even after a new forecast changes the shortlist."""
     from performance_tracking import snapshots, frozen_rows, fixture_key
     archive = snapshots(root)
-    frozen_picks = frozen_rows(archive, 'shortlist')
+    frozen_picks = frozen_rows(archive, 'shortlist') + frozen_rows(archive, 'shortlist', latest=True)
     sources = {fixture_key(row): row for row in frozen_rows(archive, 'predictions')}
     sources.update({fixture_key(row): row for row in predictions})
     selected = {}
@@ -143,8 +143,10 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None,reservation_id=None)
             raise ValueError('Missing or expired committed request reservation')
         cap = min(limit, max(0, reservation['allowance']-reservation['used']))
     observations,_=load_observations(root,start)
-    predictions=read_csv(root/'raw/all_leagues_predictions.csv')
-    picks=read_csv(root/'raw/conservative_bet_shortlist.csv')
+    from prediction_runs import resolve_raw
+    raw=resolve_raw(root/'raw')
+    predictions=read_csv(raw/'all_leagues_predictions.csv')
+    picks=read_csv(raw/'conservative_bet_shortlist.csv')
     targets=collection_targets(root,predictions,picks)
     targets.sort(key=lambda item:(not bool(item[1]),str(item[0].get('kickoff_utc',''))))
     count=0;written=0;errors=[];checks=[];eligible=0;complete=0
@@ -197,9 +199,9 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None,reservation_id=None)
     write_json(root/'closing_odds/collector_status.json',status);return status
 
 
-def evaluate(root,archive,clock):
+def evaluate(root,archive,clock, *, latest=False):
     from performance_tracking import frozen_rows,fixture_key,utc,number
-    observations,rejected=load_observations(root,clock);picks=frozen_rows(archive,'shortlist');rows=[]
+    observations,rejected=load_observations(root,clock);picks=frozen_rows(archive,'shortlist',latest=latest);rows=[]
     for pick in picks:
         key=fixture_key(pick);selection=next((k for k,v in LABELS.items() if v==pick.get('market')),None);entry=number(pick.get('offered_decimal_odds'),min_value=1.000001)
         item={**pick,'entry_price_basis':'frozen offered quote; accepted execution unverified','closing':{}}
@@ -210,6 +212,8 @@ def evaluate(root,archive,clock):
             candidates=[]
             for obs in observations:
                 if fixture_key(obs['fixture'])!=key or utc(obs['fixture']['kickoff_utc'])!=utc(pick['kickoff_utc']) or utc(obs['observed_at_utc'])<utc(pick['snapshot_captured_utc']):continue
+                if pick.get('odds_event_id') and obs['fixture'].get('odds_event_id') != pick['odds_event_id']:
+                    continue
                 q=next((x for x in obs['quotes'] if x['bookmaker']==book and x['selection']==selection),None)
                 # For Pinnacle double chance, coherent 1X2 sums provide FAIR probabilities only, never prices.
                 if q is None and book=='pinnacle' and selection in ('home_draw','draw_away','home_away'):
@@ -227,31 +231,61 @@ def evaluate(root,archive,clock):
         valid=[x['closing'][book] for x in rows if x['closing'][book]['status']=='OBSERVED_NEAR_CLOSE'];values=[x['fair_close_ev'] for x in valid if x['fair_close_ev'] is not None];prices=[x['offered_price_clv'] for x in valid if x['offered_price_clv'] is not None]
         groups[book]={'covered_selections':len(valid),'missing_selections':sum(x['closing'][book]['status']=='MISSING_VALID_PRE_KICKOFF_QUOTE' for x in rows),'pending_selections':sum(x['closing'][book]['status']=='PENDING_KICKOFF' for x in rows),'mean_fair_close_ev':sum(values)/len(values) if values else None,'mean_same_book_offered_price_clv':sum(prices)/len(prices) if prices else None,'positive_fair_close_ev':sum(v>0 for v in values)}
     summary={'version':VERSION,'reviewed_at_utc':clock.isoformat(),'frozen_selections':len(rows),'observations':len(observations),'rejected_files':rejected,'by_bookmaker':groups,'automatic_production_change':False,'note':'Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.'}
+    if latest:
+        summary['tracking_basis'] = 'LATEST_PREMATCH_PER_FIXTURE'
     return summary,rows
 
 
 def review(root,archive,clock):
     from performance_tracking import write_json
-    s,rows=evaluate(root,archive,clock);dest=root/'performance/closing_odds';write_json(dest/'summary.json',s);write_json(dest/'selections.json',rows)
-    (dest/'report.md').write_text('# Closing quote evidence\n\n'+s['note']+'\n\n'+json.dumps(s['by_bookmaker'],indent=2)+'\n',encoding='utf-8');return s
+    dest=root/'performance/closing_odds'
+    summary,rows=evaluate(root,archive,clock,latest=True)
+    first,first_rows=evaluate(root,archive,clock)
+    first['tracking_basis']='FIRST_PREMATCH_PER_FIXTURE'
+    write_json(dest/'summary.json',summary)
+    write_json(dest/'selections.json',rows)
+    write_json(dest/'first_prediction_summary.json',first)
+    write_json(dest/'first_prediction_selections.json',first_rows)
+    (dest/'report.md').write_text(
+        '# Closing quote evidence\n\n'
+        'Primary comparison: latest eligible archived selection per match, matching headline ROI. '
+        'First-entry reference is retained separately; older experiment baselines are unchanged.\n\n'
+        +summary['note']+'\n\n## Latest selections — headline ROI cohort\n\n'
+        +json.dumps(summary['by_bookmaker'],indent=2)
+        +'\n\n## First-entry reference\n\n'+json.dumps(first['by_bookmaker'],indent=2)+'\n',encoding='utf-8')
+    return summary
 
 
 def validate_report(root):
     from performance_tracking import load_json,snapshots,utc
-    dest=root/'performance/closing_odds';actual=load_json(dest/'summary.json',{});s,rows=evaluate(root,snapshots(root),utc(actual['reviewed_at_utc']))
-    if s!=actual or rows!=load_json(dest/'selections.json',[]):raise ValueError('Closing evidence reconciliation failed')
+    dest=root/'performance/closing_odds'
+    actual=load_json(dest/'summary.json',{})
+    latest=actual.get('tracking_basis')=='LATEST_PREMATCH_PER_FIXTURE'
+    archive=snapshots(root);clock=utc(actual['reviewed_at_utc'])
+    summary,rows=evaluate(root,archive,clock,latest=latest)
+    if summary!=actual or rows!=load_json(dest/'selections.json',[]):
+        raise ValueError('Closing evidence reconciliation failed')
+    if latest:
+        first,first_rows=evaluate(root,archive,clock)
+        first['tracking_basis']='FIRST_PREMATCH_PER_FIXTURE'
+        if (first!=load_json(dest/'first_prediction_summary.json',{}) or
+                first_rows!=load_json(dest/'first_prediction_selections.json',[])):
+            raise ValueError('First-entry closing evidence reconciliation failed')
     return True
+
 
 
 def pending_window(root, deadline, clock):
     """Do not keep a runner awake once its collection targets are complete."""
     from performance_tracking import read_csv, utc
     observations, _ = load_observations(root,clock)
+    from prediction_runs import resolve_raw
+    raw = resolve_raw(root/'raw')
     return any((kick := utc(source.get('kickoff_utc'))) and clock < kick <= deadline
                and required_quotes(source,selected,observations)
                for source,selected in collection_targets(root,
-                   read_csv(root/'raw/all_leagues_predictions.csv'),
-                   read_csv(root/'raw/conservative_bet_shortlist.csv')))
+                   read_csv(raw/'all_leagues_predictions.csv'),
+                   read_csv(raw/'conservative_bet_shortlist.csv')))
 
 
 def main(argv=None):

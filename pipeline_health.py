@@ -21,11 +21,12 @@ def utc(value):
         return None
 
 
-def current_health(root, clock):
+def current_health(root, clock, *, raw_dir=None):
     from performance_tracking import read_csv
     from quote_policy import is_exchange, load_policy
     from ucl_training import health
-    raw = root/'raw'; training = {}
+    from prediction_runs import resolve_raw
+    raw = Path(raw_dir) if raw_dir is not None else resolve_raw(root/'raw'); training = {}
     for path in sorted(raw.glob('*_diagnostics.json')):
         data = read(path, {})
         end = data.get('training_end')
@@ -78,11 +79,12 @@ def current_health(root, clock):
             'dependencies': dependencies}
 
 
-def capture_health(root, clock, files):
+def capture_health(root, clock, files, *, raw_dir=None):
     from performance_tracking import read_csv
-    data = current_health(root, clock)
+    data = current_health(root, clock, raw_dir=raw_dir)
     data['experiments'] = {}
-    raw = root/'raw'
+    from prediction_runs import resolve_raw
+    raw = Path(raw_dir) if raw_dir is not None else resolve_raw(root/'raw')
     for name in ('goal_blend_experiment', 'market_led_experiment', 'filter_sensitivity_experiment', 'benchmark_forward_experiment', 'totals_anchor_experiment', 'model_reliability_experiment', 'shortlist_policy_experiment', 'shortlist_weight_experiment'):
         data['experiments'][name] = ('CAPTURED' if name+'.json' in files else
             'PRESENT_BUT_REJECTED' if (raw/(name+'.json')).exists() else 'NOT_GENERATED')
@@ -114,7 +116,7 @@ def model_component_hashes():
         'dc_decay_validation.py', 'market_blend_validation.py',
         'bbs_statistics_model.py', 'bbs_integration.py', 'bbs_data.py',
         'match_scores.py', 'ucl_training.py', 'api_key_config.py', 'refresh_training_data.py',
-        'odds_provider_health.py',
+        'odds_provider_health.py', 'prediction_runs.py',
         'bbs_team_aliases.json', 'shortlist_quote_policy.json')
     return {name: hashlib.sha256((repo/name).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
             for name in names}
@@ -191,7 +193,7 @@ def write_report(root, metrics, clock):
     for row in capture_rows[-20:]:
         lines.append(f"| {row['commit'][:12]} | {row['experiments']['goal_blend_experiment']} | {row['experiments']['market_led_experiment']} | {row['experiments']['recency_experiment']} | {row['experiments']['filter_sensitivity_experiment']} |")
     lines += ['', 'Dependency versions at review: '+json.dumps(data['dependencies'])+'. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.', '',
-        'Closing odds: [report](closing_odds/report.md). Locally observed near-close quotes, coverage and offered-price comparisons; official close and accepted execution are unverified.', '',
+        'Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.', '',
         'Totals anchoring: [report](totals_anchor_experiment/report.md). Separate Pinnacle trial, no production probability changes.', '',
         'Experiment review queue: [report](experiment_review_queue.md). Benchmark candidate capture and readiness are evaluated automatically; no production promotion.', '',
         'Filter sensitivity: [report](filter_sensitivity_experiment/report.md). Frozen 1.5%, 3% and 5% adjusted EV policies; production unchanged.', '',

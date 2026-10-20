@@ -4,3 +4,6 @@ football_output_v2/raw/*.csv text eol=lf
 .football_cache/fdorg_history_UCL_*.json text eol=lf
 # Never normalize immutable snapshot bytes after their SHA-256 is recorded.
 football_output_v2/performance/snapshots/** -text
+
+# Complete local prediction generations are immutable byte-bound bundles.
+football_output_v2/raw/prediction_runs/** -text
