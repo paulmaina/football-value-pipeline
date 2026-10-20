@@ -440,6 +440,13 @@ def add_health(parts, data, history, st):
         state=info.get('current_source_health', info.get('forecast_training_health',{})).get('status')
         training.append([league,info.get('training_end'),info.get('training_matches'),info.get('days_since_latest_result'),label(state), 'Source completeness unverified' if state=='RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED' else 'See source health report'])
     section('Training data freshness', ['League','Latest result','Training matches','Days since result','Source status','Next check'],training)
+    supplementary = []
+    for league, info in data.get('training', {}).items():
+        api = info.get('api_football', {'status': 'NOT_COLLECTED'})
+        supplementary.append([league, api.get('status'), api.get('matched_results'),
+            api.get('added_results'), api.get('conflicts'), api.get('statistics_observations')])
+    section('API-Football supplementary inputs',
+        ['League','Source status','Confirmed results','Added results','Conflicts held','Stats observations'], supplementary)
     closing=[]
     for book, info in data.get('closing_odds',{}).get('by_bookmaker',{}).items():
         closing.append([book,info.get('covered_selections'),info.get('missing_selections'),info.get('pending_selections'),

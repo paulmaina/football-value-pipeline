@@ -62,7 +62,8 @@ def validation_code_fingerprint():
     root = Path(__file__).resolve().parent
     files = ('goal_market_validation.py', 'football_value_pipeline_v2_standalone.py',
              'score_probability.py', 'double_chance.py', 'match_scores.py', 'bbs_team_aliases.json',
-             'bbs_statistics_model.py', 'bbs_integration.py')
+             'bbs_statistics_model.py', 'bbs_integration.py',
+             'api_football_data.py', 'api_football_integration.py')
     return hashlib.sha256(b''.join((name.encode()+b'\0'+(root/name).read_bytes()) for name in files)).hexdigest()
 
 
