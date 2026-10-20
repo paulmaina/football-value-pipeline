@@ -117,7 +117,8 @@ def fixture_key(row: dict) -> str:
 
 
 def capture(commit_sha: str, *, root: Path = ROOT,
-            captured_at: datetime | None = None) -> bool:
+            captured_at: datetime | None = None, raw_dir: Path | None = None,
+            prediction_run_id: str | None = None) -> bool:
     """Archive exact committed forecast inputs, never overwrite the snapshot.
 
     The capture time is the actual CI time, not user-controlled model metadata.
@@ -125,8 +126,19 @@ def capture(commit_sha: str, *, root: Path = ROOT,
     """
     if not (len(commit_sha) >= 12 and all(c in "0123456789abcdef" for c in commit_sha.lower())):
         raise ValueError("Expected a Git commit SHA (hexadecimal, at least 12 characters)")
-    raw = root / "raw"
-    directory = root / "performance" / "snapshots" / commit_sha[:16]
+    from prediction_runs import resolve_raw, validate_bundle
+    raw = Path(raw_dir) if raw_dir is not None else resolve_raw(root / 'raw')
+    if prediction_run_id is None and (raw/'run_manifest.json').exists():
+        prediction_run_id = validate_bundle(raw)['run_id']
+    if prediction_run_id is not None:
+        manifest = validate_bundle(raw)
+        if manifest['run_id'] != prediction_run_id:
+            raise ValueError('Capture prediction-run identity mismatch')
+    # A run may be uploaded with many siblings under one real source commit.
+    # Archive identity is separate from the actual source Git commit.
+    archive_id = (hashlib.sha256(('prediction-run:'+prediction_run_id).encode()).hexdigest()[:40]
+                  if prediction_run_id is not None else commit_sha)
+    directory = root / "performance" / "snapshots" / archive_id[:16]
     if directory.exists():
         print(f"Snapshot already archived: {directory}")
         return False
@@ -135,6 +147,8 @@ def capture(commit_sha: str, *, root: Path = ROOT,
         "shortlist.csv": raw / "conservative_bet_shortlist.csv",
         "selection_summary.json": raw / "conservative_bet_summary.json",
     }
+    if prediction_run_id is not None:
+        files['run_manifest.json'] = raw/'run_manifest.json'
     missing = [str(p) for p in files.values() if not p.exists()]
     if missing:
         raise FileNotFoundError("Cannot snapshot incomplete forecast files: " + ", ".join(missing))
@@ -227,11 +241,14 @@ def capture(commit_sha: str, *, root: Path = ROOT,
             shutil.copyfile(source, dest)
             digests[output_name] = hashlib.sha256(dest.read_bytes()).hexdigest()
         from pipeline_health import capture_health
-        write_json(staging / "pipeline_health.json", capture_health(root, created, files))
+        write_json(staging / "pipeline_health.json", capture_health(root, created, files, raw_dir=raw))
         digests["pipeline_health.json"] = hashlib.sha256((staging / "pipeline_health.json").read_bytes()).hexdigest()
         write_json(staging / "metadata.json", {
             "schema_version": 1,
             "git_commit_sha": commit_sha,
+            **({'archive_id': archive_id, 'prediction_run_id': prediction_run_id,
+                'data_origin': 'immutable prediction generation received at actual capture time'}
+               if prediction_run_id is not None else {}),
             "captured_at_utc": iso(created),
             # Sidecars bind to the exact generation instant, including microseconds.
             # Do not truncate here: capture succeeds against the raw summary but
@@ -242,7 +259,8 @@ def capture(commit_sha: str, *, root: Path = ROOT,
             "n_shortlist": len(picks),
             "n_pre_kickoff_forecasts": eligible,
             "sha256": digests,
-            "data_origin": "git-tracked prediction output at capture time",
+            **({"data_origin": "git-tracked prediction output at capture time"}
+               if prediction_run_id is None else {}),
         })
         staging.rename(directory)
     print(f"Archived immutable prediction snapshot: {directory}; {eligible} pre-kickoff fixtures")
@@ -259,10 +277,21 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
         if directory.name.startswith('.capture-'):
             continue
         meta = load_json(meta_path, {})
+        if 'archive_id' in meta:
+            from prediction_runs import archive_identity
+            try:
+                archive_id = archive_identity(meta, directory.name)
+            except ValueError:
+                warnings.warn(f'Invalid prediction-run archive identity ignored: {directory}')
+                continue
+            meta = {**meta, 'source_git_commit_sha': meta['git_commit_sha'],
+                    'git_commit_sha': archive_id}
         if utc(meta.get("captured_at_utc")) is None or utc(meta.get("generated_at_utc")) is None:
             warnings.warn(f"Invalid snapshot metadata ignored: {directory}")
             continue
         required = {'predictions.csv', 'shortlist.csv', 'selection_summary.json'}
+        if 'archive_id' in meta:
+            required.add('run_manifest.json')
         optional = {'goal_blend_experiment.json', 'market_led_experiment.json',
             'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json',
             'totals_anchor_experiment.json', 'model_reliability_experiment.json',
@@ -286,6 +315,13 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
             warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
             continue
         summary = load_json(directory / "selection_summary.json", {})
+        if 'archive_id' in meta:
+            from prediction_runs import validate_archive_binding
+            try:
+                validate_archive_binding(directory, meta)
+            except (ValueError, KeyError, OSError):
+                warnings.warn(f'Unbound prediction-run archive ignored: {directory}')
+                continue
         # The immutable summary restores legacy subsecond generation precision;
         # a different generation instant cannot relabel an archived forecast.
         from forecast_integrity import snapshot_generated_at
@@ -304,7 +340,7 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
             read_csv(directory / "shortlist.csv"),
         ))
     return sorted(output, key=lambda item: (
-        item[0]["captured_at_utc"], item[0]["git_commit_sha"]
+        utc(item[0]["captured_at_utc"]), utc(item[0]["generated_at_utc"]), item[0]["git_commit_sha"]
     ))
 
 
@@ -972,7 +1008,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--api-key-source", choices=("dotenv", "environment"), default="dotenv")
     args = parser.parse_args(argv)
     if args.action == "capture":
-        capture(args.commit_sha, root=args.root)
+        from prediction_runs import capture_runs
+        if (args.root/'raw/prediction_runs').exists():
+            capture_runs(args.root, args.commit_sha)
+        else:
+            capture(args.commit_sha, root=args.root)
     else:
         from api_key_config import load_api_keys
         load_api_keys(args.api_key_source)

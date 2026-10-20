@@ -14,9 +14,9 @@ from conservative_bet_filter import build_conservative_shortlist, BALANCED_SELEC
 from format_football_output import process_conservative_shortlist
 
 
-def refresh(root, as_of=None):
+def _refresh(root, as_of=None, *, raw_dir=None):
     root = Path(root)
-    raw = root / 'raw'
+    raw = raw_dir if raw_dir is not None else root / 'raw'
     predictions = pd.read_csv(raw / 'all_leagues_predictions.csv')
     reliability = {}
     for path in sorted(raw.glob('*_goal_market_validation.json')):
@@ -36,8 +36,21 @@ def refresh(root, as_of=None):
     decisions.to_csv(raw / 'conservative_bet_rejections.csv', index=False)
     (raw / 'conservative_bet_summary.json').write_text(
         json.dumps(summary, indent=2), encoding='utf-8')
-    (root / 'readable').mkdir(parents=True, exist_ok=True)
-    process_conservative_shortlist(raw, root / 'readable')
+    return summary
+
+
+def refresh(root, as_of=None):
+    from prediction_runs import stage_run, publish_run
+    from pipeline_health import write_generation_metadata
+    from workflow_checks import raw_check
+    root = Path(root)
+    with stage_run(root/'raw', seed=True) as staging:
+        summary = _refresh(root, as_of, raw_dir=staging)
+        write_generation_metadata(staging, summary)
+        raw_check(staging.parent)
+        bundle = publish_run(staging, root/'raw')
+    (root/'readable').mkdir(parents=True, exist_ok=True)
+    process_conservative_shortlist(bundle, root/'readable')
     return summary
 
 

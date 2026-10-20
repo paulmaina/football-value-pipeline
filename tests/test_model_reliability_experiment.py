@@ -120,7 +120,7 @@ class ReliabilityTests(OfflineQuotePolicyTestCase):
             with patch('conservative_bet_filter.build_conservative_shortlist', side_effect=partial(build_conservative_shortlist, as_of=NOW)), patch(
                     'football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league', new=run), patch(
                     'football_value_pipeline_v2_standalone.FootballValuePipelineV2._history_for_league', return_value=history), patch(
-                    'goal_market_validation.evaluate_market_history', return_value={'markets': {}}), patch(
+                    'goal_market_validation.evaluate_market_history', return_value={'league': data.iloc[0]['league'], 'markets': {}}), patch(
                     'football_value_pipeline_v2_standalone.DixonColesModel', ToyModel):
                 for enabled in (False, True):
                     args = ['--leagues', 'EPL', '--out-dir', str(root/str(enabled))]

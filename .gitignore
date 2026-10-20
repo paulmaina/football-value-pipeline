@@ -34,3 +34,9 @@ football_output_v2/closing_odds/collector.lock
 .football_cache/bbs/state.lock
 # Interrupted archive staging is never a published forecast snapshot.
 football_output_v2/performance/snapshots/.capture-*/
+
+# In-progress generation leases and staging are never published.
+football_output_v2/raw/.prediction-run.lock/
+football_output_v2/.prediction-stage-*/
+football_output_v2/.prediction-backup-*/
+**/.run-write-*

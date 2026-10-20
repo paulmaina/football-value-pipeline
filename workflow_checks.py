@@ -15,6 +15,8 @@ import xml.etree.ElementTree as ET
 from zipfile import ZipFile
 
 FORECAST_PATHS = (
+    'football_output_v2/raw/current_run.json',
+    'football_output_v2/raw/prediction_runs',
     'football_output_v2/raw/all_leagues_predictions.csv',
     'football_output_v2/raw/conservative_bet_shortlist.csv',
     'football_output_v2/raw/conservative_bet_summary.json',
@@ -31,7 +33,7 @@ SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
              'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py')
-COVERAGE_FLOORS = {'github_closing_odds.py':80, 'bbs_statistics_model.py':85, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
+COVERAGE_FLOORS = {'prediction_runs.py':85, 'github_closing_odds.py':80, 'bbs_statistics_model.py':85, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
     'publish_bbs_data.py':75, 'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
     'shortlist_policy_experiment.py':85, 'shortlist_weight_experiment.py':85, 'quote_freshness.py':95, 'score_probability.py':95,
     'double_chance.py':90, 'goal_market_validation.py':85, 'goal_blend_experiment.py':90,
@@ -59,9 +61,10 @@ def close(actual, expected, label):
                 and abs(float(actual)-expected) <= 1e-6, f'{label}: inconsistent value')
 
 
-def raw_check(root):
+def raw_check(root, *, raw_dir=None):
     from performance_tracking import read_csv, utc, fixture_key, SUPPORTED_MARKETS, number
-    raw=root/'raw'
+    from prediction_runs import resolve_raw
+    raw=Path(raw_dir) if raw_dir is not None else resolve_raw(root/'raw')
     summary=read_json(raw/'conservative_bet_summary.json')
     require(utc(summary.get('generated_at_utc')) is not None, 'Invalid forecast generation timestamp')
     predictions=read_csv(raw/'all_leagues_predictions.csv')
@@ -182,6 +185,9 @@ def capture_event(repo,root,event,sha,before=''):
         current=subprocess.run(['git','-C',str(repo),'rev-parse','HEAD'],check=True,text=True,capture_output=True).stdout.strip()
         require(current==sha,'Capture checkout differs from event SHA')
     raw_check(root)
+    from prediction_runs import capture_runs
+    if (root/'raw/prediction_runs').exists():
+        return bool(capture_runs(root,sha))
     return capture(sha,root=root)
 
 
@@ -195,19 +201,27 @@ def archive_check(root):
         if directory.name.startswith('.capture-'): continue
         meta=read_json(directory/'metadata.json')
         sha=meta.get('git_commit_sha','')
+        if 'archive_id' in meta:
+            from prediction_runs import archive_identity
+            sha=archive_identity(meta,directory.name)
         require(re.fullmatch(r'[0-9a-fA-F]{40}',sha) is not None and directory.name==sha[:16], 'Invalid snapshot SHA/directory')
         created,generated=utc(meta.get('captured_at_utc')),utc(meta.get('generated_at_utc'))
         require(created and generated and generated<=created+timedelta(minutes=5), 'Invalid snapshot timestamps')
         digests=meta.get('sha256',{})
+        if 'archive_id' in meta:
+            require('run_manifest.json' in digests, 'Missing prediction-run manifest binding')
         require(isinstance(digests,dict) and all(k in digests for k in ('predictions.csv','shortlist.csv','selection_summary.json')),
                 'Snapshot missing required integrity manifest')
         for name,digest in digests.items():
-            require(name in ('predictions.csv','shortlist.csv','selection_summary.json','pipeline_health.json',*SIDECARS), 'Unexpected snapshot path')
+            require(name in ('predictions.csv','shortlist.csv','selection_summary.json','pipeline_health.json','run_manifest.json',*SIDECARS), 'Unexpected snapshot path')
             path=directory/name
             valid=path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==digest
             if name in (*SIDECARS, 'pipeline_health.json'):
                 if not valid: warnings.append(f'{directory.name}/{name}: optional artifact missing/tampered; excluded from grading')
             else: require(valid, f'Snapshot integrity failure: {directory.name}/{name}')
+        if 'archive_id' in meta:
+            from prediction_runs import validate_archive_binding
+            validate_archive_binding(directory,meta)
         summary=read_json(directory/'selection_summary.json')
         source_generated=utc(summary.get('generated_at_utc'))
         require(source_generated is not None and abs((source_generated-generated).total_seconds())<1,'Snapshot generation time differs from source summary')
@@ -419,7 +433,8 @@ def report_check(root):
         from closing_odds import validate_report as validate_closing
         validate_closing(root)
     training={}
-    for path in sorted((root/'raw').glob('*_diagnostics.json')):
+    from prediction_runs import resolve_raw
+    for path in sorted(resolve_raw(root/'raw').glob('*_diagnostics.json')):
         data=read_json(path);training[path.stem.replace('_diagnostics','')]=data.get('training_end')
     health_path=performance/'pipeline_health.json'
     health_data=read_json(health_path) if health_path.exists() else {}

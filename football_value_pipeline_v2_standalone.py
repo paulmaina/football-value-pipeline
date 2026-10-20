@@ -3841,7 +3841,7 @@ def build_parser() -> argparse.ArgumentParser:
     return p
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     args = build_parser().parse_args(argv)
 
     if args.self_test:
@@ -4283,6 +4283,25 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             # Optional research failure must not invalidate completed baseline output.
             warnings.warn(f"Market-led experiment failed ({type(exc).__name__}); baseline outputs complete")
 
+    return 0
+
+
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    arguments = list(sys.argv[1:] if argv is None else argv)
+    args = build_parser().parse_args(arguments)
+    if args.self_test or args.backtest:
+        return _generate_main(arguments)
+    from prediction_runs import stage_run, publish_run
+    from workflow_checks import raw_check
+    raw = Path(args.out_dir)
+    with stage_run(raw) as staging:
+        # Last argparse occurrence wins, including --out-dir=... syntax.
+        result = _generate_main([*arguments, '--out-dir', str(staging)])
+        if result:
+            return result
+        raw_check(staging.parent)
+        bundle = publish_run(staging, raw)
+    print(f"Complete prediction run saved: {bundle}; publish raw/ before kickoff for forward capture.", file=sys.stderr)
     return 0
 
 
