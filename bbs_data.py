@@ -68,8 +68,9 @@ def atomic_json(path, value):
 class Store:
     """File-backed observations; caller holds the collection lock while writing.
 
-    Each observation is an immutable timestamped JSON snapshot. Request budgets
-    are persisted before network I/O. Malformed checkpoints fail closed.
+    Each observation is an immutable timestamped JSON snapshot. Request counts
+    are persisted before network I/O for telemetry; defaults impose no local quota.
+    Malformed checkpoints fail closed.
     """
     def __init__(self, path):
         self.path = Path(path)
@@ -131,12 +132,12 @@ class Store:
                 result[key] = row
         return list(result.values())
 
-    def reserve(self, now, limit):
+    def reserve(self, now, limit=None):
         day = now.astimezone(timezone.utc).date().isoformat()
         used = self.state['quota'].get(day, 0)
         if type(used) is not int or used < 0:
             raise ValueError('Invalid request checkpoint')
-        if used >= limit:
+        if limit is not None and used >= limit:
             raise Deferred('Local daily request budget exhausted')
         self.state['quota'][day] = used + 1
         atomic_json(self.path / 'checkpoint.json', self.state)
@@ -156,12 +157,13 @@ def transport(path, params, key):
 
 
 class Client:
-    def __init__(self, store, key, budget=500, max_requests=500, sender=transport,
+    def __init__(self, store, key, budget=None, max_requests=None, sender=transport,
                  clock=lambda: datetime.now(timezone.utc), sleeper=time.sleep):
         if not key.strip():
             raise FetchError('BBS_API_KEY is missing; configure .env or CI secret')
-        if not 1 <= budget <= 500 or not 1 <= max_requests <= budget:
-            raise ValueError('Require 1 <= max_requests <= daily_budget <= 500')
+        if any(value is not None and (type(value) is not int or value < 1)
+               for value in (budget, max_requests)):
+            raise ValueError('Explicit request limits must be positive integers')
         self.store, self.key = store, key
         self.budget, self.max_requests = budget, max_requests
         self.sender, self.clock, self.sleep = sender, clock, sleeper
@@ -182,7 +184,7 @@ class Client:
             blocked = float(self.store.setting('blocked_until', '0'))
             if now.timestamp() < blocked:
                 raise Deferred('Provider retry window active; retry after ' + datetime.fromtimestamp(blocked, timezone.utc).isoformat())
-            if self.requests >= self.max_requests:
+            if self.max_requests is not None and self.requests >= self.max_requests:
                 raise Deferred('Per-run request budget exhausted')
             last = float(self.store.setting('last_request', '0'))
             self.sleep(max(0, 0.7 - (now.timestamp() - last)))
@@ -335,7 +337,7 @@ def normal_stats(payload, match):
     return result
 
 
-def collect(client, leagues, seasons, stats_limit=500):
+def collect(client, leagues, seasons, stats_limit=None):
     """Checkpoint pages; incomplete pagination never claims full competition coverage."""
     store = client.store
     report = {'errors': [], 'completed_lists': [], 'statistics_fetched': 0}
@@ -431,9 +433,9 @@ def collect(client, leagues, seasons, stats_limit=500):
                                         -utc(x['payload']['kickoff_utc']).timestamp()))
             queue.append(matches)
         fetched = 0
-        while any(queue) and fetched < stats_limit:
+        while any(queue) and (stats_limit is None or fetched < stats_limit):
             for items in queue:
-                if not items or fetched >= stats_limit:
+                if not items or (stats_limit is not None and fetched >= stats_limit):
                     continue
                 item = items.pop(0)
                 def statistics():
@@ -500,6 +502,7 @@ def collect(client, leagues, seasons, stats_limit=500):
         if x['league'] in leagues and not any(m['league']==x['league'] and m['entity']==x['entity'] and utc(m['observed']) > utc(x['observed']) for m in store.latest('match', client.clock().isoformat()))]
     report['requests_used_today'] = store.state['quota'].get(client.clock().astimezone(timezone.utc).date().isoformat(), 0)
     report['daily_budget'] = client.budget
+    report['request_limit_policy'] = 'PROVIDER_ALLOWANCE' if client.budget is None and client.max_requests is None else 'EXPLICIT_LOCAL_LIMIT'
     report['requests_this_run'] = client.requests
     report['observed_at_utc'] = client.clock().isoformat()
     report['status'] = 'partial' if report['errors'] or report.get('deferred') or report['quarantined_records'] else 'complete'
