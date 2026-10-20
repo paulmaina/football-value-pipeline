@@ -249,4 +249,5 @@ GitHub Actions closing quote collection and the separate Pinnacle totals trial: 
 
 API-Football can add cached, validated results, fixtures and lagged statistics
 alongside existing providers. Configure the optional `API_FOOTBALL_KEY` repository
-secret for the free-plan collector. See [setup, limits and model eligibility](docs/api-football-integration.md).
+secret for the free-plan collector, which defaults to historical seasons 2022–2024.
+Current-season data continues through existing providers. See [setup, limits and model eligibility](docs/api-football-integration.md).

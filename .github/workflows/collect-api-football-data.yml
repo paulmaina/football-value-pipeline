@@ -69,7 +69,7 @@ jobs:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: |
           set +e
-          python collect_api_football_data.py --api-key-source environment --daily-budget 80 --max-requests 20 --stats-limit 10
+          python collect_api_football_data.py --api-key-source environment --seasons 2024 2023 2022 --daily-budget 80 --max-requests 20 --stats-limit 10
           code=$?
           set -e
           echo "result=$code" >> "$GITHUB_OUTPUT"
@@ -81,7 +81,17 @@ jobs:
         if: steps.collect.outputs.result == '0' || steps.collect.outputs.result == '1'
         run: |
           echo 'API-Football remains supplementary. Partial/free-plan restricted coverage does not replace existing data.' >> "$GITHUB_STEP_SUMMARY"
-          cat .football_cache/api_football/collection_status.json >> "$GITHUB_STEP_SUMMARY"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          report = json.loads(Path('.football_cache/api_football/collection_status.json').read_text())
+          fixtures = report.get('fixtures_collected', 0)
+          message = f"Collection {report['status']}: {fixtures} fixtures from successful season queries; {report['statistics_saved']} statistics observations saved; {report['requests']} requests."
+          if report['status'] != 'complete':
+              print('::warning::'+message+' Review query reasons in the summary; workflow completion does not imply data coverage.')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as output:
+              output.write(message+'\n\n```json\n'+json.dumps(report, indent=2)+'\n```\n')
+          PY
       - name: Retain recovery state
         if: always() && (failure() || cancelled()) && steps.collect.outcome != 'skipped' && steps.configured.outputs.enabled == 'true'
         uses: actions/upload-artifact@v7
