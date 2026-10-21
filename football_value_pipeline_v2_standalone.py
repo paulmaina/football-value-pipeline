@@ -829,7 +829,7 @@ class TheOddsAPI:
     ) -> Dict[str, object]:
         """Keep each bookmaker's newest complete pair, with atomic provenance."""
         from quote_freshness import quote_is_fresh, quote_utc
-        from quote_policy import usable_bookmaker
+        from quote_policy import usable_bookmaker, bookmaker_priority
         newest = {}
         for updated, name, price, opposite in available:
             if (quote_utc(updated) is None
@@ -845,7 +845,7 @@ class TheOddsAPI:
         available = list(newest.values())
         ref = max(available, key=lambda x: quote_utc(x[0]))
         usable = [x for x in available if usable_bookmaker(x[1])]
-        best = max(usable, key=lambda x: x[2]) if usable else (None, None, None, None)
+        best = max(usable, key=lambda x: (bookmaker_priority(x[1]), x[2])) if usable else (None, None, None, None)
         fair = devig([ref[2], ref[3]], method="power")
         return {
             f"market_p_{market}": fair[0],
@@ -885,10 +885,10 @@ class TheOddsAPI:
             bookmaker_name: str,
             updated: str,
         ):
-            from quote_policy import usable_bookmaker
+            from quote_policy import usable_bookmaker, bookmaker_priority
             if price is None or price <= 1.0 or not usable_bookmaker(bookmaker_name):
                 return current
-            if current[0] is None or price > float(current[0]):
+            if current[0] is None or (bookmaker_priority(bookmaker_name), price) > (bookmaker_priority(current[1]), float(current[0])):
                 return (price, bookmaker_name, updated)
             return current
 
@@ -1005,7 +1005,7 @@ class TheOddsAPI:
                     if updated:
                         all_updates.append(updated)
 
-        from quote_policy import usable_bookmaker
+        from quote_policy import usable_bookmaker, bookmaker_priority
         reference_order = lambda x: quote_utc(x[0]) if clock is not None else x[0]
         ref_h2h = max(complete_h2h, key=reference_order, default=None)
         ref_ou = max(complete_ou, key=reference_order, default=None)
@@ -3288,7 +3288,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 ah = json.loads(pred.get('asian_handicap_offers') or '[]')
                 coverage_row['asian_handicap_quotes'] = len(ah)
                 coverage_row['asian_handicap_bookmakers'] = sorted({x['bookmaker'] for x in ah})
-                coverage_row['asian_handicap_status'] = 'QUOTES_AVAILABLE' if ah else 'NO_PINNACLE_OR_BET365_HANDICAP_QUOTES'
+                coverage_row['asian_handicap_status'] = 'QUOTES_AVAILABLE' if ah else 'NO_SUPPORTED_HANDICAP_QUOTES'
                 coverage_row["home_draw_quote"] = bool(extra.get("market_home_draw_odds"))
                 coverage_row["draw_away_quote"] = bool(extra.get("market_draw_away_odds"))
                 coverage_row["home_away_quote"] = bool(extra.get("market_home_away_odds"))
@@ -3795,7 +3795,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--reliability-experiment", action="store_true",
                    help="Compare stronger L2 and fixed half-life fits prospectively; no production changes or extra odds requests.")
     p.add_argument("--l2", type=float, default=0.08)
-    p.add_argument("--asian-handicap-quotes", type=Path, help="Optional fresh Pinnacle/bet365 event-odds JSON; exact event/team/kickoff binding required")
+    p.add_argument("--asian-handicap-quotes", type=Path, help="Optional fresh Pinnacle/bet365/1xBet event-odds JSON; exact event/team/kickoff binding required")
     p.add_argument("--max-goals", type=int, default=10,
                    help="Minimum score-grid limit; expands automatically to bound omitted probability.")
     p.add_argument("--lookahead-days", type=int, default=10)

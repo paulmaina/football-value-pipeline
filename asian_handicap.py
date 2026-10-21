@@ -12,7 +12,9 @@ import pandas as pd
 
 from quote_freshness import quote_is_fresh
 
-POLICY = '48h-loss-first-asian-handicap-1x2-over15-v17'
+LEGACY_POLICY = '48h-loss-first-asian-handicap-1x2-over15-v17'
+POLICY = '48h-loss-first-asian-handicap-1x2-over15-v18'
+POLICIES = (LEGACY_POLICY, POLICY)
 VERSION = 'asian-handicap-loss-first-v1'
 LINES = tuple(i/4 for i in range(-12, 13))
 OUTCOMES = ('full_win', 'half_win', 'refund', 'half_loss', 'full_loss')
@@ -113,7 +115,7 @@ def probabilities(value, side, point, price, cost=0):
 
 
 def bookmaker(name):
-    return {'pinnacle': 'Pinnacle', 'bet365': 'bet365'}.get(str(name).casefold().replace(' ', ''))
+    return {'pinnacle': 'Pinnacle', 'bet365': 'bet365', '1xbet': '1xBet'}.get(str(name).casefold().replace(' ', ''))
 
 
 def parse_quotes(payload, as_of):
@@ -216,7 +218,7 @@ def evaluate_history(frame):
     return report
 
 
-def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None):
+def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY):
     """Risk first, strict gates, one market per fixture. No target-filling bypass."""
     from conservative_bet_filter import (build_conservative_shortlist, BALANCED_SELECTION_POLICY_VERSION,
                                         SHORTLIST_COLUMNS, SUPPORTED_LEAGUES)
@@ -227,12 +229,17 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
         raise ValueError('as_of must be timezone-aware')
     now = now.tz_convert('UTC')
     policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
-    allowed = [b for b in policy['allowed_bookmakers'] if bookmaker(b)] if policy['allowed_bookmakers'] else ['Pinnacle','bet365']
+    legacy = policy_version == LEGACY_POLICY
+    supported = ['Pinnacle','bet365'] if legacy else ['Pinnacle','bet365','1xBet']
+    allowed = [b for b in policy['allowed_bookmakers'] if bookmaker(b) in supported] if policy['allowed_bookmakers'] else supported
     policy = validate_policy({**policy, 'allowed_bookmakers': allowed or ['__NO_SUPPORTED_BOOKMAKER__']})
     cost = policy['per_stake_cost_bps']/10000
     floor = .015 if adjusted_ev_floor is None else adjusted_ev_floor
-    if not math.isfinite(floor) or floor < .015:
-        raise ValueError('Invalid minimum expected value')
+    if legacy:
+        if not math.isfinite(floor) or floor < .015:
+            raise ValueError('Invalid minimum expected value')
+    elif adjusted_ev_floor is not None:
+        raise ValueError('Asian handicap EV is ranked without a minimum floor')
     _, ordinary, _ = build_conservative_shortlist(predictions, as_of=now, market_reliability=market_reliability,
         execution_policy=policy, selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)
     ordinary = ordinary.loc[ordinary.market.isin(['Home win', 'Draw', 'Away win', 'Over 1.5'])].copy()
@@ -269,7 +276,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
                 if offer.get('market_key') not in ('spreads','alternate_spreads','draw_no_bet'):
                     raise ValueError('Unsupported period or market')
                 if book is None or not usable_bookmaker(book, policy):
-                    reasons.append('bookmaker unavailable: Pinnacle/bet365 required')
+                    reasons.append('bookmaker unavailable: Pinnacle/bet365 or 1xBet fallback required')
                 p = probabilities(row['goal_margin_distribution'], side, point, price, cost)
                 raw = probabilities(row['raw_goal_margin_distribution'], side, point, price, cost)
             except (ValueError, TypeError, KeyError):
@@ -304,7 +311,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             # to a full loss. A bound heuristic, not a statistical guarantee.
             adjusted_ev = p['estimated_ev']-penalty*price
             risk = min(1., max(p['p_any_loss'], raw['p_any_loss'])+penalty)
-            if adjusted_ev < floor or raw['estimated_ev'] < 0:
+            if legacy and (adjusted_ev < floor or raw['estimated_ev'] < 0):
                 reasons.append('positive conservative EV and nonnegative raw EV required')
             item = {field: None for field in SHORTLIST_COLUMNS+FIELDS}
             item.update({k: row.get(k) for k in ('date','league','home_team','away_team','fixture_id','kickoff_utc')})
@@ -325,16 +332,24 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             evaluated.append(item)
     columns = list(dict.fromkeys(SHORTLIST_COLUMNS+FIELDS))
     decisions = pd.DataFrame(evaluated).reindex(columns=columns)
+    if not legacy:
+        # Fallback is per exact fixture/side/line; invalid or stale primary quotes
+        # do not suppress a valid fallback. All other gates still apply.
+        valid = decisions.loc[(decisions.decision == 'ELIGIBLE') & decisions.market.map(lambda x: parse_label(x) is not None)]
+        primary = {(fixture_key(r), r['market']) for r in valid.to_dict('records') if r['bookmaker'] in ('Pinnacle','bet365')}
+        for idx, r in valid.iterrows():
+            if r.bookmaker == '1xBet' and (fixture_key(r), r.market) in primary:
+                decisions.loc[idx, ['decision','rejection_reasons']] = ['REJECTED','primary bookmaker quote available for this handicap']
     pool = decisions.loc[decisions.decision == 'ELIGIBLE'].copy()
     pool['_fixture'] = pool.apply(fixture_key, axis=1) if len(pool) else pd.Series(dtype=str)
-    pool = pool.sort_values(['loss_probability_upper','p_refund','conservative_estimated_ev','offered_decimal_odds','kickoff_utc','market'],
-        ascending=[True,False,False,False,True,True], kind='stable').drop_duplicates('_fixture')
+    ranking = ['loss_probability_upper','p_refund','conservative_estimated_ev'] + ([] if legacy else ['raw_dc_ev']) + ['offered_decimal_odds','kickoff_utc','market']
+    pool = pool.sort_values(ranking, ascending=[True]+[False]*(len(ranking)-3)+[True,True], kind='stable').drop_duplicates('_fixture')
     chosen = pool.head(12).index
     decisions.loc[decisions.decision == 'ELIGIBLE','decision'] = 'NOT_SELECTED'
     decisions.loc[chosen,'decision'] = 'SHORTLISTED'
     decisions.loc[chosen,'selection_tier'] = 'STRICT'
     selected = decisions.loc[chosen].reset_index(drop=True)
-    summary = {'generated_at_utc':now.isoformat(), 'selection_policy_version':POLICY,
+    summary = {'generated_at_utc':now.isoformat(), 'selection_policy_version':policy_version,
         'status':'TARGET_MET' if len(selected)==12 else 'BELOW_TARGET' if len(selected) else 'NO BET',
         'n_fixtures':len(predictions), 'n_markets_evaluated':len(decisions), 'n_shortlisted':len(selected),
         'n_strict_qualified':len(selected), 'n_provisional_watchlist':0, 'n_total_candidates':len(selected),
@@ -343,14 +358,14 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
         'shortlist_window_start_utc':now.isoformat(), 'shortlist_window_end_utc':(now+pd.Timedelta(hours=48)).isoformat(),
         'eligible_markets':['Home win','Draw','Away win','Over 1.5']+[label(s,p) for s in ('home','away') for p in LINES],
         'quote_execution_policy':policy, 'validation_required':True, 'selection_objective':'MINIMIZE_ESTIMATED_NET_LOSS',
-        'selection_method':'Lowest conservative estimated loss risk, then refund probability, positive adjusted EV, price; one per fixture',
-        'ranking_metric':'loss_probability_upper ascending; p_refund descending; adjusted EV descending',
-        'min_estimated_ev':floor, 'ev_required_for_selection':True,
+        'selection_method':'Lowest conservative estimated loss risk, then refund probability, adjusted EV, unblended EV, price; one per fixture',
+        'ranking_metric':'loss_probability_upper ascending; p_refund descending; adjusted EV descending' + ('' if legacy else '; unblended EV descending'),
+        'min_estimated_ev':floor if legacy else None, 'min_raw_dc_ev':0 if legacy else None, 'ev_required_for_selection':legacy,
         'validation_market_statuses':{league:{key:state.get('status','INSUFFICIENT_HISTORY') for key,state in report.get('markets',{}).items()} for league,report in (market_reliability or {}).items()},
         'legacy_ranking_experiments':'NOT_APPLICABLE_TO_LOSS_FIRST_POLICY; archived experiments remain graded', 'ranking_is_empirically_optimized':False,
-        'shortfall_reason':'No padding: missing quotes, historical reliability or positive EV can reduce the shortlist' if len(selected)<12 else None,
-        'bookmaker_coverage':{b:sum(str(x.get('bookmaker'))==b for x in evaluated if parse_label(x.get('market'))) for b in ('Pinnacle','bet365')},
-        'warning':'Probabilities are model estimates, not guarantees. Refunds are not wins; half-losses lose money. No selection when evidence or positive EV is missing. Flat-stake research, not accumulator protection.'}
+        'shortfall_reason':'No padding: missing quotes or historical reliability can reduce the shortlist' if len(selected)<12 else None,
+        'bookmaker_coverage':{b:sum(str(x.get('bookmaker'))==b for x in evaluated if parse_label(x.get('market'))) for b in supported},
+        'warning':'Probabilities are model estimates, not guarantees. Refunds are not wins; half-losses lose money. No selection when required evidence is missing. Negative estimated EV is possible under v18. Flat-stake research, not accumulator protection.'}
     return selected, decisions.reset_index(drop=True), summary
 
 
@@ -386,5 +401,5 @@ def best_per_match(decisions):
     subset = decisions.loc[decisions.market.map(lambda x: parse_label(x) is not None) &
                            decisions.rejection_reasons.fillna('').eq('')].copy()
     subset['_fixture'] = subset.apply(fixture_key,axis=1) if len(subset) else pd.Series(dtype=str)
-    return subset.sort_values(['loss_probability_upper','p_refund','conservative_estimated_ev','offered_decimal_odds','market'],
-        ascending=[True,False,False,False,True],kind='stable').drop_duplicates('_fixture').drop(columns='_fixture').reset_index(drop=True)
+    return subset.sort_values(['loss_probability_upper','p_refund','conservative_estimated_ev','raw_dc_ev','offered_decimal_odds','market'],
+        ascending=[True,False,False,False,False,True],kind='stable').drop_duplicates('_fixture').drop(columns='_fixture').reset_index(drop=True)

@@ -87,8 +87,8 @@ def raw_check(root, *, raw_dir=None):
     from conservative_bet_filter import (BALANCED_SELECTION_POLICIES,
         BALANCED_SELECTION_POLICY_VERSION, TWELVE_MATCH_BALANCED_SELECTION_POLICIES, CURRENT_MARKET_SPECS, NO_UNDER35_SELECTION_POLICIES, TARGET_DISTINCT_MATCHES)
     policy_version = summary.get('selection_policy_version')
-    from asian_handicap import POLICY as AH_POLICY, parse_label as parse_handicap
-    asian = policy_version == AH_POLICY
+    from asian_handicap import POLICIES as AH_POLICIES, parse_label as parse_handicap
+    asian = policy_version in AH_POLICIES
     if asian:
         require(summary.get('shortlist_lookahead_hours')==48 and len(picks)<=12,'Invalid Asian handicap horizon or cap')
     balanced = policy_version in BALANCED_SELECTION_POLICIES
