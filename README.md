@@ -140,6 +140,8 @@ save times never backdate cloud evidence. Headline performance uses the latest
 eligible archived selection per fixture; all eligible runs remain in Run Tracking.
 
 The current shortlist is capped at twelve distinct matches within 48 hours.
+Eligible markets are Home win, Draw, Away win, Double Chance 1X/X2/12 and Over 1.5.
+BTTS is excluded from shortlist selection; its general predictions remain available.
 Under 3.5 stays excluded from selection. Provisional entries can fail strict EV
 or reliability rules; twelve entries do not imply twelve strict qualifiers.
 

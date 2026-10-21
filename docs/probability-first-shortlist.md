@@ -1,6 +1,6 @@
 # Probability and EV shortlist
 
-Production policy `48h-top-twelve-probability-ev-no-under35-v15` ranks twelve distinct upcoming
+Production policy `48h-top-twelve-1x2-double-chance-over15-v16` ranks twelve distinct upcoming
 fixtures using both adjusted probability and adjusted EV, across all requested
 leagues. No fixed probability or EV cutoff is required for selection.
 
@@ -24,7 +24,7 @@ Ties use adjusted probability, adjusted EV, quoted odds, kickoff, league and tea
 names in that order. Strict qualification does not take priority over a better
 combined score. Underlying prediction probabilities and model fits are unchanged.
 
-Markets are home win, away win, Over 1.5, BTTS Yes and double chance
+Markets are home win, draw, away win, Over 1.5 and double chance
 1X/X2/12. Each fixture contributes one market; no same-fixture stacking.
 
 ## Eligibility and warnings
@@ -54,7 +54,9 @@ This uses saved probabilities and prices; it does not fetch fresh odds.
 
 Historical v9-v11 strict policies and the v12 72-hour probability-first policy
 and the v13 balanced policy replay with their original rules, including their
-original market sets. The v14 policy retains its ten-match cap and seven markets for replay. New captures identify v15 explicitly with a twelve-match cap. Under 3.5 is excluded
+original market sets. The v14 policy retains its ten-match cap and seven markets for replay. The v15 policy retains its twelve-match cap and BTTS market for replay. New v16 captures
+exclude BTTS Yes and include Draw explicitly. BTTS forecasts and historical settlement
+remain available. Under 3.5 is excluded
 from the new shortlist and percentile pool; its model forecasts and historical
 evaluation remain available. EV
 sensitivity v3 compares the combined-score control (`No EV gate`) with +1.5%,
@@ -71,7 +73,7 @@ and scheduled forecasts. Its four fixed alternatives are probability/EV weights
 50–90% probability weight and 10–50% EV weight per fixture and market.
 No extra provider requests
 are made: each alternative reuses the same forecasts, prices, calibration,
-seven-market pool, 48-hour window and top-twelve distinct-match rule.
+policy-specific market pool, 48-hour window and top-twelve distinct-match rule.
 
 A separate JSON sidecar freezes every candidate decision and the registry before
 kickoff. Archiving verifies hashes, replays all alternatives and checks the control

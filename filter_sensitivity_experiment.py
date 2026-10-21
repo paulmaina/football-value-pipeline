@@ -9,8 +9,9 @@ PROBABILITY_VERSION = 'probability-shortlist-ev-sensitivity-v2'
 PROBABILITY_POLICY = '72h-top-ten-adjusted-probability-v12'
 BALANCED_POLICY = '48h-top-ten-probability-ev-v13'
 TEN_MATCH_BALANCED_POLICY = '48h-top-ten-probability-ev-no-under35-v14'
-CURRENT_BALANCED_POLICY = '48h-top-twelve-probability-ev-no-under35-v15'
-BALANCED_POLICIES = (BALANCED_POLICY, TEN_MATCH_BALANCED_POLICY, CURRENT_BALANCED_POLICY)
+PREVIOUS_TWELVE_MATCH_POLICY = '48h-top-twelve-probability-ev-no-under35-v15'
+CURRENT_BALANCED_POLICY = '48h-top-twelve-1x2-double-chance-over15-v16'
+BALANCED_POLICIES = (BALANCED_POLICY, TEN_MATCH_BALANCED_POLICY, PREVIOUS_TWELVE_MATCH_POLICY, CURRENT_BALANCED_POLICY)
 BALANCED_VERSION = 'balanced-shortlist-ev-sensitivity-v3'
 FLOORS = (0.015, 0.03, 0.05)
 PROBABILITY_FLOORS = (0.0, *FLOORS)  # zero labels the control with no EV gate
@@ -48,7 +49,7 @@ def write_experiment(predictions, raw, summary, production_decisions, reliabilit
 
 def validate(data, generated, predictions):
     from performance_tracking import utc, fixture_key, number
-    from conservative_bet_filter import MARKET_SPECS, PROBABILITY_MARKET_SPECS, _market_fields
+    from conservative_bet_filter import MARKET_SPECS, CURRENT_MARKET_SPECS, PROBABILITY_MARKET_SPECS, _market_fields
     if not isinstance(data,dict):
         raise ValueError('Invalid filter experiment document')
     probability_policy = data.get('selection_policy_version') in (PROBABILITY_POLICY, *BALANCED_POLICIES)
@@ -60,7 +61,9 @@ def validate(data, generated, predictions):
         raise ValueError('Unbound filter experiment generation time')
     originals = {fixture_key(r):r for r in predictions}
     fixtures = set(originals)
-    specs = {r[0]:r[1] for r in (PROBABILITY_MARKET_SPECS if probability_policy and data.get('selection_policy_version') not in (TEN_MATCH_BALANCED_POLICY, CURRENT_BALANCED_POLICY) else MARKET_SPECS)}
+    specs = {r[0]:r[1] for r in (PROBABILITY_MARKET_SPECS if probability_policy and data.get('selection_policy_version') not in (TEN_MATCH_BALANCED_POLICY, PREVIOUS_TWELVE_MATCH_POLICY, CURRENT_BALANCED_POLICY) else MARKET_SPECS)}
+    if data.get('selection_policy_version') == CURRENT_BALANCED_POLICY:
+        specs = {r[0]:r[1] for r in CURRENT_MARKET_SPECS}
     # Validate immutable captures using their original market set.
     if data.get("selection_policy_version") in {"72h-all-markets-net-ev15-execution-v7",
                                               "72h-five-markets-probability-odds-net-ev15-v8"}:
@@ -118,7 +121,7 @@ def validate(data, generated, predictions):
         raise ValueError('Missing candidate decisions')
     for floor in floors:
         selected = [r for r in data['rows'] if r['ev_floor']==floor and r['decision'] in SELECTED]
-        cap = 12 if data.get('selection_policy_version') == CURRENT_BALANCED_POLICY else 10
+        cap = 12 if data.get('selection_policy_version') in (CURRENT_BALANCED_POLICY, PREVIOUS_TWELVE_MATCH_POLICY) else 10
         if len(selected)>cap or len({fixture_key(r) for r in selected})!=len(selected):
             raise ValueError('Duplicate fixture or policy cap exceeded')
 
