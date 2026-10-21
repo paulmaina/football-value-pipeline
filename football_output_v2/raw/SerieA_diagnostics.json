@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "36c278fa2dc4c7c97b3aa4fd88ca7a6175339007ec13e1fffadcaa0bf10addfc",
-  "training_as_of_utc": "2026-10-21T10:38:02.420843+00:00",
+  "training_sha256": "0a097825d3c8eb610030fff3e667acc826dc106a3537e6b709e28146c8d890ff",
+  "training_as_of_utc": "2026-10-21T17:22:27.690536+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 70,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-21T10:38:02.420843+00:00",
-    "observations": 145,
-    "observations_sha256": "be1065fe63c17ac32f8b443dc26d018c2d15e8b410f98fb4c1093f74b4f661d7",
+    "cutoff_utc": "2026-10-21T17:22:27.690536+00:00",
+    "observations": 151,
+    "observations_sha256": "1bd6eb4913bd5562b3afca50fbaef785c7460861a0f953a7bcb52f2c27e09e19",
     "eligible_training_matches": 43,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:28.568690+00:00",
-    "retrospective_inputs_sha256": "943a8b10539374c5b6d1cc29ce92768e5ddc69e5a085af9305e4efd559d49ae5",
+    "retrospective_inputs_sha256": "09611ef1eaa884ab1a5a0c18abdc6e1a537307c3ae873552ab8d45a508384b54",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -81,10 +81,10 @@
   },
   "training_end": "2026-10-19",
   "fit_success": true,
-  "objective": 2441.8367902395753,
-  "base": 0.1322319662490909,
-  "home_adv": 0.12571760984533542,
-  "rho": -0.0336316822456684,
+  "objective": 2441.1857863817568,
+  "base": 0.13223339390595193,
+  "home_adv": 0.12571525144857307,
+  "rho": -0.03363021591665292,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
   "max_goals": 10,
@@ -106,7 +106,7 @@
   "additional_event_odds_calls_used_before_this_league": 1,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261021T103802420843Z_475f81fdcf85defab947ca63c9b1d3f159b7cc5935256ca05f9b223c9c4d90db.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261021T172227690536Z_9aaaa6eef4b2e8811704a32c8dbff6601e21a5ce0154a78aa7c2645a646688eb.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [

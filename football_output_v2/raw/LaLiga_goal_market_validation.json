@@ -1483,8 +1483,463 @@
     "overall_max_brier_excess": 0.005
   },
   "caution": "Development and audit are chronological but may overlap prior half-life/market-hyperparameter tuning periods. This is not a wholly untouched final holdout.",
+  "asian_handicap": {
+    "version": "asian-handicap-loss-first-v1",
+    "markets": {
+      "Asian Handicap Home -3.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.027581799194760302,
+        "audit_brier": 0.08737753326328551,
+        "audit_overconfidence": -0.010922984202902478,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home -2.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.027581799194760302,
+        "audit_brier": 0.08737753326328551,
+        "audit_overconfidence": -0.010922984202902478,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home -2.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.027581799194760302,
+        "audit_brier": 0.08737753326328551,
+        "audit_overconfidence": -0.010922984202902478,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home -2.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.027581799194760302,
+        "audit_brier": 0.08737753326328551,
+        "audit_overconfidence": -0.010922984202902478,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home -2.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.07083723847696352,
+        "audit_brier": 0.1466276335196952,
+        "audit_overconfidence": 0.012901542811909427,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home -1.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.07083723847696352,
+        "audit_brier": 0.1466276335196952,
+        "audit_overconfidence": 0.012901542811909427,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home -1.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.07083723847696352,
+        "audit_brier": 0.1466276335196952,
+        "audit_overconfidence": 0.012901542811909427,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home -1.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.07083723847696352,
+        "audit_brier": 0.1466276335196952,
+        "audit_overconfidence": 0.012901542811909427,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home -1.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03851895609903602,
+        "audit_brier": 0.22138577914852064,
+        "audit_overconfidence": -0.033056395741038774,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home -0.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03851895609903602,
+        "audit_brier": 0.22138577914852064,
+        "audit_overconfidence": -0.033056395741038774,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home -0.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03851895609903602,
+        "audit_brier": 0.22138577914852064,
+        "audit_overconfidence": -0.033056395741038774,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home -0.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03851895609903602,
+        "audit_brier": 0.22138577914852064,
+        "audit_overconfidence": -0.033056395741038774,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +0.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03759641174122905,
+        "audit_brier": 0.16737964636815864,
+        "audit_overconfidence": -0.03472099963190726,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +0.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03759641174122905,
+        "audit_brier": 0.16737964636815864,
+        "audit_overconfidence": -0.03472099963190726,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +0.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03759641174122905,
+        "audit_brier": 0.16737964636815864,
+        "audit_overconfidence": -0.03472099963190726,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +0.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03759641174122905,
+        "audit_brier": 0.16737964636815864,
+        "audit_overconfidence": -0.03472099963190726,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +1.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.025805375051990553,
+        "audit_brier": 0.07220901321666555,
+        "audit_overconfidence": -0.04147066758098404,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +1.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.025805375051990553,
+        "audit_brier": 0.07220901321666555,
+        "audit_overconfidence": -0.04147066758098404,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +1.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.025805375051990553,
+        "audit_brier": 0.07220901321666555,
+        "audit_overconfidence": -0.04147066758098404,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +1.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.025805375051990553,
+        "audit_brier": 0.07220901321666555,
+        "audit_overconfidence": -0.04147066758098404,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +2.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.00821266136463007,
+        "audit_brier": 0.02443530613118602,
+        "audit_overconfidence": -0.0203753869549981,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +2.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.00821266136463007,
+        "audit_brier": 0.02443530613118602,
+        "audit_overconfidence": -0.0203753869549981,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +2.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.00821266136463007,
+        "audit_brier": 0.02443530613118602,
+        "audit_overconfidence": -0.0203753869549981,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +2.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.00821266136463007,
+        "audit_brier": 0.02443530613118602,
+        "audit_overconfidence": -0.0203753869549981,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Home +3.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.0057796555540947136,
+        "audit_brier": 0.007785541430951682,
+        "audit_overconfidence": -0.006031601192335639,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -3.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.028083006693142266,
+        "audit_brier": 0.02443530613118602,
+        "audit_overconfidence": 0.02037538695499809,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -2.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.028083006693142266,
+        "audit_brier": 0.02443530613118602,
+        "audit_overconfidence": 0.02037538695499809,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -2.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.028083006693142266,
+        "audit_brier": 0.02443530613118602,
+        "audit_overconfidence": 0.02037538695499809,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -2.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.028083006693142266,
+        "audit_brier": 0.02443530613118602,
+        "audit_overconfidence": 0.02037538695499809,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -2.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03463154362913458,
+        "audit_brier": 0.07220901321666554,
+        "audit_overconfidence": 0.04147066758098402,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -1.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03463154362913458,
+        "audit_brier": 0.07220901321666554,
+        "audit_overconfidence": 0.04147066758098402,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -1.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03463154362913458,
+        "audit_brier": 0.07220901321666554,
+        "audit_overconfidence": 0.04147066758098402,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -1.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.03463154362913458,
+        "audit_brier": 0.07220901321666554,
+        "audit_overconfidence": 0.04147066758098402,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -1.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.04342693993448399,
+        "audit_brier": 0.16737964636815864,
+        "audit_overconfidence": 0.03472099963190726,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -0.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.04342693993448399,
+        "audit_brier": 0.16737964636815864,
+        "audit_overconfidence": 0.03472099963190726,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -0.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.04342693993448399,
+        "audit_brier": 0.16737964636815864,
+        "audit_overconfidence": 0.03472099963190726,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away -0.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.04342693993448399,
+        "audit_brier": 0.16737964636815864,
+        "audit_overconfidence": 0.03472099963190726,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +0.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.04648245384995308,
+        "audit_brier": 0.22138577914852067,
+        "audit_overconfidence": 0.03305639574103877,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +0.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.04648245384995308,
+        "audit_brier": 0.22138577914852067,
+        "audit_overconfidence": 0.03305639574103877,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +0.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.04648245384995308,
+        "audit_brier": 0.22138577914852067,
+        "audit_overconfidence": 0.03305639574103877,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +0.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.04648245384995308,
+        "audit_brier": 0.22138577914852067,
+        "audit_overconfidence": 0.03305639574103877,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +1.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.0,
+        "audit_brier": 0.1466276335196952,
+        "audit_overconfidence": -0.01290154281190943,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +1.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.0,
+        "audit_brier": 0.1466276335196952,
+        "audit_overconfidence": -0.01290154281190943,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +1.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.0,
+        "audit_brier": 0.1466276335196952,
+        "audit_overconfidence": -0.01290154281190943,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +1.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.0,
+        "audit_brier": 0.1466276335196952,
+        "audit_overconfidence": -0.01290154281190943,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +2.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.028581590894035107,
+        "audit_brier": 0.08737753326328553,
+        "audit_overconfidence": 0.010922984202902478,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +2.25": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.028581590894035107,
+        "audit_brier": 0.08737753326328553,
+        "audit_overconfidence": 0.010922984202902478,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +2.50": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.028581590894035107,
+        "audit_brier": 0.08737753326328553,
+        "audit_overconfidence": 0.010922984202902478,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +2.75": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.028581590894035107,
+        "audit_brier": 0.08737753326328553,
+        "audit_overconfidence": 0.010922984202902478,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      },
+      "Asian Handicap Away +3.00": {
+        "status": "RELIABLE_FOR_RANKING",
+        "development_matches": 427,
+        "audit_matches": 230,
+        "confidence_penalty": 0.014029436081907022,
+        "audit_brier": 0.024668591027646656,
+        "audit_overconfidence": -0.015765203275860923,
+        "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
+      }
+    }
+  },
   "config": {
-    "validator_version": 7,
+    "validator_version": 8,
     "min_train": 500,
     "step_days": 56,
     "devig": "power",
@@ -1497,7 +1952,7 @@
     "max_goals": 10,
     "training_end": "2026-10-19",
     "training_matches": 1988,
-    "training_sha256": "2fbb6cb5b006895481f9b132d9a84c39d6946b757e07af41c299a4eda8b8feeb",
-    "validation_code_sha256": "1316ee2fd20faa630127ad43bf77ff6e9f29be3d9ed561a3cefc407809a6bd9a"
+    "training_sha256": "d11389a7c232e44c18b16e5562a6aae7ce2af3a671931c9f3e570e9dafad7855",
+    "validation_code_sha256": "43f33e6e913eacb1056b2f5f4715c1e2a65f335e7aead19bb72a068fb3f8e624"
   }
 }
