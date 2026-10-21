@@ -45,7 +45,7 @@ LEAGUE_CODES = {
     for name in (cfg.name, cfg.key)
 }
 SUPPORTED_MARKETS = {
-    "Home win", "Away win", "Over 1.5", "Under 3.5",
+    "Home win", "Draw", "Away win", "Over 1.5", "Under 3.5",
     "Both Teams to Score - Yes", "Double Chance 1X", "Double Chance X2", "Double Chance 12",
 }
 RESULT_CACHE = PERFORMANCE / "verified_results.json"
@@ -483,6 +483,7 @@ def fixture_match(row: dict, verified: list[dict]) -> tuple[dict | None, str]:
 def result_for_market(market: str, h: int, a: int) -> bool | None:
     return {
         "Home win": h > a,
+        "Draw": h == a,
         "Away win": a > h,
         "Over 1.5": h + a >= 2,
         "Under 3.5": h + a <= 3,

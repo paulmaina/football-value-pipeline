@@ -9,8 +9,9 @@ NAME = 'shortlist_weight_experiment'
 LEGACY_VERSION = 'shortlist-probability-ev-weights-v1'
 VERSION = 'shortlist-probability-ev-weights-v2'
 TEN_MATCH_BASELINE_POLICY = '48h-top-ten-probability-ev-no-under35-v14'
-BASELINE_POLICY = '48h-top-twelve-probability-ev-no-under35-v15'
-BALANCED_POLICIES = (TEN_MATCH_BASELINE_POLICY, BASELINE_POLICY)
+PREVIOUS_TWELVE_MATCH_POLICY = '48h-top-twelve-probability-ev-no-under35-v15'
+BASELINE_POLICY = '48h-top-twelve-1x2-double-chance-over15-v16'
+BALANCED_POLICIES = (TEN_MATCH_BASELINE_POLICY, PREVIOUS_TWELVE_MATCH_POLICY, BASELINE_POLICY)
 LEGACY_VARIANTS = {
     'control': {},
     'probability_100_ev_0': {'probability_weight': 1.0},
@@ -27,7 +28,7 @@ ADAPTIVE_RULE = {
 VARIANTS = {**LEGACY_VARIANTS, ADAPTIVE_ID: {'adaptive_rule': ADAPTIVE_RULE}}
 SELECTED = {'SHORTLISTED', 'SHORTLISTED_PROVISIONAL'}
 NOTE = ('Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. '
-        'All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15; 10 in archived v14). '
+        'All use the same frozen candidate market pool within each capture, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15/v16; 10 in archived v14). '
         'Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. '
         'First eligible usable capture per fixture only; no historical backfill or repeated stakes. '
         'Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, '
@@ -93,7 +94,7 @@ def adaptive_rows(controls, baseline_policy):
     ranked = sorted(usable, key=lambda r: (
         -r['selection_score'], -r['rank_probability'], -r['conservative_estimated_ev'],
         -r['offered_decimal_odds'], r['kickoff_utc'], r['league'], r['home_team'], r['away_team']))
-    cap = 12 if baseline_policy == BASELINE_POLICY else 10
+    cap = 12 if baseline_policy in (BASELINE_POLICY, PREVIOUS_TWELVE_MATCH_POLICY) else 10
     chosen = set()
     for row in ranked:
         key = fixture_key(row)
@@ -122,7 +123,7 @@ def write_experiment(predictions, raw, summary, production_decisions, reliabilit
     from performance_tracking import write_json
     from quote_policy import load_policy
     if summary['selection_policy_version'] != BASELINE_POLICY:
-        raise ValueError('Weight experiment requires the seven-market 48-hour production policy')
+        raise ValueError('Weight experiment requires the current 48-hour production policy')
     execution = load_policy()
     rows = decision_rows(predictions, summary['generated_at_utc'], reliability, execution,
                          baseline_policy=summary['selection_policy_version'])

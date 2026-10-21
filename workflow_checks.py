@@ -85,11 +85,11 @@ def raw_check(root, *, raw_dir=None):
                 require(number(value,min_value=0,max_value=1) is not None, f'Invalid probability column {field}')
     selected=set()
     from conservative_bet_filter import (BALANCED_SELECTION_POLICIES,
-        BALANCED_SELECTION_POLICY_VERSION, NO_UNDER35_SELECTION_POLICIES, TARGET_DISTINCT_MATCHES)
+        BALANCED_SELECTION_POLICY_VERSION, TWELVE_MATCH_BALANCED_SELECTION_POLICIES, CURRENT_MARKET_SPECS, NO_UNDER35_SELECTION_POLICIES, TARGET_DISTINCT_MATCHES)
     policy_version = summary.get('selection_policy_version')
     balanced = policy_version in BALANCED_SELECTION_POLICIES
     excludes_under = policy_version in NO_UNDER35_SELECTION_POLICIES
-    target = TARGET_DISTINCT_MATCHES if policy_version == BALANCED_SELECTION_POLICY_VERSION else 10
+    target = TARGET_DISTINCT_MATCHES if policy_version in TWELVE_MATCH_BALANCED_SELECTION_POLICIES else 10
     previous_score = float('inf')
     if balanced:
         require(summary.get('shortlist_lookahead_hours') == 48, 'Balanced shortlist must use 48 hours')
@@ -100,6 +100,8 @@ def raw_check(root, *, raw_dir=None):
         require(key not in selected, 'Multiple selected markets for one fixture');selected.add(key)
         require(row.get('market') in summary.get('eligible_markets',SUPPORTED_MARKETS), 'Unsupported selected market')
         require(not excludes_under or row.get('market') != 'Under 3.5', 'Under 3.5 is excluded from this shortlist policy')
+        if policy_version == BALANCED_SELECTION_POLICY_VERSION:
+            require(row.get('market') in {spec[0] for spec in CURRENT_MARKET_SPECS}, 'Market is excluded from the current shortlist policy')
         require(row.get('selection_tier') in ('STRICT','PROVISIONAL'), 'Invalid selection tier')
         require(number(row.get('offered_decimal_odds'),min_value=1.000001) is not None, 'Missing real selection price')
         require(number(row.get('rank_probability') or row.get('predicted_probability'),min_value=0,max_value=1) is not None,
@@ -118,7 +120,7 @@ def raw_check(root, *, raw_dir=None):
         ('n_strict_qualified',sum(r.get('selection_tier')=='STRICT' for r in picks)),
         ('n_provisional_watchlist',sum(r.get('selection_tier')=='PROVISIONAL' for r in picks))]:
         if field in summary: require(summary[field]==count, f'Forecast summary {field} does not match CSV')
-    if policy_version == BALANCED_SELECTION_POLICY_VERSION:
+    if policy_version in TWELVE_MATCH_BALANCED_SELECTION_POLICIES:
         # The current production policy must be reproducible even if optional
         # experiment sidecars are absent. Checking score arithmetic alone does
         # not bind the selected market, price, EV or top-twelve membership.

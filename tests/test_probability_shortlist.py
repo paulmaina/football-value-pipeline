@@ -139,6 +139,53 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
         return select(rows, {'Premier League':sample_report()},
                       selection_policy_version=BALANCED_SELECTION_POLICY_VERSION, **kwargs)
 
+    def test_current_market_scope_excludes_btts_before_ranking_and_preserves_v15(self):
+        from conservative_bet_filter import PREVIOUS_TWELVE_MATCH_BALANCED_SELECTION_POLICY_VERSION
+        row = fixture(); row.update(p_btts_yes=.99, raw_p_btts_yes=.98, market_btts_yes_odds=5.)
+        picks, decisions, summary = self.select([row])
+        self.assertEqual(set(summary['eligible_markets']), {'Home win', 'Draw', 'Away win', 'Over 1.5',
+            'Double Chance 1X', 'Double Chance X2', 'Double Chance 12'})
+        self.assertNotIn('Both Teams to Score - Yes', decisions.market.tolist())
+        changed = dict(row, p_btts_yes=.01, raw_p_btts_yes=.01, market_btts_yes_odds=1.01)
+        pd.testing.assert_frame_equal(picks, self.select([changed])[0])
+        old, old_decisions, old_summary = select([row], {'Premier League':sample_report()},
+            selection_policy_version=PREVIOUS_TWELVE_MATCH_BALANCED_SELECTION_POLICY_VERSION)
+        self.assertIn('Both Teams to Score - Yes', old_decisions.market.tolist())
+        self.assertNotIn('Draw', old_decisions.market.tolist())
+        self.assertEqual(old_summary['target_distinct_matches'], 12)
+        self.assertEqual(old.iloc[0].market, 'Both Teams to Score - Yes')
+        from workflow_checks import raw_check
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); raw = root/'raw'; raw.mkdir()
+            pd.DataFrame([row]).to_csv(raw/'all_leagues_predictions.csv', index=False)
+            forged = picks.copy(); forged['market'] = 'Both Teams to Score - Yes'
+            forged.to_csv(raw/'conservative_bet_shortlist.csv', index=False)
+            (raw/'conservative_bet_summary.json').write_text(json.dumps(dict(summary,
+                eligible_markets=[*summary['eligible_markets'], 'Both Teams to Score - Yes'])))
+            with self.assertRaisesRegex(ValueError, 'excluded from the current'):
+                raw_check(root)
+
+    def test_draw_has_real_three_way_quotes_validation_and_settlement(self):
+        from performance_tracking import result_for_market
+        from goal_market_validation import enrich_historical_goal_markets, MARKETS
+        row = only_over_goal(0)
+        row.update(p_home=.25, p_draw=.6, p_away=.15, raw_p_home=.3, raw_p_draw=.55, raw_p_away=.15, market_p_draw=.18, market_draw_odds=4.3,
+            best_draw_bookmaker='Book A', market_best_draw_last_update_utc=(NOW-timedelta(hours=1)).isoformat(),
+            market_reference_draw_last_update_utc=(NOW-timedelta(hours=1)).isoformat())
+        row['market_over_1_5_odds'] = None
+        report = sample_report(); report['markets']['draw'] = copy.deepcopy(report['markets']['home'])
+        picks, decisions, summary = select([row], {'Premier League': report},
+            selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)
+        self.assertEqual(picks.iloc[0].market, 'Draw')
+        self.assertEqual(picks.iloc[0].offered_decimal_odds, 4.3)
+        self.assertIn('draw', MARKETS)
+        self.assertTrue(result_for_market('Draw', 1, 1))
+        self.assertFalse(result_for_market('Draw', 1, 0))
+        self.assertEqual(enrich_historical_goal_markets({'FTHG':1, 'FTAG':1}, row)['actual_draw'], 1)
+        row['market_reference_away_odds'] = None
+        self.assertTrue(select([row], {'Premier League': report},
+            selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)[0].empty)
+
     def test_twelve_cap_preserves_top_ten_and_frozen_v14_weighting_replay(self):
         from conservative_bet_filter import TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION
         import shortlist_weight_experiment as trial
@@ -162,6 +209,23 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
                 baseline_policy=TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION)}
         trial.validate(frozen, NOW.isoformat(), rows)
         trial.validate_control(frozen, legacy.to_dict('records'))
+
+    def test_archived_v15_weighting_keeps_twelve_match_cap_and_original_pool(self):
+        from conservative_bet_filter import PREVIOUS_TWELVE_MATCH_BALANCED_SELECTION_POLICY_VERSION as old_policy
+        import shortlist_weight_experiment as trial
+        rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]
+        reports = {'Premier League': sample_report()}
+        picks, decisions, summary = select(rows, reports, selection_policy_version=old_policy)
+        frozen = {'version': trial.VERSION, 'variants': trial.VARIANTS,
+            'selection_policy_version': old_policy, 'generated_at_utc': NOW.isoformat(),
+            'execution_policy': summary['quote_execution_policy'], 'validation_evidence': reports,
+            'rows': trial.decision_rows(pd.DataFrame(rows), NOW.isoformat(), reports,
+                summary['quote_execution_policy'], baseline_policy=old_policy)}
+        self.assertEqual(len(picks), 12)
+        self.assertIn('Both Teams to Score - Yes', decisions.market.tolist())
+        self.assertNotIn('Draw', decisions.market.tolist())
+        trial.validate(frozen, NOW.isoformat(), rows)
+        trial.validate_control(frozen, picks.to_dict('records'))
 
     def test_twelve_target_shortfall_and_raw_integrity_cap(self):
         from format_football_output import process_conservative_shortlist
@@ -251,7 +315,7 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
             self.assertEqual(len(ev.frozen(root, snapshots(root))[0]), 15*7*4)
             mislabeled = copy.deepcopy(data)
             mislabeled['selection_policy_version'] = TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION
-            with self.assertRaisesRegex(ValueError, 'policy cap exceeded'):
+            with self.assertRaisesRegex(ValueError, 'policy cap exceeded|Invalid/duplicate candidate decision'):
                 ev.validate(mislabeled, summary['generated_at_utc'], rows)
             overflow = copy.deepcopy(data)
             extra = next(r for r in overflow['rows'] if r['ev_floor']==0 and r['decision']=='NOT_SELECTED'
