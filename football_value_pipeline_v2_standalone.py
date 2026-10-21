@@ -1103,13 +1103,13 @@ class TheOddsAPI:
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
         payload = self._get_json(
             url,
-            f"oddsapi_additional_ah_v1_{league.key}_{region_tag}_{safe_id}.json",
+            f"oddsapi_additional_ah_dc_v2_{league.key}_{region_tag}_{safe_id}.json",
             ttl=timedelta(minutes=5),
             force_refresh=self.force_refresh,
             params={
                 "apiKey": self.api_key,
                 "regions": self.regions,
-                "markets": "alternate_totals,btts,alternate_spreads,draw_no_bet",
+                "markets": "alternate_totals,btts,alternate_spreads,draw_no_bet,double_chance",
                 "oddsFormat": "decimal",
                 "dateFormat": "iso",
             },

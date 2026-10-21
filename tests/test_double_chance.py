@@ -119,9 +119,26 @@ class DoubleChanceTests(OfflineQuotePolicyTestCase):
                 clock.now.return_value = NOW
                 r=api.extra_markets_for_event(LEAGUES['EPL'],'example')
                 self.assertIn('alternate_spreads',fetch.call_args.kwargs['params']['markets'])
-                self.assertNotIn('double_chance',fetch.call_args.kwargs['params']['markets'])
-                self.assertIn('ah_v1',fetch.call_args.args[1])
+                self.assertIn('double_chance',fetch.call_args.kwargs['params']['markets'])
+                self.assertIn('ah_dc_v2',fetch.call_args.args[1])
                 self.assertEqual(r['market_home_draw_odds'],1.35)
+
+    def test_primary_quote_preferred_and_fallback_used_when_primary_stale(self):
+        import quote_policy
+        payload=event()
+        payload['bookmakers'][0]['title']='Pinnacle'
+        payload['bookmakers'][1]['title']='1xBet'
+        payload['bookmakers'][1]['markets'][0]['outcomes'][0]['price']=1.5
+        policy=quote_policy.validate_policy({'allowed_bookmakers':['Pinnacle','bet365','1xBet'],
+            'fallback_bookmakers':['1xBet'],'per_stake_cost_bps':0})
+        with patch('quote_policy.load_policy',return_value=policy):
+            parsed=parse_quotes(payload,as_of=NOW)
+            self.assertEqual(parsed['best_home_draw_bookmaker'],'Pinnacle')
+            self.assertEqual(parsed['market_home_draw_odds'],1.35)
+            payload['bookmakers'][0]['markets'][0]['last_update']=(NOW-timedelta(hours=25)).isoformat()
+            parsed=parse_quotes(payload,as_of=NOW)
+            self.assertEqual(parsed['best_home_draw_bookmaker'],'1xBet')
+            self.assertEqual(parsed['market_home_draw_odds'],1.5)
 
     def test_stale_higher_price_cannot_hide_a_fresh_qualifying_offer(self):
         payload = event()
