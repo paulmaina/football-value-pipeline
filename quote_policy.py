@@ -30,7 +30,13 @@ def validate_policy(data):
     fallback = data.get('fallback_bookmakers', [])
     if not isinstance(fallback, list) or any(not isinstance(n, str) or not n.strip() for n in fallback):
         raise ValueError('fallback_bookmakers must be a list of nonblank names')
-    return {**({'fallback_bookmakers': fallback} if fallback else {}), 'allowed_bookmakers': names, 'per_stake_cost_bps': costs,
+    risk_settings = {}
+    if 'asian_handicap_risk_tolerance' in data:
+        tolerance = data['asian_handicap_risk_tolerance']
+        if isinstance(tolerance,bool) or not isinstance(tolerance,(int,float)) or not math.isfinite(tolerance) or not 0 <= tolerance <= 1:
+            raise ValueError('asian_handicap_risk_tolerance must be a finite probability from 0 to 1')
+        risk_settings['asian_handicap_risk_tolerance'] = tolerance
+    return {**risk_settings, **({'fallback_bookmakers': fallback} if fallback else {}), 'allowed_bookmakers': names, 'per_stake_cost_bps': costs,
             'exchange_policy': 'EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER',
             'account_availability': 'USER_ALLOWLIST' if names else 'NOT_VERIFIED'}
 
