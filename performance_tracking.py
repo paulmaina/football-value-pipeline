@@ -48,6 +48,8 @@ SUPPORTED_MARKETS = {
     "Home win", "Draw", "Away win", "Over 1.5", "Under 3.5",
     "Both Teams to Score - Yes", "Double Chance 1X", "Double Chance X2", "Double Chance 12",
 }
+from asian_handicap import SETTLED, LINES, label as handicap_label, parse_label as parse_handicap
+SUPPORTED_MARKETS.update(handicap_label(s,p) for s in ('home','away') for p in LINES)
 RESULT_CACHE = PERFORMANCE / "verified_results.json"
 
 
@@ -506,7 +508,7 @@ def score_shortlist(row: dict, final: dict | None, state: str) -> dict:
         "market": row.get("market"), "selection_tier": row.get("selection_tier") or (
             "STRICT" if row.get("decision") == "SHORTLISTED" else "PROVISIONAL"
         ),
-        "predicted_probability": row.get("rank_probability") or row.get("predicted_probability"),
+        "predicted_probability": (row.get('p_no_loss') if parse_handicap(row.get('market')) else row.get("rank_probability") or row.get("predicted_probability")),
         "offered_decimal_odds": row.get("offered_decimal_odds"),
         "per_stake_cost": row.get("per_stake_cost") or 0,
         "bookmaker": row.get("bookmaker"),
@@ -525,6 +527,20 @@ def score_shortlist(row: dict, final: dict | None, state: str) -> dict:
     if state != "VERIFIED_FINISHED" or not final:
         return out
     market = str(row.get("market"))
+    handicap = parse_handicap(market)
+    if handicap:
+        from asian_handicap import profit
+        price = number(row.get('offered_decimal_odds'), min_value=1.000001)
+        if price is None:
+            out['status'] = 'UNSUPPORTED_MARKET'
+            return out
+        from quote_policy import stake_cost
+        status, gain = profit(final['home_goals'], final['away_goals'], *handicap, price, stake_cost(out['per_stake_cost']))
+        out.update(status=status, unit_profit=round(gain,6))
+        p = number(out.get('predicted_probability'),min_value=0,max_value=1)
+        if p is not None:
+            out['brier'] = round((p-int(gain >= -1e-12))**2,8)
+        return out
     result = result_for_market(market, final["home_goals"], final["away_goals"])
     if result is None:
         out["status"] = "UNSUPPORTED_MARKET"
@@ -665,14 +681,19 @@ PREDICTION_COLUMNS = [
 
 
 def stats(rows: list[dict]) -> dict:
-    rated = [r for r in rows if r["status"] in ("WON", "LOST")]
-    wins = sum(r["status"] == "WON" for r in rated)
+    rated = [r for r in rows if r["status"] in SETTLED]
+    wins = sum(r["status"] in ("WON", "HALF_WON") for r in rated)
     priced = [r for r in rated if number(r.get("unit_profit")) is not None]
     profit = sum(float(r["unit_profit"]) for r in priced)
     brier = [float(r["brier"]) for r in rated if number(r.get("brier")) is not None]
     return {
+        **({'refunds':sum(r['status']=='REFUNDED' for r in rated),
+            'half_wins':sum(r['status']=='HALF_WON' for r in rated),
+            'half_losses':sum(r['status']=='HALF_LOST' for r in rated),
+            'no_loss_rate':round(sum(float(r['unit_profit']) >= -1e-12 for r in rated if number(r.get('unit_profit')) is not None)/len(priced),6) if priced else None}
+           if any(parse_handicap(r.get('market')) for r in rows) else {}),
         "total": len(rows), "graded": len(rated),
-        "wins": wins, "losses": len(rated) - wins,
+        "wins": wins, "losses": sum(r["status"] in ("LOST", "HALF_LOST") for r in rated),
         "pending": len(rows) - len(rated),
         "win_rate": round(wins / len(rated), 6) if rated else None,
         "brier": round(sum(brier) / len(brier), 6) if brier else None,
@@ -689,7 +710,7 @@ def calibration_buckets(rows: list[dict]) -> list[dict]:
     for low, high in zip(edges, edges[1:]):
         cohort = [
             r for r in rows
-            if r["status"] in ("WON", "LOST")
+            if r["status"] in SETTLED
             and (p := number(r.get("predicted_probability"), min_value=0, max_value=1)) is not None
             and low <= p < high
         ]
@@ -697,13 +718,13 @@ def calibration_buckets(rows: list[dict]) -> list[dict]:
             continue
         n = len(cohort)
         mean = sum(float(r["predicted_probability"]) for r in cohort) / n
-        actual = sum(r["status"] == "WON" for r in cohort) / n
+        actual = sum((float(r['unit_profit']) >= -1e-12) if parse_handicap(r.get('market')) else r['status']=='WON' for r in cohort) / n
         buckets.append({
             "probability_band": f"{low:.0%}–{min(high, 1.0):.0%}",
             "n": n, "mean_forecast": round(mean, 6),
             "observed_win_rate": round(actual, 6),
             "binary_brier": round(sum(
-                (float(r["predicted_probability"]) - int(r["status"] == "WON"))**2
+                (float(r["predicted_probability"]) - int(float(r['unit_profit']) >= -1e-12 if parse_handicap(r.get('market')) else r["status"] == "WON"))**2
                 for r in cohort
             ) / n, 6),
         })
@@ -712,7 +733,7 @@ def calibration_buckets(rows: list[dict]) -> list[dict]:
 
 def calibration_table(buckets: list[dict]) -> str:
     lines = [
-        "| Forecast bin | Samples | Average forecast | Observed win rate | Binary Brier |",
+        "| Forecast bin | Samples | Average forecast | Observed win / AH no-loss rate | Binary Brier |",
         "|---|---:|---:|---:|---:|",
     ]
     for x in buckets:
@@ -779,10 +800,10 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "status": (
             "AWAITING_PREMATCH_SNAPSHOTS" if not selections
             else "AWAITING_VERIFIED_RESULTS" if not any(
-                r["status"] in ("WON", "LOST") for r in selections
+                r["status"] in SETTLED for r in selections
             )
             else "PARTIALLY_GRADED" if any(
-                r["status"] not in ("WON", "LOST") for r in selections
+                r["status"] not in SETTLED for r in selections
             )
             else "ALL_GRADED"
         ),
@@ -807,7 +828,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "pending_reason_counts": {
             reason: sum(r["status"] == reason for r in selections)
             for reason in sorted({r["status"] for r in selections
-                                  if r["status"] not in ("WON", "LOST")})
+                                  if r["status"] not in SETTLED})
         },
     }
     write_json(output / "metrics.json", result)
@@ -816,6 +837,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
         "# Forward-only football performance dashboard",
         "",
         "Only immutable **Git-archived before-kickoff predictions** are scored.",
+        "Asian handicaps settle full/half wins, refunds and full/half losses. ROI includes every settled stake; refunds are not wins. Asian probability/Brier measures no net loss.",
         "Actual results come from football-data.org v4 FINISHED matches;",
         "normal 90-minute results are used, never extra-time/penalty scorelines.",
         "**PROVISIONAL candidates are not audited betting recommendations.**",

@@ -1051,6 +1051,9 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
         "High-confidence evidence status", "Data/selection status",
         "Qualification", "Near-miss reasons", "Historical gap score",
     ]
+    if 'p_no_loss' in df.columns:
+        columns += ['Any loss chance','Conservative loss estimate','Full refund chance','Full win chance',
+                    'Half win chance','Half loss chance','Full loss chance','Probability meaning']
     rows: List[Dict[str, str]] = []
     for _, item in df.iterrows():
         home = item.get("home_team")
@@ -1075,6 +1078,14 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
                 str(item.get("league")) if not is_missing(item.get("league")) else "—"
             ),
             "Model chance": pct(item.get("predicted_probability")),
+            "Any loss chance": pct(item.get('p_any_loss')),
+            "Conservative loss estimate": pct(item.get('loss_probability_upper')),
+            "Full refund chance": pct(item.get('p_refund')),
+            "Full win chance": pct(item.get('p_full_win')),
+            "Half win chance": pct(item.get('p_half_win')),
+            "Half loss chance": pct(item.get('p_half_loss')),
+            "Full loss chance": pct(item.get('p_full_loss')),
+            "Probability meaning": item.get('probability_basis') or 'win',
             "Reliability-adjusted chance": pct(item.get("rank_probability")),
             "Unblended Dixon-Coles chance": pct(item.get("raw_dc_probability")),
             "Market implied chance": pct(item.get("market_probability")),
@@ -1248,6 +1259,11 @@ def process_conservative_shortlist(
         "## Shortlisted market for each match",
         "",
     ]
+    from asian_handicap import POLICY as AH_POLICY
+    asian = summary.get('selection_policy_version') == AH_POLICY
+    if asian:
+        lines += ['**Asian handicap policy:** rank lowest conservative estimated chance of losing any stake first, then refund probability and positive adjusted EV. Half-losses count as losses. No padding with failed gates.',
+                  '**Probability meaning:** Asian model chance means no net loss, including a full refund; it is not win probability. Estimates do not guarantee outcomes. Only quoted Pinnacle/bet365 lines qualify.', '']
     if count:
         headers = [
             "Match", "Shortlisted market", "Qualification", "Kickoff (UTC)",
@@ -1255,6 +1271,8 @@ def process_conservative_shortlist(
             "Bookmaker", "Quoted decimal odds", "Conservative estimated EV",
             "Selection warnings" if probability_first else "Near-miss reasons",
         ]
+        if asian:
+            headers = [*headers, 'Any loss chance', 'Conservative loss estimate', 'Full refund chance', 'Probability meaning']
         if balanced:
             headers = ['Combined ranking score', *headers]
         lines.append(markdown_table(

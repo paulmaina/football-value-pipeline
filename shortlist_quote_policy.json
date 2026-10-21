@@ -1,8 +1,4 @@
 {
-  "allowed_bookmakers": [
-    "1xBet",
-    "Pinnacle",
-    "bet365"
-  ],
+  "allowed_bookmakers": ["Pinnacle", "bet365"],
   "per_stake_cost_bps": 0
 }
