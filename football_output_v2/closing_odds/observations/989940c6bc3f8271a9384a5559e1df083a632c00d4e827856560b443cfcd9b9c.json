@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Arsenal",
+    "home_team": "Bayern Munich",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "2ebbccdeea2dab59717d5c3d802c3fed"
+  },
+  "observed_at_utc": "2026-10-21T18:54:22.296207+00:00",
+  "payload": {
+    "away_team": "Arsenal",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-21T18:54:10Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 3.11
+              },
+              {
+                "name": "Bayern Munich",
+                "price": 2.27
+              },
+              {
+                "name": "Draw",
+                "price": 3.56
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-21T18:54:10Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.27
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.64
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 2.87
+              },
+              {
+                "name": "Bayern Munich",
+                "price": 2.39
+              },
+              {
+                "name": "Draw",
+                "price": 3.8
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.01
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.89
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-21T19:00:00Z",
+    "home_team": "Bayern Munich",
+    "id": "2ebbccdeea2dab59717d5c3d802c3fed",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.39,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4082836153136171,
+      "selection": "home",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2534623773967421,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.87,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3382540072896409,
+      "selection": "away",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.27,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.42612131737450487,
+      "selection": "home",
+      "updated_at_utc": "2026-10-21T18:54:10+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.56,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2667979310454048,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-21T18:54:10+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.11,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3070807515800905,
+      "selection": "away",
+      "updated_at_utc": "2026-10-21T18:54:10+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.27,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4132860131875165,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-21T18:54:10+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.64,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5867139868124834,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-21T18:54:10+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

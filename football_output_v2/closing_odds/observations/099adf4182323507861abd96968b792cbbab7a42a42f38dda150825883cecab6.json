@@ -1,0 +1,374 @@
+{
+  "fixture": {
+    "away_team": "RB Leipzig",
+    "home_team": "Real Madrid",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "30f27b8e9719e9ae71c25b4c8aa265f7"
+  },
+  "observed_at_utc": "2026-10-21T18:54:21.869008+00:00",
+  "payload": {
+    "away_team": "RB Leipzig",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "RB Leipzig",
+                "price": 11.25
+              },
+              {
+                "name": "Real Madrid",
+                "price": 1.24
+              },
+              {
+                "name": "Draw",
+                "price": 7.5
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "RB Leipzig",
+                "point": 2.0,
+                "price": 2.04
+              },
+              {
+                "name": "Real Madrid",
+                "point": -2.0,
+                "price": 1.87
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.25,
+                "price": 1.89
+              },
+              {
+                "name": "Under",
+                "point": 4.25,
+                "price": 2.0
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "RB Leipzig",
+                "point": 2.0,
+                "price": 2.04
+              },
+              {
+                "name": "RB Leipzig",
+                "point": 3.0,
+                "price": 1.36
+              },
+              {
+                "name": "RB Leipzig",
+                "point": 2.75,
+                "price": 1.51
+              },
+              {
+                "name": "RB Leipzig",
+                "point": 2.5,
+                "price": 1.65
+              },
+              {
+                "name": "RB Leipzig",
+                "point": 2.25,
+                "price": 1.81
+              },
+              {
+                "name": "RB Leipzig",
+                "point": 1.75,
+                "price": 2.27
+              },
+              {
+                "name": "RB Leipzig",
+                "point": 1.5,
+                "price": 2.5
+              },
+              {
+                "name": "RB Leipzig",
+                "point": 1.25,
+                "price": 2.97
+              },
+              {
+                "name": "RB Leipzig",
+                "point": 1.0,
+                "price": 3.85
+              },
+              {
+                "name": "Real Madrid",
+                "point": -2.0,
+                "price": 1.87
+              },
+              {
+                "name": "Real Madrid",
+                "point": -3.0,
+                "price": 3.22
+              },
+              {
+                "name": "Real Madrid",
+                "point": -2.75,
+                "price": 2.64
+              },
+              {
+                "name": "Real Madrid",
+                "point": -2.5,
+                "price": 2.29
+              },
+              {
+                "name": "Real Madrid",
+                "point": -2.25,
+                "price": 2.09
+              },
+              {
+                "name": "Real Madrid",
+                "point": -1.75,
+                "price": 1.68
+              },
+              {
+                "name": "Real Madrid",
+                "point": -1.5,
+                "price": 1.56
+              },
+              {
+                "name": "Real Madrid",
+                "point": -1.25,
+                "price": 1.41
+              },
+              {
+                "name": "Real Madrid",
+                "point": -1.0,
+                "price": 1.28
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-10-21T18:54:14Z",
+            "outcomes": [
+              {
+                "name": "RB Leipzig",
+                "price": 9.6
+              },
+              {
+                "name": "Real Madrid",
+                "price": 1.08
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-21T19:00:00Z",
+    "home_team": "Real Madrid",
+    "id": "30f27b8e9719e9ae71c25b4c8aa265f7",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.24,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7986336277870485,
+      "selection": "home",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.12170557005641837,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 11.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.07966080215653315,
+      "selection": "away",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.04,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.87,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.85,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.97,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.5,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.27,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.65,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.51,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +3.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.22,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -3.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.64,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.09,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.68,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.41,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 9.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-10-21T18:54:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.08,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-10-21T18:54:14+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

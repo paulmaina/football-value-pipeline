@@ -1,0 +1,390 @@
+{
+  "fixture": {
+    "away_team": "Shakhtar Donetsk",
+    "home_team": "Inter Milan",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "a889456204e8ef1b64294efbee8dc3e5"
+  },
+  "observed_at_utc": "2026-10-21T18:54:53.008214+00:00",
+  "payload": {
+    "away_team": "Shakhtar Donetsk",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-21T18:54:31Z",
+            "outcomes": [
+              {
+                "name": "Inter Milan",
+                "price": 1.26
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "price": 11.0
+              },
+              {
+                "name": "Draw",
+                "price": 6.8
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-10-21T18:54:31Z",
+            "outcomes": [
+              {
+                "name": "Inter Milan",
+                "point": -1.75,
+                "price": 1.95
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "point": 1.75,
+                "price": 1.95
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-21T18:54:31Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.83
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.06
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-10-21T18:54:31Z",
+            "outcomes": [
+              {
+                "name": "Inter Milan",
+                "point": -1.75,
+                "price": 1.95
+              },
+              {
+                "name": "Inter Milan",
+                "point": -2.75,
+                "price": 3.3
+              },
+              {
+                "name": "Inter Milan",
+                "point": -2.5,
+                "price": 2.76
+              },
+              {
+                "name": "Inter Milan",
+                "point": -2.25,
+                "price": 2.5
+              },
+              {
+                "name": "Inter Milan",
+                "point": -2.0,
+                "price": 2.23
+              },
+              {
+                "name": "Inter Milan",
+                "point": -1.5,
+                "price": 1.75
+              },
+              {
+                "name": "Inter Milan",
+                "point": -1.25,
+                "price": 1.56
+              },
+              {
+                "name": "Inter Milan",
+                "point": -1.0,
+                "price": 1.37
+              },
+              {
+                "name": "Inter Milan",
+                "point": -0.75,
+                "price": 1.31
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "point": 1.75,
+                "price": 1.95
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "point": 2.75,
+                "price": 1.34
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "point": 2.5,
+                "price": 1.45
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "point": 2.25,
+                "price": 1.56
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "point": 2.0,
+                "price": 1.71
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "point": 1.5,
+                "price": 2.16
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "point": 1.25,
+                "price": 2.49
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "point": 1.0,
+                "price": 3.1
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "point": 0.75,
+                "price": 3.48
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-10-21T18:54:37Z",
+            "outcomes": [
+              {
+                "name": "Inter Milan",
+                "price": 1.11
+              },
+              {
+                "name": "Shakhtar Donetsk",
+                "price": 7.84
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-21T19:00:00Z",
+    "home_team": "Inter Milan",
+    "id": "a889456204e8ef1b64294efbee8dc3e5",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.784880307804431,
+      "selection": "home",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.13411036660467937,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 11.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.08100932559088964,
+      "selection": "away",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.95,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.95,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.83,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5309655272848262,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.06,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4690344727151739,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.48,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.1,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.16,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.71,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.45,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.34,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.75",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.75",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.76,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.5,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.75,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-10-21T18:54:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.84,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-10-21T18:54:37+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.11,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-10-21T18:54:37+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
