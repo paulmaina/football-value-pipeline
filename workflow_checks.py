@@ -34,7 +34,7 @@ CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output
              'collect_api_football_data.py', 'publish_api_football_data.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
              'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py')
-COVERAGE_FLOORS = {'api_football_data.py':85, 'api_football_integration.py':85,
+COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_football_integration.py':85,
     'collect_api_football_data.py':75, 'publish_api_football_data.py':75,
     'prediction_runs.py':85, 'github_closing_odds.py':80, 'bbs_statistics_model.py':85, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
     'publish_bbs_data.py':75, 'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
@@ -87,6 +87,10 @@ def raw_check(root, *, raw_dir=None):
     from conservative_bet_filter import (BALANCED_SELECTION_POLICIES,
         BALANCED_SELECTION_POLICY_VERSION, TWELVE_MATCH_BALANCED_SELECTION_POLICIES, CURRENT_MARKET_SPECS, NO_UNDER35_SELECTION_POLICIES, TARGET_DISTINCT_MATCHES)
     policy_version = summary.get('selection_policy_version')
+    from asian_handicap import POLICIES as AH_POLICIES, parse_label as parse_handicap
+    asian = policy_version in AH_POLICIES
+    if asian:
+        require(summary.get('shortlist_lookahead_hours')==48 and len(picks)<=12,'Invalid Asian handicap horizon or cap')
     balanced = policy_version in BALANCED_SELECTION_POLICIES
     excludes_under = policy_version in NO_UNDER35_SELECTION_POLICIES
     target = TARGET_DISTINCT_MATCHES if policy_version in TWELVE_MATCH_BALANCED_SELECTION_POLICIES else 10
@@ -102,6 +106,9 @@ def raw_check(root, *, raw_dir=None):
         require(not excludes_under or row.get('market') != 'Under 3.5', 'Under 3.5 is excluded from this shortlist policy')
         if policy_version == BALANCED_SELECTION_POLICY_VERSION:
             require(row.get('market') in {spec[0] for spec in CURRENT_MARKET_SPECS}, 'Market is excluded from the current shortlist policy')
+        if asian:
+            require(row.get('market') in ('Home win','Draw','Away win','Over 1.5') or parse_handicap(row.get('market')) is not None,'Excluded Asian shortlist market')
+            require(row.get('selection_tier')=='STRICT','Asian shortlist must not bypass strict gates')
         require(row.get('selection_tier') in ('STRICT','PROVISIONAL'), 'Invalid selection tier')
         require(number(row.get('offered_decimal_odds'),min_value=1.000001) is not None, 'Missing real selection price')
         require(number(row.get('rank_probability') or row.get('predicted_probability'),min_value=0,max_value=1) is not None,
@@ -120,7 +127,7 @@ def raw_check(root, *, raw_dir=None):
         ('n_strict_qualified',sum(r.get('selection_tier')=='STRICT' for r in picks)),
         ('n_provisional_watchlist',sum(r.get('selection_tier')=='PROVISIONAL' for r in picks))]:
         if field in summary: require(summary[field]==count, f'Forecast summary {field} does not match CSV')
-    if policy_version in TWELVE_MATCH_BALANCED_SELECTION_POLICIES:
+    if policy_version in TWELVE_MATCH_BALANCED_SELECTION_POLICIES or asian:
         # The current production policy must be reproducible even if optional
         # experiment sidecars are absent. Checking score arithmetic alone does
         # not bind the selected market, price, EV or top-twelve membership.
@@ -150,7 +157,7 @@ def raw_check(root, *, raw_dir=None):
         require(equivalent(clean_frame(actual[list(expected.columns)]), clean_frame(expected.replace('', None))),
                 'Current shortlist differs from deterministic ranking replay')
         for field in ('target_distinct_matches', 'shortfall', 'usable_distinct_fixtures',
-                      'ranking_weights', 'eligible_markets', 'quote_execution_policy'):
+                      *([] if asian else ['ranking_weights']), 'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')
     warnings=[]
@@ -241,11 +248,17 @@ def archive_check(root):
 
 
 def expected_stats(rows):
-    rated=[r for r in rows if r['status'] in ('WON','LOST')]
-    wins=sum(r['status']=='WON' for r in rated)
+    from asian_handicap import SETTLED
+    rated=[r for r in rows if r['status'] in SETTLED]
+    wins=sum(r['status'] in ('WON','HALF_WON') for r in rated)
     profit=[float(r['unit_profit']) for r in rated if r.get('unit_profit') not in ('',None)]
     brier=[float(r['brier']) for r in rated if r.get('brier') not in ('',None)]
-    return dict(total=len(rows),graded=len(rated),wins=wins,losses=len(rated)-wins,pending=len(rows)-len(rated),
+    from asian_handicap import parse_label
+    extras = dict(refunds=sum(r['status']=='REFUNDED' for r in rated),
+        half_wins=sum(r['status']=='HALF_WON' for r in rated),
+        half_losses=sum(r['status']=='HALF_LOST' for r in rated),
+        no_loss_rate=sum(v >= -1e-12 for v in profit)/len(profit) if profit else None) if any(parse_label(r.get('market')) for r in rows) else {}
+    return dict(**extras,total=len(rows),graded=len(rated),wins=wins,losses=sum(r['status'] in ('LOST','HALF_LOST') for r in rated),pending=len(rows)-len(rated),
         win_rate=wins/len(rated) if rated else None,brier=sum(brier)/len(brier) if brier else None,
         settled_with_odds=len(profit),profit_per_unit_staked=sum(profit) if profit else None,
         flat_stake_roi=sum(profit)/len(profit) if profit else None)
@@ -253,6 +266,7 @@ def expected_stats(rows):
 
 def report_check(root):
     from performance_tracking import read_csv,utc,frozen_rows,snapshots,result_for_market,number,fixture_match,tracking_key
+    from asian_handicap import SETTLED, parse_label as parse_handicap
     from performance_excel import REPORT_NAME
     from datetime import timedelta
     audit=archive_check(root)
@@ -288,17 +302,25 @@ def report_check(root):
             require(utc(row.get('snapshot_generated_utc'))==utc(original['snapshot_generated_utc']), 'Report generation provenance changed')
             require(utc(row.get('snapshot_captured_utc'))==utc(original['snapshot_captured_utc']), 'Report capture provenance changed')
         close(row.get('offered_decimal_odds'),number(original.get('offered_decimal_odds')),'Frozen selection price')
-        close(row.get('predicted_probability'),number(original.get('rank_probability') or original.get('predicted_probability')),'Frozen selection probability')
+        close(row.get('predicted_probability'),number(original.get('p_no_loss') if parse_handicap(row.get('market')) else original.get('rank_probability') or original.get('predicted_probability')),'Frozen selection probability')
         from quote_policy import stake_cost
         close(row.get('per_stake_cost') or 0,stake_cost(original.get('per_stake_cost') or 0),'Frozen selection cost')
         require(row['selection_tier']==(original.get('selection_tier') or ('STRICT' if original.get('decision')=='SHORTLISTED' else 'PROVISIONAL')), 'Report selection tier changed')
-        if row['status'] in ('WON','LOST'):
+        if row['status'] in SETTLED:
             verified,state=fixture_match(original,records)
             require(verified is not None and str(verified['match_id'])==row.get('source_match_id'), 'Selection result absent from verified cache')
             require(verified.get('source_status')=='FINISHED' and verified.get('source')=='football-data.org/v4','Selection cache source is not verified finished')
             require(row.get('final_score')==f"{verified['home_goals']}-{verified['away_goals']}", 'Selection score differs from verified cache')
             require(row.get('match_source')=='football-data.org/v4' and row.get('source_match_id'), 'Graded result lacks verified source')
             match=re.fullmatch(r'(\d+)-(\d+)',row.get('final_score',''));require(match is not None,'Invalid graded score')
+            if parse_handicap(row['market']):
+                from asian_handicap import profit
+                status, gain = profit(int(match[1]),int(match[2]),*parse_handicap(row['market']),float(row['offered_decimal_odds']),stake_cost(original.get('per_stake_cost') or 0))
+                require(row['status']==status,'Asian handicap settlement differs from regulation-time score')
+                close(row.get('unit_profit'),gain,'Asian handicap P&L')
+                p=number(row.get('predicted_probability'),min_value=0,max_value=1)
+                if p is not None: close(row.get('brier'),(p-int(gain >= -1e-12))**2,'Asian handicap no-loss Brier')
+                continue
             won=result_for_market(row['market'],int(match[1]),int(match[2]))
             require(won is not None and won==(row['status']=='WON'), 'Outcome differs from regulation-time score')
             p=number(row.get('predicted_probability'),min_value=0,max_value=1)

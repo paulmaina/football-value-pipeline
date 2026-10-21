@@ -8,11 +8,17 @@ from pathlib import Path
 import re
 import time
 
-VERSION='local-closing-quotes-v3'
-PREVIOUS_VERSION='local-closing-quotes-v2'
+VERSION='local-closing-quotes-v4'
+PREVIOUS_VERSION='local-closing-quotes-v3'
+OLDER_VERSION='local-closing-quotes-v2'
 LEGACY_VERSION='local-closing-quotes-v1'
 PRE_KICKOFF_WINDOW_SECONDS=6*60
 LABELS={'home':'Home win','away':'Away win','over_1_5':'Over 1.5','under_3_5':'Under 3.5','btts_yes':'Both Teams to Score - Yes','home_draw':'Double Chance 1X','draw_away':'Double Chance X2','home_away':'Double Chance 12'}
+
+
+from asian_handicap import LINES, label as handicap_label, parse_label as parse_handicap
+LABELS.update({handicap_label(s,p):handicap_label(s,p) for s in ('home','away') for p in LINES})
+LABELS['draw'] = 'Draw'
 
 
 def digest(data):return hashlib.sha256(json.dumps(data,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
@@ -30,8 +36,8 @@ def normalize(source,payload,observed,version=VERSION):
     for book in payload.get('bookmakers',[]):
         if not isinstance(book,dict) or not isinstance(book.get('markets',[]),list):continue
         key=str(book.get('key','')).lower()
-        if version == VERSION and key == 'onexbet':key = '1xbet'
-        if key not in ('pinnacle','1xbet'):continue
+        if version in (VERSION,PREVIOUS_VERSION) and key == 'onexbet':key = '1xbet'
+        if key not in (('pinnacle','1xbet','bet365') if version==VERSION else ('pinnacle','1xbet')):continue
         for market in book.get('markets',[]):
             if not isinstance(market,dict) or not isinstance(market.get('outcomes',[]),list):continue
             updated=utc(market.get('last_update') or book.get('last_update'))
@@ -64,6 +70,10 @@ def normalize(source,payload,observed,version=VERSION):
                     if duplicate or set(values)!=set(allowed) or not .98<=sum(1/v for v in values.values())<=1.20:continue
                     probs=devig([values[k] for k in allowed],method='power')
                     pairs.extend((('btts_'+k if mk=='btts' else k+'_'+str(point).replace('.','_')),values[k],float(probs[i]),'power_complete_binary') for i,k in enumerate(allowed))
+            elif version==VERSION and mk in ('spreads','alternate_spreads','draw_no_bet'):
+                from asian_handicap import parse_quotes as parse_handicap_quotes
+                offers=parse_handicap_quotes({**payload,'bookmakers':[{**book,'markets':[market]}]},observed)
+                pairs=[(handicap_label(q['side'],q['line']),q['price'],None,'split_settlement_fair_probability_unavailable') for q in offers]
             elif mk=='double_chance':
                 dc=parse_quotes({**payload,'bookmakers':[{**book,'markets':[market]}]})
                 pairs=[(k,dc['market_reference_dc_'+k+'_odds'],dc['market_p_'+k],'proportional_overlap_sum_two') for k in (('home_draw','draw_away') if version==LEGACY_VERSION else ('home_draw','draw_away','home_away')) if 'market_p_'+k in dc]
@@ -80,7 +90,7 @@ def load_observations(root,clock=None):
     for path in sorted((root/'closing_odds/observations').glob('*.json')):
         try:
             d=json.loads(path.read_text(encoding='utf-8-sig'))
-            if digest(d)!=path.stem or d.get('version') not in (VERSION,PREVIOUS_VERSION,LEGACY_VERSION):raise ValueError('Hash')
+            if digest(d)!=path.stem or d.get('version') not in (VERSION,PREVIOUS_VERSION,OLDER_VERSION,LEGACY_VERSION):raise ValueError('Hash')
             from performance_tracking import utc
             observed=utc(d['observed_at_utc'])
             if not observed or (clock is not None and observed>clock):raise ValueError('Clock')
@@ -97,7 +107,7 @@ def fetch(api,source,markets):
     event=str(source.get('odds_event_id',''))
     if not re.fullmatch(r'[A-Za-z0-9_-]+',event):raise ValueError('Invalid odds event')
     league=next(l for l in LEAGUES.values() if l.name==source['league'])
-    return api._get_json(f'{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/events/{event}/odds',f'closing_v1_{event}.json',ttl=timedelta(seconds=0),force_refresh=True,allow_stale=False,params={'bookmakers':'pinnacle,onexbet','markets':','.join(sorted(markets)),'oddsFormat':'decimal','dateFormat':'iso'})
+    return api._get_json(f'{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/events/{event}/odds',f'closing_v1_{event}.json',ttl=timedelta(seconds=0),force_refresh=True,allow_stale=False,params={'bookmakers':'pinnacle' if any('spreads' in m for m in markets) else 'pinnacle,onexbet','markets':','.join(sorted(markets)),'oddsFormat':'decimal','dateFormat':'iso'})
 
 
 def collection_targets(root, predictions, picks):
@@ -121,7 +131,7 @@ def required_quotes(source, selected, observations):
     from performance_tracking import fixture_key, utc
     selections = {key for key, label in LABELS.items() if label in selected}
     if not selections:selections = {'home', 'draw', 'away'}
-    expected = {(book, selection) for book in ('1xbet', 'pinnacle') for selection in selections}
+    expected = {(book, selection) for selection in selections for book in (('pinnacle',) if parse_handicap(selection) else ('1xbet','pinnacle'))}
     actual = {(q['bookmaker'], q['selection']) for obs in observations
               if fixture_key(obs['fixture']) == fixture_key(source)
               and obs['fixture'].get('odds_event_id') == source.get('odds_event_id')
@@ -160,6 +170,7 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None,reservation_id=None)
         if any(m in ('Over 1.5','Under 3.5') for m in selected):markets.add('alternate_totals')
         if 'Both Teams to Score - Yes' in selected:markets.add('btts')
         if any(str(m).startswith('Double Chance') for m in selected):markets.add('double_chance')
+        if any(parse_handicap(m) for m in selected):markets.update(('spreads','alternate_spreads','draw_no_bet'))
         count+=1
         if reservation is not None:
             reservation['used'] += 1
@@ -202,13 +213,14 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None,reservation_id=None)
 def evaluate(root,archive,clock, *, latest=False):
     from performance_tracking import frozen_rows,fixture_key,utc,number
     observations,rejected=load_observations(root,clock);picks=frozen_rows(archive,'shortlist',latest=latest);rows=[]
+    books=('1xbet','pinnacle','bet365') if any(parse_handicap(p.get('market')) for p in picks) else ('1xbet','pinnacle')
     for pick in picks:
         key=fixture_key(pick);selection=next((k for k,v in LABELS.items() if v==pick.get('market')),None);entry=number(pick.get('offered_decimal_odds'),min_value=1.000001)
         item={**pick,'entry_price_basis':'frozen offered quote; accepted execution unverified','closing':{}}
         if utc(pick['kickoff_utc'])>clock:
-            item['closing']={book:{'status':'PENDING_KICKOFF'} for book in ('1xbet','pinnacle')}
+            item['closing']={book:{'status':'PENDING_KICKOFF'} for book in books}
             rows.append(item);continue
-        for book in ('1xbet','pinnacle'):
+        for book in books:
             candidates=[]
             for obs in observations:
                 if fixture_key(obs['fixture'])!=key or utc(obs['fixture']['kickoff_utc'])!=utc(pick['kickoff_utc']) or utc(obs['observed_at_utc'])<utc(pick['snapshot_captured_utc']):continue
@@ -224,10 +236,10 @@ def evaluate(root,archive,clock, *, latest=False):
             if not candidates:
                 item['closing'][book]={'status':'MISSING_VALID_PRE_KICKOFF_QUOTE'};continue
             observed,q,obs=max(candidates,key=lambda x:x[0]);price=q['decimal_odds'];cost=number(pick.get('per_stake_cost'),min_value=0) or 0
-            item['closing'][book]={'status':'OBSERVED_NEAR_CLOSE','observed_at_utc':observed.isoformat(),'seconds_before_kickoff':(utc(pick['kickoff_utc'])-observed).total_seconds(),**q,'offered_price_clv':entry/price-1 if book=='1xbet' and entry and price and str(pick.get('bookmaker','')).lower() in ('1xbet','1xbet.com') else None,'fair_close_ev':entry*q['fair_probability']-1-cost if entry else None,'observation_sha256':digest(obs),'official_close_verified':False}
+            item['closing'][book]={'status':'OBSERVED_NEAR_CLOSE','observed_at_utc':observed.isoformat(),'seconds_before_kickoff':(utc(pick['kickoff_utc'])-observed).total_seconds(),**q,'offered_price_clv':entry/price-1 if entry and price and ((book=='1xbet' and str(pick.get('bookmaker','')).lower() in ('1xbet','1xbet.com')) or (parse_handicap(pick.get('market')) and str(pick.get('bookmaker','')).lower()==book)) else None,'fair_close_ev':entry*q['fair_probability']-1-cost if entry and q['fair_probability'] is not None else None,'observation_sha256':digest(obs),'official_close_verified':False}
         rows.append(item)
     groups={}
-    for book in ('1xbet','pinnacle'):
+    for book in books:
         valid=[x['closing'][book] for x in rows if x['closing'][book]['status']=='OBSERVED_NEAR_CLOSE'];values=[x['fair_close_ev'] for x in valid if x['fair_close_ev'] is not None];prices=[x['offered_price_clv'] for x in valid if x['offered_price_clv'] is not None]
         groups[book]={'covered_selections':len(valid),'missing_selections':sum(x['closing'][book]['status']=='MISSING_VALID_PRE_KICKOFF_QUOTE' for x in rows),'pending_selections':sum(x['closing'][book]['status']=='PENDING_KICKOFF' for x in rows),'mean_fair_close_ev':sum(values)/len(values) if values else None,'mean_same_book_offered_price_clv':sum(prices)/len(prices) if prices else None,'positive_fair_close_ev':sum(v>0 for v in values)}
     summary={'version':VERSION,'reviewed_at_utc':clock.isoformat(),'frozen_selections':len(rows),'observations':len(observations),'rejected_files':rejected,'by_bookmaker':groups,'automatic_production_change':False,'note':'Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.'}

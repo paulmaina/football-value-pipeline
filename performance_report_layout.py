@@ -491,14 +491,14 @@ def add_guide(parts, st):
     sheet=Sheet();title(sheet,'Metric guide','Definitions apply to the archived forecasts and simulated selections in this workbook.',[28,68,64],st)
     sheet.row(5,['Metric','Meaning','How to read it'],st,True)
     definitions=[
-        ['Win rate','Wins divided by settled selections. Pending and unverified results are excluded.','Read with the settled sample size and 95% interval.'],
+        ['Win rate','Full/half wins divided by all settled selections. Refunds are settled but not wins; half-losses are losses.','Read with the settled sample size and 95% interval.'],
         ['Simulated ROI','Simulated net profit divided by staked units. Includes recorded per-stake costs.','Offered prices and simulated stakes are not proof of actual returns. Missing prices are excluded.'],
-        ['Binary Brier','Mean squared error between a forecast probability and a binary outcome.','Lower is better. Read the number of valid probability samples.'],
+        ['Binary Brier','Probability error: win for binary markets; no net loss for Asian handicaps. Refunds count as no loss at zero cost.','Lower is better. Read the number of valid probability samples.'],
         ['1X2 Brier','Multiclass probability error across home win, draw and away win.','Lower is better. Its scale differs from binary Brier; do not compare the two directly.'],
         ['Log loss','Penalty assigned to the probability of the observed outcome.','Lower is better. Compare candidates on the same fixtures.'],
         ['Calibration gap','Mean forecast probability minus observed win rate on the same scored selections.','Closer to zero is better. Positive indicates overconfidence; negative indicates underconfidence.'],
         ['Same-book offer CLV','Frozen offered odds divided by observed near-close odds at the same bookmaker, minus one.','Positive means a better earlier offered price. Quotes are not accepted prices or guaranteed official closing odds.'],
-        ['Fair-close EV','Frozen offered odds multiplied by the de-vigged near-close probability, minus one and recorded costs.','Positive indicates value relative to that observed reference. Coverage must be shown.'],
+        ['Fair-close EV','Binary reference EV only. Asian handicap fair-close EV is unavailable without a settlement-aware margin distribution.','Positive indicates value relative to that observed reference. Coverage must be shown.'],
         ['Verified coverage','Share of verified in-scope fixtures with a usable paired candidate forecast.','Use each versioned trial\'s registered minimum. Missing coverage remains unavailable.'],
         ['Initial review','Original sidecars: at least 28 collection days and 30 settled observations.','An initial look permits review, not promotion or a profitability claim.'],
         ['Approval review','Versioned trials: registered fixture, ISO-week and coverage gates must pass.','Readiness can include negative findings. Production changes require approval.'],
@@ -548,7 +548,7 @@ def ledger_layout(parts, st):
                 if table.get('name') == 'BreakdownsTable':
                     table.find(q('tableColumns'))[14].set('name', 'Calibration gap')
                     parts[path] = xml_bytes(table)
-        if name=='Selections':sheet.put('A4','Latest eligible pre-match selection per fixture. Generated/captured times and archive IDs show which prediction is graded. Times are UTC.',st['note'])
+        if name=='Selections':sheet.put('A4','Latest eligible selection per fixture. Asian probabilities/Brier measure no net loss; refunds are not wins. Half settlements affect ROI. Times are UTC.',st['note'])
         if name in ('Selections','Predictions'):
             for nr in (2,4):
                 merges=sheet.root.find(q('mergeCells'))
@@ -558,7 +558,7 @@ def ledger_layout(parts, st):
                 sheet.merge(f'B{nr}:{column(len(widths))}{nr}')
         if name=='Selections':
             last=max(int(r.get('r')) for r in sheet.data)
-            status_rules(sheet,f'K6:K{max(6,last)}',st,[('ready',['WON']),('error',['LOST']),
+            status_rules(sheet,f'K6:K{max(6,last)}',st,[('ready',['WON','HALF_WON']),('error',['LOST','HALF_LOST']),('warning',['REFUNDED']),
                 ('warning',['PENDING_KICKOFF_OR_FINAL_SCORE','UNVERIFIED_FIXTURE_OR_RESULT'])])
         put_sheet(parts,name,sheet)
 

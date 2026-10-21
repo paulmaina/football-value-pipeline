@@ -146,13 +146,18 @@ def prepared_rows(rows):
         seen.add(row['fixture_key'])
         r = dict(row)
         r['p'] = probability(r.get('predicted_probability'))
-        r['y'] = 1 if r['status']=='WON' else 0 if r['status']=='LOST' else None
+        from asian_handicap import SETTLED, parse_label
+        ah = parse_label(r.get('market'))
+        r['y'] = (int(float(r['unit_profit']) >= -1e-12) if ah and r['status'] in SETTLED else
+                  1 if r['status']=='WON' else 0 if r['status']=='LOST' else None)
+        r['asian'] = ah is not None
         r['price'] = num(r.get('offered_decimal_odds'))
         if r['price'] is not None and r['price'] <= 1:
             r['price'] = None
         from quote_policy import stake_cost
         r['cost'] = stake_cost(r.get('per_stake_cost') or 0)
         r['priced'] = r['y'] is not None and r['price'] is not None
+        r['gain'] = (float(r['unit_profit']) if r['asian'] else (r['price']-1 if r['y'] else -1)-r['cost']) if r['priced'] else None
         r['scored_p'] = r['p'] if r['y'] is not None else None
         r['brier_value'] = (r['p']-r['y'])**2 if r['scored_p'] is not None else None
         r['policy'] = r.get('selection_policy_version') or 'legacy/unspecified'
@@ -164,11 +169,12 @@ def summarize(rows):
     settled = [r for r in rows if r['y'] is not None]
     priced = [r for r in rows if r['priced']]
     prob = [r for r in settled if r['scored_p'] is not None]
-    wins = sum(r['y'] for r in settled)
-    profit = sum((r['price']-1 if r['y'] else -1)-r['cost'] for r in priced)
+    wins = sum(r['status'] in ('WON','HALF_WON') for r in settled)
+    losses = sum(r['status'] in ('LOST','HALF_LOST') for r in settled)
+    profit = sum(r['gain'] for r in priced)
     mean = sum(r['p'] for r in prob)/len(prob) if prob else None
     observed = sum(r['y'] for r in prob)/len(prob) if prob else None
-    return [len(rows), len(settled), wins, len(settled)-wins, len(rows)-len(settled),
+    return [len(rows), len(settled), wins, losses, len(rows)-len(settled),
             wins/len(settled) if settled else 'n.a.', len(priced),
             profit, profit/len(priced) if priced else 'n.a.',
             sum(r['brier_value'] for r in prob)/len(prob) if prob else 'n.a.',
@@ -185,7 +191,9 @@ def formula_group(dimension, label, rows, end, column=None):
         args = criteria + ([rng(condition_col),condition] if condition_col else [])
         return ('SUMIFS('+','.join([rng(c)]+args)+')') if args else f'SUM({rng(c)})'
     total = ('COUNTIFS('+','.join(criteria)+')') if column else f'COUNTA({rng("A")})'
-    wins=count('K','"WON"'); losses=count('K','"LOST"'); n=f'({wins}+{losses})'
+    wins='('+count('K','"WON"')+'+'+count('K','"HALF_WON"')+')'
+    losses='('+count('K','"LOST"')+'+'+count('K','"HALF_LOST"')+')'
+    n=f'({wins}+{losses}+'+count('K','"REFUNDED"')+')'
     # Scored forecast column is blank unless both a valid probability and outcome exist.
     pn=summ('T')
     expected=summ('S')
@@ -235,7 +243,7 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
             f"{r.get('home_team','')} vs {r.get('away_team','')}",r.get('market'),r.get('selection_tier'),r['policy'],
             r['p'],r['price'],r.get('final_score'),r['status'],r['y'],
             (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(I{i}),I{i}>1),\'ROI Plan\'!$B$5,"")',1 if r['priced'] else ''),
-            (f'IF(ISNUMBER(M{i}),M{i}*(I{i}*L{i}-1-U{i}),"")',((r['price']-1 if r['y'] else -1)-r['cost']) if r['priced'] else ''),
+            (f'IF(ISNUMBER(M{i}),M{i}*IF(K{i}="HALF_WON",(I{i}-1)/2-U{i},IF(K{i}="HALF_LOST",-0.5-U{i},IF(K{i}="REFUNDED",-U{i},I{i}*L{i}-1-U{i}))),"")',r['gain'] if r['priced'] else ''),
             (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(H{i})),(H{i}-L{i})^2,"")',r['brier_value']),
             r.get('week'),r.get('snapshot_commit'),r.get('match_source'),
             (f'IF(AND(ISNUMBER(L{i}),ISNUMBER(H{i})),H{i},"")',r['scored_p']),
@@ -282,7 +290,7 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
     sheets['Calibration'].fill(cal_rows)
     roi=[]; running=0; peak=100
     for i,r in enumerate(rows,10):
-        sr=i-4; gain=((r['price']-1 if r['y'] else -1)-r['cost']) if r['priced'] else 0
+        sr=i-4; gain=r['gain'] if r['priced'] else 0
         running+=gain; bank=100+running;peak=max(peak,bank)
         roi.append([r.get('kickoff_utc',''),f"{r.get('home_team','')} vs {r.get('away_team','')}",r['status'],
                     (f'IF(ISNUMBER(Selections!M{sr}),Selections!M{sr},"")',1 if r['priced'] else ''),
@@ -321,6 +329,8 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
     dash.set('A29','Each match counts once using its latest eligible pre-kickoff prediction. Earlier forecasts remain in Run Tracking; they do not add stakes to the main totals.')
     dash.set('A27','Review as of UTC: '+str(metrics.get('reviewed_at_utc') or 'not recorded in source'))
     dash.set('A28','PROVISIONAL is a research watchlist. Positive simulated ROI does not establish profitability.')
+    if any(r['asian'] for r in rows):
+        dash.set('A28',f"Asian: {sum(r['status']=='REFUNDED' for r in rows)} refunds, {sum(r['status']=='HALF_WON' for r in rows)} half-wins, {sum(r['status']=='HALF_LOST' for r in rows)} half-losses. Refunds are settled, not wins. Calibration measures no net loss.")
     dash.set('D16','Forecast metric');dash.set('E16','Samples');dash.set('F16','Accuracy')
     for rr,label,c,key in [(17,'Over 1.5','J','over_1_5_correct'),(18,'Under 3.5','K','under_3_5_correct'),(19,'BTTS Yes','L','btts_yes_correct'),(20,'BTTS No','M','btts_no_correct')]:
         vals=[num(p.get(key)) for p in predictions if p.get('status')=='GRADED' and num(p.get(key)) is not None]
