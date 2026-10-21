@@ -533,53 +533,87 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": null,
-          "calibration": [],
-          "calibration_gap": null,
+          "brier": 0.12076130008620248,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.557319461056766,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7862409127041587,
+              "n": 3,
+              "observed_rate": 0.6666666666666666
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.839429752437553,
+              "n": 3,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.944603788504803,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.07763309437666199,
           "dimension": "league",
-          "flat_stake_roi": null,
-          "graded": 0,
-          "log_loss": null,
-          "max_drawdown_units": null,
-          "mean_probability": null,
-          "observed_rate": null,
-          "pending": 8,
-          "profit_units": 0,
+          "flat_stake_roi": 0.16999999999999998,
+          "graded": 8,
+          "log_loss": 0.3914332738913501,
+          "max_drawdown_units": 0.030000000000000027,
+          "mean_probability": 0.797366905623338,
+          "observed_rate": 0.875,
+          "pending": 0,
+          "profit_units": 1.3599999999999999,
           "selected": 8,
           "value": "UEFA Champions League",
           "variant_id": "control",
-          "win_rate_wilson95": null,
-          "wins": 0
+          "win_rate_wilson95": [
+            0.5291051942301386,
+            0.9775830911367038
+          ],
+          "wins": 7
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.06524032170175213,
+          "brier": 0.1069751739986426,
           "calibration": [
             {
               "band": "70%-80%",
-              "mean_probability": 0.7449968106013437,
+              "mean_probability": 0.7656188616527512,
+              "n": 6,
+              "observed_rate": 0.8333333333333334
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.839429752437553,
               "n": 3,
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": -0.2550031893986563,
+          "calibration_gap": -0.09866639697453705,
           "dimension": "market",
-          "flat_stake_roi": 0.3133333333333333,
-          "graded": 3,
-          "log_loss": 0.2945683672020429,
-          "max_drawdown_units": 0.0,
-          "mean_probability": 0.7449968106013437,
-          "observed_rate": 1.0,
-          "pending": 6,
-          "profit_units": 0.94,
+          "flat_stake_roi": 0.11444444444444442,
+          "graded": 9,
+          "log_loss": 0.37484054634916103,
+          "max_drawdown_units": 0.07000000000000006,
+          "mean_probability": 0.7902224919143518,
+          "observed_rate": 0.8888888888888888,
+          "pending": 0,
+          "profit_units": 1.0299999999999998,
           "selected": 9,
           "value": "Double Chance 12",
           "variant_id": "control",
           "win_rate_wilson95": [
-            0.43849391955098227,
-            1.0
+            0.5649937852319399,
+            0.9801096286728695
           ],
-          "wins": 3
+          "wins": 8
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -613,8 +647,14 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.08317421502946966,
+          "brier": 0.11137217616187027,
           "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.557319461056766,
+              "n": 1,
+              "observed_rate": 1.0
+            },
             {
               "band": "60%-70%",
               "mean_probability": 0.612317273921159,
@@ -634,24 +674,24 @@
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": -0.27310486285577895,
+          "calibration_gap": -0.3154987818776427,
           "dimension": "market",
-          "flat_stake_roi": 0.40333333333333327,
-          "graded": 3,
-          "log_loss": 0.3272255813682096,
+          "flat_stake_roi": 0.6099999999999999,
+          "graded": 4,
+          "log_loss": 0.3915733522170969,
           "max_drawdown_units": 0.0,
-          "mean_probability": 0.726895137144221,
+          "mean_probability": 0.6845012181223573,
           "observed_rate": 1.0,
-          "pending": 1,
-          "profit_units": 1.2099999999999997,
+          "pending": 0,
+          "profit_units": 2.4399999999999995,
           "selected": 4,
           "value": "Double Chance X2",
           "variant_id": "control",
           "win_rate_wilson95": [
-            0.43849391955098227,
+            0.5100999795960008,
             1.0
           ],
-          "wins": 3
+          "wins": 4
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -685,33 +725,39 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.6082024807433036,
+          "brier": 0.3056356104956621,
           "calibration": [
             {
               "band": "70%-80%",
               "mean_probability": 0.779873374813696,
               "n": 1,
               "observed_rate": 0.0
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.944603788504803,
+              "n": 1,
+              "observed_rate": 1.0
             }
           ],
-          "calibration_gap": 0.779873374813696,
+          "calibration_gap": 0.3622385816592495,
           "dimension": "market",
-          "flat_stake_roi": -1.0,
-          "graded": 1,
-          "log_loss": 1.5135523291774438,
+          "flat_stake_roi": -0.48,
+          "graded": 2,
+          "log_loss": 0.7852710200040829,
           "max_drawdown_units": 1.0,
-          "mean_probability": 0.779873374813696,
-          "observed_rate": 0.0,
-          "pending": 1,
-          "profit_units": -1.0,
+          "mean_probability": 0.8622385816592495,
+          "observed_rate": 0.5,
+          "pending": 0,
+          "profit_units": -0.96,
           "selected": 2,
           "value": "Over 1.5",
           "variant_id": "control",
           "win_rate_wilson95": [
-            0.0,
-            0.7934567085261071
+            0.09452865480086614,
+            0.9054713451991339
           ],
-          "wins": 0
+          "wins": 1
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -757,8 +803,14 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.08807008790161239,
+          "brier": 0.11422305764928446,
           "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.557319461056766,
+              "n": 1,
+              "observed_rate": 1.0
+            },
             {
               "band": "60%-70%",
               "mean_probability": 0.681866500102403,
@@ -767,29 +819,41 @@
             },
             {
               "band": "70%-80%",
-              "mean_probability": 0.726264266040894,
+              "mean_probability": 0.7712467510383425,
+              "n": 4,
+              "observed_rate": 0.75
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.839429752437553,
+              "n": 3,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.944603788504803,
               "n": 1,
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": -0.29593461692835143,
+          "calibration_gap": -0.12129339888699986,
           "dimension": "week",
-          "flat_stake_roi": 0.44999999999999996,
-          "graded": 2,
-          "log_loss": 0.3513813577646628,
-          "max_drawdown_units": 0.0,
-          "mean_probability": 0.7040653830716486,
-          "observed_rate": 1.0,
-          "pending": 8,
-          "profit_units": 0.8999999999999999,
+          "flat_stake_roi": 0.22599999999999998,
+          "graded": 10,
+          "log_loss": 0.3834228906660126,
+          "max_drawdown_units": 0.03000000000000025,
+          "mean_probability": 0.7787066011130002,
+          "observed_rate": 0.9,
+          "pending": 0,
+          "profit_units": 2.26,
           "selected": 10,
           "value": "2026-W43",
           "variant_id": "control",
           "win_rate_wilson95": [
-            0.34237195288961925,
-            1.0
+            0.5958436145024278,
+            0.9821242504842788
           ],
-          "wins": 2
+          "wins": 9
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -955,63 +1019,85 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": null,
-          "calibration": [],
-          "calibration_gap": null,
-          "dimension": "league",
-          "flat_stake_roi": null,
-          "graded": 0,
-          "log_loss": null,
-          "max_drawdown_units": null,
-          "mean_probability": null,
-          "observed_rate": null,
-          "pending": 9,
-          "profit_units": 0,
-          "selected": 9,
-          "value": "UEFA Champions League",
-          "variant_id": "probability_100_ev_0",
-          "win_rate_wilson95": null,
-          "wins": 0
-        },
-        {
-          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.060394856529562974,
+          "brier": 0.1685566218960735,
           "calibration": [
             {
               "band": "70%-80%",
-              "mean_probability": 0.7543630828815685,
+              "mean_probability": 0.7608616903536195,
+              "n": 2,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8552332152226645,
+              "n": 4,
+              "observed_rate": 0.75
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.9339148591606795,
               "n": 2,
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": -0.2456369171184315,
+          "calibration_gap": 0.101310744989907,
+          "dimension": "league",
+          "flat_stake_roi": -0.17375,
+          "graded": 8,
+          "log_loss": 0.4934451113532993,
+          "max_drawdown_units": 1.39,
+          "mean_probability": 0.851310744989907,
+          "observed_rate": 0.75,
+          "pending": 1,
+          "profit_units": -1.39,
+          "selected": 9,
+          "value": "UEFA Champions League",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.40926987910258916,
+            0.9285223111419724
+          ],
+          "wins": 6
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.17676935269380986,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.757612386617594,
+              "n": 4,
+              "observed_rate": 0.75
+            }
+          ],
+          "calibration_gap": 0.0076123866175940025,
           "dimension": "market",
-          "flat_stake_roi": 0.275,
-          "graded": 2,
-          "log_loss": 0.2819318870134927,
-          "max_drawdown_units": 0.0,
-          "mean_probability": 0.7543630828815685,
-          "observed_rate": 1.0,
-          "pending": 2,
-          "profit_units": 0.55,
+          "flat_stake_roi": -0.05499999999999999,
+          "graded": 4,
+          "log_loss": 0.5333248945560846,
+          "max_drawdown_units": 1.0,
+          "mean_probability": 0.757612386617594,
+          "observed_rate": 0.75,
+          "pending": 0,
+          "profit_units": -0.21999999999999997,
           "selected": 4,
           "value": "Double Chance 12",
           "variant_id": "probability_100_ev_0",
           "win_rate_wilson95": [
-            0.34237195288961925,
-            1.0
+            0.3006360524426366,
+            0.9544139373553637
           ],
-          "wins": 2
+          "wins": 3
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.22848215505283054,
+          "brier": 0.17550037736660748,
           "calibration": [
             {
               "band": "80%-90%",
-              "mean_probability": 0.8023504000707631,
-              "n": 2,
-              "observed_rate": 0.5
+              "mean_probability": 0.825344797690981,
+              "n": 3,
+              "observed_rate": 0.6666666666666666
             },
             {
               "band": "90%-100%",
@@ -1020,28 +1106,28 @@
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": 0.17435423048717202,
+          "calibration_gap": 0.09859907109823329,
           "dimension": "market",
-          "flat_stake_roi": -0.26333333333333336,
-          "graded": 3,
-          "log_loss": 0.6379646465011339,
+          "flat_stake_roi": -0.16000000000000003,
+          "graded": 4,
+          "log_loss": 0.5129060787593812,
           "max_drawdown_units": 1.0,
-          "mean_probability": 0.8410208971538387,
-          "observed_rate": 0.6666666666666666,
-          "pending": 2,
-          "profit_units": -0.79,
+          "mean_probability": 0.8485990710982333,
+          "observed_rate": 0.75,
+          "pending": 1,
+          "profit_units": -0.6400000000000001,
           "selected": 5,
           "value": "Double Chance 1X",
           "variant_id": "probability_100_ev_0",
           "win_rate_wilson95": [
-            0.2076549551264879,
-            0.9385096847238394
+            0.3006360524426366,
+            0.9544139373553637
           ],
-          "wins": 2
+          "wins": 3
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.049612374494243654,
+          "brier": 0.03844732880208596,
           "calibration": [
             {
               "band": "70%-80%",
@@ -1051,29 +1137,29 @@
             },
             {
               "band": "80%-90%",
-              "mean_probability": 0.83928269229048,
-              "n": 1,
+              "mean_probability": 0.85616450505778,
+              "n": 2,
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": -0.21581593124424803,
+          "calibration_gap": -0.186195181554472,
           "dimension": "market",
-          "flat_stake_roi": 0.2699999999999999,
-          "graded": 2,
-          "log_loss": 0.24558601737032565,
+          "flat_stake_roi": 0.20333333333333328,
+          "graded": 3,
+          "log_loss": 0.20897956778755847,
           "max_drawdown_units": 0.0,
-          "mean_probability": 0.784184068755752,
+          "mean_probability": 0.813804818445528,
           "observed_rate": 1.0,
-          "pending": 1,
-          "profit_units": 0.5399999999999998,
+          "pending": 0,
+          "profit_units": 0.6099999999999999,
           "selected": 3,
           "value": "Double Chance X2",
           "variant_id": "probability_100_ev_0",
           "win_rate_wilson95": [
-            0.34237195288961925,
+            0.43849391955098227,
             1.0
           ],
-          "wins": 2
+          "wins": 3
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -1097,33 +1183,45 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.33706983487843073,
+          "brier": 0.23393877758060452,
           "calibration": [
             {
               "band": "70%-80%",
               "mean_probability": 0.7615454990277795,
               "n": 2,
               "observed_rate": 0.5
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8382764750670806,
+              "n": 2,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.9339148591606795,
+              "n": 2,
+              "observed_rate": 1.0
             }
           ],
-          "calibration_gap": 0.26154549902777946,
+          "calibration_gap": 0.17791227775184648,
           "dimension": "market",
-          "flat_stake_roi": -0.33999999999999997,
-          "graded": 2,
-          "log_loss": 0.9051593541452886,
-          "max_drawdown_units": 1.0,
-          "mean_probability": 0.7615454990277795,
-          "observed_rate": 0.5,
-          "pending": 4,
-          "profit_units": -0.6799999999999999,
+          "flat_stake_roi": -0.2533333333333333,
+          "graded": 6,
+          "log_loss": 0.6524911251272453,
+          "max_drawdown_units": 1.5199999999999998,
+          "mean_probability": 0.8445789444185131,
+          "observed_rate": 0.6666666666666666,
+          "pending": 0,
+          "profit_units": -1.5199999999999998,
           "selected": 6,
           "value": "Over 1.5",
           "variant_id": "probability_100_ev_0",
           "win_rate_wilson95": [
-            0.09452865480086614,
-            0.9054713451991339
+            0.29998832134152864,
+            0.9032306674407831
           ],
-          "wins": 1
+          "wins": 4
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -1169,39 +1267,45 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.052102296389285443,
+          "brier": 0.1452657567947159,
           "calibration": [
             {
               "band": "70%-80%",
-              "mean_probability": 0.743217623241863,
-              "n": 1,
-              "observed_rate": 1.0
+              "mean_probability": 0.7549803346497006,
+              "n": 3,
+              "observed_rate": 0.6666666666666666
             },
             {
               "band": "80%-90%",
-              "mean_probability": 0.804379439309123,
-              "n": 1,
+              "mean_probability": 0.8450624600399562,
+              "n": 5,
+              "observed_rate": 0.8
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.9339148591606795,
+              "n": 2,
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": -0.22620146872450697,
+          "calibration_gap": 0.03580830224702414,
           "dimension": "week",
-          "flat_stake_roi": 0.235,
-          "graded": 2,
-          "log_loss": 0.25722528040274395,
-          "max_drawdown_units": 0.0,
-          "mean_probability": 0.773798531275493,
-          "observed_rate": 1.0,
-          "pending": 9,
-          "profit_units": 0.47,
+          "flat_stake_roi": -0.092,
+          "graded": 10,
+          "log_loss": 0.44620114516318826,
+          "max_drawdown_units": 1.39,
+          "mean_probability": 0.8358083022470242,
+          "observed_rate": 0.8,
+          "pending": 1,
+          "profit_units": -0.9199999999999999,
           "selected": 11,
           "value": "2026-W43",
           "variant_id": "probability_100_ev_0",
           "win_rate_wilson95": [
-            0.34237195288961925,
-            1.0
+            0.49015684672072335,
+            0.9433190520193067
           ],
-          "wins": 2
+          "wins": 8
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -1367,63 +1471,91 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": null,
-          "calibration": [],
-          "calibration_gap": null,
-          "dimension": "league",
-          "flat_stake_roi": null,
-          "graded": 0,
-          "log_loss": null,
-          "max_drawdown_units": null,
-          "mean_probability": null,
-          "observed_rate": null,
-          "pending": 9,
-          "profit_units": 0,
-          "selected": 9,
-          "value": "UEFA Champions League",
-          "variant_id": "probability_75_ev_25",
-          "win_rate_wilson95": null,
-          "wins": 0
-        },
-        {
-          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.060394856529562974,
+          "brier": 0.08760268258143299,
           "calibration": [
             {
               "band": "70%-80%",
-              "mean_probability": 0.7543630828815685,
+              "mean_probability": 0.7726513391645092,
+              "n": 3,
+              "observed_rate": 0.6666666666666666
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8544038907182694,
+              "n": 3,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.9339148591606795,
               "n": 2,
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": -0.2456369171184315,
+          "calibration_gap": -0.0313755740037881,
+          "dimension": "league",
+          "flat_stake_roi": -0.007500000000000007,
+          "graded": 8,
+          "log_loss": 0.30081705630323285,
+          "max_drawdown_units": 0.8400000000000001,
+          "mean_probability": 0.8436244259962119,
+          "observed_rate": 0.875,
+          "pending": 1,
+          "profit_units": -0.06000000000000005,
+          "selected": 9,
+          "value": "UEFA Champions League",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.5291051942301386,
+            0.9775830911367038
+          ],
+          "wins": 7
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.12854571072687512,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.765336036651333,
+              "n": 5,
+              "observed_rate": 0.8
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.849418127912122,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.053983614805202196,
           "dimension": "market",
-          "flat_stake_roi": 0.275,
-          "graded": 2,
-          "log_loss": 0.2819318870134927,
-          "max_drawdown_units": 0.0,
-          "mean_probability": 0.7543630828815685,
-          "observed_rate": 1.0,
-          "pending": 4,
-          "profit_units": 0.55,
+          "flat_stake_roi": 0.02999999999999999,
+          "graded": 6,
+          "log_loss": 0.4207282813223168,
+          "max_drawdown_units": 0.8400000000000001,
+          "mean_probability": 0.7793497185281312,
+          "observed_rate": 0.8333333333333334,
+          "pending": 0,
+          "profit_units": 0.17999999999999994,
           "selected": 6,
           "value": "Double Chance 12",
           "variant_id": "probability_75_ev_25",
           "win_rate_wilson95": [
-            0.34237195288961925,
-            1.0
+            0.43649056343635395,
+            0.9699474141282697
           ],
-          "wins": 2
+          "wins": 5
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.22848215505283054,
+          "brier": 0.17550037736660748,
           "calibration": [
             {
               "band": "80%-90%",
-              "mean_probability": 0.8023504000707631,
-              "n": 2,
-              "observed_rate": 0.5
+              "mean_probability": 0.825344797690981,
+              "n": 3,
+              "observed_rate": 0.6666666666666666
             },
             {
               "band": "90%-100%",
@@ -1432,24 +1564,24 @@
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": 0.17435423048717202,
+          "calibration_gap": 0.09859907109823329,
           "dimension": "market",
-          "flat_stake_roi": -0.26333333333333336,
-          "graded": 3,
-          "log_loss": 0.6379646465011339,
+          "flat_stake_roi": -0.16000000000000003,
+          "graded": 4,
+          "log_loss": 0.5129060787593812,
           "max_drawdown_units": 1.0,
-          "mean_probability": 0.8410208971538387,
-          "observed_rate": 0.6666666666666666,
-          "pending": 2,
-          "profit_units": -0.79,
+          "mean_probability": 0.8485990710982333,
+          "observed_rate": 0.75,
+          "pending": 1,
+          "profit_units": -0.6400000000000001,
           "selected": 5,
           "value": "Double Chance 1X",
           "variant_id": "probability_75_ev_25",
           "win_rate_wilson95": [
-            0.2076549551264879,
-            0.9385096847238394
+            0.3006360524426366,
+            0.9544139373553637
           ],
-          "wins": 2
+          "wins": 3
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -1509,33 +1641,45 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.33706983487843073,
+          "brier": 0.14158430695965243,
           "calibration": [
             {
               "band": "70%-80%",
               "mean_probability": 0.7615454990277795,
               "n": 2,
               "observed_rate": 0.5
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.842459951311269,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.9339148591606795,
+              "n": 2,
+              "observed_rate": 1.0
             }
           ],
-          "calibration_gap": 0.26154549902777946,
+          "calibration_gap": 0.04667613353763733,
           "dimension": "market",
-          "flat_stake_roi": -0.33999999999999997,
-          "graded": 2,
-          "log_loss": 0.9051593541452886,
+          "flat_stake_roi": -0.10399999999999995,
+          "graded": 5,
+          "log_loss": 0.4237237738550804,
           "max_drawdown_units": 1.0,
-          "mean_probability": 0.7615454990277795,
-          "observed_rate": 0.5,
-          "pending": 3,
-          "profit_units": -0.6799999999999999,
+          "mean_probability": 0.8466761335376374,
+          "observed_rate": 0.8,
+          "pending": 0,
+          "profit_units": -0.5199999999999998,
           "selected": 5,
           "value": "Over 1.5",
           "variant_id": "probability_75_ev_25",
           "win_rate_wilson95": [
-            0.09452865480086614,
-            0.9054713451991339
+            0.3755282641185388,
+            0.9637768390302125
           ],
-          "wins": 1
+          "wins": 4
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -1581,39 +1725,45 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.052102296389285443,
+          "brier": 0.08050260534300348,
           "calibration": [
             {
               "band": "70%-80%",
-              "mean_probability": 0.743217623241863,
-              "n": 1,
-              "observed_rate": 1.0
+              "mean_probability": 0.7652929101838477,
+              "n": 4,
+              "observed_rate": 0.75
             },
             {
               "band": "80%-90%",
-              "mean_probability": 0.804379439309123,
-              "n": 1,
+              "mean_probability": 0.8418977778659827,
+              "n": 4,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.9339148591606795,
+              "n": 2,
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": -0.22620146872450697,
+          "calibration_gap": -0.07034075294793196,
           "dimension": "week",
-          "flat_stake_roi": 0.235,
-          "graded": 2,
-          "log_loss": 0.25722528040274395,
-          "max_drawdown_units": 0.0,
-          "mean_probability": 0.773798531275493,
-          "observed_rate": 1.0,
-          "pending": 9,
-          "profit_units": 0.47,
+          "flat_stake_roi": 0.040999999999999995,
+          "graded": 10,
+          "log_loss": 0.2920987011231351,
+          "max_drawdown_units": 0.8400000000000001,
+          "mean_probability": 0.8296592470520681,
+          "observed_rate": 0.9,
+          "pending": 1,
+          "profit_units": 0.4099999999999999,
           "selected": 11,
           "value": "2026-W43",
           "variant_id": "probability_75_ev_25",
           "win_rate_wilson95": [
-            0.34237195288961925,
-            1.0
+            0.5958436145024278,
+            0.9821242504842788
           ],
-          "wins": 2
+          "wins": 9
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -1779,77 +1929,121 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": null,
-          "calibration": [],
-          "calibration_gap": null,
+          "brier": 0.22115736723505783,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.5523369931311886,
+              "n": 2,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7529938345713793,
+              "n": 4,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8459739269537425,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.1010746473069224,
           "dimension": "league",
-          "flat_stake_roi": null,
-          "graded": 0,
-          "log_loss": null,
-          "max_drawdown_units": null,
-          "mean_probability": null,
-          "observed_rate": null,
-          "pending": 8,
-          "profit_units": 0,
+          "flat_stake_roi": -0.07,
+          "graded": 8,
+          "log_loss": 0.625253793219093,
+          "max_drawdown_units": 1.95,
+          "mean_probability": 0.7260746473069224,
+          "observed_rate": 0.625,
+          "pending": 0,
+          "profit_units": -0.56,
           "selected": 8,
           "value": "UEFA Champions League",
           "variant_id": "probability_25_ev_75",
-          "win_rate_wilson95": null,
-          "wins": 0
+          "win_rate_wilson95": [
+            0.30573785458380187,
+            0.863158240538479
+          ],
+          "wins": 5
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.3646254945401429,
+          "brier": 0.4362576383684635,
           "calibration": [
             {
               "band": "60%-70%",
               "mean_probability": 0.603842276211382,
               "n": 1,
               "observed_rate": 0.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7126638634004,
+              "n": 1,
+              "observed_rate": 0.0
             }
           ],
-          "calibration_gap": 0.603842276211382,
+          "calibration_gap": 0.658253069805891,
           "dimension": "market",
           "flat_stake_roi": -1.0,
-          "graded": 1,
-          "log_loss": 0.9259428546295176,
-          "max_drawdown_units": 1.0,
-          "mean_probability": 0.603842276211382,
+          "graded": 2,
+          "log_loss": 1.0865226977582814,
+          "max_drawdown_units": 2.0,
+          "mean_probability": 0.658253069805891,
           "observed_rate": 0.0,
-          "pending": 1,
-          "profit_units": -1.0,
+          "pending": 0,
+          "profit_units": -2.0,
           "selected": 2,
           "value": "Both Teams to Score - Yes",
           "variant_id": "probability_25_ev_75",
           "win_rate_wilson95": [
             0.0,
-            0.7934567085261071
+            0.6576280471103807
           ],
           "wins": 0
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": null,
-          "calibration": [],
-          "calibration_gap": null,
+          "brier": 0.17282045671854793,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7861514269233575,
+              "n": 2,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8459739269537425,
+              "n": 2,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.06606267693854995,
           "dimension": "market",
-          "flat_stake_roi": null,
-          "graded": 0,
-          "log_loss": null,
-          "max_drawdown_units": null,
-          "mean_probability": null,
-          "observed_rate": null,
-          "pending": 4,
-          "profit_units": 0,
+          "flat_stake_roi": -0.09500000000000003,
+          "graded": 4,
+          "log_loss": 0.5147120301766568,
+          "max_drawdown_units": 0.54,
+          "mean_probability": 0.81606267693855,
+          "observed_rate": 0.75,
+          "pending": 0,
+          "profit_units": -0.3800000000000001,
           "selected": 4,
           "value": "Double Chance 12",
           "variant_id": "probability_25_ev_75",
-          "win_rate_wilson95": null,
-          "wins": 0
+          "win_rate_wilson95": [
+            0.3006360524426366,
+            0.9544139373553637
+          ],
+          "wins": 3
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.2288065390190178,
+          "brier": 0.17737912367513012,
           "calibration": [
             {
               "band": "0%-60%",
@@ -1862,36 +2056,42 @@
               "mean_probability": 0.681866500102403,
               "n": 1,
               "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.727008621038402,
+              "n": 1,
+              "observed_rate": 1.0
             }
           ],
-          "calibration_gap": 0.1394312208487185,
+          "calibration_gap": 0.0019570209119463833,
           "dimension": "market",
-          "flat_stake_roi": -0.245,
-          "graded": 2,
-          "log_loss": 0.6458650172762783,
+          "flat_stake_roi": 0.03333333333333336,
+          "graded": 3,
+          "log_loss": 0.536848992565597,
           "max_drawdown_units": 1.0,
-          "mean_probability": 0.6394312208487185,
-          "observed_rate": 0.5,
-          "pending": 1,
-          "profit_units": -0.49,
+          "mean_probability": 0.668623687578613,
+          "observed_rate": 0.6666666666666666,
+          "pending": 0,
+          "profit_units": 0.10000000000000009,
           "selected": 3,
           "value": "Double Chance 1X",
           "variant_id": "probability_25_ev_75",
           "win_rate_wilson95": [
-            0.09452865480086614,
-            0.9054713451991339
+            0.2076549551264879,
+            0.9385096847238394
           ],
-          "wins": 1
+          "wins": 2
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.23703736725944113,
+          "brier": 0.23972340492234734,
           "calibration": [
             {
               "band": "0%-60%",
-              "mean_probability": 0.45619887568715867,
-              "n": 3,
-              "observed_rate": 0.3333333333333333
+              "mean_probability": 0.4946541226647706,
+              "n": 5,
+              "observed_rate": 0.4
             },
             {
               "band": "60%-70%",
@@ -1906,24 +2106,24 @@
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": 0.06305024635962198,
+          "calibration_gap": 0.06037193305251365,
           "dimension": "market",
-          "flat_stake_roi": -0.07833333333333337,
-          "graded": 6,
-          "log_loss": 0.665473350929059,
+          "flat_stake_roi": -0.030000000000000027,
+          "graded": 8,
+          "log_loss": 0.671262855823649,
           "max_drawdown_units": 2.0,
-          "mean_probability": 0.563050246359622,
+          "mean_probability": 0.5603719330525136,
           "observed_rate": 0.5,
-          "pending": 2,
-          "profit_units": -0.4700000000000002,
+          "pending": 0,
+          "profit_units": -0.2400000000000002,
           "selected": 8,
           "value": "Double Chance X2",
           "variant_id": "probability_25_ev_75",
           "win_rate_wilson95": [
-            0.18761280689940868,
-            0.8123871931005913
+            0.21521252682444186,
+            0.7847874731755582
           ],
-          "wins": 3
+          "wins": 4
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -1999,400 +2199,436 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.24218706849096927,
+          "brier": 0.22689274030485185,
           "calibration": [
             {
               "band": "0%-60%",
-              "mean_probability": 0.422758254965476,
-              "n": 1,
-              "observed_rate": 0.0
+              "mean_probability": 0.5091440804092843,
+              "n": 3,
+              "observed_rate": 0.3333333333333333
             },
             {
               "band": "60%-70%",
               "mean_probability": 0.675084316028238,
               "n": 2,
               "observed_rate": 0.5
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7529938345713793,
+              "n": 4,
+              "observed_rate": 0.5
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8459739269537425,
+              "n": 2,
+              "observed_rate": 1.0
             }
           ],
-          "calibration_gap": 0.25764229567398395,
+          "calibration_gap": 0.1437749150433938,
           "dimension": "week",
-          "flat_stake_roi": -0.49666666666666665,
-          "graded": 3,
-          "log_loss": 0.6786487599030749,
-          "max_drawdown_units": 1.49,
-          "mean_probability": 0.5909756290073173,
-          "observed_rate": 0.3333333333333333,
-          "pending": 8,
-          "profit_units": -1.49,
+          "flat_stake_roi": -0.18636363636363634,
+          "graded": 11,
+          "log_loss": 0.639816056860179,
+          "max_drawdown_units": 2.05,
+          "mean_probability": 0.6892294604979392,
+          "observed_rate": 0.5454545454545454,
+          "pending": 0,
+          "profit_units": -2.05,
           "selected": 11,
           "value": "2026-W43",
           "variant_id": "probability_25_ev_75",
           "win_rate_wilson95": [
-            0.0614903152761605,
-            0.7923450448735121
+            0.28008775568998817,
+            0.7872904245601196
           ],
-          "wins": 1
+          "wins": 6
         }
       ],
       "candidate_decisions": 644,
       "comparisons": [
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.13387032588494915,
-          "calibration": [
-            {
-              "band": "60%-70%",
-              "mean_probability": 0.647091887011781,
-              "n": 2,
-              "observed_rate": 1.0
-            },
-            {
-              "band": "70%-80%",
-              "mean_probability": 0.7533241616709878,
-              "n": 6,
-              "observed_rate": 0.8333333333333334
-            },
-            {
-              "band": "80%-90%",
-              "mean_probability": 0.83928269229048,
-              "n": 1,
-              "observed_rate": 1.0
-            }
-          ],
-          "calibration_gap": -0.1496209515177812,
-          "ev_weight": 0.5,
-          "flat_stake_roi": 0.21666666666666665,
-          "graded": 9,
-          "log_loss": 0.4461626488280618,
-          "max_drawdown_units": 0.33000000000000007,
-          "maximum_probability_weight": 0.5,
-          "mean_probability": 0.7392679373711076,
-          "mean_probability_weight": 0.5,
-          "minimum_probability_weight": 0.5,
-          "observed_rate": 0.8888888888888888,
-          "pending": 9,
-          "probability_weight": 0.5,
-          "profit_units": 1.9499999999999997,
-          "selected": 18,
-          "tier": "ALL",
-          "variant_id": "control",
-          "win_rate_wilson95": [
-            0.5649937852319399,
-            0.9801096286728695
-          ],
-          "wins": 8
-        },
-        {
-          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": null,
-          "calibration": [],
-          "calibration_gap": null,
-          "ev_weight": 0.5,
-          "flat_stake_roi": null,
-          "graded": 0,
-          "log_loss": null,
-          "max_drawdown_units": null,
-          "maximum_probability_weight": 0.5,
-          "mean_probability": null,
-          "mean_probability_weight": 0.5,
-          "minimum_probability_weight": 0.5,
-          "observed_rate": null,
-          "pending": 0,
-          "probability_weight": 0.5,
-          "profit_units": 0,
-          "selected": 0,
-          "tier": "STRICT",
-          "variant_id": "control",
-          "win_rate_wilson95": null,
-          "wins": 0
-        },
-        {
-          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.13387032588494915,
-          "calibration": [
-            {
-              "band": "60%-70%",
-              "mean_probability": 0.647091887011781,
-              "n": 2,
-              "observed_rate": 1.0
-            },
-            {
-              "band": "70%-80%",
-              "mean_probability": 0.7533241616709878,
-              "n": 6,
-              "observed_rate": 0.8333333333333334
-            },
-            {
-              "band": "80%-90%",
-              "mean_probability": 0.83928269229048,
-              "n": 1,
-              "observed_rate": 1.0
-            }
-          ],
-          "calibration_gap": -0.1496209515177812,
-          "ev_weight": 0.5,
-          "flat_stake_roi": 0.21666666666666665,
-          "graded": 9,
-          "log_loss": 0.4461626488280618,
-          "max_drawdown_units": 0.33000000000000007,
-          "maximum_probability_weight": 0.5,
-          "mean_probability": 0.7392679373711076,
-          "mean_probability_weight": 0.5,
-          "minimum_probability_weight": 0.5,
-          "observed_rate": 0.8888888888888888,
-          "pending": 9,
-          "probability_weight": 0.5,
-          "profit_units": 1.9499999999999997,
-          "selected": 18,
-          "tier": "PROVISIONAL",
-          "variant_id": "control",
-          "win_rate_wilson95": [
-            0.5649937852319399,
-            0.9801096286728695
-          ],
-          "wins": 8
-        },
-        {
-          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.1755111774403296,
-          "calibration": [
-            {
-              "band": "70%-80%",
-              "mean_probability": 0.752180521807944,
-              "n": 5,
-              "observed_rate": 0.8
-            },
-            {
-              "band": "80%-90%",
-              "mean_probability": 0.814661164144002,
-              "n": 3,
-              "observed_rate": 0.6666666666666666
-            },
-            {
-              "band": "90%-100%",
-              "mean_probability": 0.91836189131999,
-              "n": 1,
-              "observed_rate": 1.0
-            }
-          ],
-          "calibration_gap": 0.013694221421301833,
-          "ev_weight": 0.0,
-          "flat_stake_roi": -0.04222222222222224,
-          "graded": 9,
-          "log_loss": 0.531027606284624,
-          "max_drawdown_units": 1.0,
-          "maximum_probability_weight": 1.0,
-          "mean_probability": 0.7914719991990796,
-          "mean_probability_weight": 1.0,
-          "minimum_probability_weight": 1.0,
-          "observed_rate": 0.7777777777777778,
-          "pending": 10,
-          "probability_weight": 1.0,
-          "profit_units": -0.3800000000000001,
-          "selected": 19,
-          "tier": "ALL",
-          "variant_id": "probability_100_ev_0",
-          "win_rate_wilson95": [
-            0.4525833436728054,
-            0.9367762376877727
-          ],
-          "wins": 7
-        },
-        {
-          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": null,
-          "calibration": [],
-          "calibration_gap": null,
-          "ev_weight": 0.0,
-          "flat_stake_roi": null,
-          "graded": 0,
-          "log_loss": null,
-          "max_drawdown_units": null,
-          "maximum_probability_weight": 1.0,
-          "mean_probability": null,
-          "mean_probability_weight": 1.0,
-          "minimum_probability_weight": 1.0,
-          "observed_rate": null,
-          "pending": 0,
-          "probability_weight": 1.0,
-          "profit_units": 0,
-          "selected": 0,
-          "tier": "STRICT",
-          "variant_id": "probability_100_ev_0",
-          "win_rate_wilson95": null,
-          "wins": 0
-        },
-        {
-          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.1755111774403296,
-          "calibration": [
-            {
-              "band": "70%-80%",
-              "mean_probability": 0.752180521807944,
-              "n": 5,
-              "observed_rate": 0.8
-            },
-            {
-              "band": "80%-90%",
-              "mean_probability": 0.814661164144002,
-              "n": 3,
-              "observed_rate": 0.6666666666666666
-            },
-            {
-              "band": "90%-100%",
-              "mean_probability": 0.91836189131999,
-              "n": 1,
-              "observed_rate": 1.0
-            }
-          ],
-          "calibration_gap": 0.013694221421301833,
-          "ev_weight": 0.0,
-          "flat_stake_roi": -0.04222222222222224,
-          "graded": 9,
-          "log_loss": 0.531027606284624,
-          "max_drawdown_units": 1.0,
-          "maximum_probability_weight": 1.0,
-          "mean_probability": 0.7914719991990796,
-          "mean_probability_weight": 1.0,
-          "minimum_probability_weight": 1.0,
-          "observed_rate": 0.7777777777777778,
-          "pending": 10,
-          "probability_weight": 1.0,
-          "profit_units": -0.3800000000000001,
-          "selected": 19,
-          "tier": "PROVISIONAL",
-          "variant_id": "probability_100_ev_0",
-          "win_rate_wilson95": [
-            0.4525833436728054,
-            0.9367762376877727
-          ],
-          "wins": 7
-        },
-        {
-          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.1755111774403296,
-          "calibration": [
-            {
-              "band": "70%-80%",
-              "mean_probability": 0.752180521807944,
-              "n": 5,
-              "observed_rate": 0.8
-            },
-            {
-              "band": "80%-90%",
-              "mean_probability": 0.814661164144002,
-              "n": 3,
-              "observed_rate": 0.6666666666666666
-            },
-            {
-              "band": "90%-100%",
-              "mean_probability": 0.91836189131999,
-              "n": 1,
-              "observed_rate": 1.0
-            }
-          ],
-          "calibration_gap": 0.013694221421301833,
-          "ev_weight": 0.25,
-          "flat_stake_roi": -0.04222222222222224,
-          "graded": 9,
-          "log_loss": 0.531027606284624,
-          "max_drawdown_units": 1.0,
-          "maximum_probability_weight": 0.75,
-          "mean_probability": 0.7914719991990796,
-          "mean_probability_weight": 0.75,
-          "minimum_probability_weight": 0.75,
-          "observed_rate": 0.7777777777777778,
-          "pending": 10,
-          "probability_weight": 0.75,
-          "profit_units": -0.3800000000000001,
-          "selected": 19,
-          "tier": "ALL",
-          "variant_id": "probability_75_ev_25",
-          "win_rate_wilson95": [
-            0.4525833436728054,
-            0.9367762376877727
-          ],
-          "wins": 7
-        },
-        {
-          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": null,
-          "calibration": [],
-          "calibration_gap": null,
-          "ev_weight": 0.25,
-          "flat_stake_roi": null,
-          "graded": 0,
-          "log_loss": null,
-          "max_drawdown_units": null,
-          "maximum_probability_weight": 0.75,
-          "mean_probability": null,
-          "mean_probability_weight": 0.75,
-          "minimum_probability_weight": 0.75,
-          "observed_rate": null,
-          "pending": 0,
-          "probability_weight": 0.75,
-          "profit_units": 0,
-          "selected": 0,
-          "tier": "STRICT",
-          "variant_id": "probability_75_ev_25",
-          "win_rate_wilson95": null,
-          "wins": 0
-        },
-        {
-          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.1755111774403296,
-          "calibration": [
-            {
-              "band": "70%-80%",
-              "mean_probability": 0.752180521807944,
-              "n": 5,
-              "observed_rate": 0.8
-            },
-            {
-              "band": "80%-90%",
-              "mean_probability": 0.814661164144002,
-              "n": 3,
-              "observed_rate": 0.6666666666666666
-            },
-            {
-              "band": "90%-100%",
-              "mean_probability": 0.91836189131999,
-              "n": 1,
-              "observed_rate": 1.0
-            }
-          ],
-          "calibration_gap": 0.013694221421301833,
-          "ev_weight": 0.25,
-          "flat_stake_roi": -0.04222222222222224,
-          "graded": 9,
-          "log_loss": 0.531027606284624,
-          "max_drawdown_units": 1.0,
-          "maximum_probability_weight": 0.75,
-          "mean_probability": 0.7914719991990796,
-          "mean_probability_weight": 0.75,
-          "minimum_probability_weight": 0.75,
-          "observed_rate": 0.7777777777777778,
-          "pending": 10,
-          "probability_weight": 0.75,
-          "profit_units": -0.3800000000000001,
-          "selected": 19,
-          "tier": "PROVISIONAL",
-          "variant_id": "probability_75_ev_25",
-          "win_rate_wilson95": [
-            0.4525833436728054,
-            0.9367762376877727
-          ],
-          "wins": 7
-        },
-        {
-          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.2294640694405304,
+          "brier": 0.1277013725678919,
           "calibration": [
             {
               "band": "0%-60%",
-              "mean_probability": 0.49139814216412747,
+              "mean_probability": 0.557319461056766,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.647091887011781,
+              "n": 2,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7642964120153781,
+              "n": 9,
+              "observed_rate": 0.7777777777777778
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8393929874007848,
               "n": 4,
-              "observed_rate": 0.25
+              "observed_rate": 1.0
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.944603788504803,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.1157443128631368,
+          "ev_weight": 0.5,
+          "flat_stake_roi": 0.19470588235294115,
+          "graded": 17,
+          "log_loss": 0.4204076488578445,
+          "max_drawdown_units": 0.33000000000000007,
+          "maximum_probability_weight": 0.5,
+          "mean_probability": 0.7666086283133338,
+          "mean_probability_weight": 0.5,
+          "minimum_probability_weight": 0.5,
+          "observed_rate": 0.8823529411764706,
+          "pending": 1,
+          "probability_weight": 0.5,
+          "profit_units": 3.3099999999999996,
+          "selected": 18,
+          "tier": "ALL",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.6566315750229009,
+            0.967120919987079
+          ],
+          "wins": 15
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "ev_weight": 0.5,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "maximum_probability_weight": 0.5,
+          "mean_probability": null,
+          "mean_probability_weight": 0.5,
+          "minimum_probability_weight": 0.5,
+          "observed_rate": null,
+          "pending": 0,
+          "probability_weight": 0.5,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "STRICT",
+          "variant_id": "control",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.1277013725678919,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.557319461056766,
+              "n": 1,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "60%-70%",
+              "mean_probability": 0.647091887011781,
+              "n": 2,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.7642964120153781,
+              "n": 9,
+              "observed_rate": 0.7777777777777778
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8393929874007848,
+              "n": 4,
+              "observed_rate": 1.0
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.944603788504803,
+              "n": 1,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.1157443128631368,
+          "ev_weight": 0.5,
+          "flat_stake_roi": 0.19470588235294115,
+          "graded": 17,
+          "log_loss": 0.4204076488578445,
+          "max_drawdown_units": 0.33000000000000007,
+          "maximum_probability_weight": 0.5,
+          "mean_probability": 0.7666086283133338,
+          "mean_probability_weight": 0.5,
+          "minimum_probability_weight": 0.5,
+          "observed_rate": 0.8823529411764706,
+          "pending": 1,
+          "probability_weight": 0.5,
+          "profit_units": 3.3099999999999996,
+          "selected": 18,
+          "tier": "PROVISIONAL",
+          "variant_id": "control",
+          "win_rate_wilson95": [
+            0.6566315750229009,
+            0.967120919987079
+          ],
+          "wins": 15
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.1722384454195032,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.754660855678137,
+              "n": 7,
+              "observed_rate": 0.7142857142857143
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8378451933318092,
+              "n": 7,
+              "observed_rate": 0.7142857142857143
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.9287305365471163,
+              "n": 3,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.05492552663005723,
+          "ev_weight": 0.0,
+          "flat_stake_roi": -0.10411764705882354,
+          "graded": 17,
+          "log_loss": 0.5133417263169419,
+          "max_drawdown_units": 1.8599999999999999,
+          "maximum_probability_weight": 1.0,
+          "mean_probability": 0.8196314089829984,
+          "mean_probability_weight": 1.0,
+          "minimum_probability_weight": 1.0,
+          "observed_rate": 0.7647058823529411,
+          "pending": 2,
+          "probability_weight": 1.0,
+          "profit_units": -1.77,
+          "selected": 19,
+          "tier": "ALL",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.5273775411082839,
+            0.9044511092832406
+          ],
+          "wins": 13
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "ev_weight": 0.0,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "maximum_probability_weight": 1.0,
+          "mean_probability": null,
+          "mean_probability_weight": 1.0,
+          "minimum_probability_weight": 1.0,
+          "observed_rate": null,
+          "pending": 0,
+          "probability_weight": 1.0,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "STRICT",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.1722384454195032,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.754660855678137,
+              "n": 7,
+              "observed_rate": 0.7142857142857143
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8378451933318092,
+              "n": 7,
+              "observed_rate": 0.7142857142857143
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.9287305365471163,
+              "n": 3,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": 0.05492552663005723,
+          "ev_weight": 0.0,
+          "flat_stake_roi": -0.10411764705882354,
+          "graded": 17,
+          "log_loss": 0.5133417263169419,
+          "max_drawdown_units": 1.8599999999999999,
+          "maximum_probability_weight": 1.0,
+          "mean_probability": 0.8196314089829984,
+          "mean_probability_weight": 1.0,
+          "minimum_probability_weight": 1.0,
+          "observed_rate": 0.7647058823529411,
+          "pending": 2,
+          "probability_weight": 1.0,
+          "profit_units": -1.77,
+          "selected": 19,
+          "tier": "PROVISIONAL",
+          "variant_id": "probability_100_ev_0",
+          "win_rate_wilson95": [
+            0.5273775411082839,
+            0.9044511092832406
+          ],
+          "wins": 13
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.13414247397731943,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.759857078316656,
+              "n": 8,
+              "observed_rate": 0.75
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8345325274311356,
+              "n": 6,
+              "observed_rate": 0.8333333333333334
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.9287305365471163,
+              "n": 3,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.007515094072858108,
+          "ev_weight": 0.25,
+          "flat_stake_roi": -0.02588235294117648,
+          "graded": 17,
+          "log_loss": 0.4226932298227929,
+          "max_drawdown_units": 1.31,
+          "maximum_probability_weight": 0.75,
+          "mean_probability": 0.8160143176918477,
+          "mean_probability_weight": 0.75,
+          "minimum_probability_weight": 0.75,
+          "observed_rate": 0.8235294117647058,
+          "pending": 2,
+          "probability_weight": 0.75,
+          "profit_units": -0.44000000000000017,
+          "selected": 19,
+          "tier": "ALL",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.5897007098262422,
+            0.9380898628745101
+          ],
+          "wins": 14
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": null,
+          "calibration": [],
+          "calibration_gap": null,
+          "ev_weight": 0.25,
+          "flat_stake_roi": null,
+          "graded": 0,
+          "log_loss": null,
+          "max_drawdown_units": null,
+          "maximum_probability_weight": 0.75,
+          "mean_probability": null,
+          "mean_probability_weight": 0.75,
+          "minimum_probability_weight": 0.75,
+          "observed_rate": null,
+          "pending": 0,
+          "probability_weight": 0.75,
+          "profit_units": 0,
+          "selected": 0,
+          "tier": "STRICT",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": null,
+          "wins": 0
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.13414247397731943,
+          "calibration": [
+            {
+              "band": "70%-80%",
+              "mean_probability": 0.759857078316656,
+              "n": 8,
+              "observed_rate": 0.75
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8345325274311356,
+              "n": 6,
+              "observed_rate": 0.8333333333333334
+            },
+            {
+              "band": "90%-100%",
+              "mean_probability": 0.9287305365471163,
+              "n": 3,
+              "observed_rate": 1.0
+            }
+          ],
+          "calibration_gap": -0.007515094072858108,
+          "ev_weight": 0.25,
+          "flat_stake_roi": -0.02588235294117648,
+          "graded": 17,
+          "log_loss": 0.4226932298227929,
+          "max_drawdown_units": 1.31,
+          "maximum_probability_weight": 0.75,
+          "mean_probability": 0.8160143176918477,
+          "mean_probability_weight": 0.75,
+          "minimum_probability_weight": 0.75,
+          "observed_rate": 0.8235294117647058,
+          "pending": 2,
+          "probability_weight": 0.75,
+          "profit_units": -0.44000000000000017,
+          "selected": 19,
+          "tier": "PROVISIONAL",
+          "variant_id": "probability_75_ev_25",
+          "win_rate_wilson95": [
+            0.5897007098262422,
+            0.9380898628745101
+          ],
+          "wins": 14
+        },
+        {
+          "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
+          "brier": 0.22577220179365373,
+          "calibration": [
+            {
+              "band": "0%-60%",
+              "mean_probability": 0.5117110924864812,
+              "n": 6,
+              "observed_rate": 0.3333333333333333
             },
             {
               "band": "60%-70%",
@@ -2402,33 +2638,39 @@
             },
             {
               "band": "70%-80%",
-              "mean_probability": 0.7525405817041,
+              "mean_probability": 0.7528427502822862,
+              "n": 6,
+              "observed_rate": 0.6666666666666666
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8459739269537425,
               "n": 2,
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": 0.10370019142537268,
+          "calibration_gap": 0.10253328292828368,
           "ev_weight": 0.75,
-          "flat_stake_roi": -0.167,
-          "graded": 10,
-          "log_loss": 0.6464121271370601,
+          "flat_stake_roi": -0.12388888888888891,
+          "graded": 18,
+          "log_loss": 0.6370084231735191,
           "max_drawdown_units": 2.33,
           "maximum_probability_weight": 0.25,
-          "mean_probability": 0.6037001914253727,
+          "mean_probability": 0.6580888384838393,
           "mean_probability_weight": 0.25,
           "minimum_probability_weight": 0.25,
-          "observed_rate": 0.5,
-          "pending": 8,
+          "observed_rate": 0.5555555555555556,
+          "pending": 0,
           "probability_weight": 0.25,
-          "profit_units": -1.6700000000000002,
+          "profit_units": -2.2300000000000004,
           "selected": 18,
           "tier": "ALL",
           "variant_id": "probability_25_ev_75",
           "win_rate_wilson95": [
-            0.23658959361548731,
-            0.7634104063845126
+            0.3371606942825164,
+            0.7544076889861088
           ],
-          "wins": 5
+          "wins": 10
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
@@ -2456,13 +2698,13 @@
         },
         {
           "assessment": "DESCRIPTIVE_ONLY_SEE_REVIEW_GATES",
-          "brier": 0.2294640694405304,
+          "brier": 0.22577220179365373,
           "calibration": [
             {
               "band": "0%-60%",
-              "mean_probability": 0.49139814216412747,
-              "n": 4,
-              "observed_rate": 0.25
+              "mean_probability": 0.5117110924864812,
+              "n": 6,
+              "observed_rate": 0.3333333333333333
             },
             {
               "band": "60%-70%",
@@ -2472,58 +2714,64 @@
             },
             {
               "band": "70%-80%",
-              "mean_probability": 0.7525405817041,
+              "mean_probability": 0.7528427502822862,
+              "n": 6,
+              "observed_rate": 0.6666666666666666
+            },
+            {
+              "band": "80%-90%",
+              "mean_probability": 0.8459739269537425,
               "n": 2,
               "observed_rate": 1.0
             }
           ],
-          "calibration_gap": 0.10370019142537268,
+          "calibration_gap": 0.10253328292828368,
           "ev_weight": 0.75,
-          "flat_stake_roi": -0.167,
-          "graded": 10,
-          "log_loss": 0.6464121271370601,
+          "flat_stake_roi": -0.12388888888888891,
+          "graded": 18,
+          "log_loss": 0.6370084231735191,
           "max_drawdown_units": 2.33,
           "maximum_probability_weight": 0.25,
-          "mean_probability": 0.6037001914253727,
+          "mean_probability": 0.6580888384838393,
           "mean_probability_weight": 0.25,
           "minimum_probability_weight": 0.25,
-          "observed_rate": 0.5,
-          "pending": 8,
+          "observed_rate": 0.5555555555555556,
+          "pending": 0,
           "probability_weight": 0.25,
-          "profit_units": -1.6700000000000002,
+          "profit_units": -2.2300000000000004,
           "selected": 18,
           "tier": "PROVISIONAL",
           "variant_id": "probability_25_ev_75",
           "win_rate_wilson95": [
-            0.23658959361548731,
-            0.7634104063845126
+            0.3371606942825164,
+            0.7544076889861088
           ],
-          "wins": 5
+          "wins": 10
         }
       ],
       "gameweeks": 2,
-      "minimum_settled_per_weighting": 9,
+      "minimum_settled_per_weighting": 17,
       "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for four comparisons in v2 (three in legacy v1), and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. Adaptive probability weight ranges from 50% to 90%, using only frozen development support, development calibration penalties, raw model/reference disagreement and quote age. These bounds are a pre-registered hypothesis, not fitted optimal weights or a safety guarantee. Legacy v1 results remain a separate cohort; v2 readiness and paired returns use only contemporaneous v2 captures. No automatic production change. Confirm any chosen weighting on a later untouched period.",
       "paired_all_returns": [
         {
           "iso_weeks": 2,
-          "mean_profit_delta_per_fixture": -0.19416666666666668,
+          "mean_profit_delta_per_fixture": -0.254,
           "variant_id": "probability_100_ev_0",
-          "verified_fixtures": 12,
+          "verified_fixtures": 20,
           "weekly_block_bootstrap95": null
         },
         {
           "iso_weeks": 2,
-          "mean_profit_delta_per_fixture": -0.19416666666666668,
+          "mean_profit_delta_per_fixture": -0.1875,
           "variant_id": "probability_75_ev_25",
-          "verified_fixtures": 12,
+          "verified_fixtures": 20,
           "weekly_block_bootstrap95": null
         },
         {
           "iso_weeks": 2,
-          "mean_profit_delta_per_fixture": -0.3016666666666667,
+          "mean_profit_delta_per_fixture": -0.277,
           "variant_id": "probability_25_ev_75",
-          "verified_fixtures": 12,
+          "verified_fixtures": 20,
           "weekly_block_bootstrap95": null
         }
       ],
@@ -2535,7 +2783,7 @@
         "minimum_settled_per_weighting": 100,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-20T13:43:49.512053+00:00",
+      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 23,
       "variants": {
@@ -2550,8 +2798,8 @@
           "probability_weight": 0.75
         }
       },
-      "verified_coverage": 0.5217391304347826,
-      "verified_fixtures": 12,
+      "verified_coverage": 0.8695652173913043,
+      "verified_fixtures": 20,
       "version": "shortlist-probability-ev-weights-v1"
     }
   ],
@@ -2595,7 +2843,7 @@
     "minimum_settled_per_weighting": 100,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-20T13:43:49.512053+00:00",
+  "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
   "status": "COLLECT_MORE_DATA",
   "total_fixtures": 0,
   "variants": {

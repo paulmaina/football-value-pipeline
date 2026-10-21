@@ -8,6 +8,13 @@
       "probability_band": "0%–50%"
     },
     {
+      "binary_brier": 0.203113,
+      "mean_forecast": 0.549319,
+      "n": 1,
+      "observed_win_rate": 1.0,
+      "probability_band": "50%–60%"
+    },
+    {
       "binary_brier": 0.223527,
       "mean_forecast": 0.648758,
       "n": 8,
@@ -15,38 +22,38 @@
       "probability_band": "60%–70%"
     },
     {
-      "binary_brier": 0.167513,
-      "mean_forecast": 0.755586,
-      "n": 10,
-      "observed_win_rate": 0.8,
+      "binary_brier": 0.205012,
+      "mean_forecast": 0.759179,
+      "n": 14,
+      "observed_win_rate": 0.714286,
       "probability_band": "70%–80%"
     },
     {
-      "binary_brier": 0.176921,
-      "mean_forecast": 0.83566,
-      "n": 9,
-      "observed_win_rate": 0.777778,
+      "binary_brier": 0.149144,
+      "mean_forecast": 0.837469,
+      "n": 11,
+      "observed_win_rate": 0.818182,
       "probability_band": "80%–90%"
     },
     {
-      "binary_brier": 0.004667,
-      "mean_forecast": 0.932857,
-      "n": 2,
+      "binary_brier": 0.005072,
+      "mean_forecast": 0.929671,
+      "n": 3,
       "observed_win_rate": 1.0,
       "probability_band": "90%–100%"
     }
   ],
   "first_prediction_reference": {
-    "brier": 0.179168,
-    "flat_stake_roi": 0.044667,
-    "graded": 30,
-    "losses": 7,
-    "pending": 12,
-    "profit_per_unit_staked": 1.34,
-    "settled_with_odds": 30,
+    "brier": 0.168169,
+    "flat_stake_roi": 0.079211,
+    "graded": 38,
+    "losses": 8,
+    "pending": 4,
+    "profit_per_unit_staked": 3.01,
+    "settled_with_odds": 38,
     "total": 42,
-    "win_rate": 0.766667,
-    "wins": 23
+    "win_rate": 0.789474,
+    "wins": 30
   },
   "groups": {
     "league": {
@@ -111,16 +118,16 @@
         "wins": 4
       },
       "UEFA Champions League": {
-        "brier": 0.069856,
-        "flat_stake_roi": 0.48,
-        "graded": 4,
-        "losses": 0,
-        "pending": 10,
-        "profit_per_unit_staked": 1.92,
-        "settled_with_odds": 4,
+        "brier": 0.144313,
+        "flat_stake_roi": 0.1675,
+        "graded": 12,
+        "losses": 2,
+        "pending": 2,
+        "profit_per_unit_staked": 2.01,
+        "settled_with_odds": 12,
         "total": 14,
-        "win_rate": 1.0,
-        "wins": 4
+        "win_rate": 0.833333,
+        "wins": 10
       }
     },
     "market": {
@@ -137,52 +144,52 @@
         "wins": 0
       },
       "Both Teams to Score - Yes": {
-        "brier": 0.081669,
-        "flat_stake_roi": 0.51,
-        "graded": 2,
-        "losses": 0,
-        "pending": 1,
-        "profit_per_unit_staked": 1.02,
-        "settled_with_odds": 2,
+        "brier": 0.222718,
+        "flat_stake_roi": 0.006667,
+        "graded": 3,
+        "losses": 1,
+        "pending": 0,
+        "profit_per_unit_staked": 0.02,
+        "settled_with_odds": 3,
         "total": 3,
-        "win_rate": 1.0,
+        "win_rate": 0.666667,
         "wins": 2
       },
       "Double Chance 12": {
-        "brier": 0.060395,
-        "flat_stake_roi": 0.275,
-        "graded": 2,
-        "losses": 0,
-        "pending": 4,
-        "profit_per_unit_staked": 0.55,
-        "settled_with_odds": 2,
+        "brier": 0.140097,
+        "flat_stake_roi": 0.026667,
+        "graded": 6,
+        "losses": 1,
+        "pending": 0,
+        "profit_per_unit_staked": 0.16,
+        "settled_with_odds": 6,
         "total": 6,
-        "win_rate": 1.0,
-        "wins": 2
+        "win_rate": 0.833333,
+        "wins": 5
       },
       "Double Chance 1X": {
-        "brier": 0.135179,
-        "flat_stake_roi": 0.0,
-        "graded": 4,
+        "brier": 0.111888,
+        "flat_stake_roi": 0.032,
+        "graded": 5,
         "losses": 1,
-        "pending": 3,
-        "profit_per_unit_staked": 0.0,
-        "settled_with_odds": 4,
+        "pending": 2,
+        "profit_per_unit_staked": 0.16,
+        "settled_with_odds": 5,
         "total": 7,
-        "win_rate": 0.75,
-        "wins": 3
+        "win_rate": 0.8,
+        "wins": 4
       },
       "Double Chance X2": {
-        "brier": 0.171218,
-        "flat_stake_roi": -0.158,
-        "graded": 5,
+        "brier": 0.176534,
+        "flat_stake_roi": 0.081667,
+        "graded": 6,
         "losses": 2,
-        "pending": 1,
-        "profit_per_unit_staked": -0.79,
-        "settled_with_odds": 5,
+        "pending": 0,
+        "profit_per_unit_staked": 0.49,
+        "settled_with_odds": 6,
         "total": 6,
-        "win_rate": 0.6,
-        "wins": 3
+        "win_rate": 0.666667,
+        "wins": 4
       },
       "Home win": {
         "brier": 0.083951,
@@ -197,16 +204,16 @@
         "wins": 5
       },
       "Over 1.5": {
-        "brier": 0.116329,
-        "flat_stake_roi": 0.055,
-        "graded": 6,
+        "brier": 0.100551,
+        "flat_stake_roi": 0.052857,
+        "graded": 7,
         "losses": 1,
-        "pending": 3,
-        "profit_per_unit_staked": 0.33,
-        "settled_with_odds": 6,
+        "pending": 2,
+        "profit_per_unit_staked": 0.37,
+        "settled_with_odds": 7,
         "total": 9,
-        "win_rate": 0.833333,
-        "wins": 5
+        "win_rate": 0.857143,
+        "wins": 6
       },
       "Under 3.5": {
         "brier": 0.40937,
@@ -235,16 +242,16 @@
         "wins": 6
       },
       "48h-top-twelve-probability-ev-no-under35-v15": {
-        "brier": 0.228021,
-        "flat_stake_roi": -0.49,
-        "graded": 3,
-        "losses": 2,
-        "pending": 9,
-        "profit_per_unit_staked": -1.47,
-        "settled_with_odds": 3,
+        "brier": 0.194217,
+        "flat_stake_roi": -0.125455,
+        "graded": 11,
+        "losses": 4,
+        "pending": 1,
+        "profit_per_unit_staked": -1.38,
+        "settled_with_odds": 11,
         "total": 12,
-        "win_rate": 0.333333,
-        "wins": 1
+        "win_rate": 0.636364,
+        "wins": 7
       },
       "72h-all-markets-ev15-one-book-v6": {
         "brier": 0.086104,
@@ -501,30 +508,30 @@
         "wins": 0
       },
       "2026-10-19T16:28:42.464993+00:00": {
-        "brier": 0.228021,
-        "flat_stake_roi": -0.49,
-        "graded": 3,
-        "losses": 2,
-        "pending": 9,
-        "profit_per_unit_staked": -1.47,
-        "settled_with_odds": 3,
+        "brier": 0.194217,
+        "flat_stake_roi": -0.125455,
+        "graded": 11,
+        "losses": 4,
+        "pending": 1,
+        "profit_per_unit_staked": -1.38,
+        "settled_with_odds": 11,
         "total": 12,
-        "win_rate": 0.333333,
-        "wins": 1
+        "win_rate": 0.636364,
+        "wins": 7
       }
     },
     "tier": {
       "PROVISIONAL": {
-        "brier": 0.221717,
-        "flat_stake_roi": -0.156842,
-        "graded": 19,
-        "losses": 7,
-        "pending": 10,
-        "profit_per_unit_staked": -2.98,
-        "settled_with_odds": 19,
+        "brier": 0.209813,
+        "flat_stake_roi": -0.107037,
+        "graded": 27,
+        "losses": 9,
+        "pending": 2,
+        "profit_per_unit_staked": -2.89,
+        "settled_with_odds": 27,
         "total": 29,
-        "win_rate": 0.631579,
-        "wins": 12
+        "win_rate": 0.666667,
+        "wins": 18
       },
       "STRICT": {
         "brier": 0.096201,
@@ -565,27 +572,26 @@
         "wins": 19
       },
       "2026-W43": {
-        "brier": 0.27119,
-        "flat_stake_roi": -0.6175,
-        "graded": 4,
-        "losses": 3,
-        "pending": 9,
-        "profit_per_unit_staked": -2.47,
-        "settled_with_odds": 4,
+        "brier": 0.211424,
+        "flat_stake_roi": -0.198333,
+        "graded": 12,
+        "losses": 5,
+        "pending": 1,
+        "profit_per_unit_staked": -2.38,
+        "settled_with_odds": 12,
         "total": 13,
-        "win_rate": 0.25,
-        "wins": 1
+        "win_rate": 0.583333,
+        "wins": 7
       }
     }
   },
   "pending_reason_counts": {
-    "PENDING_KICKOFF_OR_FINAL_SCORE": 9,
-    "UNVERIFIED_FIXTURE_OR_RESULT": 3
+    "UNVERIFIED_FIXTURE_OR_RESULT": 4
   },
-  "prediction_1x2_multiclass_brier": 0.533808,
-  "prediction_fixtures_graded": 76,
+  "prediction_1x2_multiclass_brier": 0.542896,
+  "prediction_fixtures_graded": 87,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-10-20T13:43:49Z",
+  "reviewed_at_utc": "2026-10-21T05:05:18Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
@@ -936,28 +942,28 @@
       "wins": 2
     },
     "2026-10-18T08:37:07.802036+00:00": {
-      "brier": 0.023186,
-      "flat_stake_roi": 0.2,
-      "graded": 1,
+      "brier": 0.048638,
+      "flat_stake_roi": 0.365,
+      "graded": 2,
       "losses": 0,
-      "pending": 1,
-      "profit_per_unit_staked": 0.2,
-      "settled_with_odds": 1,
+      "pending": 0,
+      "profit_per_unit_staked": 0.73,
+      "settled_with_odds": 2,
       "total": 2,
       "win_rate": 1.0,
-      "wins": 1
+      "wins": 2
     },
     "2026-10-18T09:58:14.607821+00:00": {
-      "brier": 0.023183,
-      "flat_stake_roi": 0.2,
-      "graded": 1,
+      "brier": 0.048639,
+      "flat_stake_roi": 0.365,
+      "graded": 2,
       "losses": 0,
-      "pending": 1,
-      "profit_per_unit_staked": 0.2,
-      "settled_with_odds": 1,
+      "pending": 0,
+      "profit_per_unit_staked": 0.73,
+      "settled_with_odds": 2,
       "total": 2,
       "win_rate": 1.0,
-      "wins": 1
+      "wins": 2
     },
     "2026-10-18T14:35:10.311946+00:00": {
       "brier": 0.13387,
@@ -972,40 +978,40 @@
       "wins": 8
     },
     "2026-10-19T11:20:16.296665+00:00": {
-      "brier": 0.250442,
-      "flat_stake_roi": -0.245,
-      "graded": 2,
-      "losses": 1,
-      "pending": 8,
-      "profit_per_unit_staked": -0.49,
-      "settled_with_odds": 2,
+      "brier": 0.146697,
+      "flat_stake_roi": 0.087,
+      "graded": 10,
+      "losses": 2,
+      "pending": 0,
+      "profit_per_unit_staked": 0.87,
+      "settled_with_odds": 10,
       "total": 10,
-      "win_rate": 0.5,
-      "wins": 1
+      "win_rate": 0.8,
+      "wins": 8
     },
     "2026-10-19T12:08:39.172353+00:00": {
-      "brier": 0.103402,
-      "flat_stake_roi": 0.53,
-      "graded": 1,
-      "losses": 0,
-      "pending": 9,
-      "profit_per_unit_staked": 0.53,
-      "settled_with_odds": 1,
+      "brier": 0.174699,
+      "flat_stake_roi": 0.091111,
+      "graded": 9,
+      "losses": 2,
+      "pending": 1,
+      "profit_per_unit_staked": 0.82,
+      "settled_with_odds": 9,
       "total": 10,
-      "win_rate": 1.0,
-      "wins": 1
+      "win_rate": 0.777778,
+      "wins": 7
     },
     "2026-10-19T16:28:42.464993+00:00": {
-      "brier": 0.228021,
-      "flat_stake_roi": -0.49,
-      "graded": 3,
-      "losses": 2,
-      "pending": 9,
-      "profit_per_unit_staked": -1.47,
-      "settled_with_odds": 3,
+      "brier": 0.194217,
+      "flat_stake_roi": -0.125455,
+      "graded": 11,
+      "losses": 4,
+      "pending": 1,
+      "profit_per_unit_staked": -1.38,
+      "settled_with_odds": 11,
       "total": 12,
-      "win_rate": 0.333333,
-      "wins": 1
+      "win_rate": 0.636364,
+      "wins": 7
     }
   },
   "run_provenance": {
@@ -1151,28 +1157,28 @@
     }
   },
   "shortlist": {
-    "brier": 0.175695,
-    "flat_stake_roi": 0.011333,
-    "graded": 30,
-    "losses": 8,
-    "pending": 12,
-    "profit_per_unit_staked": 0.34,
-    "settled_with_odds": 30,
+    "brier": 0.176926,
+    "flat_stake_roi": 0.011316,
+    "graded": 38,
+    "losses": 10,
+    "pending": 4,
+    "profit_per_unit_staked": 0.43,
+    "settled_with_odds": 38,
     "total": 42,
-    "win_rate": 0.733333,
-    "wins": 22
+    "win_rate": 0.736842,
+    "wins": 28
   },
   "shortlist_run_history": {
-    "brier": 0.143707,
-    "flat_stake_roi": 0.11518,
-    "graded": 139,
-    "losses": 25,
-    "pending": 43,
-    "profit_per_unit_staked": 16.01,
-    "settled_with_odds": 139,
+    "brier": 0.14552,
+    "flat_stake_roi": 0.114,
+    "graded": 165,
+    "losses": 30,
+    "pending": 17,
+    "profit_per_unit_staked": 18.81,
+    "settled_with_odds": 165,
     "total": 182,
-    "win_rate": 0.820144,
-    "wins": 114
+    "win_rate": 0.818182,
+    "wins": 135
   },
   "source": "football-data.org v4 FINISHED regulation-time scorelines",
   "status": "PARTIALLY_GRADED",

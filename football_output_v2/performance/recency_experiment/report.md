@@ -2,27 +2,27 @@
 
 Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.
 
-Coverage: 284/300 fixture-markets; 110 graded.
+Coverage: 284/300 fixture-markets; 132 graded.
 Rejected snapshot data: 0 commit(s); details in summary.json.
 
 | League | Market | Variant | N | Brier | Log loss | Brier gain | Log-loss gain | Overconfidence |
 |---|---|---|---:|---:|---:|---:|---:|---:|
-| ALL | over_1_5 | development_1x2 | 55 | 0.1718 | 0.5219 | +0.0023 | +0.0076 | -2.4% |
-| ALL | over_1_5 | goal_selected | 40 | 0.1833 | 0.5530 | -0.0038 | -0.0108 | -0.4% |
-| ALL | over_1_5 | half_life_1000000000 | 55 | 0.1751 | 0.5326 | -0.0010 | -0.0030 | -2.7% |
-| ALL | over_1_5 | half_life_120 | 55 | 0.1735 | 0.5393 | +0.0006 | -0.0098 | -0.9% |
-| ALL | over_1_5 | half_life_240 | 55 | 0.1732 | 0.5305 | +0.0009 | -0.0009 | -1.8% |
-| ALL | over_1_5 | half_life_365 | 55 | 0.1734 | 0.5294 | +0.0007 | +0.0001 | -2.2% |
-| ALL | over_1_5 | half_life_730 | 55 | 0.1741 | 0.5303 | -0.0000 | -0.0008 | -2.5% |
-| ALL | over_1_5 | production_raw | 55 | 0.1741 | 0.5295 | +0.0000 | +0.0000 | -2.4% |
-| ALL | btts_yes | development_1x2 | 55 | 0.2612 | 0.7214 | +0.0027 | +0.0056 | +0.7% |
-| ALL | btts_yes | goal_selected | 40 | 0.2508 | 0.6972 | +0.0041 | +0.0081 | +0.9% |
-| ALL | btts_yes | half_life_1000000000 | 55 | 0.2626 | 0.7244 | +0.0013 | +0.0027 | +0.6% |
-| ALL | btts_yes | half_life_120 | 55 | 0.2729 | 0.7491 | -0.0089 | -0.0220 | +1.2% |
-| ALL | btts_yes | half_life_240 | 55 | 0.2658 | 0.7317 | -0.0019 | -0.0047 | +0.8% |
-| ALL | btts_yes | half_life_365 | 55 | 0.2628 | 0.7250 | +0.0012 | +0.0020 | +0.8% |
-| ALL | btts_yes | half_life_730 | 55 | 0.2618 | 0.7227 | +0.0022 | +0.0044 | +0.7% |
-| ALL | btts_yes | production_raw | 55 | 0.2640 | 0.7270 | +0.0000 | +0.0000 | +0.7% |
+| ALL | over_1_5 | development_1x2 | 66 | 0.1720 | 0.5240 | +0.0022 | +0.0070 | -4.6% |
+| ALL | over_1_5 | goal_selected | 51 | 0.1784 | 0.5434 | +0.0000 | -0.0021 | -4.5% |
+| ALL | over_1_5 | half_life_1000000000 | 66 | 0.1747 | 0.5329 | -0.0005 | -0.0018 | -4.8% |
+| ALL | over_1_5 | half_life_120 | 66 | 0.1714 | 0.5342 | +0.0028 | -0.0032 | -4.0% |
+| ALL | over_1_5 | half_life_240 | 66 | 0.1714 | 0.5265 | +0.0027 | +0.0045 | -4.5% |
+| ALL | over_1_5 | half_life_365 | 66 | 0.1724 | 0.5271 | +0.0018 | +0.0039 | -4.6% |
+| ALL | over_1_5 | half_life_730 | 66 | 0.1736 | 0.5299 | +0.0006 | +0.0011 | -4.7% |
+| ALL | over_1_5 | production_raw | 66 | 0.1741 | 0.5310 | +0.0000 | +0.0000 | -4.6% |
+| ALL | btts_yes | development_1x2 | 66 | 0.2703 | 0.7492 | +0.0027 | +0.0056 | -5.1% |
+| ALL | btts_yes | goal_selected | 51 | 0.2645 | 0.7393 | +0.0040 | +0.0066 | -6.6% |
+| ALL | btts_yes | half_life_1000000000 | 66 | 0.2714 | 0.7516 | +0.0016 | +0.0032 | -5.2% |
+| ALL | btts_yes | half_life_120 | 66 | 0.2794 | 0.7753 | -0.0064 | -0.0205 | -5.0% |
+| ALL | btts_yes | half_life_240 | 66 | 0.2727 | 0.7580 | +0.0002 | -0.0032 | -5.0% |
+| ALL | btts_yes | half_life_365 | 66 | 0.2711 | 0.7534 | +0.0019 | +0.0013 | -5.0% |
+| ALL | btts_yes | half_life_730 | 66 | 0.2706 | 0.7510 | +0.0024 | +0.0038 | -5.0% |
+| ALL | btts_yes | production_raw | 66 | 0.2730 | 0.7548 | +0.0000 | +0.0000 | -5.2% |
 | Bundesliga | over_1_5 | development_1x2 | 7 | 0.1684 | 0.4912 | +0.0035 | +0.0091 | +6.3% |
 | Bundesliga | over_1_5 | goal_selected | 7 | 0.1751 | 0.5081 | -0.0032 | -0.0077 | +6.2% |
 | Bundesliga | over_1_5 | half_life_1000000000 | 7 | 0.1684 | 0.4912 | +0.0035 | +0.0091 | +6.3% |
@@ -103,20 +103,22 @@ Rejected snapshot data: 0 commit(s); details in summary.json.
 | Serie A | btts_yes | half_life_365 | 9 | 0.1954 | 0.5829 | +0.0063 | +0.0126 | +15.2% |
 | Serie A | btts_yes | half_life_730 | 9 | 0.1907 | 0.5735 | +0.0109 | +0.0221 | +15.4% |
 | Serie A | btts_yes | production_raw | 9 | 0.2016 | 0.5956 | +0.0000 | +0.0000 | +15.1% |
-| UEFA Champions League | over_1_5 | development_1x2 | 15 | 0.1595 | 0.4958 | +0.0000 | +0.0000 | -6.8% |
-| UEFA Champions League | over_1_5 | half_life_1000000000 | 15 | 0.1595 | 0.4958 | +0.0000 | +0.0000 | -6.8% |
-| UEFA Champions League | over_1_5 | half_life_120 | 15 | 0.1612 | 0.5371 | -0.0016 | -0.0413 | -4.0% |
-| UEFA Champions League | over_1_5 | half_life_240 | 15 | 0.1598 | 0.5140 | -0.0003 | -0.0182 | -5.2% |
-| UEFA Champions League | over_1_5 | half_life_365 | 15 | 0.1598 | 0.5072 | -0.0003 | -0.0114 | -5.7% |
-| UEFA Champions League | over_1_5 | half_life_730 | 15 | 0.1599 | 0.5019 | -0.0004 | -0.0061 | -6.3% |
-| UEFA Champions League | over_1_5 | production_raw | 15 | 0.1595 | 0.4958 | +0.0000 | +0.0000 | -6.8% |
-| UEFA Champions League | btts_yes | development_1x2 | 15 | 0.2880 | 0.7849 | +0.0000 | +0.0000 | +0.9% |
-| UEFA Champions League | btts_yes | half_life_1000000000 | 15 | 0.2880 | 0.7849 | +0.0000 | +0.0000 | +0.9% |
-| UEFA Champions League | btts_yes | half_life_120 | 15 | 0.3134 | 0.8457 | -0.0253 | -0.0608 | +0.6% |
-| UEFA Champions League | btts_yes | half_life_240 | 15 | 0.3011 | 0.8140 | -0.0130 | -0.0291 | +0.4% |
-| UEFA Champions League | btts_yes | half_life_365 | 15 | 0.2927 | 0.7962 | -0.0047 | -0.0113 | +0.8% |
-| UEFA Champions League | btts_yes | half_life_730 | 15 | 0.2889 | 0.7870 | -0.0009 | -0.0021 | +1.0% |
-| UEFA Champions League | btts_yes | production_raw | 15 | 0.2880 | 0.7849 | +0.0000 | +0.0000 | +0.9% |
+| UEFA Champions League | over_1_5 | development_1x2 | 26 | 0.1650 | 0.5121 | +0.0008 | +0.0018 | -10.4% |
+| UEFA Champions League | over_1_5 | goal_selected | 11 | 0.1606 | 0.5089 | +0.0138 | +0.0296 | -19.2% |
+| UEFA Champions League | over_1_5 | half_life_1000000000 | 26 | 0.1650 | 0.5121 | +0.0008 | +0.0018 | -10.4% |
+| UEFA Champions League | over_1_5 | half_life_120 | 26 | 0.1609 | 0.5251 | +0.0049 | -0.0113 | -10.5% |
+| UEFA Champions League | over_1_5 | half_life_240 | 26 | 0.1610 | 0.5109 | +0.0048 | +0.0030 | -10.5% |
+| UEFA Champions League | over_1_5 | half_life_365 | 26 | 0.1629 | 0.5108 | +0.0029 | +0.0030 | -10.4% |
+| UEFA Champions League | over_1_5 | half_life_730 | 26 | 0.1646 | 0.5129 | +0.0012 | +0.0009 | -10.4% |
+| UEFA Champions League | over_1_5 | production_raw | 26 | 0.1658 | 0.5139 | +0.0000 | +0.0000 | -10.5% |
+| UEFA Champions League | btts_yes | development_1x2 | 26 | 0.2996 | 0.8285 | +0.0011 | +0.0024 | -13.9% |
+| UEFA Champions League | btts_yes | goal_selected | 11 | 0.3144 | 0.8925 | +0.0036 | +0.0010 | -33.7% |
+| UEFA Champions League | btts_yes | half_life_1000000000 | 26 | 0.2996 | 0.8285 | +0.0011 | +0.0024 | -13.9% |
+| UEFA Champions League | btts_yes | half_life_120 | 26 | 0.3127 | 0.8715 | -0.0119 | -0.0406 | -15.0% |
+| UEFA Champions League | btts_yes | half_life_240 | 26 | 0.3037 | 0.8458 | -0.0030 | -0.0150 | -14.1% |
+| UEFA Champions League | btts_yes | half_life_365 | 26 | 0.3012 | 0.8382 | -0.0005 | -0.0073 | -13.7% |
+| UEFA Champions League | btts_yes | half_life_730 | 26 | 0.2997 | 0.8317 | +0.0010 | -0.0008 | -13.7% |
+| UEFA Champions League | btts_yes | production_raw | 26 | 0.3007 | 0.8309 | +0.0000 | +0.0000 | -14.1% |
 
 Positive paired gain means lower error than the raw production model on those same matches. A 30-match review prompt is not statistical proof.
 

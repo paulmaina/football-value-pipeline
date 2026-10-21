@@ -6,14 +6,14 @@ Frozen fixtures: 73; candidate decisions: 1410; rejected snapshots: 0.
 
 | EV floor | Tier | Selected | Settled | Pending | Net ROI | Drawdown (units) | Brier |
 |---|---|---:|---:|---:|---:|---:|---:|
-| 1.5% | ALL | 9 | 7 | 2 | +12.1% | 1.00 | 0.0914 |
+| 1.5% | ALL | 9 | 8 | 1 | +17.2% | 1.00 | 0.0892 |
 | 1.5% | STRICT | 7 | 6 | 1 | +9.8% | 1.00 | 0.1015 |
-| 1.5% | PROVISIONAL | 2 | 1 | 1 | +26.0% | 0.00 | 0.0308 |
-| 3.0% | ALL | 8 | 6 | 2 | +10.2% | 1.00 | 0.1014 |
+| 1.5% | PROVISIONAL | 2 | 2 | 0 | +39.5% | 0.00 | 0.0524 |
+| 3.0% | ALL | 8 | 7 | 1 | +16.3% | 1.00 | 0.0975 |
 | 3.0% | STRICT | 6 | 5 | 1 | +7.0% | 1.00 | 0.1155 |
-| 3.0% | PROVISIONAL | 2 | 1 | 1 | +26.0% | 0.00 | 0.0308 |
-| 5.0% | ALL | 7 | 5 | 2 | +7.0% | 1.00 | 0.1155 |
+| 3.0% | PROVISIONAL | 2 | 2 | 0 | +39.5% | 0.00 | 0.0524 |
+| 5.0% | ALL | 7 | 6 | 1 | +14.7% | 1.00 | 0.1086 |
 | 5.0% | STRICT | 5 | 5 | 0 | +7.0% | 1.00 | 0.1155 |
-| 5.0% | PROVISIONAL | 2 | 0 | 2 | n.a. | n.a. | n.a. |
+| 5.0% | PROVISIONAL | 2 | 1 | 1 | +53.0% | 0.00 | 0.0741 |
 
 Calibration buckets, league/market/gameweek/policy breakdowns and all rejected candidates are in summary.json and candidate_decisions.csv. Older snapshots are not backfilled. Upload fresh outputs before kickoff; reporting runs in the existing forward-review workflow.

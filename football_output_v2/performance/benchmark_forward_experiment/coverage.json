@@ -11710,7 +11710,7 @@
     "reference_source": "The Odds API / Betsson",
     "reference_updated_at_utc": "2026-10-18T08:36:47Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
     "status": "unavailable"
@@ -11748,7 +11748,7 @@
     "reference_source": "The Odds API / Betsson",
     "reference_updated_at_utc": "2026-10-18T08:36:47Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
     "status": "unavailable"
@@ -11786,7 +11786,7 @@
     "reference_source": "The Odds API / Betsson",
     "reference_updated_at_utc": "2026-10-18T08:36:47Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
     "status": "unavailable"
@@ -11824,7 +11824,7 @@
     "reference_source": "The Odds API / Betsson",
     "reference_updated_at_utc": "2026-10-18T08:36:47Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
     "status": "unavailable"
@@ -11862,7 +11862,7 @@
     "reference_source": "The Odds API / Betsson",
     "reference_updated_at_utc": "2026-10-18T08:36:47Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
     "status": "unavailable"
@@ -11900,7 +11900,7 @@
     "reference_source": "The Odds API / Betsson",
     "reference_updated_at_utc": "2026-10-18T08:36:47Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
     "status": "unavailable"
@@ -11938,7 +11938,7 @@
     "reference_source": "The Odds API / Betsson",
     "reference_updated_at_utc": "2026-10-18T08:36:47Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
     "status": "unavailable"
@@ -11976,7 +11976,7 @@
     "reference_source": "The Odds API / Betsson",
     "reference_updated_at_utc": "2026-10-18T08:36:47Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
     "status": "unavailable"
@@ -12014,7 +12014,7 @@
     "reference_source": "The Odds API / Betsson",
     "reference_updated_at_utc": "2026-10-18T08:36:47Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "b4dfb7c51677ddf4227832d694ba27f131887f42",
     "status": "unavailable"
