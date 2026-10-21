@@ -127,7 +127,8 @@ class AsianHandicapTests(OfflineQuotePolicyTestCase):
         self.assertAlmostEqual(picks.iloc[0].p_refund,0)
         self.assertAlmostEqual(picks.iloc[0].loss_probability_upper,.15)
         self.assertEqual(summary['n_provisional_watchlist'],0)
-        self.assertFalse(any('Double Chance' in x for x in summary['eligible_markets']))
+        self.assertTrue(any('Double Chance' in x for x in summary['eligible_markets']))
+        self.assertNotIn('Draw',summary['eligible_markets'])
         picks,failed,_=choose([row(offers=[{**quote(price=1.2),'opposite_price':4.0}])])
         self.assertTrue(picks.empty)
         self.assertTrue(failed.rejection_reasons.str.contains('adjusted EV below').any())
@@ -217,7 +218,7 @@ class AsianHandicapTests(OfflineQuotePolicyTestCase):
         self.assertEqual(len(old[0]),1);self.assertIsNone(old[2]['min_estimated_ev'])
 
     def test_all_markets_share_one_percent_floor_and_preserve_raw_guard(self):
-        for key,label in [('home','Home win'),('draw','Draw'),('away','Away win'),('over_1_5','Over 1.5')]:
+        for key,label in [('home','Home win'),('away','Away win'),('over_1_5','Over 1.5')]:
             for ev,qualifies in ((.0099,False),(.01,True),(.012,True)):
                 value=row(offers=[])
                 value.update({f'p_{key}':.8,f'raw_p_{key}':.8,f'market_p_{key}':.8,

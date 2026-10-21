@@ -15,8 +15,10 @@ from quote_freshness import quote_is_fresh
 LEGACY_POLICY = '48h-loss-first-asian-handicap-1x2-over15-v17'
 FLOORLESS_POLICY = '48h-loss-first-asian-handicap-1x2-over15-v18'
 ZERO_EV_POLICY = '48h-risk-band-ev-asian-handicap-1x2-over15-v19'
-POLICY = '48h-risk-band-ev1-asian-handicap-1x2-over15-v20'
-RISK_BAND_POLICIES = (ZERO_EV_POLICY, POLICY)
+PREVIOUS_POLICY = '48h-risk-band-ev1-asian-handicap-1x2-over15-v20'
+POLICY = '48h-risk-band-ev1-asian-handicap-dc-over15-v21'
+ONE_PERCENT_POLICIES = (PREVIOUS_POLICY, POLICY)
+RISK_BAND_POLICIES = (ZERO_EV_POLICY, *ONE_PERCENT_POLICIES)
 POLICIES = (LEGACY_POLICY, FLOORLESS_POLICY, *RISK_BAND_POLICIES)
 MIN_ADJUSTED_EV = .01
 DEFAULT_RISK_TOLERANCE = .01
@@ -238,6 +240,55 @@ def _rank_risk_band(pool, tolerance):
         'p_refund','kickoff_utc','market','bookmaker'],ascending=[True,False,False,False,True,True,True],kind='stable')
 
 
+def ordinary_markets(policy_version):
+    """Versioned eligibility keeps frozen forecasts replayable."""
+    if policy_version == POLICY:
+        return ['Home win', 'Away win', 'Over 1.5',
+                'Double Chance 1X', 'Double Chance X2', 'Double Chance 12']
+    return ['Home win', 'Draw', 'Away win', 'Over 1.5']
+
+
+def market_family(market):
+    if parse_label(market) is not None:
+        return 'Asian Handicap'
+    if str(market).startswith('Double Chance '):
+        return 'Double Chance'
+    return 'Match winner' if market in ('Home win', 'Away win', 'Draw') else market
+
+
+def qualifying_alternatives(selected, decisions, tolerance):
+    """Informational alternatives; never change selections or bypass eligibility.
+
+    Prefer another market family. If none qualifies, compare other lines in the
+    same family. Re-anchor the risk band to this alternative pool and disclose
+    whether the result is outside the original selection's band.
+    """
+    from performance_tracking import fixture_key
+    result = {}
+    if decisions.empty:
+        return result
+    eligible = decisions.loc[decisions.decision.isin(['ELIGIBLE', 'NOT_SELECTED', 'SHORTLISTED']) &
+                             decisions.rejection_reasons.fillna('').eq('')].copy()
+    eligible['_fixture'] = eligible.apply(fixture_key, axis=1) if len(eligible) else pd.Series(dtype=str)
+    for idx, pick in selected.iterrows():
+        pool = eligible.loc[(eligible._fixture == fixture_key(pick)) &
+                            (eligible.market != pick.market) &
+                            (pd.to_datetime(eligible.evaluated_at_utc, utc=True) == pd.Timestamp(pick.evaluated_at_utc))].copy()
+        different = pool.loc[pool.market.map(market_family) != market_family(pick.market)]
+        other_family = bool(len(different))
+        if other_family:
+            pool = different
+        if pool.empty:
+            continue
+        alternative = _rank_risk_band(pool, tolerance).iloc[0].to_dict()
+        alternative['alternative_scope'] = ('Different market type' if other_family else
+                                             'Same market type; no qualifying other type')
+        alternative['within_selected_risk_band'] = (
+            alternative['loss_probability_upper'] <= float(pick.fixture_minimum_loss_probability) + tolerance + 1e-12)
+        result[idx] = alternative
+    return result
+
+
 def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY):
     """Risk first, strict gates, one market per fixture. No target-filling bypass."""
     from conservative_bet_filter import (build_conservative_shortlist, BALANCED_SELECTION_POLICY_VERSION,
@@ -251,7 +302,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
     legacy = policy_version == LEGACY_POLICY
     current = policy_version in RISK_BAND_POLICIES
-    one_percent = policy_version == POLICY
+    one_percent = policy_version in ONE_PERCENT_POLICIES
     required_ev = MIN_ADJUSTED_EV if one_percent else 0.
     if current:
         policy = validate_policy({**policy, 'asian_handicap_risk_tolerance':policy.get('asian_handicap_risk_tolerance',DEFAULT_RISK_TOLERANCE)})
@@ -269,7 +320,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     if one_percent:
         # Reuse all binary-market integrity/calibration gates with the v20 floor.
         # Do not alter historical policy constants or replay their old gates at 1%.
-        specs = [s for s in CURRENT_MARKET_SPECS if s[0] in ('Home win','Draw','Away win','Over 1.5')]
+        specs = [s for s in CURRENT_MARKET_SPECS if s[0] in ordinary_markets(policy_version)]
         records = [_evaluate_market(row,spec,now,(market_reliability or {}).get(str(row.get('league'))),
             policy,MIN_ADJUSTED_EV,require_fresh_references=True,lookahead_hours=48.)
             for _,row in predictions.iterrows() for spec in specs]
@@ -277,7 +328,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     else:
         _, ordinary, _ = build_conservative_shortlist(predictions, as_of=now, market_reliability=market_reliability,
             execution_policy=policy, selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)
-    ordinary = ordinary.loc[ordinary.market.isin(['Home win', 'Draw', 'Away win', 'Over 1.5'])].copy()
+    ordinary = ordinary.loc[ordinary.market.isin(ordinary_markets(policy_version))].copy()
     # Restore the underlying gate; v16's watchlist ranking never relaxes v17 gates.
     ordinary['decision'] = ordinary.rejection_reasons.fillna('').map(lambda x: 'ELIGIBLE' if not x else 'REJECTED')
     ordinary['p_no_loss'] = ordinary.predicted_probability
@@ -399,7 +450,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
         'target_distinct_matches':12, 'shortfall':12-len(selected), 'usable_distinct_fixtures':len(pool),
         'shortlist_lookahead_hours':48., 'selected_matches_within_48_hours':bool(len(selected)),
         'shortlist_window_start_utc':now.isoformat(), 'shortlist_window_end_utc':(now+pd.Timedelta(hours=48)).isoformat(),
-        'eligible_markets':['Home win','Draw','Away win','Over 1.5']+[label(s,p) for s in ('home','away') for p in LINES],
+        'eligible_markets':ordinary_markets(policy_version)+[label(s,p) for s in ('home','away') for p in LINES],
         'quote_execution_policy':policy, 'validation_required':True, 'selection_objective':'MINIMIZE_ESTIMATED_NET_LOSS',
         'selection_method':'Lowest conservative estimated loss risk, then refund probability, adjusted EV, unblended EV, price; one per fixture',
         'ranking_metric':'loss_probability_upper ascending; p_refund descending; adjusted EV descending' + ('' if legacy else '; unblended EV descending'),

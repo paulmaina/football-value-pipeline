@@ -87,7 +87,7 @@ def raw_check(root, *, raw_dir=None):
     from conservative_bet_filter import (BALANCED_SELECTION_POLICIES,
         BALANCED_SELECTION_POLICY_VERSION, TWELVE_MATCH_BALANCED_SELECTION_POLICIES, CURRENT_MARKET_SPECS, NO_UNDER35_SELECTION_POLICIES, TARGET_DISTINCT_MATCHES)
     policy_version = summary.get('selection_policy_version')
-    from asian_handicap import POLICIES as AH_POLICIES, RISK_BAND_POLICIES, parse_label as parse_handicap
+    from asian_handicap import POLICIES as AH_POLICIES, RISK_BAND_POLICIES, ONE_PERCENT_POLICIES, parse_label as parse_handicap, ordinary_markets
     asian = policy_version in AH_POLICIES
     if asian:
         require(summary.get('shortlist_lookahead_hours')==48 and len(picks)<=12,'Invalid Asian handicap horizon or cap')
@@ -107,7 +107,7 @@ def raw_check(root, *, raw_dir=None):
         if policy_version == BALANCED_SELECTION_POLICY_VERSION:
             require(row.get('market') in {spec[0] for spec in CURRENT_MARKET_SPECS}, 'Market is excluded from the current shortlist policy')
         if asian:
-            require(row.get('market') in ('Home win','Draw','Away win','Over 1.5') or parse_handicap(row.get('market')) is not None,'Excluded Asian shortlist market')
+            require(row.get('market') in ordinary_markets(policy_version) or parse_handicap(row.get('market')) is not None,'Excluded Asian shortlist market')
             require(row.get('selection_tier')=='STRICT','Asian shortlist must not bypass strict gates')
         require(row.get('selection_tier') in ('STRICT','PROVISIONAL'), 'Invalid selection tier')
         require(number(row.get('offered_decimal_odds'),min_value=1.000001) is not None, 'Missing real selection price')
@@ -158,7 +158,7 @@ def raw_check(root, *, raw_dir=None):
                 'Current shortlist differs from deterministic ranking replay')
         for field in ('target_distinct_matches', 'shortfall', 'usable_distinct_fixtures',
                       *(['loss_risk_tolerance'] if policy_version in RISK_BAND_POLICIES else [] if asian else ['ranking_weights']),
-                      *(['min_estimated_ev','min_raw_dc_ev','ev_required_for_selection'] if policy_version == AH_POLICIES[-1] else []),
+                      *(['min_estimated_ev','min_raw_dc_ev','ev_required_for_selection'] if policy_version in ONE_PERCENT_POLICIES else []),
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')
