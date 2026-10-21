@@ -1,4 +1,4 @@
-"""Experimental twelve-match, seven-market shortlist; never guarantee winners.
+"""Experimental twelve-match shortlist with versioned market eligibility; never guarantee winners.
 
 One market per fixture, up to twelve distinct matches across the whole run.
 Current balanced policy selects kickoffs within 48 hours, including UCL.
@@ -48,9 +48,11 @@ SELECTION_POLICY_VERSION = "72h-seven-markets-fresh-references-net-ev15-v11"
 PROBABILITY_SELECTION_POLICY_VERSION = "72h-top-ten-adjusted-probability-v12"
 PREVIOUS_BALANCED_SELECTION_POLICY_VERSION = "48h-top-ten-probability-ev-v13"
 TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION = "48h-top-ten-probability-ev-no-under35-v14"
-BALANCED_SELECTION_POLICY_VERSION = "48h-top-twelve-probability-ev-no-under35-v15"
-BALANCED_SELECTION_POLICIES = (BALANCED_SELECTION_POLICY_VERSION, TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION, PREVIOUS_BALANCED_SELECTION_POLICY_VERSION)
-NO_UNDER35_SELECTION_POLICIES = (BALANCED_SELECTION_POLICY_VERSION, TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION)
+PREVIOUS_TWELVE_MATCH_BALANCED_SELECTION_POLICY_VERSION = "48h-top-twelve-probability-ev-no-under35-v15"
+BALANCED_SELECTION_POLICY_VERSION = "48h-top-twelve-1x2-double-chance-over15-v16"
+TWELVE_MATCH_BALANCED_SELECTION_POLICIES = (BALANCED_SELECTION_POLICY_VERSION, PREVIOUS_TWELVE_MATCH_BALANCED_SELECTION_POLICY_VERSION)
+BALANCED_SELECTION_POLICIES = (*TWELVE_MATCH_BALANCED_SELECTION_POLICIES, TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION, PREVIOUS_BALANCED_SELECTION_POLICY_VERSION)
+NO_UNDER35_SELECTION_POLICIES = (*TWELVE_MATCH_BALANCED_SELECTION_POLICIES, TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION)
 PREVIOUS_SELECTION_POLICY_VERSION = "72h-seven-markets-dc12-btts-probability-odds-net-ev15-v10"
 LEGACY_SELECTION_POLICY_VERSION = "72h-six-markets-dc12-probability-odds-net-ev15-v9"
 MARKET_SPECS = (
@@ -62,6 +64,7 @@ MARKET_SPECS = (
     ("Double Chance X2", "draw_away", 0.80, 0.75),
     ("Double Chance 12", "home_away", 0.80, 0.75),
 )
+CURRENT_MARKET_SPECS = tuple(spec for spec in MARKET_SPECS if spec[1] != "btts_yes") + (("Draw", "draw", 0.65, 0.50),)
 PROBABILITY_MARKET_SPECS = (*MARKET_SPECS, ("Under 3.5", "under_3_5", 0.80, 0.75))
 DECISION_COLUMNS = [
     "evaluated_at_utc", "date", "league", "home_team", "away_team",
@@ -118,7 +121,7 @@ def _market_fields(row: pd.Series, key: str) -> dict:
             "book_count": row.get(f"market_{key}_bookmakers"),
             "min_books": MIN_BOOKMAKERS,
         }
-    if key in ("home", "away"):
+    if key in ("home", "draw", "away"):
         return {
             "price": row.get(f"market_{key}_odds"),
             "bookmaker": row.get(f"best_{key}_bookmaker"),
@@ -256,13 +259,14 @@ def _evaluate_market(
 
     # For winner markets, the unblended 1X2 model must independently
     # favor that same winning side over draw and the opposite team.
-    if key in ("home", "away"):
+    if key in ("home", "draw", "away"):
         h = _valid_probability(row.get("raw_p_home"))
         d = _valid_probability(row.get("raw_p_draw"))
         a = _valid_probability(row.get("raw_p_away"))
         if h is None or d is None or a is None or not (
             (key == "home" and h > d and h > a)
             or (key == "away" and a > d and a > h)
+            or (key == "draw" and d > h and d > a)
         ):
             reasons.append("raw Dixon-Coles does not favor chosen winner")
 
@@ -540,7 +544,7 @@ def build_conservative_shortlist(
         raise ValueError("as_of must be timezone-aware")
     now = now.tz_convert("UTC")
     policy_version = SELECTION_POLICY_VERSION if selection_policy_version is None else selection_policy_version
-    target = TARGET_DISTINCT_MATCHES if policy_version == BALANCED_SELECTION_POLICY_VERSION else 10
+    target = TARGET_DISTINCT_MATCHES if policy_version in TWELVE_MATCH_BALANCED_SELECTION_POLICIES else 10
     target_label = "twelve" if target == 12 else "ten"
     balanced_policy = policy_version in BALANCED_SELECTION_POLICIES
     probability_policy = balanced_policy or policy_version == PROBABILITY_SELECTION_POLICY_VERSION
@@ -550,6 +554,9 @@ def build_conservative_shortlist(
     # Archived v9 comparisons must replay their original six-market ranking.
     specs = tuple(spec for spec in (PROBABILITY_MARKET_SPECS if probability_policy and policy_version not in NO_UNDER35_SELECTION_POLICIES else MARKET_SPECS)
                   if policy_version != LEGACY_SELECTION_POLICY_VERSION or spec[1] != "btts_yes")
+
+    if policy_version == BALANCED_SELECTION_POLICY_VERSION:
+        specs = CURRENT_MARKET_SPECS
 
     if adjusted_ev_floor is not None and (not math.isfinite(adjusted_ev_floor) or adjusted_ev_floor < MIN_ESTIMATED_EV):
         raise ValueError("Research EV floor must be finite and at least the production floor")
