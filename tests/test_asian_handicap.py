@@ -120,18 +120,17 @@ class AsianHandicapTests(OfflineQuotePolicyTestCase):
         d=event();d['bookmakers']*=2
         self.assertEqual(len(ah.parse_quotes(d,NOW)),2)
 
-    def test_risk_first_then_refund_tie_break_with_ev_ranking(self):
+    def test_risk_band_then_ev_before_refund(self):
         picks,decisions,summary=choose([row(offers=[quote(point=-.5),quote(point=.5),quote(point=0)])])
         self.assertEqual(len(picks),1)
-        self.assertEqual(picks.iloc[0].market,ah.label('home',0))
-        self.assertAlmostEqual(picks.iloc[0].p_refund,.3)
+        self.assertEqual(picks.iloc[0].market,ah.label('home',.5))
+        self.assertAlmostEqual(picks.iloc[0].p_refund,0)
         self.assertAlmostEqual(picks.iloc[0].loss_probability_upper,.15)
         self.assertEqual(summary['n_provisional_watchlist'],0)
         self.assertFalse(any('Double Chance' in x for x in summary['eligible_markets']))
         picks,failed,_=choose([row(offers=[{**quote(price=1.2),'opposite_price':4.0}])])
-        self.assertEqual(len(picks),1)
-        self.assertLess(picks.iloc[0].conservative_estimated_ev,0)
-        self.assertLess(picks.iloc[0].raw_dc_ev,0)
+        self.assertTrue(picks.empty)
+        self.assertTrue(failed.rejection_reasons.str.contains('negative adjusted or unblended EV').any())
         values=[row(i) for i in range(20)]
         # All fixtures inside the same hard 48-hour window.
         for value in values:value['kickoff_utc']=(NOW+timedelta(days=1)).isoformat()
@@ -179,12 +178,12 @@ class AsianHandicapTests(OfflineQuotePolicyTestCase):
         self.assertEqual(picks.iloc[0].bookmaker,'1xBet')
         self.assertTrue(choose([row(offers=[quote(book='1xBet')])])[0].empty)
 
-    def test_adjusted_then_unblended_ev_rank_without_floors_and_legacy_replay(self):
+    def test_adjusted_then_unblended_ev_with_zero_cutoff_and_legacy_replay(self):
         picks,_,summary=choose([row(offers=[quote(price=1.8),quote(price=1.9,book='bet365')])])
         self.assertEqual(picks.iloc[0].bookmaker,'bet365')
-        self.assertIsNone(summary['min_estimated_ev'])
-        self.assertIsNone(summary['min_raw_dc_ev'])
-        self.assertFalse(summary['ev_required_for_selection'])
+        self.assertEqual(summary['min_estimated_ev'],0)
+        self.assertEqual(summary['min_raw_dc_ev'],0)
+        self.assertTrue(summary['ev_required_for_selection'])
         a,b=row(0),row(1)
         b['raw_goal_margin_distribution']=json.dumps({'-1':.15,'0':.5,'1':.35})
         picks,_,_=choose([b,a])
@@ -199,6 +198,60 @@ class AsianHandicapTests(OfflineQuotePolicyTestCase):
         self.assertTrue(old[0].empty)
         self.assertEqual(old[2]['selection_policy_version'],ah.LEGACY_POLICY)
         self.assertEqual(old[2]['min_estimated_ev'],.015)
+
+    def test_nonnegative_evs_required_zero_qualifies_and_old_policy_replays(self):
+        zero=row(offers=[{**quote(price=1.5),'opposite_price':2.5}])
+        zero['goal_margin_distribution']=zero['raw_goal_margin_distribution']=json.dumps({'-1':.25,'0':.25,'1':.5})
+        picks,_,_=choose([zero])
+        self.assertEqual(len(picks),1)
+        self.assertEqual(picks.iloc[0].conservative_estimated_ev,0)
+        self.assertEqual(picks.iloc[0].raw_dc_ev,0)
+        report=reliability();report['Premier League']['asian_handicap']['markets'][ah.label('home',0)]['confidence_penalty']=.01
+        self.assertTrue(choose([zero],reports=report)[0].empty)
+        bad=row();bad['raw_goal_margin_distribution']=json.dumps({'-1':.5,'0':.3,'1':.2})
+        picks,decisions,_=choose([bad]);self.assertTrue(picks.empty)
+        item=decisions[decisions.market==ah.label('home',0)].iloc[0]
+        self.assertGreater(item.conservative_estimated_ev,0);self.assertLess(item.raw_dc_ev,0)
+        old=build_conservative_shortlist(pd.DataFrame([bad]),as_of=NOW,market_reliability=reliability(),execution_policy=POLICY,selection_policy_version=ah.FLOORLESS_POLICY)
+        self.assertEqual(len(old[0]),1);self.assertIsNone(old[2]['min_estimated_ev'])
+
+    def test_risk_band_boundary_ev_tradeoff_per_fixture_and_frozen_tolerance(self):
+        # Equal loss risk: a better price can beat a different refund profile.
+        value=row(offers=[quote(point=0,price=2.0),quote(point=.5,price=1.8)])
+        value['goal_margin_distribution']=value['raw_goal_margin_distribution']=json.dumps({'-1':.15,'0':.005,'1':.845})
+        picks,decisions,summary=choose([value])
+        self.assertEqual(picks.iloc[0].market,ah.label('home',0))
+        self.assertAlmostEqual(picks.iloc[0].loss_probability_upper,.15)
+        # -0.5 has a .005 higher loss chance and no refunds but greater EV.
+        value['asian_handicap_offers']=json.dumps([quote(point=-.5,price=2.0),quote(point=.5,price=1.8)])
+        picks,decisions,summary=choose([value])
+        self.assertEqual(picks.iloc[0].market,ah.label('home',-.5))
+        self.assertAlmostEqual(picks.iloc[0].fixture_minimum_loss_probability,.15)
+        self.assertEqual(summary['loss_risk_tolerance'],.01)
+        self.assertEqual(ah.best_per_match(decisions).iloc[0].market,picks.iloc[0].market)
+        tight={**POLICY,'asian_handicap_risk_tolerance':.001}
+        picks,decisions,_=choose([value],policy=tight)
+        self.assertEqual(picks.iloc[0].market,ah.label('home',.5))
+        self.assertEqual(ah.best_per_match(decisions).iloc[0].market,picks.iloc[0].market)
+        # Different fixtures anchor independently; a poor match cannot borrow a safer match's band.
+        other=row(1);other['goal_margin_distribution']=other['raw_goal_margin_distribution']=json.dumps({'-1':.3,'0':.2,'1':.5})
+        self.assertEqual(len(choose([value,other])[0]),2)
+        for bad in (-.01,1.01,float('nan'),True,'0.01'):
+            with self.assertRaises(ValueError):choose([row()],policy={**POLICY,'asian_handicap_risk_tolerance':bad})
+
+    def test_risk_bands_do_not_chain_and_refunds_follow_both_ev_estimates(self):
+        # A 2pp jump must not become acceptable through two successive 1pp steps.
+        pool=pd.DataFrame([dict(_fixture='a',loss_probability_upper=r,conservative_estimated_ev=e,
+            raw_dc_ev=raw,p_refund=refund,offered_decimal_odds=2.,kickoff_utc=NOW.isoformat(),
+            market=m,bookmaker='Pinnacle') for r,e,raw,refund,m in [
+                (.10,.05,.1,.4,'safe'),(.11,.1,.1,0.,'boundary'),(.12,.8,.9,.8,'outside')]])
+        self.assertEqual(ah._rank_risk_band(pool,.01).iloc[0].market,'boundary')
+        pool.loc[1,'loss_probability_upper']=.1101
+        self.assertEqual(ah._rank_risk_band(pool,.01).iloc[0].market,'safe')
+        pool.loc[1,['loss_probability_upper','conservative_estimated_ev','raw_dc_ev']]=[.10,.05,.2]
+        self.assertEqual(ah._rank_risk_band(pool,.01).iloc[0].market,'boundary')
+        pool.loc[1,'raw_dc_ev']=.1
+        self.assertEqual(ah._rank_risk_band(pool,.01).iloc[0].market,'safe')
 
     def test_chronological_calibration_and_insufficient_history(self):
         empty=ah.evaluate_history(pd.DataFrame())['markets']
@@ -246,7 +299,10 @@ class AsianHandicapTests(OfflineQuotePolicyTestCase):
             self.assertEqual(raw_check(root)['selections'],3)
             readable=root/'readable';readable.mkdir()
             self.assertEqual(process_conservative_shortlist(raw,readable),3)
-            self.assertIn('Full refund chance',(readable/'conservative_bet_shortlist_report.md').read_text())
+            text=(readable/'conservative_bet_shortlist_report.md').read_text()
+            self.assertIn('Full refund chance',text)
+            self.assertIn('provisional policy setting',text)
+            self.assertIn('Minimum eligible loss estimate',(readable/'conservative_bet_shortlist_readable.csv').read_text())
             self.assertTrue(capture('a'*40,root=root,captured_at=NOW+timedelta(minutes=1)))
             records=[verified_record('PL',{'id':i+1,'status':'FINISHED','utcDate':value.kickoff_utc,
                 'homeTeam':{'name':value.home_team},'awayTeam':{'name':value.away_team},
