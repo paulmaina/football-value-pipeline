@@ -7,7 +7,11 @@
   "source_schedule_matches": 144,
   "provider": "football-data.org",
   "season_start": 2026,
+<<<<<<< HEAD
   "checked_at_utc": "2026-10-21T10:38:40.143762+00:00",
+=======
+  "checked_at_utc": "2026-10-21T13:59:31.985619+00:00",
+>>>>>>> abfe3d1f3ae21644f9c17f5a5b44bab012867c87
   "download_status": "VERIFIED_LIVE",
   "added_matches": 0,
   "corrected_scores": 0,

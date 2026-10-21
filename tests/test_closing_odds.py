@@ -151,12 +151,12 @@ class ClosingTests(OfflineQuotePolicyTestCase):
         self.assertTrue(any(q['bookmaker']=='1xbet' for q in current['quotes']))
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);folder=root/'closing_odds/observations';folder.mkdir(parents=True)
-            for version in (c.VERSION,c.PREVIOUS_VERSION,c.LEGACY_VERSION):
+            for version in (c.VERSION,c.PREVIOUS_VERSION,c.OLDER_VERSION,c.LEGACY_VERSION):
                 data=c.normalize(row,response,observed,version=version)
-                if version!=c.VERSION:self.assertFalse(any(q['bookmaker']=='1xbet' for q in data['quotes']))
+                if version in (c.OLDER_VERSION,c.LEGACY_VERSION):self.assertFalse(any(q['bookmaker']=='1xbet' for q in data['quotes']))
                 write_json(folder/(c.digest(data)+'.json'),data)
             observations,rejected=c.load_observations(root)
-            self.assertEqual(len(observations),3);self.assertFalse(rejected)
+            self.assertEqual(len(observations),4);self.assertFalse(rejected)
 
     def test_frozen_market_survives_current_shortlist_and_fixture_removal(self):
         with tempfile.TemporaryDirectory() as tmp:
