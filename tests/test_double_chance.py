@@ -118,8 +118,9 @@ class DoubleChanceTests(OfflineQuotePolicyTestCase):
                     'football_value_pipeline_v2_standalone.datetime') as clock:
                 clock.now.return_value = NOW
                 r=api.extra_markets_for_event(LEAGUES['EPL'],'example')
-                self.assertIn('double_chance',fetch.call_args.kwargs['params']['markets'])
-                self.assertIn('dc_v1',fetch.call_args.args[1])
+                self.assertIn('alternate_spreads',fetch.call_args.kwargs['params']['markets'])
+                self.assertNotIn('double_chance',fetch.call_args.kwargs['params']['markets'])
+                self.assertIn('ah_v1',fetch.call_args.args[1])
                 self.assertEqual(r['market_home_draw_odds'],1.35)
 
     def test_stale_higher_price_cannot_hide_a_fresh_qualifying_offer(self):
