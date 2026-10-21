@@ -1266,8 +1266,8 @@ def process_conservative_shortlist(
     from asian_handicap import POLICIES as AH_POLICIES
     asian = summary.get('selection_policy_version') in AH_POLICIES
     if asian:
-        if summary.get('selection_policy_version') == AH_POLICIES[-1]:
-            lines += ['**Asian handicap policy:** require nonnegative adjusted and unblended EV. For each match, admit candidates within '+pct(summary.get('loss_risk_tolerance'))+' of its lowest eligible estimated loss risk; rank highest adjusted EV, unblended EV, then full-refund probability. The risk tolerance is a provisional policy setting, not empirically tuned.',
+        if summary.get('loss_risk_tolerance') is not None:
+            lines += ['**Shortlist policy:** require adjusted estimated EV >= '+pct(summary.get('min_estimated_ev'))+' and unblended EV >= 0. For each match, admit candidates within '+pct(summary.get('loss_risk_tolerance'))+' of its lowest eligible estimated loss risk; rank highest adjusted EV, unblended EV, then full-refund probability. The risk tolerance is a provisional policy setting, not empirically tuned.',
                       '**Probability meaning:** Asian model chance includes refunds. Half-losses lose money. Estimates do not guarantee outcomes. Pinnacle/bet365 take priority, with 1xBet as an exact-line fallback.', '']
         else:
             lines += ['**Asian handicap policy:** archived loss-first rules rank loss risk, refund probability, then EV. v17 requires positive adjusted EV; v18 permits negative EV.',
