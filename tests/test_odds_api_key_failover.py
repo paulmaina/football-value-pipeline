@@ -217,8 +217,8 @@ class ApiKeyFailoverTests(OfflineQuotePolicyTestCase):
                 output = self.api.extra_markets_for_event(LEAGUES["EPL"], event_id)
         self.assertEqual(output, {})
         self.assertEqual(len(get.calls), 2)
-        self.assertEqual(get.calls[0][1]["markets"], "alternate_totals,btts,double_chance")
-        self.assertEqual(get.calls[1][1]["markets"], "alternate_totals,btts,double_chance")
+        self.assertEqual(get.calls[0][1]["markets"], "alternate_totals,btts,alternate_spreads,draw_no_bet")
+        self.assertEqual(get.calls[1][1]["markets"], "alternate_totals,btts,alternate_spreads,draw_no_bet")
         self.assertEqual(get.calls[1][1]["apiKey"], TEST_KEYS["THE_ODDS_API_KEY_FALLBACK_1"])
 
     def test_429_is_not_retried_by_adapter_before_fallback(self):

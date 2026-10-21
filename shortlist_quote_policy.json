@@ -1,8 +1,6 @@
 {
-  "allowed_bookmakers": [
-    "1xBet",
-    "Pinnacle",
-    "bet365"
-  ],
+  "allowed_bookmakers": ["Pinnacle", "bet365", "1xBet"],
+  "fallback_bookmakers": ["1xBet"],
+  "asian_handicap_risk_tolerance": 0.01,
   "per_stake_cost_bps": 0
 }

@@ -1,6 +1,7 @@
 # Forward-only football performance dashboard
 
 Only immutable **Git-archived before-kickoff predictions** are scored.
+Asian handicaps settle full/half wins, refunds and full/half losses. ROI includes every settled stake; refunds are not wins. Asian probability/Brier measures no net loss.
 Actual results come from football-data.org v4 FINISHED matches;
 normal 90-minute results are used, never extra-time/penalty scorelines.
 **PROVISIONAL candidates are not audited betting recommendations.**
@@ -72,6 +73,56 @@ Whole-fixture 1X2 multiclass Brier (n=87): 0.5429
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
+| Asian Handicap Away +0.00 | 0 | 0-0 | — | — |
+| Asian Handicap Away +0.25 | 0 | 0-0 | — | — |
+| Asian Handicap Away +0.50 | 0 | 0-0 | — | — |
+| Asian Handicap Away +0.75 | 0 | 0-0 | — | — |
+| Asian Handicap Away +1.00 | 0 | 0-0 | — | — |
+| Asian Handicap Away +1.25 | 0 | 0-0 | — | — |
+| Asian Handicap Away +1.50 | 0 | 0-0 | — | — |
+| Asian Handicap Away +1.75 | 0 | 0-0 | — | — |
+| Asian Handicap Away +2.00 | 0 | 0-0 | — | — |
+| Asian Handicap Away +2.25 | 0 | 0-0 | — | — |
+| Asian Handicap Away +2.50 | 0 | 0-0 | — | — |
+| Asian Handicap Away +2.75 | 0 | 0-0 | — | — |
+| Asian Handicap Away +3.00 | 0 | 0-0 | — | — |
+| Asian Handicap Away -0.25 | 0 | 0-0 | — | — |
+| Asian Handicap Away -0.50 | 0 | 0-0 | — | — |
+| Asian Handicap Away -0.75 | 0 | 0-0 | — | — |
+| Asian Handicap Away -1.00 | 0 | 0-0 | — | — |
+| Asian Handicap Away -1.25 | 0 | 0-0 | — | — |
+| Asian Handicap Away -1.50 | 0 | 0-0 | — | — |
+| Asian Handicap Away -1.75 | 0 | 0-0 | — | — |
+| Asian Handicap Away -2.00 | 0 | 0-0 | — | — |
+| Asian Handicap Away -2.25 | 0 | 0-0 | — | — |
+| Asian Handicap Away -2.50 | 0 | 0-0 | — | — |
+| Asian Handicap Away -2.75 | 0 | 0-0 | — | — |
+| Asian Handicap Away -3.00 | 0 | 0-0 | — | — |
+| Asian Handicap Home +0.00 | 0 | 0-0 | — | — |
+| Asian Handicap Home +0.25 | 0 | 0-0 | — | — |
+| Asian Handicap Home +0.50 | 0 | 0-0 | — | — |
+| Asian Handicap Home +0.75 | 0 | 0-0 | — | — |
+| Asian Handicap Home +1.00 | 0 | 0-0 | — | — |
+| Asian Handicap Home +1.25 | 0 | 0-0 | — | — |
+| Asian Handicap Home +1.50 | 0 | 0-0 | — | — |
+| Asian Handicap Home +1.75 | 0 | 0-0 | — | — |
+| Asian Handicap Home +2.00 | 0 | 0-0 | — | — |
+| Asian Handicap Home +2.25 | 0 | 0-0 | — | — |
+| Asian Handicap Home +2.50 | 0 | 0-0 | — | — |
+| Asian Handicap Home +2.75 | 0 | 0-0 | — | — |
+| Asian Handicap Home +3.00 | 0 | 0-0 | — | — |
+| Asian Handicap Home -0.25 | 0 | 0-0 | — | — |
+| Asian Handicap Home -0.50 | 0 | 0-0 | — | — |
+| Asian Handicap Home -0.75 | 0 | 0-0 | — | — |
+| Asian Handicap Home -1.00 | 0 | 0-0 | — | — |
+| Asian Handicap Home -1.25 | 0 | 0-0 | — | — |
+| Asian Handicap Home -1.50 | 0 | 0-0 | — | — |
+| Asian Handicap Home -1.75 | 0 | 0-0 | — | — |
+| Asian Handicap Home -2.00 | 0 | 0-0 | — | — |
+| Asian Handicap Home -2.25 | 0 | 0-0 | — | — |
+| Asian Handicap Home -2.50 | 0 | 0-0 | — | — |
+| Asian Handicap Home -2.75 | 0 | 0-0 | — | — |
+| Asian Handicap Home -3.00 | 0 | 0-0 | — | — |
 | Away win | 1 | 0-1 | 0.0% | -100.0% |
 | Both Teams to Score - Yes | 3 | 2-1 | 66.7% | +0.7% |
 | Double Chance 12 | 6 | 5-1 | 83.3% | +2.7% |
@@ -103,7 +154,7 @@ Whole-fixture 1X2 multiclass Brier (n=87): 0.5429
 
 ## Confidence calibration of shortlisted markets
 
-| Forecast bin | Samples | Average forecast | Observed win rate | Binary Brier |
+| Forecast bin | Samples | Average forecast | Observed win / AH no-loss rate | Binary Brier |
 |---|---:|---:|---:|---:|
 | 0%–50% | 1 | 45.4% | 0.0% | 0.2059 |
 | 50%–60% | 1 | 54.9% | 100.0% | 0.2031 |

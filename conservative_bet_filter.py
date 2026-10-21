@@ -539,6 +539,11 @@ def build_conservative_shortlist(
     summary with any shortfall. A shortlisted row is a
     candidate to study, NOT an automatically constructed accumulator.
     """
+    from asian_handicap import POLICIES as AH_POLICIES, build_shortlist
+    if selection_policy_version in AH_POLICIES:
+        if research_policy is not None:
+            raise ValueError('Legacy ranking experiments do not apply to loss-first Asian handicap policy')
+        return build_shortlist(predictions, as_of or datetime.now(timezone.utc), market_reliability, execution_policy, adjusted_ev_floor, selection_policy_version)
     now = pd.Timestamp(as_of if as_of is not None else datetime.now(timezone.utc))
     if now.tzinfo is None:
         raise ValueError("as_of must be timezone-aware")

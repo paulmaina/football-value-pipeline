@@ -1051,6 +1051,11 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
         "High-confidence evidence status", "Data/selection status",
         "Qualification", "Near-miss reasons", "Historical gap score",
     ]
+    if 'p_no_loss' in df.columns:
+        columns += ['Any loss chance','Conservative loss estimate','Full refund chance','Full win chance',
+                    'Half win chance','Half loss chance','Full loss chance','Probability meaning']
+    if 'loss_risk_tolerance' in df.columns:
+        columns += ['Minimum eligible loss estimate','Allowed risk difference']
     rows: List[Dict[str, str]] = []
     for _, item in df.iterrows():
         home = item.get("home_team")
@@ -1075,6 +1080,16 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
                 str(item.get("league")) if not is_missing(item.get("league")) else "—"
             ),
             "Model chance": pct(item.get("predicted_probability")),
+            "Any loss chance": pct(item.get('p_any_loss')),
+            "Conservative loss estimate": pct(item.get('loss_probability_upper')),
+            "Full refund chance": pct(item.get('p_refund')),
+            "Full win chance": pct(item.get('p_full_win')),
+            "Half win chance": pct(item.get('p_half_win')),
+            "Half loss chance": pct(item.get('p_half_loss')),
+            "Full loss chance": pct(item.get('p_full_loss')),
+            "Probability meaning": item.get('probability_basis') or 'win',
+            "Minimum eligible loss estimate": pct(item.get('fixture_minimum_loss_probability')),
+            "Allowed risk difference": pct(item.get('loss_risk_tolerance')),
             "Reliability-adjusted chance": pct(item.get("rank_probability")),
             "Unblended Dixon-Coles chance": pct(item.get("raw_dc_probability")),
             "Market implied chance": pct(item.get("market_probability")),
@@ -1248,6 +1263,15 @@ def process_conservative_shortlist(
         "## Shortlisted market for each match",
         "",
     ]
+    from asian_handicap import POLICIES as AH_POLICIES
+    asian = summary.get('selection_policy_version') in AH_POLICIES
+    if asian:
+        if summary.get('loss_risk_tolerance') is not None:
+            lines += ['**Shortlist policy:** require adjusted estimated EV >= '+pct(summary.get('min_estimated_ev'))+' and unblended EV >= 0. For each match, admit candidates within '+pct(summary.get('loss_risk_tolerance'))+' of its lowest eligible estimated loss risk; rank highest adjusted EV, unblended EV, then full-refund probability. The risk tolerance is a provisional policy setting, not empirically tuned.',
+                      '**Probability meaning:** Asian model chance includes refunds. Half-losses lose money. Estimates do not guarantee outcomes. Pinnacle/bet365 take priority, with 1xBet as an exact-line fallback.', '']
+        else:
+            lines += ['**Asian handicap policy:** archived loss-first rules rank loss risk, refund probability, then EV. v17 requires positive adjusted EV; v18 permits negative EV.',
+                      '**Probability meaning:** Asian model chance includes refunds. Estimates do not guarantee outcomes.', '']
     if count:
         headers = [
             "Match", "Shortlisted market", "Qualification", "Kickoff (UTC)",
@@ -1255,6 +1279,8 @@ def process_conservative_shortlist(
             "Bookmaker", "Quoted decimal odds", "Conservative estimated EV",
             "Selection warnings" if probability_first else "Near-miss reasons",
         ]
+        if asian:
+            headers = [*headers, 'Unblended estimated EV', 'Any loss chance', 'Conservative loss estimate', 'Full refund chance', 'Probability meaning']
         if balanced:
             headers = ['Combined ranking score', *headers]
         lines.append(markdown_table(
