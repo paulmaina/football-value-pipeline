@@ -258,7 +258,9 @@ def review_experiment(root, archived, records, clock):
     dest=root/'performance/filter_sensitivity_experiment'
     write_json(dest/'summary.json',summary)
     for name,rows in [('selections',selections),('candidate_decisions',coverage)]:
-        write_csv(dest/(name+'.csv'),rows,list(rows[0]) if rows else ['fixture_key','ev_floor','decision','outcome'])
+        # Historical policies can add fields after the first ledger row.
+        columns = list(dict.fromkeys(key for row in rows for key in row)) if rows else ['fixture_key','ev_floor','decision','outcome']
+        write_csv(dest/(name+'.csv'),rows,columns)
     lines=['# Conservative EV sensitivity experiment','',summary['note'],'',
         f"Frozen fixtures: {summary['total_fixtures']}; candidate decisions: {summary['candidate_decisions']}; rejected snapshots: {len(summary['rejected_snapshot_commits'])}.",'',
         '| EV floor | Tier | Selected | Settled | Pending | Net ROI | Drawdown (units) | Brier |',
@@ -288,6 +290,8 @@ def validate_report(root):
         saved=read_csv(dest/(name+'.csv'))
         if len(saved)!=len(rows):raise ValueError('Incomplete filter sensitivity ledger')
         for a,b in zip(saved,rows):
+            if not set(b).issubset(a):
+                raise ValueError('Missing filter sensitivity ledger columns')
             for key,value in b.items():
                 if value is None:
                     if a.get(key) not in ('',None):raise ValueError('Unexpected ledger value')
