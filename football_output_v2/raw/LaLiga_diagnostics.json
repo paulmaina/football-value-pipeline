@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "2fbb6cb5b006895481f9b132d9a84c39d6946b757e07af41c299a4eda8b8feeb",
-  "training_as_of_utc": "2026-10-21T09:18:43.688384+00:00",
+  "training_as_of_utc": "2026-10-21T10:37:09.449184+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 88,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-21T09:18:43.688384+00:00",
+    "cutoff_utc": "2026-10-21T10:37:09.449184+00:00",
     "observations": 156,
     "observations_sha256": "88ae16c82ec3f29404233aee0b5fbe9864ade6c2711906328255efb780ecac4f",
     "eligible_training_matches": 72,
@@ -81,10 +81,10 @@
   },
   "training_end": "2026-10-19",
   "fit_success": true,
-  "objective": 5521.523803623546,
-  "base": 0.09020549716852772,
-  "home_adv": 0.27834614049906314,
-  "rho": -0.019978826649511894,
+  "objective": 5521.5237935021305,
+  "base": 0.09025498946389178,
+  "home_adv": 0.27828073183813745,
+  "rho": -0.01997416280588718,
   "half_life_days": 1000000000.0,
   "xi_per_day": 6.931471805599453e-10,
   "max_goals": 10,
@@ -106,7 +106,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261021T091843688384Z_9f33b771d7f12db6bd4f6e667437317ffb3d718f5a50719e9d9c892d8f7380b7.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261021T103709449184Z_f416df8a0a0bc28f0f7d4b01307011979ff73dd7105c3d158ab6bbad6c81b62a.json",
   "over_1_5_in_window_quote_fixtures": 1,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -122,7 +122,7 @@
       "home_away_quote": true,
       "dc_bookmakers": 2,
       "over_1_5_quote": true,
-      "over_1_5_bookmakers": 2
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "903eb4941471ffe20d525b02dd3b77aa",
@@ -284,6 +284,7 @@
     "draw_away": "RELIABLE_FOR_RANKING",
     "home_away": "RELIABLE_FOR_RANKING",
     "home": "RELIABLE_FOR_RANKING",
+    "draw": "RELIABLE_FOR_RANKING",
     "away": "RELIABLE_FOR_RANKING",
     "over_1_5": "RELIABLE_FOR_RANKING",
     "under_3_5": "RELIABLE_FOR_RANKING",

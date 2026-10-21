@@ -751,6 +751,130 @@
         "roi_per_unit": null
       }
     },
+    "draw": {
+      "status": "UNRELIABLE_AUDIT",
+      "development": {
+        "n": 141,
+        "observed_rate": 0.16312056737588654,
+        "mean_forecast": 0.18007944880611096,
+        "overconfidence": 0.01695888143022442,
+        "brier": 0.14397677385000934,
+        "baseline_brier": 0.13651224787485539,
+        "log_loss": 0.4821409069642805
+      },
+      "audit": {
+        "n": 48,
+        "observed_rate": 0.14583333333333334,
+        "mean_forecast": 0.1898131003421064,
+        "overconfidence": 0.04397976700877307,
+        "brier": 0.13750216085078135,
+        "baseline_brier": 0.12456597222222225,
+        "log_loss": 0.46480769785003323
+      },
+      "high_confidence": {
+        "75plus": {
+          "threshold": 0.75,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "audit": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "development_only_penalty": null,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        },
+        "85plus": {
+          "threshold": 0.85,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "audit": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "development_only_penalty": null,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        }
+      },
+      "development_bins": [
+        {
+          "range": [
+            0.0,
+            0.2
+          ],
+          "n": 79,
+          "mean_probability": 0.13233447845503238,
+          "observed_frequency": 0.17721518987341772
+        },
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 61,
+          "mean_probability": 0.2382665121711566,
+          "observed_frequency": 0.14754098360655737
+        },
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 1,
+          "mean_probability": 0.402521241273529,
+          "observed_frequency": 0.0
+        }
+      ],
+      "audit_bins": [
+        {
+          "range": [
+            0.0,
+            0.2
+          ],
+          "n": 25,
+          "mean_probability": 0.13585685697611266,
+          "observed_frequency": 0.2
+        },
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 22,
+          "mean_probability": 0.24145459392624724,
+          "observed_frequency": 0.09090909090909091
+        },
+        {
+          "range": [
+            0.4,
+            0.6
+          ],
+          "n": 1,
+          "mean_probability": 0.4026063256408528,
+          "observed_frequency": 0.0
+        }
+      ],
+      "confidence_penalty": 0.009922001168720511,
+      "historical_betting": {
+        "status": "UNAVAILABLE_NO_HISTORICAL_PRICES",
+        "n_quotes": 0,
+        "n_simulated": 0,
+        "roi_per_unit": null
+      }
+    },
     "away": {
       "status": "RELIABLE_FOR_RANKING",
       "development": {
@@ -1522,7 +1646,7 @@
   },
   "caution": "Development and audit are chronological but may overlap prior half-life/market-hyperparameter tuning periods. This is not a wholly untouched final holdout.",
   "config": {
-    "validator_version": 6,
+    "validator_version": 7,
     "min_train": 250,
     "step_days": 56,
     "devig": "power",
@@ -1536,6 +1660,6 @@
     "training_end": "2026-10-20",
     "training_matches": 548,
     "training_sha256": "24e0e7222acdd9df3acd82f4c85a768ad452ba37bfca16f73afb3e4abd24b6fc",
-    "validation_code_sha256": "7fc57623a062df3eb09192e81441d4649995ab4666b5c370f241d10842f0a529"
+    "validation_code_sha256": "1316ee2fd20faa630127ad43bf77ff6e9f29be3d9ed561a3cefc407809a6bd9a"
   }
 }

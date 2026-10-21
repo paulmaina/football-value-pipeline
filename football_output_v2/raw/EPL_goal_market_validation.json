@@ -733,6 +733,112 @@
         "roi_per_unit": null
       }
     },
+    "draw": {
+      "status": "RELIABLE_FOR_RANKING",
+      "development": {
+        "n": 486,
+        "observed_rate": 0.2448559670781893,
+        "mean_forecast": 0.23505348180142038,
+        "overconfidence": -0.009802485276768913,
+        "brier": 0.18557497189048364,
+        "baseline_brier": 0.184901522464394,
+        "log_loss": 0.5581940938206017
+      },
+      "audit": {
+        "n": 165,
+        "observed_rate": 0.296969696969697,
+        "mean_forecast": 0.2507616254147216,
+        "overconfidence": -0.046208071554975416,
+        "brier": 0.2076112259199609,
+        "baseline_brier": 0.20877869605142335,
+        "log_loss": 0.604404595474806
+      },
+      "high_confidence": {
+        "75plus": {
+          "threshold": 0.75,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "audit": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "development_only_penalty": null,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        },
+        "85plus": {
+          "threshold": 0.85,
+          "status": "INSUFFICIENT_HIGH_CONFIDENCE_HISTORY",
+          "development": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "audit": {
+            "n": 0,
+            "n_wins": 0,
+            "observed_wilson95": null
+          },
+          "development_only_penalty": null,
+          "minimum_development_samples": 30,
+          "minimum_audit_samples": 12,
+          "maximum_audit_overconfidence": 0.1
+        }
+      },
+      "development_bins": [
+        {
+          "range": [
+            0.0,
+            0.2
+          ],
+          "n": 81,
+          "mean_probability": 0.16467624025188426,
+          "observed_frequency": 0.18518518518518517
+        },
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 405,
+          "mean_probability": 0.24912893011132764,
+          "observed_frequency": 0.25679012345679014
+        }
+      ],
+      "audit_bins": [
+        {
+          "range": [
+            0.0,
+            0.2
+          ],
+          "n": 14,
+          "mean_probability": 0.1608296056141352,
+          "observed_frequency": 0.14285714285714285
+        },
+        {
+          "range": [
+            0.2,
+            0.4
+          ],
+          "n": 151,
+          "mean_probability": 0.25909969347570316,
+          "observed_frequency": 0.31125827814569534
+        }
+      ],
+      "confidence_penalty": 0.0,
+      "historical_betting": {
+        "status": "UNAVAILABLE_NO_HISTORICAL_PRICES",
+        "n_quotes": 0,
+        "n_simulated": 0,
+        "roi_per_unit": null
+      }
+    },
     "away": {
       "status": "RELIABLE_FOR_RANKING",
       "development": {
@@ -1396,7 +1502,7 @@
   },
   "caution": "Development and audit are chronological but may overlap prior half-life/market-hyperparameter tuning periods. This is not a wholly untouched final holdout.",
   "config": {
-    "validator_version": 6,
+    "validator_version": 7,
     "min_train": 500,
     "step_days": 56,
     "devig": "power",
@@ -1410,6 +1516,6 @@
     "training_end": "2026-10-19",
     "training_matches": 1970,
     "training_sha256": "55462e9201d62112ea046050590e9692ab7b8110bef89cd30cbd21970f01b8aa",
-    "validation_code_sha256": "7fc57623a062df3eb09192e81441d4649995ab4666b5c370f241d10842f0a529"
+    "validation_code_sha256": "1316ee2fd20faa630127ad43bf77ff6e9f29be3d9ed561a3cefc407809a6bd9a"
   }
 }
