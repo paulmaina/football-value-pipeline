@@ -23,7 +23,7 @@
       "status": "COLLECT_MORE_DATA"
     },
     {
-      "collection_days": 7,
+      "collection_days": 8,
       "key": "recency_experiment",
       "name": "recency_experiment",
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
@@ -110,6 +110,6 @@
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-21T16:02:37.144653+00:00",
+  "reviewed_at_utc": "2026-10-21T16:38:01.839759+00:00",
   "version": "experiment-review-queue-v1"
 }
