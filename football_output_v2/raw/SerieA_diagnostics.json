@@ -1,6 +1,6 @@
 {
   "league": "Serie A",
-  "training_matches": 1969,
+  "training_matches": 1970,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,23 +10,35 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "d5253304468b210b2f7561ac9ac9cd3f24e629d934a19d6f4233faf88560f9ad",
-  "training_as_of_utc": "2026-10-20T05:43:07.772166+00:00",
+  "training_sha256": "36c278fa2dc4c7c97b3aa4fd88ca7a6175339007ec13e1fffadcaa0bf10addfc",
+  "training_as_of_utc": "2026-10-21T09:20:14.079252+00:00",
   "training_data_provenance": {
-    "bbs_confirmed_rows": 69,
-    "bbs_added_results": 9,
+    "bbs_confirmed_rows": 70,
+    "bbs_added_results": 0,
     "bbs_result_conflicts": 0,
-    "bbs_rows_with_statistics": 69,
+    "bbs_rows_with_statistics": 70,
     "bbs_statistics_used_as_predictor_features": false,
-    "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass."
+    "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.",
+    "api_football": {
+      "status": "AVAILABLE",
+      "matched_results": 918,
+      "added_results": 0,
+      "conflicts": 0,
+      "unmapped": 223,
+      "ambiguous": 0,
+      "excluded_phase": 0,
+      "statistics_observations": 31,
+      "source": "api-football",
+      "usage": "supplementary_cached_observations"
+    }
   },
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-20T05:43:07.772166+00:00",
-    "observations": 100,
-    "observations_sha256": "b8cde538f8f80687eff19983d55e1c13c1c3f05983d5dcb605cf2aedd97a4624",
-    "eligible_training_matches": 19,
+    "cutoff_utc": "2026-10-21T09:20:14.079252+00:00",
+    "observations": 145,
+    "observations_sha256": "be1065fe63c17ac32f8b443dc26d018c2d15e8b410f98fb4c1093f74b4f661d7",
+    "eligible_training_matches": 43,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -51,24 +63,28 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 45,
+    "usable_current_matches": 71,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
     "strict_eligible_training_matches": 7,
-    "retrospective_eligible_training_matches": 19,
+    "retrospective_eligible_training_matches": 43,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:28.568690+00:00",
-    "retrospective_inputs_sha256": "ce20a98c71564d556c697faf42f4e2ecedb7e188b0b5511fa24cafd55dace92c",
+    "retrospective_inputs_sha256": "943a8b10539374c5b6d1cc29ce92768e5ddc69e5a085af9305e4efd559d49ae5",
     "historical_corrections_may_be_present": true,
-    "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement."
+    "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+    "input_providers": [
+      "api-football",
+      "bigballsdata"
+    ]
   },
   "training_end": "2026-10-19",
   "fit_success": true,
-  "objective": 2441.048508076667,
-  "base": 0.13059631947035133,
-  "home_adv": 0.12833571398137433,
-  "rho": -0.03360152238803393,
+  "objective": 2441.962054326573,
+  "base": 0.13224457564436864,
+  "home_adv": 0.1257281967430538,
+  "rho": -0.033643779040819444,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
   "max_goals": 10,
@@ -76,7 +92,7 @@
   "market_weight": 0.5,
   "training_data_health": {
     "training_end": "2026-10-19",
-    "days_since_latest_result": 1,
+    "days_since_latest_result": 2,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -90,7 +106,7 @@
   "additional_event_odds_calls_used_before_this_league": 1,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261020T054307772166Z_f0853e9a10ade28bdc8934b2b4c25d66aea64a98b1584324f587abea8bc72664.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261021T092014079252Z_b285f850048f8efe70a2d650d4be1b2bc7b2b2df22dd913f553d3c8f096e6167.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
