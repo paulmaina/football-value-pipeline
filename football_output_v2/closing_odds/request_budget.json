@@ -1,11 +1,17 @@
 {
   "daily_request_cap": 100,
   "date": "2026-10-21",
-  "requests": 10,
+  "requests": 20,
   "reservations": {
     "actions-39627700583-1-1": {
       "allowance": 10,
       "reserved_at_utc": "2026-10-21T16:27:31.356622+00:00",
+      "status": "reserved",
+      "used": 0
+    },
+    "actions-39640761675-1-1": {
+      "allowance": 10,
+      "reserved_at_utc": "2026-10-21T17:42:19.300373+00:00",
       "status": "reserved",
       "used": 0
     }
