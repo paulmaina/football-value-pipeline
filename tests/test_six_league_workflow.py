@@ -28,6 +28,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             cfg=LEAGUES[key];row=fixture(i,kickoff=NOW+timedelta(days=1))
             row.update(p_under_3_5=.99, raw_p_under_3_5=.98, league=cfg.name,odds_event_id='event'+str(i),fixture_id='event'+str(i),
                        market_best_over_1_5_last_update_utc=NOW.isoformat())
+            row.update(best_home_bookmaker='Pinnacle',best_away_bookmaker='Pinnacle',best_over_1_5_bookmaker='Pinnacle')
             frames[key]=pd.DataFrame([row])
             match={'id':i+1,'status':'FINISHED','utcDate':row['kickoff_utc'],
                 'homeTeam':{'name':row['home_team']},'awayTeam':{'name':row['away_team']},
@@ -67,9 +68,10 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertNotIn('Both Teams to Score - Yes', picks.market.tolist())
                 self.assertTrue(pd.read_csv(raw/'all_leagues_predictions.csv').p_under_3_5.eq(.99).all())
                 summary = json.loads((raw/'conservative_bet_summary.json').read_text())
-                self.assertEqual(summary['selection_policy_version'], '48h-top-twelve-1x2-double-chance-over15-v16')
-                self.assertEqual(set(summary['eligible_markets']), {'Home win', 'Draw', 'Away win', 'Over 1.5',
-                    'Double Chance 1X', 'Double Chance X2', 'Double Chance 12'})
+                self.assertEqual(summary['selection_policy_version'], '48h-loss-first-asian-handicap-1x2-over15-v18')
+                self.assertTrue({'Home win','Draw','Away win','Over 1.5'}.issubset(summary['eligible_markets']))
+                self.assertFalse(any('Double Chance' in m for m in summary['eligible_markets']))
+                self.assertIn('Asian Handicap Home +0.00', summary['eligible_markets'])
                 self.assertEqual(format_main(['--root-dir',str(root)]),0)
                 readable = pd.read_csv(root/'readable/conservative_bet_shortlist_readable.csv')
                 self.assertNotIn('Under 3.5', readable.to_string(index=False))
@@ -86,22 +88,11 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],6)
             self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],12)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
-            self.assertEqual(data['experiments']['filter_sensitivity_experiment']['total_fixtures'],6)
-            # Seven markets per fixture; balanced control plus three EV gates.
-            self.assertEqual(data['experiments']['filter_sensitivity_experiment']['candidate_decisions'],6*7*4)
-            self.assertEqual(data['pipeline_health']['experiment_capture_counts']['filter_sensitivity_experiment:CAPTURED'],1)
+            for name in ('filter_sensitivity_experiment','shortlist_weight_experiment','shortlist_policy_experiment'):
+                self.assertEqual(data['experiments'][name]['total_fixtures'],0)
+                self.assertEqual(data['pipeline_health']['experiment_capture_counts'][name+':NOT_GENERATED'],1)
             self.assertEqual(data['experiments']['benchmark_forward_experiment']['paired_fixtures'],0)
             self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),8)
-            self.assertEqual(data['experiments']['shortlist_weight_experiment']['total_fixtures'],6)
-            self.assertEqual(data['experiments']['shortlist_weight_experiment']['candidate_decisions'],6*7*5)
-            adaptive = [r for r in data['experiments']['shortlist_weight_experiment']['comparisons']
-                        if r['variant_id'] == 'adaptive_evidence' and r['tier'] == 'ALL']
-            self.assertEqual(len(adaptive), 1)
-            self.assertEqual(adaptive[0]['selected'], 6)
-            self.assertEqual(data['pipeline_health']['experiment_capture_counts']['shortlist_weight_experiment:CAPTURED'],1)
-            self.assertEqual(data['experiments']['shortlist_policy_experiment']['total_fixtures'],6)
-            self.assertEqual(data['experiments']['shortlist_policy_experiment']['candidate_decisions'],6*7*9)
-            self.assertEqual(data['pipeline_health']['experiment_capture_counts']['shortlist_policy_experiment:CAPTURED'],1)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['benchmark_forward_experiment:CAPTURED'],1)
             self.assertTrue((root/'readable/football_performance_report.xlsx').exists())
 

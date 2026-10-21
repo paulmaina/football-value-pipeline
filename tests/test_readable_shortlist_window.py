@@ -91,6 +91,8 @@ class FormatterIntegrationTests(OfflineQuotePolicyTestCase):
         rows[1]['kickoff_utc'] = (NOW + timedelta(hours=47)).isoformat()
         rows[2]['kickoff_utc'] = (NOW + timedelta(hours=48, seconds=1)).isoformat()
         rows[1]['league'] = 'UEFA Champions League'
+        for value in rows:
+            value.update(best_home_bookmaker='Pinnacle',best_over_1_5_bookmaker='Pinnacle')
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             raw = root / 'raw'

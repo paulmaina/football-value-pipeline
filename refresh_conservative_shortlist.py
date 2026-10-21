@@ -10,7 +10,8 @@ from pathlib import Path
 
 import pandas as pd
 
-from conservative_bet_filter import build_conservative_shortlist, BALANCED_SELECTION_POLICY_VERSION
+from conservative_bet_filter import build_conservative_shortlist
+from asian_handicap import POLICY as CURRENT_SELECTION_POLICY
 from format_football_output import process_conservative_shortlist
 
 
@@ -25,7 +26,7 @@ def _refresh(root, as_of=None, *, raw_dir=None):
     clock = as_of if as_of is not None else datetime.now(timezone.utc)
     picks, decisions, summary = build_conservative_shortlist(
         predictions, market_reliability=reliability, as_of=clock,
-        selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)
+        selection_policy_version=CURRENT_SELECTION_POLICY)
     summary['refresh_source'] = 'Stored forecasts re-ranked; no new odds or model fitting'
     summary['ucl_forecasts_available'] = bool(
         predictions.get('league', pd.Series(dtype=str)).eq('UEFA Champions League').any())
@@ -34,6 +35,8 @@ def _refresh(root, as_of=None, *, raw_dir=None):
     picks.loc[picks.selection_tier.eq('STRICT')].to_csv(
         raw / 'conservative_strict_qualifiers.csv', index=False)
     decisions.to_csv(raw / 'conservative_bet_rejections.csv', index=False)
+    from asian_handicap import best_per_match
+    best_per_match(decisions).to_csv(raw/'asian_handicap_best_per_match.csv',index=False)
     (raw / 'conservative_bet_summary.json').write_text(
         json.dumps(summary, indent=2), encoding='utf-8')
     return summary

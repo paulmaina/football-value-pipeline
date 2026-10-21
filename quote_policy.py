@@ -27,7 +27,10 @@ def validate_policy(data):
         raise ValueError('allowed_bookmakers must be a list of nonblank names')
     if isinstance(costs, bool) or not isinstance(costs, (float, int)) or not math.isfinite(costs) or not 0 <= costs <= 10000:
         raise ValueError('per_stake_cost_bps must be finite and between 0 and 10000')
-    return {'allowed_bookmakers': names, 'per_stake_cost_bps': costs,
+    fallback = data.get('fallback_bookmakers', [])
+    if not isinstance(fallback, list) or any(not isinstance(n, str) or not n.strip() for n in fallback):
+        raise ValueError('fallback_bookmakers must be a list of nonblank names')
+    return {**({'fallback_bookmakers': fallback} if fallback else {}), 'allowed_bookmakers': names, 'per_stake_cost_bps': costs,
             'exchange_policy': 'EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER',
             'account_availability': 'USER_ALLOWLIST' if names else 'NOT_VERIFIED'}
 
@@ -48,3 +51,10 @@ def stake_cost(value):
     if not math.isfinite(cost) or not 0 <= cost <= 1:
         raise ValueError('Invalid frozen stake cost')
     return cost
+
+
+def bookmaker_priority(name, policy=None):
+    """Prefer primary quotes over fallback quotes for an exact market."""
+    policy = policy or load_policy()
+    fallback = {n.casefold().strip() for n in policy.get('fallback_bookmakers', [])}
+    return 0 if str(name).casefold().strip() in fallback else 1

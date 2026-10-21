@@ -112,7 +112,7 @@ def model_component_hashes():
     """Cross-platform provenance for probability, identity and selection helpers."""
     repo = Path(__file__).resolve().parent
     names = ('football_value_pipeline_v2_standalone.py', 'score_probability.py',
-        'double_chance.py', 'quote_freshness.py', 'quote_policy.py',
+        'double_chance.py', 'asian_handicap.py', 'quote_freshness.py', 'quote_policy.py',
         'conservative_bet_filter.py', 'goal_market_validation.py',
         'dc_decay_validation.py', 'market_blend_validation.py',
         'bbs_statistics_model.py', 'bbs_integration.py', 'bbs_data.py',

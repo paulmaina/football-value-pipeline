@@ -829,7 +829,7 @@ class TheOddsAPI:
     ) -> Dict[str, object]:
         """Keep each bookmaker's newest complete pair, with atomic provenance."""
         from quote_freshness import quote_is_fresh, quote_utc
-        from quote_policy import usable_bookmaker
+        from quote_policy import usable_bookmaker, bookmaker_priority
         newest = {}
         for updated, name, price, opposite in available:
             if (quote_utc(updated) is None
@@ -845,7 +845,7 @@ class TheOddsAPI:
         available = list(newest.values())
         ref = max(available, key=lambda x: quote_utc(x[0]))
         usable = [x for x in available if usable_bookmaker(x[1])]
-        best = max(usable, key=lambda x: x[2]) if usable else (None, None, None, None)
+        best = max(usable, key=lambda x: (bookmaker_priority(x[1]), x[2])) if usable else (None, None, None, None)
         fair = devig([ref[2], ref[3]], method="power")
         return {
             f"market_p_{market}": fair[0],
@@ -865,6 +865,7 @@ class TheOddsAPI:
         Omitting as_of retains structural parsing for historical fixtures/tests.
         """
         from quote_freshness import quote_clock, quote_is_fresh, quote_utc
+        from asian_handicap import parse_quotes as parse_handicap_quotes
         clock = quote_clock(as_of) if as_of is not None else None
         event_id = str(event.get("id") or "")
         home = str(event.get("home_team") or "")
@@ -884,10 +885,10 @@ class TheOddsAPI:
             bookmaker_name: str,
             updated: str,
         ):
-            from quote_policy import usable_bookmaker
+            from quote_policy import usable_bookmaker, bookmaker_priority
             if price is None or price <= 1.0 or not usable_bookmaker(bookmaker_name):
                 return current
-            if current[0] is None or price > float(current[0]):
+            if current[0] is None or (bookmaker_priority(bookmaker_name), price) > (bookmaker_priority(current[1]), float(current[0])):
                 return (price, bookmaker_name, updated)
             return current
 
@@ -1004,7 +1005,7 @@ class TheOddsAPI:
                     if updated:
                         all_updates.append(updated)
 
-        from quote_policy import usable_bookmaker
+        from quote_policy import usable_bookmaker, bookmaker_priority
         reference_order = lambda x: quote_utc(x[0]) if clock is not None else x[0]
         ref_h2h = max(complete_h2h, key=reference_order, default=None)
         ref_ou = max(complete_ou, key=reference_order, default=None)
@@ -1044,6 +1045,7 @@ class TheOddsAPI:
             "live_ref_ou25_bookmaker": None if ref_ou is None else ref_ou[1],
             "shadow_pinnacle_totals": pinnacle_totals,
             "_main_over_1_5_offers": main_over15,
+            "asian_handicap_offers": json.dumps(parse_handicap_quotes(event, clock), sort_keys=True),
         }
 
     def odds(
@@ -1057,13 +1059,13 @@ class TheOddsAPI:
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
         payload = self._get_json(
             url,
-            f"oddsapi_odds_{league.key}_{region_tag}.json",
+            f"oddsapi_odds_ah_v1_{league.key}_{region_tag}.json",
             ttl=timedelta(minutes=5),
             force_refresh=self.force_refresh,
             params={
                 "apiKey": self.api_key,
                 "regions": self.regions,
-                "markets": "h2h,totals",
+                "markets": "h2h,totals,spreads",
                 "oddsFormat": "decimal",
                 "dateFormat": "iso",
                 "commenceTimeFrom": start,
@@ -1101,13 +1103,13 @@ class TheOddsAPI:
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
         payload = self._get_json(
             url,
-            f"oddsapi_additional_dc_v1_{league.key}_{region_tag}_{safe_id}.json",
+            f"oddsapi_additional_ah_v1_{league.key}_{region_tag}_{safe_id}.json",
             ttl=timedelta(minutes=5),
             force_refresh=self.force_refresh,
             params={
                 "apiKey": self.api_key,
                 "regions": self.regions,
-                "markets": "alternate_totals,btts,double_chance",
+                "markets": "alternate_totals,btts,alternate_spreads,draw_no_bet",
                 "oddsFormat": "decimal",
                 "dateFormat": "iso",
             },
@@ -1178,6 +1180,11 @@ class TheOddsAPI:
 
         from double_chance import parse_quotes
         result: Dict[str, object] = parse_quotes(payload, as_of=clock)
+        from asian_handicap import parse_quotes as parse_handicaps
+        asian_offers = parse_handicaps(payload, clock)
+        if asian_offers:
+            result['asian_handicap_offers'] = json.dumps(asian_offers, sort_keys=True, allow_nan=False)
+            result['_asian_handicap_identity'] = {k:payload.get(k) for k in ('home_team','away_team','commence_time')}
         for market, available in offers.items():
             result.update(self._goal_quote_fields(market, available, as_of=clock))
         return result
@@ -3033,6 +3040,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 if pd.Timestamp(row['Date']).date() != quote_kickoff.date():
                     continue
                 result.at[idx, 'kickoff_utc'] = quote_kickoff.isoformat()
+            result.at[idx, 'asian_handicap_offers'] = match.get('asian_handicap_offers', '[]')
             for field in copied_fields:
                 result.at[idx, field] = match.get(field)
             result.at[idx, "odds_match_method"] = method
@@ -3054,6 +3062,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         home, away = str(row["HomeTeam"]), str(row["AwayTeam"])
         matrix, meta = model.score_matrix(home, away)
 
+        from asian_handicap import margins
+        raw_margins = margins(matrix)
         raw_x12 = model.one_x_two(matrix)
         raw_over_1_5 = model.over_under(matrix, 1.5)["over"]
         raw_under_3_5 = model.over_under(matrix, 3.5)["under"]
@@ -3090,6 +3100,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
             if hasattr(self, '_totals_shadow_inputs'):
                 self._totals_shadow_inputs[(home, away, str(row.get('kickoff_utc')))] = {'lambda_home': meta['lambda_home'], 'lambda_away': meta['lambda_away'], 'rho': float(model.rho), 'max_goals': matrix.shape[0]-1, 'score_engine_version': meta.get('score_engine_version'), 'reference': row.get('shadow_pinnacle_totals')}
         pred = prediction_from_matrix(model, matrix, meta)
+        pred['goal_margin_distribution'] = margins(matrix)
+        pred['raw_goal_margin_distribution'] = raw_margins
         pred["raw_p_home"] = raw_x12["home"]
         pred["raw_p_draw"] = raw_x12["draw"]
         pred["raw_p_away"] = raw_x12["away"]
@@ -3101,6 +3113,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         pred.update(double_chance_probabilities(pred))
         pred["market_weight"] = self.market_weight if blend_applied else 0.0
         pred["market_blend_applied"] = blend_applied
+        pred['asian_handicap_offers'] = row.get('asian_handicap_offers', '[]')
         add_value_metrics(pred, snapshot)
         primary = row.get("_main_over_1_5_offers")
         if isinstance(primary, (list, tuple)):
@@ -3259,7 +3272,23 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 primary = row.get("_main_over_1_5_offers")
                 extra = self.odds_api.extra_markets_for_event(league, event_id,
                     main_over_1_5_offers=primary if isinstance(primary, (list, tuple)) else None)
+                identity = extra.pop('_asian_handicap_identity', None)
+                if 'asian_handicap_offers' in extra:
+                    valid_identity = isinstance(identity,dict) and all(canonical_team_key(str(identity.get(k,''))) == canonical_team_key(str(row[field])) for k,field in [('home_team','HomeTeam'),('away_team','AwayTeam')])
+                    event_kick = pd.to_datetime((identity or {}).get('commence_time'),utc=True,errors='coerce')
+                    row_kick = pd.to_datetime(row.get('kickoff_utc'),utc=True,errors='coerce')
+                    if not valid_identity or pd.isna(event_kick) or pd.isna(row_kick) or abs((event_kick-row_kick).total_seconds()) > 300:
+                        extra['asian_handicap_offers'] = '[]'
+                        coverage_row['asian_handicap_status'] = 'EVENT_IDENTITY_REJECTED'
+                    import asian_handicap
+                    merged = json.loads(pred.get('asian_handicap_offers') or '[]')+json.loads(extra['asian_handicap_offers'])
+                    unique = {(x['side'], x['line'], x['bookmaker']):x for x in sorted(merged,key=lambda x:(x['last_update_utc'],x['price']))}
+                    extra['asian_handicap_offers'] = json.dumps(list(unique.values()),sort_keys=True)
                 pred.update(extra)
+                ah = json.loads(pred.get('asian_handicap_offers') or '[]')
+                coverage_row['asian_handicap_quotes'] = len(ah)
+                coverage_row['asian_handicap_bookmakers'] = sorted({x['bookmaker'] for x in ah})
+                coverage_row['asian_handicap_status'] = 'QUOTES_AVAILABLE' if ah else 'NO_SUPPORTED_HANDICAP_QUOTES'
                 coverage_row["home_draw_quote"] = bool(extra.get("market_home_draw_odds"))
                 coverage_row["draw_away_quote"] = bool(extra.get("market_draw_away_odds"))
                 coverage_row["home_away_quote"] = bool(extra.get("market_home_away_odds"))
@@ -3429,6 +3458,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     "home_team": row["HomeTeam"],
                     "away_team": row["AwayTeam"],
                     "actual_class": y,
+                    "goal_margin_distribution": pred['goal_margin_distribution'],
+                    "raw_goal_margin_distribution": pred['raw_goal_margin_distribution'],
                     "home_goals": int(row["FTHG"]),
                     "away_goals": int(row["FTAG"]),
                     "p_home": pred["p_home"],
@@ -3764,6 +3795,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--reliability-experiment", action="store_true",
                    help="Compare stronger L2 and fixed half-life fits prospectively; no production changes or extra odds requests.")
     p.add_argument("--l2", type=float, default=0.08)
+    p.add_argument("--asian-handicap-quotes", type=Path, help="Optional fresh Pinnacle/bet365/1xBet event-odds JSON; exact event/team/kickoff binding required")
     p.add_argument("--max-goals", type=int, default=10,
                    help="Minimum score-grid limit; expands automatically to bound omitted probability.")
     p.add_argument("--lookahead-days", type=int, default=10)
@@ -4149,6 +4181,9 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                 for key, value in market_validation["markets"].items()
             }
 
+        if args.asian_handicap_quotes and not predictions.empty:
+            from asian_handicap import apply_quote_file
+            predictions = apply_quote_file(predictions,args.asian_handicap_quotes,datetime.now(timezone.utc))
         predictions.to_csv(out_dir / f"{league_key}_predictions.csv", index=False)
         (out_dir / f"{league_key}_diagnostics.json").write_text(
             json.dumps(diagnostics, indent=2), encoding="utf-8"
@@ -4189,7 +4224,8 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
 
     # One conservative shortlist across all requested leagues, not an
     # independent quota of two picks per league. Do not alter predictions.
-    from conservative_bet_filter import build_conservative_shortlist, BALANCED_SELECTION_POLICY_VERSION
+    from conservative_bet_filter import build_conservative_shortlist
+    from asian_handicap import POLICY as CURRENT_SELECTION_POLICY
 
     all_predictions = (
         pd.concat(combined, ignore_index=True, sort=False)
@@ -4202,7 +4238,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
 
     shortlist, decisions, selection_summary = build_conservative_shortlist(
         all_predictions, market_reliability=market_reliability,
-        selection_policy_version=BALANCED_SELECTION_POLICY_VERSION,
+        selection_policy_version=CURRENT_SELECTION_POLICY,
     )
     shortlist.to_csv(out_dir / "conservative_bet_shortlist.csv", index=False)
     strictly_qualified = shortlist.loc[
@@ -4212,6 +4248,8 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         out_dir / "conservative_strict_qualifiers.csv", index=False
     )
     decisions.to_csv(out_dir / "conservative_bet_rejections.csv", index=False)
+    from asian_handicap import best_per_match
+    best_per_match(decisions).to_csv(out_dir/'asian_handicap_best_per_match.csv',index=False)
     (out_dir / "conservative_bet_summary.json").write_text(
         json.dumps(selection_summary, indent=2), encoding="utf-8"
     )
@@ -4235,14 +4273,14 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         file=sys.stderr,
     )
 
-    if combined and not args.backtest:
+    if combined and not args.backtest and selection_summary['selection_policy_version'] != CURRENT_SELECTION_POLICY:
         try:
             from shortlist_weight_experiment import write_experiment as write_weights
             write_weights(all_predictions, out_dir, selection_summary, decisions, market_reliability)
         except Exception as exc:
             warnings.warn(f"Shortlist weight comparison failed ({type(exc).__name__}); baseline outputs complete")
 
-    if combined and not args.backtest:
+    if combined and not args.backtest and selection_summary['selection_policy_version'] != CURRENT_SELECTION_POLICY:
         try:
             from shortlist_policy_experiment import write_experiment as write_policy_comparison
             write_policy_comparison(all_predictions, out_dir, selection_summary,
@@ -4250,7 +4288,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         except Exception as exc:
             warnings.warn(f"Shortlist policy comparison failed ({type(exc).__name__}); baseline outputs complete")
 
-    if combined and not args.backtest:
+    if combined and not args.backtest and selection_summary['selection_policy_version'] != CURRENT_SELECTION_POLICY:
         try:
             from filter_sensitivity_experiment import write_experiment as write_filter_sensitivity
             write_filter_sensitivity(all_predictions, out_dir, selection_summary,
