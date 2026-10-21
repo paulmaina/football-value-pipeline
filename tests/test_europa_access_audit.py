@@ -100,6 +100,20 @@ class EuropaAccessAuditTests(unittest.TestCase):
                 self.assertNotIn('secret-do-not-print',text);self.assertIn('[REDACTED]',text)
             finally:os.chdir(old)
 
+    def test_focused_followup_never_repeats_odds_and_tests_exact_bbs_name(self):
+        def sender(url,kwargs):
+            if url.endswith('/v1/matches'):
+                return Response({'error':'Unknown league'},400)
+            return Response({'data':[]})
+        session=Session(sender)
+        with patch.dict(os.environ,{'AUDIT_PROVIDERS':'bbs','BBS_API_KEY':'test',
+                                    'THE_ODDS_API_KEY':'do-not-use'},clear=True):
+            report=audit.run(audit.Probe(session,lambda _:None),NOW)
+        self.assertFalse(report['providers']['odds']['tested'])
+        self.assertEqual(report['request_count'],3)
+        self.assertEqual(report['providers']['bbs']['seasons']['2026']['request_status'],'UNKNOWN_COMPETITION')
+        self.assertTrue(all('bigballsdata.com' in url for url,_ in session.calls))
+
     def test_workflow_is_read_only_and_targeted_to_the_audit_branch(self):
         path=Path(__file__).resolve().parents[1]/'.github/workflows/audit-europa-access.yml'
         workflow=yaml.safe_load(path.read_text())

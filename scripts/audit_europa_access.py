@@ -39,7 +39,7 @@ def find_leagues(payload):
     if isinstance(payload,list):
         for value in payload: result.extend(find_leagues(value))
     elif isinstance(payload,dict):
-        if any(europa(payload.get(k)) for k in ('name','title','league')): result.append(payload)
+        if any(europa(payload.get(k)) for k in ('name','title','league','display_name','league_name')): result.append(payload)
         for value in payload.values():
             if isinstance(value,(dict,list)): result.extend(find_leagues(value))
     return result
@@ -120,10 +120,14 @@ class Probe:
             try: payload=response.json()
             except (ValueError,TypeError):payload=None
             errors=payload.get('errors') if isinstance(payload,dict) else None
+            error_text=json.dumps(errors or payload or {}).lower() if response.status_code>=400 or errors else ''
+            if errors:
+                record['error_categories']=[name for name in ('plan','requests','rateLimit','token') if isinstance(errors,dict) and name in errors]
+                record['limit_scope']=('minute' if 'minute' in error_text else 'daily' if 'day' in error_text else 'unspecified')
             if response.status_code==401:state='AUTHENTICATION_FAILED'
             elif response.status_code==403:state='ACCESS_DENIED'
             elif response.status_code==429:state='QUOTA_OR_RATE_LIMIT'
-            elif response.status_code>=400:state='HTTP_ERROR'
+            elif response.status_code>=400:state=('UNKNOWN_COMPETITION' if any(t in error_text for t in ('unknown league','unrecognised league','unrecognized league','unsupported league')) else 'HTTP_ERROR')
             elif not 200<=response.status_code<300:state='REDIRECT_NOT_FOLLOWED'
             elif errors:
                 error_keys=set(errors) if isinstance(errors,dict) else set()
@@ -187,17 +191,19 @@ def market_coverage(event, now):
 
 def run(probe=None, now=None):
     probe=probe or Probe();now=now or datetime.now(timezone.utc)
+    requested=os.getenv('AUDIT_PROVIDERS','all').split(',')
+    selected=set(BASES) if requested==['all'] else set(requested) & set(BASES)
     year=now.year if now.month>=7 else now.year-1
     report={'competition':'UEFA Europa League','checked_at_utc':now.isoformat(),'seasons_tested':list(range(year-4,year+1)),
-        'limits':{'total_requests':40,'pages_per_season':3,'odds_sample_events':1},'providers':{},
+        'limits':{'total_requests':40,'pages_per_season':3,'odds_sample_events':1},'providers':{},'providers_requested':sorted(selected),
         'limitations':['Returned match counts do not prove season completeness or prediction accuracy.',
             'No model fitting, calibration audit or profitability backtest was performed.',
             'Cup scores after extra time/penalties need verified 90-minute semantics; unverified scores are not training-approved.',
             'One odds event is a coverage sample, not a guarantee across fixtures or bookmakers.']}
     for provider in ('football_data','api_football','bbs'):
         names={'football_data':'FOOTBALL_DATA_API_KEY','api_football':'API_FOOTBALL_KEY','bbs':'BBS_API_KEY'}
-        section={'configured':bool(os.getenv(names[provider],'').strip()),'seasons':{}};report['providers'][provider]=section
-        if not section['configured']:continue
+        section={'configured':bool(os.getenv(names[provider],'').strip()),'tested':provider in selected,'seasons':{}};report['providers'][provider]=section
+        if not section['configured'] or provider not in selected:continue
         if provider=='api_football':
             payload,state=probe.get(provider,'/leagues','competition_discovery',{'name':'UEFA Europa League'})
             found=find_leagues(payload);section['discovery_status']=state['status'];section['competition_found']=bool(found)
@@ -208,7 +214,8 @@ def run(probe=None, now=None):
             payload,state=probe.get(provider,'/v1/leagues','competition_discovery',{'sport':'football'})
             found=find_leagues(payload);section['discovery_status']=state['status'];section['competition_found']=bool(found)
             if not found:
-                section['coverage_catalogue_mentions_europa']=bool(find_leagues(coverage));continue
+                section['coverage_catalogue_mentions_europa']=bool(find_leagues(coverage))
+                found=[{'name':'UEFA Europa League'}]  # Test documented exact-name resolver without guessing a league id.
             league=found[0];params={'sport':'football','league':league.get('code') or league.get('slug') or league.get('name')}
         else:
             payload,state=probe.get(provider,'/competitions/EL','competition_access')
@@ -217,9 +224,9 @@ def run(probe=None, now=None):
             section['competition_found']=payload.get('code')=='EL';params={}
         for season in (year,year-1,year-2,year-3,year-4):
             section['seasons'][str(season)]=historical(probe,provider,season,params)
-            if provider in probe.stopped:break
-    odds={'configured':False};report['providers']['odds']=odds
-    for slot,name in enumerate(SECRET_NAMES[3:],1):
+            if provider in probe.stopped or section['seasons'][str(season)]['request_status']=='UNKNOWN_COMPETITION':break
+    odds={'configured':any(os.getenv(n,'').strip() for n in SECRET_NAMES[3:]),'tested':'odds' in selected};report['providers']['odds']=odds
+    for slot,name in enumerate(SECRET_NAMES[3:] if 'odds' in selected else (),1):
         key=os.getenv(name,'').strip()
         if not key:continue
         odds['configured']=True;probe.stopped.discard('odds')
