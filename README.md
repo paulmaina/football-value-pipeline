@@ -140,10 +140,11 @@ save times never backdate cloud evidence. Headline performance uses the latest
 eligible archived selection per fixture; all eligible runs remain in Run Tracking.
 
 The current shortlist is capped at twelve distinct matches within 48 hours.
-New policy v17 allows Home win, Draw, Away win, Over 1.5 and full-time Asian goal
-handicaps from Pinnacle/bet365. It ranks the lowest conservative estimated loss
-risk first, then full-refund probability and positive EV. Double chance, BTTS and
-Under 3.5 are excluded from new shortlists. Failed gates are never used to fill
+New policy v18 allows Home win, Draw, Away win, Over 1.5 and full-time Asian goal
+handicaps from Pinnacle/bet365, with 1xBet as an exact-market fallback. It ranks
+the lowest conservative estimated loss risk first, then full-refund probability,
+adjusted EV and unblended EV. Asian EV floors are removed; negative EV can qualify.
+Double chance, BTTS and Under 3.5 are excluded from new shortlists. Failed gates are never used to fill
 twelve matches. Refunds and half settlements are graded explicitly; estimates
 are not guarantees. See [Asian handicap rules, coverage and quote input](docs/asian-handicap-shortlist.md).
 

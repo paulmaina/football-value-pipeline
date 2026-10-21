@@ -1259,11 +1259,11 @@ def process_conservative_shortlist(
         "## Shortlisted market for each match",
         "",
     ]
-    from asian_handicap import POLICY as AH_POLICY
-    asian = summary.get('selection_policy_version') == AH_POLICY
+    from asian_handicap import POLICIES as AH_POLICIES
+    asian = summary.get('selection_policy_version') in AH_POLICIES
     if asian:
-        lines += ['**Asian handicap policy:** rank lowest conservative estimated chance of losing any stake first, then refund probability and positive adjusted EV. Half-losses count as losses. No padding with failed gates.',
-                  '**Probability meaning:** Asian model chance means no net loss, including a full refund; it is not win probability. Estimates do not guarantee outcomes. Only quoted Pinnacle/bet365 lines qualify.', '']
+        lines += ['**Asian handicap policy:** rank lowest conservative estimated chance of losing any stake first, then refund probability, adjusted EV and unblended EV (v18 has no Asian EV floors). Half-losses count as losses. No padding with failed gates.',
+                  '**Probability meaning:** Asian model chance means no net loss, including a full refund; it is not win probability. Estimates do not guarantee outcomes. Pinnacle/bet365 quotes take priority; 1xBet is an exact-line fallback in v18. Negative EV can qualify.', '']
     if count:
         headers = [
             "Match", "Shortlisted market", "Qualification", "Kickoff (UTC)",

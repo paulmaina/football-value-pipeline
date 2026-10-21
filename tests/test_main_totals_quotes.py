@@ -92,6 +92,26 @@ class MainTotalsTests(OfflineQuotePolicyTestCase):
         self.assertEqual(result['market_reference_over_1_5_odds'], 1.60)
         self.assertEqual(result['market_reference_over_1_5_opposite_odds'], 2.44)
 
+    def test_primary_book_preferred_over_higher_fallback_price(self):
+        policy={'allowed_bookmakers':['Pinnacle','bet365','1xBet'],'fallback_bookmakers':['1xBet']}
+        with patch('quote_policy.load_policy',return_value=policy):
+            for name in ('Pinnacle','bet365'):
+                result=self.merged(event(1.60,2.44,name,key='alternate_totals'),primary(event()))
+                self.assertEqual(result['best_over_1_5_bookmaker'],name)
+                self.assertEqual(result['market_over_1_5_odds'],1.60)
+            result=self.merged({'id':'event0','bookmakers':[]},primary(event()))
+            self.assertEqual(result['best_over_1_5_bookmaker'],'1xBet')
+            # The 1X2 extractor must also prefer complete primary quotes.
+            def winner(name,prices):
+                return {'title':name,'markets':[{'key':'h2h','last_update':NOW.isoformat(),
+                    'outcomes':[{'name':team,'price':price} for team,price in zip(('Home0','Draw','Away0'),prices)]}]}
+            response=event();response['bookmakers']=[winner('1xBet',(2.2,3.5,3.2)),winner('Pinnacle',(2.1,3.4,3.1))]
+            flat=TheOddsAPI.flatten_odds_event(response,as_of=NOW)
+            self.assertEqual(flat['live_best_home_bookmaker'],'Pinnacle')
+            self.assertEqual(flat['live_best_home_odds'],2.1)
+            response['bookmakers'][1]['markets'][0]['last_update']=(NOW-timedelta(days=3)).isoformat()
+            self.assertEqual(TheOddsAPI.flatten_odds_event(response,as_of=NOW)['live_best_home_bookmaker'],'1xBet')
+
     def test_newer_same_book_replaces_stale_favourable_price_and_counts_once(self):
         old = (NOW-timedelta(minutes=1)).isoformat()
         result = self.merged(event(1.60, 2.44, '1XBET', key='alternate_totals'),

@@ -99,14 +99,14 @@ class AsianHandicapTests(OfflineQuotePolicyTestCase):
         self.assertIsNone(ah.parse_label('Asian Handicap Home +9.00'))
 
     def test_quotes_require_complete_opposite_pairs_and_requested_books(self):
-        for book in ('Pinnacle','bet365'):
+        for book in ('Pinnacle','bet365','1xBet','1xbet'):
             self.assertEqual(len(ah.parse_quotes(event(book),NOW)),2)
         d=event();d['bookmakers'][0]['markets'][0]['outcomes'].append({'name':'Home_0','point':.5,'price':1.5})
         self.assertEqual(len(ah.parse_quotes(d,NOW)),2)
         for mutate in (
             lambda d:d.update(home_team=d['away_team']),
             lambda d:d.update(commence_time=NOW.isoformat()),
-            lambda d:d['bookmakers'][0].update(title='1xBet'),
+            lambda d:d['bookmakers'][0].update(title='Unknown'),
             lambda d:d['bookmakers'][0]['markets'][0].update(key='spreads_h1'),
             lambda d:d['bookmakers'][0]['markets'][0].update(last_update=(NOW-timedelta(days=2)).isoformat()),
             lambda d:d['bookmakers'][0]['markets'][0]['outcomes'].pop(),
@@ -120,7 +120,7 @@ class AsianHandicapTests(OfflineQuotePolicyTestCase):
         d=event();d['bookmakers']*=2
         self.assertEqual(len(ah.parse_quotes(d,NOW)),2)
 
-    def test_risk_first_then_refund_tie_break_no_negative_ev_padding(self):
+    def test_risk_first_then_refund_tie_break_with_ev_ranking(self):
         picks,decisions,summary=choose([row(offers=[quote(point=-.5),quote(point=.5),quote(point=0)])])
         self.assertEqual(len(picks),1)
         self.assertEqual(picks.iloc[0].market,ah.label('home',0))
@@ -129,8 +129,9 @@ class AsianHandicapTests(OfflineQuotePolicyTestCase):
         self.assertEqual(summary['n_provisional_watchlist'],0)
         self.assertFalse(any('Double Chance' in x for x in summary['eligible_markets']))
         picks,failed,_=choose([row(offers=[{**quote(price=1.2),'opposite_price':4.0}])])
-        self.assertTrue(picks.empty)
-        self.assertTrue(failed.rejection_reasons.str.contains('positive conservative EV').any())
+        self.assertEqual(len(picks),1)
+        self.assertLess(picks.iloc[0].conservative_estimated_ev,0)
+        self.assertLess(picks.iloc[0].raw_dc_ev,0)
         values=[row(i) for i in range(20)]
         # All fixtures inside the same hard 48-hour window.
         for value in values:value['kickoff_utc']=(NOW+timedelta(days=1)).isoformat()
@@ -161,7 +162,43 @@ class AsianHandicapTests(OfflineQuotePolicyTestCase):
         self.assertTrue(choose([row()],policy={**POLICY,'per_stake_cost_bps':10})[0].empty)
         with self.assertRaises(ValueError):choose([row()],policy={'allowed_bookmakers':[],'per_stake_cost_bps':-1})
         with self.assertRaises(ValueError):ah.build_shortlist(pd.DataFrame([row()]),NOW.replace(tzinfo=None),reliability())
-        with self.assertRaises(ValueError):ah.build_shortlist(pd.DataFrame([row()]),NOW,reliability(),adjusted_ev_floor=.001)
+        with self.assertRaises(ValueError):ah.build_shortlist(pd.DataFrame([row()]),NOW,reliability(),adjusted_ev_floor=.015)
+
+    def test_primary_quotes_and_exact_line_fallback(self):
+        policy={**POLICY,'allowed_bookmakers':['Pinnacle','bet365','1xBet'],'fallback_bookmakers':['1xBet']}
+        for primary in ('Pinnacle','bet365'):
+            picks,decisions,summary=choose([row(offers=[quote(book=primary),quote(price=1.95,book='1xBet')])],policy=policy)
+            self.assertEqual(picks.iloc[0].bookmaker,primary)
+            self.assertTrue(decisions.rejection_reasons.str.contains('primary bookmaker').any())
+            self.assertEqual(ah.best_per_match(decisions).iloc[0].bookmaker,primary)
+        self.assertEqual(choose([row(offers=[quote(book='1xBet')])],policy=policy)[0].iloc[0].bookmaker,'1xBet')
+        stale={**quote(),'last_update_utc':(NOW-timedelta(days=3)).isoformat()}
+        self.assertEqual(choose([row(offers=[stale,quote(book='1xBet')])],policy=policy)[0].iloc[0].bookmaker,'1xBet')
+        # A primary quote for another line cannot suppress this fallback line.
+        picks,_,_=choose([row(offers=[quote(point=-.5),quote(book='1xBet')])],policy=policy)
+        self.assertEqual(picks.iloc[0].bookmaker,'1xBet')
+        self.assertTrue(choose([row(offers=[quote(book='1xBet')])])[0].empty)
+
+    def test_adjusted_then_unblended_ev_rank_without_floors_and_legacy_replay(self):
+        picks,_,summary=choose([row(offers=[quote(price=1.8),quote(price=1.9,book='bet365')])])
+        self.assertEqual(picks.iloc[0].bookmaker,'bet365')
+        self.assertIsNone(summary['min_estimated_ev'])
+        self.assertIsNone(summary['min_raw_dc_ev'])
+        self.assertFalse(summary['ev_required_for_selection'])
+        a,b=row(0),row(1)
+        b['raw_goal_margin_distribution']=json.dumps({'-1':.15,'0':.5,'1':.35})
+        picks,_,_=choose([b,a])
+        self.assertEqual(picks.iloc[0].fixture_id,a['fixture_id'])
+        # A small positive adjusted EV below 1.5% also qualifies.
+        low=row(offers=[{**quote(price=1.28),'opposite_price':4.0}])
+        picks,_,_=choose([low])
+        self.assertEqual(len(picks),1)
+        self.assertGreater(picks.iloc[0].conservative_estimated_ev,0)
+        self.assertLess(picks.iloc[0].conservative_estimated_ev,.015)
+        old=build_conservative_shortlist(pd.DataFrame([low]),as_of=NOW,market_reliability=reliability(),execution_policy=POLICY,selection_policy_version=ah.LEGACY_POLICY)
+        self.assertTrue(old[0].empty)
+        self.assertEqual(old[2]['selection_policy_version'],ah.LEGACY_POLICY)
+        self.assertEqual(old[2]['min_estimated_ev'],.015)
 
     def test_chronological_calibration_and_insufficient_history(self):
         empty=ah.evaluate_history(pd.DataFrame())['markets']

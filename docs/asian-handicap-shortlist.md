@@ -1,4 +1,4 @@
-# Asian handicap shortlist — policy v17
+# Asian handicap shortlist — policy v18
 
 New prediction runs replace double chance with full-time Asian goal handicaps.
 The market pool is Home win, Draw, Away win, Over 1.5, and supported home/away
@@ -18,9 +18,11 @@ The selector:
 
 1. Requires a supported competition, reliable team mapping, fresh exact-market
    quotes and a fresh linked 1X2 reference, with kickoff 20 minutes to 48 hours away.
-2. Uses only **Pinnacle and bet365** executable-quote candidates. The execution
-   allowlist now excludes 1xBet for future runs. Bookmaker reference data used
-   by the existing model blend is not a claim of account execution.
+2. Prefers **Pinnacle and bet365**, allowing **1xBet as a fallback** for each
+   exact side/handicap line when no eligible primary-book quote exists. Invalid,
+   incomplete, stale or disallowed primary quotes cannot block a valid fallback.
+   For binary markets, executable-quote extraction also prefers primary books
+   for that exact market. Reference data in the model blend is separate.
 3. Requires chronological historical no-loss calibration to pass for that side
    and handicap: at least 80 development and 40 audit examples. Matchdays never
    straddle the partition. The report compares audit Brier against a constant
@@ -32,12 +34,15 @@ The selector:
    estimate and adds that penalty. `loss_probability_upper` is the implementation
    field name; **it is a conservative ranking estimate, not a guaranteed or
    formally calibrated upper confidence bound**.
-5. Requires adjusted estimated EV >=1.5% and unblended EV >=0. The EV allowance
-   moves penalty mass from the best payoff to a full loss. These floors are
-   policy guards, not empirically established optimal thresholds.
+5. Ranks Asian adjusted estimated EV and unblended EV without a minimum
+   cutoff. The adjusted EV allowance moves penalty mass from the best payoff
+   to a full loss. **Negative estimated EV can qualify**, implying an estimated
+   long-run loss even when the chance of a loss on one bet is relatively low.
 6. Ranks lowest conservative loss estimate first, then highest full-refund
-   probability, adjusted EV and actual price. It chooses one market per fixture,
-   capped at twelve. It never fills a shortfall with failed gates or negative EV.
+   probability, highest adjusted EV, highest unblended EV and actual price.
+   This is lexicographic ranking: EV breaks risk/refund ties, so the chosen line
+   need not maximize EV across all lines. It chooses one market per fixture,
+   capped at twelve, without bypassing freshness, identity or reliability gates.
 
 Existing binary markets keep their historical qualification rules, and compete
 in the same loss-first ranking. Therefore the shortlist need not consist only
@@ -96,7 +101,7 @@ account-level coverage.
 
 ## Optional confirmed bookmaker quotes
 
-To use fresh bet365/Pinnacle prices you have actually observed, save a JSON array
+To use fresh bet365/Pinnacle/1xBet prices you have actually observed, save a JSON array
 of event-odds objects and add `--asian-handicap-quotes PATH` to your normal command.
 This is an explicit user-supplied quote input, not an automated bookmaker API or
 scraper. It records that provenance; accepted execution is still unverified.
@@ -131,7 +136,7 @@ handicap, complementary prices and observation time. This is not a live quote:
 ```
 
 The template must match a linked forecast event exactly; merely supplying a
-favourable number does not bypass mapping, kickoff, calibration or EV checks.
+favourable number does not bypass mapping, kickoff, calibration or quote-integrity checks.
 Duplicate event objects fail rather than choosing one arbitrarily.
 
 ## Outputs, tracking and compatibility
@@ -162,7 +167,7 @@ settlement-aware no-loss probability. Versioned normalization preserves old
 closing observations. Missing bet365 close coverage remains explicit.
 
 The probability/EV weighting, legacy shortlist-policy and EV-filter experiments
-are not generated for v17: they compare a different ranking objective and market
+are not generated for v17/v18: they compare a different ranking objective and market
 pool. Existing immutable experiments continue to be graded under their original
 rules. Other probability-model research sidecars remain separate and unchanged.
 The summary explicitly identifies these ranking experiments as not applicable.
@@ -171,3 +176,13 @@ The normal prediction command remains valid. The first run invalidates old
 goal-validation caches and can take longer while building AH calibration.
 Subsequent unchanged inputs can reuse the versioned cache. Refreshing an old
 forecast alone cannot invent missing margin distributions, quotes or calibration.
+
+## Policy version and replay
+
+New runs use v18. Frozen v17 archives retain the original Asian EV floors and
+Pinnacle/bet365 scope during deterministic replay. Binary-market qualification
+rules are unchanged. The default execution allowlist now includes 1xBet and
+marks it as a fallback, not a higher-price substitute for valid primary quotes.
+Live 1xBet handicap coverage and account entitlement have not been verified;
+when absent from provider responses, a validated user-supplied quote file can
+provide it. No extra API endpoint or scraper was added for this fallback.
