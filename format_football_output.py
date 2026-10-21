@@ -1165,6 +1165,46 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows, columns=columns)
 
 
+def add_shortlist_alternatives(readable, raw, input_dir, summary):
+    """Explain frozen candidate decisions without changing the selected picks."""
+    from asian_handicap import qualifying_alternatives
+    path = input_dir / 'conservative_bet_rejections.csv'
+    alternatives = {}
+    available = set()
+    from performance_tracking import fixture_key
+    if path.exists():
+        try:
+            decisions = pd.read_csv(path, low_memory=False)
+        except pd.errors.EmptyDataError:
+            decisions = pd.DataFrame()
+        if not decisions.empty:
+            alternatives = qualifying_alternatives(raw, decisions, summary['loss_risk_tolerance'])
+            available = {(fixture_key(r), pd.Timestamp(r['evaluated_at_utc'])) for r in decisions.to_dict('records')}
+    fields = ['Alternative market', 'Alternative bookmaker', 'Alternative odds',
+              'Alternative loss chance', 'Alternative conservative loss estimate',
+              'Alternative refund chance', 'Alternative adjusted EV', 'Alternative unblended EV',
+              'Alternative risk increase', 'Alternative comparison']
+    for field in fields:
+        readable[field] = '—'
+    for pos, (idx, pick) in enumerate(raw.iterrows()):
+        alternative = alternatives.get(idx)
+        if alternative is None:
+            readable.loc[pos, 'Alternative comparison'] = (
+                'No qualifying alternative' if (fixture_key(pick), pd.Timestamp(pick.evaluated_at_utc)) in available else 'Candidate ledger unavailable')
+            continue
+        values = [alternative['market'], alternative['bookmaker'], decimal(alternative['offered_decimal_odds']),
+                  pct(alternative['p_any_loss']), pct(alternative['loss_probability_upper']),
+                  pct(alternative['p_refund']), signed_pct(alternative['conservative_estimated_ev']),
+                  signed_pct(alternative['raw_dc_ev']),
+                  signed_pct(alternative['loss_probability_upper'] - pick['loss_probability_upper']).replace('%', ' pp'),
+                  alternative['alternative_scope'] + '; ' +
+                  ('within selected risk band' if alternative['within_selected_risk_band'] else
+                   'outside selected risk band; higher-risk comparison only')]
+        for field, value in zip(fields, values):
+            readable.loc[pos, field] = value
+    return readable
+
+
 def process_conservative_shortlist(
     input_dir: Path,
     output_dir: Path,
@@ -1200,6 +1240,12 @@ def process_conservative_shortlist(
         ].copy()
 
     readable = readable_shortlist_frame(raw)
+    if summary.get('min_adjusted_no_loss_probability') is not None:
+        readable['Minimum adjusted no-loss chance'] = pct(summary['min_adjusted_no_loss_probability'])
+    from asian_handicap import ALTERNATIVE_POLICIES
+    show_alternatives = summary.get('selection_policy_version') in ALTERNATIVE_POLICIES
+    if show_alternatives:
+        readable = add_shortlist_alternatives(readable, raw, input_dir, summary)
     if probability_first:
         readable = readable.rename(columns={'Near-miss reasons': 'Selection warnings'})
     readable.to_csv(
@@ -1266,6 +1312,8 @@ def process_conservative_shortlist(
     from asian_handicap import POLICIES as AH_POLICIES
     asian = summary.get('selection_policy_version') in AH_POLICIES
     if asian:
+        if summary.get('min_adjusted_no_loss_probability') is not None:
+            lines += ['**Common safety cutoff:** adjusted probability of avoiding any loss >= '+pct(summary['min_adjusted_no_loss_probability'])+' for every market. Zero risk tolerance: the lowest conservative estimated loss risk wins; EV breaks equal-risk ties. Refunds count as avoiding loss; half-losses do not. This cutoff is a policy setting, not a guarantee.', '']
         if summary.get('loss_risk_tolerance') is not None:
             lines += ['**Shortlist policy:** require adjusted estimated EV >= '+pct(summary.get('min_estimated_ev'))+' and unblended EV >= 0. For each match, admit candidates within '+pct(summary.get('loss_risk_tolerance'))+' of its lowest eligible estimated loss risk; rank highest adjusted EV, unblended EV, then full-refund probability. The risk tolerance is a provisional policy setting, not empirically tuned.',
                       '**Probability meaning:** Asian model chance includes refunds. Half-losses lose money. Estimates do not guarantee outcomes. Pinnacle/bet365 take priority, with 1xBet as an exact-line fallback.', '']
@@ -1290,6 +1338,19 @@ def process_conservative_shortlist(
     else:
         lines.append("_No qualifying matches were shortlisted. No bet is a valid outcome._")
 
+    if show_alternatives:
+        lines += ['', '## Qualifying alternatives for comparison', '',
+                  'Prefer another market type when one qualifies; otherwise show another qualifying line. '
+                  'Alternatives meet the eligibility checks, including adjusted EV >= 1% and unblended EV >= 0. '
+                  'Their risk band is ranked separately; an alternative outside the selected risk band is explicitly marked. '
+                  'Risk increase is measured in percentage points against the selected pick. '
+                  'These are comparisons, not additional selections. Double Chance 1X/X2 and Asian +0.5 cover the same outcomes; '
+                  'different market names do not guarantee diversification.', '']
+        headers = ['Match', 'Shortlisted market', 'Alternative market', 'Alternative bookmaker',
+                   'Alternative odds', 'Alternative conservative loss estimate', 'Alternative refund chance',
+                   'Alternative adjusted EV', 'Alternative unblended EV', 'Alternative risk increase', 'Alternative comparison']
+        lines.append(markdown_table(headers, [[r[c] for c in headers] for _, r in readable.iterrows()]))
+
     lines.extend([
         "",
         "## Interpretation",
@@ -1310,9 +1371,11 @@ def process_conservative_shortlist(
         "must pass the >=85% audit. The readable CSV includes the group "
         "sample size, observed rate and Wilson 95% uncertainty range."),
         "",
-        "Conservative estimated EV uses that adjusted chance and the quoted "
-        "price. Neither the original EV nor the adjusted EV is assured; "
-        "bookmaker prices may change before kickoff.",
+        ("Conservative estimated EV adjusts the blended model's settlement payoff using the market calibration penalty. "
+         "The loss-risk comparison separately uses the worse blended/unblended loss estimate plus that penalty. "
+         "Neither measure is assured; bookmaker prices may change before kickoff."
+         if summary.get('min_adjusted_no_loss_probability') is not None else
+         "Conservative estimated EV uses that adjusted chance and the quoted price. Neither the original EV nor the adjusted EV is assured; bookmaker prices may change before kickoff."),
         "",
         (
             "**Selection method:** "

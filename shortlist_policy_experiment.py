@@ -336,7 +336,9 @@ def review_experiment(root, archived, records, clock):
     dest = root/'performance'/NAME
     write_json(dest/'summary.json', summary)
     for name, rows in [('selections', selections), ('candidate_decisions', coverage)]:
-        write_csv(dest/(name+'.csv'), rows, list(rows[0]) if rows else ['fixture_key', 'variant_id', 'decision', 'outcome'])
+        # Preserve the union of fields across mixed historical policy schemas.
+        columns = list(dict.fromkeys(key for row in rows for key in row)) if rows else ['fixture_key', 'variant_id', 'decision', 'outcome']
+        write_csv(dest/(name+'.csv'), rows, columns)
     lines = ['# Shortlist probability and calibration comparison', '', NOTE, '',
              'Status: '+summary['status'], '',
              '| Variant | Tier | Selected | Settled | Net ROI | Brier | Log loss |',
@@ -364,6 +366,8 @@ def validate_report(root):
         if len(saved) != len(rows):
             raise ValueError('Incomplete shortlist policy ledger')
         for a, b in zip(saved, rows):
+            if not set(b).issubset(a):
+                raise ValueError('Missing shortlist policy ledger columns')
             for key, value in b.items():
                 if value is None:
                     valid = a.get(key) in ('', None)
