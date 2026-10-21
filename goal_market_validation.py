@@ -34,12 +34,13 @@ MARKETS = {
     "draw_away": ("p_draw_away", "raw_p_draw_away", "actual_draw_away", 0.80, 0.75),
     "home_away": ("p_home_away", "raw_p_home_away", "actual_home_away", 0.80, 0.75),
     "home": ("p_home", "raw_p_home", "actual_home", 0.65, 0.50),
+    "draw": ("p_draw", "raw_p_draw", "actual_draw", 0.65, 0.50),
     "away": ("p_away", "raw_p_away", "actual_away", 0.65, 0.50),
     "over_1_5": ("p_over_1_5", "raw_p_over_1_5", "actual_over_1_5", 0.78, 0.72),
     "under_3_5": ("p_under_3_5", "raw_p_under_3_5", "actual_under_3_5", 0.76, 0.70),
     "btts_yes": ("p_btts_yes", "raw_p_btts_yes", "actual_btts_yes", 0.70, 0.63),
 }
-VALIDATOR_VERSION = 6
+VALIDATOR_VERSION = 7
 
 
 def training_fingerprint(history):
@@ -196,6 +197,7 @@ def enrich_historical_goal_markets(row: Mapping, pred: Mapping) -> dict:
         "actual_draw_away": int(goals_a >= goals_h),
         "actual_home_away": int(goals_h != goals_a),
         "actual_home": int(goals_h > goals_a),
+        "actual_draw": int(goals_h == goals_a),
         "actual_away": int(goals_a > goals_h),
         "actual_over_1_5": int(total >= 2),
         "actual_under_3_5": int(total <= 3),

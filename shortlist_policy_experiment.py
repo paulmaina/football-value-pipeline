@@ -18,8 +18,9 @@ LEGACY_BASELINE_POLICY = '72h-six-markets-dc12-probability-odds-net-ev15-v9'
 PROBABILITY_POLICY = '72h-top-ten-adjusted-probability-v12'
 BALANCED_POLICY = '48h-top-ten-probability-ev-v13'
 TEN_MATCH_BALANCED_POLICY = '48h-top-ten-probability-ev-no-under35-v14'
-CURRENT_BALANCED_POLICY = '48h-top-twelve-probability-ev-no-under35-v15'
-BALANCED_POLICIES = (BALANCED_POLICY, TEN_MATCH_BALANCED_POLICY, CURRENT_BALANCED_POLICY)
+PREVIOUS_TWELVE_MATCH_POLICY = '48h-top-twelve-probability-ev-no-under35-v15'
+CURRENT_BALANCED_POLICY = '48h-top-twelve-1x2-double-chance-over15-v16'
+BALANCED_POLICIES = (BALANCED_POLICY, TEN_MATCH_BALANCED_POLICY, PREVIOUS_TWELVE_MATCH_POLICY, CURRENT_BALANCED_POLICY)
 NAME = 'shortlist_policy_experiment'
 VARIANTS = {
     'control': {},
