@@ -1,5 +1,6 @@
 from offline_test_case import OfflineQuotePolicyTestCase
 import copy
+import csv
 from datetime import timedelta
 import hashlib
 import json
@@ -61,6 +62,36 @@ class PolicyExperimentTests(OfflineQuotePolicyTestCase):
             data['selection_policy_version'] = trial.BASELINE_POLICY
             with self.assertRaisesRegex(ValueError, 'frozen replay'):
                 trial.validate(data, summary['generated_at_utc'], predictions.to_dict('records'))
+
+    def test_mixed_policy_generations_preserve_later_ranking_fields(self):
+        import conservative_bet_filter as shortlist
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            setup(root)
+            capture('a'*40,root=root,captured_at=NOW)
+            with patch.object(shortlist,'SELECTION_POLICY_VERSION',shortlist.BALANCED_SELECTION_POLICY_VERSION):
+                setup(root,fixture(kickoff=NOW+timedelta(days=2)))
+                capture('b'*40,root=root,captured_at=NOW+timedelta(minutes=1))
+            archived=snapshots(root)
+            before={p:p.read_bytes() for p in (root/'performance/snapshots').rglob('*') if p.is_file()}
+            write_json(root/'performance/verified_results.json',{})
+            trial.review_experiment(root,archived,[],NOW)
+            self.assertTrue(trial.validate_report(root))
+            dest=root/'performance'/trial.NAME
+            for name in ('selections','candidate_decisions'):
+                with (dest/(name+'.csv')).open(newline='') as handle:
+                    reader=csv.DictReader(handle);rows=list(reader);columns=reader.fieldnames
+                self.assertIn('ev_percentile',columns)
+                self.assertEqual(rows[0]['ev_percentile'],'')
+                self.assertTrue(any(r['ev_percentile'] for r in rows if r['snapshot_commit']=='b'*40))
+            self.assertEqual(before,{p:p.read_bytes() for p in before})
+            path=dest/'candidate_decisions.csv'
+            with path.open(newline='') as handle:
+                reader=csv.DictReader(handle);rows=list(reader);columns=[c for c in reader.fieldnames if c!='ev_percentile']
+            from performance_tracking import write_csv
+            write_csv(path,rows,columns)
+            with self.assertRaisesRegex(ValueError,'Missing shortlist policy ledger columns'):
+                trial.validate_report(root)
 
     def test_missing_bookmakers_replay_identically_from_csv_and_capture(self):
         with tempfile.TemporaryDirectory() as tmp:
