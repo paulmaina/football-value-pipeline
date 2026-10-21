@@ -1,5 +1,6 @@
 from offline_test_case import OfflineQuotePolicyTestCase
 import copy
+import csv
 from datetime import timedelta
 import hashlib
 import json
@@ -201,6 +202,40 @@ class SensitivityTests(OfflineQuotePolicyTestCase):
             self.assertEqual(summary['candidate_decisions'],0)
             write_json(root/'performance/verified_results.json',{})
             self.assertTrue(validate_report(root))
+
+    def test_mixed_policy_generations_preserve_later_ranking_fields(self):
+        import conservative_bet_filter as shortlist
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            setup(root)
+            capture('a'*40,root=root,captured_at=NOW)
+            with patch.object(shortlist,'SELECTION_POLICY_VERSION',shortlist.BALANCED_SELECTION_POLICY_VERSION):
+                setup(root,fixture(kickoff=NOW+timedelta(days=2)))
+                capture('b'*40,root=root,captured_at=NOW+timedelta(minutes=1))
+            archived=snapshots(root)
+            before={p:p.read_bytes() for p in (root/'performance/snapshots').rglob('*') if p.is_file()}
+            write_json(root/'performance/verified_results.json',{})
+            review_experiment(root,archived,[],NOW)
+            self.assertTrue(validate_report(root))
+            dest=root/'performance/filter_sensitivity_experiment'
+            for name in ('selections','candidate_decisions'):
+                path=dest/(name+'.csv')
+                with path.open(newline='') as handle:
+                    reader=csv.DictReader(handle);rows=list(reader);columns=reader.fieldnames
+                self.assertIn('ev_percentile',columns)
+                self.assertEqual(rows[0]['ev_percentile'],'')
+                newer=[r for r in rows if r['snapshot_commit']=='b'*40]
+                self.assertTrue(any(r['ev_percentile'] for r in newer))
+                self.assertTrue(any(r.get('probability_percentile') for r in newer))
+            self.assertEqual(before,{p:p.read_bytes() for p in before})
+            # Explicitly reject a dropped column, including blank legacy cells.
+            path=dest/'candidate_decisions.csv'
+            with path.open(newline='') as handle:
+                reader=csv.DictReader(handle);rows=list(reader);columns=[c for c in reader.fieldnames if c!='ev_percentile']
+            from performance_tracking import write_csv
+            write_csv(path,rows,columns)
+            with self.assertRaisesRegex(ValueError,'Missing filter sensitivity ledger columns'):
+                validate_report(root)
 
     def test_statistics_costs_drawdown_calibration_and_pending(self):
         rows=[{'kickoff_utc':'2026-10-10','fixture_key':'a','outcome':1,'rank_probability':.8,'brier':.04,'unit_profit':.2},
