@@ -79,9 +79,9 @@ def parse_quotes(payload, *, as_of=None):
     if not offers: return {}
     ref=max(offers,key=lambda x:quote_utc(x[0]) if clock is not None else x[0]);out={}
     for key in MARKETS:
-        from quote_policy import usable_bookmaker
+        from quote_policy import usable_bookmaker, bookmaker_priority
         usable=[x for x in offers if usable_bookmaker(x[1])]
-        best=max(usable,key=lambda x:x[2][key]) if usable else (None,None,{key:None})
+        best=max(usable,key=lambda x:(bookmaker_priority(x[1]), x[2][key])) if usable else (None,None,{key:None})
         out.update({f'market_p_{key}':ref[3][key],f'market_{key}_odds':best[2][key],
                     f'best_{key}_bookmaker':best[1],
                     f'market_best_{key}_last_update_utc':best[0] or None,

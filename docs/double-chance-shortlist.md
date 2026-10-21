@@ -1,5 +1,9 @@
 # Conservative shortlist policy v6: double chance
 
+Historical policy reference. Current v22 includes 1X, X2 and 12 alongside Asian
+handicaps, Home/Away win and Over 1.5; Draw is excluded. See
+[current shortlist rules and visible alternatives](asian-handicap-shortlist.md).
+
 Policy `72h-all-markets-ev15-one-book-v6` excludes Under 3.5 from future STRICT and PROVISIONAL shortlists and adds **Double Chance 1X** (home or draw) and **Double Chance X2** (draw or away). Home win, away win, Over 1.5 and BTTS Yes remain supported. The 12 double-chance market is not selected. Existing archived Under 3.5 picks remain graded normally. General Under 3.5 predictions, validation and the shadow experiment are retained.
 
 1X probabilities are home+draw; X2 probabilities are draw+away, calculated separately for raw DC and the existing 1X2-reweighted model. This does not create an offered price. Exact double-chance quotes are requested in the existing bounded event-odds requests using `double_chance`. Full coverage is now the default; the legacy request-count cap is available in ranked mode. Adding a market can increase provider credit usage per request. The cache namespace changes so old responses without double chance are not reused.
