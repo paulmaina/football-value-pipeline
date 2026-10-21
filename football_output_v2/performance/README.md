@@ -16,16 +16,16 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 30 | 22-8 | 73.3% | +1.1% |
+| All selections | 38 | 28-10 | 73.7% | +1.1% |
 
-Unsettled / unverified entries: **12**.
-Whole-fixture 1X2 multiclass Brier (n=76): 0.5338
+Unsettled / unverified entries: **4**.
+Whole-fixture 1X2 multiclass Brier (n=87): 0.5429
 
 ## First-prediction reference — historical comparison
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Unique fixtures | 30 | 23-7 | 76.7% | +4.5% |
+| Unique fixtures | 38 | 30-8 | 78.9% | +7.9% |
 
 ## Latest selections by prediction run (generation UTC)
 
@@ -46,13 +46,13 @@ Whole-fixture 1X2 multiclass Brier (n=76): 0.5338
 | 2026-10-18T09:58:14.607821+00:00 | 1 | 1-0 | 100.0% | +20.0% |
 | 2026-10-18T14:35:10.311946+00:00 | 7 | 6-1 | 85.7% | +15.0% |
 | 2026-10-19T11:20:16.296665+00:00 | 1 | 0-1 | 0.0% | -100.0% |
-| 2026-10-19T16:28:42.464993+00:00 | 3 | 1-2 | 33.3% | -49.0% |
+| 2026-10-19T16:28:42.464993+00:00 | 11 | 7-4 | 63.6% | -12.5% |
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| PROVISIONAL | 19 | 12-7 | 63.2% | -15.7% |
+| PROVISIONAL | 27 | 18-9 | 66.7% | -10.7% |
 | STRICT | 11 | 10-1 | 90.9% | +30.2% |
 
 ## By policy
@@ -60,7 +60,7 @@ Whole-fixture 1X2 multiclass Brier (n=76): 0.5338
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | 48h-top-ten-probability-ev-no-under35-v14 | 8 | 6-2 | 75.0% | +0.6% |
-| 48h-top-twelve-probability-ev-no-under35-v15 | 3 | 1-2 | 33.3% | -49.0% |
+| 48h-top-twelve-probability-ev-no-under35-v15 | 11 | 7-4 | 63.6% | -12.5% |
 | 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
 | 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
 | 72h-seven-markets-fresh-references-net-ev15-v11 | 5 | 4-1 | 80.0% | +7.2% |
@@ -73,12 +73,12 @@ Whole-fixture 1X2 multiclass Brier (n=76): 0.5338
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | Away win | 1 | 0-1 | 0.0% | -100.0% |
-| Both Teams to Score - Yes | 2 | 2-0 | 100.0% | +51.0% |
-| Double Chance 12 | 2 | 2-0 | 100.0% | +27.5% |
-| Double Chance 1X | 4 | 3-1 | 75.0% | +0.0% |
-| Double Chance X2 | 5 | 3-2 | 60.0% | -15.8% |
+| Both Teams to Score - Yes | 3 | 2-1 | 66.7% | +0.7% |
+| Double Chance 12 | 6 | 5-1 | 83.3% | +2.7% |
+| Double Chance 1X | 5 | 4-1 | 80.0% | +3.2% |
+| Double Chance X2 | 6 | 4-2 | 66.7% | +8.2% |
 | Home win | 5 | 5-0 | 100.0% | +50.6% |
-| Over 1.5 | 6 | 5-1 | 83.3% | +5.5% |
+| Over 1.5 | 7 | 6-1 | 85.7% | +5.3% |
 | Under 3.5 | 5 | 2-3 | 40.0% | -46.0% |
 
 ## By league
@@ -90,7 +90,7 @@ Whole-fixture 1X2 multiclass Brier (n=76): 0.5338
 | Ligue 1 | 2 | 1-1 | 50.0% | -16.5% |
 | Premier League | 7 | 3-4 | 42.9% | -44.9% |
 | Serie A | 7 | 4-3 | 57.1% | -17.1% |
-| UEFA Champions League | 4 | 4-0 | 100.0% | +48.0% |
+| UEFA Champions League | 12 | 10-2 | 83.3% | +16.8% |
 
 ## Gameweeks
 
@@ -98,17 +98,18 @@ Whole-fixture 1X2 multiclass Brier (n=76): 0.5338
 |---|---:|---:|---:|---:|
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
 | 2026-W42 | 22 | 19-3 | 86.4% | +19.5% |
-| 2026-W43 | 4 | 1-3 | 25.0% | -61.8% |
+| 2026-W43 | 12 | 7-5 | 58.3% | -19.8% |
 
 ## Confidence calibration of shortlisted markets
 
 | Forecast bin | Samples | Average forecast | Observed win rate | Binary Brier |
 |---|---:|---:|---:|---:|
 | 0%–50% | 1 | 45.4% | 0.0% | 0.2059 |
+| 50%–60% | 1 | 54.9% | 100.0% | 0.2031 |
 | 60%–70% | 8 | 64.9% | 62.5% | 0.2235 |
-| 70%–80% | 10 | 75.6% | 80.0% | 0.1675 |
-| 80%–90% | 9 | 83.6% | 77.8% | 0.1769 |
-| 90%–100% | 2 | 93.3% | 100.0% | 0.0047 |
+| 70%–80% | 14 | 75.9% | 71.4% | 0.2050 |
+| 80%–90% | 11 | 83.7% | 81.8% | 0.1491 |
+| 90%–100% | 3 | 93.0% | 100.0% | 0.0051 |
 
 Calibration bins report observed outcomes against the originally
 recorded reliability-adjusted chance; small buckets are unstable.
@@ -129,14 +130,14 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-10-18 | 1584 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-10-18 | 1969 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-18 | 1987 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-18 | 1741 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-19 | 1969 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-10-14 | 539 | 6 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| Bundesliga | 2026-10-18 | 1584 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-10-18 | 1969 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-18 | 1987 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-18 | 1741 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-19 | 1969 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| UCL | 2026-10-14 | 539 | 7 | MODEL_BEHIND_VERIFIED_SOURCE |
 
-Latest shortlist audit: {"selected_quotes": 12, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 12, "bookmakers": {"1xBet": 8, "Pinnacle": 4}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 12, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 12, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 12, "bookmakers": {"1xBet": 8, "Pinnacle": 4}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 6, "upcoming_kickoff_count": 6, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
