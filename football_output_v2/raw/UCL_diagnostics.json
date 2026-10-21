@@ -9,7 +9,7 @@
     "2026"
   ],
   "training_sha256": "24e0e7222acdd9df3acd82f4c85a768ad452ba37bfca16f73afb3e4abd24b6fc",
-  "training_as_of_utc": "2026-10-21T09:21:51.625006+00:00",
+  "training_as_of_utc": "2026-10-21T10:38:44.687090+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 18,
     "bbs_added_results": 0,
@@ -33,7 +33,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-21T09:21:51.625006+00:00",
+    "cutoff_utc": "2026-10-21T10:38:44.687090+00:00",
     "observations": 92,
     "observations_sha256": "72347b6bcae0e0ce159d7750251ed2c3abbfa07a9b60e23346c26fb208ecc5a8",
     "eligible_training_matches": 0,
@@ -79,9 +79,9 @@
   },
   "training_end": "2026-10-20",
   "fit_success": true,
-  "objective": 466.0589659785124,
-  "base": 0.21264875712600073,
-  "home_adv": 0.3269332383965176,
+  "objective": 465.9873799408388,
+  "base": 0.21261459230835972,
+  "home_adv": 0.326951174352431,
   "rho": 0.05,
   "half_life_days": 240.0,
   "xi_per_day": 0.0028881132523331052,
@@ -97,7 +97,7 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-10-21T09:21:40.767492+00:00",
+    "checked_at_utc": "2026-10-21T10:38:40.143762+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
@@ -105,7 +105,7 @@
     "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
     "note": "Provider schedule comparison is not independent proof of complete coverage.",
     "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-    "download_age_hours": 0.0030159761111111113,
+    "download_age_hours": 0.0012620355555555554,
     "training_end": "2026-10-20",
     "cache_hash_verified": true,
     "last_refresh_error": null,
@@ -122,8 +122,8 @@
   "additional_event_odds_calls_used_before_this_league": 1,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261021T092151625006Z_8261bb846179c6b5b0292fa22da1ed1fff23dd3ede34f3920e3049064976a9a1.json",
-  "over_1_5_in_window_quote_fixtures": 7,
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261021T103844687090Z_4cf81ee986186d5617341fee14439797d6bdaed1db588e40f9e893f88406b7f9.json",
+  "over_1_5_in_window_quote_fixtures": 3,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -151,8 +151,8 @@
       "draw_away_quote": true,
       "home_away_quote": true,
       "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "d3b3e714b6af9e5430e3030ed639e6dd",
@@ -193,8 +193,8 @@
       "draw_away_quote": true,
       "home_away_quote": true,
       "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "a889456204e8ef1b64294efbee8dc3e5",
@@ -207,8 +207,8 @@
       "draw_away_quote": true,
       "home_away_quote": true,
       "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "f5905225efa837b0dc89b7dcdbb6c625",
@@ -249,8 +249,8 @@
       "draw_away_quote": true,
       "home_away_quote": true,
       "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 9,
@@ -269,6 +269,7 @@
     "draw_away": "RELIABLE_FOR_RANKING",
     "home_away": "UNRELIABLE_AUDIT",
     "home": "RELIABLE_FOR_RANKING",
+    "draw": "UNRELIABLE_AUDIT",
     "away": "RELIABLE_FOR_RANKING",
     "over_1_5": "UNRELIABLE_AUDIT",
     "under_3_5": "UNRELIABLE_AUDIT",

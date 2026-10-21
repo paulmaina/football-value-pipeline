@@ -10,7 +10,7 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-21T09:22:06.020181+00:00",
+  "generated_at_utc": "2026-10-21T10:38:55.912885+00:00",
   "model_code_sha256": "455ce32e5888a9ec9bfc1e841358f47d746a778805a8f6882c0691cb5c54b675",
   "model_component_sha256": {
     "api_football_data.py": "f11e1688a28cbbb542c8fdec31048c1ad485373d2d43bb1d61ee6e66dcb459ac",
@@ -20,11 +20,11 @@
     "bbs_integration.py": "2880773f5d6b46f407715cb0d2e58dd418b236355e3c8db6fd9fba530a739fce",
     "bbs_statistics_model.py": "42f5b8221cf032348df233a7fdc3ab812835278fa4adffa959168303537a21e7",
     "bbs_team_aliases.json": "f515446ae0b6b20b8dc0da348fbc99b1ed134945526316c4da28c7fa8d2f5812",
-    "conservative_bet_filter.py": "d9245d791f778ddf76395a221f18e94053aed792689d91b96b2433da4c874ce3",
+    "conservative_bet_filter.py": "7f2efd2c00fb9024a176787dd66f28a59585577f56feaba44ae5cb639647a9ce",
     "dc_decay_validation.py": "0bdd59436fc7693ace85b2eb92e9cf23f575ce6ceac3e04d1714b3e7d415d17a",
     "double_chance.py": "ef0d8af8ce760d2a61034198511d4913f69305e5a823e6de9c7f3b39d5127354",
     "football_value_pipeline_v2_standalone.py": "dbe06b406e72725917e0c97d9bd26183208531dc5ca0b7551d9a52a33a6dc855",
-    "goal_market_validation.py": "5dffd43cc8aa931fb21cf2ade11aecc846f78c42cbdb90881347c417fded610f",
+    "goal_market_validation.py": "cf02e1bad04c5a5838c1b6b0f085601c1a182ddbef5dfc8b2829b5f1543790a4",
     "market_blend_validation.py": "1136fba8bdc85eaaed468ef3f8458781a366d1fcc7913e1057783b023692ea04",
     "match_scores.py": "1e39b0fd63354fa734e768d5a34e2ea6782b3590f2af7ba7989123b17a7eec1a",
     "odds_provider_health.py": "8554bc4e6f47957e0e996466308123ba98c9ad65cab2986bc2230832f64675e2",
@@ -36,6 +36,6 @@
     "shortlist_quote_policy.json": "1d734f94e07618e38bf5832d43cdb34bcb9664e6fa4b255fbc86a1001c9ad12b",
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47"
   },
-  "predictions_sha256": "bf7aea0de7fb9b7406b364ee58a503eb5e45515e4df9c173f5384c22f0a6071c",
-  "selection_policy_version": "48h-top-twelve-probability-ev-no-under35-v15"
+  "predictions_sha256": "8b7dc33c1fe9838b572f36a632b0cac542174180a132a0d47b6340ba1a09e119",
+  "selection_policy_version": "48h-top-twelve-1x2-double-chance-over15-v16"
 }
