@@ -1,5 +1,5 @@
 {
-  "status": "VERIFIED_WITH_WARNINGS",
+  "status": "VERIFIED",
   "pipeline_health": {
     "closing_odds": {
       "automatic_production_change": false,
@@ -25,13 +25,13 @@
       "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
       "observations": 111,
       "rejected_files": [],
-      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+      "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
       "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
       "version": "local-closing-quotes-v3"
     },
     "dependencies": {
-      "PyYAML": "NOT_INSTALLED",
-      "coverage": "NOT_INSTALLED",
+      "PyYAML": "6.0.3",
+      "coverage": "7.16.2",
       "numpy": "2.5.4",
       "pandas": "3.0.6",
       "python": "3.12.15",
@@ -646,7 +646,7 @@
           "minimum_paired_fixtures": 300,
           "minimum_verified_coverage": 0.8
         },
-        "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+        "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
         "secondary_comparison": {
           "btts_yes": {
             "baseline": {
@@ -2411,7 +2411,7 @@
         ],
         "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
         "rejected_snapshot_commits": [],
-        "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+        "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
         "total_fixtures": 73,
         "version": "conservative-ev-sensitivity-v1"
       },
@@ -2541,7 +2541,7 @@
         ],
         "graded_fixture_markets": 48,
         "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-        "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+        "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
         "total_fixture_markets": 450,
         "version": "goal-blend-shadow-v1"
       },
@@ -2964,7 +2964,7 @@
         "observed_fixture_markets": 300,
         "paired_graded_fixture_markets": 32,
         "pending_or_unverified_selections": 0,
-        "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+        "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
         "selected": 0,
         "settings_observed": [
           {
@@ -9737,7 +9737,7 @@
         },
         "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
         "rejected_snapshot_commits": [],
-        "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+        "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
         "version": "model-reliability-forward-v1"
       },
       "recency_experiment": {
@@ -51041,7 +51041,7 @@
         ],
         "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
         "rejected_snapshot_commits": [],
-        "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+        "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
         "total_fixture_markets": 300,
         "version": "goal-recency-shadow-v1",
         "weekly_comparisons": [
@@ -56466,7 +56466,7 @@
           "minimum_paired_fixtures": 300,
           "minimum_verified_coverage": 0.8
         },
-        "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+        "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
         "status": "COLLECT_MORE_DATA",
         "total_fixtures": 57,
         "variants": {
@@ -59253,7 +59253,7 @@
             ],
             "gameweeks": 2,
             "minimum_settled_per_weighting": 17,
-            "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for four comparisons in v2 (three in legacy v1), and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. Adaptive probability weight ranges from 50% to 90%, using only frozen development support, development calibration penalties, raw model/reference disagreement and quote age. These bounds are a pre-registered hypothesis, not fitted optimal weights or a safety guarantee. Legacy v1 results remain a separate cohort; v2 readiness and paired returns use only contemporaneous v2 captures. No automatic production change. Confirm any chosen weighting on a later untouched period.",
+            "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. All use the same frozen candidate market pool within each capture, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15/v16; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for four comparisons in v2 (three in legacy v1), and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. Adaptive probability weight ranges from 50% to 90%, using only frozen development support, development calibration penalties, raw model/reference disagreement and quote age. These bounds are a pre-registered hypothesis, not fitted optimal weights or a safety guarantee. Legacy v1 results remain a separate cohort; v2 readiness and paired returns use only contemporaneous v2 captures. No automatic production change. Confirm any chosen weighting on a later untouched period.",
             "paired_all_returns": [
               {
                 "iso_weeks": 2,
@@ -59285,7 +59285,7 @@
               "minimum_settled_per_weighting": 100,
               "minimum_verified_coverage": 0.8
             },
-            "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+            "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
             "status": "COLLECT_MORE_DATA",
             "total_fixtures": 23,
             "variants": {
@@ -59306,7 +59306,7 @@
           }
         ],
         "minimum_settled_per_weighting": 0,
-        "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for four comparisons in v2 (three in legacy v1), and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. Adaptive probability weight ranges from 50% to 90%, using only frozen development support, development calibration penalties, raw model/reference disagreement and quote age. These bounds are a pre-registered hypothesis, not fitted optimal weights or a safety guarantee. Legacy v1 results remain a separate cohort; v2 readiness and paired returns use only contemporaneous v2 captures. No automatic production change. Confirm any chosen weighting on a later untouched period.",
+        "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. All use the same frozen candidate market pool within each capture, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15/v16; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for four comparisons in v2 (three in legacy v1), and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. Adaptive probability weight ranges from 50% to 90%, using only frozen development support, development calibration penalties, raw model/reference disagreement and quote age. These bounds are a pre-registered hypothesis, not fitted optimal weights or a safety guarantee. Legacy v1 results remain a separate cohort; v2 readiness and paired returns use only contemporaneous v2 captures. No automatic production change. Confirm any chosen weighting on a later untouched period.",
         "paired_all_returns": [
           {
             "iso_weeks": 0,
@@ -59345,7 +59345,7 @@
           "minimum_settled_per_weighting": 100,
           "minimum_verified_coverage": 0.8
         },
-        "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+        "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
         "status": "COLLECT_MORE_DATA",
         "total_fixtures": 0,
         "variants": {
@@ -60804,32 +60804,32 @@
           "minimum_paired_fixtures": 300,
           "minimum_verified_coverage": 0.8
         },
-        "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+        "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
         "status": "COLLECT_MORE_DATA",
         "verified_coverage": 0.16666666666666666,
         "version": "pinnacle-totals-anchor-v1"
       }
     },
     "forecast_freshness": {
-      "age_hours": 23.350344253333336,
-      "generated_at_utc": "2026-10-20T05:44:17.344335+00:00",
+      "age_hours": 0.5969457161111111,
+      "generated_at_utc": "2026-10-21T09:22:06.020181+00:00",
       "status": "WITHIN_24_HOURS",
-      "upcoming_fixture_count": 68
+      "upcoming_fixture_count": 72
     },
     "quote_audit": {
       "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
       "bookmakers": {
-        "1xBet": 8,
-        "Pinnacle": 4
+        "1xBet": 4,
+        "Pinnacle": 6
       },
-      "costs_recorded": 12,
+      "costs_recorded": 10,
       "exchange_quotes": 0,
       "missing_quote_age": 0,
-      "past_kickoff_count": 6,
+      "past_kickoff_count": 0,
       "quote_age_over_24h": 0,
-      "selected_quotes": 12,
+      "selected_quotes": 10,
       "unknown_kickoff_count": 0,
-      "upcoming_kickoff_count": 6
+      "upcoming_kickoff_count": 10
     },
     "review_queue": {
       "automatic_promotion": false,
@@ -60943,10 +60943,10 @@
         }
       ],
       "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+      "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
       "version": "experiment-review-queue-v1"
     },
-    "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+    "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
     "selection_policy_groups": {
       "48h-top-ten-probability-ev-no-under35-v14": {
         "brier": 0.178674,
@@ -68187,10 +68187,19 @@
     "training": {
       "Bundesliga": {
         "api_football": {
-          "status": "NOT_COLLECTED"
+          "added_results": 2,
+          "ambiguous": 0,
+          "conflicts": 0,
+          "excluded_phase": 0,
+          "matched_results": 254,
+          "source": "api-football",
+          "statistics_observations": 13,
+          "status": "AVAILABLE",
+          "unmapped": 668,
+          "usage": "supplementary_cached_observations"
         },
         "bbs_statistics_model": {
-          "cutoff_utc": "2026-10-20T05:42:39.181052+00:00",
+          "cutoff_utc": "2026-10-21T09:19:30.333113+00:00",
           "eligible_training_matches": 15,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
@@ -68214,29 +68223,33 @@
           "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
           "forward_accuracy_improvement_established": false,
           "historical_corrections_may_be_present": true,
+          "input_providers": [
+            "api-football",
+            "bigballsdata"
+          ],
           "max_form_age_days": 180,
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 88,
-          "observations_sha256": "1158af74fef245f5b1f516df4ca2a4ac866c48e45ed3fcf2f8df329913bd4056",
+          "observations": 105,
+          "observations_sha256": "e09cf5008b98dfa7810e64aebaef1439f8208c0ebae44a30cff33d7dd736a068",
           "required_training_matches": 120,
           "retrospective_eligible_training_matches": 15,
-          "retrospective_inputs_sha256": "ce4bdb8aafa21d81f4e4ec2f2327663cf03f9758992482fd858acc0bb6d334c4",
+          "retrospective_inputs_sha256": "1f6ec49777565a6c752cd0bc63faf9c0d96890fc48c41da8a6e94ff6ebb04bf7",
           "retrospective_publication_delay_hours": 24,
           "selected_weight": 0.0,
           "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
           "strict_eligible_training_matches": 6,
-          "usable_current_matches": 45,
+          "usable_current_matches": 54,
           "validation_mode": "retrospective_backfill",
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261020T054239181052Z_95090a2e5f0297eb71e55a191b53420a691affdf32aea25b75925fd8a89743fd.json",
+        "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261021T091930333113Z_f0ed8a7a55c69b96bc773bb8c2b20f655718c99ae18df20dd7ca11b39083670e.json",
         "days_since_latest_result": 3,
-        "diagnostics_sha256": "4eadb2fb5769bdd74c40276136d5a896aed9b8d69b235649b9b49c3358a25854",
+        "diagnostics_sha256": "762ea3d60382e93955b009cc511d40f6cc24611a84841a77fb714e6171a493c5",
         "forecast_training_health": {
-          "days_since_latest_result": 2,
+          "days_since_latest_result": 3,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
           "training_end": "2026-10-18"
         },
@@ -68244,15 +68257,24 @@
           "state": "NOT_RECORDED"
         },
         "training_end": "2026-10-18",
-        "training_matches": 1584
+        "training_matches": 1586
       },
       "EPL": {
         "api_football": {
-          "status": "NOT_COLLECTED"
+          "added_results": 0,
+          "ambiguous": 0,
+          "conflicts": 0,
+          "excluded_phase": 0,
+          "matched_results": 1102,
+          "source": "api-football",
+          "statistics_observations": 40,
+          "status": "AVAILABLE",
+          "unmapped": 38,
+          "usage": "supplementary_cached_observations"
         },
         "bbs_statistics_model": {
-          "cutoff_utc": "2026-10-20T05:41:32.620650+00:00",
-          "eligible_training_matches": 18,
+          "cutoff_utc": "2026-10-21T09:17:50.184455+00:00",
+          "eligible_training_matches": 75,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
             "shots_on_target",
@@ -68275,45 +68297,58 @@
           "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
           "forward_accuracy_improvement_established": false,
           "historical_corrections_may_be_present": true,
+          "input_providers": [
+            "api-football",
+            "bigballsdata"
+          ],
           "max_form_age_days": 180,
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 101,
-          "observations_sha256": "ca7836a42829a073c775bfd8f6034bd32e04db206769d09a875a847d1b6924a9",
+          "observations": 152,
+          "observations_sha256": "7573f203656dce3257b0e3666ffe98c3211b68f54f117ef6dd3e93f2c9e9607e",
           "required_training_matches": 120,
-          "retrospective_eligible_training_matches": 18,
-          "retrospective_inputs_sha256": "d86404451dcc40fd688b80ebb547ef56889b0e431c2ec946b9fe3e3b33315eab",
+          "retrospective_eligible_training_matches": 75,
+          "retrospective_inputs_sha256": "8521052ef16ec15c97fbfedbc2a955e8add385a56194b1b9f67f1a0cfb0f06a5",
           "retrospective_publication_delay_hours": 24,
           "selected_weight": 0.0,
           "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-          "strict_eligible_training_matches": 7,
-          "usable_current_matches": 52,
+          "strict_eligible_training_matches": 8,
+          "usable_current_matches": 85,
           "validation_mode": "retrospective_backfill",
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261020T054132620650Z_c2da396e8ef0b3e60e8138a02378269d5843b03ab61240119f548952e6dde72c.json",
-        "days_since_latest_result": 3,
-        "diagnostics_sha256": "48ac5470b7b2cd8672d8755b994eab00d1d61401cee8b6cc1459bc044811dcda",
+        "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261021T091750184455Z_a53d1c9c56588e7bdc7925d088faf5e9024bc821c2945fed323b58ae0a3f8650.json",
+        "days_since_latest_result": 2,
+        "diagnostics_sha256": "8231bc192510eec677f69d768d01d98a773cdcec6c4ba5ec3ff10fa9481b4bb4",
         "forecast_training_health": {
           "days_since_latest_result": 2,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
-          "training_end": "2026-10-18"
+          "training_end": "2026-10-19"
         },
         "odds_provider_health": {
           "state": "NOT_RECORDED"
         },
-        "training_end": "2026-10-18",
-        "training_matches": 1969
+        "training_end": "2026-10-19",
+        "training_matches": 1970
       },
       "LaLiga": {
         "api_football": {
-          "status": "NOT_COLLECTED"
+          "added_results": 0,
+          "ambiguous": 0,
+          "conflicts": 0,
+          "excluded_phase": 0,
+          "matched_results": 574,
+          "source": "api-football",
+          "statistics_observations": 25,
+          "status": "AVAILABLE",
+          "unmapped": 566,
+          "usage": "supplementary_cached_observations"
         },
         "bbs_statistics_model": {
-          "cutoff_utc": "2026-10-20T05:42:08.788208+00:00",
-          "eligible_training_matches": 45,
+          "cutoff_utc": "2026-10-21T09:18:43.688384+00:00",
+          "eligible_training_matches": 72,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
             "shots_on_target",
@@ -68336,45 +68371,58 @@
           "first_observed_at_utc": "2026-10-16T20:39:27.155286+00:00",
           "forward_accuracy_improvement_established": false,
           "historical_corrections_may_be_present": true,
+          "input_providers": [
+            "api-football",
+            "bigballsdata"
+          ],
           "max_form_age_days": 180,
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 119,
-          "observations_sha256": "ff8c945314f01675a48476e1e8a7557a0bc6c4f2af85c27de5b93efa62da1e20",
+          "observations": 156,
+          "observations_sha256": "88ae16c82ec3f29404233aee0b5fbe9864ade6c2711906328255efb780ecac4f",
           "required_training_matches": 120,
-          "retrospective_eligible_training_matches": 45,
-          "retrospective_inputs_sha256": "b9f84822d2048c2988ce8b116db89c9a5284908713df03917527fd2883cb81c2",
+          "retrospective_eligible_training_matches": 72,
+          "retrospective_inputs_sha256": "dec7117e3771c4fbb91d2d998ebd06beae2010bec224861ab9f2bd7044e243f8",
           "retrospective_publication_delay_hours": 24,
           "selected_weight": 0.0,
           "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-          "strict_eligible_training_matches": 8,
-          "usable_current_matches": 73,
+          "strict_eligible_training_matches": 9,
+          "usable_current_matches": 98,
           "validation_mode": "retrospective_backfill",
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261020T054208788208Z_94968a28441c6420f4e7e7efc3a9a7532c3fca877295ce71f1b590b523718afa.json",
-        "days_since_latest_result": 3,
-        "diagnostics_sha256": "611de604aa7616416e59dcd7162fbb9acbf9bcab2df32f7db9b892ac495ab9fe",
+        "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261021T091843688384Z_9f33b771d7f12db6bd4f6e667437317ffb3d718f5a50719e9d9c892d8f7380b7.json",
+        "days_since_latest_result": 2,
+        "diagnostics_sha256": "88b94e4b8737702dfa4aa36fa40c8bbd6a6a5f4217cb2a9068736f975234b149",
         "forecast_training_health": {
           "days_since_latest_result": 2,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
-          "training_end": "2026-10-18"
+          "training_end": "2026-10-19"
         },
         "odds_provider_health": {
           "state": "NOT_RECORDED"
         },
-        "training_end": "2026-10-18",
-        "training_matches": 1987
+        "training_end": "2026-10-19",
+        "training_matches": 1988
       },
       "Ligue1": {
         "api_football": {
-          "status": "NOT_COLLECTED"
+          "added_results": 2,
+          "ambiguous": 0,
+          "conflicts": 0,
+          "excluded_phase": 0,
+          "matched_results": 752,
+          "source": "api-football",
+          "statistics_observations": 21,
+          "status": "AVAILABLE",
+          "unmapped": 242,
+          "usage": "supplementary_cached_observations"
         },
         "bbs_statistics_model": {
-          "cutoff_utc": "2026-10-20T05:43:35.816142+00:00",
-          "eligible_training_matches": 17,
+          "cutoff_utc": "2026-10-21T09:21:14.478095+00:00",
+          "eligible_training_matches": 35,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
             "shots_on_target",
@@ -68397,29 +68445,33 @@
           "first_observed_at_utc": "2026-10-16T20:39:29.253586+00:00",
           "forward_accuracy_improvement_established": false,
           "historical_corrections_may_be_present": true,
+          "input_providers": [
+            "api-football",
+            "bigballsdata"
+          ],
           "max_form_age_days": 180,
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 90,
-          "observations_sha256": "e7b70d444df0e97c04a85cbca1ceb109ecbaa0f4f7bb0dc6ac55b222e199bd4d",
+          "observations": 121,
+          "observations_sha256": "6d3e2e4053b41331642e9563b4aa5e7f807dafe763cad056c1e2376af4123b1a",
           "required_training_matches": 120,
-          "retrospective_eligible_training_matches": 17,
-          "retrospective_inputs_sha256": "babfa604a8c02df26e4fdf9fe1cee2e6bca631dbc5eb2239b7fcddec660c6911",
+          "retrospective_eligible_training_matches": 35,
+          "retrospective_inputs_sha256": "3786470daba7872b84a2a6d54208843f79e997d77dde78d621802e4101332154",
           "retrospective_publication_delay_hours": 24,
           "selected_weight": 0.0,
           "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
           "strict_eligible_training_matches": 7,
-          "usable_current_matches": 47,
+          "usable_current_matches": 65,
           "validation_mode": "retrospective_backfill",
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261020T054335816142Z_a99c0a3e43ed35c4b9d33b933c9b1e4340d84560abfcf58d5d8820e969f5c4d0.json",
+        "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261021T092114478095Z_f53195272efa2d441ba824e41ac66abccdfcd11b954730d0f99123dec44dda36.json",
         "days_since_latest_result": 3,
-        "diagnostics_sha256": "dd1190006a2910ec81e2664d6355b758bfdf7d481954a84213a0c4a789721dc6",
+        "diagnostics_sha256": "e1be9ec2e60ca6939af24af71d3eaa2f15cffb2651717982c467047588c004e3",
         "forecast_training_health": {
-          "days_since_latest_result": 2,
+          "days_since_latest_result": 3,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
           "training_end": "2026-10-18"
         },
@@ -68427,15 +68479,24 @@
           "state": "NOT_RECORDED"
         },
         "training_end": "2026-10-18",
-        "training_matches": 1741
+        "training_matches": 1743
       },
       "SerieA": {
         "api_football": {
-          "status": "NOT_COLLECTED"
+          "added_results": 0,
+          "ambiguous": 0,
+          "conflicts": 0,
+          "excluded_phase": 0,
+          "matched_results": 918,
+          "source": "api-football",
+          "statistics_observations": 31,
+          "status": "AVAILABLE",
+          "unmapped": 223,
+          "usage": "supplementary_cached_observations"
         },
         "bbs_statistics_model": {
-          "cutoff_utc": "2026-10-20T05:43:07.772166+00:00",
-          "eligible_training_matches": 19,
+          "cutoff_utc": "2026-10-21T09:20:14.079252+00:00",
+          "eligible_training_matches": 43,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
             "shots_on_target",
@@ -68458,29 +68519,33 @@
           "first_observed_at_utc": "2026-10-16T20:39:28.568690+00:00",
           "forward_accuracy_improvement_established": false,
           "historical_corrections_may_be_present": true,
+          "input_providers": [
+            "api-football",
+            "bigballsdata"
+          ],
           "max_form_age_days": 180,
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 100,
-          "observations_sha256": "b8cde538f8f80687eff19983d55e1c13c1c3f05983d5dcb605cf2aedd97a4624",
+          "observations": 145,
+          "observations_sha256": "be1065fe63c17ac32f8b443dc26d018c2d15e8b410f98fb4c1093f74b4f661d7",
           "required_training_matches": 120,
-          "retrospective_eligible_training_matches": 19,
-          "retrospective_inputs_sha256": "ce20a98c71564d556c697faf42f4e2ecedb7e188b0b5511fa24cafd55dace92c",
+          "retrospective_eligible_training_matches": 43,
+          "retrospective_inputs_sha256": "943a8b10539374c5b6d1cc29ce92768e5ddc69e5a085af9305e4efd559d49ae5",
           "retrospective_publication_delay_hours": 24,
           "selected_weight": 0.0,
           "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
           "strict_eligible_training_matches": 7,
-          "usable_current_matches": 45,
+          "usable_current_matches": 71,
           "validation_mode": "retrospective_backfill",
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261020T054307772166Z_f0853e9a10ade28bdc8934b2b4c25d66aea64a98b1584324f587abea8bc72664.json",
+        "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261021T092014079252Z_b285f850048f8efe70a2d650d4be1b2bc7b2b2df22dd913f553d3c8f096e6167.json",
         "days_since_latest_result": 2,
-        "diagnostics_sha256": "d79c8cd91fa2a0ca2e93163af7d677d90b84fd56148797cff09ba64cf6406730",
+        "diagnostics_sha256": "d26e93bbe873becc1c638181c46264cd558a70a863869a9e33735956cd90a191",
         "forecast_training_health": {
-          "days_since_latest_result": 1,
+          "days_since_latest_result": 2,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
           "training_end": "2026-10-19"
         },
@@ -68488,14 +68553,23 @@
           "state": "NOT_RECORDED"
         },
         "training_end": "2026-10-19",
-        "training_matches": 1969
+        "training_matches": 1970
       },
       "UCL": {
         "api_football": {
-          "status": "NOT_COLLECTED"
+          "added_results": 0,
+          "ambiguous": 0,
+          "conflicts": 1,
+          "excluded_phase": 460,
+          "matched_results": 139,
+          "source": "api-football",
+          "statistics_observations": 2,
+          "status": "AVAILABLE",
+          "unmapped": 78,
+          "usage": "supplementary_cached_observations"
         },
         "bbs_statistics_model": {
-          "cutoff_utc": "2026-10-20T05:43:57.422675+00:00",
+          "cutoff_utc": "2026-10-21T09:21:51.625006+00:00",
           "eligible_training_matches": 0,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
@@ -68519,33 +68593,37 @@
           "first_observed_at_utc": "2026-10-16T20:39:29.957146+00:00",
           "forward_accuracy_improvement_established": false,
           "historical_corrections_may_be_present": true,
+          "input_providers": [
+            "api-football",
+            "bigballsdata"
+          ],
           "max_form_age_days": 180,
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 90,
-          "observations_sha256": "f5d8c20e76b17b358422497f114c5f42db583ab2b7e1e3bc4401b0f636ae680a",
+          "observations": 92,
+          "observations_sha256": "72347b6bcae0e0ce159d7750251ed2c3abbfa07a9b60e23346c26fb208ecc5a8",
           "required_training_matches": 120,
           "retrospective_eligible_training_matches": 0,
-          "retrospective_inputs_sha256": "74a644453a99c64eb29870884c2ab52202e2baa36409c53c8629f08367eb967c",
+          "retrospective_inputs_sha256": "c7d3aae6c4753ebcd1b05154046ade2fa85fdc1bd67957524899113a0bc2bbf9",
           "retrospective_publication_delay_hours": 24,
           "selected_weight": 0.0,
           "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
           "strict_eligible_training_matches": 0,
-          "usable_current_matches": 27,
+          "usable_current_matches": 13,
           "validation_mode": "retrospective_backfill",
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261020T054357422675Z_feeb72c69d0bce2ce8234a75db02faeb2f98b64352a98a453dd22c01143cbb85.json",
+        "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261021T092151625006Z_8261bb846179c6b5b0292fa22da1ed1fff23dd3ede34f3920e3049064976a9a1.json",
         "current_source_health": {
-          "added_matches": 9,
+          "added_matches": 0,
           "cache_hash_verified": true,
-          "checked_at_utc": "2026-10-21T05:05:07.623277+00:00",
+          "checked_at_utc": "2026-10-21T09:21:40.767492+00:00",
           "completed_matches": 45,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 0.003044547222222222,
+          "download_age_hours": 0.6039603519444444,
           "download_status": "VERIFIED_LIVE",
           "latest_completed_date": "2026-10-20",
           "latest_completed_utc": "2026-10-20T19:00:00+00:00",
@@ -68556,39 +68634,39 @@
           "season_start": 2026,
           "sha256": "f6cc44b4326bf411cae39d63597f271b3c4ce2c69cc1c4359f759ddcc1a9bb83",
           "source_schedule_matches": 144,
-          "status": "MODEL_BEHIND_VERIFIED_SOURCE",
-          "training_end": "2026-10-14"
+          "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+          "training_end": "2026-10-20"
         },
-        "days_since_latest_result": 7,
-        "diagnostics_sha256": "c4e0f373aed5aea9689913565e7f83f3d2b6daca9230fb6026e263da833b5269",
+        "days_since_latest_result": 1,
+        "diagnostics_sha256": "1a6dd54aaa3c7b4b3a7726f92713c6a1b997c1a8cc1307ec4fab74f13d27343c",
         "forecast_training_health": {
           "added_matches": 0,
           "cache_hash_verified": true,
-          "checked_at_utc": "2026-10-20T05:04:10.781512+00:00",
-          "completed_matches": 36,
+          "checked_at_utc": "2026-10-21T09:21:40.767492+00:00",
+          "completed_matches": 45,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 0.662955878611111,
+          "download_age_hours": 0.0030159761111111113,
           "download_status": "VERIFIED_LIVE",
-          "last_refresh_error": "ValueError",
-          "last_refresh_error_reason": "Unknown match status",
-          "latest_completed_date": "2026-10-14",
-          "latest_completed_utc": "2026-10-14T19:00:00+00:00",
-          "next_fixture_utc": "2026-10-20T16:45:00+00:00",
+          "last_refresh_error": null,
+          "last_refresh_error_reason": null,
+          "latest_completed_date": "2026-10-20",
+          "latest_completed_utc": "2026-10-20T19:00:00+00:00",
+          "next_fixture_utc": "2026-10-21T16:45:00+00:00",
           "note": "Provider schedule comparison is not independent proof of complete coverage.",
           "overdue_unfinished_match_ids": [],
           "provider": "football-data.org",
           "season_start": 2026,
-          "sha256": "88cc817532193de59b6090581451b4d53ddbf3916512fa74597ef848a3d783a1",
+          "sha256": "f6cc44b4326bf411cae39d63597f271b3c4ce2c69cc1c4359f759ddcc1a9bb83",
           "source_schedule_matches": 144,
-          "status": "LIVE_REFRESH_FAILED_USING_CACHE",
-          "training_end": "2026-10-14"
+          "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+          "training_end": "2026-10-20"
         },
         "odds_provider_health": {
           "state": "NOT_RECORDED"
         },
-        "training_end": "2026-10-14",
-        "training_matches": 539
+        "training_end": "2026-10-20",
+        "training_matches": 548
       }
     },
     "weekly_performance": {
@@ -68630,7 +68708,7 @@
       }
     }
   },
-  "reviewed_at_utc": "2026-10-21T05:05:18Z",
+  "reviewed_at_utc": "2026-10-21T09:57:55Z",
   "snapshots": 39,
   "shortlist": {
     "brier": 0.176926,
@@ -68745,11 +68823,11 @@
   "provider_errors": {},
   "training_end_dates": {
     "Bundesliga": "2026-10-18",
-    "EPL": "2026-10-18",
-    "LaLiga": "2026-10-18",
+    "EPL": "2026-10-19",
+    "LaLiga": "2026-10-19",
     "Ligue1": "2026-10-18",
     "SerieA": "2026-10-19",
-    "UCL": "2026-10-14"
+    "UCL": "2026-10-20"
   },
   "experiments": {
     "goal_blend_experiment": {
@@ -68878,7 +68956,7 @@
       ],
       "graded_fixture_markets": 48,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+      "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
       "total_fixture_markets": 450,
       "version": "goal-blend-shadow-v1"
     },
@@ -69301,7 +69379,7 @@
       "observed_fixture_markets": 300,
       "paired_graded_fixture_markets": 32,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+      "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -110620,7 +110698,7 @@
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+      "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
       "total_fixture_markets": 300,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": [
@@ -114697,7 +114775,7 @@
       ],
       "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+      "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
       "total_fixtures": 73,
       "version": "conservative-ev-sensitivity-v1"
     },
@@ -115268,7 +115346,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+      "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
       "secondary_comparison": {
         "btts_yes": {
           "baseline": {
@@ -117031,7 +117109,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+      "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
       "status": "COLLECT_MORE_DATA",
       "verified_coverage": 0.16666666666666666,
       "version": "pinnacle-totals-anchor-v1"
@@ -123791,7 +123869,7 @@
       },
       "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+      "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
       "version": "model-reliability-forward-v1"
     },
     "shortlist_policy_experiment": {
@@ -126573,7 +126651,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+      "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 57,
       "variants": {
@@ -129360,7 +129438,7 @@
           ],
           "gameweeks": 2,
           "minimum_settled_per_weighting": 17,
-          "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for four comparisons in v2 (three in legacy v1), and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. Adaptive probability weight ranges from 50% to 90%, using only frozen development support, development calibration penalties, raw model/reference disagreement and quote age. These bounds are a pre-registered hypothesis, not fitted optimal weights or a safety guarantee. Legacy v1 results remain a separate cohort; v2 readiness and paired returns use only contemporaneous v2 captures. No automatic production change. Confirm any chosen weighting on a later untouched period.",
+          "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. All use the same frozen candidate market pool within each capture, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15/v16; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for four comparisons in v2 (three in legacy v1), and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. Adaptive probability weight ranges from 50% to 90%, using only frozen development support, development calibration penalties, raw model/reference disagreement and quote age. These bounds are a pre-registered hypothesis, not fitted optimal weights or a safety guarantee. Legacy v1 results remain a separate cohort; v2 readiness and paired returns use only contemporaneous v2 captures. No automatic production change. Confirm any chosen weighting on a later untouched period.",
           "paired_all_returns": [
             {
               "iso_weeks": 2,
@@ -129392,7 +129470,7 @@
             "minimum_settled_per_weighting": 100,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+          "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
           "status": "COLLECT_MORE_DATA",
           "total_fixtures": 23,
           "variants": {
@@ -129413,7 +129491,7 @@
         }
       ],
       "minimum_settled_per_weighting": 0,
-      "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. All use the same frozen seven-market pool, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for four comparisons in v2 (three in legacy v1), and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. Adaptive probability weight ranges from 50% to 90%, using only frozen development support, development calibration penalties, raw model/reference disagreement and quote age. These bounds are a pre-registered hypothesis, not fitted optimal weights or a safety guarantee. Legacy v1 results remain a separate cohort; v2 readiness and paired returns use only contemporaneous v2 captures. No automatic production change. Confirm any chosen weighting on a later untouched period.",
+      "note": "Forward-only paper comparison: 100/0, 75/25, 50/50 (control), 25/75 probability/EV weights and adaptive evidence weights. All use the same frozen candidate market pool within each capture, 48-hour horizon, prices, costs and one-market-per-match policy cap (12 in v15/v16; 10 in archived v14). Primary results include ALL selections, with STRICT/PROVISIONAL shown separately. First eligible usable capture per fixture only; no historical backfill or repeated stakes. Win rates include Wilson intervals. Profit differences pair each verified usable fixture with control, using one unit for a selection and zero if skipped. Weekly block bootstrap intervals are exploratory, unadjusted for four comparisons in v2 (three in legacy v1), and unavailable before six weeks/100 paired fixtures. Selection-cohort Brier scores do not prove improved forecasts. Readiness requires 300 verified usable fixtures, six ISO weeks, 80% resolved coverage and 100 settled picks per weighting. Adaptive probability weight ranges from 50% to 90%, using only frozen development support, development calibration penalties, raw model/reference disagreement and quote age. These bounds are a pre-registered hypothesis, not fitted optimal weights or a safety guarantee. Legacy v1 results remain a separate cohort; v2 readiness and paired returns use only contemporaneous v2 captures. No automatic production change. Confirm any chosen weighting on a later untouched period.",
       "paired_all_returns": [
         {
           "iso_weeks": 0,
@@ -129452,7 +129530,7 @@
         "minimum_settled_per_weighting": 100,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-21T05:05:18.583647+00:00",
+      "reviewed_at_utc": "2026-10-21T09:57:55.024759+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 0,
       "variants": {
@@ -129483,7 +129561,5 @@
       "version": "shortlist-probability-ev-weights-v2"
     }
   },
-  "warnings": [
-    "UCL training/source health: MODEL_BEHIND_VERIFIED_SOURCE"
-  ]
+  "warnings": []
 }
