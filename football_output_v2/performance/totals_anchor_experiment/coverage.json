@@ -16751,7 +16751,7 @@
       "reference_stale_or_future",
       "stale_or_unsynchronized_production_hda"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "scale": null,
     "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
     "status": "unavailable",
@@ -17271,7 +17271,7 @@
       "stale_or_unsynchronized_production_hda",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "scale": null,
     "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
     "status": "unavailable",
@@ -17707,7 +17707,7 @@
       "stale_or_unsynchronized_production_hda",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "f7295b8c0c24a17c573629dd27429b0b04eadbc1",
     "status": "unavailable",

@@ -674,6 +674,36 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "CL:575368": {
+    "away_goals": 1,
+    "away_short_name": "Man United",
+    "away_team": "Manchester United FC",
+    "first_verified_at_utc": "2026-10-21T20:16:34Z",
+    "home_goals": 4,
+    "home_short_name": "Como 1907",
+    "home_team": "Como 1907",
+    "kickoff_utc": "2026-10-21T16:45:00Z",
+    "league_code": "CL",
+    "match_id": 575368,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "CL:575369": {
+    "away_goals": 4,
+    "away_short_name": "Galatasaray",
+    "away_team": "Galatasaray SK",
+    "first_verified_at_utc": "2026-10-21T20:16:34Z",
+    "home_goals": 2,
+    "home_short_name": "Lille",
+    "home_team": "Lille OSC",
+    "kickoff_utc": "2026-10-21T16:45:00Z",
+    "league_code": "CL",
+    "match_id": 575369,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559657": {
     "away_goals": 0,
     "away_short_name": "Monaco",
@@ -940,6 +970,21 @@
     "kickoff_utc": "2026-10-10T15:15:00Z",
     "league_code": "FL1",
     "match_id": 559674,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PD:564685": {
+    "away_goals": 1,
+    "away_short_name": "Athletic",
+    "away_team": "Athletic Club",
+    "first_verified_at_utc": "2026-10-21T20:16:34Z",
+    "home_goals": 3,
+    "home_short_name": "Levante",
+    "home_team": "Levante UD",
+    "kickoff_utc": "2026-10-21T18:00:00Z",
+    "league_code": "PD",
+    "match_id": 564685,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"

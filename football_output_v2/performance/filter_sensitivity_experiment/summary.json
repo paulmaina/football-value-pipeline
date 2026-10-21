@@ -1429,7 +1429,7 @@
   ],
   "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
   "rejected_snapshot_commits": [],
-  "reviewed_at_utc": "2026-10-21T16:38:01.839759+00:00",
+  "reviewed_at_utc": "2026-10-21T20:16:34.489329+00:00",
   "total_fixtures": 73,
   "version": "conservative-ev-sensitivity-v1"
 }
