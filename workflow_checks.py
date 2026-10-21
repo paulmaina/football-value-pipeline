@@ -157,7 +157,7 @@ def raw_check(root, *, raw_dir=None):
         require(equivalent(clean_frame(actual[list(expected.columns)]), clean_frame(expected.replace('', None))),
                 'Current shortlist differs from deterministic ranking replay')
         for field in ('target_distinct_matches', 'shortfall', 'usable_distinct_fixtures',
-                      *([] if asian else ['ranking_weights']), 'eligible_markets', 'quote_execution_policy'):
+                      *(['loss_risk_tolerance'] if policy_version == AH_POLICIES[-1] else [] if asian else ['ranking_weights']), 'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')
     warnings=[]

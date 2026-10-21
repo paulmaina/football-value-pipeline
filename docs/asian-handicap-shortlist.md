@@ -1,4 +1,4 @@
-# Asian handicap shortlist — policy v18
+# Asian handicap shortlist — policy v19
 
 New prediction runs replace double chance with full-time Asian goal handicaps.
 The market pool is Home win, Draw, Away win, Over 1.5, and supported home/away
@@ -34,18 +34,36 @@ The selector:
    estimate and adds that penalty. `loss_probability_upper` is the implementation
    field name; **it is a conservative ranking estimate, not a guaranteed or
    formally calibrated upper confidence bound**.
-5. Ranks Asian adjusted estimated EV and unblended EV without a minimum
-   cutoff. The adjusted EV allowance moves penalty mass from the best payoff
-   to a full loss. **Negative estimated EV can qualify**, implying an estimated
-   long-run loss even when the chance of a loss on one bet is relatively low.
-6. Ranks lowest conservative loss estimate first, then highest full-refund
-   probability, highest adjusted EV, highest unblended EV and actual price.
-   This is lexicographic ranking: EV breaks risk/refund ties, so the chosen line
-   need not maximize EV across all lines. It chooses one market per fixture,
-   capped at twelve, without bypassing freshness, identity or reliability gates.
+5. Requires **adjusted estimated EV >=0 and unblended EV >=0**. Zero qualifies;
+   either negative estimate rejects the Asian pick. The adjusted EV allowance
+   moves penalty mass from the best payoff to a full loss. Nonnegative estimates
+   do not guarantee a profit or prevent losses.
+6. For each fixture, find the minimum conservative loss estimate among eligible
+   candidates after bookmaker preference and EV gates. Keep candidates with
+   `risk <= fixture_minimum + tolerance`, then rank **adjusted EV descending,
+   unblended EV descending, full-refund probability descending**, lower loss
+   risk and higher price. Kickoff, market and bookmaker resolve remaining ties.
+   The risk band is anchored to the minimum; successive near-ties never widen it.
+   Choose one market per fixture, then order those representatives by risk and
+   cap at twelve. No quote, identity or reliability gate is bypassed.
+
+The default tolerance is **0.01 (1 percentage point)**, an absolute probability
+difference, configured as `asian_handicap_risk_tolerance` in
+`shortlist_quote_policy.json`. A 10% minimum admits lines up to 11%; a 12% line
+is excluded even if another line is at 11%. A zero tolerance requires a minimum-
+risk line, with EV before refund tie-breaks. The value must be finite, numeric
+and between 0 and 1. It is frozen in the run's execution policy and summary;
+selected rows record the minimum and tolerance for deterministic replay.
+
+**The tolerance is a provisional policy choice, not a statistical confidence
+interval or historically optimized threshold.** The available history validates
+no-loss probabilities, but lacks a sufficient historical set of executable
+handicap prices to optimize this EV/risk tradeoff or establish ROI. Later tuning
+needs development-only quote data and separate evaluation data. The existing
+raw/blended model and calibration penalty are unchanged.
 
 Existing binary markets keep their historical qualification rules, and compete
-in the same loss-first ranking. Therefore the shortlist need not consist only
+in the same per-fixture risk-band comparison. Therefore the shortlist need not consist only
 of handicaps. Nonzero per-stake costs currently make Asian picks ineligible:
 refunds can lose fees, and the historical no-loss calibration is presently for
 zero costs. Costs are never silently ignored to call such a refund safe.
@@ -167,7 +185,7 @@ settlement-aware no-loss probability. Versioned normalization preserves old
 closing observations. Missing bet365 close coverage remains explicit.
 
 The probability/EV weighting, legacy shortlist-policy and EV-filter experiments
-are not generated for v17/v18: they compare a different ranking objective and market
+are not generated for v17/v18/v19: they compare a different ranking objective and market
 pool. Existing immutable experiments continue to be graded under their original
 rules. Other probability-model research sidecars remain separate and unchanged.
 The summary explicitly identifies these ranking experiments as not applicable.
@@ -179,8 +197,9 @@ forecast alone cannot invent missing margin distributions, quotes or calibration
 
 ## Policy version and replay
 
-New runs use v18. Frozen v17 archives retain the original Asian EV floors and
-Pinnacle/bet365 scope during deterministic replay. Binary-market qualification
+New runs use v19. Frozen v17 archives retain their original Asian EV floors and
+Pinnacle/bet365 scope; frozen v18 archives retain floorless loss-first ranking.
+Both remain reproducible under their original rules. Binary-market qualification
 rules are unchanged. The default execution allowlist now includes 1xBet and
 marks it as a fallback, not a higher-price substitute for valid primary quotes.
 Live 1xBet handicap coverage and account entitlement have not been verified;
