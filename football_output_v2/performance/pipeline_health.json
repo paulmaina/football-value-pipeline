@@ -23,13 +23,13 @@
     "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
     "observations": 129,
     "rejected_files": [],
-    "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+    "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
     "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
     "version": "local-closing-quotes-v4"
   },
   "dependencies": {
-    "PyYAML": "NOT_INSTALLED",
-    "coverage": "NOT_INSTALLED",
+    "PyYAML": "6.0.3",
+    "coverage": "7.16.2",
     "numpy": "2.5.4",
     "pandas": "3.0.6",
     "python": "3.12.15",
@@ -649,7 +649,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+      "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
       "secondary_comparison": {
         "btts_yes": {
           "baseline": {
@@ -2414,7 +2414,7 @@
       ],
       "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+      "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
       "total_fixtures": 73,
       "version": "conservative-ev-sensitivity-v1"
     },
@@ -2544,7 +2544,7 @@
       ],
       "graded_fixture_markets": 48,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+      "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
       "total_fixture_markets": 450,
       "version": "goal-blend-shadow-v1"
     },
@@ -2967,7 +2967,7 @@
       "observed_fixture_markets": 300,
       "paired_graded_fixture_markets": 32,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+      "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -9740,7 +9740,7 @@
       },
       "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+      "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
       "version": "model-reliability-forward-v1"
     },
     "recency_experiment": {
@@ -51332,7 +51332,7 @@
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+      "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
       "total_fixture_markets": 300,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": [
@@ -56901,7 +56901,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+      "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 57,
       "variants": {
@@ -59720,7 +59720,7 @@
             "minimum_settled_per_weighting": 100,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+          "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
           "status": "COLLECT_MORE_DATA",
           "total_fixtures": 23,
           "variants": {
@@ -59780,7 +59780,7 @@
         "minimum_settled_per_weighting": 100,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+      "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 0,
       "variants": {
@@ -61239,14 +61239,14 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+      "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
       "status": "COLLECT_MORE_DATA",
       "verified_coverage": 0.16666666666666666,
       "version": "pinnacle-totals-anchor-v1"
     }
   },
   "forecast_freshness": {
-    "age_hours": 6.0062502575000005,
+    "age_hours": 6.121099997777778,
     "generated_at_utc": "2026-10-21T17:29:13.086150+00:00",
     "status": "WITHIN_24_HOURS",
     "upcoming_fixture_count": 77
@@ -61377,10 +61377,10 @@
       }
     ],
     "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-    "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+    "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
     "version": "experiment-review-queue-v1"
   },
-  "reviewed_at_utc": "2026-10-21T23:29:35.587077+00:00",
+  "reviewed_at_utc": "2026-10-21T23:36:29.046142+00:00",
   "selection_policy_groups": {
     "48h-top-ten-probability-ev-no-under35-v14": {
       "brier": 0.178674,
@@ -69057,7 +69057,7 @@
         "completed_matches": 54,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 0.0027374730555555556,
+        "download_age_hours": 0.11758721333333333,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-10-21",
         "latest_completed_utc": "2026-10-21T19:00:00+00:00",
