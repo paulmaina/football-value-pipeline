@@ -48,7 +48,7 @@ def reliability():
 def choose(values, reports=None, policy=POLICY):
     return build_conservative_shortlist(pd.DataFrame(values),as_of=NOW,
         market_reliability=reliability() if reports is None else reports,
-        execution_policy=policy,selection_policy_version=ah.POLICY)
+        execution_policy=policy,selection_policy_version=ah.DOUBLE_CHANCE_POLICY)
 
 
 def event(book='Pinnacle', key='alternate_spreads', point=0, price=1.8):

@@ -1,6 +1,6 @@
 # Conservative shortlist policy v6: double chance
 
-Historical policy reference. Current v21 includes 1X, X2 and 12 alongside Asian
+Historical policy reference. Current v22 includes 1X, X2 and 12 alongside Asian
 handicaps, Home/Away win and Over 1.5; Draw is excluded. See
 [current shortlist rules and visible alternatives](asian-handicap-shortlist.md).
 

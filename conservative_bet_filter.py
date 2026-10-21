@@ -155,9 +155,14 @@ def _evaluate_market(
     adjusted_ev_floor: Optional[float] = None,
     research_policy: Optional[Mapping] = None,
     *, require_fresh_references: bool = True, lookahead_hours: float = SHORTLIST_LOOKAHEAD_HOURS,
+    uniform_probability_rules: bool = False,
 ) -> dict:
     label, key, min_prob, min_raw = spec
     research = research_policy or {}
+    # v22 applies one common adjusted no-loss cutoff after all market evaluations.
+    # Keep probability validity, EV and historical gates; old policies retain their floors.
+    if uniform_probability_rules:
+        min_prob = min_raw = 0.0
     base_min_prob = min_prob
     min_prob += research.get('blended_shift', 0.0)
     min_raw += research.get('raw_shift', 0.0)
@@ -317,6 +322,8 @@ def _evaluate_market(
     if adjusted_ev_floor is not None:
         min_adjusted_ev = adjusted_ev_floor
     min_adjusted_probability = (MIN_DOUBLE_CHANCE_ADJUSTED_PROBABILITY if is_double_chance else base_min_prob) + research.get('adjusted_shift', 0.0)
+    if uniform_probability_rules:
+        min_adjusted_probability = 0.0
     adjusted_tolerance = 1e-12
     if conservative_ev is None or conservative_ev + adjusted_tolerance < min_adjusted_ev:
         reasons.append(f"reliability-adjusted EV below +{min_adjusted_ev:.1%} or missing")

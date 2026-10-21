@@ -36,6 +36,11 @@ def validate_policy(data):
         if isinstance(tolerance,bool) or not isinstance(tolerance,(int,float)) or not math.isfinite(tolerance) or not 0 <= tolerance <= 1:
             raise ValueError('asian_handicap_risk_tolerance must be a finite probability from 0 to 1')
         risk_settings['asian_handicap_risk_tolerance'] = tolerance
+    if 'min_adjusted_no_loss_probability' in data:
+        floor = data['min_adjusted_no_loss_probability']
+        if isinstance(floor,bool) or not isinstance(floor,(int,float)) or not math.isfinite(floor) or not 0 <= floor <= 1:
+            raise ValueError('min_adjusted_no_loss_probability must be a finite probability from 0 to 1')
+        risk_settings['min_adjusted_no_loss_probability'] = floor
     return {**risk_settings, **({'fallback_bookmakers': fallback} if fallback else {}), 'allowed_bookmakers': names, 'per_stake_cost_bps': costs,
             'exchange_policy': 'EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER',
             'account_availability': 'USER_ALLOWLIST' if names else 'NOT_VERIFIED'}

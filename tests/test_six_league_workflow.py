@@ -68,7 +68,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertNotIn('Both Teams to Score - Yes', picks.market.tolist())
                 self.assertTrue(pd.read_csv(raw/'all_leagues_predictions.csv').p_under_3_5.eq(.99).all())
                 summary = json.loads((raw/'conservative_bet_summary.json').read_text())
-                self.assertEqual(summary['selection_policy_version'], '48h-risk-band-ev1-asian-handicap-dc-over15-v21')
+                self.assertEqual(summary['selection_policy_version'], '48h-zero-tolerance-ev1-common-no-loss75-v22')
                 self.assertTrue({'Home win','Away win','Over 1.5','Double Chance 1X','Double Chance X2','Double Chance 12'}.issubset(summary['eligible_markets']))
                 self.assertNotIn('Draw',summary['eligible_markets'])
                 self.assertIn('Asian Handicap Home +0.00', summary['eligible_markets'])

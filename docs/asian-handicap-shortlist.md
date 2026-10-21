@@ -1,4 +1,4 @@
-# Asian handicap shortlist — policy v21
+# Asian handicap shortlist — policy v22
 
 New prediction runs compare Home win, Away win, Over 1.5, Double Chance
 1X/X2/12, and supported home/away Asian handicap lines. Draw, BTTS and
@@ -48,22 +48,42 @@ The selector:
    Choose one market per fixture, then order those representatives by risk and
    cap at twelve. No quote, identity or reliability gate is bypassed.
 
-The default tolerance is **0.01 (1 percentage point)**, an absolute probability
-difference, configured as `asian_handicap_risk_tolerance` in
-`shortlist_quote_policy.json`. A 10% minimum admits lines up to 11%; a 12% line
-is excluded even if another line is at 11%. A zero tolerance requires a minimum-
-risk line, with EV before refund tie-breaks. The value must be finite, numeric
-and between 0 and 1. It is frozen in the run's execution policy and summary;
-selected rows record the minimum and tolerance for deterministic replay.
+New v22 runs require **zero risk tolerance** and a common minimum adjusted
+no-loss probability of **0.75 (75%)** across every eligible market. A candidate
+with conservative estimated loss risk above 25% is rejected, even with positive
+EV. For an ordinary market avoiding loss means winning; for an Asian handicap
+it includes full wins, half-wins and full refunds. Half-losses fail that outcome.
+The common floor replaces ordinary markets' old blended/raw/adjusted probability
+floors; probability validity, chronological historical/high-confidence evidence,
+nonnegative raw EV, the raw winner-direction guard and all quote checks remain.
 
-**The tolerance is a provisional policy choice, not a statistical confidence
-interval or historically optimized threshold.** The available history validates
+For every market, the conservative loss metric uses the worse of the blended
+and unblended loss probabilities plus that market's development calibration
+penalty, capped at one. EV continues to adjust the blended settlement payoff,
+with unblended EV checked independently. Penalties remain market-specific;
+equivalent Double Chance and +0.5 handicap outcomes can therefore have different
+conservative estimates despite identical settlement. These are estimates, not
+a formal guarantee or a statistically proven risk bound.
+
+The settings are frozen in the execution policy: `min_adjusted_no_loss_probability`
+(default 0.75) and `asian_handicap_risk_tolerance` (required zero for v22). The
+summary freezes both the minimum no-loss and maximum loss probabilities, and
+integrity replay verifies them. A riskier candidate cannot displace a lower-risk
+qualifier to obtain higher EV; EV and refund comparisons only break minimum-risk
+ties, allowing numerical roundoff of 1e-12. Fewer than twelve picks or no picks
+is valid. The visible alternatives pass the same 75% gate and are explicitly
+marked when outside the selected zero-tolerance risk band.
+
+Frozen v19-v21 runs retain their original configurable 1-percentage-point
+default risk bands and original eligibility. The 75% floor is a user-selected
+policy setting, not an empirically optimized threshold. The available history validates
 no-loss probabilities, but lacks a sufficient historical set of executable
 handicap prices to optimize this EV/risk tradeoff or establish ROI. Later tuning
 needs development-only quote data and separate evaluation data. The existing
 raw/blended model and calibration penalty are unchanged.
 
-Binary markets retain their probability, calibration and quote-integrity rules,
+Binary markets retain probability validity, calibration and quote-integrity rules,
+with their old probability floors replaced by the common adjusted no-loss floor,
 with the current adjusted EV floor set to 1% (previously 1.5%), and compete
 in the same per-fixture risk-band comparison. Therefore the shortlist need not consist only
 of handicaps. Nonzero per-stake costs currently make Asian picks ineligible:
@@ -187,7 +207,7 @@ settlement-aware no-loss probability. Versioned normalization preserves old
 closing observations. Missing bet365 close coverage remains explicit.
 
 The probability/EV weighting, legacy shortlist-policy and EV-filter experiments
-are not generated for v17/v18/v19/v20/v21: they compare a different ranking objective and market
+are not generated for v17/v18/v19/v20/v21/v22: they compare a different ranking objective and market
 pool. Existing immutable experiments continue to be graded under their original
 rules. Other probability-model research sidecars remain separate and unchanged.
 The summary explicitly identifies these ranking experiments as not applicable.
@@ -199,7 +219,8 @@ forecast alone cannot invent missing margin distributions, quotes or calibration
 
 ## Policy version and replay
 
-New runs use v21 with a common 1% adjusted EV floor and Double Chance eligibility. Frozen v17 archives retain
+New runs use v22 with a common 1% adjusted EV floor, a 75% adjusted no-loss floor,
+zero risk tolerance and Double Chance eligibility. Frozen v17 archives retain
 their original Asian EV floors and
 Pinnacle/bet365 scope; frozen v18 archives retain floorless loss-first ranking.
 Frozen v19 archives retain zero adjusted EV for Asian picks and 1.5% for
@@ -232,4 +253,4 @@ Double Chance collection is restored to the existing event request; its new
 cache namespace prevents reuse of responses fetched without that market. This
 adds a requested market and can increase provider credit usage. Missing or
 stale quotes and insufficient Double Chance history still exclude candidates.
-Policies v17-v20 retain their original market eligibility and ranking for replay.
+Policies v17-v21 retain their original market eligibility and ranking for replay.
