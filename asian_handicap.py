@@ -14,8 +14,11 @@ from quote_freshness import quote_is_fresh
 
 LEGACY_POLICY = '48h-loss-first-asian-handicap-1x2-over15-v17'
 FLOORLESS_POLICY = '48h-loss-first-asian-handicap-1x2-over15-v18'
-POLICY = '48h-risk-band-ev-asian-handicap-1x2-over15-v19'
-POLICIES = (LEGACY_POLICY, FLOORLESS_POLICY, POLICY)
+ZERO_EV_POLICY = '48h-risk-band-ev-asian-handicap-1x2-over15-v19'
+POLICY = '48h-risk-band-ev1-asian-handicap-1x2-over15-v20'
+RISK_BAND_POLICIES = (ZERO_EV_POLICY, POLICY)
+POLICIES = (LEGACY_POLICY, FLOORLESS_POLICY, *RISK_BAND_POLICIES)
+MIN_ADJUSTED_EV = .01
 DEFAULT_RISK_TOLERANCE = .01
 VERSION = 'asian-handicap-loss-first-v1'
 LINES = tuple(i/4 for i in range(-12, 13))
@@ -238,7 +241,7 @@ def _rank_risk_band(pool, tolerance):
 def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY):
     """Risk first, strict gates, one market per fixture. No target-filling bypass."""
     from conservative_bet_filter import (build_conservative_shortlist, BALANCED_SELECTION_POLICY_VERSION,
-                                        SHORTLIST_COLUMNS, SUPPORTED_LEAGUES)
+                                        SHORTLIST_COLUMNS, SUPPORTED_LEAGUES, CURRENT_MARKET_SPECS, _evaluate_market)
     from quote_policy import load_policy, validate_policy, usable_bookmaker
     from performance_tracking import fixture_key
     now = pd.Timestamp(as_of)
@@ -247,7 +250,9 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     now = now.tz_convert('UTC')
     policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
     legacy = policy_version == LEGACY_POLICY
-    current = policy_version == POLICY
+    current = policy_version in RISK_BAND_POLICIES
+    one_percent = policy_version == POLICY
+    required_ev = MIN_ADJUSTED_EV if one_percent else 0.
     if current:
         policy = validate_policy({**policy, 'asian_handicap_risk_tolerance':policy.get('asian_handicap_risk_tolerance',DEFAULT_RISK_TOLERANCE)})
     tolerance = policy.get('asian_handicap_risk_tolerance',DEFAULT_RISK_TOLERANCE)
@@ -261,8 +266,17 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             raise ValueError('Invalid minimum expected value')
     elif adjusted_ev_floor is not None:
         raise ValueError('This Asian handicap policy does not accept a custom EV floor')
-    _, ordinary, _ = build_conservative_shortlist(predictions, as_of=now, market_reliability=market_reliability,
-        execution_policy=policy, selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)
+    if one_percent:
+        # Reuse all binary-market integrity/calibration gates with the v20 floor.
+        # Do not alter historical policy constants or replay their old gates at 1%.
+        specs = [s for s in CURRENT_MARKET_SPECS if s[0] in ('Home win','Draw','Away win','Over 1.5')]
+        records = [_evaluate_market(row,spec,now,(market_reliability or {}).get(str(row.get('league'))),
+            policy,MIN_ADJUSTED_EV,require_fresh_references=True,lookahead_hours=48.)
+            for _,row in predictions.iterrows() for spec in specs]
+        ordinary = pd.DataFrame(records,columns=SHORTLIST_COLUMNS)
+    else:
+        _, ordinary, _ = build_conservative_shortlist(predictions, as_of=now, market_reliability=market_reliability,
+            execution_policy=policy, selection_policy_version=BALANCED_SELECTION_POLICY_VERSION)
     ordinary = ordinary.loc[ordinary.market.isin(['Home win', 'Draw', 'Away win', 'Over 1.5'])].copy()
     # Restore the underlying gate; v16's watchlist ranking never relaxes v17 gates.
     ordinary['decision'] = ordinary.rejection_reasons.fillna('').map(lambda x: 'ELIGIBLE' if not x else 'REJECTED')
@@ -334,8 +348,8 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             risk = min(1., max(p['p_any_loss'], raw['p_any_loss'])+penalty)
             if legacy and (adjusted_ev < floor or raw['estimated_ev'] < 0):
                 reasons.append('positive conservative EV and nonnegative raw EV required')
-            if current and (adjusted_ev < 0 or raw['estimated_ev'] < 0):
-                reasons.append('negative adjusted or unblended EV')
+            if current and (adjusted_ev < required_ev or raw['estimated_ev'] < 0):
+                reasons.append('adjusted EV below +1.0% or negative unblended EV' if one_percent else 'negative adjusted or unblended EV')
             item = {field: None for field in SHORTLIST_COLUMNS+FIELDS}
             item.update({k: row.get(k) for k in ('date','league','home_team','away_team','fixture_id','kickoff_utc')})
             item.update(evaluated_at_utc=now.isoformat(), market=name,
@@ -389,7 +403,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
         'quote_execution_policy':policy, 'validation_required':True, 'selection_objective':'MINIMIZE_ESTIMATED_NET_LOSS',
         'selection_method':'Lowest conservative estimated loss risk, then refund probability, adjusted EV, unblended EV, price; one per fixture',
         'ranking_metric':'loss_probability_upper ascending; p_refund descending; adjusted EV descending' + ('' if legacy else '; unblended EV descending'),
-        'min_estimated_ev':floor if legacy else 0. if current else None,
+        'min_estimated_ev':floor if legacy else required_ev if current else None,
         'min_raw_dc_ev':0. if legacy or current else None, 'ev_required_for_selection':legacy or current,
         'validation_market_statuses':{league:{key:state.get('status','INSUFFICIENT_HISTORY') for key,state in report.get('markets',{}).items()} for league,report in (market_reliability or {}).items()},
         'legacy_ranking_experiments':'NOT_APPLICABLE_TO_LOSS_FIRST_POLICY; archived experiments remain graded', 'ranking_is_empirically_optimized':False,
@@ -401,8 +415,8 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             loss_risk_tolerance=tolerance, risk_tolerance_status='PROVISIONAL_POLICY_SETTING_NOT_EMPIRICALLY_TUNED',
             selection_method='Per fixture: within tolerance of minimum eligible loss risk, then adjusted EV, unblended EV, refund probability; fixture representatives ordered by loss risk; cap 12',
             ranking_metric='risk band per fixture; adjusted EV descending; unblended EV descending; refund probability descending',
-            shortfall_reason='No padding: missing evidence or nonnegative EV can reduce the shortlist' if len(selected)<12 else None,
-            warning='Probabilities and EV are model estimates, not guarantees. Both Asian EV estimates must be nonnegative. Risk tolerance is provisional; refunds are not wins. Flat-stake research, not accumulator protection.')
+            shortfall_reason='No padding: missing evidence or failing the EV floors can reduce the shortlist' if len(selected)<12 else None,
+            warning='Probabilities and EV are model estimates, not guarantees. Required adjusted EV: '+format(required_ev,'.1%')+'; unblended EV must be nonnegative. Risk tolerance is provisional; refunds are not wins. Flat-stake research, not accumulator protection.')
     return selected, decisions.reset_index(drop=True), summary
 
 

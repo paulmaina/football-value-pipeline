@@ -140,9 +140,10 @@ save times never backdate cloud evidence. Headline performance uses the latest
 eligible archived selection per fixture; all eligible runs remain in Run Tracking.
 
 The current shortlist is capped at twelve distinct matches within 48 hours.
-New policy v19 allows Home win, Draw, Away win, Over 1.5 and full-time Asian goal
-handicaps from Pinnacle/bet365, with 1xBet as an exact-market fallback. Both Asian
-adjusted and unblended EV must be nonnegative. For each match, candidates within
+New policy v20 allows Home win, Draw, Away win, Over 1.5 and full-time Asian goal
+handicaps from Pinnacle/bet365, with 1xBet as an exact-market fallback. Every
+shortlisted market requires adjusted estimated EV >=1% and unblended EV >=0.
+For each match, candidates within
 1 percentage point of the minimum eligible estimated loss risk compete on
 adjusted EV, unblended EV, then refund probability. This configurable tolerance
 is provisional, not an empirically tuned optimum. Selected fixture representatives
