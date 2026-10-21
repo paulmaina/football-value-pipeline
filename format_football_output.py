@@ -1240,8 +1240,10 @@ def process_conservative_shortlist(
         ].copy()
 
     readable = readable_shortlist_frame(raw)
-    from asian_handicap import POLICY as CURRENT_AH_POLICY
-    show_alternatives = summary.get('selection_policy_version') == CURRENT_AH_POLICY
+    if summary.get('min_adjusted_no_loss_probability') is not None:
+        readable['Minimum adjusted no-loss chance'] = pct(summary['min_adjusted_no_loss_probability'])
+    from asian_handicap import ALTERNATIVE_POLICIES
+    show_alternatives = summary.get('selection_policy_version') in ALTERNATIVE_POLICIES
     if show_alternatives:
         readable = add_shortlist_alternatives(readable, raw, input_dir, summary)
     if probability_first:
@@ -1310,6 +1312,8 @@ def process_conservative_shortlist(
     from asian_handicap import POLICIES as AH_POLICIES
     asian = summary.get('selection_policy_version') in AH_POLICIES
     if asian:
+        if summary.get('min_adjusted_no_loss_probability') is not None:
+            lines += ['**Common safety cutoff:** adjusted probability of avoiding any loss >= '+pct(summary['min_adjusted_no_loss_probability'])+' for every market. Zero risk tolerance: the lowest conservative estimated loss risk wins; EV breaks equal-risk ties. Refunds count as avoiding loss; half-losses do not. This cutoff is a policy setting, not a guarantee.', '']
         if summary.get('loss_risk_tolerance') is not None:
             lines += ['**Shortlist policy:** require adjusted estimated EV >= '+pct(summary.get('min_estimated_ev'))+' and unblended EV >= 0. For each match, admit candidates within '+pct(summary.get('loss_risk_tolerance'))+' of its lowest eligible estimated loss risk; rank highest adjusted EV, unblended EV, then full-refund probability. The risk tolerance is a provisional policy setting, not empirically tuned.',
                       '**Probability meaning:** Asian model chance includes refunds. Half-losses lose money. Estimates do not guarantee outcomes. Pinnacle/bet365 take priority, with 1xBet as an exact-line fallback.', '']
@@ -1367,9 +1371,11 @@ def process_conservative_shortlist(
         "must pass the >=85% audit. The readable CSV includes the group "
         "sample size, observed rate and Wilson 95% uncertainty range."),
         "",
-        "Conservative estimated EV uses that adjusted chance and the quoted "
-        "price. Neither the original EV nor the adjusted EV is assured; "
-        "bookmaker prices may change before kickoff.",
+        ("Conservative estimated EV adjusts the blended model's settlement payoff using the market calibration penalty. "
+         "The loss-risk comparison separately uses the worse blended/unblended loss estimate plus that penalty. "
+         "Neither measure is assured; bookmaker prices may change before kickoff."
+         if summary.get('min_adjusted_no_loss_probability') is not None else
+         "Conservative estimated EV uses that adjusted chance and the quoted price. Neither the original EV nor the adjusted EV is assured; bookmaker prices may change before kickoff."),
         "",
         (
             "**Selection method:** "

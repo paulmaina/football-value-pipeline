@@ -16,12 +16,15 @@ LEGACY_POLICY = '48h-loss-first-asian-handicap-1x2-over15-v17'
 FLOORLESS_POLICY = '48h-loss-first-asian-handicap-1x2-over15-v18'
 ZERO_EV_POLICY = '48h-risk-band-ev-asian-handicap-1x2-over15-v19'
 PREVIOUS_POLICY = '48h-risk-band-ev1-asian-handicap-1x2-over15-v20'
-POLICY = '48h-risk-band-ev1-asian-handicap-dc-over15-v21'
-ONE_PERCENT_POLICIES = (PREVIOUS_POLICY, POLICY)
+DOUBLE_CHANCE_POLICY = '48h-risk-band-ev1-asian-handicap-dc-over15-v21'
+POLICY = '48h-zero-tolerance-ev1-common-no-loss75-v22'
+ALTERNATIVE_POLICIES = (DOUBLE_CHANCE_POLICY, POLICY)
+ONE_PERCENT_POLICIES = (PREVIOUS_POLICY, *ALTERNATIVE_POLICIES)
 RISK_BAND_POLICIES = (ZERO_EV_POLICY, *ONE_PERCENT_POLICIES)
 POLICIES = (LEGACY_POLICY, FLOORLESS_POLICY, *RISK_BAND_POLICIES)
 MIN_ADJUSTED_EV = .01
-DEFAULT_RISK_TOLERANCE = .01
+DEFAULT_RISK_TOLERANCE = .01  # Frozen v19-v21 default.
+MIN_ADJUSTED_NO_LOSS = .75
 VERSION = 'asian-handicap-loss-first-v1'
 LINES = tuple(i/4 for i in range(-12, 13))
 OUTCOMES = ('full_win', 'half_win', 'refund', 'half_loss', 'full_loss')
@@ -242,7 +245,7 @@ def _rank_risk_band(pool, tolerance):
 
 def ordinary_markets(policy_version):
     """Versioned eligibility keeps frozen forecasts replayable."""
-    if policy_version == POLICY:
+    if policy_version in ALTERNATIVE_POLICIES:
         return ['Home win', 'Away win', 'Over 1.5',
                 'Double Chance 1X', 'Double Chance X2', 'Double Chance 12']
     return ['Home win', 'Draw', 'Away win', 'Over 1.5']
@@ -304,9 +307,16 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     current = policy_version in RISK_BAND_POLICIES
     one_percent = policy_version in ONE_PERCENT_POLICIES
     required_ev = MIN_ADJUSTED_EV if one_percent else 0.
+    safest = policy_version == POLICY
+    minimum_no_loss = policy.get('min_adjusted_no_loss_probability', MIN_ADJUSTED_NO_LOSS) if safest else None
+    default_tolerance = 0. if safest else DEFAULT_RISK_TOLERANCE
     if current:
-        policy = validate_policy({**policy, 'asian_handicap_risk_tolerance':policy.get('asian_handicap_risk_tolerance',DEFAULT_RISK_TOLERANCE)})
-    tolerance = policy.get('asian_handicap_risk_tolerance',DEFAULT_RISK_TOLERANCE)
+        policy = validate_policy({**policy, 'asian_handicap_risk_tolerance':policy.get('asian_handicap_risk_tolerance',default_tolerance)})
+    tolerance = policy.get('asian_handicap_risk_tolerance',default_tolerance)
+    if safest:
+        if tolerance != 0:
+            raise ValueError('This policy requires zero risk tolerance')
+        policy = validate_policy({**policy, 'min_adjusted_no_loss_probability': minimum_no_loss})
     supported = ['Pinnacle','bet365'] if legacy else ['Pinnacle','bet365','1xBet']
     allowed = [b for b in policy['allowed_bookmakers'] if bookmaker(b) in supported] if policy['allowed_bookmakers'] else supported
     policy = validate_policy({**policy, 'allowed_bookmakers': allowed or ['__NO_SUPPORTED_BOOKMAKER__']})
@@ -322,7 +332,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
         # Do not alter historical policy constants or replay their old gates at 1%.
         specs = [s for s in CURRENT_MARKET_SPECS if s[0] in ordinary_markets(policy_version)]
         records = [_evaluate_market(row,spec,now,(market_reliability or {}).get(str(row.get('league'))),
-            policy,MIN_ADJUSTED_EV,require_fresh_references=True,lookahead_hours=48.)
+            policy,MIN_ADJUSTED_EV,require_fresh_references=True,lookahead_hours=48.,uniform_probability_rules=safest)
             for _,row in predictions.iterrows() for spec in specs]
         ordinary = pd.DataFrame(records,columns=SHORTLIST_COLUMNS)
     else:
@@ -335,6 +345,10 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     ordinary['p_any_loss'] = 1-ordinary.predicted_probability
     ordinary['p_refund'] = 0.
     ordinary['loss_probability_upper'] = 1-ordinary.rank_probability
+    if safest:
+        ordinary['loss_probability_upper'] = np.minimum(1., np.maximum(1-ordinary.predicted_probability,
+            1-ordinary.raw_dc_probability) + ordinary.calibration_penalty)
+        ordinary['rank_probability'] = 1-ordinary.loss_probability_upper
     ordinary['probability_basis'] = 'win'
     for field in FIELDS:
         if field not in ordinary:
@@ -399,7 +413,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             risk = min(1., max(p['p_any_loss'], raw['p_any_loss'])+penalty)
             if legacy and (adjusted_ev < floor or raw['estimated_ev'] < 0):
                 reasons.append('positive conservative EV and nonnegative raw EV required')
-            if current and (adjusted_ev < required_ev or raw['estimated_ev'] < 0):
+            if current and (adjusted_ev + (1e-12 if safest else 0.) < required_ev or raw['estimated_ev'] < 0):
                 reasons.append('adjusted EV below +1.0% or negative unblended EV' if one_percent else 'negative adjusted or unblended EV')
             item = {field: None for field in SHORTLIST_COLUMNS+FIELDS}
             item.update({k: row.get(k) for k in ('date','league','home_team','away_team','fixture_id','kickoff_utc')})
@@ -420,6 +434,12 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             evaluated.append(item)
     columns = list(dict.fromkeys(SHORTLIST_COLUMNS+FIELDS))
     decisions = pd.DataFrame(evaluated).reindex(columns=columns)
+    if safest:
+        unsafe = decisions.rank_probability.isna() | (decisions.rank_probability + 1e-12 < minimum_no_loss)
+        for idx in decisions.index[unsafe]:
+            prior = decisions.at[idx, 'rejection_reasons']
+            decisions.loc[idx, ['decision','rejection_reasons']] = ['REJECTED', '; '.join(filter(None,
+                [prior, 'adjusted probability of avoiding loss below '+format(minimum_no_loss, '.0%')+' or missing']))]
     if not legacy:
         # Fallback is per exact fixture/side/line; invalid or stale primary quotes
         # do not suppress a valid fallback. All other gates still apply.
@@ -468,6 +488,15 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             ranking_metric='risk band per fixture; adjusted EV descending; unblended EV descending; refund probability descending',
             shortfall_reason='No padding: missing evidence or failing the EV floors can reduce the shortlist' if len(selected)<12 else None,
             warning='Probabilities and EV are model estimates, not guarantees. Required adjusted EV: '+format(required_ev,'.1%')+'; unblended EV must be nonnegative. Risk tolerance is provisional; refunds are not wins. Flat-stake research, not accumulator protection.')
+    if safest:
+        summary.update(min_adjusted_no_loss_probability=minimum_no_loss,
+            max_estimated_loss_probability=1-minimum_no_loss,
+            selection_objective='MINIMIZE_CONSERVATIVE_ESTIMATED_LOSS_RISK',
+            selection_method='Require common adjusted no-loss probability floor; zero risk tolerance; lowest conservative loss estimate per fixture, then adjusted EV, unblended EV and refund probability; cap 12',
+            ranking_metric='loss_probability_upper ascending; EV breaks equal minimum-risk ties',
+            probability_cutoff_status='USER_SELECTED_POLICY_SETTING_NOT_EMPIRICALLY_OPTIMIZED',
+            risk_tolerance_status='USER_REQUESTED_ZERO_TOLERANCE',
+            shortfall_reason='No padding: missing evidence or failing the common safety/EV cutoffs can reduce the shortlist' if len(selected)<12 else None)
     return selected, decisions.reset_index(drop=True), summary
 
 

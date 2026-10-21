@@ -87,7 +87,7 @@ def raw_check(root, *, raw_dir=None):
     from conservative_bet_filter import (BALANCED_SELECTION_POLICIES,
         BALANCED_SELECTION_POLICY_VERSION, TWELVE_MATCH_BALANCED_SELECTION_POLICIES, CURRENT_MARKET_SPECS, NO_UNDER35_SELECTION_POLICIES, TARGET_DISTINCT_MATCHES)
     policy_version = summary.get('selection_policy_version')
-    from asian_handicap import POLICIES as AH_POLICIES, RISK_BAND_POLICIES, ONE_PERCENT_POLICIES, parse_label as parse_handicap, ordinary_markets
+    from asian_handicap import POLICIES as AH_POLICIES, RISK_BAND_POLICIES, ONE_PERCENT_POLICIES, POLICY as SAFEST_POLICY, parse_label as parse_handicap, ordinary_markets
     asian = policy_version in AH_POLICIES
     if asian:
         require(summary.get('shortlist_lookahead_hours')==48 and len(picks)<=12,'Invalid Asian handicap horizon or cap')
@@ -159,6 +159,7 @@ def raw_check(root, *, raw_dir=None):
         for field in ('target_distinct_matches', 'shortfall', 'usable_distinct_fixtures',
                       *(['loss_risk_tolerance'] if policy_version in RISK_BAND_POLICIES else [] if asian else ['ranking_weights']),
                       *(['min_estimated_ev','min_raw_dc_ev','ev_required_for_selection'] if policy_version in ONE_PERCENT_POLICIES else []),
+                      *(['min_adjusted_no_loss_probability','max_estimated_loss_probability'] if policy_version == SAFEST_POLICY else []),
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')

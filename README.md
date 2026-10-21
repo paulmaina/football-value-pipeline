@@ -140,13 +140,15 @@ save times never backdate cloud evidence. Headline performance uses the latest
 eligible archived selection per fixture; all eligible runs remain in Run Tracking.
 
 The current shortlist is capped at twelve distinct matches within 48 hours.
-New policy v21 allows Home win, Away win, Over 1.5, Double Chance 1X/X2/12 and
+New policy v22 allows Home win, Away win, Over 1.5, Double Chance 1X/X2/12 and
 full-time Asian goal handicaps from Pinnacle/bet365, with 1xBet as an exact-market fallback. Every
 shortlisted market requires adjusted estimated EV >=1% and unblended EV >=0.
-For each match, candidates within
-1 percentage point of the minimum eligible estimated loss risk compete on
-adjusted EV, unblended EV, then refund probability. This configurable tolerance
-is provisional, not an empirically tuned optimum. Selected fixture representatives
+Every market must also have an adjusted no-loss probability of at least 75%
+(conservative loss estimate at most 25%). This common cutoff replaces the old
+market-specific probability floors. Zero risk tolerance selects the lowest
+conservative loss estimate per match; adjusted EV, unblended EV and refund
+probability break equal-risk ties. The 75% cutoff is a user-selected policy
+setting, not an empirically optimized threshold. Selected fixture representatives
 are ordered by loss risk for the twelve-match cap.
 Draw, BTTS and Under 3.5 are excluded from new shortlists. The readable CSV and
 Markdown report show a qualifying alternative per match, preferring another
