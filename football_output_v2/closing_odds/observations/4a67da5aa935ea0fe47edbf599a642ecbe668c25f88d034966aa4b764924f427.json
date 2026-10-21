@@ -1,0 +1,374 @@
+{
+  "fixture": {
+    "away_team": "Feyenoord",
+    "home_team": "Real Betis",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "f5905225efa837b0dc89b7dcdbb6c625"
+  },
+  "observed_at_utc": "2026-10-21T18:54:21.642212+00:00",
+  "payload": {
+    "away_team": "Feyenoord",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Feyenoord",
+                "price": 4.4
+              },
+              {
+                "name": "Real Betis",
+                "price": 1.77
+              },
+              {
+                "name": "Draw",
+                "price": 4.2
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Feyenoord",
+                "point": 0.75,
+                "price": 1.96
+              },
+              {
+                "name": "Real Betis",
+                "point": -0.75,
+                "price": 1.96
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.99
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.92
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Feyenoord",
+                "point": 0.75,
+                "price": 1.96
+              },
+              {
+                "name": "Feyenoord",
+                "point": 1.75,
+                "price": 1.34
+              },
+              {
+                "name": "Feyenoord",
+                "point": 1.5,
+                "price": 1.46
+              },
+              {
+                "name": "Feyenoord",
+                "point": 1.25,
+                "price": 1.55
+              },
+              {
+                "name": "Feyenoord",
+                "point": 1.0,
+                "price": 1.71
+              },
+              {
+                "name": "Feyenoord",
+                "point": 0.5,
+                "price": 2.18
+              },
+              {
+                "name": "Feyenoord",
+                "point": 0.25,
+                "price": 2.54
+              },
+              {
+                "name": "Feyenoord",
+                "point": -0.0,
+                "price": 3.28
+              },
+              {
+                "name": "Feyenoord",
+                "point": -0.25,
+                "price": 3.73
+              },
+              {
+                "name": "Real Betis",
+                "point": -0.75,
+                "price": 1.96
+              },
+              {
+                "name": "Real Betis",
+                "point": -1.75,
+                "price": 3.43
+              },
+              {
+                "name": "Real Betis",
+                "point": -1.5,
+                "price": 2.84
+              },
+              {
+                "name": "Real Betis",
+                "point": -1.25,
+                "price": 2.54
+              },
+              {
+                "name": "Real Betis",
+                "point": -1.0,
+                "price": 2.25
+              },
+              {
+                "name": "Real Betis",
+                "point": -0.5,
+                "price": 1.75
+              },
+              {
+                "name": "Real Betis",
+                "point": -0.25,
+                "price": 1.55
+              },
+              {
+                "name": "Real Betis",
+                "point": 0.0,
+                "price": 1.36
+              },
+              {
+                "name": "Real Betis",
+                "point": 0.25,
+                "price": 1.3
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-10-21T18:53:54Z",
+            "outcomes": [
+              {
+                "name": "Feyenoord",
+                "price": 3.32
+              },
+              {
+                "name": "Real Betis",
+                "price": 1.36
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-21T19:00:00Z",
+    "home_team": "Real Betis",
+    "id": "f5905225efa837b0dc89b7dcdbb6c625",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.77,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5551038879992343,
+      "selection": "home",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.2,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22778085182296195,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2171152601778037,
+      "selection": "away",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.96,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.96,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.99,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4907402952584428,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.92,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5092597047415571,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.73,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.54,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.18,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.71,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.46,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.34,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.43,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.84,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.54,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.25,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.75,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

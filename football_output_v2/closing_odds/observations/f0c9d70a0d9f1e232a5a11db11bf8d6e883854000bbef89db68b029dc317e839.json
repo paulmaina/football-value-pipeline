@@ -1,0 +1,390 @@
+{
+  "fixture": {
+    "away_team": "LASK",
+    "home_team": "Sporting Lisbon",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "8fdcaee14b3e8966e09d468a0b17ce18"
+  },
+  "observed_at_utc": "2026-10-21T18:54:22.076983+00:00",
+  "payload": {
+    "away_team": "LASK",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "LASK",
+                "price": 9.18
+              },
+              {
+                "name": "Sporting Lisbon",
+                "price": 1.32
+              },
+              {
+                "name": "Draw",
+                "price": 6.19
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "LASK",
+                "point": 1.5,
+                "price": 2.04
+              },
+              {
+                "name": "Sporting Lisbon",
+                "point": -1.5,
+                "price": 1.88
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.81
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.1
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "LASK",
+                "point": 1.5,
+                "price": 2.04
+              },
+              {
+                "name": "LASK",
+                "point": 2.5,
+                "price": 1.4
+              },
+              {
+                "name": "LASK",
+                "point": 2.25,
+                "price": 1.47
+              },
+              {
+                "name": "LASK",
+                "point": 2.0,
+                "price": 1.58
+              },
+              {
+                "name": "LASK",
+                "point": 1.75,
+                "price": 1.81
+              },
+              {
+                "name": "LASK",
+                "point": 1.25,
+                "price": 2.34
+              },
+              {
+                "name": "LASK",
+                "point": 1.0,
+                "price": 2.88
+              },
+              {
+                "name": "LASK",
+                "point": 0.75,
+                "price": 3.28
+              },
+              {
+                "name": "LASK",
+                "point": 0.5,
+                "price": 3.67
+              },
+              {
+                "name": "Sporting Lisbon",
+                "point": -1.5,
+                "price": 1.88
+              },
+              {
+                "name": "Sporting Lisbon",
+                "point": -2.5,
+                "price": 3.1
+              },
+              {
+                "name": "Sporting Lisbon",
+                "point": -2.25,
+                "price": 2.78
+              },
+              {
+                "name": "Sporting Lisbon",
+                "point": -2.0,
+                "price": 2.46
+              },
+              {
+                "name": "Sporting Lisbon",
+                "point": -1.75,
+                "price": 2.1
+              },
+              {
+                "name": "Sporting Lisbon",
+                "point": -1.25,
+                "price": 1.66
+              },
+              {
+                "name": "Sporting Lisbon",
+                "point": -1.0,
+                "price": 1.44
+              },
+              {
+                "name": "Sporting Lisbon",
+                "point": -0.75,
+                "price": 1.36
+              },
+              {
+                "name": "Sporting Lisbon",
+                "point": -0.5,
+                "price": 1.31
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-10-21T18:54:15Z",
+            "outcomes": [
+              {
+                "name": "LASK",
+                "price": 7.22
+              },
+              {
+                "name": "Sporting Lisbon",
+                "price": 1.12
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-21T19:00:00Z",
+    "home_team": "Sporting Lisbon",
+    "id": "8fdcaee14b3e8966e09d468a0b17ce18",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.32,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7494790336931175,
+      "selection": "home",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.19,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15054574904820583,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 9.18,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.0999752172586767,
+      "selection": "away",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.04,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.88,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.81,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5386620264703903,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.1,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4613379735296097,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.67,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.88,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.34,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.58,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.47,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.1,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.78,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.46,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.1,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.66,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.22,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-10-21T18:54:15+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.12,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-10-21T18:54:15+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

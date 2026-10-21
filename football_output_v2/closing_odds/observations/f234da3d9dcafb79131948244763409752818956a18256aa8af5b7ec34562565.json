@@ -1,0 +1,374 @@
+{
+  "fixture": {
+    "away_team": "Viking FK",
+    "home_team": "Aston Villa",
+    "kickoff_utc": "2026-10-21T19:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "d3b3e714b6af9e5430e3030ed639e6dd"
+  },
+  "observed_at_utc": "2026-10-21T18:54:21.207440+00:00",
+  "payload": {
+    "away_team": "Viking FK",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 1.25
+              },
+              {
+                "name": "Viking FK",
+                "price": 10.6
+              },
+              {
+                "name": "Draw",
+                "price": 7.4
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "point": -2.0,
+                "price": 1.84
+              },
+              {
+                "name": "Viking FK",
+                "point": 2.0,
+                "price": 2.08
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 1.83
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 2.07
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-10-21T18:54:08Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "point": -2.0,
+                "price": 1.84
+              },
+              {
+                "name": "Aston Villa",
+                "point": -3.0,
+                "price": 3.19
+              },
+              {
+                "name": "Aston Villa",
+                "point": -2.75,
+                "price": 2.6
+              },
+              {
+                "name": "Aston Villa",
+                "point": -2.5,
+                "price": 2.27
+              },
+              {
+                "name": "Aston Villa",
+                "point": -2.25,
+                "price": 2.06
+              },
+              {
+                "name": "Aston Villa",
+                "point": -1.75,
+                "price": 1.65
+              },
+              {
+                "name": "Aston Villa",
+                "point": -1.5,
+                "price": 1.53
+              },
+              {
+                "name": "Aston Villa",
+                "point": -1.25,
+                "price": 1.39
+              },
+              {
+                "name": "Aston Villa",
+                "point": -1.0,
+                "price": 1.26
+              },
+              {
+                "name": "Viking FK",
+                "point": 2.0,
+                "price": 2.08
+              },
+              {
+                "name": "Viking FK",
+                "point": 3.0,
+                "price": 1.35
+              },
+              {
+                "name": "Viking FK",
+                "point": 2.75,
+                "price": 1.5
+              },
+              {
+                "name": "Viking FK",
+                "point": 2.5,
+                "price": 1.66
+              },
+              {
+                "name": "Viking FK",
+                "point": 2.25,
+                "price": 1.83
+              },
+              {
+                "name": "Viking FK",
+                "point": 1.75,
+                "price": 2.33
+              },
+              {
+                "name": "Viking FK",
+                "point": 1.5,
+                "price": 2.56
+              },
+              {
+                "name": "Viking FK",
+                "point": 1.25,
+                "price": 3.02
+              },
+              {
+                "name": "Viking FK",
+                "point": 1.0,
+                "price": 3.91
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-10-21T18:54:15Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 1.07
+              },
+              {
+                "name": "Viking FK",
+                "price": 10.16
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-21T19:00:00Z",
+    "home_team": "Aston Villa",
+    "id": "d3b3e714b6af9e5430e3030ed639e6dd",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7919123766235115,
+      "selection": "home",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.12336367097993563,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 10.6,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.08472395239655278,
+      "selection": "away",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.08,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.84,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.91,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.02,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.33,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.83,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.66,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.5,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.35,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +3.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.19,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -3.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.27,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.06,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.65,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.39,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-10-21T18:54:08+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 10.16,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-10-21T18:54:15+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.07,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-10-21T18:54:15+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
