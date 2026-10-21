@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Athletic Bilbao",
+    "home_team": "Levante",
+    "kickoff_utc": "2026-10-21T18:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "a362cccad837f1ffae61ff43a3536688"
+  },
+  "observed_at_utc": "2026-10-21T17:54:04.274140+00:00",
+  "payload": {
+    "away_team": "Athletic Bilbao",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-21T17:53:27Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 2.29
+              },
+              {
+                "name": "Levante",
+                "price": 3.36
+              },
+              {
+                "name": "Draw",
+                "price": 3.26
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-21T17:53:27Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.08
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.8
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-21T17:53:51Z",
+            "outcomes": [
+              {
+                "name": "Athletic Bilbao",
+                "price": 2.34
+              },
+              {
+                "name": "Levante",
+                "price": 3.44
+              },
+              {
+                "name": "Draw",
+                "price": 3.23
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-21T17:53:51Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.85
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.07
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-21T18:00:00Z",
+    "home_team": "Levante",
+    "id": "a362cccad837f1ffae61ff43a3536688",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.36,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.28400900365636644,
+      "selection": "home",
+      "updated_at_utc": "2026-10-21T17:53:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2930627222657337,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-21T17:53:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.29,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.42292827407789974,
+      "selection": "away",
+      "updated_at_utc": "2026-10-21T17:53:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.08,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4619585192762564,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-21T17:53:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.8,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5380414807237436,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-21T17:53:27+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.44,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.28156813640498213,
+      "selection": "home",
+      "updated_at_utc": "2026-10-21T17:53:51+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.23,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3003626768711856,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-21T17:53:51+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.34,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.41806918672383214,
+      "selection": "away",
+      "updated_at_utc": "2026-10-21T17:53:51+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
