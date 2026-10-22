@@ -1,0 +1,65 @@
+name: Europa production integration check
+on:
+  push:
+    branches: ['audit/europa-league-access']
+    paths:
+      - '.github/workflows/europa-production-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: europa-production-check
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      THE_ODDS_API_KEY: ${{ secrets.THE_ODDS_API_KEY }}
+      THE_ODDS_API_KEY_FALLBACK_1: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_1 }}
+      THE_ODDS_API_KEY_FALLBACK_2: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_2 }}
+      FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r football_value_requirements.txt
+      - name: Generate Europa forecasts with one additional event quote call maximum
+        run: >-
+          python football_value_pipeline_v2_standalone.py --leagues UEL
+          --api-key-source environment --additional-odds-coverage ranked
+          --max-extra-event-odds-requests 1 --out-dir football_output_v2/raw
+      - run: python workflow_checks.py raw
+      - run: python format_football_output.py
+      - name: Record verified aggregate outcomes
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          import pandas as pd
+          raw=Path('football_output_v2/raw')
+          diagnostics=json.loads((raw/'UEL_diagnostics.json').read_text())
+          predictions=pd.read_csv(raw/'UEL_predictions.csv')
+          picks=pd.read_csv(raw/'conservative_bet_shortlist.csv')
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as stream:
+              stream.write(f"Europa training matches: {diagnostics['training_matches']}\n\n")
+              stream.write(f"Optimizer converged: {diagnostics['fit_success']}\n\n")
+              stream.write(f"Forecasts: {len(predictions)}; qualifying picks: {len(picks)}\n\n")
+              stream.write(f"Live odds matched: {diagnostics['live_odds_matched']}\n\n")
+              stream.write('This check does not publish forecasts to main or merge the PR.\n')
+          if not diagnostics['the_odds_api_enabled'] or not diagnostics['live_odds_matched']:
+              raise RuntimeError('Live Europa odds could not be verified; inspect provider diagnostics')
+          PY
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: europa-production-derived-reports
+          path: |
+            football_output_v2/raw/UEL_diagnostics.json
+            football_output_v2/raw/UEL_goal_market_validation.json
+            football_output_v2/raw/conservative_bet_summary.json
+            football_output_v2/readable/conservative_bet_shortlist_readable.csv
+          retention-days: 7

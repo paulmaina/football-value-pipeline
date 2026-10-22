@@ -22,7 +22,7 @@ from quote_freshness import MAX_QUOTE_AGE_HOURS, quote_is_fresh
 DOMESTIC_LEAGUES = frozenset({
     "Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1"
 })
-SUPPORTED_LEAGUES = DOMESTIC_LEAGUES | {"UEFA Champions League"}
+SUPPORTED_LEAGUES = DOMESTIC_LEAGUES | {"UEFA Champions League", "UEFA Europa League"}
 TARGET_DISTINCT_MATCHES = 12
 SHORTLIST_LOOKAHEAD_HOURS = 72.0  # Archived legacy policy contract.
 BALANCED_SHORTLIST_LOOKAHEAD_HOURS = 48.0
@@ -210,6 +210,10 @@ def _evaluate_market(
     high_penalty = 0.0
     if validation is None and key in ("home_draw", "draw_away", "home_away"):
         reasons.append("double chance historical reliability report required")
+    from europa_training import eligibility
+    reasons.extend(eligibility(row))
+    if validation is None and league == "UEFA Europa League":
+        reasons.append("Europa League historical reliability report required")
     if validation is None and league == "UEFA Champions League":
         reasons.append("UCL historical reliability report required")
     if validation is not None:

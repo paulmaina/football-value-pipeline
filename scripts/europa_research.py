@@ -159,7 +159,7 @@ def reconcile(source_dir, aliases, reviews):
     source_dir = Path(source_dir)
     history, evidence, corrections, identity_corrections = [], {}, [], []
     for year in (2022, 2023, 2024):
-        of = parse_openfootball((source_dir/f'openfootball-{year}.txt').read_text(), year, resolve)
+        of = parse_openfootball((source_dir/f'openfootball-{year}.txt').read_text(encoding='utf-8'), year, resolve)
         fd = fixture_rows(source_dir/f'fixture-{year}.csv', year, resolve)
         for row in fd:
             for review in reviews.get('_identity_reviews', []):
@@ -186,7 +186,7 @@ def reconcile(source_dir, aliases, reviews):
     # UEFA article identifies AET matches; all such rows require a separately
     # reviewed official report. Pair matches are admitted only when unique.
     fd = fixture_rows(source_dir/'fixture-2025.csv', 2025, resolve)
-    official = uefa_scores((source_dir/'uefa-2025.html').read_text(), resolve)
+    official = uefa_scores((source_dir/'uefa-2025.html').read_text(encoding='utf-8'), resolve)
     if len(fd) != 189 or len(official) != 189:
         raise ValueError('Incomplete 2025/26 season')
     if {x['match_id'] for x in official if x['aet']} != {k for k in reviews if k.isdigit()}:
@@ -224,12 +224,12 @@ def reconcile(source_dir, aliases, reviews):
 
 def audit_cornerflick(source_dir, resolve, now):
     source_dir = Path(source_dir)
-    payload = json.loads((source_dir/'cornerflick.json').read_text())
+    payload = json.loads((source_dir/'cornerflick.json').read_text(encoding='utf-8'))
     if payload.get('competition', {}).get('slug') != 'europa-league':
         raise ValueError('Wrong Cornerflick competition')
     if payload.get('meta', {}).get('match_count') != len(payload['matches']):
         raise ValueError('Cornerflick count does not reconcile')
-    official = uefa_scores((source_dir/'uefa-2026.html').read_text(), resolve)
+    official = uefa_scores((source_dir/'uefa-2026.html').read_text(encoding='utf-8'), resolve)
     expected = fixture_rows(source_dir/'fixture-2026.csv', 2026, resolve)
     # Only labelled league-phase rows corroborated against both sources can
     # enter the final research fit, never the historical validation periods.
@@ -278,8 +278,8 @@ def main():
     args = parser.parse_args()
     if args.output_dir.resolve().is_relative_to(ROOT) or args.source_dir.resolve() == args.output_dir.resolve():
         parser.error('Output must be outside the repository and separate from source inputs')
-    aliases = json.loads((ROOT/'docs/audits/europa-team-aliases.json').read_text())
-    reviews = json.loads((ROOT/'docs/audits/europa-regulation-reviews.json').read_text())
+    aliases = json.loads((ROOT/'docs/audits/europa-team-aliases.json').read_text(encoding='utf-8'))
+    reviews = json.loads((ROOT/'docs/audits/europa-regulation-reviews.json').read_text(encoding='utf-8'))
     history, report = reconcile(args.source_dir, aliases, reviews)
     report['cornerflick'], current = audit_cornerflick(args.source_dir, team_resolver(aliases), datetime.now(timezone.utc))
     report['inputs'] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
