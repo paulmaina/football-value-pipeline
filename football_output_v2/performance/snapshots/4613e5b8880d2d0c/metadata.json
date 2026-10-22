@@ -1,0 +1,28 @@
+{
+  "archive_id": "4613e5b8880d2d0ce751532e86eacc4600631a47",
+  "captured_at_utc": "2026-10-22T10:58:33Z",
+  "data_origin": "immutable prediction generation received at actual capture time",
+  "generated_at_utc": "2026-10-21T10:38:55.912885Z",
+  "git_commit_sha": "1b6c4adf89d3f8a8a91c750297f21b574a44a0c3",
+  "n_all_forecasts": 73,
+  "n_pre_kickoff_forecasts": 63,
+  "n_shortlist": 10,
+  "prediction_run_id": "769f040ba119e3a5ee3e3f75b25557f843dd9cb0b2ecb356e572534e706ff4b6",
+  "schema_version": 1,
+  "selection_policy_version": "48h-top-twelve-1x2-double-chance-over15-v16",
+  "sha256": {
+    "benchmark_forward_experiment.json": "a00c5584383a696e351d1be3773eba396462e0a538d057abb348eaad6b9ffd26",
+    "filter_sensitivity_experiment.json": "79fa56b6eb84fe3799fc585868792cb4153b7458901374763985f8ae693d1e6f",
+    "goal_blend_experiment.json": "9312000e6040937d49e9c6bd4308a39f0ffcdc28560cc121a31a9e6298b9ab01",
+    "market_led_experiment.json": "87e348315889e98428dad19ee3e7245682636a25b92bf4edd46f88b7546b5447",
+    "model_reliability_experiment.json": "ab3ad5847328dea732f91f8239b420c3f04f254710966d5eb812b6fd9cabdb5e",
+    "pipeline_health.json": "1c2fc751cbaa11e0edcf11f3e23c32a8599bd5348601706b6170dd3114d3aeae",
+    "predictions.csv": "8b7dc33c1fe9838b572f36a632b0cac542174180a132a0d47b6340ba1a09e119",
+    "run_manifest.json": "68ea15c61476cdb88c540c6a4a447a0d071a3602e11bd4e0eda7be6390043747",
+    "selection_summary.json": "c2314d2536193ea3cef3ead652fb0db27e89548d810a61a669b892bfc5c58ff0",
+    "shortlist.csv": "83671090a24743bd624b735974391c1744d37c6b56061478381697db3aae82d5",
+    "shortlist_policy_experiment.json": "b1bca1846191e23d60068035a51676888db3aae26653c0a2d941667d6c40c792",
+    "shortlist_weight_experiment.json": "ee2c7d8bfb638e8a0140d5799b50e14e3d7c907ba1573758fa1ebb27c9f464a0",
+    "totals_anchor_experiment.json": "6ec87130c90ec02e84d67e4deac3e4cfe155d64b6fdd2bdc2cc9e5c5174c0574"
+  }
+}

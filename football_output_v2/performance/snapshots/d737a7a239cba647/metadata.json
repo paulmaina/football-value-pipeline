@@ -1,0 +1,25 @@
+{
+  "archive_id": "d737a7a239cba647c6a18877351a8ec1e81a6350",
+  "captured_at_utc": "2026-10-22T10:58:33Z",
+  "data_origin": "immutable prediction generation received at actual capture time",
+  "generated_at_utc": "2026-10-21T17:29:13.086150Z",
+  "git_commit_sha": "1b6c4adf89d3f8a8a91c750297f21b574a44a0c3",
+  "n_all_forecasts": 85,
+  "n_pre_kickoff_forecasts": 77,
+  "n_shortlist": 6,
+  "prediction_run_id": "a0559dcea886b061584bcd642ffc55f85a4d8d115869b0b6fc44b610f7373415",
+  "schema_version": 1,
+  "selection_policy_version": "48h-risk-band-ev1-asian-handicap-1x2-over15-v20",
+  "sha256": {
+    "benchmark_forward_experiment.json": "0064d9ebc76a2a49c02f705b1dcf8d0731bc951f2fad795a90fb308859b871a3",
+    "goal_blend_experiment.json": "6361c0ef536e18335ca28206af34f00349f16cd4d14ccb09b86a47ce410e49e5",
+    "market_led_experiment.json": "33d5e0570d976411820a53990447a522e27d8e0a4bcdcfcaf844b85e3ab35235",
+    "model_reliability_experiment.json": "bb5a8564096387887fcfd6f372bc8a54f6a1856cd0929bf0095b2c62059976c1",
+    "pipeline_health.json": "a8b71d972991086a45ce139f37c6084262fc643b5be745ac7317124376a05115",
+    "predictions.csv": "a7aa2de901337cd4603fe346bf6a345629fa314bd96b48c03d86bd8af42573dd",
+    "run_manifest.json": "ea72f683a47b8f99f34f76cf88d1fcb1455df9f942fa1b4f7aa5f7cd9d3fabdc",
+    "selection_summary.json": "0a698998a83a4140c25ce34f06e03be55ac3c2587501ae8d7e667675f61defc3",
+    "shortlist.csv": "03af578e2d0e51dbced99f32aa03204201ee2596035d1b4817c5ad63822cc762",
+    "totals_anchor_experiment.json": "dced7c7d546be7266660ac6de828bfbbe25c49d34630af0f9cad1ef734f9aa03"
+  }
+}
