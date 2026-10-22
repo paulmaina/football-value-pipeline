@@ -1203,7 +1203,7 @@
   "prediction_1x2_multiclass_brier": 0.542639,
   "prediction_fixtures_graded": 101,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-10-22T05:07:05Z",
+  "reviewed_at_utc": "2026-10-22T08:26:52Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
@@ -1792,7 +1792,7 @@
     "win_rate": 0.818182,
     "wins": 135
   },
-  "source": "football-data.org v4 FINISHED regulation-time scorelines",
+  "source": "football-data.org v4 FINISHED regulation-time scorelines; Europa: corroborated Cornerflick / Fixture Download / UEFA league-phase scores",
   "status": "PARTIALLY_GRADED",
   "tracked_prediction_runs": 35,
   "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
