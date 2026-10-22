@@ -84,7 +84,7 @@ jobs:
 
           unittest.main()
           PY
-          python /tmp/test_local_prediction_fix.py
+          PYTHONPATH="$PWD" python /tmp/test_local_prediction_fix.py
           python -m py_compile football_value_pipeline_v2_standalone.py
 
       - name: Commit implementation
