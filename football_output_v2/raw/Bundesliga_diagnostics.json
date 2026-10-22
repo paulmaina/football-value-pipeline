@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "36e008b06627fefa8c0cd1c36857514046e5e9c91e95d456df742a17133ed250",
-  "training_as_of_utc": "2026-10-21T17:18:16.494074+00:00",
+  "training_sha256": "59a6af4527b312c54e5a945372880e0a496386c1332e248f6d495827a2d618c4",
+  "training_as_of_utc": "2026-10-22T10:56:00.959120+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 54,
     "bbs_added_results": 0,
@@ -27,7 +27,7 @@
       "unmapped": 668,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 13,
+      "statistics_observations": 16,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-21T17:18:16.494074+00:00",
-    "observations": 112,
-    "observations_sha256": "80049e9edf2057097a1415fd196c13c7a730cfe122a4ec9be55051637db8f79f",
+    "cutoff_utc": "2026-10-22T10:56:00.959120+00:00",
+    "observations": 117,
+    "observations_sha256": "1fbd2433f0e808c63f12c4f1a128a1d8257dee0aafd7de3572c17ad4415ad7b7",
     "eligible_training_matches": 15,
     "required_training_matches": 120,
     "feature_fields": [
@@ -63,7 +63,7 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 54,
+    "usable_current_matches": 57,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
     "strict_eligible_training_matches": 6,
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
-    "retrospective_inputs_sha256": "f3c52b31b22ce35cda6a56921bb9951a0f1b367416dc9fffed202ca6165e5247",
+    "retrospective_inputs_sha256": "36344966bf586cd1ed7bbeef1405ff77e3fdb372d754b3dbe98de225b222158b",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -81,10 +81,10 @@
   },
   "training_end": "2026-10-18",
   "fit_success": true,
-  "objective": 4828.985333344431,
-  "base": 0.23288420558216683,
-  "home_adv": 0.23591252099134707,
-  "rho": -0.11111324420737012,
+  "objective": 4828.985313481263,
+  "base": 0.23294690803639853,
+  "home_adv": 0.23587174721671453,
+  "rho": -0.11114595482019977,
   "half_life_days": 1000000000.0,
   "xi_per_day": 6.931471805599453e-10,
   "max_goals": 10,
@@ -92,7 +92,7 @@
   "market_weight": 0.5,
   "training_data_health": {
     "training_end": "2026-10-18",
-    "days_since_latest_result": 3,
+    "days_since_latest_result": 4,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -103,10 +103,10 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 15,
-  "additional_event_odds_calls_used_before_this_league": 1,
+  "additional_event_odds_calls_used_before_this_league": 2,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261021T171816494074Z_acb2c96ae589768b5627a576ba44aba5ac8d440f6d210f54722306b931f3091e.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261022T105600959120Z_5d7c832d5a9b79934b74ea6878ec44b56d915c707b07ba69ddede03c19b95ab7.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -116,10 +116,17 @@
       "home_team": "VfB Stuttgart",
       "away_team": "Borussia Monchengladbach",
       "kickoff_utc": "2026-10-23T18:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 22,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -306,10 +313,10 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 1,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 1,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 1000000000.0,
