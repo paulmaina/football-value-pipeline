@@ -1,0 +1,3401 @@
+{
+  "seasons": {
+    "2022": {
+      "rows": 141,
+      "cross_source_agreements": 141,
+      "aet_matches": 6
+    },
+    "2023": {
+      "rows": 141,
+      "cross_source_agreements": 141,
+      "aet_matches": 4
+    },
+    "2024": {
+      "rows": 189,
+      "cross_source_agreements": 189,
+      "aet_matches": 5
+    },
+    "2025": {
+      "rows": 189,
+      "uefa_reported_score_agreements": 189,
+      "aet_matches": 5,
+      "identity_limit": "UEFA date not parsed; unique home/away/reported-score links use Fixture Download dates"
+    }
+  },
+  "regulation_corrections": [
+    {
+      "season": 2022,
+      "date": "2023-02-23",
+      "home": "rennes",
+      "away": "shakhtar donetsk",
+      "reported": [
+        2,
+        1
+      ],
+      "regulation": [
+        1,
+        0
+      ],
+      "evidence": "OpenFootball explicit periods"
+    },
+    {
+      "season": 2022,
+      "date": "2023-04-20",
+      "home": "roma",
+      "away": "feyenoord",
+      "reported": [
+        4,
+        1
+      ],
+      "regulation": [
+        2,
+        1
+      ],
+      "evidence": "OpenFootball explicit periods"
+    },
+    {
+      "season": 2022,
+      "date": "2023-05-18",
+      "home": "sevilla",
+      "away": "juventus",
+      "reported": [
+        2,
+        1
+      ],
+      "regulation": [
+        1,
+        1
+      ],
+      "evidence": "OpenFootball explicit periods"
+    },
+    {
+      "season": 2023,
+      "date": "2024-02-22",
+      "home": "freiburg",
+      "away": "lens",
+      "reported": [
+        3,
+        2
+      ],
+      "regulation": [
+        2,
+        2
+      ],
+      "evidence": "OpenFootball explicit periods"
+    },
+    {
+      "season": 2023,
+      "date": "2024-02-22",
+      "home": "qarabag",
+      "away": "braga",
+      "reported": [
+        2,
+        3
+      ],
+      "regulation": [
+        0,
+        2
+      ],
+      "evidence": "OpenFootball explicit periods"
+    },
+    {
+      "season": 2024,
+      "date": "2025-02-20",
+      "home": "bodø/glimt",
+      "away": "twente",
+      "reported": [
+        5,
+        2
+      ],
+      "regulation": [
+        3,
+        2
+      ],
+      "evidence": "OpenFootball explicit periods"
+    },
+    {
+      "season": 2024,
+      "date": "2025-02-20",
+      "home": "ajax",
+      "away": "union sg",
+      "reported": [
+        1,
+        2
+      ],
+      "regulation": [
+        0,
+        2
+      ],
+      "evidence": "OpenFootball explicit periods"
+    },
+    {
+      "season": 2024,
+      "date": "2025-04-17",
+      "home": "lazio",
+      "away": "bodø/glimt",
+      "reported": [
+        3,
+        1
+      ],
+      "regulation": [
+        2,
+        0
+      ],
+      "evidence": "OpenFootball explicit periods"
+    },
+    {
+      "season": 2024,
+      "date": "2025-04-17",
+      "home": "manchester united",
+      "away": "lyon",
+      "reported": [
+        5,
+        4
+      ],
+      "regulation": [
+        2,
+        2
+      ],
+      "evidence": "OpenFootball explicit periods"
+    },
+    {
+      "season": 2025,
+      "date": "2026-02-26",
+      "home": "crvena zvezda",
+      "away": "lille",
+      "reported": [
+        0,
+        2
+      ],
+      "regulation": [
+        0,
+        1
+      ],
+      "evidence": "https://www.uefa.com/newsfiles/uefacup/2026/2047789_FR.pdf"
+    },
+    {
+      "season": 2025,
+      "date": "2026-02-26",
+      "home": "genk",
+      "away": "gnk dinamo",
+      "reported": [
+        3,
+        3
+      ],
+      "regulation": [
+        1,
+        3
+      ],
+      "evidence": "https://www.uefa.com/newsfiles/uefacup/2026/2047787_FR.pdf"
+    },
+    {
+      "season": 2025,
+      "date": "2026-03-19",
+      "home": "roma",
+      "away": "bologna",
+      "reported": [
+        3,
+        4
+      ],
+      "regulation": [
+        3,
+        3
+      ],
+      "evidence": "https://www.uefa.com/newsfiles/uefacup/2026/2048133_FR.pdf"
+    }
+  ],
+  "identity_corrections": [
+    {
+      "date": "2023-03-09",
+      "home": "Leverkusen",
+      "wrong_away": "Fenerbahçe",
+      "correct_away": "Ferencváros",
+      "reported": [
+        2,
+        0
+      ],
+      "url": "https://editorial.uefa.com/resources/0282-1858e6a6971a-137653647ecd-1000/uel_technical_report_part_one_2022-23.pdf",
+      "evidence": "Official UEFA technical report states Leverkusen beat Ferencvaros 2-0 home and away in last 16; OpenFootball supplies exact date. Match-specific correction only."
+    }
+  ],
+  "cornerflick": {
+    "total_rows": 116,
+    "declared_rows": 116,
+    "league_phase_rows": 36,
+    "unclassified_rows_quarantined": 80,
+    "score_conflicts": [],
+    "unverified_identities": [],
+    "fixture_download_completed_rows": 36,
+    "uefa_completed_links": 36,
+    "missing_against_fixture_download": 0,
+    "latest_result": "2026-10-15",
+    "last_updated_at": "2026-10-18T23:00:17+00:00",
+    "upstream": "api-football",
+    "verified_for_research": true,
+    "production_eligible": false,
+    "eligibility": "CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout semantics unverified",
+    "sample_review": {
+      "match_records_inspected": 2,
+      "qualifier_stage_mislabeled_league": true,
+      "note": "27 Aug 2026 Ferencvaros-Trabzonspor per-match JSON calls stage league despite pre-league-phase date; round missing in season export. All 80 unclassified rows remain quarantined."
+    }
+  },
+  "inputs": {
+    "cornerflick-sample-0.json": "6437c7e5a67e8a3a2fa36c2e11768512c2483064507528dc040ed4f4089b581d",
+    "cornerflick-sample-1.json": "10d632011dfb70f0249253c61c3d840c0b1da2d22ad852069483bb1f54684137",
+    "cornerflick.json": "87bc39a3886cd7cc9a83ebf6e16692ce14bb4858f83ae9969a03b8e25212b663",
+    "fixture-2022.csv": "a367dd37aaef0559c2efce4b3fe30506bca1410eaeba9ae8f7e184ce1e91c656",
+    "fixture-2023.csv": "64b104cbd63ff0c5ea3afaa3e722c5587efcfcaa1ac99a7d944317a0a67ec538",
+    "fixture-2024.csv": "ce2886cc24eef582f2c21e7728254f0bbf5b95d18c17feb99d57f2e1ffec29cb",
+    "fixture-2025.csv": "850dde058c684632e210b7bbf456de95ef89b288cdde64d11ccc4d192995c8f5",
+    "fixture-2026.csv": "73c8ef173181b7556e28d78fe48df21b70598fc5d81bf2f7ba292092edbf9e20",
+    "openfootball-2022.txt": "e716525e4eaac501e6d5610869e0989b282dec346f89a60f42a90d7fe08a8d76",
+    "openfootball-2023.txt": "3e62bb38e7f4b28465f061503f69b10be81d7e7bef9d15f6b54b5aad03b18122",
+    "openfootball-2024.txt": "7f25e89199683f83faab2c36989e42dea342ec2a66ed167f716a735e8c40c2d7",
+    "uefa-2025.html": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b",
+    "uefa-2026.html": "01d15d564ab23659a022310a1775bcf76cc9f9e807c92b3421e309347bc671b4",
+    "uefa-technical-2023.pdf": "a1c8223b163635133772fb157696934a167344415af54484b653280c47fd9feb",
+    "uefa-technical-2023.txt": "2a8415249533056ecdca06ddd72ef3f01582b5e5cb789639e4ae0c49db6692d5"
+  },
+  "production_enabled": false,
+  "experiment": {
+    "protocol": {
+      "half_life_days": 240,
+      "l2": 0.08,
+      "refit_days": 28,
+      "minimum_team_appearances": 6,
+      "development_season": 2024,
+      "audit_season": 2025,
+      "minimum_high_development": 30,
+      "minimum_high_audit": 12,
+      "high_probability": 0.75,
+      "maximum_audit_overconfidence": 0.1,
+      "maximum_brier_excess": 0.005,
+      "market_blend": 0.0,
+      "statistics_features": false
+    },
+    "historical_rows": 660,
+    "training_rows": 696,
+    "corroborated_current_rows": 36,
+    "training_start": "2022-09-08",
+    "training_end": "2026-10-15",
+    "final_optimizer_success": true,
+    "development_predictions": 108,
+    "audit_predictions": 118,
+    "cold_team_excluded_fixtures": {
+      "2024": 81,
+      "2025": 71
+    },
+    "windows": [
+      {
+        "origin": "2024-09-23",
+        "training_rows": 282,
+        "latest_training_date": "2024-05-22",
+        "test_rows": 8,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2024-10-21",
+        "training_rows": 318,
+        "latest_training_date": "2024-10-03",
+        "test_rows": 10,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2024-11-18",
+        "training_rows": 354,
+        "latest_training_date": "2024-11-07",
+        "test_rows": 9,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2025-01-13",
+        "training_rows": 390,
+        "latest_training_date": "2024-12-12",
+        "test_rows": 36,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2025-02-10",
+        "training_rows": 426,
+        "latest_training_date": "2025-01-30",
+        "test_rows": 24,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2025-03-10",
+        "training_rows": 450,
+        "latest_training_date": "2025-03-06",
+        "test_rows": 8,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2025-04-07",
+        "training_rows": 458,
+        "latest_training_date": "2025-03-13",
+        "test_rows": 10,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2025-05-05",
+        "training_rows": 468,
+        "latest_training_date": "2025-05-01",
+        "test_rows": 3,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2025-09-22",
+        "training_rows": 471,
+        "latest_training_date": "2025-05-21",
+        "test_rows": 11,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2025-10-20",
+        "training_rows": 507,
+        "latest_training_date": "2025-10-02",
+        "test_rows": 10,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2025-11-17",
+        "training_rows": 543,
+        "latest_training_date": "2025-11-06",
+        "test_rows": 16,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2026-01-12",
+        "training_rows": 579,
+        "latest_training_date": "2025-12-11",
+        "test_rows": 36,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2026-02-09",
+        "training_rows": 615,
+        "latest_training_date": "2026-01-29",
+        "test_rows": 16,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2026-03-09",
+        "training_rows": 631,
+        "latest_training_date": "2026-02-26",
+        "test_rows": 16,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2026-04-06",
+        "training_rows": 647,
+        "latest_training_date": "2026-03-19",
+        "test_rows": 10,
+        "optimizer_success": true
+      },
+      {
+        "origin": "2026-05-04",
+        "training_rows": 657,
+        "latest_training_date": "2026-04-30",
+        "test_rows": 3,
+        "optimizer_success": true
+      }
+    ],
+    "current_team_history": {
+      "anderlecht": 12,
+      "ararat-armenia": 2,
+      "az alkmaar": 14,
+      "benfica": 8,
+      "besiktas": 10,
+      "bournemouth": 2,
+      "celje": 2,
+      "celta": 16,
+      "celtic": 12,
+      "crystal palace": 2,
+      "ferencvaros": 32,
+      "gnk dinamo": 12,
+      "h. beer-sheva": 2,
+      "hoffenheim": 10,
+      "jagiellonia": 2,
+      "juventus": 10,
+      "lech poznan": 2,
+      "leverkusen": 23,
+      "levski sofia": 2,
+      "lillestrøm": 2,
+      "lyon": 24,
+      "marseille": 16,
+      "milan": 8,
+      "n.e.c.": 2,
+      "ofi crete": 2,
+      "olympiacos": 24,
+      "omonia": 8,
+      "real sociedad": 22,
+      "rennes": 18,
+      "salzburg": 12,
+      "sparta praha": 12,
+      "sturm graz": 22,
+      "sunderland": 2,
+      "torreense": 2,
+      "union sg": 28,
+      "viktoria plzen": 24
+    },
+    "current_teams_under_six_matches": 13,
+    "markets": {
+      "AH away +0": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.5160614769485418,
+          "observed_frequency": 0.49074074074074076,
+          "observed_frequency_wilson_95": [
+            0.39840728023407807,
+            0.5837102860382213
+          ],
+          "overconfidence": 0.025320736207801134,
+          "brier": 0.2540721171643864,
+          "baseline_brier": 0.2509681171629775,
+          "binary_log_loss": 0.7378584980366573
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.5545606260260632,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.41121731418502067,
+            0.5887826858149793
+          ],
+          "overconfidence": 0.05456062602606325,
+          "brier": 0.21624314864378189,
+          "baseline_brier": 0.2503632743766649,
+          "binary_log_loss": 0.6173650528571101
+        },
+        "development_penalty": 0.12070879964215529,
+        "high_adjusted_development": {
+          "n": 4,
+          "mean_probability": 0.9185982106790586,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.15003570882017148,
+            0.8499642911798285
+          ],
+          "overconfidence": 0.41859821067905856,
+          "brier": 0.44736887557835303,
+          "baseline_brier": 0.25162369815346514,
+          "binary_log_loss": 1.5309595427099782
+        },
+        "high_adjusted_audit": {
+          "n": 5,
+          "mean_probability": 0.9214507733478536,
+          "observed_frequency": 1.0,
+          "observed_frequency_wilson_95": [
+            0.5655085052479191,
+            1.0
+          ],
+          "overconfidence": -0.07854922665214645,
+          "brier": 0.006931561914892022,
+          "baseline_brier": 0.24453105999457508,
+          "binary_log_loss": 0.08225309916752484
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +0.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.5160614769485418,
+          "observed_frequency": 0.49074074074074076,
+          "observed_frequency_wilson_95": [
+            0.39840728023407807,
+            0.5837102860382213
+          ],
+          "overconfidence": 0.025320736207801134,
+          "brier": 0.2540721171643864,
+          "baseline_brier": 0.2509681171629775,
+          "binary_log_loss": 0.7378584980366573
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.5545606260260632,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.41121731418502067,
+            0.5887826858149793
+          ],
+          "overconfidence": 0.05456062602606325,
+          "brier": 0.21624314864378189,
+          "baseline_brier": 0.2503632743766649,
+          "binary_log_loss": 0.6173650528571101
+        },
+        "development_penalty": 0.12070879964215529,
+        "high_adjusted_development": {
+          "n": 4,
+          "mean_probability": 0.9185982106790586,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.15003570882017148,
+            0.8499642911798285
+          ],
+          "overconfidence": 0.41859821067905856,
+          "brier": 0.44736887557835303,
+          "baseline_brier": 0.25162369815346514,
+          "binary_log_loss": 1.5309595427099782
+        },
+        "high_adjusted_audit": {
+          "n": 5,
+          "mean_probability": 0.9214507733478536,
+          "observed_frequency": 1.0,
+          "observed_frequency_wilson_95": [
+            0.5655085052479191,
+            1.0
+          ],
+          "overconfidence": -0.07854922665214645,
+          "brier": 0.006931561914892022,
+          "baseline_brier": 0.24453105999457508,
+          "binary_log_loss": 0.08225309916752484
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +0.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.5160614769485418,
+          "observed_frequency": 0.49074074074074076,
+          "observed_frequency_wilson_95": [
+            0.39840728023407807,
+            0.5837102860382213
+          ],
+          "overconfidence": 0.025320736207801134,
+          "brier": 0.2540721171643864,
+          "baseline_brier": 0.2509681171629775,
+          "binary_log_loss": 0.7378584980366573
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.5545606260260632,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.41121731418502067,
+            0.5887826858149793
+          ],
+          "overconfidence": 0.05456062602606325,
+          "brier": 0.21624314864378189,
+          "baseline_brier": 0.2503632743766649,
+          "binary_log_loss": 0.6173650528571101
+        },
+        "development_penalty": 0.12070879964215529,
+        "high_adjusted_development": {
+          "n": 4,
+          "mean_probability": 0.9185982106790586,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.15003570882017148,
+            0.8499642911798285
+          ],
+          "overconfidence": 0.41859821067905856,
+          "brier": 0.44736887557835303,
+          "baseline_brier": 0.25162369815346514,
+          "binary_log_loss": 1.5309595427099782
+        },
+        "high_adjusted_audit": {
+          "n": 5,
+          "mean_probability": 0.9214507733478536,
+          "observed_frequency": 1.0,
+          "observed_frequency_wilson_95": [
+            0.5655085052479191,
+            1.0
+          ],
+          "overconfidence": -0.07854922665214645,
+          "brier": 0.006931561914892022,
+          "baseline_brier": 0.24453105999457508,
+          "binary_log_loss": 0.08225309916752484
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +0.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.5160614769485418,
+          "observed_frequency": 0.49074074074074076,
+          "observed_frequency_wilson_95": [
+            0.39840728023407807,
+            0.5837102860382213
+          ],
+          "overconfidence": 0.025320736207801134,
+          "brier": 0.2540721171643864,
+          "baseline_brier": 0.2509681171629775,
+          "binary_log_loss": 0.7378584980366573
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.5545606260260632,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.41121731418502067,
+            0.5887826858149793
+          ],
+          "overconfidence": 0.05456062602606325,
+          "brier": 0.21624314864378189,
+          "baseline_brier": 0.2503632743766649,
+          "binary_log_loss": 0.6173650528571101
+        },
+        "development_penalty": 0.12070879964215529,
+        "high_adjusted_development": {
+          "n": 4,
+          "mean_probability": 0.9185982106790586,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.15003570882017148,
+            0.8499642911798285
+          ],
+          "overconfidence": 0.41859821067905856,
+          "brier": 0.44736887557835303,
+          "baseline_brier": 0.25162369815346514,
+          "binary_log_loss": 1.5309595427099782
+        },
+        "high_adjusted_audit": {
+          "n": 5,
+          "mean_probability": 0.9214507733478536,
+          "observed_frequency": 1.0,
+          "observed_frequency_wilson_95": [
+            0.5655085052479191,
+            1.0
+          ],
+          "overconfidence": -0.07854922665214645,
+          "brier": 0.006931561914892022,
+          "baseline_brier": 0.24453105999457508,
+          "binary_log_loss": 0.08225309916752484
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +1": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.7239633962557112,
+          "observed_frequency": 0.7037037037037037,
+          "observed_frequency_wilson_95": [
+            0.6117903377430295,
+            0.7816232042663839
+          ],
+          "overconfidence": 0.02025969255200731,
+          "brier": 0.19865343080087555,
+          "baseline_brier": 0.21101988597307428,
+          "binary_log_loss": 0.6180202778306133
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.7646278206920922,
+          "observed_frequency": 0.7542372881355932,
+          "observed_frequency_wilson_95": [
+            0.6693534897050439,
+            0.8230891571413532
+          ],
+          "overconfidence": 0.010390532556499035,
+          "brier": 0.19496505518764592,
+          "baseline_brier": 0.18616529917945507,
+          "binary_log_loss": 0.5684427206233184
+        },
+        "development_penalty": 0.1046248432219959,
+        "high_adjusted_development": {
+          "n": 29,
+          "mean_probability": 0.9103338795417044,
+          "observed_frequency": 0.8275862068965517,
+          "observed_frequency_wilson_95": [
+            0.6545119942718488,
+            0.9240225472852007
+          ],
+          "overconfidence": 0.08274767264515277,
+          "brier": 0.15466566946852336,
+          "baseline_brier": 0.1480811610437169,
+          "binary_log_loss": 0.6007902128445118
+        },
+        "high_adjusted_audit": {
+          "n": 41,
+          "mean_probability": 0.9115803768706845,
+          "observed_frequency": 0.9024390243902439,
+          "observed_frequency_wilson_95": [
+            0.7745202448096945,
+            0.9614035402470386
+          ],
+          "overconfidence": 0.00914135248044049,
+          "brier": 0.08679286537645223,
+          "baseline_brier": 0.11345494708236602,
+          "binary_log_loss": 0.30841507936401985
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +1.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.7239633962557112,
+          "observed_frequency": 0.7037037037037037,
+          "observed_frequency_wilson_95": [
+            0.6117903377430295,
+            0.7816232042663839
+          ],
+          "overconfidence": 0.02025969255200731,
+          "brier": 0.19865343080087555,
+          "baseline_brier": 0.21101988597307428,
+          "binary_log_loss": 0.6180202778306133
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.7646278206920922,
+          "observed_frequency": 0.7542372881355932,
+          "observed_frequency_wilson_95": [
+            0.6693534897050439,
+            0.8230891571413532
+          ],
+          "overconfidence": 0.010390532556499035,
+          "brier": 0.19496505518764592,
+          "baseline_brier": 0.18616529917945507,
+          "binary_log_loss": 0.5684427206233184
+        },
+        "development_penalty": 0.1046248432219959,
+        "high_adjusted_development": {
+          "n": 29,
+          "mean_probability": 0.9103338795417044,
+          "observed_frequency": 0.8275862068965517,
+          "observed_frequency_wilson_95": [
+            0.6545119942718488,
+            0.9240225472852007
+          ],
+          "overconfidence": 0.08274767264515277,
+          "brier": 0.15466566946852336,
+          "baseline_brier": 0.1480811610437169,
+          "binary_log_loss": 0.6007902128445118
+        },
+        "high_adjusted_audit": {
+          "n": 41,
+          "mean_probability": 0.9115803768706845,
+          "observed_frequency": 0.9024390243902439,
+          "observed_frequency_wilson_95": [
+            0.7745202448096945,
+            0.9614035402470386
+          ],
+          "overconfidence": 0.00914135248044049,
+          "brier": 0.08679286537645223,
+          "baseline_brier": 0.11345494708236602,
+          "binary_log_loss": 0.30841507936401985
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +1.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.7239633962557112,
+          "observed_frequency": 0.7037037037037037,
+          "observed_frequency_wilson_95": [
+            0.6117903377430295,
+            0.7816232042663839
+          ],
+          "overconfidence": 0.02025969255200731,
+          "brier": 0.19865343080087555,
+          "baseline_brier": 0.21101988597307428,
+          "binary_log_loss": 0.6180202778306133
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.7646278206920922,
+          "observed_frequency": 0.7542372881355932,
+          "observed_frequency_wilson_95": [
+            0.6693534897050439,
+            0.8230891571413532
+          ],
+          "overconfidence": 0.010390532556499035,
+          "brier": 0.19496505518764592,
+          "baseline_brier": 0.18616529917945507,
+          "binary_log_loss": 0.5684427206233184
+        },
+        "development_penalty": 0.1046248432219959,
+        "high_adjusted_development": {
+          "n": 29,
+          "mean_probability": 0.9103338795417044,
+          "observed_frequency": 0.8275862068965517,
+          "observed_frequency_wilson_95": [
+            0.6545119942718488,
+            0.9240225472852007
+          ],
+          "overconfidence": 0.08274767264515277,
+          "brier": 0.15466566946852336,
+          "baseline_brier": 0.1480811610437169,
+          "binary_log_loss": 0.6007902128445118
+        },
+        "high_adjusted_audit": {
+          "n": 41,
+          "mean_probability": 0.9115803768706845,
+          "observed_frequency": 0.9024390243902439,
+          "observed_frequency_wilson_95": [
+            0.7745202448096945,
+            0.9614035402470386
+          ],
+          "overconfidence": 0.00914135248044049,
+          "brier": 0.08679286537645223,
+          "baseline_brier": 0.11345494708236602,
+          "binary_log_loss": 0.30841507936401985
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +1.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.7239633962557112,
+          "observed_frequency": 0.7037037037037037,
+          "observed_frequency_wilson_95": [
+            0.6117903377430295,
+            0.7816232042663839
+          ],
+          "overconfidence": 0.02025969255200731,
+          "brier": 0.19865343080087555,
+          "baseline_brier": 0.21101988597307428,
+          "binary_log_loss": 0.6180202778306133
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.7646278206920922,
+          "observed_frequency": 0.7542372881355932,
+          "observed_frequency_wilson_95": [
+            0.6693534897050439,
+            0.8230891571413532
+          ],
+          "overconfidence": 0.010390532556499035,
+          "brier": 0.19496505518764592,
+          "baseline_brier": 0.18616529917945507,
+          "binary_log_loss": 0.5684427206233184
+        },
+        "development_penalty": 0.1046248432219959,
+        "high_adjusted_development": {
+          "n": 29,
+          "mean_probability": 0.9103338795417044,
+          "observed_frequency": 0.8275862068965517,
+          "observed_frequency_wilson_95": [
+            0.6545119942718488,
+            0.9240225472852007
+          ],
+          "overconfidence": 0.08274767264515277,
+          "brier": 0.15466566946852336,
+          "baseline_brier": 0.1480811610437169,
+          "binary_log_loss": 0.6007902128445118
+        },
+        "high_adjusted_audit": {
+          "n": 41,
+          "mean_probability": 0.9115803768706845,
+          "observed_frequency": 0.9024390243902439,
+          "observed_frequency_wilson_95": [
+            0.7745202448096945,
+            0.9614035402470386
+          ],
+          "overconfidence": 0.00914135248044049,
+          "brier": 0.08679286537645223,
+          "baseline_brier": 0.11345494708236602,
+          "binary_log_loss": 0.30841507936401985
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +2": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.8632800075217298,
+          "observed_frequency": 0.8518518518518519,
+          "observed_frequency_wilson_95": [
+            0.7728269993471539,
+            0.906705482305469
+          ],
+          "overconfidence": 0.011428155669877958,
+          "brier": 0.1269961326142996,
+          "baseline_brier": 0.12680774609948783,
+          "binary_log_loss": 0.4533772738093561
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.8894290225355297,
+          "observed_frequency": 0.9067796610169492,
+          "observed_frequency_wilson_95": [
+            0.8407592905282243,
+            0.9471489444260114
+          ],
+          "overconfidence": -0.017350638481419496,
+          "brier": 0.09371175361517668,
+          "baseline_brier": 0.08613760992993744,
+          "binary_log_loss": 0.31827390903685643
+        },
+        "development_penalty": 0.07891762314564281,
+        "high_adjusted_development": {
+          "n": 76,
+          "mean_probability": 0.9279519034975895,
+          "observed_frequency": 0.9210526315789473,
+          "observed_frequency_wilson_95": [
+            0.8382706480636879,
+            0.9633164944785457
+          ],
+          "overconfidence": 0.006899271918642299,
+          "brier": 0.07418303735060539,
+          "baseline_brier": 0.0767758372415801,
+          "binary_log_loss": 0.345928078277637
+        },
+        "high_adjusted_audit": {
+          "n": 93,
+          "mean_probability": 0.9419958933967771,
+          "observed_frequency": 0.9139784946236559,
+          "observed_frequency_wilson_95": [
+            0.8393453815534051,
+            0.9557674625136072
+          ],
+          "overconfidence": 0.02801739877312128,
+          "brier": 0.07654311768936067,
+          "baseline_brier": 0.08104011425331085,
+          "binary_log_loss": 0.26981280085881115
+        },
+        "diagnostic_status": "FAIL_AUDIT",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +2.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.8632800075217298,
+          "observed_frequency": 0.8518518518518519,
+          "observed_frequency_wilson_95": [
+            0.7728269993471539,
+            0.906705482305469
+          ],
+          "overconfidence": 0.011428155669877958,
+          "brier": 0.1269961326142996,
+          "baseline_brier": 0.12680774609948783,
+          "binary_log_loss": 0.4533772738093561
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.8894290225355297,
+          "observed_frequency": 0.9067796610169492,
+          "observed_frequency_wilson_95": [
+            0.8407592905282243,
+            0.9471489444260114
+          ],
+          "overconfidence": -0.017350638481419496,
+          "brier": 0.09371175361517668,
+          "baseline_brier": 0.08613760992993744,
+          "binary_log_loss": 0.31827390903685643
+        },
+        "development_penalty": 0.07891762314564281,
+        "high_adjusted_development": {
+          "n": 76,
+          "mean_probability": 0.9279519034975895,
+          "observed_frequency": 0.9210526315789473,
+          "observed_frequency_wilson_95": [
+            0.8382706480636879,
+            0.9633164944785457
+          ],
+          "overconfidence": 0.006899271918642299,
+          "brier": 0.07418303735060539,
+          "baseline_brier": 0.0767758372415801,
+          "binary_log_loss": 0.345928078277637
+        },
+        "high_adjusted_audit": {
+          "n": 93,
+          "mean_probability": 0.9419958933967771,
+          "observed_frequency": 0.9139784946236559,
+          "observed_frequency_wilson_95": [
+            0.8393453815534051,
+            0.9557674625136072
+          ],
+          "overconfidence": 0.02801739877312128,
+          "brier": 0.07654311768936067,
+          "baseline_brier": 0.08104011425331085,
+          "binary_log_loss": 0.26981280085881115
+        },
+        "diagnostic_status": "FAIL_AUDIT",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +2.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.8632800075217298,
+          "observed_frequency": 0.8518518518518519,
+          "observed_frequency_wilson_95": [
+            0.7728269993471539,
+            0.906705482305469
+          ],
+          "overconfidence": 0.011428155669877958,
+          "brier": 0.1269961326142996,
+          "baseline_brier": 0.12680774609948783,
+          "binary_log_loss": 0.4533772738093561
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.8894290225355297,
+          "observed_frequency": 0.9067796610169492,
+          "observed_frequency_wilson_95": [
+            0.8407592905282243,
+            0.9471489444260114
+          ],
+          "overconfidence": -0.017350638481419496,
+          "brier": 0.09371175361517668,
+          "baseline_brier": 0.08613760992993744,
+          "binary_log_loss": 0.31827390903685643
+        },
+        "development_penalty": 0.07891762314564281,
+        "high_adjusted_development": {
+          "n": 76,
+          "mean_probability": 0.9279519034975895,
+          "observed_frequency": 0.9210526315789473,
+          "observed_frequency_wilson_95": [
+            0.8382706480636879,
+            0.9633164944785457
+          ],
+          "overconfidence": 0.006899271918642299,
+          "brier": 0.07418303735060539,
+          "baseline_brier": 0.0767758372415801,
+          "binary_log_loss": 0.345928078277637
+        },
+        "high_adjusted_audit": {
+          "n": 93,
+          "mean_probability": 0.9419958933967771,
+          "observed_frequency": 0.9139784946236559,
+          "observed_frequency_wilson_95": [
+            0.8393453815534051,
+            0.9557674625136072
+          ],
+          "overconfidence": 0.02801739877312128,
+          "brier": 0.07654311768936067,
+          "baseline_brier": 0.08104011425331085,
+          "binary_log_loss": 0.26981280085881115
+        },
+        "diagnostic_status": "FAIL_AUDIT",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +2.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.8632800075217298,
+          "observed_frequency": 0.8518518518518519,
+          "observed_frequency_wilson_95": [
+            0.7728269993471539,
+            0.906705482305469
+          ],
+          "overconfidence": 0.011428155669877958,
+          "brier": 0.1269961326142996,
+          "baseline_brier": 0.12680774609948783,
+          "binary_log_loss": 0.4533772738093561
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.8894290225355297,
+          "observed_frequency": 0.9067796610169492,
+          "observed_frequency_wilson_95": [
+            0.8407592905282243,
+            0.9471489444260114
+          ],
+          "overconfidence": -0.017350638481419496,
+          "brier": 0.09371175361517668,
+          "baseline_brier": 0.08613760992993744,
+          "binary_log_loss": 0.31827390903685643
+        },
+        "development_penalty": 0.07891762314564281,
+        "high_adjusted_development": {
+          "n": 76,
+          "mean_probability": 0.9279519034975895,
+          "observed_frequency": 0.9210526315789473,
+          "observed_frequency_wilson_95": [
+            0.8382706480636879,
+            0.9633164944785457
+          ],
+          "overconfidence": 0.006899271918642299,
+          "brier": 0.07418303735060539,
+          "baseline_brier": 0.0767758372415801,
+          "binary_log_loss": 0.345928078277637
+        },
+        "high_adjusted_audit": {
+          "n": 93,
+          "mean_probability": 0.9419958933967771,
+          "observed_frequency": 0.9139784946236559,
+          "observed_frequency_wilson_95": [
+            0.8393453815534051,
+            0.9557674625136072
+          ],
+          "overconfidence": 0.02801739877312128,
+          "brier": 0.07654311768936067,
+          "baseline_brier": 0.08104011425331085,
+          "binary_log_loss": 0.26981280085881115
+        },
+        "diagnostic_status": "FAIL_AUDIT",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away +3": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.938906242197502,
+          "observed_frequency": 0.9907407407407407,
+          "observed_frequency_wilson_95": [
+            0.9494053063000247,
+            0.9983636812681069
+          ],
+          "overconfidence": -0.0518344985432386,
+          "brier": 0.017554342843452538,
+          "baseline_brier": 0.011933267714058575,
+          "binary_log_loss": 0.08725930913468244
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.9525305181343773,
+          "observed_frequency": 0.9491525423728814,
+          "observed_frequency_wilson_95": [
+            0.8934913203043966,
+            0.9764906891242386
+          ],
+          "overconfidence": 0.003377975761495797,
+          "brier": 0.05430749263161625,
+          "baseline_brier": 0.04840905715064114,
+          "binary_log_loss": 0.22829749151192572
+        },
+        "development_penalty": 0.0,
+        "high_adjusted_development": {
+          "n": 105,
+          "mean_probability": 0.9489418901639378,
+          "observed_frequency": 0.9904761904761905,
+          "observed_frequency_wilson_95": [
+            0.9480124705673876,
+            0.9983168740949471
+          ],
+          "overconfidence": -0.041534300312252616,
+          "brier": 0.012434393665095996,
+          "baseline_brier": 0.012154181148088153,
+          "binary_log_loss": 0.07326179557719387
+        },
+        "high_adjusted_audit": {
+          "n": 115,
+          "mean_probability": 0.9596351319397157,
+          "observed_frequency": 0.9478260869565217,
+          "observed_frequency_wilson_95": [
+            0.8908280962827254,
+            0.9758717798549231
+          ],
+          "overconfidence": 0.01180904498319389,
+          "brier": 0.052997445384042545,
+          "baseline_brier": 0.04961517459748539,
+          "binary_log_loss": 0.2241338661304305
+        },
+        "diagnostic_status": "FAIL_AUDIT",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -0.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.2865907318126459,
+          "observed_frequency": 0.28703703703703703,
+          "observed_frequency_wilson_95": [
+            0.21019243295848952,
+            0.3785115913043965
+          ],
+          "overconfidence": -0.0004463052243911967,
+          "brier": 0.19624002461033838,
+          "baseline_brier": 0.20462417040121753,
+          "binary_log_loss": 0.5760845177774959
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.3162113122000868,
+          "observed_frequency": 0.3050847457627119,
+          "observed_frequency_wilson_95": [
+            0.22924088369362033,
+            0.3932197537241417
+          ],
+          "overconfidence": 0.011126566437374927,
+          "brier": 0.18705580903117003,
+          "baseline_brier": 0.2127831149413367,
+          "binary_log_loss": 0.5504684881632028
+        },
+        "development_penalty": 0.08349152854422155,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 1,
+          "mean_probability": 0.8553951085026295,
+          "observed_frequency": 1.0,
+          "observed_frequency_wilson_95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "overconfidence": -0.14460489149737055,
+          "brier": 0.020910574644966307,
+          "baseline_brier": 0.501430314311197,
+          "binary_log_loss": 0.15619180157997214
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -0.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.2865907318126459,
+          "observed_frequency": 0.28703703703703703,
+          "observed_frequency_wilson_95": [
+            0.21019243295848952,
+            0.3785115913043965
+          ],
+          "overconfidence": -0.0004463052243911967,
+          "brier": 0.19624002461033838,
+          "baseline_brier": 0.20462417040121753,
+          "binary_log_loss": 0.5760845177774959
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.3162113122000868,
+          "observed_frequency": 0.3050847457627119,
+          "observed_frequency_wilson_95": [
+            0.22924088369362033,
+            0.3932197537241417
+          ],
+          "overconfidence": 0.011126566437374927,
+          "brier": 0.18705580903117003,
+          "baseline_brier": 0.2127831149413367,
+          "binary_log_loss": 0.5504684881632028
+        },
+        "development_penalty": 0.08349152854422155,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 1,
+          "mean_probability": 0.8553951085026295,
+          "observed_frequency": 1.0,
+          "observed_frequency_wilson_95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "overconfidence": -0.14460489149737055,
+          "brier": 0.020910574644966307,
+          "baseline_brier": 0.501430314311197,
+          "binary_log_loss": 0.15619180157997214
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -0.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.2865907318126459,
+          "observed_frequency": 0.28703703703703703,
+          "observed_frequency_wilson_95": [
+            0.21019243295848952,
+            0.3785115913043965
+          ],
+          "overconfidence": -0.0004463052243911967,
+          "brier": 0.19624002461033838,
+          "baseline_brier": 0.20462417040121753,
+          "binary_log_loss": 0.5760845177774959
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.3162113122000868,
+          "observed_frequency": 0.3050847457627119,
+          "observed_frequency_wilson_95": [
+            0.22924088369362033,
+            0.3932197537241417
+          ],
+          "overconfidence": 0.011126566437374927,
+          "brier": 0.18705580903117003,
+          "baseline_brier": 0.2127831149413367,
+          "binary_log_loss": 0.5504684881632028
+        },
+        "development_penalty": 0.08349152854422155,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 1,
+          "mean_probability": 0.8553951085026295,
+          "observed_frequency": 1.0,
+          "observed_frequency_wilson_95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "overconfidence": -0.14460489149737055,
+          "brier": 0.020910574644966307,
+          "baseline_brier": 0.501430314311197,
+          "binary_log_loss": 0.15619180157997214
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -1": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.2865907318126459,
+          "observed_frequency": 0.28703703703703703,
+          "observed_frequency_wilson_95": [
+            0.21019243295848952,
+            0.3785115913043965
+          ],
+          "overconfidence": -0.0004463052243911967,
+          "brier": 0.19624002461033838,
+          "baseline_brier": 0.20462417040121753,
+          "binary_log_loss": 0.5760845177774959
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.3162113122000868,
+          "observed_frequency": 0.3050847457627119,
+          "observed_frequency_wilson_95": [
+            0.22924088369362033,
+            0.3932197537241417
+          ],
+          "overconfidence": 0.011126566437374927,
+          "brier": 0.18705580903117003,
+          "baseline_brier": 0.2127831149413367,
+          "binary_log_loss": 0.5504684881632028
+        },
+        "development_penalty": 0.08349152854422155,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 1,
+          "mean_probability": 0.8553951085026295,
+          "observed_frequency": 1.0,
+          "observed_frequency_wilson_95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "overconfidence": -0.14460489149737055,
+          "brier": 0.020910574644966307,
+          "baseline_brier": 0.501430314311197,
+          "binary_log_loss": 0.15619180157997214
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -1.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.13195945397532408,
+          "observed_frequency": 0.1388888888888889,
+          "observed_frequency_wilson_95": [
+            0.08600932681341279,
+            0.2165757578062636
+          ],
+          "overconfidence": -0.00692943491356481,
+          "brier": 0.12358627115466149,
+          "baseline_brier": 0.11998778400760582,
+          "binary_log_loss": 0.39042429709769916
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.14151785396616434,
+          "observed_frequency": 0.13559322033898305,
+          "observed_frequency_wilson_95": [
+            0.08521593420077392,
+            0.20894960531938991
+          ],
+          "overconfidence": 0.005924633627181307,
+          "brier": 0.10815784600264611,
+          "baseline_brier": 0.11741603123198388,
+          "binary_log_loss": 0.3660015857075488
+        },
+        "development_penalty": 0.059669136322159845,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -1.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.13195945397532408,
+          "observed_frequency": 0.1388888888888889,
+          "observed_frequency_wilson_95": [
+            0.08600932681341279,
+            0.2165757578062636
+          ],
+          "overconfidence": -0.00692943491356481,
+          "brier": 0.12358627115466149,
+          "baseline_brier": 0.11998778400760582,
+          "binary_log_loss": 0.39042429709769916
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.14151785396616434,
+          "observed_frequency": 0.13559322033898305,
+          "observed_frequency_wilson_95": [
+            0.08521593420077392,
+            0.20894960531938991
+          ],
+          "overconfidence": 0.005924633627181307,
+          "brier": 0.10815784600264611,
+          "baseline_brier": 0.11741603123198388,
+          "binary_log_loss": 0.3660015857075488
+        },
+        "development_penalty": 0.059669136322159845,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -1.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.13195945397532408,
+          "observed_frequency": 0.1388888888888889,
+          "observed_frequency_wilson_95": [
+            0.08600932681341279,
+            0.2165757578062636
+          ],
+          "overconfidence": -0.00692943491356481,
+          "brier": 0.12358627115466149,
+          "baseline_brier": 0.11998778400760582,
+          "binary_log_loss": 0.39042429709769916
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.14151785396616434,
+          "observed_frequency": 0.13559322033898305,
+          "observed_frequency_wilson_95": [
+            0.08521593420077392,
+            0.20894960531938991
+          ],
+          "overconfidence": 0.005924633627181307,
+          "brier": 0.10815784600264611,
+          "baseline_brier": 0.11741603123198388,
+          "binary_log_loss": 0.3660015857075488
+        },
+        "development_penalty": 0.059669136322159845,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -2": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.13195945397532408,
+          "observed_frequency": 0.1388888888888889,
+          "observed_frequency_wilson_95": [
+            0.08600932681341279,
+            0.2165757578062636
+          ],
+          "overconfidence": -0.00692943491356481,
+          "brier": 0.12358627115466149,
+          "baseline_brier": 0.11998778400760582,
+          "binary_log_loss": 0.39042429709769916
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.14151785396616434,
+          "observed_frequency": 0.13559322033898305,
+          "observed_frequency_wilson_95": [
+            0.08521593420077392,
+            0.20894960531938991
+          ],
+          "overconfidence": 0.005924633627181307,
+          "brier": 0.10815784600264611,
+          "baseline_brier": 0.11741603123198388,
+          "binary_log_loss": 0.3660015857075488
+        },
+        "development_penalty": 0.059669136322159845,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -2.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.05336823364332304,
+          "observed_frequency": 0.037037037037037035,
+          "observed_frequency_wilson_95": [
+            0.014495306806255062,
+            0.09138300680871465
+          ],
+          "overconfidence": 0.016331196606286007,
+          "brier": 0.038304288815300375,
+          "baseline_brier": 0.0357886097401044,
+          "binary_log_loss": 0.14441992770143075
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.05655259450549464,
+          "observed_frequency": 0.05084745762711865,
+          "observed_frequency_wilson_95": [
+            0.023509310875761358,
+            0.1065086796956034
+          ],
+          "overconfidence": 0.005705136878375996,
+          "brier": 0.04268536274339873,
+          "baseline_brier": 0.048383569629699974,
+          "binary_log_loss": 0.16009931984340534
+        },
+        "development_penalty": 0.053285977072649,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -2.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.05336823364332304,
+          "observed_frequency": 0.037037037037037035,
+          "observed_frequency_wilson_95": [
+            0.014495306806255062,
+            0.09138300680871465
+          ],
+          "overconfidence": 0.016331196606286007,
+          "brier": 0.038304288815300375,
+          "baseline_brier": 0.0357886097401044,
+          "binary_log_loss": 0.14441992770143075
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.05655259450549464,
+          "observed_frequency": 0.05084745762711865,
+          "observed_frequency_wilson_95": [
+            0.023509310875761358,
+            0.1065086796956034
+          ],
+          "overconfidence": 0.005705136878375996,
+          "brier": 0.04268536274339873,
+          "baseline_brier": 0.048383569629699974,
+          "binary_log_loss": 0.16009931984340534
+        },
+        "development_penalty": 0.053285977072649,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -2.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.05336823364332304,
+          "observed_frequency": 0.037037037037037035,
+          "observed_frequency_wilson_95": [
+            0.014495306806255062,
+            0.09138300680871465
+          ],
+          "overconfidence": 0.016331196606286007,
+          "brier": 0.038304288815300375,
+          "baseline_brier": 0.0357886097401044,
+          "binary_log_loss": 0.14441992770143075
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.05655259450549464,
+          "observed_frequency": 0.05084745762711865,
+          "observed_frequency_wilson_95": [
+            0.023509310875761358,
+            0.1065086796956034
+          ],
+          "overconfidence": 0.005705136878375996,
+          "brier": 0.04268536274339873,
+          "baseline_brier": 0.048383569629699974,
+          "binary_log_loss": 0.16009931984340534
+        },
+        "development_penalty": 0.053285977072649,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH away -3": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.05336823364332304,
+          "observed_frequency": 0.037037037037037035,
+          "observed_frequency_wilson_95": [
+            0.014495306806255062,
+            0.09138300680871465
+          ],
+          "overconfidence": 0.016331196606286007,
+          "brier": 0.038304288815300375,
+          "baseline_brier": 0.0357886097401044,
+          "binary_log_loss": 0.14441992770143075
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.05655259450549464,
+          "observed_frequency": 0.05084745762711865,
+          "observed_frequency_wilson_95": [
+            0.023509310875761358,
+            0.1065086796956034
+          ],
+          "overconfidence": 0.005705136878375996,
+          "brier": 0.04268536274339873,
+          "baseline_brier": 0.048383569629699974,
+          "binary_log_loss": 0.16009931984340534
+        },
+        "development_penalty": 0.053285977072649,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +0": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.7134092681873541,
+          "observed_frequency": 0.7129629629629629,
+          "observed_frequency_wilson_95": [
+            0.6214884086956034,
+            0.7898075670415103
+          ],
+          "overconfidence": 0.0004463052243911782,
+          "brier": 0.19624002461033838,
+          "baseline_brier": 0.20462417040121755,
+          "binary_log_loss": 0.576084517777496
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.6837886877999131,
+          "observed_frequency": 0.6949152542372882,
+          "observed_frequency_wilson_95": [
+            0.6067802462758582,
+            0.7707591163063796
+          ],
+          "overconfidence": -0.011126566437374929,
+          "brier": 0.18705580903117003,
+          "baseline_brier": 0.2127831149413367,
+          "binary_log_loss": 0.5504684881632026
+        },
+        "development_penalty": 0.08438413899300393,
+        "high_adjusted_development": {
+          "n": 31,
+          "mean_probability": 0.8965410638889699,
+          "observed_frequency": 0.8387096774193549,
+          "observed_frequency_wilson_95": [
+            0.6736529727502113,
+            0.9290748009456006
+          ],
+          "overconfidence": 0.05783138646961508,
+          "brier": 0.1355457341145323,
+          "baseline_brier": 0.15039094048797605,
+          "binary_log_loss": 0.43993576721384
+        },
+        "high_adjusted_audit": {
+          "n": 21,
+          "mean_probability": 0.902769565239819,
+          "observed_frequency": 0.9523809523809523,
+          "observed_frequency_wilson_95": [
+            0.7733018341376452,
+            0.9915442305280766
+          ],
+          "overconfidence": -0.04961138714113332,
+          "brier": 0.04799067491674794,
+          "baseline_brier": 0.1040612976986276,
+          "binary_log_loss": 0.2011772248957379
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +0.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.7134092681873541,
+          "observed_frequency": 0.7129629629629629,
+          "observed_frequency_wilson_95": [
+            0.6214884086956034,
+            0.7898075670415103
+          ],
+          "overconfidence": 0.0004463052243911782,
+          "brier": 0.19624002461033838,
+          "baseline_brier": 0.20462417040121755,
+          "binary_log_loss": 0.576084517777496
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.6837886877999131,
+          "observed_frequency": 0.6949152542372882,
+          "observed_frequency_wilson_95": [
+            0.6067802462758582,
+            0.7707591163063796
+          ],
+          "overconfidence": -0.011126566437374929,
+          "brier": 0.18705580903117003,
+          "baseline_brier": 0.2127831149413367,
+          "binary_log_loss": 0.5504684881632026
+        },
+        "development_penalty": 0.08438413899300393,
+        "high_adjusted_development": {
+          "n": 31,
+          "mean_probability": 0.8965410638889699,
+          "observed_frequency": 0.8387096774193549,
+          "observed_frequency_wilson_95": [
+            0.6736529727502113,
+            0.9290748009456006
+          ],
+          "overconfidence": 0.05783138646961508,
+          "brier": 0.1355457341145323,
+          "baseline_brier": 0.15039094048797605,
+          "binary_log_loss": 0.43993576721384
+        },
+        "high_adjusted_audit": {
+          "n": 21,
+          "mean_probability": 0.902769565239819,
+          "observed_frequency": 0.9523809523809523,
+          "observed_frequency_wilson_95": [
+            0.7733018341376452,
+            0.9915442305280766
+          ],
+          "overconfidence": -0.04961138714113332,
+          "brier": 0.04799067491674794,
+          "baseline_brier": 0.1040612976986276,
+          "binary_log_loss": 0.2011772248957379
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +0.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.7134092681873541,
+          "observed_frequency": 0.7129629629629629,
+          "observed_frequency_wilson_95": [
+            0.6214884086956034,
+            0.7898075670415103
+          ],
+          "overconfidence": 0.0004463052243911782,
+          "brier": 0.19624002461033838,
+          "baseline_brier": 0.20462417040121755,
+          "binary_log_loss": 0.576084517777496
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.6837886877999131,
+          "observed_frequency": 0.6949152542372882,
+          "observed_frequency_wilson_95": [
+            0.6067802462758582,
+            0.7707591163063796
+          ],
+          "overconfidence": -0.011126566437374929,
+          "brier": 0.18705580903117003,
+          "baseline_brier": 0.2127831149413367,
+          "binary_log_loss": 0.5504684881632026
+        },
+        "development_penalty": 0.08438413899300393,
+        "high_adjusted_development": {
+          "n": 31,
+          "mean_probability": 0.8965410638889699,
+          "observed_frequency": 0.8387096774193549,
+          "observed_frequency_wilson_95": [
+            0.6736529727502113,
+            0.9290748009456006
+          ],
+          "overconfidence": 0.05783138646961508,
+          "brier": 0.1355457341145323,
+          "baseline_brier": 0.15039094048797605,
+          "binary_log_loss": 0.43993576721384
+        },
+        "high_adjusted_audit": {
+          "n": 21,
+          "mean_probability": 0.902769565239819,
+          "observed_frequency": 0.9523809523809523,
+          "observed_frequency_wilson_95": [
+            0.7733018341376452,
+            0.9915442305280766
+          ],
+          "overconfidence": -0.04961138714113332,
+          "brier": 0.04799067491674794,
+          "baseline_brier": 0.1040612976986276,
+          "binary_log_loss": 0.2011772248957379
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +0.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.7134092681873541,
+          "observed_frequency": 0.7129629629629629,
+          "observed_frequency_wilson_95": [
+            0.6214884086956034,
+            0.7898075670415103
+          ],
+          "overconfidence": 0.0004463052243911782,
+          "brier": 0.19624002461033838,
+          "baseline_brier": 0.20462417040121755,
+          "binary_log_loss": 0.576084517777496
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.6837886877999131,
+          "observed_frequency": 0.6949152542372882,
+          "observed_frequency_wilson_95": [
+            0.6067802462758582,
+            0.7707591163063796
+          ],
+          "overconfidence": -0.011126566437374929,
+          "brier": 0.18705580903117003,
+          "baseline_brier": 0.2127831149413367,
+          "binary_log_loss": 0.5504684881632026
+        },
+        "development_penalty": 0.08438413899300393,
+        "high_adjusted_development": {
+          "n": 31,
+          "mean_probability": 0.8965410638889699,
+          "observed_frequency": 0.8387096774193549,
+          "observed_frequency_wilson_95": [
+            0.6736529727502113,
+            0.9290748009456006
+          ],
+          "overconfidence": 0.05783138646961508,
+          "brier": 0.1355457341145323,
+          "baseline_brier": 0.15039094048797605,
+          "binary_log_loss": 0.43993576721384
+        },
+        "high_adjusted_audit": {
+          "n": 21,
+          "mean_probability": 0.902769565239819,
+          "observed_frequency": 0.9523809523809523,
+          "observed_frequency_wilson_95": [
+            0.7733018341376452,
+            0.9915442305280766
+          ],
+          "overconfidence": -0.04961138714113332,
+          "brier": 0.04799067491674794,
+          "baseline_brier": 0.1040612976986276,
+          "binary_log_loss": 0.2011772248957379
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +1": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.8680405460246761,
+          "observed_frequency": 0.8611111111111112,
+          "observed_frequency_wilson_95": [
+            0.7834242421937364,
+            0.9139906731865871
+          ],
+          "overconfidence": 0.0069294349135647715,
+          "brier": 0.12358627115466149,
+          "baseline_brier": 0.11998778400760582,
+          "binary_log_loss": 0.39042429709769916
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.8584821460338358,
+          "observed_frequency": 0.864406779661017,
+          "observed_frequency_wilson_95": [
+            0.79105039468061,
+            0.9147840657992261
+          ],
+          "overconfidence": -0.005924633627181301,
+          "brier": 0.10815784600264607,
+          "baseline_brier": 0.11741603123198388,
+          "binary_log_loss": 0.36600158570754876
+        },
+        "development_penalty": 0.07352800614928943,
+        "high_adjusted_development": {
+          "n": 79,
+          "mean_probability": 0.9272955938016484,
+          "observed_frequency": 0.8987341772151899,
+          "observed_frequency_wilson_95": [
+            0.8126986682072592,
+            0.9477888163415664
+          ],
+          "overconfidence": 0.0285614165864584,
+          "brier": 0.08622892741279925,
+          "baseline_brier": 0.09173962969500639,
+          "binary_log_loss": 0.2965396796072373
+        },
+        "high_adjusted_audit": {
+          "n": 85,
+          "mean_probability": 0.9182960689062469,
+          "observed_frequency": 0.8941176470588236,
+          "observed_frequency_wilson_95": [
+            0.810862973602443,
+            0.9432882348404489
+          ],
+          "overconfidence": 0.024178421847423165,
+          "brier": 0.09149588259458649,
+          "baseline_brier": 0.09530825024662873,
+          "binary_log_loss": 0.32177259386442
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +1.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.8680405460246761,
+          "observed_frequency": 0.8611111111111112,
+          "observed_frequency_wilson_95": [
+            0.7834242421937364,
+            0.9139906731865871
+          ],
+          "overconfidence": 0.0069294349135647715,
+          "brier": 0.12358627115466149,
+          "baseline_brier": 0.11998778400760582,
+          "binary_log_loss": 0.39042429709769916
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.8584821460338358,
+          "observed_frequency": 0.864406779661017,
+          "observed_frequency_wilson_95": [
+            0.79105039468061,
+            0.9147840657992261
+          ],
+          "overconfidence": -0.005924633627181301,
+          "brier": 0.10815784600264607,
+          "baseline_brier": 0.11741603123198388,
+          "binary_log_loss": 0.36600158570754876
+        },
+        "development_penalty": 0.07352800614928943,
+        "high_adjusted_development": {
+          "n": 79,
+          "mean_probability": 0.9272955938016484,
+          "observed_frequency": 0.8987341772151899,
+          "observed_frequency_wilson_95": [
+            0.8126986682072592,
+            0.9477888163415664
+          ],
+          "overconfidence": 0.0285614165864584,
+          "brier": 0.08622892741279925,
+          "baseline_brier": 0.09173962969500639,
+          "binary_log_loss": 0.2965396796072373
+        },
+        "high_adjusted_audit": {
+          "n": 85,
+          "mean_probability": 0.9182960689062469,
+          "observed_frequency": 0.8941176470588236,
+          "observed_frequency_wilson_95": [
+            0.810862973602443,
+            0.9432882348404489
+          ],
+          "overconfidence": 0.024178421847423165,
+          "brier": 0.09149588259458649,
+          "baseline_brier": 0.09530825024662873,
+          "binary_log_loss": 0.32177259386442
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +1.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.8680405460246761,
+          "observed_frequency": 0.8611111111111112,
+          "observed_frequency_wilson_95": [
+            0.7834242421937364,
+            0.9139906731865871
+          ],
+          "overconfidence": 0.0069294349135647715,
+          "brier": 0.12358627115466149,
+          "baseline_brier": 0.11998778400760582,
+          "binary_log_loss": 0.39042429709769916
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.8584821460338358,
+          "observed_frequency": 0.864406779661017,
+          "observed_frequency_wilson_95": [
+            0.79105039468061,
+            0.9147840657992261
+          ],
+          "overconfidence": -0.005924633627181301,
+          "brier": 0.10815784600264607,
+          "baseline_brier": 0.11741603123198388,
+          "binary_log_loss": 0.36600158570754876
+        },
+        "development_penalty": 0.07352800614928943,
+        "high_adjusted_development": {
+          "n": 79,
+          "mean_probability": 0.9272955938016484,
+          "observed_frequency": 0.8987341772151899,
+          "observed_frequency_wilson_95": [
+            0.8126986682072592,
+            0.9477888163415664
+          ],
+          "overconfidence": 0.0285614165864584,
+          "brier": 0.08622892741279925,
+          "baseline_brier": 0.09173962969500639,
+          "binary_log_loss": 0.2965396796072373
+        },
+        "high_adjusted_audit": {
+          "n": 85,
+          "mean_probability": 0.9182960689062469,
+          "observed_frequency": 0.8941176470588236,
+          "observed_frequency_wilson_95": [
+            0.810862973602443,
+            0.9432882348404489
+          ],
+          "overconfidence": 0.024178421847423165,
+          "brier": 0.09149588259458649,
+          "baseline_brier": 0.09530825024662873,
+          "binary_log_loss": 0.32177259386442
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +1.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.8680405460246761,
+          "observed_frequency": 0.8611111111111112,
+          "observed_frequency_wilson_95": [
+            0.7834242421937364,
+            0.9139906731865871
+          ],
+          "overconfidence": 0.0069294349135647715,
+          "brier": 0.12358627115466149,
+          "baseline_brier": 0.11998778400760582,
+          "binary_log_loss": 0.39042429709769916
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.8584821460338358,
+          "observed_frequency": 0.864406779661017,
+          "observed_frequency_wilson_95": [
+            0.79105039468061,
+            0.9147840657992261
+          ],
+          "overconfidence": -0.005924633627181301,
+          "brier": 0.10815784600264607,
+          "baseline_brier": 0.11741603123198388,
+          "binary_log_loss": 0.36600158570754876
+        },
+        "development_penalty": 0.07352800614928943,
+        "high_adjusted_development": {
+          "n": 79,
+          "mean_probability": 0.9272955938016484,
+          "observed_frequency": 0.8987341772151899,
+          "observed_frequency_wilson_95": [
+            0.8126986682072592,
+            0.9477888163415664
+          ],
+          "overconfidence": 0.0285614165864584,
+          "brier": 0.08622892741279925,
+          "baseline_brier": 0.09173962969500639,
+          "binary_log_loss": 0.2965396796072373
+        },
+        "high_adjusted_audit": {
+          "n": 85,
+          "mean_probability": 0.9182960689062469,
+          "observed_frequency": 0.8941176470588236,
+          "observed_frequency_wilson_95": [
+            0.810862973602443,
+            0.9432882348404489
+          ],
+          "overconfidence": 0.024178421847423165,
+          "brier": 0.09149588259458649,
+          "baseline_brier": 0.09530825024662873,
+          "binary_log_loss": 0.32177259386442
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +2": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.9466317663566769,
+          "observed_frequency": 0.9629629629629629,
+          "observed_frequency_wilson_95": [
+            0.9086169931912852,
+            0.9855046931937449
+          ],
+          "overconfidence": -0.01633119660628603,
+          "brier": 0.03830428881530038,
+          "baseline_brier": 0.0357886097401044,
+          "binary_log_loss": 0.14441992770143078
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.9434474054945053,
+          "observed_frequency": 0.9491525423728814,
+          "observed_frequency_wilson_95": [
+            0.8934913203043966,
+            0.9764906891242386
+          ],
+          "overconfidence": -0.005705136878376021,
+          "brier": 0.042685362743398715,
+          "baseline_brier": 0.048383569629699974,
+          "binary_log_loss": 0.1600993198434053
+        },
+        "development_penalty": 0.020623583860076965,
+        "high_adjusted_development": {
+          "n": 103,
+          "mean_probability": 0.9596361448735558,
+          "observed_frequency": 0.9611650485436893,
+          "observed_frequency_wilson_95": [
+            0.9043705100480193,
+            0.984796256454916
+          ],
+          "overconfidence": -0.001528903670133717,
+          "brier": 0.034977212138285974,
+          "baseline_brier": 0.037426463199705294,
+          "binary_log_loss": 0.1324195827881978
+        },
+        "high_adjusted_audit": {
+          "n": 113,
+          "mean_probability": 0.9579107558364846,
+          "observed_frequency": 0.9646017699115044,
+          "observed_frequency_wilson_95": [
+            0.9125024891789997,
+            0.9861500455346639
+          ],
+          "overconfidence": -0.006691014075019895,
+          "brier": 0.03323642843479653,
+          "baseline_brier": 0.03425943235613397,
+          "binary_log_loss": 0.13595017614356128
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +2.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.9466317663566769,
+          "observed_frequency": 0.9629629629629629,
+          "observed_frequency_wilson_95": [
+            0.9086169931912852,
+            0.9855046931937449
+          ],
+          "overconfidence": -0.01633119660628603,
+          "brier": 0.03830428881530038,
+          "baseline_brier": 0.0357886097401044,
+          "binary_log_loss": 0.14441992770143078
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.9434474054945053,
+          "observed_frequency": 0.9491525423728814,
+          "observed_frequency_wilson_95": [
+            0.8934913203043966,
+            0.9764906891242386
+          ],
+          "overconfidence": -0.005705136878376021,
+          "brier": 0.042685362743398715,
+          "baseline_brier": 0.048383569629699974,
+          "binary_log_loss": 0.1600993198434053
+        },
+        "development_penalty": 0.020623583860076965,
+        "high_adjusted_development": {
+          "n": 103,
+          "mean_probability": 0.9596361448735558,
+          "observed_frequency": 0.9611650485436893,
+          "observed_frequency_wilson_95": [
+            0.9043705100480193,
+            0.984796256454916
+          ],
+          "overconfidence": -0.001528903670133717,
+          "brier": 0.034977212138285974,
+          "baseline_brier": 0.037426463199705294,
+          "binary_log_loss": 0.1324195827881978
+        },
+        "high_adjusted_audit": {
+          "n": 113,
+          "mean_probability": 0.9579107558364846,
+          "observed_frequency": 0.9646017699115044,
+          "observed_frequency_wilson_95": [
+            0.9125024891789997,
+            0.9861500455346639
+          ],
+          "overconfidence": -0.006691014075019895,
+          "brier": 0.03323642843479653,
+          "baseline_brier": 0.03425943235613397,
+          "binary_log_loss": 0.13595017614356128
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +2.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.9466317663566769,
+          "observed_frequency": 0.9629629629629629,
+          "observed_frequency_wilson_95": [
+            0.9086169931912852,
+            0.9855046931937449
+          ],
+          "overconfidence": -0.01633119660628603,
+          "brier": 0.03830428881530038,
+          "baseline_brier": 0.0357886097401044,
+          "binary_log_loss": 0.14441992770143078
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.9434474054945053,
+          "observed_frequency": 0.9491525423728814,
+          "observed_frequency_wilson_95": [
+            0.8934913203043966,
+            0.9764906891242386
+          ],
+          "overconfidence": -0.005705136878376021,
+          "brier": 0.042685362743398715,
+          "baseline_brier": 0.048383569629699974,
+          "binary_log_loss": 0.1600993198434053
+        },
+        "development_penalty": 0.020623583860076965,
+        "high_adjusted_development": {
+          "n": 103,
+          "mean_probability": 0.9596361448735558,
+          "observed_frequency": 0.9611650485436893,
+          "observed_frequency_wilson_95": [
+            0.9043705100480193,
+            0.984796256454916
+          ],
+          "overconfidence": -0.001528903670133717,
+          "brier": 0.034977212138285974,
+          "baseline_brier": 0.037426463199705294,
+          "binary_log_loss": 0.1324195827881978
+        },
+        "high_adjusted_audit": {
+          "n": 113,
+          "mean_probability": 0.9579107558364846,
+          "observed_frequency": 0.9646017699115044,
+          "observed_frequency_wilson_95": [
+            0.9125024891789997,
+            0.9861500455346639
+          ],
+          "overconfidence": -0.006691014075019895,
+          "brier": 0.03323642843479653,
+          "baseline_brier": 0.03425943235613397,
+          "binary_log_loss": 0.13595017614356128
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +2.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.9466317663566769,
+          "observed_frequency": 0.9629629629629629,
+          "observed_frequency_wilson_95": [
+            0.9086169931912852,
+            0.9855046931937449
+          ],
+          "overconfidence": -0.01633119660628603,
+          "brier": 0.03830428881530038,
+          "baseline_brier": 0.0357886097401044,
+          "binary_log_loss": 0.14441992770143078
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.9434474054945053,
+          "observed_frequency": 0.9491525423728814,
+          "observed_frequency_wilson_95": [
+            0.8934913203043966,
+            0.9764906891242386
+          ],
+          "overconfidence": -0.005705136878376021,
+          "brier": 0.042685362743398715,
+          "baseline_brier": 0.048383569629699974,
+          "binary_log_loss": 0.1600993198434053
+        },
+        "development_penalty": 0.020623583860076965,
+        "high_adjusted_development": {
+          "n": 103,
+          "mean_probability": 0.9596361448735558,
+          "observed_frequency": 0.9611650485436893,
+          "observed_frequency_wilson_95": [
+            0.9043705100480193,
+            0.984796256454916
+          ],
+          "overconfidence": -0.001528903670133717,
+          "brier": 0.034977212138285974,
+          "baseline_brier": 0.037426463199705294,
+          "binary_log_loss": 0.1324195827881978
+        },
+        "high_adjusted_audit": {
+          "n": 113,
+          "mean_probability": 0.9579107558364846,
+          "observed_frequency": 0.9646017699115044,
+          "observed_frequency_wilson_95": [
+            0.9125024891789997,
+            0.9861500455346639
+          ],
+          "overconfidence": -0.006691014075019895,
+          "brier": 0.03323642843479653,
+          "baseline_brier": 0.03425943235613397,
+          "binary_log_loss": 0.13595017614356128
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home +3": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.9800777305553896,
+          "observed_frequency": 0.9907407407407407,
+          "observed_frequency_wilson_95": [
+            0.9494053063000247,
+            0.9983636812681069
+          ],
+          "overconfidence": -0.010663010185351266,
+          "brier": 0.010524857705435682,
+          "baseline_brier": 0.009194808360219521,
+          "binary_log_loss": 0.05233588990515014
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.9787849971041104,
+          "observed_frequency": 0.9915254237288136,
+          "observed_frequency_wilson_95": [
+            0.9535532858788099,
+            0.9985024980242249
+          ],
+          "overconfidence": -0.012740426624703165,
+          "brier": 0.008494373368438148,
+          "baseline_brier": 0.008482350187985696,
+          "binary_log_loss": 0.037432352187110524
+        },
+        "development_penalty": 0.008670633016655126,
+        "high_adjusted_development": {
+          "n": 107,
+          "mean_probability": 0.9823566092781425,
+          "observed_frequency": 0.9906542056074766,
+          "observed_frequency_wilson_95": [
+            0.9489493946110185,
+            0.9983483708488808
+          ],
+          "overconfidence": -0.008297596329334246,
+          "brier": 0.009973028832662873,
+          "baseline_brier": 0.009278529126291363,
+          "binary_log_loss": 0.04996330718809558
+        },
+        "high_adjusted_audit": {
+          "n": 117,
+          "mean_probability": 0.9815875366436416,
+          "observed_frequency": 0.9914529914529915,
+          "observed_frequency_wilson_95": [
+            0.9531693460245405,
+            0.9984896853024199
+          ],
+          "overconfidence": -0.00986545480934989,
+          "brier": 0.0075252716140692365,
+          "baseline_brier": 0.00855365188943294,
+          "binary_log_loss": 0.03408204842111546
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -0.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.48393852305145824,
+          "observed_frequency": 0.5092592592592593,
+          "observed_frequency_wilson_95": [
+            0.4162897139617787,
+            0.6015927197659219
+          ],
+          "overconfidence": -0.025320736207801127,
+          "brier": 0.2540721171643864,
+          "baseline_brier": 0.2509681171629775,
+          "binary_log_loss": 0.7378584980366573
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.4454393739739367,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.41121731418502067,
+            0.5887826858149793
+          ],
+          "overconfidence": -0.05456062602606327,
+          "brier": 0.21624314864378189,
+          "baseline_brier": 0.2503632743766649,
+          "binary_log_loss": 0.6173650528571101
+        },
+        "development_penalty": 0.07006732722655304,
+        "high_adjusted_development": {
+          "n": 4,
+          "mean_probability": 0.8755471575051952,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.15003570882017148,
+            0.8499642911798285
+          ],
+          "overconfidence": 0.37554715750519524,
+          "brier": 0.4224082047622971,
+          "baseline_brier": 0.25246190660573553,
+          "binary_log_loss": 1.4252827713635865
+        },
+        "high_adjusted_audit": {
+          "n": 4,
+          "mean_probability": 0.8616857601914141,
+          "observed_frequency": 0.75,
+          "observed_frequency_wilson_95": [
+            0.3006360524426366,
+            0.9544139373553637
+          ],
+          "overconfidence": 0.11168576019141405,
+          "brier": 0.18348031384763833,
+          "baseline_brier": 0.25130204837713765,
+          "binary_log_loss": 0.5377861676892665
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -0.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.48393852305145824,
+          "observed_frequency": 0.5092592592592593,
+          "observed_frequency_wilson_95": [
+            0.4162897139617787,
+            0.6015927197659219
+          ],
+          "overconfidence": -0.025320736207801127,
+          "brier": 0.2540721171643864,
+          "baseline_brier": 0.2509681171629775,
+          "binary_log_loss": 0.7378584980366573
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.4454393739739367,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.41121731418502067,
+            0.5887826858149793
+          ],
+          "overconfidence": -0.05456062602606327,
+          "brier": 0.21624314864378189,
+          "baseline_brier": 0.2503632743766649,
+          "binary_log_loss": 0.6173650528571101
+        },
+        "development_penalty": 0.07006732722655304,
+        "high_adjusted_development": {
+          "n": 4,
+          "mean_probability": 0.8755471575051952,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.15003570882017148,
+            0.8499642911798285
+          ],
+          "overconfidence": 0.37554715750519524,
+          "brier": 0.4224082047622971,
+          "baseline_brier": 0.25246190660573553,
+          "binary_log_loss": 1.4252827713635865
+        },
+        "high_adjusted_audit": {
+          "n": 4,
+          "mean_probability": 0.8616857601914141,
+          "observed_frequency": 0.75,
+          "observed_frequency_wilson_95": [
+            0.3006360524426366,
+            0.9544139373553637
+          ],
+          "overconfidence": 0.11168576019141405,
+          "brier": 0.18348031384763833,
+          "baseline_brier": 0.25130204837713765,
+          "binary_log_loss": 0.5377861676892665
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -0.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.48393852305145824,
+          "observed_frequency": 0.5092592592592593,
+          "observed_frequency_wilson_95": [
+            0.4162897139617787,
+            0.6015927197659219
+          ],
+          "overconfidence": -0.025320736207801127,
+          "brier": 0.2540721171643864,
+          "baseline_brier": 0.2509681171629775,
+          "binary_log_loss": 0.7378584980366573
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.4454393739739367,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.41121731418502067,
+            0.5887826858149793
+          ],
+          "overconfidence": -0.05456062602606327,
+          "brier": 0.21624314864378189,
+          "baseline_brier": 0.2503632743766649,
+          "binary_log_loss": 0.6173650528571101
+        },
+        "development_penalty": 0.07006732722655304,
+        "high_adjusted_development": {
+          "n": 4,
+          "mean_probability": 0.8755471575051952,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.15003570882017148,
+            0.8499642911798285
+          ],
+          "overconfidence": 0.37554715750519524,
+          "brier": 0.4224082047622971,
+          "baseline_brier": 0.25246190660573553,
+          "binary_log_loss": 1.4252827713635865
+        },
+        "high_adjusted_audit": {
+          "n": 4,
+          "mean_probability": 0.8616857601914141,
+          "observed_frequency": 0.75,
+          "observed_frequency_wilson_95": [
+            0.3006360524426366,
+            0.9544139373553637
+          ],
+          "overconfidence": 0.11168576019141405,
+          "brier": 0.18348031384763833,
+          "baseline_brier": 0.25130204837713765,
+          "binary_log_loss": 0.5377861676892665
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -1": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.48393852305145824,
+          "observed_frequency": 0.5092592592592593,
+          "observed_frequency_wilson_95": [
+            0.4162897139617787,
+            0.6015927197659219
+          ],
+          "overconfidence": -0.025320736207801127,
+          "brier": 0.2540721171643864,
+          "baseline_brier": 0.2509681171629775,
+          "binary_log_loss": 0.7378584980366573
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.4454393739739367,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.41121731418502067,
+            0.5887826858149793
+          ],
+          "overconfidence": -0.05456062602606327,
+          "brier": 0.21624314864378189,
+          "baseline_brier": 0.2503632743766649,
+          "binary_log_loss": 0.6173650528571101
+        },
+        "development_penalty": 0.07006732722655304,
+        "high_adjusted_development": {
+          "n": 4,
+          "mean_probability": 0.8755471575051952,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.15003570882017148,
+            0.8499642911798285
+          ],
+          "overconfidence": 0.37554715750519524,
+          "brier": 0.4224082047622971,
+          "baseline_brier": 0.25246190660573553,
+          "binary_log_loss": 1.4252827713635865
+        },
+        "high_adjusted_audit": {
+          "n": 4,
+          "mean_probability": 0.8616857601914141,
+          "observed_frequency": 0.75,
+          "observed_frequency_wilson_95": [
+            0.3006360524426366,
+            0.9544139373553637
+          ],
+          "overconfidence": 0.11168576019141405,
+          "brier": 0.18348031384763833,
+          "baseline_brier": 0.25130204837713765,
+          "binary_log_loss": 0.5377861676892665
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -1.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.27603660374428896,
+          "observed_frequency": 0.2962962962962963,
+          "observed_frequency_wilson_95": [
+            0.21837679573361612,
+            0.3882096622569705
+          ],
+          "overconfidence": -0.02025969255200732,
+          "brier": 0.19865343080087555,
+          "baseline_brier": 0.21101988597307428,
+          "binary_log_loss": 0.6180202778306133
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.23537217930790771,
+          "observed_frequency": 0.2457627118644068,
+          "observed_frequency_wilson_95": [
+            0.1769108428586466,
+            0.330646510294956
+          ],
+          "overconfidence": -0.010390532556499042,
+          "brier": 0.19496505518764592,
+          "baseline_brier": 0.18616529917945512,
+          "binary_log_loss": 0.5684427206233184
+        },
+        "development_penalty": 0.06410545811798127,
+        "high_adjusted_development": {
+          "n": 1,
+          "mean_probability": 0.9114336917675392,
+          "observed_frequency": 0.0,
+          "observed_frequency_wilson_95": [
+            0.0,
+            0.7934567085261071
+          ],
+          "overconfidence": 0.9114336917675392,
+          "brier": 0.8307113744890057,
+          "baseline_brier": 0.05933596318211703,
+          "binary_log_loss": 2.42400376194806
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -1.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.27603660374428896,
+          "observed_frequency": 0.2962962962962963,
+          "observed_frequency_wilson_95": [
+            0.21837679573361612,
+            0.3882096622569705
+          ],
+          "overconfidence": -0.02025969255200732,
+          "brier": 0.19865343080087555,
+          "baseline_brier": 0.21101988597307428,
+          "binary_log_loss": 0.6180202778306133
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.23537217930790771,
+          "observed_frequency": 0.2457627118644068,
+          "observed_frequency_wilson_95": [
+            0.1769108428586466,
+            0.330646510294956
+          ],
+          "overconfidence": -0.010390532556499042,
+          "brier": 0.19496505518764592,
+          "baseline_brier": 0.18616529917945512,
+          "binary_log_loss": 0.5684427206233184
+        },
+        "development_penalty": 0.06410545811798127,
+        "high_adjusted_development": {
+          "n": 1,
+          "mean_probability": 0.9114336917675392,
+          "observed_frequency": 0.0,
+          "observed_frequency_wilson_95": [
+            0.0,
+            0.7934567085261071
+          ],
+          "overconfidence": 0.9114336917675392,
+          "brier": 0.8307113744890057,
+          "baseline_brier": 0.05933596318211703,
+          "binary_log_loss": 2.42400376194806
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -1.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.27603660374428896,
+          "observed_frequency": 0.2962962962962963,
+          "observed_frequency_wilson_95": [
+            0.21837679573361612,
+            0.3882096622569705
+          ],
+          "overconfidence": -0.02025969255200732,
+          "brier": 0.19865343080087555,
+          "baseline_brier": 0.21101988597307428,
+          "binary_log_loss": 0.6180202778306133
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.23537217930790771,
+          "observed_frequency": 0.2457627118644068,
+          "observed_frequency_wilson_95": [
+            0.1769108428586466,
+            0.330646510294956
+          ],
+          "overconfidence": -0.010390532556499042,
+          "brier": 0.19496505518764592,
+          "baseline_brier": 0.18616529917945512,
+          "binary_log_loss": 0.5684427206233184
+        },
+        "development_penalty": 0.06410545811798127,
+        "high_adjusted_development": {
+          "n": 1,
+          "mean_probability": 0.9114336917675392,
+          "observed_frequency": 0.0,
+          "observed_frequency_wilson_95": [
+            0.0,
+            0.7934567085261071
+          ],
+          "overconfidence": 0.9114336917675392,
+          "brier": 0.8307113744890057,
+          "baseline_brier": 0.05933596318211703,
+          "binary_log_loss": 2.42400376194806
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -2": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.27603660374428896,
+          "observed_frequency": 0.2962962962962963,
+          "observed_frequency_wilson_95": [
+            0.21837679573361612,
+            0.3882096622569705
+          ],
+          "overconfidence": -0.02025969255200732,
+          "brier": 0.19865343080087555,
+          "baseline_brier": 0.21101988597307428,
+          "binary_log_loss": 0.6180202778306133
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.23537217930790771,
+          "observed_frequency": 0.2457627118644068,
+          "observed_frequency_wilson_95": [
+            0.1769108428586466,
+            0.330646510294956
+          ],
+          "overconfidence": -0.010390532556499042,
+          "brier": 0.19496505518764592,
+          "baseline_brier": 0.18616529917945512,
+          "binary_log_loss": 0.5684427206233184
+        },
+        "development_penalty": 0.06410545811798127,
+        "high_adjusted_development": {
+          "n": 1,
+          "mean_probability": 0.9114336917675392,
+          "observed_frequency": 0.0,
+          "observed_frequency_wilson_95": [
+            0.0,
+            0.7934567085261071
+          ],
+          "overconfidence": 0.9114336917675392,
+          "brier": 0.8307113744890057,
+          "baseline_brier": 0.05933596318211703,
+          "binary_log_loss": 2.42400376194806
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -2.25": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.1367199924782702,
+          "observed_frequency": 0.14814814814814814,
+          "observed_frequency_wilson_95": [
+            0.093294517694531,
+            0.22717300065284596
+          ],
+          "overconfidence": -0.01142815566987795,
+          "brier": 0.12699613261429962,
+          "baseline_brier": 0.12680774609948786,
+          "binary_log_loss": 0.45337727380935483
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.11057097746447032,
+          "observed_frequency": 0.09322033898305085,
+          "observed_frequency_wilson_95": [
+            0.05285105557398857,
+            0.1592407094717757
+          ],
+          "overconfidence": 0.01735063848141948,
+          "brier": 0.0937117536151767,
+          "baseline_brier": 0.08613760992993744,
+          "binary_log_loss": 0.31827390903685643
+        },
+        "development_penalty": 0.0560613118058869,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -2.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.1367199924782702,
+          "observed_frequency": 0.14814814814814814,
+          "observed_frequency_wilson_95": [
+            0.093294517694531,
+            0.22717300065284596
+          ],
+          "overconfidence": -0.01142815566987795,
+          "brier": 0.12699613261429962,
+          "baseline_brier": 0.12680774609948786,
+          "binary_log_loss": 0.45337727380935483
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.11057097746447032,
+          "observed_frequency": 0.09322033898305085,
+          "observed_frequency_wilson_95": [
+            0.05285105557398857,
+            0.1592407094717757
+          ],
+          "overconfidence": 0.01735063848141948,
+          "brier": 0.0937117536151767,
+          "baseline_brier": 0.08613760992993744,
+          "binary_log_loss": 0.31827390903685643
+        },
+        "development_penalty": 0.0560613118058869,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -2.75": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.1367199924782702,
+          "observed_frequency": 0.14814814814814814,
+          "observed_frequency_wilson_95": [
+            0.093294517694531,
+            0.22717300065284596
+          ],
+          "overconfidence": -0.01142815566987795,
+          "brier": 0.12699613261429962,
+          "baseline_brier": 0.12680774609948786,
+          "binary_log_loss": 0.45337727380935483
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.11057097746447032,
+          "observed_frequency": 0.09322033898305085,
+          "observed_frequency_wilson_95": [
+            0.05285105557398857,
+            0.1592407094717757
+          ],
+          "overconfidence": 0.01735063848141948,
+          "brier": 0.0937117536151767,
+          "baseline_brier": 0.08613760992993744,
+          "binary_log_loss": 0.31827390903685643
+        },
+        "development_penalty": 0.0560613118058869,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "AH home -3": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.1367199924782702,
+          "observed_frequency": 0.14814814814814814,
+          "observed_frequency_wilson_95": [
+            0.093294517694531,
+            0.22717300065284596
+          ],
+          "overconfidence": -0.01142815566987795,
+          "brier": 0.12699613261429962,
+          "baseline_brier": 0.12680774609948786,
+          "binary_log_loss": 0.45337727380935483
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.11057097746447032,
+          "observed_frequency": 0.09322033898305085,
+          "observed_frequency_wilson_95": [
+            0.05285105557398857,
+            0.1592407094717757
+          ],
+          "overconfidence": 0.01735063848141948,
+          "brier": 0.0937117536151767,
+          "baseline_brier": 0.08613760992993744,
+          "binary_log_loss": 0.31827390903685643
+        },
+        "development_penalty": 0.0560613118058869,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 0
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "Away win": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.2865907318126459,
+          "observed_frequency": 0.28703703703703703,
+          "observed_frequency_wilson_95": [
+            0.21019243295848952,
+            0.3785115913043965
+          ],
+          "overconfidence": -0.00044630522439118486,
+          "brier": 0.19624002461033838,
+          "baseline_brier": 0.20462417040121753,
+          "binary_log_loss": 0.5760845177774959
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.3162113122000868,
+          "observed_frequency": 0.3050847457627119,
+          "observed_frequency_wilson_95": [
+            0.22924088369362033,
+            0.3932197537241417
+          ],
+          "overconfidence": 0.011126566437374932,
+          "brier": 0.18705580903117003,
+          "baseline_brier": 0.2127831149413367,
+          "binary_log_loss": 0.5504684881632026
+        },
+        "development_penalty": 0.08349152854422157,
+        "high_adjusted_development": {
+          "n": 0
+        },
+        "high_adjusted_audit": {
+          "n": 1,
+          "mean_probability": 0.8553951085026296,
+          "observed_frequency": 1.0,
+          "observed_frequency_wilson_95": [
+            0.20654329147389294,
+            1.0
+          ],
+          "overconfidence": -0.14460489149737044,
+          "brier": 0.020910574644966276,
+          "baseline_brier": 0.501430314311197,
+          "binary_log_loss": 0.156191801579972
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "Double Chance 12": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.7705292548641038,
+          "observed_frequency": 0.7962962962962963,
+          "observed_frequency_wilson_95": [
+            0.7107849487620017,
+            0.8614529305244176
+          ],
+          "overconfidence": -0.025767041432192307,
+          "brier": 0.17449014744392694,
+          "baseline_brier": 0.1630238142285341,
+          "binary_log_loss": 0.5530372711135071
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.7616506861740234,
+          "observed_frequency": 0.8050847457627118,
+          "observed_frequency_wilson_95": [
+            0.7244709740380223,
+            0.8664602021776543
+          ],
+          "overconfidence": -0.043434059588688345,
+          "brier": 0.15781592634827138,
+          "baseline_brier": 0.15727353756598136,
+          "binary_log_loss": 0.4921330236814976
+        },
+        "development_penalty": 0.05323199777213338,
+        "high_adjusted_development": {
+          "n": 34,
+          "mean_probability": 0.8410365340845282,
+          "observed_frequency": 0.7352941176470589,
+          "observed_frequency_wilson_95": [
+            0.5688253783710155,
+            0.8539897245844621
+          ],
+          "overconfidence": 0.1057424164374693,
+          "brier": 0.21331945029901533,
+          "baseline_brier": 0.1964894631006386,
+          "binary_log_loss": 0.6754016244155581
+        },
+        "high_adjusted_audit": {
+          "n": 28,
+          "mean_probability": 0.854371220734375,
+          "observed_frequency": 0.8928571428571429,
+          "observed_frequency_wilson_95": [
+            0.7280377463234293,
+            0.9628823079452005
+          ],
+          "overconfidence": -0.0384859221227679,
+          "brier": 0.09617088743057038,
+          "baseline_brier": 0.10671353409402447,
+          "binary_log_loss": 0.34131557464599094
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "Double Chance 1X": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.7134092681873541,
+          "observed_frequency": 0.7129629629629629,
+          "observed_frequency_wilson_95": [
+            0.6214884086956034,
+            0.7898075670415103
+          ],
+          "overconfidence": 0.00044630522439120286,
+          "brier": 0.19624002461033838,
+          "baseline_brier": 0.20462417040121755,
+          "binary_log_loss": 0.576084517777496
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.6837886877999131,
+          "observed_frequency": 0.6949152542372882,
+          "observed_frequency_wilson_95": [
+            0.6067802462758582,
+            0.7707591163063796
+          ],
+          "overconfidence": -0.011126566437374936,
+          "brier": 0.18705580903117003,
+          "baseline_brier": 0.2127831149413367,
+          "binary_log_loss": 0.5504684881632027
+        },
+        "development_penalty": 0.08438413899300395,
+        "high_adjusted_development": {
+          "n": 31,
+          "mean_probability": 0.8965410638889699,
+          "observed_frequency": 0.8387096774193549,
+          "observed_frequency_wilson_95": [
+            0.6736529727502113,
+            0.9290748009456006
+          ],
+          "overconfidence": 0.05783138646961507,
+          "brier": 0.1355457341145323,
+          "baseline_brier": 0.15039094048797605,
+          "binary_log_loss": 0.43993576721383987
+        },
+        "high_adjusted_audit": {
+          "n": 21,
+          "mean_probability": 0.902769565239819,
+          "observed_frequency": 0.9523809523809523,
+          "observed_frequency_wilson_95": [
+            0.7733018341376452,
+            0.9915442305280766
+          ],
+          "overconfidence": -0.049611387141133285,
+          "brier": 0.04799067491674788,
+          "baseline_brier": 0.10406129769862758,
+          "binary_log_loss": 0.20117722489573767
+        },
+        "diagnostic_status": "PASS_RESEARCH_DIAGNOSTIC",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "Double Chance X2": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.5160614769485418,
+          "observed_frequency": 0.49074074074074076,
+          "observed_frequency_wilson_95": [
+            0.39840728023407807,
+            0.5837102860382213
+          ],
+          "overconfidence": 0.02532073620780113,
+          "brier": 0.2540721171643864,
+          "baseline_brier": 0.25096811716297746,
+          "binary_log_loss": 0.7378584980366573
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.5545606260260632,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.41121731418502067,
+            0.5887826858149793
+          ],
+          "overconfidence": 0.054560626026063236,
+          "brier": 0.21624314864378189,
+          "baseline_brier": 0.2503632743766649,
+          "binary_log_loss": 0.6173650528571101
+        },
+        "development_penalty": 0.12070879964215529,
+        "high_adjusted_development": {
+          "n": 4,
+          "mean_probability": 0.9185982106790587,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.15003570882017148,
+            0.8499642911798285
+          ],
+          "overconfidence": 0.4185982106790587,
+          "brier": 0.44736887557835314,
+          "baseline_brier": 0.2516236981534651,
+          "binary_log_loss": 1.5309595427099802
+        },
+        "high_adjusted_audit": {
+          "n": 5,
+          "mean_probability": 0.9214507733478536,
+          "observed_frequency": 1.0,
+          "observed_frequency_wilson_95": [
+            0.5655085052479191,
+            1.0
+          ],
+          "overconfidence": -0.07854922665214643,
+          "brier": 0.006931561914892019,
+          "baseline_brier": 0.24453105999457514,
+          "binary_log_loss": 0.08225309916752482
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "Home win": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.48393852305145824,
+          "observed_frequency": 0.5092592592592593,
+          "observed_frequency_wilson_95": [
+            0.4162897139617787,
+            0.6015927197659219
+          ],
+          "overconfidence": -0.025320736207801144,
+          "brier": 0.2540721171643864,
+          "baseline_brier": 0.2509681171629775,
+          "binary_log_loss": 0.7378584980366573
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.4454393739739367,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.41121731418502067,
+            0.5887826858149793
+          ],
+          "overconfidence": -0.05456062602606327,
+          "brier": 0.21624314864378189,
+          "baseline_brier": 0.2503632743766649,
+          "binary_log_loss": 0.6173650528571101
+        },
+        "development_penalty": 0.07006732722655301,
+        "high_adjusted_development": {
+          "n": 4,
+          "mean_probability": 0.8755471575051954,
+          "observed_frequency": 0.5,
+          "observed_frequency_wilson_95": [
+            0.15003570882017148,
+            0.8499642911798285
+          ],
+          "overconfidence": 0.3755471575051953,
+          "brier": 0.42240820476229707,
+          "baseline_brier": 0.25246190660573553,
+          "binary_log_loss": 1.4252827713635863
+        },
+        "high_adjusted_audit": {
+          "n": 4,
+          "mean_probability": 0.8616857601914142,
+          "observed_frequency": 0.75,
+          "observed_frequency_wilson_95": [
+            0.3006360524426366,
+            0.9544139373553637
+          ],
+          "overconfidence": 0.11168576019141413,
+          "brier": 0.1834803138476384,
+          "baseline_brier": 0.25130204837713765,
+          "binary_log_loss": 0.5377861676892667
+        },
+        "diagnostic_status": "INSUFFICIENT_HIGH_CONFIDENCE_SAMPLE",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      },
+      "Over 1.5": {
+        "development": {
+          "n": 108,
+          "mean_probability": 0.7439979396124247,
+          "observed_frequency": 0.8240740740740741,
+          "observed_frequency_wilson_95": [
+            0.7415029003543399,
+            0.8843822801151813
+          ],
+          "overconfidence": -0.08007613446164932,
+          "brier": 0.1684153551767747,
+          "baseline_brier": 0.14636110671893018,
+          "binary_log_loss": 0.529020477748507
+        },
+        "audit": {
+          "n": 118,
+          "mean_probability": 0.7057516004081292,
+          "observed_frequency": 0.7203389830508474,
+          "observed_frequency_wilson_95": [
+            0.6333924622678074,
+            0.79339116499907
+          ],
+          "overconfidence": -0.014587382642718395,
+          "brier": 0.212200023488627,
+          "baseline_brier": 0.20649189569534784,
+          "binary_log_loss": 0.6376349048780363
+        },
+        "development_penalty": 0.0,
+        "high_adjusted_development": {
+          "n": 56,
+          "mean_probability": 0.841738347078636,
+          "observed_frequency": 0.8214285714285714,
+          "observed_frequency_wilson_95": [
+            0.7015856902425105,
+            0.9000025025865582
+          ],
+          "overconfidence": 0.020309775650064588,
+          "brier": 0.15444771302760205,
+          "baseline_brier": 0.14775227025850546,
+          "binary_log_loss": 0.5043634369572146
+        },
+        "high_adjusted_audit": {
+          "n": 47,
+          "mean_probability": 0.8381446413650581,
+          "observed_frequency": 0.723404255319149,
+          "observed_frequency_wilson_95": [
+            0.5824116429931004,
+            0.8306359400884707
+          ],
+          "overconfidence": 0.11474038604590929,
+          "brier": 0.22307570976337301,
+          "baseline_brier": 0.2049557521913462,
+          "binary_log_loss": 0.692328025495219
+        },
+        "diagnostic_status": "FAIL_AUDIT",
+        "production_eligible": false,
+        "reason": "Retrospective probabilities only; execution EV, live reliability and forward evidence unverified"
+      }
+    },
+    "roi": null,
+    "ev": null,
+    "production_enabled": false,
+    "limitations": [
+      "Historical datasets retrieved after results; no point-in-time revision archive.",
+      "Chronological outcome-unseen holdout, not a prospective forward test.",
+      "Historical market prices unavailable; no market blend, EV or ROI claim.",
+      "Six-appearance filter reduces evaluation coverage and cannot certify current teams.",
+      "Many AH lines are correlated; diagnostic passes are not independent confirmations.",
+      "Current-season league-phase results enter final research fit only after corroboration."
+    ]
+  },
+  "api_football_retry": {
+    "run_url": "https://github.com/paulmaina/football-value-pipeline/actions/runs/39739089158",
+    "requests": 6,
+    "odds_credits": 0,
+    "2022": {
+      "fixtures": 175,
+      "FT": 165,
+      "AET": 3,
+      "PEN": 7
+    },
+    "2023": {
+      "fixtures": 175,
+      "FT": 171,
+      "AET": 2,
+      "PEN": 2
+    },
+    "2024": {
+      "fixtures": 269,
+      "FT": 256,
+      "AET": 6,
+      "PEN": 7
+    },
+    "2025": "PLAN_RESTRICTED",
+    "2026": "PLAN_RESTRICTED",
+    "raw_records_ingested": 0,
+    "note": "Successful HTTP and complete reported pagination do not prove independent accuracy or completeness."
+  }
+}

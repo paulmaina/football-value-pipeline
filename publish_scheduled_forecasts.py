@@ -16,7 +16,7 @@ def publish(repo,attempts=3,runner=None):
             git(repo,'fetch','origin','main');base=git(repo,'rev-parse','FETCH_HEAD').stdout.strip()
             work=Path(directory)/str(attempt);git(repo,'worktree','add','--detach',str(work),base)
             try:
-                runner([sys.executable,'football_value_pipeline_v2_standalone.py','--leagues','EPL','LaLiga','Bundesliga','SerieA','Ligue1','UCL',
+                runner([sys.executable,'football_value_pipeline_v2_standalone.py','--leagues','EPL','LaLiga','Bundesliga','SerieA','Ligue1','UCL','UEL',
                     '--tune-half-life','--goal-blend-experiment','--additional-odds-coverage','all','--market-led-experiment','--recency-experiment','--reliability-experiment','--api-key-source','environment'],cwd=work,check=True)
                 runner([sys.executable,'workflow_checks.py','raw'],cwd=work,check=True)
                 runner([sys.executable,'format_football_output.py'],cwd=work,check=True)
@@ -27,6 +27,7 @@ def publish(repo,attempts=3,runner=None):
                 cache = work/'.football_cache'
                 training = [p for div in ('E0','SP1','D1','I1','F1')
                             for p in cache.glob(f'????_{div}.csv')]
+                # Europa inputs refresh in the generation worktree; provider extracts stay local.
                 training += list(cache.glob('fdorg_history_UCL_????.json'))
                 training += list(cache.glob('fdorg_history_UCL_????.meta.json'))
                 training += list((cache/'bbs/feature_models').glob('*/*.json'))
