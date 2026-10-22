@@ -1,0 +1,81 @@
+{
+  "2047786": {
+    "date": "2026-02-26",
+    "reported": [
+      1,
+      1
+    ],
+    "regulation": [
+      1,
+      1
+    ],
+    "url": "https://www.uefa.com/newsfiles/uefacup/2026/2047786_FR.pdf",
+    "reason": "Tetteh 9 and Spacil 62; no extra-time goals"
+  },
+  "2047787": {
+    "date": "2026-02-26",
+    "reported": [
+      3,
+      3
+    ],
+    "regulation": [
+      1,
+      3
+    ],
+    "url": "https://www.uefa.com/newsfiles/uefacup/2026/2047787_FR.pdf",
+    "reason": "Sor 51; Bakrar 45+2 and Stojkovic 57,75; Genk added two extra-time goals"
+  },
+  "2047789": {
+    "date": "2026-02-26",
+    "reported": [
+      0,
+      2
+    ],
+    "regulation": [
+      0,
+      1
+    ],
+    "url": "https://www.uefa.com/newsfiles/uefacup/2026/2047789_FR.pdf",
+    "reason": "Giroud 4; Ngoy extra-time winner"
+  },
+  "2048132": {
+    "date": "2026-03-19",
+    "reported": [
+      1,
+      2
+    ],
+    "regulation": [
+      1,
+      2
+    ],
+    "url": "https://www.uefa.com/newsfiles/uefacup/2026/2048132_FR.pdf",
+    "reason": "Dominguez 41, Yates 52, Erlic 69; no extra-time goals"
+  },
+  "2048133": {
+    "date": "2026-03-19",
+    "reported": [
+      3,
+      4
+    ],
+    "regulation": [
+      3,
+      3
+    ],
+    "url": "https://www.uefa.com/newsfiles/uefacup/2026/2048133_FR.pdf",
+    "reason": "Ndicka 32, Malen 69, Pellegrini 80; Rowe 22, Bernardeschi first-half stoppage time, Castro 58; Cambiaghi 111 excluded"
+  },
+  "_identity_reviews": [
+    {
+      "date": "2023-03-09",
+      "home": "Leverkusen",
+      "wrong_away": "Fenerbahçe",
+      "correct_away": "Ferencváros",
+      "reported": [
+        2,
+        0
+      ],
+      "url": "https://editorial.uefa.com/resources/0282-1858e6a6971a-137653647ecd-1000/uel_technical_report_part_one_2022-23.pdf",
+      "evidence": "Official UEFA technical report states Leverkusen beat Ferencvaros 2-0 home and away in last 16; OpenFootball supplies exact date. Match-specific correction only."
+    }
+  ]
+}
