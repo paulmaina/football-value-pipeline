@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "NEC Nijmegen",
+    "home_team": "Dinamo Zagreb",
+    "kickoff_utc": "2026-10-22T16:45:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "13c0a92ee5159d2f1d2e0368811c9421"
+  },
+  "observed_at_utc": "2026-10-22T16:39:25.393569+00:00",
+  "payload": {
+    "away_team": "NEC Nijmegen",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Dinamo Zagreb",
+                "price": 1.55
+              },
+              {
+                "name": "NEC Nijmegen",
+                "price": 5.88
+              },
+              {
+                "name": "Draw",
+                "price": 4.4
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.4
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.57
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Dinamo Zagreb",
+                "price": 1.58
+              },
+              {
+                "name": "NEC Nijmegen",
+                "price": 5.42
+              },
+              {
+                "name": "Draw",
+                "price": 4.52
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.96
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.93
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T16:45:00Z",
+    "home_team": "Dinamo Zagreb",
+    "id": "13c0a92ee5159d2f1d2e0368811c9421",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6318568706804741,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21181341230345296,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.88,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15632971701607293,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.4,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3869128436199944,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.57,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6130871563800057,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.58,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6207452337784228,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.52,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20752116415720548,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.42,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.17173360206437166,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
