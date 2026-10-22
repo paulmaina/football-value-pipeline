@@ -407,9 +407,11 @@ class FootballDataUK:
         self,
         cache_dir: str | Path = ".football_cache",
         force_refresh: bool = False,
+        allow_training_download: bool = True,
     ):
         self.http = CachedHttpClient(cache_dir=cache_dir)
         self.force_refresh = force_refresh
+        self.allow_training_download = allow_training_download
         self._current_refresh_attempts = set()
 
     def season(
@@ -441,13 +443,23 @@ class FootballDataUK:
         refresh_current = current and cache_name not in self._current_refresh_attempts
         if current:
             self._current_refresh_attempts.add(cache_name)
-        content = self.http.get_bytes(
-            url,
-            cache_name,
-            ttl=ttl,
-            force_refresh=self.force_refresh or refresh_current,
-            validator=validate,
-        )
+        cache_path = self.http.cache_dir / cache_name
+        if self.allow_training_download:
+            content = self.http.get_bytes(
+                url,
+                cache_name,
+                ttl=ttl,
+                force_refresh=self.force_refresh or refresh_current,
+                validator=validate,
+            )
+        else:
+            if not cache_path.exists():
+                raise FileNotFoundError(
+                    f"Training CSV is missing locally: {cache_path}. "
+                    "Run refresh_training_data.py/GitHub Actions first."
+                )
+            content = cache_path.read_bytes()
+            validate(content)
         df = read_csv_bytes(content).copy()
         df["Season"] = season_code
         return df
@@ -2094,7 +2106,7 @@ class FootballValuePipeline:
         bbs_statistics: bool = True,
         bbs_statistics_validation: str = 'auto',
     ):
-        self.source = FootballDataUK(cache_dir=cache_dir, force_refresh=force_refresh)
+        self.source = FootballDataUK(cache_dir=cache_dir, force_refresh=False, allow_training_download=False)
         self.seasons_back = int(seasons_back)
         self.half_life_days = float(half_life_days)
         self.l2 = float(l2)
@@ -2975,10 +2987,12 @@ class FootballValuePipelineV2(FootballValuePipeline):
             self.source.http.cache_dir, league.key, now, self.lookahead_days)
         if not supplemental.empty:
             return supplemental
-        raise RuntimeError(
-            f"No reliable upcoming {league.name} fixtures found. "
-            + " | ".join(failures)
+        warnings.warn(
+            f"No upcoming {league.name} fixtures in the {self.lookahead_days}-day window; skipping league. "
+            + " | ".join(failures),
+            RuntimeWarning,
         )
+        return pd.DataFrame()
 
     def _attach_live_odds(
         self,
