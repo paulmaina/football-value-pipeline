@@ -1,0 +1,93 @@
+name: Apply local prediction fix
+
+on:
+  push:
+    branches: [fix/local-prediction-fixture-separation]
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: fix/local-prediction-fixture-separation
+
+      - name: Patch prediction path
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('football_value_pipeline_v2_standalone.py')
+          s = p.read_text(encoding='utf-8')
+
+          old = '''    def __init__(\n        self,\n        cache_dir: str | Path = ".football_cache",\n        force_refresh: bool = False,\n    ):\n        self.http = CachedHttpClient(cache_dir=cache_dir)\n        self.force_refresh = force_refresh\n        self._current_refresh_attempts = set()\n'''
+          new = '''    def __init__(\n        self,\n        cache_dir: str | Path = ".football_cache",\n        force_refresh: bool = False,\n        allow_training_download: bool = True,\n    ):\n        self.http = CachedHttpClient(cache_dir=cache_dir)\n        self.force_refresh = force_refresh\n        self.allow_training_download = allow_training_download\n        self._current_refresh_attempts = set()\n'''
+          assert old in s, 'FootballDataUK constructor pattern not found'
+          s = s.replace(old, new, 1)
+
+          old = '''        content = self.http.get_bytes(\n            url,\n            cache_name,\n            ttl=ttl,\n            force_refresh=self.force_refresh or refresh_current,\n            validator=validate,\n        )\n        df = read_csv_bytes(content).copy()\n'''
+          new = '''        cache_path = self.http.cache_dir / cache_name\n        if self.allow_training_download:\n            content = self.http.get_bytes(\n                url,\n                cache_name,\n                ttl=ttl,\n                force_refresh=self.force_refresh or refresh_current,\n                validator=validate,\n            )\n        else:\n            if not cache_path.exists():\n                raise FileNotFoundError(\n                    f"Training CSV is missing locally: {cache_path}. "\n                    "Run refresh_training_data.py/GitHub Actions first."\n                )\n            content = cache_path.read_bytes()\n            validate(content)\n        df = read_csv_bytes(content).copy()\n'''
+          assert old in s, 'training download block not found'
+          s = s.replace(old, new, 1)
+
+          old = 'self.source = FootballDataUK(cache_dir=cache_dir, force_refresh=force_refresh)'
+          new = 'self.source = FootballDataUK(cache_dir=cache_dir, force_refresh=False, allow_training_download=False)'
+          assert old in s, 'pipeline source wiring not found'
+          s = s.replace(old, new, 1)
+
+          old = '''        raise RuntimeError(\n            f"No reliable upcoming {league.name} fixtures found. "\n            + " | ".join(failures)\n        )\n'''
+          new = '''        warnings.warn(\n            f"No upcoming {league.name} fixtures in the {self.lookahead_days}-day window; skipping league. "\n            + " | ".join(failures),\n            RuntimeWarning,\n        )\n        return pd.DataFrame()\n'''
+          assert old in s, 'UCL/current fixture failure block not found'
+          s = s.replace(old, new, 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Add focused regression tests
+        run: |
+          cat > /tmp/test_local_prediction_fix.py <<'PY'
+          import tempfile
+          import unittest
+          from pathlib import Path
+          from unittest.mock import patch
+          import pandas as pd
+          from football_value_pipeline_v2_standalone import FootballDataUK, LEAGUES, FootballValuePipelineV2
+
+          class LocalTrainingTests(unittest.TestCase):
+              def test_local_training_mode_never_calls_http_for_existing_csv(self):
+                  csv = b'Div,Date,HomeTeam,AwayTeam,FTHG,FTAG\nE0,01/09/2026,A,B,1,0\n'
+                  with tempfile.TemporaryDirectory() as tmp:
+                      path = Path(tmp) / '2627_E0.csv'
+                      path.write_bytes(csv)
+                      provider = FootballDataUK(tmp, allow_training_download=False)
+                      with patch.object(provider.http, 'get_bytes', side_effect=AssertionError('network used')):
+                          df = provider.season(LEAGUES['EPL'], 2026, 2026)
+                      self.assertEqual(len(df), 1)
+
+          class FixtureSkipTests(unittest.TestCase):
+              def test_empty_fixture_window_is_nonfatal(self):
+                  pipe = object.__new__(FootballValuePipelineV2)
+                  pipe.fixture_provider = 'auto'
+                  pipe.lookahead_days = 10
+                  pipe.source = type('Source', (), {'fixtures': lambda *a, **k: pd.DataFrame(), 'http': type('H', (), {'cache_dir': Path('.')})()})()
+                  pipe.odds_api = type('Odds', (), {'odds': lambda *a, **k: pd.DataFrame()})()
+                  pipe.football_data_org = type('Org', (), {'fixtures': lambda *a, **k: pd.DataFrame()})()
+                  with patch('api_football_integration.supplement_fixtures', return_value=pd.DataFrame()):
+                      result = pipe._current_fixtures(LEAGUES['UCL'], pd.Timestamp('2026-10-22', tz='UTC').to_pydatetime())
+                  self.assertTrue(result.empty)
+
+          unittest.main()
+          PY
+          python /tmp/test_local_prediction_fix.py
+          python -m py_compile football_value_pipeline_v2_standalone.py
+
+      - name: Commit implementation
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add football_value_pipeline_v2_standalone.py
+          git commit -m 'fix: separate local training refresh from live prediction'
+          git push origin HEAD:fix/local-prediction-fixture-separation
