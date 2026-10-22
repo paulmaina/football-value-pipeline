@@ -1,0 +1,184 @@
+{
+  "fixture": {
+    "away_team": "PFC Levski Sofia",
+    "home_team": "Viktoria Plze\u0148",
+    "kickoff_utc": "2026-10-22T19:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "410fd021774146ae969af3713990ed87"
+  },
+  "observed_at_utc": "2026-10-22T18:54:08.297818+00:00",
+  "payload": {
+    "away_team": "PFC Levski Sofia",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "PFC Levski Sofia",
+                "price": 5.1
+              },
+              {
+                "name": "Viktoria Plze\u0148",
+                "price": 1.73
+              },
+              {
+                "name": "Draw",
+                "price": 3.74
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.91
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "PFC Levski Sofia",
+                "price": 4.87
+              },
+              {
+                "name": "Viktoria Plze\u0148",
+                "price": 1.77
+              },
+              {
+                "name": "Draw",
+                "price": 3.78
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.9
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.98
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T19:00:00Z",
+    "home_team": "Viktoria Plze\u0148",
+    "id": "410fd021774146ae969af3713990ed87",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.73,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5645642954656889,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.74,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2526295076718551,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.1,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18280619686245614,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49453701116582316,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5054629888341767,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.77,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5536007186686203,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.78,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25231570026544364,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.87,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19408358106593618,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.51079006399043,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.98,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.48920993600957,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

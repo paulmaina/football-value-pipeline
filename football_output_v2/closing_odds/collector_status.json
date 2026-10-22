@@ -1,9 +1,9 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-22T16:39:24.437938+00:00",
+  "checked_at_utc": "2026-10-22T18:54:05.749779+00:00",
   "coverage_checks": [
     {
-      "event_id": "0c104f64573962dd1a690f53ba969caa",
+      "event_id": "7b1674efd0f6f93a16f202822f4b64b5",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -15,7 +15,7 @@
       ]
     },
     {
-      "event_id": "13c0a92ee5159d2f1d2e0368811c9421",
+      "event_id": "af99d0f507da72d045d9403ae167a5a8",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "event_id": "4e761167a147b5282b086d0f801819d3",
+      "event_id": "c614844f2e3b782814e4f4e77f98bf2a",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "event_id": "953ffa67dff5e7704dd0f77fe48fe614",
+      "event_id": "573ca8b5bb0abdb338c4004d610b1824",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "event_id": "dc02d531f844fa790c5dcae1918efd22",
+      "event_id": "9be240eead573e6718f4ba21ed1a6472",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "event_id": "ffcb32a8a5597aacba7b654852d47b67",
+      "event_id": "e342a49042c35c6a3f3e8720324b3f3c",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -75,7 +75,7 @@
       ]
     },
     {
-      "event_id": "fcbdc440ac1bfd04e900e145e84ffaca",
+      "event_id": "5290ae078657c841a4e1d4ebb626825a",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -87,7 +87,31 @@
       ]
     },
     {
-      "event_id": "382e017f27a6fbffbc48f736ca1680f2",
+      "event_id": "86b70325b671e4bdf5b970aa6cd85bb3",
+      "missing_required_quotes": [],
+      "requested_markets": [
+        "h2h",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "onexbet",
+        "pinnacle"
+      ]
+    },
+    {
+      "event_id": "b3c60081286aa25692de7e0a482b6c01",
+      "missing_required_quotes": [],
+      "requested_markets": [
+        "h2h",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "onexbet",
+        "pinnacle"
+      ]
+    },
+    {
+      "event_id": "410fd021774146ae969af3713990ed87",
       "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
@@ -100,14 +124,14 @@
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 24,
-  "eligible_fixtures": 8,
+  "daily_requests": 38,
+  "eligible_fixtures": 10,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "request_limit": 24,
-  "requests": 8,
-  "reservation_allowance": 24,
-  "reservation_id": "actions-39807212984-1-1",
-  "reservation_used": 8,
-  "written": 8
+  "request_limit": 30,
+  "requests": 10,
+  "reservation_allowance": 30,
+  "reservation_id": "actions-39807212984-1-2",
+  "reservation_used": 10,
+  "written": 10
 }
