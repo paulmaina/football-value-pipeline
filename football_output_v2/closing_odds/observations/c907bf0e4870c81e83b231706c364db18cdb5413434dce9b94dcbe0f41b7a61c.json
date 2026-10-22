@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Real Sociedad",
+    "home_team": "Lillestrom",
+    "kickoff_utc": "2026-10-22T19:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "9be240eead573e6718f4ba21ed1a6472"
+  },
+  "observed_at_utc": "2026-10-22T18:54:07.205589+00:00",
+  "payload": {
+    "away_team": "Real Sociedad",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Lillestrom",
+                "price": 7.94
+              },
+              {
+                "name": "Real Sociedad",
+                "price": 1.36
+              },
+              {
+                "name": "Draw",
+                "price": 5.53
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.08
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.8
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Lillestrom",
+                "price": 7.37
+              },
+              {
+                "name": "Real Sociedad",
+                "price": 1.39
+              },
+              {
+                "name": "Draw",
+                "price": 5.51
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 2.02
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T19:00:00Z",
+    "home_team": "Lillestrom",
+    "id": "9be240eead573e6718f4ba21ed1a6472",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 7.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.11239845833228586,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.53,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.16462037176839844,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.36,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7229811698993158,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.08,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4619585192762564,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.8,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5380414807237437,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.37,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.12371955546614642,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.51,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.16772296575272413,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.39,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7085574787811295,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

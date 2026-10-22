@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Salzburg",
+    "home_team": "NK Celje",
+    "kickoff_utc": "2026-10-22T19:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "e342a49042c35c6a3f3e8720324b3f3c"
+  },
+  "observed_at_utc": "2026-10-22T18:54:07.464957+00:00",
+  "payload": {
+    "away_team": "Salzburg",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "NK Celje",
+                "price": 4.71
+              },
+              {
+                "name": "Salzburg",
+                "price": 1.68
+              },
+              {
+                "name": "Draw",
+                "price": 4.31
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.3
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.62
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "NK Celje",
+                "price": 4.66
+              },
+              {
+                "name": "Salzburg",
+                "price": 1.69
+              },
+              {
+                "name": "Draw",
+                "price": 4.32
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.02
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T19:00:00Z",
+    "home_team": "NK Celje",
+    "id": "e342a49042c35c6a3f3e8720324b3f3c",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.71,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19908344182293952,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.31,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21836303217987682,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.68,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5825535259971837,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.3,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.40639285060570535,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5936071493942947,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.66,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.201937271822944,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.32,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21848323156529426,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.69,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5795794966117618,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Crystal Palace",
+    "home_team": "Besiktas JK",
+    "kickoff_utc": "2026-10-22T19:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "7b1674efd0f6f93a16f202822f4b64b5"
+  },
+  "observed_at_utc": "2026-10-22T18:54:06.520390+00:00",
+  "payload": {
+    "away_team": "Crystal Palace",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Besiktas JK",
+                "price": 3.37
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 2.17
+              },
+              {
+                "name": "Draw",
+                "price": 3.54
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.53
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.5
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Besiktas JK",
+                "price": 2.85
+              },
+              {
+                "name": "Crystal Palace",
+                "price": 2.38
+              },
+              {
+                "name": "Draw",
+                "price": 3.79
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.92
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.97
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T19:00:00Z",
+    "home_team": "Besiktas JK",
+    "id": "7b1674efd0f6f93a16f202822f4b64b5",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.37,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2833328113588619,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.54,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2692218960368191,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.17,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.44744529260431903,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.53,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6302056146445001,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.5,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3697943853555,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.85,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3390336897067929,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.79,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25257470549003425,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.38,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.408391604803173,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

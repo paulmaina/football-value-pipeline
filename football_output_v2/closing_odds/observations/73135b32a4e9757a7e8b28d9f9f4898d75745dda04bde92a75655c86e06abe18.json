@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "AC Milan",
+    "home_team": "Bournemouth",
+    "kickoff_utc": "2026-10-22T19:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "af99d0f507da72d045d9403ae167a5a8"
+  },
+  "observed_at_utc": "2026-10-22T18:54:06.669010+00:00",
+  "payload": {
+    "away_team": "AC Milan",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "AC Milan",
+                "price": 3.81
+              },
+              {
+                "name": "Bournemouth",
+                "price": 1.9
+              },
+              {
+                "name": "Draw",
+                "price": 3.94
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.7
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.23
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "AC Milan",
+                "price": 4.36
+              },
+              {
+                "name": "Bournemouth",
+                "price": 1.82
+              },
+              {
+                "name": "Draw",
+                "price": 3.9
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.0
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.89
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T19:00:00Z",
+    "home_team": "Bournemouth",
+    "id": "af99d0f507da72d045d9403ae167a5a8",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.9,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5123008277930845,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23958724342440849,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.81,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2481119287825071,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.7,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5711304789090206,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.23,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4288695210909794,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.82,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5379308137894729,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.9,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24435518764168537,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.36,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2177139985688416,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

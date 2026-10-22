@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Celta Vigo",
+    "home_team": "Celtic",
+    "kickoff_utc": "2026-10-22T19:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "c614844f2e3b782814e4f4e77f98bf2a"
+  },
+  "observed_at_utc": "2026-10-22T18:54:06.798670+00:00",
+  "payload": {
+    "away_team": "Celta Vigo",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 2.54
+              },
+              {
+                "name": "Celtic",
+                "price": 2.78
+              },
+              {
+                "name": "Draw",
+                "price": 3.46
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.67
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.2
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 2.65
+              },
+              {
+                "name": "Celtic",
+                "price": 2.66
+              },
+              {
+                "name": "Draw",
+                "price": 3.57
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.91
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.98
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T19:00:00Z",
+    "home_team": "Celtic",
+    "id": "c614844f2e3b782814e4f4e77f98bf2a",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.78,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3454299909302889,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.46,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2751459641472447,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.54,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3794240449224665,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5740358949483358,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.2,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.42596410505166415,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.66,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3646706790332246,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.26923963380014554,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.65,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.36608968716662993,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
