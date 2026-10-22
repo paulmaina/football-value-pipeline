@@ -1,0 +1,42 @@
+{
+  "dependencies": {
+    "PyYAML": "NOT_INSTALLED",
+    "coverage": "NOT_INSTALLED",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "python": "3.14.8",
+    "python-dotenv": "1.2.4",
+    "rapidfuzz": "3.14.6",
+    "requests": "2.34.2",
+    "scipy": "1.18.1"
+  },
+  "generated_at_utc": "2026-10-22T15:07:55.640807+00:00",
+  "model_code_sha256": "80b5c40f99d7870c8f29cd9e019a1e5194cf8f7d8642c3702589ad946701167d",
+  "model_component_sha256": {
+    "api_football_data.py": "f11e1688a28cbbb542c8fdec31048c1ad485373d2d43bb1d61ee6e66dcb459ac",
+    "api_football_integration.py": "3a95ec1edc5eaf6b79a8075450905df9b4d5a3050a91cfe8df2b5a2ffb2ddeac",
+    "api_key_config.py": "f4b833b31f9f3311cab770cf80854294e5e6306bbb956b687d708ff1b801908e",
+    "asian_handicap.py": "2d494c2d32a6679b1447892c28f78631b370d092b756920922c04b7385555b56",
+    "bbs_data.py": "49fd318d9d00a846c1abb905144fd71a86df0b2dd16919693a523ef1de162f77",
+    "bbs_integration.py": "2880773f5d6b46f407715cb0d2e58dd418b236355e3c8db6fd9fba530a739fce",
+    "bbs_statistics_model.py": "42f5b8221cf032348df233a7fdc3ab812835278fa4adffa959168303537a21e7",
+    "bbs_team_aliases.json": "f515446ae0b6b20b8dc0da348fbc99b1ed134945526316c4da28c7fa8d2f5812",
+    "conservative_bet_filter.py": "2effc4baef1cb12a3d40c09de3f513b612dcc907f8bb46617baa184bfb0f831b",
+    "dc_decay_validation.py": "0bdd59436fc7693ace85b2eb92e9cf23f575ce6ceac3e04d1714b3e7d415d17a",
+    "double_chance.py": "9e50e5058f1916a9b8fd4f6e89d5a2a843dfecc22e730c1738af9817eb235ade",
+    "football_value_pipeline_v2_standalone.py": "6d73652fe19f343e41e43f87b479bffb3370abad8869f9e9a91f4337c47d2eb0",
+    "goal_market_validation.py": "58b9b2bde35cf199615f2b4ad535274a0a240b4f4e7767d3bb083b7d8d88f870",
+    "market_blend_validation.py": "1136fba8bdc85eaaed468ef3f8458781a366d1fcc7913e1057783b023692ea04",
+    "match_scores.py": "1e39b0fd63354fa734e768d5a34e2ea6782b3590f2af7ba7989123b17a7eec1a",
+    "odds_provider_health.py": "8554bc4e6f47957e0e996466308123ba98c9ad65cab2986bc2230832f64675e2",
+    "prediction_runs.py": "0f870b9274ca5fceb2942b836d01b32f7124dc7f25602fd8d8b45f2a47e4a9c9",
+    "quote_freshness.py": "b682731ba7c20bb30d885b726a299b62ef3695419ce612a5da1d4b67d75e47c6",
+    "quote_policy.py": "c0f587a2dc44dd73ed8f631e9bfc2b429d9b5538142f8311c46763de21eda3ef",
+    "refresh_training_data.py": "5bb2883d0d350d77d8bcfc27042bde76974e409c2c5a0693177e98888ae56d73",
+    "score_probability.py": "c49cc8992a0e3d962f63a213aebd32d959e001d894689d3eea8a5816ca9fbc9e",
+    "shortlist_quote_policy.json": "01bd85141f1b0dbfead318bf5826a74ef9cfc22f755c9538ec988e5d52258e94",
+    "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47"
+  },
+  "predictions_sha256": "fdaacfc8d7f58b581eabbff44c65dcbe36bfb4dca0e14a18eb785bb62041f767",
+  "selection_policy_version": "48h-zero-tolerance-ev1-common-no-loss75-v22"
+}

@@ -1,10 +1,10 @@
 # Conservative shortlisted matches and markets
 
 
-**Candidates:** 2 of target 12 distinct matches.
-**Strictly qualified:** 2. **Provisional watchlist:** 0.
+**Candidates:** 6 of target 12 distinct matches.
+**Strictly qualified:** 6. **Provisional watchlist:** 0.
 **Pipeline status:** BELOW_TARGET.
-**Generated (UTC):** 2026-10-22T10:58:13.963804+00:00.
+**Generated (UTC):** 2026-10-22T15:07:55.640807+00:00.
 **Kickoffs within next 48 hours of run:** Not available.
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. The shortlist is not an accumulator recommendation.
@@ -18,8 +18,12 @@
 
 | Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons | Unblended estimated EV | Any loss chance | Conservative loss estimate | Full refund chance | Probability meaning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Alavés vs Málaga | Double Chance 1X | STRICT | 2026-10-23T19:00:00+00:00 | 84.4% | 84.4% | Pinnacle | 1.20 | +1.2% | — | +5.8% | 15.6% | 15.6% | 0.0% | win |
-| VfB Stuttgart vs Borussia Monchengladbach | Asian Handicap Away +2.00 | STRICT | 2026-10-23T18:30:00+00:00 | 79.2% | 78.2% | Pinnacle | 1.53 | +9.2% | — | +16.0% | 20.8% | 21.8% | 19.7% | net_no_loss |
+| Augsburg vs Union Berlin | Asian Handicap Away +2.00 | STRICT | 2026-10-24T13:30:00+00:00 | 92.0% | 91.0% | 1xBet | 1.16 | +3.3% | — | +6.2% | 8.0% | 9.0% | 14.1% | net_no_loss |
+| VfB Stuttgart vs Borussia Monchengladbach | Asian Handicap Away +3.00 | STRICT | 2026-10-23T18:30:00+00:00 | 91.1% | 88.1% | 1xBet | 1.18 | +1.9% | — | +6.9% | 8.9% | 11.9% | 11.7% | net_no_loss |
+| Aston Villa vs Manchester City | Asian Handicap Home +2.00 | STRICT | 2026-10-24T11:30:00+00:00 | 85.4% | 84.3% | 1xBet | 1.26 | +1.8% | — | +4.1% | 14.6% | 15.7% | 17.1% | net_no_loss |
+| SC Paderborn vs Hamburger SV | Asian Handicap Away +1.25 | STRICT | 2026-10-24T13:30:00+00:00 | 84.8% | 83.5% | Pinnacle | 1.27 | +2.9% | — | +6.8% | 15.2% | 16.5% | 0.0% | net_no_loss |
+| Como vs Sassuolo | Asian Handicap Away +2.25 | STRICT | 2026-10-24T13:00:00+00:00 | 79.0% | 79.0% | Pinnacle | 1.32 | +1.2% | — | +1.4% | 21.0% | 21.0% | 0.0% | net_no_loss |
+| Rayo Vallecano vs Elche CF | Asian Handicap Away +1.00 | STRICT | 2026-10-24T12:00:00+00:00 | 75.1% | 75.1% | Pinnacle | 1.58 | +3.5% | — | +8.1% | 24.9% | 24.9% | 26.2% | net_no_loss |
 
 ## Qualifying alternatives for comparison
 
@@ -27,8 +31,12 @@ Prefer another market type when one qualifies; otherwise show another qualifying
 
 | Match | Shortlisted market | Alternative market | Alternative bookmaker | Alternative odds | Alternative conservative loss estimate | Alternative refund chance | Alternative adjusted EV | Alternative unblended EV | Alternative risk increase | Alternative comparison |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Alavés vs Málaga | Double Chance 1X | — | — | — | — | — | — | — | — | No qualifying alternative |
-| VfB Stuttgart vs Borussia Monchengladbach | Asian Handicap Away +2.00 | Asian Handicap Away +2.25 | Pinnacle | 1.44 | 21.8% | 0.0% | +8.2% | +14.0% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
+| Augsburg vs Union Berlin | Asian Handicap Away +2.00 | Asian Handicap Away +2.50 | 1xBet | 1.12 | 9.0% | 0.0% | +1.9% | +4.4% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
+| VfB Stuttgart vs Borussia Monchengladbach | Asian Handicap Away +3.00 | Asian Handicap Away +2.00 | Pinnacle | 1.55 | 21.6% | 19.5% | +10.7% | +17.3% | +9.8 pp | Same market type; no qualifying other type; outside selected risk band; higher-risk comparison only |
+| Aston Villa vs Manchester City | Asian Handicap Home +2.00 | — | — | — | — | — | — | — | — | No qualifying alternative |
+| SC Paderborn vs Hamburger SV | Asian Handicap Away +1.25 | Asian Handicap Away +1.00 | Pinnacle | 1.32 | 16.5% | 22.8% | +2.9% | +7.3% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
+| Como vs Sassuolo | Asian Handicap Away +2.25 | Asian Handicap Away +2.00 | Pinnacle | 1.37 | 21.0% | 19.5% | +1.0% | +1.3% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
+| Rayo Vallecano vs Elche CF | Asian Handicap Away +1.00 | Asian Handicap Away +1.25 | Pinnacle | 1.45 | 24.9% | 0.0% | +3.0% | +6.6% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
 
 ## Interpretation
 

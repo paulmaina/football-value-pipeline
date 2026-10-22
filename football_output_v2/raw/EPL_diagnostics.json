@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "7f888cd21de905ec7ebd8bf6b7885a178ba3c6dbf56a30a35d9a27c323a70238",
-  "training_as_of_utc": "2026-10-22T10:54:22.405766+00:00",
+  "training_sha256": "72fb270aab150bee81f0f51bae563271f0b752386c4017510e5d78a6fc35c109",
+  "training_as_of_utc": "2026-10-22T15:04:47.131720+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 70,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-22T10:54:22.405766+00:00",
-    "observations": 183,
-    "observations_sha256": "5cb7a1dab5f5cad3b3f5e2c0e689fbcfaceb0a0b035768bad5c1d3e9776a02c7",
+    "cutoff_utc": "2026-10-22T15:04:47.131720+00:00",
+    "observations": 188,
+    "observations_sha256": "87ab8167f617b44c77e101e6429da3c336de22c386ba6dafcbcdfebdc6b75f90",
     "eligible_training_matches": 103,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
-    "retrospective_inputs_sha256": "e7b8040af70a2d04fb867366305dac27229fd0a82372362664d7c723d32db320",
+    "retrospective_inputs_sha256": "ffcf4f614ddc2a074e5b01e3bac4c35e06fa935602f4431e95fa6e5fe48ce1d0",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -81,10 +81,10 @@
   },
   "training_end": "2026-10-19",
   "fit_success": true,
-  "objective": 928.0795058360371,
-  "base": 0.21249954210885733,
-  "home_adv": 0.18511098703140258,
-  "rho": -0.08921580440863039,
+  "objective": 927.6136493492901,
+  "base": 0.2124905282674398,
+  "home_adv": 0.18512050113828768,
+  "rho": -0.08923638017242615,
   "half_life_days": 240.0,
   "xi_per_day": 0.0028881132523331052,
   "max_goals": 10,
@@ -102,12 +102,12 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 16,
+  "live_odds_matched": 18,
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261022T105422405766Z_a3205e99eed355944bd6141c600d09371896d2a30c2b9564feb6cada1239c708.json",
-  "over_1_5_in_window_quote_fixtures": 1,
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261022T150447131720Z_5c7f4edbdb6912f8cf0e42cf89666163665e2fc2e509e6b85fa69a7027c2cd19.json",
+  "over_1_5_in_window_quote_fixtures": 3,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -120,7 +120,7 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 36,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -136,12 +136,19 @@
       "home_team": "Aston Villa",
       "away_team": "Manchester City",
       "kickoff_utc": "2026-10-24T11:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "f66e4f29c1b7bcfc5ab58c0b88c8850b",
@@ -149,12 +156,19 @@
       "home_team": "Arsenal",
       "away_team": "Everton",
       "kickoff_utc": "2026-10-24T14:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "0fbb2626ed9534b9dcf21d16925f9bd7",
@@ -162,10 +176,17 @@
       "home_team": "Coventry City",
       "away_team": "Fulham",
       "kickoff_utc": "2026-10-24T14:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -324,12 +345,38 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "01b17432a283eb27af86ae45602eb6dd",
+      "event_id": "01b17432a283eb27af86ae45602eb6dd",
+      "home_team": "Tottenham Hotspur",
+      "away_team": "Crystal Palace",
+      "kickoff_utc": "2026-10-31T17:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "640c52a86289f35698261b41987dd71e",
+      "event_id": "640c52a86289f35698261b41987dd71e",
+      "home_team": "Aston Villa",
+      "away_team": "Fulham",
+      "kickoff_utc": "2026-10-31T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_in_window_linked_fixtures": 4,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 1,
+  "additional_event_odds_calls_this_league": 4,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 240.0,
