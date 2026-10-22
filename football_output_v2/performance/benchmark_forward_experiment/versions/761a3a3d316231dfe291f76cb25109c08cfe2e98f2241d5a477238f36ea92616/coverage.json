@@ -21713,7 +21713,7 @@
     "reference_source": "The Odds API / Betclic (FR)",
     "reference_updated_at_utc": "2026-10-22T10:58:03Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "unavailable"
@@ -21752,7 +21752,7 @@
     "reference_source": "The Odds API / Betclic (FR)",
     "reference_updated_at_utc": "2026-10-22T10:58:03Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "unavailable"
@@ -21791,7 +21791,7 @@
     "reference_source": "The Odds API / Betclic (FR)",
     "reference_updated_at_utc": "2026-10-22T10:58:03Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "unavailable"
@@ -21829,7 +21829,7 @@
     "reference_source": "The Odds API / Betclic (FR)",
     "reference_updated_at_utc": "2026-10-22T10:58:03Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "unavailable"
@@ -21867,7 +21867,7 @@
     "reference_source": "The Odds API / Betclic (FR)",
     "reference_updated_at_utc": "2026-10-22T10:58:03Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "unavailable"
@@ -21905,7 +21905,7 @@
     "reference_source": "The Odds API / Betclic (FR)",
     "reference_updated_at_utc": "2026-10-22T10:58:03Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "unavailable"
@@ -21944,7 +21944,7 @@
     "reference_source": "The Odds API / Betclic (FR)",
     "reference_updated_at_utc": "2026-10-22T10:58:03Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "unavailable"
@@ -21983,7 +21983,7 @@
     "reference_source": "The Odds API / Betclic (FR)",
     "reference_updated_at_utc": "2026-10-22T10:58:03Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "unavailable"
