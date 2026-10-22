@@ -65,7 +65,7 @@ def validation_code_fingerprint():
              'score_probability.py', 'double_chance.py', 'asian_handicap.py', 'match_scores.py', 'bbs_team_aliases.json',
              'bbs_statistics_model.py', 'bbs_integration.py',
              'api_football_data.py', 'api_football_integration.py', 'europa_training.py',
-             'docs/audits/europa-team-aliases.json', 'docs/audits/europa-regulation-reviews.json')
+             'docs/audits/europa-uefa-attestations.json', 'docs/audits/europa-team-aliases.json', 'docs/audits/europa-regulation-reviews.json')
     return hashlib.sha256(b''.join((name.encode()+b'\0'+(root/name).read_bytes()) for name in files)).hexdigest()
 
 

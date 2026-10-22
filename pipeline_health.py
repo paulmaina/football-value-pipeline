@@ -48,7 +48,8 @@ def current_health(root, clock, *, raw_dir=None):
             state = 'VERIFIED_WITHIN_24_HOURS' if fresh(payload, clock) else 'STALE'
         except (KeyError, TypeError, ValueError):
             state = 'DOWNLOAD_NOT_VERIFIED'
-        training['UEL']['current_source_health'] = {'status': state, 'verified_at_utc': payload.get('verified_at_utc')}
+        training['UEL']['current_source_health'] = {'status': state, 'verified_at_utc': payload.get('verified_at_utc'),
+            'official_source_health': payload.get('official_source_health', {})}
     picks = read_csv(raw/'conservative_bet_shortlist.csv')
     quote = {'selected_quotes': len(picks), 'exchange_quotes': 0, 'missing_quote_age': 0,
              'quote_age_over_24h': 0, 'costs_recorded': 0, 'bookmakers': dict(Counter(r.get('bookmaker', '') for r in picks)),

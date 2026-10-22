@@ -54,7 +54,7 @@ jobs:
               raise RuntimeError('Live Europa odds could not be verified; inspect provider diagnostics')
           PY
       - uses: actions/upload-artifact@v7
-        if: always()
+        if: success()
         with:
           name: europa-production-derived-reports
           path: |

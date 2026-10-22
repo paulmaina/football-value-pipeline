@@ -54,7 +54,7 @@ and no-loss rules. Neither safety nor profitability is guaranteed.
 ## Cache inventory and verified local results
 
 The working cache includes 30 domestic season CSVs (six seasons × five leagues),
-four UCL season JSON files, and 11 Europa source downloads. Existing BBS and
+four UCL season JSON files, and 11 Europa source downloads plus reviewed UEFA factual attestations. Existing BBS and
 API-Football integration caches remain in their existing `.football_cache`
 subdirectories. No new API-Football or FootyStats records were inferred or added.
 
@@ -104,7 +104,8 @@ The readable shortlist remains at
 - Seven-league offline integration covers prediction publication, shortlist,
   formatting, snapshot capture and verified forward grading with controlled
   quotes/results. This does not establish live bookmaker availability.
-- Local full regression: 607 pytest cases passed; 600 unittest cases passed.
+- Local full regression: 607 pytest cases passed; 600 unittest cases passed before the deployment fallback.
+  Additional attestation regressions verify the fallback and rejection of uncovered results.
   Coverage: 88.98%; existing critical-module floors passed. Model self-test passed.
 - Dedicated regressions cover invalid scores, future rows, duplicates, stale
   refresh failure, conflict rollback, exact aliases, thin teams, UTC schedules,
@@ -124,6 +125,21 @@ The readable shortlist remains at
   profitability claim, independent prospective Europa track record, provider
   uptime SLA or guarantee of optimal performance was established.
 
+## Deployment finding: UEFA runner access
+
+The first live GitHub integration check failed on HTTP 403 from UEFA, before
+any bookmaker quote request. The same public download had succeeded locally.
+This is a verified high-severity deployment dependency, not an inferred model
+failure. Original factual attestations (club names, scores, AET flags, report
+IDs/links and original source hash) are now provided for the previously reviewed
+189 historical / 36 current UEFA matches. They are copied into the local cache.
+A denied UEFA download uses those facts explicitly and records
+`HTTP_403_USING_REVIEWED_FACTS`; it does not claim a live UEFA refresh.
+Cross-source agreement is still required. New current results absent from the
+reviewed facts fail closed until official verification becomes available.
+This addresses fresh-checkout operation for covered matches, not reliable
+future UEFA access. Source health and review warnings expose the limitation.
+
 ## Prioritized follow-up
 
 1. Review Windows/Linux CI and the bounded live Europa integration workflow;
@@ -132,6 +148,8 @@ The readable shortlist remains at
    rejected/qualified candidates, source freshness and pending settlement.
 3. Accumulate prospective Europa calibration and settlement evidence without
    lowering cutoffs to fill the shortlist.
-4. Review the next knockout/season source format and regulation periods before
+4. Arrange dependable authorized official verification for new results when
+   UEFA denies runner access; refresh reviewed facts before admitting them.
+5. Review the next knockout/season source format and regulation periods before
    extending the adapter. Add richer statistics only after entitlement,
    identity, coverage and out-of-time feature validation are established.
