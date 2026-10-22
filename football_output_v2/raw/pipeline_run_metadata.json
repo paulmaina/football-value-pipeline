@@ -1,17 +1,17 @@
 {
   "dependencies": {
-    "PyYAML": "6.0.3",
-    "coverage": "7.16.2",
-    "numpy": "2.5.4",
+    "PyYAML": "NOT_INSTALLED",
+    "coverage": "NOT_INSTALLED",
+    "numpy": "2.5.3",
     "pandas": "3.0.6",
-    "python": "3.12.15",
+    "python": "3.14.8",
     "python-dotenv": "1.2.4",
     "rapidfuzz": "3.14.6",
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-22T10:58:13.963804+00:00",
-  "model_code_sha256": "7b6af0194f712c62298d66a146d647b5169c5189bc239c11b713492940aafe1f",
+  "generated_at_utc": "2026-10-22T15:07:55.640807+00:00",
+  "model_code_sha256": "80b5c40f99d7870c8f29cd9e019a1e5194cf8f7d8642c3702589ad946701167d",
   "model_component_sha256": {
     "api_football_data.py": "f11e1688a28cbbb542c8fdec31048c1ad485373d2d43bb1d61ee6e66dcb459ac",
     "api_football_integration.py": "3a95ec1edc5eaf6b79a8075450905df9b4d5a3050a91cfe8df2b5a2ffb2ddeac",
@@ -24,7 +24,7 @@
     "conservative_bet_filter.py": "2effc4baef1cb12a3d40c09de3f513b612dcc907f8bb46617baa184bfb0f831b",
     "dc_decay_validation.py": "0bdd59436fc7693ace85b2eb92e9cf23f575ce6ceac3e04d1714b3e7d415d17a",
     "double_chance.py": "9e50e5058f1916a9b8fd4f6e89d5a2a843dfecc22e730c1738af9817eb235ade",
-    "football_value_pipeline_v2_standalone.py": "7b6af0194f712c62298d66a146d647b5169c5189bc239c11b713492940aafe1f",
+    "football_value_pipeline_v2_standalone.py": "6d73652fe19f343e41e43f87b479bffb3370abad8869f9e9a91f4337c47d2eb0",
     "goal_market_validation.py": "58b9b2bde35cf199615f2b4ad535274a0a240b4f4e7767d3bb083b7d8d88f870",
     "market_blend_validation.py": "1136fba8bdc85eaaed468ef3f8458781a366d1fcc7913e1057783b023692ea04",
     "match_scores.py": "1e39b0fd63354fa734e768d5a34e2ea6782b3590f2af7ba7989123b17a7eec1a",
@@ -37,6 +37,6 @@
     "shortlist_quote_policy.json": "01bd85141f1b0dbfead318bf5826a74ef9cfc22f755c9538ec988e5d52258e94",
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47"
   },
-  "predictions_sha256": "f173d2e4a4bbd6d57791c7bb4dbb4f74105a4f36c663f751d99a678b99cea543",
+  "predictions_sha256": "fdaacfc8d7f58b581eabbff44c65dcbe36bfb4dca0e14a18eb785bb62041f767",
   "selection_policy_version": "48h-zero-tolerance-ev1-common-no-loss75-v22"
 }

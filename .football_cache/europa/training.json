@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "score_basis": "REGULATION_90_MINUTES",
-  "verified_at_utc": "2026-10-22T09:02:22.673333+00:00",
+  "verified_at_utc": "2026-10-22T15:10:42.333859+00:00",
   "matches": [
     {
       "date": "2022-09-08",
@@ -12580,6 +12580,6 @@
     "openfootball-2022.txt": "e71450d2a60478dbcb253ce4eef1f95c262caafaaa715735f9d838bb2920311a",
     "openfootball-2023.txt": "2655fbfb3b636e3584664531463719711e79ea58a17cb27543a9521bfc1c1818",
     "openfootball-2024.txt": "4f004729005e45fb26e5a4adff614d5c6081564e504137705cceaa15a9213bd9",
-    "cornerflick.json": "4efd4694675a8b855214fe8749be48b83bfdfd7ffe99457c37b600dbe68ce28f"
+    "cornerflick.json": "51b26ae5ea2babfc2a42c901112b5bdd8bc888ac753ed2c0598abbbe88cbd7fd"
   }
 }

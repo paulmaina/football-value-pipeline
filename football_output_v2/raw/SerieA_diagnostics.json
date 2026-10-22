@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "54fabd01f258eaa52feb07ff670b6fdbf8ffeaee99a112c5a2aaa9405e14cd1e",
-  "training_as_of_utc": "2026-10-22T10:56:43.751998+00:00",
+  "training_sha256": "d2ec277b623a04eed75eb74efb01e8c2a1c5e5333cd552e8ff7109978cfa82c7",
+  "training_as_of_utc": "2026-10-22T15:06:43.013252+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 70,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-22T10:56:43.751998+00:00",
-    "observations": 172,
-    "observations_sha256": "943c549b5ca943465e3c153c71035645a7162c59d0d04c84f3ab792219315459",
+    "cutoff_utc": "2026-10-22T15:06:43.013252+00:00",
+    "observations": 178,
+    "observations_sha256": "867f9cbbaa7f0997a3c1ae2a2b00d1dd82e5a8303d991a584cb08e3bb9006b00",
     "eligible_training_matches": 77,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:28.568690+00:00",
-    "retrospective_inputs_sha256": "c98c6ae22a37b1aad953e39e2daf1ca0e6d7c8881df8003146fbe908751c263c",
+    "retrospective_inputs_sha256": "83fb22b26466242592f59aac353967091cb183d04079c98f63a0d50526975d1b",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -81,10 +81,10 @@
   },
   "training_end": "2026-10-19",
   "fit_success": true,
-  "objective": 2439.489525309333,
-  "base": 0.13224886709442574,
-  "home_adv": 0.12573368179217506,
-  "rho": -0.0336292264381369,
+  "objective": 2439.0874819837973,
+  "base": 0.13224734087717507,
+  "home_adv": 0.1257355874214204,
+  "rho": -0.03362824397525294,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
   "max_goals": 10,
@@ -103,11 +103,11 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 20,
-  "additional_event_odds_calls_used_before_this_league": 3,
+  "additional_event_odds_calls_used_before_this_league": 13,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261022T105643751998Z_cd045a73db4473a6cc5d6e8dfad5a1f2b7faea32159b8013bd7c15fa35f398a9.json",
-  "over_1_5_in_window_quote_fixtures": 1,
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261022T150643013252Z_ceb4ef44a7515c07fbc4902e153b13f93e074bfdd5fbef48304d56579f6fe21c.json",
+  "over_1_5_in_window_quote_fixtures": 3,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -120,7 +120,47 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 2
+    },
+    {
+      "fixture_id": "b7f0880e3da978f9481f7cb5697e2aa5",
+      "event_id": "b7f0880e3da978f9481f7cb5697e2aa5",
+      "home_team": "Cagliari",
+      "away_team": "Bologna",
+      "kickoff_utc": "2026-10-24T13:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 30,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 2
+    },
+    {
+      "fixture_id": "08ffd99b2249c81d8a7410598f32b9b0",
+      "event_id": "08ffd99b2249c81d8a7410598f32b9b0",
+      "home_team": "Como",
+      "away_team": "Sassuolo",
+      "kickoff_utc": "2026-10-24T13:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 34,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -129,32 +169,6 @@
       "dc_bookmakers": 2,
       "over_1_5_quote": true,
       "over_1_5_bookmakers": 1
-    },
-    {
-      "fixture_id": "b7f0880e3da978f9481f7cb5697e2aa5",
-      "event_id": "b7f0880e3da978f9481f7cb5697e2aa5",
-      "home_team": "Cagliari",
-      "away_team": "Bologna",
-      "kickoff_utc": "2026-10-24T13:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "08ffd99b2249c81d8a7410598f32b9b0",
-      "event_id": "08ffd99b2249c81d8a7410598f32b9b0",
-      "home_team": "Como",
-      "away_team": "Sassuolo",
-      "kickoff_utc": "2026-10-24T13:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "0b4894e9fb123ef3045269f97e339eba",
@@ -378,10 +392,10 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_in_window_linked_fixtures": 3,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 1,
+  "additional_event_odds_calls_this_league": 3,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 730.0,

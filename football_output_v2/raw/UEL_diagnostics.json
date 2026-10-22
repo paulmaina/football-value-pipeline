@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "cb7bcd063c85ea171d3f3686cb2c583c24b68c5ce95d6bd2f8818fdfda795800",
-  "training_as_of_utc": "2026-10-22T10:58:07.768738+00:00",
+  "training_as_of_utc": "2026-10-22T15:07:38.857486+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -24,9 +24,9 @@
   },
   "training_end": "2026-10-15",
   "fit_success": true,
-  "objective": 997.5598198190675,
-  "base": 0.051736220349372516,
-  "home_adv": 0.2898865252942858,
+  "objective": 997.3963190069692,
+  "base": 0.05177342071940994,
+  "home_adv": 0.28990104282641155,
   "rho": 0.05,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
@@ -35,7 +35,7 @@
   "market_weight": 0.5,
   "training_data_health": {
     "training_end": "2026-10-15",
-    "verified_at_utc": "2026-10-22T10:58:04.197154+00:00",
+    "verified_at_utc": "2026-10-22T09:02:22.673333+00:00",
     "official_source_health": {
       "2025": {
         "status": "HTTP_403_USING_REVIEWED_FACTS",
@@ -58,10 +58,10 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 18,
-  "additional_event_odds_calls_used_before_this_league": 5,
+  "additional_event_odds_calls_used_before_this_league": 17,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 18,
+  "over_1_5_in_window_quote_fixtures": 17,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -74,7 +74,7 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 22,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -181,8 +181,8 @@
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "fcbdc440ac1bfd04e900e145e84ffaca",
@@ -334,7 +334,7 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 22,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"

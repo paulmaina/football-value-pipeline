@@ -1,20 +1,20 @@
 {
-  "generated_at_utc": "2026-10-22T10:58:13.963804+00:00",
+  "generated_at_utc": "2026-10-22T15:07:55.640807+00:00",
   "selection_policy_version": "48h-zero-tolerance-ev1-common-no-loss75-v22",
   "status": "BELOW_TARGET",
-  "n_fixtures": 103,
-  "n_markets_evaluated": 1394,
-  "n_shortlisted": 2,
-  "n_strict_qualified": 2,
+  "n_fixtures": 106,
+  "n_markets_evaluated": 1796,
+  "n_shortlisted": 6,
+  "n_strict_qualified": 6,
   "n_provisional_watchlist": 0,
-  "n_total_candidates": 2,
+  "n_total_candidates": 6,
   "target_distinct_matches": 12,
-  "shortfall": 10,
-  "usable_distinct_fixtures": 2,
+  "shortfall": 6,
+  "usable_distinct_fixtures": 6,
   "shortlist_lookahead_hours": 48.0,
   "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-10-22T10:58:13.963804+00:00",
-  "shortlist_window_end_utc": "2026-10-24T10:58:13.963804+00:00",
+  "shortlist_window_start_utc": "2026-10-22T15:07:55.640807+00:00",
+  "shortlist_window_end_utc": "2026-10-24T15:07:55.640807+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -151,17 +151,6 @@
       "under_3_5": "RELIABLE_FOR_RANKING",
       "btts_yes": "UNRELIABLE_AUDIT"
     },
-    "UEFA Champions League": {
-      "home_draw": "RELIABLE_FOR_RANKING",
-      "draw_away": "RELIABLE_FOR_RANKING",
-      "home_away": "UNRELIABLE_AUDIT",
-      "home": "RELIABLE_FOR_RANKING",
-      "draw": "UNRELIABLE_AUDIT",
-      "away": "RELIABLE_FOR_RANKING",
-      "over_1_5": "UNRELIABLE_AUDIT",
-      "under_3_5": "UNRELIABLE_AUDIT",
-      "btts_yes": "UNRELIABLE_AUDIT"
-    },
     "UEFA Europa League": {
       "home_draw": "RELIABLE_FOR_RANKING",
       "draw_away": "RELIABLE_FOR_RANKING",
@@ -178,9 +167,9 @@
   "ranking_is_empirically_optimized": false,
   "shortfall_reason": "No padding: missing evidence or failing the common safety/EV cutoffs can reduce the shortlist",
   "bookmaker_coverage": {
-    "Pinnacle": 576,
+    "Pinnacle": 796,
     "bet365": 0,
-    "1xBet": 200
+    "1xBet": 364
   },
   "warning": "Probabilities and EV are model estimates, not guarantees. Required adjusted EV: 1.0%; unblended EV must be nonnegative. Risk tolerance is provisional; refunds are not wins. Flat-stake research, not accumulator protection.",
   "loss_risk_tolerance": 0,
