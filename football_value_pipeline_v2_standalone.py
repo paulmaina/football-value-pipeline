@@ -113,6 +113,8 @@ LEAGUES: Dict[str, LeagueConfig] = {
         "UCL", "UEFA Champions League", "Europe", "",
         "soccer_uefa_champs_league", "CL"
     ),
+    "UEL": LeagueConfig("UEL", "UEFA Europa League", "Europe", "",
+                        "soccer_uefa_europa_league", "EL"),
 }
 
 HISTORICAL_URL = "https://www.football-data.co.uk/mmz4281/{season}/{division}.csv"
@@ -1744,6 +1746,7 @@ class DixonColesModel:
         self.home_adv = home_adv
         self.rho = rho
         self.fit_result = result
+        self.team_training_counts = pd.concat([df["HomeTeam"], df["AwayTeam"]]).value_counts().to_dict()
         self.training_matches = len(df)
         self.training_end = latest
         self.training_as_of = reference
@@ -1788,6 +1791,11 @@ class DixonColesModel:
 
         if raw_name in self.team_to_idx:
             return raw_name, 100.0
+
+        if self.league_key == "UEL":
+            from europa_training import resolver
+            target = resolver()(raw_name)
+            return (target, 100.0) if target in self.team_to_idx else (None, 0.0)
 
         normalized_raw = canonical_team_key(raw_name)
 
@@ -2099,6 +2107,12 @@ class FootballValuePipeline:
 
     def _training_health(self, league, model, now):
         end = None if model.training_end is None else str(model.training_end.date())
+        if league.key == "UEL":
+            import europa_training
+            payload = json.loads((self.source.http.cache_dir/"europa/training.json").read_text())
+            return {"training_end": end, "verified_at_utc": payload["verified_at_utc"],
+                    "official_source_health": payload.get("official_source_health", {}),
+                    "status": "VERIFIED_WITHIN_24_HOURS" if europa_training.fresh(payload, now) else "STALE"}
         if league.key == "UCL":
             from ucl_training import health
             data = health(self.source.http.cache_dir.resolve().parent, end, now, cache_dir=self.source.http.cache_dir)
@@ -2826,7 +2840,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         self.max_extra_event_odds_requests = 24
         from goal_market_validation import distribute_event_odds_budget
         self.extra_event_odds_quota = distribute_event_odds_budget(
-            ["EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1", "UCL"], 24
+            ["EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1", "UCL", "UEL"], 24
         )
         self.extra_event_odds_by_league = {
             key: 0 for key in self.extra_event_odds_quota
@@ -2872,6 +2886,12 @@ class FootballValuePipelineV2(FootballValuePipeline):
         UCL uses football-data.org Champions League results because a domestic
         league model cannot validly estimate cross-country matchups on its own.
         """
+        if league.key == "UEL":
+            from europa_training import load, refresh
+            if self.source.force_refresh and not getattr(self, "_europa_force_refreshed", False):
+                refresh(self.source.http.cache_dir, now)
+                self._europa_force_refreshed = True
+            return load(self.source.http.cache_dir, now)
         seasons_back = (self.seasons_back if league.key == "UCL" else
                         self.domestic_seasons_back or self.seasons_back)
         if league.key == "UCL":
@@ -2930,6 +2950,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     df = self.football_data_org.fixtures(
                         league, self.lookahead_days, now
                     )
+                elif league.key == "UEL":
+                    from europa_training import fixtures
+                    df = fixtures(self.source.http.cache_dir, now, self.lookahead_days)
                 else:
                     df = self.source.fixtures(league, self.lookahead_days, now)
 
@@ -3108,6 +3131,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
         pred["raw_p_over_1_5"] = raw_over_1_5
         pred["raw_p_under_3_5"] = raw_under_3_5
         pred["raw_p_btts_yes"] = raw_btts_yes
+        if model.league_key == "UEL":
+            for side, name in (("home", home), ("away", away)):
+                resolved, _ = model.resolve_team(name)
+                pred[side+"_training_matches"] = model.team_training_counts.get(resolved, 0)
         pred.update(control)
         from double_chance import probabilities as double_chance_probabilities
         pred.update(double_chance_probabilities(pred))
@@ -3194,6 +3221,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "training_source": (
                 "football-data.org"
                 if league.key == "UCL"
+                else "verified .football_cache/europa/training.json" if league.key == "UEL"
                 else "Football-Data.co.uk"
             ),
             "fixture_provider_mode": self.fixture_provider,
@@ -3400,6 +3428,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
 
         if test_start:
             start = pd.Timestamp(test_start)
+        elif league.key == "UEL" and len(hist) > min_train:
+            # Use every eligible later fixture after the declared warm-up.
+            # Starting at the final third wastes scarce cross-country history.
+            start = pd.Timestamp(hist.iloc[min_train]["Date"]).normalize()
         else:
             # Default: evaluate roughly the last third while retaining substantial training history.
             start = pd.Timestamp(hist["Date"].quantile(0.67)).normalize()
@@ -3433,6 +3465,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
             model.league_key = league.key
 
             for _, row in test.iterrows():
+                if league.key == "UEL" and any(model.team_training_counts.get(model.resolve_team(str(row[s]))[0], 0) < 6 for s in ("HomeTeam", "AwayTeam")):
+                    continue
                 pred, _ = self._predict_row(model, row)
 
                 if row["FTHG"] > row["FTAG"]:
@@ -3755,6 +3789,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--api-key-source", choices=["dotenv", "environment"], default="dotenv",
                    help="Default: project .env only, ignoring inherited API keys; environment is for explicit CI use.")
     p.add_argument("--leagues", nargs="+", choices=list(LEAGUES), default=["EPL"])
+    p.add_argument("--max-extra-event-odds-requests", type=int, default=24,
+                   help="Maximum additional event calls in ranked coverage mode (default: 24).")
     p.add_argument("--additional-odds-coverage", choices=["all", "ranked"], default="all",
                    help="all: request every linked fixture in the 48h window (more API credits); ranked: capped legacy mode")
     p.add_argument("--market-led-experiment", action="store_true",
@@ -3766,7 +3802,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--goal-blend-experiment", action="store_true",
                    help="Write separate uncalibrated goal-market shadow variants; no baseline changes.")
     p.add_argument("--seasons-back", type=int, choices=range(1, 11), default=None,
-                   help="Explicit shared history override; otherwise domestic uses six seasons and UCL four.")
+                   help="Explicit shared history override; otherwise domestic uses six seasons and UCL four; UEL always uses all verified cached history.")
     p.add_argument("--domestic-seasons-back", type=int, choices=range(1, 11), default=None,
                    help="Domestic CSV seasons including current season (default: 6); independent of UCL.")
     p.add_argument('--no-bbs-statistics', action='store_true',
@@ -3869,6 +3905,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--test-start", default=None)
     p.add_argument("--step-days", type=int, default=28)
     p.add_argument("--min-train", type=int, default=500)
+    p.add_argument("--uel-validation-min-train", type=int, default=250,
+                   help="Europa walk-forward calibration warm-up; audit gates remain unchanged.")
     p.add_argument("--ucl-validation-min-train", type=int, default=250,
                    help="UCL walk-forward calibration warm-up; audit gates remain unchanged.")
 
@@ -3968,6 +4006,9 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     from goal_market_validation import (
         distribute_event_odds_budget, evaluate_market_history,
     )
+    if args.max_extra_event_odds_requests < 0:
+        raise ValueError("Extra event odds request budget cannot be negative")
+    pipe.max_extra_event_odds_requests = args.max_extra_event_odds_requests
     pipe.extra_event_odds_quota = distribute_event_odds_budget(
         args.leagues, pipe.max_extra_event_odds_requests
     )
@@ -4123,8 +4164,8 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
             # Reuse validated snapshots only when the historical model,
             # training cutoff and validation code version match.
             validation_path = out_dir / f"{league_key}_goal_market_validation.json"
-            validation_min_train = (args.ucl_validation_min_train
-                                    if league_key == "UCL" else args.min_train)
+            validation_min_train = (args.uel_validation_min_train if league_key == "UEL" else
+                                    args.ucl_validation_min_train if league_key == "UCL" else args.min_train)
             if validation_min_train < 30:
                 raise ValueError("Validation warm-up must contain at least 30 matches")
             from goal_market_validation import VALIDATOR_VERSION, validation_cache_matches, validation_code_fingerprint

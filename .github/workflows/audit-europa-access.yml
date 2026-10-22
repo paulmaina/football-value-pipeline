@@ -1,0 +1,47 @@
+name: Europa League access audit
+on:
+  push:
+    branches: ['audit/europa-league-access']
+    paths:
+      - 'scripts/audit_europa_access.py'
+      - '.github/workflows/audit-europa-access.yml'
+  workflow_dispatch:
+    inputs:
+      providers:
+        description: Providers to test (all or comma-separated football_data,api_football,bbs,odds)
+        default: all
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: europa-access-audit
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests
+      - name: Probe configured providers without exposing credentials
+        env:
+          AUDIT_PROVIDERS: ${{ github.event_name == 'push' && 'api_football' || inputs.providers }}
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          BBS_API_KEY: ${{ secrets.BBS_API_KEY }}
+          THE_ODDS_API_KEY: ${{ secrets.THE_ODDS_API_KEY }}
+          THE_ODDS_API_KEY_FALLBACK_1: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_1 }}
+          THE_ODDS_API_KEY_FALLBACK_2: ${{ secrets.THE_ODDS_API_KEY_FALLBACK_2 }}
+        run: python scripts/audit_europa_access.py
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: europa-access-${{ github.run_id }}
+          path: workflow_artifacts/europa_access/report.json
+          if-no-files-found: warn
+          retention-days: 14

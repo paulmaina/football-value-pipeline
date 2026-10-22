@@ -27,7 +27,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
         for i,key in enumerate(keys):
             cfg=LEAGUES[key];row=fixture(i,kickoff=NOW+timedelta(days=1))
             row.update(p_under_3_5=.99, raw_p_under_3_5=.98, league=cfg.name,odds_event_id='event'+str(i),fixture_id='event'+str(i),
-                       market_best_over_1_5_last_update_utc=NOW.isoformat())
+                       home_training_matches=12, away_training_matches=12, market_best_over_1_5_last_update_utc=NOW.isoformat())
             row.update(best_home_bookmaker='Pinnacle',best_away_bookmaker='Pinnacle',best_over_1_5_bookmaker='Pinnacle')
             frames[key]=pd.DataFrame([row])
             match={'id':i+1,'status':'FINISHED','utcDate':row['kickoff_utc'],
@@ -62,7 +62,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 'market_led_experiment.fetch_event',side_effect=payload),patch('market_led_experiment.datetime') as dt:
                 dt.now.return_value=NOW
                 self.assertEqual(main(['--leagues',*keys,'--out-dir',str(raw),'--goal-blend-experiment','--market-led-experiment','--tune-half-life','--recency-experiment']),0)
-                self.assertEqual(raw_check(root)['forecasts'],6)
+                self.assertEqual(raw_check(root)['forecasts'],len(keys))
                 picks = pd.read_csv(raw/'conservative_bet_shortlist.csv')
                 self.assertNotIn('Under 3.5', picks.market.tolist())
                 self.assertNotIn('Both Teams to Score - Yes', picks.market.tolist())
@@ -82,11 +82,11 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 data=report_check(root)
             self.assertEqual(data['status'],'VERIFIED_WITH_WARNINGS')
             self.assertIn('UCL training/source health: DOWNLOAD_NOT_VERIFIED',data['warnings'])
-            self.assertEqual(data['shortlist']['graded'],6)
-            self.assertEqual(len(data['training_end_dates']),6)
-            self.assertEqual(data['experiments']['goal_blend_experiment']['graded_fixture_markets'],18)
-            self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],6)
-            self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],12)
+            self.assertEqual(data['shortlist']['graded'],len(keys))
+            self.assertEqual(len(data['training_end_dates']),len(keys))
+            self.assertEqual(data['experiments']['goal_blend_experiment']['graded_fixture_markets'],3*len(keys))
+            self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],len(keys))
+            self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],2*len(keys))
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
             for name in ('filter_sensitivity_experiment','shortlist_weight_experiment','shortlist_policy_experiment'):
                 self.assertEqual(data['experiments'][name]['total_fixtures'],0)

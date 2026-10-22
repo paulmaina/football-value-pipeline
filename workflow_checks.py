@@ -478,9 +478,11 @@ def report_check(root):
         with ZipFile(workbook) as z:
             wb=ET.fromstring(z.read('xl/workbook.xml'))
             require(any(s.get('name')=='Pipeline Health' for s in wb.find(ns+'sheets')),'Missing native Pipeline Health worksheet')
-    for info in health_data.get('training',{}).values():
+    for league, info in health_data.get('training',{}).items():
         state=info.get('current_source_health',{}).get('status')
-        if state and state!='CURRENT_WITHIN_PROVIDER_SCHEDULE': warnings.append('UCL training/source health: '+state)
+        if state and state not in ('CURRENT_WITHIN_PROVIDER_SCHEDULE', 'VERIFIED_WITHIN_24_HOURS'): warnings.append(league+' training/source health: '+state)
+        if info.get('current_source_health', {}).get('official_source_health'):
+            warnings.append(league+': live UEFA denied access; using reviewed factual attestations for covered matches only')
     for league, info in health_data.get('training', {}).items():
         if info.get('odds_provider_health', {}).get('state') == 'CREDITS_EXHAUSTED':
             warnings.append(league+': all configured Odds API credentials confirmed exhausted during forecast generation')
