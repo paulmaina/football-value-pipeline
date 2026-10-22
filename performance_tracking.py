@@ -472,6 +472,11 @@ def fixture_match(row: dict, verified: list[dict]) -> tuple[dict | None, str]:
         away = max(_overlap(row.get("away_team", ""), name) for name in (
             match["away_team"], match.get("away_short_name") or ""
         ))
+        if code == "EL":
+            from europa_training import resolver
+            resolve = resolver()
+            home = 100 if resolve(row.get("home_team", "")) == resolve(match["home_team"]) else 0
+            away = 100 if resolve(row.get("away_team", "")) == resolve(match["away_team"]) else 0
         if home >= 90 and away >= 90:
             candidates.append((min(home, away), home + away, match))
     if not candidates:
@@ -512,7 +517,7 @@ def score_shortlist(row: dict, final: dict | None, state: str) -> dict:
         "offered_decimal_odds": row.get("offered_decimal_odds"),
         "per_stake_cost": row.get("per_stake_cost") or 0,
         "bookmaker": row.get("bookmaker"),
-        "match_source": "football-data.org/v4" if final else "",
+        "match_source": final.get("source", "football-data.org/v4") if final else "",
         "source_match_id": final["match_id"] if final else "",
         "final_score": f"{final['home_goals']}-{final['away_goals']}" if final else "",
         "status": state,
@@ -564,7 +569,7 @@ def score_prediction(row: dict, final: dict | None, state: str) -> dict:
         "kickoff_utc": row["kickoff_utc"],
         "snapshot_commit": row["snapshot_commit"],
         "selection_policy_version": row.get("selection_policy_version") or "legacy/unspecified",
-        "match_source": "football-data.org/v4" if final else "",
+        "match_source": final.get("source", "football-data.org/v4") if final else "",
         "source_match_id": final["match_id"] if final else "",
         "final_score": f"{final['home_goals']}-{final['away_goals']}" if final else "",
         "status": state, "predicted_1x2": row.get("predicted_1x2"),
@@ -623,7 +628,7 @@ def collect_results(eligible: list[dict], *, root: Path, token: str,
         raise ValueError("Invalid result cache")
     errors = {}
     if not token:
-        return list(old.values()), {"configuration": "FOOTBALL_DATA_API_KEY is missing"}
+        errors["configuration"] = "FOOTBALL_DATA_API_KEY is missing"
     # Only fetch when results might exist. Previously verified results
     # remain useful for cumulative reports and for temporary API failures.
     for league, code in sorted(LEAGUE_CODES.items()):
@@ -644,9 +649,15 @@ def collect_results(eligible: list[dict], *, root: Path, token: str,
         end = min(clock.date() + timedelta(days=1),
                   max(dates).date() + timedelta(days=3))
         try:
-            fetched = fetch_verified(
-                token, code, start.isoformat(), end.isoformat(), session=session
-            )
+            if league == "UEL":
+                from europa_training import results
+                fetched = results(root.parent/".football_cache", clock)
+            elif not token:
+                continue
+            else:
+                fetched = fetch_verified(
+                    token, code, start.isoformat(), end.isoformat(), session=session
+                )
         except (requests.RequestException, RuntimeError, ValueError) as exc:
             errors[league] = str(exc).split("?")[0][:180]
             continue
@@ -807,7 +818,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
             )
             else "ALL_GRADED"
         ),
-        "source": "football-data.org v4 FINISHED regulation-time scorelines",
+        "source": "football-data.org v4 FINISHED regulation-time scorelines; Europa: corroborated Cornerflick / Fixture Download / UEFA league-phase scores",
         "reviewed_at_utc": reviewed_at,
         "shortlist": stats(selections),
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",

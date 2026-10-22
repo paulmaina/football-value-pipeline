@@ -384,6 +384,8 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             kick = pd.to_datetime(row.get('kickoff_utc'), utc=True, errors='coerce')
             if pd.isna(kick) or not now+pd.Timedelta(minutes=20) <= kick <= now+pd.Timedelta(hours=48):
                 reasons.append('kickoff outside 20-minute to 48-hour window')
+            from europa_training import eligibility
+            reasons.extend(eligibility(row))
             if row.get('league') not in SUPPORTED_LEAGUES:
                 reasons.append('competition unsupported')
             if row.get('odds_source') != 'The Odds API' or row.get('market_blend_applied') not in (True, 1, 'True'):

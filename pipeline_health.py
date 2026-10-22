@@ -41,6 +41,14 @@ def current_health(root, clock, *, raw_dir=None):
             'odds_provider_health': data.get('odds_provider_health', {'state': 'NOT_RECORDED'})}
     if 'UCL' in training:
         training['UCL']['current_source_health'] = health(root.parent, training['UCL']['training_end'], clock)
+    if 'UEL' in training:
+        from europa_training import fresh
+        payload = read(root.parent/'.football_cache/europa/training.json', {})
+        try:
+            state = 'VERIFIED_WITHIN_24_HOURS' if fresh(payload, clock) else 'STALE'
+        except (KeyError, TypeError, ValueError):
+            state = 'DOWNLOAD_NOT_VERIFIED'
+        training['UEL']['current_source_health'] = {'status': state, 'verified_at_utc': payload.get('verified_at_utc')}
     picks = read_csv(raw/'conservative_bet_shortlist.csv')
     quote = {'selected_quotes': len(picks), 'exchange_quotes': 0, 'missing_quote_age': 0,
              'quote_age_over_24h': 0, 'costs_recorded': 0, 'bookmakers': dict(Counter(r.get('bookmaker', '') for r in picks)),
