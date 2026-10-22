@@ -1,0 +1,2493 @@
+{
+  "schema_version": 1,
+  "scope": "Reviewed factual match identities, concluding scores and AET flags; not article content",
+  "seasons": {
+    "2025": {
+      "source_sha256": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b",
+      "matches": [
+        {
+          "home": "freiburg",
+          "away": "aston villa",
+          "reported": [
+            0,
+            3
+          ],
+          "aet": false,
+          "match_id": "2047743",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047743--freiburg-vs-aston-villa/"
+        },
+        {
+          "home": "freiburg",
+          "away": "braga",
+          "reported": [
+            3,
+            1
+          ],
+          "aet": false,
+          "match_id": "2048145",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048145--freiburg-vs-braga/"
+        },
+        {
+          "home": "aston villa",
+          "away": "nott'm forest",
+          "reported": [
+            4,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048146",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048146--aston-villa-vs-nott-m-forest/"
+        },
+        {
+          "home": "braga",
+          "away": "freiburg",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2048143",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048143--braga-vs-freiburg/"
+        },
+        {
+          "home": "nott'm forest",
+          "away": "aston villa",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048144",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048144--nott-m-forest-vs-aston-villa/"
+        },
+        {
+          "home": "celta",
+          "away": "freiburg",
+          "reported": [
+            1,
+            3
+          ],
+          "aet": false,
+          "match_id": "2048140",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048140--celta-vs-freiburg/"
+        },
+        {
+          "home": "aston villa",
+          "away": "bologna",
+          "reported": [
+            4,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048142",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048142--aston-villa-vs-bologna/"
+        },
+        {
+          "home": "nott'm forest",
+          "away": "porto",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048141",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048141--nott-m-forest-vs-porto/"
+        },
+        {
+          "home": "real betis",
+          "away": "braga",
+          "reported": [
+            2,
+            4
+          ],
+          "aet": false,
+          "match_id": "2048139",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048139--real-betis-vs-braga/"
+        },
+        {
+          "home": "braga",
+          "away": "real betis",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2048135",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048135--braga-vs-real-betis/"
+        },
+        {
+          "home": "bologna",
+          "away": "aston villa",
+          "reported": [
+            1,
+            3
+          ],
+          "aet": false,
+          "match_id": "2048138",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048138--bologna-vs-aston-villa/"
+        },
+        {
+          "home": "porto",
+          "away": "nott'm forest",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2048137",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048137--porto-vs-nott-m-forest/"
+        },
+        {
+          "home": "freiburg",
+          "away": "celta",
+          "reported": [
+            3,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048136",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048136--freiburg-vs-celta/"
+        },
+        {
+          "home": "braga",
+          "away": "ferencvaros",
+          "reported": [
+            4,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048127",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048127--braga-vs-ferencvaros/"
+        },
+        {
+          "home": "freiburg",
+          "away": "genk",
+          "reported": [
+            5,
+            1
+          ],
+          "aet": false,
+          "match_id": "2048129",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048129--freiburg-vs-genk/"
+        },
+        {
+          "home": "lyon",
+          "away": "celta",
+          "reported": [
+            0,
+            2
+          ],
+          "aet": false,
+          "match_id": "2048130",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048130--lyon-vs-celta/"
+        },
+        {
+          "home": "midtjylland",
+          "away": "nott'm forest",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": true,
+          "match_id": "2048132",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048132--midtjylland-vs-nott-m-forest/"
+        },
+        {
+          "home": "aston villa",
+          "away": "lille",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048134",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048134--aston-villa-vs-lille/"
+        },
+        {
+          "home": "porto",
+          "away": "stuttgart",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048131",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048131--porto-vs-stuttgart/"
+        },
+        {
+          "home": "real betis",
+          "away": "panathinaikos",
+          "reported": [
+            4,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048128",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048128--real-betis-vs-panathinaikos/"
+        },
+        {
+          "home": "roma",
+          "away": "bologna",
+          "reported": [
+            3,
+            4
+          ],
+          "aet": true,
+          "match_id": "2048133",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048133--roma-vs-bologna/"
+        },
+        {
+          "home": "bologna",
+          "away": "roma",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2048125",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048125--bologna-vs-roma/"
+        },
+        {
+          "home": "lille",
+          "away": "aston villa",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2048126",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048126--lille-vs-aston-villa/"
+        },
+        {
+          "home": "panathinaikos",
+          "away": "real betis",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048120",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048120--panathinaikos-vs-real-betis/"
+        },
+        {
+          "home": "stuttgart",
+          "away": "porto",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2048123",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048123--stuttgart-vs-porto/"
+        },
+        {
+          "home": "celta",
+          "away": "lyon",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2048122",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048122--celta-vs-lyon/"
+        },
+        {
+          "home": "ferencvaros",
+          "away": "braga",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048119",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048119--ferencvaros-vs-braga/"
+        },
+        {
+          "home": "genk",
+          "away": "freiburg",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2048121",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048121--genk-vs-freiburg/"
+        },
+        {
+          "home": "nott'm forest",
+          "away": "midtjylland",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2048124",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2048124--nott-m-forest-vs-midtjylland/"
+        },
+        {
+          "home": "viktoria plzen",
+          "away": "panathinaikos",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": true,
+          "match_id": "2047786",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047786--viktoria-plzen-vs-panathinaikos/"
+        },
+        {
+          "home": "ferencvaros",
+          "away": "ludogorets",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2047785",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047785--ferencvaros-vs-ludogorets/"
+        },
+        {
+          "home": "crvena zvezda",
+          "away": "lille",
+          "reported": [
+            0,
+            2
+          ],
+          "aet": true,
+          "match_id": "2047789",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047789--crvena-zvezda-vs-lille/"
+        },
+        {
+          "home": "stuttgart",
+          "away": "celtic",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2047792",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047792--stuttgart-vs-celtic/"
+        },
+        {
+          "home": "bologna",
+          "away": "brann",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2047790",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047790--bologna-vs-brann/"
+        },
+        {
+          "home": "genk",
+          "away": "gnk dinamo",
+          "reported": [
+            3,
+            3
+          ],
+          "aet": true,
+          "match_id": "2047787",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047787--genk-vs-gnk-dinamo/"
+        },
+        {
+          "home": "nott'm forest",
+          "away": "fenerbahce",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2047791",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047791--nott-m-forest-vs-fenerbahce/"
+        },
+        {
+          "home": "celta",
+          "away": "paok",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2047788",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047788--celta-vs-paok/"
+        },
+        {
+          "home": "fenerbahce",
+          "away": "nott'm forest",
+          "reported": [
+            0,
+            3
+          ],
+          "aet": false,
+          "match_id": "2047783",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047783--fenerbahce-vs-nott-m-forest/"
+        },
+        {
+          "home": "gnk dinamo",
+          "away": "genk",
+          "reported": [
+            1,
+            3
+          ],
+          "aet": false,
+          "match_id": "2047779",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047779--gnk-dinamo-vs-genk/"
+        },
+        {
+          "home": "paok",
+          "away": "celta",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2047780",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047780--paok-vs-celta/"
+        },
+        {
+          "home": "brann",
+          "away": "bologna",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2047782",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047782--brann-vs-bologna/"
+        },
+        {
+          "home": "celtic",
+          "away": "stuttgart",
+          "reported": [
+            1,
+            4
+          ],
+          "aet": false,
+          "match_id": "2047784",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047784--celtic-vs-stuttgart/"
+        },
+        {
+          "home": "lille",
+          "away": "crvena zvezda",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2047781",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047781--lille-vs-crvena-zvezda/"
+        },
+        {
+          "home": "panathinaikos",
+          "away": "viktoria plzen",
+          "reported": [
+            2,
+            2
+          ],
+          "aet": false,
+          "match_id": "2047778",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047778--panathinaikos-vs-viktoria-plzen/"
+        },
+        {
+          "home": "ludogorets",
+          "away": "ferencvaros",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2047777",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2047777--ludogorets-vs-ferencvaros/"
+        },
+        {
+          "home": "aston villa",
+          "away": "salzburg",
+          "reported": [
+            3,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046284",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046284--aston-villa-vs-salzburg/"
+        },
+        {
+          "home": "celtic",
+          "away": "utrecht",
+          "reported": [
+            4,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046287",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046287--celtic-vs-utrecht/"
+        },
+        {
+          "home": "porto",
+          "away": "rangers",
+          "reported": [
+            3,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046281",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046281--porto-vs-rangers/"
+        },
+        {
+          "home": "basel",
+          "away": "viktoria plzen",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046289",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046289--basel-vs-viktoria-plzen/"
+        },
+        {
+          "home": "midtjylland",
+          "away": "gnk dinamo",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046290",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046290--midtjylland-vs-gnk-dinamo/"
+        },
+        {
+          "home": "crvena zvezda",
+          "away": "celta",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046285",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046285--crvena-zvezda-vs-celta/"
+        },
+        {
+          "home": "fcsb",
+          "away": "fenerbahce",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046294",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046294--fcsb-vs-fenerbahce/"
+        },
+        {
+          "home": "go ahead eagles",
+          "away": "braga",
+          "reported": [
+            0,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046297",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046297--go-ahead-eagles-vs-braga/"
+        },
+        {
+          "home": "genk",
+          "away": "malmo",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046298",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046298--genk-vs-malmo/"
+        },
+        {
+          "home": "lille",
+          "away": "freiburg",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046282",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046282--lille-vs-freiburg/"
+        },
+        {
+          "home": "maccabi tel aviv",
+          "away": "bologna",
+          "reported": [
+            0,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046288",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046288--m-tel-aviv-vs-bologna/"
+        },
+        {
+          "home": "nott'm forest",
+          "away": "ferencvaros",
+          "reported": [
+            4,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046292",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046292--nott-m-forest-vs-ferencvaros/"
+        },
+        {
+          "home": "lyon",
+          "away": "paok",
+          "reported": [
+            4,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046286",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046286--lyon-vs-paok/"
+        },
+        {
+          "home": "panathinaikos",
+          "away": "roma",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046296",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046296--panathinaikos-vs-roma/"
+        },
+        {
+          "home": "ludogorets",
+          "away": "nice",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046291",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046291--ludogorets-vs-nice/"
+        },
+        {
+          "home": "real betis",
+          "away": "feyenoord",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046283",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046283--real-betis-vs-feyenoord/"
+        },
+        {
+          "home": "sturm graz",
+          "away": "brann",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046293",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046293--sturm-graz-vs-brann/"
+        },
+        {
+          "home": "stuttgart",
+          "away": "young boys",
+          "reported": [
+            3,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046295",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046295--stuttgart-vs-young-boys/"
+        },
+        {
+          "home": "bologna",
+          "away": "celtic",
+          "reported": [
+            2,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046276",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046276--bologna-vs-celtic/"
+        },
+        {
+          "home": "young boys",
+          "away": "lyon",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046273",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046273--young-boys-vs-lyon/"
+        },
+        {
+          "home": "viktoria plzen",
+          "away": "porto",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046271",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046271--viktoria-plzen-vs-porto/"
+        },
+        {
+          "home": "fenerbahce",
+          "away": "aston villa",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046268",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046268--fenerbahce-vs-aston-villa/"
+        },
+        {
+          "home": "feyenoord",
+          "away": "sturm graz",
+          "reported": [
+            3,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046265",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046265--feyenoord-vs-sturm-graz/"
+        },
+        {
+          "home": "malmo",
+          "away": "crvena zvezda",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046278",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046278--malmo-vs-crvena-zvezda/"
+        },
+        {
+          "home": "paok",
+          "away": "real betis",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046270",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046270--paok-vs-real-betis/"
+        },
+        {
+          "home": "freiburg",
+          "away": "maccabi tel aviv",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046274",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046274--freiburg-vs-m-tel-aviv/"
+        },
+        {
+          "home": "brann",
+          "away": "midtjylland",
+          "reported": [
+            3,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046280",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046280--brann-vs-midtjylland/"
+        },
+        {
+          "home": "roma",
+          "away": "stuttgart",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046263",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046263--roma-vs-stuttgart/"
+        },
+        {
+          "home": "utrecht",
+          "away": "genk",
+          "reported": [
+            0,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046279",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046279--utrecht-vs-genk/"
+        },
+        {
+          "home": "salzburg",
+          "away": "basel",
+          "reported": [
+            3,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046267",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046267--salzburg-vs-basel/"
+        },
+        {
+          "home": "ferencvaros",
+          "away": "panathinaikos",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046272",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046272--ferencvaros-vs-panathinaikos/"
+        },
+        {
+          "home": "gnk dinamo",
+          "away": "fcsb",
+          "reported": [
+            4,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046266",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046266--gnk-dinamo-vs-fcsb/"
+        },
+        {
+          "home": "nice",
+          "away": "go ahead eagles",
+          "reported": [
+            3,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046275",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046275--nice-vs-go-ahead-eagles/"
+        },
+        {
+          "home": "rangers",
+          "away": "ludogorets",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046264",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046264--rangers-vs-ludogorets/"
+        },
+        {
+          "home": "celta",
+          "away": "lille",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046277",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046277--celta-vs-lille/"
+        },
+        {
+          "home": "braga",
+          "away": "nott'm forest",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046269",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046269--braga-vs-nott-m-forest/"
+        },
+        {
+          "home": "young boys",
+          "away": "lille",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046250",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046250--young-boys-vs-lille/"
+        },
+        {
+          "home": "midtjylland",
+          "away": "genk",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046252",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046252--midtjylland-vs-genk/"
+        },
+        {
+          "home": "utrecht",
+          "away": "nott'm forest",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046261",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046261--utrecht-vs-nott-m-forest/"
+        },
+        {
+          "home": "ferencvaros",
+          "away": "rangers",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046248",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046248--ferencvaros-vs-rangers/"
+        },
+        {
+          "home": "gnk dinamo",
+          "away": "real betis",
+          "reported": [
+            1,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046246",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046246--gnk-dinamo-vs-real-betis/"
+        },
+        {
+          "home": "nice",
+          "away": "braga",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046257",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046257--nice-vs-braga/"
+        },
+        {
+          "home": "ludogorets",
+          "away": "paok",
+          "reported": [
+            3,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046254",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046254--ludogorets-vs-paok/"
+        },
+        {
+          "home": "sturm graz",
+          "away": "crvena zvezda",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046255",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046255--sturm-graz-vs-crvena-zvezda/"
+        },
+        {
+          "home": "stuttgart",
+          "away": "maccabi tel aviv",
+          "reported": [
+            4,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046259",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046259--stuttgart-vs-m-tel-aviv/"
+        },
+        {
+          "home": "celtic",
+          "away": "roma",
+          "reported": [
+            0,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046249",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046249--celtic-vs-roma/"
+        },
+        {
+          "home": "porto",
+          "away": "malmo",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046245",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046245--porto-vs-malmo/"
+        },
+        {
+          "home": "basel",
+          "away": "aston villa",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046251",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046251--basel-vs-aston-villa/"
+        },
+        {
+          "home": "fcsb",
+          "away": "feyenoord",
+          "reported": [
+            4,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046256",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046256--fcsb-vs-feyenoord/"
+        },
+        {
+          "home": "lyon",
+          "away": "go ahead eagles",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046247",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046247--lyon-vs-go-ahead-eagles/"
+        },
+        {
+          "home": "panathinaikos",
+          "away": "viktoria plzen",
+          "reported": [
+            0,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046260",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046260--panathinaikos-vs-viktoria-plzen/"
+        },
+        {
+          "home": "celta",
+          "away": "bologna",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046258",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046258--celta-vs-bologna/"
+        },
+        {
+          "home": "freiburg",
+          "away": "salzburg",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046253",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046253--freiburg-vs-salzburg/"
+        },
+        {
+          "home": "brann",
+          "away": "fenerbahce",
+          "reported": [
+            0,
+            4
+          ],
+          "aet": false,
+          "match_id": "2046262",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046262--brann-vs-fenerbahce/"
+        },
+        {
+          "home": "roma",
+          "away": "midtjylland",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046227",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046227--roma-vs-midtjylland/"
+        },
+        {
+          "home": "aston villa",
+          "away": "young boys",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046233",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046233--aston-villa-vs-young-boys/"
+        },
+        {
+          "home": "porto",
+          "away": "nice",
+          "reported": [
+            3,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046228",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046228--porto-vs-nice/"
+        },
+        {
+          "home": "viktoria plzen",
+          "away": "freiburg",
+          "reported": [
+            0,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046237",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046237--viktoria-plzen-vs-freiburg/"
+        },
+        {
+          "home": "fenerbahce",
+          "away": "ferencvaros",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046234",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046234--fenerbahce-vs-ferencvaros/"
+        },
+        {
+          "home": "feyenoord",
+          "away": "celtic",
+          "reported": [
+            1,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046230",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046230--feyenoord-vs-celtic/"
+        },
+        {
+          "home": "lille",
+          "away": "gnk dinamo",
+          "reported": [
+            4,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046231",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046231--lille-vs-gnk-dinamo/"
+        },
+        {
+          "home": "paok",
+          "away": "brann",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046236",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046236--paok-vs-brann/"
+        },
+        {
+          "home": "ludogorets",
+          "away": "celta",
+          "reported": [
+            3,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046239",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046239--ludogorets-vs-celta/"
+        },
+        {
+          "home": "bologna",
+          "away": "salzburg",
+          "reported": [
+            4,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046241",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046241--bologna-vs-salzburg/"
+        },
+        {
+          "home": "crvena zvezda",
+          "away": "fcsb",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046235",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046235--crvena-zvezda-vs-fcsb/"
+        },
+        {
+          "home": "go ahead eagles",
+          "away": "stuttgart",
+          "reported": [
+            0,
+            4
+          ],
+          "aet": false,
+          "match_id": "2046243",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046243--go-ahead-eagles-vs-stuttgart/"
+        },
+        {
+          "home": "genk",
+          "away": "basel",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046244",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046244--genk-vs-basel/"
+        },
+        {
+          "home": "maccabi tel aviv",
+          "away": "lyon",
+          "reported": [
+            0,
+            6
+          ],
+          "aet": false,
+          "match_id": "2046238",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046238--m-tel-aviv-vs-lyon/"
+        },
+        {
+          "home": "nott'm forest",
+          "away": "malmo",
+          "reported": [
+            3,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046240",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046240--nott-m-forest-vs-malmo/"
+        },
+        {
+          "home": "panathinaikos",
+          "away": "sturm graz",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046242",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046242--panathinaikos-vs-sturm-graz/"
+        },
+        {
+          "home": "rangers",
+          "away": "braga",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046229",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046229--rangers-vs-braga/"
+        },
+        {
+          "home": "real betis",
+          "away": "utrecht",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046232",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046232--real-betis-vs-utrecht/"
+        },
+        {
+          "home": "salzburg",
+          "away": "go ahead eagles",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046212",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046212--salzburg-vs-go-ahead-eagles/"
+        },
+        {
+          "home": "basel",
+          "away": "fcsb",
+          "reported": [
+            3,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046219",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046219--basel-vs-fcsb/"
+        },
+        {
+          "home": "midtjylland",
+          "away": "celtic",
+          "reported": [
+            3,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046220",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046220--midtjylland-vs-celtic/"
+        },
+        {
+          "home": "utrecht",
+          "away": "porto",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046226",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046226--utrecht-vs-porto/"
+        },
+        {
+          "home": "crvena zvezda",
+          "away": "lille",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046215",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046215--crvena-zvezda-vs-lille/"
+        },
+        {
+          "home": "gnk dinamo",
+          "away": "celta",
+          "reported": [
+            0,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046210",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046210--gnk-dinamo-vs-celta/"
+        },
+        {
+          "home": "malmo",
+          "away": "panathinaikos",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046225",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046225--malmo-vs-panathinaikos/"
+        },
+        {
+          "home": "nice",
+          "away": "freiburg",
+          "reported": [
+            1,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046222",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046222--nice-vs-freiburg/"
+        },
+        {
+          "home": "sturm graz",
+          "away": "nott'm forest",
+          "reported": [
+            0,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046221",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046221--sturm-graz-vs-nott-m-forest/"
+        },
+        {
+          "home": "aston villa",
+          "away": "maccabi tel aviv",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046213",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046213--aston-villa-vs-m-tel-aviv/"
+        },
+        {
+          "home": "bologna",
+          "away": "brann",
+          "reported": [
+            0,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046223",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046223--bologna-vs-brann/"
+        },
+        {
+          "home": "viktoria plzen",
+          "away": "fenerbahce",
+          "reported": [
+            0,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046217",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046217--viktoria-plzen-vs-fenerbahce/"
+        },
+        {
+          "home": "ferencvaros",
+          "away": "ludogorets",
+          "reported": [
+            3,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046218",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046218--ferencvaros-vs-ludogorets/"
+        },
+        {
+          "home": "paok",
+          "away": "young boys",
+          "reported": [
+            4,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046216",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046216--paok-vs-young-boys/"
+        },
+        {
+          "home": "rangers",
+          "away": "roma",
+          "reported": [
+            0,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046209",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046209--rangers-vs-roma/"
+        },
+        {
+          "home": "real betis",
+          "away": "lyon",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046211",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046211--real-betis-vs-lyon/"
+        },
+        {
+          "home": "braga",
+          "away": "genk",
+          "reported": [
+            3,
+            4
+          ],
+          "aet": false,
+          "match_id": "2046214",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046214--braga-vs-genk/"
+        },
+        {
+          "home": "stuttgart",
+          "away": "feyenoord",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046224",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046224--stuttgart-vs-feyenoord/"
+        },
+        {
+          "home": "salzburg",
+          "away": "ferencvaros",
+          "reported": [
+            2,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046194",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046194--salzburg-vs-ferencvaros/"
+        },
+        {
+          "home": "fenerbahce",
+          "away": "stuttgart",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046195",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046195--fenerbahce-vs-stuttgart/"
+        },
+        {
+          "home": "fcsb",
+          "away": "bologna",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046203",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046203--fcsb-vs-bologna/"
+        },
+        {
+          "home": "go ahead eagles",
+          "away": "aston villa",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046206",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046206--go-ahead-eagles-vs-aston-villa/"
+        },
+        {
+          "home": "genk",
+          "away": "real betis",
+          "reported": [
+            0,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046207",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046207--genk-vs-real-betis/"
+        },
+        {
+          "home": "lyon",
+          "away": "basel",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046197",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046197--lyon-vs-basel/"
+        },
+        {
+          "home": "braga",
+          "away": "crvena zvezda",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046196",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046196--braga-vs-crvena-zvezda/"
+        },
+        {
+          "home": "brann",
+          "away": "rangers",
+          "reported": [
+            3,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046208",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046208--brann-vs-rangers/"
+        },
+        {
+          "home": "roma",
+          "away": "viktoria plzen",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046191",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046191--roma-vs-viktoria-plzen/"
+        },
+        {
+          "home": "young boys",
+          "away": "ludogorets",
+          "reported": [
+            3,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046200",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046200--young-boys-vs-ludogorets/"
+        },
+        {
+          "home": "celtic",
+          "away": "sturm graz",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046198",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046198--celtic-vs-sturm-graz/"
+        },
+        {
+          "home": "lille",
+          "away": "paok",
+          "reported": [
+            3,
+            4
+          ],
+          "aet": false,
+          "match_id": "2046193",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046193--lille-vs-paok/"
+        },
+        {
+          "home": "maccabi tel aviv",
+          "away": "midtjylland",
+          "reported": [
+            0,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046199",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046199--m-tel-aviv-vs-midtjylland/"
+        },
+        {
+          "home": "malmo",
+          "away": "gnk dinamo",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046205",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046205--malmo-vs-gnk-dinamo/"
+        },
+        {
+          "home": "nott'm forest",
+          "away": "porto",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046202",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046202--nott-m-forest-vs-porto/"
+        },
+        {
+          "home": "celta",
+          "away": "nice",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046204",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046204--celta-vs-nice/"
+        },
+        {
+          "home": "freiburg",
+          "away": "utrecht",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046201",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046201--freiburg-vs-utrecht/"
+        },
+        {
+          "home": "feyenoord",
+          "away": "panathinaikos",
+          "reported": [
+            3,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046192",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046192--feyenoord-vs-panathinaikos/"
+        },
+        {
+          "home": "roma",
+          "away": "lille",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046173",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046173--roma-vs-lille/"
+        },
+        {
+          "home": "bologna",
+          "away": "freiburg",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046186",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046186--bologna-vs-freiburg/"
+        },
+        {
+          "home": "celtic",
+          "away": "braga",
+          "reported": [
+            0,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046179",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046179--celtic-vs-braga/"
+        },
+        {
+          "home": "viktoria plzen",
+          "away": "malmo",
+          "reported": [
+            3,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046178",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046178--viktoria-plzen-vs-malmo/"
+        },
+        {
+          "home": "fenerbahce",
+          "away": "nice",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046176",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046176--fenerbahce-vs-nice/"
+        },
+        {
+          "home": "fcsb",
+          "away": "young boys",
+          "reported": [
+            0,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046185",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046185--fcsb-vs-young-boys/"
+        },
+        {
+          "home": "panathinaikos",
+          "away": "go ahead eagles",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046188",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046188--panathinaikos-vs-go-ahead-eagles/"
+        },
+        {
+          "home": "ludogorets",
+          "away": "real betis",
+          "reported": [
+            0,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046182",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046182--ludogorets-vs-real-betis/"
+        },
+        {
+          "home": "brann",
+          "away": "utrecht",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046190",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046190--brann-vs-utrecht/"
+        },
+        {
+          "home": "basel",
+          "away": "stuttgart",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046181",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046181--basel-vs-stuttgart/"
+        },
+        {
+          "home": "porto",
+          "away": "crvena zvezda",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046174",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046174--porto-vs-crvena-zvezda/"
+        },
+        {
+          "home": "feyenoord",
+          "away": "aston villa",
+          "reported": [
+            0,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046175",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046175--feyenoord-vs-aston-villa/"
+        },
+        {
+          "home": "genk",
+          "away": "ferencvaros",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046189",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046189--genk-vs-ferencvaros/"
+        },
+        {
+          "home": "maccabi tel aviv",
+          "away": "gnk dinamo",
+          "reported": [
+            1,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046180",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046180--m-tel-aviv-vs-gnk-dinamo/"
+        },
+        {
+          "home": "nott'm forest",
+          "away": "midtjylland",
+          "reported": [
+            2,
+            3
+          ],
+          "aet": false,
+          "match_id": "2046183",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046183--nott-m-forest-vs-midtjylland/"
+        },
+        {
+          "home": "lyon",
+          "away": "salzburg",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046177",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046177--lyon-vs-salzburg/"
+        },
+        {
+          "home": "celta",
+          "away": "paok",
+          "reported": [
+            3,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046187",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046187--celta-vs-paok/"
+        },
+        {
+          "home": "sturm graz",
+          "away": "rangers",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046184",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046184--sturm-graz-vs-rangers/"
+        },
+        {
+          "home": "midtjylland",
+          "away": "sturm graz",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046160",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046160--midtjylland-vs-sturm-graz/"
+        },
+        {
+          "home": "paok",
+          "away": "maccabi tel aviv",
+          "reported": [
+            0,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046159",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046159--paok-vs-m-tel-aviv/"
+        },
+        {
+          "home": "crvena zvezda",
+          "away": "celtic",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046158",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046158--crvena-zvezda-vs-celtic/"
+        },
+        {
+          "home": "gnk dinamo",
+          "away": "fenerbahce",
+          "reported": [
+            3,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046155",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046155--gnk-dinamo-vs-fenerbahce/"
+        },
+        {
+          "home": "malmo",
+          "away": "ludogorets",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046163",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046163--malmo-vs-ludogorets/"
+        },
+        {
+          "home": "nice",
+          "away": "roma",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046162",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046162--nice-vs-roma/"
+        },
+        {
+          "home": "real betis",
+          "away": "nott'm forest",
+          "reported": [
+            2,
+            2
+          ],
+          "aet": false,
+          "match_id": "2046156",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046156--real-betis-vs-nott-m-forest/"
+        },
+        {
+          "home": "braga",
+          "away": "feyenoord",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046157",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046157--braga-vs-feyenoord/"
+        },
+        {
+          "home": "freiburg",
+          "away": "basel",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046161",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046161--freiburg-vs-basel/"
+        },
+        {
+          "home": "go ahead eagles",
+          "away": "fcsb",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046171",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046171--go-ahead-eagles-vs-fcsb/"
+        },
+        {
+          "home": "lille",
+          "away": "brann",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046165",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046165--lille-vs-brann/"
+        },
+        {
+          "home": "aston villa",
+          "away": "bologna",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2046167",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046167--aston-villa-vs-bologna/"
+        },
+        {
+          "home": "young boys",
+          "away": "panathinaikos",
+          "reported": [
+            1,
+            4
+          ],
+          "aet": false,
+          "match_id": "2046169",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046169--young-boys-vs-panathinaikos/"
+        },
+        {
+          "home": "salzburg",
+          "away": "porto",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046166",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046166--salzburg-vs-porto/"
+        },
+        {
+          "home": "utrecht",
+          "away": "lyon",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046172",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046172--utrecht-vs-lyon/"
+        },
+        {
+          "home": "ferencvaros",
+          "away": "viktoria plzen",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046168",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046168--ferencvaros-vs-viktoria-plzen/"
+        },
+        {
+          "home": "rangers",
+          "away": "genk",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046164",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046164--rangers-vs-genk/"
+        },
+        {
+          "home": "stuttgart",
+          "away": "celta",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2046170",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2046170--stuttgart-vs-celta/"
+        }
+      ],
+      "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00"
+    },
+    "2026": {
+      "source_sha256": "f70b1b52c2d0762cfe38cf1abbccd3cfaa1bcfd0a6bc8ebd090533e34ae1ba20",
+      "matches": [
+        {
+          "home": "ararat-armenia",
+          "away": "sparta praha",
+          "reported": [
+            1,
+            4
+          ],
+          "aet": false,
+          "match_id": "2050065",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050065--ararat-armenia-vs-sparta-praha/"
+        },
+        {
+          "home": "omonia",
+          "away": "celta",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2050063",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050063--omonia-vs-celta/"
+        },
+        {
+          "home": "milan",
+          "away": "benfica",
+          "reported": [
+            0,
+            2
+          ],
+          "aet": false,
+          "match_id": "2050058",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050058--milan-vs-benfica/"
+        },
+        {
+          "home": "leverkusen",
+          "away": "celje",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2050057",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050057--leverkusen-vs-celje/"
+        },
+        {
+          "home": "h. beer-sheva",
+          "away": "gnk dinamo",
+          "reported": [
+            0,
+            0
+          ],
+          "aet": false,
+          "match_id": "2050064",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050064--h-beer-sheva-vs-gnk-dinamo/"
+        },
+        {
+          "home": "olympiacos",
+          "away": "jagiellonia",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050059",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050059--olympiacos-vs-jagiellonia/"
+        },
+        {
+          "home": "anderlecht",
+          "away": "lyon",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2050060",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050060--anderlecht-vs-lyon/"
+        },
+        {
+          "home": "sturm graz",
+          "away": "rennes",
+          "reported": [
+            0,
+            0
+          ],
+          "aet": false,
+          "match_id": "2050061",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050061--sturm-graz-vs-rennes/"
+        },
+        {
+          "home": "sunderland",
+          "away": "az alkmaar",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2050062",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050062--sunderland-vs-az-alkmaar/"
+        },
+        {
+          "home": "ofi crete",
+          "away": "hoffenheim",
+          "reported": [
+            2,
+            0
+          ],
+          "aet": false,
+          "match_id": "2050072",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050072--ofi-crete-vs-hoffenheim/"
+        },
+        {
+          "home": "levski sofia",
+          "away": "salzburg",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050074",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050074--levski-sofia-vs-salzburg/"
+        },
+        {
+          "home": "besiktas",
+          "away": "marseille",
+          "reported": [
+            4,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050071",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050071--besiktas-vs-marseille/"
+        },
+        {
+          "home": "celtic",
+          "away": "ferencvaros",
+          "reported": [
+            1,
+            3
+          ],
+          "aet": false,
+          "match_id": "2050069",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050069--celtic-vs-ferencvaros/"
+        },
+        {
+          "home": "crystal palace",
+          "away": "lech poznan",
+          "reported": [
+            4,
+            0
+          ],
+          "aet": false,
+          "match_id": "2050070",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050070--crystal-palace-vs-lech-poznan/"
+        },
+        {
+          "home": "viktoria plzen",
+          "away": "union sg",
+          "reported": [
+            0,
+            3
+          ],
+          "aet": false,
+          "match_id": "2050068",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050068--viktoria-plzen-vs-union-sg/"
+        },
+        {
+          "home": "juventus",
+          "away": "n.e.c.",
+          "reported": [
+            5,
+            0
+          ],
+          "aet": false,
+          "match_id": "2050066",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050066--juventus-vs-n-e-c/"
+        },
+        {
+          "home": "lillestr\u00f8m",
+          "away": "torreense",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2050073",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050073--lillestrom-vs-torreense/"
+        },
+        {
+          "home": "real sociedad",
+          "away": "bournemouth",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2050067",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050067--real-sociedad-vs-bournemouth/"
+        },
+        {
+          "home": "sparta praha",
+          "away": "lillestr\u00f8m",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050083",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050083--sparta-praha-vs-lillestrom/"
+        },
+        {
+          "home": "az alkmaar",
+          "away": "h. beer-sheva",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050077",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050077--az-alkmaar-vs-h-beer-sheva/"
+        },
+        {
+          "home": "salzburg",
+          "away": "milan",
+          "reported": [
+            0,
+            4
+          ],
+          "aet": false,
+          "match_id": "2050082",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050082--salzburg-vs-milan/"
+        },
+        {
+          "home": "lech poznan",
+          "away": "leverkusen",
+          "reported": [
+            0,
+            4
+          ],
+          "aet": false,
+          "match_id": "2050085",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050085--lech-poznan-vs-leverkusen/"
+        },
+        {
+          "home": "celje",
+          "away": "omonia",
+          "reported": [
+            0,
+            3
+          ],
+          "aet": false,
+          "match_id": "2050087",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050087--celje-vs-omonia/"
+        },
+        {
+          "home": "lyon",
+          "away": "crystal palace",
+          "reported": [
+            3,
+            2
+          ],
+          "aet": false,
+          "match_id": "2050076",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050076--lyon-vs-crystal-palace/"
+        },
+        {
+          "home": "union sg",
+          "away": "real sociedad",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050080",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050080--union-sg-vs-real-sociedad/"
+        },
+        {
+          "home": "torreense",
+          "away": "sunderland",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2050091",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050091--torreense-vs-sunderland/"
+        },
+        {
+          "home": "bournemouth",
+          "away": "sturm graz",
+          "reported": [
+            3,
+            0
+          ],
+          "aet": false,
+          "match_id": "2050086",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050086--bournemouth-vs-sturm-graz/"
+        },
+        {
+          "home": "ferencvaros",
+          "away": "viktoria plzen",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050079",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050079--ferencvaros-vs-viktoria-plzen/"
+        },
+        {
+          "home": "gnk dinamo",
+          "away": "anderlecht",
+          "reported": [
+            1,
+            0
+          ],
+          "aet": false,
+          "match_id": "2050081",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050081--gnk-dinamo-vs-anderlecht/"
+        },
+        {
+          "home": "jagiellonia",
+          "away": "ararat-armenia",
+          "reported": [
+            3,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050088",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050088--jagiellonia-vs-ararat-armenia/"
+        },
+        {
+          "home": "n.e.c.",
+          "away": "levski sofia",
+          "reported": [
+            1,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050092",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050092--n-e-c-vs-levski-sofia/"
+        },
+        {
+          "home": "marseille",
+          "away": "olympiacos",
+          "reported": [
+            0,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050078",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050078--marseille-vs-olympiacos/"
+        },
+        {
+          "home": "celta",
+          "away": "juventus",
+          "reported": [
+            1,
+            2
+          ],
+          "aet": false,
+          "match_id": "2050089",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050089--celta-vs-juventus/"
+        },
+        {
+          "home": "benfica",
+          "away": "celtic",
+          "reported": [
+            4,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050075",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050075--benfica-vs-celtic/"
+        },
+        {
+          "home": "rennes",
+          "away": "ofi crete",
+          "reported": [
+            2,
+            1
+          ],
+          "aet": false,
+          "match_id": "2050084",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050084--rennes-vs-ofi-crete/"
+        },
+        {
+          "home": "hoffenheim",
+          "away": "besiktas",
+          "reported": [
+            2,
+            3
+          ],
+          "aet": false,
+          "match_id": "2050090",
+          "url": "https://www.uefa.com/uefaeuropaleague/match/2050090--hoffenheim-vs-besiktas/"
+        }
+      ],
+      "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00"
+    }
+  }
+}

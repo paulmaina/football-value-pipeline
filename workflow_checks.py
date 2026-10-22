@@ -481,6 +481,8 @@ def report_check(root):
     for league, info in health_data.get('training',{}).items():
         state=info.get('current_source_health',{}).get('status')
         if state and state not in ('CURRENT_WITHIN_PROVIDER_SCHEDULE', 'VERIFIED_WITHIN_24_HOURS'): warnings.append(league+' training/source health: '+state)
+        if info.get('current_source_health', {}).get('official_source_health'):
+            warnings.append(league+': live UEFA denied access; using reviewed factual attestations for covered matches only')
     for league, info in health_data.get('training', {}).items():
         if info.get('odds_provider_health', {}).get('state') == 'CREDITS_EXHAUSTED':
             warnings.append(league+': all configured Odds API credentials confirmed exhausted during forecast generation')

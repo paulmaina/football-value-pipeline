@@ -2111,6 +2111,7 @@ class FootballValuePipeline:
             import europa_training
             payload = json.loads((self.source.http.cache_dir/"europa/training.json").read_text())
             return {"training_end": end, "verified_at_utc": payload["verified_at_utc"],
+                    "official_source_health": payload.get("official_source_health", {}),
                     "status": "VERIFIED_WITHIN_24_HOURS" if europa_training.fresh(payload, now) else "STALE"}
         if league.key == "UCL":
             from ucl_training import health

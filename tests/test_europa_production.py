@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import tempfile
 from unittest import TestCase
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 import pandas as pd
 
@@ -130,3 +130,32 @@ class EuropaProductionTests(TestCase):
             self.assertEqual(current_health(root, NOW+timedelta(days=2))['training']['UEL']['current_source_health']['status'], 'STALE')
             cache.unlink()
             self.assertEqual(current_health(root, NOW)['training']['UEL']['current_source_health']['status'], 'DOWNLOAD_NOT_VERIFIED')
+
+    def test_uefa_403_uses_explicit_attestations_and_never_silent_live_verification(self):
+        source = Path(__file__).resolve().parents[1]/'docs/audits/europa-uefa-attestations.json'
+        facts = json.loads(source.read_text(encoding='utf-8'))['seasons']
+        client = Mock()
+        response = Mock(status_code=403, content=b'irrelevant input')
+        client.get.return_value = response
+        with tempfile.TemporaryDirectory() as directory, patch(
+                'europa_training.reconcile', return_value=(snapshot()['matches'], {})) as reconcile, patch(
+                'europa_training.audit_cornerflick', return_value=({'verified_for_research': True}, [])) as audit:
+            payload = europa.refresh(directory, NOW, session=client)
+            self.assertEqual(reconcile.call_args.kwargs['official_rows'], facts['2025']['matches'])
+            self.assertEqual(audit.call_args.kwargs['official_rows'], facts['2026']['matches'])
+            self.assertEqual(payload['official_source_health']['2026']['status'], 'HTTP_403_USING_REVIEWED_FACTS')
+            self.assertFalse((Path(directory)/'europa/sources/uefa-2026.html').exists())
+
+    def test_pinned_uefa_facts_still_reject_new_uncovered_current_results(self):
+        from scripts.europa_research import audit_cornerflick
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            (base/'fixture-2026.csv').write_text('Date,Home Team,Away Team,Result,Round Number\n'
+                '01/10/2026 19:00,Roma,Lyon,1 - 0,2\n')
+            (base/'cornerflick.json').write_text(json.dumps({'competition': {'slug': 'europa-league'},
+                'meta': {'match_count': 1}, 'matches': [{'round': 'League Stage - 2',
+                'kickoff_at': '2026-10-01T19:00:00+00:00', 'status': 'finished',
+                'home_score': 1, 'away_score': 0, 'home_team': 'Roma', 'away_team': 'Lyon'}]}))
+            audit, rows = audit_cornerflick(base, europa.resolver(), NOW, official_rows=[])
+            self.assertFalse(audit['verified_for_research'])
+            self.assertEqual(len(audit['unverified_identities']), 1)

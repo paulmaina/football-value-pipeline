@@ -154,7 +154,7 @@ def uefa_scores(html, resolve):
     return rows
 
 
-def reconcile(source_dir, aliases, reviews):
+def reconcile(source_dir, aliases, reviews, *, official_rows=None):
     resolve = team_resolver(aliases)
     source_dir = Path(source_dir)
     history, evidence, corrections, identity_corrections = [], {}, [], []
@@ -186,11 +186,12 @@ def reconcile(source_dir, aliases, reviews):
     # UEFA article identifies AET matches; all such rows require a separately
     # reviewed official report. Pair matches are admitted only when unique.
     fd = fixture_rows(source_dir/'fixture-2025.csv', 2025, resolve)
-    official = uefa_scores((source_dir/'uefa-2025.html').read_text(encoding='utf-8'), resolve)
+    official = official_rows if official_rows is not None else uefa_scores((source_dir/'uefa-2025.html').read_text(encoding='utf-8'), resolve)
     if len(fd) != 189 or len(official) != 189:
         raise ValueError('Incomplete 2025/26 season')
     if {x['match_id'] for x in official if x['aet']} != {k for k in reviews if k.isdigit()}:
         raise ValueError('UEFA extra-time flags differ from the reviewed match set')
+    official = [{**row, 'reported': tuple(row['reported'])} for row in official]
     by_pair = defaultdict(list)
     for row in official:
         by_pair[(row['home'], row['away'])].append(row)
@@ -222,14 +223,15 @@ def reconcile(source_dir, aliases, reviews):
                                           'identity_corrections': identity_corrections}
 
 
-def audit_cornerflick(source_dir, resolve, now):
+def audit_cornerflick(source_dir, resolve, now, *, official_rows=None):
     source_dir = Path(source_dir)
     payload = json.loads((source_dir/'cornerflick.json').read_text(encoding='utf-8'))
     if payload.get('competition', {}).get('slug') != 'europa-league':
         raise ValueError('Wrong Cornerflick competition')
     if payload.get('meta', {}).get('match_count') != len(payload['matches']):
         raise ValueError('Cornerflick count does not reconcile')
-    official = uefa_scores((source_dir/'uefa-2026.html').read_text(encoding='utf-8'), resolve)
+    official = official_rows if official_rows is not None else uefa_scores((source_dir/'uefa-2026.html').read_text(encoding='utf-8'), resolve)
+    official = [{**row, 'reported': tuple(row['reported'])} for row in official]
     expected = fixture_rows(source_dir/'fixture-2026.csv', 2026, resolve)
     # Only labelled league-phase rows corroborated against both sources can
     # enter the final research fit, never the historical validation periods.
