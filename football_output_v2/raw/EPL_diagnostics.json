@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "baf564c54ff02f6db9017cd767264f656bed0d3750728784333f48bd3cb27d17",
-  "training_as_of_utc": "2026-10-21T17:09:55.842067+00:00",
+  "training_sha256": "7f888cd21de905ec7ebd8bf6b7885a178ba3c6dbf56a30a35d9a27c323a70238",
+  "training_as_of_utc": "2026-10-22T10:54:22.405766+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 70,
     "bbs_added_results": 0,
@@ -27,7 +27,7 @@
       "unmapped": 38,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 40,
+      "statistics_observations": 60,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -35,10 +35,10 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-21T17:09:55.842067+00:00",
-    "observations": 158,
-    "observations_sha256": "2f5490c16b119286f9c8a3a3318ff707460e54443dfed36cc866c433933b6f04",
-    "eligible_training_matches": 75,
+    "cutoff_utc": "2026-10-22T10:54:22.405766+00:00",
+    "observations": 183,
+    "observations_sha256": "5cb7a1dab5f5cad3b3f5e2c0e689fbcfaceb0a0b035768bad5c1d3e9776a02c7",
+    "eligible_training_matches": 103,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -63,15 +63,15 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 85,
+    "usable_current_matches": 101,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
     "strict_eligible_training_matches": 8,
-    "retrospective_eligible_training_matches": 75,
+    "retrospective_eligible_training_matches": 103,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
-    "retrospective_inputs_sha256": "8c59b1a7f56d6ab8d819b1bf12c93b811f64fedad70b01bae483397a5df39f4a",
+    "retrospective_inputs_sha256": "e7b8040af70a2d04fb867366305dac27229fd0a82372362664d7c723d32db320",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -81,10 +81,10 @@
   },
   "training_end": "2026-10-19",
   "fit_success": true,
-  "objective": 930.0622741520272,
-  "base": 0.2124602917356602,
-  "home_adv": 0.1851227100330963,
-  "rho": -0.08921418986467165,
+  "objective": 928.0795058360371,
+  "base": 0.21249954210885733,
+  "home_adv": 0.18511098703140258,
+  "rho": -0.08921580440863039,
   "half_life_days": 240.0,
   "xi_per_day": 0.0028881132523331052,
   "max_goals": 10,
@@ -92,7 +92,7 @@
   "market_weight": 0.5,
   "training_data_health": {
     "training_end": "2026-10-19",
-    "days_since_latest_result": 2,
+    "days_since_latest_result": 3,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -106,8 +106,8 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261021T170955842067Z_400f9ab3fa70a2f868878457e58eab11fd503e6448029ce2160a227d64644447.json",
-  "over_1_5_in_window_quote_fixtures": 0,
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261022T105422405766Z_a3205e99eed355944bd6141c600d09371896d2a30c2b9564feb6cada1239c708.json",
+  "over_1_5_in_window_quote_fixtures": 1,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -116,12 +116,19 @@
       "home_team": "Ipswich Town",
       "away_team": "Nottingham Forest",
       "kickoff_utc": "2026-10-23T19:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 36,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "aca5dd297dbee71f576f7641569fe578",
@@ -319,10 +326,10 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 1,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 1,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 240.0,
