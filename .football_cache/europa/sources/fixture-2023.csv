@@ -1,0 +1,142 @@
+Match Number,Round Number,Date,Location,Home Team,Away Team,Group,Result
+1,1,21/09/2023 16:45,RSC Anderlecht Stadium,Union SG,Toulouse,Group E,1 - 1
+2,1,21/09/2023 16:45,Oberösterreich Arena,LASK,Liverpool,Group E,1 - 3
+3,1,21/09/2023 16:45,Roazhon Park,Rennes,Maccabi Haifa,Group F,3 - 0
+4,1,21/09/2023 16:45,Olympic Athletic Center of Athens,Panathinaikos,Villarreal,Group F,2 - 0
+5,1,21/09/2023 16:45,Stade de Genève,Servette,Slavia Praha,Group G,0 - 2
+6,1,21/09/2023 16:45,Sheriff Main Arena,Sheriff,Roma,Group G,1 - 2
+7,1,21/09/2023 16:45,BayArena,Leverkusen,Häcken,Group H,4 - 0
+8,1,21/09/2023 16:45,Tofiq Bahramov Republican Stadium,Qarabag,Molde,Group H,1 - 0
+9,1,21/09/2023 19:00,London Stadium,West Ham,TSC,Group A,3 - 1
+10,1,21/09/2023 19:00,Stadio Georgios Karaiskakis,Olympiacos,Freiburg,Group A,2 - 3
+11,1,21/09/2023 19:00,Johan Cruijff ArenA,Ajax,Marseille,Group B,3 - 3
+12,1,21/09/2023 19:00,Brighton & Hove Albion Stadium,Brighton,AEK Athens,Group B,2 - 3
+13,1,21/09/2023 19:00,Stadion Letná,Sparta Praha,Aris Limassol,Group C,3 - 2
+14,1,21/09/2023 19:00,Ibrox Stadium,Rangers,Real Betis,Group C,1 - 0
+15,1,21/09/2023 19:00,Stadio di Bergamo,Atalanta,Raków,Group D,2 - 0
+16,1,21/09/2023 19:00,Stadion Graz Liebenau,Sturm Graz,Sporting CP,Group D,1 - 2
+17,2,05/10/2023 16:45,Stadion am Wolfswinkel,Freiburg,West Ham,Group A,1 - 2
+18,2,05/10/2023 16:45,TSC Arena,TSC,Olympiacos,Group A,2 - 2
+19,2,05/10/2023 16:45,Stade de Marseille,Marseille,Brighton,Group B,2 - 2
+20,2,05/10/2023 16:45,AEK Arena,AEK Athens,Ajax,Group B,1 - 1
+21,2,05/10/2023 16:45,Estadio Benito Villamarín,Real Betis,Sparta Praha,Group C,2 - 1
+22,2,05/10/2023 16:45,Limassol Stadium,Aris Limassol,Rangers,Group C,2 - 1
+23,2,05/10/2023 16:45,Estádio José Alvalade,Sporting CP,Atalanta,Group D,1 - 2
+24,2,05/10/2023 16:45,Zaglebiowski Park Sportowy,Raków,Sturm Graz,Group D,0 - 1
+25,2,05/10/2023 19:00,Anfield,Liverpool,Union SG,Group E,2 - 0
+26,2,05/10/2023 19:00,Stadium de Toulouse,Toulouse,LASK,Group E,1 - 0
+27,2,05/10/2023 19:00,Estadio de la Cerámica,Villarreal,Rennes,Group F,1 - 0
+28,2,05/10/2023 19:00,Sammy Ofer Stadium,Maccabi Haifa,Panathinaikos,Group F,0 - 0
+29,2,05/10/2023 19:00,Stadio Olimpico,Roma,Servette,Group G,4 - 0
+30,2,05/10/2023 19:00,Eden Arena,Slavia Praha,Sheriff,Group G,6 - 0
+31,2,05/10/2023 19:00,Molde Stadion,Molde,Leverkusen,Group H,1 - 2
+32,2,05/10/2023 19:00,Ullevi,Häcken,Qarabag,Group H,0 - 1
+33,3,26/10/2023 16:45,Stadio Georgios Karaiskakis,Olympiacos,West Ham,Group A,2 - 1
+34,3,26/10/2023 16:45,TSC Arena,TSC,Freiburg,Group A,1 - 3
+35,3,26/10/2023 16:45,Stade de Marseille,Marseille,AEK Athens,Group B,3 - 1
+36,3,26/10/2023 16:45,Stadion Letná,Sparta Praha,Rangers,Group C,0 - 0
+37,3,26/10/2023 16:45,Limassol Stadium,Aris Limassol,Real Betis,Group C,0 - 1
+38,3,26/10/2023 16:45,Stadion Graz Liebenau,Sturm Graz,Atalanta,Group D,2 - 2
+39,3,26/10/2023 16:45,Zaglebiowski Park Sportowy,Raków,Sporting CP,Group D,1 - 1
+40,3,26/10/2023 16:45,Molde Stadion,Molde,Häcken,Group H,5 - 1
+41,3,26/10/2023 19:00,Brighton & Hove Albion Stadium,Brighton,Ajax,Group B,2 - 0
+42,3,26/10/2023 19:00,RSC Anderlecht Stadium,Union SG,LASK,Group E,2 - 1
+43,3,26/10/2023 19:00,Anfield,Liverpool,Toulouse,Group E,5 - 1
+45,3,26/10/2023 19:00,Stadio Apostolos Nikolaidis,Panathinaikos,Rennes,Group F,1 - 2
+46,3,26/10/2023 19:00,Stadio Olimpico,Roma,Slavia Praha,Group G,2 - 0
+47,3,26/10/2023 19:00,Sheriff Main Arena,Sheriff,Servette,Group G,1 - 1
+48,3,26/10/2023 19:00,BayArena,Leverkusen,Qarabag,Group H,5 - 1
+44,3,06/12/2023 20:00,Estadio de la Cerámica,Villarreal,Maccabi Haifa,Group F,0 - 0
+49,4,09/11/2023 17:45,Johan Cruijff ArenA,Ajax,Brighton,Group B,0 - 2
+50,4,09/11/2023 17:45,Oberösterreich Arena,LASK,Union SG,Group E,3 - 0
+51,4,09/11/2023 17:45,Stadium de Toulouse,Toulouse,Liverpool,Group E,3 - 2
+52,4,09/11/2023 17:45,Roazhon Park,Rennes,Panathinaikos,Group F,3 - 1
+53,4,09/11/2023 17:45,AEK Arena,Maccabi Haifa,Villarreal,Group F,1 - 2
+54,4,09/11/2023 17:45,Stade de Genève,Servette,Sheriff,Group G,2 - 1
+55,4,09/11/2023 17:45,Eden Arena,Slavia Praha,Roma,Group G,2 - 0
+56,4,09/11/2023 17:45,Tofiq Bahramov Republican Stadium,Qarabag,Leverkusen,Group H,0 - 1
+57,4,09/11/2023 20:00,Stadion am Wolfswinkel,Freiburg,TSC,Group A,5 - 0
+58,4,09/11/2023 20:00,London Stadium,West Ham,Olympiacos,Group A,1 - 0
+59,4,09/11/2023 20:00,AEK Arena,AEK Athens,Marseille,Group B,0 - 2
+60,4,09/11/2023 20:00,Estadio Benito Villamarín,Real Betis,Aris Limassol,Group C,4 - 1
+61,4,09/11/2023 20:00,Ibrox Stadium,Rangers,Sparta Praha,Group C,2 - 1
+62,4,09/11/2023 20:00,Stadio di Bergamo,Atalanta,Sturm Graz,Group D,1 - 0
+63,4,09/11/2023 20:00,Estádio José Alvalade,Sporting CP,Raków,Group D,2 - 1
+64,4,09/11/2023 20:00,Ullevi,Häcken,Molde,Group H,1 - 3
+65,5,30/11/2023 17:45,Stadion am Wolfswinkel,Freiburg,Olympiacos,Group A,5 - 0
+66,5,30/11/2023 17:45,TSC Arena,TSC,West Ham,Group A,0 - 1
+67,5,30/11/2023 17:45,AEK Arena,AEK Athens,Brighton,Group B,0 - 1
+68,5,30/11/2023 17:45,Stadion Letná,Sparta Praha,Real Betis,Group C,1 - 0
+69,5,30/11/2023 17:45,Stadio di Bergamo,Atalanta,Sporting CP,Group D,1 - 1
+70,5,30/11/2023 17:45,Stadion Graz Liebenau,Sturm Graz,Raków,Group D,0 - 1
+71,5,30/11/2023 17:45,Puskás Aréna,Maccabi Haifa,Rennes,Group F,0 - 3
+72,5,30/11/2023 20:00,Stade de Marseille,Marseille,Ajax,Group B,4 - 3
+73,5,30/11/2023 20:00,Ibrox Stadium,Rangers,Aris Limassol,Group C,1 - 1
+74,5,30/11/2023 20:00,Anfield,Liverpool,LASK,Group E,4 - 0
+75,5,30/11/2023 20:00,Stadium de Toulouse,Toulouse,Union SG,Group E,0 - 0
+76,5,30/11/2023 20:00,Estadio de la Cerámica,Villarreal,Panathinaikos,Group F,3 - 2
+77,5,30/11/2023 20:00,Stade de Genève,Servette,Roma,Group G,1 - 1
+78,5,30/11/2023 20:00,Sheriff Main Arena,Sheriff,Slavia Praha,Group G,2 - 3
+79,5,30/11/2023 20:00,Molde Stadion,Molde,Qarabag,Group H,2 - 2
+80,5,30/11/2023 20:00,Ullevi,Häcken,Leverkusen,Group H,0 - 2
+81,6,14/12/2023 17:45,RSC Anderlecht Stadium,Union SG,Liverpool,Group E,2 - 1
+82,6,14/12/2023 17:45,Oberösterreich Arena,LASK,Toulouse,Group E,1 - 2
+83,6,14/12/2023 17:45,Roazhon Park,Rennes,Villarreal,Group F,2 - 3
+84,6,14/12/2023 17:45,Stadio Apostolos Nikolaidis,Panathinaikos,Maccabi Haifa,Group F,1 - 2
+85,6,14/12/2023 17:45,Stadio Olimpico,Roma,Sheriff,Group G,3 - 0
+86,6,14/12/2023 17:45,Eden Arena,Slavia Praha,Servette,Group G,4 - 0
+87,6,14/12/2023 17:45,BayArena,Leverkusen,Molde,Group H,5 - 1
+88,6,14/12/2023 17:45,Tofiq Bahramov Republican Stadium,Qarabag,Häcken,Group H,2 - 1
+89,6,14/12/2023 20:00,London Stadium,West Ham,Freiburg,Group A,2 - 0
+90,6,14/12/2023 20:00,Stadio Georgios Karaiskakis,Olympiacos,TSC,Group A,5 - 2
+91,6,14/12/2023 20:00,Johan Cruijff ArenA,Ajax,AEK Athens,Group B,3 - 1
+92,6,14/12/2023 20:00,Brighton & Hove Albion Stadium,Brighton,Marseille,Group B,1 - 0
+93,6,14/12/2023 20:00,Estadio Benito Villamarín,Real Betis,Rangers,Group C,2 - 3
+94,6,14/12/2023 20:00,Limassol Stadium,Aris Limassol,Sparta Praha,Group C,1 - 3
+95,6,14/12/2023 20:00,Estádio José Alvalade,Sporting CP,Sturm Graz,Group D,3 - 0
+96,6,14/12/2023 20:00,Zaglebiowski Park Sportowy,Raków,Atalanta,Group D,0 - 4
+97,Play-offs Game 1,15/02/2024 17:45,Stadion Feijenoord 'De Kuip',Feyenoord,Roma,,1 - 1
+98,Play-offs Game 1,15/02/2024 17:45,Ali Sami Yen Spor Kompleksi,Galatasaray,Sparta Praha,,3 - 2
+99,Play-offs Game 1,15/02/2024 17:45,Volksparkstadion,Shakhtar Donetsk,Marseille,,2 - 2
+100,Play-offs Game 1,15/02/2024 17:45,Stadion Wankdorf,Young Boys,Sporting CP,,1 - 3
+101,Play-offs Game 1,15/02/2024 20:00,Estádio do SL Benfica,Benfica,Toulouse,,2 - 1
+102,Play-offs Game 1,15/02/2024 20:00,Stadio San Siro,Milan,Rennes,,3 - 0
+103,Play-offs Game 1,15/02/2024 20:00,Stade Bollaert-Delelis,Lens,Freiburg,,0 - 0
+104,Play-offs Game 1,15/02/2024 20:00,Estádio Municipal de Braga,Braga,Qarabag,,2 - 4
+105,Play-offs Game 2,22/02/2024 17:45,Stadium de Toulouse,Toulouse,Benfica,,0 - 0
+106,Play-offs Game 2,22/02/2024 17:45,Roazhon Park,Rennes,Milan,,3 - 2
+107,Play-offs Game 2,22/02/2024 17:45,Stadion am Wolfswinkel,Freiburg,Lens,,3 - 2
+108,Play-offs Game 2,22/02/2024 17:45,Tofiq Bahramov Republican Stadium,Qarabag,Braga,,2 - 3
+109,Play-offs Game 2,22/02/2024 20:00,Stadio Olimpico,Roma,Feyenoord,,1 - 1
+110,Play-offs Game 2,22/02/2024 20:00,Stadion Letná,Sparta Praha,Galatasaray,,4 - 1
+111,Play-offs Game 2,22/02/2024 20:00,Stade de Marseille,Marseille,Shakhtar Donetsk,,3 - 1
+112,Play-offs Game 2,22/02/2024 20:00,Estádio José Alvalade,Sporting CP,Young Boys,,1 - 1
+113,R16 Game 1,06/03/2024 17:45,Estádio José Alvalade,Sporting CP,Atalanta,,1 - 1
+114,R16 Game 1,07/03/2024 17:45,Stadion Letná,Sparta Praha,Liverpool,,1 - 5
+115,R16 Game 1,07/03/2024 17:45,Stadio Olimpico,Roma,Brighton,,4 - 0
+116,R16 Game 1,07/03/2024 17:45,Tofiq Bahramov Republican Stadium,Qarabag,Leverkusen,,2 - 2
+117,R16 Game 1,07/03/2024 20:00,Stade de Marseille,Marseille,Villarreal,,4 - 0
+118,R16 Game 1,07/03/2024 20:00,Estádio do SL Benfica,Benfica,Rangers,,2 - 2
+119,R16 Game 1,07/03/2024 20:00,Stadion am Wolfswinkel,Freiburg,West Ham,,1 - 0
+120,R16 Game 1,07/03/2024 20:00,Stadio San Siro,Milan,Slavia Praha,,4 - 2
+121,R16 Game 2,14/03/2024 17:45,Estadio de la Cerámica,Villarreal,Marseille,,3 - 1
+122,R16 Game 2,14/03/2024 17:45,Ibrox Stadium,Rangers,Benfica,,0 - 1
+123,R16 Game 2,14/03/2024 17:45,London Stadium,West Ham,Freiburg,,5 - 0
+124,R16 Game 2,14/03/2024 17:45,Eden Arena,Slavia Praha,Milan,,1 - 3
+125,R16 Game 2,14/03/2024 20:00,Anfield,Liverpool,Sparta Praha,,6 - 1
+126,R16 Game 2,14/03/2024 20:00,Brighton & Hove Albion Stadium,Brighton,Roma,,1 - 0
+127,R16 Game 2,14/03/2024 20:00,Stadio di Bergamo,Atalanta,Sporting CP,,2 - 1
+128,R16 Game 2,14/03/2024 20:00,BayArena,Leverkusen,Qarabag,,3 - 2
+129,QF Game 1,11/04/2024 19:00,Stadio San Siro,Milan,Roma,,0 - 1
+130,QF Game 1,11/04/2024 19:00,Anfield,Liverpool,Atalanta,,0 - 3
+131,QF Game 1,11/04/2024 19:00,BayArena,Leverkusen,West Ham,,2 - 0
+132,QF Game 1,11/04/2024 19:00,Estádio do SL Benfica,Benfica,Marseille,,2 - 1
+133,QF Game 2,18/04/2024 19:00,Stadio Olimpico,Roma,Milan,,2 - 1
+134,QF Game 2,18/04/2024 19:00,Stadio di Bergamo,Atalanta,Liverpool,,0 - 1
+135,QF Game 2,18/04/2024 19:00,London Stadium,West Ham,Leverkusen,,1 - 1
+136,QF Game 2,18/04/2024 19:00,Stade de Marseille,Marseille,Benfica,,1 - 0
+137,SF Game 1,02/05/2024 19:00,Stade de Marseille,Marseille,Atalanta,,1 - 1
+138,SF Game 1,02/05/2024 19:00,Stadio Olimpico,Roma,Leverkusen,,0 - 2
+139,SF Game 2,09/05/2024 19:00,Stadio di Bergamo,Atalanta,Marseille,,3 - 0
+140,SF Game 2,09/05/2024 19:00,BayArena,Leverkusen,Roma,,2 - 2
+141,Final,22/05/2024 19:00,Dublin Arena,Atalanta,Leverkusen,,3 - 0

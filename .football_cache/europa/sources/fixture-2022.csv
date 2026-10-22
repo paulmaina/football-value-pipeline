@@ -1,0 +1,142 @@
+Match Number,Round Number,Date,Location,Home Team,Away Team,Group,Result
+1,1,08/09/2022 16:45,Arena St. Gallen,Zürich,Arsenal,Group A,1 - 2
+2,1,08/09/2022 16:45,PSV Stadion,PSV,Bodø/Glimt,Group A,1 - 1
+3,1,08/09/2022 16:45,AEK Arena,AEK Larnaca,Rennes,Group B,1 - 2
+4,1,08/09/2022 16:45,Fenerbahçe Sükrü Saracoglu Spor Kompleksi,Fenerbahçe,Dynamo Kyiv,Group B,2 - 1
+5,1,08/09/2022 16:45,Ludogorets Arena,Ludogorets,Roma,Group C,2 - 1
+6,1,08/09/2022 16:45,Helsinki Football Stadium,HJK,Betis,Group C,0 - 2
+7,1,08/09/2022 16:45,Malmö New Stadium,Malmö,Braga,Group D,0 - 2
+8,1,08/09/2022 16:45,Alte Försterei,Union Berlin,Union SG,Group D,0 - 1
+9,1,08/09/2022 19:00,Stadio Olimpico,Lazio,Feyenoord,Group F,4 - 2
+10,1,08/09/2022 19:00,Stadion Graz Liebenau,Sturm,Midtjylland,Group F,1 - 0
+11,1,08/09/2022 19:00,Old Trafford,Man United,Real Sociedad,Group E,0 - 1
+12,1,08/09/2022 19:00,GSP,Omonoia,Sheriff,Group E,0 - 3
+13,1,08/09/2022 19:00,Stade de la Beaujoire,Nantes,Olympiacos,Group G,2 - 1
+14,1,08/09/2022 19:00,Stadion am Wolfswinkel,Freiburg,Qarabag,Group G,2 - 1
+15,1,08/09/2022 19:00,Stadion Rajko Mitic,Crvena zvezda,Monaco,Group H,0 - 1
+16,1,08/09/2022 19:00,Ferencváros Stadion,Ferencváros,Trabzonspor,Group H,3 - 2
+17,2,15/09/2022 16:45,Arena Herning,Midtjylland,Lazio,Group F,5 - 1
+18,2,15/09/2022 16:45,Stadion Feijenoord 'De Kuip',Feyenoord,Sturm,Group F,6 - 0
+19,2,15/09/2022 16:45,Stadionul Zimbru,Sheriff,Man United,Group E,0 - 2
+20,2,15/09/2022 16:45,Reala Stadium,Real Sociedad,Omonoia,Group E,2 - 1
+21,2,15/09/2022 16:45,Stadio Georgios Karaiskakis,Olympiacos,Freiburg,Group G,0 - 3
+22,2,15/09/2022 16:45,Tofiq Bahramov Republican Stadium,Qarabag,Nantes,Group G,3 - 0
+23,2,15/09/2022 16:45,Senol Günes Spor Kompleksi,Trabzonspor,Crvena zvezda,Group H,2 - 1
+24,2,15/09/2022 16:45,Stade Louis II,Monaco,Ferencváros,Group H,0 - 1
+26,2,15/09/2022 19:00,Aspmyra,Bodø/Glimt,Zürich,Group A,2 - 1
+27,2,15/09/2022 19:00,Cracovia Stadium,Dynamo Kyiv,AEK Larnaca,Group B,0 - 1
+28,2,15/09/2022 19:00,Roazhon Park,Rennes,Fenerbahçe,Group B,2 - 2
+29,2,15/09/2022 19:00,Estadio Benito Villamarín,Betis,Ludogorets,Group C,3 - 2
+30,2,15/09/2022 19:00,Stadio Olimpico,Roma,HJK,Group C,3 - 0
+31,2,15/09/2022 19:00,Den Dreef,Union SG,Malmö,Group D,3 - 2
+32,2,15/09/2022 19:00,Estádio Municipal de Braga,Braga,Union Berlin,Group D,1 - 0
+25,2,20/10/2022 17:00,Arsenal Stadium,Arsenal,PSV,Group A,1 - 0
+33,3,06/10/2022 16:45,Stadion Graz Liebenau,Sturm,Lazio,Group F,0 - 0
+34,3,06/10/2022 16:45,Stadionul Zimbru,Sheriff,Real Sociedad,Group E,0 - 2
+35,3,06/10/2022 16:45,GSP,Omonoia,Man United,Group E,2 - 3
+36,3,06/10/2022 16:45,Stadion Letzigrund,Zürich,PSV,Group A,1 - 5
+37,3,06/10/2022 16:45,Helsinki Football Stadium,HJK,Ludogorets,Group C,1 - 1
+38,3,06/10/2022 16:45,Malmö New Stadium,Malmö,Union Berlin,Group D,0 - 1
+39,3,06/10/2022 16:45,Stadion Rajko Mitic,Crvena zvezda,Ferencváros,Group H,4 - 1
+40,3,06/10/2022 16:45,Stade Louis II,Monaco,Trabzonspor,Group H,3 - 1
+41,3,06/10/2022 19:00,Arena Herning,Midtjylland,Feyenoord,Group F,2 - 2
+42,3,06/10/2022 19:00,Arsenal Stadium,Arsenal,Bodø/Glimt,Group A,3 - 0
+43,3,06/10/2022 19:00,Roazhon Park,Rennes,Dynamo Kyiv,Group B,2 - 1
+44,3,06/10/2022 19:00,Fenerbahçe Sükrü Saracoglu Spor Kompleksi,Fenerbahçe,AEK Larnaca,Group B,2 - 0
+45,3,06/10/2022 19:00,Stadio Olimpico,Roma,Betis,Group C,1 - 2
+46,3,06/10/2022 19:00,Estádio Municipal de Braga,Braga,Union SG,Group D,1 - 2
+47,3,06/10/2022 19:00,Stadio Georgios Karaiskakis,Olympiacos,Qarabag,Group G,0 - 3
+48,3,06/10/2022 19:00,Stadion am Wolfswinkel,Freiburg,Nantes,Group G,2 - 0
+49,4,13/10/2022 16:45,Stadion Feijenoord 'De Kuip',Feyenoord,Midtjylland,Group F,2 - 2
+50,4,13/10/2022 16:45,Aspmyra,Bodø/Glimt,Arsenal,Group A,0 - 1
+51,4,13/10/2022 16:45,Cracovia Stadium,Dynamo Kyiv,Rennes,Group B,0 - 1
+52,4,13/10/2022 16:45,AEK Arena,AEK Larnaca,Fenerbahçe,Group B,1 - 2
+53,4,13/10/2022 16:45,Estadio Benito Villamarín,Betis,Roma,Group C,1 - 1
+54,4,13/10/2022 16:45,Den Dreef,Union SG,Braga,Group D,3 - 3
+55,4,13/10/2022 16:45,Stade de la Beaujoire,Nantes,Freiburg,Group G,0 - 4
+56,4,13/10/2022 16:45,Tofiq Bahramov Republican Stadium,Qarabag,Olympiacos,Group G,0 - 0
+57,4,13/10/2022 19:00,Stadio Olimpico,Lazio,Sturm,Group F,2 - 2
+58,4,13/10/2022 19:00,Old Trafford,Man United,Omonoia,Group E,1 - 0
+59,4,13/10/2022 19:00,Reala Stadium,Real Sociedad,Sheriff,Group E,3 - 0
+60,4,13/10/2022 19:00,PSV Stadion,PSV,Zürich,Group A,5 - 0
+61,4,13/10/2022 19:00,Ludogorets Arena,Ludogorets,HJK,Group C,2 - 0
+62,4,13/10/2022 19:00,Alte Försterei,Union Berlin,Malmö,Group D,1 - 0
+63,4,13/10/2022 19:00,Senol Günes Spor Kompleksi,Trabzonspor,Monaco,Group H,4 - 0
+64,4,13/10/2022 19:00,Ferencváros Stadion,Ferencváros,Crvena zvezda,Group H,2 - 1
+65,5,27/10/2022 16:45,Stadio Olimpico,Lazio,Midtjylland,Group F,2 - 1
+66,5,27/10/2022 16:45,Stadion Letzigrund,Zürich,Bodø/Glimt,Group A,2 - 1
+67,5,27/10/2022 16:45,PSV Stadion,PSV,Arsenal,Group A,2 - 0
+68,5,27/10/2022 16:45,Fenerbahçe Sükrü Saracoglu Spor Kompleksi,Fenerbahçe,Rennes,Group B,3 - 3
+69,5,27/10/2022 16:45,AEK Arena,AEK Larnaca,Dynamo Kyiv,Group B,3 - 3
+70,5,27/10/2022 16:45,Ludogorets Arena,Ludogorets,Betis,Group C,0 - 1
+71,5,27/10/2022 16:45,Malmö New Stadium,Malmö,Union SG,Group D,0 - 2
+72,5,27/10/2022 16:45,Alte Försterei,Union Berlin,Braga,Group D,1 - 0
+73,5,27/10/2022 19:00,Stadion Graz Liebenau,Sturm,Feyenoord,Group F,1 - 0
+74,5,27/10/2022 19:00,Old Trafford,Man United,Sheriff,Group E,3 - 0
+75,5,27/10/2022 19:00,GSP,Omonoia,Real Sociedad,Group E,0 - 2
+76,5,27/10/2022 19:00,Helsinki Football Stadium,HJK,Roma,Group C,1 - 2
+77,5,27/10/2022 19:00,Stadion am Wolfswinkel,Freiburg,Olympiacos,Group G,1 - 1
+78,5,27/10/2022 19:00,Stade de la Beaujoire,Nantes,Qarabag,Group G,2 - 1
+79,5,27/10/2022 19:00,Stadion Rajko Mitic,Crvena zvezda,Trabzonspor,Group H,2 - 1
+80,5,27/10/2022 19:00,Ferencváros Stadion,Ferencváros,Monaco,Group H,1 - 1
+81,6,03/11/2022 17:45,Arena Herning,Midtjylland,Sturm,Group F,2 - 0
+82,6,03/11/2022 17:45,Stadion Feijenoord 'De Kuip',Feyenoord,Lazio,Group F,1 - 0
+83,6,03/11/2022 17:45,Reala Stadium,Real Sociedad,Man United,Group E,0 - 1
+84,6,03/11/2022 17:45,Stadionul Zimbru,Sheriff,Omonoia,Group E,1 - 0
+85,6,03/11/2022 17:45,Tofiq Bahramov Republican Stadium,Qarabag,Freiburg,Group G,1 - 1
+86,6,03/11/2022 17:45,Stadio Georgios Karaiskakis,Olympiacos,Nantes,Group G,0 - 2
+87,6,03/11/2022 17:45,Senol Günes Spor Kompleksi,Trabzonspor,Ferencváros,Group H,1 - 0
+88,6,03/11/2022 17:45,Stade Louis II,Monaco,Crvena zvezda,Group H,4 - 1
+89,6,03/11/2022 20:00,Arsenal Stadium,Arsenal,Zürich,Group A,1 - 0
+90,6,03/11/2022 20:00,Aspmyra,Bodø/Glimt,PSV,Group A,1 - 2
+91,6,03/11/2022 20:00,Cracovia Stadium,Dynamo Kyiv,Fenerbahçe,Group B,0 - 2
+92,6,03/11/2022 20:00,Roazhon Park,Rennes,AEK Larnaca,Group B,1 - 1
+93,6,03/11/2022 20:00,Stadio Olimpico,Roma,Ludogorets,Group C,3 - 1
+94,6,03/11/2022 20:00,Estadio Benito Villamarín,Betis,HJK,Group C,3 - 0
+95,6,03/11/2022 20:00,Den Dreef,Union SG,Union Berlin,Group D,0 - 1
+96,6,03/11/2022 20:00,Estádio Municipal de Braga,Braga,Malmö,Group D,2 - 1
+97,Play-offs Game 1,16/02/2023 17:45,Camp Nou,Barcelona,Man United,,2 - 2
+98,Play-offs Game 1,16/02/2023 17:45,Municipal Stadium of Legia Warszawa,Shakhtar Donetsk,Rennes,,2 - 1
+99,Play-offs Game 1,16/02/2023 17:45,Johan Cruijff ArenA,Ajax,Union Berlin,,0 - 0
+100,Play-offs Game 1,16/02/2023 17:45,Stadion Salzburg,Salzburg,Roma,,1 - 0
+101,Play-offs Game 1,16/02/2023 20:00,Juventus Stadium,Juventus,Nantes,,1 - 1
+102,Play-offs Game 1,16/02/2023 20:00,Estádio José Alvalade,Sporting CP,Midtjylland,,1 - 1
+103,Play-offs Game 1,16/02/2023 20:00,BayArena,Leverkusen,Monaco,,2 - 3
+104,Play-offs Game 1,16/02/2023 20:00,Estadio Ramón Sánchez-Pizjuán,Sevilla,PSV,,3 - 0
+105,Play-offs Game 2,23/02/2023 17:45,Stade de la Beaujoire,Nantes,Juventus,,0 - 3
+106,Play-offs Game 2,23/02/2023 17:45,Arena Herning,Midtjylland,Sporting CP,,0 - 4
+107,Play-offs Game 2,23/02/2023 17:45,Stade Louis II,Monaco,Leverkusen,,2 - 3
+108,Play-offs Game 2,23/02/2023 17:45,PSV Stadion,PSV,Sevilla,,2 - 0
+109,Play-offs Game 2,23/02/2023 20:00,Old Trafford,Man United,Barcelona,,2 - 1
+110,Play-offs Game 2,23/02/2023 20:00,Roazhon Park,Rennes,Shakhtar Donetsk,,2 - 1
+111,Play-offs Game 2,23/02/2023 20:00,Alte Försterei,Union Berlin,Ajax,,3 - 1
+112,Play-offs Game 2,23/02/2023 20:00,Stadio Olimpico,Roma,Salzburg,,2 - 0
+113,R16 Game 1,09/03/2023 17:45,Alte Försterei,Union Berlin,Union SG,,3 - 3
+114,R16 Game 1,09/03/2023 17:45,BayArena,Leverkusen,Fenerbahçe,,2 - 0
+115,R16 Game 1,09/03/2023 17:45,Estádio José Alvalade,Sporting CP,Arsenal,,2 - 2
+116,R16 Game 1,09/03/2023 17:45,Stadio Olimpico,Roma,Real Sociedad,,2 - 0
+117,R16 Game 1,09/03/2023 20:00,Estadio Ramón Sánchez-Pizjuán,Sevilla,Fenerbahçe,,2 - 0
+118,R16 Game 1,09/03/2023 20:00,Juventus Stadium,Juventus,Freiburg,,1 - 0
+119,R16 Game 1,09/03/2023 20:00,Old Trafford,Man United,Betis,,4 - 1
+120,R16 Game 1,09/03/2023 20:00,Municipal Stadium of Legia Warszawa,Shakhtar Donetsk,Feyenoord,,1 - 1
+121,R16 Game 2,16/03/2023 17:45,Fenerbahçe Sükrü Saracoglu Spor Kompleksi,Fenerbahçe,Sevilla,,1 - 0
+122,R16 Game 2,16/03/2023 17:45,Stadion am Wolfswinkel,Freiburg,Juventus,,0 - 2
+123,R16 Game 2,16/03/2023 17:45,Estadio Benito Villamarín,Betis,Man United,,0 - 1
+124,R16 Game 2,16/03/2023 17:45,Stadion Feijenoord 'De Kuip',Feyenoord,Shakhtar Donetsk,,7 - 1
+125,R16 Game 2,16/03/2023 20:00,Anderlecht Stadium,Union SG,Union Berlin,,3 - 0
+126,R16 Game 2,16/03/2023 20:00,Puskás Aréna,Ferencváros,Leverkusen,,0 - 2
+127,R16 Game 2,16/03/2023 20:00,Arsenal Stadium,Arsenal,Sporting CP,,1 - 1
+128,R16 Game 2,16/03/2023 20:00,Reala Stadium,Real Sociedad,Roma,,0 - 0
+129,QF Game 1,13/04/2023 16:45,Stadion Feijenoord 'De Kuip',Feyenoord,Roma,,1 - 0
+130,QF Game 1,13/04/2023 19:00,Old Trafford,Man United,Sevilla,,2 - 2
+131,QF Game 1,13/04/2023 19:00,Juventus Stadium,Juventus,Sporting CP,,1 - 0
+132,QF Game 1,13/04/2023 19:00,BayArena,Leverkusen,Union SG,,1 - 1
+133,QF Game 2,20/04/2023 19:00,Estadio Ramón Sánchez-Pizjuán,Sevilla,Man United,,3 - 0
+134,QF Game 2,20/04/2023 19:00,Estádio José Alvalade,Sporting CP,Juventus,,1 - 1
+135,QF Game 2,20/04/2023 19:00,Anderlecht Stadium,Union SG,Leverkusen,,1 - 4
+136,QF Game 2,20/04/2023 19:00,Stadio Olimpico,Roma,Feyenoord,,4 - 1
+137,SF Game 1,11/05/2023 19:00,Juventus Stadium,Juventus,Sevilla,,1 - 1
+138,SF Game 1,11/05/2023 19:00,Stadio Olimpico,Roma,Leverkusen,,1 - 0
+139,SF Game 2,18/05/2023 19:00,Estadio Ramón Sánchez-Pizjuán,Sevilla,Juventus,,2 - 1
+140,SF Game 2,18/05/2023 19:00,BayArena,Leverkusen,Roma,,0 - 0
+141,Final,31/05/2023 19:00,Puskás Aréna,Sevilla,Roma,,1 - 1
