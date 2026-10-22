@@ -1,0 +1,450 @@
+{
+  "league": "UEFA Europa League",
+  "training_matches": 696,
+  "training_seasons_requested": 5,
+  "training_seasons_loaded": [
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+  ],
+  "training_sha256": "cb7bcd063c85ea171d3f3686cb2c583c24b68c5ce95d6bd2f8818fdfda795800",
+  "training_as_of_utc": "2026-10-22T10:58:07.768738+00:00",
+  "training_data_provenance": {
+    "bbs_confirmed_rows": 0,
+    "bbs_added_results": 0,
+    "bbs_result_conflicts": 0,
+    "bbs_rows_with_statistics": 0,
+    "bbs_statistics_used_as_predictor_features": false,
+    "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass."
+  },
+  "bbs_statistics_model": {
+    "status": "NO_OBSERVATIONS"
+  },
+  "training_end": "2026-10-15",
+  "fit_success": true,
+  "objective": 997.5598198190675,
+  "base": 0.051736220349372516,
+  "home_adv": 0.2898865252942858,
+  "rho": 0.05,
+  "half_life_days": 730.0,
+  "xi_per_day": 0.0009495166856985552,
+  "max_goals": 10,
+  "devig_method": "power",
+  "market_weight": 0.5,
+  "training_data_health": {
+    "training_end": "2026-10-15",
+    "verified_at_utc": "2026-10-22T10:58:04.197154+00:00",
+    "official_source_health": {
+      "2025": {
+        "status": "HTTP_403_USING_REVIEWED_FACTS",
+        "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00",
+        "original_source_sha256": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b"
+      },
+      "2026": {
+        "status": "HTTP_403_USING_REVIEWED_FACTS",
+        "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00",
+        "original_source_sha256": "f70b1b52c2d0762cfe38cf1abbccd3cfaa1bcfd0a6bc8ebd090533e34ae1ba20"
+      }
+    },
+    "status": "VERIFIED_WITHIN_24_HOURS"
+  },
+  "training_source": "verified .football_cache/europa/training.json",
+  "fixture_provider_mode": "auto",
+  "fixture_sources": [
+    "The Odds API"
+  ],
+  "the_odds_api_enabled": true,
+  "odds_regions": "eu",
+  "live_odds_matched": 18,
+  "additional_event_odds_calls_used_before_this_league": 5,
+  "additional_event_odds_calls_budget": null,
+  "additional_event_odds_league_quota": null,
+  "over_1_5_in_window_quote_fixtures": 18,
+  "additional_odds_coverage_mode": "all",
+  "additional_odds_coverage": [
+    {
+      "fixture_id": "13c0a92ee5159d2f1d2e0368811c9421",
+      "event_id": "13c0a92ee5159d2f1d2e0368811c9421",
+      "home_team": "Dinamo Zagreb",
+      "away_team": "NEC Nijmegen",
+      "kickoff_utc": "2026-10-22T16:45:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "0c104f64573962dd1a690f53ba969caa",
+      "event_id": "0c104f64573962dd1a690f53ba969caa",
+      "home_team": "FC Ararat-Armenia",
+      "away_team": "AZ Alkmaar",
+      "kickoff_utc": "2026-10-22T16:45:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 22,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "4e761167a147b5282b086d0f801819d3",
+      "event_id": "4e761167a147b5282b086d0f801819d3",
+      "home_team": "Ferencv\u00e1ros TC",
+      "away_team": "Torreense",
+      "kickoff_utc": "2026-10-22T16:45:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 22,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "953ffa67dff5e7704dd0f77fe48fe614",
+      "event_id": "953ffa67dff5e7704dd0f77fe48fe614",
+      "home_team": "Juventus",
+      "away_team": "Rennes",
+      "kickoff_utc": "2026-10-22T16:45:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 22,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "dc02d531f844fa790c5dcae1918efd22",
+      "event_id": "dc02d531f844fa790c5dcae1918efd22",
+      "home_team": "Lech Pozna\u0144",
+      "away_team": "Sunderland",
+      "kickoff_utc": "2026-10-22T16:45:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "ffcb32a8a5597aacba7b654852d47b67",
+      "event_id": "ffcb32a8a5597aacba7b654852d47b67",
+      "home_team": "OFI Crete",
+      "away_team": "Bayer Leverkusen",
+      "kickoff_utc": "2026-10-22T16:45:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 22,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "fcbdc440ac1bfd04e900e145e84ffaca",
+      "event_id": "fcbdc440ac1bfd04e900e145e84ffaca",
+      "home_team": "SK Sturm Graz",
+      "away_team": "Marseille",
+      "kickoff_utc": "2026-10-22T16:45:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "382e017f27a6fbffbc48f736ca1680f2",
+      "event_id": "382e017f27a6fbffbc48f736ca1680f2",
+      "home_team": "Union Saint-Gilloise",
+      "away_team": "Hapoel Be'er Sheva",
+      "kickoff_utc": "2026-10-22T16:45:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 22,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "7b1674efd0f6f93a16f202822f4b64b5",
+      "event_id": "7b1674efd0f6f93a16f202822f4b64b5",
+      "home_team": "Besiktas JK",
+      "away_team": "Crystal Palace",
+      "kickoff_utc": "2026-10-22T19:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "af99d0f507da72d045d9403ae167a5a8",
+      "event_id": "af99d0f507da72d045d9403ae167a5a8",
+      "home_team": "Bournemouth",
+      "away_team": "AC Milan",
+      "kickoff_utc": "2026-10-22T19:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "c614844f2e3b782814e4f4e77f98bf2a",
+      "event_id": "c614844f2e3b782814e4f4e77f98bf2a",
+      "home_team": "Celtic",
+      "away_team": "Celta Vigo",
+      "kickoff_utc": "2026-10-22T19:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "573ca8b5bb0abdb338c4004d610b1824",
+      "event_id": "573ca8b5bb0abdb338c4004d610b1824",
+      "home_team": "Jagiellonia Bia\u0142ystok",
+      "away_team": "Anderlecht",
+      "kickoff_utc": "2026-10-22T19:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "9be240eead573e6718f4ba21ed1a6472",
+      "event_id": "9be240eead573e6718f4ba21ed1a6472",
+      "home_team": "Lillestrom",
+      "away_team": "Real Sociedad",
+      "kickoff_utc": "2026-10-22T19:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 22,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "e342a49042c35c6a3f3e8720324b3f3c",
+      "event_id": "e342a49042c35c6a3f3e8720324b3f3c",
+      "home_team": "NK Celje",
+      "away_team": "Salzburg",
+      "kickoff_utc": "2026-10-22T19:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "5290ae078657c841a4e1d4ebb626825a",
+      "event_id": "5290ae078657c841a4e1d4ebb626825a",
+      "home_team": "Olympiakos Piraeus",
+      "away_team": "Sparta Prague",
+      "kickoff_utc": "2026-10-22T19:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "86b70325b671e4bdf5b970aa6cd85bb3",
+      "event_id": "86b70325b671e4bdf5b970aa6cd85bb3",
+      "home_team": "Omonoia FC",
+      "away_team": "Benfica",
+      "kickoff_utc": "2026-10-22T19:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 22,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "b3c60081286aa25692de7e0a482b6c01",
+      "event_id": "b3c60081286aa25692de7e0a482b6c01",
+      "home_team": "TSG Hoffenheim",
+      "away_team": "Lyon",
+      "kickoff_utc": "2026-10-22T19:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "410fd021774146ae969af3713990ed87",
+      "event_id": "410fd021774146ae969af3713990ed87",
+      "home_team": "Viktoria Plze\u0148",
+      "away_team": "PFC Levski Sofia",
+      "kickoff_utc": "2026-10-22T19:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    }
+  ],
+  "additional_odds_in_window_linked_fixtures": 18,
+  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_event_odds_hard_cap_applies": false,
+  "additional_event_odds_calls_this_league": 18,
+  "bbs_statistics_applied_fixtures": 0,
+  "decay_tuning": {
+    "selected_half_life_days": 730.0,
+    "selected_xi_per_day": 0.0009495166856985552,
+    "selection_metric": "walk_forward_1x2_log_loss",
+    "validation_days": 365
+  },
+  "goal_market_reliability": {
+    "home_draw": "RELIABLE_FOR_RANKING",
+    "draw_away": "RELIABLE_FOR_RANKING",
+    "home_away": "RELIABLE_FOR_RANKING",
+    "home": "RELIABLE_FOR_RANKING",
+    "draw": "RELIABLE_FOR_RANKING",
+    "away": "RELIABLE_FOR_RANKING",
+    "over_1_5": "RELIABLE_FOR_RANKING",
+    "under_3_5": "UNRELIABLE_AUDIT",
+    "btts_yes": "UNRELIABLE_AUDIT"
+  }
+}

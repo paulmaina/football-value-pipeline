@@ -19,7 +19,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 38 | 28-10 | 73.7% | +1.1% |
 
-Unsettled / unverified entries: **4**.
+Unsettled / unverified entries: **6**.
 Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
 
 ## First-prediction reference — historical comparison
@@ -48,6 +48,7 @@ Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
 | 2026-10-18T14:35:10.311946+00:00 | 7 | 6-1 | 85.7% | +15.0% |
 | 2026-10-19T11:20:16.296665+00:00 | 1 | 0-1 | 0.0% | -100.0% |
 | 2026-10-19T16:28:42.464993+00:00 | 11 | 7-4 | 63.6% | -12.5% |
+| 2026-10-22T10:58:13.963804+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -62,6 +63,7 @@ Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
 |---|---:|---:|---:|---:|
 | 48h-top-ten-probability-ev-no-under35-v14 | 8 | 6-2 | 75.0% | +0.6% |
 | 48h-top-twelve-probability-ev-no-under35-v15 | 11 | 7-4 | 63.6% | -12.5% |
+| 48h-zero-tolerance-ev1-common-no-loss75-v22 | 0 | 0-0 | — | — |
 | 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
 | 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
 | 72h-seven-markets-fresh-references-net-ev15-v11 | 5 | 4-1 | 80.0% | +7.2% |
@@ -184,22 +186,18 @@ A missing, ambiguous or unverified result is **never called a win**.
 |---|---|---:|---:|---|
 | Bundesliga | 2026-10-18 | 1586 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | EPL | 2026-10-19 | 1970 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-19 | 1988 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-21 | 1989 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Ligue1 | 2026-10-18 | 1743 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SerieA | 2026-10-19 | 1970 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-10-20 | 548 | 2 | MODEL_BEHIND_VERIFIED_SOURCE |
+| UCL | 2026-10-21 | 557 | 1 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UEL | 2026-10-15 | 696 | 7 | DOWNLOAD_NOT_VERIFIED |
 
-Latest shortlist audit: {"selected_quotes": 6, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 6, "bookmakers": {"Pinnacle": 6}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 6, "upcoming_kickoff_count": 0, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 2, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 2, "bookmakers": {"Pinnacle": 2}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 2, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| 010ef527d5bf | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
-| d3f12df5a2a2 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
-| e5dcb5f67050 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
-| 54bb8a2c2c95 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
-| a98524037f73 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 758c1097916a | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 376b9f9ba8a8 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | b57f98f7704e | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
@@ -215,8 +213,13 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | f7295b8c0c24 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | ca1e126489f9 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | a18515a42a8d | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| e93027ea804f | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| 4c569effb9e7 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| 4613e5b8880d | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
+| d737a7a239cb | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| 93aabf61cc3a | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.0.6", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.16.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 

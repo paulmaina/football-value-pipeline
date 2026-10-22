@@ -1,6 +1,6 @@
 {
   "league": "UEFA Champions League",
-  "training_matches": 548,
+  "training_matches": 557,
   "training_seasons_requested": 4,
   "training_seasons_loaded": [
     "2023",
@@ -8,12 +8,12 @@
     "2025",
     "2026"
   ],
-  "training_sha256": "66be1a7d446df6ae24928a837f8907a8fd91f257b46d367c0f54697605dca1b1",
-  "training_as_of_utc": "2026-10-21T17:28:56.715717+00:00",
+  "training_sha256": "2258b17aabe5286e4528376b610054a501a38c0c7c8395d5ded6eafb5e1cccd3",
+  "training_as_of_utc": "2026-10-22T10:57:57.424777+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 45,
     "bbs_added_results": 0,
-    "bbs_result_conflicts": 0,
+    "bbs_result_conflicts": 9,
     "bbs_rows_with_statistics": 34,
     "bbs_statistics_used_as_predictor_features": false,
     "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.",
@@ -25,7 +25,7 @@
       "unmapped": 78,
       "ambiguous": 0,
       "excluded_phase": 460,
-      "statistics_observations": 2,
+      "statistics_observations": 4,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -33,9 +33,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-21T17:28:56.715717+00:00",
-    "observations": 119,
-    "observations_sha256": "fc113bc506ce659ae4887d05d300490ad49dfc5c970eb2772cbbe5d2109345a8",
+    "cutoff_utc": "2026-10-22T10:57:57.424777+00:00",
+    "observations": 130,
+    "observations_sha256": "c90a4f949241897f87170f11e1812ed3007aee986089a9986e619c46115e4c7a",
     "eligible_training_matches": 0,
     "required_training_matches": 120,
     "feature_fields": [
@@ -61,7 +61,7 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 36,
+    "usable_current_matches": 38,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
     "strict_eligible_training_matches": 0,
@@ -69,7 +69,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:29.957146+00:00",
-    "retrospective_inputs_sha256": "ccc37546f410b84c1ad748739ea7654757e07e07464bd766cea904fcad36a0c5",
+    "retrospective_inputs_sha256": "625afa63f72cc4b92ac2f52b597e7dba5814aec27f873d04c607e49f0dfa4b28",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -77,11 +77,11 @@
       "bigballsdata"
     ]
   },
-  "training_end": "2026-10-20",
+  "training_end": "2026-10-21",
   "fit_success": true,
-  "objective": 465.60563703224875,
-  "base": 0.21271424464522076,
-  "home_adv": 0.3268931403279618,
+  "objective": 493.1810480106625,
+  "base": 0.2122334704756135,
+  "home_adv": 0.31370321612293106,
   "rho": 0.05,
   "half_life_days": 240.0,
   "xi_per_day": 0.0028881132523331052,
@@ -89,24 +89,24 @@
   "devig_method": "power",
   "market_weight": 0.5,
   "training_data_health": {
-    "completed_matches": 45,
-    "latest_completed_utc": "2026-10-20T19:00:00+00:00",
-    "latest_completed_date": "2026-10-20",
-    "next_fixture_utc": "2026-10-21T19:00:00+00:00",
+    "completed_matches": 54,
+    "latest_completed_utc": "2026-10-21T19:00:00+00:00",
+    "latest_completed_date": "2026-10-21",
+    "next_fixture_utc": "2026-11-03T17:45:00+00:00",
     "overdue_unfinished_match_ids": [],
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-10-21T17:28:46.123777+00:00",
+    "checked_at_utc": "2026-10-22T10:57:47.604309+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
-    "sha256": "6d62c0fdf9f5d06d36ac12d719b95f5fef5b6cfda75cb1b77088f1046e2420b4",
+    "sha256": "f06b49a6ae473f3aeb59e8f44956d9bac8f40f44017b95dba0ffc21209fe9571",
     "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
     "note": "Provider schedule comparison is not independent proof of complete coverage.",
     "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-    "download_age_hours": 0.0029422055555555554,
-    "training_end": "2026-10-20",
+    "download_age_hours": 0.002727907777777778,
+    "training_end": "2026-10-21",
     "cache_hash_verified": true,
     "last_refresh_error": null,
     "last_refresh_error_reason": null
@@ -119,11 +119,11 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 7,
-  "additional_event_odds_calls_used_before_this_league": 1,
+  "additional_event_odds_calls_used_before_this_league": 5,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261021T172856715717Z_941f768158917ea111c406112295800fed92dfcc835c60c5115e6a1891b415f2.json",
-  "over_1_5_in_window_quote_fixtures": 1,
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261022T105757424777Z_b34d85617fdfed8c2e09846d750dcef254ebc954eca1f959943e861b815f20d3.json",
+  "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -132,17 +132,10 @@
       "home_team": "Aston Villa",
       "away_team": "Viking FK",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 22,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -152,17 +145,10 @@
       "home_team": "Bayern Munich",
       "away_team": "Arsenal",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -172,17 +158,10 @@
       "home_team": "Club Brugge",
       "away_team": "RC Lens",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -192,17 +171,10 @@
       "home_team": "Inter Milan",
       "away_team": "Shakhtar Donetsk",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 22,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -212,17 +184,10 @@
       "home_team": "Real Betis",
       "away_team": "Feyenoord",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -232,19 +197,12 @@
       "home_team": "Real Madrid",
       "away_team": "RB Leipzig",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 32,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "8fdcaee14b3e8966e09d468a0b17ce18",
@@ -252,25 +210,18 @@
       "home_team": "Sporting Lisbon",
       "away_team": "LASK",
       "kickoff_utc": "2026-10-21T19:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 22,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 7,
+  "additional_odds_in_window_linked_fixtures": 0,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 7,
+  "additional_event_odds_calls_this_league": 0,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 240.0,

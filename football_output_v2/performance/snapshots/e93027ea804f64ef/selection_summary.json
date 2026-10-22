@@ -1,0 +1,135 @@
+{
+  "status": "TARGET_WITH_PROVISIONAL",
+  "generated_at_utc": "2026-10-20T05:44:17.344335+00:00",
+  "selection_policy_version": "48h-top-twelve-probability-ev-no-under35-v15",
+  "n_fixtures": 77,
+  "n_markets_evaluated": 539,
+  "n_shortlisted": 12,
+  "n_strict_qualified": 0,
+  "n_provisional_watchlist": 12,
+  "n_total_candidates": 12,
+  "target_distinct_matches": 12,
+  "shortfall": 0,
+  "shortlist_lookahead_hours": 48.0,
+  "shortlist_window_start_utc": "2026-10-20T05:44:17.344335+00:00",
+  "shortlist_window_end_utc": "2026-10-22T05:44:17.344335+00:00",
+  "selected_matches_within_72_hours": true,
+  "selected_matches_within_48_hours": true,
+  "selected_kickoff_span_hours": 26.25,
+  "selected_first_kickoff_utc": "2026-10-20T16:45:00+00:00",
+  "selected_last_kickoff_utc": "2026-10-21T19:00:00+00:00",
+  "selection_method": "Top twelve distinct fixtures within 48 hours; equal-weight adjusted probability and adjusted EV percentile score; strict status does not change ranking",
+  "selection_objective": "BALANCED_PROBABILITY_EV",
+  "usable_distinct_fixtures": 19,
+  "ev_required_for_selection": false,
+  "probability_thresholds_required_for_selection": false,
+  "shortfall_reason": null,
+  "ranking_weights": {
+    "adjusted_probability_percentile": 0.5,
+    "adjusted_ev_percentile": 0.5
+  },
+  "score_formula": "0.5 * probability_percentile + 0.5 * ev_percentile",
+  "score_population": "usable unique fixture-market candidates within 48 hours before experimental EV filters",
+  "ranking_is_empirically_optimized": false,
+  "eligible_markets": [
+    "Home win",
+    "Away win",
+    "Over 1.5",
+    "Both Teams to Score - Yes",
+    "Double Chance 1X",
+    "Double Chance X2",
+    "Double Chance 12"
+  ],
+  "eligible_leagues": [
+    "Bundesliga",
+    "La Liga",
+    "Ligue 1",
+    "Premier League",
+    "Serie A",
+    "UEFA Champions League"
+  ],
+  "quote_execution_policy": {
+    "allowed_bookmakers": [
+      "1xBet",
+      "Pinnacle",
+      "bet365"
+    ],
+    "per_stake_cost_bps": 0,
+    "exchange_policy": "EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER",
+    "account_availability": "USER_ALLOWLIST"
+  },
+  "min_estimated_ev": 0.015,
+  "min_bookmakers": 1,
+  "double_chance_min_adjusted_ev": 0.015,
+  "double_chance_min_adjusted_probability": 0.75,
+  "validation_required": true,
+  "ranking_metric": "equal-weight adjusted probability and adjusted EV percentile score",
+  "validation_market_statuses": {
+    "Premier League": {
+      "home_draw": "RELIABLE_FOR_RANKING",
+      "draw_away": "RELIABLE_FOR_RANKING",
+      "home_away": "RELIABLE_FOR_RANKING",
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "UNRELIABLE_AUDIT",
+      "btts_yes": "RELIABLE_FOR_RANKING"
+    },
+    "La Liga": {
+      "home_draw": "RELIABLE_FOR_RANKING",
+      "draw_away": "RELIABLE_FOR_RANKING",
+      "home_away": "RELIABLE_FOR_RANKING",
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "RELIABLE_FOR_RANKING",
+      "btts_yes": "UNRELIABLE_AUDIT"
+    },
+    "Bundesliga": {
+      "home_draw": "RELIABLE_FOR_RANKING",
+      "draw_away": "RELIABLE_FOR_RANKING",
+      "home_away": "RELIABLE_FOR_RANKING",
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "UNRELIABLE_AUDIT",
+      "under_3_5": "UNRELIABLE_AUDIT",
+      "btts_yes": "UNRELIABLE_AUDIT"
+    },
+    "Serie A": {
+      "home_draw": "RELIABLE_FOR_RANKING",
+      "draw_away": "RELIABLE_FOR_RANKING",
+      "home_away": "RELIABLE_FOR_RANKING",
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "RELIABLE_FOR_RANKING",
+      "btts_yes": "RELIABLE_FOR_RANKING"
+    },
+    "Ligue 1": {
+      "home_draw": "RELIABLE_FOR_RANKING",
+      "draw_away": "RELIABLE_FOR_RANKING",
+      "home_away": "RELIABLE_FOR_RANKING",
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "RELIABLE_FOR_RANKING",
+      "btts_yes": "UNRELIABLE_AUDIT"
+    },
+    "UEFA Champions League": {
+      "home_draw": "RELIABLE_FOR_RANKING",
+      "draw_away": "RELIABLE_FOR_RANKING",
+      "home_away": "UNRELIABLE_AUDIT",
+      "home": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "UNRELIABLE_AUDIT",
+      "under_3_5": "UNRELIABLE_AUDIT",
+      "btts_yes": "UNRELIABLE_AUDIT"
+    }
+  },
+  "min_raw_dc_ev": 0.0,
+  "min_team_name_match_score": 90.0,
+  "max_quote_age_hours": 24.0,
+  "rule": "Top twelve by equal-weight adjusted probability/EV percentile score, one market per fixture, within 48 hours; no probability or EV cutoff",
+  "near_miss_policy": "PROVISIONAL identifies a probability-ranked candidate that fails one or more legacy strict rules, including negative EV or insufficient historical evidence. The warnings are not waived or relabelled as strict qualifications.",
+  "warning": "PROVISIONAL picks explicitly FAILED strict historical or EV requirements and are ONLY an analysis watchlist, not betting recommendations. No validated guaranteed matches or perfect betslips exist; ten-leg accumulators have substantial loss risk."
+}
