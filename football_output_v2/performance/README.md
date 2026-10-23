@@ -1,7 +1,7 @@
 # Forward-only football performance dashboard
 
 Only immutable **Git-archived before-kickoff predictions** are scored.
-Asian handicaps settle full/half wins, refunds and full/half losses. ROI includes every settled stake; refunds are not wins. Asian probability/Brier measures no net loss.
+Asian handicaps settle full/half wins, refunds and full/half losses. ROI includes every settled stake; refunds are not wins. Probability/Brier follows the frozen event: v23 profitable outcome, legacy Asian no net loss.
 Actual results come from football-data.org v4 FINISHED matches;
 normal 90-minute results are used, never extra-time/penalty scorelines.
 **PROVISIONAL candidates are not audited betting recommendations.**
@@ -157,7 +157,7 @@ Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
 
 ## Confidence calibration of shortlisted markets
 
-| Forecast bin | Samples | Average forecast | Observed win / AH no-loss rate | Binary Brier |
+| Forecast bin | Samples | Average forecast | Observed event rate (frozen probability basis) | Binary Brier |
 |---|---:|---:|---:|---:|
 | 0%–50% | 1 | 45.4% | 0.0% | 0.2059 |
 | 50%–60% | 1 | 54.9% | 100.0% | 0.2031 |
@@ -191,7 +191,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | Ligue1 | 2026-10-18 | 1743 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SerieA | 2026-10-19 | 1970 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-21 | 557 | 2 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
-| UEL | 2026-10-15 | 696 | 8 | VERIFIED_WITHIN_24_HOURS |
+| UEL | 2026-10-15 | 696 | 8 | STALE |
 
 Latest shortlist audit: {"selected_quotes": 10, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 10, "bookmakers": {"1xBet": 3, "Pinnacle": 7}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 10, "unknown_kickoff_count": 0}.
 
