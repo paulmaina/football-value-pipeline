@@ -90,6 +90,8 @@ def raw_check(root, *, raw_dir=None):
     policy_version = summary.get('selection_policy_version')
     from asian_handicap import POLICIES as AH_POLICIES, RISK_BAND_POLICIES, ONE_PERCENT_POLICIES, POLICY as SAFEST_POLICY, parse_label as parse_handicap, ordinary_markets
     asian = policy_version in AH_POLICIES
+    from win_first_shortlist import POLICY as WIN_FIRST_POLICY
+    win_first = policy_version == WIN_FIRST_POLICY
     if asian:
         require(summary.get('shortlist_lookahead_hours')==48 and len(picks)<=12,'Invalid Asian handicap horizon or cap')
     balanced = policy_version in BALANCED_SELECTION_POLICIES
@@ -161,6 +163,8 @@ def raw_check(root, *, raw_dir=None):
                       *(['loss_risk_tolerance'] if policy_version in RISK_BAND_POLICIES else [] if asian else ['ranking_weights']),
                       *(['min_estimated_ev','min_raw_dc_ev','ev_required_for_selection'] if policy_version in ONE_PERCENT_POLICIES else []),
                       *(['min_adjusted_no_loss_probability','max_estimated_loss_probability'] if policy_version == SAFEST_POLICY else []),
+                      *(['selection_objective','ranking_metric','probability_basis','ev_required_for_selection',
+                         'negative_adjusted_ev_selections'] if win_first else []),
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')
@@ -570,5 +574,6 @@ def main(argv=None):
 
 
 if __name__=='__main__':raise SystemExit(main())
+
 
 
