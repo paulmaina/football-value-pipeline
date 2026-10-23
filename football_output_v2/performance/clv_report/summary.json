@@ -1,6 +1,6 @@
 {
   "version": "candidate-clv-v2-validated-fixture-clustered",
-  "generated_at_utc": "2026-10-23T13:57:47.363421+00:00",
+  "generated_at_utc": "2026-10-23T14:14:16.230906+00:00",
   "status": "OK",
   "candidates": 748,
   "fixtures": 81,
@@ -13,8 +13,8 @@
     "mean": -0.03007434123581643,
     "median": -0.027604785674766485,
     "positive_share": 0.31283422459893045,
-    "standard_error": 0.00467375634389575,
-    "t_stat": -6.434725951235264
+    "standard_error": 0.004673756343895751,
+    "t_stat": -6.434725951235263
   },
   "overall_same_book": {
     "n": 362,
@@ -36,10 +36,10 @@
   },
   "market_move_towards_model": {
     "n": 81,
-    "correlation": -0.13123466937425185,
+    "correlation": -0.1312346693742517,
     "sign_agreement": 0.5061728395061729,
     "mean_abs_model_gap": 0.014496384426101579,
-    "mean_abs_market_move": 0.005226583663067516
+    "mean_abs_market_move": 0.005226583663067523
   },
   "positive_cells": [
     {
