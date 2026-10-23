@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-10-23T18:24:01.829748+00:00",
+  "checked_at_utc": "2026-10-23T18:25:18.975619+00:00",
   "incident_started_at_utc": "2026-10-23T18:24:01.829748+00:00",
   "last_failure": {
     "at_utc": "2026-10-23T18:24:01.829748+00:00",
@@ -16,5 +16,6 @@
     "category": "CREDITS_EXHAUSTED",
     "error": "OddsProviderError"
   },
-  "state": "CREDITS_EXHAUSTED"
+  "recovered_at_utc": "2026-10-23T18:25:18.975619+00:00",
+  "state": "AVAILABLE"
 }
