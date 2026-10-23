@@ -43,7 +43,7 @@ from typing import Dict, Optional, Tuple
 import numpy as np
 import pandas as pd
 
-VERSION = 'candidate-clv-v1'
+VERSION = 'candidate-clv-v2-validated-fixture-clustered'
 OUTPUT_DIR = Path('performance') / 'clv_report'
 SELECTIONS = {'Home win': 'home', 'Draw': 'draw', 'Away win': 'away',
               'Double Chance 1X': 'home_draw', 'Double Chance X2': 'draw_away',
@@ -118,27 +118,32 @@ def fair_closing_prices(quotes) -> Dict[str, float]:
     return fair
 
 
-def load_closes(root: Path) -> Dict[str, dict]:
+def load_closes(root: Path, clock=None, rejected=None) -> Dict[tuple, dict]:
     """Per fixture: Pinnacle fair probabilities and every book's closing odds.
 
-    Later observations (closer to kickoff) overwrite earlier ones per
-    selection, so each price is the last one seen before kickoff.
+    Only hash-bound observations reconstructed by closing_odds are admitted.
+    Later validated observations overwrite earlier ones per selection.
     """
-    from performance_tracking import fixture_key
-    closes: Dict[str, dict] = {}
-    files = sorted((root / 'closing_odds' / 'observations').glob('*.json'))
-    observations = [json.loads(f.read_text(encoding='utf-8')) for f in files]
+    from performance_tracking import fixture_key, utc
+    from closing_odds import load_observations
+    closes: Dict[tuple, dict] = {}
+    observations, invalid = load_observations(root, clock)
+    if rejected is not None:
+        rejected.extend(invalid)
     for obs in sorted(observations, key=lambda o: o.get('observed_at_utc', '')):
-        record = closes.setdefault(fixture_key(obs['fixture']), {'fair': {}, 'odds': {}, 'observed': {}})
+        identity = (fixture_key(obs['fixture']), utc(obs['fixture']['kickoff_utc']).isoformat())
+        record = closes.setdefault(identity, {'fair': {}, 'odds': {}, 'observed': {}, 'odds_observed': {}})
         for key, p in fair_closing_prices(obs.get('quotes', [])).items():
             record['fair'][key] = p
             record['observed'][key] = obs['observed_at_utc']
         for q in obs.get('quotes', []):
-            record['odds'][(q['bookmaker'], q['selection'])] = float(q['decimal_odds'])
+            book_key = (q['bookmaker'], q['selection'])
+            record['odds'][book_key] = float(q['decimal_odds'])
+            record['odds_observed'][book_key] = obs['observed_at_utc']
     return closes
 
 
-def load_entries(root: Path) -> pd.DataFrame:
+def load_entries(root: Path, clock=None) -> pd.DataFrame:
     """Latest priced pre-kickoff evaluation per fixture, market and bookmaker."""
     from performance_tracking import fixture_key
     files = sorted((root / 'raw' / 'shortlist_history').glob('conservative_decisions_*.csv'))
@@ -154,27 +159,35 @@ def load_entries(root: Path) -> pd.DataFrame:
     kickoff = pd.to_datetime(data['kickoff_utc'], utc=True, errors='coerce')
     evaluated = pd.to_datetime(data['evaluated_at_utc'], utc=True, errors='coerce')
     data['hours_before_kickoff'] = (kickoff - evaluated).dt.total_seconds() / 3600
-    data = data[data['hours_before_kickoff'] > 0]
+    data = data[(data['hours_before_kickoff'] > 0) & (evaluated <= clock if clock is not None else True)]
     data['fixture_key'] = [fixture_key(r) for r in data.to_dict('records')]
     data['entry_bookmaker'] = data['bookmaker'].astype(str)
     data = data.sort_values('evaluated_at_utc', kind='mergesort')
     return data.drop_duplicates(['fixture_key', 'market', 'entry_bookmaker'], keep='last').reset_index(drop=True)
 
 
-def candidate_clv(root: Path) -> pd.DataFrame:
+def candidate_clv(root: Path, clock=None) -> pd.DataFrame:
     """One row per candidate with a Pinnacle fair close (see module docstring)."""
-    entries, closes = load_entries(Path(root)), load_closes(Path(root))
+    from performance_tracking import utc
+    rejected = []
+    entries, closes = load_entries(Path(root), clock), load_closes(Path(root), clock, rejected)
     rows = []
     for entry in entries.to_dict('records'):
         key = selection_key(entry['market'])
-        close = closes.get(entry['fixture_key'])
+        close = closes.get((entry['fixture_key'], utc(entry['kickoff_utc']).isoformat()))
         if key is None or close is None or key not in close['fair']:
+            continue
+        evaluated = utc(entry['evaluated_at_utc'])
+        if utc(close['observed'][key]) < evaluated:
             continue
         fair_p = close['fair'][key]
         if not 0 < fair_p < 1:
             continue
         odds = float(entry['offered_decimal_odds'])
-        same_book = close['odds'].get((entry['entry_bookmaker'].lower().replace(' ', ''), key))
+        book_key = (entry['entry_bookmaker'].lower().replace(' ', ''), key)
+        same_book = close['odds'].get(book_key)
+        if same_book is not None and utc(close['odds_observed'][book_key]) < evaluated:
+            same_book = None
         reference = pd.to_numeric(entry.get('market_probability'), errors='coerce')
         model = pd.to_numeric(entry.get('raw_dc_probability'), errors='coerce')
         binary = not HANDICAP.fullmatch(entry['market'])
@@ -191,19 +204,28 @@ def candidate_clv(root: Path) -> pd.DataFrame:
     frame = pd.DataFrame(rows)
     if not frame.empty:
         frame['hours_bucket'] = pd.cut(frame['hours_before_kickoff'], HOUR_BUCKETS, labels=HOUR_LABELS, right=False).astype(str)
+    frame.attrs['rejected_observation_files'] = rejected
     return frame
 
 
-def summarize(values: pd.Series) -> dict:
-    """Mean, spread and a t-statistic; |t| < 2 is indistinguishable from zero."""
-    values = pd.to_numeric(values, errors='coerce').dropna()
-    n = len(values)
+def summarize(values: pd.Series, clusters=None) -> dict:
+    """Candidate mean with uncertainty clustered by fixture, never by row."""
+    data = pd.DataFrame({'value': pd.to_numeric(values, errors='coerce')})
+    data['cluster'] = data.index if clusters is None else clusters
+    data = data.dropna()
+    data = data[np.isfinite(data['value'])]
+    n, count = len(data), data['cluster'].nunique()
+    empty = {'n': n, 'independent_fixtures': int(count), 'mean': None, 'median': None,
+             'positive_share': None, 'standard_error': None, 't_stat': None}
     if not n:
-        return {'n': 0, 'mean': None, 'median': None, 'positive_share': None, 'standard_error': None, 't_stat': None}
-    se = float(values.std(ddof=1) / math.sqrt(n)) if n > 1 else None
-    mean = float(values.mean())
-    return {'n': n, 'mean': mean, 'median': float(values.median()),
-            'positive_share': float((values > 0).mean()), 'standard_error': se,
+        return empty
+    mean = float(data['value'].mean())
+    # Cluster-robust variance of the candidate-weighted mean. Repeating all
+    # rows within a fixture cannot manufacture additional independent evidence.
+    residuals = (data['value'] - mean).groupby(data['cluster']).sum()
+    se = float(math.sqrt(count / (count - 1) * (residuals ** 2).sum()) / n) if count > 1 else None
+    return {**empty, 'mean': mean, 'median': float(data['value'].median()),
+            'positive_share': float((data['value'] > 0).mean()), 'standard_error': se,
             't_stat': mean / se if se else None}
 
 
@@ -211,6 +233,8 @@ def movement(frame: pd.DataFrame) -> dict:
     """Does the Pinnacle close move towards the model's raw disagreement?"""
     data = frame.dropna(subset=['model_gap', 'market_move']) if not frame.empty else frame
     data = data[data['model_gap'].abs() > 1e-9] if len(data) else data
+    if len(data):
+        data = data.groupby('fixture_key', sort=True)[['model_gap', 'market_move']].mean()
     if len(data) < 3:
         return {'n': int(len(data)), 'correlation': None, 'sign_agreement': None}
     with np.errstate(invalid='ignore', divide='ignore'):
@@ -226,7 +250,7 @@ def grouped(frame: pd.DataFrame, columns) -> pd.DataFrame:
     rows = []
     for name, part in frame.groupby(columns, dropna=False, sort=True):
         name = name if isinstance(name, tuple) else (name,)
-        pinnacle, same = summarize(part['clv_vs_pinnacle_fair']), summarize(part['same_book_price_clv'])
+        pinnacle, same = summarize(part['clv_vs_pinnacle_fair'], part['fixture_key']), summarize(part['same_book_price_clv'], part['fixture_key'])
         rows.append({**dict(zip(columns, name)), 'fixtures': part['fixture_key'].nunique(),
                      **{'pinnacle_fair_' + k: v for k, v in pinnacle.items()},
                      **{'same_book_' + k: v for k, v in same.items()},
@@ -252,7 +276,7 @@ def markdown(summary: dict, tables: Dict[str, pd.DataFrame]) -> str:
              f"Generated {summary['generated_at_utc']}; {summary['candidates']} priced candidates on "
              f"{summary['fixtures']} fixtures with a Pinnacle near-kickoff quote. "
              'CLV = entry odds × Pinnacle fair close probability − 1 (EV at the sharp close). '
-             '|t| < 2 cannot be told apart from zero; positive CLV needs |t| ≥ 2 on a large sample.', '',
+             'Uncertainty is clustered by fixture. The descriptive t-ratio is not a proof of edge; independent fixture coverage matters.', '',
              f"**Overall:** mean {_pct(overall['mean'])}, {_num(overall['positive_share'], '{:.0%}')} positive, "
              f"t = {_num(overall['t_stat'])} (n = {overall['n']}).", '',
              f"**Shortlisted picks:** mean {_pct(summary['shortlisted_pinnacle_fair']['mean'])}, "
@@ -260,7 +284,7 @@ def markdown(summary: dict, tables: Dict[str, pd.DataFrame]) -> str:
     move = summary['market_move_towards_model']
     lines += ['**Does the market move towards the model?** '
               + (f"correlation {_num(move['correlation'])}, sign agreement "
-                 f"{_num(move['sign_agreement'], '{:.0%}')} (n = {move['n']}; 50% = no information)."
+                 f"{_num(move['sign_agreement'], '{:.0%}')} (independent fixtures = {move['n']}; descriptive only)."
                  if move['correlation'] is not None else f"insufficient data (n = {move['n']})."), '']
     positive = summary['positive_cells']
     lines += ['**Market × bookmaker cells with positive mean CLV:** '
@@ -280,8 +304,8 @@ def markdown(summary: dict, tables: Dict[str, pd.DataFrame]) -> str:
                          f"{_pct(r['same_book_mean'])} ({r['same_book_n']}) |")
         lines.append('')
     lines += ['Near-kickoff feed quotes are not guaranteed official closing prices. '
-              'Candidates repeat across markets of the same fixture, so fixtures are not independent '
-              'samples and t-statistics are optimistic.', '']
+              'Candidate rows within one fixture are dependent; standard errors are clustered by fixture. '
+              'Market-movement figures use one averaged row per fixture and remain descriptive.', '']
     return '\n'.join(lines)
 
 
@@ -291,11 +315,15 @@ def build_report(root: Path, out_dir: Optional[Path] = None, clock=None) -> dict
     root = Path(root)
     out_dir = Path(out_dir) if out_dir is not None else root / OUTPUT_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
-    frame = candidate_clv(root)
+    clock = clock or datetime.now(timezone.utc)
+    frame = candidate_clv(root, clock=clock)
     generated = (clock or datetime.now(timezone.utc)).isoformat()
     if frame.empty:
+        for name in ['candidates.csv', *(f'by_{key}.csv' for key in GROUPINGS)]:
+            (out_dir / name).unlink(missing_ok=True)
         summary = {'version': VERSION, 'generated_at_utc': generated, 'candidates': 0, 'fixtures': 0,
-                   'status': 'NO_CANDIDATES_WITH_PINNACLE_CLOSE'}
+                   'status': 'NO_CANDIDATES_WITH_PINNACLE_CLOSE',
+                   'rejected_observation_files': frame.attrs.get('rejected_observation_files', [])}
         (out_dir / 'summary.json').write_text(json.dumps(summary, indent=2), encoding='utf-8')
         (out_dir / 'report.md').write_text('# Candidate closing-line value\n\nNo priced candidate has a '
                                            'Pinnacle near-kickoff quote yet.\n', encoding='utf-8')
@@ -305,13 +333,15 @@ def build_report(root: Path, out_dir: Optional[Path] = None, clock=None) -> dict
     positive = cells[cells['pinnacle_fair_mean'] > 0]
     summary = {'version': VERSION, 'generated_at_utc': generated, 'status': 'OK',
                'candidates': int(len(frame)), 'fixtures': int(frame['fixture_key'].nunique()),
+               'uncertainty_method': 'fixture-cluster-robust',
+               'rejected_observation_files': frame.attrs.get('rejected_observation_files', []),
                'entry_files': len(list((root / 'raw' / 'shortlist_history').glob('conservative_decisions_*.csv'))),
-               'overall_pinnacle_fair': summarize(frame['clv_vs_pinnacle_fair']),
-               'overall_same_book': summarize(frame['same_book_price_clv']),
-               'shortlisted_pinnacle_fair': summarize(frame.loc[frame['decision_group'] == 'shortlisted', 'clv_vs_pinnacle_fair']),
+               'overall_pinnacle_fair': summarize(frame['clv_vs_pinnacle_fair'], frame['fixture_key']),
+               'overall_same_book': summarize(frame['same_book_price_clv'], frame['fixture_key']),
+               'shortlisted_pinnacle_fair': summarize(frame.loc[frame['decision_group'] == 'shortlisted', 'clv_vs_pinnacle_fair'], frame['fixture_key']),
                'market_move_towards_model': movement(frame),
                'positive_cells': [{'market_family': r['market_family'], 'entry_bookmaker': r['entry_bookmaker'],
-                                   'mean': _finite(r['pinnacle_fair_mean']), 'n': int(r['pinnacle_fair_n']),
+                                   'mean': _finite(r['pinnacle_fair_mean']), 'n': int(r['pinnacle_fair_n']), 'fixtures': int(r['fixtures']),
                                    't_stat': _finite(r['pinnacle_fair_t_stat'])} for r in positive.to_dict('records')],
                'automatic_production_change': False}
     frame.to_csv(out_dir / 'candidates.csv', index=False)

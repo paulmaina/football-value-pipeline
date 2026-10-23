@@ -77,8 +77,9 @@ def predictions(raw=DEFAULT_RAW, league: Optional[str] = None) -> list:
     if league:
         from football_value_pipeline_v2_standalone import LEAGUES
         names = {league.casefold()}
-        if league in LEAGUES:
-            names.add(LEAGUES[league].name.casefold())
+        for key, competition in LEAGUES.items():
+            if key.casefold() == league.casefold():
+                names.add(competition.name.casefold())
         frame = frame[frame['league'].astype(str).str.casefold().isin(names)]
     return _records(frame)
 

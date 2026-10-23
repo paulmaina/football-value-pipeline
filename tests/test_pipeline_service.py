@@ -53,6 +53,7 @@ class ServiceTests(unittest.TestCase):
         json.dumps(rows, allow_nan=False)
         self.assertEqual([r['home_team'] for r in pipeline_service.predictions(raw, league='EPL')], ['Aston Villa'])
         self.assertEqual(len(pipeline_service.predictions(raw, league='bundesliga')), 1)
+        self.assertEqual(pipeline_service.predictions(raw, league='epl'), pipeline_service.predictions(raw, league='EPL'))
         self.assertEqual(len(pipeline_service.shortlist(raw, tier='strict')), 1)
         (raw / 'conservative_bet_shortlist.csv').write_text('tampered compatibility copy')
         self.assertEqual(len(pipeline_service.shortlist(raw)), 2)  # pointer-bound bundle wins

@@ -25,7 +25,10 @@ Do not edit immutable bundles. Backtests remain research outputs and are not
 registered as new live prediction generations.
 
 A writer lease rejects overlapping prediction/re-ranking writers in one raw
-directory. Ordinary exceptions roll back compatibility copies and retain the
+directory. A persistent `.prediction-run.guard` file uses an OS file lock
+(Unix flock / Windows byte-range lock) to serialize recovery, owner
+initialization and release. Never delete this guard file: its OS lock is
+automatically released if a process dies. Ordinary exceptions roll back compatibility copies and retain the
 previous pointer. The lock directory records its owner (`owner.json`: PID,
 host, process start time). A process killed before cleanup (closed terminal,
 sleep/restart, `taskkill /F`) leaves the lock, and the next run reclaims it

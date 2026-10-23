@@ -6,6 +6,7 @@ still uses its actual receipt time, including for runs uploaded together.
 from contextlib import contextmanager
 from datetime import datetime, timezone
 import hashlib
+import errno
 import json
 import logging
 import os
@@ -22,6 +23,7 @@ POINTER = 'current_run.json'
 MANIFEST = 'run_manifest.json'
 LOCK = '.prediction-run.lock'
 LOCK_OWNER = 'owner.json'
+LOCK_GUARD = '.prediction-run.guard'
 # An ownerless lock younger than this may belong to a writer that has created
 # the directory but not yet recorded itself; older ones are abandoned.
 OWNERLESS_LOCK_GRACE_SECONDS = 120
@@ -189,27 +191,69 @@ def _read_owner(lock):
         return None
 
 
+@contextmanager
+def lock_guard(raw):
+    """Serialize lock-directory changes with a crash-released OS file lock.
+
+    Keep the guard file permanently: unlinking it would let contenders lock
+    different inodes. The lease covers only metadata changes, not model fitting.
+    """
+    with (Path(raw)/LOCK_GUARD).open('a+b') as guard:
+        if guard.seek(0, os.SEEK_END) == 0:
+            guard.write(b'\0')
+            guard.flush()
+        guard.seek(0)
+        if os.name == 'nt':
+            import msvcrt
+            take = lambda: msvcrt.locking(guard.fileno(), msvcrt.LK_NBLCK, 1)
+            drop = lambda: msvcrt.locking(guard.fileno(), msvcrt.LK_UNLCK, 1)
+        else:
+            import fcntl
+            take = lambda: fcntl.flock(guard.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+            drop = lambda: fcntl.flock(guard.fileno(), fcntl.LOCK_UN)
+        deadline = time.monotonic() + 10
+        while True:
+            try:
+                take()
+                break
+            except OSError as exc:
+                if exc.errno not in (errno.EACCES, errno.EAGAIN):
+                    raise
+                if time.monotonic() >= deadline:
+                    raise RuntimeError('Prediction lock metadata is busy; retry the run') from exc
+                time.sleep(0.05)
+        try:
+            yield
+        finally:
+            guard.seek(0)
+            drop()
+
+
 def _discard_stale_lock(lock, owner_bytes):
-    """Atomically move an abandoned lock aside; False if it changed meanwhile."""
+    """Remove only the still-stale directory, with lock_guard already held."""
+    if not lock.exists():
+        return True
+    # Check before renaming; no other cooperating writer can change the lock
+    # until the metadata guard is released. Recheck age for ownerless locks.
+    if _read_owner(lock) != owner_bytes or not stale_lock_reason(lock, owner_bytes):
+        return False
     tombstone = lock.with_name(f'{LOCK}.stale-{uuid.uuid4().hex}')
     try:
         os.rename(lock, tombstone)
     except FileNotFoundError:
-        return True  # Already removed by someone else; retry acquisition.
+        return True
     except OSError:
-        return False
-    if _read_owner(tombstone) != owner_bytes:
-        # A new writer replaced the lock after it was judged stale: restore it.
-        try:
-            os.rename(tombstone, lock)
-        except OSError:
-            logging.getLogger(__name__).warning('Could not restore prediction-run lock %s', lock)
         return False
     shutil.rmtree(tombstone, ignore_errors=True)
     return True
 
 
 def acquire_lock(raw):
+    with lock_guard(raw):
+        return _acquire_lock(raw)
+
+
+def _acquire_lock(raw):
     """Create the writer lock, reclaiming one left by a process that died.
 
     The lock directory records its owner (PID, host, process start time).
@@ -239,13 +283,21 @@ def acquire_lock(raw):
         try:
             atomic_write(lock/LOCK_OWNER, encoded(lock_owner()))
         except BaseException:
-            release_lock(lock)
+            _release_lock(lock)
             raise
         return lock
     raise RuntimeError('Could not acquire prediction-run lock '+str(lock))
 
 
 def release_lock(lock):
+    try:
+        with lock_guard(lock.parent):
+            _release_lock(lock)
+    except (OSError, RuntimeError) as exc:
+        logging.getLogger(__name__).warning('Could not release prediction-run lock %s (%s)', lock, exc)
+
+
+def _release_lock(lock):
     """Retry Windows sharing/access denials without masking the run's outcome.
 
     A persistent failure leaves an ownerless lock in place; the next writer
@@ -289,7 +341,7 @@ def stage_run(raw, *, seed=False):
             sources = previous if seed else raw
             for source in sources.iterdir():
                 if source.is_file() and (seed or source.name.endswith('_goal_market_validation.json')):
-                    if source.name not in (POINTER, MANIFEST):
+                    if source.name not in (POINTER, MANIFEST, LOCK_GUARD):
                         shutil.copyfile(source, staging/source.name)
             yield staging
     finally:
@@ -322,7 +374,7 @@ def publish_run(staging, raw):
         staging.rename(target)
     with tempfile.TemporaryDirectory(prefix='.prediction-backup-', dir=raw.parent) as temporary:
         backup = Path(temporary)
-        old_files = [p for p in raw.iterdir() if p.is_file() and p.name != POINTER]
+        old_files = [p for p in raw.iterdir() if p.is_file() and p.name not in (POINTER, LOCK_GUARD)]
         overwritten = {raw/name for name in files if (raw/name).is_file()}
         for file in set(old_files) | overwritten:
             saved = backup/file.relative_to(raw)
