@@ -191,9 +191,8 @@ A missing, ambiguous or unverified result is **never called a win**.
 | Ligue1 | 2026-10-18 | 1743 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SerieA | 2026-10-19 | 1970 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-21 | 557 | 2 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
-| UEL | 2026-10-15 | 696 | 8 | STALE |
 
-Latest shortlist audit: {"selected_quotes": 10, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 10, "bookmakers": {"1xBet": 3, "Pinnacle": 7}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 10, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 12, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 12, "bookmakers": {"Pinnacle": 12}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 1, "upcoming_kickoff_count": 11, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
