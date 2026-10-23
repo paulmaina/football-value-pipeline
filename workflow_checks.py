@@ -311,7 +311,15 @@ def report_check(root):
             require(utc(row.get('snapshot_generated_utc'))==utc(original['snapshot_generated_utc']), 'Report generation provenance changed')
             require(utc(row.get('snapshot_captured_utc'))==utc(original['snapshot_captured_utc']), 'Report capture provenance changed')
         close(row.get('offered_decimal_odds'),number(original.get('offered_decimal_odds')),'Frozen selection price')
-        close(row.get('predicted_probability'),number(original.get('p_no_loss') if parse_handicap(row.get('market')) else original.get('rank_probability') or original.get('predicted_probability')),'Frozen selection probability')
+        # Win-first snapshots freeze the calibrated profitable-win ranking,
+        # not the raw p_profit or the legacy refund-inclusive p_no_loss.
+        probability_basis = original.get('probability_basis') or None
+        require((row.get('probability_basis') or None) == probability_basis,
+                'Report probability basis changed')
+        expected_probability = (original.get('rank_probability') if probability_basis == 'net_profit'
+            else original.get('p_no_loss') if parse_handicap(row.get('market'))
+            else original.get('rank_probability') or original.get('predicted_probability'))
+        close(row.get('predicted_probability'),number(expected_probability),'Frozen selection probability')
         from quote_policy import stake_cost
         close(row.get('per_stake_cost') or 0,stake_cost(original.get('per_stake_cost') or 0),'Frozen selection cost')
         require(row['selection_tier']==(original.get('selection_tier') or ('STRICT' if original.get('decision')=='SHORTLISTED' else 'PROVISIONAL')), 'Report selection tier changed')
@@ -328,7 +336,9 @@ def report_check(root):
                 require(row['status']==status,'Asian handicap settlement differs from regulation-time score')
                 close(row.get('unit_profit'),gain,'Asian handicap P&L')
                 p=number(row.get('predicted_probability'),min_value=0,max_value=1)
-                if p is not None: close(row.get('brier'),(p-int(gain >= -1e-12))**2,'Asian handicap no-loss Brier')
+                if p is not None:
+                    outcome = gain > 1e-12 if probability_basis == 'net_profit' else gain >= -1e-12
+                    close(row.get('brier'),(p-int(outcome))**2,'Asian handicap Brier')
                 continue
             won=result_for_market(row['market'],int(match[1]),int(match[2]))
             require(won is not None and won==(row['status']=='WON'), 'Outcome differs from regulation-time score')
