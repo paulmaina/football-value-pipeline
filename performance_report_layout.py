@@ -414,6 +414,101 @@ def add_experiments(parts, root, health, st):
     put_sheet(parts, 'Experiments', sheet)
 
 
+def clv_reading(n, t):
+    """Descriptive reading gated on independent fixture count."""
+    if not n or n < 30:
+        return 'Small sample'
+    if t is not None and t >= 2:
+        return 'Positive (t >= 2)'
+    if t is not None and t <= -2:
+        return 'Negative (t <= -2)'
+    return 'Not distinguishable from zero'
+
+
+def add_clv(parts, root, st):
+    """Candidate CLV sheet from clv_report outputs; never recomputes evidence."""
+    import csv
+    folder = Path(root) / 'performance' / 'clv_report'
+    summary = load(root, 'clv_report/summary.json')
+    sheet = Sheet()
+    title(sheet, 'Closing-line value',
+          'CLV = entry odds x Pinnacle fair closing probability - 1, for every priced candidate (shortlisted or not). '
+          'The t-ratio uses fixture-clustered uncertainty and is descriptive, not proof of a profitable edge. Near-kickoff quotes are not '
+          'guaranteed official closing prices; candidates from one fixture are not independent.',
+          [30, 22, 11, 11, 16, 13, 11, 16, 13, 30], st, (1, 6, 'A7'))
+    sheet.data.find(f"{q('row')}[@r='4']").set('ht', '48')
+    if summary.get('status') != 'OK':
+        sheet.put('A6', 'No CLV report yet. Run py clv_report.py or the daily performance review.', st['warning'])
+        sheet.merge('A6:J6')
+        put_sheet(parts, 'CLV', sheet)
+        return
+    sheet.put('A5', f"Generated UTC: {summary.get('generated_at_utc')}; {summary.get('candidates')} candidates on "
+                    f"{summary.get('fixtures')} fixtures. Source: performance/clv_report.", st['note'])
+    sheet.merge('A5:J5')
+    nr = 7
+    readings = []
+
+    def section(name, headers):
+        nonlocal nr
+        sheet.put(f'A{nr}', name, st['section']); sheet.merge(f'A{nr}:J{nr}'); nr += 1
+        sheet.row(nr, headers, st, True); nr += 1
+
+    def stat_row(values, percent_cols, t_col, reading_col):
+        nonlocal nr
+        sheet.row(nr, ['' if v is None else v for v in values], st)
+        for c in percent_cols:
+            sheet.cell(f'{c}{nr}').set('s', str(st['percent']))
+        sheet.cell(f'{t_col}{nr}').set('s', str(st['units']))
+        readings.append(f'{reading_col}{nr}')
+        nr += 1
+
+    section('Headline', ['Measure', 'Scope', 'n', 'Fixtures', 'Mean CLV', 'Positive', 't', '', '', 'Reading'])
+    for label_text, scope, key in (('CLV vs Pinnacle fair close', 'All candidates', 'overall_pinnacle_fair'),
+                                   ('CLV vs Pinnacle fair close', 'Shortlisted picks', 'shortlisted_pinnacle_fair'),
+                                   ('Same-book price CLV', 'Where the entry book was quoted', 'overall_same_book')):
+        s = summary.get(key) or {}
+        stat_row([label_text, scope, s.get('n'), s.get('independent_fixtures'), s.get('mean'), s.get('positive_share'), s.get('t_stat'),
+                  None, None, clv_reading(s.get('independent_fixtures'), s.get('t_stat'))], 'EF', 'G', 'J')
+    nr += 1
+    move = summary.get('market_move_towards_model') or {}
+    section('Does the closing price move towards the model?',
+            ['Test', 'Scope', 'n', '', 'Correlation', 'Same direction', '', '', '', 'Reading'])
+    verdict = ('Small sample' if (move.get('n') or 0) < 30 else
+               'Descriptive only; no significance test')
+    sheet.row(nr, ['Model gap vs later price move', 'Fixture averages, binary markets', move.get('n'), '',
+                   move.get('correlation'), move.get('sign_agreement'), '', '', '', verdict], st)
+    sheet.cell(f'E{nr}').set('s', str(st['decimal'])); sheet.cell(f'F{nr}').set('s', str(st['percent']))
+    readings.append(f'J{nr}'); nr += 3
+
+    for name, filename, keys in (('By market and entry bookmaker', 'by_market_bookmaker.csv', ['market_family', 'entry_bookmaker']),
+                                 ('By hours before kickoff at entry', 'by_hours_before_kickoff.csv', ['hours_bucket']),
+                                 ('Shortlisted vs not selected', 'by_decision.csv', ['decision_group']),
+                                 ('By league', 'by_league.csv', ['league'])):
+        path = folder / filename
+        if not path.exists():
+            continue
+        with path.open(encoding='utf-8', newline='') as handle:
+            records = list(csv.DictReader(handle))
+        # Largest samples first so small-sample extremes do not lead the table.
+        records.sort(key=lambda r: -float(r['pinnacle_fair_n'] or 0))
+        section(name, ['Market' if len(keys) == 2 else 'Group', 'Entry bookmaker' if len(keys) == 2 else '',
+                       'n', 'Fixtures', 'Mean CLV', 'Positive', 't', 'Same-book CLV', 'Same-book n', 'Reading'])
+        for r in records:
+            n, t = int(float(r['pinnacle_fair_n'] or 0)), (float(r['pinnacle_fair_t_stat']) if r['pinnacle_fair_t_stat'] else None)
+            value = lambda k: float(r[k]) if r.get(k) not in (None, '') else None
+            stat_row([r[keys[0]], r[keys[1]] if len(keys) == 2 else '', n, int(float(r['fixtures'])),
+                      value('pinnacle_fair_mean'), value('pinnacle_fair_positive_share'), t,
+                      value('same_book_mean'), int(float(r['same_book_n'] or 0)), clv_reading(int(float(r['fixtures'])), t)],
+                     'EFH', 'G', 'J')
+        nr += 2
+    for ref in readings:
+        status_rules(sheet, ref, st, [('ready', ['Positive (t >= 2)', 'Model carries information']),
+                                      ('error', ['Negative (t <= -2)', 'No information beyond the market']),
+                                      ('warning', ['Small sample', 'Not distinguishable from zero'])])
+    link(sheet, f'A{nr}', 'Dashboard', 'Back to dashboard', st)
+    put_sheet(parts, 'CLV', sheet)
+
+
 def add_health(parts, data, history, st):
     sheet = Sheet(); title(sheet, 'Pipeline health', 'Health describes collection and evidence coverage. Recent result dates alone do not verify source completeness.',
         [28, 23, 18, 22, 36, 44], st, (1, 6, 'B7'))
@@ -498,6 +593,7 @@ def add_guide(parts, st):
         ['Log loss','Penalty assigned to the probability of the observed outcome.','Lower is better. Compare candidates on the same fixtures.'],
         ['Calibration gap','Mean forecast probability minus observed win rate on the same scored selections.','Closer to zero is better. Positive indicates overconfidence; negative indicates underconfidence.'],
         ['Same-book offer CLV','Frozen offered odds divided by observed near-close odds at the same bookmaker, minus one.','Positive means a better earlier offered price. Quotes are not accepted prices or guaranteed official closing odds.'],
+        ['Candidate CLV','Entry odds x Pinnacle fair closing probability - 1, for every priced candidate, shortlisted or not (CLV sheet).','Uncertainty is clustered by fixture; readings require at least 30 independent fixtures. Descriptive price movements do not establish an edge.'],
         ['Fair-close EV','Binary reference EV only. Asian handicap fair-close EV is unavailable without a settlement-aware margin distribution.','Positive indicates value relative to that observed reference. Coverage must be shown.'],
         ['Verified coverage','Share of verified in-scope fixtures with a usable paired candidate forecast.','Use each versioned trial\'s registered minimum. Missing coverage remains unavailable.'],
         ['Initial review','Original sidecars: at least 28 collection days and 30 settled observations.','An initial look permits review, not promotion or a profitability claim.'],
@@ -730,10 +826,11 @@ def format_report(destination, root, health=None, history=None):
     st=styles(parts);ledger_layout(parts,st)
     add_experiments(parts,root,health,st);add_trends(parts,st);add_guide(parts,st);add_run_tracking(parts,root,st)
     if health is not None:add_health(parts,health,history,st)
+    add_clv(parts,root,st)
     dashboard(parts,st,health,experiment_rows(root,health))
     # Show monitoring views first; source and simulation tabs remain available.
     wb=ET.fromstring(parts['xl/workbook.xml']);sheets=wb.find(q('sheets'))
-    order=['Dashboard','Run Tracking','Experiments','Pipeline Health','Weekly Trends','Breakdowns','Calibration','Selections','Predictions','ROI Plan','Capture Details','Metric Guide']
+    order=['Dashboard','Run Tracking','Experiments','Pipeline Health','CLV','Weekly Trends','Breakdowns','Calibration','Selections','Predictions','ROI Plan','Capture Details','Metric Guide']
     sheets[:]=sorted(sheets,key=lambda s:order.index(s.get('name')) if s.get('name') in order else len(order))
     parts['xl/workbook.xml']=xml_bytes(wb)
     fd,name=tempfile.mkstemp(prefix='layout.',suffix='.tmp',dir=destination.parent);os.close(fd)

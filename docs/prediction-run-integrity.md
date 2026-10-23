@@ -25,10 +25,18 @@ Do not edit immutable bundles. Backtests remain research outputs and are not
 registered as new live prediction generations.
 
 A writer lease rejects overlapping prediction/re-ranking writers in one raw
-directory. Ordinary exceptions roll back compatibility copies and retain the
-previous pointer. A force-killed process may leave a lock or staging directory.
-Verify no prediction or refresh process is still running before removing the
-`raw/.prediction-run.lock` directory. Then rerun normally. If the pointer is
+directory. A persistent `.prediction-run.guard` file uses an OS file lock
+(Unix flock / Windows byte-range lock) to serialize recovery, owner
+initialization and release. Never delete this guard file: its OS lock is
+automatically released if a process dies. Ordinary exceptions roll back compatibility copies and retain the
+previous pointer. The lock directory records its owner (`owner.json`: PID,
+host, process start time). A process killed before cleanup (closed terminal,
+sleep/restart, `taskkill /F`) leaves the lock, and the next run reclaims it
+automatically. It does that only when the owner process is provably gone on
+this host (including a recycled PID), or when the lock has had no owner record
+for 2 minutes. A live writer, or an owner on another host, still blocks the
+run, and the error names the owning PID, host and start time. Manual removal
+is only needed for a lock owned by another machine. If the pointer is
 invalid, recover its exact original file/bundle from Git rather than editing
 checksums to accept changed data. Distinct run directories can coexist safely
 through ordinary Git reconciliation; never merge the contents of two bundles.
@@ -36,10 +44,10 @@ Keep one valid pointer and matching compatibility copies, and run
 `py workflow_checks.py raw` after resolving a Git conflict.
 
 Windows access/sharing denials during lock removal are retried for up to 3.1
-seconds. A persistent cleanup failure logs a warning and leaves the lock in
-place; it does not turn a successful publication into an error or hide an
-earlier generation/publication exception. Before removing a leftover lock,
-verify the writer has stopped. Use `py workflow_checks.py raw` to validate the
+seconds. A persistent cleanup failure logs a warning and leaves an ownerless
+lock, which the next run reclaims after the grace period. It does not turn a
+successful publication into an error or hide an earlier
+generation/publication exception. Use `py workflow_checks.py raw` to validate the
 currently published generation before deciding whether another run is needed.
 
 The standalone shortlist refresh also publishes a new complete bundle. It

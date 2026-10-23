@@ -1,0 +1,103 @@
+{
+  "version": "candidate-clv-v2-validated-fixture-clustered",
+  "generated_at_utc": "2026-10-23T13:57:47.363421+00:00",
+  "status": "OK",
+  "candidates": 748,
+  "fixtures": 81,
+  "uncertainty_method": "fixture-cluster-robust",
+  "rejected_observation_files": [],
+  "entry_files": 65,
+  "overall_pinnacle_fair": {
+    "n": 748,
+    "independent_fixtures": 81,
+    "mean": -0.03007434123581643,
+    "median": -0.027604785674766485,
+    "positive_share": 0.31283422459893045,
+    "standard_error": 0.00467375634389575,
+    "t_stat": -6.434725951235264
+  },
+  "overall_same_book": {
+    "n": 362,
+    "independent_fixtures": 75,
+    "mean": 0.011992233185179982,
+    "median": 0.013158147856029756,
+    "positive_share": 0.569060773480663,
+    "standard_error": 0.004824765070139387,
+    "t_stat": 2.485557951702201
+  },
+  "shortlisted_pinnacle_fair": {
+    "n": 45,
+    "independent_fixtures": 34,
+    "mean": -0.03503041166150643,
+    "median": -0.023238959315262542,
+    "positive_share": 0.2222222222222222,
+    "standard_error": 0.01189976483155563,
+    "t_stat": -2.943790247737777
+  },
+  "market_move_towards_model": {
+    "n": 81,
+    "correlation": -0.13123466937425185,
+    "sign_agreement": 0.5061728395061729,
+    "mean_abs_model_gap": 0.014496384426101579,
+    "mean_abs_market_move": 0.005226583663067516
+  },
+  "positive_cells": [
+    {
+      "market_family": "1X2",
+      "entry_bookmaker": "GTbets",
+      "mean": 0.06471329033640687,
+      "n": 3,
+      "fixtures": 3,
+      "t_stat": 1.2442400621601746
+    },
+    {
+      "market_family": "1X2",
+      "entry_bookmaker": "Coolbet",
+      "mean": 0.06443822042825657,
+      "n": 12,
+      "fixtures": 12,
+      "t_stat": 1.6595061855770286
+    },
+    {
+      "market_family": "BTTS",
+      "entry_bookmaker": "Matchbook",
+      "mean": 0.032548831729307004,
+      "n": 1,
+      "fixtures": 1,
+      "t_stat": null
+    },
+    {
+      "market_family": "1X2",
+      "entry_bookmaker": "LeoVegas (SE)",
+      "mean": 0.021874811291622775,
+      "n": 6,
+      "fixtures": 4,
+      "t_stat": 0.42694411633106255
+    },
+    {
+      "market_family": "1X2",
+      "entry_bookmaker": "Unibet (NL)",
+      "mean": 0.021583582951760112,
+      "n": 16,
+      "fixtures": 16,
+      "t_stat": 0.502795632889905
+    },
+    {
+      "market_family": "1X2",
+      "entry_bookmaker": "Nordic Bet",
+      "mean": 0.010329997595692099,
+      "n": 9,
+      "fixtures": 9,
+      "t_stat": 0.15896963310845477
+    },
+    {
+      "market_family": "1X2",
+      "entry_bookmaker": "Betfair",
+      "mean": 0.004796019031165723,
+      "n": 41,
+      "fixtures": 34,
+      "t_stat": 0.2619409908776814
+    }
+  ],
+  "automatic_production_change": false
+}

@@ -19,8 +19,9 @@ Every successful prediction run is saved under raw/prediction_runs/<run-id>.
 raw/current_run.json selects one complete validated generation. Standard readers
 follow it; raw root files are compatibility copies. Failed generation does not
 switch the current run. Do not edit immutable bundles or current_run.json.
-If a process is force-killed and leaves raw/.prediction-run.lock, verify that
-no prediction or refresh process is running before removing that lock directory.
+A lock left by a force-killed process is reclaimed automatically by the next
+run (owner PID/host/start time are checked); manual removal is only needed for
+a lock owned by another machine.
 
 Commit/push complete raw outputs, including all run bundles, BEFORE kickoff.
 Multiple runs can be uploaded together; each is preserved separately. Forward
