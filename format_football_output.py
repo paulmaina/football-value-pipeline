@@ -1158,6 +1158,10 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
                 if not is_missing(item.get("historical_gap_score")) else "—"
             ),
         })
+    if 'market_group' in df.columns:
+        columns.append('Market group')
+        for result, (_, original) in zip(rows, df.iterrows()):
+            result['Market group'] = original.get('market_group') if not is_missing(original.get('market_group')) else '—'
     if 'selection_score' in df.columns:
         for output, source in [('Combined ranking score', 'selection_score'),
                                ('Probability percentile', 'probability_percentile'),
@@ -1236,7 +1240,8 @@ def process_conservative_shortlist(
 
     summary = load_json_file(input_dir / "conservative_bet_summary.json")
     balanced = summary.get('selection_objective') == 'BALANCED_PROBABILITY_EV'
-    win_first = summary.get('selection_objective') == 'MAXIMIZE_PROFITABLE_WIN_PROBABILITY'
+    per_market = summary.get('selection_objective') == 'PER_MARKET_BALANCED_PROBABILITY_EV'
+    win_first = per_market or summary.get('selection_objective') == 'MAXIMIZE_PROFITABLE_WIN_PROBABILITY'
     probability_first = balanced or win_first or summary.get('selection_objective') == 'PROBABILITY_FIRST'
     if "decision" in raw.columns:
         # Fail closed if a mistakenly supplied mixed decision file slips in.
@@ -1297,8 +1302,20 @@ def process_conservative_shortlist(
             '**Value:** no fixed probability or EV cutoff. Negative adjusted EV is explicitly flagged; high winning probability does not imply a profitable price.',
             '**Availability:** only quoted Pinnacle and bet365 selections. Fewer than twelve are returned when usable quotes or validated evidence are insufficient.',
         ]
+    if per_market:
+        cap = summary.get('max_per_market_group')
+        ranking_notes[0] = (f"**Ranking:** within each market group, 50% adjusted-probability percentile + 50% adjusted-EV percentile; "
+                            f"at most {cap} per group and {target} in total; one market per match, claimed by the higher combined score. "
+                            "All Asian handicap lines and sides form one group; Draw is excluded.")
+        ranking_notes[3] = ('**Availability:** only quoted Pinnacle and bet365 selections. A group with fewer eligible candidates '
+                            'keeps its empty slots; they are never filled from another group.')
+        ranking_notes.append('Percentiles and the combined score are relative ranks within a market group, not win probabilities.')
+        negative = summary.get('negative_adjusted_ev_markets') or []
+        ranking_notes.append(f"**Negative adjusted EV:** {len(negative)} of {count} selections"
+                             + (": " + "; ".join(negative) + "." if negative else "."))
 
     lines = [
+        f"# Up to {summary.get('max_per_market_group')} matches per market group (maximum {target})" if per_market else
         f"# Top {target} probability-and-EV-ranked matches" if balanced else f"# Top {target} probability-ranked matches" if probability_first else "# Conservative shortlisted matches and markets",
         "",
         refresh_note,
@@ -1345,12 +1362,19 @@ def process_conservative_shortlist(
             headers += ['Full win chance', 'Half win chance', 'Value warning', 'Quote checked (UTC)']
         if balanced:
             headers = ['Combined ranking score', *headers]
+        if per_market:
+            headers = ['Market group', 'Combined ranking score', *headers]
         lines.append(markdown_table(
             headers,
             [[r[c] for c in headers] for _, r in readable.iterrows()],
         ))
     else:
         lines.append("_No qualifying matches were shortlisted. No bet is a valid outcome._")
+    if per_market:
+        lines += ['', '## Shortfall by market group', '',
+                  markdown_table(['Market group', 'Eligible matches', 'Selected', 'Empty slots'],
+                                 [[group, str(v['eligible_fixtures']), str(v['selected']), str(v['shortfall'])]
+                                  for group, v in (summary.get('group_shortfall') or {}).items()])]
 
     if show_alternatives:
         lines += ['', '## Qualifying alternatives for comparison', '',

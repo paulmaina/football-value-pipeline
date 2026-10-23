@@ -153,7 +153,8 @@ class WinFirstTests(OfflineQuotePolicyTestCase):
         picks,_,summary=select([])
         self.assertTrue(picks.empty)
         self.assertEqual(summary['selection_policy_version'],WIN_POLICY)
-        self.assertEqual(ah.CURRENT_POLICY,WIN_POLICY)
+        # v24 is current; v23 remains dispatchable for archived replay.
+        self.assertIn(WIN_POLICY,ah.POLICIES)
         with self.assertRaises(ValueError):
             ah.build_shortlist(pd.DataFrame([row()]),NOW,reports(),adjusted_ev_floor=.01,policy_version=WIN_POLICY)
 
