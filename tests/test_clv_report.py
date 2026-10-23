@@ -2,7 +2,7 @@ import json
 import math
 import tempfile
 import unittest
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 import pandas as pd
@@ -19,7 +19,41 @@ def quote(book, selection, odds, fair=None):
 
 
 def observation(observed, quotes, fixture=FIXTURE):
-    return {'fixture': fixture, 'observed_at_utc': observed, 'quotes': quotes, 'payload': {}}
+    """Build real collector evidence, including payload, timestamps and devig."""
+    from closing_odds import normalize
+    from performance_tracking import utc
+    books = {}
+    for q in quotes:
+        books.setdefault(q['bookmaker'], []).append(q)
+    payload = {'id': fixture['odds_event_id'], 'commence_time': fixture['kickoff_utc'],
+               'home_team': fixture['home_team'], 'away_team': fixture['away_team'], 'bookmakers': []}
+    updated = (utc(observed) - timedelta(seconds=1)).isoformat()
+    for book, rows in books.items():
+        markets = []
+        sides = {q['selection']: q for q in rows if q['selection'] in ('home', 'draw', 'away')}
+        if sides:
+            probabilities = {k: 1 / q['decimal_odds'] for k, q in sides.items()}
+            if book == 'pinnacle' and len(sides) == 1:
+                probabilities = {k: q['fair_probability'] or 1 / q['decimal_odds'] for k, q in sides.items()}
+            for side in ('home', 'draw', 'away'):
+                if side not in probabilities:
+                    probabilities[side] = (1 - sum(probabilities.values())) / (3 - len(probabilities))
+            markets.append({'key': 'h2h', 'last_update': updated, 'outcomes': [
+                {'name': fixture['home_team'] if k == 'home' else fixture['away_team'] if k == 'away' else 'Draw',
+                 'price': 1 / p} for k, p in probabilities.items()]})
+        for q in rows:
+            if q['selection'].startswith('over_'):
+                line = float(q['selection'][5:].replace('_', '.'))
+                markets.append({'key': 'totals', 'last_update': updated, 'outcomes': [
+                    {'name': 'Over', 'point': line, 'price': q['decimal_odds']},
+                    {'name': 'Under', 'point': line, 'price': 1 / (1 - 1 / q['decimal_odds'])}]})
+        handicaps = [q for q in rows if q['selection'].startswith('Asian Handicap')]
+        if handicaps:
+            markets.append({'key': 'spreads', 'last_update': updated, 'outcomes': [
+                {'name': fixture['home_team'] if 'Home' in q['selection'] else fixture['away_team'],
+                 'point': float(q['selection'].split()[-1]), 'price': q['decimal_odds']} for q in handicaps]})
+        payload['bookmakers'].append({'key': book, 'last_update': updated, 'markets': markets})
+    return normalize(fixture, payload, utc(observed))
 
 
 def decision(market, odds, bookmaker, evaluated='2026-10-17T10:00:00+00:00', **extra):
@@ -31,7 +65,7 @@ def decision(market, odds, bookmaker, evaluated='2026-10-17T10:00:00+00:00', **e
 def write_root(root, observations, decisions_by_file):
     (root / 'closing_odds' / 'observations').mkdir(parents=True)
     for i, obs in enumerate(observations):
-        (root / 'closing_odds' / 'observations' / f'{i}.json').write_text(json.dumps(obs))
+        (root / 'closing_odds' / 'observations' / f"{__import__('closing_odds').digest(obs)}.json").write_text(json.dumps(obs))
     (root / 'raw' / 'shortlist_history').mkdir(parents=True)
     for i, rows in enumerate(decisions_by_file):
         pd.DataFrame(rows).to_csv(root / 'raw' / 'shortlist_history' / f'conservative_decisions_{i}.csv', index=False)
@@ -73,7 +107,7 @@ class ReportTests(unittest.TestCase):
         self.directory.cleanup()
 
     def test_clv_measures_latest_entry_and_close(self):
-        early = observation('2026-10-18T16:20:00+00:00', [quote('pinnacle', 'home', 2.2, 0.45)])
+        early = observation('2026-10-18T16:24:30+00:00', [quote('pinnacle', 'home', 2.2, 0.45)])
         late = observation('2026-10-18T16:26:00+00:00', CLOSE)
         write_root(self.root, [late, early], [
             [decision('Home win', 2.6, '1xBet', evaluated='2026-10-16T10:00:00+00:00')],
@@ -87,10 +121,11 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(sorted(frame.index), ['Asian Handicap Home -0.50', 'Home win', 'Over 2.5'])
         home = frame.loc['Home win']
         self.assertEqual(home['offered_decimal_odds'], 2.7)  # latest pre-kickoff evaluation
-        self.assertAlmostEqual(home['clv_vs_pinnacle_fair'], 2.7 * 0.38 - 1)  # latest observation wins
+        fair_home = clv_report.fair_closing_prices(late['quotes'])['home']
+        self.assertAlmostEqual(home['clv_vs_pinnacle_fair'], 2.7 * fair_home - 1)  # latest observation wins
         self.assertAlmostEqual(home['same_book_price_clv'], 2.7 / 2.45 - 1)
         self.assertAlmostEqual(home['model_gap'], 0.06)
-        self.assertAlmostEqual(home['market_move'], 0.02)
+        self.assertAlmostEqual(home['market_move'], fair_home - 0.36)
         self.assertEqual(home['hours_bucket'], '24-48h')  # 30.5 hours before kickoff
         handicap = frame.loc['Asian Handicap Home -0.50']
         self.assertTrue(math.isnan(handicap['model_gap']))
@@ -103,7 +138,7 @@ class ReportTests(unittest.TestCase):
         for i, (gap, move) in enumerate(moves):
             fixture = {**FIXTURE, 'home_team': f'Home{i}', 'kickoff_utc': f'2026-10-1{i}T16:30:00+00:00'}
             observations.append(observation(f'2026-10-1{i}T16:26:00+00:00', [quote('pinnacle', 'home', 2.0, 0.5 + move)], fixture))
-            rows.append({**decision('Home win', 2.1, 'Coolbet', evaluated=f'2026-10-1{i}T10:00:00+00:00',
+            rows.append({**decision('Home win', 2.1, 'Pinnacle', evaluated=f'2026-10-1{i}T10:00:00+00:00',
                                     market_probability=0.5, raw_dc_probability=0.5 + gap),
                          'home_team': f'Home{i}', 'kickoff_utc': fixture['kickoff_utc']})
         write_root(self.root, observations, [rows])
@@ -113,13 +148,13 @@ class ReportTests(unittest.TestCase):
         self.assertEqual((summary['candidates'], summary['fixtures'], summary['generated_at_utc']),
                          (4, 4, clock.isoformat()))
         self.assertEqual(summary['market_move_towards_model']['sign_agreement'], 0.75)
-        self.assertEqual(summary['positive_cells'][0]['entry_bookmaker'], 'Coolbet')
+        self.assertEqual(summary['positive_cells'][0]['entry_bookmaker'], 'Pinnacle')
         self.assertFalse(summary['automatic_production_change'])
         for name in ('candidates.csv', 'by_market_bookmaker.csv', 'by_hours_before_kickoff.csv', 'summary.json', 'report.md'):
             self.assertTrue((out / name).is_file(), name)
         json.loads((out / 'summary.json').read_text())
         report = (out / 'report.md').read_text(encoding='utf-8')
-        self.assertIn('1X2 @ Coolbet', report)
+        self.assertIn('1X2 @ Pinnacle', report)
         self.assertIn('sign agreement 75%', report)
 
     def test_empty_inputs_and_statistics_helpers(self):
@@ -167,7 +202,7 @@ class WorkbookSheetTests(unittest.TestCase):
             parts = self.parts(); st = styles(parts)
             add_clv(parts, root, st)
             self.assertIn('No CLV report yet', self.clv_sheet_text(parts))
-            rows = [{**decision('Home win', 2.1, 'Coolbet', evaluated=f'2026-10-1{i}T10:00:00+00:00',
+            rows = [{**decision('Home win', 2.1, 'Pinnacle', evaluated=f'2026-10-1{i}T10:00:00+00:00',
                                 market_probability=0.5, raw_dc_probability=0.55),
                      'home_team': f'Home{i}', 'kickoff_utc': f'2026-10-1{i}T16:30:00+00:00'} for i in range(3)]
             observations = [observation(f'2026-10-1{i}T16:26:00+00:00', [quote('pinnacle', 'home', 2.0, 0.5)],
@@ -178,8 +213,60 @@ class WorkbookSheetTests(unittest.TestCase):
             add_clv(parts, root, st)  # replaces the placeholder sheet
             text = self.clv_sheet_text(parts)
             self.assertNotIn('No CLV report yet', text)
-            for expected in ('Headline', 'Shortlisted picks', 'By market and entry bookmaker', 'Coolbet', 'Small sample'):
+            for expected in ('Headline', 'Shortlisted picks', 'By market and entry bookmaker', 'Pinnacle', 'Small sample'):
                 self.assertIn(expected, text)
         self.assertEqual([clv_reading(n, t) for n, t in ((10, 5), (40, 2.5), (40, -3), (40, 0.5), (40, None))],
                          ['Small sample', 'Positive (t >= 2)', 'Negative (t <= -2)',
                           'Not distinguishable from zero', 'Not distinguishable from zero'])
+
+
+class EvidenceRegressionTests(unittest.TestCase):
+    def test_invalid_closing_evidence_is_rejected_and_reported(self):
+        import copy
+        from closing_odds import digest
+        from performance_tracking import utc
+        valid = observation('2026-10-18T16:26:00+00:00', CLOSE)
+        bad = []
+        for timestamp in ('2026-10-18T16:31:00+00:00', '2026-10-18T15:00:00+00:00'):
+            obs = copy.deepcopy(valid)
+            obs['observed_at_utc'] = timestamp
+            bad.append(obs)
+        tampered = copy.deepcopy(valid)
+        tampered['quotes'][0]['fair_probability'] = 0.99
+        bad.append(tampered)
+        stale = copy.deepcopy(valid)
+        for book in stale['payload']['bookmakers']:
+            for market in book['markets']:
+                market['last_update'] = '2026-10-18T16:00:00+00:00'
+        bad.append(stale)
+        for obs in bad:
+            with self.subTest(obs=obs['observed_at_utc']), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                write_root(root, [obs], [[decision('Home win', 2.7, 'Pinnacle')]])
+                summary = clv_report.build_report(root, clock=utc('2026-10-18T18:00:00+00:00'))
+                self.assertEqual(summary['candidates'], 0)
+                self.assertEqual(summary['rejected_observation_files'], [digest(obs)+'.json'])
+
+    def test_close_must_follow_entry_match_exact_kickoff_and_not_exceed_clock(self):
+        from performance_tracking import utc
+        valid = observation('2026-10-18T16:26:00+00:00', CLOSE)
+        for entry, clock in ((decision('Home win', 2.7, 'Pinnacle', evaluated='2026-10-18T16:28:00+00:00'), None),
+                             ({**decision('Home win', 2.7, 'Pinnacle'), 'kickoff_utc': '2026-10-18T16:40:00+00:00'}, None),
+                             (decision('Home win', 2.7, 'Pinnacle'), utc('2026-10-18T16:25:00+00:00'))):
+            with self.subTest(entry=entry, clock=clock), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                write_root(root, [valid], [[entry]])
+                self.assertTrue(clv_report.candidate_clv(root, clock=clock).empty)
+
+    def test_repeated_markets_do_not_increase_independent_fixture_confidence(self):
+        values = pd.Series([.01, .01, .01, .01, .01, -.02])
+        fixtures = pd.Series(list('abcdef'))
+        original = clv_report.summarize(values, fixtures)
+        repeated = clv_report.summarize(pd.concat([values]*20, ignore_index=True),
+                                        pd.concat([fixtures]*20, ignore_index=True))
+        self.assertEqual(repeated['n'], 120)
+        self.assertEqual(repeated['independent_fixtures'], 6)
+        self.assertAlmostEqual(original['standard_error'], repeated['standard_error'])
+        self.assertAlmostEqual(original['t_stat'], repeated['t_stat'])
+        from performance_report_layout import clv_reading
+        self.assertEqual(clv_reading(repeated['independent_fixtures'], repeated['t_stat']), 'Small sample')

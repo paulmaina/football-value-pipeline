@@ -415,7 +415,7 @@ def add_experiments(parts, root, health, st):
 
 
 def clv_reading(n, t):
-    """Plain-language verdict for one CLV row."""
+    """Descriptive reading gated on independent fixture count."""
     if not n or n < 30:
         return 'Small sample'
     if t is not None and t >= 2:
@@ -433,7 +433,7 @@ def add_clv(parts, root, st):
     sheet = Sheet()
     title(sheet, 'Closing-line value',
           'CLV = entry odds x Pinnacle fair closing probability - 1, for every priced candidate (shortlisted or not). '
-          'Positive CLV with t >= 2 on a large sample is the evidence of edge. Near-kickoff feed quotes are not '
+          'The t-ratio uses fixture-clustered uncertainty and is descriptive, not proof of a profitable edge. Near-kickoff quotes are not '
           'guaranteed official closing prices; candidates from one fixture are not independent.',
           [30, 22, 11, 11, 16, 13, 11, 16, 13, 30], st, (1, 6, 'A7'))
     sheet.data.find(f"{q('row')}[@r='4']").set('ht', '48')
@@ -462,23 +462,21 @@ def add_clv(parts, root, st):
         readings.append(f'{reading_col}{nr}')
         nr += 1
 
-    section('Headline', ['Measure', 'Scope', 'n', '', 'Mean CLV', 'Positive', 't', '', '', 'Reading'])
+    section('Headline', ['Measure', 'Scope', 'n', 'Fixtures', 'Mean CLV', 'Positive', 't', '', '', 'Reading'])
     for label_text, scope, key in (('CLV vs Pinnacle fair close', 'All candidates', 'overall_pinnacle_fair'),
                                    ('CLV vs Pinnacle fair close', 'Shortlisted picks', 'shortlisted_pinnacle_fair'),
                                    ('Same-book price CLV', 'Where the entry book was quoted', 'overall_same_book')):
         s = summary.get(key) or {}
-        stat_row([label_text, scope, s.get('n'), None, s.get('mean'), s.get('positive_share'), s.get('t_stat'),
-                  None, None, clv_reading(s.get('n'), s.get('t_stat'))], 'EF', 'G', 'J')
+        stat_row([label_text, scope, s.get('n'), s.get('independent_fixtures'), s.get('mean'), s.get('positive_share'), s.get('t_stat'),
+                  None, None, clv_reading(s.get('independent_fixtures'), s.get('t_stat'))], 'EF', 'G', 'J')
     nr += 1
     move = summary.get('market_move_towards_model') or {}
     section('Does the closing price move towards the model?',
             ['Test', 'Scope', 'n', '', 'Correlation', 'Same direction', '', '', '', 'Reading'])
-    agreement = move.get('sign_agreement')
     verdict = ('Small sample' if (move.get('n') or 0) < 30 else
-               'Model carries information' if agreement is not None and agreement >= .55 and (move.get('correlation') or 0) > .1
-               else 'No information beyond the market')
-    sheet.row(nr, ['Model gap vs later price move', 'Binary markets with entry reference', move.get('n'), '',
-                   move.get('correlation'), agreement, '', '', '', verdict], st)
+               'Descriptive only; no significance test')
+    sheet.row(nr, ['Model gap vs later price move', 'Fixture averages, binary markets', move.get('n'), '',
+                   move.get('correlation'), move.get('sign_agreement'), '', '', '', verdict], st)
     sheet.cell(f'E{nr}').set('s', str(st['decimal'])); sheet.cell(f'F{nr}').set('s', str(st['percent']))
     readings.append(f'J{nr}'); nr += 3
 
@@ -500,7 +498,7 @@ def add_clv(parts, root, st):
             value = lambda k: float(r[k]) if r.get(k) not in (None, '') else None
             stat_row([r[keys[0]], r[keys[1]] if len(keys) == 2 else '', n, int(float(r['fixtures'])),
                       value('pinnacle_fair_mean'), value('pinnacle_fair_positive_share'), t,
-                      value('same_book_mean'), int(float(r['same_book_n'] or 0)), clv_reading(n, t)],
+                      value('same_book_mean'), int(float(r['same_book_n'] or 0)), clv_reading(int(float(r['fixtures'])), t)],
                      'EFH', 'G', 'J')
         nr += 2
     for ref in readings:
@@ -595,7 +593,7 @@ def add_guide(parts, st):
         ['Log loss','Penalty assigned to the probability of the observed outcome.','Lower is better. Compare candidates on the same fixtures.'],
         ['Calibration gap','Mean forecast probability minus observed win rate on the same scored selections.','Closer to zero is better. Positive indicates overconfidence; negative indicates underconfidence.'],
         ['Same-book offer CLV','Frozen offered odds divided by observed near-close odds at the same bookmaker, minus one.','Positive means a better earlier offered price. Quotes are not accepted prices or guaranteed official closing odds.'],
-        ['Candidate CLV','Entry odds x Pinnacle fair closing probability - 1, for every priced candidate, shortlisted or not (CLV sheet).','Positive with t >= 2 on a large sample indicates edge. Same direction near 50% means price moves ignore the model.'],
+        ['Candidate CLV','Entry odds x Pinnacle fair closing probability - 1, for every priced candidate, shortlisted or not (CLV sheet).','Uncertainty is clustered by fixture; readings require at least 30 independent fixtures. Descriptive price movements do not establish an edge.'],
         ['Fair-close EV','Binary reference EV only. Asian handicap fair-close EV is unavailable without a settlement-aware margin distribution.','Positive indicates value relative to that observed reference. Coverage must be shown.'],
         ['Verified coverage','Share of verified in-scope fixtures with a usable paired candidate forecast.','Use each versioned trial\'s registered minimum. Missing coverage remains unavailable.'],
         ['Initial review','Original sidecars: at least 28 collection days and 30 settled observations.','An initial look permits review, not promotion or a profitability claim.'],
