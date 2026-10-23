@@ -53,6 +53,65 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertIsNone(result['shortlist']['win_rate'])
         self.assertIsNone(result['shortlist']['flat_stake_roi'])
 
+    def probability_basis_review(self, basis, market='Asian Handicap Home +0.00', *, legacy_first=False):
+        captured_at=T0
+        if legacy_first:
+            legacy=dict(pick(market=market),rank_probability=.55,p_no_loss=.85,
+                        probability_basis='net_no_loss')
+            pd.DataFrame([legacy]).to_csv(self.root/'raw/conservative_bet_shortlist.csv',index=False)
+            capture('1'*40,root=self.root,captured_at=T0)
+            captured_at=T0+timedelta(minutes=1)
+            summary_path=self.root/'raw/conservative_bet_summary.json'
+            summary=json.loads(summary_path.read_text())
+            summary['generated_at_utc']=captured_at.isoformat()
+            write_json(summary_path,summary)
+        selected = dict(pick(market=market), rank_probability=.55,
+                        predicted_probability=.65, p_profit=.65, p_no_loss=.85)
+        if basis is not None:
+            selected['probability_basis'] = basis
+        pd.DataFrame([selected]).to_csv(self.root/'raw/conservative_bet_shortlist.csv',index=False)
+        capture(SHA,root=self.root,captured_at=captured_at)
+        record=verified_record('PL',final(h=1,a=1))
+        write_json(self.root/'performance/verified_results.json',{'PL:90002':record})
+        with patch('performance_tracking.collect_results',return_value=([record],{})):
+            review(root=self.root,clock=KICK+timedelta(days=1))
+        return report_check(self.root)
+
+    def test_win_first_refund_uses_calibrated_profit_probability_and_zero_outcome(self):
+        result=self.probability_basis_review('net_profit')
+        self.assertAlmostEqual(result['shortlist']['brier'],.55**2)
+        performance=self.root/'performance'
+        # Changing both report copies must still fail against the immutable
+        # probability, rather than only their mutual consistency check.
+        for filename in ('shortlist_grades.csv','shortlist_run_history.csv'):
+            path=performance/filename
+            pd.read_csv(path).assign(predicted_probability=.85).to_csv(path,index=False)
+        with self.assertRaisesRegex(ValueError,'Frozen selection probability'):
+            report_check(self.root)
+
+    def test_legacy_handicap_refund_preserves_no_loss_probability(self):
+        result=self.probability_basis_review('net_no_loss')
+        self.assertAlmostEqual(result['shortlist']['brier'],(.85-1)**2)
+
+    def test_unspecified_legacy_handicap_refund_preserves_no_loss_probability(self):
+        result=self.probability_basis_review(None)
+        self.assertAlmostEqual(result['shortlist']['brier'],(.85-1)**2)
+
+    def test_win_first_ordinary_market_uses_calibrated_not_raw_profit_probability(self):
+        result=self.probability_basis_review('net_profit','Double Chance 1X')
+        self.assertAlmostEqual(result['shortlist']['brier'],(.55-1)**2)
+
+    def test_mixed_legacy_and_win_first_snapshots_reconcile_without_rewriting_history(self):
+        result=self.probability_basis_review('net_profit',legacy_first=True)
+        self.assertEqual(result['snapshots'],2)
+        history=pd.read_csv(self.root/'performance/shortlist_run_history.csv')
+        legacy=history[history.probability_basis=='net_no_loss'].iloc[0]
+        current=history[history.probability_basis=='net_profit'].iloc[0]
+        self.assertAlmostEqual(legacy.predicted_probability,.85)
+        self.assertAlmostEqual(legacy.brier,(.85-1)**2)
+        self.assertAlmostEqual(current.predicted_probability,.55)
+        self.assertAlmostEqual(current.brier,.55**2)
+
     def test_failed_optional_capture_is_a_top_level_warning(self):
         self.reviewed()
         path = self.root/'performance/pipeline_health.json'
