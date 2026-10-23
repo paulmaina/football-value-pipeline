@@ -49,7 +49,11 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     decisions['selection_warnings'] = ''
     decisions['p_profit'] = np.nan
     decisions['raw_p_profit'] = np.nan
+    sources = {fixture_key(r): r for r in predictions.to_dict('records')}
+    from conservative_bet_filter import CURRENT_MARKET_SPECS, _market_fields
+    ordinary_keys = {spec[0]: spec[1] for spec in CURRENT_MARKET_SPECS}
     for idx, item in decisions.iterrows():
+        source = sources.get(fixture_key(item), {})
         reasons = [r for r in str(item.rejection_reasons or '').split('; ') if r]
         # Only the probability and value floors are removed. Missing numbers,
         # failed validation, stale prices and invalid identities remain blockers.
@@ -76,9 +80,8 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             profit = float(item.p_full_win) + float(item.p_half_win)
             # Recompute the independent profitable probability from its full grid.
             from asian_handicap import probabilities
-            sources = predictions.loc[predictions.apply(fixture_key, axis=1) == fixture_key(item)]
             try:
-                raw = probabilities(sources.iloc[0]['raw_goal_margin_distribution'],
+                raw = probabilities(source['raw_goal_margin_distribution'],
                                     item.handicap_side, item.handicap_line,
                                     float(item.offered_decimal_odds), float(item.per_stake_cost))
                 raw_profit = raw['p_full_win'] + raw['p_half_win']
@@ -98,6 +101,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             # a win-calibration penalty as a calibrated loss-risk estimate.
             decisions.at[idx, 'loss_probability_upper'] = None
         else:
+            decisions.at[idx, 'quote_last_update_utc'] = _market_fields(source, ordinary_keys[item.market])['last_update']
             profit, raw_profit = item.predicted_probability, item.raw_dc_probability
             if all(_finite(v) for v in (profit, raw_profit, item.calibration_penalty,
                                         item.offered_decimal_odds, item.per_stake_cost)):
@@ -136,6 +140,8 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     for key in ('loss_risk_tolerance', 'risk_tolerance_status', 'min_adjusted_no_loss_probability',
                 'max_estimated_loss_probability', 'probability_cutoff_status'):
         summary.pop(key, None)
+    for key in ('asian_handicap_risk_tolerance', 'min_adjusted_no_loss_probability'):
+        summary['quote_execution_policy'].pop(key, None)
     summary.update(selection_policy_version=POLICY, selection_objective='MAXIMIZE_PROFITABLE_WIN_PROBABILITY',
         selection_method='Highest calibrated profitable-win probability per fixture, then global top twelve; adjusted EV breaks ties',
         ranking_metric='rank_probability descending; adjusted EV descending; unblended EV descending; odds descending',

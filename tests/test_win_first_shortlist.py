@@ -156,3 +156,30 @@ class WinFirstTests(OfflineQuotePolicyTestCase):
         self.assertEqual(ah.CURRENT_POLICY,WIN_POLICY)
         with self.assertRaises(ValueError):
             ah.build_shortlist(pd.DataFrame([row()]),NOW,reports(),adjusted_ev_floor=.01,policy_version=WIN_POLICY)
+
+    def test_frozen_replay_checks_top_twelve_and_value_warning(self):
+        from workflow_checks import raw_check
+        values=[row(i) for i in range(13)]
+        picks,_,summary=select(values)
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);raw=root/'raw';raw.mkdir()
+            pd.DataFrame(values).to_csv(raw/'all_leagues_predictions.csv',index=False)
+            picks.to_csv(raw/'conservative_bet_shortlist.csv',index=False)
+            (raw/'conservative_bet_summary.json').write_text(json.dumps(summary))
+            evidence=reports()['Premier League'];evidence['league']='Premier League'
+            (raw/'EPL_goal_market_validation.json').write_text(json.dumps(evidence))
+            self.assertEqual(raw_check(root)['selections'],12)
+            picks.loc[0,'rank_probability']=.99
+            picks.to_csv(raw/'conservative_bet_shortlist.csv',index=False)
+            with self.assertRaisesRegex(ValueError,'deterministic ranking replay'):
+                raw_check(root)
+
+    def test_grade_uses_adjusted_win_probability_and_ordinary_quote_timestamp(self):
+        evidence=reports();evidence['Premier League']['asian_handicap_win']['markets'][ah.label('home',0)]['confidence_penalty']=.1
+        pick=select([row()],evidence)[0].iloc[0].to_dict()
+        pick.update(fixture_key='fixture',snapshot_commit='a'*40,snapshot_captured_utc=NOW.isoformat())
+        grade=score_shortlist(pick,{'home_goals':1,'away_goals':1,'match_id':1},'VERIFIED_FINISHED')
+        self.assertAlmostEqual(grade['brier'],.45**2)
+        value,evidence=dc_fixture(offers=[])
+        ordinary=select([value],evidence)[0].iloc[0]
+        self.assertEqual(pd.Timestamp(ordinary.quote_last_update_utc),pd.Timestamp(NOW))
