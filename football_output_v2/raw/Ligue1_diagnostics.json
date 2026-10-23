@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "76cb9f16a8086c55e6bdded4a1a1c7cf4b2473c7b2e963a52096785ba938b944",
-  "training_as_of_utc": "2026-10-23T14:35:16.325053+00:00",
+  "training_as_of_utc": "2026-10-23T16:23:20.185456+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 63,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-23T14:35:16.325053+00:00",
+    "cutoff_utc": "2026-10-23T16:23:20.185456+00:00",
     "observations": 168,
     "observations_sha256": "f347bae8059efc361920118b049fc7be40b741bf6bf2a2254495b5eb43cf1c39",
     "eligible_training_matches": 75,
@@ -81,10 +81,10 @@
   },
   "training_end": "2026-10-18",
   "fit_success": true,
-  "objective": 5079.45343210001,
-  "base": 0.215614490079595,
-  "home_adv": 0.18688790929785853,
-  "rho": -0.05688570803286107,
+  "objective": 5079.4534321849715,
+  "base": 0.2156152575132172,
+  "home_adv": 0.18688652894313293,
+  "rho": -0.05688632694570817,
   "half_life_days": 1000000000.0,
   "xi_per_day": 6.931471805599453e-10,
   "max_goals": 10,
@@ -113,11 +113,11 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 18,
-  "additional_event_odds_calls_used_before_this_league": 31,
+  "additional_event_odds_calls_used_before_this_league": 32,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261023T143516325053Z_efa07bed50e2b5233642daea69e112659a870d7f236b34fc0967bc64e3007613.json",
-  "over_1_5_in_window_quote_fixtures": 3,
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261023T162320185456Z_142fa0226b5a0cd750ec875c1fc61c9953573f3a569e6b3c6dce5c2d7a11a9b2.json",
+  "over_1_5_in_window_quote_fixtures": 2,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -136,9 +136,9 @@
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "dc_bookmakers": 1,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "fc6c50376190b578cfeb38c029db8487",
@@ -156,9 +156,9 @@
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "dc_bookmakers": 1,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "c177a3c900d7febf9870ca8de90a9e35",
@@ -176,9 +176,9 @@
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
+      "dc_bookmakers": 1,
       "over_1_5_quote": true,
-      "over_1_5_bookmakers": 2
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "1a83b5ebabe7cb572ae6e029b3149c42",
@@ -186,12 +186,19 @@
       "home_team": "Angers",
       "away_team": "Lorient",
       "kickoff_utc": "2026-10-25T16:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 30,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "8eab078a37a63df32ffa443302a2a7ba",
@@ -199,10 +206,17 @@
       "home_team": "Auxerre",
       "away_team": "Le Mans FC",
       "kickoff_utc": "2026-10-25T16:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -212,10 +226,17 @@
       "home_team": "Marseille",
       "away_team": "Le Havre",
       "kickoff_utc": "2026-10-25T16:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -225,10 +246,17 @@
       "home_team": "Rennes",
       "away_team": "Strasbourg",
       "kickoff_utc": "2026-10-25T16:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -238,10 +266,17 @@
       "home_team": "Toulouse",
       "away_team": "Troyes",
       "kickoff_utc": "2026-10-25T16:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -376,10 +411,10 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 3,
+  "additional_odds_in_window_linked_fixtures": 8,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 3,
+  "additional_event_odds_calls_this_league": 8,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 1000000000.0,

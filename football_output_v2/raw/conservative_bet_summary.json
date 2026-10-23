@@ -1,20 +1,20 @@
 {
-  "generated_at_utc": "2026-10-23T14:36:42.857608+00:00",
-  "selection_policy_version": "48h-zero-tolerance-ev1-common-no-loss75-v22",
-  "status": "BELOW_TARGET",
+  "generated_at_utc": "2026-10-23T16:24:03.614429+00:00",
+  "selection_policy_version": "48h-top-twelve-profitable-win-probability-v23",
+  "status": "TARGET_MET",
   "n_fixtures": 94,
-  "n_markets_evaluated": 1708,
-  "n_shortlisted": 10,
-  "n_strict_qualified": 10,
+  "n_markets_evaluated": 1850,
+  "n_shortlisted": 12,
+  "n_strict_qualified": 12,
   "n_provisional_watchlist": 0,
-  "n_total_candidates": 10,
+  "n_total_candidates": 12,
   "target_distinct_matches": 12,
-  "shortfall": 2,
-  "usable_distinct_fixtures": 10,
+  "shortfall": 0,
+  "usable_distinct_fixtures": 40,
   "shortlist_lookahead_hours": 48.0,
   "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-10-23T14:36:42.857608+00:00",
-  "shortlist_window_end_utc": "2026-10-25T14:36:42.857608+00:00",
+  "shortlist_window_start_utc": "2026-10-23T16:24:03.614429+00:00",
+  "shortlist_window_end_utc": "2026-10-25T16:24:03.614429+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -74,27 +74,21 @@
     "Asian Handicap Away +3.00"
   ],
   "quote_execution_policy": {
-    "asian_handicap_risk_tolerance": 0,
-    "min_adjusted_no_loss_probability": 0.75,
-    "fallback_bookmakers": [
-      "1xBet"
-    ],
     "allowed_bookmakers": [
       "Pinnacle",
-      "bet365",
-      "1xBet"
+      "bet365"
     ],
     "per_stake_cost_bps": 0,
     "exchange_policy": "EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER",
     "account_availability": "USER_ALLOWLIST"
   },
   "validation_required": true,
-  "selection_objective": "MINIMIZE_CONSERVATIVE_ESTIMATED_LOSS_RISK",
-  "selection_method": "Require common adjusted no-loss probability floor; zero risk tolerance; lowest conservative loss estimate per fixture, then adjusted EV, unblended EV and refund probability; cap 12",
-  "ranking_metric": "loss_probability_upper ascending; EV breaks equal minimum-risk ties",
-  "min_estimated_ev": 0.01,
-  "min_raw_dc_ev": 0.0,
-  "ev_required_for_selection": true,
+  "selection_objective": "MAXIMIZE_PROFITABLE_WIN_PROBABILITY",
+  "selection_method": "Highest calibrated profitable-win probability per fixture, then global top twelve; adjusted EV breaks ties",
+  "ranking_metric": "rank_probability descending; adjusted EV descending; unblended EV descending; odds descending",
+  "min_estimated_ev": null,
+  "min_raw_dc_ev": null,
+  "ev_required_for_selection": false,
   "validation_market_statuses": {
     "Premier League": {
       "home_draw": "RELIABLE_FOR_RANKING",
@@ -161,31 +155,18 @@
       "over_1_5": "UNRELIABLE_AUDIT",
       "under_3_5": "UNRELIABLE_AUDIT",
       "btts_yes": "UNRELIABLE_AUDIT"
-    },
-    "UEFA Europa League": {
-      "home_draw": "RELIABLE_FOR_RANKING",
-      "draw_away": "RELIABLE_FOR_RANKING",
-      "home_away": "RELIABLE_FOR_RANKING",
-      "home": "RELIABLE_FOR_RANKING",
-      "draw": "RELIABLE_FOR_RANKING",
-      "away": "RELIABLE_FOR_RANKING",
-      "over_1_5": "RELIABLE_FOR_RANKING",
-      "under_3_5": "UNRELIABLE_AUDIT",
-      "btts_yes": "UNRELIABLE_AUDIT"
     }
   },
-  "legacy_ranking_experiments": "NOT_APPLICABLE_TO_LOSS_FIRST_POLICY; archived experiments remain graded",
+  "legacy_ranking_experiments": "NOT_APPLICABLE_TO_WIN_FIRST_POLICY; archived experiments remain graded",
   "ranking_is_empirically_optimized": false,
-  "shortfall_reason": "No padding: missing evidence or failing the common safety/EV cutoffs can reduce the shortlist",
+  "shortfall_reason": null,
   "bookmaker_coverage": {
-    "Pinnacle": 748,
+    "Pinnacle": 844,
     "bet365": 0,
-    "1xBet": 396
+    "1xBet": 442
   },
-  "warning": "Probabilities and EV are model estimates, not guarantees. Required adjusted EV: 1.0%; unblended EV must be nonnegative. Risk tolerance is provisional; refunds are not wins. Flat-stake research, not accumulator protection.",
-  "loss_risk_tolerance": 0,
-  "risk_tolerance_status": "USER_REQUESTED_ZERO_TOLERANCE",
-  "min_adjusted_no_loss_probability": 0.75,
-  "max_estimated_loss_probability": 0.25,
-  "probability_cutoff_status": "USER_SELECTED_POLICY_SETTING_NOT_EMPIRICALLY_OPTIMIZED"
+  "warning": "Full and half wins count as profitable outcomes; refunds do not. No fixed probability or EV floor. Negative EV is explicitly flagged. Estimates are not guarantees; twelve individual picks are not an accumulator recommendation.",
+  "probability_basis": "net_profit",
+  "probability_cutoff_status": "NO_FIXED_PROBABILITY_CUTOFF",
+  "negative_adjusted_ev_selections": 9
 }
