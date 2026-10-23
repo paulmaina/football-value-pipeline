@@ -2777,7 +2777,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-23T05:06:52.329484+00:00",
+  "reviewed_at_utc": "2026-10-23T10:24:54.603545+00:00",
   "status": "COLLECT_MORE_DATA",
   "total_fixtures": 57,
   "variants": {

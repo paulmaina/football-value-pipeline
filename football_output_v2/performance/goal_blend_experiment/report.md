@@ -2,7 +2,7 @@
 
 Fixed, uncalibrated variants on identical verified fixtures. No model promotion or bet selections.
 
-Coverage: 108/567 fixture-markets available.
+Coverage: 109/600 fixture-markets available.
 
 | Market | Variant | N | Brier | Mean probability | Event rate |
 |---|---|---:|---:|---:|---:|

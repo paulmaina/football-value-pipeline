@@ -1,5 +1,5 @@
 {
-  "available_fixture_markets": 108,
+  "available_fixture_markets": 109,
   "comparisons": [
     {
       "brier": 0.2922946233895496,
@@ -124,7 +124,7 @@
   ],
   "graded_fixture_markets": 48,
   "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-  "reviewed_at_utc": "2026-10-23T05:06:52.329484+00:00",
-  "total_fixture_markets": 567,
+  "reviewed_at_utc": "2026-10-23T10:24:54.603545+00:00",
+  "total_fixture_markets": 600,
   "version": "goal-blend-shadow-v1"
 }
