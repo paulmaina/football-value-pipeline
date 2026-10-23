@@ -1,6 +1,6 @@
 # Premier League — football model report
 
-Fixtures in this report: **18**.
+Fixtures in this report: **19**.
 
 > Probabilities are model estimates. They describe uncertainty; they are not guarantees. Market EV figures are only shown when bookmaker prices are available.
 
@@ -24,31 +24,32 @@ Fixtures in this report: **18**.
 | --- | --- |
 | Training seasons requested | 6 |
 | Training seasons loaded | ['2122', '2223', '2324', '2425', '2526', '2627'] |
-| Training sha256 | 72fb270aab150bee81f0f51bae563271f0b752386c4017510e5d78a6fc35c109 |
-| Training as of utc | 2026-10-22T15:04:47.131720+00:00 |
-| Training data provenance | {'bbs_confirmed_rows': 70, 'bbs_added_results': 0, 'bbs_result_conflicts': 0, 'bbs_rows_with_statistics': 70, 'bbs_statistics_used_as_predictor_features': False, 'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.', 'api_football': {'status': 'AVAILABLE', 'matched_results': 1102, 'added_results': 0, 'conflicts': 0, 'unmapped': 38, 'ambiguous': 0, 'excluded_phase': 0, 'statistics_observations': 60, 'source': 'api-football', 'usage': 'supplementary_cached_observations'}} |
-| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES', 'cutoff_utc': '2026-10-22T15:04:47.131720+00:00', 'observations': 188, 'observations_sha256': '87ab8167f617b44c77e101e6429da3c336de22c386ba6dafcbcdfebdc6b75f90', 'eligible_training_matches': 103, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 101, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 8, 'retrospective_eligible_training_matches': 103, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:26.478110+00:00', 'retrospective_inputs_sha256': 'ffcf4f614ddc2a074e5b01e3bac4c35e06fa935602f4431e95fa6e5fe48ce1d0', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.', 'input_providers': ['api-football', 'bigballsdata']} |
-| Optimizer objective | 927.614 |
+| Training sha256 | fe022050bf7291d98204217104785785177adeb107b106a40458f2a4e99448f2 |
+| Training as of utc | 2026-10-23T14:29:21.316153+00:00 |
+| Training data provenance | {'bbs_confirmed_rows': 70, 'bbs_added_results': 0, 'bbs_result_conflicts': 0, 'bbs_rows_with_statistics': 70, 'bbs_statistics_used_as_predictor_features': False, 'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.', 'api_football': {'status': 'AVAILABLE', 'matched_results': 1102, 'added_results': 0, 'conflicts': 0, 'unmapped': 38, 'ambiguous': 0, 'excluded_phase': 0, 'statistics_observations': 80, 'source': 'api-football', 'usage': 'supplementary_cached_observations'}} |
+| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_PAIRED_AUDIT', 'cutoff_utc': '2026-10-23T14:29:21.316153+00:00', 'observations': 213, 'observations_sha256': 'f306d8741b34e2c16b88c23b5e83c943e663bd665f7143ef456fe9000b8ffd9f', 'eligible_training_matches': 127, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 119, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 8, 'retrospective_eligible_training_matches': 127, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:26.478110+00:00', 'retrospective_inputs_sha256': 'e5ec6566177f405633f071ef4b1e25cf1c1ad76b7f644c2551e2da5e2ac7c794', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.', 'training_matches': 64, 'tuning_matches': 22, 'audit_matches': 41, 'tuning_origin_utc': '2025-09-13T00:00:00+00:00', 'audit_origin_utc': '2025-10-04T00:00:00+00:00', 'supported_feature_columns': ['own_shots_on_target', 'own_shots_off_target', 'own_total_shots', 'own_blocked_shots', 'own_shots_inside_box', 'own_shots_outside_box', 'own_fouls', 'own_corner_kicks', 'own_offsides', 'own_ball_possession', 'own_yellow_cards', 'own_goalkeeper_saves', 'own_total_passes', 'own_accurate_passes', 'own_pass_percentage', 'opponent_conceded_shots_on_target', 'opponent_conceded_shots_off_target', 'opponent_conceded_total_shots', 'opponent_conceded_blocked_shots', 'opponent_conceded_shots_inside_box', 'opponent_conceded_shots_outside_box', 'opponent_conceded_fouls', 'opponent_conceded_corner_kicks', 'opponent_conceded_offsides', 'opponent_conceded_ball_possession', 'opponent_conceded_yellow_cards', 'opponent_conceded_goalkeeper_saves', 'opponent_conceded_total_passes', 'opponent_conceded_accurate_passes', 'opponent_conceded_pass_percentage', 'is_home'], 'paired_audit_matches': 35, 'input_providers': ['api-football', 'bigballsdata']} |
+| Optimizer objective | 925.005 |
 | Base scoring parameter | 0.212 |
 | Home-advantage parameter | 0.185 |
 | Dixon-Coles low-score adjustment | -0.089 |
 | Xi per day | 0.0029 |
-| Training data health | {'training_end': '2026-10-19', 'days_since_latest_result': 3, 'status': 'RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED'} |
+| Elo ratings | {'version': 'venue-elo-v1', 'teams': 29, 'matches': 1970, 'k_factor': 20.0, 'home_advantage': 60.0, 'venue_weight': 0.5, 'season_regression': 0.2, 'last_match_date': '2026-10-19'} |
+| Training data health | {'training_end': '2026-10-19', 'days_since_latest_result': 4, 'status': 'RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED'} |
 | Training source | Football-Data.co.uk |
 | Fixture provider mode | auto |
 | Fixture sources | ['The Odds API'] |
 | The odds api enabled | 1.00 |
 | Odds regions | — |
-| Live odds matched | 18.00 |
+| Live odds matched | 19.00 |
 | Additional event odds calls used before this league | 0.00 |
-| Bbs statistics model artifact | bbs/feature_models/EPL/20261022T150447131720Z_5c7f4edbdb6912f8cf0e42cf89666163665e2fc2e509e6b85fa69a7027c2cd19.json |
-| Over 1 5 in window quote fixtures | 3 |
+| Bbs statistics model artifact | bbs/feature_models/EPL/20261023T142921316153Z_d76577e8ddc3046cedc0c49ae78074ec2fb5ff1d8de12e1194840100d27ec77e.json |
+| Over 1 5 in window quote fixtures | 6 |
 | Additional odds coverage mode | — |
 | Additional odds coverage | — |
-| Additional odds in window linked fixtures | 4.00 |
+| Additional odds in window linked fixtures | 9.00 |
 | Additional odds unrequested linked fixtures | 0.00 |
 | Additional event odds hard cap applies | 0.00 |
-| Additional event odds calls this league | 4.00 |
+| Additional event odds calls this league | 9.00 |
 | Bbs statistics applied fixtures | 0 |
 | Decay tuning | {'selected_half_life_days': 240.0, 'selected_xi_per_day': 0.0028881132523331052, 'selection_metric': 'walk_forward_1x2_log_loss', 'validation_days': 365} |
 | Goal market reliability | {'home_draw': 'RELIABLE_FOR_RANKING', 'draw_away': 'RELIABLE_FOR_RANKING', 'home_away': 'RELIABLE_FOR_RANKING', 'home': 'RELIABLE_FOR_RANKING', 'draw': 'RELIABLE_FOR_RANKING', 'away': 'RELIABLE_FOR_RANKING', 'over_1_5': 'UNRELIABLE_AUDIT', 'under_3_5': 'UNRELIABLE_AUDIT', 'btts_yes': 'UNRELIABLE_AUDIT'} |
@@ -67,7 +68,7 @@ Fixtures in this report: **18**.
 
 ## 2026-10-23 — Ipswich Town vs Nottingham Forest
 
-The model's most likely 1X2 outcome is **Nottingham Forest win** at **43.4%**. Expected goals are 1.32 for Ipswich Town and 1.69 for Nottingham Forest (3.01 combined). The most likely exact score is 1-1 at 12.3%. Goal-market probabilities: at least one goal: 93.9%; Over 2.5 goals: 57.6%; Under 3.5 goals: 64.6%; Double Chance 1X: 56.6%; Double Chance X2: 69.9%; Double Chance 12 (either team wins): 73.5%; Under 4.5 goals: 81.5%; BTTS Yes (both teams score): 61.0%; BTTS No (at least one team does not score): 39.0%.
+The model's most likely 1X2 outcome is **Nottingham Forest win** at **43.3%**. Expected goals are 1.32 for Ipswich Town and 1.69 for Nottingham Forest (3.01 combined). The most likely exact score is 1-1 at 12.5%. Goal-market probabilities: at least one goal: 93.8%; Over 2.5 goals: 57.5%; Under 3.5 goals: 64.6%; Double Chance 1X: 56.7%; Double Chance X2: 70.2%; Double Chance 12 (either team wins): 73.1%; Under 4.5 goals: 81.5%; BTTS Yes (both teams score): 61.1%; BTTS No (at least one team does not score): 38.9%.
 
 **Fixture source:** The Odds API
 
@@ -75,9 +76,9 @@ The model's most likely 1X2 outcome is **Nottingham Forest win** at **43.4%**. E
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Ipswich Town win | 30.1% | 3.32 |
-| Draw | 26.5% | 3.77 |
-| Nottingham Forest win | 43.4% | 2.30 |
+| Ipswich Town win | 29.8% | 3.36 |
+| Draw | 26.9% | 3.72 |
+| Nottingham Forest win | 43.3% | 2.31 |
 
 ### Goals outlook
 
@@ -86,12 +87,12 @@ The model's most likely 1X2 outcome is **Nottingham Forest win** at **43.4%**. E
 | Ipswich Town expected goals | 1.32 |
 | Nottingham Forest expected goals | 1.69 |
 | Expected total goals | 3.01 |
-| Over 0.5 | 93.9% |
-| Under 0.5 | 6.1% |
-| Over 1.5 | 81.2% |
-| Under 1.5 | 18.8% |
-| Over 2.5 | 57.6% |
-| Under 2.5 | 42.4% |
+| Over 0.5 | 93.8% |
+| Under 0.5 | 6.2% |
+| Over 1.5 | 81.1% |
+| Under 1.5 | 18.9% |
+| Over 2.5 | 57.5% |
+| Under 2.5 | 42.5% |
 | Over 3.5 | 35.4% |
 | Under 3.5 | 64.6% |
 | Over 4.5 | 18.5% |
@@ -101,21 +102,21 @@ The model's most likely 1X2 outcome is **Nottingham Forest win** at **43.4%**. E
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 12.32% |
-| 2 | 1-2 | 8.92% |
-| 3 | 2-1 | 7.52% |
-| 4 | 0-1 | 7.05% |
-| 5 | 0-2 | 6.75% |
+| 1 | 1-1 | 12.49% |
+| 2 | 1-2 | 8.91% |
+| 3 | 2-1 | 7.44% |
+| 4 | 0-1 | 7.04% |
+| 5 | 0-2 | 6.74% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Ipswich Town win | 30.1% | 31.1% | 3.29 | -1.0% |
-| Draw | 26.5% | 27.3% | 3.48 | -7.7% |
-| Nottingham Forest win | 43.4% | 41.6% | 2.26 | -1.9% |
-| Over 2.5 | 57.6% | 53.6% | 1.83 | +5.5% |
-| Under 2.5 | 42.4% | 46.4% | 2.14 | -9.4% |
+| Ipswich Town win | 29.8% | 30.5% | 3.24 | -3.5% |
+| Draw | 26.9% | 28.0% | 3.48 | -6.4% |
+| Nottingham Forest win | 43.3% | 41.5% | 2.32 | +0.5% |
+| Over 2.5 | 57.5% | 52.7% | 1.83 | +5.2% |
+| Under 2.5 | 42.5% | 47.3% | 2.14 | -9.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -131,9 +132,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 16.00 |
 | Best home bookmaker | Pinnacle |
@@ -145,120 +146,124 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Nott'm Forest |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.3211 |
-| Dc lambda away | 1.6908 |
+| Dc lambda home | 1.3212 |
+| Dc lambda away | 1.6905 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
 | Score grid omitted mass | 0 |
-| P btts yes | 61.0% |
-| P btts no | 39.0% |
-| Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 16.47 |
+| P btts yes | 61.1% |
+| P btts no | 38.9% |
+| Fair Over 0.5 odds | 1.07 |
+| Fair Under 0.5 odds | 16.23 |
 | Fair Over 1.5 odds | 1.23 |
-| Fair Under 1.5 odds | 5.31 |
-| Fair Over 2.5 odds | 1.73 |
-| Fair Under 2.5 odds | 2.36 |
+| Fair Under 1.5 odds | 5.30 |
+| Fair Over 2.5 odds | 1.74 |
+| Fair Under 2.5 odds | 2.35 |
 | Fair Over 3.5 odds | 2.82 |
 | Fair Under 3.5 odds | 1.55 |
-| Fair Over 4.5 odds | 5.40 |
+| Fair Over 4.5 odds | 5.42 |
 | Fair Under 4.5 odds | 1.23 |
-| Goal margin distribution | {"-1": 0.19986324127413374, "-10": 3.0411282760476004e-06, "-11": 4.597740616868861e-07, "-12": 6.387683165180569e-08, "-13": 8.204345492640238e-09, "-14": 9.717989288579714e-10, "-15": 9.534242607026163e-11, "-2": 0.13417853457490284, "-3": 0.06471405876907088, "-4": 0.024770871007062958, "-5": 0.007822394917861108, "-6": 0.0020969684228879203, "-7": 0.0004876259246494349, "-8": 0.00010002950704410598, "-9": 1.834568627335587e-05, "0": 0.2651424629708108, "1": 0.16615432052716025, "10": 2.781534862518643e-07, "11": 3.285870601835246e-08, "12": 3.567020279868236e-09, "13": 3.5798297613204594e-10, "14": 3.313226081696884e-11, "15": 2.539902677719774e-12, "2": 0.08832487643203255, "3": 0.033285482351130484, "4": 0.009955285409649971, "5": 0.0024564526499397236, "6": 0.0005145371917789882, "7": 9.349058769360992e-05, "8": 1.4985300398155557e-05, "9": 2.1474719951317584e-06} |
-| Raw goal margin distribution | {"-1": 0.20808078533271648, "-10": 3.1661668045779455e-06, "-11": 4.786780561624048e-07, "-12": 6.650318092481388e-08, "-13": 8.541674008518417e-09, "-14": 1.0117552533079513e-09, "-15": 9.926250953278247e-11, "-2": 0.13969539706825632, "-3": 0.06737483133412274, "-4": 0.02578934605316116, "-5": 0.008144019216913625, "-6": 0.0021831870306453257, "-7": 0.0005076750717280501, "-8": 0.00010414230375476173, "-9": 1.909998448384801e-05, "0": 0.25763396108012826, "1": 0.16044387420076858, "10": 2.6859381576781966e-07, "11": 3.1729407204592067e-08, "12": 3.4444277539037445e-09, "13": 3.456796994885123e-10, "14": 3.19935603819333e-11, "15": 2.4526104672652977e-12, "2": 0.08528929803388999, "3": 0.032141515948023204, "4": 0.009613138886975441, "5": 0.002372028477481864, "6": 0.0004968534083705037, "7": 9.02774724321268e-05, "8": 1.4470280666276028e-05, "9": 2.0736669714241465e-06} |
-| Unadjusted home-win probability | 29.0% |
+| Goal margin distribution | {"-1": 0.19950204705309357, "-10": 3.030989201844697e-06, "-11": 4.5815907931896054e-07, "-12": 6.364103643511307e-08, "-13": 8.172592153160342e-09, "-14": 9.678656960901703e-10, "-15": 9.494095416100872e-11, "-2": 0.13391755689246648, "-3": 0.06457760464815815, "-4": 0.02471444799533654, "-5": 0.00780322722197304, "-6": 0.002091463828347168, "-7": 0.00048626004632839487, "-8": 9.973161013037766e-05, "-9": 1.8287791198493555e-05, "0": 0.2689168457029827, "1": 0.16452594966117584, "10": 2.755736230446864e-07, "11": 3.255559930999757e-08, "12": 3.534294878192535e-09, "13": 3.5471659279165986e-10, "14": 3.283166559932198e-11, "15": 2.5170251243884565e-12, "2": 0.08746648058354756, "3": 0.03296417465390557, "4": 0.009859782385356224, "5": 0.0024330263285089995, "6": 0.0005096582439411805, "7": 9.26090486983904e-05, "8": 1.4844781406468332e-05, "9": 2.1274451460936753e-06} |
+| Raw goal margin distribution | {"-1": 0.20806686210539382, "-10": 3.1611124879100782e-06, "-11": 4.778282899203673e-07, "-12": 6.63732074321274e-08, "-13": 8.523449406625368e-09, "-14": 1.009417102729482e-09, "-15": 9.901686077594963e-11, "-2": 0.13966676660726515, "-3": 0.06734998342071706, "-4": 0.025775463054211682, "-5": 0.008138227283147788, "-6": 0.002181252385121236, "-7": 0.0005071356585120498, "-8": 0.00010401318422073008, "-9": 1.9072903690539805e-05, "0": 0.25765885964663043, "1": 0.16047157453522168, "10": 2.6878272565164673e-07, "11": 3.175333916608222e-08, "12": 3.447200062624286e-09, "13": 3.4597539340311686e-10, "14": 3.20226024173518e-11, "15": 2.4549986533257556e-12, "2": 0.08531106422544114, "3": 0.03215184608178888, "4": 0.009616810036417747, "5": 0.002373069820448032, "6": 0.0004970988530899011, "7": 9.032690521735122e-05, "8": 1.4478964873522859e-05, "9": 2.075019004807651e-06} |
+| Unadjusted home-win probability | 29.1% |
 | Unadjusted draw probability | 25.8% |
 | Unadjusted away-win probability | 45.2% |
 | Raw p over 1 5 | 81.2% |
 | Raw p under 3 5 | 64.5% |
 | Raw p btts yes | 60.8% |
-| P home draw | 56.6% |
-| P draw away | 69.9% |
-| P home away | 73.5% |
+| P home draw | 56.7% |
+| P draw away | 70.2% |
+| P home away | 73.1% |
 | Raw p home draw | 54.8% |
-| Raw p draw away | 71.0% |
+| Raw p draw away | 70.9% |
 | Raw p home away | 74.2% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.36, "price": 1.69, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.69, "price": 2.36, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 4.15, "price": 1.26, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.89, "price": 1.28, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.45, "price": 1.34, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.26, "price": 1.37, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.84, "price": 1.47, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.67, "price": 1.52, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.39, "price": 1.64, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.26, "price": 1.7, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.96, "price": 1.94, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.94, "price": 1.96, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.7, "price": 2.26, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.64, "price": 2.39, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.52, "price": 2.67, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.47, "price": 2.84, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.37, "price": 3.26, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.34, "price": 3.45, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.28, "price": 3.89, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.26, "price": 4.15, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 7.7, "price": 1.05, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 7.24, "price": 1.07, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 6.16, "price": 1.08, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 5.48, "price": 1.14, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 4.03, "price": 1.23, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.31, "price": 1.35, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.35, "price": 3.31, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.23, "price": 4.03, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.14, "price": 5.48, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.08, "price": 6.16, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.07, "price": 7.24, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:40Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.05, "price": 7.7, "quote_source": "The Odds API", "side": "away"}] |
-| 1X2 market source | The Odds API / GTbets |
-| Reference home odds | 3.05 |
-| Reference draw odds | 3.46 |
-| Reference away odds | 2.31 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:45Z |
-| Market reference home last update utc | 2026-10-22T15:04:45Z |
-| Market reference draw last update utc | 2026-10-22T15:04:45Z |
-| Market reference away last update utc | 2026-10-22T15:04:45Z |
-| O/U 2.5 market source | The Odds API / GTbets |
-| Reference Over 2.5 odds | 1.77 |
-| Reference Under 2.5 odds | 2.02 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Home probability edge | -1.0% |
-| Draw probability edge | -0.8% |
-| Away probability edge | +1.8% |
-| Over 2.5 probability edge | +4.0% |
-| Under 2.5 probability edge | -4.0% |
-| Raw edge prob home | -0.0207 |
-| Raw ev home | -0.0444 |
-| Raw edge prob draw | -0.0150 |
-| Raw ev draw | -0.1034 |
-| Raw edge prob away | 0.0357 |
-| Raw ev away | 0.0213 |
-| Market p home draw | 57.1% |
-| Market home draw odds | 1.69 |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.25, "price": 1.75, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.75, "price": 2.25, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 8.2, "price": 1.04, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 7.75, "price": 1.06, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 5.81, "price": 1.09, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 5.12, "price": 1.16, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 4.29, "price": 1.21, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.5, "price": 1.32, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.32, "price": 3.5, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.21, "price": 4.29, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.16, "price": 5.12, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.09, "price": 5.81, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.06, "price": 7.75, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:01Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.04, "price": 8.2, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 4.07, "price": 1.27, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 4.04, "price": 1.28, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.59, "price": 1.33, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.21, "price": 1.39, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.79, "price": 1.5, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.75, "price": 1.51, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.32, "price": 1.68, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.0, "price": 1.92, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.92, "price": 2.0, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.68, "price": 2.32, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.51, "price": 2.75, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.5, "price": 2.79, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.39, "price": 3.21, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.33, "price": 3.59, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.28, "price": 4.04, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.27, "price": 4.07, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:32Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 2.32, "price": 1.66, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:32Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 1.66, "price": 2.32, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Coolbet |
+| Reference home odds | 3.20 |
+| Reference draw odds | 3.48 |
+| Reference away odds | 2.37 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:32Z |
+| Market reference home last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference away last update utc | 2026-10-23T14:29:32Z |
+| O/U 2.5 market source | The Odds API / Coolbet |
+| Reference Over 2.5 odds | 1.84 |
+| Reference Under 2.5 odds | 2.04 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:32Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:32Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Home probability edge | -0.7% |
+| Draw probability edge | -1.1% |
+| Away probability edge | +1.9% |
+| Over 2.5 probability edge | +4.8% |
+| Under 2.5 probability edge | -4.8% |
+| Raw edge prob home | -0.0147 |
+| Raw ev home | -0.0587 |
+| Raw edge prob draw | -0.0225 |
+| Raw ev draw | -0.1033 |
+| Raw edge prob away | 0.0372 |
+| Raw ev away | 0.0482 |
+| Market p home draw | 57.6% |
+| Market home draw odds | 1.68 |
 | Best home draw bookmaker | Pinnacle |
-| Market best home draw last update utc | 2026-10-22T15:04:32Z |
-| Market reference home draw last update utc | 2026-10-22T15:04:32Z |
+| Market best home draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference home draw last update utc | 2026-10-23T14:29:32Z |
 | Market home draw bookmakers | 2 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 70.9% |
-| Market draw away odds | 1.36 |
+| Market p draw away | 70.1% |
+| Market draw away odds | 1.38 |
 | Best draw away bookmaker | Pinnacle |
-| Market best draw away last update utc | 2026-10-22T15:04:32Z |
-| Market reference draw away last update utc | 2026-10-22T15:04:32Z |
+| Market best draw away last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw away last update utc | 2026-10-23T14:29:32Z |
 | Market draw away bookmakers | 2 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market p home away | 72.0% |
+| Market p home away | 72.2% |
 | Market home away odds | 1.34 |
 | Best home away bookmaker | Pinnacle |
-| Market best home away last update utc | 2026-10-22T15:04:32Z |
-| Market reference home away last update utc | 2026-10-22T15:04:32Z |
+| Market best home away last update utc | 2026-10-23T14:29:32Z |
+| Market reference home away last update utc | 2026-10-23T14:29:32Z |
 | Market home away bookmakers | 2 |
 | Market reference home away method | proportional_overlap_sum_two |
-| Market reference dc home draw odds | 1.69 |
-| Market reference dc draw away odds | 1.36 |
+| Market reference dc home draw odds | 1.68 |
+| Market reference dc draw away odds | 1.38 |
 | Market reference dc home away odds | 1.34 |
-| Market p over 1 5 | 78.5% |
+| Market p over 1 5 | 77.0% |
 | Market over 1 5 odds | 1.24 |
 | Best over 1 5 bookmaker | 1xBet |
-| Market best over 1 5 last update utc | 2026-10-22T15:04:40Z |
-| Market reference over 1 5 odds | 1.24 |
-| Market reference over 1 5 opposite odds | 3.94 |
-| Market reference over 1 5 last update utc | 2026-10-22T15:04:40Z |
+| Market best over 1 5 last update utc | 2026-10-23T14:29:01Z |
+| Market reference over 1 5 odds | 1.28 |
+| Market reference over 1 5 opposite odds | 4.00 |
+| Market reference over 1 5 last update utc | 2026-10-23T14:29:32Z |
 | Market over 1 5 bookmakers | 1 |
-| Market p under 3 5 | 67.3% |
-| Market under 3 5 odds | 1.44 |
+| Market p under 3 5 | 69.6% |
+| Market under 3 5 odds | 1.45 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-22T15:04:39Z |
-| Market reference under 3 5 odds | 1.44 |
-| Market reference under 3 5 opposite odds | 2.80 |
-| Market reference under 3 5 last update utc | 2026-10-22T15:04:40Z |
+| Market best under 3 5 last update utc | 2026-10-23T14:29:29Z |
+| Market reference under 3 5 odds | 1.41 |
+| Market reference under 3 5 opposite odds | 3.10 |
+| Market reference under 3 5 last update utc | 2026-10-23T14:29:32Z |
 | Market under 3 5 bookmakers | 2 |
-| Market p btts yes | 59.8% |
+| Market p btts yes | 60.1% |
 | Market btts yes odds | 1.62 |
 | Best btts yes bookmaker | Pinnacle |
-| Market best btts yes last update utc | 2026-10-22T15:04:32Z |
-| Market reference btts yes odds | 1.66 |
-| Market reference btts yes opposite odds | 2.46 |
-| Market reference btts yes last update utc | 2026-10-22T15:04:39Z |
+| Market best btts yes last update utc | 2026-10-23T14:29:32Z |
+| Market reference btts yes odds | 1.62 |
+| Market reference btts yes opposite odds | 2.39 |
+| Market reference btts yes last update utc | 2026-10-23T14:29:32Z |
 | Market btts yes bookmakers | 2 |
+| Elo home rating | 1,345.2452 |
+| Elo away rating | 1,480.4097 |
+| Elo rating diff | -75.1645 |
+| Elo home expectancy | 0.3935 |
 
 </details>
 
@@ -267,7 +272,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-24 — Arsenal vs Everton
 
-The model's most likely 1X2 outcome is **Arsenal win** at **67.2%**. Expected goals are 1.72 for Arsenal and 0.58 for Everton (2.29 combined). The most likely exact score is 1-0 at 17.2%. Goal-market probabilities: at least one goal: 90.3%; Over 2.5 goals: 41.4%; Under 3.5 goals: 79.7%; Double Chance 1X: 88.9%; Double Chance X2: 32.8%; Double Chance 12 (either team wins): 78.3%; Under 4.5 goals: 91.4%; BTTS Yes (both teams score): 36.1%; BTTS No (at least one team does not score): 63.9%.
+The model's most likely 1X2 outcome is **Arsenal win** at **66.3%**. Expected goals are 1.72 for Arsenal and 0.58 for Everton (2.29 combined). The most likely exact score is 1-0 at 17.0%. Goal-market probabilities: at least one goal: 89.9%; Over 2.5 goals: 41.0%; Under 3.5 goals: 79.8%; Double Chance 1X: 88.9%; Double Chance X2: 33.7%; Double Chance 12 (either team wins): 77.3%; Under 4.5 goals: 91.5%; BTTS Yes (both teams score): 36.3%; BTTS No (at least one team does not score): 63.7%.
 
 **Fixture source:** The Odds API
 
@@ -275,9 +280,9 @@ The model's most likely 1X2 outcome is **Arsenal win** at **67.2%**. Expected go
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Arsenal win | 67.2% | 1.49 |
-| Draw | 21.7% | 4.61 |
-| Everton win | 11.1% | 8.99 |
+| Arsenal win | 66.3% | 1.51 |
+| Draw | 22.7% | 4.41 |
+| Everton win | 11.1% | 9.04 |
 
 ### Goals outlook
 
@@ -286,36 +291,36 @@ The model's most likely 1X2 outcome is **Arsenal win** at **67.2%**. Expected go
 | Arsenal expected goals | 1.72 |
 | Everton expected goals | 0.58 |
 | Expected total goals | 2.29 |
-| Over 0.5 | 90.3% |
-| Under 0.5 | 9.7% |
-| Over 1.5 | 68.2% |
-| Under 1.5 | 31.8% |
-| Over 2.5 | 41.4% |
-| Under 2.5 | 58.6% |
-| Over 3.5 | 20.3% |
-| Under 3.5 | 79.7% |
-| Over 4.5 | 8.6% |
-| Under 4.5 | 91.4% |
+| Over 0.5 | 89.9% |
+| Under 0.5 | 10.1% |
+| Over 1.5 | 68.0% |
+| Under 1.5 | 32.0% |
+| Over 2.5 | 41.0% |
+| Under 2.5 | 59.0% |
+| Over 3.5 | 20.2% |
+| Under 3.5 | 79.8% |
+| Over 4.5 | 8.5% |
+| Under 4.5 | 91.5% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-0 | 17.19% |
-| 2 | 2-0 | 15.55% |
-| 3 | 0-0 | 9.69% |
-| 4 | 1-1 | 9.59% |
-| 5 | 2-1 | 8.96% |
+| 1 | 1-0 | 16.97% |
+| 2 | 2-0 | 15.34% |
+| 3 | 0-0 | 10.11% |
+| 4 | 1-1 | 10.01% |
+| 5 | 2-1 | 8.84% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Arsenal win | 67.2% | 70.1% | 1.46 | -1.9% |
-| Draw | 21.7% | 18.8% | 4.35 | -5.6% |
-| Everton win | 11.1% | 11.1% | 8.19 | -8.9% |
-| Over 2.5 | 41.4% | 52.0% | 1.92 | -20.6% |
-| Under 2.5 | 58.6% | 48.0% | 2.02 | +18.5% |
+| Arsenal win | 66.3% | 68.3% | 1.45 | -3.9% |
+| Draw | 22.7% | 20.7% | 4.36 | -1.2% |
+| Everton win | 11.1% | 11.0% | 8.33 | -7.9% |
+| Over 2.5 | 41.0% | 51.5% | 1.92 | -21.3% |
+| Under 2.5 | 59.0% | 48.5% | 2.02 | +19.2% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -331,9 +336,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 16.00 |
 | Best home bookmaker | Pinnacle |
@@ -345,31 +350,31 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Everton |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.7157 |
-| Dc lambda away | 0.5763 |
+| Dc lambda home | 1.7158 |
+| Dc lambda away | 0.5764 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
 | Score grid omitted mass | 0 |
-| P btts yes | 36.1% |
-| P btts no | 63.9% |
+| P btts yes | 36.3% |
+| P btts no | 63.7% |
 | Fair Over 0.5 odds | 1.11 |
-| Fair Under 0.5 odds | 10.32 |
+| Fair Under 0.5 odds | 9.89 |
 | Fair Over 1.5 odds | 1.47 |
-| Fair Under 1.5 odds | 3.14 |
-| Fair Over 2.5 odds | 2.42 |
-| Fair Under 2.5 odds | 1.71 |
-| Fair Over 3.5 odds | 4.93 |
+| Fair Under 1.5 odds | 3.13 |
+| Fair Over 2.5 odds | 2.44 |
+| Fair Under 2.5 odds | 1.69 |
+| Fair Over 3.5 odds | 4.96 |
 | Fair Under 3.5 odds | 1.25 |
-| Fair Over 4.5 odds | 11.66 |
+| Fair Over 4.5 odds | 11.78 |
 | Fair Under 4.5 odds | 1.09 |
-| Goal margin distribution | {"-1": 0.08339810525626351, "-10": 1.232516552836455e-10, "-11": 6.409463586120857e-12, "-12": 3.0588174938427e-13, "-13": 1.3486840894518234e-14, "-14": 5.525567280357658e-16, "-15": 2.110654318663169e-17, "-16": 7.159753618954117e-19, "-2": 0.02307820391161536, "-3": 0.004110084071464772, "-4": 0.0005650871926693439, "-5": 6.309842508565186e-05, "-6": 5.923455962315224e-06, "-7": 4.793131909417846e-07, "-8": 3.406525933242616e-08, "-9": 2.1577846228613942e-09, "0": 0.21708031012490214, "1": 0.27760754135884025, "10": 7.037878969664158e-06, "11": 1.0896116994807745e-06, "12": 1.5481202033834e-07, "13": 2.032181001713363e-08, "14": 2.4787347994980425e-09, "15": 2.818845955519987e-10, "16": 2.8467763546035303e-11, "2": 0.21352204548257092, "3": 0.11321199933393418, "4": 0.04634023789016348, "5": 0.015405023099861925, "6": 0.00430546475309109, "7": 0.0010372066561019184, "8": 0.00021946165666323212, "9": 4.138625100745421e-05} |
-| Raw goal margin distribution | {"-1": 0.08327473326361566, "-10": 1.2306932737268436e-10, "-11": 6.399981976292987e-12, "-12": 3.0542925420083393e-13, "-13": 1.3466889620678516e-14, "-14": 5.517393230793909e-16, "-15": 2.1075319979787347e-17, "-16": 7.149162094504924e-19, "-2": 0.023044063999268907, "-3": 0.0041040039661639546, "-4": 0.0005642512512200128, "-5": 6.300508269601557e-05, "-6": 5.914693310415796e-06, "-7": 4.786041361822407e-07, "-8": 3.4014866114127096e-08, "-9": 2.154592581653632e-09, "0": 0.2464142365544608, "1": 0.26555206985501273, "10": 6.7322498467992945e-06, "11": 1.0422938826483129e-06, "12": 1.480891053537417e-07, "13": 1.943930876962222e-08, "14": 2.3710924905224804e-09, "15": 2.6964338736143143e-10, "16": 2.723151358493171e-11, "2": 0.20424957067099234, "3": 0.10829561981059335, "4": 0.044327852294905705, "5": 0.014736039771501501, "6": 0.0041184943005321975, "7": 0.0009921645969956992, "8": 0.0002099312464476591, "9": 3.958899878862599e-05} |
+| Goal margin distribution | {"-1": 0.08290305042301245, "-10": 1.226275004611841e-10, "-11": 6.377644462289594e-12, "-12": 3.0439377211763754e-13, "-13": 1.3422581982746632e-14, "-14": 5.499793397407722e-16, "-15": 2.1010196773115092e-17, "-16": 7.127730761696029e-19, "-2": 0.0229434817791039, "-3": 0.004086462128983404, "-4": 0.0005618926353065762, "-5": 6.274778415998758e-05, "-6": 5.891116016978265e-06, "-7": 4.767433861222355e-07, "-8": 3.388598508675578e-08, "-9": 2.1466428676114495e-09, "0": 0.2265965651578261, "1": 0.2739357206606294, "10": 6.947508570730046e-06, "11": 1.0756712875339942e-06, "12": 1.5283861394853675e-07, "13": 2.0063719596367344e-08, "14": 2.4473710368694536e-09, "15": 2.7833102379659306e-10, "16": 2.8109999651743295e-11, "2": 0.21070560506667813, "3": 0.11172292535311164, "4": 0.04573263410257321, "5": 0.015203701245817505, "6": 0.004249389741520662, "7": 0.0010237448327114393, "8": 0.0002166233250373865, "9": 4.085290616982378e-05} |
+| Raw goal margin distribution | {"-1": 0.08327539535952805, "-10": 1.2317826100185553e-10, "-11": 6.406288566581458e-12, "-12": 3.057609049212747e-13, "-13": 1.3482867224492742e-14, "-14": 5.524494783098087e-16, "-15": 2.1104560494881047e-17, "-16": 7.159743750897538e-19, "-2": 0.023046528521327467, "-3": 0.004104815777904955, "-4": 0.0005644162804143771, "-5": 6.302960514956916e-05, "-6": 5.917574961590743e-06, "-7": 4.788845978742056e-07, "-8": 3.40381782195961e-08, "-9": 2.1562841485798103e-09, "0": 0.24640872397938024, "1": 0.2655426032384654, "10": 6.734643833393115e-06, "11": 1.0427137915121158e-06, "12": 1.4815579116654526e-07, "13": 1.944898722743213e-08, "14": 2.372386027837002e-09, "15": 2.6980323866757736e-10, "16": 2.724873728243602e-11, "2": 0.204249795358591, "3": 0.10829984628560291, "4": 0.044331431779918544, "5": 0.014737874994681259, "6": 0.0041191926756283075, "7": 0.000992378311505081, "8": 0.0002099862022881748, "9": 3.960121384692018e-05} |
 | Unadjusted home-win probability | 64.3% |
 | Unadjusted draw probability | 24.6% |
 | Unadjusted away-win probability | 11.1% |
@@ -377,88 +382,89 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p under 3 5 | 80.1% |
 | Raw p btts yes | 36.8% |
 | P home draw | 88.9% |
-| P draw away | 32.8% |
-| P home away | 78.3% |
+| P draw away | 33.7% |
+| P home away | 77.3% |
 | Raw p home draw | 88.9% |
 | Raw p draw away | 35.7% |
 | Raw p home away | 75.4% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.38, "price": 1.68, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.68, "price": 2.38, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": 3.0, "market_key": "alternate_spreads", "opposite_price": 7.55, "price": 1.06, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 5.38, "price": 1.11, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 4.18, "price": 1.21, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 3.5, "price": 1.32, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 2.09, "price": 1.72, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 1.72, "price": 2.09, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.32, "price": 3.5, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.21, "price": 4.18, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.11, "price": 5.38, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:04:21Z", "line": -3.0, "market_key": "alternate_spreads", "opposite_price": 1.06, "price": 7.55, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 2.25, "market_key": "alternate_spreads", "opposite_price": 4.05, "price": 1.27, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 3.81, "price": 1.29, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 3.61, "price": 1.32, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 2.89, "price": 1.45, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.75, "market_key": "alternate_spreads", "opposite_price": 2.79, "price": 1.49, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 2.54, "price": 1.57, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.34, "price": 1.65, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 2.17, "price": 1.75, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 2.06, "price": 1.85, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.85, "price": 2.06, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 1.75, "price": 2.17, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.65, "price": 2.34, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 1.57, "price": 2.54, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.75, "market_key": "alternate_spreads", "opposite_price": 1.49, "price": 2.79, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.45, "price": 2.89, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.32, "price": 3.61, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.29, "price": 3.81, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -2.25, "market_key": "alternate_spreads", "opposite_price": 1.27, "price": 4.05, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:51Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 6.4, "price": 1.14, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:51Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 1.14, "price": 6.4, "quote_source": "The Odds API", "side": "away"}] |
-| 1X2 market source | The Odds API / GTbets |
-| Reference home odds | 1.39 |
-| Reference draw odds | 4.71 |
-| Reference away odds | 7.64 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:45Z |
-| Market reference home last update utc | 2026-10-22T15:04:45Z |
-| Market reference draw last update utc | 2026-10-22T15:04:45Z |
-| Market reference away last update utc | 2026-10-22T15:04:45Z |
-| O/U 2.5 market source | The Odds API / GTbets |
-| Reference Over 2.5 odds | 1.82 |
-| Reference Under 2.5 odds | 1.96 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Home probability edge | -2.9% |
-| Draw probability edge | +2.9% |
-| Away probability edge | -0.0% |
-| Over 2.5 probability edge | -10.7% |
-| Under 2.5 probability edge | +10.7% |
-| Raw edge prob home | -0.0583 |
-| Raw ev home | -0.0619 |
-| Raw edge prob draw | 0.0587 |
-| Raw ev draw | 0.0719 |
-| Raw edge prob away | -0.0003 |
-| Raw ev away | -0.0904 |
-| Market p home draw | 87.7% |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 1.5, "market_key": "spreads", "opposite_price": 2.38, "price": 1.68, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -1.5, "market_key": "spreads", "opposite_price": 1.68, "price": 2.38, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 2.25, "market_key": "alternate_spreads", "opposite_price": 4.05, "price": 1.27, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 3.85, "price": 1.29, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 3.61, "price": 1.32, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 2.91, "price": 1.44, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.75, "market_key": "alternate_spreads", "opposite_price": 2.79, "price": 1.49, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 2.56, "price": 1.56, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.35, "price": 1.65, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 2.18, "price": 1.75, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 2.06, "price": 1.85, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.85, "price": 2.06, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 1.75, "price": 2.18, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.65, "price": 2.35, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 1.56, "price": 2.56, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.75, "market_key": "alternate_spreads", "opposite_price": 1.49, "price": 2.79, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.44, "price": 2.91, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.32, "price": 3.61, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.29, "price": 3.85, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -2.25, "market_key": "alternate_spreads", "opposite_price": 1.27, "price": 4.05, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:34Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 6.49, "price": 1.14, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:34Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 1.14, "price": 6.49, "quote_source": "The Odds API", "side": "away"}] |
+| 1X2 market source | The Odds API / Coolbet |
+| Reference home odds | 1.45 |
+| Reference draw odds | 4.65 |
+| Reference away odds | 8.60 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:32Z |
+| Market reference home last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference away last update utc | 2026-10-23T14:29:32Z |
+| O/U 2.5 market source | The Odds API / Coolbet |
+| Reference Over 2.5 odds | 1.88 |
+| Reference Under 2.5 odds | 1.99 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:32Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:32Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Home probability edge | -2.0% |
+| Draw probability edge | +2.0% |
+| Away probability edge | +0.0% |
+| Over 2.5 probability edge | -10.5% |
+| Under 2.5 probability edge | +10.5% |
+| Raw edge prob home | -0.0406 |
+| Raw ev home | -0.0683 |
+| Raw edge prob draw | 0.0396 |
+| Raw ev draw | 0.0743 |
+| Raw edge prob away | 0.0010 |
+| Raw ev away | -0.0749 |
+| Market p home draw | 87.6% |
 | Market home draw odds | 1.11 |
 | Best home draw bookmaker | Pinnacle |
-| Market best home draw last update utc | 2026-10-22T15:04:51Z |
-| Market reference home draw last update utc | 2026-10-22T15:04:51Z |
+| Market best home draw last update utc | 2026-10-23T14:29:34Z |
+| Market reference home draw last update utc | 2026-10-23T14:29:34Z |
 | Market home draw bookmakers | 2 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 33.2% |
-| Market draw away odds | 2.93 |
+| Market p draw away | 33.3% |
+| Market draw away odds | 2.92 |
 | Best draw away bookmaker | Pinnacle |
-| Market best draw away last update utc | 2026-10-22T15:04:51Z |
-| Market reference draw away last update utc | 2026-10-22T15:04:51Z |
+| Market best draw away last update utc | 2026-10-23T14:29:34Z |
+| Market reference draw away last update utc | 2026-10-23T14:29:34Z |
 | Market draw away bookmakers | 2 |
 | Market reference draw away method | proportional_overlap_sum_two |
 | Market p home away | 79.1% |
 | Market home away odds | 1.23 |
 | Best home away bookmaker | Pinnacle |
-| Market best home away last update utc | 2026-10-22T15:04:51Z |
-| Market reference home away last update utc | 2026-10-22T15:04:51Z |
+| Market best home away last update utc | 2026-10-23T14:29:34Z |
+| Market reference home away last update utc | 2026-10-23T14:29:34Z |
 | Market home away bookmakers | 2 |
 | Market reference home away method | proportional_overlap_sum_two |
 | Market reference dc home draw odds | 1.11 |
-| Market reference dc draw away odds | 2.93 |
+| Market reference dc draw away odds | 2.92 |
 | Market reference dc home away odds | 1.23 |
-| Market p over 1 5 | 76.5% |
-| Market over 1 5 odds | 1.27 |
-| Best over 1 5 bookmaker | 1xBet |
-| Market best over 1 5 last update utc | 2026-10-22T15:04:21Z |
-| Market reference over 1 5 odds | 1.27 |
-| Market reference over 1 5 opposite odds | 3.64 |
-| Market reference over 1 5 last update utc | 2026-10-22T15:04:21Z |
-| Market over 1 5 bookmakers | 1 |
-| Market p under 3 5 | 70.9% |
+| Market p over 1 5 | 75.6% |
+| Market reference over 1 5 odds | 1.30 |
+| Market reference over 1 5 opposite odds | 3.75 |
+| Market reference over 1 5 last update utc | 2026-10-23T14:29:32Z |
+| Market over 1 5 bookmakers | 0 |
+| Market p under 3 5 | 71.2% |
 | Market under 3 5 odds | 1.38 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-22T15:04:39Z |
+| Market best under 3 5 last update utc | 2026-10-23T14:29:29Z |
 | Market reference under 3 5 odds | 1.38 |
-| Market reference under 3 5 opposite odds | 3.18 |
-| Market reference under 3 5 last update utc | 2026-10-22T15:04:39Z |
-| Market under 3 5 bookmakers | 2 |
-| Market p btts yes | 45.0% |
-| Market btts yes odds | 2.13 |
+| Market reference under 3 5 opposite odds | 3.25 |
+| Market reference under 3 5 last update utc | 2026-10-23T14:29:32Z |
+| Market under 3 5 bookmakers | 1 |
+| Market p btts yes | 45.4% |
+| Market btts yes odds | 2.11 |
 | Best btts yes bookmaker | Pinnacle |
-| Market best btts yes last update utc | 2026-10-22T15:04:51Z |
-| Market reference btts yes odds | 2.13 |
-| Market reference btts yes opposite odds | 1.76 |
-| Market reference btts yes last update utc | 2026-10-22T15:04:51Z |
+| Market best btts yes last update utc | 2026-10-23T14:29:34Z |
+| Market reference btts yes odds | 2.11 |
+| Market reference btts yes opposite odds | 1.77 |
+| Market reference btts yes last update utc | 2026-10-23T14:29:34Z |
 | Market btts yes bookmakers | 2 |
+| Elo home rating | 1,645.3362 |
+| Elo away rating | 1,482.5802 |
+| Elo rating diff | 222.7561 |
+| Elo home expectancy | 0.7828 |
 
 </details>
 
@@ -467,7 +473,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-24 — Aston Villa vs Manchester City
 
-The model's most likely 1X2 outcome is **Manchester City win** at **55.0%**. Expected goals are 1.12 for Aston Villa and 1.82 for Manchester City (2.95 combined). The most likely exact score is 1-1 at 11.4%. Goal-market probabilities: at least one goal: 94.0%; Over 2.5 goals: 56.8%; Under 3.5 goals: 65.7%; Double Chance 1X: 45.0%; Double Chance X2: 79.2%; Double Chance 12 (either team wins): 75.9%; Under 4.5 goals: 82.2%; BTTS Yes (both teams score): 57.3%; BTTS No (at least one team does not score): 42.7%.
+The model's most likely 1X2 outcome is **Manchester City win** at **56.2%**. Expected goals are 1.12 for Aston Villa and 1.82 for Manchester City (2.95 combined). The most likely exact score is 1-1 at 10.9%. Goal-market probabilities: at least one goal: 94.2%; Over 2.5 goals: 57.2%; Under 3.5 goals: 65.6%; Double Chance 1X: 43.8%; Double Chance X2: 79.3%; Double Chance 12 (either team wins): 76.9%; Under 4.5 goals: 82.1%; BTTS Yes (both teams score): 57.0%; BTTS No (at least one team does not score): 43.0%.
 
 **Fixture source:** The Odds API
 
@@ -475,9 +481,9 @@ The model's most likely 1X2 outcome is **Manchester City win** at **55.0%**. Exp
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Aston Villa win | 20.8% | 4.80 |
-| Draw | 24.1% | 4.15 |
-| Manchester City win | 55.0% | 1.82 |
+| Aston Villa win | 20.7% | 4.83 |
+| Draw | 23.1% | 4.34 |
+| Manchester City win | 56.2% | 1.78 |
 
 ### Goals outlook
 
@@ -486,34 +492,34 @@ The model's most likely 1X2 outcome is **Manchester City win** at **55.0%**. Exp
 | Aston Villa expected goals | 1.12 |
 | Manchester City expected goals | 1.82 |
 | Expected total goals | 2.95 |
-| Over 0.5 | 94.0% |
-| Under 0.5 | 6.0% |
-| Over 1.5 | 80.4% |
-| Under 1.5 | 19.6% |
-| Over 2.5 | 56.8% |
-| Under 2.5 | 43.2% |
-| Over 3.5 | 34.3% |
-| Under 3.5 | 65.7% |
-| Over 4.5 | 17.8% |
-| Under 4.5 | 82.2% |
+| Over 0.5 | 94.2% |
+| Under 0.5 | 5.8% |
+| Over 1.5 | 80.5% |
+| Under 1.5 | 19.5% |
+| Over 2.5 | 57.2% |
+| Under 2.5 | 42.8% |
+| Over 3.5 | 34.4% |
+| Under 3.5 | 65.6% |
+| Over 4.5 | 17.9% |
+| Under 4.5 | 82.1% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 11.37% |
-| 2 | 1-2 | 10.21% |
-| 3 | 0-2 | 9.10% |
-| 4 | 0-1 | 8.98% |
-| 5 | 1-3 | 6.21% |
+| 1 | 1-1 | 10.87% |
+| 2 | 1-2 | 10.43% |
+| 3 | 0-2 | 9.30% |
+| 4 | 0-1 | 9.17% |
+| 5 | 1-3 | 6.35% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Aston Villa win | 20.8% | 19.4% | 4.65 | -3.1% |
-| Draw | 24.1% | 23.4% | 4.36 | +5.2% |
-| Manchester City win | 55.0% | 57.2% | 1.69 | -7.0% |
+| Aston Villa win | 20.7% | 19.1% | 4.99 | +3.4% |
+| Draw | 23.1% | 21.3% | 4.43 | +2.2% |
+| Manchester City win | 56.2% | 59.6% | 1.64 | -7.8% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -529,9 +535,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -542,117 +548,121 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
 | Dc lambda home | 1.1220 |
-| Dc lambda away | 1.8242 |
+| Dc lambda away | 1.8243 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
 | Score grid omitted mass | 0 |
-| P btts yes | 57.3% |
-| P btts no | 42.7% |
+| P btts yes | 57.0% |
+| P btts no | 43.0% |
 | Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 16.58 |
+| Fair Under 0.5 odds | 17.34 |
 | Fair Over 1.5 odds | 1.24 |
-| Fair Under 1.5 odds | 5.10 |
-| Fair Over 2.5 odds | 1.76 |
-| Fair Under 2.5 odds | 2.32 |
-| Fair Over 3.5 odds | 2.92 |
+| Fair Under 1.5 odds | 5.12 |
+| Fair Over 2.5 odds | 1.75 |
+| Fair Under 2.5 odds | 2.34 |
+| Fair Over 3.5 odds | 2.91 |
 | Fair Under 3.5 odds | 1.52 |
-| Fair Over 4.5 odds | 5.63 |
+| Fair Over 4.5 odds | 5.57 |
 | Fair Under 4.5 odds | 1.22 |
-| Goal margin distribution | {"-1": 0.23341027337196443, "-10": 7.40092482814298e-06, "-11": 1.2088416662799992e-06, "-12": 1.8141055482780486e-07, "-13": 2.5175462076749083e-08, "-14": 3.247985492251905e-09, "-15": 3.890474134873052e-10, "-16": 3.932569824871112e-11, "-2": 0.1714102422494568, "-3": 0.09019374355535469, "-4": 0.03752739077300224, "-5": 0.012853970347480518, "-6": 0.0037324014734318634, "-7": 0.0009392653970136174, "-8": 0.00020838218844904737, "-9": 4.131420930338895e-05, "0": 0.24123398207979488, "1": 0.1253713909676379, "10": 5.146056891890231e-08, "11": 5.169895769525852e-09, "12": 4.771980875403419e-10, "13": 4.073215331136973e-11, "14": 3.232196654264046e-12, "15": 2.381277477575249e-13, "16": 1.48049754278065e-14, "2": 0.05818823013623445, "3": 0.018832092058419223, "4": 0.004819414738427313, "5": 0.0010153294937961048, "6": 0.00018133508359155905, "7": 2.8067619736966373e-05, "8": 3.830025205773125e-06, "9": 4.6705094931405747e-07} |
-| Raw goal margin distribution | {"-1": 0.22411771189775975, "-10": 7.106278204676289e-06, "-11": 1.160715097838063e-06, "-12": 1.741882132039617e-07, "-13": 2.4173173164568757e-08, "-14": 3.1186762531252396e-09, "-15": 3.735586050729051e-10, "-16": 3.7760058214050744e-11, "-2": 0.16458603442689443, "-3": 0.08660293799881805, "-4": 0.036033345199571576, "-5": 0.012342226335891037, "-6": 0.003583806599533552, "-7": 0.0009018712355816868, "-8": 0.00020008604848777755, "-9": 3.966940239680481e-05, "0": 0.24854171529956406, "1": 0.13415406309927566, "10": 5.506554850024021e-08, "11": 5.532063718274279e-09, "12": 5.106273596602725e-10, "13": 4.358557262009947e-11, "14": 3.4586225019816104e-12, "15": 2.5480936800483895e-13, "16": 1.5842111923587594e-14, "2": 0.06226450418298843, "3": 0.02015134112174507, "4": 0.005157030355413773, "5": 0.001086456614431583, "6": 0.0001940381937098705, "7": 3.0033847436624667e-05, "8": 4.098330880445719e-06, "9": 4.997693815252337e-07} |
+| Goal margin distribution | {"-1": 0.23842935157657438, "-10": 7.5625416255186575e-06, "-11": 1.2352851990895613e-06, "-12": 1.8538578181099822e-07, "-13": 2.5728080929164712e-08, "-14": 3.3194039074919853e-09, "-15": 3.97616614529632e-10, "-16": 4.019328246680669e-11, "-2": 0.17510284104689272, "-3": 0.09213990855018328, "-4": 0.03833849723014917, "-5": 0.013132263953566804, "-6": 0.003813347707514513, "-7": 0.0009596706729892734, "-8": 0.00021291703534339414, "-9": 4.22148477214808e-05, "0": 0.2306612651922399, "1": 0.1246011938402106, "10": 5.1137892511316464e-08, "11": 5.137404341161303e-09, "12": 4.741921891098862e-10, "13": 4.047499735365347e-11, "14": 3.21174457645736e-12, "15": 2.366175124997433e-13, "16": 1.4710834142244447e-14, "2": 0.057830445660505915, "3": 0.01871598058888063, "4": 0.00478962329661307, "5": 0.0010090375723421073, "6": 0.0001802086378660827, "7": 2.7892849470879275e-05, "8": 3.806120493325008e-06, "9": 4.6412911444756864e-07} |
+| Raw goal margin distribution | {"-1": 0.2241171876104151, "-10": 7.108586040647781e-06, "-11": 1.161134914330424e-06, "-12": 1.7425765648276446e-07, "-13": 2.4183705161844132e-08, "-14": 3.1201505325203328e-09, "-15": 3.737489399116033e-10, "-16": 3.778060615326003e-11, "-2": 0.16459196830646755, "-3": 0.08660903967738169, "-4": 0.03603715783990293, "-5": 0.012343975457592896, "-6": 0.003584444439988756, "-7": 0.0009020646612523932, "-8": 0.00020013629546857003, "-9": 3.968082320477931e-05, "0": 0.24853847297431148, "1": 0.13414584593161089, "10": 5.505513742418524e-08, "11": 5.53093778637144e-09, "12": 5.105160743795372e-10, "13": 4.357544732716166e-11, "14": 3.457769382833128e-12, "15": 2.547427949784878e-13, "16": 1.5837707726153113e-14, "2": 0.06226035092151018, "3": 0.020149654840022655, "4": 0.005156516153784752, "5": 0.001086331475220015, "6": 0.00019401290971361151, "7": 3.0029486655742485e-05, "8": 4.097675452046539e-06, "9": 4.996821519936836e-07} |
 | Unadjusted home-win probability | 22.3% |
 | Unadjusted draw probability | 24.9% |
 | Unadjusted away-win probability | 52.8% |
 | Raw p over 1 5 | 80.2% |
 | Raw p under 3 5 | 65.9% |
 | Raw p btts yes | 57.5% |
-| P home draw | 45.0% |
-| P draw away | 79.2% |
-| P home away | 75.9% |
+| P home draw | 43.8% |
+| P draw away | 79.3% |
+| P home away | 76.9% |
 | Raw p home draw | 47.2% |
 | Raw p draw away | 77.7% |
 | Raw p home away | 75.1% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 8.35, "price": 1.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": 3.0, "market_key": "alternate_spreads", "opposite_price": 7.9, "price": 1.05, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 4.64, "price": 1.18, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 3.99, "price": 1.26, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 3.54, "price": 1.28, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 1.5, "market_key": "spreads", "opposite_price": 2.71, "price": 1.55, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.06, "price": 1.78, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.78, "price": 2.06, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -1.5, "market_key": "spreads", "opposite_price": 1.55, "price": 2.71, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.28, "price": 3.54, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.26, "price": 3.99, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.18, "price": 4.64, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": -3.0, "market_key": "alternate_spreads", "opposite_price": 1.05, "price": 7.9, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T14:59:12Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.05, "price": 8.35, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 4.12, "price": 1.26, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.75, "market_key": "alternate_spreads", "opposite_price": 3.29, "price": 1.36, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.73, "price": 1.49, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.73, "price": 1.5, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 2.44, "price": 1.61, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 2.28, "price": 1.68, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.14, "price": 1.78, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 2.04, "price": 1.87, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 1.87, "price": 2.04, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.78, "price": 2.14, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.68, "price": 2.28, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.61, "price": 2.44, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.49, "price": 2.73, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.5, "price": 2.73, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.75, "market_key": "alternate_spreads", "opposite_price": 1.36, "price": 3.29, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.26, "price": 4.12, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:51Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 3.62, "price": 1.31, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:51Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 1.31, "price": 3.62, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / GTbets |
-| Reference home odds | 4.84 |
-| Reference draw odds | 4.04 |
-| Reference away odds | 1.71 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:45Z |
-| Market reference home last update utc | 2026-10-22T15:04:45Z |
-| Market reference draw last update utc | 2026-10-22T15:04:45Z |
-| Market reference away last update utc | 2026-10-22T15:04:45Z |
-| O/U 2.5 market source | The Odds API / Betsson |
-| Reference Over 2.5 odds | 1.51 |
-| Reference Under 2.5 odds | 2.60 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:20Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:20Z |
-| Home probability edge | +1.5% |
-| Draw probability edge | +0.7% |
-| Away probability edge | -2.2% |
-| Over 2.5 probability edge | -7.4% |
-| Under 2.5 probability edge | +7.4% |
-| Raw edge prob home | 0.0292 |
-| Raw ev home | 0.0371 |
-| Raw edge prob draw | 0.0146 |
-| Raw ev draw | 0.0836 |
-| Raw edge prob away | -0.0438 |
-| Raw ev away | -0.1070 |
-| Market p home draw | 42.6% |
-| Market home draw odds | 2.27 |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.71, "price": 1.55, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.55, "price": 2.71, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 8.5, "price": 1.04, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": 3.0, "market_key": "alternate_spreads", "opposite_price": 7.9, "price": 1.05, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 4.62, "price": 1.18, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 3.95, "price": 1.26, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 3.52, "price": 1.28, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.06, "price": 1.78, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.78, "price": 2.06, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.28, "price": 3.52, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.26, "price": 3.95, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.18, "price": 4.62, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": -3.0, "market_key": "alternate_spreads", "opposite_price": 1.05, "price": 7.9, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:29:00Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.04, "price": 8.5, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 4.42, "price": 1.24, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.75, "market_key": "alternate_spreads", "opposite_price": 3.14, "price": 1.39, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.89, "price": 1.46, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.62, "price": 1.53, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 2.38, "price": 1.63, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 2.34, "price": 1.66, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 2.13, "price": 1.8, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.04, "price": 1.85, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.85, "price": 2.04, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 1.8, "price": 2.13, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.66, "price": 2.34, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.63, "price": 2.38, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.53, "price": 2.62, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.46, "price": 2.89, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.75, "market_key": "alternate_spreads", "opposite_price": 1.39, "price": 3.14, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.24, "price": 4.42, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:33Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 3.89, "price": 1.28, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:33Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 1.28, "price": 3.89, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Coolbet |
+| Reference home odds | 5.05 |
+| Reference draw odds | 4.55 |
+| Reference away odds | 1.66 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:32Z |
+| Market reference home last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference away last update utc | 2026-10-23T14:29:32Z |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.50 |
+| Reference Under 2.5 odds | 2.45 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:08Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:08Z |
+| Home probability edge | +1.6% |
+| Draw probability edge | +1.8% |
+| Away probability edge | -3.4% |
+| Over 2.5 probability edge | -6.2% |
+| Under 2.5 probability edge | +6.2% |
+| Raw edge prob home | 0.0317 |
+| Raw ev home | 0.1129 |
+| Raw edge prob draw | 0.0358 |
+| Raw ev draw | 0.1010 |
+| Raw edge prob away | -0.0675 |
+| Raw ev away | -0.1334 |
+| Market p home draw | 41.1% |
+| Market home draw odds | 2.36 |
 | Best home draw bookmaker | Pinnacle |
-| Market best home draw last update utc | 2026-10-22T15:04:51Z |
-| Market reference home draw last update utc | 2026-10-22T15:04:51Z |
+| Market best home draw last update utc | 2026-10-23T14:29:33Z |
+| Market reference home draw last update utc | 2026-10-23T14:29:33Z |
 | Market home draw bookmakers | 2 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 79.3% |
-| Market draw away odds | 1.22 |
+| Market p draw away | 80.8% |
+| Market draw away odds | 1.20 |
 | Best draw away bookmaker | Pinnacle |
-| Market best draw away last update utc | 2026-10-22T15:04:51Z |
-| Market reference draw away last update utc | 2026-10-22T15:04:51Z |
+| Market best draw away last update utc | 2026-10-23T14:29:33Z |
+| Market reference draw away last update utc | 2026-10-23T14:29:33Z |
 | Market draw away bookmakers | 2 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market p home away | 78.0% |
+| Market p home away | 78.2% |
 | Market home away odds | 1.24 |
 | Best home away bookmaker | Pinnacle |
-| Market best home away last update utc | 2026-10-22T15:04:51Z |
-| Market reference home away last update utc | 2026-10-22T15:04:51Z |
+| Market best home away last update utc | 2026-10-23T14:29:33Z |
+| Market reference home away last update utc | 2026-10-23T14:29:33Z |
 | Market home away bookmakers | 2 |
 | Market reference home away method | proportional_overlap_sum_two |
-| Market reference dc home draw odds | 2.27 |
-| Market reference dc draw away odds | 1.22 |
+| Market reference dc home draw odds | 2.36 |
+| Market reference dc draw away odds | 1.20 |
 | Market reference dc home away odds | 1.24 |
-| Market p over 1 5 | 84.9% |
+| Market p over 1 5 | 83.7% |
 | Market over 1 5 odds | 1.15 |
 | Best over 1 5 bookmaker | 1xBet |
-| Market best over 1 5 last update utc | 2026-10-22T14:59:12Z |
-| Market reference over 1 5 odds | 1.15 |
-| Market reference over 1 5 opposite odds | 5.00 |
-| Market reference over 1 5 last update utc | 2026-10-22T15:04:19Z |
+| Market best over 1 5 last update utc | 2026-10-23T14:29:00Z |
+| Market reference over 1 5 odds | 1.18 |
+| Market reference over 1 5 opposite odds | 5.40 |
+| Market reference over 1 5 last update utc | 2026-10-23T14:29:32Z |
 | Market over 1 5 bookmakers | 1 |
-| Market p under 3 5 | 59.0% |
-| Market under 3 5 odds | 1.65 |
+| Market p under 3 5 | 59.1% |
+| Market under 3 5 odds | 1.66 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-22T15:04:39Z |
+| Market best under 3 5 last update utc | 2026-10-23T14:29:29Z |
 | Market reference under 3 5 odds | 1.65 |
-| Market reference under 3 5 opposite odds | 2.33 |
-| Market reference under 3 5 last update utc | 2026-10-22T15:04:39Z |
+| Market reference under 3 5 opposite odds | 2.34 |
+| Market reference under 3 5 last update utc | 2026-10-23T14:29:32Z |
 | Market under 3 5 bookmakers | 2 |
 | Market p btts yes | 61.6% |
 | Market btts yes odds | 1.58 |
 | Best btts yes bookmaker | Pinnacle |
-| Market best btts yes last update utc | 2026-10-22T15:04:51Z |
+| Market best btts yes last update utc | 2026-10-23T14:29:33Z |
 | Market reference btts yes odds | 1.58 |
 | Market reference btts yes opposite odds | 2.47 |
-| Market reference btts yes last update utc | 2026-10-22T15:04:51Z |
+| Market reference btts yes last update utc | 2026-10-23T14:29:33Z |
 | Market btts yes bookmakers | 2 |
+| Elo home rating | 1,517.7051 |
+| Elo away rating | 1,655.9177 |
+| Elo rating diff | -78.2126 |
+| Elo home expectancy | 0.3893 |
 
 </details>
 
@@ -661,7 +671,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-24 — Chelsea vs Tottenham Hotspur
 
-The model's most likely 1X2 outcome is **Chelsea win** at **57.1%**. Expected goals are 2.13 for Chelsea and 1.19 for Tottenham Hotspur (3.33 combined). The most likely exact score is 1-1 at 10.0%. Goal-market probabilities: at least one goal: 95.6%; Over 2.5 goals: 64.5%; Under 3.5 goals: 57.6%; Double Chance 1X: 79.4%; Double Chance X2: 42.9%; Double Chance 12 (either team wins): 77.7%; Under 4.5 goals: 75.9%; BTTS Yes (both teams score): 62.3%; BTTS No (at least one team does not score): 37.7%.
+The model's most likely 1X2 outcome is **Chelsea win** at **56.8%**. Expected goals are 2.13 for Chelsea and 1.19 for Tottenham Hotspur (3.33 combined). The most likely exact score is 1-1 at 10.1%. Goal-market probabilities: at least one goal: 95.5%; Over 2.5 goals: 64.5%; Under 3.5 goals: 57.6%; Double Chance 1X: 79.1%; Double Chance X2: 43.2%; Double Chance 12 (either team wins): 77.7%; Under 4.5 goals: 75.9%; BTTS Yes (both teams score): 62.4%; BTTS No (at least one team does not score): 37.6%.
 
 **Fixture source:** The Odds API
 
@@ -669,9 +679,9 @@ The model's most likely 1X2 outcome is **Chelsea win** at **57.1%**. Expected go
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Chelsea win | 57.1% | 1.75 |
+| Chelsea win | 56.8% | 1.76 |
 | Draw | 22.3% | 4.48 |
-| Tottenham Hotspur win | 20.6% | 4.86 |
+| Tottenham Hotspur win | 20.9% | 4.80 |
 
 ### Goals outlook
 
@@ -680,8 +690,8 @@ The model's most likely 1X2 outcome is **Chelsea win** at **57.1%**. Expected go
 | Chelsea expected goals | 2.13 |
 | Tottenham Hotspur expected goals | 1.19 |
 | Expected total goals | 3.33 |
-| Over 0.5 | 95.6% |
-| Under 0.5 | 4.4% |
+| Over 0.5 | 95.5% |
+| Under 0.5 | 4.5% |
 | Over 1.5 | 85.2% |
 | Under 1.5 | 14.8% |
 | Over 2.5 | 64.5% |
@@ -695,19 +705,19 @@ The model's most likely 1X2 outcome is **Chelsea win** at **57.1%**. Expected go
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 10.04% |
-| 2 | 2-1 | 9.60% |
-| 3 | 2-0 | 8.04% |
-| 4 | 3-1 | 6.82% |
-| 5 | 1-0 | 6.74% |
+| 1 | 1-1 | 10.06% |
+| 2 | 2-1 | 9.54% |
+| 3 | 2-0 | 8.00% |
+| 4 | 3-1 | 6.79% |
+| 5 | 1-0 | 6.70% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Chelsea win | 57.1% | 56.2% | 1.74 | -0.6% |
-| Draw | 22.3% | 22.5% | 4.28 | -4.6% |
-| Tottenham Hotspur win | 20.6% | 21.3% | 4.37 | -10.1% |
+| Chelsea win | 56.8% | 55.6% | 1.77 | +0.5% |
+| Draw | 22.3% | 22.6% | 4.21 | -5.9% |
+| Tottenham Hotspur win | 20.9% | 21.9% | 4.30 | -10.3% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -723,9 +733,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -735,70 +745,122 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Tottenham |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.1330 |
+| Dc lambda home | 2.1328 |
 | Dc lambda away | 1.1934 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 17 |
 | Score grid omitted mass | 0 |
-| P btts yes | 62.3% |
-| P btts no | 37.7% |
+| P btts yes | 62.4% |
+| P btts no | 37.6% |
 | Fair Over 0.5 odds | 1.05 |
-| Fair Under 0.5 odds | 22.50 |
+| Fair Under 0.5 odds | 22.46 |
 | Fair Over 1.5 odds | 1.17 |
 | Fair Under 1.5 odds | 6.76 |
 | Fair Over 2.5 odds | 1.55 |
-| Fair Under 2.5 odds | 2.82 |
+| Fair Under 2.5 odds | 2.81 |
 | Fair Over 3.5 odds | 2.36 |
 | Fair Under 3.5 odds | 1.74 |
-| Fair Over 4.5 odds | 4.14 |
+| Fair Over 4.5 odds | 4.15 |
 | Fair Under 4.5 odds | 1.32 |
-| Goal margin distribution | {"-1": 0.12241223167605693, "-10": 7.565345845552e-08, "-11": 8.054656164538308e-09, "-12": 7.883288981236957e-10, "-13": 7.138034729049429e-11, "-14": 6.012282171521491e-12, "-15": 4.73126845443212e-13, "-16": 3.4647578133975835e-14, "-17": 2.1154521173490003e-15, "-2": 0.05756563929317754, "-3": 0.01924677120399983, "-4": 0.005136892209930904, "-5": 0.0011350241213307338, "-6": 0.00021336418919973703, "-7": 3.4843571906924973e-05, "-8": 5.024804150353996e-06, "-9": 6.483436058224756e-07, "0": 0.22300518441238518, "1": 0.21392190549105777, "10": 2.388535898967026e-05, "11": 4.5452889128472345e-06, "12": 7.951213872273587e-07, "13": 1.2868150920866191e-07, "14": 1.9372619339296995e-08, "15": 2.7248216521624253e-09, "16": 3.5665217305346594e-10, "17": 3.892124215581766e-11, "2": 0.17449151445246225, "3": 0.1042750398392369, "4": 0.049743281807313106, "5": 0.019644933979767517, "6": 0.006600525496792272, "7": 0.001926598214327045, "8": 0.0004965913198799283, "9": 0.00011452405525995933} |
-| Raw goal margin distribution | {"-1": 0.11801149584191023, "-10": 7.293370667055639e-08, "-11": 7.76509021569737e-09, "-12": 7.599883705181942e-10, "-13": 6.881421441411316e-11, "-14": 5.7961398364382316e-12, "-15": 4.56117873101717e-13, "-16": 3.340199314158648e-14, "-17": 2.03940133540692e-15, "-2": 0.05549614698685765, "-3": 0.018554847246978864, "-4": 0.0049522202591391305, "-5": 0.0010942198548373387, "-6": 0.00020569371852635092, "-7": 3.359094091261182e-05, "-8": 4.844161780051085e-06, "-9": 6.250355678926279e-07, "0": 0.22123822800855192, "1": 0.21735357100194713, "10": 2.4268520136593988e-05, "11": 4.618202956705624e-06, "12": 8.078764654660981e-07, "13": 1.3074577605420482e-07, "14": 1.96833885870262e-08, "15": 2.768532353343709e-09, "16": 3.6237347101424204e-10, "17": 3.954560404171474e-11, "2": 0.1772906504769607, "3": 0.10594778605492487, "4": 0.05054124732741617, "5": 0.019960071610237457, "6": 0.006706408976322306, "7": 0.0019575040751844018, "8": 0.0005045574760411085, "9": 0.00011636121284183784} |
+| Goal margin distribution | {"-1": 0.12407286803538543, "-10": 7.66883002718766e-08, "-11": 8.164895357894932e-09, "-12": 7.991242060455088e-10, "-13": 7.235835122908366e-11, "-14": 6.094702127019983e-12, "-15": 4.796161964940216e-13, "-16": 3.5123082158445155e-14, "-17": 2.1445150335375376e-15, "-2": 0.058348356895950027, "-3": 0.019508761096097636, "-4": 0.005206880277990835, "-5": 0.0011505006123470535, "-6": 0.00021627556883185162, "-7": 3.531933091028987e-05, "-8": 5.093456351378092e-06, "-9": 6.572069958458186e-07, "0": 0.2234297626598816, "1": 0.21272888225556943, "10": 2.3739354122300193e-05, "11": 4.5172137574838756e-06, "12": 7.901590837549052e-07, "13": 1.278701415124084e-07, "14": 1.9249222848172624e-08, "15": 2.707290058670399e-09, "16": 3.5433479363152337e-10, "17": 3.8666112246940036e-11, "2": 0.17351081902766116, "3": 0.10368307089695182, "4": 0.049457935694274514, "5": 0.01953104496561792, "6": 0.006561850338870701, "7": 0.0019151886435953766, "8": 0.0004936190492036352, "9": 0.00011383130960495292} |
+| Raw goal margin distribution | {"-1": 0.11802002411949902, "-10": 7.294709303559417e-08, "-11": 7.766574290820147e-09, "-12": 7.601392598184208e-10, "-13": 6.8828378778736e-11, "-14": 5.79737458657696e-12, "-15": 4.562183173051446e-13, "-16": 3.3409617018836294e-14, "-17": 2.0398957482835478e-15, "-2": 0.05550185626586147, "-3": 0.018557034197406792, "-4": 0.004952864761863673, "-5": 0.0010943739124332388, "-6": 0.00020572465402116634, "-7": 3.359629185591291e-05, "-8": 4.844974174932559e-06, "-9": 6.251454224392232e-07, "0": 0.2212533026767154, "1": 0.2173541172131504, "10": 2.4255504488873098e-05, "11": 4.615428794203146e-06, "12": 8.073390330757627e-07, "13": 1.3065034438041142e-07, "14": 1.9667747016022442e-08, "15": 2.766153023054474e-09, "16": 3.620388799634528e-10, "17": 3.9506806054673393e-11, "2": 0.17728335944237122, "3": 0.10593738897044122, "4": 0.05053326956844083, "5": 0.019955696620697523, "6": 0.00670452066765707, "7": 0.0019568294277277224, "8": 0.0005043515085570465, "9": 0.00011630627467255255} |
 | Unadjusted home-win probability | 58.0% |
 | Unadjusted draw probability | 22.1% |
 | Unadjusted away-win probability | 19.8% |
 | Raw p over 1 5 | 85.3% |
 | Raw p under 3 5 | 57.5% |
 | Raw p btts yes | 62.2% |
-| P home draw | 79.4% |
-| P draw away | 42.9% |
+| P home draw | 79.1% |
+| P draw away | 43.2% |
 | P home away | 77.7% |
 | Raw p home draw | 80.2% |
 | Raw p draw away | 42.0% |
 | Raw p home away | 77.9% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.75, "market_key": "spreads", "opposite_price": 1.94, "price": 1.96, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 1.5, "market_key": "spreads", "opposite_price": 2.82, "price": 1.51, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -1.5, "market_key": "spreads", "opposite_price": 1.51, "price": 2.82, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.75, "market_key": "spreads", "opposite_price": 1.96, "price": 1.94, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / GTbets |
-| Reference home odds | 1.74 |
-| Reference draw odds | 4.20 |
-| Reference away odds | 4.42 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:45Z |
-| Market reference home last update utc | 2026-10-22T15:04:45Z |
-| Market reference draw last update utc | 2026-10-22T15:04:45Z |
-| Market reference away last update utc | 2026-10-22T15:04:45Z |
-| O/U 2.5 market source | The Odds API / Betsson |
-| Reference Over 2.5 odds | 1.49 |
-| Reference Under 2.5 odds | 2.66 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:20Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:20Z |
-| Home probability edge | +0.9% |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.93, "price": 1.48, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.48, "price": 2.93, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": 3.0, "market_key": "alternate_spreads", "opposite_price": 9.55, "price": 1.03, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 8.45, "price": 1.03, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 7.7, "price": 1.06, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 5.29, "price": 1.14, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 4.64, "price": 1.21, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 3.19, "price": 1.33, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.24, "price": 1.67, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.67, "price": 2.24, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.33, "price": 3.19, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.21, "price": 4.64, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.14, "price": 5.29, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.06, "price": 7.7, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.03, "price": 8.45, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:40Z", "line": -3.0, "market_key": "alternate_spreads", "opposite_price": 1.03, "price": 9.55, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 3.79, "price": 1.3, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.75, "market_key": "alternate_spreads", "opposite_price": 3.64, "price": 1.31, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.97, "price": 1.43, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 2.65, "price": 1.53, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.55, "price": 1.56, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.32, "price": 1.67, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 2.16, "price": 1.77, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 1.98, "price": 1.93, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.93, "price": 1.98, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.77, "price": 2.16, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.67, "price": 2.32, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.56, "price": 2.55, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.53, "price": 2.65, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.43, "price": 2.97, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.75, "market_key": "alternate_spreads", "opposite_price": 1.31, "price": 3.64, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.3, "price": 3.79, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:32Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 3.31, "price": 1.36, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:32Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 1.36, "price": 3.31, "quote_source": "The Odds API", "side": "away"}] |
+| 1X2 market source | The Odds API / Coolbet |
+| Reference home odds | 1.77 |
+| Reference draw odds | 4.25 |
+| Reference away odds | 4.38 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:32Z |
+| Market reference home last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference away last update utc | 2026-10-23T14:29:32Z |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.50 |
+| Reference Under 2.5 odds | 2.50 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:08Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:08Z |
+| Home probability edge | +1.2% |
 | Draw probability edge | -0.2% |
-| Away probability edge | -0.7% |
-| Over 2.5 probability edge | -0.6% |
-| Under 2.5 probability edge | +0.6% |
-| Raw edge prob home | 0.0183 |
-| Raw ev home | 0.0099 |
-| Raw edge prob draw | -0.0035 |
-| Raw ev draw | -0.0531 |
-| Raw edge prob away | -0.0148 |
-| Raw ev away | -0.1332 |
+| Away probability edge | -1.0% |
+| Over 2.5 probability edge | +0.7% |
+| Under 2.5 probability edge | -0.7% |
+| Raw edge prob home | 0.0247 |
+| Raw ev home | 0.0273 |
+| Raw edge prob draw | -0.0044 |
+| Raw ev draw | -0.0685 |
+| Raw edge prob away | -0.0203 |
+| Raw ev away | -0.1470 |
+| Market p home draw | 78.7% |
+| Market home draw odds | 1.23 |
+| Best home draw bookmaker | Pinnacle |
+| Market best home draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference home draw last update utc | 2026-10-23T14:29:32Z |
+| Market home draw bookmakers | 2 |
+| Market reference home draw method | proportional_overlap_sum_two |
+| Market p draw away | 45.0% |
+| Market draw away odds | 2.15 |
+| Best draw away bookmaker | Pinnacle |
+| Market best draw away last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw away last update utc | 2026-10-23T14:29:32Z |
+| Market draw away bookmakers | 2 |
+| Market reference draw away method | proportional_overlap_sum_two |
+| Market p home away | 76.2% |
+| Market home away odds | 1.27 |
+| Best home away bookmaker | Pinnacle |
+| Market best home away last update utc | 2026-10-23T14:29:32Z |
+| Market reference home away last update utc | 2026-10-23T14:29:32Z |
+| Market home away bookmakers | 2 |
+| Market reference home away method | proportional_overlap_sum_two |
+| Market reference dc home draw odds | 1.23 |
+| Market reference dc draw away odds | 2.15 |
+| Market reference dc home away odds | 1.27 |
+| Market p over 1 5 | 84.4% |
+| Market over 1 5 odds | 1.13 |
+| Best over 1 5 bookmaker | 1xBet |
+| Market best over 1 5 last update utc | 2026-10-23T14:28:40Z |
+| Market reference over 1 5 odds | 1.17 |
+| Market reference over 1 5 opposite odds | 5.60 |
+| Market reference over 1 5 last update utc | 2026-10-23T14:29:32Z |
+| Market over 1 5 bookmakers | 1 |
+| Market p under 3 5 | 58.2% |
+| Market under 3 5 odds | 1.65 |
+| Best under 3 5 bookmaker | Pinnacle |
+| Market best under 3 5 last update utc | 2026-10-23T14:29:29Z |
+| Market reference under 3 5 odds | 1.67 |
+| Market reference under 3 5 opposite odds | 2.29 |
+| Market reference under 3 5 last update utc | 2026-10-23T14:29:32Z |
+| Market under 3 5 bookmakers | 2 |
+| Market p btts yes | 63.1% |
+| Market btts yes odds | 1.54 |
+| Best btts yes bookmaker | Pinnacle |
+| Market best btts yes last update utc | 2026-10-23T14:29:32Z |
+| Market reference btts yes odds | 1.57 |
+| Market reference btts yes opposite odds | 2.66 |
+| Market reference btts yes last update utc | 2026-10-23T14:29:39Z |
+| Market btts yes bookmakers | 2 |
+| Elo home rating | 1,507.4574 |
+| Elo away rating | 1,444.7579 |
+| Elo rating diff | 122.6995 |
+| Elo home expectancy | 0.6696 |
 
 </details>
 
@@ -807,7 +869,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-24 — Coventry City vs Fulham
 
-The model's most likely 1X2 outcome is **Fulham win** at **41.8%**. Expected goals are 1.10 for Coventry City and 1.37 for Fulham (2.47 combined). The most likely exact score is 1-1 at 13.5%. Goal-market probabilities: at least one goal: 90.7%; Over 2.5 goals: 45.1%; Under 3.5 goals: 76.4%; Double Chance 1X: 58.2%; Double Chance X2: 70.2%; Double Chance 12 (either team wins): 71.6%; Under 4.5 goals: 89.5%; BTTS Yes (both teams score): 50.7%; BTTS No (at least one team does not score): 49.3%.
+The model's most likely 1X2 outcome is **Fulham win** at **42.1%**. Expected goals are 1.10 for Coventry City and 1.37 for Fulham (2.47 combined). The most likely exact score is 1-1 at 13.4%. Goal-market probabilities: at least one goal: 90.7%; Over 2.5 goals: 45.2%; Under 3.5 goals: 76.4%; Double Chance 1X: 57.9%; Double Chance X2: 70.2%; Double Chance 12 (either team wins): 71.9%; Under 4.5 goals: 89.4%; BTTS Yes (both teams score): 50.6%; BTTS No (at least one team does not score): 49.4%.
 
 **Fixture source:** The Odds API
 
@@ -815,9 +877,9 @@ The model's most likely 1X2 outcome is **Fulham win** at **41.8%**. Expected goa
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Coventry City win | 29.8% | 3.35 |
-| Draw | 28.4% | 3.52 |
-| Fulham win | 41.8% | 2.39 |
+| Coventry City win | 29.8% | 3.36 |
+| Draw | 28.1% | 3.55 |
+| Fulham win | 42.1% | 2.38 |
 
 ### Goals outlook
 
@@ -830,32 +892,32 @@ The model's most likely 1X2 outcome is **Fulham win** at **41.8%**. Expected goa
 | Under 0.5 | 9.3% |
 | Over 1.5 | 71.8% |
 | Under 1.5 | 28.2% |
-| Over 2.5 | 45.1% |
-| Under 2.5 | 54.9% |
+| Over 2.5 | 45.2% |
+| Under 2.5 | 54.8% |
 | Over 3.5 | 23.6% |
 | Under 3.5 | 76.4% |
-| Over 4.5 | 10.5% |
-| Under 4.5 | 89.5% |
+| Over 4.5 | 10.6% |
+| Under 4.5 | 89.4% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 13.51% |
-| 2 | 0-1 | 10.46% |
-| 3 | 0-0 | 9.35% |
-| 4 | 1-2 | 8.72% |
-| 5 | 1-0 | 8.42% |
+| 1 | 1-1 | 13.39% |
+| 2 | 0-1 | 10.53% |
+| 3 | 0-0 | 9.27% |
+| 4 | 1-2 | 8.78% |
+| 5 | 1-0 | 8.40% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Coventry City win | 29.8% | 30.6% | 3.20 | -4.5% |
-| Draw | 28.4% | 27.6% | 3.54 | +0.5% |
-| Fulham win | 41.8% | 41.8% | 2.28 | -4.8% |
-| Over 2.5 | 45.1% | 54.9% | 1.81 | -18.4% |
-| Under 2.5 | 54.9% | 45.1% | 2.15 | +18.1% |
+| Coventry City win | 29.8% | 30.5% | 3.20 | -4.7% |
+| Draw | 28.1% | 27.1% | 3.54 | -0.4% |
+| Fulham win | 42.1% | 42.4% | 2.28 | -4.1% |
+| Over 2.5 | 45.2% | 54.9% | 1.81 | -18.3% |
+| Under 2.5 | 54.8% | 45.1% | 2.15 | +17.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -871,9 +933,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 16.00 |
 | Best home bookmaker | Pinnacle |
@@ -886,116 +948,120 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
 | Dc lambda home | 1.1010 |
-| Dc lambda away | 1.3665 |
+| Dc lambda away | 1.3667 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
 | Score grid omitted mass | 0 |
-| P btts yes | 50.7% |
-| P btts no | 49.3% |
+| P btts yes | 50.6% |
+| P btts no | 49.4% |
 | Fair Over 0.5 odds | 1.10 |
-| Fair Under 0.5 odds | 10.70 |
+| Fair Under 0.5 odds | 10.79 |
 | Fair Over 1.5 odds | 1.39 |
-| Fair Under 1.5 odds | 3.54 |
-| Fair Over 2.5 odds | 2.22 |
+| Fair Under 1.5 odds | 3.55 |
+| Fair Over 2.5 odds | 2.21 |
 | Fair Under 2.5 odds | 1.82 |
 | Fair Over 3.5 odds | 4.24 |
 | Fair Under 3.5 odds | 1.31 |
-| Fair Over 4.5 odds | 9.50 |
+| Fair Over 4.5 odds | 9.47 |
 | Fair Under 4.5 odds | 1.12 |
-| Goal margin distribution | {"-1": 0.2166262625521455, "-10": 6.081559480082364e-07, "-11": 7.470421738244928e-08, "-12": 8.424620387629518e-09, "-13": 8.741068059014487e-10, "-14": 7.703863849520354e-11, "-2": 0.12722979977007765, "-3": 0.05188279652817899, "-4": 0.016537586616930847, "-5": 0.004310742724482207, "-6": 0.0009486423909959361, "-7": 0.0001804349614507073, "-8": 3.019913825453468e-05, "-9": 4.510745948256177e-06, "0": 0.2837852980143757, "1": 0.17686938656021994, "10": 7.196416157559147e-08, "11": 7.122395410503487e-09, "12": 6.471589322214929e-10, "13": 5.410093360047157e-11, "14": 3.841744743180468e-12, "2": 0.08477210434609729, "3": 0.02785269003838762, "4": 0.007153120644661899, "5": 0.001502294823644235, "6": 0.0002663699587357761, "7": 4.082094513909379e-05, "8": 5.504736865767385e-06, "9": 6.62475818065878e-07} |
-| Raw goal margin distribution | {"-1": 0.2164728174226935, "-10": 6.077251665920327e-07, "-11": 7.465130136861139e-08, "-12": 8.418652888810426e-09, "-13": 8.734876407531135e-10, "-14": 7.698406891662413e-11, "-2": 0.12713967776517449, "-3": 0.05184604584829462, "-4": 0.016525872376518064, "-5": 0.004307689251336339, "-6": 0.000947970429282822, "-7": 0.0001803071520812833, "-8": 3.017774698542348e-05, "-9": 4.507550804750488e-06, "0": 0.29195603252849994, "1": 0.17220276069878868, "10": 7.006541683498861e-08, "11": 6.934473943344e-09, "12": 6.300839105442236e-10, "13": 5.267350276703236e-11, "14": 3.740381891642339e-12, "2": 0.08253542731474028, "3": 0.027117808292194, "4": 0.006964388504863631, "5": 0.0014626573939462157, "6": 0.00025934189716831247, "7": 3.974390132739208e-05, "8": 5.359496652535698e-06, "9": 6.449966666689999e-07} |
+| Goal margin distribution | {"-1": 0.21812835933728267, "-10": 6.132608997401215e-07, "-11": 7.534395928206999e-08, "-12": 8.498196100024465e-09, "-13": 8.818880122853552e-10, "-14": 7.773630976309547e-11, "-2": 0.12813048825651505, "-3": 0.052258064623542974, "-4": 0.016659846950448844, "-5": 0.004343315644584165, "-6": 0.0009559675244708053, "-7": 0.000181858339347013, "-8": 3.0442436463281852e-05, "-9": 4.547847013736213e-06, "0": 0.2813603527667096, "1": 0.17656377744296925, "10": 7.183944702745269e-08, "11": 7.1100893906889945e-09, "12": 6.460442842085794e-10, "13": 5.400797535270917e-11, "14": 3.835105323452036e-12, "2": 0.08462503191587452, "3": 0.02780408474687859, "4": 0.007140608242254712, "5": 0.0014996658756409246, "6": 0.00026590418559359547, "7": 4.074967723673323e-05, "8": 5.4951465369718055e-06, "9": 6.613245335206905e-07} |
+| Raw goal margin distribution | {"-1": 0.21648044041760972, "-10": 6.086278284492181e-07, "-11": 7.477474977459827e-08, "-12": 8.433993819409193e-09, "-13": 8.752255134480049e-10, "-14": 7.714902649560396e-11, "-2": 0.12716248640464053, "-3": 0.0518632647283791, "-4": 0.016533984925575458, "-5": 0.004310502707987718, "-6": 0.0009487453687870849, "-7": 0.00018048443363837078, "-8": 3.0212449554834007e-05, "-9": 4.513488880935492e-06, "0": 0.29193817451093335, "1": 0.1721787745004203, "10": 7.005529746309358e-08, "11": 6.933508648299587e-09, "12": 6.299996224535e-10, "13": 5.266667458155163e-11, "14": 3.739859580684924e-12, "2": 0.08252334934350052, "3": 0.027113563762361674, "4": 0.006963269557008298, "5": 0.0014624213208813857, "6": 0.00025930039260077374, "7": 3.973764941778428e-05, "8": 5.358673280206882e-06, "9": 6.449003831798611e-07} |
 | Unadjusted home-win probability | 29.1% |
 | Unadjusted draw probability | 29.2% |
-| Unadjusted away-win probability | 41.7% |
+| Unadjusted away-win probability | 41.8% |
 | Raw p over 1 5 | 71.7% |
-| Raw p under 3 5 | 76.5% |
+| Raw p under 3 5 | 76.4% |
 | Raw p btts yes | 50.9% |
-| P home draw | 58.2% |
+| P home draw | 57.9% |
 | P draw away | 70.2% |
-| P home away | 71.6% |
-| Raw p home draw | 58.3% |
+| P home away | 71.9% |
+| Raw p home draw | 58.2% |
 | Raw p draw away | 70.9% |
 | Raw p home away | 70.8% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.36, "price": 1.69, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.69, "price": 2.36, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 4.01, "price": 1.27, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.95, "price": 1.28, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.5, "price": 1.33, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.17, "price": 1.39, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.77, "price": 1.49, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.7, "price": 1.51, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.34, "price": 1.66, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.28, "price": 1.69, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.98, "price": 1.93, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.93, "price": 1.98, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.69, "price": 2.28, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.66, "price": 2.34, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.51, "price": 2.7, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.49, "price": 2.77, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.39, "price": 3.17, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.33, "price": 3.5, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.28, "price": 3.95, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.27, "price": 4.01, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / GTbets |
-| Reference home odds | 3.15 |
-| Reference draw odds | 3.49 |
-| Reference away odds | 2.33 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:45Z |
-| Market reference home last update utc | 2026-10-22T15:04:45Z |
-| Market reference draw last update utc | 2026-10-22T15:04:45Z |
-| Market reference away last update utc | 2026-10-22T15:04:45Z |
-| O/U 2.5 market source | The Odds API / GTbets |
-| Reference Over 2.5 odds | 1.73 |
-| Reference Under 2.5 odds | 2.07 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Home probability edge | -0.8% |
-| Draw probability edge | +0.8% |
-| Away probability edge | -0.0% |
-| Over 2.5 probability edge | -9.8% |
-| Under 2.5 probability edge | +9.8% |
-| Raw edge prob home | -0.0157 |
-| Raw ev home | -0.0701 |
-| Raw edge prob draw | 0.0163 |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.36, "price": 1.69, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.69, "price": 2.36, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 4.01, "price": 1.27, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.95, "price": 1.28, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.5, "price": 1.33, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.17, "price": 1.39, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.77, "price": 1.49, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.7, "price": 1.51, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.34, "price": 1.66, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.28, "price": 1.69, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.98, "price": 1.93, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.93, "price": 1.98, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.69, "price": 2.28, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.66, "price": 2.34, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.51, "price": 2.7, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.49, "price": 2.77, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.39, "price": 3.17, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.33, "price": 3.5, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.28, "price": 3.95, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.27, "price": 4.01, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Coolbet |
+| Reference home odds | 3.20 |
+| Reference draw odds | 3.60 |
+| Reference away odds | 2.32 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:32Z |
+| Market reference home last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference away last update utc | 2026-10-23T14:29:32Z |
+| O/U 2.5 market source | The Odds API / Coolbet |
+| Reference Over 2.5 odds | 1.77 |
+| Reference Under 2.5 odds | 2.13 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:32Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:32Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Home probability edge | -0.7% |
+| Draw probability edge | +1.1% |
+| Away probability edge | -0.3% |
+| Over 2.5 probability edge | -9.7% |
+| Under 2.5 probability edge | +9.7% |
+| Raw edge prob home | -0.0148 |
+| Raw ev home | -0.0703 |
+| Raw edge prob draw | 0.0212 |
 | Raw ev draw | 0.0335 |
-| Raw edge prob away | -0.0006 |
-| Raw ev away | -0.0482 |
-| Market p home draw | 57.5% |
+| Raw edge prob away | -0.0064 |
+| Raw ev away | -0.0481 |
+| Market p home draw | 57.3% |
 | Market home draw odds | 1.68 |
 | Best home draw bookmaker | Pinnacle |
-| Market best home draw last update utc | 2026-10-22T15:04:39Z |
-| Market reference home draw last update utc | 2026-10-22T15:04:39Z |
+| Market best home draw last update utc | 2026-10-23T14:28:50Z |
+| Market reference home draw last update utc | 2026-10-23T14:29:14Z |
 | Market home draw bookmakers | 2 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 70.0% |
+| Market p draw away | 69.8% |
 | Market draw away odds | 1.38 |
 | Best draw away bookmaker | Pinnacle |
-| Market best draw away last update utc | 2026-10-22T15:04:39Z |
-| Market reference draw away last update utc | 2026-10-22T15:04:39Z |
+| Market best draw away last update utc | 2026-10-23T14:28:50Z |
+| Market reference draw away last update utc | 2026-10-23T14:29:14Z |
 | Market draw away bookmakers | 2 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market p home away | 72.6% |
+| Market p home away | 72.9% |
 | Market home away odds | 1.33 |
 | Best home away bookmaker | Pinnacle |
-| Market best home away last update utc | 2026-10-22T15:04:39Z |
-| Market reference home away last update utc | 2026-10-22T15:04:39Z |
+| Market best home away last update utc | 2026-10-23T14:28:50Z |
+| Market reference home away last update utc | 2026-10-23T14:29:14Z |
 | Market home away bookmakers | 2 |
 | Market reference home away method | proportional_overlap_sum_two |
 | Market reference dc home draw odds | 1.68 |
 | Market reference dc draw away odds | 1.38 |
-| Market reference dc home away odds | 1.33 |
-| Market p over 1 5 | 79.6% |
-| Market reference over 1 5 odds | 1.22 |
-| Market reference over 1 5 opposite odds | 4.00 |
-| Market reference over 1 5 last update utc | 2026-10-22T15:04:19Z |
+| Market reference dc home away odds | 1.32 |
+| Market p over 1 5 | 78.8% |
+| Market reference over 1 5 odds | 1.25 |
+| Market reference over 1 5 opposite odds | 4.25 |
+| Market reference over 1 5 last update utc | 2026-10-23T14:29:32Z |
 | Market over 1 5 bookmakers | 0 |
-| Market p under 3 5 | 67.4% |
+| Market p under 3 5 | 67.5% |
 | Market under 3 5 odds | 1.45 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-22T15:04:39Z |
+| Market best under 3 5 last update utc | 2026-10-23T14:29:29Z |
 | Market reference under 3 5 odds | 1.45 |
-| Market reference under 3 5 opposite odds | 2.87 |
-| Market reference under 3 5 last update utc | 2026-10-22T15:04:39Z |
+| Market reference under 3 5 opposite odds | 2.90 |
+| Market reference under 3 5 last update utc | 2026-10-23T14:29:32Z |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 60.2% |
+| Market p btts yes | 59.7% |
 | Market btts yes odds | 1.61 |
 | Best btts yes bookmaker | Pinnacle |
-| Market best btts yes last update utc | 2026-10-22T15:04:39Z |
-| Market reference btts yes odds | 1.61 |
-| Market reference btts yes opposite odds | 2.38 |
-| Market reference btts yes last update utc | 2026-10-22T15:04:39Z |
+| Market best btts yes last update utc | 2026-10-23T14:28:50Z |
+| Market reference btts yes odds | 1.66 |
+| Market reference btts yes opposite odds | 2.44 |
+| Market reference btts yes last update utc | 2026-10-23T14:29:39Z |
 | Market btts yes bookmakers | 2 |
+| Elo home rating | 1,374.3497 |
+| Elo away rating | 1,443.1425 |
+| Elo rating diff | -8.7928 |
+| Elo home expectancy | 0.4873 |
 
 </details>
 
@@ -1004,7 +1070,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-25 — Crystal Palace vs Newcastle United
 
-The model's most likely 1X2 outcome is **Newcastle United win** at **39.6%**. Expected goals are 1.50 for Crystal Palace and 1.58 for Newcastle United (3.08 combined). The most likely exact score is 1-1 at 11.9%. Goal-market probabilities: at least one goal: 94.4%; Over 2.5 goals: 59.3%; Under 3.5 goals: 63.0%; Double Chance 1X: 60.4%; Double Chance X2: 65.6%; Double Chance 12 (either team wins): 74.0%; Under 4.5 goals: 80.3%; BTTS Yes (both teams score): 62.6%; BTTS No (at least one team does not score): 37.4%.
+The model's most likely 1X2 outcome is **Newcastle United win** at **40.1%**. Expected goals are 1.50 for Crystal Palace and 1.58 for Newcastle United (3.08 combined). The most likely exact score is 1-1 at 12.1%. Goal-market probabilities: at least one goal: 94.3%; Over 2.5 goals: 59.2%; Under 3.5 goals: 63.0%; Double Chance 1X: 59.9%; Double Chance X2: 66.4%; Double Chance 12 (either team wins): 73.7%; Under 4.5 goals: 80.3%; BTTS Yes (both teams score): 62.7%; BTTS No (at least one team does not score): 37.3%.
 
 **Fixture source:** The Odds API
 
@@ -1012,9 +1078,9 @@ The model's most likely 1X2 outcome is **Newcastle United win** at **39.6%**. Ex
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Crystal Palace win | 34.4% | 2.91 |
-| Draw | 26.0% | 3.84 |
-| Newcastle United win | 39.6% | 2.52 |
+| Crystal Palace win | 33.6% | 2.98 |
+| Draw | 26.3% | 3.80 |
+| Newcastle United win | 40.1% | 2.49 |
 
 ### Goals outlook
 
@@ -1023,12 +1089,12 @@ The model's most likely 1X2 outcome is **Newcastle United win** at **39.6%**. Ex
 | Crystal Palace expected goals | 1.50 |
 | Newcastle United expected goals | 1.58 |
 | Expected total goals | 3.08 |
-| Over 0.5 | 94.4% |
-| Under 0.5 | 5.6% |
-| Over 1.5 | 82.2% |
-| Under 1.5 | 17.8% |
-| Over 2.5 | 59.3% |
-| Under 2.5 | 40.7% |
+| Over 0.5 | 94.3% |
+| Under 0.5 | 5.7% |
+| Over 1.5 | 82.1% |
+| Under 1.5 | 17.9% |
+| Over 2.5 | 59.2% |
+| Under 2.5 | 40.8% |
 | Over 3.5 | 37.0% |
 | Under 3.5 | 63.0% |
 | Over 4.5 | 19.7% |
@@ -1038,21 +1104,21 @@ The model's most likely 1X2 outcome is **Newcastle United win** at **39.6%**. Ex
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 11.94% |
-| 2 | 1-2 | 8.78% |
-| 3 | 2-1 | 7.96% |
-| 4 | 2-2 | 6.48% |
-| 5 | 0-1 | 6.44% |
+| 1 | 1-1 | 12.07% |
+| 2 | 1-2 | 8.89% |
+| 3 | 2-1 | 7.78% |
+| 4 | 2-2 | 6.55% |
+| 5 | 0-1 | 6.52% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Crystal Palace win | 34.4% | 33.5% | 3.04 | +4.5% |
-| Draw | 26.0% | 26.1% | 3.72 | -3.2% |
-| Newcastle United win | 39.6% | 40.3% | 2.30 | -8.9% |
-| Over 2.5 | 59.3% | 59.0% | 1.69 | +0.2% |
-| Under 2.5 | 40.7% | 41.0% | 2.36 | -4.0% |
+| Crystal Palace win | 33.6% | 32.0% | 3.01 | +1.1% |
+| Draw | 26.3% | 26.7% | 3.68 | -3.2% |
+| Newcastle United win | 40.1% | 41.3% | 2.33 | -6.6% |
+| Over 2.5 | 59.2% | 59.2% | 1.69 | +0.1% |
+| Under 2.5 | 40.8% | 40.8% | 2.36 | -3.7% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1068,11 +1134,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
-| Odds bookmakers ou25 | 11.00 |
+| Odds bookmakers ou25 | 10.00 |
 | Best home bookmaker | Pinnacle |
 | Best draw bookmaker | Pinnacle |
 | Best away bookmaker | Pinnacle |
@@ -1085,69 +1151,118 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Dc lambda home | 1.4955 |
 | Dc lambda away | 1.5800 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
 | Score grid omitted mass | 0 |
-| P btts yes | 62.6% |
-| P btts no | 37.4% |
+| P btts yes | 62.7% |
+| P btts no | 37.3% |
 | Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 17.80 |
+| Fair Under 0.5 odds | 17.61 |
 | Fair Over 1.5 odds | 1.22 |
 | Fair Under 1.5 odds | 5.60 |
 | Fair Over 2.5 odds | 1.69 |
-| Fair Under 2.5 odds | 2.46 |
+| Fair Under 2.5 odds | 2.45 |
 | Fair Over 3.5 odds | 2.71 |
 | Fair Under 3.5 odds | 1.59 |
-| Fair Over 4.5 odds | 5.07 |
+| Fair Over 4.5 odds | 5.08 |
 | Fair Under 4.5 odds | 1.25 |
-| Goal margin distribution | {"-1": 0.19438885462372169, "-10": 1.5542449389897595e-06, "-11": 2.1937448167119819e-07, "-12": 2.8457721627813918e-08, "-13": 3.412956401217361e-09, "-14": 3.7717460864263013e-10, "-15": 3.432208437082438e-11, "-2": 0.12094496795236102, "-3": 0.05409956561789945, "-4": 0.019252678797452856, "-5": 0.005660789278874461, "-6": 0.0014142218401892945, "-7": 0.0003066683241314776, "-8": 5.8688619969874156e-05, "-9": 1.0044741422224951e-05, "0": 0.2601588487842121, "1": 0.17578274597413285, "10": 8.595616680515879e-07, "11": 1.1483571241073343e-07, "12": 1.4100167484430276e-08, "13": 1.600619738170705e-09, "14": 1.6742995452830234e-10, "15": 1.4421075436952148e-11, "2": 0.10381954383664108, "3": 0.043956021161641066, "4": 0.014806385219262051, "5": 0.004120672988828641, "6": 0.0009744105674470996, "7": 0.0001999984585434547, "8": 3.622804588846894e-05, "9": 5.868985766814972e-06} |
-| Raw goal margin distribution | {"-1": 0.19086278970063758, "-10": 1.5260521263315379e-06, "-11": 2.1539519661219677e-07, "-12": 2.794152035579674e-08, "-13": 3.351047986387495e-09, "-14": 3.703329501535818e-10, "-15": 3.369950805068833e-11, "-2": 0.11875111887626119, "-3": 0.05311824093728124, "-4": 0.018903449951413756, "-5": 0.005558106897459914, "-6": 0.0013885689392871125, "-7": 0.0003011055956363994, "-8": 5.7624053358477836e-05, "-9": 9.862537506990629e-06, "0": 0.258831981717736, "1": 0.18013636914025602, "10": 8.808504900574267e-07, "11": 1.1767985627183345e-07, "12": 1.4449387286784862e-08, "13": 1.640262395552332e-09, "14": 1.715767035433885e-10, "15": 1.4778243188285174e-11, "2": 0.10639084950511699, "3": 0.045044682912596334, "4": 0.01517309596405045, "5": 0.004222729975620863, "6": 0.0009985438599169833, "7": 0.0002049518339016474, "8": 3.7125308352821515e-05, "9": 6.014343334501468e-06} |
+| Goal margin distribution | {"-1": 0.19679072454088753, "-10": 1.573254401710579e-06, "-11": 2.2205428362247904e-07, "-12": 2.8804923608877495e-08, "-13": 3.4545453184957746e-09, "-14": 3.817650453838156e-10, "-15": 3.47392927391754e-11, "-2": 0.12243870511382077, "-3": 0.05476691866301672, "-4": 0.019489885172161627, "-5": 0.0057304493560967, "-6": 0.001431603652452342, "-7": 0.00031043289915778097, "-8": 5.940818415871064e-05, "-9": 1.016774625368073e-05, "0": 0.2629867796566833, "1": 0.17183204775703706, "10": 8.40355608561995e-07, "11": 1.1227138213537162e-07, "12": 1.3785496351380742e-08, "13": 1.5649207186625252e-09, "14": 1.6369800018735392e-10, "15": 1.4099832414743698e-11, "2": 0.10148847942661725, "3": 0.04296967717787993, "4": 0.014474342020263833, "5": 0.004028320301557615, "6": 0.0009525853108791114, "7": 0.0001955215311548677, "8": 3.5417580781448775e-05, "9": 5.737769275573443e-06} |
+| Raw goal margin distribution | {"-1": 0.19085853928175622, "-10": 1.5258292164409761e-06, "-11": 2.1536053750662214e-07, "-12": 2.7936609598541686e-08, "-13": 3.3504092985528024e-09, "-14": 3.7025687608385993e-10, "-15": 3.3692089316449207e-11, "-2": 0.11874783460497, "-3": 0.05311598969602016, "-4": 0.018902369628478383, "-5": 0.005557707031590586, "-6": 0.0013884484778179202, "-7": 0.00030107501162202695, "-8": 5.7617345920982425e-05, "-9": 9.861243218106304e-06, "0": 0.25883562022144757, "1": 0.18013771577059806, "10": 8.809750086631852e-07, "11": 1.1769812784207784e-07, "12": 1.4451831633950495e-08, "13": 1.6405626732712045e-09, "14": 1.7161050115435892e-10, "15": 1.4781361434576444e-11, "2": 0.1063940231148963, "3": 0.04504665803184723, "4": 0.015173973323645793, "5": 0.004223033054584533, "6": 0.0009986294420527312, "7": 0.00020497225323187873, "8": 3.7129523760968695e-05, "9": 6.0151098960420235e-06} |
 | Unadjusted home-win probability | 35.2% |
 | Unadjusted draw probability | 25.9% |
 | Unadjusted away-win probability | 38.9% |
 | Raw p over 1 5 | 82.2% |
 | Raw p under 3 5 | 63.0% |
 | Raw p btts yes | 62.6% |
-| P home draw | 60.4% |
-| P draw away | 65.6% |
-| P home away | 74.0% |
+| P home draw | 59.9% |
+| P draw away | 66.4% |
+| P home away | 73.7% |
 | Raw p home draw | 61.1% |
 | Raw p draw away | 64.8% |
 | Raw p home away | 74.1% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "spreads", "opposite_price": 1.9, "price": 2.01, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.21, "price": 1.78, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.78, "price": 2.21, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "spreads", "opposite_price": 2.01, "price": 1.9, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / GTbets |
-| Reference home odds | 2.84 |
-| Reference draw odds | 3.60 |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.21, "price": 1.78, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.78, "price": 2.21, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.97, "price": 1.28, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 3.7, "price": 1.31, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.54, "price": 1.33, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.99, "price": 1.43, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.75, "price": 1.5, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.62, "price": 1.54, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.33, "price": 1.67, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.03, "price": 1.88, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.88, "price": 2.03, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.67, "price": 2.33, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.54, "price": 2.62, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.5, "price": 2.75, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.43, "price": 2.99, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.33, "price": 3.54, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.31, "price": 3.7, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.28, "price": 3.97, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:35Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 2.22, "price": 1.7, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:35Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 1.7, "price": 2.22, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Coolbet |
+| Reference home odds | 3.06 |
+| Reference draw odds | 3.65 |
 | Reference away odds | 2.38 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:45Z |
-| Market reference home last update utc | 2026-10-22T15:04:45Z |
-| Market reference draw last update utc | 2026-10-22T15:04:45Z |
-| Market reference away last update utc | 2026-10-22T15:04:45Z |
-| O/U 2.5 market source | The Odds API / GTbets |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:32Z |
+| Market reference home last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference away last update utc | 2026-10-23T14:29:32Z |
+| O/U 2.5 market source | The Odds API / Unibet (NL) |
 | Reference Over 2.5 odds | 1.62 |
-| Reference Under 2.5 odds | 2.26 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Home probability edge | +0.9% |
-| Draw probability edge | -0.1% |
-| Away probability edge | -0.7% |
-| Over 2.5 probability edge | +0.3% |
-| Under 2.5 probability edge | -0.3% |
-| Raw edge prob home | 0.0170 |
-| Raw ev home | 0.0707 |
-| Raw edge prob draw | -0.0027 |
-| Raw ev draw | -0.0371 |
-| Raw edge prob away | -0.0144 |
-| Raw ev away | -0.1054 |
+| Reference Under 2.5 odds | 2.28 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Home probability edge | +1.6% |
+| Draw probability edge | -0.4% |
+| Away probability edge | -1.2% |
+| Over 2.5 probability edge | +0.0% |
+| Under 2.5 probability edge | -0.0% |
+| Raw edge prob home | 0.0325 |
+| Raw ev home | 0.0602 |
+| Raw edge prob draw | -0.0083 |
+| Raw ev draw | -0.0475 |
+| Raw edge prob away | -0.0242 |
+| Raw ev away | -0.0938 |
+| Market p home draw | 58.2% |
+| Market home draw odds | 1.66 |
+| Best home draw bookmaker | Pinnacle |
+| Market best home draw last update utc | 2026-10-23T14:29:35Z |
+| Market reference home draw last update utc | 2026-10-23T14:29:35Z |
+| Market home draw bookmakers | 2 |
+| Market reference home draw method | proportional_overlap_sum_two |
+| Market p draw away | 68.0% |
+| Market draw away odds | 1.42 |
+| Best draw away bookmaker | Pinnacle |
+| Market best draw away last update utc | 2026-10-23T14:29:35Z |
+| Market reference draw away last update utc | 2026-10-23T14:29:35Z |
+| Market draw away bookmakers | 2 |
+| Market reference draw away method | proportional_overlap_sum_two |
+| Market p home away | 73.8% |
+| Market home away odds | 1.31 |
+| Best home away bookmaker | Pinnacle |
+| Market best home away last update utc | 2026-10-23T14:29:35Z |
+| Market reference home away last update utc | 2026-10-23T14:29:35Z |
+| Market home away bookmakers | 2 |
+| Market reference home away method | proportional_overlap_sum_two |
+| Market reference dc home draw odds | 1.66 |
+| Market reference dc draw away odds | 1.42 |
+| Market reference dc home away odds | 1.31 |
+| Market p over 1 5 | 82.2% |
+| Market reference over 1 5 odds | 1.20 |
+| Market reference over 1 5 opposite odds | 4.95 |
+| Market reference over 1 5 last update utc | 2026-10-23T14:29:32Z |
+| Market over 1 5 bookmakers | 0 |
+| Market p under 3 5 | 62.5% |
+| Market under 3 5 odds | 1.60 |
+| Best under 3 5 bookmaker | Pinnacle |
+| Market best under 3 5 last update utc | 2026-10-23T14:29:29Z |
+| Market reference under 3 5 odds | 1.56 |
+| Market reference under 3 5 opposite odds | 2.53 |
+| Market reference under 3 5 last update utc | 2026-10-23T14:29:32Z |
+| Market under 3 5 bookmakers | 1 |
+| Market p btts yes | 64.7% |
+| Market btts yes odds | 1.48 |
+| Best btts yes bookmaker | Pinnacle |
+| Market best btts yes last update utc | 2026-10-23T14:29:35Z |
+| Market reference btts yes odds | 1.53 |
+| Market reference btts yes opposite odds | 2.76 |
+| Market reference btts yes last update utc | 2026-10-23T14:29:39Z |
+| Market btts yes bookmakers | 2 |
+| Elo home rating | 1,423.3950 |
+| Elo away rating | 1,440.4285 |
+| Elo rating diff | 42.9664 |
+| Elo home expectancy | 0.5615 |
 
 </details>
 
@@ -1156,7 +1271,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-25 — Hull City vs Brentford
 
-The model's most likely 1X2 outcome is **Brentford win** at **43.0%**. Expected goals are 1.19 for Hull City and 1.05 for Brentford (2.24 combined). The most likely exact score is 0-1 at 13.8%. Goal-market probabilities: at least one goal: 89.5%; Over 2.5 goals: 39.9%; Under 3.5 goals: 81.0%; Double Chance 1X: 57.0%; Double Chance X2: 70.8%; Double Chance 12 (either team wins): 72.2%; Under 4.5 goals: 92.0%; BTTS Yes (both teams score): 45.9%; BTTS No (at least one team does not score): 54.1%.
+The model's most likely 1X2 outcome is **Brentford win** at **44.4%**. Expected goals are 1.19 for Hull City and 1.05 for Brentford (2.24 combined). The most likely exact score is 0-1 at 14.3%. Goal-market probabilities: at least one goal: 89.7%; Over 2.5 goals: 40.1%; Under 3.5 goals: 81.0%; Double Chance 1X: 55.6%; Double Chance X2: 71.6%; Double Chance 12 (either team wins): 72.8%; Under 4.5 goals: 92.0%; BTTS Yes (both teams score): 45.8%; BTTS No (at least one team does not score): 54.2%.
 
 **Fixture source:** The Odds API
 
@@ -1164,9 +1279,9 @@ The model's most likely 1X2 outcome is **Brentford win** at **43.0%**. Expected 
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Hull City win | 29.2% | 3.43 |
-| Draw | 27.8% | 3.59 |
-| Brentford win | 43.0% | 2.33 |
+| Hull City win | 28.4% | 3.52 |
+| Draw | 27.2% | 3.68 |
+| Brentford win | 44.4% | 2.25 |
 
 ### Goals outlook
 
@@ -1175,12 +1290,12 @@ The model's most likely 1X2 outcome is **Brentford win** at **43.0%**. Expected 
 | Hull City expected goals | 1.19 |
 | Brentford expected goals | 1.05 |
 | Expected total goals | 2.24 |
-| Over 0.5 | 89.5% |
-| Under 0.5 | 10.5% |
+| Over 0.5 | 89.7% |
+| Under 0.5 | 10.3% |
 | Over 1.5 | 66.8% |
 | Under 1.5 | 33.2% |
-| Over 2.5 | 39.9% |
-| Under 2.5 | 60.1% |
+| Over 2.5 | 40.1% |
+| Under 2.5 | 59.9% |
 | Over 3.5 | 19.0% |
 | Under 3.5 | 81.0% |
 | Over 4.5 | 8.0% |
@@ -1190,21 +1305,21 @@ The model's most likely 1X2 outcome is **Brentford win** at **43.0%**. Expected 
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 0-1 | 13.82% |
-| 2 | 1-1 | 12.97% |
-| 3 | 0-0 | 10.55% |
-| 4 | 1-2 | 9.71% |
-| 5 | 1-0 | 8.80% |
+| 1 | 0-1 | 14.28% |
+| 2 | 1-1 | 12.66% |
+| 3 | 0-0 | 10.30% |
+| 4 | 1-2 | 10.03% |
+| 5 | 1-0 | 8.58% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Hull City win | 29.2% | 20.4% | 4.92 | +43.5% |
-| Draw | 27.8% | 24.6% | 4.21 | +17.1% |
-| Brentford win | 43.0% | 55.0% | 1.68 | -27.7% |
-| Over 2.5 | 39.9% | 56.7% | 1.73 | -30.9% |
-| Under 2.5 | 60.1% | 43.3% | 2.28 | +37.0% |
+| Hull City win | 28.4% | 18.9% | 4.89 | +39.0% |
+| Draw | 27.2% | 23.3% | 4.17 | +13.3% |
+| Brentford win | 44.4% | 57.8% | 1.69 | -24.9% |
+| Over 2.5 | 40.1% | 57.2% | 1.71 | -31.4% |
+| Under 2.5 | 59.9% | 42.8% | 2.32 | +38.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1220,11 +1335,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
-| Odds bookmakers ou25 | 14.00 |
+| Odds bookmakers ou25 | 13.00 |
 | Best home bookmaker | Pinnacle |
 | Best draw bookmaker | Pinnacle |
 | Best away bookmaker | Pinnacle |
@@ -1234,72 +1349,124 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Brentford |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.1914 |
-| Dc lambda away | 1.0535 |
+| Dc lambda home | 1.1911 |
+| Dc lambda away | 1.0534 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 13 |
 | Score grid omitted mass | 0 |
-| P btts yes | 45.9% |
-| P btts no | 54.1% |
-| Fair Over 0.5 odds | 1.12 |
-| Fair Under 0.5 odds | 9.48 |
+| P btts yes | 45.8% |
+| P btts no | 54.2% |
+| Fair Over 0.5 odds | 1.11 |
+| Fair Under 0.5 odds | 9.71 |
 | Fair Over 1.5 odds | 1.50 |
-| Fair Under 1.5 odds | 3.01 |
-| Fair Over 2.5 odds | 2.50 |
-| Fair Under 2.5 odds | 1.66 |
+| Fair Under 1.5 odds | 3.02 |
+| Fair Over 2.5 odds | 2.49 |
+| Fair Under 2.5 odds | 1.67 |
 | Fair Over 3.5 odds | 5.27 |
 | Fair Under 3.5 odds | 1.23 |
-| Fair Over 4.5 odds | 12.57 |
+| Fair Over 4.5 odds | 12.51 |
 | Fair Under 4.5 odds | 1.09 |
-| Goal margin distribution | {"-1": 0.2578927637093715, "-10": 7.634764790187819e-08, "-11": 7.242852082821339e-09, "-12": 6.283700116055553e-10, "-13": 4.6439227589478266e-11, "-2": 0.12139519110583023, "-3": 0.038802840023886155, "-4": 0.009638606841925376, "-5": 0.0019515604783061603, "-6": 0.0003329327675797399, "-7": 4.902703250926755e-05, "-8": 6.347225636822922e-06, "-9": 7.328854539323199e-07, "0": 0.2781723317945996, "1": 0.16315272124525368, "10": 1.4508457548445398e-07, "11": 1.5565554677674244e-08, "12": 1.527213801276096e-09, "13": 1.2764352267655662e-10, "2": 0.08621678652893566, "3": 0.031166157854901996, "4": 0.008755146602695963, "5": 0.002004751630712391, "6": 0.00038678044254333323, "7": 6.441291837632088e-05, "8": 9.430847244581654e-06, "9": 1.231493940666746e-06} |
-| Raw goal margin distribution | {"-1": 0.1860627879561116, "-10": 5.5082802705250254e-08, "-11": 5.2255256483355795e-09, "-12": 4.533522947510886e-10, "-13": 3.350467082342844e-11, "-2": 0.08758341016140325, "-3": 0.027995219763496195, "-4": 0.006953999155410651, "-5": 0.0014079991165157763, "-6": 0.0002402021601801908, "-7": 3.537170342696883e-05, "-8": 4.579354925618115e-06, "-9": 5.287574139334899e-07, "0": 0.31065320527144347, "1": 0.21197427041174102, "10": 1.8849944274042553e-07, "11": 2.0223365391461692e-08, "12": 1.9842147211360706e-09, "13": 1.658393582750906e-10, "2": 0.11201615444858923, "3": 0.04049226713723718, "4": 0.011375022122153536, "5": 0.0026046501770461256, "6": 0.0005025199793904049, "7": 8.368773302522438e-05, "8": 1.225291830118911e-05, "9": 1.600004140886541e-06} |
+| Goal margin distribution | {"-1": 0.2663768685010662, "-10": 7.876832853001894e-08, "-11": 7.471421557901994e-09, "-12": 6.481084789585004e-10, "-13": 4.789259335335005e-11, "-2": 0.12537862067095518, "-3": 0.04007154501881107, "-4": 0.009952501052630947, "-5": 0.002014848976405549, "-6": 0.00034368280008229295, "-7": 5.060302770201059e-05, "-8": 6.550337760117175e-06, "-9": 7.562304621479582e-07, "0": 0.27163048782202953, "1": 0.15893076487138635, "10": 1.4104000303004035e-07, "11": 1.5127934425805306e-08, "12": 1.4839176781928908e-09, "13": 1.2399842625394783e-10, "2": 0.0839708326862878, "3": 0.0303477692394436, "4": 0.00852331680206928, "5": 0.0019512126870387136, "6": 0.00037636187500316684, "7": 6.266283527654425e-05, "8": 9.172399174494086e-06, "9": 1.1974548102548753e-06} |
+| Raw goal margin distribution | {"-1": 0.1860789341081614, "-10": 5.502402178096306e-08, "-11": 5.219200028855272e-09, "-12": 4.527395176228553e-10, "-13": 3.345561787333393e-11, "-2": 0.08758388153477914, "-3": 0.027992184258062637, "-4": 0.0069523708946841525, "-5": 0.001407483134808922, "-6": 0.0002400813909649419, "-7": 3.534900575422225e-05, "-8": 4.575772195648312e-06, "-9": 5.282686861229886e-07, "0": 0.310694564755611, "1": 0.21197035572250247, "10": 1.881089519551099e-07, "11": 2.017654444801559e-08, "12": 1.979142039390559e-09, "13": 1.6538012979016337e-10, "2": 0.11199422144121152, "3": 0.04047565898443262, "4": 0.011367783298169233, "5": 0.002602386313918255, "6": 0.0005019642395188165, "7": 8.357515610585884e-05, "8": 1.223348240612629e-05, "9": 1.5970785914027014e-06} |
 | Unadjusted home-win probability | 37.9% |
 | Unadjusted draw probability | 31.1% |
 | Unadjusted away-win probability | 31.0% |
 | Raw p over 1 5 | 66.8% |
-| Raw p under 3 5 | 81.0% |
+| Raw p under 3 5 | 81.1% |
 | Raw p btts yes | 46.5% |
-| P home draw | 57.0% |
-| P draw away | 70.8% |
-| P home away | 72.2% |
+| P home draw | 55.6% |
+| P draw away | 71.6% |
+| P home away | 72.8% |
 | Raw p home draw | 69.0% |
 | Raw p draw away | 62.1% |
 | Raw p home away | 68.9% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -1.5, "market_key": "spreads", "opposite_price": 1.46, "price": 3.04, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.75, "market_key": "spreads", "opposite_price": 2.05, "price": 1.87, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.75, "market_key": "spreads", "opposite_price": 1.87, "price": 2.05, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 1.5, "market_key": "spreads", "opposite_price": 3.04, "price": 1.46, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / GTbets |
-| Reference home odds | 4.62 |
-| Reference draw odds | 3.87 |
-| Reference away odds | 1.78 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:45Z |
-| Market reference home last update utc | 2026-10-22T15:04:45Z |
-| Market reference draw last update utc | 2026-10-22T15:04:45Z |
-| Market reference away last update utc | 2026-10-22T15:04:45Z |
-| O/U 2.5 market source | The Odds API / GTbets |
-| Reference Over 2.5 odds | 1.70 |
-| Reference Under 2.5 odds | 2.19 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Home probability edge | +8.7% |
-| Draw probability edge | +3.2% |
-| Away probability edge | -12.0% |
-| Over 2.5 probability edge | -16.8% |
-| Under 2.5 probability edge | +16.8% |
-| Raw edge prob home | 0.1746 |
-| Raw ev home | 0.8650 |
-| Raw edge prob draw | 0.0650 |
-| Raw ev draw | 0.3078 |
-| Raw edge prob away | -0.2396 |
-| Raw ev away | -0.4787 |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.86, "price": 1.5, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.5, "price": 2.86, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 9.5, "price": 1.03, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": 3.0, "market_key": "alternate_spreads", "opposite_price": 9.35, "price": 1.03, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 5.11, "price": 1.15, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 4.46, "price": 1.22, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 3.62, "price": 1.27, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.14, "price": 1.73, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.73, "price": 2.14, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.27, "price": 3.62, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.22, "price": 4.46, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.15, "price": 5.11, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": -3.0, "market_key": "alternate_spreads", "opposite_price": 1.03, "price": 9.35, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:59Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.03, "price": 9.5, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 4.3, "price": 1.25, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.75, "market_key": "alternate_spreads", "opposite_price": 3.47, "price": 1.34, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.84, "price": 1.46, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.76, "price": 1.49, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 2.52, "price": 1.57, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 2.28, "price": 1.68, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.18, "price": 1.75, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 2.03, "price": 1.88, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 1.88, "price": 2.03, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.75, "price": 2.18, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.68, "price": 2.28, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.57, "price": 2.52, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.49, "price": 2.76, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.46, "price": 2.84, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.75, "market_key": "alternate_spreads", "opposite_price": 1.34, "price": 3.47, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.25, "price": 4.3, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:33Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 3.78, "price": 1.29, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:33Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 1.29, "price": 3.78, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Coolbet |
+| Reference home odds | 5.10 |
+| Reference draw odds | 4.17 |
+| Reference away odds | 1.71 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:32Z |
+| Market reference home last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference away last update utc | 2026-10-23T14:29:32Z |
+| O/U 2.5 market source | The Odds API / Unibet (NL) |
+| Reference Over 2.5 odds | 1.67 |
+| Reference Under 2.5 odds | 2.18 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Home probability edge | +9.5% |
+| Draw probability edge | +3.9% |
+| Away probability edge | -13.4% |
+| Over 2.5 probability edge | -17.1% |
+| Under 2.5 probability edge | +17.1% |
+| Raw edge prob home | 0.1897 |
+| Raw ev home | 0.8534 |
+| Raw edge prob draw | 0.0781 |
+| Raw ev draw | 0.2956 |
+| Raw edge prob away | -0.2678 |
+| Raw ev away | -0.4756 |
+| Market p home draw | 42.6% |
+| Market home draw odds | 2.28 |
+| Best home draw bookmaker | Pinnacle |
+| Market best home draw last update utc | 2026-10-23T14:29:33Z |
+| Market reference home draw last update utc | 2026-10-23T14:29:33Z |
+| Market home draw bookmakers | 2 |
+| Market reference home draw method | proportional_overlap_sum_two |
+| Market p draw away | 80.3% |
+| Market draw away odds | 1.21 |
+| Best draw away bookmaker | Pinnacle |
+| Market best draw away last update utc | 2026-10-23T14:29:33Z |
+| Market reference draw away last update utc | 2026-10-23T14:29:33Z |
+| Market draw away bookmakers | 2 |
+| Market reference draw away method | proportional_overlap_sum_two |
+| Market p home away | 77.1% |
+| Market home away odds | 1.26 |
+| Best home away bookmaker | Pinnacle |
+| Market best home away last update utc | 2026-10-23T14:29:33Z |
+| Market reference home away last update utc | 2026-10-23T14:29:33Z |
+| Market home away bookmakers | 2 |
+| Market reference home away method | proportional_overlap_sum_two |
+| Market reference dc home draw odds | 2.28 |
+| Market reference dc draw away odds | 1.21 |
+| Market reference dc home away odds | 1.26 |
+| Market p over 1 5 | 80.7% |
+| Market over 1 5 odds | 1.20 |
+| Best over 1 5 bookmaker | 1xBet |
+| Market best over 1 5 last update utc | 2026-10-23T14:28:59Z |
+| Market reference over 1 5 odds | 1.22 |
+| Market reference over 1 5 opposite odds | 4.60 |
+| Market reference over 1 5 last update utc | 2026-10-23T14:29:32Z |
+| Market over 1 5 bookmakers | 1 |
+| Market p under 3 5 | 65.1% |
+| Market under 3 5 odds | 1.51 |
+| Best under 3 5 bookmaker | Pinnacle |
+| Market best under 3 5 last update utc | 2026-10-23T14:29:29Z |
+| Market reference under 3 5 odds | 1.50 |
+| Market reference under 3 5 opposite odds | 2.70 |
+| Market reference under 3 5 last update utc | 2026-10-23T14:29:32Z |
+| Market under 3 5 bookmakers | 2 |
+| Market p btts yes | 57.2% |
+| Market btts yes odds | 1.68 |
+| Best btts yes bookmaker | Pinnacle |
+| Market best btts yes last update utc | 2026-10-23T14:29:33Z |
+| Market reference btts yes odds | 1.74 |
+| Market reference btts yes opposite odds | 2.32 |
+| Market reference btts yes last update utc | 2026-10-23T14:29:39Z |
+| Market btts yes bookmakers | 2 |
+| Elo home rating | 1,401.6375 |
+| Elo away rating | 1,497.6340 |
+| Elo rating diff | -35.9965 |
+| Elo home expectancy | 0.4484 |
 
 </details>
 
@@ -1308,7 +1475,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-25 — Liverpool vs Brighton and Hove Albion
 
-The model's most likely 1X2 outcome is **Liverpool win** at **43.6%**. Expected goals are 1.64 for Liverpool and 1.47 for Brighton and Hove Albion (3.11 combined). The most likely exact score is 1-1 at 11.3%. Goal-market probabilities: at least one goal: 94.8%; Over 2.5 goals: 60.4%; Under 3.5 goals: 62.1%; Double Chance 1X: 68.5%; Double Chance X2: 56.4%; Double Chance 12 (either team wins): 75.2%; Under 4.5 goals: 79.5%; BTTS Yes (both teams score): 62.9%; BTTS No (at least one team does not score): 37.1%.
+The model's most likely 1X2 outcome is **Liverpool win** at **43.3%**. Expected goals are 1.64 for Liverpool and 1.47 for Brighton and Hove Albion (3.11 combined). The most likely exact score is 1-1 at 11.4%. Goal-market probabilities: at least one goal: 94.7%; Over 2.5 goals: 60.4%; Under 3.5 goals: 62.1%; Double Chance 1X: 68.3%; Double Chance X2: 56.7%; Double Chance 12 (either team wins): 75.0%; Under 4.5 goals: 79.5%; BTTS Yes (both teams score): 62.9%; BTTS No (at least one team does not score): 37.1%.
 
 **Fixture source:** The Odds API
 
@@ -1316,9 +1483,9 @@ The model's most likely 1X2 outcome is **Liverpool win** at **43.6%**. Expected 
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Liverpool win | 43.6% | 2.29 |
-| Draw | 24.8% | 4.03 |
-| Brighton and Hove Albion win | 31.5% | 3.17 |
+| Liverpool win | 43.3% | 2.31 |
+| Draw | 25.0% | 3.99 |
+| Brighton and Hove Albion win | 31.7% | 3.16 |
 
 ### Goals outlook
 
@@ -1327,8 +1494,8 @@ The model's most likely 1X2 outcome is **Liverpool win** at **43.6%**. Expected 
 | Liverpool expected goals | 1.64 |
 | Brighton and Hove Albion expected goals | 1.47 |
 | Expected total goals | 3.11 |
-| Over 0.5 | 94.8% |
-| Under 0.5 | 5.2% |
+| Over 0.5 | 94.7% |
+| Under 0.5 | 5.3% |
 | Over 1.5 | 82.7% |
 | Under 1.5 | 17.3% |
 | Over 2.5 | 60.4% |
@@ -1342,21 +1509,21 @@ The model's most likely 1X2 outcome is **Liverpool win** at **43.6%**. Expected 
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 11.34% |
-| 2 | 2-1 | 9.43% |
-| 3 | 1-2 | 7.43% |
-| 4 | 1-0 | 6.78% |
-| 5 | 2-0 | 6.40% |
+| 1 | 1-1 | 11.44% |
+| 2 | 2-1 | 9.35% |
+| 3 | 1-2 | 7.46% |
+| 4 | 1-0 | 6.73% |
+| 5 | 2-0 | 6.35% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Liverpool win | 43.6% | 46.5% | 2.11 | -7.9% |
-| Draw | 24.8% | 24.0% | 4.00 | -0.7% |
-| Brighton and Hove Albion win | 31.5% | 29.4% | 3.22 | +1.5% |
-| Over 2.5 | 60.4% | 61.3% | 1.64 | -0.9% |
-| Under 2.5 | 39.6% | 38.7% | 2.47 | -2.3% |
+| Liverpool win | 43.3% | 45.8% | 2.11 | -8.7% |
+| Draw | 25.0% | 24.5% | 4.03 | +1.0% |
+| Brighton and Hove Albion win | 31.7% | 29.7% | 3.21 | +1.7% |
+| Over 2.5 | 60.4% | 62.9% | 1.64 | -1.0% |
+| Under 2.5 | 39.6% | 37.1% | 2.47 | -2.1% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1372,9 +1539,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 8.00 |
 | Best home bookmaker | Pinnacle |
@@ -1386,13 +1553,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Brighton |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.6382 |
+| Dc lambda home | 1.6380 |
 | Dc lambda away | 1.4736 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
@@ -1400,58 +1567,110 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 62.9% |
 | P btts no | 37.1% |
 | Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 19.07 |
+| Fair Under 0.5 odds | 18.91 |
 | Fair Over 1.5 odds | 1.21 |
-| Fair Under 1.5 odds | 5.79 |
-| Fair Over 2.5 odds | 1.65 |
-| Fair Under 2.5 odds | 2.53 |
+| Fair Under 1.5 odds | 5.78 |
+| Fair Over 2.5 odds | 1.66 |
+| Fair Under 2.5 odds | 2.52 |
 | Fair Over 3.5 odds | 2.64 |
 | Fair Under 3.5 odds | 1.61 |
-| Fair Over 4.5 odds | 4.87 |
+| Fair Over 4.5 odds | 4.88 |
 | Fair Under 4.5 odds | 1.26 |
-| Goal margin distribution | {"-1": 0.16345452746134576, "-10": 6.903837305593456e-07, "-11": 9.084886139713752e-08, "-12": 1.0988000936480529e-08, "-13": 1.2286818939893826e-09, "-14": 1.265605332584217e-10, "-15": 1.0709653571891632e-11, "-2": 0.09476986553224503, "-3": 0.039420166127464885, "-4": 0.01305784537001367, "-5": 0.0035756918719621503, "-6": 0.0008322628984100822, "-7": 0.0001681810687720271, "-8": 2.999859447943239e-05, "-9": 4.7860576100612625e-06, "0": 0.24834069230905287, "1": 0.20869855664809098, "10": 2.273383412019109e-06, "11": 3.325717666792176e-07, "12": 4.471655388017447e-08, "13": 5.558695032904675e-09, "14": 6.365249564193538e-10, "15": 5.9879244603948e-11, "2": 0.1337772919244095, "3": 0.06186062967145184, "4": 0.022779865623469564, "5": 0.006934632874397182, "6": 0.0017943521182363978, "7": 0.0004030955423453025, "8": 7.993105497033311e-05, "9": 1.4176737896179858e-05} |
-| Raw goal margin distribution | {"-1": 0.17431408837633974, "-10": 7.362513139978217e-07, "-11": 9.688466083152986e-08, "-12": 1.1718019660078987e-08, "-13": 1.310312828783056e-09, "-14": 1.3496893797929411e-10, "-15": 1.1421179506038322e-11, "-2": 0.10106616789619505, "-3": 0.042039155653109075, "-4": 0.013925380025777603, "-5": 0.0038132530108299888, "-6": 0.0008875566231110455, "-7": 0.0001793546507427713, "-8": 3.199163541364963e-05, "-9": 5.1040327984293055e-06, "0": 0.2563370391079886, "1": 0.19485445738520427, "10": 2.1225776464015608e-06, "11": 3.10510490243539e-07, "12": 4.175026402865807e-08, "13": 5.189956853572609e-09, "14": 5.943008278891638e-10, "15": 5.590713181410468e-11, "2": 0.1249031236586242, "3": 0.057757080938815784, "4": 0.021268754449766978, "5": 0.006474621327567399, "6": 0.0016753230782832226, "7": 0.00037635604404553545, "8": 7.462879760464156e-05, "9": 1.3236318519012903e-05} |
+| Goal margin distribution | {"-1": 0.16415412608944122, "-10": 6.935827380392578e-07, "-11": 9.12729984187978e-08, "-12": 1.1039681728758053e-08, "-13": 1.2345035589111788e-09, "-14": 1.271647143592771e-10, "-15": 1.0761233295827951e-11, "-2": 0.09518062808461064, "-3": 0.03959269421618304, "-4": 0.013115512043889267, "-5": 0.0035916187810202025, "-6": 0.000836000715164879, "-7": 0.00016894248919136913, "-8": 3.0135482088293417e-05, "-9": 4.808066445117378e-06, "0": 0.2504992656827617, "1": 0.20702823170055387, "10": 2.253393536007838e-06, "11": 3.296166658986522e-07, "12": 4.431507343068847e-08, "13": 5.508271554343602e-09, "14": 6.306925374692963e-10, "15": 5.932547100556265e-11, "2": 0.13269749571150166, "3": 0.06135603581511321, "4": 0.022592045970574553, "5": 0.006876835287579194, "6": 0.001779234181653772, "7": 0.00039966252623542656, "8": 7.924297281716275e-05, "9": 1.4053391762798846e-05} |
+| Raw goal margin distribution | {"-1": 0.1743275296704706, "-10": 7.365673238002284e-07, "-11": 9.692961559367863e-08, "-12": 1.1723862750023265e-08, "-13": 1.3110115531127841e-09, "-14": 1.3504571005071872e-10, "-15": 1.1428157557533188e-11, "-2": 0.10107941945628172, "-3": 0.042046439770541226, "-4": 0.01392834203709722, "-5": 0.003814208296367595, "-6": 0.0008878116130814351, "-7": 0.00017941265016430152, "-8": 3.200311970847756e-05, "-9": 5.106044945907134e-06, "0": 0.25634770471561036, "1": 0.19484341673988181, "10": 2.120768226675417e-06, "11": 3.102168089374145e-07, "12": 4.170687374079038e-08, "13": 5.184077751925926e-09, "14": 5.935726152103092e-10, "15": 5.583382215786802e-11, "2": 0.1248874766734803, "3": 0.05774487642401688, "4": 0.021262372730006026, "5": 0.006472093553536994, "6": 0.0016745159067736992, "7": 0.0003761400631931053, "8": 7.457906320068455e-05, "9": 1.3226267960441228e-05} |
 | Unadjusted home-win probability | 40.7% |
 | Unadjusted draw probability | 25.6% |
 | Unadjusted away-win probability | 33.6% |
 | Raw p over 1 5 | 82.7% |
 | Raw p under 3 5 | 62.2% |
 | Raw p btts yes | 63.1% |
-| P home draw | 68.5% |
-| P draw away | 56.4% |
-| P home away | 75.2% |
+| P home draw | 68.3% |
+| P draw away | 56.7% |
+| P home away | 75.0% |
 | Raw p home draw | 66.4% |
 | Raw p draw away | 59.3% |
 | Raw p home away | 74.4% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.66, "price": 2.42, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "spreads", "opposite_price": 1.87, "price": 2.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "spreads", "opposite_price": 2.05, "price": 1.87, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.42, "price": 1.66, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / GTbets |
-| Reference home odds | 2.05 |
-| Reference draw odds | 3.81 |
-| Reference away odds | 3.15 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:45Z |
-| Market reference home last update utc | 2026-10-22T15:04:45Z |
-| Market reference draw last update utc | 2026-10-22T15:04:45Z |
-| Market reference away last update utc | 2026-10-22T15:04:45Z |
-| O/U 2.5 market source | The Odds API / PMU (FR) |
-| Reference Over 2.5 odds | 1.50 |
-| Reference Under 2.5 odds | 2.20 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Home probability edge | -2.9% |
-| Draw probability edge | +0.8% |
-| Away probability edge | +2.1% |
-| Over 2.5 probability edge | -0.9% |
-| Under 2.5 probability edge | +0.9% |
-| Raw edge prob home | -0.0579 |
-| Raw ev home | -0.1404 |
-| Raw edge prob draw | 0.0160 |
-| Raw ev draw | 0.0253 |
-| Raw edge prob away | 0.0419 |
-| Raw ev away | 0.0828 |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.42, "price": 1.66, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.66, "price": 2.42, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 7.33, "price": 1.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 6.67, "price": 1.08, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 6.14, "price": 1.08, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 5.4, "price": 1.14, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.76, "price": 1.25, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.04, "price": 1.4, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.4, "price": 3.04, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.25, "price": 3.76, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.14, "price": 5.4, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.08, "price": 6.14, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.08, "price": 6.67, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:25Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.05, "price": 7.33, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 3.99, "price": 1.27, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.37, "price": 1.35, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.19, "price": 1.38, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.99, "price": 1.42, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.83, "price": 1.47, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.43, "price": 1.61, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.11, "price": 1.81, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.05, "price": 1.86, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.86, "price": 2.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.81, "price": 2.11, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.61, "price": 2.43, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.47, "price": 2.83, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.42, "price": 2.99, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.38, "price": 3.19, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.35, "price": 3.37, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.27, "price": 3.99, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:32Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 2.44, "price": 1.59, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:32Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 1.59, "price": 2.44, "quote_source": "The Odds API", "side": "away"}] |
+| 1X2 market source | The Odds API / Coolbet |
+| Reference home odds | 2.15 |
+| Reference draw odds | 3.98 |
+| Reference away odds | 3.29 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:32Z |
+| Market reference home last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference away last update utc | 2026-10-23T14:29:32Z |
+| O/U 2.5 market source | The Odds API / Unibet (NL) |
+| Reference Over 2.5 odds | 1.53 |
+| Reference Under 2.5 odds | 2.48 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Home probability edge | -2.5% |
+| Draw probability edge | +0.6% |
+| Away probability edge | +2.0% |
+| Over 2.5 probability edge | -2.5% |
+| Under 2.5 probability edge | +2.5% |
+| Raw edge prob home | -0.0509 |
+| Raw ev home | -0.1405 |
+| Raw edge prob draw | 0.0117 |
+| Raw ev draw | 0.0331 |
+| Raw edge prob away | 0.0393 |
+| Raw ev away | 0.0795 |
+| Market p home draw | 69.9% |
+| Market home draw odds | 1.38 |
+| Best home draw bookmaker | Pinnacle |
+| Market best home draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference home draw last update utc | 2026-10-23T14:29:32Z |
+| Market home draw bookmakers | 2 |
+| Market reference home draw method | proportional_overlap_sum_two |
+| Market p draw away | 54.2% |
+| Market draw away odds | 1.78 |
+| Best draw away bookmaker | Pinnacle |
+| Market best draw away last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw away last update utc | 2026-10-23T14:29:32Z |
+| Market draw away bookmakers | 2 |
+| Market reference draw away method | proportional_overlap_sum_two |
+| Market p home away | 75.9% |
+| Market home away odds | 1.27 |
+| Best home away bookmaker | Pinnacle |
+| Market best home away last update utc | 2026-10-23T14:29:32Z |
+| Market reference home away last update utc | 2026-10-23T14:29:32Z |
+| Market home away bookmakers | 2 |
+| Market reference home away method | proportional_overlap_sum_two |
+| Market reference dc home draw odds | 1.38 |
+| Market reference dc draw away odds | 1.78 |
+| Market reference dc home away odds | 1.27 |
+| Market p over 1 5 | 84.3% |
+| Market over 1 5 odds | 1.17 |
+| Best over 1 5 bookmaker | 1xBet |
+| Market best over 1 5 last update utc | 2026-10-23T14:28:25Z |
+| Market reference over 1 5 odds | 1.17 |
+| Market reference over 1 5 opposite odds | 5.50 |
+| Market reference over 1 5 last update utc | 2026-10-23T14:29:32Z |
+| Market over 1 5 bookmakers | 1 |
+| Market p under 3 5 | 58.7% |
+| Market under 3 5 odds | 1.63 |
+| Best under 3 5 bookmaker | Pinnacle |
+| Market best under 3 5 last update utc | 2026-10-23T14:29:29Z |
+| Market reference under 3 5 odds | 1.66 |
+| Market reference under 3 5 opposite odds | 2.32 |
+| Market reference under 3 5 last update utc | 2026-10-23T14:29:32Z |
+| Market under 3 5 bookmakers | 2 |
+| Market p btts yes | 65.3% |
+| Market btts yes odds | 1.51 |
+| Best btts yes bookmaker | Pinnacle |
+| Market best btts yes last update utc | 2026-10-23T14:29:32Z |
+| Market reference btts yes odds | 1.52 |
+| Market reference btts yes opposite odds | 2.82 |
+| Market reference btts yes last update utc | 2026-10-23T14:29:39Z |
+| Market btts yes bookmakers | 2 |
+| Elo home rating | 1,558.0873 |
+| Elo away rating | 1,540.2938 |
+| Elo rating diff | 77.7935 |
+| Elo home expectancy | 0.6101 |
 
 </details>
 
@@ -1460,7 +1679,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-25 — Manchester United vs Bournemouth
 
-The model's most likely 1X2 outcome is **Manchester United win** at **48.9%**. Expected goals are 1.76 for Manchester United and 1.27 for Bournemouth (3.04 combined). The most likely exact score is 1-1 at 11.7%. Goal-market probabilities: at least one goal: 94.3%; Over 2.5 goals: 58.5%; Under 3.5 goals: 63.9%; Double Chance 1X: 74.1%; Double Chance X2: 51.1%; Double Chance 12 (either team wins): 74.9%; Under 4.5 goals: 80.9%; BTTS Yes (both teams score): 60.5%; BTTS No (at least one team does not score): 39.5%.
+The model's most likely 1X2 outcome is **Manchester United win** at **46.8%**. Expected goals are 1.76 for Manchester United and 1.27 for Bournemouth (3.04 combined). The most likely exact score is 1-1 at 11.8%. Goal-market probabilities: at least one goal: 94.2%; Over 2.5 goals: 58.4%; Under 3.5 goals: 64.0%; Double Chance 1X: 72.3%; Double Chance X2: 53.2%; Double Chance 12 (either team wins): 74.5%; Under 4.5 goals: 81.0%; BTTS Yes (both teams score): 60.7%; BTTS No (at least one team does not score): 39.3%.
 
 **Fixture source:** The Odds API
 
@@ -1468,9 +1687,9 @@ The model's most likely 1X2 outcome is **Manchester United win** at **48.9%**. E
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Manchester United win | 48.9% | 2.04 |
-| Draw | 25.1% | 3.98 |
-| Bournemouth win | 25.9% | 3.86 |
+| Manchester United win | 46.8% | 2.14 |
+| Draw | 25.5% | 3.92 |
+| Bournemouth win | 27.7% | 3.61 |
 
 ### Goals outlook
 
@@ -1479,36 +1698,36 @@ The model's most likely 1X2 outcome is **Manchester United win** at **48.9%**. E
 | Manchester United expected goals | 1.76 |
 | Bournemouth expected goals | 1.27 |
 | Expected total goals | 3.04 |
-| Over 0.5 | 94.3% |
-| Under 0.5 | 5.7% |
-| Over 1.5 | 81.6% |
-| Under 1.5 | 18.4% |
-| Over 2.5 | 58.5% |
-| Under 2.5 | 41.5% |
-| Over 3.5 | 36.1% |
-| Under 3.5 | 63.9% |
-| Over 4.5 | 19.1% |
-| Under 4.5 | 80.9% |
+| Over 0.5 | 94.2% |
+| Under 0.5 | 5.8% |
+| Over 1.5 | 81.5% |
+| Under 1.5 | 18.5% |
+| Over 2.5 | 58.4% |
+| Under 2.5 | 41.6% |
+| Over 3.5 | 36.0% |
+| Under 3.5 | 64.0% |
+| Over 4.5 | 19.0% |
+| Under 4.5 | 81.0% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 11.67% |
-| 2 | 2-1 | 9.68% |
-| 3 | 1-0 | 7.66% |
-| 4 | 2-0 | 7.62% |
-| 5 | 1-2 | 6.65% |
+| 1 | 1-1 | 11.85% |
+| 2 | 2-1 | 9.26% |
+| 3 | 1-0 | 7.32% |
+| 4 | 2-0 | 7.29% |
+| 5 | 1-2 | 7.11% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Manchester United win | 48.9% | 49.8% | 2.03 | -0.6% |
-| Draw | 25.1% | 25.0% | 3.77 | -5.2% |
-| Bournemouth win | 25.9% | 25.1% | 3.62 | -6.2% |
-| Over 2.5 | 58.5% | 60.5% | 1.68 | -1.6% |
-| Under 2.5 | 41.5% | 39.5% | 2.38 | -1.3% |
+| Manchester United win | 46.8% | 45.6% | 2.18 | +2.0% |
+| Draw | 25.5% | 25.7% | 3.70 | -5.6% |
+| Bournemouth win | 27.7% | 28.7% | 3.28 | -9.2% |
+| Over 2.5 | 58.4% | 59.6% | 1.70 | -0.8% |
+| Under 2.5 | 41.6% | 40.4% | 2.33 | -3.0% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1524,11 +1743,11 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
-| Odds bookmakers ou25 | 12.00 |
+| Odds bookmakers ou25 | 13.00 |
 | Best home bookmaker | Pinnacle |
 | Best draw bookmaker | Pinnacle |
 | Best away bookmaker | Pinnacle |
@@ -1538,72 +1757,124 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Bournemouth |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.7644 |
+| Dc lambda home | 1.7643 |
 | Dc lambda away | 1.2710 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
 | Score grid omitted mass | 0 |
-| P btts yes | 60.5% |
-| P btts no | 39.5% |
+| P btts yes | 60.7% |
+| P btts no | 39.3% |
 | Fair Over 0.5 odds | 1.06 |
-| Fair Under 0.5 odds | 17.43 |
+| Fair Under 0.5 odds | 17.18 |
 | Fair Over 1.5 odds | 1.23 |
-| Fair Under 1.5 odds | 5.44 |
+| Fair Under 1.5 odds | 5.41 |
 | Fair Over 2.5 odds | 1.71 |
-| Fair Under 2.5 odds | 2.41 |
-| Fair Over 3.5 odds | 2.77 |
-| Fair Under 3.5 odds | 1.57 |
-| Fair Over 4.5 odds | 5.23 |
-| Fair Under 4.5 odds | 1.24 |
-| Goal margin distribution | {"-1": 0.14661787736774343, "-10": 1.7330164589058824e-07, "-11": 1.9694774152646884e-08, "-12": 2.0568407947330862e-09, "-13": 1.9867492024124913e-10, "-14": 1.7841392212849675e-11, "-15": 1.4859629733738491e-12, "-16": 1.035327001572707e-13, "-2": 0.07510566150407631, "-3": 0.02721628992782133, "-4": 0.007828632019683332, "-5": 0.0018579853540675504, "-6": 0.00037435184670316074, "-7": 6.543028839532103e-05, "-8": 1.0088741128445175e-05, "-9": 1.3908135049851645e-06, "0": 0.25146022130870377, "1": 0.2171988034661564, "10": 4.827546792528231e-06, "11": 7.615716471771888e-07, "12": 1.1040694606380197e-07, "13": 1.4803851659945462e-08, "14": 1.845424896776299e-09, "15": 2.1335930126114578e-10, "16": 2.0635599510254793e-11, "2": 0.15174305378365402, "3": 0.07633101274308036, "4": 0.030478524547237987, "5": 0.010041215855529837, "6": 0.002808406401822728, "7": 0.0006813884481912174, "8": 0.0001458441010726484, "9": 2.790980140341035e-05} |
-| Raw goal margin distribution | {"-1": 0.15091097420425276, "-10": 1.783760662893276e-07, "-11": 2.0271453982749892e-08, "-12": 2.11706685220713e-09, "-13": 2.0449229181212623e-10, "-14": 1.8363803434748578e-11, "-15": 1.5294732400254436e-12, "-16": 1.065642261587393e-13, "-2": 0.07730481950305872, "-3": 0.02801320617219983, "-4": 0.008057861060242963, "-5": 0.001912388754178313, "-6": 0.00038531318891923846, "-7": 6.734614319532816e-05, "-8": 1.0384148096548084e-05, "-9": 1.4315377138307897e-06, "0": 0.25284144719460955, "1": 0.2132195852032039, "10": 4.739103108421659e-06, "11": 7.476191770961714e-07, "12": 1.0838422158685817e-07, "13": 1.4532635815533707e-08, "14": 1.8116155555876226e-09, "15": 2.0945042508595341e-10, "16": 2.025754238872477e-11, "2": 0.1489630258955805, "3": 0.07493258073015145, "4": 0.02992013886752537, "5": 0.009857254485223305, "6": 0.0027569546356730717, "7": 0.0006689049845904159, "8": 0.0001431721456968785, "9": 2.7398476342279732e-05} |
+| Fair Under 2.5 odds | 2.40 |
+| Fair Over 3.5 odds | 2.78 |
+| Fair Under 3.5 odds | 1.56 |
+| Fair Over 4.5 odds | 5.26 |
+| Fair Under 4.5 odds | 1.23 |
+| Goal margin distribution | {"-1": 0.15661901115988858, "-10": 1.85062893187444e-07, "-11": 2.103051757212634e-08, "-12": 2.1962504705867866e-09, "-13": 2.121321159216217e-10, "-14": 1.9049092511273862e-11, "-15": 1.5864852328924127e-12, "-16": 1.105326604925242e-13, "-2": 0.08022745812795899, "-3": 0.029071306210433218, "-4": 0.008361913330907978, "-5": 0.0019844747250043295, "-6": 0.0003998216935482058, "-7": 6.987921555009713e-05, "-8": 1.0774293052074199e-05, "-9": 1.4852623896369974e-06, "0": 0.25514560771135203, "1": 0.2077235369151386, "10": 4.6164352676863556e-06, "11": 7.282556660647598e-07, "12": 1.055752910258896e-07, "13": 1.4155765252757167e-08, "14": 1.764605902551229e-09, "15": 2.0401212482745398e-10, "16": 1.9731362576853804e-11, "2": 0.1451237083850933, "3": 0.07300059317588525, "4": 0.02914835255789657, "5": 0.009602856351637037, "6": 0.002685763227080475, "7": 0.0006516222398875844, "8": 0.00013947076070217713, "9": 2.6689723715023875e-05} |
+| Raw goal margin distribution | {"-1": 0.1509078168075082, "-10": 1.7831447776469364e-07, "-11": 2.0263628723218038e-08, "-12": 2.116163045751605e-09, "-13": 2.0439660710032512e-10, "-14": 1.835445736600855e-11, "-15": 1.528633217130545e-12, "-16": 1.0650202907885738e-13, "-2": 0.07730192180658309, "-3": 0.028011205788295777, "-4": 0.00805699177740754, "-5": 0.0019121098137591937, "-6": 0.00038524198587899745, "-7": 6.733103331958195e-05, "-8": 1.0381402807306412e-05, "-9": 1.4311015179224e-06, "0": 0.2528479484881452, "1": 0.2132213306110399, "10": 4.73861790085898e-06, "11": 7.475303205856432e-07, "12": 1.0836953946814584e-07, "13": 1.45304241774175e-08, "14": 1.8113095132776326e-09, "15": 2.094116890290881e-10, "16": 2.025359016067781e-11, "2": 0.14896468000022295, "3": 0.07493269103499013, "4": 0.029919818475137236, "5": 0.009857013987775515, "6": 0.0027568469971616613, "7": 0.0006688686467982594, "8": 0.0001431621164355635, "9": 2.7396117400423865e-05} |
 | Unadjusted home-win probability | 48.0% |
 | Unadjusted draw probability | 25.3% |
 | Unadjusted away-win probability | 26.7% |
 | Raw p over 1 5 | 81.6% |
 | Raw p under 3 5 | 63.9% |
 | Raw p btts yes | 60.6% |
-| P home draw | 74.1% |
-| P draw away | 51.1% |
-| P home away | 74.9% |
+| P home draw | 72.3% |
+| P draw away | 53.2% |
+| P home away | 74.5% |
 | Raw p home draw | 73.3% |
 | Raw p draw away | 52.0% |
 | Raw p home away | 74.7% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.55, "price": 2.69, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.5, "market_key": "spreads", "opposite_price": 2.04, "price": 1.87, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.5, "market_key": "spreads", "opposite_price": 1.87, "price": 2.04, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.69, "price": 1.55, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / GTbets |
-| Reference home odds | 1.94 |
-| Reference draw odds | 3.74 |
-| Reference away odds | 3.72 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:45Z |
-| Market reference home last update utc | 2026-10-22T15:04:45Z |
-| Market reference draw last update utc | 2026-10-22T15:04:45Z |
-| Market reference away last update utc | 2026-10-22T15:04:45Z |
-| O/U 2.5 market source | The Odds API / GTbets |
-| Reference Over 2.5 odds | 1.56 |
-| Reference Under 2.5 odds | 2.28 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Home probability edge | -0.9% |
-| Draw probability edge | +0.1% |
-| Away probability edge | +0.8% |
-| Over 2.5 probability edge | -2.0% |
-| Under 2.5 probability edge | +2.0% |
-| Raw edge prob home | -0.0179 |
-| Raw ev home | -0.0246 |
-| Raw edge prob draw | 0.0028 |
-| Raw ev draw | -0.0468 |
-| Raw edge prob away | 0.0152 |
-| Raw ev away | -0.0347 |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.45, "price": 1.65, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.65, "price": 2.45, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 7.08, "price": 1.06, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 6.14, "price": 1.08, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 6.42, "price": 1.09, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 5.5, "price": 1.14, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.74, "price": 1.26, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.09, "price": 1.39, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.39, "price": 3.09, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.26, "price": 3.74, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.14, "price": 5.5, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.08, "price": 6.14, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.09, "price": 6.42, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:38Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.06, "price": 7.08, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 4.14, "price": 1.26, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.58, "price": 1.32, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.25, "price": 1.37, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.18, "price": 1.39, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.86, "price": 1.47, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.53, "price": 1.57, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.17, "price": 1.75, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.0, "price": 1.9, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.9, "price": 2.0, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.75, "price": 2.17, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.57, "price": 2.53, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.47, "price": 2.86, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.39, "price": 3.18, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.37, "price": 3.25, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.32, "price": 3.58, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.26, "price": 4.14, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:32Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 2.42, "price": 1.6, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:32Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 1.6, "price": 2.42, "quote_source": "The Odds API", "side": "away"}] |
+| 1X2 market source | The Odds API / Coolbet |
+| Reference home odds | 2.16 |
+| Reference draw odds | 3.78 |
+| Reference away odds | 3.40 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:32Z |
+| Market reference home last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference away last update utc | 2026-10-23T14:29:32Z |
+| O/U 2.5 market source | The Odds API / Unibet (NL) |
+| Reference Over 2.5 odds | 1.61 |
+| Reference Under 2.5 odds | 2.30 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Home probability edge | +1.2% |
+| Draw probability edge | -0.2% |
+| Away probability edge | -1.0% |
+| Over 2.5 probability edge | -1.2% |
+| Under 2.5 probability edge | +1.2% |
+| Raw edge prob home | 0.0248 |
+| Raw ev home | 0.0475 |
+| Raw edge prob draw | -0.0046 |
+| Raw ev draw | -0.0645 |
+| Raw edge prob away | -0.0202 |
+| Raw ev away | -0.1254 |
+| Market p home draw | 70.6% |
+| Market home draw odds | 1.37 |
+| Best home draw bookmaker | Pinnacle |
+| Market best home draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference home draw last update utc | 2026-10-23T14:29:32Z |
+| Market home draw bookmakers | 2 |
+| Market reference home draw method | proportional_overlap_sum_two |
+| Market p draw away | 55.6% |
+| Market draw away odds | 1.74 |
+| Best draw away bookmaker | Pinnacle |
+| Market best draw away last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw away last update utc | 2026-10-23T14:29:32Z |
+| Market draw away bookmakers | 2 |
+| Market reference draw away method | proportional_overlap_sum_two |
+| Market p home away | 73.8% |
+| Market home away odds | 1.31 |
+| Best home away bookmaker | Pinnacle |
+| Market best home away last update utc | 2026-10-23T14:29:32Z |
+| Market reference home away last update utc | 2026-10-23T14:29:32Z |
+| Market home away bookmakers | 2 |
+| Market reference home away method | proportional_overlap_sum_two |
+| Market reference dc home draw odds | 1.37 |
+| Market reference dc draw away odds | 1.74 |
+| Market reference dc home away odds | 1.31 |
+| Market p over 1 5 | 81.4% |
+| Market over 1 5 odds | 1.20 |
+| Best over 1 5 bookmaker | 1xBet |
+| Market best over 1 5 last update utc | 2026-10-23T14:28:38Z |
+| Market reference over 1 5 odds | 1.21 |
+| Market reference over 1 5 opposite odds | 4.75 |
+| Market reference over 1 5 last update utc | 2026-10-23T14:29:32Z |
+| Market over 1 5 bookmakers | 1 |
+| Market p under 3 5 | 63.8% |
+| Market under 3 5 odds | 1.52 |
+| Best under 3 5 bookmaker | Pinnacle |
+| Market best under 3 5 last update utc | 2026-10-23T14:29:29Z |
+| Market reference under 3 5 odds | 1.53 |
+| Market reference under 3 5 opposite odds | 2.62 |
+| Market reference under 3 5 last update utc | 2026-10-23T14:29:32Z |
+| Market under 3 5 bookmakers | 2 |
+| Market p btts yes | 62.2% |
+| Market btts yes odds | 1.58 |
+| Best btts yes bookmaker | Pinnacle |
+| Market best btts yes last update utc | 2026-10-23T14:29:32Z |
+| Market reference btts yes odds | 1.60 |
+| Market reference btts yes opposite odds | 2.62 |
+| Market reference btts yes last update utc | 2026-10-23T14:29:39Z |
+| Market btts yes bookmakers | 2 |
+| Elo home rating | 1,529.3488 |
+| Elo away rating | 1,499.8325 |
+| Elo rating diff | 89.5163 |
+| Elo home expectancy | 0.6260 |
 
 </details>
 
@@ -1612,7 +1883,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-25 — Sunderland vs Leeds United
 
-The model's most likely 1X2 outcome is **Leeds United win** at **39.4%**. Expected goals are 1.07 for Sunderland and 1.21 for Leeds United (2.28 combined). The most likely exact score is 1-1 at 13.9%. Goal-market probabilities: at least one goal: 89.0%; Over 2.5 goals: 40.3%; Under 3.5 goals: 80.3%; Double Chance 1X: 60.6%; Double Chance X2: 69.0%; Double Chance 12 (either team wins): 70.4%; Under 4.5 goals: 91.8%; BTTS Yes (both teams score): 47.0%; BTTS No (at least one team does not score): 53.0%.
+The model's most likely 1X2 outcome is **Leeds United win** at **37.9%**. Expected goals are 1.07 for Sunderland and 1.21 for Leeds United (2.28 combined). The most likely exact score is 1-1 at 14.1%. Goal-market probabilities: at least one goal: 88.8%; Over 2.5 goals: 40.0%; Under 3.5 goals: 80.3%; Double Chance 1X: 62.1%; Double Chance X2: 68.1%; Double Chance 12 (either team wins): 69.8%; Under 4.5 goals: 91.8%; BTTS Yes (both teams score): 47.1%; BTTS No (at least one team does not score): 52.9%.
 
 **Fixture source:** The Odds API
 
@@ -1620,9 +1891,9 @@ The model's most likely 1X2 outcome is **Leeds United win** at **39.4%**. Expect
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Sunderland win | 31.0% | 3.23 |
-| Draw | 29.6% | 3.38 |
-| Leeds United win | 39.4% | 2.54 |
+| Sunderland win | 31.9% | 3.14 |
+| Draw | 30.2% | 3.31 |
+| Leeds United win | 37.9% | 2.64 |
 
 ### Goals outlook
 
@@ -1631,12 +1902,12 @@ The model's most likely 1X2 outcome is **Leeds United win** at **39.4%**. Expect
 | Sunderland expected goals | 1.07 |
 | Leeds United expected goals | 1.21 |
 | Expected total goals | 2.28 |
-| Over 0.5 | 89.0% |
-| Under 0.5 | 11.0% |
-| Over 1.5 | 67.7% |
-| Under 1.5 | 32.3% |
-| Over 2.5 | 40.3% |
-| Under 2.5 | 59.7% |
+| Over 0.5 | 88.8% |
+| Under 0.5 | 11.2% |
+| Over 1.5 | 67.6% |
+| Under 1.5 | 32.4% |
+| Over 2.5 | 40.0% |
+| Under 2.5 | 60.0% |
 | Over 3.5 | 19.7% |
 | Under 3.5 | 80.3% |
 | Over 4.5 | 8.2% |
@@ -1646,21 +1917,21 @@ The model's most likely 1X2 outcome is **Leeds United win** at **39.4%**. Expect
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 13.88% |
-| 2 | 0-1 | 11.59% |
-| 3 | 0-0 | 10.98% |
-| 4 | 1-0 | 9.72% |
-| 5 | 1-2 | 8.29% |
+| 1 | 1-1 | 14.15% |
+| 2 | 0-0 | 11.20% |
+| 3 | 0-1 | 11.16% |
+| 4 | 1-0 | 10.00% |
+| 5 | 1-2 | 7.98% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Sunderland win | 31.0% | 30.8% | 3.22 | -0.3% |
-| Draw | 29.6% | 28.5% | 3.24 | -4.0% |
-| Leeds United win | 39.4% | 40.7% | 2.42 | -4.6% |
-| Over 2.5 | 40.3% | 44.9% | 2.21 | -11.0% |
-| Under 2.5 | 59.7% | 55.1% | 1.78 | +6.3% |
+| Sunderland win | 31.9% | 32.6% | 3.00 | -4.4% |
+| Draw | 30.2% | 29.6% | 3.26 | -1.5% |
+| Leeds United win | 37.9% | 37.8% | 2.55 | -3.2% |
+| Over 2.5 | 40.0% | 45.1% | 2.17 | -13.1% |
+| Under 2.5 | 60.0% | 54.9% | 1.81 | +8.5% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1676,9 +1947,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 17.00 |
 | Best home bookmaker | Pinnacle |
@@ -1690,72 +1961,76 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Leeds |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.0683 |
-| Dc lambda away | 1.2111 |
+| Dc lambda home | 1.0684 |
+| Dc lambda away | 1.2110 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
 | Score grid omitted mass | 0 |
-| P btts yes | 47.0% |
-| P btts no | 53.0% |
-| Fair Over 0.5 odds | 1.12 |
-| Fair Under 0.5 odds | 9.10 |
+| P btts yes | 47.1% |
+| P btts no | 52.9% |
+| Fair Over 0.5 odds | 1.13 |
+| Fair Under 0.5 odds | 8.93 |
 | Fair Over 1.5 odds | 1.48 |
-| Fair Under 1.5 odds | 3.10 |
-| Fair Over 2.5 odds | 2.48 |
+| Fair Under 1.5 odds | 3.09 |
+| Fair Over 2.5 odds | 2.50 |
 | Fair Under 2.5 odds | 1.67 |
-| Fair Over 3.5 odds | 5.07 |
-| Fair Under 3.5 odds | 1.25 |
-| Fair Over 4.5 odds | 12.14 |
+| Fair Over 3.5 odds | 5.08 |
+| Fair Under 3.5 odds | 1.24 |
+| Fair Over 4.5 odds | 12.22 |
 | Fair Under 4.5 odds | 1.09 |
-| Goal margin distribution | {"-1": 0.2186883940763218, "-10": 2.2246016829713134e-07, "-11": 2.4256968283169847e-08, "-12": 2.4278484841860235e-09, "-13": 2.237837515181912e-10, "-14": 1.7721203714335936e-11, "-2": 0.1169312810716922, "-3": 0.04285481820722726, "-4": 0.012216818921222552, "-5": 0.0028402488560699225, "-6": 0.0005565406151744346, "-7": 9.415208189318756e-05, "-8": 1.4005304274667434e-05, "-9": 1.8582410761832105e-06, "0": 0.2962723507611839, "1": 0.1845779386538917, "10": 6.115151563857345e-08, "11": 5.8816157170499064e-09, "12": 5.192623890278192e-10, "13": 4.221813056734114e-11, "14": 2.9489596359143535e-12, "2": 0.08770904445775925, "3": 0.028354271305389377, "4": 0.007129878542476517, "5": 0.0014621285253501482, "6": 0.00025271509385687413, "7": 3.771111793042438e-05, "8": 4.948085434287327e-06, "9": 5.79097724458357e-07} |
-| Raw goal margin distribution | {"-1": 0.2116024186250445, "-10": 2.1525197922930937e-07, "-11": 2.3470990213766835e-08, "-12": 2.349180958956684e-09, "-13": 2.1653267550041579e-10, "-14": 1.7146998507803376e-11, "-2": 0.1131424554659253, "-3": 0.04146622970408345, "-4": 0.011820967649214628, "-5": 0.0027482186696732636, "-6": 0.0005385074993640525, "-7": 9.110135145182295e-05, "-8": 1.3551502221306854e-05, "-9": 1.7980300590233612e-06, "0": 0.3079088260496885, "1": 0.1852555956305292, "10": 6.137602649564909e-08, "11": 5.903209402371279e-09, "12": 5.211688020216817e-10, "13": 4.237312964755732e-11, "14": 2.9597864069015784e-12, "2": 0.0880310582711352, "3": 0.028458370798035676, "4": 0.007156055083249068, "5": 0.0014674965644731887, "6": 0.00025364290867430376, "7": 3.784957002469265e-05, "8": 4.966251769007484e-06, "9": 5.812238161028737e-07} |
+| Goal margin distribution | {"-1": 0.21052626662440668, "-10": 2.1402651313070893e-07, "-11": 2.3335794444974963e-08, "-12": 2.3354922643725267e-09, "-13": 2.1525639003582373e-10, "-14": 1.7044710448880825e-11, "-2": 0.1125602031155476, "-3": 0.041249877782536436, "-4": 0.01175846831155127, "-5": 0.0027334997566674326, "-6": 0.0005355867153829616, "-7": 9.060106732162735e-05, "-8": 1.3476170689980268e-05, "-9": 1.7879141452410294e-06, "0": 0.30201064204415234, "1": 0.18992619712289166, "10": 6.299216468654421e-08, "11": 6.059396308831085e-09, "12": 5.350236886611047e-10, "13": 4.350492671293669e-11, "14": 3.0392038265660274e-12, "2": 0.0902612491475858, "3": 0.029182799290607346, "4": 0.0073391006855940055, "5": 0.0015052164051267895, "6": 0.0002601941394412003, "7": 3.883191770817739e-05, "8": 5.095770244940928e-06, "9": 5.9645516874365e-07} |
+| Raw goal margin distribution | {"-1": 0.211580905710542, "-10": 2.150986868306283e-07, "-11": 2.3452695966681983e-08, "-12": 2.3471919988848404e-09, "-13": 2.163347248493945e-10, "-14": 1.7130096553614824e-11, "-2": 0.11312407759853922, "-3": 0.04145652056448148, "-4": 0.01181737279161109, "-5": 0.0027471933243706317, "-6": 0.0005382697567588175, "-7": 9.10549367051254e-05, "-8": 1.3543680063366163e-05, "-9": 1.7968707669987771e-06, "0": 0.3079119239672015, "1": 0.18527388372370543, "10": 6.144914799767041e-08, "11": 5.9109691246637855e-09, "12": 5.219180828344923e-10, "13": 4.243925722371794e-11, "14": 2.9647573894795087e-12, "2": 0.08805026601204247, "3": 0.028467955681762767, "4": 0.007159326662974718, "5": 0.0014683455649987412, "6": 0.0002538205864524635, "7": 3.7880715326375604e-05, "8": 4.9709474424584795e-06, "9": 5.818447757826175e-07} |
 | Unadjusted home-win probability | 31.1% |
 | Unadjusted draw probability | 30.8% |
 | Unadjusted away-win probability | 38.1% |
 | Raw p over 1 5 | 67.6% |
 | Raw p under 3 5 | 80.4% |
 | Raw p btts yes | 47.3% |
-| P home draw | 60.6% |
-| P draw away | 69.0% |
-| P home away | 70.4% |
+| P home draw | 62.1% |
+| P draw away | 68.1% |
+| P home away | 69.8% |
 | Raw p home draw | 61.9% |
 | Raw p draw away | 68.9% |
 | Raw p home away | 69.2% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "spreads", "opposite_price": 1.85, "price": 2.07, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.25, "price": 1.75, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.75, "price": 2.25, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "spreads", "opposite_price": 2.07, "price": 1.85, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / GTbets |
-| Reference home odds | 3.11 |
-| Reference draw odds | 3.36 |
-| Reference away odds | 2.38 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:45Z |
-| Market reference home last update utc | 2026-10-22T15:04:45Z |
-| Market reference draw last update utc | 2026-10-22T15:04:45Z |
-| Market reference away last update utc | 2026-10-22T15:04:45Z |
-| O/U 2.5 market source | The Odds API / GTbets |
-| Reference Over 2.5 odds | 2.12 |
-| Reference Under 2.5 odds | 1.75 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:45Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Home probability edge | +0.1% |
-| Draw probability edge | +1.2% |
-| Away probability edge | -1.3% |
-| Over 2.5 probability edge | -4.7% |
-| Under 2.5 probability edge | +4.7% |
-| Raw edge prob home | 0.0023 |
-| Raw ev home | 0.0003 |
-| Raw edge prob draw | 0.0233 |
-| Raw ev draw | -0.0024 |
-| Raw edge prob away | -0.0255 |
-| Raw ev away | -0.0770 |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.15, "price": 1.81, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.13, "price": 1.81, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.81, "price": 2.15, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.81, "price": 2.13, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Coolbet |
+| Reference home odds | 3.00 |
+| Reference draw odds | 3.30 |
+| Reference away odds | 2.60 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:32Z |
+| Market reference home last update utc | 2026-10-23T14:29:32Z |
+| Market reference draw last update utc | 2026-10-23T14:29:32Z |
+| Market reference away last update utc | 2026-10-23T14:29:32Z |
+| O/U 2.5 market source | The Odds API / Coolbet |
+| Reference Over 2.5 odds | 2.13 |
+| Reference Under 2.5 odds | 1.77 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:32Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:32Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Home probability edge | -0.8% |
+| Draw probability edge | +0.6% |
+| Away probability edge | +0.2% |
+| Over 2.5 probability edge | -5.1% |
+| Under 2.5 probability edge | +5.1% |
+| Raw edge prob home | -0.0156 |
+| Raw ev home | -0.0678 |
+| Raw edge prob draw | 0.0118 |
+| Raw ev draw | 0.0038 |
+| Raw edge prob away | 0.0038 |
+| Raw ev away | -0.0275 |
+| Elo home rating | 1,421.3554 |
+| Elo away rating | 1,454.8163 |
+| Elo rating diff | 26.5391 |
+| Elo home expectancy | 0.5381 |
 
 </details>
 
@@ -1764,7 +2039,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Aston Villa vs Fulham
 
-The model's most likely 1X2 outcome is **Aston Villa win** at **47.6%**. Expected goals are 1.55 for Aston Villa and 1.05 for Fulham (2.60 combined). The most likely exact score is 1-1 at 12.5%. Goal-market probabilities: at least one goal: 91.9%; Over 2.5 goals: 48.7%; Under 3.5 goals: 73.5%; Double Chance 1X: 73.8%; Double Chance X2: 52.4%; Double Chance 12 (either team wins): 73.8%; Under 4.5 goals: 87.6%; BTTS Yes (both teams score): 52.0%; BTTS No (at least one team does not score): 48.0%.
+The model's most likely 1X2 outcome is **Aston Villa win** at **47.5%**. Expected goals are 1.55 for Aston Villa and 1.05 for Fulham (2.60 combined). The most likely exact score is 1-1 at 12.5%. Goal-market probabilities: at least one goal: 91.9%; Over 2.5 goals: 48.7%; Under 3.5 goals: 73.5%; Double Chance 1X: 73.8%; Double Chance X2: 52.5%; Double Chance 12 (either team wins): 73.7%; Under 4.5 goals: 87.6%; BTTS Yes (both teams score): 52.1%; BTTS No (at least one team does not score): 47.9%.
 
 **Fixture source:** The Odds API
 
@@ -1772,9 +2047,9 @@ The model's most likely 1X2 outcome is **Aston Villa win** at **47.6%**. Expecte
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Aston Villa win | 47.6% | 2.10 |
-| Draw | 26.2% | 3.81 |
-| Fulham win | 26.2% | 3.82 |
+| Aston Villa win | 47.5% | 2.10 |
+| Draw | 26.3% | 3.81 |
+| Fulham win | 26.2% | 3.81 |
 
 ### Goals outlook
 
@@ -1798,21 +2073,21 @@ The model's most likely 1X2 outcome is **Aston Villa win** at **47.6%**. Expecte
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 12.52% |
-| 2 | 1-0 | 10.37% |
-| 3 | 2-1 | 9.32% |
-| 4 | 2-0 | 8.88% |
-| 5 | 0-0 | 8.08% |
+| 1 | 1-1 | 12.53% |
+| 2 | 1-0 | 10.35% |
+| 3 | 2-1 | 9.31% |
+| 4 | 2-0 | 8.86% |
+| 5 | 0-0 | 8.09% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Aston Villa win | 47.6% | 47.3% | 2.06 | -2.0% |
-| Draw | 26.2% | 24.9% | 3.67 | -3.8% |
-| Fulham win | 26.2% | 27.8% | 3.41 | -10.7% |
-| Over 2.5 | 48.7% | 54.8% | 1.83 | -10.9% |
-| Under 2.5 | 51.3% | 45.2% | 2.14 | +9.9% |
+| Aston Villa win | 47.5% | 47.2% | 2.06 | -2.1% |
+| Draw | 26.3% | 24.9% | 3.67 | -3.7% |
+| Fulham win | 26.2% | 27.9% | 3.41 | -10.6% |
+| Over 2.5 | 48.7% | 53.8% | 1.83 | -11.0% |
+| Under 2.5 | 51.3% | 46.2% | 2.14 | +9.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1828,9 +2103,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | Pinnacle |
@@ -1845,28 +2120,28 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Dc lambda home | 1.5522 |
 | Dc lambda away | 1.0500 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
 | Score grid omitted mass | 0 |
-| P btts yes | 52.0% |
-| P btts no | 48.0% |
+| P btts yes | 52.1% |
+| P btts no | 47.9% |
 | Fair Over 0.5 odds | 1.09 |
-| Fair Under 0.5 odds | 12.38 |
+| Fair Under 0.5 odds | 12.36 |
 | Fair Over 1.5 odds | 1.34 |
 | Fair Under 1.5 odds | 3.91 |
-| Fair Over 2.5 odds | 2.05 |
+| Fair Over 2.5 odds | 2.06 |
 | Fair Under 2.5 odds | 1.95 |
 | Fair Over 3.5 odds | 3.78 |
 | Fair Under 3.5 odds | 1.36 |
 | Fair Over 4.5 odds | 8.05 |
 | Fair Under 4.5 odds | 1.14 |
-| Goal margin distribution | {"-1": 0.1600163767810197, "-10": 4.104278233162297e-08, "-11": 3.870241982056286e-09, "-12": 3.351577807968561e-10, "-13": 2.6825657484971886e-11, "-14": 1.9865917167998812e-12, "-15": 1.2542705546685085e-13, "-2": 0.07253537451729111, "-3": 0.02254439068545208, "-4": 0.005492327922741965, "-5": 0.001095960824304233, "-6": 0.00018481127949690056, "-7": 2.695304811515728e-05, "-8": 3.4604660743228806e-06, "-9": 3.9662356458263794e-07, "0": 0.26214016150329805, "1": 0.22596500133876055, "10": 1.9110036759648606e-06, "11": 2.664118961729038e-07, "12": 3.4107945950169296e-08, "13": 4.035965089828937e-09, "14": 4.418719283353563e-10, "15": 4.1244855332075743e-11, "2": 0.14799548230260529, "3": 0.0680029680869849, "4": 0.024492695971939777, "5": 0.0072254671144676135, "6": 0.0018013169602508023, "7": 0.000388383093735607, "8": 7.371872106233446e-05, "9": 1.2491439115463485e-05} |
-| Raw goal margin distribution | {"-1": 0.15020743105115164, "-10": 3.8526874693965284e-08, "-11": 3.6329975554098863e-09, "-12": 3.146127306656541e-10, "-13": 2.518125443241302e-11, "-14": 1.8648143666967587e-12, "-15": 1.1773842256013813e-13, "-2": 0.06808898242637762, "-3": 0.021162427731440416, "-4": 0.005155650217568447, "-5": 0.0010287788241620023, "-6": 0.00017348241524362874, "-7": 2.5300836063275227e-05, "-8": 3.248340761864807e-06, "-9": 3.723106842485085e-07, "0": 0.2755460813760933, "1": 0.22722237547896154, "10": 1.9216373873349902e-06, "11": 2.6789433560779453e-07, "12": 3.429773839129526e-08, "13": 4.058423072722921e-09, "14": 4.4433070882205956e-10, "15": 4.147436084931793e-11, "2": 0.14881899785240887, "3": 0.06838136816231914, "4": 0.024628984699647444, "5": 0.007265672966908381, "6": 0.001811340323827931, "7": 0.0003905442375218622, "8": 7.412892623996508e-05, "9": 1.2560947280111213e-05} |
+| Goal margin distribution | {"-1": 0.16025789006603122, "-10": 4.111320720825254e-08, "-11": 3.876963207179679e-09, "-12": 3.357467708575062e-10, "-13": 2.6873354562932648e-11, "-14": 1.9901654295645454e-12, "-15": 1.256555574167488e-13, "-2": 0.07264736619701796, "-3": 0.022579717370751828, "-4": 0.00550105591405082, "-5": 0.0010977261564563993, "-6": 0.00018511290807562747, "-7": 2.6997607260737995e-05, "-8": 3.4662595771314883e-06, "-9": 3.972958734403108e-07, "0": 0.26252359130074704, "1": 0.22559990819026599, "10": 1.907185470450986e-06, "11": 2.6586771053651563e-07, "12": 3.403675154161187e-08, "13": 4.027360312697681e-09, "14": 4.4091017945221397e-10, "15": 4.1153330928301094e-11, "2": 0.14775177116463883, "3": 0.06788810205894096, "4": 0.024450264903225313, "5": 0.007212633521842026, "6": 0.0017980381438787304, "7": 0.00038765895103407434, "8": 7.357799808045759e-05, "9": 1.2467037988673347e-05} |
+| Raw goal margin distribution | {"-1": 0.1502138622876805, "-10": 3.853647170345689e-08, "-11": 3.633977815742714e-09, "-12": 3.147041258333211e-10, "-13": 2.5189089784353876e-11, "-14": 1.8654334937464496e-12, "-15": 1.1778020158448394e-13, "-2": 0.0680942539364845, "-3": 0.021164552673365034, "-4": 0.005156281885213791, "-5": 0.0010289270976148817, "-6": 0.00017351111305588263, "-7": 2.530555504936713e-05, "-8": 3.249014688500182e-06, "-9": 3.723956904451744e-07, "0": 0.2755563477475074, "1": 0.22721729039466043, "10": 1.9208585604142378e-06, "11": 2.677737826940548e-07, "12": 3.4280769532046365e-08, "13": 4.056233466737033e-09, "14": 4.4407117487859916e-10, "15": 4.144836945747838e-11, "2": 0.14881104059106032, "3": 0.06837480885346515, "4": 0.024625554971667428, "5": 0.007264342696719912, "6": 0.0018109287293406678, "7": 0.00039043817507634617, "8": 7.410549716361294e-05, "9": 1.2556417304233098e-05} |
 | Unadjusted home-win probability | 47.9% |
 | Unadjusted draw probability | 27.6% |
 | Unadjusted away-win probability | 24.6% |
@@ -1874,40 +2149,44 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p under 3 5 | 73.6% |
 | Raw p btts yes | 52.3% |
 | P home draw | 73.8% |
-| P draw away | 52.4% |
-| P home away | 73.8% |
+| P draw away | 52.5% |
+| P home away | 73.7% |
 | Raw p home draw | 75.4% |
 | Raw p draw away | 52.1% |
 | Raw p home away | 72.4% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.59, "price": 2.6, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "spreads", "opposite_price": 1.81, "price": 2.06, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "spreads", "opposite_price": 2.06, "price": 1.81, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.6, "price": 1.59, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / Winamax (FR) |
-| Reference home odds | 1.90 |
-| Reference draw odds | 3.30 |
-| Reference away odds | 3.00 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:41Z |
-| Market reference home last update utc | 2026-10-22T15:04:41Z |
-| Market reference draw last update utc | 2026-10-22T15:04:41Z |
-| Market reference away last update utc | 2026-10-22T15:04:41Z |
-| O/U 2.5 market source | The Odds API / Tipico |
-| Reference Over 2.5 odds | 1.72 |
-| Reference Under 2.5 odds | 2.05 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.59, "price": 2.6, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "spreads", "opposite_price": 1.81, "price": 2.06, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "spreads", "opposite_price": 2.06, "price": 1.81, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.6, "price": 1.59, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Winamax (DE) |
+| Reference home odds | 2.00 |
+| Reference draw odds | 3.60 |
+| Reference away odds | 3.25 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:31Z |
+| Market reference home last update utc | 2026-10-23T14:29:31Z |
+| Market reference draw last update utc | 2026-10-23T14:29:31Z |
+| Market reference away last update utc | 2026-10-23T14:29:31Z |
+| O/U 2.5 market source | The Odds API / Unibet (NL) |
+| Reference Over 2.5 odds | 1.76 |
+| Reference Under 2.5 odds | 2.02 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
 | Home probability edge | +0.3% |
 | Draw probability edge | +1.3% |
 | Away probability edge | -1.6% |
-| Over 2.5 probability edge | -6.2% |
-| Under 2.5 probability edge | +6.2% |
-| Raw edge prob home | 0.0053 |
+| Over 2.5 probability edge | -5.1% |
+| Under 2.5 probability edge | +5.1% |
+| Raw edge prob home | 0.0068 |
 | Raw ev home | -0.0141 |
-| Raw edge prob draw | 0.0268 |
+| Raw edge prob draw | 0.0261 |
 | Raw ev draw | 0.0113 |
-| Raw edge prob away | -0.0321 |
-| Raw ev away | -0.1617 |
+| Raw edge prob away | -0.0329 |
+| Raw ev away | -0.1616 |
+| Elo home rating | 1,517.7051 |
+| Elo away rating | 1,443.1425 |
+| Elo rating diff | 134.5626 |
+| Elo home expectancy | 0.6845 |
 
 </details>
 
@@ -1916,7 +2195,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Bournemouth vs Leeds United
 
-The model's most likely 1X2 outcome is **Bournemouth win** at **42.9%**. Expected goals are 1.44 for Bournemouth and 1.22 for Leeds United (2.65 combined). The most likely exact score is 1-1 at 12.9%. Goal-market probabilities: at least one goal: 92.1%; Over 2.5 goals: 49.8%; Under 3.5 goals: 72.4%; Double Chance 1X: 70.0%; Double Chance X2: 57.1%; Double Chance 12 (either team wins): 72.9%; Under 4.5 goals: 86.9%; BTTS Yes (both teams score): 54.4%; BTTS No (at least one team does not score): 45.6%.
+The model's most likely 1X2 outcome is **Bournemouth win** at **42.8%**. Expected goals are 1.44 for Bournemouth and 1.22 for Leeds United (2.65 combined). The most likely exact score is 1-1 at 12.9%. Goal-market probabilities: at least one goal: 92.2%; Over 2.5 goals: 49.9%; Under 3.5 goals: 72.4%; Double Chance 1X: 69.8%; Double Chance X2: 57.2%; Double Chance 12 (either team wins): 73.0%; Under 4.5 goals: 86.9%; BTTS Yes (both teams score): 54.4%; BTTS No (at least one team does not score): 45.6%.
 
 **Fixture source:** The Odds API
 
@@ -1924,9 +2203,9 @@ The model's most likely 1X2 outcome is **Bournemouth win** at **42.9%**. Expecte
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Bournemouth win | 42.9% | 2.33 |
-| Draw | 27.1% | 3.70 |
-| Leeds United win | 30.0% | 3.33 |
+| Bournemouth win | 42.8% | 2.34 |
+| Draw | 27.0% | 3.70 |
+| Leeds United win | 30.2% | 3.31 |
 
 ### Goals outlook
 
@@ -1935,12 +2214,12 @@ The model's most likely 1X2 outcome is **Bournemouth win** at **42.9%**. Expecte
 | Bournemouth expected goals | 1.44 |
 | Leeds United expected goals | 1.22 |
 | Expected total goals | 2.65 |
-| Over 0.5 | 92.1% |
-| Under 0.5 | 7.9% |
+| Over 0.5 | 92.2% |
+| Under 0.5 | 7.8% |
 | Over 1.5 | 75.4% |
 | Under 1.5 | 24.6% |
-| Over 2.5 | 49.8% |
-| Under 2.5 | 50.2% |
+| Over 2.5 | 49.9% |
+| Under 2.5 | 50.1% |
 | Over 3.5 | 27.6% |
 | Under 3.5 | 72.4% |
 | Over 4.5 | 13.1% |
@@ -1950,21 +2229,21 @@ The model's most likely 1X2 outcome is **Bournemouth win** at **42.9%**. Expecte
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 12.91% |
-| 2 | 1-0 | 9.45% |
-| 3 | 2-1 | 9.25% |
-| 4 | 0-0 | 7.85% |
-| 5 | 2-0 | 7.61% |
+| 1 | 1-1 | 12.88% |
+| 2 | 1-0 | 9.41% |
+| 3 | 2-1 | 9.21% |
+| 4 | 0-0 | 7.83% |
+| 5 | 2-0 | 7.58% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Bournemouth win | 42.9% | 44.8% | 2.15 | -7.7% |
-| Draw | 27.1% | 26.0% | 3.37 | -8.8% |
-| Leeds United win | 30.0% | 29.2% | 3.48 | +4.4% |
-| Over 2.5 | 49.8% | 52.2% | 1.88 | -6.3% |
-| Under 2.5 | 50.2% | 47.8% | 1.95 | -2.2% |
+| Bournemouth win | 42.8% | 44.5% | 2.20 | -5.9% |
+| Draw | 27.0% | 25.9% | 3.35 | -9.6% |
+| Leeds United win | 30.2% | 29.6% | 3.36 | +1.6% |
+| Over 2.5 | 49.9% | 53.2% | 1.89 | -5.8% |
+| Under 2.5 | 50.1% | 46.8% | 1.94 | -2.7% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1980,9 +2259,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 12.00 |
 | Best home bookmaker | Pinnacle |
@@ -1995,12 +2274,12 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
 | Dc lambda home | 1.4356 |
-| Dc lambda away | 1.2156 |
+| Dc lambda away | 1.2155 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
@@ -2008,7 +2287,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 54.4% |
 | P btts no | 45.6% |
 | Fair Over 0.5 odds | 1.09 |
-| Fair Under 0.5 odds | 12.74 |
+| Fair Under 0.5 odds | 12.76 |
 | Fair Over 1.5 odds | 1.33 |
 | Fair Under 1.5 odds | 4.07 |
 | Fair Over 2.5 odds | 2.01 |
@@ -2017,49 +2296,53 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 3.5 odds | 1.38 |
 | Fair Over 4.5 odds | 7.61 |
 | Fair Under 4.5 odds | 1.15 |
-| Goal margin distribution | {"-1": 0.17007554123662016, "-10": 1.560317035995166e-07, "-11": 1.702063726776144e-08, "-12": 1.7048582103435086e-09, "-13": 1.5691622588086941e-10, "-14": 1.2114942724491395e-11, "-2": 0.08744734051830358, "-3": 0.031238255130507608, "-4": 0.008768897954662893, "-5": 0.002019048001408428, "-6": 0.0003932135539198796, "-7": 6.626889557486032e-05, "-8": 9.835879997504897e-06, "-9": 1.3036452800676422e-06, "0": 0.2706080317514671, "1": 0.21810159110850136, "10": 8.856861707748237e-07, "11": 1.1410079480125728e-07, "12": 1.3497301790167076e-08, "13": 1.4671428010724149e-09, "14": 1.3377400768479668e-10, "2": 0.13117373973189106, "3": 0.055339203206356304, "4": 0.018345814172852803, "5": 0.004988666343296148, "6": 0.0011473928339770685, "7": 0.00022837009179246047, "8": 4.0030273287716555e-05, "9": 6.265858888350259e-06} |
-| Raw goal margin distribution | {"-1": 0.17486674283231105, "-10": 1.6042727595418153e-07, "-11": 1.7500125992853998e-08, "-12": 1.7528858063072353e-09, "-13": 1.613367161310473e-10, "-14": 1.2456233026972518e-11, "-2": 0.08991082135972163, "-3": 0.03211826866296292, "-4": 0.009015926760612006, "-5": 0.002075926644485423, "-6": 0.00040429078109369826, "-7": 6.813575800501544e-05, "-8": 1.0112966776687947e-05, "-9": 1.3403702982604994e-06, "0": 0.2810496222393458, "1": 0.2085045700493591, "10": 8.467137415068111e-07, "11": 1.0908007154560811e-07, "12": 1.2903386409433372e-08, "13": 1.4025848109766142e-09, "14": 1.278876133563932e-10, "2": 0.1254017637631915, "3": 0.05290413844654285, "4": 0.017538551997143187, "5": 0.0047691524199436576, "6": 0.001096904650306236, "7": 0.00021832123075907084, "8": 3.826884012350676e-05, "9": 5.9901452660906394e-06} |
+| Goal margin distribution | {"-1": 0.17136958159964066, "-10": 1.571182766193874e-07, "-11": 1.7137824640799385e-08, "-12": 1.716461654123811e-09, "-13": 1.5797201546373925e-10, "-14": 1.2195645963106054e-11, "-2": 0.08810875078840628, "-3": 0.03147243110448979, "-4": 0.008834005679173135, "-5": 0.0020338893171595535, "-6": 0.0003960741222509716, "-7": 6.674589820405543e-05, "-8": 9.905915384383887e-06, "-9": 1.3128259277605025e-06, "0": 0.2699648480305279, "1": 0.21727638848848627, "10": 8.820793021546789e-07, "11": 1.1363171479557456e-07, "12": 1.3441288809729143e-08, "13": 1.4609989617955262e-09, "14": 1.3321020536389586e-10, "2": 0.13067618261214115, "3": 0.0551277957694495, "4": 0.01827515006299849, "5": 0.004969280752692004, "6": 0.0011428931465438292, "7": 0.0002274661007493525, "8": 3.9870314030918724e-05, "9": 6.240582498599098e-06} |
+| Raw goal margin distribution | {"-1": 0.17486299138651507, "-10": 1.603211701557754e-07, "-11": 1.7487183282905274e-08, "-12": 1.7514521342623425e-09, "-13": 1.6119231267005776e-10, "-14": 1.2444257114321346e-11, "-2": 0.08990486868424491, "-3": 0.03211400411768657, "-4": 0.009014088991560658, "-5": 0.0020753506359050457, "-6": 0.00040414818768360917, "-7": 6.810652925562973e-05, "-8": 1.0107849831727071e-05, "-9": 1.3395881973633747e-06, "0": 0.28106213833599897, "1": 0.20850918376949706, "10": 8.464869864218397e-07, "11": 1.0904662152744254e-07, "12": 1.289892646883356e-08, "13": 1.40204696484179e-09, "14": 1.278351107702845e-10, "2": 0.12540333703132756, "3": 0.05290336321798982, "4": 0.017537739141419924, "5": 0.00476876793135849, "6": 0.001096776869218968, "7": 0.0002182877363362977, "8": 3.8261528061347184e-05, "9": 5.988772052413141e-06} |
 | Unadjusted home-win probability | 41.0% |
 | Unadjusted draw probability | 28.1% |
 | Unadjusted away-win probability | 30.8% |
 | Raw p over 1 5 | 75.3% |
 | Raw p under 3 5 | 72.5% |
 | Raw p btts yes | 54.7% |
-| P home draw | 70.0% |
-| P draw away | 57.1% |
-| P home away | 72.9% |
+| P home draw | 69.8% |
+| P draw away | 57.2% |
+| P home away | 73.0% |
 | Raw p home draw | 69.2% |
 | Raw p draw away | 59.0% |
 | Raw p home away | 71.9% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.62, "price": 2.52, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.25, "market_key": "spreads", "opposite_price": 1.85, "price": 2.0, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.25, "market_key": "spreads", "opposite_price": 2.0, "price": 1.85, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.52, "price": 1.62, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / Winamax (FR) |
-| Reference home odds | 2.00 |
-| Reference draw odds | 3.20 |
-| Reference away odds | 2.90 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:41Z |
-| Market reference home last update utc | 2026-10-22T15:04:41Z |
-| Market reference draw last update utc | 2026-10-22T15:04:41Z |
-| Market reference away last update utc | 2026-10-22T15:04:41Z |
-| O/U 2.5 market source | The Odds API / Tipico |
-| Reference Over 2.5 odds | 1.80 |
-| Reference Under 2.5 odds | 1.95 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:04:39Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:04:39Z |
-| Home probability edge | -1.9% |
-| Draw probability edge | +1.0% |
-| Away probability edge | +0.8% |
-| Over 2.5 probability edge | -2.4% |
-| Under 2.5 probability edge | +2.4% |
-| Raw edge prob home | -0.0378 |
-| Raw ev home | -0.1175 |
-| Raw edge prob draw | 0.0209 |
-| Raw ev draw | -0.0529 |
-| Raw edge prob away | 0.0169 |
-| Raw ev away | 0.0735 |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.62, "price": 2.52, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "spreads", "opposite_price": 1.9, "price": 1.95, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "spreads", "opposite_price": 1.95, "price": 1.9, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.52, "price": 1.62, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Winamax (DE) |
+| Reference home odds | 2.10 |
+| Reference draw odds | 3.45 |
+| Reference away odds | 3.05 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:31Z |
+| Market reference home last update utc | 2026-10-23T14:29:31Z |
+| Market reference draw last update utc | 2026-10-23T14:29:31Z |
+| Market reference away last update utc | 2026-10-23T14:29:31Z |
+| O/U 2.5 market source | The Odds API / Unibet (NL) |
+| Reference Over 2.5 odds | 1.78 |
+| Reference Under 2.5 odds | 2.00 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:29:29Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:29:29Z |
+| Home probability edge | -1.7% |
+| Draw probability edge | +1.1% |
+| Away probability edge | +0.6% |
+| Over 2.5 probability edge | -3.3% |
+| Under 2.5 probability edge | +3.3% |
+| Raw edge prob home | -0.0345 |
+| Raw ev home | -0.0969 |
+| Raw edge prob draw | 0.0222 |
+| Raw ev draw | -0.0584 |
+| Raw edge prob away | 0.0123 |
+| Raw ev away | 0.0364 |
+| Elo home rating | 1,491.5511 |
+| Elo away rating | 1,454.8163 |
+| Elo rating diff | 96.7348 |
+| Elo home expectancy | 0.6357 |
 
 </details>
 
@@ -2068,7 +2351,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Brentford vs Nottingham Forest
 
-The model's most likely 1X2 outcome is **Brentford win** at **48.2%**. Expected goals are 1.60 for Brentford and 1.08 for Nottingham Forest (2.68 combined). The most likely exact score is 1-1 at 12.3%. Goal-market probabilities: at least one goal: 92.4%; Over 2.5 goals: 50.6%; Under 3.5 goals: 71.8%; Double Chance 1X: 74.0%; Double Chance X2: 51.8%; Double Chance 12 (either team wins): 74.2%; Under 4.5 goals: 86.5%; BTTS Yes (both teams score): 53.5%; BTTS No (at least one team does not score): 46.5%.
+The model's most likely 1X2 outcome is **Brentford win** at **48.0%**. Expected goals are 1.60 for Brentford and 1.08 for Nottingham Forest (2.68 combined). The most likely exact score is 1-1 at 12.4%. Goal-market probabilities: at least one goal: 92.4%; Over 2.5 goals: 50.5%; Under 3.5 goals: 71.8%; Double Chance 1X: 74.0%; Double Chance X2: 52.0%; Double Chance 12 (either team wins): 74.0%; Under 4.5 goals: 86.5%; BTTS Yes (both teams score): 53.6%; BTTS No (at least one team does not score): 46.4%.
 
 **Fixture source:** The Odds API
 
@@ -2076,8 +2359,8 @@ The model's most likely 1X2 outcome is **Brentford win** at **48.2%**. Expected 
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Brentford win | 48.2% | 2.08 |
-| Draw | 25.8% | 3.87 |
+| Brentford win | 48.0% | 2.08 |
+| Draw | 26.0% | 3.85 |
 | Nottingham Forest win | 26.0% | 3.84 |
 
 ### Goals outlook
@@ -2089,10 +2372,10 @@ The model's most likely 1X2 outcome is **Brentford win** at **48.2%**. Expected 
 | Expected total goals | 2.68 |
 | Over 0.5 | 92.4% |
 | Under 0.5 | 7.6% |
-| Over 1.5 | 75.9% |
-| Under 1.5 | 24.1% |
-| Over 2.5 | 50.6% |
-| Under 2.5 | 49.4% |
+| Over 1.5 | 75.8% |
+| Under 1.5 | 24.2% |
+| Over 2.5 | 50.5% |
+| Under 2.5 | 49.5% |
 | Over 3.5 | 28.2% |
 | Under 3.5 | 71.8% |
 | Over 4.5 | 13.5% |
@@ -2102,21 +2385,21 @@ The model's most likely 1X2 outcome is **Brentford win** at **48.2%**. Expected 
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 12.32% |
-| 2 | 1-0 | 9.88% |
-| 3 | 2-1 | 9.45% |
-| 4 | 2-0 | 8.74% |
-| 5 | 0-0 | 7.55% |
+| 1 | 1-1 | 12.41% |
+| 2 | 1-0 | 9.84% |
+| 3 | 2-1 | 9.41% |
+| 4 | 2-0 | 8.70% |
+| 5 | 0-0 | 7.61% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Brentford win | 48.2% | 48.0% | 2.01 | -3.2% |
-| Draw | 25.8% | 24.6% | 3.81 | -1.7% |
+| Brentford win | 48.0% | 47.7% | 2.01 | -3.6% |
+| Draw | 26.0% | 24.9% | 3.81 | -1.0% |
 | Nottingham Forest win | 26.0% | 27.4% | 3.42 | -11.0% |
-| Over 2.5 | 50.6% | 55.8% | 1.78 | -10.0% |
-| Under 2.5 | 49.4% | 44.2% | 2.21 | +9.3% |
+| Over 2.5 | 50.5% | 55.8% | 1.78 | -10.1% |
+| Under 2.5 | 49.5% | 44.2% | 2.21 | +9.4% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -2132,9 +2415,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | Pinnacle |
@@ -2146,31 +2429,31 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Nott'm Forest |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.5979 |
+| Dc lambda home | 1.5978 |
 | Dc lambda away | 1.0816 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
 | Score grid omitted mass | 0 |
-| P btts yes | 53.5% |
-| P btts no | 46.5% |
+| P btts yes | 53.6% |
+| P btts no | 46.4% |
 | Fair Over 0.5 odds | 1.08 |
-| Fair Under 0.5 odds | 13.24 |
+| Fair Under 0.5 odds | 13.14 |
 | Fair Over 1.5 odds | 1.32 |
 | Fair Under 1.5 odds | 4.14 |
 | Fair Over 2.5 odds | 1.98 |
 | Fair Under 2.5 odds | 2.02 |
 | Fair Over 3.5 odds | 3.55 |
 | Fair Under 3.5 odds | 1.39 |
-| Fair Over 4.5 odds | 7.39 |
+| Fair Over 4.5 odds | 7.40 |
 | Fair Under 4.5 odds | 1.16 |
-| Goal margin distribution | {"-1": 0.15733261830461673, "-10": 5.109887974015952e-08, "-11": 4.960261492757487e-09, "-12": 4.42235813295453e-10, "-13": 3.6443141579780924e-11, "-14": 2.777335949302393e-12, "-15": 1.7957736944404785e-13, "-2": 0.07265491671958041, "-3": 0.023117508400487916, "-4": 0.005777994020245765, "-5": 0.0011843112046665218, "-6": 0.00020529509086529758, "-7": 3.079311851616523e-05, "-8": 4.067480045130225e-06, "-9": 4.797572506023725e-07, "0": 0.25808009561223577, "1": 0.22477771919706135, "10": 2.391550487388445e-06, "11": 3.4295477222866653e-07, "12": 4.517002096972095e-08, "13": 5.4989059834033886e-09, "14": 6.190888834005015e-10, "15": 5.913441427117671e-11, "2": 0.14990646144157524, "3": 0.07046289321900237, "4": 0.026017205017758675, "5": 0.00787795495429628, "6": 0.002017392135074473, "7": 0.00044702265782153215, "8": 8.722990464824451e-05, "9": 1.519937106463566e-05} |
-| Raw goal margin distribution | {"-1": 0.14910773176157804, "-10": 4.842758059781976e-08, "-11": 4.7009536108868345e-09, "-12": 4.1911702566693234e-10, "-13": 3.453800132345304e-11, "-14": 2.63214499448915e-12, "-15": 1.7018959273702732e-13, "-2": 0.06885673136391891, "-3": 0.0219089930538252, "-4": 0.005475937486928141, "-5": 0.0011223988981467633, "-6": 0.0001945628673225566, "-7": 2.918334484792665e-05, "-8": 3.854844151519802e-06, "-9": 4.546769525883599e-07, "0": 0.27051769243997714, "1": 0.22532403411224458, "10": 2.3973630728454956e-06, "11": 3.437883126167933e-07, "12": 4.5279805232427435e-08, "13": 5.512270895044341e-09, "14": 6.205935587394718e-10, "15": 5.927813853634128e-11, "2": 0.1502708042067764, "3": 0.07063415098276123, "4": 0.02608043898598006, "5": 0.007897102066866188, "6": 0.0020222953408597327, "7": 0.00044810913181132577, "8": 8.744191408641117e-05, "9": 1.5236312640267253e-05} |
+| Goal margin distribution | {"-1": 0.15734660774226872, "-10": 5.1086651931167265e-08, "-11": 4.958873212914266e-09, "-12": 4.420940472093863e-10, "-13": 3.642997463718481e-11, "-14": 2.77622070054866e-12, "-15": 1.794988863974437e-13, "-2": 0.07266009528525655, "-3": 0.023118342740014463, "-4": 0.0057779872036368765, "-5": 0.0011842642509139272, "-6": 0.00020527890260199947, "-7": 3.0789468060211384e-05, "-8": 4.066835033069586e-06, "-9": 4.79661851605001e-07, "0": 0.2599101822325363, "1": 0.22391461469710203, "10": 2.382139164837935e-06, "11": 3.4160033961269017e-07, "12": 4.499099081513876e-08, "13": 5.477033033949516e-09, "14": 6.166178330332033e-10, "15": 5.889785142998784e-11, "2": 0.1493312988712101, "3": 0.07019192914430483, "4": 0.02591687639011703, "5": 0.007847481531803455, "6": 0.00200956288563044, "7": 0.0004452819293506359, "8": 8.688904863573902e-05, "9": 1.5139769623145472e-05} |
+| Raw goal margin distribution | {"-1": 0.14910398376118503, "-10": 4.8410470548147875e-08, "-11": 4.699101948376605e-09, "-12": 4.1893488891732277e-10, "-13": 3.452158533738763e-11, "-14": 2.630787992138411e-12, "-15": 1.7009581221092646e-13, "-2": 0.06885378606474203, "-3": 0.021907285132824847, "-4": 0.005475306538508702, "-5": 0.0011222264030404455, "-6": 0.00019452533867280876, "-7": 2.9176557483749485e-05, "-8": 3.853793312935409e-06, "-9": 4.5453469864262873e-07, "0": 0.27052420721471643, "1": 0.22532564654966045, "10": 2.3971505755194587e-06, "11": 3.437529858822976e-07, "12": 4.527450835687763e-08, "13": 5.5115473870160715e-09, "14": 6.20503543684303e-10, "15": 5.926900515984771e-11, "2": 0.1502723326647222, "3": 0.07063425421517666, "4": 0.026080195511357707, "5": 0.007896933625043184, "6": 0.0020222264504682224, "7": 0.00044808794085878314, "8": 8.743659313357976e-05, "9": 1.5235175174085296e-05} |
 | Unadjusted home-win probability | 48.3% |
 | Unadjusted draw probability | 27.1% |
 | Unadjusted away-win probability | 24.7% |
@@ -2178,40 +2461,44 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Raw p under 3 5 | 71.9% |
 | Raw p btts yes | 53.8% |
 | P home draw | 74.0% |
-| P draw away | 51.8% |
-| P home away | 74.2% |
+| P draw away | 52.0% |
+| P home away | 74.0% |
 | Raw p home draw | 75.3% |
 | Raw p draw away | 51.7% |
 | Raw p home away | 72.9% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.55, "price": 2.71, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.5, "market_key": "spreads", "opposite_price": 2.02, "price": 1.84, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.5, "market_key": "spreads", "opposite_price": 1.84, "price": 2.02, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.71, "price": 1.55, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / Winamax (FR) |
-| Reference home odds | 1.88 |
-| Reference draw odds | 3.35 |
-| Reference away odds | 3.05 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:41Z |
-| Market reference home last update utc | 2026-10-22T15:04:41Z |
-| Market reference draw last update utc | 2026-10-22T15:04:41Z |
-| Market reference away last update utc | 2026-10-22T15:04:41Z |
-| O/U 2.5 market source | The Odds API / Tipico |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.55, "price": 2.71, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "spreads", "opposite_price": 2.02, "price": 1.84, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "spreads", "opposite_price": 1.84, "price": 2.02, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.71, "price": 1.55, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Winamax (DE) |
+| Reference home odds | 1.98 |
+| Reference draw odds | 3.60 |
+| Reference away odds | 3.30 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:31Z |
+| Market reference home last update utc | 2026-10-23T14:29:31Z |
+| Market reference draw last update utc | 2026-10-23T14:29:31Z |
+| Market reference away last update utc | 2026-10-23T14:29:31Z |
+| O/U 2.5 market source | The Odds API / Unibet (NL) |
 | Reference Over 2.5 odds | 1.70 |
 | Reference Under 2.5 odds | 2.10 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Home probability edge | +0.1% |
-| Draw probability edge | +1.2% |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Home probability edge | +0.3% |
+| Draw probability edge | +1.1% |
 | Away probability edge | -1.4% |
-| Over 2.5 probability edge | -5.2% |
-| Under 2.5 probability edge | +5.2% |
-| Raw edge prob home | 0.0023 |
+| Over 2.5 probability edge | -5.3% |
+| Under 2.5 probability edge | +5.3% |
+| Raw edge prob home | 0.0060 |
 | Raw ev home | -0.0296 |
-| Raw edge prob draw | 0.0249 |
+| Raw edge prob draw | 0.0212 |
 | Raw ev draw | 0.0307 |
-| Raw edge prob away | -0.0272 |
+| Raw edge prob away | -0.0273 |
 | Raw ev away | -0.1563 |
+| Elo home rating | 1,503.9940 |
+| Elo away rating | 1,480.4097 |
+| Elo rating diff | 83.5844 |
+| Elo home expectancy | 0.6180 |
 
 </details>
 
@@ -2220,7 +2507,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Chelsea vs Manchester United
 
-The model's most likely 1X2 outcome is **Chelsea win** at **49.4%**. Expected goals are 1.83 for Chelsea and 1.49 for Manchester United (3.33 combined). The most likely exact score is 1-1 at 10.2%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 65.0%; Under 3.5 goals: 57.2%; Double Chance 1X: 72.6%; Double Chance X2: 50.6%; Double Chance 12 (either team wins): 76.8%; Under 4.5 goals: 75.5%; BTTS Yes (both teams score): 65.7%; BTTS No (at least one team does not score): 34.3%.
+The model's most likely 1X2 outcome is **Chelsea win** at **49.1%**. Expected goals are 1.83 for Chelsea and 1.49 for Manchester United (3.33 combined). The most likely exact score is 1-1 at 10.3%. Goal-market probabilities: at least one goal: 95.7%; Over 2.5 goals: 65.0%; Under 3.5 goals: 57.3%; Double Chance 1X: 72.4%; Double Chance X2: 50.9%; Double Chance 12 (either team wins): 76.7%; Under 4.5 goals: 75.5%; BTTS Yes (both teams score): 65.7%; BTTS No (at least one team does not score): 34.3%.
 
 **Fixture source:** The Odds API
 
@@ -2228,9 +2515,9 @@ The model's most likely 1X2 outcome is **Chelsea win** at **49.4%**. Expected go
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Chelsea win | 49.4% | 2.03 |
-| Draw | 23.2% | 4.30 |
-| Manchester United win | 27.4% | 3.65 |
+| Chelsea win | 49.1% | 2.04 |
+| Draw | 23.3% | 4.28 |
+| Manchester United win | 27.6% | 3.63 |
 
 ### Goals outlook
 
@@ -2245,8 +2532,8 @@ The model's most likely 1X2 outcome is **Chelsea win** at **49.4%**. Expected go
 | Under 1.5 | 14.5% |
 | Over 2.5 | 65.0% |
 | Under 2.5 | 35.0% |
-| Over 3.5 | 42.8% |
-| Under 3.5 | 57.2% |
+| Over 3.5 | 42.7% |
+| Under 3.5 | 57.3% |
 | Over 4.5 | 24.5% |
 | Under 4.5 | 75.5% |
 
@@ -2254,19 +2541,19 @@ The model's most likely 1X2 outcome is **Chelsea win** at **49.4%**. Expected go
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 10.22% |
-| 2 | 2-1 | 9.91% |
-| 3 | 2-0 | 6.63% |
-| 4 | 1-2 | 6.54% |
-| 5 | 2-2 | 6.42% |
+| 1 | 1-1 | 10.27% |
+| 2 | 2-1 | 9.85% |
+| 3 | 2-0 | 6.59% |
+| 4 | 1-2 | 6.58% |
+| 5 | 2-2 | 6.45% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Chelsea win | 49.4% | 53.9% | 1.82 | -10.1% |
-| Draw | 23.2% | 22.1% | 4.01 | -6.8% |
-| Manchester United win | 27.4% | 24.0% | 3.94 | +7.9% |
+| Chelsea win | 49.1% | 53.3% | 1.82 | -10.7% |
+| Draw | 23.3% | 22.3% | 4.01 | -6.4% |
+| Manchester United win | 27.6% | 24.4% | 3.94 | +8.6% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -2282,9 +2569,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -2294,13 +2581,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Man United |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.8317 |
+| Dc lambda home | 1.8315 |
 | Dc lambda away | 1.4947 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
@@ -2308,56 +2595,60 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 65.7% |
 | P btts no | 34.3% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 23.45 |
+| Fair Under 0.5 odds | 23.33 |
 | Fair Over 1.5 odds | 1.17 |
-| Fair Under 1.5 odds | 6.88 |
+| Fair Under 1.5 odds | 6.87 |
 | Fair Over 2.5 odds | 1.54 |
 | Fair Under 2.5 odds | 2.86 |
 | Fair Over 3.5 odds | 2.34 |
 | Fair Under 3.5 odds | 1.75 |
-| Fair Over 4.5 odds | 4.08 |
+| Fair Over 4.5 odds | 4.09 |
 | Fair Under 4.5 odds | 1.32 |
-| Goal margin distribution | {"-1": 0.1430980830406784, "-10": 6.276186910880705e-07, "-11": 8.358015859006073e-08, "-12": 1.023389092512045e-08, "-13": 1.159434182461755e-09, "-14": 1.2212939604052049e-10, "-15": 1.1895612612519927e-11, "-16": 9.489235862885647e-13, "-2": 0.0817619691129144, "-3": 0.03387415971176273, "-4": 0.011241153843410475, "-5": 0.0030946441515820196, "-6": 0.0007257670306108278, "-7": 0.00014799808580615723, "-8": 2.666751611554469e-05, "-9": 4.301268125563732e-06, "0": 0.23231566129638795, "1": 0.21895357346338537, "10": 5.924892094177142e-06, "11": 9.668905964068782e-07, "12": 1.4507898170264415e-07, "13": 2.014185123715635e-08, "14": 2.5999384246488696e-09, "15": 3.103267655963162e-10, "16": 3.033564497024476e-11, "2": 0.151781683433933, "3": 0.07705948870341366, "4": 0.03133704584293259, "5": 0.0105717637183117, "6": 0.0030382502017173947, "7": 0.0007592275645975576, "8": 0.00016764399603714765, "9": 3.313534700449751e-05} |
-| Raw goal margin distribution | {"-1": 0.16076089162453794, "-10": 7.050865967985182e-07, "-11": 9.389658150234537e-08, "-12": 1.149707525741591e-08, "-13": 1.3025448628793546e-09, "-14": 1.3720400849436363e-10, "-15": 1.3363905716788536e-11, "-16": 1.066050631663169e-12, "-2": 0.0918539702019179, "-3": 0.038055297475557026, "-4": 0.012628666131338435, "-5": 0.0034766206681298723, "-6": 0.0008153495314086274, "-7": 0.00016626570899736854, "-8": 2.995912717382811e-05, "-9": 4.832180028472257e-06, "0": 0.24353567664352363, "1": 0.19898014503821052, "10": 5.384410355066724e-06, "11": 8.786887012889762e-07, "12": 1.3184455665445202e-07, "13": 1.830446709369483e-08, "14": 2.3627663008366495e-09, "15": 2.820180728309499e-10, "16": 2.7568360454351613e-11, "2": 0.13793582313411393, "3": 0.07002995199500463, "4": 0.028478411328319825, "5": 0.00960738408926276, "6": 0.002761094309799863, "7": 0.0006899691497654059, "8": 0.00015235114055736163, "9": 3.0112667487242056e-05} |
+| Goal margin distribution | {"-1": 0.1439791317320288, "-10": 6.315579788183868e-07, "-11": 8.410535572805964e-08, "-12": 1.0298269394444682e-08, "-13": 1.166735714616964e-09, "-14": 1.2289933341017121e-10, "-15": 1.1970703506395364e-11, "-16": 9.549301490125244e-13, "-2": 0.08226809235354482, "-3": 0.0340844498378474, "-4": 0.011311095578298977, "-5": 0.00311393480586343, "-6": 0.0007302984924515516, "-7": 0.00014892348785388673, "-8": 2.6834486625128635e-05, "-9": 4.3282330881618215e-06, "0": 0.2334790879431486, "1": 0.21770009259825138, "10": 5.886851575983151e-06, "11": 9.606019452499648e-07, "12": 1.4412323704416963e-07, "13": 2.0007471244416614e-08, "14": 2.582374272682909e-09, "15": 3.082047182484965e-10, "16": 3.0125978623193836e-11, "2": 0.15090432562604536, "3": 0.07660841906379347, "4": 0.031151203766181176, "5": 0.010508231382777676, "6": 0.003019746350630348, "7": 0.0007545416366633984, "8": 0.00016659549437896592, "9": 3.292536142823285e-05} |
+| Raw goal margin distribution | {"-1": 0.16077148439376157, "-10": 7.0521687770929e-07, "-11": 9.391460222882794e-08, "-12": 1.1499361312396394e-08, "-13": 1.3028126401213602e-09, "-14": 1.3723313945337284e-10, "-15": 1.3366852187598414e-11, "-16": 1.066304093532376e-12, "-2": 0.09186305797800703, "-3": 0.038059734971692606, "-4": 0.01263031388206591, "-5": 0.0034771144611139213, "-6": 0.0008154735430721009, "-7": 0.00016629250305472945, "-8": 2.996420519951472e-05, "-9": 4.833036913162426e-06, "0": 0.2435485102045679, "1": 0.1989746377539384, "10": 5.380494541194592e-06, "11": 8.779758510923831e-07, "12": 1.317264891370974e-07, "13": 1.828653031662565e-08, "14": 2.360251570496113e-09, "15": 2.8169451577000303e-10, "16": 2.7534695148682878e-11, "2": 0.13792430296460945, "3": 0.07001895245056342, "4": 0.028471735638686678, "5": 0.00960436675918782, "6": 0.002760003126568616, "7": 0.0006896398023239491, "8": 0.00015226579717935902, "9": 3.0093289281185864e-05} |
 | Unadjusted home-win probability | 44.9% |
 | Unadjusted draw probability | 24.4% |
 | Unadjusted away-win probability | 30.8% |
 | Raw p over 1 5 | 85.3% |
 | Raw p under 3 5 | 57.5% |
 | Raw p btts yes | 66.0% |
-| P home draw | 72.6% |
-| P draw away | 50.6% |
-| P home away | 76.8% |
+| P home draw | 72.4% |
+| P draw away | 50.9% |
+| P home away | 76.7% |
 | Raw p home draw | 69.2% |
 | Raw p draw away | 55.1% |
 | Raw p home away | 75.6% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.45, "price": 3.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.5, "market_key": "spreads", "opposite_price": 1.83, "price": 2.04, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.5, "market_key": "spreads", "opposite_price": 2.04, "price": 1.83, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 0.0, "market_key": "spreads", "opposite_price": 3.05, "price": 1.45, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / Winamax (FR) |
-| Reference home odds | 1.70 |
-| Reference draw odds | 3.65 |
-| Reference away odds | 3.40 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:41Z |
-| Market reference home last update utc | 2026-10-22T15:04:41Z |
-| Market reference draw last update utc | 2026-10-22T15:04:41Z |
-| Market reference away last update utc | 2026-10-22T15:04:41Z |
-| O/U 2.5 market source | The Odds API / Betsson |
-| Reference Over 2.5 odds | 1.51 |
-| Reference Under 2.5 odds | 2.60 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:20Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:20Z |
-| Home probability edge | -4.5% |
-| Draw probability edge | +1.1% |
-| Away probability edge | +3.4% |
-| Over 2.5 probability edge | +0.8% |
-| Under 2.5 probability edge | -0.8% |
-| Raw edge prob home | -0.0901 |
-| Raw ev home | -0.1834 |
-| Raw edge prob draw | 0.0224 |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.45, "price": 3.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.5, "market_key": "spreads", "opposite_price": 1.83, "price": 2.04, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.5, "market_key": "spreads", "opposite_price": 2.04, "price": 1.83, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 0.0, "market_key": "spreads", "opposite_price": 3.05, "price": 1.45, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Winamax (DE) |
+| Reference home odds | 1.78 |
+| Reference draw odds | 3.95 |
+| Reference away odds | 3.65 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:31Z |
+| Market reference home last update utc | 2026-10-23T14:29:31Z |
+| Market reference draw last update utc | 2026-10-23T14:29:31Z |
+| Market reference away last update utc | 2026-10-23T14:29:31Z |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.55 |
+| Reference Under 2.5 odds | 2.40 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:08Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:08Z |
+| Home probability edge | -4.2% |
+| Draw probability edge | +1.0% |
+| Away probability edge | +3.2% |
+| Over 2.5 probability edge | +3.2% |
+| Under 2.5 probability edge | -3.2% |
+| Raw edge prob home | -0.0844 |
+| Raw ev home | -0.1835 |
+| Raw edge prob draw | 0.0201 |
 | Raw ev draw | -0.0234 |
-| Raw edge prob away | 0.0676 |
-| Raw ev away | 0.2127 |
+| Raw edge prob away | 0.0643 |
+| Raw ev away | 0.2128 |
+| Elo home rating | 1,507.4574 |
+| Elo away rating | 1,515.5196 |
+| Elo rating diff | 51.9378 |
+| Elo home expectancy | 0.5742 |
 
 </details>
 
@@ -2366,7 +2657,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Coventry City vs Sunderland
 
-The model's most likely 1X2 outcome is **Sunderland win** at **37.7%**. Expected goals are 1.15 for Coventry City and 1.24 for Sunderland (2.39 combined). The most likely exact score is 1-1 at 13.4%. Goal-market probabilities: at least one goal: 90.3%; Over 2.5 goals: 43.5%; Under 3.5 goals: 77.9%; Double Chance 1X: 62.3%; Double Chance X2: 65.9%; Double Chance 12 (either team wins): 71.8%; Under 4.5 goals: 90.3%; BTTS Yes (both teams score): 49.4%; BTTS No (at least one team does not score): 50.6%.
+The model's most likely 1X2 outcome is **Sunderland win** at **37.6%**. Expected goals are 1.15 for Coventry City and 1.24 for Sunderland (2.39 combined). The most likely exact score is 1-1 at 13.4%. Goal-market probabilities: at least one goal: 90.3%; Over 2.5 goals: 43.5%; Under 3.5 goals: 77.9%; Double Chance 1X: 62.4%; Double Chance X2: 65.9%; Double Chance 12 (either team wins): 71.7%; Under 4.5 goals: 90.3%; BTTS Yes (both teams score): 49.4%; BTTS No (at least one team does not score): 50.6%.
 
 **Fixture source:** The Odds API
 
@@ -2375,8 +2666,8 @@ The model's most likely 1X2 outcome is **Sunderland win** at **37.7%**. Expected
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
 | Coventry City win | 34.1% | 2.93 |
-| Draw | 28.2% | 3.54 |
-| Sunderland win | 37.7% | 2.65 |
+| Draw | 28.3% | 3.54 |
+| Sunderland win | 37.6% | 2.66 |
 
 ### Goals outlook
 
@@ -2400,21 +2691,21 @@ The model's most likely 1X2 outcome is **Sunderland win** at **37.7%**. Expected
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 13.39% |
-| 2 | 0-1 | 10.30% |
-| 3 | 1-0 | 9.72% |
-| 4 | 0-0 | 9.69% |
-| 5 | 1-2 | 8.21% |
+| 1 | 1-1 | 13.41% |
+| 2 | 0-1 | 10.27% |
+| 3 | 1-0 | 9.73% |
+| 4 | 0-0 | 9.70% |
+| 5 | 1-2 | 8.19% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Coventry City win | 34.1% | 35.4% | 2.74 | -6.6% |
-| Draw | 28.2% | 26.5% | 3.43 | -3.2% |
-| Sunderland win | 37.7% | 38.1% | 2.54 | -4.3% |
-| Over 2.5 | 43.5% | 50.7% | 1.92 | -16.5% |
-| Under 2.5 | 56.5% | 49.3% | 1.92 | +8.5% |
+| Coventry City win | 34.1% | 35.5% | 2.74 | -6.4% |
+| Draw | 28.3% | 26.6% | 3.43 | -3.0% |
+| Sunderland win | 37.6% | 37.9% | 2.54 | -4.6% |
+| Over 2.5 | 43.5% | 50.9% | 1.92 | -16.5% |
+| Under 2.5 | 56.5% | 49.1% | 1.92 | +8.5% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -2430,9 +2721,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 12.00 |
 | Best home bookmaker | Pinnacle |
@@ -2444,13 +2735,13 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Sunderland |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.1510 |
-| Dc lambda away | 1.2427 |
+| Dc lambda home | 1.1511 |
+| Dc lambda away | 1.2431 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 14 |
@@ -2458,7 +2749,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 49.4% |
 | P btts no | 50.6% |
 | Fair Over 0.5 odds | 1.11 |
-| Fair Under 0.5 odds | 10.32 |
+| Fair Under 0.5 odds | 10.31 |
 | Fair Over 1.5 odds | 1.42 |
 | Fair Under 1.5 odds | 3.37 |
 | Fair Over 2.5 odds | 2.30 |
@@ -2467,49 +2758,53 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 3.5 odds | 1.28 |
 | Fair Over 4.5 odds | 10.33 |
 | Fair Under 4.5 odds | 1.11 |
-| Goal margin distribution | {"-1": 0.2071724140170019, "-10": 2.5452073388301723e-07, "-11": 2.844920635665766e-08, "-12": 2.919221444319359e-09, "-13": 2.7569234272968536e-10, "-14": 2.220379210323924e-11, "-2": 0.11202925289644573, "-3": 0.041749576007702405, "-4": 0.012140941227988781, "-5": 0.002884496010751876, "-6": 0.00057823480652587, "-7": 0.00010014756028613398, "-8": 1.52587233240702e-05, "-9": 2.074409167187287e-06, "0": 0.282360268251293, "1": 0.19639488654553952, "10": 1.2158066206385996e-07, "11": 1.2586912392276885e-08, "12": 1.196255125039251e-09, "13": 1.0463794247657208e-10, "14": 7.805475351922173e-12, "2": 0.0988123078280508, "3": 0.03410667548264105, "4": 0.00918644318153687, "5": 0.002021495113795456, "6": 0.00037533122848027546, "7": 6.020860440340236e-05, "8": 8.496579042460656e-06, "9": 1.0698626925496527e-06} |
-| Raw goal margin distribution | {"-1": 0.20474942437259278, "-10": 2.5154398089487403e-07, "-11": 2.811647802156096e-08, "-12": 2.8850796240249716e-09, "-13": 2.7246797671239256e-10, "-14": 2.1944107151514214e-11, "-2": 0.1107190122404832, "-3": 0.04126129289913742, "-4": 0.01199894657581283, "-5": 0.0028507603225495955, "-6": 0.0005714720482942932, "-7": 9.89762822342876e-05, "-8": 1.508026458101529e-05, "-9": 2.0501478679491095e-06, "0": 0.2999854903372552, "1": 0.18878034246949074, "10": 1.1686678520909884e-07, "11": 1.2098897653817119e-08, "12": 1.149874399267664e-09, "13": 1.0058096197657236e-10, "14": 7.50284458007699e-12, "2": 0.09498119650714416, "3": 0.0327843050873719, "4": 0.008830270076736046, "5": 0.0019431185128856176, "6": 0.000360779036044665, "7": 5.787422044844748e-05, "8": 8.167153074440623e-06, "9": 1.0283824036733401e-06} |
+| Goal margin distribution | {"-1": 0.2065755171844454, "-10": 2.5446182476018715e-07, "-11": 2.845139967524964e-08, "-12": 2.920348622114532e-09, "-13": 2.7588340414884764e-10, "-14": 2.2225422847358835e-11, "-2": 0.11173529231859726, "-3": 0.041651705052889974, "-4": 0.012116011413677122, "-5": 0.002879430289622228, "-6": 0.0005773934096669356, "-7": 0.00010003224471524157, "-8": 1.5245814471525455e-05, "-9": 2.0732905970312515e-06, "0": 0.28284809080504836, "1": 0.19670241596053462, "10": 1.2178086648980918e-07, "11": 1.2607899901440187e-08, "12": 1.198275025812947e-09, "13": 1.0481660235116546e-10, "14": 7.81874820074772e-12, "2": 0.09896582464005593, "3": 0.03415940958550974, "4": 0.009200680253296716, "5": 0.0020246479879156803, "6": 0.0003759217666583032, "7": 6.0304310733598924e-05, "8": 8.510237238187042e-06, "9": 1.0716029675195348e-06} |
+| Raw goal margin distribution | {"-1": 0.20476883331895457, "-10": 2.522363331847886e-07, "-11": 2.820256726062226e-08, "-12": 2.894807615081875e-09, "-13": 2.734705620956078e-10, "-14": 2.203104205427491e-11, "-2": 0.110758069303066, "-3": 0.04128742440378454, "-4": 0.012010046279795123, "-5": 0.002854247149253173, "-6": 0.0005723435984816411, "-7": 9.915737510329966e-05, "-8": 1.5112476468080553e-05, "-9": 2.055157854481777e-06, "0": 0.29995626236520023, "1": 0.18874054685455716, "10": 1.1685157615105245e-07, "11": 1.2097573435817758e-08, "12": 1.1497727801140505e-09, "13": 1.0057396982437076e-10, "14": 7.502270899526163e-12, "2": 0.09496001241908489, "3": 0.03277674864294223, "4": 0.008828266871869838, "5": 0.0019426968731479826, "6": 0.00036070568562744437, "7": 5.7863389882461864e-05, "8": 8.16577072708504e-06, "9": 1.0282279915727253e-06} |
 | Unadjusted home-win probability | 32.8% |
 | Unadjusted draw probability | 30.0% |
 | Unadjusted away-win probability | 37.2% |
 | Raw p over 1 5 | 70.2% |
 | Raw p under 3 5 | 78.0% |
 | Raw p btts yes | 49.8% |
-| P home draw | 62.3% |
+| P home draw | 62.4% |
 | P draw away | 65.9% |
-| P home away | 71.8% |
+| P home away | 71.7% |
 | Raw p home draw | 62.8% |
 | Raw p draw away | 67.2% |
 | Raw p home away | 70.0% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.12, "price": 1.84, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.0, "price": 1.85, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.84, "price": 2.12, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.85, "price": 2.0, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / Winamax (FR) |
-| Reference home odds | 2.45 |
-| Reference draw odds | 3.15 |
-| Reference away odds | 2.30 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:41Z |
-| Market reference home last update utc | 2026-10-22T15:04:41Z |
-| Market reference draw last update utc | 2026-10-22T15:04:41Z |
-| Market reference away last update utc | 2026-10-22T15:04:41Z |
-| O/U 2.5 market source | The Odds API / Tipico |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.12, "price": 1.84, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.0, "price": 1.85, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.84, "price": 2.12, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.85, "price": 2.0, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Winamax (DE) |
+| Reference home odds | 2.60 |
+| Reference draw odds | 3.40 |
+| Reference away odds | 2.45 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:31Z |
+| Market reference home last update utc | 2026-10-23T14:29:31Z |
+| Market reference draw last update utc | 2026-10-23T14:29:31Z |
+| Market reference away last update utc | 2026-10-23T14:29:31Z |
+| O/U 2.5 market source | The Odds API / Unibet (NL) |
 | Reference Over 2.5 odds | 1.85 |
-| Reference Under 2.5 odds | 1.90 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:04:39Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:04:39Z |
-| Home probability edge | -1.3% |
-| Draw probability edge | +1.8% |
-| Away probability edge | -0.4% |
-| Over 2.5 probability edge | -7.3% |
-| Under 2.5 probability edge | +7.3% |
-| Raw edge prob home | -0.0264 |
-| Raw ev home | -0.1020 |
-| Raw edge prob draw | 0.0353 |
-| Raw ev draw | 0.0290 |
-| Raw edge prob away | -0.0088 |
-| Raw ev away | -0.0544 |
+| Reference Under 2.5 odds | 1.91 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:29:29Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:29:29Z |
+| Home probability edge | -1.4% |
+| Draw probability edge | +1.7% |
+| Away probability edge | -0.3% |
+| Over 2.5 probability edge | -7.4% |
+| Under 2.5 probability edge | +7.4% |
+| Raw edge prob home | -0.0276 |
+| Raw ev home | -0.1022 |
+| Raw edge prob draw | 0.0342 |
+| Raw ev draw | 0.0288 |
+| Raw edge prob away | -0.0066 |
+| Raw ev away | -0.0542 |
+| Elo home rating | 1,374.3497 |
+| Elo away rating | 1,407.0466 |
+| Elo rating diff | 27.3031 |
+| Elo home expectancy | 0.5392 |
 
 </details>
 
@@ -2518,7 +2813,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Hull City vs Ipswich Town
 
-The model's most likely 1X2 outcome is **Hull City win** at **48.5%**. Expected goals are 1.86 for Hull City and 0.87 for Ipswich Town (2.73 combined). The most likely exact score is 1-1 at 11.8%. Goal-market probabilities: at least one goal: 92.3%; Over 2.5 goals: 50.4%; Under 3.5 goals: 72.0%; Double Chance 1X: 73.3%; Double Chance X2: 51.5%; Double Chance 12 (either team wins): 75.2%; Under 4.5 goals: 86.5%; BTTS Yes (both teams score): 51.0%; BTTS No (at least one team does not score): 49.0%.
+The model's most likely 1X2 outcome is **Hull City win** at **48.5%**. Expected goals are 1.86 for Hull City and 0.87 for Ipswich Town (2.73 combined). The most likely exact score is 1-1 at 12.0%. Goal-market probabilities: at least one goal: 92.2%; Over 2.5 goals: 50.3%; Under 3.5 goals: 72.0%; Double Chance 1X: 73.7%; Double Chance X2: 51.5%; Double Chance 12 (either team wins): 74.8%; Under 4.5 goals: 86.5%; BTTS Yes (both teams score): 51.1%; BTTS No (at least one team does not score): 48.9%.
 
 **Fixture source:** The Odds API
 
@@ -2527,8 +2822,8 @@ The model's most likely 1X2 outcome is **Hull City win** at **48.5%**. Expected 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
 | Hull City win | 48.5% | 2.06 |
-| Draw | 24.8% | 4.03 |
-| Ipswich Town win | 26.7% | 3.75 |
+| Draw | 25.2% | 3.97 |
+| Ipswich Town win | 26.3% | 3.80 |
 
 ### Goals outlook
 
@@ -2537,12 +2832,12 @@ The model's most likely 1X2 outcome is **Hull City win** at **48.5%**. Expected 
 | Hull City expected goals | 1.86 |
 | Ipswich Town expected goals | 0.87 |
 | Expected total goals | 2.73 |
-| Over 0.5 | 92.3% |
-| Under 0.5 | 7.7% |
+| Over 0.5 | 92.2% |
+| Under 0.5 | 7.8% |
 | Over 1.5 | 75.5% |
 | Under 1.5 | 24.5% |
-| Over 2.5 | 50.4% |
-| Under 2.5 | 49.6% |
+| Over 2.5 | 50.3% |
+| Under 2.5 | 49.7% |
 | Over 3.5 | 28.0% |
 | Under 3.5 | 72.0% |
 | Over 4.5 | 13.5% |
@@ -2552,21 +2847,21 @@ The model's most likely 1X2 outcome is **Hull City win** at **48.5%**. Expected 
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 11.85% |
-| 2 | 2-0 | 9.14% |
+| 1 | 1-1 | 12.03% |
+| 2 | 2-0 | 9.15% |
 | 3 | 1-0 | 9.06% |
-| 4 | 2-1 | 7.96% |
-| 5 | 0-1 | 7.80% |
+| 4 | 2-1 | 7.97% |
+| 5 | 0-0 | 7.79% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
 | Hull City win | 48.5% | 37.2% | 2.63 | +27.6% |
-| Draw | 24.8% | 25.6% | 3.41 | -15.4% |
-| Ipswich Town win | 26.7% | 37.2% | 2.66 | -29.0% |
-| Over 2.5 | 50.4% | 54.3% | 1.81 | -8.8% |
-| Under 2.5 | 49.6% | 45.7% | 2.17 | +7.6% |
+| Draw | 25.2% | 26.3% | 3.41 | -14.1% |
+| Ipswich Town win | 26.3% | 36.5% | 2.66 | -30.0% |
+| Over 2.5 | 50.3% | 54.2% | 1.81 | -9.0% |
+| Under 2.5 | 49.7% | 45.8% | 2.17 | +7.9% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -2582,9 +2877,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | Pinnacle |
@@ -2596,72 +2891,76 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Ipswich |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.8625 |
-| Dc lambda away | 0.8711 |
+| Dc lambda home | 1.8617 |
+| Dc lambda away | 0.8710 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
 | Score grid omitted mass | 0 |
-| P btts yes | 51.0% |
-| P btts no | 49.0% |
+| P btts yes | 51.1% |
+| P btts no | 48.9% |
 | Fair Over 0.5 odds | 1.08 |
-| Fair Under 0.5 odds | 13.03 |
+| Fair Under 0.5 odds | 12.83 |
 | Fair Over 1.5 odds | 1.33 |
-| Fair Under 1.5 odds | 4.08 |
-| Fair Over 2.5 odds | 1.98 |
-| Fair Under 2.5 odds | 2.02 |
+| Fair Under 1.5 odds | 4.07 |
+| Fair Over 2.5 odds | 1.99 |
+| Fair Under 2.5 odds | 2.01 |
 | Fair Over 3.5 odds | 3.57 |
 | Fair Under 3.5 odds | 1.39 |
-| Fair Over 4.5 odds | 7.39 |
+| Fair Over 4.5 odds | 7.41 |
 | Fair Under 4.5 odds | 1.16 |
-| Goal margin distribution | {"-1": 0.17737676990605014, "-10": 8.615950990123675e-09, "-11": 6.740774627633063e-10, "-12": 4.843119031894345e-11, "-13": 3.21666283694951e-12, "-14": 1.9858229491573943e-13, "-15": 1.1405095608136532e-14, "-16": 5.637495938653071e-16, "-2": 0.0677480722593982, "-3": 0.017477296949491104, "-4": 0.0035335367846398794, "-5": 0.0005850930980788872, "-6": 8.186723901259801e-05, "-7": 9.906604522597457e-06, "-8": 1.0552988364335484e-06, "-9": 1.0035411080291548e-07, "0": 0.24813911021928528, "1": 0.19489171084679452, "10": 8.44762103887415e-06, "11": 1.4131175709357004e-06, "12": 2.1708555123848814e-07, "13": 3.08282309165784e-08, "14": 4.069310915113324e-09, "15": 4.997083017317805e-10, "16": 5.2813039460007346e-11, "2": 0.15206520638074417, "3": 0.08387730442510172, "4": 0.03625910690094237, "5": 0.012837183443144797, "6": 0.003840539201171664, "7": 0.0009936745588462069, "8": 0.00022632477125944143, "9": 4.6018142458014846e-05} |
-| Raw goal margin distribution | {"-1": 0.10736025175714733, "-10": 5.21494820272612e-09, "-11": 4.0799663983293253e-10, "-12": 2.931378662659216e-11, "-13": 1.9469388927066027e-12, "-14": 1.2019524985125273e-13, "-15": 6.9031245548806706e-15, "-16": 3.41218854968587e-16, "-2": 0.041005651967181915, "-3": 0.010578425808101194, "-4": 0.002138732140589841, "-5": 0.0003541373672797729, "-6": 4.955151340116541e-05, "-7": 5.996137804109827e-06, "-8": 6.387372417399398e-07, "-9": 6.074100123918297e-08, "0": 0.24054614813451794, "1": 0.24026018441231087, "10": 1.0414126798038742e-05, "11": 1.7420745434175164e-06, "12": 2.676204870242442e-07, "13": 3.800467661215696e-08, "14": 5.016598123379025e-09, "15": 6.160344542350501e-10, "16": 6.510728724635605e-11, "2": 0.18746417879441907, "3": 0.10340294382773609, "4": 0.044699795967691816, "5": 0.01582552715035269, "6": 0.004734571073890235, "7": 0.0012249901841227433, "8": 0.00027901048763748297, "9": 5.6730618994699485e-05} |
+| Goal margin distribution | {"-1": 0.17486177767211603, "-10": 8.489483889829657e-09, "-11": 6.641312556318955e-10, "-12": 4.771280339009998e-11, "-13": 3.168697097146458e-12, "-14": 1.9560545322777758e-13, "-15": 1.1233265483365245e-14, "-16": 5.552336779933723e-16, "-2": 0.06678786780214487, "-3": 0.017228989156653704, "-4": 0.00348315434113297, "-5": 0.0005767153018430321, "-6": 8.068958214511933e-05, "-7": 9.763404468912091e-06, "-8": 1.039967774235348e-06, "-9": 9.888871235776722e-08, "0": 0.2518785832366365, "1": 0.19497355028534577, "10": 8.423857348784108e-06, "11": 1.4086036488749828e-06, "12": 2.163092034218945e-07, "13": 3.070619217127343e-08, "14": 4.051644849327068e-09, "15": 4.973494119251117e-10, "16": 5.254562480622571e-11, "2": 0.1520848316517908, "3": 0.08385969804067575, "4": 0.03623859818067471, "5": 0.012825234641164165, "6": 0.0038355397270146336, "7": 0.0009920086845685214, "8": 0.0002258599610975675, "9": 4.590619140338457e-05} |
+| Raw goal margin distribution | {"-1": 0.10740272303589293, "-10": 5.214368165962246e-09, "-11": 4.079193649847395e-10, "-12": 2.930591851457591e-11, "-13": 1.9462612198053184e-12, "-14": 1.2014379927399874e-13, "-15": 6.899639918798118e-15, "-16": 3.4103284166275335e-16, "-2": 0.04102210879476525, "-3": 0.010582303206651872, "-4": 0.0021394055692002013, "-5": 0.0003542271767964866, "-6": 4.9560749972840605e-05, "-7": 5.996829267218297e-06, "-8": 6.387637842267251e-07, "-9": 6.073892834746697e-08, "0": 0.240629184971147, "1": 0.2402802796632546, "10": 1.038134042616004e-05, "11": 1.7359261201892389e-06, "12": 2.6657377790927507e-07, "13": 3.784150430409307e-08, "14": 4.993140639167319e-09, "15": 6.129203454151951e-10, "16": 6.475584716512857e-11, "2": 0.18742534989156354, "3": 0.10334648811697879, "4": 0.04465949608402488, "5": 0.015805482137529723, "6": 0.004726818365454297, "7": 0.0012225254338737697, "8": 0.00027834388068448813, "9": 5.65735839170857e-05} |
 | Unadjusted home-win probability | 59.8% |
 | Unadjusted draw probability | 24.1% |
-| Unadjusted away-win probability | 16.1% |
+| Unadjusted away-win probability | 16.2% |
 | Raw p over 1 5 | 76.7% |
 | Raw p under 3 5 | 70.7% |
 | Raw p btts yes | 50.1% |
-| P home draw | 73.3% |
+| P home draw | 73.7% |
 | P draw away | 51.5% |
-| P home away | 75.2% |
-| Raw p home draw | 83.9% |
+| P home away | 74.8% |
+| Raw p home draw | 83.8% |
 | Raw p draw away | 40.2% |
 | Raw p home away | 75.9% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.96, "price": 1.98, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.92, "price": 1.93, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.98, "price": 1.96, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.93, "price": 1.92, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / Winamax (FR) |
-| Reference home odds | 2.35 |
-| Reference draw odds | 3.25 |
-| Reference away odds | 2.35 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:41Z |
-| Market reference home last update utc | 2026-10-22T15:04:41Z |
-| Market reference draw last update utc | 2026-10-22T15:04:41Z |
-| Market reference away last update utc | 2026-10-22T15:04:41Z |
-| O/U 2.5 market source | The Odds API / Tipico |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.96, "price": 1.98, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.92, "price": 1.93, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.98, "price": 1.96, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.93, "price": 1.92, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Winamax (DE) |
+| Reference home odds | 2.50 |
+| Reference draw odds | 3.45 |
+| Reference away odds | 2.55 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:31Z |
+| Market reference home last update utc | 2026-10-23T14:29:31Z |
+| Market reference draw last update utc | 2026-10-23T14:29:31Z |
+| Market reference away last update utc | 2026-10-23T14:29:31Z |
+| O/U 2.5 market source | The Odds API / Unibet (NL) |
 | Reference Over 2.5 odds | 1.75 |
-| Reference Under 2.5 odds | 2.05 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
+| Reference Under 2.5 odds | 2.04 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
 | Home probability edge | +11.3% |
-| Draw probability edge | -0.8% |
-| Away probability edge | -10.5% |
+| Draw probability edge | -1.1% |
+| Away probability edge | -10.1% |
 | Over 2.5 probability edge | -3.9% |
 | Under 2.5 probability edge | +3.9% |
-| Raw edge prob home | 0.2258 |
-| Raw ev home | 0.5726 |
-| Raw edge prob draw | -0.0152 |
-| Raw ev draw | -0.1797 |
-| Raw edge prob away | -0.2106 |
-| Raw ev away | -0.5704 |
+| Raw edge prob home | 0.2254 |
+| Raw ev home | 0.5723 |
+| Raw edge prob draw | -0.0225 |
+| Raw ev draw | -0.1795 |
+| Raw edge prob away | -0.2029 |
+| Raw ev away | -0.5703 |
+| Elo home rating | 1,401.6375 |
+| Elo away rating | 1,374.6638 |
+| Elo rating diff | 86.9737 |
+| Elo home expectancy | 0.6226 |
 
 </details>
 
@@ -2670,7 +2969,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Manchester City vs Brighton and Hove Albion
 
-The model's most likely 1X2 outcome is **Manchester City win** at **57.5%**. Expected goals are 1.97 for Manchester City and 1.14 for Brighton and Hove Albion (3.11 combined). The most likely exact score is 2-1 at 10.2%. Goal-market probabilities: at least one goal: 95.0%; Over 2.5 goals: 60.7%; Under 3.5 goals: 62.1%; Double Chance 1X: 79.3%; Double Chance X2: 42.5%; Double Chance 12 (either team wins): 78.2%; Under 4.5 goals: 79.4%; BTTS Yes (both teams score): 59.0%; BTTS No (at least one team does not score): 41.0%.
+The model's most likely 1X2 outcome is **Manchester City win** at **56.9%**. Expected goals are 1.97 for Manchester City and 1.14 for Brighton and Hove Albion (3.11 combined). The most likely exact score is 1-1 at 10.3%. Goal-market probabilities: at least one goal: 95.0%; Over 2.5 goals: 60.6%; Under 3.5 goals: 62.2%; Double Chance 1X: 79.0%; Double Chance X2: 43.1%; Double Chance 12 (either team wins): 77.9%; Under 4.5 goals: 79.4%; BTTS Yes (both teams score): 59.1%; BTTS No (at least one team does not score): 40.9%.
 
 **Fixture source:** The Odds API
 
@@ -2678,9 +2977,9 @@ The model's most likely 1X2 outcome is **Manchester City win** at **57.5%**. Exp
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Manchester City win | 57.5% | 1.74 |
-| Draw | 21.8% | 4.59 |
-| Brighton and Hove Albion win | 20.7% | 4.82 |
+| Manchester City win | 56.9% | 1.76 |
+| Draw | 22.1% | 4.52 |
+| Brighton and Hove Albion win | 21.0% | 4.76 |
 
 ### Goals outlook
 
@@ -2691,12 +2990,12 @@ The model's most likely 1X2 outcome is **Manchester City win** at **57.5%**. Exp
 | Expected total goals | 3.11 |
 | Over 0.5 | 95.0% |
 | Under 0.5 | 5.0% |
-| Over 1.5 | 82.7% |
-| Under 1.5 | 17.3% |
-| Over 2.5 | 60.7% |
-| Under 2.5 | 39.3% |
-| Over 3.5 | 37.9% |
-| Under 3.5 | 62.1% |
+| Over 1.5 | 82.6% |
+| Under 1.5 | 17.4% |
+| Over 2.5 | 60.6% |
+| Under 2.5 | 39.4% |
+| Over 3.5 | 37.8% |
+| Under 3.5 | 62.2% |
 | Over 4.5 | 20.6% |
 | Under 4.5 | 79.4% |
 
@@ -2704,19 +3003,19 @@ The model's most likely 1X2 outcome is **Manchester City win** at **57.5%**. Exp
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 2-1 | 10.17% |
-| 2 | 1-1 | 10.12% |
-| 3 | 2-0 | 8.93% |
-| 4 | 1-0 | 8.15% |
-| 5 | 3-1 | 6.68% |
+| 1 | 1-1 | 10.26% |
+| 2 | 2-1 | 10.08% |
+| 3 | 2-0 | 8.84% |
+| 4 | 1-0 | 8.07% |
+| 5 | 3-1 | 6.61% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Manchester City win | 57.5% | 59.2% | 1.67 | -4.1% |
-| Draw | 21.8% | 20.1% | 4.36 | -4.9% |
-| Brighton and Hove Albion win | 20.7% | 20.7% | 4.40 | -8.7% |
+| Manchester City win | 56.9% | 58.1% | 1.67 | -5.0% |
+| Draw | 22.1% | 20.7% | 4.37 | -3.4% |
+| Brighton and Hove Albion win | 21.0% | 21.2% | 4.41 | -7.4% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -2732,9 +3031,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -2745,69 +3044,73 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
 | Dc lambda home | 1.9683 |
-| Dc lambda away | 1.1396 |
+| Dc lambda away | 1.1397 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
 | Score grid omitted mass | 0 |
-| P btts yes | 59.0% |
-| P btts no | 41.0% |
+| P btts yes | 59.1% |
+| P btts no | 40.9% |
 | Fair Over 0.5 odds | 1.05 |
-| Fair Under 0.5 odds | 20.11 |
+| Fair Under 0.5 odds | 19.84 |
 | Fair Over 1.5 odds | 1.21 |
-| Fair Under 1.5 odds | 5.78 |
+| Fair Under 1.5 odds | 5.76 |
 | Fair Over 2.5 odds | 1.65 |
-| Fair Under 2.5 odds | 2.55 |
+| Fair Under 2.5 odds | 2.54 |
 | Fair Over 3.5 odds | 2.64 |
 | Fair Under 3.5 odds | 1.61 |
-| Fair Over 4.5 odds | 4.84 |
+| Fair Over 4.5 odds | 4.86 |
 | Fair Under 4.5 odds | 1.26 |
-| Goal margin distribution | {"-1": 0.12480430245489861, "-10": 5.56446652572594e-08, "-11": 5.6698929008301405e-09, "-12": 5.309184102162665e-10, "-13": 4.598049138443864e-11, "-14": 3.702224969268838e-12, "-15": 2.7646759738989374e-13, "-16": 1.7270525949994112e-14, "-2": 0.057743354336974285, "-3": 0.01876070220442394, "-4": 0.004838396058859168, "-5": 0.0010295699955658049, "-6": 0.00018599159809677105, "-7": 2.914694691519589e-05, "-8": 4.029516090927568e-06, "-9": 4.98066196601426e-07, "0": 0.21806855876099096, "1": 0.22924173246711205, "10": 1.3569858882328272e-05, "11": 2.3881326513387492e-06, "12": 3.8622747955001216e-07, "13": 5.7772450173397525e-08, "14": 8.034184075148884e-09, "15": 1.0362272394208703e-09, "16": 1.118016269477531e-10, "2": 0.17782771803272107, "3": 0.09978800276389999, "4": 0.044449046602660115, "5": 0.016336112131582443, "6": 0.005097038899141894, "7": 0.0013795882466764585, "8": 0.00032941328041577954, "9": 7.032456764836688e-05} |
-| Raw goal margin distribution | {"-1": 0.12494445922555975, "-10": 5.570715490251658e-08, "-11": 5.676260260475149e-09, "-12": 5.315146381378748e-10, "-13": 4.6032128043264424e-11, "-14": 3.70638261356272e-12, "-15": 2.7677807391097846e-13, "-16": 1.728992096360468e-14, "-2": 0.057808200835947635, "-3": 0.018781770704344107, "-4": 0.004843829637297175, "-5": 0.0010307262153668026, "-6": 0.00018620046895495936, "-7": 2.917967929600257e-05, "-8": 4.034041287187012e-06, "-9": 4.986255310820329e-07, "0": 0.2352233038238791, "1": 0.2223039948302351, "10": 1.3159182694873863e-05, "11": 2.3158585605842462e-06, "12": 3.745387486525755e-07, "13": 5.602403334881224e-08, "14": 7.791038725304023e-09, "15": 1.0048670126335483e-09, "16": 1.0841807916702438e-10, "2": 0.17244596646856147, "3": 0.09676803351557299, "4": 0.04310384727869839, "5": 0.015841718467934043, "6": 0.004942782873301241, "7": 0.0013378365935225829, "8": 0.0003194439659762478, "9": 6.819627541064718e-05} |
+| Goal margin distribution | {"-1": 0.12636502384469703, "-10": 5.6363982593836484e-08, "-11": 5.7434612433303785e-09, "-12": 5.378329070525187e-10, "-13": 4.658155419052727e-11, "-14": 3.750800472282384e-12, "-15": 2.8010828277664575e-13, "-16": 1.7498708111121942e-14, "-2": 0.05846827748486935, "-3": 0.018997039462189953, "-4": 0.004899565849295048, "-5": 0.0010426340046027652, "-6": 0.00018836033704119703, "-7": 2.9519536175415607e-05, "-8": 4.081218254603173e-06, "-9": 5.044807066832444e-07, "0": 0.2210156797012712, "1": 0.22703087360986576, "10": 1.343805582406645e-05, "11": 2.364922450508813e-06, "12": 3.8247144852049827e-07, "13": 5.721027890607005e-08, "14": 7.95595820349399e-09, "15": 1.0261312702384172e-09, "16": 1.1071115939891858e-10, "2": 0.17611143020180503, "3": 0.09882381376705411, "4": 0.04401915733308476, "5": 0.016177985845911052, "6": 0.005047664318024562, "7": 0.0013662147713875712, "8": 0.00032621784034535045, "9": 6.964194470921845e-05} |
+| Raw goal margin distribution | {"-1": 0.12494838932671731, "-10": 5.57321055056687e-08, "-11": 5.679073288479989e-09, "-12": 5.318034486006896e-10, "-13": 4.6059344519213906e-11, "-14": 3.708751547212577e-12, "-15": 2.7696808582910186e-13, "-16": 1.730253615486343e-14, "-2": 0.0578128098754644, "-3": 0.018784070232075803, "-4": 0.004844638513438599, "-5": 0.0010309453958754404, "-6": 0.00018624869453797715, "-7": 2.9188602878934447e-05, "-8": 4.035465130210259e-06, "-9": 4.988251481987968e-07, "0": 0.2352279167363763, "1": 0.22229942290182314, "10": 1.3157999205631574e-05, "11": 2.3156361405677515e-06, "12": 3.7450052907181525e-07, "13": 5.601798461440206e-08, "14": 7.790151573424082e-09, "15": 1.0047461191886208e-09, "16": 1.0840387675846863e-10, "2": 0.1724411692462197, "3": 0.09676427007511071, "4": 0.04310177341159677, "5": 0.01584082754947215, "6": 0.004942468163282544, "7": 0.001337742089480316, "8": 0.00031941927763387323, "9": 6.819056753146011e-05} |
 | Unadjusted home-win probability | 55.7% |
 | Unadjusted draw probability | 23.5% |
 | Unadjusted away-win probability | 20.8% |
 | Raw p over 1 5 | 82.5% |
 | Raw p under 3 5 | 62.3% |
 | Raw p btts yes | 59.4% |
-| P home draw | 79.3% |
-| P draw away | 42.5% |
-| P home away | 78.2% |
+| P home draw | 79.0% |
+| P draw away | 43.1% |
+| P home away | 77.9% |
 | Raw p home draw | 79.2% |
 | Raw p draw away | 44.3% |
 | Raw p home away | 76.5% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.75, "market_key": "spreads", "opposite_price": 1.85, "price": 2.0, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 1.5, "market_key": "spreads", "opposite_price": 2.82, "price": 1.51, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -1.5, "market_key": "spreads", "opposite_price": 1.51, "price": 2.82, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.75, "market_key": "spreads", "opposite_price": 2.0, "price": 1.85, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / Winamax (FR) |
-| Reference home odds | 1.56 |
-| Reference draw odds | 3.90 |
-| Reference away odds | 3.80 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:41Z |
-| Market reference home last update utc | 2026-10-22T15:04:41Z |
-| Market reference draw last update utc | 2026-10-22T15:04:41Z |
-| Market reference away last update utc | 2026-10-22T15:04:41Z |
-| O/U 2.5 market source | The Odds API / Betsson |
-| Reference Over 2.5 odds | 1.47 |
-| Reference Under 2.5 odds | 2.73 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:20Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:20Z |
-| Home probability edge | -1.7% |
-| Draw probability edge | +1.7% |
-| Away probability edge | +0.0% |
-| Over 2.5 probability edge | -5.3% |
-| Under 2.5 probability edge | +5.3% |
-| Raw edge prob home | -0.0348 |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "spreads", "opposite_price": 1.85, "price": 2.01, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 1.5, "market_key": "spreads", "opposite_price": 2.82, "price": 1.51, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -1.5, "market_key": "spreads", "opposite_price": 1.51, "price": 2.82, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "spreads", "opposite_price": 2.01, "price": 1.85, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Winamax (DE) |
+| Reference home odds | 1.64 |
+| Reference draw odds | 4.20 |
+| Reference away odds | 4.10 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:31Z |
+| Market reference home last update utc | 2026-10-23T14:29:31Z |
+| Market reference draw last update utc | 2026-10-23T14:29:31Z |
+| Market reference away last update utc | 2026-10-23T14:29:31Z |
+| O/U 2.5 market source | The Odds API / William Hill |
+| Reference Over 2.5 odds | 1.44 |
+| Reference Under 2.5 odds | 2.62 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:08Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:08Z |
+| Home probability edge | -1.2% |
+| Draw probability edge | +1.4% |
+| Away probability edge | -0.2% |
+| Over 2.5 probability edge | -5.7% |
+| Under 2.5 probability edge | +5.7% |
+| Raw edge prob home | -0.0237 |
 | Raw ev home | -0.0696 |
-| Raw edge prob draw | 0.0343 |
-| Raw ev draw | 0.0256 |
-| Raw edge prob away | 0.0005 |
-| Raw ev away | -0.0864 |
+| Raw edge prob draw | 0.0284 |
+| Raw ev draw | 0.0279 |
+| Raw edge prob away | -0.0047 |
+| Raw ev away | -0.0843 |
+| Elo home rating | 1,660.4429 |
+| Elo away rating | 1,540.2938 |
+| Elo rating diff | 180.1491 |
+| Elo home expectancy | 0.7383 |
 
 </details>
 
@@ -2816,7 +3119,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Tottenham Hotspur vs Crystal Palace
 
-The model's most likely 1X2 outcome is **Tottenham Hotspur win** at **52.2%**. Expected goals are 1.57 for Tottenham Hotspur and 1.25 for Crystal Palace (2.82 combined). The most likely exact score is 1-1 at 11.2%. Goal-market probabilities: at least one goal: 93.8%; Over 2.5 goals: 54.9%; Under 3.5 goals: 68.3%; Double Chance 1X: 75.9%; Double Chance X2: 47.8%; Double Chance 12 (either team wins): 76.3%; Under 4.5 goals: 83.9%; BTTS Yes (both teams score): 56.7%; BTTS No (at least one team does not score): 43.3%.
+The model's most likely 1X2 outcome is **Tottenham Hotspur win** at **52.2%**. Expected goals are 1.57 for Tottenham Hotspur and 1.25 for Crystal Palace (2.82 combined). The most likely exact score is 1-1 at 11.3%. Goal-market probabilities: at least one goal: 93.8%; Over 2.5 goals: 54.8%; Under 3.5 goals: 68.3%; Double Chance 1X: 76.1%; Double Chance X2: 47.8%; Double Chance 12 (either team wins): 76.1%; Under 4.5 goals: 83.9%; BTTS Yes (both teams score): 56.8%; BTTS No (at least one team does not score): 43.2%.
 
 **Fixture source:** The Odds API
 
@@ -2824,9 +3127,9 @@ The model's most likely 1X2 outcome is **Tottenham Hotspur win** at **52.2%**. E
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Tottenham Hotspur win | 52.2% | 1.91 |
-| Draw | 23.7% | 4.22 |
-| Crystal Palace win | 24.1% | 4.15 |
+| Tottenham Hotspur win | 52.2% | 1.92 |
+| Draw | 23.9% | 4.19 |
+| Crystal Palace win | 23.9% | 4.18 |
 
 ### Goals outlook
 
@@ -2839,8 +3142,8 @@ The model's most likely 1X2 outcome is **Tottenham Hotspur win** at **52.2%**. E
 | Under 0.5 | 6.2% |
 | Over 1.5 | 78.7% |
 | Under 1.5 | 21.3% |
-| Over 2.5 | 54.9% |
-| Under 2.5 | 45.1% |
+| Over 2.5 | 54.8% |
+| Under 2.5 | 45.2% |
 | Over 3.5 | 31.7% |
 | Under 3.5 | 68.3% |
 | Over 4.5 | 16.1% |
@@ -2850,21 +3153,21 @@ The model's most likely 1X2 outcome is **Tottenham Hotspur win** at **52.2%**. E
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 11.22% |
-| 2 | 2-1 | 10.98% |
-| 3 | 1-0 | 9.92% |
-| 4 | 2-0 | 8.76% |
-| 5 | 0-0 | 6.16% |
+| 1 | 1-1 | 11.31% |
+| 2 | 2-1 | 10.96% |
+| 3 | 1-0 | 9.91% |
+| 4 | 2-0 | 8.75% |
+| 5 | 0-0 | 6.21% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Tottenham Hotspur win | 52.2% | 60.8% | 1.62 | -15.4% |
-| Draw | 23.7% | 20.5% | 4.33 | +2.6% |
-| Crystal Palace win | 24.1% | 18.7% | 4.87 | +17.3% |
-| Over 2.5 | 54.9% | 60.9% | 1.68 | -7.8% |
-| Under 2.5 | 45.1% | 39.1% | 2.38 | +7.4% |
+| Tottenham Hotspur win | 52.2% | 60.7% | 1.62 | -15.5% |
+| Draw | 23.9% | 20.9% | 4.33 | +3.4% |
+| Crystal Palace win | 23.9% | 18.5% | 4.87 | +16.6% |
+| Over 2.5 | 54.8% | 58.3% | 1.68 | -7.9% |
+| Under 2.5 | 45.2% | 41.7% | 2.38 | +7.6% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -2880,9 +3183,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-22T15:04:39Z |
-| Market best draw last update utc | 2026-10-22T15:04:39Z |
-| Market best away last update utc | 2026-10-22T15:04:39Z |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
 | Odds bookmakers 1x2 | 2.00 |
 | Odds bookmakers ou25 | 11.00 |
 | Best home bookmaker | Pinnacle |
@@ -2895,71 +3198,231 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
 | Dc lambda home | 1.5687 |
-| Dc lambda away | 1.2530 |
+| Dc lambda away | 1.2531 |
 | Bbs statistics applied | 0 |
-| Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-22T15:04:47.131720+00:00 |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
 | Bbs statistics weight | 0 |
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
 | Score grid omitted mass | 0 |
-| P btts yes | 56.7% |
-| P btts no | 43.3% |
+| P btts yes | 56.8% |
+| P btts no | 43.2% |
 | Fair Over 0.5 odds | 1.07 |
-| Fair Under 0.5 odds | 16.24 |
+| Fair Under 0.5 odds | 16.11 |
 | Fair Over 1.5 odds | 1.27 |
 | Fair Under 1.5 odds | 4.69 |
 | Fair Over 2.5 odds | 1.82 |
-| Fair Under 2.5 odds | 2.22 |
+| Fair Under 2.5 odds | 2.21 |
 | Fair Over 3.5 odds | 3.15 |
 | Fair Under 3.5 odds | 1.46 |
-| Fair Over 4.5 odds | 6.20 |
+| Fair Over 4.5 odds | 6.21 |
 | Fair Under 4.5 odds | 1.19 |
-| Goal margin distribution | {"-1": 0.13554067113956092, "-10": 1.5277479252056284e-07, "-11": 1.7150645802268274e-08, "-12": 1.7687880612291777e-09, "-13": 1.686286664770452e-10, "-14": 1.4849007139753914e-11, "-15": 1.0967052288200917e-12, "-2": 0.07025166930633488, "-3": 0.025516686622018565, "-4": 0.007316639588497962, "-5": 0.0017254403767039243, "-6": 0.00034473835420407935, "-7": 5.966987905598122e-05, "-8": 9.102755539284452e-06, "-9": 1.2407109307573668e-06, "0": 0.23690629292234405, "1": 0.2514352111841802, "10": 2.1141693372193198e-06, "11": 2.9712987995516507e-07, "12": 3.836360671940967e-08, "13": 4.578812080864651e-09, "14": 5.047735766816423e-10, "15": 4.667312642315784e-11, "2": 0.16110998463398654, "3": 0.07326016125597606, "4": 0.026298624571249107, "5": 0.007764242867973087, "6": 0.0019420774317830708, "7": 0.0004208330866813615, "8": 8.037211222234547e-05, "9": 1.3714528874233156e-05} |
-| Raw goal margin distribution | {"-1": 0.16575079799000378, "-10": 1.8682616487096273e-07, "-11": 2.0973285758949978e-08, "-12": 2.1630262721810923e-09, "-13": 2.0621364641009542e-10, "-14": 1.8158643911680483e-11, "-15": 1.3411455418393815e-12, "-2": 0.08590978744428093, "-3": 0.031204000497426873, "-4": 0.008947416596086352, "-5": 0.0021100169928210863, "-6": 0.0004215757294594714, "-7": 7.296946360338008e-05, "-8": 1.1131632902944562e-05, "-9": 1.5172481080324984e-06, "0": 0.26903585603356245, "1": 0.21013667187080745, "10": 1.7669144516483334e-06, "11": 2.4832593570760537e-07, "12": 3.206233764558954e-08, "13": 3.826736626358729e-09, "14": 4.2186390264371187e-10, "15": 3.900700862928667e-11, "2": 0.13464747366407423, "3": 0.06122709064711174, "4": 0.021979043492576004, "5": 0.0064889565315391735, "6": 0.0016230888510335123, "7": 0.00035171074024139827, "8": 6.717089501541283e-05, "9": 1.1461900822619441e-05} |
+| Goal margin distribution | {"-1": 0.13481436396058613, "-10": 1.5197856007381099e-07, "-11": 1.706155045930167e-08, "-12": 1.7596295234546057e-09, "-13": 1.6775840341478332e-10, "-14": 1.4772621543024632e-11, "-15": 1.091078433462173e-12, "-2": 0.06987667330714865, "-3": 0.025380822604626638, "-4": 0.007277789782250772, "-5": 0.0017163054236613187, "-6": 0.0003429187333708667, "-7": 5.935590015902235e-05, "-8": 9.055008192213918e-06, "-9": 1.2342236879617013e-06, "0": 0.2388405101962824, "1": 0.2511205487105321, "10": 2.1118085026666534e-06, "11": 2.9680278749131983e-07, "12": 3.832198463221805e-08, "13": 4.573917304428993e-09, "14": 5.042418271904292e-10, "15": 4.662453777011725e-11, "2": 0.16091119307437765, "3": 0.0731706645748512, "4": 0.02626685547959852, "5": 0.007754975398473882, "6": 0.0019397882854861395, "7": 0.000420343454269439, "8": 8.027984264691414e-05, "9": 1.3698998377616314e-05} |
+| Raw goal margin distribution | {"-1": 0.1657484659826816, "-10": 1.868511073631257e-07, "-11": 2.0976442960797046e-08, "-12": 2.1633888677893805e-09, "-13": 2.0625174651147232e-10, "-14": 1.816230323954867e-11, "-15": 1.341434037889416e-12, "-2": 0.08591036643557463, "-3": 0.031204630489710488, "-4": 0.008947729727858702, "-5": 0.0021101237492229543, "-6": 0.00042160384356048573, "-7": 7.297552804725916e-05, "-8": 1.1132743375615792e-05, "-9": 1.5174249757165887e-06, "0": 0.2690366022247212, "1": 0.2101338956007095, "10": 1.7671295706651732e-06, "11": 2.483601054591229e-07, "12": 3.2067259964460114e-08, "13": 3.827385159320697e-09, "14": 4.21941971759879e-10, "15": 3.90147114703491e-11, "2": 0.13464806452558833, "3": 0.06122811084062216, "4": 0.02197970932865116, "5": 0.006489246695010252, "6": 0.001623185641967053, "7": 0.0003517370760355916, "8": 6.717696405264556e-05, "9": 1.1463115661771354e-05} |
 | Unadjusted home-win probability | 43.7% |
 | Unadjusted draw probability | 26.9% |
 | Unadjusted away-win probability | 29.4% |
 | Raw p over 1 5 | 78.3% |
 | Raw p under 3 5 | 68.7% |
 | Raw p btts yes | 57.6% |
-| P home draw | 75.9% |
+| P home draw | 76.1% |
 | P draw away | 47.8% |
-| P home away | 76.3% |
+| P home away | 76.1% |
 | Raw p home draw | 70.6% |
 | Raw p draw away | 56.3% |
 | Raw p home away | 73.1% |
 | Market blending weight | 50.0% |
 | Market blend applied | Yes |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": 0.75, "market_key": "spreads", "opposite_price": 1.79, "price": 2.08, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": 1.5, "market_key": "spreads", "opposite_price": 2.71, "price": 1.55, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-22T15:02:25Z", "line": -1.5, "market_key": "spreads", "opposite_price": 1.55, "price": 2.71, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-22T15:04:39Z", "line": -0.75, "market_key": "spreads", "opposite_price": 2.08, "price": 1.79, "quote_source": "The Odds API", "side": "home"}] |
-| 1X2 market source | The Odds API / Winamax (FR) |
-| Reference home odds | 1.52 |
-| Reference draw odds | 3.80 |
-| Reference away odds | 4.10 |
-| Market reference 1x2 last update utc | 2026-10-22T15:04:41Z |
-| Market reference home last update utc | 2026-10-22T15:04:41Z |
-| Market reference draw last update utc | 2026-10-22T15:04:41Z |
-| Market reference away last update utc | 2026-10-22T15:04:41Z |
-| O/U 2.5 market source | The Odds API / Tipico |
-| Reference Over 2.5 odds | 1.57 |
-| Reference Under 2.5 odds | 2.35 |
-| Market reference over 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market reference under 2 5 last update utc | 2026-10-22T15:04:40Z |
-| Market best over 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Market best under 2 5 last update utc | 2026-10-22T15:02:25Z |
-| Home probability edge | -8.6% |
-| Draw probability edge | +3.2% |
-| Away probability edge | +5.4% |
-| Over 2.5 probability edge | -6.0% |
-| Under 2.5 probability edge | +6.0% |
-| Raw edge prob home | -0.1716 |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.75, "market_key": "spreads", "opposite_price": 1.79, "price": 2.08, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 1.5, "market_key": "spreads", "opposite_price": 2.71, "price": 1.55, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -1.5, "market_key": "spreads", "opposite_price": 1.55, "price": 2.71, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.75, "market_key": "spreads", "opposite_price": 2.08, "price": 1.79, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Winamax (DE) |
+| Reference home odds | 1.58 |
+| Reference draw odds | 4.20 |
+| Reference away odds | 4.70 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:31Z |
+| Market reference home last update utc | 2026-10-23T14:29:31Z |
+| Market reference draw last update utc | 2026-10-23T14:29:31Z |
+| Market reference away last update utc | 2026-10-23T14:29:31Z |
+| O/U 2.5 market source | The Odds API / Unibet (NL) |
+| Reference Over 2.5 odds | 1.64 |
+| Reference Under 2.5 odds | 2.23 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Home probability edge | -8.5% |
+| Draw probability edge | +3.0% |
+| Away probability edge | +5.5% |
+| Over 2.5 probability edge | -3.5% |
+| Under 2.5 probability edge | +3.5% |
+| Raw edge prob home | -0.1703 |
 | Raw ev home | -0.2928 |
-| Raw edge prob draw | 0.0643 |
+| Raw edge prob draw | 0.0604 |
 | Raw ev draw | 0.1649 |
-| Raw edge prob away | 0.1073 |
+| Raw edge prob away | 0.1099 |
 | Raw ev away | 0.4339 |
+| Elo home rating | 1,386.8335 |
+| Elo away rating | 1,458.5707 |
+| Elo rating diff | -11.7372 |
+| Elo home expectancy | 0.4831 |
+
+</details>
+
+
+---
+
+## 2026-11-01 — Liverpool vs Arsenal
+
+The model's most likely 1X2 outcome is **Arsenal win** at **45.2%**. Expected goals are 1.03 for Liverpool and 1.46 for Arsenal (2.49 combined). The most likely exact score is 1-1 at 12.8%. Goal-market probabilities: at least one goal: 91.1%; Over 2.5 goals: 45.9%; Under 3.5 goals: 76.0%; Double Chance 1X: 54.8%; Double Chance X2: 72.0%; Double Chance 12 (either team wins): 73.1%; Under 4.5 goals: 89.1%; BTTS Yes (both teams score): 50.2%; BTTS No (at least one team does not score): 49.8%.
+
+**Fixture source:** The Odds API
+
+### Match outcome probabilities
+
+| Outcome | Model probability | Model fair odds |
+| --- | --- | --- |
+| Liverpool win | 28.0% | 3.57 |
+| Draw | 26.9% | 3.72 |
+| Arsenal win | 45.2% | 2.21 |
+
+### Goals outlook
+
+| Measure | Model estimate |
+| --- | --- |
+| Liverpool expected goals | 1.03 |
+| Arsenal expected goals | 1.46 |
+| Expected total goals | 2.49 |
+| Over 0.5 | 91.1% |
+| Under 0.5 | 8.9% |
+| Over 1.5 | 72.2% |
+| Under 1.5 | 27.8% |
+| Over 2.5 | 45.9% |
+| Under 2.5 | 54.1% |
+| Over 3.5 | 24.0% |
+| Under 3.5 | 76.0% |
+| Over 4.5 | 10.9% |
+| Under 4.5 | 89.1% |
+
+### 5 most likely scorelines
+
+| Rank | Score | Probability |
+| --- | --- | --- |
+| 1 | 1-1 | 12.79% |
+| 2 | 0-1 | 10.83% |
+| 3 | 1-2 | 8.97% |
+| 4 | 0-0 | 8.85% |
+| 5 | 0-2 | 8.68% |
+
+### Market comparison
+
+| Selection | Model | Market fair | Available odds | Model EV |
+| --- | --- | --- | --- | --- |
+| Liverpool win | 28.0% | 30.2% | 3.11 | -13.0% |
+| Draw | 26.9% | 25.2% | 3.65 | -1.9% |
+| Arsenal win | 45.2% | 44.6% | 2.20 | -0.7% |
+| Over 2.5 | 45.9% | 55.2% | 1.81 | -16.9% |
+| Under 2.5 | 54.1% | 44.8% | 2.15 | +16.3% |
+
+_EV is a model estimate, not a guarantee or a recommendation to bet._
+
+<details>
+<summary>Additional technical details</summary>
+
+| Field | Value |
+| --- | --- |
+| Kickoff utc | 2026-11-01T16:30:00+00:00 |
+| Fixture id | 6a3819cdbe2ba2fe5a3d8f9b4b459965 |
+| Odds source | — |
+| Odds match method | — |
+| Odds event id | — |
+| Odds last update utc | — |
+| Odds h2h last update utc | — |
+| Market best home last update utc | 2026-10-23T14:29:29Z |
+| Market best draw last update utc | 2026-10-23T14:29:29Z |
+| Market best away last update utc | 2026-10-23T14:29:29Z |
+| Odds bookmakers 1x2 | 2.00 |
+| Odds bookmakers ou25 | 11.00 |
+| Best home bookmaker | Pinnacle |
+| Best draw bookmaker | Pinnacle |
+| Best away bookmaker | Pinnacle |
+| Best over 2 5 bookmaker | 1xBet |
+| Best under 2 5 bookmaker | 1xBet |
+| Matched home-team name | Liverpool |
+| Matched away-team name | Arsenal |
+| Home-name matching confidence | 100/100 |
+| Away-name matching confidence | 100/100 |
+| Dc lambda home | 1.0335 |
+| Dc lambda away | 1.4555 |
+| Bbs statistics applied | 0 |
+| Bbs statistics status | INSUFFICIENT_PAIRED_AUDIT |
+| Bbs statistics version | bbs-lagged-poisson-v2 |
+| Bbs statistics validation mode | retrospective_backfill |
+| Bbs statistics cutoff utc | 2026-10-23T14:29:21.316153+00:00 |
+| Bbs statistics weight | 0 |
+| Score engine version | dc-positive-tail-bounded-v1 |
+| Score grid max goals | 15 |
+| Score grid omitted mass | 0 |
+| P btts yes | 50.2% |
+| P btts no | 49.8% |
+| Fair Over 0.5 odds | 1.10 |
+| Fair Under 0.5 odds | 11.29 |
+| Fair Over 1.5 odds | 1.39 |
+| Fair Under 1.5 odds | 3.60 |
+| Fair Over 2.5 odds | 2.18 |
+| Fair Under 2.5 odds | 1.85 |
+| Fair Over 3.5 odds | 4.16 |
+| Fair Under 3.5 odds | 1.32 |
+| Fair Over 4.5 odds | 9.19 |
+| Fair Under 4.5 odds | 1.12 |
+| Goal margin distribution | {"-1": 0.22357623295950113, "-10": 1.104563773304995e-06, "-11": 1.4452721825041352e-07, "-12": 1.736436914188398e-08, "-13": 1.9280889082013777e-09, "-14": 1.9819810701837837e-10, "-15": 1.7479497260838418e-11, "-2": 0.13942607712205013, "-3": 0.060563208168842635, "-4": 0.020562994629855495, "-5": 0.005709448587684688, "-6": 0.0013383566738034668, "-7": 0.0002711545826207273, "-8": 4.834120531238729e-05, "-9": 7.691265123322118e-06, "0": 0.26872320072640893, "1": 0.17135021631584157, "10": 3.962783031825942e-08, "11": 3.6816327231216286e-09, "12": 3.1407339259842213e-10, "13": 2.47617030236533e-11, "14": 1.8073167557766257e-12, "15": 1.1317357335539395e-13, "2": 0.07742887703060454, "3": 0.023880814953058903, "4": 0.00575715538520326, "5": 0.0011350031688220918, "6": 0.00018891049879580534, "7": 2.7175809704284222e-05, "8": 3.44004669115223e-06, "9": 3.886207297634901e-07} |
+| Raw goal margin distribution | {"-1": 0.22636957805540375, "-10": 1.1183641122696116e-06, "-11": 1.4633293074042297e-07, "-12": 1.7581318299421266e-08, "-13": 1.952178309945454e-09, "-14": 2.00674379665647e-10, "-15": 1.7697884820670195e-11, "-2": 0.14116805632804363, "-3": 0.06131988046039702, "-4": 0.0208199071802015, "-5": 0.0057807820205885594, "-6": 0.0013550780041606816, "-7": 0.0002745423681360702, "-8": 4.894517679451633e-05, "-9": 7.787359227016093e-06, "0": 0.2856959461083565, "1": 0.15750007622088263, "10": 3.6424735432429327e-08, "11": 3.3840484533741653e-09, "12": 2.8868701970018717e-10, "13": 2.276022871424702e-11, "14": 1.6612323749005995e-12, "15": 1.040258180754702e-13, "2": 0.07117034513419589, "3": 0.021950542323160408, "4": 0.005291807804395214, "5": 0.0010432615110967673, "6": 0.00017364097109992123, "7": 2.4979204531026077e-05, "8": 3.1619896823543173e-06, "9": 3.5720873818999646e-07} |
+| Unadjusted home-win probability | 25.7% |
+| Unadjusted draw probability | 28.6% |
+| Unadjusted away-win probability | 45.7% |
+| Raw p over 1 5 | 72.2% |
+| Raw p under 3 5 | 76.0% |
+| Raw p btts yes | 50.5% |
+| P home draw | 54.8% |
+| P draw away | 72.0% |
+| P home away | 73.1% |
+| Raw p home draw | 54.3% |
+| Raw p draw away | 74.3% |
+| Raw p home away | 71.4% |
+| Market blending weight | 50.0% |
+| Market blend applied | Yes |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": -0.25, "market_key": "spreads", "opposite_price": 1.93, "price": 1.93, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.42, "price": 1.66, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-23T14:28:00Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.66, "price": 2.42, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-23T14:29:29Z", "line": 0.25, "market_key": "spreads", "opposite_price": 1.93, "price": 1.93, "quote_source": "The Odds API", "side": "home"}] |
+| 1X2 market source | The Odds API / Winamax (DE) |
+| Reference home odds | 3.00 |
+| Reference draw odds | 3.55 |
+| Reference away odds | 2.10 |
+| Market reference 1x2 last update utc | 2026-10-23T14:29:31Z |
+| Market reference home last update utc | 2026-10-23T14:29:31Z |
+| Market reference draw last update utc | 2026-10-23T14:29:31Z |
+| Market reference away last update utc | 2026-10-23T14:29:31Z |
+| O/U 2.5 market source | The Odds API / Unibet (NL) |
+| Reference Over 2.5 odds | 1.72 |
+| Reference Under 2.5 odds | 2.08 |
+| Market reference over 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market reference under 2 5 last update utc | 2026-10-23T14:29:31Z |
+| Market best over 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Market best under 2 5 last update utc | 2026-10-23T14:28:00Z |
+| Home probability edge | -2.3% |
+| Draw probability edge | +1.7% |
+| Away probability edge | +0.6% |
+| Over 2.5 probability edge | -9.3% |
+| Under 2.5 probability edge | +9.3% |
+| Raw edge prob home | -0.0452 |
+| Raw ev home | -0.2002 |
+| Raw edge prob draw | 0.0339 |
+| Raw ev draw | 0.0428 |
+| Raw edge prob away | 0.0113 |
+| Raw ev away | 0.0057 |
+| Elo home rating | 1,558.0873 |
+| Elo away rating | 1,646.9660 |
+| Elo rating diff | -28.8787 |
+| Elo home expectancy | 0.4585 |
 
 </details>
 

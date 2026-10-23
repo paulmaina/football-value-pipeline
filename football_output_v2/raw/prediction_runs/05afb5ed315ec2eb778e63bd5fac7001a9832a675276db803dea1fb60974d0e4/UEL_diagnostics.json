@@ -1,0 +1,89 @@
+{
+  "league": "UEFA Europa League",
+  "training_matches": 696,
+  "training_seasons_requested": 5,
+  "training_seasons_loaded": [
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+  ],
+  "training_sha256": "cb7bcd063c85ea171d3f3686cb2c583c24b68c5ce95d6bd2f8818fdfda795800",
+  "training_as_of_utc": "2026-10-23T14:36:34.917291+00:00",
+  "training_data_provenance": {
+    "bbs_confirmed_rows": 0,
+    "bbs_added_results": 0,
+    "bbs_result_conflicts": 0,
+    "bbs_rows_with_statistics": 0,
+    "bbs_statistics_used_as_predictor_features": false,
+    "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass."
+  },
+  "bbs_statistics_model": {
+    "status": "NO_OBSERVATIONS"
+  },
+  "training_end": "2026-10-15",
+  "fit_success": true,
+  "objective": 996.473443753527,
+  "base": 0.05175971121898065,
+  "home_adv": 0.289888874655325,
+  "rho": 0.05,
+  "half_life_days": 730.0,
+  "xi_per_day": 0.0009495166856985552,
+  "max_goals": 10,
+  "devig_method": "power",
+  "market_weight": 0.5,
+  "elo_ratings": {
+    "version": "venue-elo-v1",
+    "teams": 108,
+    "matches": 696,
+    "k_factor": 20.0,
+    "home_advantage": 60.0,
+    "venue_weight": 0.5,
+    "season_regression": 0.2,
+    "last_match_date": "2026-10-15"
+  },
+  "training_data_health": {
+    "training_end": "2026-10-15",
+    "verified_at_utc": "2026-10-22T15:10:42.333859+00:00",
+    "official_source_health": {
+      "2025": {
+        "status": "HTTP_403_USING_REVIEWED_FACTS",
+        "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00",
+        "original_source_sha256": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b"
+      },
+      "2026": {
+        "status": "HTTP_403_USING_REVIEWED_FACTS",
+        "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00",
+        "original_source_sha256": "f70b1b52c2d0762cfe38cf1abbccd3cfaa1bcfd0a6bc8ebd090533e34ae1ba20"
+      }
+    },
+    "status": "VERIFIED_WITHIN_24_HOURS"
+  },
+  "training_source": "verified .football_cache/europa/training.json",
+  "fixture_provider_mode": "auto",
+  "fixture_sources": [],
+  "the_odds_api_enabled": true,
+  "odds_regions": "eu",
+  "live_odds_matched": 0,
+  "additional_event_odds_calls_used_before_this_league": 34,
+  "additional_event_odds_calls_budget": null,
+  "additional_event_odds_league_quota": null,
+  "decay_tuning": {
+    "selected_half_life_days": 730.0,
+    "selected_xi_per_day": 0.0009495166856985552,
+    "selection_metric": "walk_forward_1x2_log_loss",
+    "validation_days": 365
+  },
+  "goal_market_reliability": {
+    "home_draw": "RELIABLE_FOR_RANKING",
+    "draw_away": "RELIABLE_FOR_RANKING",
+    "home_away": "RELIABLE_FOR_RANKING",
+    "home": "RELIABLE_FOR_RANKING",
+    "draw": "RELIABLE_FOR_RANKING",
+    "away": "RELIABLE_FOR_RANKING",
+    "over_1_5": "RELIABLE_FOR_RANKING",
+    "under_3_5": "UNRELIABLE_AUDIT",
+    "btts_yes": "UNRELIABLE_AUDIT"
+  }
+}
