@@ -9,24 +9,24 @@ Last observed live quote within 6 minutes of scheduled kickoff, market age <=120
 {
   "1xbet": {
     "covered_selections": 24,
-    "missing_selections": 18,
-    "pending_selections": 11,
+    "missing_selections": 19,
+    "pending_selections": 10,
     "mean_fair_close_ev": -0.03898369124250692,
     "mean_same_book_offered_price_clv": 0.009153547906679346,
     "positive_fair_close_ev": 4
   },
   "pinnacle": {
-    "covered_selections": 26,
+    "covered_selections": 27,
     "missing_selections": 16,
-    "pending_selections": 11,
+    "pending_selections": 10,
     "mean_fair_close_ev": -0.04151560051144622,
-    "mean_same_book_offered_price_clv": null,
+    "mean_same_book_offered_price_clv": 0.006211180124223503,
     "positive_fair_close_ev": 6
   },
   "bet365": {
     "covered_selections": 0,
-    "missing_selections": 42,
-    "pending_selections": 11,
+    "missing_selections": 43,
+    "pending_selections": 10,
     "mean_fair_close_ev": null,
     "mean_same_book_offered_price_clv": null,
     "positive_fair_close_ev": 0
@@ -38,24 +38,24 @@ Last observed live quote within 6 minutes of scheduled kickoff, market age <=120
 {
   "1xbet": {
     "covered_selections": 22,
-    "missing_selections": 20,
-    "pending_selections": 11,
+    "missing_selections": 21,
+    "pending_selections": 10,
     "mean_fair_close_ev": -0.03708297614578527,
     "mean_same_book_offered_price_clv": 0.009159240806008363,
     "positive_fair_close_ev": 2
   },
   "pinnacle": {
-    "covered_selections": 24,
+    "covered_selections": 25,
     "missing_selections": 18,
-    "pending_selections": 11,
+    "pending_selections": 10,
     "mean_fair_close_ev": -0.04333489133526391,
-    "mean_same_book_offered_price_clv": null,
+    "mean_same_book_offered_price_clv": -0.049689440993788914,
     "positive_fair_close_ev": 3
   },
   "bet365": {
     "covered_selections": 0,
-    "missing_selections": 42,
-    "pending_selections": 11,
+    "missing_selections": 43,
+    "pending_selections": 10,
     "mean_fair_close_ev": null,
     "mean_same_book_offered_price_clv": null,
     "positive_fair_close_ev": 0
