@@ -148,7 +148,8 @@ def prepared_rows(rows):
         r['p'] = probability(r.get('predicted_probability'))
         from asian_handicap import SETTLED, parse_label
         ah = parse_label(r.get('market'))
-        r['y'] = (int(float(r['unit_profit']) >= -1e-12) if ah and r['status'] in SETTLED else
+        from performance_tracking import calibration_outcome
+        r['y'] = (calibration_outcome(r) if ah and r['status'] in SETTLED else
                   1 if r['status']=='WON' else 0 if r['status']=='LOST' else None)
         r['asian'] = ah is not None
         r['price'] = num(r.get('offered_decimal_odds'))
@@ -330,7 +331,7 @@ def write_workbook(root, selections, predictions, metrics, destination=None):
     dash.set('A27','Review as of UTC: '+str(metrics.get('reviewed_at_utc') or 'not recorded in source'))
     dash.set('A28','PROVISIONAL is a research watchlist. Positive simulated ROI does not establish profitability.')
     if any(r['asian'] for r in rows):
-        dash.set('A28',f"Asian: {sum(r['status']=='REFUNDED' for r in rows)} refunds, {sum(r['status']=='HALF_WON' for r in rows)} half-wins, {sum(r['status']=='HALF_LOST' for r in rows)} half-losses. Refunds are settled, not wins. Calibration measures no net loss.")
+        dash.set('A28',f"Asian: {sum(r['status']=='REFUNDED' for r in rows)} refunds, {sum(r['status']=='HALF_WON' for r in rows)} half-wins, {sum(r['status']=='HALF_LOST' for r in rows)} half-losses. Refunds are settled, not wins. Calibration uses each forecast's frozen event: v23 profit, legacy no loss.")
     dash.set('D16','Forecast metric');dash.set('E16','Samples');dash.set('F16','Accuracy')
     for rr,label,c,key in [(17,'Over 1.5','J','over_1_5_correct'),(18,'Under 3.5','K','under_3_5_correct'),(19,'BTTS Yes','L','btts_yes_correct'),(20,'BTTS No','M','btts_no_correct')]:
         vals=[num(p.get(key)) for p in predictions if p.get('status')=='GRADED' and num(p.get(key)) is not None]
@@ -433,4 +434,5 @@ def main(argv=None):
 
 
 if __name__=='__main__':raise SystemExit(main())
+
 

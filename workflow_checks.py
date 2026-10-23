@@ -35,6 +35,7 @@ CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
              'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py', 'clv_report.py')
 COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_football_integration.py':85,
+    'win_first_shortlist.py':85,
     'collect_api_football_data.py':75, 'publish_api_football_data.py':75,
     'prediction_runs.py':85, 'github_closing_odds.py':80, 'bbs_statistics_model.py':85, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
     'publish_bbs_data.py':75, 'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
@@ -90,6 +91,8 @@ def raw_check(root, *, raw_dir=None):
     policy_version = summary.get('selection_policy_version')
     from asian_handicap import POLICIES as AH_POLICIES, RISK_BAND_POLICIES, ONE_PERCENT_POLICIES, POLICY as SAFEST_POLICY, parse_label as parse_handicap, ordinary_markets
     asian = policy_version in AH_POLICIES
+    from win_first_shortlist import POLICY as WIN_FIRST_POLICY
+    win_first = policy_version == WIN_FIRST_POLICY
     if asian:
         require(summary.get('shortlist_lookahead_hours')==48 and len(picks)<=12,'Invalid Asian handicap horizon or cap')
     balanced = policy_version in BALANCED_SELECTION_POLICIES
@@ -161,6 +164,8 @@ def raw_check(root, *, raw_dir=None):
                       *(['loss_risk_tolerance'] if policy_version in RISK_BAND_POLICIES else [] if asian else ['ranking_weights']),
                       *(['min_estimated_ev','min_raw_dc_ev','ev_required_for_selection'] if policy_version in ONE_PERCENT_POLICIES else []),
                       *(['min_adjusted_no_loss_probability','max_estimated_loss_probability'] if policy_version == SAFEST_POLICY else []),
+                      *(['selection_objective','ranking_metric','probability_basis','ev_required_for_selection',
+                         'negative_adjusted_ev_selections'] if win_first else []),
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')
@@ -570,5 +575,6 @@ def main(argv=None):
 
 
 if __name__=='__main__':raise SystemExit(main())
+
 
 

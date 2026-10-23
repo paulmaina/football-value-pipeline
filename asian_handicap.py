@@ -22,6 +22,8 @@ ALTERNATIVE_POLICIES = (DOUBLE_CHANCE_POLICY, POLICY)
 ONE_PERCENT_POLICIES = (PREVIOUS_POLICY, *ALTERNATIVE_POLICIES)
 RISK_BAND_POLICIES = (ZERO_EV_POLICY, *ONE_PERCENT_POLICIES)
 POLICIES = (LEGACY_POLICY, FLOORLESS_POLICY, *RISK_BAND_POLICIES)
+from win_first_shortlist import POLICY as CURRENT_POLICY
+POLICIES = (*POLICIES, CURRENT_POLICY)
 MIN_ADJUSTED_EV = .01
 DEFAULT_RISK_TOLERANCE = .01  # Frozen v19-v21 default.
 MIN_ADJUSTED_NO_LOSS = .75
@@ -195,9 +197,14 @@ def parse_quotes(payload, as_of):
     return sorted(offers.values(), key=lambda r: (r['side'], r['line'], r['bookmaker']))
 
 
-def evaluate_history(frame):
+def evaluate_history(frame, *, basis='net_no_loss'):
     """Chronological loss calibration, not historical AH profitability evidence."""
     report = {'version': VERSION, 'markets': {label(s,p):{'status':'INSUFFICIENT_HISTORY','development_matches':0,'audit_matches':0} for s in ('home','away') for p in LINES}}
+    if basis not in ('net_no_loss', 'net_profit'):
+        raise ValueError('Unsupported handicap calibration basis')
+    if basis == 'net_profit':
+        from win_first_shortlist import VALIDATOR_VERSION
+        report.update(version=VALIDATOR_VERSION, probability_basis=basis)
     if frame.empty or 'goal_margin_distribution' not in frame:
         return report
     rows = frame.sort_values('date').to_dict('records')
@@ -208,9 +215,10 @@ def evaluate_history(frame):
             dev, audit = [], []
             for row in rows:
                 try:
-                    p = probabilities(row['goal_margin_distribution'], side, point, 2.)['p_no_loss']
+                    values = probabilities(row['goal_margin_distribution'], side, point, 2.)
+                    p = values['p_full_win'] + values['p_half_win'] if basis == 'net_profit' else values['p_no_loss']
                     _, net = profit(int(row['home_goals']), int(row['away_goals']), side, point, 2.)
-                    (dev if row['date'] < boundary else audit).append((p, int(net >= 0)))
+                    (dev if row['date'] < boundary else audit).append((p, int(net > 0 if basis == 'net_profit' else net >= 0)))
                 except (ValueError, TypeError, KeyError):
                     continue
             state = {'status': 'INSUFFICIENT_HISTORY', 'development_matches': len(dev), 'audit_matches': len(audit)}
@@ -224,6 +232,8 @@ def evaluate_history(frame):
                 state.update(status='RELIABLE_FOR_RANKING' if brier <= reference_brier+.01 and gap <= .10 else 'UNRELIABLE_AUDIT',
                              confidence_penalty=penalty, audit_brier=brier, audit_overconfidence=gap,
                              note='Chronological no-loss calibration only; no historical handicap price/ROI claim')
+                if basis == 'net_profit':
+                    state['note'] = 'Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim'
             report['markets'][label(side, point)] = state
     return report
 
@@ -245,7 +255,7 @@ def _rank_risk_band(pool, tolerance):
 
 def ordinary_markets(policy_version):
     """Versioned eligibility keeps frozen forecasts replayable."""
-    if policy_version in ALTERNATIVE_POLICIES:
+    if policy_version in (*ALTERNATIVE_POLICIES, CURRENT_POLICY):
         return ['Home win', 'Away win', 'Over 1.5',
                 'Double Chance 1X', 'Double Chance X2', 'Double Chance 12']
     return ['Home win', 'Draw', 'Away win', 'Over 1.5']
@@ -294,6 +304,11 @@ def qualifying_alternatives(selected, decisions, tolerance):
 
 def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY):
     """Risk first, strict gates, one market per fixture. No target-filling bypass."""
+    if policy_version == CURRENT_POLICY:
+        if adjusted_ev_floor is not None:
+            raise ValueError('Win-first policy does not accept an EV floor')
+        from win_first_shortlist import build_shortlist as build_win_first
+        return build_win_first(predictions, as_of, market_reliability, execution_policy)
     from conservative_bet_filter import (build_conservative_shortlist, BALANCED_SELECTION_POLICY_VERSION,
                                         SHORTLIST_COLUMNS, SUPPORTED_LEAGUES, CURRENT_MARKET_SPECS, _evaluate_market)
     from quote_policy import load_policy, validate_policy, usable_bookmaker
@@ -534,6 +549,9 @@ def best_per_match(decisions):
     subset = decisions.loc[decisions.market.map(lambda x: parse_label(x) is not None) &
                            decisions.rejection_reasons.fillna('').eq('')].copy()
     subset['_fixture'] = subset.apply(fixture_key,axis=1) if len(subset) else pd.Series(dtype=str)
+    if 'probability_basis' in decisions and decisions.probability_basis.eq('net_profit').any():
+        from win_first_shortlist import rank_candidates
+        return rank_candidates(subset).drop(columns='_fixture').reset_index(drop=True)
     if 'loss_risk_tolerance' in decisions:
         values = decisions.loss_risk_tolerance.dropna().unique()
         if len(values) != 1 and len(subset):
@@ -542,3 +560,4 @@ def best_per_match(decisions):
         return _rank_risk_band(subset,tolerance).drop(columns='_fixture').reset_index(drop=True)
     return subset.sort_values(['loss_probability_upper','p_refund','conservative_estimated_ev','raw_dc_ev','offered_decimal_odds','market'],
         ascending=[True,False,False,False,False,True],kind='stable').drop_duplicates('_fixture').drop(columns='_fixture').reset_index(drop=True)
+

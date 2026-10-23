@@ -40,7 +40,7 @@ MARKETS = {
     "under_3_5": ("p_under_3_5", "raw_p_under_3_5", "actual_under_3_5", 0.76, 0.70),
     "btts_yes": ("p_btts_yes", "raw_p_btts_yes", "actual_btts_yes", 0.70, 0.63),
 }
-VALIDATOR_VERSION = 8
+VALIDATOR_VERSION = 9
 
 
 def training_fingerprint(history):
@@ -62,7 +62,7 @@ def training_fingerprint(history):
 def validation_code_fingerprint():
     root = Path(__file__).resolve().parent
     files = ('goal_market_validation.py', 'football_value_pipeline_v2_standalone.py',
-             'score_probability.py', 'double_chance.py', 'asian_handicap.py', 'match_scores.py', 'bbs_team_aliases.json',
+             'score_probability.py', 'double_chance.py', 'asian_handicap.py', 'win_first_shortlist.py', 'match_scores.py', 'bbs_team_aliases.json',
              'bbs_statistics_model.py', 'bbs_integration.py',
              'api_football_data.py', 'api_football_integration.py', 'europa_training.py',
              'docs/audits/europa-uefa-attestations.json', 'docs/audits/europa-team-aliases.json', 'docs/audits/europa-regulation-reviews.json')
@@ -77,6 +77,7 @@ def validation_cache_matches(cached: object, config: Mapping) -> bool:
     configuration from silently disabling a supported market.
     """
     from asian_handicap import VERSION as AH_VERSION, LINES as AH_LINES, label as ah_label
+    from win_first_shortlist import VALIDATOR_VERSION as WIN_VERSION
     return (
         isinstance(cached, dict)
         and isinstance(config, Mapping) and config.get('validator_version') == VALIDATOR_VERSION
@@ -84,6 +85,13 @@ def validation_cache_matches(cached: object, config: Mapping) -> bool:
                 and all(c in '0123456789abcdef' for c in config[k])
                 for k in ('training_sha256', 'validation_code_sha256'))
         and cached.get("config") == config
+        and isinstance(cached.get('asian_handicap_win'), dict)
+        and cached['asian_handicap_win'].get('version') == WIN_VERSION
+        and cached['asian_handicap_win'].get('probability_basis') == 'net_profit'
+        and isinstance(cached['asian_handicap_win'].get('markets'), dict)
+        and all(isinstance(cached['asian_handicap_win']['markets'].get(ah_label(side,point)), dict)
+                and isinstance(cached['asian_handicap_win']['markets'][ah_label(side,point)].get('status'), str)
+                for side in ('home','away') for point in AH_LINES)
         and isinstance(cached.get('asian_handicap'), dict)
         and cached['asian_handicap'].get('version') == AH_VERSION
         and isinstance(cached['asian_handicap'].get('markets'),dict)
@@ -371,6 +379,7 @@ def evaluate_market_history(
                )}
     from asian_handicap import evaluate_history
     results['asian_handicap'] = evaluate_history(historical)
+    results['asian_handicap_win'] = evaluate_history(historical, basis='net_profit')
     if historical.empty:
         for key in MARKETS:
             results["markets"][key] = {
@@ -433,3 +442,4 @@ def evaluate_market_history(
         if prices["n_quotes"]:
             results["historical_goal_prices_available"] = True
     return results
+
