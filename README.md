@@ -175,7 +175,13 @@ Located under `football_output_v2/raw/`:
 - `<league>_diagnostics.json`
 - `conservative_bet_shortlist.csv`
 - `conservative_bet_summary.json`
+- `stake_recommendations.csv` — advisory quarter-Kelly stakes for STRICT
+  selections (2.5% per-bet cap, 10% slate cap; `--stake-*` flags)
 - `shortlist_history/`
+
+Prediction rows also carry informational venue-aware Elo columns
+(`elo_home_rating`, `elo_away_rating`, `elo_rating_diff`,
+`elo_home_expectancy`) that do not change probabilities.
 
 ### Readable outputs
 
@@ -221,6 +227,7 @@ pytest -q
 Additional reference documents in this repo include:
 
 - `football_value_V2_README.md` — authoritative project-level documentation
+- `docs/architecture.md` — module layers, run flow, staking/Elo/Monte Carlo, API service layer
 - `football_output_v2/readable/README.md` — readable output explanation
 - `PIPELINE_AUDIT.md` — audit and reliability details
 - `DATABASE_DESIGN.md` — proposed storage architecture

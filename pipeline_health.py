@@ -128,6 +128,7 @@ def model_component_hashes():
         'api_football_data.py', 'api_football_integration.py',
         'match_scores.py', 'ucl_training.py', 'api_key_config.py', 'refresh_training_data.py',
         'odds_provider_health.py', 'prediction_runs.py',
+        'elo_ratings.py', 'staking.py',
         'bbs_team_aliases.json', 'shortlist_quote_policy.json')
     return {name: hashlib.sha256((repo/name).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
             for name in names}

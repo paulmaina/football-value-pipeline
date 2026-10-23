@@ -38,6 +38,7 @@ football_output_v2/performance/snapshots/.capture-*/
 
 # In-progress generation leases and staging are never published.
 football_output_v2/raw/.prediction-run.lock/
+football_output_v2/raw/.prediction-run.lock.stale-*/
 football_output_v2/.prediction-stage-*/
 football_output_v2/.prediction-backup-*/
 **/.run-write-*
