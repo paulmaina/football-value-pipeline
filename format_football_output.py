@@ -1401,7 +1401,11 @@ def process_league(
     include_technical: bool,
 ) -> Tuple[str, int]:
     key = league_key_from_path(predictions_path)
-    df = pd.read_csv(predictions_path, low_memory=False)
+    try:
+        df = pd.read_csv(predictions_path, low_memory=False)
+    except pd.errors.EmptyDataError:
+        # No upcoming fixtures can produce a CSV without even a header.
+        df = pd.DataFrame()
 
     if df.empty:
         report = (
@@ -1513,7 +1517,10 @@ def process_combined_file(
     top_scorelines: int,
     include_technical: bool,
 ) -> List[Tuple[str, int]]:
-    df = pd.read_csv(path, low_memory=False)
+    try:
+        df = pd.read_csv(path, low_memory=False)
+    except pd.errors.EmptyDataError:
+        return []
     if df.empty:
         return []
 
