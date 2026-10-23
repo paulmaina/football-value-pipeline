@@ -148,7 +148,8 @@ def prepared_rows(rows):
         r['p'] = probability(r.get('predicted_probability'))
         from asian_handicap import SETTLED, parse_label
         ah = parse_label(r.get('market'))
-        r['y'] = (int(float(r['unit_profit']) >= -1e-12) if ah and r['status'] in SETTLED else
+        from performance_tracking import calibration_outcome
+        r['y'] = (calibration_outcome(r) if ah and r['status'] in SETTLED else
                   1 if r['status']=='WON' else 0 if r['status']=='LOST' else None)
         r['asian'] = ah is not None
         r['price'] = num(r.get('offered_decimal_odds'))
@@ -433,4 +434,5 @@ def main(argv=None):
 
 
 if __name__=='__main__':raise SystemExit(main())
+
 

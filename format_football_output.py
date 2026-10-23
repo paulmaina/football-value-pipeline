@@ -1056,6 +1056,8 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
                     'Half win chance','Half loss chance','Full loss chance','Probability meaning']
     if 'loss_risk_tolerance' in df.columns:
         columns += ['Minimum eligible loss estimate','Allowed risk difference']
+    if 'selection_warnings' in df.columns:
+        columns += ['Value warning', 'Quote checked (UTC)']
     rows: List[Dict[str, str]] = []
     for _, item in df.iterrows():
         home = item.get("home_team")
@@ -1080,6 +1082,8 @@ def readable_shortlist_frame(df: pd.DataFrame) -> pd.DataFrame:
                 str(item.get("league")) if not is_missing(item.get("league")) else "—"
             ),
             "Model chance": pct(item.get("predicted_probability")),
+            "Value warning": item.get('selection_warnings') or '—',
+            "Quote checked (UTC)": item.get('quote_last_update_utc') or '—',
             "Any loss chance": pct(item.get('p_any_loss')),
             "Conservative loss estimate": pct(item.get('loss_probability_upper')),
             "Full refund chance": pct(item.get('p_refund')),
@@ -1232,7 +1236,8 @@ def process_conservative_shortlist(
 
     summary = load_json_file(input_dir / "conservative_bet_summary.json")
     balanced = summary.get('selection_objective') == 'BALANCED_PROBABILITY_EV'
-    probability_first = balanced or summary.get('selection_objective') == 'PROBABILITY_FIRST'
+    win_first = summary.get('selection_objective') == 'MAXIMIZE_PROFITABLE_WIN_PROBABILITY'
+    probability_first = balanced or win_first or summary.get('selection_objective') == 'PROBABILITY_FIRST'
     if "decision" in raw.columns:
         # Fail closed if a mistakenly supplied mixed decision file slips in.
         raw = raw.loc[
@@ -1285,6 +1290,13 @@ def process_conservative_shortlist(
     if balanced:
         ranking_notes[0] = "**Ranking:** 50% adjusted-probability percentile + 50% adjusted-EV percentile across usable fixture-market candidates; no probability or EV cutoff."
         ranking_notes.append("Percentiles and the combined score are relative ranks, not win probabilities. The equal weights are a transparent policy choice, not a proven optimum.")
+    if win_first:
+        ranking_notes = [
+            '**Ranking:** highest reliability-adjusted probability of a profitable outcome; one market per match, then the top twelve distinct matches within 48 hours. Adjusted EV breaks probability ties.',
+            '**Win definition:** full and half wins count; full refunds and losses do not. Half wins pay less than full wins; EV retains the actual settlement amounts.',
+            '**Value:** no fixed probability or EV cutoff. Negative adjusted EV is explicitly flagged; high winning probability does not imply a profitable price.',
+            '**Availability:** only quoted Pinnacle and bet365 selections. Fewer than twelve are returned when usable quotes or validated evidence are insufficient.',
+        ]
 
     lines = [
         f"# Top {target} probability-and-EV-ranked matches" if balanced else f"# Top {target} probability-ranked matches" if probability_first else "# Conservative shortlisted matches and markets",
@@ -1311,7 +1323,7 @@ def process_conservative_shortlist(
     ]
     from asian_handicap import POLICIES as AH_POLICIES
     asian = summary.get('selection_policy_version') in AH_POLICIES
-    if asian:
+    if asian and not win_first:
         if summary.get('min_adjusted_no_loss_probability') is not None:
             lines += ['**Common safety cutoff:** adjusted probability of avoiding any loss >= '+pct(summary['min_adjusted_no_loss_probability'])+' for every market. Zero risk tolerance: the lowest conservative estimated loss risk wins; EV breaks equal-risk ties. Refunds count as avoiding loss; half-losses do not. This cutoff is a policy setting, not a guarantee.', '']
         if summary.get('loss_risk_tolerance') is not None:
@@ -1329,6 +1341,8 @@ def process_conservative_shortlist(
         ]
         if asian:
             headers = [*headers, 'Unblended estimated EV', 'Any loss chance', 'Conservative loss estimate', 'Full refund chance', 'Probability meaning']
+        if win_first:
+            headers += ['Full win chance', 'Half win chance', 'Value warning', 'Quote checked (UTC)']
         if balanced:
             headers = ['Combined ranking score', *headers]
         lines.append(markdown_table(
@@ -1740,5 +1754,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 
 
