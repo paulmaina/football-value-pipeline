@@ -290,12 +290,13 @@ class RecencyTests(OfflineQuotePolicyTestCase):
         from football_value_pipeline_v2_standalone import main
         from conservative_bet_filter import build_conservative_shortlist
         from functools import partial
-        with self.assertRaises(SystemExit):main(['--recency-experiment'])
         def run(self,key,*args,**kwargs):
             self._recency_history=history()
             return predictions(),{'training_end':'2025-06-22','training_matches':130},{}
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
+            # Never stage in (or lock) the real football_output_v2/raw directory.
+            with self.assertRaises(SystemExit):main(['--recency-experiment','--out-dir',str(root/'rejected')])
             with patch('conservative_bet_filter.build_conservative_shortlist',side_effect=partial(build_conservative_shortlist,as_of=T0)),patch(
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league',new=run),patch(
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2._history_for_league',return_value=history()),patch(
