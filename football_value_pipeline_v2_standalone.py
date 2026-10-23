@@ -41,7 +41,7 @@ Install:
 Examples:
     python football_value_pipeline_v2_standalone.py --leagues EPL
     python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1
-    python football_value_pipeline_v2_standalone.py --leagues EPL --seasons-back 4 --lookahead-days 10
+    python football_value_pipeline_v2_standalone.py --leagues EPL --seasons-back 4 --lookahead-days 3
     python football_value_pipeline_v2_standalone.py --self-test
 
 Designed as a module too:
@@ -499,7 +499,7 @@ class FootballDataUK:
     def fixtures(
         self,
         league: LeagueConfig,
-        lookahead_days: int = 10,
+        lookahead_days: int = 3,
         now: Optional[datetime] = None,
     ) -> pd.DataFrame:
         """
@@ -2027,7 +2027,7 @@ class FootballValuePipeline:
         half_life_days: float = 240.0,
         l2: float = 0.08,
         max_goals: int = 10,
-        lookahead_days: int = 10,
+        lookahead_days: int = 3,
         force_refresh: bool = False,
         bbs_statistics: bool = True,
         bbs_statistics_validation: str = 'auto',
@@ -3551,7 +3551,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--asian-handicap-quotes", type=Path, help="Optional fresh Pinnacle/bet365/1xBet event-odds JSON; exact event/team/kickoff binding required")
     p.add_argument("--max-goals", type=int, default=10,
                    help="Minimum score-grid limit; expands automatically to bound omitted probability.")
-    p.add_argument("--lookahead-days", type=int, default=10)
+    p.add_argument("--lookahead-days", type=int, default=3,
+                   help="Forecast upcoming fixtures within this many days (default: 3).")
     p.add_argument("--cache-dir", default=".football_cache")
     p.add_argument(
         "--out-dir",
