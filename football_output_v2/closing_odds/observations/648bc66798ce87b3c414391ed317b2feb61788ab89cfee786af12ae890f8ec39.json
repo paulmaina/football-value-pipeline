@@ -1,0 +1,184 @@
+{
+  "fixture": {
+    "away_team": "Nottingham Forest",
+    "home_team": "Ipswich Town",
+    "kickoff_utc": "2026-10-23T19:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "d0202960708a442401d7fc7bd74a0183"
+  },
+  "observed_at_utc": "2026-10-23T18:54:07.600959+00:00",
+  "payload": {
+    "away_team": "Nottingham Forest",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-23T18:53:02Z",
+            "outcomes": [
+              {
+                "name": "Ipswich Town",
+                "price": 3.3
+              },
+              {
+                "name": "Nottingham Forest",
+                "price": 2.23
+              },
+              {
+                "name": "Draw",
+                "price": 3.45
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-23T18:53:02Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.84
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.03
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-23T18:53:57Z",
+            "outcomes": [
+              {
+                "name": "Ipswich Town",
+                "price": 3.34
+              },
+              {
+                "name": "Nottingham Forest",
+                "price": 2.25
+              },
+              {
+                "name": "Draw",
+                "price": 3.49
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-23T18:53:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.93
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.98
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-23T19:00:00Z",
+    "home_team": "Ipswich Town",
+    "id": "d0202960708a442401d7fc7bd74a0183",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.3,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.28922575485148677,
+      "selection": "home",
+      "updated_at_utc": "2026-10-23T18:53:02+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.45,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2761708901324537,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-23T18:53:02+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.23,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.43460335501605946,
+      "selection": "away",
+      "updated_at_utc": "2026-10-23T18:53:02+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.84,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5258713129034284,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-23T18:53:02+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.03,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.47412868709657163,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-23T18:53:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.34,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.28925833418940816,
+      "selection": "home",
+      "updated_at_utc": "2026-10-23T18:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.49,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.27647870155752285,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-23T18:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.434262964253069,
+      "selection": "away",
+      "updated_at_utc": "2026-10-23T18:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5066125227940743,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-23T18:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.98,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49338747720592563,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-23T18:53:57+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
