@@ -1,5 +1,10 @@
 # Win-first shortlist (v23)
 
+> Archived. New runs use the per-market policy v24
+> ([per-market-shortlist.md](per-market-shortlist.md)), which keeps the
+> eligibility rules below and changes only the final selection. v23 remains
+> available so archived captures replay unchanged.
+
 Select the strongest estimated profitable-outcome candidates from twelve distinct
 matches kicking off within 48 hours. Keep the existing 20-minute pre-kickoff
 buffer. Use actual, fresh Pinnacle or bet365 quotes for the exact selection.
@@ -30,7 +35,7 @@ Markets remain home win, away win, Over 1.5, the three double-chance selections,
 and quoted Asian handicap lines on either team. Under 3.5 and BTTS remain excluded.
 
 v17-v22 policies retain their definitions for archived replay. New prediction
-generation and shortlist refresh use v23. Validation cache version 9 requires
+generation and shortlist refresh used v23 until v24 replaced it. Validation cache version 9 requires
 the separate profitable-win evidence, so the next full prediction run rebuilds
 old validation caches. Refresh alone cannot create missing win evidence or refresh
 old odds; run the full prediction command after pulling the change.

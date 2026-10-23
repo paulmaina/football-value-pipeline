@@ -22,8 +22,10 @@ ALTERNATIVE_POLICIES = (DOUBLE_CHANCE_POLICY, POLICY)
 ONE_PERCENT_POLICIES = (PREVIOUS_POLICY, *ALTERNATIVE_POLICIES)
 RISK_BAND_POLICIES = (ZERO_EV_POLICY, *ONE_PERCENT_POLICIES)
 POLICIES = (LEGACY_POLICY, FLOORLESS_POLICY, *RISK_BAND_POLICIES)
-from win_first_shortlist import POLICY as CURRENT_POLICY
-POLICIES = (*POLICIES, CURRENT_POLICY)
+from win_first_shortlist import POLICY as WIN_FIRST_POLICY
+from per_market_shortlist import POLICY as CURRENT_POLICY
+WIN_FIRST_POLICIES = (WIN_FIRST_POLICY, CURRENT_POLICY)
+POLICIES = (*POLICIES, *WIN_FIRST_POLICIES)
 MIN_ADJUSTED_EV = .01
 DEFAULT_RISK_TOLERANCE = .01  # Frozen v19-v21 default.
 MIN_ADJUSTED_NO_LOSS = .75
@@ -255,7 +257,7 @@ def _rank_risk_band(pool, tolerance):
 
 def ordinary_markets(policy_version):
     """Versioned eligibility keeps frozen forecasts replayable."""
-    if policy_version in (*ALTERNATIVE_POLICIES, CURRENT_POLICY):
+    if policy_version in (*ALTERNATIVE_POLICIES, *WIN_FIRST_POLICIES):
         return ['Home win', 'Away win', 'Over 1.5',
                 'Double Chance 1X', 'Double Chance X2', 'Double Chance 12']
     return ['Home win', 'Draw', 'Away win', 'Over 1.5']
@@ -304,9 +306,12 @@ def qualifying_alternatives(selected, decisions, tolerance):
 
 def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY):
     """Risk first, strict gates, one market per fixture. No target-filling bypass."""
-    if policy_version == CURRENT_POLICY:
+    if policy_version in WIN_FIRST_POLICIES:
         if adjusted_ev_floor is not None:
             raise ValueError('Win-first policy does not accept an EV floor')
+        if policy_version == CURRENT_POLICY:
+            from per_market_shortlist import build_shortlist as build_per_market
+            return build_per_market(predictions, as_of, market_reliability, execution_policy)
         from win_first_shortlist import build_shortlist as build_win_first
         return build_win_first(predictions, as_of, market_reliability, execution_policy)
     from conservative_bet_filter import (build_conservative_shortlist, BALANCED_SELECTION_POLICY_VERSION,

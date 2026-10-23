@@ -68,7 +68,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertNotIn('Both Teams to Score - Yes', picks.market.tolist())
                 self.assertTrue(pd.read_csv(raw/'all_leagues_predictions.csv').p_under_3_5.eq(.99).all())
                 summary = json.loads((raw/'conservative_bet_summary.json').read_text())
-                self.assertEqual(summary['selection_policy_version'], '48h-top-twelve-profitable-win-probability-v23')
+                self.assertEqual(summary['selection_policy_version'], '48h-two-per-market-group-probability-ev-v24')
                 self.assertTrue({'Home win','Away win','Over 1.5','Double Chance 1X','Double Chance X2','Double Chance 12'}.issubset(summary['eligible_markets']))
                 self.assertNotIn('Draw',summary['eligible_markets'])
                 self.assertIn('Asian Handicap Home +0.00', summary['eligible_markets'])
@@ -82,7 +82,10 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 data=report_check(root)
             self.assertEqual(data['status'],'VERIFIED_WITH_WARNINGS')
             self.assertIn('UCL training/source health: DOWNLOAD_NOT_VERIFIED',data['warnings'])
-            self.assertEqual(data['shortlist']['graded'],len(keys))
+            # Identical toy fixtures compete for the same market groups, so the
+            # v24 cap of two per group grades fewer picks than fixtures.
+            self.assertEqual(picks.market_group.value_counts().to_dict(),{'Home win':2,'Over 1.5':2})
+            self.assertEqual(data['shortlist']['graded'],len(picks))
             self.assertEqual(len(data['training_end_dates']),len(keys))
             self.assertEqual(data['experiments']['goal_blend_experiment']['graded_fixture_markets'],3*len(keys))
             self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],len(keys))
