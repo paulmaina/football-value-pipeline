@@ -269,6 +269,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "BL1:565833": {
+    "away_goals": 3,
+    "away_short_name": "M'gladbach",
+    "away_team": "Borussia Mönchengladbach",
+    "first_verified_at_utc": "2026-10-23T23:17:07Z",
+    "home_goals": 2,
+    "home_short_name": "Stuttgart",
+    "home_team": "VfB Stuttgart",
+    "kickoff_utc": "2026-10-23T18:30:00Z",
+    "league_code": "BL1",
+    "match_id": 565833,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "CL:575341": {
     "away_goals": 2,
     "away_short_name": "Sporting CP",
@@ -805,6 +820,21 @@
     "kickoff_utc": "2026-10-21T19:00:00Z",
     "league_code": "CL",
     "match_id": 575376,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "FL1:559654": {
+    "away_goals": 2,
+    "away_short_name": "Nice",
+    "away_team": "OGC Nice",
+    "first_verified_at_utc": "2026-10-23T23:17:07Z",
+    "home_goals": 1,
+    "home_short_name": "Brest",
+    "home_team": "Stade Brestois 29",
+    "kickoff_utc": "2026-10-23T18:45:00Z",
+    "league_code": "FL1",
+    "match_id": 559654,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -1379,6 +1409,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564719": {
+    "away_goals": 1,
+    "away_short_name": "Málaga",
+    "away_team": "Málaga CF",
+    "first_verified_at_utc": "2026-10-23T23:17:07Z",
+    "home_goals": 1,
+    "home_short_name": "Alavés",
+    "home_team": "Deportivo Alavés",
+    "kickoff_utc": "2026-10-23T19:00:00Z",
+    "league_code": "PD",
+    "match_id": 564719,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560592": {
     "away_goals": 2,
     "away_short_name": "Brighton Hove",
@@ -1675,6 +1720,36 @@
     "kickoff_utc": "2026-10-17T14:00:00Z",
     "league_code": "PL",
     "match_id": 560611,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PL:560620": {
+    "away_goals": 1,
+    "away_short_name": "Nottingham",
+    "away_team": "Nottingham Forest FC",
+    "first_verified_at_utc": "2026-10-23T23:17:07Z",
+    "home_goals": 1,
+    "home_short_name": "Ipswich Town",
+    "home_team": "Ipswich Town FC",
+    "kickoff_utc": "2026-10-23T19:00:00Z",
+    "league_code": "PL",
+    "match_id": 560620,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558567": {
+    "away_goals": 2,
+    "away_short_name": "Monza",
+    "away_team": "AC Monza",
+    "first_verified_at_utc": "2026-10-23T23:17:07Z",
+    "home_goals": 3,
+    "home_short_name": "Torino",
+    "home_team": "Torino FC",
+    "kickoff_utc": "2026-10-23T18:45:00Z",
+    "league_code": "SA",
+    "match_id": 558567,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"

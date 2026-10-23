@@ -17,16 +17,16 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 38 | 28-10 | 73.7% | +1.1% |
+| All selections | 40 | 30-10 | 75.0% | +3.1% |
 
-Unsettled / unverified entries: **15**.
-Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
+Unsettled / unverified entries: **13**.
+Whole-fixture 1X2 multiclass Brier (n=106): 0.5553
 
 ## First-prediction reference — historical comparison
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Unique fixtures | 38 | 30-8 | 78.9% | +7.9% |
+| Unique fixtures | 40 | 32-8 | 80.0% | +9.3% |
 
 ## Latest selections by prediction run (generation UTC)
 
@@ -48,15 +48,15 @@ Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
 | 2026-10-18T14:35:10.311946+00:00 | 7 | 6-1 | 85.7% | +15.0% |
 | 2026-10-19T11:20:16.296665+00:00 | 1 | 0-1 | 0.0% | -100.0% |
 | 2026-10-19T16:28:42.464993+00:00 | 11 | 7-4 | 63.6% | -12.5% |
-| 2026-10-22T10:58:13.963804+00:00 | 0 | 0-0 | — | — |
-| 2026-10-23T14:36:42.857608+00:00 | 0 | 0-0 | — | — |
+| 2026-10-22T10:58:13.963804+00:00 | 1 | 1-0 | 100.0% | +20.0% |
+| 2026-10-23T14:36:42.857608+00:00 | 1 | 1-0 | 100.0% | +62.0% |
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | PROVISIONAL | 27 | 18-9 | 66.7% | -10.7% |
-| STRICT | 11 | 10-1 | 90.9% | +30.2% |
+| STRICT | 13 | 12-1 | 92.3% | +31.8% |
 
 ## By policy
 
@@ -64,7 +64,7 @@ Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
 |---|---:|---:|---:|---:|
 | 48h-top-ten-probability-ev-no-under35-v14 | 8 | 6-2 | 75.0% | +0.6% |
 | 48h-top-twelve-probability-ev-no-under35-v15 | 11 | 7-4 | 63.6% | -12.5% |
-| 48h-zero-tolerance-ev1-common-no-loss75-v22 | 0 | 0-0 | — | — |
+| 48h-zero-tolerance-ev1-common-no-loss75-v22 | 2 | 2-0 | 100.0% | +41.0% |
 | 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
 | 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
 | 72h-seven-markets-fresh-references-net-ev15-v11 | 5 | 4-1 | 80.0% | +7.2% |
@@ -84,7 +84,7 @@ Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
 | Asian Handicap Away +1.25 | 0 | 0-0 | — | — |
 | Asian Handicap Away +1.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away +1.75 | 0 | 0-0 | — | — |
-| Asian Handicap Away +2.00 | 0 | 0-0 | — | — |
+| Asian Handicap Away +2.00 | 1 | 1-0 | 100.0% | +62.0% |
 | Asian Handicap Away +2.25 | 0 | 0-0 | — | — |
 | Asian Handicap Away +2.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away +2.75 | 0 | 0-0 | — | — |
@@ -129,7 +129,7 @@ Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
 | Away win | 1 | 0-1 | 0.0% | -100.0% |
 | Both Teams to Score - Yes | 3 | 2-1 | 66.7% | +0.7% |
 | Double Chance 12 | 6 | 5-1 | 83.3% | +2.7% |
-| Double Chance 1X | 5 | 4-1 | 80.0% | +3.2% |
+| Double Chance 1X | 6 | 5-1 | 83.3% | +6.0% |
 | Double Chance X2 | 6 | 4-2 | 66.7% | +8.2% |
 | Draw | 0 | 0-0 | — | — |
 | Home win | 5 | 5-0 | 100.0% | +50.6% |
@@ -140,8 +140,8 @@ Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Bundesliga | 3 | 3-0 | 100.0% | +24.7% |
-| La Liga | 7 | 7-0 | 100.0% | +33.6% |
+| Bundesliga | 4 | 4-0 | 100.0% | +34.0% |
+| La Liga | 8 | 8-0 | 100.0% | +31.9% |
 | Ligue 1 | 2 | 1-1 | 50.0% | -16.5% |
 | Premier League | 7 | 3-4 | 42.9% | -44.9% |
 | Serie A | 7 | 4-3 | 57.1% | -17.1% |
@@ -153,7 +153,7 @@ Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
 |---|---:|---:|---:|---:|
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
 | 2026-W42 | 22 | 19-3 | 86.4% | +19.5% |
-| 2026-W43 | 12 | 7-5 | 58.3% | -19.8% |
+| 2026-W43 | 14 | 9-5 | 64.3% | -11.1% |
 
 ## Confidence calibration of shortlisted markets
 
@@ -162,8 +162,8 @@ Whole-fixture 1X2 multiclass Brier (n=101): 0.5426
 | 0%–50% | 1 | 45.4% | 0.0% | 0.2059 |
 | 50%–60% | 1 | 54.9% | 100.0% | 0.2031 |
 | 60%–70% | 8 | 64.9% | 62.5% | 0.2235 |
-| 70%–80% | 14 | 75.9% | 71.4% | 0.2050 |
-| 80%–90% | 11 | 83.7% | 81.8% | 0.1491 |
+| 70%–80% | 15 | 76.2% | 73.3% | 0.1942 |
+| 80%–90% | 12 | 83.8% | 83.3% | 0.1388 |
 | 90%–100% | 3 | 93.0% | 100.0% | 0.0051 |
 
 Calibration bins report observed outcomes against the originally
