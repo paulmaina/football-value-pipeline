@@ -184,13 +184,13 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-10-18 | 1586 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-10-19 | 1970 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-21 | 1989 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-18 | 1743 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-19 | 1970 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-10-21 | 557 | 1 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
-| UEL | 2026-10-15 | 696 | 7 | DOWNLOAD_NOT_VERIFIED |
+| Bundesliga | 2026-10-18 | 1586 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-10-19 | 1970 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-21 | 1989 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-18 | 1743 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-19 | 1970 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| UCL | 2026-10-21 | 557 | 2 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UEL | 2026-10-15 | 696 | 8 | DOWNLOAD_NOT_VERIFIED |
 
 Latest shortlist audit: {"selected_quotes": 2, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 2, "bookmakers": {"Pinnacle": 2}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 2, "unknown_kickoff_count": 0}.
 
