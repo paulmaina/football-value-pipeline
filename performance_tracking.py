@@ -1022,6 +1022,11 @@ def review(*, root: Path = ROOT, token: str = "",
         review_closing(root, archived, clock)
     except Exception as exc:
         warnings.warn(f'Closing quote review failed ({type(exc).__name__}); production report complete')
+    try:
+        from clv_report import build_report as build_clv_report
+        build_clv_report(root, clock=clock)
+    except Exception as exc:
+        warnings.warn(f'Candidate CLV report failed ({type(exc).__name__}); production report complete')
     from experiment_review_queue import write_queue
     write_queue(root, clock)
     from pipeline_health import write_report

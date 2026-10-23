@@ -36,18 +36,21 @@ Model:
   - Time decay controlled by half_life_days
 
 Install:
-    pip install numpy pandas requests scipy rapidfuzz
+    pip install -r football_value_requirements.txt
 
 Examples:
-    python football_value_pipeline.py --leagues EPL
-    python football_value_pipeline.py --leagues EPL LaLiga Bundesliga SerieA Ligue1
-    python football_value_pipeline.py --leagues EPL --seasons-back 4 --lookahead-days 10
-    python football_value_pipeline.py --self-test
+    python football_value_pipeline_v2_standalone.py --leagues EPL
+    python football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1
+    python football_value_pipeline_v2_standalone.py --leagues EPL --seasons-back 4 --lookahead-days 10
+    python football_value_pipeline_v2_standalone.py --self-test
 
 Designed as a module too:
-    from football_value_pipeline import FootballValuePipeline
-    pipeline = FootballValuePipeline()
+    from football_value_pipeline_v2_standalone import FootballValuePipelineV2
+    pipeline = FootballValuePipelineV2()
     frames = pipeline.run(["EPL"])
+
+Read-only access to published runs (e.g. for an HTTP API) lives in
+pipeline_service.py; see docs/architecture.md.
 """
 
 from __future__ import annotations
@@ -172,15 +175,6 @@ def ev_decimal(probability: float, decimal_odds: Optional[float]) -> Optional[fl
     if decimal_odds is None or decimal_odds <= 1.0:
         return None
     return probability * decimal_odds - 1.0
-
-
-def devig_decimal(odds: Sequence[Optional[float]]) -> List[Optional[float]]:
-    """Proportional de-vig. Returns normalized implied probabilities."""
-    if not odds or any(o is None or o <= 1.0 for o in odds):
-        return [None for _ in odds]
-    inv = np.array([1.0 / float(o) for o in odds], dtype=float)
-    s = float(inv.sum())
-    return [float(x / s) for x in inv]
 
 
 def normalize_team_name(name: str) -> str:
@@ -2020,80 +2014,12 @@ class DixonColesModel:
 
 
 # ---------------------------------------------------------------------------
-# Market odds extraction
-# ---------------------------------------------------------------------------
-
-def _first_valid_from_row(row: pd.Series, columns: Sequence[str]) -> Optional[float]:
-    for col in columns:
-        if col in row.index:
-            x = safe_float(row[col])
-            if x is not None and x > 1.0:
-                return x
-    return None
-
-
-def extract_market_odds(row: pd.Series) -> Dict[str, Optional[float]]:
-    """
-    Prefer market maxima where available, then averages, then major books.
-    For value screening this intentionally uses the best readily published price.
-    """
-    return {
-        "market_home_odds": _first_valid_from_row(
-            row, ("MaxH", "AvgH", "B365H", "PSH", "WHH", "BWH", "IWH")
-        ),
-        "market_draw_odds": _first_valid_from_row(
-            row, ("MaxD", "AvgD", "B365D", "PSD", "WHD", "BWD", "IWD")
-        ),
-        "market_away_odds": _first_valid_from_row(
-            row, ("MaxA", "AvgA", "B365A", "PSA", "WHA", "BWA", "IWA")
-        ),
-        "market_over_2_5_odds": _first_valid_from_row(
-            row, ("Max>2.5", "Avg>2.5", "B365>2.5", "P>2.5")
-        ),
-        "market_under_2_5_odds": _first_valid_from_row(
-            row, ("Max<2.5", "Avg<2.5", "B365<2.5", "P<2.5")
-        ),
-    }
-
-
-def add_market_value_metrics(pred: Dict[str, object], row: pd.Series) -> None:
-    odds = extract_market_odds(row)
-    pred.update(odds)
-
-    h, d, a = (
-        odds["market_home_odds"],
-        odds["market_draw_odds"],
-        odds["market_away_odds"],
-    )
-    mh, md, ma = devig_decimal((h, d, a))
-    pred["market_p_home"] = mh
-    pred["market_p_draw"] = md
-    pred["market_p_away"] = ma
-
-    for side, mp in (("home", mh), ("draw", md), ("away", ma)):
-        model_p = float(pred[f"p_{side}"])
-        pred[f"edge_{side}"] = None if mp is None else model_p - mp
-        pred[f"ev_{side}"] = ev_decimal(model_p, odds[f"market_{side}_odds"])
-
-    over_odds = odds["market_over_2_5_odds"]
-    under_odds = odds["market_under_2_5_odds"]
-    mo, mu = devig_decimal((over_odds, under_odds))
-    pred["market_p_over_2_5"] = mo
-    pred["market_p_under_2_5"] = mu
-
-    p_over = float(pred["p_over_2_5"])
-    p_under = float(pred["p_under_2_5"])
-    pred["edge_over_2_5"] = None if mo is None else p_over - mo
-    pred["edge_under_2_5"] = None if mu is None else p_under - mu
-    pred["ev_over_2_5"] = ev_decimal(p_over, over_odds)
-    pred["ev_under_2_5"] = ev_decimal(p_under, under_odds)
-
-
-# ---------------------------------------------------------------------------
 # Pipeline
 # ---------------------------------------------------------------------------
 
 class FootballValuePipeline:
+    """Shared configuration and training-health base; see FootballValuePipelineV2."""
+
     def __init__(
         self,
         cache_dir: str | Path = ".football_cache",
@@ -2137,241 +2063,12 @@ class FootballValuePipeline:
                 (now.date()-model.training_end.date()).days if model.training_end is not None else None,
                 "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"}
 
-    def run_league(
-        self,
-        league_key: str,
-        now: Optional[datetime] = None,
-    ) -> Tuple[pd.DataFrame, Dict[str, object], Dict[str, Dict[str, float]]]:
-        if league_key not in LEAGUES:
-            raise KeyError(f"Unknown league {league_key!r}. Choose from {list(LEAGUES)}")
-
-        league = LEAGUES[league_key]
-        now = now or datetime.now(timezone.utc)
-
-        history = self.source.history(
-            league,
-            seasons_back=self.seasons_back,
-            now=now,
-        )
-        fixtures = self.source.fixtures(
-            league,
-            lookahead_days=self.lookahead_days,
-            now=now,
-        )
-
-        model = DixonColesModel(
-            half_life_days=self.half_life_days,
-            l2=self.l2,
-            max_goals=self.max_goals,
-            bbs_statistics=getattr(self, 'bbs_statistics', True),
-        ).fit(history, as_of=pd.Timestamp(now))
-        model.league_key = league.key
-
-        diagnostics = {
-            "league": league.name,
-            "training_matches": model.training_matches,
-            "training_end": None if model.training_end is None else str(model.training_end.date()),
-            "fit_success": bool(model.fit_result.success) if model.fit_result is not None else False,
-            "objective": (
-                float(model.fit_result.fun) if model.fit_result is not None else None
-            ),
-            "base": model.base,
-            "home_adv": model.home_adv,
-            "rho": model.rho,
-            "half_life_days": model.half_life_days,
-            "max_goals": model.max_goals,
-        }
-
-        if fixtures.empty:
-            return pd.DataFrame(), diagnostics, {}
-
-        records = []
-        scoreline_payload: Dict[str, Dict[str, float]] = {}
-
-        for _, row in fixtures.iterrows():
-            home = str(row["HomeTeam"])
-            away = str(row["AwayTeam"])
-
-            pred = model.predict(home, away)
-            add_market_value_metrics(pred, row)
-
-            score_dist = pred.pop("scoreline_distribution")
-            top_scores = pred["top_scorelines"]
-
-            match_id = f"{row['Date'].date()}__{home}__{away}"
-            scoreline_payload[match_id] = score_dist  # type: ignore[assignment]
-
-            record = {
-                "league": league.name,
-                "date": row["Date"].date().isoformat(),
-                "home_team": home,
-                "away_team": away,
-                "fixture_source": row.get("fixture_source", "unknown"),
-                **pred,
-            }
-            record["top_scorelines"] = json.dumps(
-                [{"score": s, "p": round(p, 8)} for s, p in top_scores],
-                separators=(",", ":"),
-            )
-            records.append(record)
-
-        out = pd.DataFrame(records)
-
-        # Stable, integration-friendly column order for the core metrics.
-        preferred = [
-            "league", "date", "home_team", "away_team",
-            "lambda_home", "lambda_away",
-            "p_home", "p_draw", "p_away",
-            "fair_home", "fair_draw", "fair_away",
-            "predicted_1x2",
-            "p_over_0_5", "p_under_0_5",
-            "p_over_1_5", "p_under_1_5",
-            "p_over_2_5", "p_under_2_5",
-            "p_over_3_5", "p_under_3_5",
-            "p_over_4_5", "p_under_4_5",
-            "top_scorelines",
-            "market_home_odds", "market_draw_odds", "market_away_odds",
-            "market_p_home", "market_p_draw", "market_p_away",
-            "edge_home", "edge_draw", "edge_away",
-            "ev_home", "ev_draw", "ev_away",
-            "market_over_2_5_odds", "market_under_2_5_odds",
-            "market_p_over_2_5", "market_p_under_2_5",
-            "edge_over_2_5", "edge_under_2_5",
-            "ev_over_2_5", "ev_under_2_5",
-            "model_home_team", "model_away_team",
-            "home_name_match_score", "away_name_match_score",
-        ]
-        ordered = [c for c in preferred if c in out.columns]
-        remaining = [c for c in out.columns if c not in ordered]
-        out = out[ordered + remaining]
-        return out, diagnostics, scoreline_payload
-
     def run(
         self,
         league_keys: Sequence[str],
         now: Optional[datetime] = None,
     ) -> Dict[str, Tuple[pd.DataFrame, Dict[str, object], Dict[str, Dict[str, float]]]]:
         return {key: self.run_league(key, now=now) for key in league_keys}
-
-
-# ---------------------------------------------------------------------------
-# Self-test
-# ---------------------------------------------------------------------------
-
-def self_test() -> None:
-    model = DixonColesModel(max_goals=10)
-    model.teams = ["A", "B"]
-    model.team_to_idx = {"A": 0, "B": 1}
-    model.attack = np.array([0.15, -0.15])
-    model.weakness = np.array([-0.05, 0.05])
-    model.base = math.log(1.20)
-    model.home_adv = math.log(1.18)
-    model.rho = -0.08
-
-    matrix, _ = model.score_matrix("A", "B")
-    assert abs(float(matrix.sum()) - 1.0) < 1e-12
-
-    x12 = model.one_x_two(matrix)
-    assert abs(sum(x12.values()) - 1.0) < 1e-12
-
-    for line in DEFAULT_TOTAL_LINES:
-        ou = model.over_under(matrix, line)
-        assert abs(ou["over"] + ou["under"] + ou["push"] - 1.0) < 1e-12
-
-    p = model.predict("A", "B")
-    assert 0.0 < float(p["p_home"]) < 1.0
-    assert 0.0 < float(p["p_over_0_5"]) < 1.0
-    assert abs(float(p["p_over_4_5"]) + float(p["p_under_4_5"]) - 1.0) < 1e-12
-
-    market = devig_decimal([2.0, 3.5, 4.0])
-    assert all(x is not None for x in market)
-    assert abs(sum(x for x in market if x is not None) - 1.0) < 1e-12
-
-    print("Self-test passed.")
-
-
-# ---------------------------------------------------------------------------
-# CLI
-# ---------------------------------------------------------------------------
-
-def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(
-        description="Dixon-Coles football value pipeline for major European leagues."
-    )
-    p.add_argument(
-        "--leagues",
-        nargs="+",
-        choices=list(LEAGUES),
-        default=["EPL"],
-        help="Leagues to process.",
-    )
-    p.add_argument("--seasons-back", type=int, default=3)
-    p.add_argument("--half-life-days", type=float, default=240.0)
-    p.add_argument("--reliability-experiment", action="store_true",
-                   help="Compare stronger L2 and fixed half-life fits prospectively; no production changes or extra odds requests.")
-    p.add_argument("--l2", type=float, default=0.08)
-    p.add_argument("--max-goals", type=int, default=10,
-                   help="Minimum score-grid limit; expands automatically to bound omitted probability.")
-    p.add_argument("--lookahead-days", type=int, default=10)
-    p.add_argument("--cache-dir", default=".football_cache")
-    p.add_argument("--out-dir", default="football_output")
-    p.add_argument("--force-refresh", action="store_true")
-    p.add_argument("--self-test", action="store_true")
-    return p
-
-
-def main(argv: Optional[Sequence[str]] = None) -> int:
-    args = build_parser().parse_args(argv)
-
-    if args.self_test:
-        import quote_policy
-        from unittest.mock import patch
-        with patch.object(quote_policy, 'CONFIG', Path(__file__).resolve().parent / 'tests' / 'offline_quote_policy.json'):
-            self_test()
-        return 0
-
-    out_dir = Path(args.out_dir)
-    out_dir.mkdir(parents=True, exist_ok=True)
-
-    pipeline = FootballValuePipeline(
-        cache_dir=args.cache_dir,
-        seasons_back=args.seasons_back,
-        half_life_days=args.half_life_days,
-        l2=args.l2,
-        max_goals=args.max_goals,
-        lookahead_days=args.lookahead_days,
-        force_refresh=args.force_refresh,
-    )
-
-    all_frames = []
-
-    for league_key in args.leagues:
-        print(f"[{league_key}] fetching data + fitting model...", file=sys.stderr)
-        predictions, diagnostics, scorelines = pipeline.run_league(league_key)
-
-        pred_path = out_dir / f"{league_key}_predictions.csv"
-        diag_path = out_dir / f"{league_key}_diagnostics.json"
-        score_path = out_dir / f"{league_key}_scorelines.json"
-
-        predictions.to_csv(pred_path, index=False)
-        diag_path.write_text(json.dumps(diagnostics, indent=2), encoding="utf-8")
-        score_path.write_text(json.dumps(scorelines, indent=2), encoding="utf-8")
-
-        print(
-            f"[{league_key}] {len(predictions)} fixtures -> {pred_path}",
-            file=sys.stderr,
-        )
-        if not predictions.empty:
-            all_frames.append(predictions)
-
-    if all_frames:
-        combined = pd.concat(all_frames, ignore_index=True, sort=False)
-        combined_path = out_dir / "all_leagues_predictions.csv"
-        combined.to_csv(combined_path, index=False)
-        print(f"Combined -> {combined_path}", file=sys.stderr)
-
-    return 0
-
 
 
 # ---------------------------------------------------------------------------
@@ -2727,13 +2424,14 @@ def simulate_staking(
     if bets.empty:
         return bets
 
+    from staking import kelly_fraction
     for _, group in bets.groupby("date", sort=True):
         start = bankroll
         for i in group.index:
             p = float(bets.at[i, "model_prob"])
             o = float(bets.at[i, "odds_taken"])
             if mode == "kelly":
-                full_kelly = max(0.0, (p * o - 1.0) / (o - 1.0))
+                full_kelly = max(0.0, kelly_fraction(p, o))
                 stake = start * min(kelly_frac * full_kelly, max_stake_pct)
             else:
                 stake = bankroll0 * flat_pct
@@ -3203,6 +2901,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
             bbs_statistics=getattr(self, 'bbs_statistics', True),
         ).fit(history, as_of=pd.Timestamp(now))
         model.league_key = league.key
+        from elo_ratings import diagnostics as elo_diagnostics, fit_history, fixture_features
+        elo = fit_history(history)
 
         if getattr(self, '_benchmark_trial_enabled', False):
             self._benchmark_score_matrices = {}
@@ -3231,6 +2931,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "max_goals": model.max_goals,
             "devig_method": self.devig_method,
             "market_weight": self.market_weight,
+            "elo_ratings": elo_diagnostics(elo),
             "training_data_health": self._training_health(league, model, now),
             "training_source": (
                 "football-data.org"
@@ -3402,6 +3103,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 "best_over_2_5_bookmaker": row.get("live_best_over_2_5_bookmaker"),
                 "best_under_2_5_bookmaker": row.get("live_best_under_2_5_bookmaker"),
                 **pred,
+                # Informational ratings on the resolved training names.
+                **fixture_features(elo, pred.get("model_home_team"), pred.get("model_away_team")),
             })
 
         diagnostics['bbs_statistics_applied_fixtures'] = sum(r.get('bbs_statistics_applied') is True for r in records)
@@ -3934,6 +3637,16 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--flat-pct", type=float, default=0.01)
     p.add_argument("--bankroll", type=float, default=1000.0)
 
+    # Advisory live staking (stake_recommendations.csv); never changes selection.
+    p.add_argument("--stake-bankroll", type=float, default=100.0,
+                   help="Bankroll units for advisory shortlist stakes (default: 100).")
+    p.add_argument("--stake-kelly-fraction", type=float, default=0.25,
+                   help="Fraction of full Kelly for advisory stakes (default: quarter-Kelly).")
+    p.add_argument("--stake-cap", type=float, default=0.025,
+                   help="Maximum advisory stake per selection as a bankroll fraction (default: 0.025).")
+    p.add_argument("--stake-max-exposure", type=float, default=0.10,
+                   help="Maximum combined advisory stake across the shortlist (default: 0.10).")
+
     p.add_argument("--self-test", action="store_true")
     return p
 
@@ -4303,6 +4016,15 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         out_dir / "conservative_strict_qualifiers.csv", index=False
     )
     decisions.to_csv(out_dir / "conservative_bet_rejections.csv", index=False)
+    try:
+        from staking import write_stake_recommendations
+        write_stake_recommendations(
+            shortlist, out_dir, bankroll=args.stake_bankroll,
+            multiplier=args.stake_kelly_fraction, max_fraction=args.stake_cap,
+            max_total_exposure=args.stake_max_exposure)
+    except Exception as exc:
+        # Advisory sizing must not invalidate a completed forecast run.
+        warnings.warn(f"Stake recommendations unavailable ({type(exc).__name__}: {exc}); shortlist complete")
     from asian_handicap import best_per_match
     best_per_match(decisions).to_csv(out_dir/'asian_handicap_best_per_match.csv',index=False)
     (out_dir / "conservative_bet_summary.json").write_text(

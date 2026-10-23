@@ -231,3 +231,86 @@ class PublicationTests(OfflineQuotePolicyTestCase):
             refresh(root,as_of=T0+timedelta(minutes=1))
             self.assertEqual(len(list((raw/'prediction_runs').iterdir())),2)
             self.assertEqual(raw_check(root)['forecasts'],1)
+
+
+class StaleLockTests(OfflineQuotePolicyTestCase):
+    """A writer killed before its finally block must not block later runs forever."""
+
+    def lock_with(self, root, owner):
+        lock = root/'raw'/runs.LOCK
+        lock.mkdir(parents=True)
+        if owner is not None:
+            (lock/runs.LOCK_OWNER).write_text(json.dumps(owner))
+        return lock
+
+    def dead_pid(self):
+        import subprocess, sys
+        return int(subprocess.run([sys.executable, '-c', 'import os;print(os.getpid())'],
+                                  capture_output=True, text=True, check=True).stdout)
+
+    def test_process_start_token_tracks_live_and_exited_processes(self):
+        import os
+        token = runs.process_start_token(os.getpid())
+        self.assertIsNotNone(token)
+        self.assertEqual(runs.process_start_token(os.getpid()), token)
+        self.assertIsNone(runs.process_start_token(self.dead_pid()))
+
+    def test_lock_of_killed_writer_is_reclaimed_and_run_publishes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            owner = {**runs.lock_owner(), 'pid': self.dead_pid()}
+            lock = self.lock_with(root, owner)
+            with self.assertLogs('prediction_runs', level='WARNING') as logs:
+                bundle = publish(root)
+            self.assertIn('no longer running', logs.output[0])
+            self.assertEqual(runs.resolve_raw(root/'raw'), bundle)
+            self.assertFalse(lock.exists())
+            self.assertEqual([p.name for p in (root/'raw').iterdir() if p.name.startswith(runs.LOCK)], [])
+
+    def test_recycled_pid_is_stale_but_live_owner_and_other_host_block(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            live = runs.lock_owner()
+            lock = self.lock_with(root, live)
+            with self.assertRaisesRegex(RuntimeError, 'Another prediction writer is active \(pid'):
+                with runs.stage_run(root/'raw'): pass
+            self.assertTrue((lock/runs.LOCK_OWNER).exists())  # A blocked writer never removes it.
+            self.assertIn('reused', runs.stale_lock_reason(lock, json.dumps(
+                {**live, 'process_started': 'an-earlier-process'}).encode()))
+            elsewhere = json.dumps({**live, 'host': 'another-machine', 'pid': self.dead_pid()}).encode()
+            self.assertIsNone(runs.stale_lock_reason(lock, elsewhere))
+
+    def test_ownerless_lock_waits_for_grace_period_then_is_reclaimed(self):
+        import os, time
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            lock = self.lock_with(root, None)
+            with self.assertRaisesRegex(RuntimeError, 'Another prediction writer is active\.'):
+                with runs.stage_run(root/'raw'): pass
+            old = time.time() - runs.OWNERLESS_LOCK_GRACE_SECONDS - 60
+            os.utime(lock, (old, old))
+            with self.assertLogs('prediction_runs', level='WARNING'):
+                with runs.stage_run(root/'raw'):
+                    owner = json.loads((lock/runs.LOCK_OWNER).read_text())
+                    self.assertEqual(owner['pid'], os.getpid())
+            self.assertFalse(lock.exists())
+            self.assertEqual(runs.stale_lock_reason(lock, None), 'lock already removed')
+
+    def test_lock_replaced_after_staleness_check_is_restored(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            lock = self.lock_with(root, runs.lock_owner())
+            judged = json.dumps({**runs.lock_owner(), 'pid': self.dead_pid()}).encode()
+            self.assertFalse(runs._discard_stale_lock(lock, judged))
+            self.assertTrue((lock/runs.LOCK_OWNER).exists())
+            self.assertTrue(runs._discard_stale_lock(root/'raw'/'missing.lock', judged))
+            self.assertEqual(sorted(p.name for p in (root/'raw').iterdir()), [runs.LOCK])
+
+    def test_owner_record_failure_releases_new_lock(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root/'raw').mkdir()
+            with patch.object(runs, 'atomic_write', side_effect=OSError('disk full')):
+                with self.assertRaisesRegex(OSError, 'disk full'):
+                    runs.acquire_lock(root/'raw')
+            self.assertFalse((root/'raw'/runs.LOCK).exists())
