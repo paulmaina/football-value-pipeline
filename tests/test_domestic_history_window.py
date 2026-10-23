@@ -8,6 +8,17 @@ from football_value_pipeline_v2_standalone import FootballValuePipelineV2, LEAGU
 
 
 class HistoryWindowTests(unittest.TestCase):
+    def test_default_forecast_lookahead_is_three_days_and_explicit_overrides_survive(self):
+        import inspect
+        from football_value_pipeline_v2_standalone import FootballDataUK, FootballValuePipeline
+        self.assertEqual(build_parser().parse_args([]).lookahead_days, 3)
+        self.assertEqual(build_parser().parse_args(['--lookahead-days','10']).lookahead_days, 10)
+        self.assertEqual(inspect.signature(FootballDataUK.fixtures).parameters['lookahead_days'].default, 3)
+        self.assertEqual(inspect.signature(FootballValuePipeline).parameters['lookahead_days'].default, 3)
+        with patch('football_value_pipeline_v2_standalone.FootballDataUK'):
+            self.assertEqual(FootballValuePipelineV2(live_odds=False).lookahead_days, 3)
+            self.assertEqual(FootballValuePipelineV2(lookahead_days=7,live_odds=False).lookahead_days, 7)
+
     def test_normal_cli_uses_six_domestic_seasons_and_four_ucl_seasons(self):
         args = build_parser().parse_args([])
         self.assertEqual(history_windows(args), {'domestic_seasons_back': 6, 'seasons_back': 4})
