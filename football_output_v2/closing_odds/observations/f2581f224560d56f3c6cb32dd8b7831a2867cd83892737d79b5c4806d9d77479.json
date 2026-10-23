@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Sparta Prague",
+    "home_team": "Olympiakos Piraeus",
+    "kickoff_utc": "2026-10-22T19:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "5290ae078657c841a4e1d4ebb626825a"
+  },
+  "observed_at_utc": "2026-10-22T18:54:07.740547+00:00",
+  "payload": {
+    "away_team": "Sparta Prague",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Olympiakos Piraeus",
+                "price": 1.5
+              },
+              {
+                "name": "Sparta Prague",
+                "price": 6.61
+              },
+              {
+                "name": "Draw",
+                "price": 4.52
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.77
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.12
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Olympiakos Piraeus",
+                "price": 1.48
+              },
+              {
+                "name": "Sparta Prague",
+                "price": 6.93
+              },
+              {
+                "name": "Draw",
+                "price": 4.56
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.01
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.88
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T19:00:00Z",
+    "home_team": "Olympiakos Piraeus",
+    "id": "5290ae078657c841a4e1d4ebb626825a",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6545207380790035,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.52,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20661058112599623,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 6.61,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.13886868079500037,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.77,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5474542272642668,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.12,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.45254577273573315,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.48,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6635621656098797,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.56,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20446898895839183,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.93,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1319688454317286,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

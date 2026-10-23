@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Lyon",
+    "home_team": "TSG Hoffenheim",
+    "kickoff_utc": "2026-10-22T19:00:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "b3c60081286aa25692de7e0a482b6c01"
+  },
+  "observed_at_utc": "2026-10-22T18:54:08.013285+00:00",
+  "payload": {
+    "away_team": "Lyon",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Lyon",
+                "price": 4.13
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "price": 1.73
+              },
+              {
+                "name": "Draw",
+                "price": 4.55
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.06
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.81
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Lyon",
+                "price": 4.53
+              },
+              {
+                "name": "TSG Hoffenheim",
+                "price": 1.68
+              },
+              {
+                "name": "Draw",
+                "price": 4.48
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.9
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.98
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T19:00:00Z",
+    "home_team": "TSG Hoffenheim",
+    "id": "b3c60081286aa25692de7e0a482b6c01",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.73,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5651289316931144,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2064817613960003,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.13,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22838930691088544,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.06,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.46586672949865293,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.81,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5341332705013472,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-22T18:53:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.68,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.582676188254716,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.48,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20986745925908382,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.53,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20745635248620012,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T18:53:50+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

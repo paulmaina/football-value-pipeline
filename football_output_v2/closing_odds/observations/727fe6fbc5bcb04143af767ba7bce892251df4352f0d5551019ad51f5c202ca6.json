@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Marseille",
+    "home_team": "SK Sturm Graz",
+    "kickoff_utc": "2026-10-22T16:45:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "fcbdc440ac1bfd04e900e145e84ffaca"
+  },
+  "observed_at_utc": "2026-10-22T16:39:26.334781+00:00",
+  "payload": {
+    "away_team": "Marseille",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T16:39:18Z",
+            "outcomes": [
+              {
+                "name": "Marseille",
+                "price": 2.22
+              },
+              {
+                "name": "SK Sturm Graz",
+                "price": 3.23
+              },
+              {
+                "name": "Draw",
+                "price": 3.57
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T16:39:18Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.4
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.57
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Marseille",
+                "price": 2.27
+              },
+              {
+                "name": "SK Sturm Graz",
+                "price": 3.11
+              },
+              {
+                "name": "Draw",
+                "price": 3.68
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.93
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.95
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T16:45:00Z",
+    "home_team": "SK Sturm Graz",
+    "id": "fcbdc440ac1bfd04e900e145e84ffaca",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.11,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.31013112925851916,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.68,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.26069345097147967,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.27,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4291754197700011,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.23,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.29610658623072,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T16:39:18+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.26688901672107807,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T16:39:18+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.22,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.437004397048202,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T16:39:18+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.4,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3869128436199944,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-22T16:39:18+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.57,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6130871563800057,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-22T16:39:18+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
