@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Sunderland",
+    "home_team": "Lech Pozna\u0144",
+    "kickoff_utc": "2026-10-22T16:45:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "dc02d531f844fa790c5dcae1918efd22"
+  },
+  "observed_at_utc": "2026-10-22T16:39:26.089230+00:00",
+  "payload": {
+    "away_team": "Sunderland",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Lech Pozna\u0144",
+                "price": 4.25
+              },
+              {
+                "name": "Sunderland",
+                "price": 1.81
+              },
+              {
+                "name": "Draw",
+                "price": 3.94
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.67
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.2
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Lech Pozna\u0144",
+                "price": 4.16
+              },
+              {
+                "name": "Sunderland",
+                "price": 1.85
+              },
+              {
+                "name": "Draw",
+                "price": 3.94
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.01
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T16:45:00Z",
+    "home_team": "Lech Pozna\u0144",
+    "id": "dc02d531f844fa790c5dcae1918efd22",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22144978687720082,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23963293639013156,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.81,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5389172767326676,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5740358949483358,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.2,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.42596410505166415,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.16,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22880943030984185,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24204044935529936,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.85,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5291501203348588,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

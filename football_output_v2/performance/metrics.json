@@ -1255,8 +1255,10 @@
   },
   "prediction_1x2_multiclass_brier": 0.542639,
   "prediction_fixtures_graded": 101,
-  "provider_errors": {},
-  "reviewed_at_utc": "2026-10-22T14:26:57Z",
+  "provider_errors": {
+    "UEL": "Current Europa sources disagree or coverage is incomplete; prior snapshot retained"
+  },
+  "reviewed_at_utc": "2026-10-23T05:06:52Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,

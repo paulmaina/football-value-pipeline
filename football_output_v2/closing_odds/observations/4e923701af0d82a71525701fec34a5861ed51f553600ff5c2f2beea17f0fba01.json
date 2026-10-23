@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "AZ Alkmaar",
+    "home_team": "FC Ararat-Armenia",
+    "kickoff_utc": "2026-10-22T16:45:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "0c104f64573962dd1a690f53ba969caa"
+  },
+  "observed_at_utc": "2026-10-22T16:39:25.246401+00:00",
+  "payload": {
+    "away_team": "AZ Alkmaar",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "AZ Alkmaar",
+                "price": 1.42
+              },
+              {
+                "name": "FC Ararat-Armenia",
+                "price": 7.62
+              },
+              {
+                "name": "Draw",
+                "price": 4.82
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.62
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.3
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "AZ Alkmaar",
+                "price": 1.4
+              },
+              {
+                "name": "FC Ararat-Armenia",
+                "price": 8.06
+              },
+              {
+                "name": "Draw",
+                "price": 5.0
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.02
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.87
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T16:45:00Z",
+    "home_team": "FC Ararat-Armenia",
+    "id": "0c104f64573962dd1a690f53ba969caa",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 7.62,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.11784947414166863,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.82,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19088499284708016,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.42,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6912655330112513,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5936071493942947,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.3,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.40639285060570535,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 8.06,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.11217738121097802,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18504712058079495,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.702775498208227,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

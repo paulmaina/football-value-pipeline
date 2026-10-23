@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Hapoel Be'er Sheva",
+    "home_team": "Union Saint-Gilloise",
+    "kickoff_utc": "2026-10-22T16:45:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "382e017f27a6fbffbc48f736ca1680f2"
+  },
+  "observed_at_utc": "2026-10-22T16:39:26.619104+00:00",
+  "payload": {
+    "away_team": "Hapoel Be'er Sheva",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Hapoel Be'er Sheva",
+                "price": 6.72
+              },
+              {
+                "name": "Union Saint-Gilloise",
+                "price": 1.44
+              },
+              {
+                "name": "Draw",
+                "price": 5.11
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.31
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.62
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Hapoel Be'er Sheva",
+                "price": 6.91
+              },
+              {
+                "name": "Union Saint-Gilloise",
+                "price": 1.46
+              },
+              {
+                "name": "Draw",
+                "price": 4.83
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-22T16:39:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.85
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.05
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-22T16:45:00Z",
+    "home_team": "Union Saint-Gilloise",
+    "id": "382e017f27a6fbffbc48f736ca1680f2",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.44,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6826564206102976,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.11,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18126660501292416,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 6.72,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.13607697437677824,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.31,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.40552185891679066,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5944781410832094,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.46,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6737090693013859,
+      "selection": "home",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.83,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19328380338414594,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.91,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.13300712731446826,
+      "selection": "away",
+      "updated_at_utc": "2026-10-22T16:39:17+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
