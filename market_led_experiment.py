@@ -141,14 +141,17 @@ def write_experiment(predictions, raw: Path, baseline_generated, api, cfg):
     from football_value_pipeline_v2_standalone import LEAGUES
     from performance_tracking import utc, write_csv
     by_name = {v.name:v for v in LEAGUES.values()}
-    from conservative_bet_filter import SUPPORTED_LEAGUES
+    # This paper experiment selects on Pinnacle references, not the per-market
+    # model audit, so it stays limited to league-approved competitions.
+    import league_registry
+    approved = league_registry.shortlist_names(shortlist_approval=league_registry.LEAGUE_APPROVAL)
     rows, evidence = [], []
     for source in predictions.astype(object).where(predictions.notna(),None).to_dict('records'):
         clock = datetime.now(timezone.utc)
         kick = utc(source.get('kickoff_utc'))
         payload, error = {}, None
-        if source.get('league') not in SUPPORTED_LEAGUES:
-            # Unvalidated competitions never qualify; spend no event-odds credits on them.
+        if source.get('league') not in approved:
+            # Not league-approved: never qualifies here; spend no event-odds credits on it.
             error = 'competition_excluded_from_shortlist_validation'
         elif kick and 20*60 <= (kick-clock).total_seconds() <= 72*3600 and source.get('odds_event_id'):
             try:
