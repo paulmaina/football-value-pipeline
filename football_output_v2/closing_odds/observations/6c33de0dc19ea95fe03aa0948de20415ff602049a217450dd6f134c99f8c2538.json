@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "Deportivo La Coru\u00f1a",
+    "home_team": "Atl\u00e9tico Madrid",
+    "kickoff_utc": "2026-10-24T19:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "70df1835c3b5ddff1c99e0189532136b"
+  },
+  "observed_at_utc": "2026-10-24T18:54:18.459506+00:00",
+  "payload": {
+    "away_team": "Deportivo La Coru\u00f1a",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T18:54:15Z",
+            "outcomes": [
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "price": 1.26
+              },
+              {
+                "name": "Deportivo La Coru\u00f1a",
+                "price": 11.1
+              },
+              {
+                "name": "Draw",
+                "price": 6.3
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T18:54:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.19
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.73
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-24T18:54:15Z",
+            "outcomes": [
+              {
+                "name": "Atl\u00e9tico Madrid or Draw",
+                "price": 1.04
+              },
+              {
+                "name": "Deportivo La Coru\u00f1a or Draw",
+                "price": 3.9
+              },
+              {
+                "name": "Atl\u00e9tico Madrid or Deportivo La Coru\u00f1a",
+                "price": 1.12
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T18:54:16Z",
+            "outcomes": [
+              {
+                "name": "Atl\u00e9tico Madrid",
+                "price": 1.25
+              },
+              {
+                "name": "Deportivo La Coru\u00f1a",
+                "price": 11.69
+              },
+              {
+                "name": "Draw",
+                "price": 6.51
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T18:54:16Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.98
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.9
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-24T18:54:11Z",
+            "outcomes": [
+              {
+                "name": "Atl\u00e9tico Madrid or Draw",
+                "price": 1.07
+              },
+              {
+                "name": "Deportivo La Coru\u00f1a or Draw",
+                "price": 4.14
+              },
+              {
+                "name": "Atl\u00e9tico Madrid or Deportivo La Coru\u00f1a",
+                "price": 1.15
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-24T19:00:00Z",
+    "home_team": "Atl\u00e9tico Madrid",
+    "id": "70df1835c3b5ddff1c99e0189532136b",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.07,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.9137055837563451,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-24T18:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.14,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.23615096005296843,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-24T18:54:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.15,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8501434561906864,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-24T18:54:11+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7819063190378143,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T18:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 6.3,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.14095982788762598,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T18:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 11.1,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.07713385307455982,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T18:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.19,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.43829030396387864,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-24T18:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.73,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5617096960361214,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-24T18:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.04,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.9110629067245118,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-24T18:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.9,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.24295010845986983,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-24T18:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.12,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8459869848156181,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-24T18:54:15+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7892315740718814,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T18:54:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.51,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.13709090338421573,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T18:54:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 11.69,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.07367752254390289,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T18:54:16+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
