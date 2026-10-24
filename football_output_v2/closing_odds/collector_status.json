@@ -1,16 +1,36 @@
 {
-  "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-24T13:00:13.675984+00:00",
-  "coverage_checks": [],
+  "already_complete_fixtures": 4,
+  "checked_at_utc": "2026-10-24T13:29:25.324036+00:00",
+  "coverage_checks": [
+    {
+      "event_id": "04bb232a2940fcf03abf05b308e27577",
+      "missing_required_quotes": [
+        {
+          "bookmaker": "pinnacle",
+          "selection": "Asian Handicap Away +2.00"
+        }
+      ],
+      "requested_markets": [
+        "alternate_spreads",
+        "draw_no_bet",
+        "h2h",
+        "spreads",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "pinnacle"
+      ]
+    }
+  ],
   "daily_request_cap": 100,
-  "daily_requests": 32,
-  "eligible_fixtures": 0,
+  "daily_requests": 39,
+  "eligible_fixtures": 5,
   "errors": [],
-  "reason": "NO_FIXTURES_IN_PRE_KICKOFF_WINDOW",
-  "request_limit": 8,
-  "requests": 0,
-  "reservation_allowance": 10,
-  "reservation_id": "actions-40083556749-1-5",
-  "reservation_used": 2,
-  "written": 0
+  "reason": "CHECKED_ELIGIBLE_FIXTURES",
+  "request_limit": 1,
+  "requests": 1,
+  "reservation_allowance": 15,
+  "reservation_id": "actions-40083556749-1-6",
+  "reservation_used": 15,
+  "written": 1
 }
