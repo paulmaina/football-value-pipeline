@@ -3697,6 +3697,16 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         bbs_statistics_validation=args.bbs_statistics_validation,
     )
 
+    # Verify Europa before tuning/modeling or consuming odds credits. Exclude
+    # unavailable Europa only; never use its stale or disputed training rows.
+    from europa_training import forecast_availability
+    if not args.backtest:
+        args.leagues, availability = forecast_availability(args.leagues, args.cache_dir)
+        (out_dir / 'league_availability.json').write_text(
+            json.dumps(availability, indent=2), encoding='utf-8')
+        if availability['excluded_leagues']:
+            warnings.warn('UEL excluded: verified training unavailable; see league_availability.json')
+
     # Fair reservations across requested competitions; never allow the
     # first processed league to exhaust the 24 event-market API calls.
     from goal_market_validation import (
@@ -3996,6 +4006,8 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         warnings.warn(f"Stake recommendations unavailable ({type(exc).__name__}: {exc}); shortlist complete")
     from asian_handicap import best_per_match
     best_per_match(decisions).to_csv(out_dir/'asian_handicap_best_per_match.csv',index=False)
+    if not args.backtest:
+        selection_summary['league_availability'] = availability
     (out_dir / "conservative_bet_summary.json").write_text(
         json.dumps(selection_summary, indent=2), encoding="utf-8"
     )

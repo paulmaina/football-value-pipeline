@@ -68,7 +68,8 @@ def refresh(cache_dir, now=None, *, download=True, session=None):
     history, evidence = reconcile(sources, aliases, reviews, official_rows=official_overrides.get(2025))
     audit, current = audit_cornerflick(sources, team_resolver(aliases), now, official_rows=official_overrides.get(2026))
     if not audit['verified_for_research']:
-        raise ValueError('Current Europa sources disagree or coverage is incomplete; prior snapshot retained')
+        raise ValueError('Current Europa sources disagree or coverage is incomplete; prior snapshot retained; '+
+                         json.dumps(audit, sort_keys=True))
     history += [{**r, 'regulation': r['reported'], 'season': 2026,
                  'duration': 'REGULAR', 'stage': 'League phase',
                  'source': 'Cornerflick + Fixture Download + UEFA'} for r in current]
@@ -189,3 +190,24 @@ def results(cache_dir, now):
                     'source': 'Cornerflick + Fixture Download + UEFA', 'source_status': 'FINISHED',
                     'source_duration': 'REGULAR'})
     return out
+
+
+def forecast_availability(league_keys, cache_dir, now=None):
+    """Preflight Europa before spending odds credits; other model errors still fail."""
+    requested = list(league_keys)
+    status = {'requested_leagues': requested, 'excluded_leagues': {}}
+    if 'UEL' not in requested:
+        return requested, status
+    try:
+        load(cache_dir, now)
+    except (ValueError, OSError, requests.RequestException) as exc:
+        status['excluded_leagues']['UEL'] = {
+            'status': 'TRAINING_UNVERIFIED',
+            'reason': str(exc) if isinstance(exc, ValueError) else type(exc).__name__,
+        }
+    available = [key for key in requested if key not in status['excluded_leagues']]
+    status['forecast_leagues'] = available
+    if not available:
+        raise ValueError('No requested leagues have verified training data: ' +
+                         json.dumps(status['excluded_leagues'], sort_keys=True))
+    return available, status
