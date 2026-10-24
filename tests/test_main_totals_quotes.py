@@ -37,8 +37,9 @@ class MainTotalsTests(OfflineQuotePolicyTestCase):
             result = api.extra_markets_for_event(
                 LEAGUES['EPL'], 'event0', main_over_1_5_offers=offers)
         self.assertEqual(request.call_count, 1)
+        # EPL also requests the corner totals that Pinnacle quotes there.
         self.assertEqual(request.call_args.kwargs['params']['markets'],
-                         'alternate_totals,btts,alternate_spreads,draw_no_bet,double_chance')
+                         'alternate_totals,btts,alternate_spreads,draw_no_bet,double_chance,alternate_totals_corners')
         return result
 
     def test_exact_main_line_retains_pair_without_relabelling_as_25(self):

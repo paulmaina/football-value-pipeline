@@ -35,7 +35,7 @@ CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
              'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'league_registry.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py', 'clv_report.py')
 COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_football_integration.py':85,
-    'win_first_shortlist.py':85, 'per_market_shortlist.py':85,
+    'win_first_shortlist.py':85, 'per_market_shortlist.py':85, 'count_markets.py':85,
     'collect_api_football_data.py':75, 'publish_api_football_data.py':75,
     'prediction_runs.py':85, 'github_closing_odds.py':80, 'bbs_statistics_model.py':85, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
     'publish_bbs_data.py':75, 'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
