@@ -35,7 +35,7 @@ CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
              'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py', 'clv_report.py')
 COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_football_integration.py':85,
-    'win_first_shortlist.py':85,
+    'win_first_shortlist.py':85, 'per_market_shortlist.py':85,
     'collect_api_football_data.py':75, 'publish_api_football_data.py':75,
     'prediction_runs.py':85, 'github_closing_odds.py':80, 'bbs_statistics_model.py':85, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
     'publish_bbs_data.py':75, 'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
@@ -91,10 +91,16 @@ def raw_check(root, *, raw_dir=None):
     policy_version = summary.get('selection_policy_version')
     from asian_handicap import POLICIES as AH_POLICIES, RISK_BAND_POLICIES, ONE_PERCENT_POLICIES, POLICY as SAFEST_POLICY, parse_label as parse_handicap, ordinary_markets
     asian = policy_version in AH_POLICIES
-    from win_first_shortlist import POLICY as WIN_FIRST_POLICY
-    win_first = policy_version == WIN_FIRST_POLICY
+    from asian_handicap import WIN_FIRST_POLICIES
+    from per_market_shortlist import POLICY as PER_MARKET_POLICY, PER_GROUP_CAP, MAX_SELECTIONS
+    win_first = policy_version in WIN_FIRST_POLICIES
+    per_market = policy_version == PER_MARKET_POLICY
     if asian:
-        require(summary.get('shortlist_lookahead_hours')==48 and len(picks)<=12,'Invalid Asian handicap horizon or cap')
+        require(summary.get('shortlist_lookahead_hours')==48 and len(picks)<=(MAX_SELECTIONS if per_market else 12),'Invalid Asian handicap horizon or cap')
+    if per_market:
+        from collections import Counter
+        require(max(Counter(r.get('market_group') for r in picks).values(),default=0)<=PER_GROUP_CAP,
+                'Per-market shortlist exceeds its group cap')
     balanced = policy_version in BALANCED_SELECTION_POLICIES
     excludes_under = policy_version in NO_UNDER35_SELECTION_POLICIES
     target = TARGET_DISTINCT_MATCHES if policy_version in TWELVE_MATCH_BALANCED_SELECTION_POLICIES else 10
@@ -166,6 +172,8 @@ def raw_check(root, *, raw_dir=None):
                       *(['min_adjusted_no_loss_probability','max_estimated_loss_probability'] if policy_version == SAFEST_POLICY else []),
                       *(['selection_objective','ranking_metric','probability_basis','ev_required_for_selection',
                          'negative_adjusted_ev_selections'] if win_first else []),
+                      *(['ranking_weights','market_groups','max_per_market_group','group_shortfall',
+                         'negative_adjusted_ev_markets'] if per_market else []),
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')
