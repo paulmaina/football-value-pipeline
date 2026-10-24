@@ -588,7 +588,7 @@ def add_guide(parts, st):
     definitions=[
         ['Win rate','Full/half wins divided by all settled selections. Refunds are settled but not wins; half-losses are losses.','Read with the settled sample size and 95% interval.'],
         ['Simulated ROI','Simulated net profit divided by staked units. Includes recorded per-stake costs.','Offered prices and simulated stakes are not proof of actual returns. Missing prices are excluded.'],
-        ['Binary Brier','Probability error for the frozen event: v23 profitable outcome (refunds excluded); legacy Asian forecasts no net loss.','Lower is better. Read the number of valid probability samples.'],
+        ['Binary Brier','Probability error for the frozen event: v23/v24 profitable outcome (refunds excluded); legacy Asian forecasts no net loss.','Lower is better. Read the number of valid probability samples.'],
         ['1X2 Brier','Multiclass probability error across home win, draw and away win.','Lower is better. Its scale differs from binary Brier; do not compare the two directly.'],
         ['Log loss','Penalty assigned to the probability of the observed outcome.','Lower is better. Compare candidates on the same fixtures.'],
         ['Calibration gap','Mean forecast probability minus observed win rate on the same scored selections.','Closer to zero is better. Positive indicates overconfidence; negative indicates underconfidence.'],
@@ -644,7 +644,7 @@ def ledger_layout(parts, st):
                 if table.get('name') == 'BreakdownsTable':
                     table.find(q('tableColumns'))[14].set('name', 'Calibration gap')
                     parts[path] = xml_bytes(table)
-        if name=='Selections':sheet.put('A4','Latest eligible selection per fixture. v23 probabilities/Brier measure profitable outcomes; legacy Asian forecasts measure no net loss. Refunds are not wins. Half settlements affect ROI. Times are UTC.',st['note'])
+        if name=='Selections':sheet.put('A4','Latest eligible selection per fixture. v23/v24 probabilities/Brier measure profitable outcomes; legacy Asian forecasts measure no net loss. Refunds are not wins. Half settlements affect ROI. Times are UTC.',st['note'])
         if name in ('Selections','Predictions'):
             for nr in (2,4):
                 merges=sheet.root.find(q('mergeCells'))
