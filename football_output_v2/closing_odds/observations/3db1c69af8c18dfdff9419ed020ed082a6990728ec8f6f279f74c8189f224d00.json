@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Villarreal",
+    "home_team": "Valencia",
+    "kickoff_utc": "2026-10-24T16:30:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "0dae715cc56fe201f9e667917c126691"
+  },
+  "observed_at_utc": "2026-10-24T16:24:23.912432+00:00",
+  "payload": {
+    "away_team": "Villarreal",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T16:24:08Z",
+            "outcomes": [
+              {
+                "name": "Valencia",
+                "price": 3.75
+              },
+              {
+                "name": "Villarreal",
+                "price": 2.02
+              },
+              {
+                "name": "Draw",
+                "price": 3.56
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T16:24:08Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.78
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.1
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T16:24:06Z",
+            "outcomes": [
+              {
+                "name": "Valencia",
+                "price": 3.48
+              },
+              {
+                "name": "Villarreal",
+                "price": 2.14
+              },
+              {
+                "name": "Draw",
+                "price": 3.65
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T16:24:06Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.98
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.93
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-24T16:30:00Z",
+    "home_team": "Valencia",
+    "id": "0dae715cc56fe201f9e667917c126691",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.48,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2777781890426269,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T16:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.65,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.26449741399961896,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T16:24:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.14,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4577243969577542,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T16:24:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.75,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25252346198106573,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T16:24:08+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.56,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2665716854658864,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T16:24:08+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.02,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.48090485255304805,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T16:24:08+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.78,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5435826572395897,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-24T16:24:08+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.1,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.45641734276041024,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-24T16:24:08+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
