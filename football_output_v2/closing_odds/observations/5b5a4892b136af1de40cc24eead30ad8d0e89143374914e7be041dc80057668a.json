@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "SC Cambuur",
+    "home_team": "Willem II",
+    "kickoff_utc": "2026-10-24T16:45:00+00:00",
+    "league": "Eredivisie",
+    "odds_event_id": "d962e99711c241eb444793ef2e07098b"
+  },
+  "observed_at_utc": "2026-10-24T16:39:31.778572+00:00",
+  "payload": {
+    "away_team": "SC Cambuur",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T16:38:49Z",
+            "outcomes": [
+              {
+                "name": "SC Cambuur",
+                "price": 2.62
+              },
+              {
+                "name": "Willem II",
+                "price": 2.56
+              },
+              {
+                "name": "Draw",
+                "price": 3.72
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T16:38:49Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.5
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.53
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T16:38:50Z",
+            "outcomes": [
+              {
+                "name": "SC Cambuur",
+                "price": 2.65
+              },
+              {
+                "name": "Willem II",
+                "price": 2.58
+              },
+              {
+                "name": "Draw",
+                "price": 3.73
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T16:38:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.99
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.9
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-24T16:45:00Z",
+    "home_team": "Willem II",
+    "id": "d962e99711c241eb444793ef2e07098b",
+    "sport_key": "soccer_netherlands_eredivisie",
+    "sport_title": "Dutch Eredivisie"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.56,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.376712095098902,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T16:38:49+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.72,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25553165831116437,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T16:38:49+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.62,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3677562465899337,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T16:38:49+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.5,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3697943853555,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-24T16:38:49+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.53,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6302056146445001,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-24T16:38:49+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.58,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3764154335983952,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T16:38:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.73,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.257415055672258,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T16:38:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.65,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.36616951072934684,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T16:38:50+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
