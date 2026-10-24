@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Heerenveen",
+    "home_team": "ADO Den Haag",
+    "kickoff_utc": "2026-10-24T19:00:00+00:00",
+    "league": "Eredivisie",
+    "odds_event_id": "37b2e2ce6ac958b456f8b82543199993"
+  },
+  "observed_at_utc": "2026-10-24T18:54:18.516434+00:00",
+  "payload": {
+    "away_team": "Heerenveen",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "ADO Den Haag",
+                "price": 3.48
+              },
+              {
+                "name": "Heerenveen",
+                "price": 2.02
+              },
+              {
+                "name": "Draw",
+                "price": 3.86
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T18:53:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.21
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.67
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T18:54:12Z",
+            "outcomes": [
+              {
+                "name": "ADO Den Haag",
+                "price": 3.44
+              },
+              {
+                "name": "Heerenveen",
+                "price": 2.1
+              },
+              {
+                "name": "Draw",
+                "price": 3.76
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T18:54:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.96
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.93
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-24T19:00:00Z",
+    "home_team": "ADO Den Haag",
+    "id": "37b2e2ce6ac958b456f8b82543199993",
+    "sport_key": "soccer_netherlands_eredivisie",
+    "sport_title": "Dutch Eredivisie"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.48,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2733279811457097,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.86,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2453971998392744,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.02,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.48127481901501595,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.21,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4249905039595596,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-24T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5750094960404405,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-24T18:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.44,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.27964129045517144,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T18:54:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.76,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25512879896367935,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T18:54:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.1,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.46522991058114915,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T18:54:12+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
