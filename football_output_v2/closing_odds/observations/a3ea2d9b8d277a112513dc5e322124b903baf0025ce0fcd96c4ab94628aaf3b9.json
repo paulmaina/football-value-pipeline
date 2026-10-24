@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Bologna",
+    "home_team": "Cagliari",
+    "kickoff_utc": "2026-10-24T13:00:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "b7f0880e3da978f9481f7cb5697e2aa5"
+  },
+  "observed_at_utc": "2026-10-24T12:54:02.222359+00:00",
+  "payload": {
+    "away_team": "Bologna",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T12:53:45Z",
+            "outcomes": [
+              {
+                "name": "Bologna",
+                "price": 2.69
+              },
+              {
+                "name": "Cagliari",
+                "price": 3.07
+              },
+              {
+                "name": "Draw",
+                "price": 3.03
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T12:53:45Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 2.08
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 1.84
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T12:53:22Z",
+            "outcomes": [
+              {
+                "name": "Bologna",
+                "price": 2.67
+              },
+              {
+                "name": "Cagliari",
+                "price": 3.06
+              },
+              {
+                "name": "Draw",
+                "price": 2.93
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T12:53:22Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.31
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.62
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-24T13:00:00Z",
+    "home_team": "Cagliari",
+    "id": "b7f0880e3da978f9481f7cb5697e2aa5",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.06,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.31265347309012653,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T12:53:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.93,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.32708673142347156,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T12:53:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.67,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.36025979548640197,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T12:53:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.31,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.40552185891679066,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-24T12:53:22+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5944781410832094,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-24T12:53:22+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.07,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3165923981175083,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T12:53:45+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.03,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.32087860372047644,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T12:53:45+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.69,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3625289981620154,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T12:53:45+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
