@@ -1305,10 +1305,10 @@ def process_conservative_shortlist(
     if per_market:
         cap = summary.get('max_per_market_group')
         ranking_notes[0] = (f"**Ranking:** within each market group, 50% adjusted-probability percentile + 50% adjusted-EV percentile; "
-                            f"at most {cap} per group and {target} in total; one market per match, claimed by the higher combined score. "
+                            f"at most {cap} per group and {target} in total; one market per match. Fill as many slots as possible, then prefer higher scores. "
                             "All Asian handicap lines and sides form one group; Draw is excluded.")
-        ranking_notes[3] = ('**Availability:** only quoted Pinnacle and bet365 selections. A group with fewer eligible candidates '
-                            'keeps its empty slots; they are never filled from another group.')
+        ranking_notes[3] = ('**Availability:** only quoted Pinnacle and bet365 selections. A slot stays empty only when no allocation of '
+                            'eligible candidates can fill it; slots are never filled from another group.')
         ranking_notes.append('Percentiles and the combined score are relative ranks within a market group, not win probabilities.')
         negative = summary.get('negative_adjusted_ev_markets') or []
         ranking_notes.append(f"**Negative adjusted EV:** {len(negative)} of {count} selections"

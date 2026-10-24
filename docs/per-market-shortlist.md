@@ -33,15 +33,21 @@ not. See [win-first-shortlist.md](win-first-shortlist.md).
 2. Within each market group, compute the empirical percentile of the adjusted
    probability and the adjusted EV among that group's eligible candidates.
 3. Score = 0.5 × probability percentile + 0.5 × EV percentile.
-4. Walk all candidates by score, highest first (ties: adjusted probability,
+4. Compute the most slots any allocation can fill, with one market per
+   fixture, at most two per group and fourteen in total.
+5. Walk all candidates by score, highest first (ties: adjusted probability,
    adjusted EV, unblended EV, odds, then stable fixture/market/bookmaker
-   fields). Accept a candidate if its fixture is unused and its group has
-   fewer than two picks. Stop at fourteen.
+   fields). Accept a candidate if its fixture is unused, its group has a free
+   slot, and the remaining slots can still be filled to the maximum from
+   step 4.
 
-One market per fixture: when a fixture is a top candidate in two groups, the
-higher combined score claims it, and the other group takes its next
-candidate. Percentiles are relative ranks within a group, not probabilities,
-so a group with a single eligible candidate scores it 1.0.
+One market per fixture: when a fixture is a candidate in two groups, the
+higher-scoring market claims it unless that would leave a fillable slot
+empty. Example: Home win has fixtures A, B and C; Double Chance 1X has only A
+and B. Taking A and B for Home win would leave 1X empty, so the selector
+takes A and C for Home win and B for 1X. Percentiles are relative ranks
+within a group, not probabilities, so a group with a single eligible
+candidate scores it 1.0.
 
 The shortlist is presented in group order, best score first within each group.
 
@@ -52,8 +58,10 @@ is flagged in `selection_warnings`, counted in
 `negative_adjusted_ev_selections`, and listed in `negative_adjusted_ev_markets`
 and the readable report.
 
-A group with fewer than two eligible candidates, or whose candidates were
-claimed by another group, leaves its slots empty. Other groups never fill them.
+A slot stays empty only when no allocation of the eligible candidates can
+fill it: the group has fewer than two eligible fixtures, or its fixtures are
+needed by other groups and no rearrangement frees one. Other groups never
+fill empty slots.
 `group_shortfall` in the summary records eligible matches, selections and
 empty slots for each group; the readable report shows the same table.
 
