@@ -1,0 +1,222 @@
+{
+  "fixture": {
+    "away_team": "Arouca",
+    "home_team": "Alverca",
+    "kickoff_utc": "2026-10-24T17:00:00+00:00",
+    "league": "Primeira Liga",
+    "odds_event_id": "3f752f1b9f725906b91ae5b699705cca"
+  },
+  "observed_at_utc": "2026-10-24T16:54:38.123761+00:00",
+  "payload": {
+    "away_team": "Arouca",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T16:54:26Z",
+            "outcomes": [
+              {
+                "name": "Alverca",
+                "price": 2.27
+              },
+              {
+                "name": "Arouca",
+                "price": 3.48
+              },
+              {
+                "name": "Draw",
+                "price": 3.26
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T16:54:26Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.98
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.91
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-24T16:54:26Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.98
+              },
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 6.57
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 3.33
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.68
+              },
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.24
+              },
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.72
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.47
+              },
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.3
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.91
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.13
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.35
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.51
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.7
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.21
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 2.81
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 3.69
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-24T17:00:00Z",
+    "home_team": "Alverca",
+    "id": "3f752f1b9f725906b91ae5b699705cca",
+    "sport_key": "soccer_portugal_primeira_liga",
+    "sport_title": "Primeira Liga - Portugal"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.27,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4289195693171646,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T16:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.29516392099636923,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T16:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.48,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.27591650968646614,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T16:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.98,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49062085815062206,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-24T16:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5093791418493779,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-24T16:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.7542553666572565,
+      "selection": "over_1_5",
+      "updated_at_utc": "2026-10-24T16:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.69,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.24574463334274346,
+      "selection": "under_1_5",
+      "updated_at_utc": "2026-10-24T16:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.33,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.27520873006217983,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-24T16:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.35,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.7247912699378202,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-24T16:54:26+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
