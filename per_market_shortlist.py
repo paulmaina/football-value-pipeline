@@ -23,10 +23,11 @@ def market_group(market):
     return market if market in MARKET_GROUPS else None
 
 
-def rank_candidates(pool):
+def rank_candidates(pool, group_of=None):
     """Score each fixture-market within its group; best quote per pair only."""
     from performance_tracking import fixture_key
-    pool = pool.assign(market_group=pool.market.map(market_group) if len(pool) else pd.Series(dtype=object))
+    group_of = market_group if group_of is None else group_of
+    pool = pool.assign(market_group=pool.market.map(group_of) if len(pool) else pd.Series(dtype=object))
     pool = pool.loc[pool.market_group.notna()].copy()
     pool['_fixture'] = pool.apply(fixture_key, axis=1) if len(pool) else pd.Series(dtype=str)
     order = ['rank_probability', 'conservative_estimated_ev', 'raw_dc_ev', 'offered_decimal_odds',
@@ -46,7 +47,7 @@ def rank_candidates(pool):
 
 def _max_fill(pairs, open_slots):
     """Most slots fillable from (fixture, group) pairs, one slot per fixture."""
-    slots = [g for g in MARKET_GROUPS for _ in range(open_slots[g])]
+    slots = [g for g in open_slots for _ in range(open_slots[g])]
     options = {}
     for fixture, group in pairs:
         options.setdefault(fixture, []).extend(i for i, g in enumerate(slots) if g == group)
@@ -63,7 +64,7 @@ def _max_fill(pairs, open_slots):
     return sum(augment(fixture, set()) for fixture in options)
 
 
-def select_candidates(ranked):
+def select_candidates(ranked, groups=MARKET_GROUPS):
     """Fill the most slots possible, preferring higher scores in rank order.
 
     One market per fixture, two per group, fourteen total. Walk candidates by
@@ -73,7 +74,7 @@ def select_candidates(ranked):
     another group's slots.
     """
     pairs = list(zip(ranked._fixture, ranked.market_group))
-    open_slots = dict.fromkeys(MARKET_GROUPS, PER_GROUP_CAP)
+    open_slots = dict.fromkeys(groups, PER_GROUP_CAP)
     target = _max_fill(pairs, open_slots)
     used, chosen = set(), []
     for idx, (fixture, group) in zip(ranked.index, pairs):

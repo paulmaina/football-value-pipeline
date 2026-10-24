@@ -2,7 +2,7 @@
 
 Policy `48h-two-per-market-group-probability-ev-v24` selects at most two matches
 from each market group, up to fourteen in total, from matches kicking off within
-48 hours. It replaces v23 for new prediction runs and shortlist refreshes.
+48 hours. It replaced v23 and is now archived: v25 ([corners-cards-shortlist.md](corners-cards-shortlist.md)) adds Corners and Cards groups for new runs.
 
 ## Market groups
 
