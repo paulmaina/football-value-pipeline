@@ -19,6 +19,8 @@ import league_registry
 
 # football-data.co.uk division -> league key, for domestic leagues BBS covers.
 DIVISIONS = {div: key for key, div in league_registry.divisions().items() if key in LEAGUES}
+# The one committed combined generation; legacy timestamped copies stay readable.
+CURRENT = 'current'
 CSV_STATS = {'total_shots': 'S', 'shots_on_target': 'ST', 'corner_kicks': 'C',
              'fouls': 'F', 'yellow_cards': 'Y', 'red_cards': 'R'}
 
@@ -344,15 +346,7 @@ def build_dataset(store, baseline, cutoff, explicit=None):
         'report': report}
 
 
-def write_dataset(dataset, output):
-    """Publish CSV/JSON as a timestamped generation, then switch the manifest."""
-    import hashlib
-    from bbs_data import atomic_json
-    output = Path(output)
-    digest = hashlib.sha256(dumps(dataset).encode()).hexdigest()
-    stamp = utc(dataset['report']['cutoff_utc']).strftime('%Y%m%dT%H%M%S%fZ')
-    generation = output / 'snapshots' / (stamp + '_' + digest)
-    generation.mkdir(parents=True, exist_ok=True)
+def _dataset_files(dataset):
     files = {}
     for key in ('fixtures', 'standings', 'teams', 'players', 'team_mappings', 'report'):
         files[key + '.json'] = (dumps(dataset[key]) + '\n').encode()
@@ -366,21 +360,71 @@ def write_dataset(dataset, output):
         writer.writeheader()
         writer.writerows(rows)
         files[f'{league}_enriched_history.csv'] = out.getvalue().encode()
+    return files
+
+
+def write_dataset(dataset, output):
+    """Publish CSV/JSON as the single current generation, then switch the manifest.
+
+    The generation is rebuilt from immutable observations, so it is replaced in
+    place rather than kept as another timestamped copy. Older cutoffs are
+    rebuilt from those observations by read_combined.
+    """
+    import hashlib
+    import os
+    from bbs_data import atomic_json
+    output = Path(output)
+    generation = output / CURRENT
+    generation.mkdir(parents=True, exist_ok=True)
+    files = _dataset_files(dataset)
     for name, content in files.items():
-        path = generation / name
-        if path.exists() and path.read_bytes() != content:
-            raise ValueError('Immutable combined snapshot conflict')
-        path.write_bytes(content)
-    manifest = {'version': 1, 'cutoff_utc': dataset['report']['cutoff_utc'],
-        'generation': generation.relative_to(output).as_posix(),
+        temporary = generation / (name + '.tmp')
+        temporary.write_bytes(content)
+        os.replace(temporary, generation / name)
+    for stale in generation.glob('*_enriched_history.csv'):
+        if stale.name not in files:
+            stale.unlink()
+    manifest = {'version': 2, 'cutoff_utc': dataset['report']['cutoff_utc'],
+        'generation': CURRENT,
         'sha256': {name: hashlib.sha256(data).hexdigest() for name, data in files.items()}}
     atomic_json(generation / 'manifest.json', manifest)
     atomic_json(output / 'latest.json', manifest)
     return generation
 
 
+_REBUILT = {}
+
+
+def _rebuilt_files(cache_dir, cutoff):
+    """Rebuild the combined view at an earlier cutoff from immutable observations."""
+    from bbs_data import Store, decode
+    key = (str(Path(cache_dir).resolve()), cutoff)
+    if key not in _REBUILT:
+        state = Path(cache_dir) / 'bbs' / 'state'
+        if not state.is_dir():
+            return {}
+        mapping = Path(cache_dir) / 'bbs' / 'team_map.json'
+        explicit = decode(mapping.read_text()) if mapping.exists() else {}
+        store = Store(state)
+        try:
+            # Before the first observation there is no BBS data to use.
+            observed = any(utc(row['observed']) <= utc(cutoff) for row in store.observations)
+            dataset = build_dataset(store, read_existing(cache_dir), cutoff, explicit) if observed else None
+        finally:
+            store.close()
+        _REBUILT.clear()
+        _REBUILT[key] = _dataset_files(dataset) if dataset else {}
+    return _REBUILT[key]
+
+
 def read_combined(cache_dir, league, cutoff):
-    """Read only complete published CSV snapshots available by the forecast cutoff."""
+    """Read the combined CSV as available by the forecast cutoff.
+
+    The current generation serves cutoffs at or after its own. A cutoff before
+    the last legacy timestamped snapshot reads legacy snapshots exactly as
+    before, so archived replays are unchanged; any other earlier cutoff is
+    rebuilt from the immutable observations.
+    """
     import hashlib
     from bbs_data import decode
     root = Path(cache_dir) / 'bbs' / 'combined'
@@ -388,16 +432,20 @@ def read_combined(cache_dir, league, cutoff):
         return []
     limit = utc(cutoff)
     manifest = decode((root / 'latest.json').read_text())
-    if utc(manifest['cutoff_utc']) > limit:
-        candidates = [decode(p.read_text()) for p in (root/'snapshots').glob('*/manifest.json')]
-        candidates = [m for m in candidates if utc(m['cutoff_utc']) <= limit]
-        if not candidates:
-            return []
-        manifest = max(candidates, key=lambda m: utc(m['cutoff_utc']))
-    generation = (root / manifest['generation']).resolve()
-    if not generation.is_relative_to((root / 'snapshots').resolve()):
-        raise ValueError('Combined snapshot escapes cache')
     name = f'{league}_enriched_history.csv'
+    if utc(manifest['cutoff_utc']) > limit:
+        legacy = [decode(p.read_text()) for p in (root/'snapshots').glob('*/manifest.json')]
+        if legacy and limit < max(utc(m['cutoff_utc']) for m in legacy):
+            candidates = [m for m in legacy if utc(m['cutoff_utc']) <= limit]
+            if not candidates:
+                return []
+            manifest = max(candidates, key=lambda m: utc(m['cutoff_utc']))
+        else:
+            data = _rebuilt_files(cache_dir, limit.isoformat()).get(name)
+            return list(csv.DictReader(io.StringIO(data.decode('utf-8')))) if data else []
+    generation = (root / manifest['generation']).resolve()
+    if not (generation.is_relative_to((root / 'snapshots').resolve()) or generation == (root / CURRENT).resolve()):
+        raise ValueError('Combined snapshot escapes cache')
     if name not in manifest['sha256']:
         return []
     data = (generation / name).read_bytes()

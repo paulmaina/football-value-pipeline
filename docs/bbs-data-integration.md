@@ -12,20 +12,27 @@ new data and collection checkpoints to local machines.
   time. API keys and request headers are never written.
 - `state/observations/<kind>/<UTC timestamp>_<hash>.json`: immutable normalized
   observations for matches, statistics, standings, teams, players and coverage.
-- `combined/snapshots/<UTC timestamp>_<hash>/<league>_enriched_history.csv`:
-  normalized combined results/statistics, provider match/team IDs, observation times,
-  source update times where supplied, integration status and conflict flags.
+- `combined/current/<league>_enriched_history.csv`: normalized combined
+  results/statistics, provider match/team IDs, observation times, source update
+  times where supplied, integration status and conflict flags.
 - The same generation includes `fixtures.json`, `standings.json`, `teams.json`,
   `players.json`, `team_mappings.json`, `report.json` and `manifest.json`.
-- `combined/latest.json`: atomic pointer to a complete generation, including CSV
-  checksums and cutoff. Incomplete generations are never selected.
+- `combined/latest.json`: atomic pointer to the current generation, including CSV
+  checksums and cutoff.
+- `combined/snapshots/<UTC timestamp>_<hash>/`: legacy timestamped generations
+  published before 2026-10-24. Kept read-only for replay; no new ones are written.
 - `team_map.json`: optional reviewed provider-ID to canonical-team mappings.
 
 Immutable timestamped observations preserve corrections rather than rewriting
-what was previously received. Combined snapshots retain each published view.
-The CSV/JSON boundary can later be imported into a dedicated database. This does
-increase Git history size; the first implementation intentionally retains history
-rather than automatically pruning records needed for replay.
+what was previously received. The combined view is derived from them, so each
+publish replaces the single `current` generation instead of committing another
+full copy (32 copies, about 294 MB, had accumulated). A forecast cutoff at or after
+the current generation reads it directly. A cutoff before the last legacy snapshot
+reads legacy snapshots exactly as before. Any other earlier cutoff is rebuilt from
+the observations and the primary caches; a rebuild at the last legacy cutoff is
+byte-identical to that snapshot. A rebuild reads every observation and is slow
+(about 1.5 hours on a Windows workstation); scheduled forecasts never need one.
+The CSV/JSON boundary can later be imported into a dedicated database.
 
 ## Local usage
 
@@ -380,3 +387,26 @@ development examples, not verified historical availability. None meets the 120
 example minimum, so probabilities currently retain the existing model. More
 verified coverage or later matches can improve eligibility; ordinary prediction
 runs reassess automatically. This uses saved data, not a live account/quota query.
+
+
+## Statistics coverage and the predictor-feature flag (2026-10-24)
+
+`bbs_statistics_used_as_predictor_features` is `false` because the lagged
+statistics model has never passed its validation gate, not because of a defect.
+The Free key serves current-season statistics only, so each league has one
+season's partial coverage (EPL: 71 matches with statistics). The model needs 120
+eligible examples including 40 paired audit matches; EPL has 34 paired audit
+matches (`INSUFFICIENT_PAIRED_AUDIT`), and the other leagues have fewer
+(`INSUFFICIENT_RETROSPECTIVE_EXAMPLES`). The flag correctly reports that no
+fixture used the features.
+
+A historical backfill would fix this, but it is not possible on the Free plan:
+previous seasons return 403 and match xG is omitted below the Solo plan. An
+estimated six-season backfill for the big five is about 18,400 requests (two per
+match for team statistics with xG and player statistics, plus match lists and
+injuries) against 500 requests a day shared with routine collection. BBS does not
+cover UEL, Eredivisie or Primeira Liga, covers UCL only from 2025-26 without xG,
+and its soccer injury log is forward-only, so historical injury features would
+carry look-ahead risk. The backfill was not run (decision 2026-10-24). Without it,
+xG blending, injury adjustments and team-statistics features cannot be
+backtested, so none was enabled; the production model is unchanged.
