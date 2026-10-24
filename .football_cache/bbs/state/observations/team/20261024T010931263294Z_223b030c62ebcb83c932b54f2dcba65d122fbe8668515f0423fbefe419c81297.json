@@ -1,0 +1,1 @@
+{"entity":"7777142c-23c7-4d32-a315-3d5ddc72e946","kind":"team","league":"LaLiga","observed":"2026-10-24T01:09:31.263294+00:00","payload":{"conference":null,"flag_url":null,"id":"7777142c-23c7-4d32-a315-3d5ddc72e946","league":"La Liga","logo_url":null,"name":"Almeria","short_name":null,"sport":"football"},"query":"/v1/teams?league=laliga&limit=200&offset=0&sport=football"}

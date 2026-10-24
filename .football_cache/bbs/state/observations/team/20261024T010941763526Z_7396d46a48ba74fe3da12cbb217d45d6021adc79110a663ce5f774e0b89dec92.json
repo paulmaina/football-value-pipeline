@@ -1,0 +1,1 @@
+{"entity":"66dfc226-cbf1-496d-bc10-4a713ff9c451","kind":"team","league":"Ligue1","observed":"2026-10-24T01:09:41.763526+00:00","payload":{"conference":null,"flag_url":null,"id":"66dfc226-cbf1-496d-bc10-4a713ff9c451","league":"Ligue 1","logo_url":null,"name":"Guingamp","short_name":null,"sport":"football"},"query":"/v1/teams?league=ligue1&limit=200&offset=0&sport=football"}
