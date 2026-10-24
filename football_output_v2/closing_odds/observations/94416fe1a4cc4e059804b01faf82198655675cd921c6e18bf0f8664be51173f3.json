@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Paris FC",
+    "home_team": "RC Lens",
+    "kickoff_utc": "2026-10-24T18:45:00+00:00",
+    "league": "Ligue 1",
+    "odds_event_id": "fc6c50376190b578cfeb38c029db8487"
+  },
+  "observed_at_utc": "2026-10-24T18:39:20.907533+00:00",
+  "payload": {
+    "away_team": "Paris FC",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T18:38:55Z",
+            "outcomes": [
+              {
+                "name": "Paris FC",
+                "price": 3.11
+              },
+              {
+                "name": "RC Lens",
+                "price": 2.27
+              },
+              {
+                "name": "Draw",
+                "price": 3.56
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T18:38:55Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.55
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.45
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T18:39:15Z",
+            "outcomes": [
+              {
+                "name": "Paris FC",
+                "price": 3.12
+              },
+              {
+                "name": "RC Lens",
+                "price": 2.37
+              },
+              {
+                "name": "Draw",
+                "price": 3.51
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T18:39:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.85
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.06
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-24T18:45:00Z",
+    "home_team": "RC Lens",
+    "id": "fc6c50376190b578cfeb38c029db8487",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.27,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.42612131737450487,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T18:38:55+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.56,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2667979310454048,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T18:38:55+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.11,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3070807515800905,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T18:38:55+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.55,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6216596202459687,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-24T18:38:55+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.45,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3783403797540313,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-24T18:38:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.37,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.41274873799369166,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T18:39:15+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.51,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2759137011252242,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T18:39:15+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.12,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.31133756088108416,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T18:39:15+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
