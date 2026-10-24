@@ -159,3 +159,32 @@ class EuropaProductionTests(TestCase):
             audit, rows = audit_cornerflick(base, europa.resolver(), NOW, official_rows=[])
             self.assertFalse(audit['verified_for_research'])
             self.assertEqual(len(audit['unverified_identities']), 1)
+
+
+class EuropaForecastAvailabilityTests(TestCase):
+    def test_unverified_europa_excluded_without_using_old_snapshot(self):
+        with patch('europa_training.load', side_effect=ValueError('coverage incomplete')) as load:
+            leagues, status = europa.forecast_availability(['EPL', 'UEL', 'PrimeiraLiga'], 'cache', NOW)
+        load.assert_called_once_with('cache', NOW)
+        self.assertEqual(leagues, ['EPL', 'PrimeiraLiga'])
+        self.assertEqual(status['excluded_leagues']['UEL']['status'], 'TRAINING_UNVERIFIED')
+        self.assertEqual(status['requested_leagues'], ['EPL', 'UEL', 'PrimeiraLiga'])
+
+    def test_verified_europa_automatically_rejoins(self):
+        with patch('europa_training.load', return_value=pd.DataFrame()):
+            leagues, status = europa.forecast_availability(['EPL', 'UEL'], 'cache', NOW)
+        self.assertEqual(leagues, ['EPL', 'UEL'])
+        self.assertEqual(status['excluded_leagues'], {})
+
+    def test_europa_only_failure_still_fails_instead_of_publishing_empty_run(self):
+        with patch('europa_training.load', side_effect=ValueError('unverified')):
+            with self.assertRaisesRegex(ValueError, 'No requested leagues'):
+                europa.forecast_availability(['UEL'], 'cache', NOW)
+
+    def test_other_leagues_do_not_access_europa_and_programming_errors_propagate(self):
+        with patch('europa_training.load', side_effect=AssertionError('bug')) as load:
+            leagues, _ = europa.forecast_availability(['EPL'], 'cache', NOW)
+            self.assertEqual(leagues, ['EPL'])
+            load.assert_not_called()
+            with self.assertRaises(AssertionError):
+                europa.forecast_availability(['UEL', 'EPL'], 'cache', NOW)
