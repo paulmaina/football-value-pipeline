@@ -10,7 +10,7 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-24T14:22:17.608235+00:00",
+  "generated_at_utc": "2026-10-24T14:50:28.871677+00:00",
   "model_code_sha256": "5b66cfd3064e6ec095d5a4b63e09185c5eaad163d74ac9f4ab720ded92097fb8",
   "model_component_sha256": {
     "api_football_data.py": "c5ae292a50d10b4e1a0d9901a0989c8eebc99082aa19d75d3d0e87cc59b00de5",
@@ -42,6 +42,6 @@
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47",
     "win_first_shortlist.py": "13a189d481338e75ee2f386a6de316df0ca9b73d8a96e8d5b9cdc3de91c59bb8"
   },
-  "predictions_sha256": "a97a81243193e5a3927d34e5ba1c942203219d8ffd48204f309668d9f9e55959",
+  "predictions_sha256": "caa9e1d7e158dd20197a3d73ec621dc3743e1df792198a89ef724169e7eda559",
   "selection_policy_version": "48h-two-per-market-group-probability-ev-v24"
 }

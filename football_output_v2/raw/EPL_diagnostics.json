@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "3bc6190356fc96a5178adca6e1b39d19857b911e794cf07d102947fea0b2f137",
-  "training_as_of_utc": "2026-10-24T14:18:12.938864+00:00",
+  "training_as_of_utc": "2026-10-24T14:46:21.720761+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 71,
     "bbs_added_results": 1,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-10-24T14:18:12.938864+00:00",
+    "cutoff_utc": "2026-10-24T14:46:21.720761+00:00",
     "observations": 300,
     "observations_sha256": "bfd2e41076e98c62f4d96c6d69a90179b5bf20c29a1a8a6f92fcd137b57cac68",
     "eligible_training_matches": 147,
@@ -120,10 +120,10 @@
   },
   "training_end": "2026-10-23",
   "fit_success": true,
-  "objective": 924.4509914539982,
-  "base": 0.21019620613851406,
-  "home_adv": 0.18602371262247894,
-  "rho": -0.09489817409638017,
+  "objective": 924.3988329316179,
+  "base": 0.2103900311745114,
+  "home_adv": 0.18596276199180609,
+  "rho": -0.09492904983563566,
   "half_life_days": 240.0,
   "xi_per_day": 0.0028881132523331052,
   "max_goals": 10,
@@ -155,7 +155,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261024T141812938864Z_82eb24de2469c7f052a7964abe91dfba181d41a9263000d30b34d57f95169b54.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261024T144621720761Z_ffe2f97bca7d84a47cd66d7fd2b4f34449beeceb7ad066a25f4670cd166389d6.json",
   "over_1_5_in_window_quote_fixtures": 1,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -189,7 +189,7 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 34,
+      "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
