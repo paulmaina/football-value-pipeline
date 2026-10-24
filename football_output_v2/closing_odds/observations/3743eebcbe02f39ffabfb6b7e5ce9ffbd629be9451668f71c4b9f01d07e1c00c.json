@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Fulham",
+    "home_team": "Coventry City",
+    "kickoff_utc": "2026-10-24T14:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "0fbb2626ed9534b9dcf21d16925f9bd7"
+  },
+  "observed_at_utc": "2026-10-24T13:54:28.100130+00:00",
+  "payload": {
+    "away_team": "Fulham",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T13:53:50Z",
+            "outcomes": [
+              {
+                "name": "Coventry City",
+                "price": 3.52
+              },
+              {
+                "name": "Fulham",
+                "price": 2.11
+              },
+              {
+                "name": "Draw",
+                "price": 3.52
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T13:53:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.78
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.1
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T13:54:14Z",
+            "outcomes": [
+              {
+                "name": "Coventry City",
+                "price": 3.29
+              },
+              {
+                "name": "Fulham",
+                "price": 2.27
+              },
+              {
+                "name": "Draw",
+                "price": 3.52
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T13:54:14Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.98
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.93
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-24T14:00:00Z",
+    "home_team": "Coventry City",
+    "id": "0fbb2626ed9534b9dcf21d16925f9bd7",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.52,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.27005247025705337,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.52,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.27005247025705337,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.11,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.45989505948589315,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.78,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5435826572395897,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.1,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.45641734276041024,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.29,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2943941275851186,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T13:54:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.52,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.27465978973267635,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T13:54:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.27,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.43094608268220497,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T13:54:14+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
