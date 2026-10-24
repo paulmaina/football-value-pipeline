@@ -16611,7 +16611,7 @@
     "reference_source": "The Odds API / Marathon Bet",
     "reference_updated_at_utc": "2026-10-21T17:15:54Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "d737a7a239cba647c6a18877351a8ec1e81a6350",
     "status": "available"
@@ -19526,7 +19526,7 @@
     "reference_source": "The Odds API / Winamax (DE)",
     "reference_updated_at_utc": "2026-10-21T17:24:06Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "d737a7a239cba647c6a18877351a8ec1e81a6350",
     "status": "available"
@@ -20997,7 +20997,7 @@
     "reference_source": "The Odds API / Marathon Bet",
     "reference_updated_at_utc": "2026-10-21T17:15:54Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "available",
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "available"
@@ -21336,7 +21336,7 @@
     "reference_source": "The Odds API / Winamax (DE)",
     "reference_updated_at_utc": "2026-10-21T17:24:07Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "available",
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "available"
@@ -21675,7 +21675,7 @@
     "reference_source": "The Odds API / Marathon Bet",
     "reference_updated_at_utc": "2026-10-21T17:28:34Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "available",
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "available"

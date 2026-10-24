@@ -1424,6 +1424,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564727": {
+    "away_goals": 1,
+    "away_short_name": "Espanyol",
+    "away_team": "RCD Espanyol de Barcelona",
+    "first_verified_at_utc": "2026-10-24T22:36:52Z",
+    "home_goals": 2,
+    "home_short_name": "Santander",
+    "home_team": "Real Racing Club de Santander",
+    "kickoff_utc": "2026-10-24T14:15:00Z",
+    "league_code": "PD",
+    "match_id": 564727,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560592": {
     "away_goals": 2,
     "away_short_name": "Brighton Hove",
@@ -1735,6 +1750,21 @@
     "kickoff_utc": "2026-10-23T19:00:00Z",
     "league_code": "PL",
     "match_id": 560620,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558560": {
+    "away_goals": 2,
+    "away_short_name": "Bologna",
+    "away_team": "Bologna FC 1909",
+    "first_verified_at_utc": "2026-10-24T22:36:52Z",
+    "home_goals": 0,
+    "home_short_name": "Cagliari",
+    "home_team": "Cagliari Calcio",
+    "kickoff_utc": "2026-10-24T13:00:00Z",
+    "league_code": "SA",
+    "match_id": 558560,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"

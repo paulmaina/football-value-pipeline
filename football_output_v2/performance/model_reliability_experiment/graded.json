@@ -1575,6 +1575,76 @@
     "week": "2026-W43"
   },
   {
+    "away_team": "Espanyol",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.7569704647109516,
+      "home_goals": 2,
+      "over_1_5": 0.9119074705940317,
+      "over_2_5": 0.7598221466852135,
+      "p_away": 0.3883997539723838,
+      "p_draw": 0.23338767746827108,
+      "p_home": 0.3782125685593451,
+      "under_3_5": 0.428023850988525,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.7068957348234107,
+      "home_goals": 2,
+      "over_1_5": 0.8789650181181564,
+      "over_2_5": 0.6973251972057308,
+      "p_away": 0.37099262691384105,
+      "p_draw": 0.24030366158234664,
+      "p_home": 0.38870371150381233,
+      "under_3_5": 0.5089923135021458,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Real Racing Club de Santander",
+    "kickoff_utc": "2026-10-24T14:15:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": 0.027360998071589315,
+    "snapshot_commit": "d737a7a239cba647c6a18877351a8ec1e81a6350",
+    "source_match_id": 564727,
+    "week": "2026-W43"
+  },
+  {
+    "away_team": "Bologna",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.5002993851048132,
+      "home_goals": 0,
+      "over_1_5": 0.7080926776202615,
+      "over_2_5": 0.44101666802729056,
+      "p_away": 0.42362098148394933,
+      "p_draw": 0.2917809821159128,
+      "p_home": 0.2845980364001379,
+      "under_3_5": 0.7664511329720637,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.5011417312943339,
+      "home_goals": 0,
+      "over_1_5": 0.707902689464651,
+      "over_2_5": 0.44094573163916023,
+      "p_away": 0.4203606679274321,
+      "p_draw": 0.2920356438730949,
+      "p_home": 0.28760368819947313,
+      "under_3_5": 0.7664831921813305,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Cagliari",
+    "kickoff_utc": "2026-10-24T13:00:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.0077260679226746065,
+    "snapshot_commit": "d737a7a239cba647c6a18877351a8ec1e81a6350",
+    "source_match_id": 558560,
+    "week": "2026-W43"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,
@@ -3147,6 +3217,76 @@
     "log_loss_gain": -0.0738633630223926,
     "snapshot_commit": "4c569effb9e7261783c7d1cc1a5b93cb0f40d309",
     "source_match_id": 559654,
+    "week": "2026-W43"
+  },
+  {
+    "away_team": "Espanyol",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.7569704647109516,
+      "home_goals": 2,
+      "over_1_5": 0.9119074705940317,
+      "over_2_5": 0.7598221466852135,
+      "p_away": 0.3883997539723838,
+      "p_draw": 0.23338767746827108,
+      "p_home": 0.3782125685593451,
+      "under_3_5": 0.428023850988525,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.7266046189258005,
+      "home_goals": 2,
+      "over_1_5": 0.8926463299949937,
+      "over_2_5": 0.7216496523135085,
+      "p_away": 0.379902628408635,
+      "p_draw": 0.2381114898061532,
+      "p_home": 0.3819858817852117,
+      "under_3_5": 0.47857002549971384,
+      "y": 0
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Real Racing Club de Santander",
+    "kickoff_utc": "2026-10-24T14:15:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": 0.009927261000337473,
+    "snapshot_commit": "d737a7a239cba647c6a18877351a8ec1e81a6350",
+    "source_match_id": 564727,
+    "week": "2026-W43"
+  },
+  {
+    "away_team": "Bologna",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.5002993851048132,
+      "home_goals": 0,
+      "over_1_5": 0.7080926776202615,
+      "over_2_5": 0.44101666802729056,
+      "p_away": 0.42362098148394933,
+      "p_draw": 0.2917809821159128,
+      "p_home": 0.2845980364001379,
+      "under_3_5": 0.7664511329720637,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.4931948730034875,
+      "home_goals": 0,
+      "over_1_5": 0.6994448072274038,
+      "over_2_5": 0.43160389497813867,
+      "p_away": 0.41812060855757055,
+      "p_draw": 0.29284341262020946,
+      "p_home": 0.28903597882222,
+      "under_3_5": 0.7742511730001816,
+      "y": 2
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Cagliari",
+    "kickoff_utc": "2026-10-24T13:00:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.013069215735301176,
+    "snapshot_commit": "d737a7a239cba647c6a18877351a8ec1e81a6350",
+    "source_match_id": 558560,
     "week": "2026-W43"
   }
 ]
