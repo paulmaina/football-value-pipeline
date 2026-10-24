@@ -33,7 +33,7 @@ SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'collect_api_football_data.py', 'publish_api_football_data.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
-             'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py', 'clv_report.py')
+             'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'league_registry.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py', 'clv_report.py')
 COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_football_integration.py':85,
     'win_first_shortlist.py':85, 'per_market_shortlist.py':85,
     'collect_api_football_data.py':75, 'publish_api_football_data.py':75,
@@ -43,7 +43,7 @@ COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_footb
     'double_chance.py':90, 'goal_market_validation.py':85, 'goal_blend_experiment.py':90,
     'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85,
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
-    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'recency_experiment.py':85, 'filter_sensitivity_experiment.py':85, 'historical_benchmark.py':85, 'benchmark_forward_experiment.py':85, 'experiment_review_queue.py':85, 'publish_scheduled_forecasts.py':80, 'totals_anchor_experiment.py':90, 'closing_odds.py':90, 'model_reliability_experiment.py':90,
+    'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'league_registry.py':90, 'recency_experiment.py':85, 'filter_sensitivity_experiment.py':85, 'historical_benchmark.py':85, 'benchmark_forward_experiment.py':85, 'experiment_review_queue.py':85, 'publish_scheduled_forecasts.py':80, 'totals_anchor_experiment.py':90, 'closing_odds.py':90, 'model_reliability_experiment.py':90,
     'staking.py':95, 'elo_ratings.py':95, 'match_simulation.py':95, 'pipeline_service.py':90, 'clv_report.py':90}
 
 
@@ -530,12 +530,32 @@ def report_check(root):
         'provider_errors':metrics.get('provider_errors',{}),'training_end_dates':training,'experiments':experiments,'warnings':warnings}
 
 
+def registry_check(repo):
+    """Every registry league has a scheduled refresh that runs its refresh script."""
+    import league_registry
+    league_registry.validate()
+    workflows=repo/'.github/workflows'
+    methods={}
+    for league in league_registry.REGISTRY:
+        method=league_registry.REFRESH_METHODS[league.refresh_method]
+        require((repo/method['script']).is_file(),f"{league.key}: missing refresh script {method['script']}")
+        workflow=workflows/method['workflow']
+        require(workflow.is_file(),f"{league.key}: missing refresh workflow {method['workflow']}")
+        text=workflow.read_text(encoding='utf-8')
+        require('schedule:' in text and method['script'] in text,
+                f"{league.key}: {method['workflow']} does not schedule {method['script']}")
+        if method['needs_secret']:
+            require(method['needs_secret'] in text,f"{league.key}: {method['workflow']} lacks {method['needs_secret']}")
+        methods.setdefault(league.refresh_method,[]).append(league.key)
+    return {'leagues':list(league_registry.LEAGUES),'refresh_methods':methods}
+
+
 def smoke(repo):
     paths=sorted(repo.glob('*.py'))+sorted((repo/'tests').glob('*.py'))
     for path in paths:compile(path.read_text(encoding='utf-8-sig'),str(path),'exec')
     for name in CLI_FILES:
         subprocess.run([sys.executable,str(repo/name),'--help'],check=True,stdout=subprocess.DEVNULL,cwd=repo,timeout=30)
-    return {'python_modules_compiled':len(paths),'cli_help_checked':len(CLI_FILES)}
+    return {'python_modules_compiled':len(paths),'cli_help_checked':len(CLI_FILES),'league_registry':registry_check(repo)}
 
 
 def coverage_check(path):

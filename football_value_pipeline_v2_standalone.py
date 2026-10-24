@@ -65,7 +65,6 @@ import sys
 import tempfile
 import unicodedata
 import warnings
-from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
@@ -85,40 +84,10 @@ from urllib3.util.retry import Retry
 # Configuration
 # ---------------------------------------------------------------------------
 
-@dataclass(frozen=True)
-class LeagueConfig:
-    key: str
-    name: str
-    country: str
-    football_data_div: str
-    odds_api_sport_key: str
-    football_data_org_code: str
+# League identities, sources and history windows live in league_registry.
+from league_registry import League as LeagueConfig, LEAGUES as _REGISTERED_LEAGUES
 
-
-LEAGUES: Dict[str, LeagueConfig] = {
-    "EPL": LeagueConfig(
-        "EPL", "Premier League", "England", "E0", "soccer_epl", "PL"
-    ),
-    "LaLiga": LeagueConfig(
-        "LaLiga", "La Liga", "Spain", "SP1", "soccer_spain_la_liga", "PD"
-    ),
-    "Bundesliga": LeagueConfig(
-        "Bundesliga", "Bundesliga", "Germany", "D1",
-        "soccer_germany_bundesliga", "BL1"
-    ),
-    "SerieA": LeagueConfig(
-        "SerieA", "Serie A", "Italy", "I1", "soccer_italy_serie_a", "SA"
-    ),
-    "Ligue1": LeagueConfig(
-        "Ligue1", "Ligue 1", "France", "F1", "soccer_france_ligue_one", "FL1"
-    ),
-    "UCL": LeagueConfig(
-        "UCL", "UEFA Champions League", "Europe", "",
-        "soccer_uefa_champs_league", "CL"
-    ),
-    "UEL": LeagueConfig("UEL", "UEFA Europa League", "Europe", "",
-                        "soccer_uefa_europa_league", "EL"),
-}
+LEAGUES: Dict[str, LeagueConfig] = dict(_REGISTERED_LEAGUES)
 
 HISTORICAL_URL = "https://www.football-data.co.uk/mmz4281/{season}/{division}.csv"
 FIXTURES_URL = "https://www.football-data.co.uk/fixtures.csv"
@@ -2549,9 +2518,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         self.extra_event_odds_requests = 0
         self.max_extra_event_odds_requests = 24
         from goal_market_validation import distribute_event_odds_budget
-        self.extra_event_odds_quota = distribute_event_odds_budget(
-            ["EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1", "UCL", "UEL"], 24
-        )
+        self.extra_event_odds_quota = distribute_event_odds_budget(list(LEAGUES), 24)
         self.extra_event_odds_by_league = {
             key: 0 for key in self.extra_event_odds_quota
         }
@@ -3494,9 +3461,10 @@ def history_windows(args):
     """Six domestic seasons by default; preserve explicit shared overrides."""
     shared = args.seasons_back
     domestic = args.domestic_seasons_back
-    return {'seasons_back': shared if shared is not None else 4,
+    from league_registry import FOOTBALL_DATA_ORG, FOOTBALL_DATA_UK, history_seasons
+    return {'seasons_back': shared if shared is not None else history_seasons(FOOTBALL_DATA_ORG),
             'domestic_seasons_back': (domestic if domestic is not None else
-                                      shared if shared is not None else 6)}
+                                      shared if shared is not None else history_seasons(FOOTBALL_DATA_UK))}
 
 
 def build_parser() -> argparse.ArgumentParser:

@@ -14,11 +14,12 @@ import subprocess
 
 import numpy as np
 import pandas as pd
+import league_registry
 from scipy.optimize import brentq
 from scipy.stats import poisson
 
 VERSION = 'historical-dc-benchmark-v1'
-CODES = {'EPL':'E0','LaLiga':'SP1','Bundesliga':'D1','SerieA':'I1','Ligue1':'F1'}
+CODES = league_registry.divisions()
 GOALS = ('over_1_5','under_3_5','btts_yes','over_2_5')
 BASE = 'blend_50_fixed_baseline'
 
