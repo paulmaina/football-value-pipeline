@@ -32,13 +32,16 @@ not. See [win-first-shortlist.md](win-first-shortlist.md).
    adjusted EV), so duplicate bookmaker rows do not distort percentiles.
 2. Within each market group, compute the empirical percentile of the adjusted
    probability and the adjusted EV among that group's eligible candidates.
-3. Score = 0.8 × probability percentile + 0.2 × EV percentile. Probability
-   dominates: a candidate with lower probability overtakes only when its EV
-   rank gain is more than four times its probability rank loss, so EV
-   reorders only close calls (for example, one probability place lower but
-   five EV places higher). Equal scores are broken by higher adjusted
-   probability. The selected list can therefore include negative-EV picks;
-   they are flagged, not removed.
+3. Score = 0.8 × probability percentile + 0.2 × EV percentile. Equal scores
+   are broken by higher adjusted probability. A candidate with lower
+   probability overtakes when its EV rank gain is more than four times its
+   probability rank loss. Percentiles measure rank, not the size of the
+   probability gap, so a large gap gives no extra protection. Example: in a
+   Home win group of 11 or more candidates, a 95% candidate with the worst EV
+   loses both slots to 60% and 59% candidates with the best EVs. This is a
+   deliberate tradeoff against strict win-first selection (v23). The
+   selected list can also include negative-EV picks; they are flagged, not
+   removed.
 4. Compute the most slots any allocation can fill, with one market per
    fixture, at most two per group and fourteen in total.
 5. Walk all candidates by score, highest first (ties: adjusted probability,
