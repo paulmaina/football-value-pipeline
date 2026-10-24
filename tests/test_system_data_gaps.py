@@ -90,7 +90,7 @@ class HealthGapTests(OfflineQuotePolicyTestCase):
         def promoted(path):
             data=original(path)
             if path.name!='league_registry.py':return data
-            edited=data.replace(b'FOOTBALL_DATA_UK, False)',b'FOOTBALL_DATA_UK, True)',1)
+            edited=data.replace(b'FOOTBALL_DATA_UK, PER_MARKET_APPROVAL)',b'FOOTBALL_DATA_UK, LEAGUE_APPROVAL)',1)
             self.assertNotEqual(edited,data,'simulated eligibility edit must apply')
             return edited
         with patch.object(Path,'read_bytes',promoted):

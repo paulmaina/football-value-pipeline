@@ -2,6 +2,12 @@
 
 **Decision: both leagues stay `shortlist_validated=False`.** Each fails the draw / Double Chance 12 calibration check that all five existing domestic leagues pass. No threshold was changed.
 
+> **Update (2026-10-24):** the league-level bar was replaced with per-market approval (`shortlist_approval=PER_MARKET_APPROVAL`). Each market below now qualifies or stays blocked on its own audit result:
+> - **Eredivisie:** Home win, Away win, DC 1X, DC X2 and all 50 Asian-handicap lines may qualify. Draw, DC 12, Over 1.5, Under 3.5 and BTTS stay blocked.
+> - **Primeira Liga:** every market except Draw and DC 12 may qualify.
+>
+> Thresholds are unchanged, and a qualifying market must still pass every quote, identity, timing and high-confidence check.
+
 ## Method
 
 The production code path ran unchanged: `football_value_pipeline_v2_standalone.py --leagues Eredivisie PrimeiraLiga --tune-half-life`. It used validator v9 and the same settings recorded in the existing five leagues' reports: `min_train=500`, 56-day walk-forward steps, a 75% development / 25% audit split by date, market weight 0.5, l2 0.08, max goals 10, and power de-vig.
@@ -151,4 +157,4 @@ Draw market, development vs audit (mean forecast vs observed draw rate):
 
 ## Re-evaluation
 
-This validation reruns automatically with each scheduled forecast. Promotion still requires a reviewed commit changing `shortlist_validated` in `league_registry.py`, after the draw/DC 12 market passes on fresh evidence. Even after promotion, the per-market reliability gates continue to block any failing market.
+This validation reruns automatically with each scheduled forecast. Under per-market approval, a market's eligibility follows its latest audit result: a market that later fails is blocked again, and draw/DC 12 qualifies only once it passes.

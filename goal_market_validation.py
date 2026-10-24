@@ -21,11 +21,11 @@ from typing import Optional
 import numpy as np
 import pandas as pd
 
-from league_registry import keys as _league_keys
+from league_registry import LEAGUE_APPROVAL as _LEAGUE_APPROVAL, keys as _league_keys
 
-# Ranked-mode extra event-odds reservations go only to shortlist-validated
-# leagues; unvalidated leagues cannot be shortlisted, so they get none.
-SUPPORTED_COMPETITIONS = _league_keys(shortlist_validated=True)
+# Ranked-mode extra event-odds reservations stay with the league-approved
+# leagues, so per-market leagues never reduce the existing leagues' share.
+SUPPORTED_COMPETITIONS = _league_keys(shortlist_approval=_LEAGUE_APPROVAL)
 HIGH_PROBABILITY_THRESHOLDS = (0.75, 0.85)
 MIN_HIGH_DEV = 30
 MIN_HIGH_AUDIT = 12
