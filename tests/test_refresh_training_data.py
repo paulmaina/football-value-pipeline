@@ -43,7 +43,7 @@ class RefreshTests(OfflineQuotePolicyTestCase):
             year=2000+int(url.split('/')[-2][:2])
             return f'Div,Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HS,AS,HST,AST\n{division},01/09/{year},A,B,1,0,H,12,8,5,2\n'.encode()
         batch=refresh.fetch_batch(CLOCK,6,fake)
-        self.assertEqual(len(batch),30)
+        self.assertEqual(len(batch),6*len(refresh.DIVISIONS))
         self.assertEqual({x['year'] for x in batch},set(range(2021,2027)))
         with tempfile.TemporaryDirectory() as tmp:
             entries=refresh.apply_batch(Path(tmp),batch,CLOCK)
@@ -59,8 +59,9 @@ class RefreshTests(OfflineQuotePolicyTestCase):
             year=2000+int(url.split('/')[-2][:2])
             return csv_data(f'{division},01/09/{year},A,B,1,0\n')
         batch=refresh.fetch_batch(CLOCK,4,fake)
-        self.assertEqual(len(batch),20)
-        self.assertEqual(len({x['path'] for x in batch}),20)
+        self.assertEqual(len(batch),4*len(refresh.DIVISIONS))
+        self.assertEqual(len({x['path'] for x in batch}),4*len(refresh.DIVISIONS))
+        self.assertEqual({x['division'] for x in batch},set(refresh.DIVISIONS.values()))
         with self.assertRaises(RuntimeError):
             refresh.fetch_batch(CLOCK,1,lambda url: (_ for _ in ()).throw(RuntimeError('offline')))
 

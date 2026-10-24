@@ -15,7 +15,10 @@ from pathlib import Path
 from bbs_data import LEAGUES, STAT_FIELDS, dumps, utc
 from match_scores import regulation_goals
 
-DIVISIONS = {'E0': 'EPL', 'SP1': 'LaLiga', 'D1': 'Bundesliga', 'I1': 'SerieA', 'F1': 'Ligue1'}
+import league_registry
+
+# football-data.co.uk division -> league key, for domestic leagues BBS covers.
+DIVISIONS = {div: key for key, div in league_registry.divisions().items() if key in LEAGUES}
 CSV_STATS = {'total_shots': 'S', 'shots_on_target': 'ST', 'corner_kicks': 'C',
              'fouls': 'F', 'yellow_cards': 'Y', 'red_cards': 'R'}
 

@@ -39,16 +39,20 @@ def current_health(root, clock, *, raw_dir=None):
             'api_football': data.get('training_data_provenance', {}).get('api_football', {'status': 'NOT_COLLECTED'}),
             'diagnostics_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
             'odds_provider_health': data.get('odds_provider_health', {'state': 'NOT_RECORDED'})}
-    if 'UCL' in training:
-        training['UCL']['current_source_health'] = health(root.parent, training['UCL']['training_end'], clock)
-    if 'UEL' in training:
+    import league_registry
+    for key in league_registry.keys(league_registry.FOOTBALL_DATA_ORG):
+        if key in training:
+            training[key]['current_source_health'] = health(root.parent, training[key]['training_end'], clock)
+    for key in league_registry.keys(league_registry.EUROPA_RECONCILED):
+        if key not in training:
+            continue
         from europa_training import fresh
         payload = read(root.parent/'.football_cache/europa/training.json', {})
         try:
             state = 'VERIFIED_WITHIN_24_HOURS' if fresh(payload, clock) else 'STALE'
         except (KeyError, TypeError, ValueError):
             state = 'DOWNLOAD_NOT_VERIFIED'
-        training['UEL']['current_source_health'] = {'status': state, 'verified_at_utc': payload.get('verified_at_utc'),
+        training[key]['current_source_health'] = {'status': state, 'verified_at_utc': payload.get('verified_at_utc'),
             'official_source_health': payload.get('official_source_health', {})}
     picks = read_csv(raw/'conservative_bet_shortlist.csv')
     quote = {'selected_quotes': len(picks), 'exchange_quotes': 0, 'missing_quote_age': 0,

@@ -21,7 +21,9 @@ from typing import Optional
 import numpy as np
 import pandas as pd
 
-SUPPORTED_COMPETITIONS = ("EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1", "UCL", "UEL")
+from league_registry import keys as _league_keys
+
+SUPPORTED_COMPETITIONS = _league_keys()
 HIGH_PROBABILITY_THRESHOLDS = (0.75, 0.85)
 MIN_HIGH_DEV = 30
 MIN_HIGH_AUDIT = 12

@@ -1,8 +1,9 @@
-"""Refresh football-data.co.uk CSVs independently of prediction generation.
+"""Refresh keyless league training data independently of prediction generation.
 
-No API keys, odds calls, model fitting, or forecast edits. Validate the complete
-batch before replacing any file. Publishing retries from latest main, never
-rebases generated data or force-pushes.
+Covers every registry league refreshed from football-data.co.uk CSVs or the
+reconciled Europa snapshot. No API keys, odds calls, model fitting, or forecast
+edits. Validate the complete batch before replacing any file. Publishing
+retries from latest main, never rebases generated data or force-pushes.
 """
 from __future__ import annotations
 
@@ -20,7 +21,11 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
-DIVISIONS = {'EPL': 'E0', 'LaLiga': 'SP1', 'Bundesliga': 'D1', 'SerieA': 'I1', 'Ligue1': 'F1'}
+import league_registry
+from league_registry import EUROPA_RECONCILED, FOOTBALL_DATA_UK
+
+DIVISIONS = league_registry.divisions()
+METHODS = (FOOTBALL_DATA_UK, EUROPA_RECONCILED)
 CACHE = Path('.football_cache')
 STATUS = Path('docs/training_refresh_status.json')
 URL = 'https://www.football-data.co.uk/mmz4281/{season}/{division}.csv'
@@ -102,11 +107,13 @@ def download(url):
     raise RuntimeError(f'Download failed for {url}: {last}')
 
 
-def fetch_batch(clock, seasons_back=1, downloader=download):
+def fetch_batch(clock, seasons_back=1, downloader=download, *, full_history=False):
+    """Current seasons, or each league's registry history window when full_history."""
     if not 1 <= seasons_back <= 10:
         raise ValueError('seasons_back must be between 1 and 10')
     tasks = [(league, div, year) for league, div in DIVISIONS.items()
-             for year in range(season_start(clock)-seasons_back+1, season_start(clock)+1)]
+             for back in [league_registry.get(league).history_seasons if full_history else seasons_back]
+             for year in range(season_start(clock)-back+1, season_start(clock)+1)]
 
     def fetch(task):
         league, division, year = task
@@ -161,7 +168,8 @@ def apply_batch(repo, batch, clock):
     indexed = {x['path']:x for x in previous_status.get('files',[])}
     indexed.update({x['path']:x for x in entries})
     status = {'provider':'football-data.co.uk', 'checked_at_utc':clock.isoformat(),
-              'scope':'Five domestic leagues only; UCL is not supplied by this provider.',
+              'scope':f"{len(DIVISIONS)} domestic leagues only ({', '.join(DIVISIONS)}); "
+                      'UCL and UEL are not supplied by this provider.',
               'files':sorted(indexed.values(),key=lambda x:x['path'])}
     # Atomic replacement per file. In CI the whole batch is then one Git commit.
     for path, content in changes + [(status_path,(json.dumps(status,indent=2)+'\n').encode())]:
@@ -215,22 +223,96 @@ def publish(repo, batch, clock, attempts=3):
     raise RuntimeError('Main kept advancing; no training refresh published')
 
 
-def main():
+def europa_globs():
+    return [g for l in league_registry.REGISTRY if l.refresh_method == EUROPA_RECONCILED for g in l.cache_globs()]
+
+
+def apply_europa(repo, clock, refresher=None):
+    """Fail closed: a source disagreement keeps the prior snapshot and raises."""
+    if refresher is None:
+        from europa_training import refresh as refresher
+    payload = refresher(Path(repo)/CACHE, clock)
+    latest = max((str(r['date'])[:10] for r in payload['matches']), default=None)
+    entry = {'league': 'UEL', 'verified_at_utc': payload['verified_at_utc'],
+             'completed_matches': len(payload['matches']), 'latest_completed_date': latest,
+             'official_source_health': payload.get('official_source_health', {})}
+    print(f"UEL: verified {entry['completed_matches']} matches; latest {latest}")
+    return entry
+
+
+def publish_europa(repo, clock, attempts=3, refresher=None):
+    """Re-run the Europa reconciliation on latest main; commit snapshot and sources."""
+    repo = repo.resolve()
+    with tempfile.TemporaryDirectory(prefix='europa-publish-') as temporary:
+        for attempt in range(attempts):
+            git(repo,'fetch','origin','main')
+            base = git(repo,'rev-parse','FETCH_HEAD').stdout.strip()
+            work = Path(temporary)/f'work-{attempt}'
+            git(repo,'worktree','add','--detach',str(work),base)
+            try:
+                entry = apply_europa(work,clock,refresher)
+                paths = [str(p.relative_to(work)) for g in europa_globs()
+                         for p in sorted((work/CACHE).glob(g)) if p.is_file()]
+                git(work,'add','--',*paths)
+                if git(work,'diff','--cached','--quiet',check=False).returncode == 0:
+                    return entry
+                git(work,'-c','user.name=github-actions[bot]','-c',
+                    'user.email=41898282+github-actions[bot]@users.noreply.github.com',
+                    'commit','-m','Refresh validated Europa training data [skip ci]')
+                result = git(work,'push','origin','HEAD:refs/heads/main',check=False)
+                if result.returncode == 0:
+                    print('Published Europa training refresh to main.')
+                    return entry
+                git(repo,'fetch','origin','main')
+                if git(repo,'rev-parse','FETCH_HEAD').stdout.strip() == base:
+                    raise RuntimeError('Europa training refresh push failed: '+result.stderr)
+                print('Main advanced; retrying on latest state.')
+            finally:
+                git(repo,'worktree','remove','--force',str(work))
+    raise RuntimeError('Main kept advancing; no Europa training refresh published')
+
+
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo',type=Path,default=Path(__file__).resolve().parent)
     parser.add_argument('--seasons-back',type=int,default=1)
+    parser.add_argument('--full-history',action='store_true',
+                        help="Refresh each league's registry history window instead of --seasons-back")
+    parser.add_argument('--method',choices=METHODS,action='append',
+                        help='Refresh only this registry refresh method (repeatable; default: every keyless method)')
     parser.add_argument('--publish',action='store_true',help='Publish validated cache files to origin/main')
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     clock = datetime.now(timezone.utc)
-    batch = fetch_batch(clock,args.seasons_back)
-    entries = publish(args.repo,batch,clock) if args.publish else apply_batch(args.repo,batch,clock)
+    methods = [m for m in METHODS if m in (args.method or METHODS) and league_registry.keys(m)]
     summary = os.getenv('GITHUB_STEP_SUMMARY')
-    if summary:
-        with open(summary,'a',encoding='utf-8') as handle:
-            handle.write('## Domestic training refresh\n\nSuccessful download is not proof of current results.\n\n')
-            handle.write('| League | Season start | Matches | Latest result | Download |\n|---|---:|---:|---|---|\n')
-            for x in entries:
-                handle.write(f"| {x['league']} | {x['year']} | {x['completed_matches']} | {x['latest_completed_date']} | {x['download_status']} |\n")
+    failures = []
+    # Methods publish independently: a failed Europa reconciliation never blocks
+    # domestic data, and the job still fails visibly afterwards.
+    if FOOTBALL_DATA_UK in methods:
+        try:
+            batch = fetch_batch(clock,args.seasons_back,full_history=args.full_history)
+            entries = publish(args.repo,batch,clock) if args.publish else apply_batch(args.repo,batch,clock)
+            if summary:
+                with open(summary,'a',encoding='utf-8') as handle:
+                    handle.write('## Domestic training refresh\n\nSuccessful download is not proof of current results.\n\n')
+                    handle.write('| League | Season start | Matches | Latest result | Download |\n|---|---:|---:|---|---|\n')
+                    for x in entries:
+                        handle.write(f"| {x['league']} | {x['year']} | {x['completed_matches']} | {x['latest_completed_date']} | {x['download_status']} |\n")
+        except Exception as exc:
+            failures.append((FOOTBALL_DATA_UK, exc))
+    if EUROPA_RECONCILED in methods:
+        try:
+            entry = publish_europa(args.repo,clock) if args.publish else apply_europa(args.repo,clock)
+            if summary:
+                with open(summary,'a',encoding='utf-8') as handle:
+                    handle.write(f"\n## Europa training refresh\n\nVerified {entry['completed_matches']} matches at "
+                                 f"{entry['verified_at_utc']}; latest result {entry['latest_completed_date']}.\n")
+        except Exception as exc:
+            failures.append((EUROPA_RECONCILED, exc))
+    for method, exc in failures:
+        print(f'{method} refresh failed: {type(exc).__name__}: {exc}')
+    if failures:
+        raise failures[0][1]
 
 
 if __name__ == '__main__':

@@ -5,8 +5,13 @@ import os
 from pathlib import Path
 import tempfile
 from api_key_config import load_api_keys
+import league_registry
 from refresh_training_data import git
 from ucl_training import fetch_payload, apply_payload, STATUS
+
+# ucl_training validates Champions League payloads only, so the registry must
+# hold exactly one football-data.org league.
+(LEAGUE,) = league_registry.keys(league_registry.FOOTBALL_DATA_ORG)
 
 
 def publish(repo, payload, year, clock, attempts=3):
@@ -19,8 +24,8 @@ def publish(repo, payload, year, clock, attempts=3):
             git(repo, 'worktree', 'add', '--detach', str(work), base)
             try:
                 status = apply_payload(work, payload, year, clock)
-                git(work, 'add', '--', str(STATUS), f'.football_cache/fdorg_history_UCL_{year}.json',
-                    f'.football_cache/fdorg_history_UCL_{year}.meta.json')
+                git(work, 'add', '--', str(STATUS), f'.football_cache/fdorg_history_{LEAGUE}_{year}.json',
+                    f'.football_cache/fdorg_history_{LEAGUE}_{year}.meta.json')
                 git(work, '-c', 'user.name=github-actions[bot]', '-c',
                     'user.email=41898282+github-actions[bot]@users.noreply.github.com',
                     'commit', '-m', 'Refresh validated UCL training results')
@@ -45,7 +50,7 @@ def main():
     clock = datetime.now(timezone.utc); year = clock.year if clock.month >= 7 else clock.year-1
     payload = fetch_payload(os.getenv('FOOTBALL_DATA_API_KEY', ''), year)
     status = publish(args.repo, payload, year, clock) if args.publish else apply_payload(args.repo, payload, year, clock)
-    print(f"UCL: {status['completed_matches']} completed; latest {status['latest_completed_date']}; "
+    print(f"{LEAGUE}: {status['completed_matches']} completed; latest {status['latest_completed_date']}; "
           f"added {status['added_matches']}; {status['coverage_status']}")
 
 
