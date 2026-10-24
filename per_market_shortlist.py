@@ -10,7 +10,8 @@ MARKET_GROUPS = ('Asian handicap', 'Home win', 'Away win', 'Over 1.5',
                  'Double Chance 1X', 'Double Chance X2', 'Double Chance 12')
 PER_GROUP_CAP = 2
 MAX_SELECTIONS = PER_GROUP_CAP*len(MARKET_GROUPS)
-PROBABILITY_WEIGHT = .5
+PROBABILITY_WEIGHT = .8
+EV_WEIGHT = .2
 NEGATIVE_EV_WARNING = 'NEGATIVE ADJUSTED EV'
 
 
@@ -37,7 +38,9 @@ def rank_candidates(pool):
                           ('ev_percentile', 'conservative_estimated_ev')]:
         pool[field] = (pool.groupby('market_group')[source].rank(method='average', pct=True)
                        if len(pool) else pd.Series(dtype=float))
-    pool['selection_score'] = PROBABILITY_WEIGHT*pool.probability_percentile + (1-PROBABILITY_WEIGHT)*pool.ev_percentile
+    # Round so equal weighted scores tie exactly and probability breaks them.
+    pool['selection_score'] = (PROBABILITY_WEIGHT*pool.probability_percentile
+                               + EV_WEIGHT*pool.ev_percentile).round(12)
     return pool.sort_values(['selection_score', *order], ascending=[False, *ascending], kind='stable')
 
 
@@ -116,14 +119,14 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             'eligible_fixtures': int(ranked.loc[ranked.market_group == group, '_fixture'].nunique()),
             'selected': n_selected, 'shortfall': PER_GROUP_CAP-n_selected}
     negative = selected.conservative_estimated_ev < 0
-    summary.update(selection_policy_version=POLICY, selection_objective='PER_MARKET_BALANCED_PROBABILITY_EV',
+    summary.update(selection_policy_version=POLICY, selection_objective='PER_MARKET_PROBABILITY_WEIGHTED',
         selection_method=f'Within each market group, {PROBABILITY_WEIGHT:g} x adjusted-probability percentile + '
-                         f'{1-PROBABILITY_WEIGHT:g} x adjusted-EV percentile; at most {PER_GROUP_CAP} per group and '
+                         f'{EV_WEIGHT:g} x adjusted-EV percentile; at most {PER_GROUP_CAP} per group and '
                          f'{MAX_SELECTIONS} in total; one market per fixture; fill the most slots possible, then prefer higher scores in rank order',
-        ranking_metric='selection_score descending; adjusted probability descending; adjusted EV descending; unblended EV descending; odds descending',
+        ranking_metric='selection_score descending; ties: adjusted probability descending, adjusted EV descending, unblended EV descending, odds descending',
         ranking_weights={'adjusted_probability_percentile': PROBABILITY_WEIGHT,
-                         'adjusted_ev_percentile': 1-PROBABILITY_WEIGHT},
-        score_formula=f'{PROBABILITY_WEIGHT:g} * probability_percentile + {1-PROBABILITY_WEIGHT:g} * ev_percentile (within market group)',
+                         'adjusted_ev_percentile': EV_WEIGHT},
+        score_formula=f'{PROBABILITY_WEIGHT:g} * probability_percentile + {EV_WEIGHT:g} * ev_percentile (within market group)',
         market_groups=list(MARKET_GROUPS), max_per_market_group=PER_GROUP_CAP,
         target_distinct_matches=MAX_SELECTIONS, group_shortfall=group_shortfall,
         min_estimated_ev=None, min_raw_dc_ev=None, ev_required_for_selection=False,

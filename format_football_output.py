@@ -1240,7 +1240,7 @@ def process_conservative_shortlist(
 
     summary = load_json_file(input_dir / "conservative_bet_summary.json")
     balanced = summary.get('selection_objective') == 'BALANCED_PROBABILITY_EV'
-    per_market = summary.get('selection_objective') == 'PER_MARKET_BALANCED_PROBABILITY_EV'
+    per_market = summary.get('selection_objective') == 'PER_MARKET_PROBABILITY_WEIGHTED'
     win_first = per_market or summary.get('selection_objective') == 'MAXIMIZE_PROFITABLE_WIN_PROBABILITY'
     probability_first = balanced or win_first or summary.get('selection_objective') == 'PROBABILITY_FIRST'
     if "decision" in raw.columns:
@@ -1304,7 +1304,9 @@ def process_conservative_shortlist(
         ]
     if per_market:
         cap = summary.get('max_per_market_group')
-        ranking_notes[0] = (f"**Ranking:** within each market group, 50% adjusted-probability percentile + 50% adjusted-EV percentile; "
+        weights = summary.get('ranking_weights') or {}
+        ranking_notes[0] = (f"**Ranking:** within each market group, {pct(weights.get('adjusted_probability_percentile'))} adjusted-probability percentile "
+                            f"+ {pct(weights.get('adjusted_ev_percentile'))} adjusted-EV percentile; higher probability breaks ties; "
                             f"at most {cap} per group and {target} in total; one market per match. Fill as many slots as possible, then prefer higher scores. "
                             "All Asian handicap lines and sides form one group; Draw is excluded.")
         ranking_notes[3] = ('**Availability:** only quoted Pinnacle and bet365 selections. A slot stays empty only when no allocation of '

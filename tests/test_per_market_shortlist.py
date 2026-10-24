@@ -9,7 +9,7 @@ import asian_handicap as ah
 from conservative_bet_filter import build_conservative_shortlist
 from format_football_output import process_conservative_shortlist
 from offline_test_case import OfflineQuotePolicyTestCase
-from per_market_shortlist import (POLICY, MARKET_GROUPS, MAX_SELECTIONS, PER_GROUP_CAP,
+from per_market_shortlist import (POLICY, MARKET_GROUPS, MAX_SELECTIONS, PER_GROUP_CAP, PROBABILITY_WEIGHT,
                                   market_group, rank_candidates, select_candidates)
 from test_asian_handicap import NOW, POLICY as QUOTES, quote, row
 from test_shortlist_market_alternatives import dc_fixture
@@ -65,6 +65,31 @@ class PerMarketShortlistTests(OfflineQuotePolicyTestCase):
         self.assertEqual((decisions.decision == 'NOT_SELECTED').sum(), 3)
         self.assertEqual(summary['group_shortfall']['Asian handicap'],
                          {'eligible_fixtures': 5, 'selected': 2, 'shortfall': 0})
+
+    def test_probability_weighted_eighty_twenty(self):
+        self.assertEqual(PROBABILITY_WEIGHT, .8)
+        # At 50/50, B and C tied and the most likely winner A was dropped.
+        # At 80/20, A (70%, negative EV) and B (60%) are chosen over C (50%, best EV).
+        pool = [candidate(0, 'Home win', .7, -.05), candidate(1, 'Home win', .6, .02),
+                candidate(2, 'Home win', .5, .08), candidate(3, 'Home win', .4, .01)]
+        ranked = rank_candidates(pd.DataFrame(pool))
+        self.assertEqual(list(ranked.selection_score), [.85, .75, .6, .3])
+        self.assertEqual(list(chosen(pool).home_team), ['Home AA', 'Home AB'])
+        # EV reorders only close calls: among six candidates, the best price
+        # (one probability rank lower, five EV ranks higher) overtakes.
+        ranked = rank_candidates(pd.DataFrame([candidate(i, 'Away win', p, ev) for i, (p, ev) in enumerate(
+            [(.61, -.2), (.60, .1), (.5, 0), (.45, .01), (.4, .02), (.3, .03)])]))
+        self.assertEqual(list(ranked.home_team[:2]), ['Home AB', 'Home AA'])
+
+    def test_equal_scores_are_broken_by_probability(self):
+        # Five candidates: X (probability rank .6, EV rank .2) and Y (.4, 1.0)
+        # both score exactly .52; X has the higher probability and ranks first.
+        pool = [candidate(0, 'Over 1.5', .9, .03), candidate(1, 'Over 1.5', .8, .02),
+                candidate(2, 'Over 1.5', .7, -.1), candidate(3, 'Over 1.5', .6, .2),
+                candidate(4, 'Over 1.5', .5, .01)]
+        ranked = rank_candidates(pd.DataFrame(pool)).set_index('home_team')
+        self.assertEqual(ranked.selection_score['Home AC'], ranked.selection_score['Home AD'])
+        self.assertLess(list(ranked.index).index('Home AC'), list(ranked.index).index('Home AD'))
 
     def test_maximum_fourteen_two_from_every_group(self):
         pool = [candidate(4*g+i, GROUP_MARKETS[group], .5+i/10, .01*i)
@@ -149,6 +174,8 @@ class PerMarketShortlistTests(OfflineQuotePolicyTestCase):
         self.assertEqual(summary['negative_adjusted_ev_selections'], 1)
         self.assertEqual(summary['negative_adjusted_ev_markets'], [f"Home_0 vs Away_0: {ah.label('home', 0)}"])
         self.assertFalse(summary['ev_required_for_selection'])
+        self.assertEqual(summary['ranking_weights'], {'adjusted_probability_percentile': .8, 'adjusted_ev_percentile': .2})
+        self.assertIn('0.8 * probability_percentile + 0.2 * ev_percentile', summary['score_formula'])
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); raw = root/'raw'; out = root/'readable'; raw.mkdir(); out.mkdir()
             picks.to_csv(raw/'conservative_bet_shortlist.csv', index=False)
@@ -159,6 +186,7 @@ class PerMarketShortlistTests(OfflineQuotePolicyTestCase):
             self.assertIn('## Shortfall by market group', text)
             self.assertIn('| Double Chance 12 | 0 | 0 | 2 |', text)
             self.assertIn('Up to 2 matches per market group (maximum 14)', text)
+            self.assertIn('80.0% adjusted-probability percentile + 20.0% adjusted-EV percentile; higher probability breaks ties', text)
             readable = pd.read_csv(out/'conservative_bet_shortlist_readable.csv')
             self.assertEqual(set(readable['Market group']), {'Asian handicap'})
 
