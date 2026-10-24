@@ -1,42 +1,33 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-24T18:54:17.512388+00:00",
+  "checked_at_utc": "2026-10-24T19:28:51.538939+00:00",
   "coverage_checks": [
     {
-      "event_id": "70df1835c3b5ddff1c99e0189532136b",
-      "missing_required_quotes": [],
-      "requested_markets": [
-        "double_chance",
-        "h2h",
-        "totals"
+      "event_id": "2fdd5b6eaa94bcdf2f61444eef54b645",
+      "missing_required_quotes": [
+        {
+          "bookmaker": "1xbet",
+          "selection": "away"
+        }
       ],
-      "returned_bookmakers": [
-        "onexbet",
-        "pinnacle"
-      ]
-    },
-    {
-      "event_id": "37b2e2ce6ac958b456f8b82543199993",
-      "missing_required_quotes": [],
       "requested_markets": [
         "h2h",
         "totals"
       ],
       "returned_bookmakers": [
-        "onexbet",
         "pinnacle"
       ]
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 78,
-  "eligible_fixtures": 2,
+  "daily_requests": 81,
+  "eligible_fixtures": 1,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "request_limit": 9,
-  "requests": 2,
-  "reservation_allowance": 12,
-  "reservation_id": "actions-40116698614-1-1",
-  "reservation_used": 5,
-  "written": 2
+  "request_limit": 1,
+  "requests": 1,
+  "reservation_allowance": 10,
+  "reservation_id": "actions-40116698614-1-2",
+  "reservation_used": 10,
+  "written": 1
 }

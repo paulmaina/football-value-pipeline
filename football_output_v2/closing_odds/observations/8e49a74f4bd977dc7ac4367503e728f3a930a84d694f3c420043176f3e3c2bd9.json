@@ -1,0 +1,104 @@
+{
+  "fixture": {
+    "away_team": "FC Porto",
+    "home_team": "Gil Vicente",
+    "kickoff_utc": "2026-10-24T19:30:00+00:00",
+    "league": "Primeira Liga",
+    "odds_event_id": "2fdd5b6eaa94bcdf2f61444eef54b645"
+  },
+  "observed_at_utc": "2026-10-24T19:27:49.051972+00:00",
+  "payload": {
+    "away_team": "FC Porto",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T19:27:34Z",
+            "outcomes": [
+              {
+                "name": "FC Porto",
+                "price": 1.44
+              },
+              {
+                "name": "Gil Vicente",
+                "price": 7.9
+              },
+              {
+                "name": "Draw",
+                "price": 4.58
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T19:27:34Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.0
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.89
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-24T19:30:00Z",
+    "home_team": "Gil Vicente",
+    "id": "2fdd5b6eaa94bcdf2f61444eef54b645",
+    "sport_key": "soccer_portugal_primeira_liga",
+    "sport_title": "Primeira Liga - Portugal"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.9,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.11463186575043814,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T19:27:34+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.58,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2029675634636512,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T19:27:34+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6824005707859107,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T19:27:34+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4852507665288856,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-24T19:27:34+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.89,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5147492334711145,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-24T19:27:34+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
