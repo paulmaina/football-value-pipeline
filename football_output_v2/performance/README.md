@@ -1,7 +1,7 @@
 # Forward-only football performance dashboard
 
 Only immutable **Git-archived before-kickoff predictions** are scored.
-Asian handicaps settle full/half wins, refunds and full/half losses. ROI includes every settled stake; refunds are not wins. Probability/Brier follows the frozen event: v23 profitable outcome, legacy Asian no net loss.
+Asian handicaps settle full/half wins, refunds and full/half losses. ROI includes every settled stake; refunds are not wins. Probability/Brier follows the frozen event: v23/v24 profitable outcome, legacy Asian no net loss.
 Actual results come from football-data.org v4 FINISHED matches;
 normal 90-minute results are used, never extra-time/penalty scorelines.
 **PROVISIONAL candidates are not audited betting recommendations.**
@@ -219,7 +219,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 0117b0e0fe09 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 10a7df008090 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 
