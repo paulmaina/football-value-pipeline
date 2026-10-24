@@ -57,7 +57,8 @@ class RegistryTests(OfflineQuotePolicyTestCase):
     def test_every_module_derives_its_league_list_from_the_registry(self):
         import api_football_data, bbs_data, bbs_integration, conservative_bet_filter, goal_market_validation, \
             historical_benchmark
-        self.assertEqual(goal_market_validation.SUPPORTED_COMPETITIONS, league_registry.keys())
+        self.assertEqual(goal_market_validation.SUPPORTED_COMPETITIONS,
+                         league_registry.keys(shortlist_validated=True))
         self.assertEqual(refresh.DIVISIONS, league_registry.divisions())
         self.assertEqual(historical_benchmark.CODES, league_registry.divisions())
         self.assertEqual(conservative_bet_filter.SUPPORTED_LEAGUES, league_registry.shortlist_names())
