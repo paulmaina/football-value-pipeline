@@ -19,10 +19,12 @@ from quote_policy import load_policy, usable_bookmaker
 from quote_freshness import MAX_QUOTE_AGE_HOURS, quote_is_fresh
 
 
-DOMESTIC_LEAGUES = frozenset({
-    "Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1"
-})
-SUPPORTED_LEAGUES = DOMESTIC_LEAGUES | {"UEFA Champions League", "UEFA Europa League"}
+import league_registry
+
+# Only registry leagues with reviewed validation evidence; a new league stays
+# "excluded from shortlist validation" until its registry flag is changed.
+DOMESTIC_LEAGUES = league_registry.shortlist_names(domestic_only=True)
+SUPPORTED_LEAGUES = league_registry.shortlist_names()
 TARGET_DISTINCT_MATCHES = 12
 SHORTLIST_LOOKAHEAD_HOURS = 72.0  # Archived legacy policy contract.
 BALANCED_SHORTLIST_LOOKAHEAD_HOURS = 48.0
