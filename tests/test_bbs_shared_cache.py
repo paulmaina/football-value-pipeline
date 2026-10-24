@@ -72,16 +72,46 @@ class SharedCacheTests(unittest.TestCase):
         self.assertEqual(changed.iloc[0]['integration_status'], 'conflict')
         self.assertIn('result_or_status_conflict', changed.iloc[0]['bbs_conflict_flags'])
 
-    def test_cutoff_selects_old_snapshot_and_tampering_fails(self):
+    def test_one_generation_earlier_cutoffs_rebuild_and_tampering_fails(self):
+        # A rebuild reads the primary cache beside the BBS state, like the pipeline.
+        (self.cache/'2627_E0.csv').write_text('Date,HomeTeam,AwayTeam,FTHG,FTAG,HS\n10/10/2026,Man United,Arsenal,2,1,8\n')
         self.add(match())
-        old = self.export()
+        current = self.export()
         self.assertEqual(read_combined(self.cache, 'EPL', (NOW-timedelta(seconds=1)).isoformat()), [])
         self.add(match(hg=3), NOW+timedelta(hours=1))
-        self.export(NOW+timedelta(hours=1))
-        self.assertEqual(read_combined(self.cache, 'EPL', NOW.isoformat())[0]['integration_status'], 'matched')
-        (old/'EPL_enriched_history.csv').write_text('broken')
+        self.assertEqual(self.export(NOW+timedelta(hours=1)), current)
+        # Replaced in place: no timestamped copies accumulate.
+        self.assertEqual([p.name for p in (self.cache/'bbs/combined').iterdir()], ['current', 'latest.json'])
+        later = read_combined(self.cache, 'EPL', (NOW+timedelta(hours=2)).isoformat())
+        earlier = read_combined(self.cache, 'EPL', NOW.isoformat())
+        # The earlier cutoff is rebuilt from immutable observations, before the correction.
+        self.assertEqual(len(earlier), 1)
+        self.assertNotEqual(earlier, later)
+        self.assertEqual(earlier, read_combined(self.cache, 'EPL', NOW.isoformat()))
+        (current/'EPL_enriched_history.csv').write_text('broken')
         with self.assertRaisesRegex(ValueError, 'checksum'):
-            read_combined(self.cache, 'EPL', NOW.isoformat())
+            read_combined(self.cache, 'EPL', (NOW+timedelta(hours=2)).isoformat())
+
+    def test_legacy_snapshots_still_serve_cutoffs_before_the_last_of_them(self):
+        import hashlib, shutil
+        from bbs_data import atomic_json
+        self.add(match())
+        current = self.export()
+        rows = read_combined(self.cache, 'EPL', NOW.isoformat())
+        legacy = self.cache/'bbs/combined/snapshots/old'
+        shutil.copytree(current, legacy)
+        stamp = (NOW+timedelta(hours=1)).isoformat()
+        data = (legacy/'EPL_enriched_history.csv').read_bytes()
+        atomic_json(legacy/'manifest.json', {'version': 1, 'cutoff_utc': NOW.isoformat(), 'generation': 'snapshots/old',
+                                             'sha256': {'EPL_enriched_history.csv': hashlib.sha256(data).hexdigest()}})
+        atomic_json(self.cache/'bbs/combined/snapshots/later/manifest.json',
+                    {'version': 1, 'cutoff_utc': stamp, 'generation': 'snapshots/later', 'sha256': {}})
+        self.add(match(hg=3), NOW+timedelta(hours=2))
+        self.export(NOW+timedelta(hours=2))
+        # Before the last legacy snapshot: read exactly as before, never rebuilt.
+        with patch('bbs_integration._rebuilt_files', side_effect=AssertionError('rebuilt')):
+            self.assertEqual(read_combined(self.cache, 'EPL', NOW.isoformat()), rows)
+            self.assertEqual(read_combined(self.cache, 'EPL', (NOW-timedelta(seconds=1)).isoformat()), [])
 
     def test_pipeline_history_uses_shared_loader_without_collecting(self):
         from football_value_pipeline_v2_standalone import FootballValuePipelineV2, LEAGUES
