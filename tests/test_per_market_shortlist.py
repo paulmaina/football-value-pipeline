@@ -75,8 +75,8 @@ class PerMarketShortlistTests(OfflineQuotePolicyTestCase):
         ranked = rank_candidates(pd.DataFrame(pool))
         self.assertEqual(list(ranked.selection_score), [.85, .75, .6, .3])
         self.assertEqual(list(chosen(pool).home_team), ['Home AA', 'Home AB'])
-        # EV reorders only close calls: among six candidates, the best price
-        # (one probability rank lower, five EV ranks higher) overtakes.
+        # EV overtakes when its rank gain exceeds four times the probability
+        # rank loss: one probability place lower but five EV places higher.
         ranked = rank_candidates(pd.DataFrame([candidate(i, 'Away win', p, ev) for i, (p, ev) in enumerate(
             [(.61, -.2), (.60, .1), (.5, 0), (.45, .01), (.4, .02), (.3, .03)])]))
         self.assertEqual(list(ranked.home_team[:2]), ['Home AB', 'Home AA'])
