@@ -85,6 +85,19 @@ class HealthGapTests(OfflineQuotePolicyTestCase):
             return data+b'\n# helper change\n' if path.name=='score_probability.py' else data
         with patch.object(Path,'read_bytes',changed):
             self.assertNotEqual(model_component_hashes()['score_probability.py'],baseline['score_probability.py'])
+        # The registry controls league identities, windows and shortlist eligibility.
+        self.assertIn('league_registry.py',baseline)
+        def promoted(path):
+            data=original(path)
+            if path.name!='league_registry.py':return data
+            edited=data.replace(b'FOOTBALL_DATA_UK, False)',b'FOOTBALL_DATA_UK, True)',1)
+            self.assertNotEqual(edited,data,'simulated eligibility edit must apply')
+            return edited
+        with patch.object(Path,'read_bytes',promoted):
+            hashes=model_component_hashes()
+        self.assertNotEqual(hashes['league_registry.py'],baseline['league_registry.py'])
+        self.assertEqual({k:v for k,v in hashes.items() if k!='league_registry.py'},
+                         {k:v for k,v in baseline.items() if k!='league_registry.py'})
         with tempfile.TemporaryDirectory() as tmp:
             raw=Path(tmp)/'raw';raw.mkdir()
             (raw/'all_leagues_predictions.csv').write_text('league\n')

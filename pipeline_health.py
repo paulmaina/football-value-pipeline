@@ -131,6 +131,7 @@ def model_component_hashes():
         'bbs_statistics_model.py', 'bbs_integration.py', 'bbs_data.py',
         'api_football_data.py', 'api_football_integration.py',
         'match_scores.py', 'ucl_training.py', 'api_key_config.py', 'refresh_training_data.py',
+        'league_registry.py',
         'odds_provider_health.py', 'prediction_runs.py',
         'elo_ratings.py', 'staking.py',
         'bbs_team_aliases.json', 'shortlist_quote_policy.json')
