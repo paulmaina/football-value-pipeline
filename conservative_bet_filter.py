@@ -19,10 +19,16 @@ from quote_policy import load_policy, usable_bookmaker
 from quote_freshness import MAX_QUOTE_AGE_HOURS, quote_is_fresh
 
 
-DOMESTIC_LEAGUES = frozenset({
-    "Premier League", "La Liga", "Bundesliga", "Serie A", "Ligue 1"
-})
-SUPPORTED_LEAGUES = DOMESTIC_LEAGUES | {"UEFA Champions League", "UEFA Europa League"}
+import league_registry
+
+# Every registry league is evaluated; each market still needs its own passing
+# reliability audit. Per-market leagues have no league-level review, so they
+# also need a report to exist before any market can qualify.
+DOMESTIC_LEAGUES = league_registry.shortlist_names(domestic_only=True,
+                                                   shortlist_approval=league_registry.LEAGUE_APPROVAL)
+SUPPORTED_LEAGUES = league_registry.shortlist_names()
+PER_MARKET_APPROVAL_LEAGUES = league_registry.shortlist_names(
+    shortlist_approval=league_registry.PER_MARKET_APPROVAL)
 TARGET_DISTINCT_MATCHES = 12
 SHORTLIST_LOOKAHEAD_HOURS = 72.0  # Archived legacy policy contract.
 BALANCED_SHORTLIST_LOOKAHEAD_HOURS = 48.0
@@ -257,6 +263,14 @@ def _evaluate_market(
             else:
                 high_penalty = extra_penalty
                 calibration_penalty = max(calibration_penalty, high_penalty)
+    # Per-market leagues: a market qualifies only on its own passing audit, in
+    # every policy. This reason is outside every policy's soft/near-miss list, so
+    # archived policies cannot admit it as a PROVISIONAL warning either.
+    if league in PER_MARKET_APPROVAL_LEAGUES:
+        if validation_status != "RELIABLE_FOR_RANKING":
+            reasons.append(f"per-market approval: market audit {validation_status}")
+        elif high_tier is not None and high_status != "PASSED":
+            reasons.append(f"per-market approval: {high_tier} audit {high_status}")
     calibration_penalty = min(1.0, calibration_penalty * research.get('penalty_multiplier', 1.0))
     rank_p = (
         max(0.0, p - calibration_penalty) if p is not None else None

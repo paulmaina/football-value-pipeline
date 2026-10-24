@@ -14,9 +14,10 @@ from urllib.parse import urlencode
 
 from bbs_data import Store, Deferred, FetchError, atomic_json, decode, dumps, utc
 from match_scores import valid_goals
+import league_registry
 
 BASE = 'https://v3.football.api-sports.io'
-LEAGUES = {'EPL': 39, 'LaLiga': 140, 'Bundesliga': 78, 'SerieA': 135, 'Ligue1': 61, 'UCL': 2}
+LEAGUES = league_registry.api_football_ids()
 STAT_NAMES = dict(zip(('Shots on Goal', 'Shots off Goal', 'Total Shots', 'Blocked Shots',
     'Shots insidebox', 'Shots outsidebox', 'Fouls', 'Corner Kicks', 'Offsides',
     'Ball Possession', 'Yellow Cards', 'Red Cards', 'Goalkeeper Saves', 'Total passes',

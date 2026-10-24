@@ -1,10 +1,13 @@
-# Background domestic training refresh
+# Background league training refresh
 
-`Refresh domestic training data` is a separate GitHub Actions workflow. It downloads football-data.co.uk data without running forecasts, consuming odds API credits, or using an API key.
+`Refresh league training data` is a separate GitHub Actions workflow. It refreshes every league in [`league_registry.py`](league-registry.md) whose refresh method needs no API key, without running forecasts or consuming odds API credits. Leagues are not listed in the workflow: a new registry entry with an existing refresh method is picked up automatically.
 
-- Current season in EPL, La Liga, Bundesliga, Serie A and Ligue 1: every four hours at 03:17, 07:17, 11:17, 15:17, 19:17 and 23:17 EAT (GitHub may delay scheduled jobs).
-- Six seasons (including current): automatically when the refresh code/workflow is merged, or manually via Actions → Refresh domestic training data → Run workflow → full_history.
-- UCL is excluded because its training provider is football-data.org.
+- football-data.co.uk leagues (refresh method `football-data.co.uk`): the current season every four hours at 03:17, 07:17, 11:17, 15:17, 19:17 and 23:17 EAT (GitHub may delay scheduled jobs).
+- Each league's registry `history_seasons` window (six for the domestic leagues): automatically when the refresh code, registry or workflow is merged, or manually via Actions → Refresh league training data → Run workflow → full_history.
+- UEFA Europa League (refresh method `europa-reconciled`): the reconciled Cornerflick / Fixture Download / UEFA snapshot on the same schedule. Its refreshed `.football_cache/europa/training.json` and `sources/` files are committed to main like the domestic CSVs. A source disagreement keeps the prior snapshot and fails the job; the pipeline still refuses a snapshot older than 24 hours.
+- UCL (refresh method `football-data.org`) needs `FOOTBALL_DATA_API_KEY`, so it keeps its own `Refresh UCL training data` workflow.
+
+Each method publishes its own commit, so a failed Europa reconciliation never blocks domestic data; the job fails visibly afterwards.
 
 Validated CSVs are published to the existing `.football_cache` paths. A machine-readable audit at `docs/training_refresh_status.json` records each source URL, content hash, match count, newest completed result, download time and additions/corrections. The Actions run summary displays those dates. A successful request or recent check time does NOT mean the source has published recent results.
 
@@ -24,12 +27,13 @@ Training is refitted when the prediction command runs; the background job only r
 For a training-only download locally, without odds calls:
 
 ```powershell
-py refresh_training_data.py --seasons-back 6
+py refresh_training_data.py --full-history
+py refresh_training_data.py --method football-data.co.uk --seasons-back 1
 ```
 
 This validates all downloaded files before writing; publishing all files atomically is a Git workflow property, while local replacement is atomic per file. Upstream removals/date or team-name corrections fail closed and require review. The first version deliberately does not merge a second provider, invent missing results, regenerate predictions, or claim completeness from a latest-date check.
 
-UCL now has a separate four-hour validated current-season refresh. See [daily evidence](daily-evidence.md) for its schedule/finished-match comparison, cache provenance, model/source freshness distinction and report integration. The domestic behavior documented above remains unchanged.
+UCL now has a separate four-hour validated current-season refresh. See [daily evidence](daily-evidence.md) for its schedule/finished-match comparison, cache provenance, model/source freshness distinction and report integration. The scheduled forecast job also commits the training files of every registry league that it refreshed while generating forecasts.
 
 
 ## Prediction history window

@@ -15,13 +15,12 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import urlencode
 
+import league_registry
+
 BASE_URL = 'https://api.bigballsdata.com'
-LEAGUES = {'EPL': 'epl', 'LaLiga': 'laliga', 'Bundesliga': 'bundesliga',
-           'SerieA': 'serie_a', 'Ligue1': 'ligue1', 'UCL': 'cl'}
-DISPLAY_NAMES = {'EPL': {'epl', 'premier league', 'english premier league'},
- 'LaLiga': {'laliga', 'la liga'}, 'Bundesliga': {'bundesliga'},
- 'SerieA': {'serie_a', 'serie-a', 'seriea', 'serie a'}, 'Ligue1': {'ligue-1', 'ligue1', 'ligue 1'},
- 'UCL': {'cl', 'ucl', 'uefa champions league', 'champions league'}}
+# Only registry leagues with a BBS slug are collected.
+LEAGUES = league_registry.bbs_slugs()
+DISPLAY_NAMES = league_registry.bbs_display_names()
 STAT_FIELDS = ('shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots',
  'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides',
  'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes',

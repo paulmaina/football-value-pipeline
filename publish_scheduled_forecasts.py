@@ -6,7 +6,19 @@ import subprocess
 import sys
 import tempfile
 
+import league_registry
 from publish_performance import git
+
+
+def training_files(work):
+    """Every registry league's refreshed training files, plus shared feature models."""
+    cache = work/'.football_cache'
+    training = [p for league in league_registry.REGISTRY for pattern in league.cache_globs()
+                for p in sorted(cache.glob(pattern)) if p.is_file()]
+    training += list((cache/'bbs/feature_models').glob('*/*.json'))
+    status = work/'docs/ucl_training_refresh_status.json'
+    if status.exists(): training.append(status)
+    return training
 
 
 def publish(repo,attempts=3,runner=None):
@@ -16,7 +28,7 @@ def publish(repo,attempts=3,runner=None):
             git(repo,'fetch','origin','main');base=git(repo,'rev-parse','FETCH_HEAD').stdout.strip()
             work=Path(directory)/str(attempt);git(repo,'worktree','add','--detach',str(work),base)
             try:
-                runner([sys.executable,'football_value_pipeline_v2_standalone.py','--leagues','EPL','LaLiga','Bundesliga','SerieA','Ligue1','UCL','UEL',
+                runner([sys.executable,'football_value_pipeline_v2_standalone.py','--leagues',*league_registry.keys(),
                     '--tune-half-life','--goal-blend-experiment','--additional-odds-coverage','all','--market-led-experiment','--recency-experiment','--reliability-experiment','--api-key-source','environment'],cwd=work,check=True)
                 runner([sys.executable,'workflow_checks.py','raw'],cwd=work,check=True)
                 runner([sys.executable,'format_football_output.py'],cwd=work,check=True)
@@ -24,15 +36,8 @@ def publish(repo,attempts=3,runner=None):
                 # Preserve the exact validated source revision used by this
                 # forecast, including downloads newer than the refresh job.
                 # Odds response caches and collection checkpoints are separate.
-                cache = work/'.football_cache'
-                training = [p for div in ('E0','SP1','D1','I1','F1')
-                            for p in cache.glob(f'????_{div}.csv')]
-                # Europa inputs refresh in the generation worktree; provider extracts stay local.
-                training += list(cache.glob('fdorg_history_UCL_????.json'))
-                training += list(cache.glob('fdorg_history_UCL_????.meta.json'))
-                training += list((cache/'bbs/feature_models').glob('*/*.json'))
-                status = work/'docs/ucl_training_refresh_status.json'
-                if status.exists(): training.append(status)
+                # Europa's reconciled snapshot and sources are committed like the others.
+                training = training_files(work)
                 if training:
                     git(work,'add','--',*[str(p.relative_to(work)) for p in training])
                 if git(work,'diff','--cached','--quiet',check=False).returncode==0:return
