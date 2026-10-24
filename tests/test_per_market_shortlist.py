@@ -191,8 +191,11 @@ class PerMarketShortlistTests(OfflineQuotePolicyTestCase):
             self.assertEqual(set(readable['Market group']), {'Asian handicap'})
 
     def test_current_dispatch_and_v23_replays_unchanged(self):
-        self.assertEqual(ah.CURRENT_POLICY, POLICY)
+        # v24 is archived behind v25 and still dispatches to its own builder.
+        self.assertEqual(ah.PER_MARKET_POLICY, POLICY)
+        self.assertIn(POLICY, ah.POLICIES)
         self.assertIn(WIN_POLICY, ah.POLICIES)
+        self.assertEqual(select([row(0)], policy_version=POLICY)[2]['selection_policy_version'], POLICY)
         values = [row(i) for i in range(13)]
         old, _, summary = select(values, policy_version=WIN_POLICY)
         self.assertEqual(len(old), 12)

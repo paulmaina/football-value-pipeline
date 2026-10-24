@@ -22,13 +22,13 @@ from quote_freshness import MAX_QUOTE_AGE_HOURS, quote_is_fresh
 import league_registry
 
 # Every registry league is evaluated; each market still needs its own passing
-# reliability audit. Per-market leagues have no league-level review, so they
-# also need a report to exist before any market can qualify.
-DOMESTIC_LEAGUES = league_registry.shortlist_names(domestic_only=True,
-                                                   shortlist_approval=league_registry.LEAGUE_APPROVAL)
+# reliability audit. Archived policies (v24 and older) keep their frozen view:
+# the originally league-reviewed leagues may still show failed audits as
+# PROVISIONAL warnings there, every other league is per-market in every policy.
+# v25 and later apply per-market approval to every league (per_market_shortlist).
+DOMESTIC_LEAGUES = league_registry.shortlist_names(domestic_only=True) & league_registry.archived_league_approved_names()
 SUPPORTED_LEAGUES = league_registry.shortlist_names()
-PER_MARKET_APPROVAL_LEAGUES = league_registry.shortlist_names(
-    shortlist_approval=league_registry.PER_MARKET_APPROVAL)
+PER_MARKET_APPROVAL_LEAGUES = SUPPORTED_LEAGUES - league_registry.archived_league_approved_names()
 TARGET_DISTINCT_MATCHES = 12
 SHORTLIST_LOOKAHEAD_HOURS = 72.0  # Archived legacy policy contract.
 BALANCED_SHORTLIST_LOOKAHEAD_HOURS = 48.0
