@@ -1,0 +1,358 @@
+{
+  "fixture": {
+    "away_team": "Elche CF",
+    "home_team": "Rayo Vallecano",
+    "kickoff_utc": "2026-10-24T12:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "734ad601156f5f4e6bc42317e5141516"
+  },
+  "observed_at_utc": "2026-10-24T11:54:09.643152+00:00",
+  "payload": {
+    "away_team": "Elche CF",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T11:53:52Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 4.54
+              },
+              {
+                "name": "Rayo Vallecano",
+                "price": 1.83
+              },
+              {
+                "name": "Draw",
+                "price": 3.81
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-10-24T11:53:52Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "point": 0.75,
+                "price": 1.85
+              },
+              {
+                "name": "Rayo Vallecano",
+                "point": -0.75,
+                "price": 2.08
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T11:53:52Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.03
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.88
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-10-24T11:53:52Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "point": 0.75,
+                "price": 1.85
+              },
+              {
+                "name": "Elche CF",
+                "point": 1.75,
+                "price": 1.28
+              },
+              {
+                "name": "Elche CF",
+                "point": 1.5,
+                "price": 1.39
+              },
+              {
+                "name": "Elche CF",
+                "point": 1.25,
+                "price": 1.47
+              },
+              {
+                "name": "Elche CF",
+                "point": 1.0,
+                "price": 1.6
+              },
+              {
+                "name": "Elche CF",
+                "point": 0.5,
+                "price": 2.09
+              },
+              {
+                "name": "Elche CF",
+                "point": 0.25,
+                "price": 2.5
+              },
+              {
+                "name": "Elche CF",
+                "point": -0.0,
+                "price": 3.38
+              },
+              {
+                "name": "Elche CF",
+                "point": -0.25,
+                "price": 3.94
+              },
+              {
+                "name": "Rayo Vallecano",
+                "point": -0.75,
+                "price": 2.08
+              },
+              {
+                "name": "Rayo Vallecano",
+                "point": -1.75,
+                "price": 4.05
+              },
+              {
+                "name": "Rayo Vallecano",
+                "point": -1.5,
+                "price": 3.23
+              },
+              {
+                "name": "Rayo Vallecano",
+                "point": -1.25,
+                "price": 2.87
+              },
+              {
+                "name": "Rayo Vallecano",
+                "point": -1.0,
+                "price": 2.49
+              },
+              {
+                "name": "Rayo Vallecano",
+                "point": -0.5,
+                "price": 1.83
+              },
+              {
+                "name": "Rayo Vallecano",
+                "point": -0.25,
+                "price": 1.6
+              },
+              {
+                "name": "Rayo Vallecano",
+                "point": 0.0,
+                "price": 1.36
+              },
+              {
+                "name": "Rayo Vallecano",
+                "point": 0.25,
+                "price": 1.29
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-10-24T11:53:47Z",
+            "outcomes": [
+              {
+                "name": "Elche CF",
+                "price": 3.36
+              },
+              {
+                "name": "Rayo Vallecano",
+                "price": 1.36
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-24T12:00:00Z",
+    "home_team": "Rayo Vallecano",
+    "id": "734ad601156f5f4e6bc42317e5141516",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.38,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.83,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5368739515035138,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.81,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2523964417685612,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.54,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21072960672792493,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.85,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.08,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.94,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.5,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.09,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.47,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.39,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.05,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.87,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.83,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-10-24T11:53:52+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
