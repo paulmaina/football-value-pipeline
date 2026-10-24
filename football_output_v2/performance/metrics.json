@@ -1294,15 +1294,15 @@
     }
   },
   "pending_reason_counts": {
-    "PENDING_KICKOFF_OR_FINAL_SCORE": 9,
-    "UNVERIFIED_FIXTURE_OR_RESULT": 4
+    "PENDING_KICKOFF_OR_FINAL_SCORE": 7,
+    "UNVERIFIED_FIXTURE_OR_RESULT": 6
   },
   "prediction_1x2_multiclass_brier": 0.555347,
   "prediction_fixtures_graded": 106,
   "provider_errors": {
     "UEL": "Current Europa sources disagree or coverage is incomplete; prior snapshot retained"
   },
-  "reviewed_at_utc": "2026-10-24T12:49:55Z",
+  "reviewed_at_utc": "2026-10-24T14:22:40Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
