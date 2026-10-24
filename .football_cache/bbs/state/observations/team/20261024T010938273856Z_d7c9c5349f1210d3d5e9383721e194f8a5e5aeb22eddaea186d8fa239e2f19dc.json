@@ -1,0 +1,1 @@
+{"entity":"8376b4f9-8329-4ed1-bbfc-85056a739f02","kind":"team","league":"SerieA","observed":"2026-10-24T01:09:38.273856+00:00","payload":{"conference":null,"flag_url":null,"id":"8376b4f9-8329-4ed1-bbfc-85056a739f02","league":"Serie A","logo_url":null,"name":"Empoli","short_name":null,"sport":"football"},"query":"/v1/teams?league=serie_a&limit=200&offset=0&sport=football"}

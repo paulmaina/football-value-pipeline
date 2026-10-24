@@ -1,0 +1,1 @@
+{"entity":"a9576b12-db40-4f88-8ddd-e0e29241e3a1","kind":"team","league":"Ligue1","observed":"2026-10-24T01:09:41.763526+00:00","payload":{"conference":null,"flag_url":null,"id":"a9576b12-db40-4f88-8ddd-e0e29241e3a1","league":"Ligue 1","logo_url":null,"name":"Dijon","short_name":null,"sport":"football"},"query":"/v1/teams?league=ligue1&limit=200&offset=0&sport=football"}
