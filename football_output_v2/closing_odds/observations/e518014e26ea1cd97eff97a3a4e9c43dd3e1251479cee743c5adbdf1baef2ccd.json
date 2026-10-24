@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Espanyol",
+    "home_team": "Real Racing Club de Santander",
+    "kickoff_utc": "2026-10-24T14:15:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "5960b1b6c20acfd78e78764fed47d505"
+  },
+  "observed_at_utc": "2026-10-24T14:09:03.858258+00:00",
+  "payload": {
+    "away_team": "Espanyol",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T14:09:03Z",
+            "outcomes": [
+              {
+                "name": "Espanyol",
+                "price": 3.02
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "price": 2.26
+              },
+              {
+                "name": "Draw",
+                "price": 3.72
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T14:09:03Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.53
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.5
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T14:09:02Z",
+            "outcomes": [
+              {
+                "name": "Espanyol",
+                "price": 3.08
+              },
+              {
+                "name": "Real Racing Club de Santander",
+                "price": 2.28
+              },
+              {
+                "name": "Draw",
+                "price": 3.79
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T14:09:02Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.9
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.01
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-24T14:15:00Z",
+    "home_team": "Real Racing Club de Santander",
+    "id": "5960b1b6c20acfd78e78764fed47d505",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.28,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.42947243732457174,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T14:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.79,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25503596014527685,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T14:09:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.08,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.31549160253015146,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T14:09:02+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.42823188216975566,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T14:09:03+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.72,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2550102523299297,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T14:09:03+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.02,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3167578655003146,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T14:09:03+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.53,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6302056146445001,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-24T14:09:03+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.5,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3697943853555,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-24T14:09:03+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
