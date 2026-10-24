@@ -141,12 +141,16 @@ def write_experiment(predictions, raw: Path, baseline_generated, api, cfg):
     from football_value_pipeline_v2_standalone import LEAGUES
     from performance_tracking import utc, write_csv
     by_name = {v.name:v for v in LEAGUES.values()}
+    from conservative_bet_filter import SUPPORTED_LEAGUES
     rows, evidence = [], []
     for source in predictions.astype(object).where(predictions.notna(),None).to_dict('records'):
         clock = datetime.now(timezone.utc)
         kick = utc(source.get('kickoff_utc'))
         payload, error = {}, None
-        if kick and 20*60 <= (kick-clock).total_seconds() <= 72*3600 and source.get('odds_event_id'):
+        if source.get('league') not in SUPPORTED_LEAGUES:
+            # Unvalidated competitions never qualify; spend no event-odds credits on them.
+            error = 'competition_excluded_from_shortlist_validation'
+        elif kick and 20*60 <= (kick-clock).total_seconds() <= 72*3600 and source.get('odds_event_id'):
             try:
                 if api is None: error = 'api_unavailable'
                 else: payload = fetch_event(api,by_name[source['league']],source['odds_event_id'])

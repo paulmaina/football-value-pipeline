@@ -88,7 +88,10 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             self.assertEqual(data['shortlist']['graded'],len(picks))
             self.assertEqual(len(data['training_end_dates']),len(keys))
             self.assertEqual(data['experiments']['goal_blend_experiment']['graded_fixture_markets'],3*len(keys))
-            self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],len(keys))
+            # Unvalidated registry leagues are forecast but never selected.
+            from league_registry import keys as registry_keys
+            self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],
+                             len(registry_keys(shortlist_validated=True)))
             self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],2*len(keys))
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
             for name in ('filter_sensitivity_experiment','shortlist_weight_experiment','shortlist_policy_experiment'):

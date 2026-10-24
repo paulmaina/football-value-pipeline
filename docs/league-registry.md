@@ -21,3 +21,13 @@ Print it with `py league_registry.py` (or `--json`).
 ## Adding a league
 
 Add one entry. Use a refresh method that already exists, verify the Odds API sport key against `GET /v4/sports` (free; no quota cost), and set `shortlist_validated=False`. The league is then forecast, refreshed and committed automatically, but its markets are rejected as "competition excluded from shortlist validation". Change the flag only in a reviewed commit after the league's validation evidence has been examined; no check is relaxed automatically.
+
+## Unvalidated leagues
+
+Eredivisie (`N1`, `soccer_netherlands_eredivisie`) and Primeira Liga (`P1`, `soccer_portugal_primeira_liga`) are registered with `shortlist_validated=False`. Both sport keys were checked against `GET /v4/sports` on 2026-10-24. Their six seasons of football-data.co.uk CSVs are refreshed and committed by `Refresh league training data`, and they are forecast by the scheduled run. Until the flag changes:
+
+- every market is rejected by the existing shortlist league check, in every replayable policy version, even if a historical reliability report passes;
+- they receive no ranked-mode extra event-odds reservations, so existing leagues keep theirs;
+- the market-led paper experiment skips them without requesting event odds.
+
+Their forecasts still use Odds API credits for the normal league odds request and, in `all` coverage mode, per-event additional markets.

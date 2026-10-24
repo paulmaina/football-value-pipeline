@@ -23,7 +23,9 @@ import pandas as pd
 
 from league_registry import keys as _league_keys
 
-SUPPORTED_COMPETITIONS = _league_keys()
+# Ranked-mode extra event-odds reservations go only to shortlist-validated
+# leagues; unvalidated leagues cannot be shortlisted, so they get none.
+SUPPORTED_COMPETITIONS = _league_keys(shortlist_validated=True)
 HIGH_PROBABILITY_THRESHOLDS = (0.75, 0.85)
 MIN_HIGH_DEV = 30
 MIN_HIGH_AUDIT = 12

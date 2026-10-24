@@ -69,6 +69,12 @@ REGISTRY: Tuple[League, ...] = (
     League('UCL', 'UEFA Champions League', 'Europe', '', 'soccer_uefa_champs_league', 'CL', 4, FOOTBALL_DATA_ORG, True,
            'cl', ('cl', 'ucl', 'uefa champions league', 'champions league'), 2),
     League('UEL', 'UEFA Europa League', 'Europe', '', 'soccer_uefa_europa_league', 'EL', 5, EUROPA_RECONCILED, True),
+    # Sport keys verified against The Odds API GET /v4/sports on 2026-10-24.
+    # No reviewed validation evidence yet: excluded from every shortlist.
+    League('Eredivisie', 'Eredivisie', 'Netherlands', 'N1', 'soccer_netherlands_eredivisie', 'DED', 6,
+           FOOTBALL_DATA_UK, False),
+    League('PrimeiraLiga', 'Primeira Liga', 'Portugal', 'P1', 'soccer_portugal_primeira_liga', 'PPL', 6,
+           FOOTBALL_DATA_UK, False),
 )
 
 LEAGUES: Dict[str, League] = {league.key: league for league in REGISTRY}
@@ -81,8 +87,9 @@ def get(key: str) -> League:
         raise KeyError(f'Unknown league {key!r}. Choose from {list(LEAGUES)}') from None
 
 
-def keys(refresh_method: Optional[str] = None) -> Tuple[str, ...]:
-    return tuple(l.key for l in REGISTRY if refresh_method in (None, l.refresh_method))
+def keys(refresh_method: Optional[str] = None, *, shortlist_validated: Optional[bool] = None) -> Tuple[str, ...]:
+    return tuple(l.key for l in REGISTRY if refresh_method in (None, l.refresh_method)
+                 and shortlist_validated in (None, l.shortlist_validated))
 
 
 def divisions() -> Dict[str, str]:
