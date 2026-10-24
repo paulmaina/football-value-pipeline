@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "Everton",
+    "home_team": "Arsenal",
+    "kickoff_utc": "2026-10-24T14:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "f66e4f29c1b7bcfc5ab58c0b88c8850b"
+  },
+  "observed_at_utc": "2026-10-24T13:54:27.970575+00:00",
+  "payload": {
+    "away_team": "Everton",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T13:53:50Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 1.38
+              },
+              {
+                "name": "Everton",
+                "price": 8.55
+              },
+              {
+                "name": "Draw",
+                "price": 5.08
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T13:53:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.75
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.08
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-24T13:53:50Z",
+            "outcomes": [
+              {
+                "name": "Arsenal or Draw",
+                "price": 1.07
+              },
+              {
+                "name": "Everton or Draw",
+                "price": 3.03
+              },
+              {
+                "name": "Arsenal or Everton",
+                "price": 1.17
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-24T13:54:14Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 1.36
+              },
+              {
+                "name": "Everton",
+                "price": 9.15
+              },
+              {
+                "name": "Draw",
+                "price": 5.35
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-24T13:54:14Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.89
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.01
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-24T13:54:16Z",
+            "outcomes": [
+              {
+                "name": "Arsenal or Draw",
+                "price": 1.09
+              },
+              {
+                "name": "Everton or Draw",
+                "price": 3.41
+              },
+              {
+                "name": "Arsenal or Everton",
+                "price": 1.19
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-24T14:00:00Z",
+    "home_team": "Arsenal",
+    "id": "f66e4f29c1b7bcfc5ab58c0b88c8850b",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.38,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7131817489286165,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.08,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18164054504840332,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 8.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.10517770602298022,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.75,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5464962139725689,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.08,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4535037860274311,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.07,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8819643989998879,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.03,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.31145277456431686,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.17,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.806582826435795,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-24T13:53:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7259659342771505,
+      "selection": "home",
+      "updated_at_utc": "2026-10-24T13:54:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.35,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1743424945522187,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-24T13:54:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 9.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.09969157117063081,
+      "selection": "away",
+      "updated_at_utc": "2026-10-24T13:54:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.09,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8946086266383005,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-24T13:54:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.41,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.28595994223922216,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-24T13:54:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.19,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8194314311224771,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-24T13:54:16+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
