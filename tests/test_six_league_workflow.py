@@ -94,9 +94,9 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             self.assertEqual(len(data['training_end_dates']),len(keys))
             self.assertEqual(data['experiments']['goal_blend_experiment']['graded_fixture_markets'],3*len(keys))
             # The market-led paper experiment stays limited to league-approved leagues.
-            from league_registry import LEAGUE_APPROVAL, keys as registry_keys
+            from league_registry import ARCHIVED_LEAGUE_APPROVAL
             self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],
-                             len(set(keys) & set(registry_keys(shortlist_approval=LEAGUE_APPROVAL))))
+                             len(set(keys) & set(ARCHIVED_LEAGUE_APPROVAL)))
             self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],2*len(keys))
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
             for name in ('filter_sensitivity_experiment','shortlist_weight_experiment','shortlist_policy_experiment'):

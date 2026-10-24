@@ -142,9 +142,9 @@ def write_experiment(predictions, raw: Path, baseline_generated, api, cfg):
     from performance_tracking import utc, write_csv
     by_name = {v.name:v for v in LEAGUES.values()}
     # This paper experiment selects on Pinnacle references, not the per-market
-    # model audit, so it stays limited to league-approved competitions.
+    # model audit, so it stays frozen to the originally league-reviewed leagues.
     import league_registry
-    approved = league_registry.shortlist_names(shortlist_approval=league_registry.LEAGUE_APPROVAL)
+    approved = league_registry.archived_league_approved_names()
     rows, evidence = [], []
     for source in predictions.astype(object).where(predictions.notna(),None).to_dict('records'):
         clock = datetime.now(timezone.utc)
