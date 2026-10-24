@@ -95,6 +95,32 @@ class PerMarketShortlistTests(OfflineQuotePolicyTestCase):
         self.assertEqual(len(picks), 1)
         self.assertGreater((decisions.decision == 'NOT_SELECTED').sum(), 0)
 
+    def test_shared_fixtures_never_leave_a_fillable_slot_empty(self):
+        # Greedy by score took A and B for Home win and left 1X empty (two
+        # picks). Rearranging fills three: Home win A and C, 1X B.
+        pool = [candidate(0, 'Home win', .9, .1), candidate(1, 'Home win', .8, .09),
+                candidate(2, 'Home win', .5, .0), candidate(0, 'Double Chance 1X', .7, .05),
+                candidate(1, 'Double Chance 1X', .6, .04)]
+        picks = chosen(pool)
+        self.assertEqual([(r.market, r.home_team) for r in picks.itertuples()],
+                         [('Home win', 'Home AA'), ('Double Chance 1X', 'Home AB'), ('Home win', 'Home AC')])
+        # Randomized pools: the selection always fills as many slots as an
+        # exhaustive search over valid allocations.
+        import itertools, random
+        rng = random.Random(24)
+        for _ in range(40):
+            pool = [candidate(f, GROUP_MARKETS[g], rng.random(), rng.uniform(-.1, .1))
+                    for f in range(6) for g in rng.sample(MARKET_GROUPS[:3], rng.randint(0, 3))]
+            ranked = rank_candidates(pd.DataFrame(pool))
+            rows = list(zip(ranked._fixture, ranked.market_group))
+            best = max((n for n in range(len(rows), 0, -1) for combo in itertools.combinations(rows, n)
+                        if len({f for f, _ in combo}) == n and
+                        max(pd.Series([g for _, g in combo]).value_counts()) <= PER_GROUP_CAP), default=0)
+            picks = ranked.loc[select_candidates(ranked)]
+            self.assertEqual(len(picks), best)
+            self.assertEqual(picks._fixture.nunique(), len(picks))
+            self.assertLessEqual(picks.market_group.value_counts().max() if len(picks) else 0, PER_GROUP_CAP)
+
     def test_short_group_is_not_filled_from_another_group(self):
         value, evidence = dc_fixture(offers=[])
         evidence['Premier League']['asian_handicap_win'] = reports()['Premier League']['asian_handicap_win']

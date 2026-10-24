@@ -41,22 +41,50 @@ def rank_candidates(pool):
     return pool.sort_values(['selection_score', *order], ascending=[False, *ascending], kind='stable')
 
 
-def select_candidates(ranked):
-    """Greedy by score: one market per fixture, two per group, fourteen total.
+def _max_fill(pairs, open_slots):
+    """Most slots fillable from (fixture, group) pairs, one slot per fixture."""
+    slots = [g for g in MARKET_GROUPS for _ in range(open_slots[g])]
+    options = {}
+    for fixture, group in pairs:
+        options.setdefault(fixture, []).extend(i for i, g in enumerate(slots) if g == group)
+    holder = {}
 
-    A group short of eligible candidates keeps its empty slots; other groups
-    never borrow them. A fixture claimed by a higher-scoring market in another
-    group is skipped, and its group falls through to its next candidate.
+    def augment(fixture, seen):
+        for slot in options[fixture]:
+            if slot not in seen:
+                seen.add(slot)
+                if slot not in holder or augment(holder[slot], seen):
+                    holder[slot] = fixture
+                    return True
+        return False
+    return sum(augment(fixture, set()) for fixture in options)
+
+
+def select_candidates(ranked):
+    """Fill the most slots possible, preferring higher scores in rank order.
+
+    One market per fixture, two per group, fourteen total. Walk candidates by
+    score and accept one only if the remaining slots can still be filled as
+    fully as the best allocation allows. A slot stays empty only when no
+    allocation of the eligible candidates can fill it; groups never borrow
+    another group's slots.
     """
-    used, counts, chosen = set(), dict.fromkeys(MARKET_GROUPS, 0), []
-    for idx, item in ranked.iterrows():
-        if item._fixture in used or counts[item.market_group] >= PER_GROUP_CAP:
-            continue
-        used.add(item._fixture)
-        counts[item.market_group] += 1
-        chosen.append(idx)
-        if len(chosen) == MAX_SELECTIONS:
+    pairs = list(zip(ranked._fixture, ranked.market_group))
+    open_slots = dict.fromkeys(MARKET_GROUPS, PER_GROUP_CAP)
+    target = _max_fill(pairs, open_slots)
+    used, chosen = set(), []
+    for idx, (fixture, group) in zip(ranked.index, pairs):
+        if len(chosen) == target:
             break
+        if fixture in used or not open_slots[group]:
+            continue
+        open_slots[group] -= 1
+        rest = [(f, g) for f, g in pairs if f not in used and f != fixture]
+        if len(chosen) + 1 + _max_fill(rest, open_slots) == target:
+            used.add(fixture)
+            chosen.append(idx)
+        else:
+            open_slots[group] += 1
     return chosen
 
 
@@ -91,7 +119,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     summary.update(selection_policy_version=POLICY, selection_objective='PER_MARKET_BALANCED_PROBABILITY_EV',
         selection_method=f'Within each market group, {PROBABILITY_WEIGHT:g} x adjusted-probability percentile + '
                          f'{1-PROBABILITY_WEIGHT:g} x adjusted-EV percentile; at most {PER_GROUP_CAP} per group and '
-                         f'{MAX_SELECTIONS} in total; one market per fixture, claimed by the higher combined score',
+                         f'{MAX_SELECTIONS} in total; one market per fixture; fill the most slots possible, then prefer higher scores in rank order',
         ranking_metric='selection_score descending; adjusted probability descending; adjusted EV descending; unblended EV descending; odds descending',
         ranking_weights={'adjusted_probability_percentile': PROBABILITY_WEIGHT,
                          'adjusted_ev_percentile': 1-PROBABILITY_WEIGHT},
@@ -106,7 +134,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
         shortfall_reason=(None if len(selected) == MAX_SELECTIONS else
             'Short groups: ' + ', '.join(f"{g} {s['selected']}/{PER_GROUP_CAP}"
                                          for g, s in group_shortfall.items() if s['shortfall']) +
-            '. Empty slots are not filled from other groups.'),
+            '. No allocation of eligible candidates fills these slots; they are not filled from other groups.'),
         negative_adjusted_ev_selections=int(negative.sum()),
         negative_adjusted_ev_markets=[f'{r.home_team} vs {r.away_team}: {r.market}'
                                       for r in selected.loc[negative].itertuples()],
