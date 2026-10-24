@@ -59,9 +59,14 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2._history_for_league',return_value=history()),patch(
                 'dc_decay_validation.tune_half_life',side_effect=lambda *args,**kwargs:tuning()),patch(
                 'football_value_pipeline_v2_standalone.DixonColesModel',ToyModel),patch(
-                'market_led_experiment.fetch_event',side_effect=payload),patch('market_led_experiment.datetime') as dt:
+                'market_led_experiment.fetch_event',side_effect=payload),patch(
+                'europa_training.load',return_value=history(),
+                side_effect=ValueError('coverage incomplete') if getattr(self, '_uel_unavailable', False) else None),patch('market_led_experiment.datetime') as dt:
                 dt.now.return_value=NOW
-                self.assertEqual(main(['--leagues',*keys,'--out-dir',str(raw),'--goal-blend-experiment','--market-led-experiment','--tune-half-life','--recency-experiment']),0)
+                requested_keys = list(keys)
+                if getattr(self, '_uel_unavailable', False):
+                    keys.remove('UEL')
+                self.assertEqual(main(['--leagues',*requested_keys,'--out-dir',str(raw),'--goal-blend-experiment','--market-led-experiment','--tune-half-life','--recency-experiment']),0)
                 self.assertEqual(raw_check(root)['forecasts'],len(keys))
                 picks = pd.read_csv(raw/'conservative_bet_shortlist.csv')
                 self.assertNotIn('Under 3.5', picks.market.tolist())
@@ -91,7 +96,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             # The market-led paper experiment stays limited to league-approved leagues.
             from league_registry import LEAGUE_APPROVAL, keys as registry_keys
             self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],
-                             len(registry_keys(shortlist_approval=LEAGUE_APPROVAL)))
+                             len(set(keys) & set(registry_keys(shortlist_approval=LEAGUE_APPROVAL))))
             self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],2*len(keys))
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
             for name in ('filter_sensitivity_experiment','shortlist_weight_experiment','shortlist_policy_experiment'):
@@ -104,3 +109,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
 
 
 
+
+    def test_unverified_europa_does_not_block_other_leagues_or_experiments(self):
+        self._uel_unavailable = True
+        self.test_all_leagues_both_experiments_readable_outputs_and_forward_grading()
