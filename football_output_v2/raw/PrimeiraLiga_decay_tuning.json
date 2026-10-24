@@ -1,0 +1,823 @@
+{
+  "selected_half_life_days": 730.0,
+  "selected_xi_per_day": 0.0009495166856985552,
+  "selection_metric": "walk_forward_1x2_log_loss",
+  "validation_days": 365,
+  "step_days": 56,
+  "n_folds": 6,
+  "min_train": 250,
+  "min_validation_matches": 25,
+  "candidates": [
+    {
+      "half_life_days": 120.0,
+      "xi_per_day": 0.0057762265046662105,
+      "valid": true,
+      "n_matches": 306,
+      "n_folds": 6,
+      "log_loss": 0.9282645644330304,
+      "brier_score": 0.5488780437752594,
+      "recency_folds": [
+        {
+          "origin": "2025-10-20T00:00:00",
+          "training_end": "2025-10-05T00:00:00",
+          "test_start": "2025-10-24T00:00:00",
+          "test_end": "2025-12-14T00:00:00",
+          "n": 51,
+          "one_x_two_log_loss": 0.8202124320927411,
+          "markets": {
+            "over_1_5": {
+              "n": 51,
+              "brier": 0.16184075842943507,
+              "log_loss": 0.5035489395155556,
+              "mean_probability": 0.7272883364221536,
+              "event_rate": 0.7843137254901961
+            },
+            "btts_yes": {
+              "n": 51,
+              "brier": 0.24953592281886455,
+              "log_loss": 0.6903744935298733,
+              "mean_probability": 0.4500264082355812,
+              "event_rate": 0.43137254901960786
+            }
+          },
+          "one_x_two_brier": 0.47173127282314226
+        },
+        {
+          "origin": "2025-12-15T00:00:00",
+          "training_end": "2025-12-14T00:00:00",
+          "test_start": "2025-12-15T00:00:00",
+          "test_end": "2026-02-08T00:00:00",
+          "n": 64,
+          "one_x_two_log_loss": 0.8852478836288293,
+          "markets": {
+            "over_1_5": {
+              "n": 64,
+              "brier": 0.19385391457445514,
+              "log_loss": 0.5685360408163735,
+              "mean_probability": 0.7159440630886155,
+              "event_rate": 0.71875
+            },
+            "btts_yes": {
+              "n": 64,
+              "brier": 0.252247489025425,
+              "log_loss": 0.6968704236163042,
+              "mean_probability": 0.422807959467368,
+              "event_rate": 0.46875
+            }
+          },
+          "one_x_two_brier": 0.5245257964613103
+        },
+        {
+          "origin": "2026-02-09T00:00:00",
+          "training_end": "2026-02-08T00:00:00",
+          "test_start": "2026-02-09T00:00:00",
+          "test_end": "2026-04-04T00:00:00",
+          "n": 61,
+          "one_x_two_log_loss": 0.8974449160132716,
+          "markets": {
+            "over_1_5": {
+              "n": 61,
+              "brier": 0.20930396327972667,
+              "log_loss": 0.6164963462253383,
+              "mean_probability": 0.7238787057594697,
+              "event_rate": 0.7377049180327869
+            },
+            "btts_yes": {
+              "n": 61,
+              "brier": 0.27253242611430867,
+              "log_loss": 0.7412173547997432,
+              "mean_probability": 0.4480549482529032,
+              "event_rate": 0.5081967213114754
+            }
+          },
+          "one_x_two_brier": 0.5315164897748317
+        },
+        {
+          "origin": "2026-04-06T00:00:00",
+          "training_end": "2026-04-04T00:00:00",
+          "test_start": "2026-04-06T00:00:00",
+          "test_end": "2026-05-16T00:00:00",
+          "n": 58,
+          "one_x_two_log_loss": 1.0911112805774448,
+          "markets": {
+            "over_1_5": {
+              "n": 58,
+              "brier": 0.2131108066855871,
+              "log_loss": 0.6217905204982832,
+              "mean_probability": 0.7515000845204154,
+              "event_rate": 0.7068965517241379
+            },
+            "btts_yes": {
+              "n": 58,
+              "brier": 0.2569870795024396,
+              "log_loss": 0.7081265258369436,
+              "mean_probability": 0.4552761190849083,
+              "event_rate": 0.5517241379310345
+            }
+          },
+          "one_x_two_brier": 0.6545843959848309
+        },
+        {
+          "origin": "2026-07-27T00:00:00",
+          "training_end": "2026-05-16T00:00:00",
+          "test_start": "2026-08-07T00:00:00",
+          "test_end": "2026-09-20T00:00:00",
+          "n": 62,
+          "one_x_two_log_loss": 0.9599905117496914,
+          "markets": {
+            "over_1_5": {
+              "n": 62,
+              "brier": 0.18000281258606385,
+              "log_loss": 0.5471599478673063,
+              "mean_probability": 0.7311707809538919,
+              "event_rate": 0.7580645161290323
+            },
+            "btts_yes": {
+              "n": 62,
+              "brier": 0.25533356207039576,
+              "log_loss": 0.7046153628186427,
+              "mean_probability": 0.46778408535552257,
+              "event_rate": 0.5
+            }
+          },
+          "one_x_two_brier": 0.5715878768691488
+        },
+        {
+          "origin": "2026-09-21T00:00:00",
+          "training_end": "2026-09-20T00:00:00",
+          "test_start": "2026-10-09T00:00:00",
+          "test_end": "2026-10-19T00:00:00",
+          "n": 10,
+          "one_x_two_log_loss": 0.8014252248750113,
+          "markets": {
+            "over_1_5": {
+              "n": 10,
+              "brier": 0.20589939524551265,
+              "log_loss": 0.6148669256298882,
+              "mean_probability": 0.7310684661824459,
+              "event_rate": 0.7
+            },
+            "btts_yes": {
+              "n": 10,
+              "brier": 0.2695578327624471,
+              "log_loss": 0.73332208923902,
+              "mean_probability": 0.4680191564919099,
+              "event_rate": 0.6
+            }
+          },
+          "one_x_two_brier": 0.4501886298453243
+        }
+      ],
+      "recency_diagnostics_error": null
+    },
+    {
+      "half_life_days": 240.0,
+      "xi_per_day": 0.0028881132523331052,
+      "valid": true,
+      "n_matches": 306,
+      "n_folds": 6,
+      "log_loss": 0.9258073125620909,
+      "brier_score": 0.5472571888954154,
+      "recency_folds": [
+        {
+          "origin": "2025-10-20T00:00:00",
+          "training_end": "2025-10-05T00:00:00",
+          "test_start": "2025-10-24T00:00:00",
+          "test_end": "2025-12-14T00:00:00",
+          "n": 51,
+          "one_x_two_log_loss": 0.8289566679612955,
+          "markets": {
+            "over_1_5": {
+              "n": 51,
+              "brier": 0.1613260497455221,
+              "log_loss": 0.5008760660496079,
+              "mean_probability": 0.7258911584153548,
+              "event_rate": 0.7843137254901961
+            },
+            "btts_yes": {
+              "n": 51,
+              "brier": 0.2468498140819147,
+              "log_loss": 0.6854001855747901,
+              "mean_probability": 0.4559439539997339,
+              "event_rate": 0.43137254901960786
+            }
+          },
+          "one_x_two_brier": 0.47746903128301343
+        },
+        {
+          "origin": "2025-12-15T00:00:00",
+          "training_end": "2025-12-14T00:00:00",
+          "test_start": "2025-12-15T00:00:00",
+          "test_end": "2026-02-08T00:00:00",
+          "n": 64,
+          "one_x_two_log_loss": 0.8727936848289927,
+          "markets": {
+            "over_1_5": {
+              "n": 64,
+              "brier": 0.18809219376301778,
+              "log_loss": 0.5557627959808652,
+              "mean_probability": 0.7167412023747287,
+              "event_rate": 0.71875
+            },
+            "btts_yes": {
+              "n": 64,
+              "brier": 0.24592832700458958,
+              "log_loss": 0.6843240699177479,
+              "mean_probability": 0.43271164197884043,
+              "event_rate": 0.46875
+            }
+          },
+          "one_x_two_brier": 0.5150331683405059
+        },
+        {
+          "origin": "2026-02-09T00:00:00",
+          "training_end": "2026-02-08T00:00:00",
+          "test_start": "2026-02-09T00:00:00",
+          "test_end": "2026-04-04T00:00:00",
+          "n": 61,
+          "one_x_two_log_loss": 0.8827277368328889,
+          "markets": {
+            "over_1_5": {
+              "n": 61,
+              "brier": 0.20018319761122297,
+              "log_loss": 0.5910462976506854,
+              "mean_probability": 0.7207232572646086,
+              "event_rate": 0.7377049180327869
+            },
+            "btts_yes": {
+              "n": 61,
+              "brier": 0.2599409816043498,
+              "log_loss": 0.7140229131832085,
+              "mean_probability": 0.4527185420424158,
+              "event_rate": 0.5081967213114754
+            }
+          },
+          "one_x_two_brier": 0.5205772766412005
+        },
+        {
+          "origin": "2026-04-06T00:00:00",
+          "training_end": "2026-04-04T00:00:00",
+          "test_start": "2026-04-06T00:00:00",
+          "test_end": "2026-05-16T00:00:00",
+          "n": 58,
+          "one_x_two_log_loss": 1.0859633186690467,
+          "markets": {
+            "over_1_5": {
+              "n": 58,
+              "brier": 0.20860482908760353,
+              "log_loss": 0.6079479724950506,
+              "mean_probability": 0.7452357275853769,
+              "event_rate": 0.7068965517241379
+            },
+            "btts_yes": {
+              "n": 58,
+              "brier": 0.25275498746959657,
+              "log_loss": 0.6990778640484246,
+              "mean_probability": 0.4552867012807267,
+              "event_rate": 0.5517241379310345
+            }
+          },
+          "one_x_two_brier": 0.6524418907517148
+        },
+        {
+          "origin": "2026-07-27T00:00:00",
+          "training_end": "2026-05-16T00:00:00",
+          "test_start": "2026-08-07T00:00:00",
+          "test_end": "2026-09-20T00:00:00",
+          "n": 62,
+          "one_x_two_log_loss": 0.9670030913396759,
+          "markets": {
+            "over_1_5": {
+              "n": 62,
+              "brier": 0.17745073024727392,
+              "log_loss": 0.5394824500582396,
+              "mean_probability": 0.7328903451042209,
+              "event_rate": 0.7580645161290323
+            },
+            "btts_yes": {
+              "n": 62,
+              "brier": 0.2571723930829315,
+              "log_loss": 0.7080706997016216,
+              "mean_probability": 0.46671220725123513,
+              "event_rate": 0.5
+            }
+          },
+          "one_x_two_brier": 0.5773035484272188
+        },
+        {
+          "origin": "2026-09-21T00:00:00",
+          "training_end": "2026-09-20T00:00:00",
+          "test_start": "2026-10-09T00:00:00",
+          "test_end": "2026-10-19T00:00:00",
+          "n": 10,
+          "one_x_two_log_loss": 0.8374995656247506,
+          "markets": {
+            "over_1_5": {
+              "n": 10,
+              "brier": 0.1912105229095235,
+              "log_loss": 0.5708023751969475,
+              "mean_probability": 0.7324511275405076,
+              "event_rate": 0.7
+            },
+            "btts_yes": {
+              "n": 10,
+              "brier": 0.2527344014720775,
+              "log_loss": 0.6986708001462693,
+              "mean_probability": 0.4798470732455974,
+              "event_rate": 0.6
+            }
+          },
+          "one_x_two_brier": 0.47579928915707315
+        }
+      ],
+      "recency_diagnostics_error": null
+    },
+    {
+      "half_life_days": 365.0,
+      "xi_per_day": 0.0018990333713971104,
+      "valid": true,
+      "n_matches": 306,
+      "n_folds": 6,
+      "log_loss": 0.9252201353312637,
+      "brier_score": 0.5468421368081197,
+      "recency_folds": [
+        {
+          "origin": "2025-10-20T00:00:00",
+          "training_end": "2025-10-05T00:00:00",
+          "test_start": "2025-10-24T00:00:00",
+          "test_end": "2025-12-14T00:00:00",
+          "n": 51,
+          "one_x_two_log_loss": 0.8326883830012801,
+          "markets": {
+            "over_1_5": {
+              "n": 51,
+              "brier": 0.16269875912236686,
+              "log_loss": 0.5032542096660279,
+              "mean_probability": 0.7265570439966392,
+              "event_rate": 0.7843137254901961
+            },
+            "btts_yes": {
+              "n": 51,
+              "brier": 0.24685882932200603,
+              "log_loss": 0.6860257287264887,
+              "mean_probability": 0.45840534669967337,
+              "event_rate": 0.43137254901960786
+            }
+          },
+          "one_x_two_brier": 0.48062010946778816
+        },
+        {
+          "origin": "2025-12-15T00:00:00",
+          "training_end": "2025-12-14T00:00:00",
+          "test_start": "2025-12-15T00:00:00",
+          "test_end": "2026-02-08T00:00:00",
+          "n": 64,
+          "one_x_two_log_loss": 0.8664337851019276,
+          "markets": {
+            "over_1_5": {
+              "n": 64,
+              "brier": 0.18824134931557687,
+              "log_loss": 0.5570028133356674,
+              "mean_probability": 0.718614673712695,
+              "event_rate": 0.71875
+            },
+            "btts_yes": {
+              "n": 64,
+              "brier": 0.2441124412513052,
+              "log_loss": 0.6809213339861909,
+              "mean_probability": 0.43749455482449995,
+              "event_rate": 0.46875
+            }
+          },
+          "one_x_two_brier": 0.5095300515970347
+        },
+        {
+          "origin": "2026-02-09T00:00:00",
+          "training_end": "2026-02-08T00:00:00",
+          "test_start": "2026-02-09T00:00:00",
+          "test_end": "2026-04-04T00:00:00",
+          "n": 61,
+          "one_x_two_log_loss": 0.8821620926489359,
+          "markets": {
+            "over_1_5": {
+              "n": 61,
+              "brier": 0.19605358232318307,
+              "log_loss": 0.5800885497656308,
+              "mean_probability": 0.7201092304479451,
+              "event_rate": 0.7377049180327869
+            },
+            "btts_yes": {
+              "n": 61,
+              "brier": 0.2546712500775727,
+              "log_loss": 0.7028809864853439,
+              "mean_probability": 0.45444826952611544,
+              "event_rate": 0.5081967213114754
+            }
+          },
+          "one_x_two_brier": 0.519385168008258
+        },
+        {
+          "origin": "2026-04-06T00:00:00",
+          "training_end": "2026-04-04T00:00:00",
+          "test_start": "2026-04-06T00:00:00",
+          "test_end": "2026-05-16T00:00:00",
+          "n": 58,
+          "one_x_two_log_loss": 1.08245915526879,
+          "markets": {
+            "over_1_5": {
+              "n": 58,
+              "brier": 0.20650033748329683,
+              "log_loss": 0.601950966899692,
+              "mean_probability": 0.7417314791009556,
+              "event_rate": 0.7068965517241379
+            },
+            "btts_yes": {
+              "n": 58,
+              "brier": 0.2512222143604106,
+              "log_loss": 0.6958795708431815,
+              "mean_probability": 0.4545408264292943,
+              "event_rate": 0.5517241379310345
+            }
+          },
+          "one_x_two_brier": 0.6507731956361199
+        },
+        {
+          "origin": "2026-07-27T00:00:00",
+          "training_end": "2026-05-16T00:00:00",
+          "test_start": "2026-08-07T00:00:00",
+          "test_end": "2026-09-20T00:00:00",
+          "n": 62,
+          "one_x_two_log_loss": 0.9689939869508881,
+          "markets": {
+            "over_1_5": {
+              "n": 62,
+              "brier": 0.17681573857552302,
+              "log_loss": 0.536819764142358,
+              "mean_probability": 0.7305516616064092,
+              "event_rate": 0.7580645161290323
+            },
+            "btts_yes": {
+              "n": 62,
+              "brier": 0.25668367159522154,
+              "log_loss": 0.7068952775018115,
+              "mean_probability": 0.4649163389768671,
+              "event_rate": 0.5
+            }
+          },
+          "one_x_two_brier": 0.5792356610022499
+        },
+        {
+          "origin": "2026-09-21T00:00:00",
+          "training_end": "2026-09-20T00:00:00",
+          "test_start": "2026-10-09T00:00:00",
+          "test_end": "2026-10-19T00:00:00",
+          "n": 10,
+          "one_x_two_log_loss": 0.8526345783648039,
+          "markets": {
+            "over_1_5": {
+              "n": 10,
+              "brier": 0.18511765529449797,
+              "log_loss": 0.5529154213308892,
+              "mean_probability": 0.7310518256219944,
+              "event_rate": 0.7
+            },
+            "btts_yes": {
+              "n": 10,
+              "brier": 0.24685414119612314,
+              "log_loss": 0.6866344584138296,
+              "mean_probability": 0.48085154141408915,
+              "event_rate": 0.6
+            }
+          },
+          "one_x_two_brier": 0.4872193400679109
+        }
+      ],
+      "recency_diagnostics_error": null
+    },
+    {
+      "half_life_days": 730.0,
+      "xi_per_day": 0.0009495166856985552,
+      "valid": true,
+      "n_matches": 306,
+      "n_folds": 6,
+      "log_loss": 0.9252016382414401,
+      "brier_score": 0.5468283297978113,
+      "recency_folds": [
+        {
+          "origin": "2025-10-20T00:00:00",
+          "training_end": "2025-10-05T00:00:00",
+          "test_start": "2025-10-24T00:00:00",
+          "test_end": "2025-12-14T00:00:00",
+          "n": 51,
+          "one_x_two_log_loss": 0.8349410005532264,
+          "markets": {
+            "over_1_5": {
+              "n": 51,
+              "brier": 0.16591291728340934,
+              "log_loss": 0.5099536953055779,
+              "mean_probability": 0.7286568079701659,
+              "event_rate": 0.7843137254901961
+            },
+            "btts_yes": {
+              "n": 51,
+              "brier": 0.24893979638906436,
+              "log_loss": 0.6907324769475593,
+              "mean_probability": 0.46209690258604064,
+              "event_rate": 0.43137254901960786
+            }
+          },
+          "one_x_two_brier": 0.48281571340162915
+        },
+        {
+          "origin": "2025-12-15T00:00:00",
+          "training_end": "2025-12-14T00:00:00",
+          "test_start": "2025-12-15T00:00:00",
+          "test_end": "2026-02-08T00:00:00",
+          "n": 64,
+          "one_x_two_log_loss": 0.858882558879468,
+          "markets": {
+            "over_1_5": {
+              "n": 64,
+              "brier": 0.1906725403149136,
+              "log_loss": 0.5646603147984327,
+              "mean_probability": 0.7232460376929573,
+              "event_rate": 0.71875
+            },
+            "btts_yes": {
+              "n": 64,
+              "brier": 0.24299933356901862,
+              "log_loss": 0.6789433547682663,
+              "mean_probability": 0.4449208970147251,
+              "event_rate": 0.46875
+            }
+          },
+          "one_x_two_brier": 0.5028027385705454
+        },
+        {
+          "origin": "2026-02-09T00:00:00",
+          "training_end": "2026-02-08T00:00:00",
+          "test_start": "2026-02-09T00:00:00",
+          "test_end": "2026-04-04T00:00:00",
+          "n": 61,
+          "one_x_two_log_loss": 0.8860021039557446,
+          "markets": {
+            "over_1_5": {
+              "n": 61,
+              "brier": 0.1921830782874889,
+              "log_loss": 0.5702633771030027,
+              "mean_probability": 0.7218534762194416,
+              "event_rate": 0.7377049180327869
+            },
+            "btts_yes": {
+              "n": 61,
+              "brier": 0.25004583820515974,
+              "log_loss": 0.6932093812332231,
+              "mean_probability": 0.457253723868761,
+              "event_rate": 0.5081967213114754
+            }
+          },
+          "one_x_two_brier": 0.5212210492013754
+        },
+        {
+          "origin": "2026-04-06T00:00:00",
+          "training_end": "2026-04-04T00:00:00",
+          "test_start": "2026-04-06T00:00:00",
+          "test_end": "2026-05-16T00:00:00",
+          "n": 58,
+          "one_x_two_log_loss": 1.0791054612611768,
+          "markets": {
+            "over_1_5": {
+              "n": 58,
+              "brier": 0.204060119201302,
+              "log_loss": 0.5954519019038274,
+              "mean_probability": 0.7395859305538345,
+              "event_rate": 0.7068965517241379
+            },
+            "btts_yes": {
+              "n": 58,
+              "brier": 0.2504814994060685,
+              "log_loss": 0.6943604609881681,
+              "mean_probability": 0.45477250669515656,
+              "event_rate": 0.5517241379310345
+            }
+          },
+          "one_x_two_brier": 0.6495404096450437
+        },
+        {
+          "origin": "2026-07-27T00:00:00",
+          "training_end": "2026-05-16T00:00:00",
+          "test_start": "2026-08-07T00:00:00",
+          "test_end": "2026-09-20T00:00:00",
+          "n": 62,
+          "one_x_two_log_loss": 0.9713035571254961,
+          "markets": {
+            "over_1_5": {
+              "n": 62,
+              "brier": 0.1762178944745936,
+              "log_loss": 0.5341044630631157,
+              "mean_probability": 0.727184442772385,
+              "event_rate": 0.7580645161290323
+            },
+            "btts_yes": {
+              "n": 62,
+              "brier": 0.2551020802948565,
+              "log_loss": 0.7035408228258373,
+              "mean_probability": 0.46204768157978554,
+              "event_rate": 0.5
+            }
+          },
+          "one_x_two_brier": 0.5814556647672479
+        },
+        {
+          "origin": "2026-09-21T00:00:00",
+          "training_end": "2026-09-20T00:00:00",
+          "test_start": "2026-10-09T00:00:00",
+          "test_end": "2026-10-19T00:00:00",
+          "n": 10,
+          "one_x_two_log_loss": 0.8706160869150903,
+          "markets": {
+            "over_1_5": {
+              "n": 10,
+              "brier": 0.17967366251175404,
+              "log_loss": 0.5375181714424255,
+              "mean_probability": 0.7282541080789808,
+              "event_rate": 0.7
+            },
+            "btts_yes": {
+              "n": 10,
+              "brier": 0.24224995184906564,
+              "log_loss": 0.6773469281627295,
+              "mean_probability": 0.4792400740303659,
+              "event_rate": 0.6
+            }
+          },
+          "one_x_two_brier": 0.5008413289866537
+        }
+      ],
+      "recency_diagnostics_error": null
+    },
+    {
+      "half_life_days": 1000000000.0,
+      "xi_per_day": 6.931471805599453e-10,
+      "valid": true,
+      "n_matches": 306,
+      "n_folds": 6,
+      "log_loss": 0.9259500421725163,
+      "brier_score": 0.5475347206461143,
+      "recency_folds": [
+        {
+          "origin": "2025-10-20T00:00:00",
+          "training_end": "2025-10-05T00:00:00",
+          "test_start": "2025-10-24T00:00:00",
+          "test_end": "2025-12-14T00:00:00",
+          "n": 51,
+          "one_x_two_log_loss": 0.8347166273300926,
+          "markets": {
+            "over_1_5": {
+              "n": 51,
+              "brier": 0.1702664623259081,
+              "log_loss": 0.5201715843365816,
+              "mean_probability": 0.730498689014563,
+              "event_rate": 0.7843137254901961
+            },
+            "btts_yes": {
+              "n": 51,
+              "brier": 0.25214750414269443,
+              "log_loss": 0.6973342094338806,
+              "mean_probability": 0.4643590622067481,
+              "event_rate": 0.43137254901960786
+            }
+          },
+          "one_x_two_brier": 0.48310523343104017
+        },
+        {
+          "origin": "2025-12-15T00:00:00",
+          "training_end": "2025-12-14T00:00:00",
+          "test_start": "2025-12-15T00:00:00",
+          "test_end": "2026-02-08T00:00:00",
+          "n": 64,
+          "one_x_two_log_loss": 0.8513399337558846,
+          "markets": {
+            "over_1_5": {
+              "n": 64,
+              "brier": 0.19544725099967816,
+              "log_loss": 0.5792353115988615,
+              "mean_probability": 0.7283806515381669,
+              "event_rate": 0.71875
+            },
+            "btts_yes": {
+              "n": 64,
+              "brier": 0.24411991920152923,
+              "log_loss": 0.6812878334497702,
+              "mean_probability": 0.4523731243928523,
+              "event_rate": 0.46875
+            }
+          },
+          "one_x_two_brier": 0.4962239193667842
+        },
+        {
+          "origin": "2026-02-09T00:00:00",
+          "training_end": "2026-02-08T00:00:00",
+          "test_start": "2026-02-09T00:00:00",
+          "test_end": "2026-04-04T00:00:00",
+          "n": 61,
+          "one_x_two_log_loss": 0.8932477778324261,
+          "markets": {
+            "over_1_5": {
+              "n": 61,
+              "brier": 0.189932121636519,
+              "log_loss": 0.5647442025667763,
+              "mean_probability": 0.7260369638320964,
+              "event_rate": 0.7377049180327869
+            },
+            "btts_yes": {
+              "n": 61,
+              "brier": 0.2472510514482631,
+              "log_loss": 0.6874809825851798,
+              "mean_probability": 0.4613195687874579,
+              "event_rate": 0.5081967213114754
+            }
+          },
+          "one_x_two_brier": 0.525680520228568
+        },
+        {
+          "origin": "2026-04-06T00:00:00",
+          "training_end": "2026-04-04T00:00:00",
+          "test_start": "2026-04-06T00:00:00",
+          "test_end": "2026-05-16T00:00:00",
+          "n": 58,
+          "one_x_two_log_loss": 1.0768555126717096,
+          "markets": {
+            "over_1_5": {
+              "n": 58,
+              "brier": 0.20180503296171187,
+              "log_loss": 0.5898366519417411,
+              "mean_probability": 0.7396095361661554,
+              "event_rate": 0.7068965517241379
+            },
+            "btts_yes": {
+              "n": 58,
+              "brier": 0.2516304039101629,
+              "log_loss": 0.696740941329436,
+              "mean_probability": 0.4569717286227983,
+              "event_rate": 0.5517241379310345
+            }
+          },
+          "one_x_two_brier": 0.6496102693083863
+        },
+        {
+          "origin": "2026-07-27T00:00:00",
+          "training_end": "2026-05-16T00:00:00",
+          "test_start": "2026-08-07T00:00:00",
+          "test_end": "2026-09-20T00:00:00",
+          "n": 62,
+          "one_x_two_log_loss": 0.974630661794352,
+          "markets": {
+            "over_1_5": {
+              "n": 62,
+              "brier": 0.1757756237214211,
+              "log_loss": 0.5319893607928374,
+              "mean_probability": 0.7236931313342674,
+              "event_rate": 0.7580645161290323
+            },
+            "btts_yes": {
+              "n": 62,
+              "brier": 0.2529292038545532,
+              "log_loss": 0.6990838040197552,
+              "mean_probability": 0.4582126970084456,
+              "event_rate": 0.5
+            }
+          },
+          "one_x_two_brier": 0.5845990921797619
+        },
+        {
+          "origin": "2026-09-21T00:00:00",
+          "training_end": "2026-09-20T00:00:00",
+          "test_start": "2026-10-09T00:00:00",
+          "test_end": "2026-10-19T00:00:00",
+          "n": 10,
+          "one_x_two_log_loss": 0.8911573936591477,
+          "markets": {
+            "over_1_5": {
+              "n": 10,
+              "brier": 0.17625880584551162,
+              "log_loss": 0.528184902136093,
+              "mean_probability": 0.7245941420493299,
+              "event_rate": 0.7
+            },
+            "btts_yes": {
+              "n": 10,
+              "brier": 0.23995376702109267,
+              "log_loss": 0.6728433354304706,
+              "mean_probability": 0.47569189938718515,
+              "event_rate": 0.6
+            }
+          },
+          "one_x_two_brier": 0.5159875704279213
+        }
+      ],
+      "recency_diagnostics_error": null
+    }
+  ],
+  "note": "Validation scores were used for model selection and are not an independent final test. Evaluate on a later untouched period."
+}

@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "f50d45c7f417ced1f4ddb0f2dce02d3f0ade03319a7628ccb532ba80ff33fe9a",
-  "training_as_of_utc": "2026-10-24T14:19:17.346819+00:00",
+  "training_as_of_utc": "2026-10-24T14:47:10.281252+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 90,
     "bbs_added_results": 1,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-24T14:19:17.346819+00:00",
+    "cutoff_utc": "2026-10-24T14:47:10.281252+00:00",
     "observations": 293,
     "observations_sha256": "144acedd8910555c44175b462d9567ae5a6bca5687de967fed943cb0d0781656",
     "eligible_training_matches": 98,
@@ -81,10 +81,10 @@
   },
   "training_end": "2026-10-23",
   "fit_success": true,
-  "objective": 5527.199723126847,
-  "base": 0.09115661158998264,
-  "home_adv": 0.2787531448766402,
-  "rho": -0.02108567623175166,
+  "objective": 5527.199700993203,
+  "base": 0.09118637797083691,
+  "home_adv": 0.2787823252185263,
+  "rho": -0.021119787114218098,
   "half_life_days": 1000000000.0,
   "xi_per_day": 6.931471805599453e-10,
   "max_goals": 10,
@@ -116,7 +116,7 @@
   "additional_event_odds_calls_used_before_this_league": 6,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261024T141917346819Z_ebd86446ceb11442ba0e9bd729030e242526b6ae8debe20ba2e880f8d2ec0386.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261024T144710281252Z_428f24d4218c3dc4396c2b6c019481e77c780f70570dde6dc15ea11df3cbbeff.json",
   "over_1_5_in_window_quote_fixtures": 1,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -170,7 +170,7 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 28,
+      "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"

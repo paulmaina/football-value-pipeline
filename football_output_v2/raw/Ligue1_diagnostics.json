@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "6dc495c5225ffd8905fdcef4ff7b125391bfa0b806e25c3045748aff44845797",
-  "training_as_of_utc": "2026-10-24T14:21:37.407738+00:00",
+  "training_as_of_utc": "2026-10-24T14:49:18.960151+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 64,
     "bbs_added_results": 1,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-24T14:21:37.407738+00:00",
+    "cutoff_utc": "2026-10-24T14:49:18.960151+00:00",
     "observations": 243,
     "observations_sha256": "74fc35e22a1c1e9a6b223007148aa46d5d227cc2eee1d44dbd1c39f80c8d1412",
     "eligible_training_matches": 91,
@@ -81,10 +81,10 @@
   },
   "training_end": "2026-10-23",
   "fit_success": true,
-  "objective": 5081.975012587652,
-  "base": 0.21585279842260421,
-  "home_adv": 0.1864863870459712,
-  "rho": -0.056857968307817856,
+  "objective": 5081.975012517868,
+  "base": 0.21585279499684495,
+  "home_adv": 0.18648638981319035,
+  "rho": -0.05685796452241178,
   "half_life_days": 1000000000.0,
   "xi_per_day": 6.931471805599453e-10,
   "max_goals": 10,
@@ -116,7 +116,7 @@
   "additional_event_odds_calls_used_before_this_league": 22,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261024T142137407738Z_7eed8ee7a81b159b4838f479a033eb2b9197b3fa91f347ec1c32638e3d0e390e.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261024T144918960151Z_a8a0704ac53f35485f91ad20c9d99baa264a4fa2af1a1f31b3013a91c70880e1.json",
   "over_1_5_in_window_quote_fixtures": 2,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -250,7 +250,7 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 32,
+      "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
