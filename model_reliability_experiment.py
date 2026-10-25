@@ -48,8 +48,46 @@ def baseline(row):
     return values
 
 
-def candidate_probabilities(row, matrix):
-    """Change the raw fit only, retaining production's 1X2 market blend."""
+class Excluded(ValueError):
+    """A forecast that cannot be compared like for like; ``code`` is logged."""
+    def __init__(self, code):
+        super().__init__(code)
+        self.code = code
+
+
+def reason(exc):
+    return exc.code if isinstance(exc, Excluded) else type(exc).__name__
+
+
+def anchor_inputs(row, meta, model):
+    """Production's own totals anchor, re-applied to the candidate fit; None if unused."""
+    if row.get('totals_anchor_applied') not in (True, 1, 'True'):
+        return None
+    from performance_tracking import number
+    target = number(row.get('totals_anchor_target_over_2_5'), min_value=0, max_value=1)
+    if target is None or not 0 < target < 1:
+        raise Excluded('production_anchor_target_missing')
+    return {'lambda_home': float(meta['lambda_home']), 'lambda_away': float(meta['lambda_away']),
+            'rho': float(model.rho), 'max_goals': int(model.max_goals), 'target_over_2_5': target,
+            'tail_bounded': bool(meta.get('score_engine_version'))}
+
+
+def candidate_probabilities(row, matrix, anchor=None):
+    """Change the raw fit only; production's 1X2 blend and totals anchor apply to both arms."""
+    blended = blended_matrix(row, matrix)
+    if anchor is not None:
+        from historical_benchmark import anchor_totals
+        hda = probabilities(blended)
+        try:
+            blended, _ = anchor_totals(anchor['lambda_home'], anchor['lambda_away'], anchor['rho'],
+                [hda['p_home'], hda['p_draw'], hda['p_away']], anchor['target_over_2_5'],
+                anchor['max_goals'], tail_bounded=anchor['tail_bounded'])
+        except ValueError:
+            raise Excluded('candidate_anchor_solver_failed') from None
+    return probabilities(blended)
+
+
+def blended_matrix(row, matrix):
     from benchmark_forward_experiment import simplex
     from football_value_pipeline_v2_standalone import reweight_matrix_to_1x2
     raw = probabilities(matrix)
@@ -62,7 +100,7 @@ def candidate_probabilities(row, matrix):
         prod = simplex(row, 'p_')
         if control is None or prod is None or not np.allclose(control, prod, atol=1e-9, rtol=0):
             raise ValueError('Unreproducible production basis')
-        return raw
+        return np.asarray(matrix, dtype=float)
     market = simplex(row, 'market_p_')
     control = simplex(row, 'raw_p_')
     prod = simplex(row, 'p_')
@@ -70,11 +108,16 @@ def candidate_probabilities(row, matrix):
             prod, (1-weight)*np.array(control)+weight*np.array(market), atol=1e-9, rtol=0):
         raise ValueError('Unreproducible production blend')
     target = (1-weight)*np.array([raw[k] for k in ('p_home', 'p_draw', 'p_away')])+weight*np.array(market)
-    return probabilities(reweight_matrix_to_1x2(np.asarray(matrix), target))
+    return reweight_matrix_to_1x2(np.asarray(matrix), target)
 
 
-def generate_league(predictions, history, model_class, *, half_life, l2, max_goals, as_of=None):
-    """Two extra fits; identical private training copies; no odds/provider calls."""
+def generate_league(predictions, history, model_class, *, half_life, l2, max_goals, as_of=None,
+                    shot_features=False):
+    """Two extra fits; identical private training copies; no odds/provider calls.
+
+    Candidates use production's feature settings, blend and totals anchor, so the
+    registered factor is the only difference.
+    """
     canonical = history[['Date', 'HomeTeam', 'AwayTeam', 'FTHG', 'FTAG']].to_csv(index=False, lineterminator='\n')
     provenance = {'training_sha256': hashlib.sha256(canonical.encode()).hexdigest(),
                   'training_end': pd.to_datetime(history.Date).max().isoformat(),
@@ -86,8 +129,11 @@ def generate_league(predictions, history, model_class, *, half_life, l2, max_goa
         params = {'half_life_days': half_life, 'l2': l2, 'max_goals': max_goals, **change}
         try:
             if name == 'stronger_l2' and l2 >= change['l2']:
-                raise ValueError('Production regularisation already at least as strong')
-            model = model_class(**params).fit(history.copy(deep=True),
+                raise Excluded('production_regularisation_already_at_least_as_strong')
+            if name == 'fixed_half_life' and abs(float(half_life) - change['half_life_days']) < 1e-9:
+                # Production adopted this candidate; the trial factor no longer differs.
+                raise Excluded('candidate_equals_production_half_life')
+            model = model_class(**params, **({'shot_features': True} if shot_features else {})).fit(history.copy(deep=True),
                 **({'as_of': pd.Timestamp(as_of)} if as_of is not None else {}))
             from football_value_pipeline_v2_standalone import LEAGUES
             leagues = set(predictions['league'].dropna())
@@ -97,7 +143,7 @@ def generate_league(predictions, history, model_class, *, half_life, l2, max_goa
                 raise ValueError('Optimizer did not converge')
             models[name] = model
         except Exception as exc:
-            errors[name] = type(exc).__name__
+            errors[name] = reason(exc)
     rows = []
     for source in predictions.astype(object).where(predictions.notna(), None).to_dict('records'):
         row = {k: source.get(k) for k in ('league', 'home_team', 'away_team', 'kickoff_utc')}
@@ -117,10 +163,15 @@ def generate_league(predictions, history, model_class, *, half_life, l2, max_goa
                 matrix, meta = models[name].score_matrix(source['home_team'], source['away_team'])
                 if min(float(meta.get(k, 0)) for k in ('home_name_match_score', 'away_name_match_score')) < 90:
                     raise ValueError('Unreliable candidate team identity')
-                values = candidate_probabilities(source, matrix)
-                item.update(status='available', reason=None, raw_matrix=np.asarray(matrix).tolist(), probabilities=values)
+                used = source.get('goal_rate_features_used')
+                if used is not None and meta.get('goal_rate_features_used', 'none') != used:
+                    raise Excluded('feature_application_differs')
+                anchor = anchor_inputs(source, meta, models[name])
+                values = candidate_probabilities(source, matrix, anchor)
+                item.update(status='available', reason=None, raw_matrix=np.asarray(matrix).tolist(),
+                            probabilities=values, anchor=anchor)
             except Exception as exc:
-                item['reason'] = item['reason'] or type(exc).__name__
+                item['reason'] = item['reason'] or reason(exc)
             row['candidates'][name] = item
         rows.append(row)
     return rows
@@ -180,7 +231,7 @@ def validate(data, generated, predictions):
                 continue
             if row['league'] not in REGISTRY['leagues'] or row['baseline'] is None:
                 raise ValueError('Candidate outside trial scope')
-            if not equivalent(item['probabilities'], candidate_probabilities(source, item['raw_matrix'])):
+            if not equivalent(item['probabilities'], candidate_probabilities(source, item['raw_matrix'], item.get('anchor'))):
                 raise ValueError('Candidate probabilities differ from frozen matrix')
     if seen != set(originals):
         raise ValueError('Incomplete reliability coverage')
@@ -238,8 +289,11 @@ def evaluate(root, archive, records, clock):
     rows, rejected = frozen(root, archive)
     records = [r for r in records if r.get('source_status') == 'FINISHED' and r.get('source') == 'football-data.org/v4']
     comparisons, ledger = [], []
+    from collections import Counter
     for name in REGISTRY['candidates']:
         graded, verified = [], 0
+        excluded = Counter(str(row['candidates'].get(name, {}).get('reason') or 'generation_failed')
+                           for row in rows if row['candidates'].get(name, {}).get('status') != 'available')
         for row in rows:
             match, _ = fixture_match(row, records)
             if not match or utc(row['kickoff_utc']) > clock-timedelta(hours=2):
@@ -277,7 +331,8 @@ def evaluate(root, archive, records, clock):
                             'evidence': 'SUPPORTS_FORECASTING_REVIEW' if supports else 'NO_CLEAR_PROMOTION_EVIDENCE',
                             'paired_fixtures': len(graded), 'verified_fixtures': verified, 'verified_coverage': coverage, 'gameweeks': weeks,
                             'primary_log_loss_gain_familywise95': interval, 'scores': scores, 'top_label_calibration': hda,
-                            'guardrails_passed': guardrails, 'by_league': by_league})
+                            'guardrails_passed': guardrails, 'by_league': by_league,
+                            'excluded_forecast_reasons': dict(sorted(excluded.items()))})
     return {'version': VERSION, 'registry': REGISTRY, 'registry_sha256': digest(REGISTRY),
             'reviewed_at_utc': clock.isoformat(), 'observed_fixtures': len(rows), 'comparisons': comparisons,
             'rejected_snapshot_commits': rejected, 'automatic_production_change': False,
@@ -296,6 +351,9 @@ def review_experiment(root, archive, records, clock):
              '| Candidate | Status | Paired fixtures | Gameweeks | Verified coverage |', '|---|---|---:|---:|---:|']
     for r in summary['comparisons']:
         lines.append(f"| {r['candidate_id']} | {r['status']} | {r['paired_fixtures']}/300 | {r['gameweeks']}/6 | {r['verified_coverage']} |")
+        if r['excluded_forecast_reasons']:
+            lines += ['', f"Excluded {r['candidate_id']} forecasts (not comparable like for like): "
+                      + ', '.join(f'{k}: {v}' for k, v in r['excluded_forecast_reasons'].items())]
         lines += ['', f"## {r['candidate_id']}", '',
                   '| Market | Baseline log loss | Candidate log loss | Baseline Brier | Candidate Brier |', '|---|---:|---:|---:|---:|']
         for market, scores in r['scores'].items():

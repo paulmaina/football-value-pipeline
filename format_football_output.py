@@ -1213,6 +1213,40 @@ def add_shortlist_alternatives(readable, raw, input_dir, summary):
     return readable
 
 
+def process_bet365_list(input_dir: Path, output_dir: Path) -> Optional[int]:
+    """Render the separate bet365 vs Pinnacle list; never part of the shortlist."""
+    from bet365_pinnacle import FILE, TITLE, MIN_EDGE
+    names = ("bet365_vs_pinnacle_readable.csv", "bet365_vs_pinnacle_report.md")
+    source = input_dir / FILE
+    if not source.exists():
+        for name in names:
+            (output_dir / name).unlink(missing_ok=True)
+        return None
+    try:
+        raw = pd.read_csv(source, low_memory=False)
+    except pd.errors.EmptyDataError:
+        raw = pd.DataFrame()
+    columns = {"league": "League", "kickoff_utc": "Kickoff (UTC)", "home_team": "Home",
+               "away_team": "Away", "market": "Market", "bet365_decimal_odds": "bet365 odds",
+               "pinnacle_decimal_odds": "Pinnacle odds", "pinnacle_fair_probability": "Pinnacle fair probability",
+               "ev_vs_pinnacle_fair": "EV vs Pinnacle fair", "bet365_quote_age_seconds": "bet365 quote age (s)",
+               "pinnacle_quote_age_seconds": "Pinnacle quote age (s)"}
+    readable = raw.reindex(columns=list(columns)).rename(columns=columns)
+    if not readable.empty:
+        readable["Pinnacle fair probability"] = raw["pinnacle_fair_probability"].map(pct)
+        readable["EV vs Pinnacle fair"] = raw["ev_vs_pinnacle_fair"].map(signed_pct)
+        readable["Pinnacle odds"] = raw["pinnacle_decimal_odds"].map(decimal)
+    readable.to_csv(output_dir / names[0], index=False, encoding="utf-8-sig")
+    lines = [f"# {TITLE}", "",
+             f"Separate list, **not** part of the shortlist. bet365 prices with EV of at least "
+             f"{MIN_EDGE:.0%} against Pinnacle's margin-removed probability from the same capture; "
+             "both quotes within the live freshness window. Closing quotes are tracked in the forward review.", ""]
+    lines.append(markdown_table(list(readable.columns), readable.astype(str).values.tolist())
+                 if not readable.empty else "No entries this run (no qualifying bet365 quotes in the feed).")
+    (output_dir / names[1]).write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return len(readable)
+
+
 def process_conservative_shortlist(
     input_dir: Path,
     output_dir: Path,
@@ -1766,6 +1800,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             )
 
     shortlist_count = process_conservative_shortlist(input_dir, output_dir)
+    process_bet365_list(input_dir, output_dir)
     from performance_excel import export_existing, REPORT_NAME
     performance_path = export_existing(root_dir, output_dir / REPORT_NAME)
 

@@ -9,7 +9,7 @@ variables instead, append --api-key-source environment to each relevant command.
 Never commit .env.
 
 Full prediction/experiment command:
-py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL UEL  Eredivisie PrimeiraLiga --tune-half-life  --additional-odds-coverage all --goal-blend-experiment --additional-odds-coverage all --market-led-experiment --recency-experiment --reliability-experiment      
+py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL UEL  Eredivisie PrimeiraLiga --additional-odds-coverage all --goal-blend-experiment --additional-odds-coverage all --market-led-experiment --recency-experiment --reliability-experiment      
 
 After the WHOLE prediction command succeeds:
 py workflow_checks.py raw
@@ -41,8 +41,12 @@ CURRENT DEFAULTS
 --domestic-seasons-back      unset: 6 (or explicit shared --seasons-back)
 --lookahead-days            10 (fixture retrieval)
 shortlist horizon           48 hours, minimum 20-minute lead, up to 12 matches
---half-life-days            240 (unless --tune-half-life selects another value)
---market-weight             0.50
+--half-life-days            480 fixed (--tune-half-life is benchmark/legacy only)
+--market-weight             0.70 (also feeds Double Chance)
+totals anchor               fresh Pinnacle O/U 2.5 (--no-totals-anchor disables)
+shot features               on; chronological gate every run (--no-shot-features disables)
+legacy comparison           legacy_* columns each run (--no-legacy-comparison skips)
+model_version               dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2
 --devig                     power
 --odds-regions              eu
 --fixture-provider          auto

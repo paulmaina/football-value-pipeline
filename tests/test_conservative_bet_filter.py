@@ -322,7 +322,9 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
                 "goal_market_validation.evaluate_market_history",
                 return_value={**sample_report(), "league": "UEFA Champions League"},
             ):
-                self.assertEqual(main(["--leagues", "UCL", "--out-dir", str(raw)]), 0)
+                # This test isolates the competition-specific validation report;
+                # the optional legacy companion has its own offline coverage.
+                self.assertEqual(main(["--leagues", "UCL", "--no-legacy-comparison", "--out-dir", str(raw)]), 0)
             self.assertEqual(backtest.call_count, 1)
             self.assertEqual(backtest.call_args.args[0], "UCL")
             self.assertEqual(backtest.call_args.kwargs["min_train"], 250)
@@ -345,7 +347,7 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
                 "football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league",
                 return_value=(pd.DataFrame(), pd.DataFrame(), {}, pd.DataFrame()),
             ):
-                result = main(["--leagues", "EPL", "--out-dir", str(raw)])
+                result = main(["--leagues", "EPL", "--no-legacy-comparison", "--out-dir", str(raw)])
             self.assertEqual(result, 0)
             self.assertTrue((raw / "conservative_bet_shortlist.csv").exists())
             self.assertTrue((raw / "conservative_strict_qualifiers.csv").exists())

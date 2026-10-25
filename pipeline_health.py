@@ -129,6 +129,8 @@ def model_component_hashes():
         'conservative_bet_filter.py', 'goal_market_validation.py',
         'dc_decay_validation.py', 'market_blend_validation.py',
         'bbs_statistics_model.py', 'bbs_integration.py', 'bbs_data.py',
+        'shot_features.py', 'historical_benchmark.py', 'bet365_pinnacle.py',
+        'forward_trial_basis.py',
         'api_football_data.py', 'api_football_integration.py',
         'match_scores.py', 'ucl_training.py', 'api_key_config.py', 'refresh_training_data.py',
         'league_registry.py',
