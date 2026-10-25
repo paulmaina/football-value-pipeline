@@ -59,7 +59,7 @@ class CornersCardsShortlistTests(OfflineQuotePolicyTestCase):
         self.assertEqual(v25.market_group('Home win'), 'Home win')
         self.assertIsNone(v25.market_group('Draw'))
         import asian_handicap
-        self.assertEqual(asian_handicap.CURRENT_POLICY, v25.POLICY)
+        self.assertEqual(asian_handicap.CORNERS_CARDS_POLICY, v25.POLICY)
         self.assertIn(v24.POLICY, asian_handicap.WIN_FIRST_POLICIES)
 
     def test_corner_picks_capped_at_two_flagged_unproven_and_ranked_by_probability(self):

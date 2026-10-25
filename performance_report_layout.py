@@ -588,7 +588,7 @@ def add_guide(parts, st):
     definitions=[
         ['Win rate','Full/half wins divided by all settled selections. Refunds are settled but not wins; half-losses are losses.','Read with the settled sample size and 95% interval.'],
         ['Simulated ROI','Simulated net profit divided by staked units. Includes recorded per-stake costs.','Offered prices and simulated stakes are not proof of actual returns. Missing prices are excluded.'],
-        ['Binary Brier','Probability error for the frozen event: v23/v24 profitable outcome (refunds excluded); legacy Asian forecasts no net loss.','Lower is better. Read the number of valid probability samples.'],
+        ['Binary Brier','Probability error for the frozen event: v23-v25 profitable outcome (refunds excluded); v22, v26 and older Asian forecasts no net loss.','Lower is better. Read the number of valid probability samples.'],
         ['1X2 Brier','Multiclass probability error across home win, draw and away win.','Lower is better. Its scale differs from binary Brier; do not compare the two directly.'],
         ['Log loss','Penalty assigned to the probability of the observed outcome.','Lower is better. Compare candidates on the same fixtures.'],
         ['Calibration gap','Mean forecast probability minus observed win rate on the same scored selections.','Closer to zero is better. Positive indicates overconfidence; negative indicates underconfidence.'],

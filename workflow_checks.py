@@ -36,6 +36,7 @@ CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output
              'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'league_registry.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py', 'clv_report.py')
 COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_football_integration.py':85,
     'win_first_shortlist.py':85, 'per_market_shortlist.py':85, 'corners_cards_shortlist.py':85, 'count_markets.py':85,
+    'no_loss_corners_shortlist.py':85,
     'collect_api_football_data.py':75, 'publish_api_football_data.py':75,
     'prediction_runs.py':85, 'github_closing_odds.py':80, 'bbs_statistics_model.py':85, 'bbs_data.py':85, 'bbs_integration.py':85, 'collect_bbs_data.py':75,
     'publish_bbs_data.py':75, 'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
@@ -89,15 +90,16 @@ def raw_check(root, *, raw_dir=None):
     from conservative_bet_filter import (BALANCED_SELECTION_POLICIES,
         BALANCED_SELECTION_POLICY_VERSION, TWELVE_MATCH_BALANCED_SELECTION_POLICIES, CURRENT_MARKET_SPECS, NO_UNDER35_SELECTION_POLICIES, TARGET_DISTINCT_MATCHES)
     policy_version = summary.get('selection_policy_version')
-    from asian_handicap import POLICIES as AH_POLICIES, RISK_BAND_POLICIES, ONE_PERCENT_POLICIES, POLICY as SAFEST_POLICY, parse_label as parse_handicap, ordinary_markets
+    from asian_handicap import POLICIES as AH_POLICIES, RISK_BAND_POLICIES, ONE_PERCENT_POLICIES, SAFEST_POLICIES, parse_label as parse_handicap, ordinary_markets
     asian = policy_version in AH_POLICIES
     from asian_handicap import WIN_FIRST_POLICIES
     from asian_handicap import PER_MARKET_POLICIES
-    import corners_cards_shortlist, per_market_shortlist
+    import corners_cards_shortlist, no_loss_corners_shortlist, per_market_shortlist
     from per_market_shortlist import PER_GROUP_CAP
     MAX_SELECTIONS = {per_market_shortlist.POLICY: per_market_shortlist.MAX_SELECTIONS,
                       corners_cards_shortlist.POLICY: corners_cards_shortlist.MAX_SELECTIONS}.get(policy_version, 12)
-    count_market_policy = policy_version == corners_cards_shortlist.POLICY
+    count_markets_allowed = {corners_cards_shortlist.POLICY: corners_cards_shortlist.COUNT_MARKETS,
+                             no_loss_corners_shortlist.POLICY: no_loss_corners_shortlist.COUNT_MARKETS}.get(policy_version, ())
     win_first = policy_version in WIN_FIRST_POLICIES
     per_market = policy_version in PER_MARKET_POLICIES
     if asian:
@@ -122,7 +124,7 @@ def raw_check(root, *, raw_dir=None):
         if policy_version == BALANCED_SELECTION_POLICY_VERSION:
             require(row.get('market') in {spec[0] for spec in CURRENT_MARKET_SPECS}, 'Market is excluded from the current shortlist policy')
         if asian:
-            counted = count_market_policy and row.get('market') in corners_cards_shortlist.COUNT_MARKETS
+            counted = row.get('market') in count_markets_allowed
             require(row.get('market') in ordinary_markets(policy_version) or parse_handicap(row.get('market')) is not None
                     or counted,'Excluded Asian shortlist market')
             if counted:
@@ -178,11 +180,13 @@ def raw_check(root, *, raw_dir=None):
         for field in ('target_distinct_matches', 'shortfall', 'usable_distinct_fixtures',
                       *(['loss_risk_tolerance'] if policy_version in RISK_BAND_POLICIES else [] if asian else ['ranking_weights']),
                       *(['min_estimated_ev','min_raw_dc_ev','ev_required_for_selection'] if policy_version in ONE_PERCENT_POLICIES else []),
-                      *(['min_adjusted_no_loss_probability','max_estimated_loss_probability'] if policy_version == SAFEST_POLICY else []),
+                      *(['min_adjusted_no_loss_probability','max_estimated_loss_probability'] if policy_version in SAFEST_POLICIES else []),
                       *(['selection_objective','ranking_metric','probability_basis','ev_required_for_selection',
                          'negative_adjusted_ev_selections'] if win_first else []),
                       *(['ranking_weights','market_groups','max_per_market_group','group_shortfall',
                          'negative_adjusted_ev_markets'] if per_market else []),
+                      *(['unproven_edge_markets','negative_adjusted_ev_selections']
+                        if policy_version == no_loss_corners_shortlist.POLICY else []),
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')
