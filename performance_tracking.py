@@ -840,7 +840,7 @@ def report(root: Path, selections: list[dict], all_predictions: list[dict],
             )
             else "ALL_GRADED"
         ),
-        "source": "football-data.org v4 FINISHED regulation-time scorelines; Europa: corroborated Cornerflick / Fixture Download / UEFA league-phase scores",
+        "source": "football-data.org v4 FINISHED regulation-time scorelines; Europa: corroborated Cornerflick / Fixture Download league-phase scores",
         "reviewed_at_utc": reviewed_at,
         "shortlist": stats(selections),
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
