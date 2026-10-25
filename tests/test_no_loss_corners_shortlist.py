@@ -45,9 +45,11 @@ class NoLossCornersShortlistTests(OfflineQuotePolicyTestCase):
         self.assertEqual(list(new.market), list(old.market))
         self.assertEqual(list(new.home_team), list(old.home_team))
         self.assertEqual(summary['selection_policy_version'], v26.POLICY)
-        for key in ('min_adjusted_no_loss_probability', 'loss_risk_tolerance', 'min_estimated_ev', 'min_raw_dc_ev'):
+        for key in ('min_adjusted_no_loss_probability', 'loss_risk_tolerance', 'min_raw_dc_ev'):
             self.assertEqual(summary[key], old_summary[key])
         self.assertEqual(summary['unproven_edge_selections'], 0)
+        self.assertEqual(summary['min_estimated_ev'], .005)
+        self.assertEqual(old_summary['min_estimated_ev'], .01)
 
     def test_qualifying_corner_is_selected_and_flagged_unproven(self):
         picks, decisions, summary = select([corner(0)], evidence())
@@ -74,11 +76,36 @@ class NoLossCornersShortlistTests(OfflineQuotePolicyTestCase):
         _, decisions, _ = select([corner(0, price=1.22, opposite=4.5)], evidence())
         thin = decisions.loc[decisions.market == 'Corners Over 8.5'].iloc[0]
         self.assertEqual(thin.decision, 'REJECTED')
-        self.assertIn('adjusted EV below +1.0% or negative unblended EV', thin.rejection_reasons)
+        self.assertIn('adjusted EV below +0.5% or negative unblended EV', thin.rejection_reasons)
         penalised = evidence()
         penalised['Premier League']['count_markets']['corners']['markets']['Corners Over 8.5']['confidence_penalty'] = .07
         picks, _, _ = select([corner(0)], penalised)
         self.assertTrue(picks.empty)
+
+    def test_half_percent_boundary_for_handicaps_and_corners_preserves_v22(self):
+        from test_shortlist_market_alternatives import dc_fixture
+        p = cm.probabilities(12., .02, 'corners')['Corners Over 8.5']
+        for ev in (.00499, .005, .0075, .01):
+            with self.subTest(ev=ev):
+                ordinary, report = dc_fixture(ev=ev)
+                picks, _, _ = select([ordinary], report)
+                self.assertEqual(len(picks), int(ev >= .005))
+                old, _, _ = select([ordinary], report, ah.POLICY)
+                self.assertEqual(len(old), int(ev >= .01))
+                price = (1+ev)/.85
+                value = row(0, offers=[{**quote(point=.5, price=price),
+                                       'opposite_price': 1/(1.04-1/price)}])
+                picks, decisions, summary = select([value], reports())
+                self.assertEqual(len(picks), int(ev >= .005))
+                old, _, frozen = select([value], reports(), ah.POLICY)
+                self.assertEqual(len(old), int(ev >= .01))
+                self.assertEqual(frozen['min_estimated_ev'], .01)
+                price = (1+ev)/p
+                value = corner(0, price=price, opposite=1/(1.04-1/price))
+                picks, _, summary = select([value], evidence())
+                self.assertEqual(len(picks), int(ev >= .005))
+                self.assertEqual(summary['min_estimated_ev'], .005)
+                self.assertIn('+0.5%', summary['warning'])
 
     def test_per_market_approval_blocks_only_the_failed_line(self):
         values = [count_row(0, [offer(line=8.5, price=1.5, opposite=2.6),
