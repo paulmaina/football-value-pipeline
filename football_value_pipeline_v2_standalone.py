@@ -4005,7 +4005,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     # One conservative shortlist across all requested leagues, not an
     # independent quota of two picks per league. Do not alter predictions.
     from conservative_bet_filter import build_conservative_shortlist
-    from asian_handicap import CURRENT_POLICY as CURRENT_SELECTION_POLICY
+    from asian_handicap import PRODUCTION_POLICY as CURRENT_SELECTION_POLICY
 
     all_predictions = (
         pd.concat(combined, ignore_index=True, sort=False)

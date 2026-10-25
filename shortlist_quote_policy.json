@@ -4,6 +4,7 @@
     "bet365"
   ],
   "fallback_bookmakers": [],
-  "per_stake_cost_bps": 0
+  "per_stake_cost_bps": 0,
+  "asian_handicap_risk_tolerance": 0,
+  "min_adjusted_no_loss_probability": 0.75
 }
-

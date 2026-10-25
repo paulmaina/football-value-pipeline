@@ -18,16 +18,21 @@ ZERO_EV_POLICY = '48h-risk-band-ev-asian-handicap-1x2-over15-v19'
 PREVIOUS_POLICY = '48h-risk-band-ev1-asian-handicap-1x2-over15-v20'
 DOUBLE_CHANCE_POLICY = '48h-risk-band-ev1-asian-handicap-dc-over15-v21'
 POLICY = '48h-zero-tolerance-ev1-common-no-loss75-v22'
-ALTERNATIVE_POLICIES = (DOUBLE_CHANCE_POLICY, POLICY)
+from no_loss_corners_shortlist import POLICY as NO_LOSS_CORNERS_POLICY
+# v26 reuses the v22 rules, so it shares their floors, risk band and alternatives.
+ALTERNATIVE_POLICIES = (DOUBLE_CHANCE_POLICY, POLICY, NO_LOSS_CORNERS_POLICY)
+SAFEST_POLICIES = (POLICY, NO_LOSS_CORNERS_POLICY)
 ONE_PERCENT_POLICIES = (PREVIOUS_POLICY, *ALTERNATIVE_POLICIES)
 RISK_BAND_POLICIES = (ZERO_EV_POLICY, *ONE_PERCENT_POLICIES)
 POLICIES = (LEGACY_POLICY, FLOORLESS_POLICY, *RISK_BAND_POLICIES)
 from win_first_shortlist import POLICY as WIN_FIRST_POLICY
 from per_market_shortlist import POLICY as PER_MARKET_POLICY
-from corners_cards_shortlist import POLICY as CURRENT_POLICY
-PER_MARKET_POLICIES = (PER_MARKET_POLICY, CURRENT_POLICY)
+from corners_cards_shortlist import POLICY as CORNERS_CARDS_POLICY
+PER_MARKET_POLICIES = (PER_MARKET_POLICY, CORNERS_CARDS_POLICY)
 WIN_FIRST_POLICIES = (WIN_FIRST_POLICY, *PER_MARKET_POLICIES)
 POLICIES = (*POLICIES, *WIN_FIRST_POLICIES)
+# New shortlists only; replays dispatch on each capture's recorded version.
+PRODUCTION_POLICY = NO_LOSS_CORNERS_POLICY
 MIN_ADJUSTED_EV = .01
 DEFAULT_RISK_TOLERANCE = .01  # Frozen v19-v21 default.
 MIN_ADJUSTED_NO_LOSS = .75
@@ -308,10 +313,15 @@ def qualifying_alternatives(selected, decisions, tolerance):
 
 def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY):
     """Risk first, strict gates, one market per fixture. No target-filling bypass."""
+    if policy_version == NO_LOSS_CORNERS_POLICY:
+        if adjusted_ev_floor is not None:
+            raise ValueError('This Asian handicap policy does not accept a custom EV floor')
+        from no_loss_corners_shortlist import build_shortlist as build_v26
+        return build_v26(predictions, as_of, market_reliability, execution_policy)
     if policy_version in WIN_FIRST_POLICIES:
         if adjusted_ev_floor is not None:
             raise ValueError('Win-first policy does not accept an EV floor')
-        if policy_version == CURRENT_POLICY:
+        if policy_version == CORNERS_CARDS_POLICY:
             from corners_cards_shortlist import build_shortlist as build_v25
             return build_v25(predictions, as_of, market_reliability, execution_policy)
         if policy_version == PER_MARKET_POLICY:
