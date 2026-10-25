@@ -1,0 +1,88 @@
+{
+  "fixture": {
+    "away_team": "Acad\u00e9mico de Viseu",
+    "home_team": "Sporting Lisbon",
+    "kickoff_utc": "2026-10-25T20:30:00+00:00",
+    "league": "Primeira Liga",
+    "odds_event_id": "9b60d2e564e8761e9ec267bd7baf6998"
+  },
+  "observed_at_utc": "2026-10-25T20:25:17.096148+00:00",
+  "payload": {
+    "away_team": "Acad\u00e9mico de Viseu",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T20:25:02Z",
+            "outcomes": [
+              {
+                "name": "Acad\u00e9mico de Viseu",
+                "price": 10.16
+              },
+              {
+                "name": "Sporting Lisbon",
+                "price": 1.26
+              },
+              {
+                "name": "Draw",
+                "price": 6.57
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T20:25:02Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 2.01
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-25T20:30:00Z",
+    "home_team": "Sporting Lisbon",
+    "id": "9b60d2e564e8761e9ec267bd7baf6998",
+    "sport_key": "soccer_portugal_primeira_liga",
+    "sport_title": "Primeira Liga - Portugal"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7814873919974455,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T20:25:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.13421438128677937,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T20:25:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 10.16,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.08429822671577517,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T20:25:02+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
