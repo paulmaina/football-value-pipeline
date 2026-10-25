@@ -8,7 +8,7 @@
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
       "report": "goal_blend_experiment/report.md",
       "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 71,
+      "settled_evidence": 72,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -29,7 +29,7 @@
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
       "report": "recency_experiment/report.md",
       "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 214,
+      "settled_evidence": 218,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -70,7 +70,7 @@
       "name": "benchmark_forward_experiment",
       "report": "benchmark_forward_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 63,
+      "settled_evidence": 64,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -93,7 +93,7 @@
       "name": "model_reliability_experiment",
       "report": "model_reliability_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 63,
+      "settled_evidence": 64,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -105,11 +105,11 @@
       "name": "model_reliability_experiment",
       "report": "model_reliability_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 63,
+      "settled_evidence": 64,
       "status": "COLLECT_MORE_DATA"
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
+  "reviewed_at_utc": "2026-10-25T15:58:03.902969+00:00",
   "version": "experiment-review-queue-v1"
 }

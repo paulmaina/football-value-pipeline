@@ -1,0 +1,238 @@
+{
+  "automatic_production_change": false,
+  "excluded_fixtures": {
+    "first_forecast_without_legacy_model": 239
+  },
+  "gates": {
+    "minimum_paired_matches": 300,
+    "minimum_weeks": 6
+  },
+  "legacy_model_version": "dc-blend50-tuned-half-life-v1",
+  "markets": [
+    "1x2",
+    "over_1_5",
+    "under_3_5",
+    "btts_yes",
+    "over_2_5",
+    "ah_home_-2.5",
+    "ah_home_-1.5",
+    "ah_home_-1.0",
+    "ah_home_+0.0",
+    "ah_home_+1.0",
+    "ah_home_+1.5",
+    "ah_home_+2.5"
+  ],
+  "note": "First eligible pre-kickoff forecast per fixture only, with no backfill. Both models come from the same run and odds snapshot. 1X2 distance to the Pinnacle close is total variation; binary markets use absolute difference. Asian handicap is the home side and integer lines exclude refunds. Legacy probabilities are never used for selection or staking.",
+  "paired_matches": 0,
+  "production_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+  "reviewed_at_utc": "2026-10-25T15:58:03.902969+00:00",
+  "status": "COLLECT_MORE_DATA",
+  "tables": [
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "1x2",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "over_1_5",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "under_3_5",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "btts_yes",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "over_2_5",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_-2.5",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_-1.5",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_-1.0",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_+0.0",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_+1.0",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_+1.5",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "ALL",
+      "legacy": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_+2.5",
+      "matches": 0,
+      "production": {
+        "brier": null,
+        "log_loss": null,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    }
+  ],
+  "version": "production-vs-legacy-forward-v1",
+  "weeks": 0
+}

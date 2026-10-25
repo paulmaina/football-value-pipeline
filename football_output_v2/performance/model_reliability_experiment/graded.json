@@ -2205,6 +2205,41 @@
     "week": "2026-W43"
   },
   {
+    "away_team": "Fiorentina",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.5543894336483652,
+      "home_goals": 2,
+      "over_1_5": 0.85046749686086,
+      "over_2_5": 0.6519151117948175,
+      "p_away": 0.12087529111097796,
+      "p_draw": 0.17313496295644146,
+      "p_home": 0.7059897459325805,
+      "under_3_5": 0.5689668788678264,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.5563128327772139,
+      "home_goals": 2,
+      "over_1_5": 0.84784587992175,
+      "over_2_5": 0.6478748879437332,
+      "p_away": 0.12397477361944194,
+      "p_draw": 0.1751541888458823,
+      "p_home": 0.7008710375346758,
+      "under_3_5": 0.5738870226868591,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Inter Milan",
+    "kickoff_utc": "2026-10-25T11:30:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.00727681238284672,
+    "snapshot_commit": "0117b0e0fe09a0266deb28e532f2ad9e4f4da47a",
+    "source_match_id": 558563,
+    "week": "2026-W43"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,
@@ -4407,6 +4442,41 @@
     "log_loss_gain": -0.009830672101983517,
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "source_match_id": 559652,
+    "week": "2026-W43"
+  },
+  {
+    "away_team": "Fiorentina",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.5543894336483652,
+      "home_goals": 2,
+      "over_1_5": 0.85046749686086,
+      "over_2_5": 0.6519151117948175,
+      "p_away": 0.12087529111097796,
+      "p_draw": 0.17313496295644146,
+      "p_home": 0.7059897459325805,
+      "under_3_5": 0.5689668788678264,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.5619553973506818,
+      "home_goals": 2,
+      "over_1_5": 0.8609534569638779,
+      "over_2_5": 0.67007387718489,
+      "p_away": 0.11707378392260505,
+      "p_draw": 0.16818134161795184,
+      "p_home": 0.7147448744594431,
+      "under_3_5": 0.5471128542695998,
+      "y": 0
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Inter Milan",
+    "kickoff_utc": "2026-10-25T11:30:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": 0.012324946868191189,
+    "snapshot_commit": "0117b0e0fe09a0266deb28e532f2ad9e4f4da47a",
+    "source_match_id": 558563,
     "week": "2026-W43"
   }
 ]

@@ -82,49 +82,49 @@
       "variant": "raw"
     },
     {
-      "brier": 0.30272339590498043,
-      "event_rate": 0.5,
+      "brier": 0.3037206391447549,
+      "event_rate": 0.52,
       "market": "under_3_5",
-      "mean_probability": 0.612296784144827,
-      "n": 24,
+      "mean_probability": 0.6049084684472398,
+      "n": 25,
       "variant": "baseline"
     },
     {
-      "brier": 0.2794656481054191,
-      "event_rate": 0.5,
+      "brier": 0.2810959360784587,
+      "event_rate": 0.52,
       "market": "under_3_5",
-      "mean_probability": 0.5969949112289265,
-      "n": 24,
+      "mean_probability": 0.5904798203065302,
+      "n": 25,
       "variant": "book25"
     },
     {
-      "brier": 0.2618249635230469,
-      "event_rate": 0.5,
+      "brier": 0.26382658207854137,
+      "event_rate": 0.52,
       "market": "under_3_5",
-      "mean_probability": 0.5867038071995425,
-      "n": 24,
+      "mean_probability": 0.5808976898328734,
+      "n": 25,
       "variant": "book50"
     },
     {
-      "brier": 0.24260979849278116,
-      "event_rate": 0.5,
+      "brier": 0.24472469076313605,
+      "event_rate": 0.52,
       "market": "under_3_5",
-      "mean_probability": 0.5661215991407745,
-      "n": 24,
+      "mean_probability": 0.5617334288855599,
+      "n": 25,
       "variant": "bookmaker"
     },
     {
-      "brier": 0.3024617340659508,
-      "event_rate": 0.5,
+      "brier": 0.3035108956398523,
+      "event_rate": 0.52,
       "market": "under_3_5",
-      "mean_probability": 0.6072860152583105,
-      "n": 24,
+      "mean_probability": 0.600061950780187,
+      "n": 25,
       "variant": "raw"
     }
   ],
-  "graded_fixture_markets": 71,
+  "graded_fixture_markets": 72,
   "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-  "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
+  "reviewed_at_utc": "2026-10-25T15:58:03.902969+00:00",
   "total_fixture_markets": 654,
   "version": "goal-blend-shadow-v1"
 }
