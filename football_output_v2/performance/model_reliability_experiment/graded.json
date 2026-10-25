@@ -2590,6 +2590,76 @@
     "week": "2026-W43"
   },
   {
+    "away_team": "Levante",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.5955983685395246,
+      "home_goals": 2,
+      "over_1_5": 0.8275597208622942,
+      "over_2_5": 0.6160922017530699,
+      "p_away": 0.19793960520897458,
+      "p_draw": 0.21150716205237358,
+      "p_home": 0.5905532327386517,
+      "under_3_5": 0.6088881689766297,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.5877174149997395,
+      "home_goals": 2,
+      "over_1_5": 0.8204476587456204,
+      "over_2_5": 0.6053124671532017,
+      "p_away": 0.19927049543707037,
+      "p_draw": 0.21303762533247061,
+      "p_home": 0.587691879230459,
+      "under_3_5": 0.6206143443530316,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Real Sociedad",
+    "kickoff_utc": "2026-10-25T17:30:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.004856984517294327,
+    "snapshot_commit": "10a7df008090a45923c14f3c84ec260b147ea047",
+    "source_match_id": 564726,
+    "week": "2026-W43"
+  },
+  {
+    "away_team": "Real Madrid",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.6307443752518709,
+      "home_goals": 1,
+      "over_1_5": 0.8485679509213839,
+      "over_2_5": 0.6573605127143229,
+      "p_away": 0.2383857529592314,
+      "p_draw": 0.18960642370411407,
+      "p_home": 0.5720078233366546,
+      "under_3_5": 0.5713416379304244,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.634056165767004,
+      "home_goals": 1,
+      "over_1_5": 0.8512434528837763,
+      "over_2_5": 0.6617944739014009,
+      "p_away": 0.23781371559021264,
+      "p_draw": 0.1889200203033057,
+      "p_home": 0.5732662641064817,
+      "under_3_5": 0.5661532246460318,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Barcelona",
+    "kickoff_utc": "2026-10-25T20:00:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.0024025127365825405,
+    "snapshot_commit": "10a7df008090a45923c14f3c84ec260b147ea047",
+    "source_match_id": 564723,
+    "week": "2026-W43"
+  },
+  {
     "away_team": "Bayern Munich",
     "baseline": {
       "away_goals": 3,
@@ -2657,6 +2727,41 @@
     "log_loss_gain": -0.010340450559435721,
     "snapshot_commit": "10a7df008090a45923c14f3c84ec260b147ea047",
     "source_match_id": 558566,
+    "week": "2026-W43"
+  },
+  {
+    "away_team": "AC Milan",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.5306126698541163,
+      "home_goals": 0,
+      "over_1_5": 0.7638005158469738,
+      "over_2_5": 0.5182949456249664,
+      "p_away": 0.5475378973889053,
+      "p_draw": 0.24389726454108873,
+      "p_home": 0.20856483807000603,
+      "under_3_5": 0.7038051411634398,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.5305527020275796,
+      "home_goals": 0,
+      "over_1_5": 0.7615827853210286,
+      "over_2_5": 0.5156361719521074,
+      "p_away": 0.5431419158495443,
+      "p_draw": 0.2448762977154433,
+      "p_home": 0.2119817864350122,
+      "under_3_5": 0.7064200440297638,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Udinese",
+    "kickoff_utc": "2026-10-25T19:45:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.008061037327977916,
+    "snapshot_commit": "10a7df008090a45923c14f3c84ec260b147ea047",
+    "source_match_id": 558559,
     "week": "2026-W43"
   },
   {
@@ -5355,6 +5460,76 @@
     "week": "2026-W43"
   },
   {
+    "away_team": "Levante",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.5955983685395246,
+      "home_goals": 2,
+      "over_1_5": 0.8275597208622942,
+      "over_2_5": 0.6160922017530699,
+      "p_away": 0.19793960520897458,
+      "p_draw": 0.21150716205237358,
+      "p_home": 0.5905532327386517,
+      "under_3_5": 0.6088881689766297,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.6157701007905588,
+      "home_goals": 2,
+      "over_1_5": 0.840379437647405,
+      "over_2_5": 0.6358541927074347,
+      "p_away": 0.20292228027534198,
+      "p_draw": 0.21112291768284291,
+      "p_home": 0.5859548020418152,
+      "under_3_5": 0.5874445818777998,
+      "y": 0
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Real Sociedad",
+    "kickoff_utc": "2026-10-25T17:30:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.007817123177043861,
+    "snapshot_commit": "10a7df008090a45923c14f3c84ec260b147ea047",
+    "source_match_id": 564726,
+    "week": "2026-W43"
+  },
+  {
+    "away_team": "Real Madrid",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.6307443752518709,
+      "home_goals": 1,
+      "over_1_5": 0.8485679509213839,
+      "over_2_5": 0.6573605127143229,
+      "p_away": 0.2383857529592314,
+      "p_draw": 0.18960642370411407,
+      "p_home": 0.5720078233366546,
+      "under_3_5": 0.5713416379304244,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.6417521813581522,
+      "home_goals": 1,
+      "over_1_5": 0.8597954639113623,
+      "over_2_5": 0.6750092252262427,
+      "p_away": 0.23140412985378883,
+      "p_draw": 0.1866785125400036,
+      "p_home": 0.5819173576062076,
+      "under_3_5": 0.5505233421451852,
+      "y": 2
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Barcelona",
+    "kickoff_utc": "2026-10-25T20:00:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.02972451047746505,
+    "snapshot_commit": "10a7df008090a45923c14f3c84ec260b147ea047",
+    "source_match_id": 564723,
+    "week": "2026-W43"
+  },
+  {
     "away_team": "Bayern Munich",
     "baseline": {
       "away_goals": 3,
@@ -5422,6 +5597,41 @@
     "log_loss_gain": 0.002186600647744119,
     "snapshot_commit": "10a7df008090a45923c14f3c84ec260b147ea047",
     "source_match_id": 558566,
+    "week": "2026-W43"
+  },
+  {
+    "away_team": "AC Milan",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.5306126698541163,
+      "home_goals": 0,
+      "over_1_5": 0.7638005158469738,
+      "over_2_5": 0.5182949456249664,
+      "p_away": 0.5475378973889053,
+      "p_draw": 0.24389726454108873,
+      "p_home": 0.20856483807000603,
+      "under_3_5": 0.7038051411634398,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.5260969713552277,
+      "home_goals": 0,
+      "over_1_5": 0.7599561592854235,
+      "over_2_5": 0.5139766447800402,
+      "p_away": 0.5485183104886938,
+      "p_draw": 0.24339114700396758,
+      "p_home": 0.20809054250733866,
+      "under_3_5": 0.7076337263826638,
+      "y": 2
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Udinese",
+    "kickoff_utc": "2026-10-25T19:45:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": 0.0017889837295265165,
+    "snapshot_commit": "10a7df008090a45923c14f3c84ec260b147ea047",
+    "source_match_id": 558559,
     "week": "2026-W43"
   },
   {

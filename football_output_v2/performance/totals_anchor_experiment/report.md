@@ -2,16 +2,16 @@
 
 Separate proportional intensity scaling to fresh Pinnacle O/U 2.5, fitted rho and production HDA preserved. Primary Under 3.5 log loss; other markets are guardrails. No bets, automatic promotion or backfill.
 
-Status: COLLECT_MORE_DATA; paired fixtures: 11; gameweeks: 2
+Status: COLLECT_MORE_DATA; paired fixtures: 12; gameweeks: 2
 
 Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_reference: 131, outside_registered_leagues: 55, reference_fixture_mismatch: 131, reference_stale_or_future: 134, stale_or_unsynchronized_production_hda: 20, unreliable_model_identity: 16
 
 {
   "under_3_5": {
     "baseline": {
-      "n": 11,
-      "log_loss": 0.6587200500443084,
-      "brier": 0.2284447484646142,
+      "n": 12,
+      "log_loss": 0.6330978583120418,
+      "brier": 0.21671863562599716,
       "rps": null,
       "calibration": [
         {
@@ -41,13 +41,13 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
         {
           "low": 0.7000000000000001,
           "high": 0.8,
-          "n": 4,
-          "mean_probability": 0.7676242056291189,
-          "observed_rate": 0.5,
-          "overconfidence": 0.2676242056291189,
+          "n": 5,
+          "mean_probability": 0.754860392735983,
+          "observed_rate": 0.6,
+          "overconfidence": 0.15486039273598307,
           "observed_wilson95": [
-            0.15003570882017148,
-            0.8499642911798285
+            0.23071993220883708,
+            0.8823817688407467
           ]
         },
         {
@@ -71,9 +71,9 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
       }
     },
     "candidate": {
-      "n": 11,
-      "log_loss": 0.5759884270380987,
-      "brier": 0.1943981760037521,
+      "n": 12,
+      "log_loss": 0.5565403215412946,
+      "brier": 0.18521080894189879,
       "rps": null,
       "calibration": [
         {
@@ -91,13 +91,13 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
         {
           "low": 0.7000000000000001,
           "high": 0.8,
-          "n": 10,
-          "mean_probability": 0.7230292149657773,
-          "observed_rate": 0.7,
-          "overconfidence": 0.023029214965777367,
+          "n": 11,
+          "mean_probability": 0.7218369408936687,
+          "observed_rate": 0.7272727272727273,
+          "overconfidence": -0.005435786379058616,
           "observed_wilson95": [
-            0.39677321997956516,
-            0.892210712513788
+            0.4343497069897537,
+            0.9025411942607853
           ]
         }
       ],
@@ -111,9 +111,9 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
   },
   "over_1_5": {
     "baseline": {
-      "n": 11,
-      "log_loss": 0.6032611097532637,
-      "brier": 0.20383094684630443,
+      "n": 12,
+      "log_loss": 0.5754434030089732,
+      "brier": 0.19149421763529204,
       "rps": null,
       "calibration": [
         {
@@ -131,12 +131,12 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
         {
           "low": 0.7000000000000001,
           "high": 0.8,
-          "n": 3,
-          "mean_probability": 0.7508488619038968,
+          "n": 4,
+          "mean_probability": 0.7540867753896661,
           "observed_rate": 1.0,
-          "overconfidence": -0.24915113809610323,
+          "overconfidence": -0.24591322461033394,
           "observed_wilson95": [
-            0.43849391955098227,
+            0.5100999795960008,
             1
           ]
         },
@@ -161,21 +161,21 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
       }
     },
     "candidate": {
-      "n": 11,
-      "log_loss": 0.5789134699195684,
-      "brier": 0.19580467074850239,
+      "n": 12,
+      "log_loss": 0.5536572594600945,
+      "brier": 0.1843303032778024,
       "rps": null,
       "calibration": [
         {
           "low": 0.7000000000000001,
           "high": 0.8,
-          "n": 11,
-          "mean_probability": 0.7516007143555504,
-          "observed_rate": 0.7272727272727273,
-          "overconfidence": 0.024327987082823133,
+          "n": 12,
+          "mean_probability": 0.7522119174651335,
+          "observed_rate": 0.75,
+          "overconfidence": 0.002211917465133495,
           "observed_wilson95": [
-            0.4343497069897537,
-            0.9025411942607853
+            0.46768966087934005,
+            0.9110599603710386
           ]
         }
       ],
@@ -189,9 +189,9 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
   },
   "btts_yes": {
     "baseline": {
-      "n": 11,
-      "log_loss": 0.6563291146488164,
-      "brier": 0.23173528910649308,
+      "n": 12,
+      "log_loss": 0.664662270721687,
+      "brier": 0.23588649879842807,
       "rps": null,
       "calibration": [
         {
@@ -209,13 +209,13 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
         {
           "low": 0.5,
           "high": 0.6,
-          "n": 2,
-          "mean_probability": 0.5540276266850286,
-          "observed_rate": 0.5,
-          "overconfidence": 0.054027626685028585,
+          "n": 3,
+          "mean_probability": 0.5462226410747245,
+          "observed_rate": 0.3333333333333333,
+          "overconfidence": 0.2128893077413912,
           "observed_wilson95": [
-            0.09452865480086614,
-            0.9054713451991339
+            0.0614903152761605,
+            0.7923450448735121
           ]
         },
         {
@@ -239,9 +239,9 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
       }
     },
     "candidate": {
-      "n": 11,
-      "log_loss": 0.6704727029656745,
-      "brier": 0.23874778128025584,
+      "n": 12,
+      "log_loss": 0.6766383034550508,
+      "brier": 0.2418216905605689,
       "rps": null,
       "calibration": [
         {
@@ -259,13 +259,13 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
         {
           "low": 0.5,
           "high": 0.6,
-          "n": 10,
-          "mean_probability": 0.5360892006261055,
-          "observed_rate": 0.5,
-          "overconfidence": 0.036089200626105544,
+          "n": 11,
+          "mean_probability": 0.535081930660858,
+          "observed_rate": 0.45454545454545453,
+          "overconfidence": 0.08053647611540343,
           "observed_wilson95": [
-            0.23658959361548731,
-            0.7634104063845126
+            0.21270957543988045,
+            0.7199122443100118
           ]
         }
       ],
@@ -279,9 +279,9 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
   },
   "over_2_5": {
     "baseline": {
-      "n": 11,
-      "log_loss": 0.8048497664951326,
-      "brier": 0.30487939320174673,
+      "n": 12,
+      "log_loss": 0.798647558671786,
+      "brier": 0.30185858132330007,
       "rps": null,
       "calibration": [
         {
@@ -311,13 +311,13 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
         {
           "low": 0.5,
           "high": 0.6,
-          "n": 1,
-          "mean_probability": 0.5307862548120977,
+          "n": 2,
+          "mean_probability": 0.524540600218532,
           "observed_rate": 0.0,
-          "overconfidence": 0.5307862548120977,
+          "overconfidence": 0.524540600218532,
           "observed_wilson95": [
             0,
-            0.7934567085261071
+            0.6576280471103807
           ]
         },
         {
@@ -341,9 +341,9 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
       }
     },
     "candidate": {
-      "n": 11,
-      "log_loss": 0.7013144598103978,
-      "brier": 0.2540762017555528,
+      "n": 12,
+      "log_loss": 0.7026689591718598,
+      "brier": 0.2547538726329868,
       "rps": null,
       "calibration": [
         {
@@ -361,13 +361,13 @@ Excluded forecasts by reason: incoherent_totals_prices: 131, missing_pinnacle_re
         {
           "low": 0.5,
           "high": 0.6,
-          "n": 4,
-          "mean_probability": 0.5167605981031465,
-          "observed_rate": 0.5,
-          "overconfidence": 0.01676059810314645,
+          "n": 5,
+          "mean_probability": 0.5158210269880125,
+          "observed_rate": 0.4,
+          "overconfidence": 0.11582102698801244,
           "observed_wilson95": [
-            0.15003570882017148,
-            0.8499642911798285
+            0.1176182311592533,
+            0.769280067791163
           ]
         }
       ],

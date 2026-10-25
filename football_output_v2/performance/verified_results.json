@@ -944,6 +944,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "DED:558855": {
+    "away_goals": 2,
+    "away_short_name": "Twente",
+    "away_team": "FC Twente '65",
+    "first_verified_at_utc": "2026-10-25T22:42:21Z",
+    "home_goals": 0,
+    "home_short_name": "AZ",
+    "home_team": "AZ",
+    "kickoff_utc": "2026-10-25T19:00:00Z",
+    "league_code": "DED",
+    "match_id": 558855,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "DED:558856": {
     "away_goals": 2,
     "away_short_name": "Ajax",
@@ -2516,6 +2531,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564723": {
+    "away_goals": 2,
+    "away_short_name": "Real Madrid",
+    "away_team": "Real Madrid CF",
+    "first_verified_at_utc": "2026-10-25T22:42:21Z",
+    "home_goals": 1,
+    "home_short_name": "Barça",
+    "home_team": "FC Barcelona",
+    "kickoff_utc": "2026-10-25T20:00:00Z",
+    "league_code": "PD",
+    "match_id": 564723,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564724": {
     "away_goals": 0,
     "away_short_name": "Deportivo",
@@ -2542,6 +2572,21 @@
     "kickoff_utc": "2026-10-25T15:15:00Z",
     "league_code": "PD",
     "match_id": 564725,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PD:564726": {
+    "away_goals": 1,
+    "away_short_name": "Levante",
+    "away_team": "Levante UD",
+    "first_verified_at_utc": "2026-10-25T22:42:21Z",
+    "home_goals": 2,
+    "home_short_name": "Real Sociedad",
+    "home_team": "Real Sociedad de Fútbol",
+    "kickoff_utc": "2026-10-25T17:30:00Z",
+    "league_code": "PD",
+    "match_id": 564726,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -3026,6 +3071,36 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PPL:567330": {
+    "away_goals": 4,
+    "away_short_name": "Famalicão",
+    "away_team": "FC Famalicão",
+    "first_verified_at_utc": "2026-10-25T22:42:21Z",
+    "home_goals": 0,
+    "home_short_name": "Rio Ave",
+    "home_team": "Rio Ave FC",
+    "kickoff_utc": "2026-10-25T18:00:00Z",
+    "league_code": "PPL",
+    "match_id": 567330,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PPL:567332": {
+    "away_goals": 2,
+    "away_short_name": "Acad. Viseu",
+    "away_team": "Académico de Viseu FC",
+    "first_verified_at_utc": "2026-10-25T22:42:21Z",
+    "home_goals": 1,
+    "home_short_name": "Sporting CP",
+    "home_team": "Sporting Clube de Portugal",
+    "kickoff_utc": "2026-10-25T20:30:00Z",
+    "league_code": "PPL",
+    "match_id": 567332,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PPL:567333": {
     "away_goals": 1,
     "away_short_name": "Arouca",
@@ -3037,6 +3112,21 @@
     "kickoff_utc": "2026-10-24T17:00:00Z",
     "league_code": "PPL",
     "match_id": 567333,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PPL:567334": {
+    "away_goals": 0,
+    "away_short_name": "Braga",
+    "away_team": "Sporting Clube de Braga",
+    "first_verified_at_utc": "2026-10-25T22:42:21Z",
+    "home_goals": 1,
+    "home_short_name": "CD Nacional",
+    "home_team": "CD Nacional",
+    "kickoff_utc": "2026-10-25T18:00:00Z",
+    "league_code": "PPL",
+    "match_id": 567334,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -3082,6 +3172,21 @@
     "kickoff_utc": "2026-10-24T14:30:00Z",
     "league_code": "PPL",
     "match_id": 567337,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558559": {
+    "away_goals": 2,
+    "away_short_name": "Milan",
+    "away_team": "AC Milan",
+    "first_verified_at_utc": "2026-10-25T22:42:21Z",
+    "home_goals": 0,
+    "home_short_name": "Udinese",
+    "home_team": "Udinese Calcio",
+    "kickoff_utc": "2026-10-25T19:45:00Z",
+    "league_code": "SA",
+    "match_id": 558559,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
