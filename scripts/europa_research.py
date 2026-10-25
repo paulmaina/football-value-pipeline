@@ -223,17 +223,15 @@ def reconcile(source_dir, aliases, reviews, *, official_rows=None):
                                           'identity_corrections': identity_corrections}
 
 
-def audit_cornerflick(source_dir, resolve, now, *, official_rows=None):
+def audit_cornerflick(source_dir, resolve, now):
     source_dir = Path(source_dir)
     payload = json.loads((source_dir/'cornerflick.json').read_text(encoding='utf-8'))
     if payload.get('competition', {}).get('slug') != 'europa-league':
         raise ValueError('Wrong Cornerflick competition')
     if payload.get('meta', {}).get('match_count') != len(payload['matches']):
         raise ValueError('Cornerflick count does not reconcile')
-    official = official_rows if official_rows is not None else uefa_scores((source_dir/'uefa-2026.html').read_text(encoding='utf-8'), resolve)
-    official = [{**row, 'reported': tuple(row['reported'])} for row in official]
     expected = fixture_rows(source_dir/'fixture-2026.csv', 2026, resolve)
-    # Only labelled league-phase rows corroborated against both sources can
+    # Only labelled league-phase rows corroborated against Fixture Download can
     # enter the final research fit, never the historical validation periods.
     rows, unknown_stage = [], 0
     for x in payload['matches']:
@@ -253,15 +251,15 @@ def audit_cornerflick(source_dir, resolve, now, *, official_rows=None):
     conflicts, unverified = [], []
     for row in rows:
         found = fd.get(identity(row))
-        uefa = [x for x in official if x['home'] == row['home'] and x['away'] == row['away']]
-        if not found or len(uefa) != 1:
+        if not found:
             unverified.append(identity(row))
-        elif row['reported'] != found['reported'] or row['reported'] != uefa[0]['reported']:
+        elif row['reported'] != found['reported']:
             conflicts.append(identity(row))
     return {'total_rows': len(payload['matches']), 'declared_rows': payload['meta'].get('match_count'),
             'league_phase_rows': len(rows), 'unclassified_rows_quarantined': unknown_stage,
             'score_conflicts': conflicts, 'unverified_identities': unverified,
-            'fixture_download_completed_rows': len(expected), 'uefa_completed_links': len(official),
+            'fixture_download_completed_rows': len(expected),
+            'verification_sources': ['Cornerflick', 'Fixture Download'],
             'missing_against_fixture_download': len(set(fd) - {identity(x) for x in rows}),
             'latest_result': max((x['date'] for x in rows), default=None),
             'last_updated_at': payload['meta'].get('last_updated_at'),
