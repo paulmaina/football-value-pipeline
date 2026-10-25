@@ -287,7 +287,7 @@ def review_experiment(root, archived, records, clock):
                 'variant':name,'half_life_days':row['half_lives'].get(name),'probability':p,'outcome':y,
                 'brier':value['brier'],'log_loss':value['log_loss'],
                 'baseline_brier':base['brier'],'baseline_log_loss':base['log_loss'],
-                'source_match_id':match['match_id'],'match_source':'football-data.org/v4'})
+                'source_match_id':match['match_id'],'match_source':match['source']})
             year,week,_=utc(row['kickoff_utc']).isocalendar()
             scored[-1]['week']=f'{year}-W{week:02d}'
     comparisons=[]
@@ -336,6 +336,7 @@ def review_experiment(root, archived, records, clock):
 def validate_report(root):
     """Reconcile reported scores and cohorts with frozen variants/verified results."""
     from performance_tracking import load_json,read_csv,snapshots,utc,fixture_key,fixture_match,result_for_market,number
+    from performance_tracking import verified_result_source
     dest=root/'performance/recency_experiment';summary=load_json(dest/'summary.json',{})
     clock=utc(summary.get('reviewed_at_utc'))
     def require(value,message):
@@ -358,7 +359,7 @@ def validate_report(root):
     for key,row in frozen.items():
         match,_=fixture_match(row,records)
         if not match or utc(row['kickoff_utc'])>clock-timedelta(hours=2):continue
-        require(match.get('source_status')=='FINISHED' and match.get('source')=='football-data.org/v4','unverified source cache')
+        require(verified_result_source(match),'unverified source cache')
         y=int(result_for_market(MARKETS[row['market']],match['home_goals'],match['away_goals']))
         for variant,p in row['variants'].items():
             expected[(key,variant)]=(row,p,y,match)
@@ -370,7 +371,7 @@ def validate_report(root):
         require(r['snapshot_commit']==original['snapshot_commit'],'snapshot provenance differs')
         equal(number(r['half_life_days']),original['half_lives'][r['variant']])
         equal(number(r['probability']),p);equal(number(r['outcome']),y)
-        require(r['source_match_id']==str(match['match_id']) and r['match_source']=='football-data.org/v4','result provenance differs')
+        require(r['source_match_id']==str(match['match_id']) and r['match_source']==match['source'],'result provenance differs')
         values=binary_metrics([p],[y]);control=binary_metrics([original['variants']['production_raw']],[y])
         for field in ('brier','log_loss'):
             equal(number(r[field]),values[field]);equal(number(r['baseline_'+field]),control[field])
