@@ -6,38 +6,38 @@
         "covered_selections": 26,
         "mean_fair_close_ev": -0.03771087941688432,
         "mean_same_book_offered_price_clv": 0.009153547906679346,
-        "missing_selections": 25,
-        "pending_selections": 20,
+        "missing_selections": 26,
+        "pending_selections": 19,
         "positive_fair_close_ev": 5
       },
       "bet365": {
         "covered_selections": 0,
         "mean_fair_close_ev": null,
         "mean_same_book_offered_price_clv": null,
-        "missing_selections": 51,
-        "pending_selections": 20,
+        "missing_selections": 52,
+        "pending_selections": 19,
         "positive_fair_close_ev": 0
       },
       "pinnacle": {
-        "covered_selections": 33,
-        "mean_fair_close_ev": -0.039135099165006744,
+        "covered_selections": 34,
+        "mean_fair_close_ev": -0.03841854517117613,
         "mean_same_book_offered_price_clv": 0.012462583404922789,
         "missing_selections": 18,
-        "pending_selections": 20,
+        "pending_selections": 19,
         "positive_fair_close_ev": 7
       }
     },
     "frozen_selections": 71,
     "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-    "observations": 235,
+    "observations": 245,
     "rejected_files": [],
-    "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+    "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
     "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
     "version": "local-closing-quotes-v4"
   },
   "dependencies": {
-    "PyYAML": "6.0.3",
-    "coverage": "7.17.0",
+    "PyYAML": "NOT_INSTALLED",
+    "coverage": "NOT_INSTALLED",
     "numpy": "2.5.4",
     "pandas": "3.1.0",
     "python": "3.12.15",
@@ -50,7 +50,7 @@
     "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
     "graded_selections": 45,
     "model_improvement_established": false,
-    "prediction_fixtures_graded": 131
+    "prediction_fixtures_graded": 132
   },
   "execution_policy": {
     "account_availability": "USER_ALLOWLIST",
@@ -663,7 +663,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+      "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
       "secondary_comparison": {
         "btts_yes": {
           "baseline": {
@@ -2428,7 +2428,7 @@
       ],
       "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+      "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
       "total_fixtures": 73,
       "version": "conservative-ev-sensitivity-v1"
     },
@@ -2476,89 +2476,89 @@
           "variant": "raw"
         },
         {
-          "brier": 0.13755863997064322,
-          "event_rate": 0.9130434782608695,
+          "brier": 0.15972428470387312,
+          "event_rate": 0.875,
           "market": "over_1_5",
-          "mean_probability": 0.7743546706019968,
-          "n": 23,
+          "mean_probability": 0.7761836694213159,
+          "n": 24,
           "variant": "baseline"
         },
         {
-          "brier": 0.11870136098153727,
-          "event_rate": 0.9130434782608695,
+          "brier": 0.14177339800420613,
+          "event_rate": 0.875,
           "market": "over_1_5",
-          "mean_probability": 0.7993234064583162,
-          "n": 23,
+          "mean_probability": 0.8001856997152713,
+          "n": 24,
           "variant": "book25"
         },
         {
-          "brier": 0.10629376201044673,
-          "event_rate": 0.9130434782608695,
+          "brier": 0.12999134920063377,
+          "event_rate": 0.875,
           "market": "over_1_5",
-          "mean_probability": 0.8189233461789809,
-          "n": 23,
+          "mean_probability": 0.8190351091034992,
+          "n": 24,
           "variant": "book50"
         },
         {
-          "brier": 0.09199743760808858,
-          "event_rate": 0.9130434782608695,
+          "brier": 0.11650846854609796,
+          "event_rate": 0.875,
           "market": "over_1_5",
-          "mean_probability": 0.8581232256203104,
-          "n": 23,
+          "mean_probability": 0.856733927879955,
+          "n": 24,
           "variant": "bookmaker"
         },
         {
-          "brier": 0.13461525113256884,
-          "event_rate": 0.9130434782608695,
+          "brier": 0.1569158524586482,
+          "event_rate": 0.875,
           "market": "over_1_5",
-          "mean_probability": 0.7797234667376516,
-          "n": 23,
+          "mean_probability": 0.7813362903270433,
+          "n": 24,
           "variant": "raw"
         },
         {
-          "brier": 0.31017462952963243,
-          "event_rate": 0.4782608695652174,
+          "brier": 0.30272339590498043,
+          "event_rate": 0.5,
           "market": "under_3_5",
-          "mean_probability": 0.611197319911498,
-          "n": 23,
+          "mean_probability": 0.612296784144827,
+          "n": 24,
           "variant": "baseline"
         },
         {
-          "brier": 0.2858538097807422,
-          "event_rate": 0.4782608695652174,
+          "brier": 0.2794656481054191,
+          "event_rate": 0.5,
           "market": "under_3_5",
-          "mean_probability": 0.5953015417611125,
-          "n": 23,
+          "mean_probability": 0.5969949112289265,
+          "n": 24,
           "variant": "book25"
         },
         {
-          "brier": 0.2674032531434022,
-          "event_rate": 0.4782608695652174,
+          "brier": 0.2618249635230469,
+          "event_rate": 0.5,
           "market": "under_3_5",
-          "mean_probability": 0.5846217889503806,
-          "n": 23,
+          "mean_probability": 0.5867038071995425,
+          "n": 24,
           "variant": "book50"
         },
         {
-          "brier": 0.24726639764479055,
-          "event_rate": 0.4782608695652174,
+          "brier": 0.24260979849278116,
+          "event_rate": 0.5,
           "market": "under_3_5",
-          "mean_probability": 0.5632622833289171,
-          "n": 23,
+          "mean_probability": 0.5661215991407745,
+          "n": 24,
           "variant": "bookmaker"
         },
         {
-          "brier": 0.3098924523434383,
-          "event_rate": 0.4782608695652174,
+          "brier": 0.3024617340659508,
+          "event_rate": 0.5,
           "market": "under_3_5",
-          "mean_probability": 0.6059812945718442,
-          "n": 23,
+          "mean_probability": 0.6072860152583105,
+          "n": 24,
           "variant": "raw"
         }
       ],
-      "graded_fixture_markets": 69,
+      "graded_fixture_markets": 71,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+      "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
       "total_fixture_markets": 654,
       "version": "goal-blend-shadow-v1"
     },
@@ -3022,7 +3022,7 @@
       "observed_fixture_markets": 436,
       "paired_graded_fixture_markets": 46,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+      "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -10179,7 +10179,7 @@
       },
       "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+      "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
       "version": "model-reliability-forward-v1"
     },
     "recency_experiment": {
@@ -71034,7 +71034,7 @@
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+      "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
       "total_fixture_markets": 436,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": [
@@ -76627,7 +76627,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+      "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 57,
       "variants": {
@@ -79446,7 +79446,7 @@
             "minimum_settled_per_weighting": 100,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+          "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
           "status": "COLLECT_MORE_DATA",
           "total_fixtures": 23,
           "variants": {
@@ -79506,7 +79506,7 @@
         "minimum_settled_per_weighting": 100,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+      "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 0,
       "variants": {
@@ -81004,17 +81004,17 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+      "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
       "status": "COLLECT_MORE_DATA",
       "verified_coverage": 0.13846153846153847,
       "version": "pinnacle-totals-anchor-v1"
     }
   },
   "forecast_freshness": {
-    "age_hours": 2.334392569722222,
+    "age_hours": 2.866187053333333,
     "generated_at_utc": "2026-10-25T10:24:47.847996+00:00",
     "status": "WITHIN_24_HOURS",
-    "upcoming_fixture_count": 32
+    "upcoming_fixture_count": 31
   },
   "quote_audit": {
     "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -81040,7 +81040,7 @@
         "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
         "report": "goal_blend_experiment/report.md",
         "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-        "settled_evidence": 69,
+        "settled_evidence": 71,
         "status": "COLLECT_MORE_DATA"
       },
       {
@@ -81142,10 +81142,10 @@
       }
     ],
     "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-    "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+    "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
     "version": "experiment-review-queue-v1"
   },
-  "reviewed_at_utc": "2026-10-25T12:44:51.661247+00:00",
+  "reviewed_at_utc": "2026-10-25T13:16:46.121388+00:00",
   "selection_policy_groups": {
     "48h-top-ten-probability-ev-no-under35-v14": {
       "brier": 0.178674,
@@ -96045,11 +96045,11 @@
       "current_source_health": {
         "added_matches": 0,
         "cache_hash_verified": true,
-        "checked_at_utc": "2026-10-25T10:23:39.145222+00:00",
+        "checked_at_utc": "2026-10-25T13:16:30.986676+00:00",
         "completed_matches": 54,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 2.3534766736111115,
+        "download_age_hours": 0.004204086666666666,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-10-21",
         "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -96058,7 +96058,7 @@
         "overdue_unfinished_match_ids": [],
         "provider": "football-data.org",
         "season_start": 2026,
-        "sha256": "5abbac84aa41b55dc26cc31f3b2d50390f2a16f8f62a294f4c2d5feef13fc0cb",
+        "sha256": "2353e57e5396c911f4d49ba4847d1a1c4e28fb1c506d2f6773e004ce4a578376",
         "source_schedule_matches": 144,
         "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
         "training_end": "2026-10-21"
@@ -96111,7 +96111,7 @@
           }
         },
         "status": "VERIFIED_WITHIN_24_HOURS",
-        "verified_at_utc": "2026-10-25T12:44:51.661247+00:00"
+        "verified_at_utc": "2026-10-25T13:16:46.121388+00:00"
       },
       "days_since_latest_result": 3,
       "diagnostics_sha256": "593df8bb579e10980c6c65e6837e3d2349a6649989ac0154887acd28198e82ab",

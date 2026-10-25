@@ -4,7 +4,7 @@ Existing sidecar first-look thresholds differ from the new benchmark candidate p
 
 | Experiment | Status | Settled evidence | Scope |
 |---|---|---:|---|
-| [goal_blend_experiment](goal_blend_experiment/report.md) | COLLECT_MORE_DATA | 69 | FIRST_LOOK_ONLY_NO_PROMOTION |
+| [goal_blend_experiment](goal_blend_experiment/report.md) | COLLECT_MORE_DATA | 71 | FIRST_LOOK_ONLY_NO_PROMOTION |
 | [market_led_experiment](market_led_experiment/report.md) | COLLECT_MORE_DATA | 46 | FIRST_LOOK_ONLY_NO_PROMOTION |
 | [recency_experiment](recency_experiment/report.md) | COLLECT_MORE_DATA | 214 | FIRST_LOOK_ONLY_NO_PROMOTION |
 | [filter_sensitivity_experiment](filter_sensitivity_experiment/report.md) | COLLECT_MORE_DATA | 8 | FIRST_LOOK_ONLY_NO_PROMOTION |
