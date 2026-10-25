@@ -1315,6 +1315,11 @@ def process_conservative_shortlist(
         negative = summary.get('negative_adjusted_ev_markets') or []
         ranking_notes.append(f"**Negative adjusted EV:** {len(negative)} of {count} selections"
                              + (": " + "; ".join(negative) + "." if negative else "."))
+        if summary.get('unproven_edge_market_groups'):
+            unproven = summary.get('unproven_edge_markets') or []
+            ranking_notes.append(f"**UNPROVEN EDGE ({', '.join(summary['unproven_edge_market_groups'])}):** validated on "
+                                 "probability accuracy only; no historical corner or card odds exist, so profitability is untested. "
+                                 f"{len(unproven)} of {count} selections" + (": " + "; ".join(unproven) + "." if unproven else "."))
 
     lines = [
         f"# Up to {summary.get('max_per_market_group')} matches per market group (maximum {target})" if per_market else

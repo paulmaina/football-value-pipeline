@@ -1078,15 +1078,20 @@ class TheOddsAPI:
             f"/events/{safe_id}/odds"
         )
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
+        import count_markets
+        # Corner/card totals only where Pinnacle quotes them; each adds request cost.
+        count_keys = [count_markets.ODDS_MARKETS[kind] for kind in count_markets.LEAGUES
+                      if league.key in count_markets.LEAGUES[kind]]
         payload = self._get_json(
             url,
-            f"oddsapi_additional_ah_dc_v2_{league.key}_{region_tag}_{safe_id}.json",
+            f"oddsapi_additional_ah_dc_v2_{'counts_' if count_keys else ''}{league.key}_{region_tag}_{safe_id}.json",
             ttl=timedelta(minutes=5),
             force_refresh=self.force_refresh,
             params={
                 "apiKey": self.api_key,
                 "regions": self.regions,
-                "markets": "alternate_totals,btts,alternate_spreads,draw_no_bet,double_chance",
+                "markets": ",".join(["alternate_totals", "btts", "alternate_spreads", "draw_no_bet", "double_chance",
+                                     *count_keys]),
                 "oddsFormat": "decimal",
                 "dateFormat": "iso",
             },
@@ -1161,6 +1166,10 @@ class TheOddsAPI:
         asian_offers = parse_handicaps(payload, clock)
         if asian_offers:
             result['asian_handicap_offers'] = json.dumps(asian_offers, sort_keys=True, allow_nan=False)
+        count_offers = count_markets.parse_quotes(payload, clock) if count_keys else []
+        if count_offers:
+            result['count_market_offers'] = json.dumps(count_offers, sort_keys=True, allow_nan=False)
+        if asian_offers or count_offers:
             result['_asian_handicap_identity'] = {k:payload.get(k) for k in ('home_team','away_team','commence_time')}
         for market, available in offers.items():
             result.update(self._goal_quote_fields(market, available, as_of=clock))
@@ -2983,11 +2992,19 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 extra = self.odds_api.extra_markets_for_event(league, event_id,
                     main_over_1_5_offers=primary if isinstance(primary, (list, tuple)) else None)
                 identity = extra.pop('_asian_handicap_identity', None)
+                valid_identity = isinstance(identity,dict) and all(canonical_team_key(str(identity.get(k,''))) == canonical_team_key(str(row[field])) for k,field in [('home_team','HomeTeam'),('away_team','AwayTeam')])
+                event_kick = pd.to_datetime((identity or {}).get('commence_time'),utc=True,errors='coerce')
+                row_kick = pd.to_datetime(row.get('kickoff_utc'),utc=True,errors='coerce')
+                identity_rejected = (not valid_identity or pd.isna(event_kick) or pd.isna(row_kick)
+                                     or abs((event_kick-row_kick).total_seconds()) > 300)
+                if 'count_market_offers' in extra:
+                    if identity_rejected:
+                        extra['count_market_offers'] = '[]'
+                    coverage_row['count_market_quotes'] = len(json.loads(extra['count_market_offers']))
+                    coverage_row['count_market_status'] = ('EVENT_IDENTITY_REJECTED' if identity_rejected else
+                        'QUOTES_AVAILABLE' if coverage_row['count_market_quotes'] else 'NO_COUNT_MARKET_QUOTES')
                 if 'asian_handicap_offers' in extra:
-                    valid_identity = isinstance(identity,dict) and all(canonical_team_key(str(identity.get(k,''))) == canonical_team_key(str(row[field])) for k,field in [('home_team','HomeTeam'),('away_team','AwayTeam')])
-                    event_kick = pd.to_datetime((identity or {}).get('commence_time'),utc=True,errors='coerce')
-                    row_kick = pd.to_datetime(row.get('kickoff_utc'),utc=True,errors='coerce')
-                    if not valid_identity or pd.isna(event_kick) or pd.isna(row_kick) or abs((event_kick-row_kick).total_seconds()) > 300:
+                    if identity_rejected:
                         extra['asian_handicap_offers'] = '[]'
                         coverage_row['asian_handicap_status'] = 'EVENT_IDENTITY_REJECTED'
                     import asian_handicap
@@ -3034,6 +3051,14 @@ class FootballValuePipelineV2(FootballValuePipeline):
         diagnostics["additional_event_odds_calls_this_league"] = (
             self.extra_event_odds_by_league.get(league.key, 0)
         )
+
+        import count_markets
+        if any(league.key in keys for keys in count_markets.LEAGUES.values()):
+            # Corner/card totals from the committed six seasons, as validated.
+            count_history = count_markets.load_history(self.source.http.cache_dir, league.football_data_div)
+            pairs = [(pred.get("model_home_team"), pred.get("model_away_team")) for _, pred, _ in prepared]
+            for (_, pred, _), forecast in zip(prepared, count_markets.forecast_fixtures(count_history, league.key, pairs)):
+                pred["count_model"] = json.dumps(forecast, sort_keys=True) if forecast else None
 
         for row, pred, score_dist in prepared:
             home, away = str(row["HomeTeam"]), str(row["AwayTeam"])
@@ -3922,6 +3947,14 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                 validation_path.write_text(
                     json.dumps(market_validation, indent=2), encoding="utf-8"
                 )
+            import count_markets
+            count_reports = count_markets.validate_league(
+                count_markets.load_history(args.cache_dir, LEAGUES[league_key].football_data_div), league_key
+            ) if LEAGUES[league_key].football_data_div else {}
+            if count_reports:
+                # Probability-only evidence; rebuilt every run from the committed CSVs.
+                market_validation["count_markets"] = count_reports
+                validation_path.write_text(json.dumps(market_validation, indent=2, default=str), encoding="utf-8")
             market_reliability[LEAGUES[league_key].name] = market_validation
             diagnostics["goal_market_reliability"] = {
                 key: value["status"]

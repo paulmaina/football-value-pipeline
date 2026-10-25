@@ -57,13 +57,15 @@ class NewLeagueRegistryTests(OfflineQuotePolicyTestCase):
             self.assertIn(name, conservative_bet_filter.SUPPORTED_LEAGUES)
             self.assertIn(name, conservative_bet_filter.PER_MARKET_APPROVAL_LEAGUES)
             self.assertNotIn(name, conservative_bet_filter.DOMESTIC_LEAGUES)
-            # Ranked-mode extra odds reservations stay with league-approved leagues.
-            self.assertNotIn(key, goal_market_validation.SUPPORTED_COMPETITIONS)
+            # Every league shares ranked-mode extra odds reservations.
+            self.assertIn(key, goal_market_validation.SUPPORTED_COMPETITIONS)
 
-    def test_existing_leagues_keep_their_odds_request_reservations(self):
+    def test_every_league_shares_the_unchanged_odds_request_budget(self):
         from goal_market_validation import distribute_event_odds_budget
-        self.assertEqual(distribute_event_odds_budget(list(league_registry.LEAGUES), 24),
-                         {'EPL': 4, 'LaLiga': 4, 'Bundesliga': 4, 'SerieA': 3, 'Ligue1': 3, 'UCL': 3, 'UEL': 3})
+        budget = distribute_event_odds_budget(list(league_registry.LEAGUES), 24)
+        self.assertEqual(budget, {'EPL': 3, 'LaLiga': 3, 'Bundesliga': 3, 'SerieA': 3, 'Ligue1': 3, 'UCL': 3,
+                                  'UEL': 2, 'Eredivisie': 2, 'PrimeiraLiga': 2})
+        self.assertEqual(sum(budget.values()), 24)
 
 
 class NewLeagueLoadTests(OfflineQuotePolicyTestCase):
@@ -226,7 +228,9 @@ class NewLeagueShortlistTests(OfflineQuotePolicyTestCase):
         # Both leagues: no report at all, and a report map that lacks the league.
         cases = [(key, V24, evidence) for key in NEW for evidence in (None, {})]
         # One league covers the other policy paths; the code path is per league name.
-        cases += [('Eredivisie', V24, reliability), ('Eredivisie', V22, None),
+        # Committed reports now include the league's own; drop it to test a map that lacks it.
+        others = {k: v for k, v in reliability.items() if k != NEW['Eredivisie'][0]}
+        cases += [('Eredivisie', V24, others), ('Eredivisie', V22, None),
                   ('Eredivisie', LEGACY_SELECTION_POLICY_VERSION, None)]
         for key, version, market_reliability in cases:
             name = NEW[key][0]

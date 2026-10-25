@@ -50,6 +50,10 @@ SUPPORTED_MARKETS = {
 }
 from asian_handicap import SETTLED, LINES, label as handicap_label, parse_label as parse_handicap
 SUPPORTED_MARKETS.update(handicap_label(s,p) for s in ('home','away') for p in LINES)
+import count_markets
+# Gradeable count markets: production corner totals only.
+SUPPORTED_MARKETS.update(count_markets.market_label('corners', side, line)
+                         for line in count_markets.LINES['corners'] for side in ('Over', 'Under'))
 RESULT_CACHE = PERFORMANCE / "verified_results.json"
 
 
@@ -547,7 +551,16 @@ def score_shortlist(row: dict, final: dict | None, state: str) -> dict:
         if p is not None:
             out['brier'] = round((p-int(gain > 1e-12 if out['probability_basis'] == 'net_profit' else gain >= -1e-12))**2,8)
         return out
-    result = result_for_market(market, final["home_goals"], final["away_goals"])
+    counted = count_markets.parse_label(market)
+    if counted:
+        # Count totals settle from the committed match statistics once present.
+        total = count_markets.verified_total(row, final)
+        if total is None:
+            out["status"] = "AWAITING_COUNT_RESULT"
+            return out
+        result = count_markets.outcome(*counted, total)
+    else:
+        result = result_for_market(market, final["home_goals"], final["away_goals"])
     if result is None:
         out["status"] = "UNSUPPORTED_MARKET"
         return out
