@@ -33,7 +33,12 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             match={'id':i+1,'status':'FINISHED','utcDate':row['kickoff_utc'],
                 'homeTeam':{'name':row['home_team']},'awayTeam':{'name':row['away_team']},
                 'score':{'duration':'REGULAR','fullTime':{'home':2,'away':1}}}
-            records.append(verified_record(cfg.football_data_org_code,match))
+            record = verified_record(cfg.football_data_org_code,match)
+            if key == 'UEL':
+                # Europa's collector emits corroborated feed results and opaque
+                # hashed IDs, rather than football-data.org integer IDs.
+                record.update(source='Cornerflick + Fixture Download', match_id='e'+str(i).zfill(19))
+            records.append(record)
         def run_league(self,key,*args,**kwargs):
             self._recency_history=history()
             return frames[key],{'training_end':'2026-10-08','training_matches':1000},{}

@@ -401,6 +401,20 @@ def frozen_rows(archive: list[tuple[dict, list[dict], list[dict]]],
 from match_scores import valid_goals, regulation_goals
 
 
+def verified_result_source(record):
+    """Recognize the finished-result contract of each competition's collector."""
+    if record.get('source_status') != 'FINISHED':
+        return False
+    if record.get('league_code') == 'EL':
+        # Current Europa league-phase results are corroborated by both feeds.
+        # Keep previously verified three-source cache records readable, too.
+        return record.get('source_duration') == 'REGULAR' and record.get('source') in (
+            'Cornerflick + Fixture Download',
+            'Cornerflick + Fixture Download + UEFA',
+        )
+    return record.get('source') == 'football-data.org/v4'
+
+
 def verified_record(league_code: str, match: dict) -> dict | None:
     """Only scorelines verified as FINISHED, with regulation-time results.
 

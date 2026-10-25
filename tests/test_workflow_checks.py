@@ -53,6 +53,63 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertIsNone(result['shortlist']['win_rate'])
         self.assertIsNone(result['shortlist']['flat_stake_roi'])
 
+    def europa_reviewed(self, source='Cornerflick + Fixture Download', *, shortlisted=True):
+        identity = dict(league='UEFA Europa League', home_team='Roma', away_team='Lyon')
+        raw = self.root/'raw'
+        pd.DataFrame([{**fixture(), **identity}]).to_csv(raw/'all_leagues_predictions.csv', index=False)
+        selected = [{**pick(), **identity}] if shortlisted else []
+        pd.DataFrame(selected, columns=pick().keys()).to_csv(raw/'conservative_bet_shortlist.csv', index=False)
+        path = raw/'conservative_bet_summary.json'
+        summary = json.loads(path.read_text())
+        summary.update(n_shortlisted=len(selected), n_strict_qualified=len(selected))
+        write_json(path, summary)
+        capture(SHA, root=self.root, captured_at=T0)
+        record = {**verified_record('EL', final()), **identity,
+                  'match_id': 'e12abc34567890abcdef', 'source': source,
+                  'home_short_name': '', 'away_short_name': ''}
+        write_json(self.root/'performance/verified_results.json', {'EL:'+record['match_id']: record})
+        with patch('performance_tracking.collect_results', return_value=([record], {})):
+            review(root=self.root, clock=KICK+timedelta(days=1))
+
+    def test_europa_review_reconciles_selection_history_and_full_forecast(self):
+        self.europa_reviewed()
+        result = report_check(self.root)
+        self.assertEqual(result['shortlist']['graded'], 1)
+        self.assertEqual(result['status'], 'VERIFIED')
+
+    def test_europa_prediction_without_shortlist_passes_report_validation(self):
+        self.europa_reviewed(shortlisted=False)
+        metrics = json.loads((self.root/'performance/metrics.json').read_text())
+        self.assertEqual(metrics['prediction_fixtures_graded'], 1)
+        self.assertEqual(report_check(self.root)['status'], 'VERIFIED')
+
+    def test_legacy_three_source_europa_cache_remains_valid(self):
+        self.europa_reviewed('Cornerflick + Fixture Download + UEFA')
+        self.assertEqual(report_check(self.root)['status'], 'VERIFIED')
+
+    def test_europa_rejects_unverified_source_unfinished_or_non_regulation_cache(self):
+        self.europa_reviewed()
+        path = self.root/'performance/verified_results.json'
+        original = json.loads(path.read_text())
+        for field, value in [('source', 'Cornerflick'), ('source', 'football-data.org/v4'),
+                             ('source_status', 'SCHEDULED'), ('source_duration', 'EXTRA_TIME'),
+                             ('source_duration', '')]:
+            with self.subTest(field=field, value=value):
+                data = copy.deepcopy(original)
+                next(iter(data.values()))[field] = value
+                write_json(path, data)
+                with self.assertRaisesRegex(ValueError, 'not verified finished'):
+                    report_check(self.root)
+
+    def test_europa_sources_cannot_verify_domestic_results(self):
+        self.reviewed()
+        path = self.root/'performance/verified_results.json'
+        data = json.loads(path.read_text())
+        data['PL:90002']['source'] = 'Cornerflick + Fixture Download'
+        write_json(path, data)
+        with self.assertRaisesRegex(ValueError, 'not verified finished'):
+            report_check(self.root)
+
     def probability_basis_review(self, basis, market='Asian Handicap Home +0.00', *, legacy_first=False):
         captured_at=T0
         if legacy_first:
