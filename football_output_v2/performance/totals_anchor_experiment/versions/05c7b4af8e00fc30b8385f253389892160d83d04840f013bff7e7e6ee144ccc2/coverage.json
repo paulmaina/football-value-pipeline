@@ -29079,7 +29079,7 @@
       ]
     ],
     "reasons": [],
-    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
+    "result_status": "VERIFIED_FINISHED",
     "scale": 1.205783388325895,
     "snapshot_commit": "d737a7a239cba647c6a18877351a8ec1e81a6350",
     "status": "available",
@@ -30163,7 +30163,7 @@
       "reference_stale_or_future",
       "stale_or_unsynchronized_production_hda"
     ],
-    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
     "status": "unavailable",

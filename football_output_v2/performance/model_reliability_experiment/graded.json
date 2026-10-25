@@ -1645,6 +1645,76 @@
     "week": "2026-W43"
   },
   {
+    "away_team": "AS Roma",
+    "baseline": {
+      "away_goals": 3,
+      "btts_yes": 0.4591941724341321,
+      "home_goals": 3,
+      "over_1_5": 0.6650131941364514,
+      "over_2_5": 0.3977497346418888,
+      "p_away": 0.3507223788042345,
+      "p_draw": 0.2823868445289366,
+      "p_home": 0.36689077666682884,
+      "under_3_5": 0.8067458136058062,
+      "y": 1
+    },
+    "candidate": {
+      "away_goals": 3,
+      "btts_yes": 0.4658565202642567,
+      "home_goals": 3,
+      "over_1_5": 0.6717771156412498,
+      "over_2_5": 0.40538941279216173,
+      "p_away": 0.35121089529839283,
+      "p_draw": 0.28100776966684965,
+      "p_home": 0.3677813350347578,
+      "under_3_5": 0.8006802647022928,
+      "y": 1
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Napoli",
+    "kickoff_utc": "2026-10-24T16:00:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.004895600993279681,
+    "snapshot_commit": "d737a7a239cba647c6a18877351a8ec1e81a6350",
+    "source_match_id": 558564,
+    "week": "2026-W43"
+  },
+  {
+    "away_team": "Parma",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.39919487140081467,
+      "home_goals": 2,
+      "over_1_5": 0.682651875313729,
+      "over_2_5": 0.42022046457365114,
+      "p_away": 0.1384355762061823,
+      "p_draw": 0.2239410556080045,
+      "p_home": 0.6376233681858133,
+      "under_3_5": 0.7918904339262319,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.40800974149410824,
+      "home_goals": 2,
+      "over_1_5": 0.6863948886618328,
+      "over_2_5": 0.424902664831649,
+      "p_away": 0.1425557944967451,
+      "p_draw": 0.22478190089513586,
+      "p_home": 0.6326623046081188,
+      "under_3_5": 0.7883552362076122,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Lazio",
+    "kickoff_utc": "2026-10-24T18:45:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.007810981273561668,
+    "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
+    "source_match_id": 558565,
+    "week": "2026-W43"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,
@@ -3287,6 +3357,76 @@
     "log_loss_gain": -0.013069215735301176,
     "snapshot_commit": "d737a7a239cba647c6a18877351a8ec1e81a6350",
     "source_match_id": 558560,
+    "week": "2026-W43"
+  },
+  {
+    "away_team": "AS Roma",
+    "baseline": {
+      "away_goals": 3,
+      "btts_yes": 0.4591941724341321,
+      "home_goals": 3,
+      "over_1_5": 0.6650131941364514,
+      "over_2_5": 0.3977497346418888,
+      "p_away": 0.3507223788042345,
+      "p_draw": 0.2823868445289366,
+      "p_home": 0.36689077666682884,
+      "under_3_5": 0.8067458136058062,
+      "y": 1
+    },
+    "candidate": {
+      "away_goals": 3,
+      "btts_yes": 0.4504544458884278,
+      "home_goals": 3,
+      "over_1_5": 0.6550406509648184,
+      "over_2_5": 0.38753453282025774,
+      "p_away": 0.3631461525767319,
+      "p_draw": 0.2834679477306443,
+      "p_home": 0.35338589969262385,
+      "under_3_5": 0.814421885744237,
+      "y": 1
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Napoli",
+    "kickoff_utc": "2026-10-24T16:00:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": 0.003821137620239945,
+    "snapshot_commit": "d737a7a239cba647c6a18877351a8ec1e81a6350",
+    "source_match_id": 558564,
+    "week": "2026-W43"
+  },
+  {
+    "away_team": "Parma",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.39919487140081467,
+      "home_goals": 2,
+      "over_1_5": 0.682651875313729,
+      "over_2_5": 0.42022046457365114,
+      "p_away": 0.1384355762061823,
+      "p_draw": 0.2239410556080045,
+      "p_home": 0.6376233681858133,
+      "under_3_5": 0.7918904339262319,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.3827411632891852,
+      "home_goals": 2,
+      "over_1_5": 0.6654798906794858,
+      "over_2_5": 0.4014865655054197,
+      "p_away": 0.13810350929582116,
+      "p_draw": 0.2258954483829624,
+      "p_home": 0.6360010423212163,
+      "under_3_5": 0.8064864043400701,
+      "y": 0
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Lazio",
+    "kickoff_utc": "2026-10-24T18:45:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.0025475748244767615,
+    "snapshot_commit": "93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6",
+    "source_match_id": 558565,
     "week": "2026-W43"
   }
 ]
