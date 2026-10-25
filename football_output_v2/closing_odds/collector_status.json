@@ -1,11 +1,12 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-25T11:09:22.909782+00:00",
+  "checked_at_utc": "2026-10-25T11:24:08.126839+00:00",
   "coverage_checks": [
     {
-      "event_id": "f168373343a58c07d02f40538d04b404",
+      "event_id": "c9b6c7048d8dc33dae618f67f462f67a",
       "missing_required_quotes": [],
       "requested_markets": [
+        "double_chance",
         "h2h",
         "totals"
       ],
@@ -16,14 +17,14 @@
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 10,
+  "daily_requests": 11,
   "eligible_fixtures": 1,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
   "request_limit": 10,
   "requests": 1,
   "reservation_allowance": 10,
-  "reservation_id": "actions-40183748992-1-1",
+  "reservation_id": "actions-40183748992-1-2",
   "reservation_used": 1,
   "written": 1
 }
