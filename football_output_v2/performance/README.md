@@ -20,7 +20,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 | All selections | 43 | 33-10 | 76.7% | +5.8% |
 
 Unsettled / unverified entries: **10**.
-Whole-fixture 1X2 multiclass Brier (n=118): 0.5558
+Whole-fixture 1X2 multiclass Brier (n=125): 0.5649
 
 ## First-prediction reference — historical comparison
 
@@ -183,7 +183,11 @@ recorded reliability-adjusted chance; small buckets are unstable.
 
 ## Result-source problems
 
-- UEL: Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {"declared_rows": 134, "eligibility": "CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout 
+- Bundesliga: 500 Server Error:  for url: https://api.football-data.org/v4/competitions/BL1/matches
+- LaLiga: 500 Server Error:  for url: https://api.football-data.org/v4/competitions/PD/matches
+- Ligue1: 500 Server Error:  for url: https://api.football-data.org/v4/competitions/FL1/matches
+- SerieA: 500 Server Error:  for url: https://api.football-data.org/v4/competitions/SA/matches
+- UCL: 500 Server Error:  for url: https://api.football-data.org/v4/competitions/CL/matches
 
 Accuracy is not calibration or profit. Simulated ROI assumes
 one unit staked separately on each settled selection with recorded
