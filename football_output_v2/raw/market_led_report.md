@@ -5,8 +5,10 @@ Research only; feed prices are not confirmed executable bets.
 Candidate markets: 90; available: 0; selected: 0.
 
 - competition_excluded_from_shortlist_validation: 28
-- event_identity_or_kickoff_mismatch: 28
-- missing_invalid_or_stale_pinnacle_1x2: 28
+- event_identity_or_kickoff_mismatch: 42
+- missing_invalid_or_stale_pinnacle_1x2: 42
 - no_fresh_independent_complete_dc_offer: 90
+- outside_selection_window: 22
+- unlinked_fixture: 14
 
 No automatic promotion. Existing model and conservative shortlist are unchanged.

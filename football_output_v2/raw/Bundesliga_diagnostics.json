@@ -1,6 +1,6 @@
 {
   "league": "Bundesliga",
-  "training_matches": 1587,
+  "training_matches": 1593,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,13 +10,13 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "42233672382c0d6893d68f382922beed281707a6b76091a46319d593ec3d12cd",
-  "training_as_of_utc": "2026-10-24T14:47:45.769331+00:00",
+  "training_sha256": "00f21cba46dbb1e9f6978e0767d92712f9e0dbcd3b9d8cd1b973ed7ec1f88ea1",
+  "training_as_of_utc": "2026-10-25T10:19:57.059078+00:00",
   "training_data_provenance": {
-    "bbs_confirmed_rows": 55,
-    "bbs_added_results": 1,
+    "bbs_confirmed_rows": 61,
+    "bbs_added_results": 7,
     "bbs_result_conflicts": 0,
-    "bbs_rows_with_statistics": 55,
+    "bbs_rows_with_statistics": 61,
     "bbs_statistics_used_as_predictor_features": false,
     "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.",
     "api_football": {
@@ -27,7 +27,7 @@
       "unmapped": 668,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 31,
+      "statistics_observations": 33,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -35,10 +35,10 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-24T14:47:45.769331+00:00",
-    "observations": 194,
-    "observations_sha256": "5ba4f0a2ece559868a6f405768949e44fe4ef012073648a9d483ab985d7f4453",
-    "eligible_training_matches": 34,
+    "cutoff_utc": "2026-10-25T10:19:57.059078+00:00",
+    "observations": 206,
+    "observations_sha256": "11d23036f1854ca7d6c47763ce21072bd8077289227da2c34579e74b829b4d38",
+    "eligible_training_matches": 39,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -63,15 +63,15 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 72,
+    "usable_current_matches": 80,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
-    "strict_eligible_training_matches": 7,
-    "retrospective_eligible_training_matches": 34,
+    "strict_eligible_training_matches": 12,
+    "retrospective_eligible_training_matches": 39,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
-    "retrospective_inputs_sha256": "9f24301b8ec6079a5a306b31646009248d772c3738f2975750609685b4eb7d46",
+    "retrospective_inputs_sha256": "7fdec82063bf85734f51efeecfeb698b7d443615685d596d965671a49e6fd057",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -79,12 +79,12 @@
       "bigballsdata"
     ]
   },
-  "training_end": "2026-10-23",
+  "training_end": "2026-10-24",
   "fit_success": true,
-  "objective": 4832.608806465556,
-  "base": 0.23347018746425852,
-  "home_adv": 0.2350651987090587,
-  "rho": -0.11119620146335413,
+  "objective": 4848.89518363409,
+  "base": 0.22622413739977212,
+  "home_adv": 0.23560285836392098,
+  "rho": -0.11088255046137512,
   "half_life_days": 1000000000.0,
   "xi_per_day": 6.931471805599453e-10,
   "max_goals": 10,
@@ -93,15 +93,15 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 27,
-    "matches": 1587,
+    "matches": 1593,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-10-23"
+    "last_match_date": "2026-10-24"
   },
   "training_data_health": {
-    "training_end": "2026-10-23",
+    "training_end": "2026-10-24",
     "days_since_latest_result": 1,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
@@ -113,10 +113,10 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 3,
-  "additional_event_odds_calls_used_before_this_league": 12,
+  "additional_event_odds_calls_used_before_this_league": 10,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261024T144745769331Z_4c010b027b9911b5024af4379c6ae425592fb3e5993781b99a84363c25a04c66.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261025T101957059078Z_82d0ecc2fd4d0c8fa43bf04a90896ddebf38361b0d9534719f30100086c32fcd.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -126,17 +126,10 @@
       "home_team": "Borussia Dortmund",
       "away_team": "Eintracht Frankfurt",
       "kickoff_utc": "2026-10-24T16:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 34,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -150,7 +143,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 34,
+      "count_market_quotes": 4,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 36,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -170,7 +165,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 22,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -181,10 +178,10 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 3,
+  "additional_odds_in_window_linked_fixtures": 2,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 3,
+  "additional_event_odds_calls_this_league": 2,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 1000000000.0,

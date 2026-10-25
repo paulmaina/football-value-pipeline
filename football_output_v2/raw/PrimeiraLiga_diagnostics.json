@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "9aa0490d3c785bbac1db1df68144a198798f6e850afaca727c2a89dab1ac3be4",
-  "training_as_of_utc": "2026-10-24T14:50:19.997502+00:00",
+  "training_as_of_utc": "2026-10-25T10:24:35.009850+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -25,10 +25,10 @@
   },
   "training_end": "2026-10-19",
   "fit_success": true,
-  "objective": 1992.1112980910266,
-  "base": 0.08484260434295561,
-  "home_adv": 0.18606646342535332,
-  "rho": 0.04514206452388922,
+  "objective": 1990.5696672247923,
+  "base": 0.08484650390005728,
+  "home_adv": 0.18608128279904337,
+  "rho": 0.04515245436681267,
   "half_life_days": 730.0,
   "xi_per_day": 0.0009495166856985552,
   "max_goals": 10,
@@ -46,7 +46,7 @@
   },
   "training_data_health": {
     "training_end": "2026-10-19",
-    "days_since_latest_result": 5,
+    "days_since_latest_result": 6,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -56,50 +56,38 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 7,
-  "additional_event_odds_calls_used_before_this_league": 36,
+  "live_odds_matched": 5,
+  "additional_event_odds_calls_used_before_this_league": 29,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 6,
+  "over_1_5_in_window_quote_fixtures": 5,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
       "fixture_id": "3f752f1b9f725906b91ae5b699705cca",
-      "event_id": "3f752f1b9f725906b91ae5b699705cca",
+      "event_id": null,
       "home_team": "Alverca",
       "away_team": "Arouca",
       "kickoff_utc": "2026-10-24T17:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "2fdd5b6eaa94bcdf2f61444eef54b645",
-      "event_id": "2fdd5b6eaa94bcdf2f61444eef54b645",
+      "event_id": null,
       "home_team": "Gil Vicente",
       "away_team": "FC Porto",
       "kickoff_utc": "2026-10-24T19:30:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "399511b408ef714458e62100cac3fb16",
@@ -183,18 +171,24 @@
       "home_team": "Santa Clara",
       "away_team": "Benfica",
       "kickoff_utc": "2026-10-26T18:45:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 6,
+  "additional_odds_in_window_linked_fixtures": 5,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 6,
+  "additional_event_odds_calls_this_league": 5,
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 730.0,

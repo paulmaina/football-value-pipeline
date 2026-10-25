@@ -1,6 +1,6 @@
 {
   "league": "Ligue 1",
-  "training_matches": 1744,
+  "training_matches": 1745,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,13 +10,13 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "6dc495c5225ffd8905fdcef4ff7b125391bfa0b806e25c3045748aff44845797",
-  "training_as_of_utc": "2026-10-24T14:49:18.960151+00:00",
+  "training_sha256": "0f4a83176017e5370c37b2f2572ba1a846251ca1c6772be9fcb10fbee84dd50e",
+  "training_as_of_utc": "2026-10-25T10:22:57.997574+00:00",
   "training_data_provenance": {
-    "bbs_confirmed_rows": 64,
-    "bbs_added_results": 1,
+    "bbs_confirmed_rows": 65,
+    "bbs_added_results": 2,
     "bbs_result_conflicts": 0,
-    "bbs_rows_with_statistics": 64,
+    "bbs_rows_with_statistics": 65,
     "bbs_statistics_used_as_predictor_features": false,
     "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.",
     "api_football": {
@@ -27,7 +27,7 @@
       "unmapped": 242,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 64,
+      "statistics_observations": 66,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -35,10 +35,10 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-24T14:49:18.960151+00:00",
-    "observations": 243,
-    "observations_sha256": "74fc35e22a1c1e9a6b223007148aa46d5d227cc2eee1d44dbd1c39f80c8d1412",
-    "eligible_training_matches": 91,
+    "cutoff_utc": "2026-10-25T10:22:57.997574+00:00",
+    "observations": 254,
+    "observations_sha256": "bcf4d1aff1b290d0c16ed4473ca166f5b9bea74fc3bf249654b607892c4c7a5d",
+    "eligible_training_matches": 93,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -63,15 +63,15 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 101,
+    "usable_current_matches": 104,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
-    "strict_eligible_training_matches": 8,
-    "retrospective_eligible_training_matches": 91,
+    "strict_eligible_training_matches": 9,
+    "retrospective_eligible_training_matches": 93,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:29.253586+00:00",
-    "retrospective_inputs_sha256": "5dbbff99011df08cab1e5b41a1ba38de1cccf4e94aa85b48d771e5fe4812caf7",
+    "retrospective_inputs_sha256": "343e0ceb939f29bb74990d53890f933e8b010c52e7d393a1c0611d87ee68c4cb",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -79,12 +79,12 @@
       "bigballsdata"
     ]
   },
-  "training_end": "2026-10-23",
+  "training_end": "2026-10-24",
   "fit_success": true,
-  "objective": 5081.975012517868,
-  "base": 0.21585279499684495,
-  "home_adv": 0.18648638981319035,
-  "rho": -0.05685796452241178,
+  "objective": 5084.310516229578,
+  "base": 0.21596790492483428,
+  "home_adv": 0.1866283042743129,
+  "rho": -0.05687892076066001,
   "half_life_days": 1000000000.0,
   "xi_per_day": 6.931471805599453e-10,
   "max_goals": 10,
@@ -93,15 +93,15 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 26,
-    "matches": 1744,
+    "matches": 1745,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-10-23"
+    "last_match_date": "2026-10-24"
   },
   "training_data_health": {
-    "training_end": "2026-10-23",
+    "training_end": "2026-10-24",
     "days_since_latest_result": 1,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
@@ -112,31 +112,24 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 8,
-  "additional_event_odds_calls_used_before_this_league": 22,
+  "live_odds_matched": 7,
+  "additional_event_odds_calls_used_before_this_league": 17,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261024T144918960151Z_a8a0704ac53f35485f91ad20c9d99baa264a4fa2af1a1f31b3013a91c70880e1.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261025T102257997574Z_9fbef83d8799904dbbfa2933150f06d149ef22760588983da82d9829d2a1526d.json",
   "over_1_5_in_window_quote_fixtures": 2,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
       "fixture_id": "fc6c50376190b578cfeb38c029db8487",
-      "event_id": "fc6c50376190b578cfeb38c029db8487",
+      "event_id": null,
       "home_team": "RC Lens",
       "away_team": "Paris FC",
       "kickoff_utc": "2026-10-24T18:45:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 32,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -150,6 +143,8 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
       "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
@@ -170,6 +165,8 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
       "asian_handicap_quotes": 30,
       "asian_handicap_bookmakers": [
         "1xBet",
@@ -190,6 +187,8 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
       "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
@@ -210,6 +209,8 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
       "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
@@ -230,6 +231,8 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
       "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
@@ -250,7 +253,9 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "count_market_quotes": 4,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 30,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -266,10 +271,19 @@
       "home_team": "Paris Saint Germain",
       "away_team": "Lyon",
       "kickoff_utc": "2026-10-26T19:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     }
