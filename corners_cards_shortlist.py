@@ -83,6 +83,8 @@ def count_market_decisions(predictions, as_of, market_reliability, policy):
             if pd.isna(kick) or not now+pd.Timedelta(minutes=20) <= kick <= now+pd.Timedelta(hours=48):
                 reasons.append('kickoff outside 20-minute to 48-hour window')
             reasons.extend(eligibility(row))
+            if kind == 'cards':
+                reasons.append('card totals out of production: ' + count_markets.CARD_SETTLEMENT_GAP)
             if league not in {league_registry.get(k).name for k in count_markets.LEAGUES[kind]}:
                 reasons.append('competition has no validated count market')
             if row.get('odds_source') != 'The Odds API' or row.get('market_blend_applied') not in (True, 1, 'True'):

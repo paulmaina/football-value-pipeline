@@ -109,6 +109,18 @@ class CornersCardsShortlistTests(OfflineQuotePolicyTestCase):
         _, decisions, _ = select([count_row(0, [offer()])], evidence())
         self.assertEqual(decisions.loc[decisions.market == 'Corners Over 9.5'].iloc[0].decision, 'SHORTLISTED')
 
+    def test_card_totals_are_rejected_in_every_league_with_the_settlement_reason(self):
+        # Even with a passing card report and model, the settlement total cannot be reproduced.
+        for league in ('Premier League', 'Bundesliga', 'Serie A', 'Ligue 1'):
+            with self.subTest(league=league):
+                value = count_row(0, [offer('cards', line=4.5)], kinds=('corners', 'cards'))
+                value['league'] = league
+                _, decisions, _ = select([value], evidence(league=league, kinds=('corners', 'cards')))
+                card = decisions.loc[decisions.market == 'Cards Over 4.5'].iloc[0]
+                self.assertEqual(card.decision, 'REJECTED')
+                self.assertIn('card totals out of production: Pinnacle settles card totals as bookings',
+                              card.rejection_reasons)
+
     def test_high_probability_needs_its_tier_and_stale_quotes_fail(self):
         failing = evidence()
         for market in failing['Premier League']['count_markets']['corners']['markets'].values():
@@ -159,3 +171,53 @@ class CornersCardsShortlistTests(OfflineQuotePolicyTestCase):
         self.assertIn('Up to 2 matches per market group (maximum 18)', text)
         self.assertIn('| Corners | 2 | 2 | 0 |', text)
         self.assertIn('| Cards | 0 | 0 | 2 |', text)
+
+
+class CountGradingTests(OfflineQuotePolicyTestCase):
+    """Corner picks settle from committed match statistics consistent with the verified score."""
+
+    def committed(self):
+        frame = cm.load_history(Path(__file__).resolve().parents[1]/'.football_cache', 'I1')
+        match = frame.dropna(subset=['HC', 'AC']).iloc[-1]
+        kickoff = pd.to_datetime(match.Date, dayfirst=True).tz_localize('UTC') + pd.Timedelta(hours=18)
+        return match, kickoff
+
+    def selection(self, match, kickoff, market, **extra):
+        return {'fixture_key': 'k', 'league': 'Serie A', 'home_team': match.HomeTeam, 'away_team': match.AwayTeam,
+                'model_home_team': match.HomeTeam, 'model_away_team': match.AwayTeam,
+                'kickoff_utc': kickoff.isoformat(), 'snapshot_commit': 'abc', 'snapshot_captured_utc': 'x',
+                'market': market, 'decision': 'SHORTLISTED', 'selection_tier': 'STRICT', 'rank_probability': .6,
+                'predicted_probability': .62, 'probability_basis': 'net_profit', 'offered_decimal_odds': 1.9,
+                'per_stake_cost': 0, 'bookmaker': 'Pinnacle', **extra}
+
+    def test_settles_from_committed_statistics_with_profit_and_brier(self):
+        from performance_tracking import score_shortlist, SUPPORTED_MARKETS
+        match, kickoff = self.committed()
+        total = int(match.HC + match.AC)
+        final = {'home_goals': int(match.FTHG), 'away_goals': int(match.FTAG), 'match_id': 1}
+        for side, line in (('Over', 9.5), ('Under', 9.5), ('Over', 7.5)):
+            market = cm.market_label('corners', side, line)
+            self.assertIn(market, SUPPORTED_MARKETS)
+            graded = score_shortlist(self.selection(match, kickoff, market), final, 'VERIFIED_FINISHED')
+            won = cm.outcome('corners', side, line, total)
+            self.assertEqual(graded['status'], 'WON' if won else 'LOST')
+            self.assertAlmostEqual(graded['unit_profit'], .9 if won else -1.)
+            self.assertAlmostEqual(graded['brier'], (.6-int(won))**2)
+
+    def test_stays_pending_until_statistics_agree_with_the_verified_score(self):
+        from performance_tracking import score_shortlist
+        from asian_handicap import SETTLED
+        match, kickoff = self.committed()
+        market = 'Corners Over 9.5'
+        wrong = {'home_goals': int(match.FTHG)+1, 'away_goals': int(match.FTAG), 'match_id': 1}
+        right = {'home_goals': int(match.FTHG), 'away_goals': int(match.FTAG), 'match_id': 1}
+        cases = [(self.selection(match, kickoff, market), wrong),
+                 (self.selection(match, kickoff + pd.Timedelta(days=5), market), right),
+                 (self.selection(match, kickoff, market, model_home_team='Unknown FC'), right)]
+        for selection, final in cases:
+            graded = score_shortlist(selection, final, 'VERIFIED_FINISHED')
+            self.assertEqual(graded['status'], 'AWAITING_COUNT_RESULT')
+            self.assertNotIn(graded['status'], SETTLED)
+            self.assertEqual((graded['unit_profit'], graded['brier']), ('', ''))
+        # Card totals have no production settlement source.
+        self.assertIsNone(cm.verified_total(self.selection(match, kickoff, 'Cards Over 4.5'), right))

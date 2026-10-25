@@ -20,15 +20,21 @@ from scipy.special import gammaln
 from scipy.stats import nbinom
 
 VERSION = 'count-markets-nb2-v1'
-# Pinnacle quotes these totals for these leagues (Odds API check, 2026-10-24).
+# Production leagues per market. Pinnacle quotes corner totals in these five
+# (Odds API check, 2026-10-24). It also quotes card totals in Bundesliga, Serie A
+# and Ligue 1, but settles them as bookings (yellow 1, red 2, the second yellow
+# of a dismissal excluded). football-data.co.uk cannot reproduce that total: it
+# records second-yellow dismissals differently by country and does not separate
+# them from straight reds. Cards stay out of production until data supports it.
 LEAGUES = {'corners': ('EPL', 'LaLiga', 'Bundesliga', 'SerieA', 'Ligue1'),
-           'cards': ('Bundesliga', 'SerieA', 'Ligue1')}
+           'cards': ()}
+CARD_SETTLEMENT_GAP = ('Pinnacle settles card totals as bookings (yellow 1, red 2, second yellow excluded); '
+                       'football-data.co.uk yellow/red counts cannot reproduce that total')
 ODDS_MARKETS = {'corners': 'alternate_totals_corners', 'cards': 'alternate_totals_cards'}
 LINES = {'corners': (7.5, 8.5, 9.5, 10.5, 11.5, 12.5), 'cards': (2.5, 3.5, 4.5, 5.5, 6.5)}
 GROUPS = {'corners': 'Corners', 'cards': 'Cards'}
 # Each card counts once: yellow cards plus red cards as football-data.co.uk
-# reports them. Bookmaker settlement rules (booking points, second yellows)
-# may differ; that difference is not validated.
+# reports them. This is not the bookmaker's settlement total (CARD_SETTLEMENT_GAP).
 TOTALS = {'corners': (('HC',), ('AC',)), 'cards': (('HY', 'HR'), ('AY', 'AR'))}
 # Supporting statistics: shots for corners, fouls for cards.
 SUPPORT = {'corners': ('HS', 'AS'), 'cards': ('HF', 'AF')}
@@ -353,3 +359,54 @@ def parse_quotes(payload, as_of):
                     if previous is None or (str(stamp), item['price']) > (str(previous['last_update_utc']), previous['price']):
                         offers[identity] = item
     return sorted(offers.values(), key=lambda r: (r['kind'], r['line'], r['side'], r['bookmaker']))
+
+
+_HISTORY = {}
+
+
+def _committed_history(cache_dir, division):
+    key = (str(Path(cache_dir).resolve()), division)
+    if key not in _HISTORY:
+        frame = load_history(cache_dir, division, seasons=10)
+        if len(frame):
+            frame = frame.assign(_date=pd.to_datetime(frame['Date'], dayfirst=True, errors='coerce'))
+        _HISTORY[key] = frame
+    return _HISTORY[key]
+
+
+def verified_total(row, final, cache_dir=None):
+    """Settled total for a shortlisted count market, or None until it can be verified.
+
+    The total comes from the committed football-data.co.uk row for the same
+    model teams within a day of kickoff, and only when that row's score equals
+    the verified final score.
+    """
+    import league_registry
+    parsed = parse_label(row.get('market'))
+    if parsed is None or not final:
+        return None
+    league = next((l for l in league_registry.REGISTRY if l.name == row.get('league')), None)
+    home, away = row.get('model_home_team'), row.get('model_away_team')
+    kickoff = pd.to_datetime(row.get('kickoff_utc'), utc=True, errors='coerce')
+    if (league is None or league.key not in LEAGUES[parsed[0]] or not league.football_data_div
+            or not home or not away or pd.isna(kickoff)):
+        return None
+    cache = Path(cache_dir) if cache_dir is not None else Path(__file__).resolve().parent/'.football_cache'
+    history = _committed_history(cache, league.football_data_div)
+    if not len(history):
+        return None
+    day = kickoff.tz_convert(None).normalize()
+    match = history.loc[(history.HomeTeam == home) & (history.AwayTeam == away)
+                        & ((history._date - day).abs() <= pd.Timedelta(days=1))]
+    if len(match) != 1:
+        return None
+    match = match.iloc[0]
+    try:
+        if (int(match.FTHG), int(match.FTAG)) != (int(final['home_goals']), int(final['away_goals'])):
+            return None
+        counts = [float(match[c]) for side in TOTALS[parsed[0]] for c in side]
+    except (KeyError, TypeError, ValueError):
+        return None
+    if not all(math.isfinite(c) and c >= 0 for c in counts):
+        return None
+    return int(sum(counts))
