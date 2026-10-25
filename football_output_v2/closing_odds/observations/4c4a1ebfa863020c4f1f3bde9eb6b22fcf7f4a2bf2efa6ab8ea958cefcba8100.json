@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "FC Twente Enschede",
+    "home_team": "AZ Alkmaar",
+    "kickoff_utc": "2026-10-25T19:00:00+00:00",
+    "league": "Eredivisie",
+    "odds_event_id": "b435848f58054cad7d3fad610a96c4b5"
+  },
+  "observed_at_utc": "2026-10-25T18:54:28.530452+00:00",
+  "payload": {
+    "away_team": "FC Twente Enschede",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T18:53:32Z",
+            "outcomes": [
+              {
+                "name": "AZ Alkmaar",
+                "price": 2.24
+              },
+              {
+                "name": "FC Twente Enschede",
+                "price": 2.98
+              },
+              {
+                "name": "Draw",
+                "price": 3.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T18:53:32Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.31
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.62
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T18:54:16Z",
+            "outcomes": [
+              {
+                "name": "AZ Alkmaar",
+                "price": 2.37
+              },
+              {
+                "name": "FC Twente Enschede",
+                "price": 2.87
+              },
+              {
+                "name": "Draw",
+                "price": 3.8
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T18:54:16Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.07
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.83
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-25T19:00:00Z",
+    "home_team": "AZ Alkmaar",
+    "id": "b435848f58054cad7d3fad610a96c4b5",
+    "sport_key": "soccer_netherlands_eredivisie",
+    "sport_title": "Dutch Eredivisie"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.24,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4323951221396772,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.85,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24623666964196478,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.98,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.321368208218358,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.31,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.40552185891679066,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-25T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5944781410832094,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-25T18:53:32+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.37,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4106273193449413,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T18:54:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25232157920895837,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T18:54:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.87,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.33705110144610034,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T18:54:16+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
