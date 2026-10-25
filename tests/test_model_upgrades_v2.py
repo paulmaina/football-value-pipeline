@@ -55,8 +55,20 @@ class ProductionProfileTests(OfflineQuotePolicyTestCase):
         self.assertIn('shots', MODEL_VERSION)
         prod = dict(market_weight=.7, half_life_days=480, half_life_tuning=False, totals_anchor=True)
         self.assertEqual(model_version_for(**prod, shot_features=False), fvp.NO_SHOTS_MODEL_VERSION)
-        self.assertEqual(model_version_for(**prod, shot_features=True), SHOT_EXPERIMENT_MODEL_VERSION)
+        self.assertEqual(model_version_for(**prod, shot_features=True), MODEL_VERSION)
         self.assertIn(LEGACY_MODEL_VERSION, fvp.MODEL_PROFILES)
+
+    def test_experimental_profile_keeps_its_identity_without_changing_predictions(self):
+        self.assertEqual(SHOT_EXPERIMENT_MODEL_VERSION,
+                         'dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2')
+        self.assertNotEqual(MODEL_VERSION, SHOT_EXPERIMENT_MODEL_VERSION)
+        self.assertEqual(fvp.MODEL_PROFILES[MODEL_VERSION],
+                         fvp.MODEL_PROFILES[SHOT_EXPERIMENT_MODEL_VERSION])
+        self.assertIsNot(fvp.MODEL_PROFILES[MODEL_VERSION],
+                         fvp.MODEL_PROFILES[SHOT_EXPERIMENT_MODEL_VERSION])
+        settings = fvp.MODEL_PROFILES[SHOT_EXPERIMENT_MODEL_VERSION]
+        self.assertEqual(model_version_for(**settings), MODEL_VERSION)
+        self.assertEqual(pipe()._model_version(), MODEL_VERSION)
 
     def test_each_custom_configuration_has_its_own_identity(self):
         base = dict(market_weight=.7, half_life_days=480, half_life_tuning=False, totals_anchor=True, shot_features=False)
@@ -320,6 +332,16 @@ class ModelComparisonTests(OfflineQuotePolicyTestCase):
         summary, _ = self.evaluate([[forecast(0, version='custom'), {**forecast(1), 'legacy_status': 'UNAVAILABLE_FIT_RuntimeError'}]], 2)
         self.assertEqual(summary['excluded_fixtures'], {'first_forecast_not_production_custom': 1,
                                                         'legacy_unavailable_fit_runtimeerror': 1})
+
+    def test_experimental_first_forecast_never_counts_as_production_or_backfills(self):
+        earlier = forecast(0, version=SHOT_EXPERIMENT_MODEL_VERSION)
+        current = forecast(1)
+        summary, paired = self.evaluate([[earlier, current], [forecast(0)]], 2)
+        self.assertEqual(summary['paired_matches'], 1)
+        self.assertEqual(summary['excluded_fixtures'], {
+            'first_forecast_not_production_'+SHOT_EXPERIMENT_MODEL_VERSION: 1})
+        from performance_tracking import fixture_key
+        self.assertEqual(paired[0]['fixture_key'], fixture_key(current))
 
     def test_scores_both_models_on_the_same_matches(self):
         summary, paired = self.evaluate([[forecast(i) for i in range(3)]], 3)

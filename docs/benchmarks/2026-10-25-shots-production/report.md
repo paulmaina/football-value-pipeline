@@ -2,7 +2,11 @@
 
 2,019 identical pinned fixtures. The exact release uses market weight 0.70, fixed 480 days, the Pinnacle O/U 2.5 anchor, gated shots, and BBS priority with no stacking.
 
-Source base: `b5a0f9eb7ff36ea78a14bfaeb677cb353613c5ca` plus the exact working-tree file hashes in results.json. No commit was made before presenting the diff and test output.
+Source base: `d5701e4ba3788515f4133be71f94653f5fb75664` plus the exact working-tree file hashes in results.json.
+
+The production identity is now `dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2`.
+The original `dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2` remains the experimental identity.
+The full benchmark was recalculated after separating these labels; every model-upgrade comparison is identical to the prior run. Prediction settings and validation thresholds are unchanged.
 
 | Phase | Market | N | Legacy log loss | Release log loss | Legacy Brier | Release Brier |
 |---|---|---:|---:|---:|---:|---:|

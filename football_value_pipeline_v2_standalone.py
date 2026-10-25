@@ -103,9 +103,9 @@ PIPELINE_VERSION = "2.9.1"
 # legacy profile; it stays importable so archived forecasts replay unchanged.
 LEGACY_MODEL_VERSION = "dc-blend50-tuned-half-life-v1"
 NO_SHOTS_MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-v2"
-MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2"
-# Retained for callers and captures made while shots were experimental.
-SHOT_EXPERIMENT_MODEL_VERSION = MODEL_VERSION
+MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2"
+# Preserve the experimental identity; archived experimental rows are never production.
+SHOT_EXPERIMENT_MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2"
 CUSTOM_MODEL_VERSION = MODEL_VERSION + "+custom"
 MODEL_PROFILES = {
     LEGACY_MODEL_VERSION: {"market_weight": 0.50, "half_life_days": None,
@@ -114,10 +114,13 @@ MODEL_PROFILES = {
     NO_SHOTS_MODEL_VERSION: {"market_weight": 0.70, "half_life_days": 480.0,
                     "half_life_tuning": False, "totals_anchor": True,
                     "shot_features": False},
-    SHOT_EXPERIMENT_MODEL_VERSION: {"market_weight": 0.70, "half_life_days": 480.0,
+    MODEL_VERSION: {"market_weight": 0.70, "half_life_days": 480.0,
                                     "half_life_tuning": False, "totals_anchor": True,
                                     "shot_features": True},
 }
+# Keep an independent historical profile after production so identical settings
+# resolve to the production identity for new forecasts.
+MODEL_PROFILES[SHOT_EXPERIMENT_MODEL_VERSION] = dict(MODEL_PROFILES[MODEL_VERSION])
 # Shots and BBS statistics never stack until their combination (and its gain
 # over shots alone) has been validated chronologically.
 SHOTS_WITH_BBS_VALIDATED = False

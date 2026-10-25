@@ -1,4 +1,4 @@
-# Production model v2 (`dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2`)
+# Production model v2 (`dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2`)
 
 Every new forecast row and league diagnostic carries `model_version`. Rows without
 the column were produced by the legacy profile `dc-blend50-tuned-half-life-v1`
@@ -6,9 +6,13 @@ the column were produced by the legacy profile `dc-blend50-tuned-half-life-v1`
 `MODEL_PROFILES`; archived forecasts and selections are never rewritten. The
 shots-enabled profile is the default for normal and scheduled runs. `--no-shot-features`
 selects the preserved no-shots profile `dc-blend70-hl480-pinnacle-ou25-anchor-v2`.
-`SHOT_EXPERIMENT_MODEL_VERSION` stays importable as an alias. Any other non-default configuration
+`SHOT_EXPERIMENT_MODEL_VERSION` retains the historical
+`dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2` identity and an independently
+importable profile with identical settings. New forecasts resolve to the production
+identity; the production-versus-legacy comparison excludes the experimental identity.
+Archived rows are never relabelled or backfilled. Any other non-default configuration
 (`--tune-half-life`, `--no-totals-anchor`, another weight or half-life) gets its own
-identity: `dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2+custom-<settings hash>`.
+identity: `dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2+custom-<settings hash>`.
 
 ## Changes
 

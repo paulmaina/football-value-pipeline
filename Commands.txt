@@ -46,7 +46,7 @@ shortlist horizon           48 hours, minimum 20-minute lead, up to 12 matches
 totals anchor               fresh Pinnacle O/U 2.5 (--no-totals-anchor disables)
 shot features               on; chronological gate every run (--no-shot-features disables)
 legacy comparison           legacy_* columns each run (--no-legacy-comparison skips)
-model_version               dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2
+model_version               dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2
 --devig                     power
 --odds-regions              eu
 --fixture-provider          auto
