@@ -19,6 +19,9 @@ LABELS={'home':'Home win','away':'Away win','over_1_5':'Over 1.5','under_3_5':'U
 from asian_handicap import LINES, label as handicap_label, parse_label as parse_handicap
 LABELS.update({handicap_label(s,p):handicap_label(s,p) for s in ('home','away') for p in LINES})
 LABELS['draw'] = 'Draw'
+# Extra selections that only the bet365 vs Pinnacle list can hold.
+LABELS.update({'over_2_5':'Over 2.5','under_2_5':'Under 2.5','under_1_5':'Under 1.5','over_3_5':'Over 3.5','btts_no':'Both Teams to Score - No'})
+BET365_TARGET='bet365:'
 
 
 def digest(data):return hashlib.sha256(json.dumps(data,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
@@ -107,7 +110,7 @@ def fetch(api,source,markets):
     event=str(source.get('odds_event_id',''))
     if not re.fullmatch(r'[A-Za-z0-9_-]+',event):raise ValueError('Invalid odds event')
     league=next(l for l in LEAGUES.values() if l.name==source['league'])
-    return api._get_json(f'{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/events/{event}/odds',f'closing_v1_{event}.json',ttl=timedelta(seconds=0),force_refresh=True,allow_stale=False,params={'bookmakers':'pinnacle' if any('spreads' in m for m in markets) else 'pinnacle,onexbet','markets':','.join(sorted(markets)),'oddsFormat':'decimal','dateFormat':'iso'})
+    return api._get_json(f'{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/events/{event}/odds',f'closing_v1_{event}.json',ttl=timedelta(seconds=0),force_refresh=True,allow_stale=False,params={'bookmakers':('pinnacle' if any('spreads' in m for m in markets) else 'pinnacle,onexbet')+(',bet365' if source.get('_closing_bet365') else ''),'markets':','.join(sorted(markets)),'oddsFormat':'decimal','dateFormat':'iso'})
 
 
 def collection_targets(root, predictions, picks):
@@ -120,18 +123,27 @@ def collection_targets(root, predictions, picks):
     selected = {}
     for pick in frozen_picks + picks:
         selected.setdefault(fixture_key(pick), set()).add(pick.get('market'))
+    # bet365 vs Pinnacle entries: separate list, tracked for closing-line value.
+    from bet365_pinnacle import frozen_entries, FILE as BET365_FILE
+    from performance_tracking import read_csv
+    from prediction_runs import resolve_raw
+    for entry in frozen_entries(root, archive) + read_csv(resolve_raw(root/'raw')/BET365_FILE):
+        selected.setdefault(fixture_key(entry), set()).add(BET365_TARGET+str(entry.get('market')))
     # Archived predictions outside the frozen shortlist do not expand collection.
     current = {fixture_key(row) for row in predictions}
     keys = current | (set(selected) & set(sources))
-    return [(sources[key], selected.get(key, set())) for key in sorted(keys)]
+    return [({**sources[key], '_closing_bet365': True} if any(str(m).startswith(BET365_TARGET) for m in selected.get(key, ()))
+             else sources[key], selected.get(key, set())) for key in sorted(keys)]
 
 
 def required_quotes(source, selected, observations):
     """Missing exact-market quotes remain retryable until the window closes."""
     from performance_tracking import fixture_key, utc
+    bet365 = {m[len(BET365_TARGET):] for m in selected if str(m).startswith(BET365_TARGET)}
     selections = {key for key, label in LABELS.items() if label in selected}
-    if not selections:selections = {'home', 'draw', 'away'}
+    if not selections and not bet365:selections = {'home', 'draw', 'away'}
     expected = {(book, selection) for selection in selections for book in (('pinnacle',) if parse_handicap(selection) else ('1xbet','pinnacle'))}
+    expected |= {(book, key) for key, label in LABELS.items() if label in bet365 for book in ('bet365', 'pinnacle')}
     actual = {(q['bookmaker'], q['selection']) for obs in observations
               if fixture_key(obs['fixture']) == fixture_key(source)
               and obs['fixture'].get('odds_event_id') == source.get('odds_event_id')
@@ -167,10 +179,11 @@ def collect_once(root,api,clock=None,limit=100,fetcher=None,reservation_id=None)
         if not required_quotes(source,selected,observations):complete+=1;continue
         if count>=cap:continue
         markets={'h2h','totals'}
-        if any(m in ('Over 1.5','Under 3.5') for m in selected):markets.add('alternate_totals')
-        if 'Both Teams to Score - Yes' in selected:markets.add('btts')
-        if any(str(m).startswith('Double Chance') for m in selected):markets.add('double_chance')
-        if any(parse_handicap(m) for m in selected):markets.update(('spreads','alternate_spreads','draw_no_bet'))
+        labels={str(m).removeprefix(BET365_TARGET) for m in selected}
+        if any(m in ('Over 1.5','Under 3.5','Under 1.5','Over 3.5') for m in labels):markets.add('alternate_totals')
+        if any(str(m).startswith('Both Teams to Score') for m in labels):markets.add('btts')
+        if any(str(m).startswith('Double Chance') for m in labels):markets.add('double_chance')
+        if any(parse_handicap(m) for m in labels):markets.update(('spreads','alternate_spreads','draw_no_bet'))
         count+=1
         if reservation is not None:
             reservation['used'] += 1
@@ -248,6 +261,45 @@ def evaluate(root,archive,clock, *, latest=False):
     return summary,rows
 
 
+def evaluate_bet365(root,archive,clock):
+    """Closing-line value for frozen bet365 vs Pinnacle entries; evidence only."""
+    from bet365_pinnacle import frozen_entries,VERSION as LIST_VERSION
+    from performance_tracking import fixture_key,utc,number
+    observations,_=load_observations(root,clock);rows=[]
+    for entry in frozen_entries(root,archive):
+        item={**entry,'closing':{}}
+        kick=utc(entry['kickoff_utc'])
+        if kick>clock:
+            item['closing']={'status':'PENDING_KICKOFF'};rows.append(item);continue
+        selection=next((k for k,v in LABELS.items() if v==entry.get('market')),None)
+        latest={}
+        for obs in observations:
+            if fixture_key(obs['fixture'])!=fixture_key(entry) or obs['fixture'].get('odds_event_id')!=entry.get('odds_event_id'):continue
+            if utc(obs['observed_at_utc'])<utc(entry['snapshot_captured_utc']):continue
+            for book in ('bet365','pinnacle'):
+                q=next((x for x in obs['quotes'] if x['bookmaker']==book and x['selection']==selection),None)
+                if q and (book not in latest or utc(obs['observed_at_utc'])>latest[book][0]):latest[book]=(utc(obs['observed_at_utc']),q)
+        entry_price=number(entry.get('bet365_decimal_odds'),min_value=1.000001)
+        close_price=latest.get('bet365',(None,{}))[1].get('decimal_odds')
+        close_fair=latest.get('pinnacle',(None,{}))[1].get('fair_probability')
+        item['closing']={'status':'OBSERVED_NEAR_CLOSE' if latest else 'MISSING_VALID_PRE_KICKOFF_QUOTE',
+            'bet365_closing_odds':close_price,'pinnacle_closing_fair_probability':close_fair,
+            'bet365_price_clv':entry_price/close_price-1 if entry_price and close_price else None,
+            'ev_vs_pinnacle_closing_fair':entry_price*close_fair-1 if entry_price and close_fair is not None else None,
+            'official_close_verified':False}
+        rows.append(item)
+    def mean(key):
+        values=[r['closing'][key] for r in rows if r['closing'].get(key) is not None]
+        return (sum(values)/len(values) if values else None),len(values)
+    clv,n_clv=mean('bet365_price_clv');fair,n_fair=mean('ev_vs_pinnacle_closing_fair')
+    return {'version':LIST_VERSION,'reviewed_at_utc':clock.isoformat(),'frozen_entries':len(rows),
+        'pending_entries':sum(r['closing']['status']=='PENDING_KICKOFF' for r in rows),
+        'missing_closing_quotes':sum(r['closing']['status']=='MISSING_VALID_PRE_KICKOFF_QUOTE' for r in rows),
+        'mean_bet365_price_clv':clv,'bet365_price_clv_n':n_clv,
+        'mean_ev_vs_pinnacle_closing_fair':fair,'ev_vs_pinnacle_closing_fair_n':n_fair,
+        'note':'Separate from every shortlist. Near-kickoff feed quotes, not verified official closing prices or executed bets.'},rows
+
+
 def review(root,archive,clock):
     from performance_tracking import write_json
     dest=root/'performance/closing_odds'
@@ -258,6 +310,9 @@ def review(root,archive,clock):
     write_json(dest/'selections.json',rows)
     write_json(dest/'first_prediction_summary.json',first)
     write_json(dest/'first_prediction_selections.json',first_rows)
+    bet365,bet365_rows=evaluate_bet365(root,archive,clock)
+    write_json(dest/'bet365_vs_pinnacle_summary.json',bet365)
+    write_json(dest/'bet365_vs_pinnacle_entries.json',bet365_rows)
     (dest/'report.md').write_text(
         '# Closing quote evidence\n\n'
         'Primary comparison: latest eligible archived selection per match, matching headline ROI. '

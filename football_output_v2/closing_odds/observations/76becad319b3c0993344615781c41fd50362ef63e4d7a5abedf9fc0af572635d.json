@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Groningen",
+    "home_team": "NEC Nijmegen",
+    "kickoff_utc": "2026-10-25T13:30:00+00:00",
+    "league": "Eredivisie",
+    "odds_event_id": "c655584661b81e424d8979da8b040c46"
+  },
+  "observed_at_utc": "2026-10-25T13:24:18.061070+00:00",
+  "payload": {
+    "away_team": "Groningen",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T13:23:54Z",
+            "outcomes": [
+              {
+                "name": "Groningen",
+                "price": 3.56
+              },
+              {
+                "name": "NEC Nijmegen",
+                "price": 1.94
+              },
+              {
+                "name": "Draw",
+                "price": 4.07
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T13:23:54Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.19
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.73
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T13:24:17Z",
+            "outcomes": [
+              {
+                "name": "Groningen",
+                "price": 3.47
+              },
+              {
+                "name": "NEC Nijmegen",
+                "price": 1.98
+              },
+              {
+                "name": "Draw",
+                "price": 4.16
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T13:24:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.87
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 2.03
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-25T13:30:00Z",
+    "home_team": "NEC Nijmegen",
+    "id": "c655584661b81e424d8979da8b040c46",
+    "sport_key": "soccer_netherlands_eredivisie",
+    "sport_title": "Dutch Eredivisie"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5015617754104836,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T13:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.07,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.231875865331348,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T13:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.56,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2665623592581685,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T13:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.19,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.43829030396387864,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-25T13:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.73,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5617096960361214,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-25T13:23:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.98,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.49388549262424847,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T13:24:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.16,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2294280327352973,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T13:24:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.47,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.27668647464045437,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T13:24:17+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

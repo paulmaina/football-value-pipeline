@@ -17,13 +17,13 @@ from football_value_pipeline_v2_standalone import (
 
 
 class RecommendedProfileTests(OfflineQuotePolicyTestCase):
-    def test_one_command_uses_fixed_half_market_blend(self):
+    def test_one_command_uses_fixed_v2_profile(self):
         options = build_parser().parse_args([
-            "--leagues", "EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1",
-            "UCL", "--tune-half-life",
+            "--leagues", "EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1", "UCL",
         ])
-        self.assertAlmostEqual(options.market_weight, 0.5)
-        self.assertTrue(options.tune_half_life)
+        self.assertAlmostEqual(options.market_weight, 0.7)
+        self.assertAlmostEqual(options.half_life_days, 480.0)
+        self.assertFalse(options.tune_half_life)
         self.assertFalse(options.auto_market_weight)
         self.assertEqual(len(options.leagues), 6)
 
@@ -31,7 +31,7 @@ class RecommendedProfileTests(OfflineQuotePolicyTestCase):
         default = inspect.signature(FootballValuePipelineV2.__init__).parameters[
             "market_weight"
         ].default
-        self.assertAlmostEqual(default, 0.5)
+        self.assertAlmostEqual(default, 0.7)
 
     def test_blended_score_matrix_is_valid_distribution(self):
         scores = np.array([
