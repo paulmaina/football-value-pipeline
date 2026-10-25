@@ -1,8 +1,8 @@
 """Versioned shortlist v26: the v22 common no-loss rules plus Corners totals.
 
-Reuse every v22 eligibility, floor and ranking rule unchanged and add corner
+Reuse v22 eligibility and ranking, lower the adjusted EV floor, and add corner
 totals from the v25 count-market gates. A corner line must pass its own
-league/line reliability audit and the same 75% adjusted no-loss and +1%
+league/line reliability audit and the same 75% adjusted no-loss and +0.5%
 adjusted EV floors. Every league is approved per market, as in v25. Card
 totals stay excluded. v22 and v25 stay importable so archived captures replay.
 """
@@ -11,11 +11,12 @@ import pandas as pd
 import count_markets
 import corners_cards_shortlist as v25
 
-POLICY = '48h-zero-tolerance-ev1-no-loss75-corners-v26'
+POLICY = '48h-zero-tolerance-ev05-no-loss75-corners-v26'
 COUNT_GROUPS = (count_markets.GROUPS['corners'],)
 COUNT_MARKETS = tuple(count_markets.market_label('corners', side, line)
                       for line in count_markets.LINES['corners'] for side in ('Over', 'Under'))
 MAX_SELECTIONS = 12
+MIN_ADJUSTED_EV = .005
 
 
 def corner_decisions(predictions, as_of, market_reliability, policy, minimum_no_loss, minimum_ev):
@@ -40,18 +41,18 @@ def corner_decisions(predictions, as_of, market_reliability, policy, minimum_no_
         if pd.isna(item.rank_probability) or item.rank_probability + 1e-12 < minimum_no_loss:
             reasons.append('adjusted probability of avoiding loss below '+format(minimum_no_loss, '.0%')+' or missing')
         if pd.isna(item.conservative_estimated_ev) or item.conservative_estimated_ev + 1e-12 < minimum_ev or item.raw_dc_ev < 0:
-            reasons.append('adjusted EV below +1.0% or negative unblended EV')
+            reasons.append(f'adjusted EV below +{minimum_ev:.1%} or negative unblended EV')
         counts.at[idx, 'rejection_reasons'] = '; '.join(dict.fromkeys(reasons))
         counts.at[idx, 'decision'] = 'REJECTED' if reasons else 'ELIGIBLE'
     return counts
 
 
 def build_shortlist(predictions, as_of, market_reliability, execution_policy=None):
-    from asian_handicap import (POLICY as V22, MIN_ADJUSTED_EV, _rank_risk_band,
+    from asian_handicap import (POLICY as V22, _rank_risk_band,
                                 build_shortlist as build_v22)
     from performance_tracking import fixture_key
     _, decisions, summary = build_v22(predictions, as_of, market_reliability,
-                                      execution_policy=execution_policy, policy_version=V22)
+                                      execution_policy=execution_policy, policy_version=V22, _required_ev=MIN_ADJUSTED_EV)
     policy = summary['quote_execution_policy']
     minimum_no_loss = summary['min_adjusted_no_loss_probability']
     tolerance = summary['loss_risk_tolerance']
@@ -102,7 +103,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
                                 'no historical corner odds exist, so profitability is unproven. Card totals are excluded.',
         negative_adjusted_ev_selections=int((selected.conservative_estimated_ev < 0).sum()),
         warning='Probabilities and EV are model estimates, not guarantees. Required adjusted no-loss probability: '
-                + format(minimum_no_loss, '.0%') + '; required adjusted EV: ' + format(MIN_ADJUSTED_EV, '.1%')
+                + format(minimum_no_loss, '.0%') + '; required adjusted EV: ' + format(MIN_ADJUSTED_EV, '+.1%')
                 + '; unblended EV must be nonnegative. Refunds are not wins. Corners picks are UNPROVEN EDGE: validated on '
                 'probability accuracy only, with no historical corner odds. Flat-stake research, not accumulator protection.')
     return selected, decisions.reset_index(drop=True), summary
