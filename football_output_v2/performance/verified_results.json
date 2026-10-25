@@ -914,6 +914,36 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "DED:558857": {
+    "away_goals": 2,
+    "away_short_name": "Groningen",
+    "away_team": "FC Groningen",
+    "first_verified_at_utc": "2026-10-25T15:58:03Z",
+    "home_goals": 2,
+    "home_short_name": "NEC",
+    "home_team": "NEC",
+    "kickoff_utc": "2026-10-25T13:30:00Z",
+    "league_code": "DED",
+    "match_id": 558857,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "DED:558858": {
+    "away_goals": 1,
+    "away_short_name": "Feyenoord",
+    "away_team": "Feyenoord Rotterdam",
+    "first_verified_at_utc": "2026-10-25T15:58:03Z",
+    "home_goals": 1,
+    "home_short_name": "PSV",
+    "home_team": "PSV",
+    "kickoff_utc": "2026-10-25T13:30:00Z",
+    "league_code": "DED",
+    "match_id": 558858,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "DED:558859": {
     "away_goals": 0,
     "away_short_name": "Excelsior",
@@ -2321,6 +2351,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564720": {
+    "away_goals": 0,
+    "away_short_name": "Getafe",
+    "away_team": "Getafe CF",
+    "first_verified_at_utc": "2026-10-25T15:58:03Z",
+    "home_goals": 4,
+    "home_short_name": "Athletic",
+    "home_team": "Athletic Club",
+    "kickoff_utc": "2026-10-25T13:00:00Z",
+    "league_code": "PD",
+    "match_id": 564720,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564722": {
     "away_goals": 2,
     "away_short_name": "Villarreal",
@@ -2767,6 +2812,21 @@
     "kickoff_utc": "2026-10-24T13:00:00Z",
     "league_code": "SA",
     "match_id": 558561,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558563": {
+    "away_goals": 1,
+    "away_short_name": "Fiorentina",
+    "away_team": "ACF Fiorentina",
+    "first_verified_at_utc": "2026-10-25T15:58:03Z",
+    "home_goals": 2,
+    "home_short_name": "Inter",
+    "home_team": "FC Internazionale Milano",
+    "kickoff_utc": "2026-10-25T11:30:00Z",
+    "league_code": "SA",
+    "match_id": 558563,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
