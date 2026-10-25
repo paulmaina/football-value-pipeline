@@ -131,7 +131,11 @@ class ReliabilityTests(OfflineQuotePolicyTestCase):
             self.assertFalse((root/'False'/m.FILE).exists())
             sidecar = json.loads((root/'True'/m.FILE).read_text())
             self.assertEqual(sidecar['registry_sha256'], m.digest(m.REGISTRY))
-            self.assertTrue(all(x['status'] == 'available' for x in sidecar['rows'][0]['candidates'].values()))
+            candidates = sidecar['rows'][0]['candidates']
+            self.assertEqual(candidates['stronger_l2']['status'], 'available')
+            # Production now runs the fixed 480-day half-life, so that trial factor no longer differs.
+            self.assertEqual(candidates['fixed_half_life']['status'], 'unavailable')
+            self.assertEqual(candidates['fixed_half_life']['reason'], 'candidate_equals_production_half_life')
 
     def test_separate_one_factor_fits_and_production_unchanged(self):
         data, history = inputs()

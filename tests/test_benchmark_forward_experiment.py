@@ -143,7 +143,9 @@ class ForwardBridgeTests(OfflineQuotePolicyTestCase):
         from performance_tracking import fixture_key
         model=DixonColesModel(max_goals=10);model.teams=['Manchester City FC','Everton FC'];model.team_to_idx={name:i for i,name in enumerate(model.teams)}
         model.attack=np.array([.15,-.15]);model.weakness=np.array([-.05,.05]);model.base=math.log(1.2);model.home_adv=math.log(1.18);model.rho=-.08
-        pipe=object.__new__(FootballValuePipelineV2);pipe.market_weight=.5;pipe.devig_method='power'
+        from football_value_pipeline_v2_standalone import LEGACY_MODEL_VERSION
+        # A forecast from the trial's frozen (legacy) production basis.
+        pipe=object.__new__(FootballValuePipelineV2);pipe.market_weight=.5;pipe.devig_method='power';pipe.model_version=LEGACY_MODEL_VERSION
         input_row=pd.Series({'HomeTeam':model.teams[0],'AwayTeam':model.teams[1],'kickoff_utc':(NOW+timedelta(days=1)).isoformat(),
             'live_ref_home_odds':1.47,'live_ref_draw_odds':4.3,'live_ref_away_odds':7.3,
             'live_best_home_odds':1.52,'live_best_draw_odds':4.3,'live_best_away_odds':7.4})
