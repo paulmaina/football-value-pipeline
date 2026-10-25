@@ -1,5 +1,13 @@
 # Europa production integration — 22 October 2026
 
+> Update, 25 October 2026: current-season league-phase training and settlement
+> now require Cornerflick and Fixture Download to agree on the exact fixture
+> identities, scores and completed-match coverage. UEFA's current-season article
+> and pinned facts are no longer fetched or checked. Archived historical period
+> evidence remains in use for 2025/26 to preserve reviewed regulation-time scores.
+> Freshness, stage, duplicate and future-date checks still apply. This supersedes
+> the three-source requirement described below.
+
 This extends the earlier research audit. Europa (`UEL`) is registered in the
 production pipeline and scheduled seven-league generation. A shortlist place
 still depends on exactly the existing market, quote, EV, identity, reliability
