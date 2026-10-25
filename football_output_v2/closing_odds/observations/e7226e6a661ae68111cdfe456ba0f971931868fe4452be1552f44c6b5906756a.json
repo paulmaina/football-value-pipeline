@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Feyenoord",
+    "home_team": "PSV Eindhoven",
+    "kickoff_utc": "2026-10-25T13:30:00+00:00",
+    "league": "Eredivisie",
+    "odds_event_id": "9b70765a6abd2b34bae75afa9d3acedb"
+  },
+  "observed_at_utc": "2026-10-25T13:24:18.276260+00:00",
+  "payload": {
+    "away_team": "Feyenoord",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T13:23:54Z",
+            "outcomes": [
+              {
+                "name": "Feyenoord",
+                "price": 3.21
+              },
+              {
+                "name": "PSV Eindhoven",
+                "price": 2.02
+              },
+              {
+                "name": "Draw",
+                "price": 4.27
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T13:23:54Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.0
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T13:24:16Z",
+            "outcomes": [
+              {
+                "name": "Feyenoord",
+                "price": 3.15
+              },
+              {
+                "name": "PSV Eindhoven",
+                "price": 2.09
+              },
+              {
+                "name": "Draw",
+                "price": 4.19
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T13:24:16Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 1.93
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-25T13:30:00Z",
+    "home_team": "PSV Eindhoven",
+    "id": "9b70765a6abd2b34bae75afa9d3acedb",
+    "sport_key": "soccer_netherlands_eredivisie",
+    "sport_title": "Dutch Eredivisie"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.02,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4814455177112982,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T13:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.27,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22109932966126133,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T13:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.21,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.29745515262744043,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T13:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.86,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5191557873792018,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-25T13:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.0,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4808442126207982,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-25T13:23:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.09,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4668765756867983,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T13:24:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.19,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2275538631212408,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T13:24:16+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3055695611919609,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T13:24:16+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
