@@ -1,0 +1,564 @@
+{
+  "fixture": {
+    "away_team": "AC Milan",
+    "home_team": "Udinese",
+    "kickoff_utc": "2026-10-25T19:45:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "3564688383b255192409c9deb8e526ed"
+  },
+  "observed_at_utc": "2026-10-25T19:39:32.690841+00:00",
+  "payload": {
+    "away_team": "AC Milan",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T19:39:25Z",
+            "outcomes": [
+              {
+                "name": "AC Milan",
+                "price": 1.81
+              },
+              {
+                "name": "Udinese",
+                "price": 4.95
+              },
+              {
+                "name": "Draw",
+                "price": 3.61
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T19:39:25Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.92
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.99
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-25T19:39:25Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.92
+              },
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.29
+              },
+              {
+                "name": "Over",
+                "point": 1.75,
+                "price": 1.34
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.44
+              },
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.68
+              },
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.15
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.57
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.89
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 3.22
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.99
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 3.87
+              },
+              {
+                "name": "Under",
+                "point": 1.75,
+                "price": 3.41
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 2.97
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.3
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.76
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.56
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.45
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.38
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-25T19:39:25Z",
+            "outcomes": [
+              {
+                "name": "AC Milan or Draw",
+                "price": 1.21
+              },
+              {
+                "name": "Udinese or Draw",
+                "price": 2.09
+              },
+              {
+                "name": "AC Milan or Udinese",
+                "price": 1.32
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T19:39:26Z",
+            "outcomes": [
+              {
+                "name": "AC Milan",
+                "price": 1.75
+              },
+              {
+                "name": "Udinese",
+                "price": 5.09
+              },
+              {
+                "name": "Draw",
+                "price": 3.66
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T19:39:26Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.84
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.03
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-25T19:39:26Z",
+            "outcomes": [
+              {
+                "name": "AC Milan or Draw",
+                "price": 1.17
+              },
+              {
+                "name": "Udinese or Draw",
+                "price": 2.08
+              },
+              {
+                "name": "AC Milan or Udinese",
+                "price": 1.28
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-25T19:39:06Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 0.5,
+                "price": 1.04
+              },
+              {
+                "name": "Over",
+                "point": 1.0,
+                "price": 1.05
+              },
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.27
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.45
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.95
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.59
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 3.13
+              },
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 5.53
+              },
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 6.11
+              },
+              {
+                "name": "Over",
+                "point": 5.0,
+                "price": 9.15
+              },
+              {
+                "name": "Over",
+                "point": 5.5,
+                "price": 11.0
+              },
+              {
+                "name": "Over",
+                "point": 6.5,
+                "price": 9.8
+              },
+              {
+                "name": "Over",
+                "point": 7.5,
+                "price": 11.6
+              },
+              {
+                "name": "Under",
+                "point": 0.5,
+                "price": 11.0
+              },
+              {
+                "name": "Under",
+                "point": 1.0,
+                "price": 9.73
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 3.75
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 2.75
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.91
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.5
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.36
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 1.15
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.12
+              },
+              {
+                "name": "Under",
+                "point": 5.0,
+                "price": 1.04
+              },
+              {
+                "name": "Under",
+                "point": 5.5,
+                "price": 1.04
+              },
+              {
+                "name": "Under",
+                "point": 6.5,
+                "price": 1.02
+              },
+              {
+                "name": "Under",
+                "point": 7.5,
+                "price": 1.0
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-25T19:45:00Z",
+    "home_team": "Udinese",
+    "id": "3564688383b255192409c9deb8e526ed",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.27,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.7678873310752434,
+      "selection": "over_1_5",
+      "updated_at_utc": "2026-10-25T19:39:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.75,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.23211266892475643,
+      "selection": "under_1_5",
+      "updated_at_utc": "2026-10-25T19:39:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.84,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5258713129034284,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-25T19:39:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.03,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.47412868709657163,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-25T19:39:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.13,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.28619291841710265,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-25T19:39:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.36,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.7138070815828974,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-25T19:39:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.95,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19197378340393179,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.61,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2658963370455992,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.81,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.542129879550469,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.92,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5092597047415571,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.99,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4907402952584428,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.7628049231374757,
+      "selection": "over_1_5",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.87,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.23719507686252436,
+      "selection": "under_1_5",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.22,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.28934634355905664,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.38,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.7106536564409434,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.09,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.46397188049209137,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.21,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8014059753954306,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.32,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.734622144112478,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-25T19:39:25+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.09,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18336724073714583,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T19:39:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.66,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25860135601731005,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T19:39:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.75,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5580314032455442,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T19:39:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.08,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.45425867507886425,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-25T19:39:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.17,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.807570977917981,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-25T19:39:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.28,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7381703470031545,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-25T19:39:26+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
