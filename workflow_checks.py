@@ -51,6 +51,20 @@ def require(condition, message):
     if not condition: raise ValueError(message)
 
 
+def verified_result_source(record):
+    """Recognize the finished-result contract of each competition's collector."""
+    if record.get('source_status') != 'FINISHED':
+        return False
+    if record.get('league_code') == 'EL':
+        # Current Europa league-phase results are corroborated by both feeds.
+        # Keep previously verified three-source cache records readable, too.
+        return record.get('source_duration') == 'REGULAR' and record.get('source') in (
+            'Cornerflick + Fixture Download',
+            'Cornerflick + Fixture Download + UEFA',
+        )
+    return record.get('source') == 'football-data.org/v4'
+
+
 def read_json(path):
     # Reject non-standard NaN/Infinity rather than carrying invalid metrics.
     def invalid(value): raise ValueError(f'Nonfinite JSON number in {path.name}')
@@ -316,7 +330,9 @@ def report_check(root):
             history_row=history_by_key.get(key)
             label='Latest grade differs from immutable run history'
             require(history_row is not None and row.keys()==history_row.keys(),label)
-            numeric={'predicted_probability','offered_decimal_odds','per_stake_cost','source_match_id','unit_profit','brier'}
+            # Result IDs are opaque: Europa uses a hash, and numeric provider
+            # IDs must also retain exact identity rather than float tolerance.
+            numeric={'predicted_probability','offered_decimal_odds','per_stake_cost','unit_profit','brier'}
             timestamps={'kickoff_utc','snapshot_generated_utc','snapshot_captured_utc'}
             for field,value in history_row.items():
                 if field in numeric: close(row.get(field),number(value),label+' '+field)
@@ -343,9 +359,9 @@ def report_check(root):
         if row['status'] in SETTLED:
             verified,state=fixture_match(original,records)
             require(verified is not None and str(verified['match_id'])==row.get('source_match_id'), 'Selection result absent from verified cache')
-            require(verified.get('source_status')=='FINISHED' and verified.get('source')=='football-data.org/v4','Selection cache source is not verified finished')
+            require(verified_result_source(verified),'Selection cache source is not verified finished')
             require(row.get('final_score')==f"{verified['home_goals']}-{verified['away_goals']}", 'Selection score differs from verified cache')
-            require(row.get('match_source')=='football-data.org/v4' and row.get('source_match_id'), 'Graded result lacks verified source')
+            require(row.get('match_source')==verified['source'] and row.get('source_match_id'), 'Graded result lacks verified source')
             match=re.fullmatch(r'(\d+)-(\d+)',row.get('final_score',''));require(match is not None,'Invalid graded score')
             if parse_handicap(row['market']):
                 from asian_handicap import profit
@@ -389,7 +405,7 @@ def report_check(root):
             if utc(original['kickoff_utc']) > utc(metrics['reviewed_at_utc'])-timedelta(hours=2):
                 match,state=None,'PENDING_KICKOFF_OR_FINAL_SCORE'
             if match is not None:
-                require(match.get('source_status')=='FINISHED' and match.get('source')=='football-data.org/v4',
+                require(verified_result_source(match),
                         'History cache source is not verified finished')
             expected=score_shortlist(original,match,state)
             for field,value in expected.items():
@@ -436,7 +452,8 @@ def report_check(root):
         original=frozen_predictions[row['fixture_key']]
         verified,state=fixture_match(original,records)
         require(verified is not None and str(verified['match_id'])==row.get('source_match_id'),'Prediction result absent from verified cache')
-        require(verified.get('source_status')=='FINISHED' and verified.get('source')=='football-data.org/v4','Prediction cache source is not verified finished')
+        require(verified_result_source(verified),'Prediction cache source is not verified finished')
+        require(row.get('match_source')==verified['source'], 'Prediction result lacks verified source')
         require(row.get('final_score')==f"{verified['home_goals']}-{verified['away_goals']}", 'Prediction score differs from verified cache')
         probs=[number(original.get('p_'+side),min_value=0,max_value=1) for side in ('home','draw','away')]
         if all(p is not None for p in probs):
