@@ -1,21 +1,21 @@
 {
-  "checked_at_utc": "2026-10-25T14:24:03.614203+00:00",
-  "incident_started_at_utc": "2026-10-24T18:42:30.809912+00:00",
+  "checked_at_utc": "2026-10-25T15:14:12.091541+00:00",
+  "incident_started_at_utc": "2026-10-25T15:14:12.091541+00:00",
   "last_failure": {
-    "at_utc": "2026-10-24T18:42:30.809912+00:00",
+    "at_utc": "2026-10-25T15:14:12.091541+00:00",
     "attempts": [
       {
         "credential": "THE_ODDS_API_KEY",
         "error_code": "OUT_OF_USAGE_CREDITS",
         "http_status": 401,
         "x-requests-last": 0,
-        "x-requests-remaining": 1,
-        "x-requests-used": 499
+        "x-requests-remaining": 3,
+        "x-requests-used": 497
       }
     ],
     "category": "CREDITS_EXHAUSTED",
     "error": "OddsProviderError"
   },
   "recovered_at_utc": "2026-10-24T18:43:46.241875+00:00",
-  "state": "AVAILABLE"
+  "state": "CREDITS_EXHAUSTED"
 }
