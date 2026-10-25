@@ -1,0 +1,2917 @@
+{
+  "version": "goal-blend-shadow-v1",
+  "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+  "predictions_sha256": "27448e966ecd6e608b946c108d7fdaa5cf0e1275bb6f8324b825adc6d491c55a",
+  "calibrated": false,
+  "selection_policy": "none; research only",
+  "rows": [
+    {
+      "league": "Eredivisie",
+      "home_team": "FC Utrecht",
+      "away_team": "FC Zwolle",
+      "kickoff_utc": "2026-10-24T14:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8539385034316215,
+      "baseline_probability": 0.8534661121070438,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "FC Utrecht",
+      "away_team": "FC Zwolle",
+      "kickoff_utc": "2026-10-24T14:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5735452791362862,
+      "baseline_probability": 0.5743643548374484,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "FC Utrecht",
+      "away_team": "FC Zwolle",
+      "kickoff_utc": "2026-10-24T14:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6032260339485072,
+      "baseline_probability": 0.6040393884773396,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "Willem II",
+      "away_team": "SC Cambuur",
+      "kickoff_utc": "2026-10-24T16:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.8321287316719247,
+      "baseline_probability": 0.8321084697632605,
+      "bookmaker_probability": 0.8362900028307474,
+      "reference_odds": 1.17,
+      "reference_opposite_odds": 4.9,
+      "decimal_odds": 1.17,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:26Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.8321287316719247,
+        "book25": 0.8331690494616304,
+        "book50": 0.834209367251336,
+        "bookmaker": 0.8362900028307474,
+        "baseline": 0.8321084697632605
+      },
+      "opposite_variants": {
+        "raw": 0.1678712683280753,
+        "book25": 0.1668309505383696,
+        "book50": 0.165790632748664,
+        "bookmaker": 0.1637099971692526,
+        "baseline": 0.16789153023673953
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "Willem II",
+      "away_team": "SC Cambuur",
+      "kickoff_utc": "2026-10-24T16:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.6149038604869952,
+      "baseline_probability": 0.6150216362117946,
+      "bookmaker_probability": 0.6098816884498788,
+      "reference_odds": 1.57,
+      "reference_opposite_odds": 2.36,
+      "decimal_odds": 1.62,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:26Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.6149038604869952,
+        "book25": 0.6136483174777161,
+        "book50": 0.612392774468437,
+        "bookmaker": 0.6098816884498788,
+        "baseline": 0.6150216362117946
+      },
+      "opposite_variants": {
+        "raw": 0.3850961395130048,
+        "book25": 0.3863516825222839,
+        "book50": 0.387607225531563,
+        "bookmaker": 0.3901183115501212,
+        "baseline": 0.3849783637882054
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "Willem II",
+      "away_team": "SC Cambuur",
+      "kickoff_utc": "2026-10-24T16:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.6375428388941254,
+      "baseline_probability": 0.6372028717708894,
+      "bookmaker_probability": 0.6489590946833834,
+      "reference_odds": 1.53,
+      "reference_opposite_odds": 2.8,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "ADO Den Haag",
+      "away_team": "Heerenveen",
+      "kickoff_utc": "2026-10-24T19:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.818427998982963,
+      "baseline_probability": 0.8193198627959555,
+      "bookmaker_probability": 0.8649565285572667,
+      "reference_odds": 1.14,
+      "reference_opposite_odds": 6.1,
+      "decimal_odds": 1.14,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:46Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.818427998982963,
+        "book25": 0.830060131376539,
+        "book50": 0.8416922637701149,
+        "bookmaker": 0.8649565285572667,
+        "baseline": 0.8193198627959555
+      },
+      "opposite_variants": {
+        "raw": 0.18157200101703697,
+        "book25": 0.169939868623461,
+        "book50": 0.15830773622988514,
+        "bookmaker": 0.13504347144273332,
+        "baseline": 0.18068013720404452
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "ADO Den Haag",
+      "away_team": "Heerenveen",
+      "kickoff_utc": "2026-10-24T19:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.6372214556690833,
+      "baseline_probability": 0.6360311050757927,
+      "bookmaker_probability": 0.5468397123717343,
+      "reference_odds": 1.78,
+      "reference_opposite_odds": 2.13,
+      "decimal_odds": 1.78,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:46Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.6372214556690833,
+        "book25": 0.6146260198447461,
+        "book50": 0.5920305840204088,
+        "bookmaker": 0.5468397123717343,
+        "baseline": 0.6360311050757927
+      },
+      "opposite_variants": {
+        "raw": 0.3627785443309167,
+        "book25": 0.3853739801552539,
+        "book50": 0.40796941597959124,
+        "bookmaker": 0.45316028762826566,
+        "baseline": 0.36396889492420725
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "ADO Den Haag",
+      "away_team": "Heerenveen",
+      "kickoff_utc": "2026-10-24T19:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.6166279454499188,
+      "baseline_probability": 0.614308913209886,
+      "bookmaker_probability": 0.6760940015285541,
+      "reference_odds": 1.41,
+      "reference_opposite_odds": 2.69,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "Fortuna Sittard",
+      "away_team": "Excelsior",
+      "kickoff_utc": "2026-10-25T11:15:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.8184312328830525,
+      "baseline_probability": 0.8182506422656572,
+      "bookmaker_probability": 0.8247800798517831,
+      "reference_odds": 1.19,
+      "reference_opposite_odds": 4.82,
+      "decimal_odds": 1.19,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:46Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.8184312328830525,
+        "book25": 0.8200184446252351,
+        "book50": 0.8216056563674179,
+        "bookmaker": 0.8247800798517831,
+        "baseline": 0.8182506422656572
+      },
+      "opposite_variants": {
+        "raw": 0.18156876711694747,
+        "book25": 0.1799815553747649,
+        "book50": 0.1783943436325821,
+        "bookmaker": 0.17521992014821686,
+        "baseline": 0.18174935773434275
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "Fortuna Sittard",
+      "away_team": "Excelsior",
+      "kickoff_utc": "2026-10-25T11:15:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.6372945910470357,
+      "baseline_probability": 0.6375844615113962,
+      "bookmaker_probability": 0.6318858628134945,
+      "reference_odds": 1.54,
+      "reference_opposite_odds": 2.56,
+      "decimal_odds": 1.54,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:46Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.6372945910470357,
+        "book25": 0.6359424089886504,
+        "book50": 0.634590226930265,
+        "bookmaker": 0.6318858628134945,
+        "baseline": 0.6375844615113962
+      },
+      "opposite_variants": {
+        "raw": 0.3627054089529643,
+        "book25": 0.3640575910113496,
+        "book50": 0.365409773069735,
+        "bookmaker": 0.36811413718650554,
+        "baseline": 0.36241553848860375
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "Fortuna Sittard",
+      "away_team": "Excelsior",
+      "kickoff_utc": "2026-10-25T11:15:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.6188736029251863,
+      "baseline_probability": 0.619081267820522,
+      "bookmaker_probability": 0.6362705964525007,
+      "reference_odds": 1.49,
+      "reference_opposite_odds": 2.44,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "NEC Nijmegen",
+      "away_team": "Groningen",
+      "kickoff_utc": "2026-10-25T13:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.853826506898823,
+      "baseline_probability": 0.8523731173636417,
+      "bookmaker_probability": 0.8799273478931228,
+      "reference_odds": 1.12,
+      "reference_opposite_odds": 6.54,
+      "decimal_odds": 1.12,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:46Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.853826506898823,
+        "book25": 0.8603517171473979,
+        "book50": 0.8668769273959729,
+        "bookmaker": 0.8799273478931228,
+        "baseline": 0.8523731173636417
+      },
+      "opposite_variants": {
+        "raw": 0.146173493101177,
+        "book25": 0.1396482828526021,
+        "book50": 0.13312307260402712,
+        "bookmaker": 0.12007265210687723,
+        "baseline": 0.14762688263635826
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "NEC Nijmegen",
+      "away_team": "Groningen",
+      "kickoff_utc": "2026-10-25T13:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.5753438751588411,
+      "baseline_probability": 0.5782082236042676,
+      "bookmaker_probability": 0.5341332705013472,
+      "reference_odds": 1.81,
+      "reference_opposite_odds": 2.06,
+      "decimal_odds": 1.81,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:46Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.5753438751588411,
+        "book25": 0.5650412239944677,
+        "book50": 0.5547385728300942,
+        "bookmaker": 0.5341332705013472,
+        "baseline": 0.5782082236042676
+      },
+      "opposite_variants": {
+        "raw": 0.4246561248411589,
+        "book25": 0.43495877600553234,
+        "book50": 0.4452614271699058,
+        "bookmaker": 0.4658667294986528,
+        "baseline": 0.4217917763957324
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "NEC Nijmegen",
+      "away_team": "Groningen",
+      "kickoff_utc": "2026-10-25T13:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.648014683413538,
+      "baseline_probability": 0.6499561449103387,
+      "bookmaker_probability": 0.7037484551336832,
+      "reference_odds": 1.36,
+      "reference_opposite_odds": 2.9,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "PSV Eindhoven",
+      "away_team": "Feyenoord",
+      "kickoff_utc": "2026-10-25T13:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.9180105974343238,
+      "baseline_probability": 0.9176606578368638,
+      "bookmaker_probability": 0.9208039769116847,
+      "reference_odds": 1.07,
+      "reference_opposite_odds": 8.0,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "PSV Eindhoven",
+      "away_team": "Feyenoord",
+      "kickoff_utc": "2026-10-25T13:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.42668440330522256,
+      "baseline_probability": 0.42758889170514736,
+      "bookmaker_probability": 0.45641734276041024,
+      "reference_odds": 2.1,
+      "reference_opposite_odds": 1.78,
+      "decimal_odds": 2.1,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:46Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.42668440330522256,
+        "book25": 0.4341176381690195,
+        "book50": 0.44155087303281637,
+        "bookmaker": 0.45641734276041024,
+        "baseline": 0.42758889170514736
+      },
+      "opposite_variants": {
+        "raw": 0.5733155966947774,
+        "book25": 0.5658823618309805,
+        "book50": 0.5584491269671836,
+        "bookmaker": 0.5435826572395898,
+        "baseline": 0.5724111082948526
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "PSV Eindhoven",
+      "away_team": "Feyenoord",
+      "kickoff_utc": "2026-10-25T13:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.7443859666477349,
+      "baseline_probability": 0.745447502542051,
+      "bookmaker_probability": 0.7586042805645477,
+      "reference_odds": 1.27,
+      "reference_opposite_odds": 3.42,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "Sparta Rotterdam",
+      "away_team": "Ajax",
+      "kickoff_utc": "2026-10-25T15:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.8321277262058868,
+      "baseline_probability": 0.8362653225582147,
+      "bookmaker_probability": 0.8962426153624828,
+      "reference_odds": 1.1,
+      "reference_opposite_odds": 7.18,
+      "decimal_odds": 1.1,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:46Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.8321277262058868,
+        "book25": 0.8481564484950358,
+        "book50": 0.8641851707841848,
+        "bookmaker": 0.8962426153624828,
+        "baseline": 0.8362653225582147
+      },
+      "opposite_variants": {
+        "raw": 0.16787227379411318,
+        "book25": 0.1518435515049642,
+        "book50": 0.13581482921581522,
+        "bookmaker": 0.10375738463751716,
+        "baseline": 0.16373467744178527
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "Sparta Rotterdam",
+      "away_team": "Ajax",
+      "kickoff_utc": "2026-10-25T15:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.6135078231908623,
+      "baseline_probability": 0.6074326832651914,
+      "bookmaker_probability": 0.48761919879001164,
+      "reference_odds": 1.97,
+      "reference_opposite_odds": 1.88,
+      "decimal_odds": 1.97,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:46Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.6135078231908623,
+        "book25": 0.5820356670906496,
+        "book50": 0.550563510990437,
+        "bookmaker": 0.48761919879001164,
+        "baseline": 0.6074326832651914
+      },
+      "opposite_variants": {
+        "raw": 0.3864921768091377,
+        "book25": 0.4179643329093504,
+        "book50": 0.449436489009563,
+        "bookmaker": 0.5123808012099884,
+        "baseline": 0.3925673167348086
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "Sparta Rotterdam",
+      "away_team": "Ajax",
+      "kickoff_utc": "2026-10-25T15:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.5976504206306118,
+      "baseline_probability": 0.588847073594032,
+      "bookmaker_probability": 0.6510240412618004,
+      "reference_odds": 1.46,
+      "reference_opposite_odds": 2.53,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "AZ Alkmaar",
+      "away_team": "FC Twente Enschede",
+      "kickoff_utc": "2026-10-25T19:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7757431878509078,
+      "baseline_probability": 0.776963202319403,
+      "bookmaker_probability": 0.8722052808637203,
+      "reference_odds": 1.13,
+      "reference_opposite_odds": 6.29,
+      "decimal_odds": 1.13,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:46Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7757431878509078,
+        "book25": 0.799858711104111,
+        "book50": 0.823974234357314,
+        "bookmaker": 0.8722052808637203,
+        "baseline": 0.776963202319403
+      },
+      "opposite_variants": {
+        "raw": 0.2242568121490922,
+        "book25": 0.200141288895889,
+        "book50": 0.17602576564268602,
+        "bookmaker": 0.1277947191362797,
+        "baseline": 0.22303679768059703
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "AZ Alkmaar",
+      "away_team": "FC Twente Enschede",
+      "kickoff_utc": "2026-10-25T19:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.6987249978849739,
+      "baseline_probability": 0.6974502388314712,
+      "bookmaker_probability": 0.540210889149233,
+      "reference_odds": 1.78,
+      "reference_opposite_odds": 2.07,
+      "decimal_odds": 1.78,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:46Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.6987249978849739,
+        "book25": 0.6590964707010386,
+        "book50": 0.6194679435171034,
+        "bookmaker": 0.540210889149233,
+        "baseline": 0.6974502388314712
+      },
+      "opposite_variants": {
+        "raw": 0.3012750021150261,
+        "book25": 0.3409035292989614,
+        "book50": 0.38053205648289656,
+        "bookmaker": 0.459789110850767,
+        "baseline": 0.30254976116852883
+      }
+    },
+    {
+      "league": "Eredivisie",
+      "home_team": "AZ Alkmaar",
+      "away_team": "FC Twente Enschede",
+      "kickoff_utc": "2026-10-25T19:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.572176983652607,
+      "baseline_probability": 0.5682662967735304,
+      "bookmaker_probability": 0.6815551732790585,
+      "reference_odds": 1.4,
+      "reference_opposite_odds": 2.73,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "CF Estrela",
+      "away_team": "Casa Pia",
+      "kickoff_utc": "2026-10-24T14:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.673262910803816,
+      "baseline_probability": 0.6752785781117675,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "CF Estrela",
+      "away_team": "Casa Pia",
+      "kickoff_utc": "2026-10-24T14:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.790373800457324,
+      "baseline_probability": 0.7889878715909537,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "CF Estrela",
+      "away_team": "Casa Pia",
+      "kickoff_utc": "2026-10-24T14:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.4650314633209083,
+      "baseline_probability": 0.4656232767708357,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Alverca",
+      "away_team": "Arouca",
+      "kickoff_utc": "2026-10-24T17:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7527221055705499,
+      "baseline_probability": 0.7536897232879105,
+      "bookmaker_probability": 0.760541112900253,
+      "reference_odds": 1.29,
+      "reference_opposite_odds": 3.78,
+      "decimal_odds": 1.29,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7527221055705499,
+        "book25": 0.7546768574029756,
+        "book50": 0.7566316092354014,
+        "bookmaker": 0.760541112900253,
+        "baseline": 0.7536897232879105
+      },
+      "opposite_variants": {
+        "raw": 0.24727789442945014,
+        "book25": 0.24532314259702437,
+        "book50": 0.2433683907645986,
+        "bookmaker": 0.23945888709974705,
+        "baseline": 0.2463102767120895
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Alverca",
+      "away_team": "Arouca",
+      "kickoff_utc": "2026-10-24T17:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7056770475495656,
+      "baseline_probability": 0.7051745694615402,
+      "bookmaker_probability": 0.7191946398033892,
+      "reference_odds": 1.36,
+      "reference_opposite_odds": 3.27,
+      "decimal_odds": 1.36,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7056770475495656,
+        "book25": 0.7090564456130215,
+        "book50": 0.7124358436764774,
+        "bookmaker": 0.7191946398033892,
+        "baseline": 0.7051745694615402
+      },
+      "opposite_variants": {
+        "raw": 0.2943229524504344,
+        "book25": 0.2909435543869785,
+        "book50": 0.2875641563235226,
+        "bookmaker": 0.28080536019661084,
+        "baseline": 0.2948254305384598
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Alverca",
+      "away_team": "Arouca",
+      "kickoff_utc": "2026-10-24T17:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.5484345884058038,
+      "baseline_probability": 0.5545291013032269,
+      "bookmaker_probability": 0.5487355870974645,
+      "reference_odds": 1.8,
+      "reference_opposite_odds": 2.18,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Gil Vicente",
+      "away_team": "FC Porto",
+      "kickoff_utc": "2026-10-24T19:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.6712609308377269,
+      "baseline_probability": 0.6770888767473996,
+      "bookmaker_probability": 0.7484818299991347,
+      "reference_odds": 1.31,
+      "reference_opposite_odds": 3.62,
+      "decimal_odds": 1.31,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.6712609308377269,
+        "book25": 0.6905661556280788,
+        "book50": 0.7098713804184308,
+        "bookmaker": 0.7484818299991347,
+        "baseline": 0.6770888767473996
+      },
+      "opposite_variants": {
+        "raw": 0.32873906916227313,
+        "book25": 0.30943384437192123,
+        "book50": 0.2901286195815692,
+        "bookmaker": 0.2515181700008653,
+        "baseline": 0.3229111232526004
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Gil Vicente",
+      "away_team": "FC Porto",
+      "kickoff_utc": "2026-10-24T19:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7930385022033536,
+      "baseline_probability": 0.7889822019590732,
+      "bookmaker_probability": 0.7254898349854959,
+      "reference_odds": 1.35,
+      "reference_opposite_odds": 3.35,
+      "decimal_odds": 1.35,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7930385022033536,
+        "book25": 0.7761513353988891,
+        "book50": 0.7592641685944248,
+        "bookmaker": 0.7254898349854959,
+        "baseline": 0.7889822019590732
+      },
+      "opposite_variants": {
+        "raw": 0.2069614977966464,
+        "book25": 0.22384866460111086,
+        "book50": 0.2407358314055752,
+        "bookmaker": 0.2745101650145041,
+        "baseline": 0.2110177980409268
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Gil Vicente",
+      "away_team": "FC Porto",
+      "kickoff_utc": "2026-10-24T19:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.39532130327449755,
+      "baseline_probability": 0.38881347875702893,
+      "bookmaker_probability": 0.45330876480828275,
+      "reference_odds": 2.16,
+      "reference_opposite_odds": 1.8,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Estoril",
+      "away_team": "Moreirense FC",
+      "kickoff_utc": "2026-10-25T15:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7459601466882723,
+      "baseline_probability": 0.7470349657299036,
+      "bookmaker_probability": 0.7621878764182097,
+      "reference_odds": 1.28,
+      "reference_opposite_odds": 3.69,
+      "decimal_odds": 1.28,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7459601466882723,
+        "book25": 0.7500170791207565,
+        "book50": 0.7540740115532409,
+        "bookmaker": 0.7621878764182097,
+        "baseline": 0.7470349657299036
+      },
+      "opposite_variants": {
+        "raw": 0.25403985331172774,
+        "book25": 0.24998292087924345,
+        "book50": 0.24592598844675906,
+        "bookmaker": 0.23781212358179027,
+        "baseline": 0.2529650342700964
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Estoril",
+      "away_team": "Moreirense FC",
+      "kickoff_utc": "2026-10-25T15:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7140250198375532,
+      "baseline_probability": 0.7132761325932279,
+      "bookmaker_probability": 0.7219075619863087,
+      "reference_odds": 1.35,
+      "reference_opposite_odds": 3.25,
+      "decimal_odds": 1.35,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7140250198375532,
+        "book25": 0.715995655374742,
+        "book50": 0.7179662909119309,
+        "bookmaker": 0.7219075619863087,
+        "baseline": 0.7132761325932279
+      },
+      "opposite_variants": {
+        "raw": 0.2859749801624468,
+        "book25": 0.28400434462525803,
+        "book50": 0.28203370908806913,
+        "bookmaker": 0.2780924380136913,
+        "baseline": 0.28672386740677214
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Estoril",
+      "away_team": "Moreirense FC",
+      "kickoff_utc": "2026-10-25T15:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.5354990697632024,
+      "baseline_probability": 0.5389194909442635,
+      "bookmaker_probability": 0.540596157149609,
+      "reference_odds": 1.73,
+      "reference_opposite_odds": 2.0,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Nacional",
+      "away_team": "Braga",
+      "kickoff_utc": "2026-10-25T18:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7579079334107334,
+      "baseline_probability": 0.7605846726629861,
+      "bookmaker_probability": 0.763507323554143,
+      "reference_odds": 1.28,
+      "reference_opposite_odds": 3.74,
+      "decimal_odds": 1.28,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7579079334107334,
+        "book25": 0.7593077809465858,
+        "book50": 0.7607076284824381,
+        "bookmaker": 0.763507323554143,
+        "baseline": 0.7605846726629861
+      },
+      "opposite_variants": {
+        "raw": 0.24209206658926663,
+        "book25": 0.2406922190534142,
+        "book50": 0.23929237151756189,
+        "bookmaker": 0.23649267644585703,
+        "baseline": 0.23941532733701387
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Nacional",
+      "away_team": "Braga",
+      "kickoff_utc": "2026-10-25T18:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.6997965017135215,
+      "baseline_probability": 0.6972278433876482,
+      "bookmaker_probability": 0.7146076252970129,
+      "reference_odds": 1.36,
+      "reference_opposite_odds": 3.15,
+      "decimal_odds": 1.36,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.6997965017135215,
+        "book25": 0.7034992826093943,
+        "book50": 0.7072020635052672,
+        "bookmaker": 0.7146076252970129,
+        "baseline": 0.6972278433876482
+      },
+      "opposite_variants": {
+        "raw": 0.3002034982864785,
+        "book25": 0.2965007173906057,
+        "book50": 0.29279793649473285,
+        "bookmaker": 0.28539237470298706,
+        "baseline": 0.3027721566123518
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Nacional",
+      "away_team": "Braga",
+      "kickoff_utc": "2026-10-25T18:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.5104188632502056,
+      "baseline_probability": 0.5084869252879918,
+      "bookmaker_probability": 0.4833455519302531,
+      "reference_odds": 1.91,
+      "reference_opposite_odds": 1.8,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Rio Ave FC",
+      "away_team": "Famalic\u00e3o",
+      "kickoff_utc": "2026-10-25T18:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.6683140286736811,
+      "baseline_probability": 0.6693616251083481,
+      "bookmaker_probability": 0.7272537256503246,
+      "reference_odds": 1.34,
+      "reference_opposite_odds": 3.3,
+      "decimal_odds": 1.34,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.6683140286736811,
+        "book25": 0.6830489529178421,
+        "book50": 0.6977838771620029,
+        "bookmaker": 0.7272537256503246,
+        "baseline": 0.6693616251083481
+      },
+      "opposite_variants": {
+        "raw": 0.33168597132631894,
+        "book25": 0.31695104708215793,
+        "book50": 0.30221612283799715,
+        "bookmaker": 0.27274627434967535,
+        "baseline": 0.33063837489165193
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Rio Ave FC",
+      "away_team": "Famalic\u00e3o",
+      "kickoff_utc": "2026-10-25T18:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7948494477652337,
+      "baseline_probability": 0.79414066426071,
+      "bookmaker_probability": 0.7619196251635162,
+      "reference_odds": 1.28,
+      "reference_opposite_odds": 3.68,
+      "decimal_odds": 1.28,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7948494477652337,
+        "book25": 0.7866169921148043,
+        "book50": 0.7783845364643749,
+        "bookmaker": 0.7619196251635162,
+        "baseline": 0.79414066426071
+      },
+      "opposite_variants": {
+        "raw": 0.2051505522347663,
+        "book25": 0.2133830078851957,
+        "book50": 0.2216154635356251,
+        "bookmaker": 0.2380803748364838,
+        "baseline": 0.20585933573929005
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Rio Ave FC",
+      "away_team": "Famalic\u00e3o",
+      "kickoff_utc": "2026-10-25T18:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.4601402518854302,
+      "baseline_probability": 0.4604253223676573,
+      "bookmaker_probability": 0.516654448069747,
+      "reference_odds": 1.8,
+      "reference_opposite_odds": 1.91,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Sporting Lisbon",
+      "away_team": "Acad\u00e9mico de Viseu",
+      "kickoff_utc": "2026-10-25T20:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7374599426051418,
+      "baseline_probability": 0.7487619226318617,
+      "bookmaker_probability": 0.8676239278572656,
+      "reference_odds": 1.11,
+      "reference_opposite_odds": 4.42,
+      "decimal_odds": 1.11,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7374599426051418,
+        "book25": 0.7700009389181728,
+        "book50": 0.8025419352312038,
+        "bookmaker": 0.8676239278572656,
+        "baseline": 0.7487619226318617
+      },
+      "opposite_variants": {
+        "raw": 0.2625400573948582,
+        "book25": 0.22999906108182722,
+        "book50": 0.19745806476879624,
+        "bookmaker": 0.1323760721427344,
+        "baseline": 0.2512380773681383
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Sporting Lisbon",
+      "away_team": "Acad\u00e9mico de Viseu",
+      "kickoff_utc": "2026-10-25T20:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7253437768445394,
+      "baseline_probability": 0.7152338909159037,
+      "bookmaker_probability": 0.5763524734479941,
+      "reference_odds": 1.58,
+      "reference_opposite_odds": 2.04,
+      "decimal_odds": 1.58,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-24T14:26:44Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7253437768445394,
+        "book25": 0.6880959509954031,
+        "book50": 0.6508481251462668,
+        "bookmaker": 0.5763524734479941,
+        "baseline": 0.7152338909159037
+      },
+      "opposite_variants": {
+        "raw": 0.27465622315546057,
+        "book25": 0.3119040490045969,
+        "book50": 0.3491518748537332,
+        "bookmaker": 0.4236475265520059,
+        "baseline": 0.2847661090840963
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Sporting Lisbon",
+      "away_team": "Acad\u00e9mico de Viseu",
+      "kickoff_utc": "2026-10-25T20:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.43490699164334123,
+      "baseline_probability": 0.4202160272532453,
+      "bookmaker_probability": 0.48814771840984994,
+      "reference_odds": 1.91,
+      "reference_opposite_odds": 1.83,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Santa Clara",
+      "away_team": "Benfica",
+      "kickoff_utc": "2026-10-26T18:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.7152395329256777,
+      "baseline_probability": 0.7207881520032065,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Santa Clara",
+      "away_team": "Benfica",
+      "kickoff_utc": "2026-10-26T18:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.750062444940911,
+      "baseline_probability": 0.7455592558511726,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Santa Clara",
+      "away_team": "Benfica",
+      "kickoff_utc": "2026-10-26T18:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.41702400119591654,
+      "baseline_probability": 0.41062952037617845,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    }
+  ],
+  "recency_experiment": {
+    "version": "goal-recency-shadow-v1",
+    "generated_at_utc": "2026-10-24T14:27:12.490111+00:00",
+    "leagues": [
+      {
+        "league": "Eredivisie",
+        "training_end": "2026-10-18T00:00:00",
+        "training_matches": 1611,
+        "training_sha256": "545e786df3ab3290d9c11f207c3b70bb370511dc84b713317f916dd8411e2d9c",
+        "production_half_life_days": 365.0,
+        "l2": 0.08,
+        "max_goals": 10,
+        "training_as_of_utc": "2026-10-24T14:26:42.448822+00:00",
+        "candidate_fit_errors": {},
+        "historical_diagnostic_errors": {},
+        "historical_audit": {
+          "status": "AUDIT_COMPLETE",
+          "selection_metric": "development_binary_log_loss",
+          "markets": {
+            "over_1_5": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 730.0,
+              "development": {
+                "n": 229,
+                "brier": 0.11833876328115783,
+                "log_loss": 0.39711169945160363,
+                "mean_probability": 0.8107855167634233,
+                "event_rate": 0.8602620087336245
+              },
+              "audit": {
+                "n": 81,
+                "brier": 0.0867765484723839,
+                "log_loss": 0.32149215938416836,
+                "mean_probability": 0.8203240374886723,
+                "event_rate": 0.9135802469135802
+              },
+              "development_1x2_audit": {
+                "n": 81,
+                "brier": 0.08661907985965732,
+                "log_loss": 0.32145241184082546,
+                "mean_probability": 0.8263457458444027,
+                "event_rate": 0.9135802469135802
+              },
+              "audit_brier_gain": -0.00015746861272658563,
+              "audit_log_loss_gain": -3.974754334290509e-05,
+              "development_log_loss_margin": 3.7275070885023354e-05,
+              "development_fold_winners": {
+                "1000000000.0": 1,
+                "120.0": 1,
+                "730.0": 2
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 229,
+                    "brier": 0.12182421311413258,
+                    "log_loss": 0.405295226525231,
+                    "mean_probability": 0.805670675395462,
+                    "event_rate": 0.8602620087336245
+                  },
+                  "audit": {
+                    "n": 81,
+                    "brier": 0.08486142066083788,
+                    "log_loss": 0.31544818809928354,
+                    "mean_probability": 0.8413648189197019,
+                    "event_rate": 0.9135802469135802
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 229,
+                    "brier": 0.11933920704929214,
+                    "log_loss": 0.39890518222619475,
+                    "mean_probability": 0.8093564021208751,
+                    "event_rate": 0.8602620087336245
+                  },
+                  "audit": {
+                    "n": 81,
+                    "brier": 0.08630581894518594,
+                    "log_loss": 0.32088405188244595,
+                    "mean_probability": 0.8313935739363816,
+                    "event_rate": 0.9135802469135802
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 229,
+                    "brier": 0.11856525753520841,
+                    "log_loss": 0.39714897452248865,
+                    "mean_probability": 0.8110864352584062,
+                    "event_rate": 0.8602620087336245
+                  },
+                  "audit": {
+                    "n": 81,
+                    "brier": 0.08661907985965732,
+                    "log_loss": 0.32145241184082546,
+                    "mean_probability": 0.8263457458444027,
+                    "event_rate": 0.9135802469135802
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 229,
+                    "brier": 0.11833876328115783,
+                    "log_loss": 0.39711169945160363,
+                    "mean_probability": 0.8107855167634233,
+                    "event_rate": 0.8602620087336245
+                  },
+                  "audit": {
+                    "n": 81,
+                    "brier": 0.0867765484723839,
+                    "log_loss": 0.32149215938416836,
+                    "mean_probability": 0.8203240374886723,
+                    "event_rate": 0.9135802469135802
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 229,
+                    "brier": 0.11919891351605724,
+                    "log_loss": 0.4001947474242564,
+                    "mean_probability": 0.8062763277977559,
+                    "event_rate": 0.8602620087336245
+                  },
+                  "audit": {
+                    "n": 81,
+                    "brier": 0.0876355111930135,
+                    "log_loss": 0.3236683066768174,
+                    "mean_probability": 0.8129187382663978,
+                    "event_rate": 0.9135802469135802
+                  }
+                }
+              ]
+            },
+            "btts_yes": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 240.0,
+              "development": {
+                "n": 229,
+                "brier": 0.23396368151251085,
+                "log_loss": 0.6604133973760771,
+                "mean_probability": 0.5726897594946989,
+                "event_rate": 0.62882096069869
+              },
+              "audit": {
+                "n": 81,
+                "brier": 0.2271579900031214,
+                "log_loss": 0.6465574525569366,
+                "mean_probability": 0.5907815110810107,
+                "event_rate": 0.7160493827160493
+              },
+              "development_1x2_audit": {
+                "n": 81,
+                "brier": 0.22833036306378698,
+                "log_loss": 0.6489044267111033,
+                "mean_probability": 0.5836445074603382,
+                "event_rate": 0.7160493827160493
+              },
+              "audit_brier_gain": 0.001172373060665588,
+              "audit_log_loss_gain": 0.0023469741541666256,
+              "development_log_loss_margin": 0.00036807227953561394,
+              "development_fold_winners": {
+                "365.0": 1,
+                "120.0": 1,
+                "240.0": 2
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 229,
+                    "brier": 0.23497770151216182,
+                    "log_loss": 0.6623382115560675,
+                    "mean_probability": 0.5755698101052213,
+                    "event_rate": 0.62882096069869
+                  },
+                  "audit": {
+                    "n": 81,
+                    "brier": 0.22338620297502298,
+                    "log_loss": 0.638871877063241,
+                    "mean_probability": 0.605440139311117,
+                    "event_rate": 0.7160493827160493
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 229,
+                    "brier": 0.23396368151251085,
+                    "log_loss": 0.6604133973760771,
+                    "mean_probability": 0.5726897594946989,
+                    "event_rate": 0.62882096069869
+                  },
+                  "audit": {
+                    "n": 81,
+                    "brier": 0.2271579900031214,
+                    "log_loss": 0.6465574525569366,
+                    "mean_probability": 0.5907815110810107,
+                    "event_rate": 0.7160493827160493
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 229,
+                    "brier": 0.23410039240232308,
+                    "log_loss": 0.6607814696556127,
+                    "mean_probability": 0.5699486476097072,
+                    "event_rate": 0.62882096069869
+                  },
+                  "audit": {
+                    "n": 81,
+                    "brier": 0.22833036306378698,
+                    "log_loss": 0.6489044267111033,
+                    "mean_probability": 0.5836445074603382,
+                    "event_rate": 0.7160493827160493
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 229,
+                    "brier": 0.2348659244420342,
+                    "log_loss": 0.6624130226713877,
+                    "mean_probability": 0.5641631235870066,
+                    "event_rate": 0.62882096069869
+                  },
+                  "audit": {
+                    "n": 81,
+                    "brier": 0.2299921065939847,
+                    "log_loss": 0.6523583876945904,
+                    "mean_probability": 0.5737472447066626,
+                    "event_rate": 0.7160493827160493
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 229,
+                    "brier": 0.2366007831587949,
+                    "log_loss": 0.665960666427935,
+                    "mean_probability": 0.5538158386509029,
+                    "event_rate": 0.62882096069869
+                  },
+                  "audit": {
+                    "n": 81,
+                    "brier": 0.23272221962822073,
+                    "log_loss": 0.6580075773042465,
+                    "mean_probability": 0.5601758159501822,
+                    "event_rate": 0.7160493827160493
+                  }
+                }
+              ]
+            }
+          },
+          "minimum_matches_per_phase": 25,
+          "development_folds": 4,
+          "audit_folds": 2,
+          "audit_start": "2026-07-26T00:00:00",
+          "production_half_life": 365.0,
+          "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+          "development_1x2_half_life": 365.0
+        }
+      },
+      {
+        "league": "Primeira Liga",
+        "training_end": "2026-10-19T00:00:00",
+        "training_matches": 1602,
+        "training_sha256": "f3513a92c34703429b1aa91a72c107f126d0de327666c3207383908b39576af3",
+        "production_half_life_days": 730.0,
+        "l2": 0.08,
+        "max_goals": 10,
+        "training_as_of_utc": "2026-10-24T14:26:59.149551+00:00",
+        "candidate_fit_errors": {},
+        "historical_diagnostic_errors": {},
+        "historical_audit": {
+          "status": "AUDIT_COMPLETE",
+          "selection_metric": "development_binary_log_loss",
+          "markets": {
+            "over_1_5": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 730.0,
+              "development": {
+                "n": 234,
+                "brier": 0.1889882737214559,
+                "log_loss": 0.5618298073563646,
+                "mean_probability": 0.728112348890325,
+                "event_rate": 0.7350427350427351
+              },
+              "audit": {
+                "n": 72,
+                "brier": 0.17669786225753256,
+                "log_loss": 0.5345785892269087,
+                "mean_probability": 0.7273330073983012,
+                "event_rate": 0.75
+              },
+              "development_1x2_audit": {
+                "n": 72,
+                "brier": 0.17584273234976702,
+                "log_loss": 0.5314609637571786,
+                "mean_probability": 0.7238182717113594,
+                "event_rate": 0.75
+              },
+              "audit_brier_gain": -0.0008551299077655394,
+              "audit_log_loss_gain": -0.0031176254697301564,
+              "development_log_loss_margin": 0.000617638636523199,
+              "development_fold_winners": {
+                "240.0": 2,
+                "1000000000.0": 2
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.19567734085681068,
+                    "log_loss": 0.5800744864794329,
+                    "mean_probability": 0.7292979963620212,
+                    "event_rate": 0.7350427350427351
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.18359956017765397,
+                    "log_loss": 0.556563694778776,
+                    "mean_probability": 0.7311565705689689,
+                    "event_rate": 0.75
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.190494803757352,
+                    "log_loss": 0.5659329268064536,
+                    "mean_probability": 0.7268362261720458,
+                    "event_rate": 0.7350427350427351
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.17936181256147526,
+                    "log_loss": 0.5438324396608379,
+                    "mean_probability": 0.7328293426648163,
+                    "event_rate": 0.75
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.1892366289195855,
+                    "log_loss": 0.5624474459928878,
+                    "mean_probability": 0.7264651162676118,
+                    "event_rate": 0.7350427350427351
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.17796878256426954,
+                    "log_loss": 0.5390552720852095,
+                    "mean_probability": 0.730621128830796,
+                    "event_rate": 0.75
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.1889882737214559,
+                    "log_loss": 0.5618298073563646,
+                    "mean_probability": 0.728112348890325,
+                    "event_rate": 0.7350427350427351
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.17669786225753256,
+                    "log_loss": 0.5345785892269087,
+                    "mean_probability": 0.7273330073983012,
+                    "event_rate": 0.75
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.19009728621456268,
+                    "log_loss": 0.5652125338149022,
+                    "mean_probability": 0.731014541579403,
+                    "event_rate": 0.7350427350427351
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.17584273234976702,
+                    "log_loss": 0.5314609637571786,
+                    "mean_probability": 0.7238182717113594,
+                    "event_rate": 0.75
+                  }
+                }
+              ]
+            },
+            "btts_yes": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 730.0,
+              "development": {
+                "n": 234,
+                "brier": 0.24798551307831704,
+                "log_loss": 0.6890530342822004,
+                "mean_probability": 0.45432120506471785,
+                "event_rate": 0.49145299145299143
+              },
+              "audit": {
+                "n": 72,
+                "brier": 0.25331706245516333,
+                "log_loss": 0.6999027819004057,
+                "mean_probability": 0.46443551386458837,
+                "event_rate": 0.5138888888888888
+              },
+              "development_1x2_audit": {
+                "n": 72,
+                "brier": 0.2511270598499059,
+                "log_loss": 0.6954392944934658,
+                "mean_probability": 0.46064036400549274,
+                "event_rate": 0.5138888888888888
+              },
+              "audit_brier_gain": -0.002190002605257424,
+              "audit_log_loss_gain": -0.004463487406939914,
+              "development_log_loss_margin": 0.0011767971567587798,
+              "development_fold_winners": {
+                "240.0": 1,
+                "730.0": 2,
+                "1000000000.0": 1
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.2581192306218103,
+                    "log_loss": 0.7098051428324533,
+                    "mean_probability": 0.4433693289584528,
+                    "event_rate": 0.49145299145299143
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.25730915522206954,
+                    "log_loss": 0.7086024081548062,
+                    "mean_probability": 0.4678167341244652,
+                    "event_rate": 0.5138888888888888
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.25147411366484324,
+                    "log_loss": 0.6959575374274979,
+                    "mean_probability": 0.4485860960662467,
+                    "event_rate": 0.49145299145299143
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.25655600535920176,
+                    "log_loss": 0.7067651580967116,
+                    "mean_probability": 0.46853649419489657,
+                    "event_rate": 0.5138888888888888
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.24922577445787003,
+                    "log_loss": 0.6914659522422122,
+                    "mean_probability": 0.45069673745488653,
+                    "event_rate": 0.49145299145299143
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.2553184590397912,
+                    "log_loss": 0.7040812748507029,
+                    "mean_probability": 0.46712956153759244,
+                    "event_rate": 0.5138888888888888
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.24798551307831704,
+                    "log_loss": 0.6890530342822004,
+                    "mean_probability": 0.45432120506471785,
+                    "event_rate": 0.49145299145299143
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.25331706245516333,
+                    "log_loss": 0.6999027819004057,
+                    "mean_probability": 0.46443551386458837,
+                    "event_rate": 0.5138888888888888
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.2485473295098666,
+                    "log_loss": 0.6902298314389592,
+                    "mean_probability": 0.45845746192240994,
+                    "event_rate": 0.49145299145299143
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.2511270598499059,
+                    "log_loss": 0.6954392944934658,
+                    "mean_probability": 0.46064036400549274,
+                    "event_rate": 0.5138888888888888
+                  }
+                }
+              ]
+            }
+          },
+          "minimum_matches_per_phase": 25,
+          "development_folds": 4,
+          "audit_folds": 2,
+          "audit_start": "2026-07-27T00:00:00",
+          "production_half_life": 730.0,
+          "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+          "development_1x2_half_life": 1000000000.0
+        }
+      }
+    ],
+    "rows": [
+      {
+        "league": "Eredivisie",
+        "home_team": "FC Utrecht",
+        "away_team": "FC Zwolle",
+        "kickoff_utc": "2026-10-24T14:30:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "FC Utrecht",
+        "away_team": "FC Zwolle",
+        "kickoff_utc": "2026-10-24T14:30:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "Willem II",
+        "away_team": "SC Cambuur",
+        "kickoff_utc": "2026-10-24T16:45:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.8321287316719247,
+          "half_life_120": 0.8947143737325446,
+          "half_life_240": 0.8646165621121407,
+          "half_life_365": 0.8321287316719247,
+          "half_life_730": 0.7872956436162464,
+          "half_life_1000000000": 0.7585626489871227,
+          "goal_selected": 0.7872956436162464,
+          "development_1x2": 0.8321287316719247
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "Willem II",
+        "away_team": "SC Cambuur",
+        "kickoff_utc": "2026-10-24T16:45:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.6375428388941254,
+          "half_life_120": 0.682952471680967,
+          "half_life_240": 0.6709229478578496,
+          "half_life_365": 0.6375428388941254,
+          "half_life_730": 0.5862172730503092,
+          "half_life_1000000000": 0.5530460711369279,
+          "goal_selected": 0.6709229478578496,
+          "development_1x2": 0.6375428388941254
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "ADO Den Haag",
+        "away_team": "Heerenveen",
+        "kickoff_utc": "2026-10-24T19:00:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.818427998982963,
+          "half_life_120": 0.7964073889924113,
+          "half_life_240": 0.8112161359731876,
+          "half_life_365": 0.818427998982963,
+          "half_life_730": 0.8232982053292811,
+          "half_life_1000000000": 0.8191361831425676,
+          "goal_selected": 0.8232982053292811,
+          "development_1x2": 0.818427998982963
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "ADO Den Haag",
+        "away_team": "Heerenveen",
+        "kickoff_utc": "2026-10-24T19:00:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.6166279454499188,
+          "half_life_120": 0.5736517669084145,
+          "half_life_240": 0.6032873745985046,
+          "half_life_365": 0.6166279454499188,
+          "half_life_730": 0.6260708922135042,
+          "half_life_1000000000": 0.6230332541994806,
+          "goal_selected": 0.6032873745985046,
+          "development_1x2": 0.6166279454499188
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "Fortuna Sittard",
+        "away_team": "Excelsior",
+        "kickoff_utc": "2026-10-25T11:15:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "missing_raw_probability_or_unreliable_team"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 365.0
+        },
+        "candidate_errors": {
+          "half_life_120": "ValueError",
+          "half_life_240": "ValueError",
+          "half_life_730": "ValueError",
+          "half_life_1000000000": "ValueError"
+        },
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "Fortuna Sittard",
+        "away_team": "Excelsior",
+        "kickoff_utc": "2026-10-25T11:15:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "missing_raw_probability_or_unreliable_team"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 365.0
+        },
+        "candidate_errors": {
+          "half_life_120": "ValueError",
+          "half_life_240": "ValueError",
+          "half_life_730": "ValueError",
+          "half_life_1000000000": "ValueError"
+        },
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "NEC Nijmegen",
+        "away_team": "Groningen",
+        "kickoff_utc": "2026-10-25T13:30:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.853826506898823,
+          "half_life_120": 0.890651055809515,
+          "half_life_240": 0.8672824209223299,
+          "half_life_365": 0.853826506898823,
+          "half_life_730": 0.8358040085700189,
+          "half_life_1000000000": 0.8111052143013708,
+          "goal_selected": 0.8358040085700189,
+          "development_1x2": 0.853826506898823
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "NEC Nijmegen",
+        "away_team": "Groningen",
+        "kickoff_utc": "2026-10-25T13:30:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.648014683413538,
+          "half_life_120": 0.7135794247789247,
+          "half_life_240": 0.6736716232685279,
+          "half_life_365": 0.648014683413538,
+          "half_life_730": 0.6136795228383028,
+          "half_life_1000000000": 0.5728301043364374,
+          "goal_selected": 0.6736716232685279,
+          "development_1x2": 0.648014683413538
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "PSV Eindhoven",
+        "away_team": "Feyenoord",
+        "kickoff_utc": "2026-10-25T13:30:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.9180105974343238,
+          "half_life_120": 0.9361114445812105,
+          "half_life_240": 0.9265372844666998,
+          "half_life_365": 0.9180105974343238,
+          "half_life_730": 0.9052914293763155,
+          "half_life_1000000000": 0.8907345445539487,
+          "goal_selected": 0.9052914293763155,
+          "development_1x2": 0.9180105974343238
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "PSV Eindhoven",
+        "away_team": "Feyenoord",
+        "kickoff_utc": "2026-10-25T13:30:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.7443859666477349,
+          "half_life_120": 0.784146567946742,
+          "half_life_240": 0.761194800709373,
+          "half_life_365": 0.7443859666477349,
+          "half_life_730": 0.7236494937312216,
+          "half_life_1000000000": 0.7050057704946584,
+          "goal_selected": 0.761194800709373,
+          "development_1x2": 0.7443859666477349
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "Sparta Rotterdam",
+        "away_team": "Ajax",
+        "kickoff_utc": "2026-10-25T15:45:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.8321277262058868,
+          "half_life_120": 0.9082855725973423,
+          "half_life_240": 0.8520506175111453,
+          "half_life_365": 0.8321277262058868,
+          "half_life_730": 0.8174911658750837,
+          "half_life_1000000000": 0.80717039350128,
+          "goal_selected": 0.8174911658750837,
+          "development_1x2": 0.8321277262058868
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "Sparta Rotterdam",
+        "away_team": "Ajax",
+        "kickoff_utc": "2026-10-25T15:45:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.5976504206306118,
+          "half_life_120": 0.6431976511617024,
+          "half_life_240": 0.6078718630350035,
+          "half_life_365": 0.5976504206306118,
+          "half_life_730": 0.5890015438407771,
+          "half_life_1000000000": 0.5745649334541653,
+          "goal_selected": 0.6078718630350035,
+          "development_1x2": 0.5976504206306118
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "AZ Alkmaar",
+        "away_team": "FC Twente Enschede",
+        "kickoff_utc": "2026-10-25T19:00:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.7757431878509078,
+          "half_life_120": 0.7552429215830929,
+          "half_life_240": 0.7711549676502344,
+          "half_life_365": 0.7757431878509078,
+          "half_life_730": 0.7761693231833392,
+          "half_life_1000000000": 0.7710400876209005,
+          "goal_selected": 0.7761693231833392,
+          "development_1x2": 0.7757431878509078
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Eredivisie",
+        "home_team": "AZ Alkmaar",
+        "away_team": "FC Twente Enschede",
+        "kickoff_utc": "2026-10-25T19:00:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.572176983652607,
+          "half_life_120": 0.5518842780067624,
+          "half_life_240": 0.5680186426964247,
+          "half_life_365": 0.572176983652607,
+          "half_life_730": 0.5717969785596846,
+          "half_life_1000000000": 0.5658799683643919,
+          "goal_selected": 0.5680186426964247,
+          "development_1x2": 0.572176983652607
+        },
+        "half_lives": {
+          "production_raw": 365.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 365.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "CF Estrela",
+        "away_team": "Casa Pia",
+        "kickoff_utc": "2026-10-24T14:30:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "CF Estrela",
+        "away_team": "Casa Pia",
+        "kickoff_utc": "2026-10-24T14:30:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Alverca",
+        "away_team": "Arouca",
+        "kickoff_utc": "2026-10-24T17:00:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.7527221055705499,
+          "half_life_120": 0.7614390954932102,
+          "half_life_240": 0.7699091603889963,
+          "half_life_365": 0.7651853390272404,
+          "half_life_730": 0.7527221055705499,
+          "half_life_1000000000": 0.7332545295242054,
+          "goal_selected": 0.7527221055705499,
+          "development_1x2": 0.7332545295242054
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Alverca",
+        "away_team": "Arouca",
+        "kickoff_utc": "2026-10-24T17:00:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.5484345884058038,
+          "half_life_120": 0.5599279132303882,
+          "half_life_240": 0.5684060958910164,
+          "half_life_365": 0.5625270235380243,
+          "half_life_730": 0.5484345884058038,
+          "half_life_1000000000": 0.5273333248771648,
+          "goal_selected": 0.5484345884058038,
+          "development_1x2": 0.5273333248771648
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Gil Vicente",
+        "away_team": "FC Porto",
+        "kickoff_utc": "2026-10-24T19:30:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.6712609308377269,
+          "half_life_120": 0.6207440218631757,
+          "half_life_240": 0.6367684976133384,
+          "half_life_365": 0.6505555124022661,
+          "half_life_730": 0.6712609308377269,
+          "half_life_1000000000": 0.6983099009298982,
+          "goal_selected": 0.6712609308377269,
+          "development_1x2": 0.6983099009298982
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Gil Vicente",
+        "away_team": "FC Porto",
+        "kickoff_utc": "2026-10-24T19:30:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.39532130327449755,
+          "half_life_120": 0.34513602151069345,
+          "half_life_240": 0.36925111586568354,
+          "half_life_365": 0.38093890921958407,
+          "half_life_730": 0.39532130327449755,
+          "half_life_1000000000": 0.4125271057278008,
+          "goal_selected": 0.39532130327449755,
+          "development_1x2": 0.4125271057278008
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Estoril",
+        "away_team": "Moreirense FC",
+        "kickoff_utc": "2026-10-25T15:30:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.7459601466882723,
+          "half_life_120": 0.6866426112869697,
+          "half_life_240": 0.7463465111010489,
+          "half_life_365": 0.7535153660744988,
+          "half_life_730": 0.7459601466882723,
+          "half_life_1000000000": 0.723009282804991,
+          "goal_selected": 0.7459601466882723,
+          "development_1x2": 0.723009282804991
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Estoril",
+        "away_team": "Moreirense FC",
+        "kickoff_utc": "2026-10-25T15:30:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.5354990697632024,
+          "half_life_120": 0.4804293977995877,
+          "half_life_240": 0.5346734066364256,
+          "half_life_365": 0.542237904994201,
+          "half_life_730": 0.5354990697632024,
+          "half_life_1000000000": 0.5127265598521455,
+          "goal_selected": 0.5354990697632024,
+          "development_1x2": 0.5127265598521455
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Nacional",
+        "away_team": "Braga",
+        "kickoff_utc": "2026-10-25T18:00:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.7579079334107334,
+          "half_life_120": 0.779900718718149,
+          "half_life_240": 0.7630524322826471,
+          "half_life_365": 0.7597537777390863,
+          "half_life_730": 0.7579079334107334,
+          "half_life_1000000000": 0.7544834421157846,
+          "goal_selected": 0.7579079334107334,
+          "development_1x2": 0.7544834421157846
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Nacional",
+        "away_team": "Braga",
+        "kickoff_utc": "2026-10-25T18:00:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.5104188632502056,
+          "half_life_120": 0.5373225590205171,
+          "half_life_240": 0.5189700448712697,
+          "half_life_365": 0.5145174592626883,
+          "half_life_730": 0.5104188632502056,
+          "half_life_1000000000": 0.5026996954536984,
+          "goal_selected": 0.5104188632502056,
+          "development_1x2": 0.5026996954536984
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Rio Ave FC",
+        "away_team": "Famalic\u00e3o",
+        "kickoff_utc": "2026-10-25T18:00:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.6683140286736811,
+          "half_life_120": 0.717483555671295,
+          "half_life_240": 0.6863588308413641,
+          "half_life_365": 0.6759063449862726,
+          "half_life_730": 0.6683140286736811,
+          "half_life_1000000000": 0.6678636322347664,
+          "goal_selected": 0.6683140286736811,
+          "development_1x2": 0.6678636322347664
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Rio Ave FC",
+        "away_team": "Famalic\u00e3o",
+        "kickoff_utc": "2026-10-25T18:00:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.4601402518854302,
+          "half_life_120": 0.483594720563422,
+          "half_life_240": 0.46262174989267035,
+          "half_life_365": 0.4598073291434665,
+          "half_life_730": 0.4601402518854302,
+          "half_life_1000000000": 0.4646559662486063,
+          "goal_selected": 0.4601402518854302,
+          "development_1x2": 0.4646559662486063
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Sporting Lisbon",
+        "away_team": "Acad\u00e9mico de Viseu",
+        "kickoff_utc": "2026-10-25T20:30:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "missing_raw_probability_or_unreliable_team"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 730.0
+        },
+        "candidate_errors": {
+          "half_life_120": "ValueError",
+          "half_life_240": "ValueError",
+          "half_life_365": "ValueError",
+          "half_life_1000000000": "ValueError"
+        },
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Sporting Lisbon",
+        "away_team": "Acad\u00e9mico de Viseu",
+        "kickoff_utc": "2026-10-25T20:30:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "missing_raw_probability_or_unreliable_team"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 730.0
+        },
+        "candidate_errors": {
+          "half_life_120": "ValueError",
+          "half_life_240": "ValueError",
+          "half_life_365": "ValueError",
+          "half_life_1000000000": "ValueError"
+        },
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Santa Clara",
+        "away_team": "Benfica",
+        "kickoff_utc": "2026-10-26T18:45:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.7152395329256777,
+          "half_life_120": 0.7004657702348407,
+          "half_life_240": 0.6944551076532323,
+          "half_life_365": 0.697676871660515,
+          "half_life_730": 0.7152395329256777,
+          "half_life_1000000000": 0.7512293151739766,
+          "goal_selected": 0.7152395329256777,
+          "development_1x2": 0.7512293151739766
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Santa Clara",
+        "away_team": "Benfica",
+        "kickoff_utc": "2026-10-26T18:45:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.41702400119591654,
+          "half_life_120": 0.4529833084720656,
+          "half_life_240": 0.42764799068564474,
+          "half_life_365": 0.41951876131970284,
+          "half_life_730": 0.41702400119591654,
+          "half_life_1000000000": 0.42294447918305916,
+          "goal_selected": 0.41702400119591654,
+          "development_1x2": 0.42294447918305916
+        },
+        "half_lives": {
+          "production_raw": 730.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-24T14:27:12.490111+00:00"
+      }
+    ],
+    "probability_basis": "raw Dixon-Coles; same-history fits; no bookmaker blend or calibration",
+    "selection_policy": "none; no paper bets, ROI or automatic promotion",
+    "sample_policy": "first eligible recency snapshot per fixture-market; missing variants stay missing"
+  }
+}

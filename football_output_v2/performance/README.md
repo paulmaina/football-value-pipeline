@@ -19,7 +19,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 43 | 33-10 | 76.7% | +5.8% |
 
-Unsettled / unverified entries: **10**.
+Unsettled / unverified entries: **28**.
 Whole-fixture 1X2 multiclass Brier (n=125): 0.5649
 
 ## First-prediction reference — historical comparison
@@ -50,6 +50,10 @@ Whole-fixture 1X2 multiclass Brier (n=125): 0.5649
 | 2026-10-19T16:28:42.464993+00:00 | 11 | 7-4 | 63.6% | -12.5% |
 | 2026-10-22T10:58:13.963804+00:00 | 1 | 1-0 | 100.0% | +20.0% |
 | 2026-10-23T14:36:42.857608+00:00 | 4 | 4-0 | 100.0% | +46.2% |
+| 2026-10-23T16:24:03.614429+00:00 | 0 | 0-0 | — | — |
+| 2026-10-24T14:22:17.608235+00:00 | 0 | 0-0 | — | — |
+| 2026-10-24T14:27:12.490111+00:00 | 0 | 0-0 | — | — |
+| 2026-10-25T10:24:47.847996+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -64,6 +68,9 @@ Whole-fixture 1X2 multiclass Brier (n=125): 0.5649
 |---|---:|---:|---:|---:|
 | 48h-top-ten-probability-ev-no-under35-v14 | 8 | 6-2 | 75.0% | +0.6% |
 | 48h-top-twelve-probability-ev-no-under35-v15 | 11 | 7-4 | 63.6% | -12.5% |
+| 48h-top-twelve-profitable-win-probability-v23 | 0 | 0-0 | — | — |
+| 48h-two-per-market-group-probability-ev-corners-cards-v25 | 0 | 0-0 | — | — |
+| 48h-two-per-market-group-probability-ev-v24 | 0 | 0-0 | — | — |
 | 48h-zero-tolerance-ev1-common-no-loss75-v22 | 5 | 5-0 | 100.0% | +41.0% |
 | 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
 | 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
@@ -153,9 +160,11 @@ Whole-fixture 1X2 multiclass Brier (n=125): 0.5649
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | Bundesliga | 4 | 4-0 | 100.0% | +34.0% |
+| Eredivisie | 0 | 0-0 | — | — |
 | La Liga | 9 | 9-0 | 100.0% | +34.8% |
 | Ligue 1 | 2 | 1-1 | 50.0% | -16.5% |
 | Premier League | 8 | 4-4 | 50.0% | -36.0% |
+| Primeira Liga | 0 | 0-0 | — | — |
 | Serie A | 8 | 5-3 | 62.5% | -10.1% |
 | UEFA Champions League | 12 | 10-2 | 83.3% | +16.8% |
 
@@ -166,6 +175,7 @@ Whole-fixture 1X2 multiclass Brier (n=125): 0.5649
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
 | 2026-W42 | 22 | 19-3 | 86.4% | +19.5% |
 | 2026-W43 | 17 | 12-5 | 70.6% | -1.9% |
+| 2026-W44 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
 
@@ -183,11 +193,7 @@ recorded reliability-adjusted chance; small buckets are unstable.
 
 ## Result-source problems
 
-- Bundesliga: 500 Server Error:  for url: https://api.football-data.org/v4/competitions/BL1/matches
-- LaLiga: 500 Server Error:  for url: https://api.football-data.org/v4/competitions/PD/matches
-- Ligue1: 500 Server Error:  for url: https://api.football-data.org/v4/competitions/FL1/matches
-- SerieA: 500 Server Error:  for url: https://api.football-data.org/v4/competitions/SA/matches
-- UCL: 500 Server Error:  for url: https://api.football-data.org/v4/competitions/CL/matches
+No provider errors detected.
 
 Accuracy is not calibration or profit. Simulated ROI assumes
 one unit staked separately on each settled selection with recorded
@@ -201,26 +207,22 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-10-23 | 1587 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-10-23 | 1971 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Bundesliga | 2026-10-24 | 1593 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-10-24 | 1975 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Eredivisie | 2026-10-18 | 1611 | 7 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-23 | 1990 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-23 | 1744 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-24 | 1994 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-24 | 1745 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | PrimeiraLiga | 2026-10-19 | 1602 | 6 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-23 | 1971 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-24 | 1975 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-21 | 557 | 4 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UEL | 2026-10-22 | 714 | 3 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 14, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 14, "bookmakers": {"Pinnacle": 14}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 4, "upcoming_kickoff_count": 10, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 16, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 16, "bookmakers": {"Pinnacle": 16}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 16, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| b57f98f7704e | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
-| 2db2af40cdce | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
-| 9425e536c27c | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
-| 7a6c9d44b7c2 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
-| 98adf7e32c9e | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 2a86586863a4 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 3a3ff5eef038 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | b4dfb7c51677 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
@@ -236,6 +238,11 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 93aabf61cc3a | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 0117b0e0fe09 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 10a7df008090 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| 2b085cc83b2c | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| 089cdbb10f80 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| 007f589ff289 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| ac2ae4201750 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| b5f46a88705f | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
