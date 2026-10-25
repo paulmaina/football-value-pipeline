@@ -79,9 +79,13 @@ class SharedCacheTests(unittest.TestCase):
         current = self.export()
         self.assertEqual(read_combined(self.cache, 'EPL', (NOW-timedelta(seconds=1)).isoformat()), [])
         self.add(match(hg=3), NOW+timedelta(hours=1))
-        self.assertEqual(self.export(NOW+timedelta(hours=1)), current)
-        # Replaced in place: no timestamped copies accumulate.
-        self.assertEqual([p.name for p in (self.cache/'bbs/combined').iterdir()], ['current', 'latest.json'])
+        latest = self.export(NOW+timedelta(hours=1))
+        # One generation is kept: no timestamped copies accumulate.
+        combined = self.cache/'bbs/combined'
+        self.assertEqual(sorted(p.name for p in combined.iterdir()), ['generations', 'latest.json'])
+        self.assertEqual([p.name for p in (combined/'generations').iterdir()], [latest.name])
+        self.assertFalse(current.exists())
+        current = latest
         later = read_combined(self.cache, 'EPL', (NOW+timedelta(hours=2)).isoformat())
         earlier = read_combined(self.cache, 'EPL', NOW.isoformat())
         # The earlier cutoff is rebuilt from immutable observations, before the correction.
@@ -90,6 +94,51 @@ class SharedCacheTests(unittest.TestCase):
         self.assertEqual(earlier, read_combined(self.cache, 'EPL', NOW.isoformat()))
         (current/'EPL_enriched_history.csv').write_text('broken')
         with self.assertRaisesRegex(ValueError, 'checksum'):
+            read_combined(self.cache, 'EPL', (NOW+timedelta(hours=2)).isoformat())
+
+    def test_interrupted_publish_keeps_the_previous_generation_readable(self):
+        import bbs_data
+        self.add(match())
+        self.export()
+        before = read_combined(self.cache, 'EPL', (NOW+timedelta(hours=2)).isoformat())
+        self.add(match(hg=3), NOW+timedelta(hours=1))
+        original = bbs_data.atomic_json
+        def interrupted(path, value):
+            if Path(path).name == 'latest.json':
+                raise OSError('interrupted before the manifest switch')
+            return original(path, value)
+        with patch('bbs_data.atomic_json', side_effect=interrupted), self.assertRaises(OSError):
+            self.export(NOW+timedelta(hours=1))
+        # The staged generation exists, but readers still get the previous one intact.
+        self.assertEqual(read_combined(self.cache, 'EPL', (NOW+timedelta(hours=2)).isoformat()), before)
+        # The next complete publish prunes the unused staged generation.
+        newest = self.export(NOW+timedelta(hours=1))
+        self.assertEqual([p.name for p in newest.parent.iterdir()], [newest.name])
+        self.assertNotEqual(read_combined(self.cache, 'EPL', (NOW+timedelta(hours=2)).isoformat()), before)
+
+    def test_reader_retries_once_when_a_concurrent_publish_prunes_its_generation(self):
+        import bbs_integration, shutil
+        self.add(match())
+        old = self.export()
+        stale = json.loads((self.cache/'bbs/combined/latest.json').read_text())
+        self.add(match(hg=3), NOW+timedelta(hours=1))
+        self.export(NOW+timedelta(hours=1))
+        self.assertFalse(old.exists())
+        reads = []
+        import bbs_data
+        original = bbs_data.decode
+        def first_stale(text):
+            value = original(text)
+            if isinstance(value, dict) and 'generation' in value and not reads:
+                reads.append(1)
+                return stale
+            return value
+        with patch('bbs_data.decode', side_effect=first_stale):
+            rows = read_combined(self.cache, 'EPL', (NOW+timedelta(hours=2)).isoformat())
+        self.assertEqual(reads, [1])
+        self.assertEqual(rows, read_combined(self.cache, 'EPL', (NOW+timedelta(hours=2)).isoformat()))
+        shutil.rmtree(self.cache/'bbs/combined/generations')
+        with self.assertRaises(FileNotFoundError):
             read_combined(self.cache, 'EPL', (NOW+timedelta(hours=2)).isoformat())
 
     def test_legacy_snapshots_still_serve_cutoffs_before_the_last_of_them(self):

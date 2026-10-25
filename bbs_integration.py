@@ -19,8 +19,8 @@ import league_registry
 
 # football-data.co.uk division -> league key, for domestic leagues BBS covers.
 DIVISIONS = {div: key for key, div in league_registry.divisions().items() if key in LEAGUES}
-# The one committed combined generation; legacy timestamped copies stay readable.
-CURRENT = 'current'
+# Holds the one committed combined generation; legacy timestamped copies stay readable.
+GENERATIONS = 'generations'
 CSV_STATS = {'total_shots': 'S', 'shots_on_target': 'ST', 'corner_kicks': 'C',
              'fouls': 'F', 'yellow_cards': 'Y', 'red_cards': 'R'}
 
@@ -364,31 +364,40 @@ def _dataset_files(dataset):
 
 
 def write_dataset(dataset, output):
-    """Publish CSV/JSON as the single current generation, then switch the manifest.
+    """Stage a complete generation, switch the manifest atomically, then prune.
 
-    The generation is rebuilt from immutable observations, so it is replaced in
-    place rather than kept as another timestamped copy. Older cutoffs are
-    rebuilt from those observations by read_combined.
+    The view is rebuilt from immutable observations, so only the generation the
+    manifest points to is kept; earlier cutoffs are rebuilt by read_combined.
+    Until the switch, readers keep the previous complete generation; an
+    interrupted publish leaves an unused staged copy that the next one prunes.
     """
     import hashlib
     import os
+    import shutil
+    import tempfile
     from bbs_data import atomic_json
     output = Path(output)
-    generation = output / CURRENT
-    generation.mkdir(parents=True, exist_ok=True)
     files = _dataset_files(dataset)
-    for name, content in files.items():
-        temporary = generation / (name + '.tmp')
-        temporary.write_bytes(content)
-        os.replace(temporary, generation / name)
-    for stale in generation.glob('*_enriched_history.csv'):
-        if stale.name not in files:
-            stale.unlink()
+    sha256 = {name: hashlib.sha256(data).hexdigest() for name, data in files.items()}
+    digest = hashlib.sha256(dumps(sha256).encode()).hexdigest()
+    generations = output / GENERATIONS
+    generation = generations / digest[:16]
     manifest = {'version': 2, 'cutoff_utc': dataset['report']['cutoff_utc'],
-        'generation': CURRENT,
-        'sha256': {name: hashlib.sha256(data).hexdigest() for name, data in files.items()}}
-    atomic_json(generation / 'manifest.json', manifest)
+                'generation': generation.relative_to(output).as_posix(), 'sha256': sha256}
+    if not generation.exists():
+        generations.mkdir(parents=True, exist_ok=True)
+        staging = Path(tempfile.mkdtemp(prefix='.staging-', dir=generations))
+        try:
+            for name, content in files.items():
+                (staging / name).write_bytes(content)
+            atomic_json(staging / 'manifest.json', manifest)
+            os.replace(staging, generation)
+        finally:
+            shutil.rmtree(staging, ignore_errors=True)
     atomic_json(output / 'latest.json', manifest)
+    for old in generations.iterdir():
+        if old != generation:
+            shutil.rmtree(old, ignore_errors=True)
     return generation
 
 
@@ -417,7 +426,7 @@ def _rebuilt_files(cache_dir, cutoff):
     return _REBUILT[key]
 
 
-def read_combined(cache_dir, league, cutoff):
+def read_combined(cache_dir, league, cutoff, _retried=False):
     """Read the combined CSV as available by the forecast cutoff.
 
     The current generation serves cutoffs at or after its own. A cutoff before
@@ -444,11 +453,18 @@ def read_combined(cache_dir, league, cutoff):
             data = _rebuilt_files(cache_dir, limit.isoformat()).get(name)
             return list(csv.DictReader(io.StringIO(data.decode('utf-8')))) if data else []
     generation = (root / manifest['generation']).resolve()
-    if not (generation.is_relative_to((root / 'snapshots').resolve()) or generation == (root / CURRENT).resolve()):
+    if not any(generation.is_relative_to((root / part).resolve()) for part in ('snapshots', GENERATIONS)):
         raise ValueError('Combined snapshot escapes cache')
     if name not in manifest['sha256']:
         return []
-    data = (generation / name).read_bytes()
+    try:
+        data = (generation / name).read_bytes()
+    except FileNotFoundError:
+        # A concurrent publish switched the manifest and pruned this generation:
+        # choose again from the new manifest, once.
+        if _retried or manifest['generation'].startswith('snapshots/'):
+            raise
+        return read_combined(cache_dir, league, cutoff, _retried=True)
     if hashlib.sha256(data).hexdigest() != manifest['sha256'][name]:
         raise ValueError('Combined training CSV checksum mismatch')
     return list(csv.DictReader(io.StringIO(data.decode('utf-8'))))
