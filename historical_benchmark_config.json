@@ -61,7 +61,7 @@
       }
     },
     "production_v2": {
-      "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2",
+      "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
       "market_weight": 0.7,
       "half_life_days": 480.0,
       "shot_features": true,

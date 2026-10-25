@@ -4,9 +4,9 @@
   "code_sha256": {
     "bbs_statistics_model.py": "42f5b8221cf032348df233a7fdc3ab812835278fa4adffa959168303537a21e7",
     "dc_decay_validation.py": "0bdd59436fc7693ace85b2eb92e9cf23f575ce6ceac3e04d1714b3e7d415d17a",
-    "football_value_pipeline_v2_standalone.py": "85745058478401b9c1a004030d81500c93e0814e77f1150822da5dd519df7d5a",
+    "football_value_pipeline_v2_standalone.py": "dd62f8abd5d11071b11f2e47cce5a7fbc9083f927f09ecf1deba1f9bbb4794e6",
     "historical_benchmark.py": "b3388dcf86b9ee19d125658414be9ffdbbf4ad8240162e5d88321627dcb47e4e",
-    "historical_benchmark_config.json": "933c83ddad7a3c632bd2938866215142febfe956feb9729efabee10db9bfcc0e",
+    "historical_benchmark_config.json": "2358ad087dad6bf659ff82603370e608f5cf31a7b35978f6ee1d43c1688f8ae4",
     "score_probability.py": "c49cc8992a0e3d962f63a213aebd32d959e001d894689d3eea8a5816ca9fbc9e",
     "shot_features.py": "f6bcb9d9020e9fc56efaa2e05e9553f5c89df498372177a007540a674dddd5e7"
   },
@@ -99,7 +99,7 @@
   "dataset_source_commit": "1caa1ee2ad9ac255f2952727df8e91ba4081d389",
   "evaluated_fixtures": 2019,
   "fit_errors": [],
-  "generated_at_utc": "2026-10-25T14:35:04.253421+00:00",
+  "generated_at_utc": "2026-10-25T15:22:04.701583+00:00",
   "input_binding": "PINNED_SHA256",
   "model_upgrade_comparison": {
     "anchor_probability_shift_vs_production_v1": {
@@ -16790,7 +16790,7 @@
     "feature_rule": "bbs_priority_mutually_exclusive_shots",
     "half_life_days": 480.0,
     "market_weight": 0.7,
-    "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2",
+    "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
     "shot_features": true,
     "totals_anchor": true
   },
@@ -16928,7 +16928,7 @@
       }
     }
   },
-  "source_commit": "b5a0f9eb7ff36ea78a14bfaeb677cb353613c5ca",
+  "source_commit": "d5701e4ba3788515f4133be71f94653f5fb75664",
   "source_files": [
     {
       "path": "2324_E0.csv",
@@ -17031,8 +17031,8 @@
       "sha256": "821dd8fb2d734b9389e80504c6eb39cfe26936305c27e383a76eff9b6b8e1d20"
     }
   ],
-  "source_status": "Uncommitted release working tree based on source_commit; code_sha256 binds the exact tested source files. Evidence files were added after the calculations.",
-  "source_worktree_diff_sha256": "73b168643e8bc74af9d72fe364594718535e7a7b9926ccbd4b6256cb2c1ccdf0",
+  "source_status": "Uncommitted label-separation working tree based on source_commit; code_sha256 binds exact source files. Prediction settings and benchmark comparison results are unchanged.",
+  "source_worktree_diff_sha256": "cc7828f19eb0aec441a10ba5b08fc039ff1a6fdbe47ce747d271f47800474b5e",
   "tuned_half_life_by_fold": {
     "Bundesliga|2025-08-15": 730.0,
     "Bundesliga|2025-08-29": 240.0,
