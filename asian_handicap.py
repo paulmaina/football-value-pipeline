@@ -18,16 +18,21 @@ ZERO_EV_POLICY = '48h-risk-band-ev-asian-handicap-1x2-over15-v19'
 PREVIOUS_POLICY = '48h-risk-band-ev1-asian-handicap-1x2-over15-v20'
 DOUBLE_CHANCE_POLICY = '48h-risk-band-ev1-asian-handicap-dc-over15-v21'
 POLICY = '48h-zero-tolerance-ev1-common-no-loss75-v22'
-ALTERNATIVE_POLICIES = (DOUBLE_CHANCE_POLICY, POLICY)
+from no_loss_corners_shortlist import POLICY as NO_LOSS_CORNERS_POLICY
+# v26 reuses the v22 rules, so it shares their floors, risk band and alternatives.
+ALTERNATIVE_POLICIES = (DOUBLE_CHANCE_POLICY, POLICY, NO_LOSS_CORNERS_POLICY)
+SAFEST_POLICIES = (POLICY, NO_LOSS_CORNERS_POLICY)
 ONE_PERCENT_POLICIES = (PREVIOUS_POLICY, *ALTERNATIVE_POLICIES)
 RISK_BAND_POLICIES = (ZERO_EV_POLICY, *ONE_PERCENT_POLICIES)
 POLICIES = (LEGACY_POLICY, FLOORLESS_POLICY, *RISK_BAND_POLICIES)
 from win_first_shortlist import POLICY as WIN_FIRST_POLICY
 from per_market_shortlist import POLICY as PER_MARKET_POLICY
-from corners_cards_shortlist import POLICY as CURRENT_POLICY
-PER_MARKET_POLICIES = (PER_MARKET_POLICY, CURRENT_POLICY)
+from corners_cards_shortlist import POLICY as CORNERS_CARDS_POLICY
+PER_MARKET_POLICIES = (PER_MARKET_POLICY, CORNERS_CARDS_POLICY)
 WIN_FIRST_POLICIES = (WIN_FIRST_POLICY, *PER_MARKET_POLICIES)
 POLICIES = (*POLICIES, *WIN_FIRST_POLICIES)
+# New shortlists only; replays dispatch on each capture's recorded version.
+PRODUCTION_POLICY = NO_LOSS_CORNERS_POLICY
 MIN_ADJUSTED_EV = .01
 DEFAULT_RISK_TOLERANCE = .01  # Frozen v19-v21 default.
 MIN_ADJUSTED_NO_LOSS = .75
@@ -306,12 +311,20 @@ def qualifying_alternatives(selected, decisions, tolerance):
     return result
 
 
-def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY):
+def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY, *, _required_ev=None):
     """Risk first, strict gates, one market per fixture. No target-filling bypass."""
+    if _required_ev is not None and (policy_version != POLICY or
+            not math.isfinite(_required_ev) or not 0 <= _required_ev <= 1):
+        raise ValueError("Internal EV floor requires the common no-loss evaluator")
+    if policy_version == NO_LOSS_CORNERS_POLICY:
+        if adjusted_ev_floor is not None:
+            raise ValueError('This Asian handicap policy does not accept a custom EV floor')
+        from no_loss_corners_shortlist import build_shortlist as build_v26
+        return build_v26(predictions, as_of, market_reliability, execution_policy)
     if policy_version in WIN_FIRST_POLICIES:
         if adjusted_ev_floor is not None:
             raise ValueError('Win-first policy does not accept an EV floor')
-        if policy_version == CURRENT_POLICY:
+        if policy_version == CORNERS_CARDS_POLICY:
             from corners_cards_shortlist import build_shortlist as build_v25
             return build_v25(predictions, as_of, market_reliability, execution_policy)
         if policy_version == PER_MARKET_POLICY:
@@ -331,7 +344,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     legacy = policy_version == LEGACY_POLICY
     current = policy_version in RISK_BAND_POLICIES
     one_percent = policy_version in ONE_PERCENT_POLICIES
-    required_ev = MIN_ADJUSTED_EV if one_percent else 0.
+    required_ev = (_required_ev if _required_ev is not None else MIN_ADJUSTED_EV) if one_percent else 0.
     safest = policy_version == POLICY
     minimum_no_loss = policy.get('min_adjusted_no_loss_probability', MIN_ADJUSTED_NO_LOSS) if safest else None
     default_tolerance = 0. if safest else DEFAULT_RISK_TOLERANCE
@@ -357,7 +370,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
         # Do not alter historical policy constants or replay their old gates at 1%.
         specs = [s for s in CURRENT_MARKET_SPECS if s[0] in ordinary_markets(policy_version)]
         records = [_evaluate_market(row,spec,now,(market_reliability or {}).get(str(row.get('league'))),
-            policy,MIN_ADJUSTED_EV,require_fresh_references=True,lookahead_hours=48.,uniform_probability_rules=safest)
+            policy,required_ev,require_fresh_references=True,lookahead_hours=48.,uniform_probability_rules=safest)
             for _,row in predictions.iterrows() for spec in specs]
         ordinary = pd.DataFrame(records,columns=SHORTLIST_COLUMNS)
     else:
@@ -441,7 +454,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             if legacy and (adjusted_ev < floor or raw['estimated_ev'] < 0):
                 reasons.append('positive conservative EV and nonnegative raw EV required')
             if current and (adjusted_ev + (1e-12 if safest else 0.) < required_ev or raw['estimated_ev'] < 0):
-                reasons.append('adjusted EV below +1.0% or negative unblended EV' if one_percent else 'negative adjusted or unblended EV')
+                reasons.append(f'adjusted EV below +{required_ev:.1%} or negative unblended EV' if one_percent else 'negative adjusted or unblended EV')
             item = {field: None for field in SHORTLIST_COLUMNS+FIELDS}
             item.update({k: row.get(k) for k in ('date','league','home_team','away_team','fixture_id','kickoff_utc')})
             item.update(evaluated_at_utc=now.isoformat(), market=name,
