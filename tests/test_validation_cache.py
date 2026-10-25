@@ -56,7 +56,7 @@ class ValidationCacheTests(OfflineQuotePolicyTestCase):
     def test_cli_rebuilds_legacy_and_incomplete_reports_then_reuses_complete_cache(self):
         with tempfile.TemporaryDirectory() as directory:
             raw = Path(directory) / "raw"
-            args = ["--leagues", "EPL", "--out-dir", str(raw)]
+            args = ["--leagues", "EPL", "--no-legacy-comparison", "--out-dir", str(raw)]
             frame = pd.DataFrame([fixture()])
             with patch(
                 "football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league",

@@ -576,6 +576,15 @@ def materialize_inputs(repo,destination,cfg,manifest):
 
 def run(cache,output,cfg,source_commit='unrecorded',model_class=None,input_manifest=None):
     validate_config(cfg)
+    release=cfg.get('model_upgrade_comparison',{}).get('production_v2',{})
+    if 'feature_rule' in release:
+        from football_value_pipeline_v2_standalone import MODEL_VERSION, MODEL_PROFILES, SHOTS_WITH_BBS_VALIDATED
+        profile=MODEL_PROFILES[MODEL_VERSION]
+        if (release['model_version']!=MODEL_VERSION or release['market_weight']!=profile['market_weight']
+                or release['half_life_days']!=profile['half_life_days'] or release['shot_features']!=profile['shot_features']
+                or release['totals_anchor']!=profile['totals_anchor'] or release['bbs_statistics'] is not True
+                or release['feature_rule']!='bbs_priority_mutually_exclusive_shots' or SHOTS_WITH_BBS_VALIDATED):
+            raise ValueError('Benchmark release settings differ from production')
     if cfg.get('input_manifest'):
         if input_manifest is None:raise ValueError('Pinned benchmark requires its input manifest')
         verify_inputs(cache,cfg,input_manifest)
@@ -592,7 +601,10 @@ def run(cache,output,cfg,source_commit='unrecorded',model_class=None,input_manif
         'input_binding':'PINNED_SHA256' if input_manifest is not None else 'UNPINNED_DIAGNOSTIC',
         'source_files':sources,'coverage':coverage,'excluded_rows':exclusions,'fit_errors':errors,
         'evaluated_fixtures':len({r['fixture_key'] for r in records}),
-        'code_sha256':{p.name:digest(p) for p in (Path(__file__),*(Path(__file__).with_name(n) for n in ('football_value_pipeline_v2_standalone.py','score_probability.py','shot_features.py','dc_decay_validation.py')))},
+        'code_sha256':{p.name:digest(p) for p in (Path(__file__),*(Path(__file__).with_name(n) for n in ('football_value_pipeline_v2_standalone.py','score_probability.py','shot_features.py','bbs_statistics_model.py','dc_decay_validation.py','historical_benchmark_config.json')))},
+        'source_worktree_diff_sha256':hashlib.sha256(subprocess.run(['git','diff','HEAD','--'],cwd=Path(__file__).parent,capture_output=True,check=True).stdout).hexdigest(),
+        'release_profile':release,
+        'bbs_input_limitation':'Pinned Football-Data CSVs contain shots but no timestamped BBS observations. The production BBS-priority rule runs unchanged; BBS therefore cannot activate on these pinned inputs.',
         'runtime':{'python':platform.python_version(),'numpy':np.__version__,'pandas':pd.__version__},
         'limitations':'Retrospective diagnostics only. Historical periods were already examined by Claude and are not untouched evidence. Nominal opening odds lack exact availability timestamps; no historical betting edge/ROI/CLV claim is made. Closing inputs are explicitly oracle/evaluation-only. Baseline fixes half-life at 240 days rather than replaying production tuning. Fitted rho is retained for totals scaling. No bookmaker fallback, new data download or automatic production change.',
         **aggregate(records,cfg)}

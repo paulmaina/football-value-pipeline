@@ -23,6 +23,8 @@ def registry():
 
 
 def decision(row,matrix,inputs,clock,r):
+    from forward_trial_basis import legacy_basis, provenance
+    row=legacy_basis(row)
     from performance_tracking import utc,number
     from football_value_pipeline_v2_standalone import canonical_team_key,devig,reweight_matrix_to_1x2
     from historical_benchmark import adjusted_matrix,anchor_totals,goals
@@ -67,7 +69,7 @@ def decision(row,matrix,inputs,clock,r):
         if not reasons:
             target=float(devig(prices,method='power')[0]);anchored,scale=anchor_totals(lam,mu,rho,p,target,n,tail_bounded=adaptive);candidate=goals(anchored)
     except (ValueError,KeyError,TypeError,OverflowError):reasons.append('invalid_bound_model_or_solver')
-    return {'status':'available' if candidate else 'unavailable','reasons':reasons,'baseline_goals':baseline,'candidate_goals':candidate,'scale':scale,'target_over_2_5':target}
+    return {'status':'available' if candidate else 'unavailable','reasons':reasons,'baseline_goals':baseline,'candidate_goals':candidate,'scale':scale,'target_over_2_5':target,**provenance(row)}
 
 
 def write_experiment(predictions,raw,generated,matrices,inputs):
@@ -75,6 +77,8 @@ def write_experiment(predictions,raw,generated,matrices,inputs):
     r,sha=registry();rows=[]
     for row in predictions.astype(object).where(predictions.notna(),None).to_dict('records'):
         key=fixture_key(row);m=matrices.get(key);model=inputs.get(key)
+        from forward_trial_basis import bound_inputs
+        m,model=bound_inputs(row,m,model)
         if isinstance(model,dict):model={**model,'reference':model.get('reference') if isinstance(model.get('reference'),dict) else None}
         rows.append({**{k:row.get(k) for k in ('league','home_team','away_team','kickoff_utc','fixture_id')},
             'production_matrix':None if m is None else m.tolist(),'model_inputs':model,
