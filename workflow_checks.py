@@ -357,7 +357,14 @@ def report_check(root):
                     outcome = gain > 1e-12 if probability_basis == 'net_profit' else gain >= -1e-12
                     close(row.get('brier'),(p-int(outcome))**2,'Asian handicap Brier')
                 continue
-            won=result_for_market(row['market'],int(match[1]),int(match[2]))
+            import count_markets
+            counted=count_markets.parse_label(row['market'])
+            if counted:
+                total=count_markets.verified_total(original,verified)
+                require(total is not None,'Count result absent from committed match statistics')
+                won=count_markets.outcome(*counted,total)
+            else:
+                won=result_for_market(row['market'],int(match[1]),int(match[2]))
             require(won is not None and won==(row['status']=='WON'), 'Outcome differs from regulation-time score')
             p=number(row.get('predicted_probability'),min_value=0,max_value=1)
             if p is not None: close(row.get('brier'),(p-int(won))**2,'Selection Brier')

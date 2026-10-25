@@ -1,6 +1,8 @@
 # Corner and card total models: walk-forward validation (2026-10-24)
 
-**Decision:** every corner total line (7.5 to 12.5, Over and Under) passes in EPL, LaLiga, Bundesliga, Serie A and Ligue 1, and every card total line (2.5 to 6.5) passes in Bundesliga, Serie A and Ligue 1. Each league/line/side is approved on its own audit with the goal-market thresholds unchanged.
+**Decision:** corner totals go to production; card totals do not. Every corner total line (7.5 to 12.5, Over and Under) passes in EPL, LaLiga, Bundesliga, Serie A and Ligue 1, each league/line/side approved on its own audit with the goal-market thresholds unchanged.
+
+**Cards are out of production** (review of PR #94). Pinnacle settles card totals as bookings: a yellow counts 1, a red 2, and the second yellow of a dismissal is excluded, so five yellows plus a straight red settle at 7. The model's target counts each yellow and red once (6), which can reverse an Under 6.5 result. football-data.co.uk cannot reproduce the settlement total: its notes say English and Scottish yellow counts exclude the first yellow of a second-yellow dismissal while European games include it, and no column separates second-yellow dismissals from straight reds or gives booking points for these leagues. The card results below therefore validate a different total from the quoted bet; they are kept as research only, and card totals are neither requested, validated, forecast nor shortlisted.
 
 > **Validation covers probability accuracy only.** No historical corner or card odds exist in the repository or the CSVs, so nothing here shows that these markets can be bet profitably. Every Corners and Cards pick carries the warning `UNPROVEN EDGE: probability-only validation; no historical corner/card odds`.
 
@@ -15,7 +17,7 @@ The Odds API was checked on 2026-10-24 with one fixture per league (9 credits):
 | UCL, UEL (fixtures 10+ days out) | no | no | no |
 | Eredivisie, Primeira Liga | no | no | no |
 
-bet365 never appeared in the `eu,uk` responses. Requesting `alternate_totals_corners` (and `alternate_totals_cards` where modelled) adds those markets to each per-event odds request in the five leagues, which increases its credit cost.
+bet365 never appeared in the `eu,uk` responses. Requesting `alternate_totals_corners` adds that market to each per-event odds request in the five leagues, which increases its credit cost.
 
 ## Model
 
@@ -86,4 +88,4 @@ The count log loss compares the full count distribution with a constant-rate neg
 ## Not covered
 
 - Profitability, closing-line value or any bookmaker margin: no historical prices exist.
-- Grading: settled results come from football-data.org scores, which have no corner or card counts, so corner and card picks are recorded but graded `UNSUPPORTED_MARKET` until a verified count-result source is added.
+- Card settlement totals (see the decision above).

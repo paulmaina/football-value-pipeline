@@ -109,7 +109,9 @@ class CountModelTests(OfflineQuotePolicyTestCase):
 
     def test_only_quoted_leagues_are_validated_and_forecast(self):
         frame = history(400)
-        self.assertEqual(set(cm.validate_league(frame, 'SerieA')), {'corners', 'cards'})
+        # Card totals are out of production: no league validates, forecasts or requests them.
+        self.assertEqual(cm.LEAGUES['cards'], ())
+        self.assertEqual(set(cm.validate_league(frame, 'SerieA')), {'corners'})
         self.assertEqual(set(cm.validate_league(frame, 'EPL')), {'corners'})
         self.assertEqual(cm.validate_league(frame, 'Eredivisie'), {})
         forecast = cm.forecast_fixtures(frame, 'EPL', [('T9', 'T8'), ('T0', 'T1')])
