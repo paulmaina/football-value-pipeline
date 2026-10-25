@@ -16,6 +16,7 @@ on:
       - 'football_output_v2/raw/benchmark_forward_experiment.json'
       - 'football_output_v2/performance/snapshots/**'
       - 'performance_tracking.py'
+      - 'model_comparison.py'
       - 'clv_report.py'
       - 'asian_handicap.py'
       - 'pipeline_health.py'

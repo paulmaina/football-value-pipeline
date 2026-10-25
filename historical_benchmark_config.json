@@ -1,5 +1,5 @@
 {
-  "version": "historical-dc-benchmark-v1",
+  "version": "historical-dc-benchmark-v2",
   "leagues": [
     "EPL",
     "LaLiga",
@@ -41,5 +41,34 @@
   "promotion_policy": "No automatic promotion. Historical periods have already been inspected and are retrospective diagnostics. Select candidates using development only; audit scores cannot select. A candidate needs later, genuinely untouched pre-kickoff forecasts, adequate paired coverage, calibration checks and manual approval before production changes. Historical closing inputs are oracle diagnostics and never promotion-eligible. No ROI, CLV or live bet recommendation can be inferred from these untimestamped CSV odds.",
   "historical_split_reason": "Chosen on odds coverage only before calculating scores: Pinnacle columns stop in January 2026, so a February boundary would leave no market-informed audit cohort. Both periods remain retrospective and already inspected.",
   "dataset_source_commit": "1caa1ee2ad9ac255f2952727df8e91ba4081d389",
-  "input_manifest": "historical_benchmark_inputs.json"
+  "input_manifest": "historical_benchmark_inputs.json",
+  "model_upgrade_comparison": {
+    "production_v1": {
+      "model_version": "dc-blend50-tuned-half-life-v1",
+      "market_weight": 0.5,
+      "half_life_tuning": {
+        "candidates": [
+          120.0,
+          240.0,
+          365.0,
+          730.0,
+          1000000000.0
+        ],
+        "validation_days": 365,
+        "step_days": 56,
+        "min_train": 250,
+        "min_validation_matches": 25
+      }
+    },
+    "production_v2": {
+      "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+      "market_weight": 0.7,
+      "half_life_days": 480.0,
+      "shot_features": true,
+      "bbs_statistics": true,
+      "totals_anchor": true,
+      "feature_rule": "bbs_priority_mutually_exclusive_shots"
+    },
+    "note": "Production v1 replays the per-run half-life tuning at every fold origin on the fold's training rows. Pinnacle nominal-opening O/U 2.5 stands in for the fresh live quote; missing quotes leave totals unanchored. Shot features run their own per-fold chronological gate."
+  }
 }

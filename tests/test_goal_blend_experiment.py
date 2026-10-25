@@ -114,7 +114,7 @@ def test_cli_flag_preserves_baseline_files(tmp_path):
                    return_value=(data, {'training_end':'2026-09-20','training_matches':1000}, {})), patch(
                    'football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league',
                    return_value=(pd.DataFrame(),pd.DataFrame(),{},pd.DataFrame())):
-            args=['--leagues','EPL','--out-dir',str(out)]
+            args=['--leagues','EPL','--no-legacy-comparison','--out-dir',str(out)]
             if enabled: args.append('--goal-blend-experiment')
             assert main(args)==0
     for name in ('all_leagues_predictions.csv','EPL_predictions.csv','conservative_bet_shortlist.csv',

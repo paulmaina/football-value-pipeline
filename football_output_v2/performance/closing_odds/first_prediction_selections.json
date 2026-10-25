@@ -3742,13 +3742,13 @@
     "calibration_penalty": "0.005577692107211088",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "conservative_estimated_ev": "0.010312730537390225",
@@ -3821,13 +3821,25 @@
     "calibration_penalty": "0.028342126894455855",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.25,
+        "devig_method": "split_settlement_fair_probability_unavailable",
+        "fair_close_ev": null,
+        "fair_probability": null,
+        "observation_sha256": "f391daf5ded872af9e8b0c830f14b7d9b471256698e1ec79dea43a2072f14e9f",
+        "observed_at_utc": "2026-10-25T12:59:02.077468+00:00",
+        "offered_price_clv": -0.03200000000000003,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 57.922532,
+        "selection": "Asian Handicap Away +2.00",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T12:58:41+00:00"
       }
     },
     "conservative_estimated_ev": "0.036521314550489646",
@@ -3991,13 +4003,37 @@
     "calibration_penalty": "0.0011042724487769023",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "1xbet",
+        "decimal_odds": 1.32,
+        "devig_method": "proportional_overlap_sum_two",
+        "fair_close_ev": -0.08590575916230381,
+        "fair_probability": 0.7141361256544502,
+        "observation_sha256": "3390eafe8f4b205b7326023b3e3f431eb32de3b07e4a0eb2051dd5d53ae6cc0e",
+        "observed_at_utc": "2026-10-25T13:54:24.635047+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 335.364953,
+        "selection": "home_draw",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T13:54:15+00:00"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.35,
+        "devig_method": "proportional_overlap_sum_two",
+        "fair_close_ev": -0.07896502870777733,
+        "fair_probability": 0.7195585713220489,
+        "observation_sha256": "3390eafe8f4b205b7326023b3e3f431eb32de3b07e4a0eb2051dd5d53ae6cc0e",
+        "observed_at_utc": "2026-10-25T13:54:24.635047+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 335.364953,
+        "selection": "home_draw",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T13:54:15+00:00"
       }
     },
     "conservative_estimated_ev": "0.02187404606739718",
@@ -4070,13 +4106,37 @@
     "calibration_penalty": "0.0011042724487769023",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "1xbet",
+        "decimal_odds": 1.1,
+        "devig_method": "proportional_overlap_sum_two",
+        "fair_close_ev": -0.046450473186119945,
+        "fair_probability": 0.8590536277602522,
+        "observation_sha256": "b8d50054934b6494f92fc97b16e25c88c617302f932d7dd64ad5b71be1aca932",
+        "observed_at_utc": "2026-10-25T11:24:09.112116+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 350.887884,
+        "selection": "home_draw",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T11:23:31+00:00"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.11,
+        "devig_method": "proportional_overlap_sum_two",
+        "fair_close_ev": -0.0228964626501732,
+        "fair_probability": 0.880273457071916,
+        "observation_sha256": "b8d50054934b6494f92fc97b16e25c88c617302f932d7dd64ad5b71be1aca932",
+        "observed_at_utc": "2026-10-25T11:24:09.112116+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 350.887884,
+        "selection": "home_draw",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T11:23:53+00:00"
       }
     },
     "conservative_estimated_ev": "-0.03151499282759962",
@@ -4310,13 +4370,13 @@
     "calibration_penalty": "0.024694247239799266",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "conservative_estimated_ev": "-0.00868184507709362",
@@ -4474,13 +4534,37 @@
     "calibration_penalty": "0.0",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "1xbet",
+        "decimal_odds": 2.64,
+        "devig_method": "power_complete_1x2",
+        "fair_close_ev": -0.13555698824363716,
+        "fair_probability": 0.36474388681703074,
+        "observation_sha256": "ab9df64ac2e13127874dd86fe26815dda6e2cc6fa9e4a15f590defcb433e92b6",
+        "observed_at_utc": "2026-10-25T13:54:24.202063+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 335.797937,
+        "selection": "away",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T13:54:10+00:00"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 2.69,
+        "devig_method": "power_complete_1x2",
+        "fair_close_ev": -0.14408045360169364,
+        "fair_probability": 0.3611474879317748,
+        "observation_sha256": "ab9df64ac2e13127874dd86fe26815dda6e2cc6fa9e4a15f590defcb433e92b6",
+        "observed_at_utc": "2026-10-25T13:54:24.202063+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 335.797937,
+        "selection": "away",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T13:54:10+00:00"
       }
     },
     "conservative_estimated_ev": "-0.08093064748836942",
@@ -4558,13 +4642,25 @@
     "calibration_penalty": "0.052270164513256154",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "1xbet",
+        "decimal_odds": 1.22,
+        "devig_method": "power_complete_binary",
+        "fair_close_ev": 0.0030896035631864383,
+        "fair_probability": 0.8024716828505492,
+        "observation_sha256": "ee6bfb4bf1657930b1f35e3479f0d8060ca7e1637565ed22d1b5d962d7818068",
+        "observed_at_utc": "2026-10-25T13:59:42.185123+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 17.814877,
+        "selection": "over_1_5",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T13:58:14+00:00"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "conservative_estimated_ev": "-0.09128418846395214",
@@ -4810,13 +4906,37 @@
     "calibration_penalty": "0.0",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "1xbet",
+        "decimal_odds": 1.32,
+        "devig_method": "proportional_overlap_sum_two",
+        "fair_close_ev": 0.04772151898734167,
+        "fair_probability": 0.7127357272022733,
+        "observation_sha256": "91f9d79074e7665cf102d40a898687a1897b6811c3051a1d4562c94cba8d1b07",
+        "observed_at_utc": "2026-10-25T14:24:03.614203+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 356.385797,
+        "selection": "draw_away",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T14:23:40+00:00"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.37,
+        "devig_method": "proportional_overlap_sum_two",
+        "fair_close_ev": 0.03983412214088977,
+        "fair_probability": 0.7073701511162516,
+        "observation_sha256": "91f9d79074e7665cf102d40a898687a1897b6811c3051a1d4562c94cba8d1b07",
+        "observed_at_utc": "2026-10-25T14:24:03.614203+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 356.385797,
+        "selection": "draw_away",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T14:23:50+00:00"
       }
     },
     "conservative_estimated_ev": "0.028940334904303144",
@@ -4894,13 +5014,13 @@
     "calibration_penalty": "0.005750082098418305",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "conservative_estimated_ev": "0.04759659240128199",
@@ -4978,13 +5098,37 @@
     "calibration_penalty": "0.007805765095292277",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "1xbet",
+        "decimal_odds": 2.02,
+        "devig_method": "power_complete_1x2",
+        "fair_close_ev": -0.0034077783376128545,
+        "fair_probability": 0.4814455177112982,
+        "observation_sha256": "e7226e6a661ae68111cdfe456ba0f971931868fe4452be1552f44c6b5906756a",
+        "observed_at_utc": "2026-10-25T13:24:18.276260+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 341.72374,
+        "selection": "home",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T13:23:54+00:00"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 2.09,
+        "devig_method": "power_complete_1x2",
+        "fair_close_ev": -0.03356548832832762,
+        "fair_probability": 0.4668765756867983,
+        "observation_sha256": "e7226e6a661ae68111cdfe456ba0f971931868fe4452be1552f44c6b5906756a",
+        "observed_at_utc": "2026-10-25T13:24:18.276260+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 341.72374,
+        "selection": "home",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T13:24:16+00:00"
       }
     },
     "conservative_estimated_ev": "0.028502807058911506",
@@ -5062,13 +5206,37 @@
     "calibration_penalty": "0.007805765095292277",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "1xbet",
+        "decimal_odds": 1.94,
+        "devig_method": "power_complete_1x2",
+        "fair_close_ev": 0.133529612427693,
+        "fair_probability": 0.5015617754104836,
+        "observation_sha256": "76becad319b3c0993344615781c41fd50362ef63e4d7a5abedf9fc0af572635d",
+        "observed_at_utc": "2026-10-25T13:24:18.061070+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 341.93893,
+        "selection": "home",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T13:23:54+00:00"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.98,
+        "devig_method": "power_complete_1x2",
+        "fair_close_ev": 0.11618121333080134,
+        "fair_probability": 0.49388549262424847,
+        "observation_sha256": "76becad319b3c0993344615781c41fd50362ef63e4d7a5abedf9fc0af572635d",
+        "observed_at_utc": "2026-10-25T13:24:18.061070+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 341.93893,
+        "selection": "home",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T13:24:17+00:00"
       }
     },
     "conservative_estimated_ev": "0.02979130357033788",
@@ -5314,13 +5482,25 @@
     "calibration_penalty": "0.0",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.31,
+        "devig_method": "power_complete_binary",
+        "fair_close_ev": -0.02886306837949104,
+        "fair_probability": 0.747028408938853,
+        "observation_sha256": "4f8561bebf2f3cf8473cfed1e812aaf6777c6357584f9f99eebbf30f71119bf8",
+        "observed_at_utc": "2026-10-25T15:24:12.179186+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 347.820814,
+        "selection": "over_1_5",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T15:23:52+00:00"
       }
     },
     "conservative_estimated_ev": "-0.03025600358247349",
