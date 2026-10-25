@@ -51,20 +51,6 @@ def require(condition, message):
     if not condition: raise ValueError(message)
 
 
-def verified_result_source(record):
-    """Recognize the finished-result contract of each competition's collector."""
-    if record.get('source_status') != 'FINISHED':
-        return False
-    if record.get('league_code') == 'EL':
-        # Current Europa league-phase results are corroborated by both feeds.
-        # Keep previously verified three-source cache records readable, too.
-        return record.get('source_duration') == 'REGULAR' and record.get('source') in (
-            'Cornerflick + Fixture Download',
-            'Cornerflick + Fixture Download + UEFA',
-        )
-    return record.get('source') == 'football-data.org/v4'
-
-
 def read_json(path):
     # Reject non-standard NaN/Infinity rather than carrying invalid metrics.
     def invalid(value): raise ValueError(f'Nonfinite JSON number in {path.name}')
@@ -306,6 +292,7 @@ def expected_stats(rows):
 
 def report_check(root):
     from performance_tracking import read_csv,utc,frozen_rows,snapshots,result_for_market,number,fixture_match,tracking_key
+    from performance_tracking import verified_result_source
     from asian_handicap import SETTLED, parse_label as parse_handicap
     from performance_excel import REPORT_NAME
     from datetime import timedelta
