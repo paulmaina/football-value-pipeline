@@ -32,7 +32,7 @@ def toy_model(league_key=None):
 def pipe():
     p = FootballValuePipelineV2.__new__(FootballValuePipelineV2)
     p.market_weight = .7; p.devig_method = 'power'; p.half_life_days = 480.
-    p.totals_anchor = True; p.shot_features = False; p.half_life_tuning = False
+    p.totals_anchor = True; p.shot_features = True; p.half_life_tuning = False
     p.legacy_comparison = True; p._legacy_half_life = 365.
     return p
 
@@ -47,14 +47,14 @@ def live_row():
 
 
 class ProductionProfileTests(OfflineQuotePolicyTestCase):
-    def test_shots_are_experimental_and_off_by_default(self):
+    def test_shots_are_gated_and_on_by_default(self):
         args = build_parser().parse_args([])
-        self.assertFalse(args.experimental_shot_features)
-        self.assertFalse(FootballValuePipelineV2.__init__.__kwdefaults__['shot_features'])
-        self.assertFalse(fvp.MODEL_PROFILES[MODEL_VERSION]['shot_features'])
-        self.assertNotIn('shots', MODEL_VERSION)
+        self.assertFalse(args.no_shot_features)
+        self.assertTrue(FootballValuePipelineV2.__init__.__kwdefaults__['shot_features'])
+        self.assertTrue(fvp.MODEL_PROFILES[MODEL_VERSION]['shot_features'])
+        self.assertIn('shots', MODEL_VERSION)
         prod = dict(market_weight=.7, half_life_days=480, half_life_tuning=False, totals_anchor=True)
-        self.assertEqual(model_version_for(**prod, shot_features=False), MODEL_VERSION)
+        self.assertEqual(model_version_for(**prod, shot_features=False), fvp.NO_SHOTS_MODEL_VERSION)
         self.assertEqual(model_version_for(**prod, shot_features=True), SHOT_EXPERIMENT_MODEL_VERSION)
         self.assertIn(LEGACY_MODEL_VERSION, fvp.MODEL_PROFILES)
 
@@ -162,7 +162,7 @@ class ValidationCacheTests(OfflineQuotePolicyTestCase):
         self.assertTrue(validation_cache_matches(cached, dict(config)))
         # ...and every model setting or code change forces revalidation.
         for change in ({'totals_anchor': False}, {'shot_features': True},
-                       {'model_version': SHOT_EXPERIMENT_MODEL_VERSION}, {'model_version': MODEL_VERSION+'+custom-abc'}):
+                       {'model_version': fvp.NO_SHOTS_MODEL_VERSION}, {'model_version': MODEL_VERSION+'+custom-abc'}):
             self.assertFalse(validation_cache_matches(cached, {**config, **change}), change)
         original = Path.read_bytes
         for name in ('shot_features.py', 'historical_benchmark.py', 'bet365_pinnacle.py'):

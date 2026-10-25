@@ -44,9 +44,9 @@ shortlist horizon           48 hours, minimum 20-minute lead, up to 12 matches
 --half-life-days            480 fixed (--tune-half-life is benchmark/legacy only)
 --market-weight             0.70 (also feeds Double Chance)
 totals anchor               fresh Pinnacle O/U 2.5 (--no-totals-anchor disables)
-shot features               off; experimental only (--experimental-shot-features)
+shot features               on; chronological gate every run (--no-shot-features disables)
 legacy comparison           legacy_* columns each run (--no-legacy-comparison skips)
-model_version               dc-blend70-hl480-pinnacle-ou25-anchor-v2
+model_version               dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2
 --devig                     power
 --odds-regions              eu
 --fixture-provider          auto

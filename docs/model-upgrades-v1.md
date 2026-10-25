@@ -1,13 +1,14 @@
-# Production model v2 (`dc-blend70-hl480-pinnacle-ou25-anchor-v2`)
+# Production model v2 (`dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2`)
 
 Every new forecast row and league diagnostic carries `model_version`. Rows without
 the column were produced by the legacy profile `dc-blend50-tuned-half-life-v1`
 (market weight 0.50, per-run tuned half-life). Both profiles stay defined in
 `MODEL_PROFILES`; archived forecasts and selections are never rewritten. The
-experimental shot profile `dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2` is used
-only with `--experimental-shot-features`. Any other non-default configuration
+shots-enabled profile is the default for normal and scheduled runs. `--no-shot-features`
+selects the preserved no-shots profile `dc-blend70-hl480-pinnacle-ou25-anchor-v2`.
+`SHOT_EXPERIMENT_MODEL_VERSION` stays importable as an alias. Any other non-default configuration
 (`--tune-half-life`, `--no-totals-anchor`, another weight or half-life) gets its own
-identity: `dc-blend70-hl480-pinnacle-ou25-anchor-v2+custom-<settings hash>`.
+identity: `dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2+custom-<settings hash>`.
 
 ## Changes
 
@@ -30,7 +31,7 @@ identity: `dc-blend70-hl480-pinnacle-ou25-anchor-v2+custom-<settings hash>`.
    Asian handicap, BTTS and every totals line come from the anchored matrix.
    `unanchored_p_over_2_5` keeps the pre-anchor value. Walk-forward validation
    backtests anchor to Pinnacle's nominal-opening CSV columns (`P>2.5`/`P<2.5`) only.
-4. **Gated shot features: experimental, off by default** (`--experimental-shot-features`, `shot_features.py`). Lagged HST/AST shot-on-target
+4. **Gated shot features: on by default** (`--no-shot-features` disables, `shot_features.py`). Lagged HST/AST shot-on-target
    strengths (optionally combined with HS/AS) from the Football-Data CSVs are
    opponent-adjusted and shrunk toward league average. They are converted to goal
    rates with league goals-per-shot-on-target and mixed into the Dixon–Coles rates.
@@ -99,14 +100,15 @@ Changing any of these settings or files forces revalidation.
 
 ## Forward experiments
 
-These trials compare a candidate against a frozen production basis. They exclude
-new-model forecasts explicitly rather than silently: each row records why, and every
-summary/report lists `excluded_forecast_reasons` with counts.
+The older trials keep their preregistered legacy basis. For a new production forecast,
+they use its same-run `legacy_*` companion probabilities, matrix and anchor inputs.
+Each trial row records `comparison_basis = same_run_legacy_companion`, the actual
+forecast version and the comparison version. Production probabilities never replace
+missing legacy evidence. All freshness, identity, calibration and sample gates remain
+unchanged, and archived trials still validate against their recorded basis.
 
-- `market-weight-085-v1` (frozen basis: weight 0.50):
-  `production_weight_outside_frozen_trial` and
-  `production_model_dc-blend70-hl480-pinnacle-ou25-anchor-v2_outside_frozen_trial_basis`.
-- `pinnacle-totals-anchor-v1`: `candidate_adopted_in_production`, plus the model reason.
+- `market-weight-085-v1`: legacy 0.50 blend versus the frozen 0.85 candidate.
+- `pinnacle-totals-anchor-v1`: legacy unanchored matrix versus its anchored candidate.
 - Reliability trial: candidates are fitted with production's feature settings and receive
   production's blend and, when production anchored a fixture, the same Pinnacle totals
   target. Only the declared factor differs. Non-comparable forecasts are excluded with
@@ -114,3 +116,17 @@ summary/report lists `excluded_forecast_reasons` with counts.
   `production_anchor_target_missing`. `fixed_half_life` reports
   `candidate_equals_production_half_life`, because production now uses 480 days.
   `stronger_l2` continues.
+
+## Release evidence and deployment decision
+
+The user explicitly requested direct production adoption on 2026-10-25, with gated
+shots enabled. The old model remains a companion for prospective monitoring, not the
+selection model. This is an explicit deployment decision; the retrospective benchmark
+does not establish profitability or satisfy the original prospective promotion gates.
+Those thresholds have not been changed.
+
+The release benchmark uses the pinned SHA256-bound CSVs, the production shot gate and
+the same BBS-priority mutual-exclusion rule. These CSVs have shots but no timestamped
+BBS observations, so BBS cannot activate on this dataset. Synthetic regression tests
+exercise BBS priority and the no-stacking rule separately. Nominal-opening prices
+remain untimestamped proxies; this is not a replay of verified live execution.

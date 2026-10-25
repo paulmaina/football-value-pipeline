@@ -30,7 +30,7 @@ def toy_model():
 def pipe(anchor=True):
     p = FootballValuePipelineV2.__new__(FootballValuePipelineV2)
     p.market_weight = .7; p.devig_method = 'power'; p.half_life_days = 480.
-    p.totals_anchor = anchor; p.shot_features = False; p.half_life_tuning = False
+    p.totals_anchor = anchor; p.shot_features = True; p.half_life_tuning = False
     return p
 
 
@@ -51,7 +51,7 @@ class ProductionDefaultsTests(OfflineQuotePolicyTestCase):
         args = build_parser().parse_args([])
         self.assertEqual(args.market_weight, .70)
         self.assertEqual(args.half_life_days, 480.)
-        self.assertFalse(args.tune_half_life or args.no_totals_anchor or args.experimental_shot_features)
+        self.assertFalse(args.tune_half_life or args.no_totals_anchor or args.no_shot_features)
         self.assertEqual(FootballValuePipelineV2.__init__.__kwdefaults__['market_weight'], .70)
         self.assertTrue(FootballValuePipelineV2.__init__.__kwdefaults__['totals_anchor'])
 
@@ -61,14 +61,14 @@ class ProductionDefaultsTests(OfflineQuotePolicyTestCase):
         self.assertIn("'--recency-experiment'", text)
 
     def test_model_version_tags_profiles_and_never_relabels_custom_runs(self):
-        v2 = dict(market_weight=.7, half_life_days=480, half_life_tuning=False, totals_anchor=True, shot_features=False)
+        v2 = dict(market_weight=.7, half_life_days=480, half_life_tuning=False, totals_anchor=True, shot_features=True)
         self.assertEqual(model_version_for(**v2), MODEL_VERSION)
         self.assertEqual(model_version_for(market_weight=.5, half_life_days=240, half_life_tuning=True,
                                            totals_anchor=False, shot_features=False), LEGACY_MODEL_VERSION)
         for change in ({'market_weight': .5}, {'half_life_days': 240}, {'half_life_tuning': True},
                        {'totals_anchor': False}):
             self.assertTrue(model_version_for(**{**v2, **change}).startswith(CUSTOM_MODEL_VERSION+'-'))
-        self.assertEqual(model_version_for(**{**v2, 'shot_features': True}), fvp.SHOT_EXPERIMENT_MODEL_VERSION)
+        self.assertEqual(model_version_for(**{**v2, 'shot_features': False}), fvp.NO_SHOTS_MODEL_VERSION)
         # The legacy profile constants stay importable for archived replay.
         self.assertEqual(fvp.MODEL_PROFILES[LEGACY_MODEL_VERSION]['market_weight'], .5)
 

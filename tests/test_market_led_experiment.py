@@ -149,7 +149,7 @@ class MarketLedTests(OfflineQuotePolicyTestCase):
                     'market_led_experiment.write_experiment',wraps=write_experiment) as write:
                     dt.now.return_value=T0
                     if mode=='failure':write.side_effect=RuntimeError('research unavailable')
-                    args=['--leagues','EPL','--out-dir',str(root/mode)]
+                    args=['--leagues','EPL','--no-legacy-comparison','--out-dir',str(root/mode)]
                     if mode!='off':args+=['--market-led-experiment']
                     if mode=='failure':
                         with self.assertWarns(UserWarning):self.assertEqual(main(args),0)

@@ -102,15 +102,16 @@ PIPELINE_VERSION = "2.9.1"
 # Forecast model profiles. Rows without model_version were produced under the
 # legacy profile; it stays importable so archived forecasts replay unchanged.
 LEGACY_MODEL_VERSION = "dc-blend50-tuned-half-life-v1"
-MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-v2"
-# Explicitly enabled experiment only (--experimental-shot-features); never default.
-SHOT_EXPERIMENT_MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2"
+NO_SHOTS_MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-v2"
+MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2"
+# Retained for callers and captures made while shots were experimental.
+SHOT_EXPERIMENT_MODEL_VERSION = MODEL_VERSION
 CUSTOM_MODEL_VERSION = MODEL_VERSION + "+custom"
 MODEL_PROFILES = {
     LEGACY_MODEL_VERSION: {"market_weight": 0.50, "half_life_days": None,
                            "half_life_tuning": True, "totals_anchor": False,
                            "shot_features": False},
-    MODEL_VERSION: {"market_weight": 0.70, "half_life_days": 480.0,
+    NO_SHOTS_MODEL_VERSION: {"market_weight": 0.70, "half_life_days": 480.0,
                     "half_life_tuning": False, "totals_anchor": True,
                     "shot_features": False},
     SHOT_EXPERIMENT_MODEL_VERSION: {"market_weight": 0.70, "half_life_days": 480.0,
@@ -2610,7 +2611,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         devig_method: str = "power",
         market_weight: float = DEFAULT_MARKET_WEIGHT,
         totals_anchor: bool = True,
-        shot_features: bool = False,
+        shot_features: bool = True,
         odds_api_key: Optional[str] = None,
         football_data_api_key: Optional[str] = None,
         odds_regions: str = "eu",
@@ -2892,7 +2893,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
         return result
 
     LEGACY_COLUMNS = ('p_home', 'p_draw', 'p_away', 'p_over_1_5', 'p_under_3_5', 'p_btts_yes',
-                      'p_over_2_5', 'goal_margin_distribution', 'market_blend_applied')
+                      'p_over_2_5', 'goal_margin_distribution', 'market_blend_applied',
+                      'raw_p_home', 'raw_p_draw', 'raw_p_away', 'market_weight',
+                      'lambda_home', 'lambda_away', 'model_home_team', 'model_away_team',
+                      'home_name_match_score', 'away_name_match_score')
 
     def _fit_legacy_model(self, history, now, league):
         """dc-blend50-tuned-half-life-v1 refit for side-by-side grading only."""
@@ -2914,19 +2918,32 @@ class FootballValuePipelineV2(FootballValuePipeline):
         import copy
         out = {'legacy_model_version': LEGACY_MODEL_VERSION, 'legacy_status': status,
                'legacy_half_life_days': getattr(self, '_legacy_half_life', None),
+               'legacy_trial_matrix': None, 'legacy_trial_inputs': None,
                **{'legacy_' + k: None for k in self.LEGACY_COLUMNS}}
         if legacy_model is None:
             return out
         legacy = copy.copy(self)
         legacy.market_weight = MODEL_PROFILES[LEGACY_MODEL_VERSION]['market_weight']
-        legacy.totals_anchor = legacy.shot_features = legacy._benchmark_trial_enabled = False
+        legacy.totals_anchor = legacy.shot_features = False
+        legacy._benchmark_trial_enabled = True
+        legacy._benchmark_score_matrices = {}
+        legacy._totals_shadow_inputs = {}
         legacy.model_version = LEGACY_MODEL_VERSION
         try:
             pred, _ = legacy._predict_row(legacy_model, row)
-        except (ValueError, RuntimeError) as exc:
+            key = (str(row['HomeTeam']), str(row['AwayTeam']), str(row.get('kickoff_utc')))
+            matrix = legacy._benchmark_score_matrices[key]
+            inputs = dict(legacy._totals_shadow_inputs[key])
+            if not isinstance(inputs.get('reference'), dict):
+                inputs['reference'] = None
+            encoded_matrix = json.dumps(matrix.tolist(), allow_nan=False)
+            encoded_inputs = json.dumps(inputs, allow_nan=False)
+        except (ValueError, RuntimeError, TypeError, KeyError) as exc:
             out['legacy_status'] = 'UNAVAILABLE_PREDICTION_' + type(exc).__name__
             return out
         out.update({'legacy_' + k: pred.get(k) for k in self.LEGACY_COLUMNS})
+        out['legacy_trial_matrix'] = encoded_matrix
+        out['legacy_trial_inputs'] = encoded_inputs
         return out
 
     def _model_version(self) -> str:
@@ -3759,9 +3776,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--no-legacy-comparison", action="store_true",
                    help=(f"Skip the side-by-side {LEGACY_MODEL_VERSION} columns (legacy_*), which are "
                          "graded in the forward review and never used for selection or staking."))
-    p.add_argument("--experimental-shot-features", action="store_true",
-                   help=("Experimental, off by default: try the per-league gated lagged shot features "
-                         f"(tags forecasts {SHOT_EXPERIMENT_MODEL_VERSION})."))
+    p.add_argument("--no-shot-features", action="store_true",
+                   help="Disable gated shot features; the no-shots profile remains replayable.")
     p.add_argument(
         "--half-life-candidates",
         nargs="+",
@@ -3961,7 +3977,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         bbs_statistics=not args.no_bbs_statistics,
         bbs_statistics_validation=args.bbs_statistics_validation,
         totals_anchor=not args.no_totals_anchor,
-        shot_features=args.experimental_shot_features,
+        shot_features=not args.no_shot_features,
     )
     pipe.half_life_tuning = bool(args.tune_half_life)
     pipe.legacy_comparison = legacy_comparison
@@ -4012,11 +4028,11 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
             purpose = ("production" if args.tune_half_life else
                        "legacy comparison/recency diagnostic only; production stays fixed")
             print(f"[{league_key}] tuning Dixon-Coles half-life ({purpose})...", file=sys.stderr)
-            training = pipe._history_for_league(
-                LEAGUES[league_key],
-                now=datetime.now(timezone.utc),
-            )
             try:
+                training = pipe._history_for_league(
+                    LEAGUES[league_key],
+                    now=datetime.now(timezone.utc),
+                )
                 tuning = tune_half_life(
                     history=training,
                     model_class=DixonColesModel,
@@ -4103,6 +4119,11 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
               f"eligible={assessment.get('eligible_training_matches', 0)}/"
               f"{assessment.get('required_training_matches', 120)}; "
               f"applied fixtures={diagnostics.get('bbs_statistics_applied_fixtures', 0)}", file=sys.stderr)
+        shots = diagnostics.get('shot_features_model', {})
+        print(f"[{league_key}] shots: {shots.get('status', 'NOT_RECORDED')}; "
+              f"failed gates={shots.get('failed_gates', [])}; "
+              f"applied fixtures={diagnostics.get('shot_features_applied_fixtures', 0)}; "
+              f"features used={diagnostics.get('goal_rate_features_used', {})}", file=sys.stderr)
         from performance_tracking import fixture_key as benchmark_fixture_key
         for source in predictions.to_dict('records'):
             matrix = getattr(pipe, '_benchmark_score_matrices', {}).get((source['home_team'], source['away_team'], str(source.get('kickoff_utc'))))

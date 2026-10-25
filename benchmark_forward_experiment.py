@@ -46,6 +46,8 @@ def excluded_reasons(rows):
 
 
 def decision(row,r,clock):
+    from forward_trial_basis import legacy_basis, provenance
+    row=legacy_basis(row)
     from performance_tracking import utc,number
     kick=utc(row.get('kickoff_utc'));reasons=[]
     base=simplex(row,'p_');raw=simplex(row,'raw_p_');market=simplex(row,'market_p_')
@@ -66,10 +68,12 @@ def decision(row,r,clock):
     return {'status':'available' if candidate is not None else 'unavailable','reasons':reasons,
         'baseline':base,'candidate':candidate,'raw':raw,'market_reference':market,
         'reference_updated_at_utc':row.get('odds_h2h_last_update_utc') or None,'reference_source':row.get('market_source_1x2') or None,
-        'production_market_weight':weight}
+        'production_market_weight':weight,**provenance(row)}
 
 
 def secondary(row,matrix,candidate):
+    from forward_trial_basis import legacy_basis
+    row=legacy_basis(row)
     from historical_benchmark import goals
     from football_value_pipeline_v2_standalone import reweight_matrix_to_1x2
     from performance_tracking import number
@@ -93,7 +97,9 @@ def write_experiment(predictions,raw,generated,matrices=None):
     for row in predictions.astype(object).where(predictions.notna(),None).to_dict('records'):
         evaluated=decision(row,r,clock)
         try:
-            extra=secondary(row,(matrices or {}).get(fixture_key(row)),evaluated['candidate'])
+            from forward_trial_basis import bound_inputs
+            matrix,_=bound_inputs(row,(matrices or {}).get(fixture_key(row)))
+            extra=secondary(row,matrix,evaluated['candidate'])
         except ValueError:
             extra=secondary(row,None,evaluated['candidate']);extra['secondary_error']='MATRIX_VALIDATION_FAILED'
         data['rows'].append({**{k:row.get(k) for k in ('league','home_team','away_team','kickoff_utc','fixture_id')},**evaluated,**extra})
