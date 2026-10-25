@@ -31044,7 +31044,7 @@
     "reference_source": "The Odds API / Marathon Bet",
     "reference_updated_at_utc": "2026-10-24T14:26:34Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "007f589ff28970f5c6dcc58af5d09a89aaf2fb4a",
     "status": "unavailable"

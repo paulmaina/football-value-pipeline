@@ -45638,7 +45638,7 @@
       "reference_stale_or_future",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "007f589ff28970f5c6dcc58af5d09a89aaf2fb4a",
     "status": "unavailable",
