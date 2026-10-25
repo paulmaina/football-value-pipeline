@@ -1,0 +1,152 @@
+{
+  "fixture": {
+    "away_team": "Real Madrid",
+    "home_team": "Barcelona",
+    "kickoff_utc": "2026-10-25T20:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "72089d103a5fe6a922c35e17efba6ffc"
+  },
+  "observed_at_utc": "2026-10-25T19:54:30.207625+00:00",
+  "payload": {
+    "away_team": "Real Madrid",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T19:54:28Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 1.62
+              },
+              {
+                "name": "Real Madrid",
+                "price": 3.85
+              },
+              {
+                "name": "Draw",
+                "price": 6.12
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T19:54:28Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 2.08
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.8
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T19:54:26Z",
+            "outcomes": [
+              {
+                "name": "Barcelona",
+                "price": 1.62
+              },
+              {
+                "name": "Real Madrid",
+                "price": 4.0
+              },
+              {
+                "name": "Draw",
+                "price": 6.3
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T19:54:26Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.25,
+                "price": 1.91
+              },
+              {
+                "name": "Under",
+                "point": 4.25,
+                "price": 2.0
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-25T20:00:00Z",
+    "home_team": "Barcelona",
+    "id": "72089d103a5fe6a922c35e17efba6ffc",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6089235744674522,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T19:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.3,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15068329736212258,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T19:54:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2403931281704252,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T19:54:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6043253677214605,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T19:54:28+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 6.12,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15088581529356596,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T19:54:28+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.85,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24478881698497368,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T19:54:28+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
