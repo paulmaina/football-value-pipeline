@@ -1,0 +1,268 @@
+{
+  "fixture": {
+    "away_team": "Fiorentina",
+    "home_team": "Inter Milan",
+    "kickoff_utc": "2026-10-25T11:30:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "c9b6c7048d8dc33dae618f67f462f67a"
+  },
+  "observed_at_utc": "2026-10-25T11:24:09.112116+00:00",
+  "payload": {
+    "away_team": "Fiorentina",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T11:23:31Z",
+            "outcomes": [
+              {
+                "name": "Fiorentina",
+                "price": 7.7
+              },
+              {
+                "name": "Inter Milan",
+                "price": 1.38
+              },
+              {
+                "name": "Draw",
+                "price": 5.6
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T11:23:31Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.95
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-25T11:23:53Z",
+            "outcomes": [
+              {
+                "name": "Fiorentina or Draw",
+                "price": 3.35
+              },
+              {
+                "name": "Inter Milan or Draw",
+                "price": 1.11
+              },
+              {
+                "name": "Fiorentina or Inter Milan",
+                "price": 1.18
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T11:23:31Z",
+            "outcomes": [
+              {
+                "name": "Fiorentina",
+                "price": 7.02
+              },
+              {
+                "name": "Inter Milan",
+                "price": 1.4
+              },
+              {
+                "name": "Draw",
+                "price": 5.39
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T11:23:31Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.91
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-25T11:23:31Z",
+            "outcomes": [
+              {
+                "name": "Fiorentina or Draw",
+                "price": 2.96
+              },
+              {
+                "name": "Inter Milan or Draw",
+                "price": 1.1
+              },
+              {
+                "name": "Fiorentina or Inter Milan",
+                "price": 1.15
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-25T11:30:00Z",
+    "home_team": "Inter Milan",
+    "id": "c9b6c7048d8dc33dae618f67f462f67a",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.38,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7148380006604755,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.6,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1660285948783741,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.11913340446115042,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7017173511351739,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.39,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1697510393835893,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 7.02,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1285316094812369,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49453701116582316,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5054629888341767,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.1,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8590536277602522,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.96,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.31924290220820184,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.15,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8217034700315458,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-25T11:23:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.11,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.880273457071916,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-25T11:23:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.35,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.2916726977163662,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-25T11:23:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.18,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8280538452117177,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-25T11:23:53+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
