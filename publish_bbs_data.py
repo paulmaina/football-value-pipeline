@@ -36,7 +36,8 @@ def publish(repo, remote='origin', branch='main', attempts=3):
             try:
                 target = work/CACHE
                 merge_snapshots(source/'state/observations', target/'state/observations')
-                merge_snapshots(source/'combined/snapshots', target/'combined/snapshots')
+                # The combined view is rebuilt below and replaces the single current
+                # generation; timestamped copies are no longer published.
                 for folder in ('state/responses',):
                     for file in (source/folder).glob('*.json'):
                         if file.is_symlink():

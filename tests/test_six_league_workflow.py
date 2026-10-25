@@ -73,7 +73,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertNotIn('Both Teams to Score - Yes', picks.market.tolist())
                 self.assertTrue(pd.read_csv(raw/'all_leagues_predictions.csv').p_under_3_5.eq(.99).all())
                 summary = json.loads((raw/'conservative_bet_summary.json').read_text())
-                self.assertEqual(summary['selection_policy_version'], '48h-two-per-market-group-probability-ev-v24')
+                self.assertEqual(summary['selection_policy_version'], '48h-two-per-market-group-probability-ev-corners-cards-v25')
                 self.assertTrue({'Home win','Away win','Over 1.5','Double Chance 1X','Double Chance X2','Double Chance 12'}.issubset(summary['eligible_markets']))
                 self.assertNotIn('Draw',summary['eligible_markets'])
                 self.assertIn('Asian Handicap Home +0.00', summary['eligible_markets'])
@@ -94,9 +94,9 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             self.assertEqual(len(data['training_end_dates']),len(keys))
             self.assertEqual(data['experiments']['goal_blend_experiment']['graded_fixture_markets'],3*len(keys))
             # The market-led paper experiment stays limited to league-approved leagues.
-            from league_registry import LEAGUE_APPROVAL, keys as registry_keys
+            from league_registry import ARCHIVED_LEAGUE_APPROVAL
             self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],
-                             len(set(keys) & set(registry_keys(shortlist_approval=LEAGUE_APPROVAL))))
+                             len(set(keys) & set(ARCHIVED_LEAGUE_APPROVAL)))
             self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],2*len(keys))
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
             for name in ('filter_sensitivity_experiment','shortlist_weight_experiment','shortlist_policy_experiment'):

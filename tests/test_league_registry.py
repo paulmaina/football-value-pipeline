@@ -48,7 +48,8 @@ class RegistryTests(OfflineQuotePolicyTestCase):
             l = league_registry.get(key)
             self.assertEqual((l.name, l.country, l.football_data_div, l.odds_api_sport_key,
                               l.football_data_org_code), values)
-            self.assertEqual(l.shortlist_approval, league_registry.LEAGUE_APPROVAL)
+            self.assertEqual(l.shortlist_approval, league_registry.PER_MARKET_APPROVAL)
+        self.assertEqual(league_registry.ARCHIVED_LEAGUE_APPROVAL, tuple(ORIGINAL))
         from football_value_pipeline_v2_standalone import LEAGUES, history_windows
         self.assertEqual(LEAGUES, league_registry.LEAGUES)
         self.assertEqual(history_windows(type('A', (), {'seasons_back': None, 'domestic_seasons_back': None})),
@@ -57,15 +58,16 @@ class RegistryTests(OfflineQuotePolicyTestCase):
     def test_every_module_derives_its_league_list_from_the_registry(self):
         import api_football_data, bbs_data, bbs_integration, conservative_bet_filter, goal_market_validation, \
             historical_benchmark
-        self.assertEqual(goal_market_validation.SUPPORTED_COMPETITIONS,
-                         league_registry.keys(shortlist_approval=league_registry.LEAGUE_APPROVAL))
+        self.assertEqual(goal_market_validation.SUPPORTED_COMPETITIONS, league_registry.keys())
         self.assertEqual(refresh.DIVISIONS, league_registry.divisions())
         self.assertEqual(historical_benchmark.CODES, league_registry.divisions())
         self.assertEqual(conservative_bet_filter.SUPPORTED_LEAGUES, league_registry.shortlist_names())
         self.assertEqual(conservative_bet_filter.DOMESTIC_LEAGUES, frozenset(
             {'Premier League', 'La Liga', 'Bundesliga', 'Serie A', 'Ligue 1'}))
-        self.assertEqual(conservative_bet_filter.PER_MARKET_APPROVAL_LEAGUES, league_registry.shortlist_names(
-            shortlist_approval=league_registry.PER_MARKET_APPROVAL))
+        # Archived policies keep their frozen view: only leagues added later are per-market there.
+        self.assertEqual(conservative_bet_filter.PER_MARKET_APPROVAL_LEAGUES,
+                         league_registry.shortlist_names() - league_registry.archived_league_approved_names())
+        self.assertEqual(conservative_bet_filter.PER_MARKET_APPROVAL_LEAGUES, frozenset({'Eredivisie', 'Primeira Liga'}))
         self.assertEqual(bbs_data.LEAGUES, {'EPL': 'epl', 'LaLiga': 'laliga', 'Bundesliga': 'bundesliga',
                                             'SerieA': 'serie_a', 'Ligue1': 'ligue1', 'UCL': 'cl'})
         self.assertEqual(set(bbs_data.DISPLAY_NAMES), set(bbs_data.LEAGUES))
@@ -78,6 +80,7 @@ class RegistryTests(OfflineQuotePolicyTestCase):
         good = league_registry.REGISTRY
         bad = [good[0].__class__(**{**good[0].__dict__, 'refresh_method': 'scraper'}),
                good[0].__class__(**{**good[0].__dict__, 'shortlist_approval': 'auto'}),
+               good[0].__class__(**{**good[0].__dict__, 'shortlist_approval': league_registry.LEAGUE_APPROVAL}),
                good[0].__class__(**{**good[0].__dict__, 'football_data_div': ''}),
                good[0].__class__(**{**good[0].__dict__, 'history_seasons': 0}),
                good[0].__class__(**{**good[0].__dict__, 'odds_api_sport_key': 'epl'})]
