@@ -19,6 +19,7 @@ def config():
     c.update(leagues=['EPL'],seasons=['2324'],test_start='2025-08-01',audit_start='2025-08-15',test_end_exclusive='2025-09-01',
         min_train=30,min_development_matches=1,min_audit_matches=1)
     c.pop('input_manifest',None);c.pop('dataset_source_commit',None)
+    c.pop('model_upgrade_comparison',None)  # v1 machinery tests; upgrades covered in test_model_upgrades_v1
     return c
 
 

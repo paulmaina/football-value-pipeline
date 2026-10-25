@@ -230,6 +230,12 @@ def capture(commit_sha: str, *, root: Path = ROOT,
     except Exception as exc:
         warnings.warn(f'Reliability capture skipped ({type(exc).__name__})')
     try:
+        from bet365_pinnacle import capture_file as capture_bet365
+        bet365 = capture_bet365(raw, summary.get("generated_at_utc"))
+        if bet365 is not None: files["bet365_vs_pinnacle.csv"] = bet365
+    except Exception as exc:
+        warnings.warn(f"bet365 vs Pinnacle capture skipped ({type(exc).__name__})")
+    try:
         from totals_anchor_experiment import capture_file as capture_totals
         experiment = capture_totals(raw, summary.get("generated_at_utc"))
         if experiment is not None: files["totals_anchor_experiment.json"] = experiment
@@ -301,7 +307,8 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
         optional = {'goal_blend_experiment.json', 'market_led_experiment.json',
             'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json',
             'totals_anchor_experiment.json', 'model_reliability_experiment.json',
-            'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json'}
+            'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json',
+            'bet365_vs_pinnacle.csv'}
         digests = meta.get('sha256')
         if not isinstance(digests, dict) or not required.issubset(digests) or set(digests)-required-optional:
             warnings.warn(f'Missing required or invalid snapshot manifest ignored: {directory}')

@@ -211,7 +211,8 @@ class ScheduledForecastTests(OfflineQuotePolicyTestCase):
             source, _ = repo(tmp)
             with self.assertRaises(subprocess.CalledProcessError):
                 scheduled.publish(source, runner=runner)
-        leagues = calls[0][calls[0].index('--leagues')+1:calls[0].index('--tune-half-life')]
+        leagues = calls[0][calls[0].index('--leagues')+1:calls[0].index('--goal-blend-experiment')]
+        self.assertNotIn('--tune-half-life', calls[0])
         self.assertEqual(tuple(leagues), league_registry.keys())
 
 

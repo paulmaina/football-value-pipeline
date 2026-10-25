@@ -63,3 +63,23 @@ Stronger regularisation, higher market weighting or totals anchoring can improve
 `benchmark_promotion_rules.json` records the future trial requirements before any new candidate is generated forward. A prospective review needs at least 300 distinct paired fixtures across six gameweeks, a predeclared uncertainty analysis, calibration checks and human approval. These are review gates, not guarantees. The existing four-week review remains an initial collection check.
 
 The new candidate settings currently exist only in offline comparisons. Dedicated closing collection and execution recording remain future work. No candidate is automatically promoted.
+
+## v2: production model upgrade comparison
+
+Benchmark v2 (`historical-dc-benchmark-v2`) keeps every v1 variant unchanged and adds
+`model_upgrade_comparison`, scored on one common cohort per league, phase and market:
+
+- `production_v1`: replays the per-run half-life tuning at each fold origin on that
+  fold's training rows (production tuning defaults), with market weight 0.50;
+- `upgrade_market_weight_70`, `upgrade_half_life_480`, `upgrade_pinnacle_ou25_anchor`,
+  `upgrade_gated_shot_features`: each change on its own;
+- `production_v2`: all four together.
+
+Markets are 1X2, Over 1.5, Under 3.5, BTTS Yes, Over 2.5, and the home Asian handicap
+at −2.5, −1.5, −1, 0, +1, +1.5 and +2.5. The away side is the complement. Integer lines
+drop refunded outcomes from scoring. The summary also reports anchor coverage,
+per-line probability shifts against `production_v1` on anchored fixtures, per-fold
+tuned half-lives and the shot-feature gate outcome for every league and fold.
+Historical totals anchoring uses Pinnacle's nominal-opening O/U 2.5. Fixtures without
+it stay unanchored. The pinned inputs hold four seasons, while production trains on six.
+v1 artifacts still pass `--validate-only`.

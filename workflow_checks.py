@@ -255,7 +255,7 @@ def archive_check(root):
         require(isinstance(digests,dict) and all(k in digests for k in ('predictions.csv','shortlist.csv','selection_summary.json')),
                 'Snapshot missing required integrity manifest')
         for name,digest in digests.items():
-            require(name in ('predictions.csv','shortlist.csv','selection_summary.json','pipeline_health.json','run_manifest.json',*SIDECARS), 'Unexpected snapshot path')
+            require(name in ('predictions.csv','shortlist.csv','selection_summary.json','pipeline_health.json','run_manifest.json','bet365_vs_pinnacle.csv',*SIDECARS), 'Unexpected snapshot path')
             path=directory/name
             valid=path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==digest
             if name in (*SIDECARS, 'pipeline_health.json'):
