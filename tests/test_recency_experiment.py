@@ -317,7 +317,8 @@ class RecencyTests(OfflineQuotePolicyTestCase):
             self.assertTrue(new['recency_experiment']['rows'][0]['variants'])
             tuned=json.loads((root/'True/EPL_decay_tuning.json').read_text())
             self.assertFalse(tuned['applied_to_production'])
-            self.assertFalse((root/'False/EPL_decay_tuning.json').exists())
+            # Legacy comparison tunes every live run, never for production.
+            self.assertFalse(json.loads((root/'False/EPL_decay_tuning.json').read_text())['applied_to_production'])
 
 
 if __name__=='__main__':unittest.main()

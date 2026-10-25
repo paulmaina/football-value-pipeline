@@ -32,6 +32,19 @@ def simplex(row,prefix):
     return p if all(v is not None for v in p) and abs(sum(p)-1)<1e-6 else None
 
 
+def production_version_reasons(row):
+    """Name the production model when a frozen-basis trial has to exclude its forecasts."""
+    from football_value_pipeline_v2_standalone import LEGACY_MODEL_VERSION
+    version=row.get('model_version')
+    if version is None or (isinstance(version,float) and math.isnan(version)) or str(version) in ('',LEGACY_MODEL_VERSION):return []
+    return [f'production_model_{version}_outside_frozen_trial_basis']
+
+
+def excluded_reasons(rows):
+    from collections import Counter
+    return dict(sorted(Counter(reason for row in rows if row.get('status')!='available' for reason in row.get('reasons') or ['unspecified']).items()))
+
+
 def decision(row,r,clock):
     from performance_tracking import utc,number
     kick=utc(row.get('kickoff_utc'));reasons=[]
@@ -47,6 +60,7 @@ def decision(row,r,clock):
     if base is None or raw is None or market is None:reasons.append('invalid_probability_simplex')
     weight=number(row.get('market_weight'),min_value=0,max_value=1)
     if weight is None or abs(weight-r['baseline_market_weight'])>1e-12:reasons.append('production_weight_outside_frozen_trial')
+    reasons+=production_version_reasons(row)
     if base is not None and raw is not None and market is not None and any(abs(p-((1-r['baseline_market_weight'])*a+r['baseline_market_weight']*b))>1e-6 for p,a,b in zip(base,raw,market)):reasons.append('production_basis_mismatch')
     candidate=[(1-r['market_weight'])*p+r['market_weight']*q for p,q in zip(raw,market)] if not reasons else None
     return {'status':'available' if candidate is not None else 'unavailable','reasons':reasons,
@@ -216,6 +230,7 @@ def evaluate(root,archive,records,clock):
         'rejected_snapshot_commits':rejected,'comparison':comparison,'log_loss_gain_week_block95':interval,
         'secondary_comparison':secondary_comparison,'secondary_coverage':secondary_fraction,'secondary_gate_passed':secondary_pass,
         'by_league':{league:metrics([x for x in graded if x['league']==league]) for league in registry['leagues']},'review_gates':gates,
+        'excluded_forecast_reasons':excluded_reasons(observations),
         'other_archived_registry_versions':sorted({r['registry_sha256'] for r in all_observations if r['registry_sha256']!=active_hash}),
         'automatic_production_change':False,'note':'Primary 1X2 log loss; week-block bootstrap, one preregistered candidate. Calibration and subgroup metrics are descriptive. Ready means enough evidence to review, including negative findings; it does not mean approval or profitability. Baseline is the actual production forecast. No closing odds, backfill, bets or automatic promotion.'}
     return summary,graded,coverage
@@ -231,7 +246,8 @@ def review_experiment(root,archive,records,clock):
     write_json(dest/'graded.json',graded);write_json(dest/'coverage.json',coverage)
     lines=['# Benchmark forward trial','',summary['note'],'',f"Candidate: {summary['candidate_id']}; status: **{summary['status']}**; evidence: {summary['evidence']}.",'',
         f"Paired fixtures: {summary['paired_fixtures']}/300; gameweeks: {summary['gameweeks']}/6; verified coverage: {summary['verified_coverage']}.",'',
-        f"Comparison: {json.dumps(summary['comparison'])}",'',f"Week-block 95% log-loss gain interval: {summary['log_loss_gain_week_block95']}.",'','Production changes require your review and approval.','']
+        f"Comparison: {json.dumps(summary['comparison'])}",'',f"Week-block 95% log-loss gain interval: {summary['log_loss_gain_week_block95']}.",'',
+        'Excluded forecasts by reason: '+(', '.join(f'{k}: {v}' for k,v in summary['excluded_forecast_reasons'].items()) or 'none'),'','Production changes require your review and approval.','']
     (dest/'report.md').write_text('\n'.join(lines),encoding='utf-8')
     return summary
 
