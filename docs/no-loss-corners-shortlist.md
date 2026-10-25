@@ -1,13 +1,13 @@
 # No-loss shortlist with Corners (v26)
 
-Policy `48h-zero-tolerance-ev1-no-loss75-corners-v26` is v22's common no-loss rules plus Corners totals. It replaces v25 for new prediction runs and shortlist refreshes.
+Policy `48h-zero-tolerance-ev05-no-loss75-corners-v26` uses v22's common no-loss rules plus Corners totals, with an adjusted EV floor of +0.5% instead of +1.0%. It replaces v25 for new prediction runs and shortlist refreshes.
 
 ## Selection
 
 Unchanged from v22 ([asian-handicap-shortlist.md](asian-handicap-shortlist.md)):
 
 - Adjusted probability of avoiding a loss of at least 75%. Asian handicap refunds count as avoiding a loss; half-losses do not.
-- Adjusted EV of at least +1.0%, and unblended EV not negative.
+- Adjusted EV of at least +0.5%, and unblended EV not negative.
 - Zero risk tolerance: for each fixture, the lowest conservative estimated loss risk wins; adjusted EV, unblended EV and refund probability break equal-risk ties.
 - One market per fixture, at most 12 fixtures, no market quotas. Kickoff within 20 minutes to 48 hours.
 - Markets: Asian handicap lines, Home win, Away win, Over 1.5, Double Chance 1X, X2 and 12, and Corners Over/Under 7.5 to 12.5.
