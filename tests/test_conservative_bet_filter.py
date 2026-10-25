@@ -355,7 +355,7 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
             self.assertEqual(
                 json.loads((raw / "conservative_bet_summary.json").read_text())[
                     "target_distinct_matches"
-                ], 18
+                ], 12
             )
 
 

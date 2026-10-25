@@ -11,7 +11,7 @@ from pathlib import Path
 import pandas as pd
 
 from conservative_bet_filter import build_conservative_shortlist
-from asian_handicap import CURRENT_POLICY as CURRENT_SELECTION_POLICY
+from asian_handicap import PRODUCTION_POLICY as CURRENT_SELECTION_POLICY
 from format_football_output import process_conservative_shortlist
 
 
