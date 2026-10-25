@@ -131,22 +131,40 @@ class EuropaProductionTests(TestCase):
             cache.unlink()
             self.assertEqual(current_health(root, NOW)['training']['UEL']['current_source_health']['status'], 'DOWNLOAD_NOT_VERIFIED')
 
-    def test_uefa_403_uses_explicit_attestations_and_never_silent_live_verification(self):
+    def test_refresh_uses_archived_period_facts_without_any_live_uefa_request(self):
         source = Path(__file__).resolve().parents[1]/'docs/audits/europa-uefa-attestations.json'
         facts = json.loads(source.read_text(encoding='utf-8'))['seasons']
         client = Mock()
-        response = Mock(status_code=403, content=b'irrelevant input')
+        response = Mock(status_code=200, content=b'irrelevant input')
         client.get.return_value = response
         with tempfile.TemporaryDirectory() as directory, patch(
                 'europa_training.reconcile', return_value=(snapshot()['matches'], {})) as reconcile, patch(
                 'europa_training.audit_cornerflick', return_value=({'verified_for_research': True}, [])) as audit:
             payload = europa.refresh(directory, NOW, session=client)
             self.assertEqual(reconcile.call_args.kwargs['official_rows'], facts['2025']['matches'])
-            self.assertEqual(audit.call_args.kwargs['official_rows'], facts['2026']['matches'])
-            self.assertEqual(payload['official_source_health']['2026']['status'], 'HTTP_403_USING_REVIEWED_FACTS')
+            self.assertEqual(audit.call_args.kwargs, {})
+            self.assertFalse(any('uefa.com' in call.args[0] for call in client.get.call_args_list))
+            self.assertEqual(payload['official_source_health']['2025']['status'], 'REVIEWED_HISTORICAL_FACTS')
             self.assertFalse((Path(directory)/'europa/sources/uefa-2026.html').exists())
 
-    def test_pinned_uefa_facts_still_reject_new_uncovered_current_results(self):
+    def test_committed_current_sources_refresh_without_any_uefa_html(self):
+        import shutil
+        with tempfile.TemporaryDirectory() as directory:
+            sources = Path(directory)/'europa/sources'
+            shutil.copytree(europa.ROOT/'.football_cache/europa/sources', sources)
+            for html in sources.glob('uefa-*.html'):
+                html.unlink()
+            payload = europa.refresh(directory, datetime(2026, 10, 25, tzinfo=timezone.utc), download=False)
+            audit = payload['current_audit']
+            self.assertTrue(audit['verified_for_research'])
+            self.assertGreater(audit['league_phase_rows'], 36)
+            self.assertEqual(audit['league_phase_rows'], audit['fixture_download_completed_rows'])
+            self.assertEqual(audit['verification_sources'], ['Cornerflick', 'Fixture Download'])
+            self.assertFalse(any('uefa.com' in url for url in payload['sources'].values()))
+            self.assertTrue(all(row['source'] == 'Cornerflick + Fixture Download'
+                                for row in payload['matches'] if row['season'] == 2026))
+
+    def test_current_results_need_no_uefa_file_or_attestation(self):
         from scripts.europa_research import audit_cornerflick
         with tempfile.TemporaryDirectory() as directory:
             base = Path(directory)
@@ -156,9 +174,10 @@ class EuropaProductionTests(TestCase):
                 'meta': {'match_count': 1}, 'matches': [{'round': 'League Stage - 2',
                 'kickoff_at': '2026-10-01T19:00:00+00:00', 'status': 'finished',
                 'home_score': 1, 'away_score': 0, 'home_team': 'Roma', 'away_team': 'Lyon'}]}))
-            audit, rows = audit_cornerflick(base, europa.resolver(), NOW, official_rows=[])
-            self.assertFalse(audit['verified_for_research'])
-            self.assertEqual(len(audit['unverified_identities']), 1)
+            audit, rows = audit_cornerflick(base, europa.resolver(), NOW)
+            self.assertTrue(audit['verified_for_research'])
+            self.assertEqual(audit['verification_sources'], ['Cornerflick', 'Fixture Download'])
+            self.assertEqual(audit['unverified_identities'], [])
 
 
 class EuropaForecastAvailabilityTests(TestCase):
