@@ -5525,13 +5525,25 @@
     "calibration_penalty": "0.0",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 2.1,
+        "devig_method": "power_complete_1x2",
+        "fair_close_ev": -0.027988762404513423,
+        "fair_probability": 0.465077147174874,
+        "observation_sha256": "d62040a863805b210c1ae22e7c662f36546305f84544ead046016738a1085d09",
+        "observed_at_utc": "2026-10-25T17:59:57.100794+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 2.899206,
+        "selection": "away",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T17:59:38+00:00"
       }
     },
     "conservative_estimated_ev": "-0.09563010185604504",
@@ -5617,13 +5629,25 @@
     "calibration_penalty": "0.0",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.25,
+        "devig_method": "power_complete_binary",
+        "fair_close_ev": 0.014110647684156152,
+        "fair_probability": 0.7861322850264776,
+        "observation_sha256": "47cbe4377d49c731f0a6b8d30189d8beca8ff7b8fe86b976ce5dc017b400d563",
+        "observed_at_utc": "2026-10-25T17:59:56.861782+00:00",
+        "offered_price_clv": null,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 3.138218,
+        "selection": "over_1_5",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-25T17:59:38+00:00"
       }
     },
     "conservative_estimated_ev": "-0.022317375249750193",
