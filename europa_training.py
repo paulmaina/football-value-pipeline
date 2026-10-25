@@ -19,10 +19,6 @@ from scripts.europa_research import (audit_cornerflick, identity, reconcile,
                                     require_unique, team_resolver)
 
 ROOT = Path(__file__).resolve().parent
-UEFA = {
-    2025: 'https://www.uefa.com/uefaeuropaleague/news/029c-1e9ad67620f2-05c31d01f0f4-1000/',
-    2026: 'https://www.uefa.com/uefaeuropaleague/news/02a8-2174cafa5bb6-82bbc20c9b92-1000--2026-27-europa-league-all-the-league-phase-fixtures-and-re/',
-}
 
 
 def resolver():
@@ -38,41 +34,35 @@ def refresh(cache_dir, now=None, *, download=True, session=None):
             for y in range(2022, 2027)}
     urls.update({f'openfootball-{y}.txt': f'https://raw.githubusercontent.com/openfootball/champions-league/master/{y}-{str(y+1)[-2:]}/el.txt'
                  for y in (2022, 2023, 2024)})
-    urls.update({f'uefa-{y}.html': url for y, url in UEFA.items()})
     urls['cornerflick.json'] = 'https://cornerflick.com/football/leagues/europa-league/results/season.json'
-    official_overrides = {}
-    official_health = {}
     attestation_bytes = (ROOT/'docs/audits/europa-uefa-attestations.json').read_bytes()
     (sources/'uefa-reviewed-facts.json').write_bytes(attestation_bytes)
-    attestations = json.loads(attestation_bytes)
+    # Retain immutable historical period evidence; no live UEFA request or
+    # current-season UEFA corroboration is required.
+    attestation = json.loads(attestation_bytes)['seasons']['2025']
+    official_health = {'2025': {'status': 'REVIEWED_HISTORICAL_FACTS',
+        'recorded_at_utc': attestation['recorded_at_utc'],
+        'original_source_sha256': attestation['source_sha256']}}
     if download:
         client = session or requests.Session()
         # Completed seasons are immutable inputs; refresh the current season only.
         for name, url in urls.items():
             target = sources/name
-            if target.exists() and name not in ('fixture-2026.csv', 'uefa-2026.html', 'cornerflick.json'):
+            if target.exists() and name not in ('fixture-2026.csv', 'cornerflick.json'):
                 continue
             response = client.get(url, timeout=40)
-            if response.status_code == 403 and name.startswith('uefa-'):
-                year = int(name[5:9])
-                attestation = attestations['seasons'][str(year)]
-                official_overrides[year] = attestation['matches']
-                official_health[str(year)] = {'status': 'HTTP_403_USING_REVIEWED_FACTS',
-                    'recorded_at_utc': attestation['recorded_at_utc'],
-                    'original_source_sha256': attestation['source_sha256']}
-                continue
             response.raise_for_status()
             target.write_bytes(response.content)
     aliases = json.loads((ROOT/'docs/audits/europa-team-aliases.json').read_text(encoding='utf-8'))
     reviews = json.loads((ROOT/'docs/audits/europa-regulation-reviews.json').read_text(encoding='utf-8'))
-    history, evidence = reconcile(sources, aliases, reviews, official_rows=official_overrides.get(2025))
-    audit, current = audit_cornerflick(sources, team_resolver(aliases), now, official_rows=official_overrides.get(2026))
+    history, evidence = reconcile(sources, aliases, reviews, official_rows=attestation['matches'])
+    audit, current = audit_cornerflick(sources, team_resolver(aliases), now)
     if not audit['verified_for_research']:
         raise ValueError('Current Europa sources disagree or coverage is incomplete; prior snapshot retained; '+
                          json.dumps(audit, sort_keys=True))
     history += [{**r, 'regulation': r['reported'], 'season': 2026,
                  'duration': 'REGULAR', 'stage': 'League phase',
-                 'source': 'Cornerflick + Fixture Download + UEFA'} for r in current]
+                 'source': 'Cornerflick + Fixture Download'} for r in current]
     require_unique(history)
     history.sort(key=identity)
     payload = {'schema_version': 1, 'score_basis': 'REGULATION_90_MINUTES',
@@ -80,7 +70,7 @@ def refresh(cache_dir, now=None, *, download=True, session=None):
                'evidence': evidence, 'current_audit': audit,
                'sources': urls, 'official_source_health': official_health,
                'attribution': 'Data by Cornerflick — cornerflick.com; OpenFootball; Fixture Download; UEFA',
-               'source_sha256': {name: hashlib.sha256((sources/name).read_bytes()).hexdigest() for name in urls if (sources/name).exists()}}
+               'source_sha256': {name: hashlib.sha256((sources/name).read_bytes()).hexdigest() for name in (*urls, 'uefa-reviewed-facts.json') if (sources/name).exists()}}
     # Validate before publication, including future dates and duplicate identities.
     frame(payload, now)
     fd, temporary = tempfile.mkstemp(prefix='.snapshot-', dir=directory)
@@ -170,7 +160,7 @@ def fixtures(cache_dir, now, lookahead_days):
 
 
 def results(cache_dir, now):
-    """Return only triply corroborated current league-phase 90-minute results."""
+    """Return current league-phase 90-minute results corroborated by both sources."""
     payload = refresh(cache_dir, now)
     resolve = resolver()
     records = {identity(r): r for r in payload['matches'] if r['season'] == 2026}
@@ -187,7 +177,7 @@ def results(cache_dir, now):
                     'league_code': 'EL', 'kickoff_utc': stamp.isoformat(),
                     'home_team': row['home'], 'away_team': row['away'],
                     'home_goals': row['regulation'][0], 'away_goals': row['regulation'][1],
-                    'source': 'Cornerflick + Fixture Download + UEFA', 'source_status': 'FINISHED',
+                    'source': 'Cornerflick + Fixture Download', 'source_status': 'FINISHED',
                     'source_duration': 'REGULAR'})
     return out
 
