@@ -73,9 +73,8 @@ class EuropaResearchTests(unittest.TestCase):
         (root/'cornerflick.json').write_text(json.dumps(payload))
         (root/'fixture-2026.csv').write_text('Date,Home Team,Away Team,Result,Round Number\n'
                                           '15/10/2026 19:00,Club A,Club B,2 - 1,2\n')
-        (root/'uefa-2026.html').write_text('<a href="/uefaeuropaleague/match/123/">Club A 2-1 Club B</a>')
 
-    def test_cornerflick_requires_stage_and_both_corroborating_scores(self):
+    def test_cornerflick_requires_stage_and_matching_fixture_download_score(self):
         row = {'round': 'League Stage - 2', 'status': 'finished', 'kickoff_at': '2026-10-15T19:00:00Z',
                'home_team': 'Club A', 'away_team': 'Club B', 'home_score': 2, 'away_score': 1}
         now = datetime(2026, 10, 22, tzinfo=timezone.utc)
@@ -94,6 +93,24 @@ class EuropaResearchTests(unittest.TestCase):
             self.corner_source(p, {**row, 'kickoff_at': '2026-10-23T19:00:00Z'})
             with self.assertRaises(ValueError):
                 r.audit_cornerflick(p, r.key, now)
+
+    def test_two_source_audit_still_rejects_missing_matches_in_either_feed(self):
+        row = {'round': 'League Stage - 2', 'status': 'finished', 'kickoff_at': '2026-10-15T19:00:00Z',
+               'home_team': 'Club A', 'away_team': 'Club B', 'home_score': 2, 'away_score': 1}
+        now = datetime(2026, 10, 22, tzinfo=timezone.utc)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.corner_source(root, row)
+            path = root/'fixture-2026.csv'
+            original = path.read_text()
+            path.write_text(original.splitlines()[0] + '\n')
+            report, _ = r.audit_cornerflick(root, r.key, now)
+            self.assertFalse(report['verified_for_research'])
+            self.assertEqual(len(report['unverified_identities']), 1)
+            path.write_text(original + '16/10/2026 19:00,Club C,Club D,1 - 0,2\n')
+            report, _ = r.audit_cornerflick(root, r.key, now)
+            self.assertFalse(report['verified_for_research'])
+            self.assertEqual(report['missing_against_fixture_download'], 1)
 
     def test_audit_labels_do_not_change_development_penalty_and_no_enable(self):
         dev = [{'p': .9, 'y': 1, 'baseline': .7}] * 40
