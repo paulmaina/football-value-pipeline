@@ -12,26 +12,33 @@ new data and collection checkpoints to local machines.
   time. API keys and request headers are never written.
 - `state/observations/<kind>/<UTC timestamp>_<hash>.json`: immutable normalized
   observations for matches, statistics, standings, teams, players and coverage.
-- `combined/current/<league>_enriched_history.csv`: normalized combined
-  results/statistics, provider match/team IDs, observation times, source update
-  times where supplied, integration status and conflict flags.
+- `combined/generations/<content hash>/<league>_enriched_history.csv`: normalized
+  combined results/statistics, provider match/team IDs, observation times, source
+  update times where supplied, integration status and conflict flags.
 - The same generation includes `fixtures.json`, `standings.json`, `teams.json`,
   `players.json`, `team_mappings.json`, `report.json` and `manifest.json`.
-- `combined/latest.json`: atomic pointer to the current generation, including CSV
+- `combined/latest.json`: atomic pointer to the one kept generation, including CSV
   checksums and cutoff.
 - `combined/snapshots/<UTC timestamp>_<hash>/`: legacy timestamped generations
   published before 2026-10-24. Kept read-only for replay; no new ones are written.
 - `team_map.json`: optional reviewed provider-ID to canonical-team mappings.
 
 Immutable timestamped observations preserve corrections rather than rewriting
-what was previously received. The combined view is derived from them, so each
-publish replaces the single `current` generation instead of committing another
-full copy (32 copies, about 294 MB, had accumulated). A forecast cutoff at or after
-the current generation reads it directly. A cutoff before the last legacy snapshot
-reads legacy snapshots exactly as before. Any other earlier cutoff is rebuilt from
-the observations and the primary caches; a rebuild at the last legacy cutoff is
-byte-identical to that snapshot. A rebuild reads every observation and is slow
-(about 1.5 hours on a Windows workstation); scheduled forecasts never need one.
+what was previously received. The combined view is derived from them, so only one
+generation is kept instead of committing another full copy each run (32 copies,
+about 294 MB, had accumulated). A publish stages the complete new generation in a
+temporary directory, renames it into place, switches `latest.json` atomically and
+only then removes older generations. Until the switch, readers keep the previous
+complete generation; an interrupted publish leaves an unused staged copy that the
+next publish removes. A reader that loses a race with that removal re-reads
+`latest.json` once.
+
+A forecast cutoff at or after the kept generation reads it directly. A cutoff
+before the last legacy snapshot reads legacy snapshots exactly as before. Any other
+earlier cutoff is rebuilt from the observations and the primary caches; a rebuild
+at the last legacy cutoff is byte-identical to that snapshot. A rebuild reads every
+observation and is slow (about 1.5 hours on a Windows workstation); scheduled
+forecasts never need one.
 The CSV/JSON boundary can later be imported into a dedicated database.
 
 ## Local usage
