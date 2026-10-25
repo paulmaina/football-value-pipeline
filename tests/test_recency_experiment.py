@@ -286,7 +286,7 @@ class RecencyTests(OfflineQuotePolicyTestCase):
         for matrix in (np.array([1]),np.array([[.5]]),np.array([[float('nan')]]),np.array([[-1,2]])):
             with self.assertRaises(ValueError):goal_probabilities(matrix)
 
-    def test_cli_requires_tuning_and_preserves_prediction_and_shortlist_bytes(self):
+    def test_cli_diagnostic_tuning_preserves_prediction_and_shortlist_bytes(self):
         from football_value_pipeline_v2_standalone import main
         from conservative_bet_filter import build_conservative_shortlist
         from functools import partial
@@ -296,7 +296,7 @@ class RecencyTests(OfflineQuotePolicyTestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
             # Never stage in (or lock) the real football_output_v2/raw directory.
-            with self.assertRaises(SystemExit):main(['--recency-experiment','--out-dir',str(root/'rejected')])
+            with self.assertRaises(SystemExit):main(['--recency-experiment','--backtest','--out-dir',str(root/'rejected')])
             with patch('conservative_bet_filter.build_conservative_shortlist',side_effect=partial(build_conservative_shortlist,as_of=T0)),patch(
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league',new=run),patch(
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2._history_for_league',return_value=history()),patch(
@@ -304,7 +304,8 @@ class RecencyTests(OfflineQuotePolicyTestCase):
                 'dc_decay_validation.tune_half_life',side_effect=lambda *args,**kwargs:tuning()),patch(
                 'football_value_pipeline_v2_standalone.DixonColesModel',ToyModel):
                 for enabled in (False,True):
-                    args=['--leagues','EPL','--tune-half-life','--goal-blend-experiment','--out-dir',str(root/str(enabled))]
+                    # Production shape: fixed half-life; recency tuning is diagnostic only.
+                    args=['--leagues','EPL','--goal-blend-experiment','--out-dir',str(root/str(enabled))]
                     if enabled:args.append('--recency-experiment')
                     self.assertEqual(main(args),0)
             for name in ('all_leagues_predictions.csv','EPL_predictions.csv','conservative_bet_shortlist.csv','conservative_bet_rejections.csv'):
@@ -314,6 +315,9 @@ class RecencyTests(OfflineQuotePolicyTestCase):
             self.assertNotIn('recency_experiment',old)
             self.assertEqual(new['recency_experiment']['version'],VERSION)
             self.assertTrue(new['recency_experiment']['rows'][0]['variants'])
+            tuned=json.loads((root/'True/EPL_decay_tuning.json').read_text())
+            self.assertFalse(tuned['applied_to_production'])
+            self.assertFalse((root/'False/EPL_decay_tuning.json').exists())
 
 
 if __name__=='__main__':unittest.main()

@@ -18,10 +18,23 @@ import league_registry
 from scipy.optimize import brentq
 from scipy.stats import poisson
 
-VERSION = 'historical-dc-benchmark-v1'
+VERSION = 'historical-dc-benchmark-v2'
+SUPPORTED_VERSIONS = ('historical-dc-benchmark-v1', VERSION)
 CODES = league_registry.divisions()
 GOALS = ('over_1_5','under_3_5','btts_yes','over_2_5')
 BASE = 'blend_50_fixed_baseline'
+# v2 model-upgrade comparison: production v1 replay, each change alone, full v2.
+UPGRADE_BASE = 'production_v1'
+UPGRADE_VARIANTS = (UPGRADE_BASE,'upgrade_market_weight_70','upgrade_half_life_480',
+    'upgrade_pinnacle_ou25_anchor','upgrade_gated_shot_features','production_v2')
+AH_LINES = (-2.5,-1.5,-1.0,0.0,1.0,1.5,2.5)
+
+
+def ah_key(point):
+    return f'ah_home_{point:+.1f}'
+
+
+AH = tuple(ah_key(p) for p in AH_LINES)
 
 
 def digest(path):
@@ -34,7 +47,7 @@ def write_json(path, data):
 
 
 def validate_config(cfg):
-    if cfg.get('version')!=VERSION or not cfg.get('leagues') or any(l not in CODES for l in cfg['leagues']):
+    if cfg.get('version') not in SUPPORTED_VERSIONS or not cfg.get('leagues') or any(l not in CODES for l in cfg['leagues']):
         raise ValueError('Invalid benchmark version/leagues')
     if cfg.get('input_manifest') and (Path(cfg['input_manifest']).name!=cfg['input_manifest'] or not re.fullmatch(r'[a-f0-9]{40}',cfg.get('dataset_source_commit',''))):
         raise ValueError('Invalid pinned dataset configuration')
@@ -57,6 +70,17 @@ def validate_config(cfg):
             raise ValueError('Invalid research grid '+key)
     if any(v>=1 for v in cfg['market_weights']) or cfg['devig_method'] not in ('power','proportional'):
         raise ValueError('Invalid probability weight/de-vig method')
+    upgrade=cfg.get('model_upgrade_comparison')
+    if upgrade is not None:
+        if cfg['version']!=VERSION or not isinstance(upgrade,dict):raise ValueError('Upgrade comparison requires the v2 benchmark')
+        for name in ('production_v1','production_v2'):
+            weight=upgrade.get(name,{}).get('market_weight')
+            if isinstance(weight,bool) or not isinstance(weight,(int,float)) or not 0<weight<1:raise ValueError('Invalid upgrade market weight')
+        half=upgrade['production_v2'].get('half_life_days')
+        if isinstance(half,bool) or not isinstance(half,(int,float)) or not math.isfinite(half) or half<=0:raise ValueError('Invalid upgrade half-life')
+        tuning=upgrade['production_v1'].get('half_life_tuning')
+        if not isinstance(tuning,dict) or not tuning.get('candidates') or any(not v>0 for v in tuning['candidates']):
+            raise ValueError('Invalid production half-life tuning replay')
     return cfg
 
 
@@ -125,6 +149,15 @@ def goals(matrix):
             'btts_yes':float(matrix[1:,1:].sum()),'over_2_5':float(matrix[h+a>=3].sum())}
 
 
+def handicaps(matrix):
+    """Home Asian handicap win probability; integer lines exclude the refund."""
+    h,a=np.indices(matrix.shape);margin=h-a;out={}
+    for point in AH_LINES:
+        win=float(matrix[margin+point>0].sum());loss=float(matrix[margin+point<0].sum())
+        out[ah_key(point)]=win/(win+loss) if win+loss>0 else None
+    return out
+
+
 def anchor_totals(lam,mu,rho,target_hda,target_over,max_goals,*,tail_bounded=False):
     """Scale fitted intensities; retain fitted rho and exact HDA target after reweighting.
 
@@ -160,6 +193,43 @@ def fitting_grid(cfg):
         **{f'half_life_{v:g}':(v,baseline[1]) for v in cfg['half_life_candidates']}}
 
 
+def upgrade_spec(cfg):
+    """variant -> (fitted model key, 1X2 market weight, Pinnacle O/U 2.5 anchor)."""
+    upgrade=cfg.get('model_upgrade_comparison')
+    if not upgrade:return {}
+    old,new=upgrade['production_v1']['market_weight'],upgrade['production_v2']['market_weight']
+    return {UPGRADE_BASE:('tuned',old,False),'upgrade_market_weight_70':('tuned',new,False),
+        'upgrade_half_life_480':('fixed',old,False),'upgrade_pinnacle_ou25_anchor':('tuned',old,True),
+        'upgrade_gated_shot_features':('tuned_shots',old,False),'production_v2':('fixed_shots',new,True)}
+
+
+def fit_upgrade_models(train,origin,cfg,model_class,fold,errors):
+    """Replay per-fold production tuning (v1) and fixed 480 days (v2), with/without shots."""
+    upgrade=cfg.get('model_upgrade_comparison')
+    if not upgrade:return {}
+    from dc_decay_validation import tune_half_life
+    t=upgrade['production_v1']['half_life_tuning']
+    try:
+        tuned=float(tune_half_life(history=train,model_class=model_class,candidates=t['candidates'],l2=cfg['baseline_l2'],
+            max_goals=cfg['max_goals'],validation_days=t['validation_days'],step_days=t['step_days'],min_train=t['min_train'],
+            min_validation_matches=t['min_validation_matches'])['selected_half_life_days'])
+    except (ValueError,RuntimeError) as exc:
+        errors.append({**fold,'setting':'production_v1_half_life_tuning','error':type(exc).__name__});return {}
+    fold['production_v1_tuned_half_life_days']=tuned
+    fixed=float(upgrade['production_v2']['half_life_days']);models={}
+    for key,(half,shots) in {'tuned':(tuned,False),'tuned_shots':(tuned,True),'fixed':(fixed,False),'fixed_shots':(fixed,True)}.items():
+        try:
+            models[key]=model_class(half_life_days=half,l2=cfg['baseline_l2'],max_goals=cfg['max_goals'],
+                **({'shot_features':True} if shots else {})).fit(train,as_of=origin)
+        except (ValueError,RuntimeError) as exc:
+            errors.append({**fold,'setting':'upgrade_'+key,'error':type(exc).__name__});continue
+        if shots:
+            report=getattr(models[key],'shot_features_report',{})
+            fold['shot_gate_'+key]={k:report.get(k) for k in ('status','failed_gates','selected_weight','selected_component',
+                'selected_shrinkage','audit_gain','audit_gain_lower95','audit_matches','tuning_matches')}
+    return models
+
+
 def evaluate_league(data, league, cfg, model_class=None):
     from football_value_pipeline_v2_standalone import DixonColesModel,reweight_matrix_to_1x2
     model_class=model_class or DixonColesModel
@@ -183,6 +253,7 @@ def evaluate_league(data, league, cfg, model_class=None):
                 errors.append({**fold,'setting':name,'error':type(exc).__name__})
         if 'baseline' not in models:
             coverage['baseline_fit_failure_matches']+=len(test);folds.append(fold);continue
+        upgrade_models=fit_upgrade_models(train,origin,cfg,model_class,fold,errors)
         folds.append(fold)
         for _,row in test.iterrows():
             coverage['evaluated_fixtures']+=1
@@ -234,6 +305,29 @@ def evaluate_league(data, league, cfg, model_class=None):
                     except ValueError:
                         coverage[name+'_solver_failures']+=1
             if closing is not None:append('pinnacle_closing_only',p=closing,timing='closing_reference_evaluation_only')
+            for name,(key,weight,anchor) in upgrade_spec(cfg).items():
+                model=upgrade_models.get(key)
+                if model is None or row.HomeTeam not in model.teams or row.AwayTeam not in model.teams:
+                    coverage[name+'_unfitted_or_unknown_team']+=1;continue
+                m,info=model.score_matrix(row.HomeTeam,row.AwayTeam)
+                if opening is not None:
+                    # Production blend; no Pinnacle 1X2 means no blend, as live.
+                    p=DixonColesModel.one_x_two(m);p=np.array([p[k] for k in ('home','draw','away')])
+                    m=reweight_matrix_to_1x2(m,(1-weight)*p+weight*opening)
+                status,scale='NOT_APPLICABLE',None
+                if anchor:
+                    status='NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE'
+                    if ou_open is not None:
+                        hda=DixonColesModel.one_x_two(m)
+                        try:
+                            m,scale=anchor_totals(info['lambda_home'],info['lambda_away'],model.rho,[hda[k] for k in ('home','draw','away')],
+                                float(ou_open[0]),cfg['max_goals'],tail_bounded=bool(info.get('score_engine_version')))
+                            status='ANCHORED'
+                        except ValueError:status='NOT_ANCHORED_SOLVER_FAILED'
+                    coverage[name+'_'+status.lower()]+=1
+                append(name,m,timing='nominal_opening_untimestamped' if opening is not None or scale is not None else 'model_only',scale=scale)
+                records[-1].update(handicaps(m),anchor_status=status,blend_applied=opening is not None,
+                    shot_features_applied=bool(info.get('shot_features_applied')),half_life_days=float(model.half_life_days))
     return records,folds,dict(coverage),errors
 
 
@@ -245,6 +339,11 @@ def score(row, market):
     p=row.get(market)
     if p is None:return None
     h,a=row['home_goals'],row['away_goals']
+    if market in AH:
+        margin=h-a+AH_LINES[AH.index(market)]
+        if margin==0:return None  # refunded stake: no binary outcome
+        y=int(margin>0)
+        return {'log_loss':-math.log(max(1e-12,p if y else 1-p)),'brier':(p-y)**2,'probability':p,'outcome':y}
     y=int({'over_1_5':h+a>=2,'under_3_5':h+a<=3,'btts_yes':h>0 and a>0,'over_2_5':h+a>=3}[market])
     return {'log_loss':-math.log(max(1e-12,p if y else 1-p)),'brier':(p-y)**2,'probability':p,'outcome':y}
 
@@ -323,7 +422,52 @@ def aggregate(records,cfg):
                     'common_audit_n':audit[control]['n'],'selected_on_development':chosen,
                     'development_metrics':dev,'audit_metrics':audit,
                     'assessment':'INSUFFICIENT_COVERAGE' if chosen is None or audit[control]['n']<cfg['min_audit_matches'] else 'RETROSPECTIVE_DIAGNOSTIC_ONLY'})
-    return {'comparisons':comparisons,'development_choices':choices}
+    output={'comparisons':comparisons,'development_choices':choices}
+    if cfg.get('model_upgrade_comparison'):output['model_upgrade_comparison']=aggregate_upgrades(records,cfg)
+    return output
+
+
+def aggregate_upgrades(records,cfg):
+    """Each change alone and full v2 against the production v1 replay, on one cohort."""
+    markets=('1x2',*GOALS,*AH);scored={}
+    for r in records:
+        if r['variant'] in UPGRADE_VARIANTS:
+            for market in markets:
+                value=score(r,market)
+                if value is not None:scored.setdefault((r['league'],r['phase'],r['variant'],market),{})[r['fixture_key']]=value
+    rows=[]
+    for league in ('ALL',*cfg['leagues']):
+        for phase in ('development','audit'):
+            for market in markets:
+                groups={v:{} for v in UPGRADE_VARIANTS}
+                for (l,ph,v,mk),values in scored.items():
+                    if ph==phase and mk==market and (league=='ALL' or l==league):groups[v].update(values)
+                common=sorted(set.intersection(*(set(g) for g in groups.values())))
+                for variant in UPGRADE_VARIANTS:
+                    row={'league':league,'phase':phase,'market':market,'variant':variant,'n':len(common)}
+                    for metric in ('log_loss','brier'):
+                        values=[groups[variant][k][metric] for k in common]
+                        gains=[groups[UPGRADE_BASE][k][metric]-groups[variant][k][metric] for k in common]
+                        mean=float(np.mean(gains)) if gains else None
+                        se=float(np.std(gains,ddof=1)/math.sqrt(len(gains))) if len(gains)>1 else None
+                        row[metric]=float(np.mean(values)) if values else None
+                        row[metric+'_gain_vs_production_v1']=mean
+                        row[metric+'_gain_approx95']=[mean-1.96*se,mean+1.96*se] if se is not None else None
+                    rows.append(row)
+    anchors={};shifts={}
+    by_key={(r['fixture_key'],r['variant']):r for r in records if r['variant'] in (UPGRADE_BASE,'upgrade_pinnacle_ou25_anchor')}
+    for league in ('ALL',*cfg['leagues']):
+        subset=[r for r in records if r['variant']=='upgrade_pinnacle_ou25_anchor' and (league=='ALL' or r['league']==league)]
+        anchors[league]=dict(sorted(Counter(r['anchor_status'] for r in subset).items()))
+        pairs=[(r,by_key.get((r['fixture_key'],UPGRADE_BASE))) for r in subset if r['anchor_status']=='ANCHORED']
+        pairs=[(a,b) for a,b in pairs if b is not None]
+        shifts[league]={'anchored_fixtures':len(pairs),**{key:{
+            'mean_abs_change':float(np.mean([abs(a[key]-b[key]) for a,b in pairs if a.get(key) is not None and b.get(key) is not None])) if pairs else None,
+            'mean_change':float(np.mean([a[key]-b[key] for a,b in pairs if a.get(key) is not None and b.get(key) is not None])) if pairs else None}
+            for key in (*AH,'over_2_5')}}
+    return {'baseline':UPGRADE_BASE,'variants':list(UPGRADE_VARIANTS),'markets':list(markets),'paired':rows,
+        'anchor_status_counts':anchors,'anchor_probability_shift_vs_production_v1':shifts,
+        'note':'Positive gain = lower error than the production v1 replay on identical fixtures. Asian handicap = home side; integer lines exclude refunded outcomes.'}
 
 
 def validate_records(records,folds,cfg):
@@ -339,7 +483,7 @@ def validate_records(records,folds,cfg):
         if row['phase']!=('development' if date<pd.Timestamp(cfg['audit_start']) else 'audit'):raise ValueError('Phase contamination')
         p=[row[k] for k in ('p_home','p_draw','p_away')]
         if any(not math.isfinite(v) or not 0<=v<=1 for v in p) or abs(sum(p)-1)>1e-8:raise ValueError('Invalid 1X2 probabilities')
-        if any(row[k] is not None and (not math.isfinite(row[k]) or not 0<=row[k]<=1) for k in GOALS):raise ValueError('Invalid goal probabilities')
+        if any(row.get(k) is not None and (not math.isfinite(row[k]) or not 0<=row[k]<=1) for k in (*GOALS,*AH)):raise ValueError('Invalid goal probabilities')
         if 'closing' in row['variant'] and not row['timing'].startswith('closing_'):raise ValueError('Unlabelled closing input')
         if row['y']!=(0 if row['home_goals']>row['away_goals'] else 1 if row['home_goals']==row['away_goals'] else 2):raise ValueError('Invalid outcome')
     return True
@@ -367,6 +511,12 @@ def write_report(output,summary,records,folds):
     lines+=['','Development-selected candidates','', '| Family | Market | Selected | Development N | Audit N | Status |','|---|---|---|---:|---:|---|']
     for c in summary['development_choices']:
         if c['league']=='ALL':lines.append(f"| {c['family']} | {c['market']} | {c['selected_on_development'] or 'none'} | {c['common_development_n']} | {c['common_audit_n']} | {c['assessment']} |")
+    upgrade=summary.get('model_upgrade_comparison')
+    if upgrade:
+        lines+=['','Model upgrades versus the production v1 replay (all leagues; per-league rows are in summary.json)','',
+            '| Phase | Market | Variant | Paired N | Log loss | Brier | Log-loss gain | Brier gain |','|---|---|---|---:|---:|---:|---:|---:|']
+        for r in upgrade['paired']:
+            if r['league']=='ALL':lines.append(f"| {r['phase']} | {r['market']} | {r['variant']} | {r['n']} | {fmt(r['log_loss'])} | {fmt(r['brier'])} | {fmt(r['log_loss_gain_vs_production_v1'])} | {fmt(r['brier_gain_vs_production_v1'])} |")
     lines+=['','Closing-reference comparisons, RPS, calibration buckets, per-league results and development/audit metrics are in summary.json. Predictions and fold training hashes are retained in the workflow artifact. No setting is promoted automatically.','']
     (output/'report.md').write_text('\n'.join(lines),encoding='utf-8')
     manifest={'version':VERSION,'sha256':{name:digest(output/name) for name in ('summary.json','predictions.csv','folds.json','report.md')}}
@@ -375,14 +525,15 @@ def write_report(output,summary,records,folds):
 
 def validate_report(output):
     manifest=json.loads((output/'manifest.json').read_text(encoding='utf-8'))
-    if manifest.get('version')!=VERSION or set(manifest.get('sha256',{}))!={'summary.json','predictions.csv','folds.json','report.md'}:
+    if manifest.get('version') not in SUPPORTED_VERSIONS or set(manifest.get('sha256',{}))!={'summary.json','predictions.csv','folds.json','report.md'}:
         raise ValueError('Incomplete benchmark artifact manifest')
     for name,value in manifest['sha256'].items():
         if name not in ('summary.json','predictions.csv','folds.json','report.md') or digest(output/name)!=value:raise ValueError('Benchmark artifact integrity failure')
     summary=json.loads((output/'summary.json').read_text(encoding='utf-8'))
     records=pd.read_csv(output/'predictions.csv',keep_default_na=False).to_dict('records')
     for row in records:
-        for key in (*GOALS,'totals_scale'):row[key]=float(row[key]) if row[key]!='' else None
+        for key in (*GOALS,*AH,'totals_scale'):
+            if key in row:row[key]=float(row[key]) if row[key]!='' else None
     folds=json.loads((output/'folds.json').read_text(encoding='utf-8'))
     validate_config(summary['config']);validate_records(records,folds,summary['config'])
     expected=aggregate(records,summary['config'])
@@ -441,10 +592,19 @@ def run(cache,output,cfg,source_commit='unrecorded',model_class=None,input_manif
         'input_binding':'PINNED_SHA256' if input_manifest is not None else 'UNPINNED_DIAGNOSTIC',
         'source_files':sources,'coverage':coverage,'excluded_rows':exclusions,'fit_errors':errors,
         'evaluated_fixtures':len({r['fixture_key'] for r in records}),
-        'code_sha256':{p.name:digest(p) for p in (Path(__file__),Path(__file__).with_name('football_value_pipeline_v2_standalone.py'),Path(__file__).with_name('score_probability.py'))},
+        'code_sha256':{p.name:digest(p) for p in (Path(__file__),*(Path(__file__).with_name(n) for n in ('football_value_pipeline_v2_standalone.py','score_probability.py','shot_features.py','dc_decay_validation.py')))},
         'runtime':{'python':platform.python_version(),'numpy':np.__version__,'pandas':pd.__version__},
         'limitations':'Retrospective diagnostics only. Historical periods were already examined by Claude and are not untouched evidence. Nominal opening odds lack exact availability timestamps; no historical betting edge/ROI/CLV claim is made. Closing inputs are explicitly oracle/evaluation-only. Baseline fixes half-life at 240 days rather than replaying production tuning. Fitted rho is retained for totals scaling. No bookmaker fallback, new data download or automatic production change.',
         **aggregate(records,cfg)}
+    if cfg.get('model_upgrade_comparison'):
+        gates={}
+        for f in folds:
+            for key in ('shot_gate_tuned_shots','shot_gate_fixed_shots'):
+                if key in f:
+                    g=gates.setdefault(f['league'],{}).setdefault(key,{'folds':0,'status':Counter(),'failed_gates':Counter()})
+                    g['folds']+=1;g['status'][f[key]['status']]+=1;g['failed_gates'].update(f[key].get('failed_gates') or [])
+        summary['shot_feature_gate_by_league']={l:{k:{'folds':v['folds'],'status':dict(v['status']),'failed_gates':dict(v['failed_gates'])} for k,v in g.items()} for l,g in gates.items()}
+        summary['tuned_half_life_by_fold']={f"{f['league']}|{f['origin']}":f.get('production_v1_tuned_half_life_days') for f in folds}
     summary['pinnacle_comparison_status']='TARGET_COVERAGE_MET' if sum(r['variant']=='pinnacle_closing_only' for r in records)>=cfg['min_pinnacle_comparison_matches'] else 'BELOW_1000_MATCH_TARGET'
     write_report(output,summary,records,folds);validate_report(output)
     return summary

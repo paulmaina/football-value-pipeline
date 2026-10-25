@@ -56,6 +56,7 @@ pipeline_service.py; see docs/architecture.md.
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import io
 import json
 import math
@@ -96,6 +97,35 @@ FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
 PIPELINE_VERSION = "2.9.1"
+
+# Forecast model profiles. Rows without model_version were produced under the
+# legacy profile; it stays importable so archived forecasts replay unchanged.
+LEGACY_MODEL_VERSION = "dc-blend50-tuned-half-life-v1"
+MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2"
+CUSTOM_MODEL_VERSION = MODEL_VERSION + "+custom-settings"
+MODEL_PROFILES = {
+    LEGACY_MODEL_VERSION: {"market_weight": 0.50, "half_life_days": None,
+                           "half_life_tuning": True, "totals_anchor": False,
+                           "shot_features": False},
+    MODEL_VERSION: {"market_weight": 0.70, "half_life_days": 480.0,
+                    "half_life_tuning": False, "totals_anchor": True,
+                    "shot_features": True},
+}
+DEFAULT_MARKET_WEIGHT = MODEL_PROFILES[MODEL_VERSION]["market_weight"]
+DEFAULT_HALF_LIFE_DAYS = MODEL_PROFILES[MODEL_VERSION]["half_life_days"]
+
+
+def model_version_for(*, market_weight, half_life_days, half_life_tuning,
+                      totals_anchor, shot_features) -> str:
+    """Tag forecasts with the profile they actually ran; never relabel a custom run."""
+    settings = {"market_weight": float(market_weight),
+                "half_life_days": None if half_life_tuning else float(half_life_days),
+                "half_life_tuning": bool(half_life_tuning),
+                "totals_anchor": bool(totals_anchor), "shot_features": bool(shot_features)}
+    for name, profile in MODEL_PROFILES.items():
+        if settings == profile:
+            return name
+    return CUSTOM_MODEL_VERSION
 
 
 # ---------------------------------------------------------------------------
@@ -843,6 +873,7 @@ class TheOddsAPI:
         """
         from quote_freshness import quote_clock, quote_is_fresh, quote_utc
         from asian_handicap import parse_quotes as parse_handicap_quotes
+        from bet365_pinnacle import compare_event as compare_bet365
         clock = quote_clock(as_of) if as_of is not None else None
         event_id = str(event.get("id") or "")
         home = str(event.get("home_team") or "")
@@ -1023,6 +1054,9 @@ class TheOddsAPI:
             "shadow_pinnacle_totals": pinnacle_totals,
             "_main_over_1_5_offers": main_over15,
             "asian_handicap_offers": json.dumps(parse_handicap_quotes(event, clock), sort_keys=True),
+            # Same response, same capture instant; no extra request (live only).
+            "bet365_pinnacle_quotes": "[]" if clock is None else json.dumps(
+                compare_bet365(event, clock), sort_keys=True, allow_nan=False),
         }
 
     def odds(
@@ -1173,6 +1207,10 @@ class TheOddsAPI:
             result['_asian_handicap_identity'] = {k:payload.get(k) for k in ('home_team','away_team','commence_time')}
         for market, available in offers.items():
             result.update(self._goal_quote_fields(market, available, as_of=clock))
+        from bet365_pinnacle import compare_event as compare_bet365
+        bet365 = compare_bet365(payload, clock)
+        if bet365:
+            result['_bet365_pinnacle_extra'] = bet365
         return result
 
 
@@ -1538,6 +1576,7 @@ class DixonColesModel:
         l2: float = 0.08,
         max_goals: int = 10,
         bbs_statistics: bool = True,
+        shot_features: bool = False,
     ):
         if not math.isfinite(half_life_days) or half_life_days <= 0:
             raise ValueError("half_life_days must be > 0")
@@ -1552,6 +1591,9 @@ class DixonColesModel:
         self.bbs_statistics_enabled = bool(bbs_statistics)
         self.statistics_model = None
         self.bbs_statistics_report = {'status': 'NOT_FITTED'}
+        self.shot_features_enabled = bool(shot_features)
+        self.shot_model = None
+        self.shot_features_report = {'status': 'DISABLED' if not shot_features else 'NOT_FITTED'}
 
         self.teams: List[str] = []
         self.team_to_idx: Dict[str, int] = {}
@@ -1735,6 +1777,22 @@ class DixonColesModel:
         self.training_end = latest
         self.training_as_of = reference
         self.statistics_model = None
+        self.shot_model = None
+        if self.shot_features_enabled:
+            if as_of is None:
+                self.shot_features_report = {'status': 'NO_PREDICTION_CUTOFF'}
+            else:
+                from shot_features import fit_shot_model
+                def shot_baseline(past, origin):
+                    return DixonColesModel(half_life_days=self.half_life_days, l2=self.l2,
+                        max_goals=self.max_goals, bbs_statistics=False).fit(past, as_of=origin)
+                try:
+                    self.shot_model = fit_shot_model(df, reference, shot_baseline, self.half_life_days)
+                    self.shot_features_report = self.shot_model.report
+                except (ValueError, RuntimeError, KeyError, TypeError) as exc:
+                    self.shot_features_report = {'status': 'BASELINE_RETAINED_FEATURE_ERROR',
+                                                 'error_type': type(exc).__name__}
+                    warnings.warn('Shot feature fit unavailable; retained Dixon-Coles ('+type(exc).__name__+')')
         enabled = self.bbs_statistics_enabled and df.attrs.get('bbs_statistics_enabled', True)
         self.bbs_statistics_report = {'status': 'DISABLED' if not enabled else
                                       'NO_OBSERVATIONS' if as_of is not None else 'NO_PREDICTION_CUTOFF'}
@@ -1867,6 +1925,18 @@ class DixonColesModel:
         }
         meta.update(dc_lambda_home=lam, dc_lambda_away=mu, bbs_statistics_applied=False,
                     bbs_statistics_status=self.bbs_statistics_report['status'])
+        if self.shot_features_enabled:
+            meta.update(shot_features_applied=False,
+                        shot_features_status=self.shot_features_report.get('status'))
+        if self.shot_model is not None:
+            if home is None or away is None:
+                meta['shot_features_status'] = 'UNKNOWN_TEAM_BASELINE_RETAINED'
+            else:
+                rates, info = self.shot_model.apply(home, away, [lam, mu])
+                meta.update(info)
+                lam, mu = float(rates[0]), float(rates[1])
+                meta.update(lambda_home=lam, lambda_away=mu)
+        # BBS still applies on top and keeps its own unchanged gate/baseline.
         if self.statistics_model is not None:
             if home is None or away is None:
                 meta['bbs_statistics_status'] = 'UNKNOWN_TEAM_BASELINE_RETAINED'
@@ -1888,13 +1958,17 @@ class DixonColesModel:
         try:
             matrix, grid_info = score_grid(lam, mu, self.rho, self.max_goals)
         except ValueError as exc:
-            if not meta.get('bbs_statistics_applied'):
+            if not (meta.get('bbs_statistics_applied') or meta.get('shot_features_applied')):
                 raise RuntimeError(str(exc)) from exc
             # A rate adjustment must never invalidate the existing DC grid.
             matrix, grid_info = score_grid(meta['dc_lambda_home'], meta['dc_lambda_away'], self.rho, self.max_goals)
-            meta.update(lambda_home=meta['dc_lambda_home'], lambda_away=meta['dc_lambda_away'],
-                bbs_statistics_applied=False, bbs_statistics_weight=0.,
-                bbs_statistics_status='UNSAFE_ADJUSTMENT_BASELINE_RETAINED')
+            meta.update(lambda_home=meta['dc_lambda_home'], lambda_away=meta['dc_lambda_away'])
+            if meta.get('bbs_statistics_applied'):
+                meta.update(bbs_statistics_applied=False, bbs_statistics_weight=0.,
+                    bbs_statistics_status='UNSAFE_ADJUSTMENT_BASELINE_RETAINED')
+            if meta.get('shot_features_applied'):
+                meta.update(shot_features_applied=False, shot_features_weight=0.,
+                    shot_features_status='UNSAFE_ADJUSTMENT_BASELINE_RETAINED')
         meta.update(grid_info)
         return matrix, meta
 
@@ -2198,6 +2272,34 @@ def reweight_matrix_to_1x2(
     return out
 
 
+def pinnacle_ou25_reference(row, as_of) -> Tuple[Optional[Dict[str, object]], str]:
+    """Pinnacle O/U 2.5 pair for the totals anchor, or the reason none applies.
+
+    Live rows need a fresh, same-event Pinnacle quote; there is no fallback to
+    another bookmaker. Historical rows (no live odds) use Pinnacle's nominal
+    opening CSV columns, as the historical benchmark does.
+    """
+    from quote_freshness import quote_is_fresh
+    if row.get("odds_source") == "The Odds API":
+        ref = row.get("shadow_pinnacle_totals")
+        if not isinstance(ref, dict) or ref.get("bookmaker") != "pinnacle":
+            return None, "NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE"
+        if row.get("odds_event_id") and str(ref.get("event_id")) != str(row.get("odds_event_id")):
+            return None, "NOT_ANCHORED_PINNACLE_EVENT_MISMATCH"
+        if not quote_is_fresh(ref.get("updated_at_utc"), as_of):
+            return None, "NOT_ANCHORED_PINNACLE_OU25_STALE"
+        over, under = _valid_price(ref.get("over")), _valid_price(ref.get("under"))
+        source, updated = "live_pinnacle", ref.get("updated_at_utc")
+    else:
+        over, under = _valid_price(row.get("P>2.5")), _valid_price(row.get("P<2.5"))
+        source, updated = "historical_pinnacle_nominal_opening", None
+        if over is None or under is None:
+            return None, "NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE"
+    if over is None or under is None or not TheOddsAPI._coherent_overround([over, under]):
+        return None, "NOT_ANCHORED_INCOHERENT_PINNACLE_OU25"
+    return {"over": over, "under": under, "updated_at_utc": updated, "source": source}, "ANCHORED"
+
+
 def prediction_from_matrix(
     model: DixonColesModel,
     matrix: np.ndarray,
@@ -2489,7 +2591,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
         self,
         *args,
         devig_method: str = "power",
-        market_weight: float = 0.50,
+        market_weight: float = DEFAULT_MARKET_WEIGHT,
+        totals_anchor: bool = True,
+        shot_features: bool = True,
         odds_api_key: Optional[str] = None,
         football_data_api_key: Optional[str] = None,
         odds_regions: str = "eu",
@@ -2501,7 +2605,12 @@ class FootballValuePipelineV2(FootballValuePipeline):
     ):
         cache_dir = kwargs.get("cache_dir", ".football_cache")
         force_refresh = bool(kwargs.get("force_refresh", False))
+        if len(args) < 3:  # half_life_days is the base class's third positional
+            kwargs.setdefault("half_life_days", DEFAULT_HALF_LIFE_DAYS)
         super().__init__(*args, **kwargs)
+        self.totals_anchor = bool(totals_anchor)
+        self.shot_features = bool(shot_features)
+        self.half_life_tuning = False
         if devig_method not in {"power", "proportional"}:
             raise ValueError("devig_method must be power or proportional")
         if not 0.0 <= market_weight <= 1.0:
@@ -2765,6 +2874,17 @@ class FootballValuePipelineV2(FootballValuePipeline):
         )
         return result
 
+    def _model_version(self) -> str:
+        if getattr(self, "model_version", None):
+            return self.model_version
+        if getattr(self, "half_life_days", None) is None or getattr(self, "market_weight", None) is None:
+            return CUSTOM_MODEL_VERSION
+        return model_version_for(
+            market_weight=self.market_weight, half_life_days=self.half_life_days,
+            half_life_tuning=getattr(self, "half_life_tuning", False),
+            totals_anchor=getattr(self, "totals_anchor", False),
+            shot_features=getattr(self, "shot_features", False))
+
     def _predict_row(
         self,
         model: DixonColesModel,
@@ -2806,6 +2926,34 @@ class FootballValuePipelineV2(FootballValuePipeline):
             matrix = reweight_matrix_to_1x2(matrix, target)
             blend_applied = True
 
+        anchor = {"totals_anchor_applied": False, "totals_anchor_status": "DISABLED",
+                  "totals_anchor_scale": None, "totals_anchor_target_over_2_5": None,
+                  "totals_anchor_reference_over_odds": None, "totals_anchor_reference_under_odds": None,
+                  "totals_anchor_reference_last_update_utc": None, "totals_anchor_reference_source": None,
+                  "unanchored_p_over_2_5": model.over_under(matrix, 2.5)["over"]}
+        if getattr(self, "totals_anchor", False):
+            reference, anchor["totals_anchor_status"] = pinnacle_ou25_reference(
+                row, datetime.now(timezone.utc))
+            if reference is not None:
+                # Same constrained scaling as the benchmark's totals_opening_anchor:
+                # fitted rho kept, production H/D/A re-imposed exactly.
+                from historical_benchmark import anchor_totals
+                hda = model.one_x_two(matrix)
+                target_over = float(devig([reference["over"], reference["under"]], self.devig_method)[0])
+                anchor.update(totals_anchor_target_over_2_5=target_over,
+                    totals_anchor_reference_over_odds=reference["over"],
+                    totals_anchor_reference_under_odds=reference["under"],
+                    totals_anchor_reference_last_update_utc=reference["updated_at_utc"],
+                    totals_anchor_reference_source=reference["source"])
+                try:
+                    matrix, scale = anchor_totals(
+                        float(meta["lambda_home"]), float(meta["lambda_away"]), float(model.rho),
+                        [hda["home"], hda["draw"], hda["away"]], target_over, model.max_goals,
+                        tail_bounded=bool(meta.get("score_engine_version")))
+                    anchor.update(totals_anchor_applied=True, totals_anchor_scale=scale)
+                except ValueError:
+                    anchor["totals_anchor_status"] = "NOT_ANCHORED_SOLVER_FAILED"
+
         if getattr(self, '_benchmark_trial_enabled', False):
             self._benchmark_score_matrices[(home, away, str(row.get('kickoff_utc')))] = matrix.copy()
             if hasattr(self, '_totals_shadow_inputs'):
@@ -2828,6 +2976,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
         pred.update(double_chance_probabilities(pred))
         pred["market_weight"] = self.market_weight if blend_applied else 0.0
         pred["market_blend_applied"] = blend_applied
+        pred.update(anchor)
+        pred["model_version"] = self._model_version()
+        quotes = row.get("bet365_pinnacle_quotes")
+        pred["bet365_pinnacle_quotes"] = quotes if isinstance(quotes, str) else "[]"
         pred['asian_handicap_offers'] = row.get('asian_handicap_offers', '[]')
         add_value_metrics(pred, snapshot)
         primary = row.get("_main_over_1_5_offers")
@@ -2875,6 +3027,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             l2=self.l2,
             max_goals=self.max_goals,
             bbs_statistics=getattr(self, 'bbs_statistics', True),
+            shot_features=getattr(self, 'shot_features', False),
         ).fit(history, as_of=pd.Timestamp(now))
         model.league_key = league.key
         from elo_ratings import diagnostics as elo_diagnostics, fit_history, fixture_features
@@ -2896,6 +3049,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "training_as_of_utc": now.astimezone(timezone.utc).isoformat(),
             "training_data_provenance": training_provenance(history),
             "bbs_statistics_model": getattr(model, 'bbs_statistics_report', {}),
+            "model_version": self._model_version(),
+            "totals_anchor_enabled": getattr(self, "totals_anchor", False),
+            "shot_features_model": getattr(model, 'shot_features_report', {}),
             "training_end": None if model.training_end is None else str(model.training_end.date()),
             "fit_success": bool(model.fit_result.success) if model.fit_result is not None else False,
             "objective": float(model.fit_result.fun) if model.fit_result is not None else None,
@@ -2992,6 +3148,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 extra = self.odds_api.extra_markets_for_event(league, event_id,
                     main_over_1_5_offers=primary if isinstance(primary, (list, tuple)) else None)
                 identity = extra.pop('_asian_handicap_identity', None)
+                bet365_extra = extra.pop('_bet365_pinnacle_extra', [])
                 valid_identity = isinstance(identity,dict) and all(canonical_team_key(str(identity.get(k,''))) == canonical_team_key(str(row[field])) for k,field in [('home_team','HomeTeam'),('away_team','AwayTeam')])
                 event_kick = pd.to_datetime((identity or {}).get('commence_time'),utc=True,errors='coerce')
                 row_kick = pd.to_datetime(row.get('kickoff_utc'),utc=True,errors='coerce')
@@ -3011,6 +3168,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     merged = json.loads(pred.get('asian_handicap_offers') or '[]')+json.loads(extra['asian_handicap_offers'])
                     unique = {(x['side'], x['line'], x['bookmaker']):x for x in sorted(merged,key=lambda x:(x['last_update_utc'],x['price']))}
                     extra['asian_handicap_offers'] = json.dumps(list(unique.values()),sort_keys=True)
+                if identity_rejected:
+                    bet365_extra = []
+                from bet365_pinnacle import merge as merge_bet365
+                extra['bet365_pinnacle_quotes'] = merge_bet365(pred.get('bet365_pinnacle_quotes'), bet365_extra)
                 pred.update(extra)
                 ah = json.loads(pred.get('asian_handicap_offers') or '[]')
                 coverage_row['asian_handicap_quotes'] = len(ah)
@@ -3099,6 +3260,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 **fixture_features(elo, pred.get("model_home_team"), pred.get("model_away_team")),
             })
 
+        diagnostics['totals_anchor_fixtures'] = dict(Counter(
+            str(r.get('totals_anchor_status')) for r in records))
+        diagnostics['shot_features_applied_fixtures'] = sum(r.get('shot_features_applied') is True for r in records)
         diagnostics['bbs_statistics_applied_fixtures'] = sum(r.get('bbs_statistics_applied') is True for r in records)
         diagnostics['training_data_provenance']['bbs_statistics_used_as_predictor_features'] = bool(diagnostics['bbs_statistics_applied_fixtures'])
         return pd.DataFrame(records), diagnostics, scorelines
@@ -3170,6 +3334,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 l2=self.l2,
                 max_goals=self.max_goals,
                 bbs_statistics=getattr(self, 'bbs_statistics', True),
+                shot_features=getattr(self, 'shot_features', False),
             ).fit(train, as_of=s)
             model.league_key = league.key
 
@@ -3519,12 +3684,18 @@ def build_parser() -> argparse.ArgumentParser:
         help='Use the original goal model without validated BBS/API-Football statistical features')
     p.add_argument('--bbs-statistics-validation', choices=('auto', 'strict'), default='auto',
         help='auto: assess labelled retrospective backfill when strict history is insufficient; strict: observed-before-origin inputs only')
-    p.add_argument("--half-life-days", type=float, default=240.0)
+    p.add_argument("--half-life-days", type=float, default=DEFAULT_HALF_LIFE_DAYS,
+                   help=f"Fixed production half-life (default: {DEFAULT_HALF_LIFE_DAYS:g} days).")
     p.add_argument(
         "--tune-half-life",
         action="store_true",
-        help="Choose a per-competition time-decay half-life using walk-forward log loss.",
+        help=("Benchmark/legacy only: choose a per-competition half-life by walk-forward "
+              "log loss. Production uses the fixed --half-life-days; forecasts are tagged custom."),
     )
+    p.add_argument("--no-totals-anchor", action="store_true",
+                   help="Do not anchor goal totals to fresh Pinnacle O/U 2.5 (tags forecasts custom).")
+    p.add_argument("--no-shot-features", action="store_true",
+                   help="Do not try the gated lagged shot features (tags forecasts custom).")
     p.add_argument(
         "--half-life-candidates",
         nargs="+",
@@ -3534,7 +3705,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--tune-validation-days", type=int, default=365)
     p.add_argument("--recency-experiment", action="store_true",
-                   help="Extend the goal sidecar with raw Over 1.5/BTTS half-life comparisons; requires --tune-half-life.")
+                   help=("Extend the goal sidecar with raw Over 1.5/BTTS half-life comparisons. Without "
+                         "--tune-half-life the tuning runs for this diagnostic only and never "
+                         "changes the production half-life."))
     p.add_argument("--tune-step-days", type=int, default=56)
     p.add_argument("--tune-min-train", type=int, default=250)
     p.add_argument("--tune-min-validation-matches", type=int, default=25)
@@ -3583,10 +3756,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--market-weight",
         type=float,
-        default=0.50,
+        default=DEFAULT_MARKET_WEIGHT,
         help=(
-            "Fixed bookmaker blend (default: 0.50) for the recommended "
-            "single-model profile. Normally leave unchanged."
+            f"Fixed bookmaker 1X2 blend (default: {DEFAULT_MARKET_WEIGHT:.2f}); also feeds "
+            "double chance. Normally leave unchanged."
         ),
     )
     p.add_argument(
@@ -3676,8 +3849,8 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         )
     if args.reliability_experiment and args.backtest:
         raise SystemExit("--reliability-experiment requires live forecasts, not --backtest")
-    if args.recency_experiment and not args.tune_half_life:
-        raise SystemExit('--recency-experiment requires --tune-half-life')
+    if args.recency_experiment and args.backtest:
+        raise SystemExit("--recency-experiment requires live forecasts, not --backtest")
     if args.auto_market_weight and args.backtest:
         raise SystemExit(
             "--auto-market-weight and --backtest cannot be combined: "
@@ -3685,7 +3858,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         )
     if args.auto_market_weight:
         from market_blend_validation import select_market_weight
-    if args.tune_half_life:
+    if args.tune_half_life or args.recency_experiment:
         # Lazy import preserves standalone operation without tuning enabled.
         from dc_decay_validation import tune_half_life
 
@@ -3720,7 +3893,12 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         additional_odds_coverage=args.additional_odds_coverage,
         bbs_statistics=not args.no_bbs_statistics,
         bbs_statistics_validation=args.bbs_statistics_validation,
+        totals_anchor=not args.no_totals_anchor,
+        shot_features=not args.no_shot_features,
     )
+    pipe.half_life_tuning = bool(args.tune_half_life)
+    if args.auto_market_weight:
+        pipe.model_version = CUSTOM_MODEL_VERSION
 
     # Verify Europa before tuning/modeling or consuming odds credits. Exclude
     # unavailable Europa only; never use its stale or disputed training rows.
@@ -3761,8 +3939,10 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         pipe.market_weight = args.market_weight
         tuning = None
         market_selection = None
-        if args.tune_half_life:
-            print(f"[{league_key}] tuning Dixon-Coles half-life...", file=sys.stderr)
+        if args.tune_half_life or args.recency_experiment:
+            print(f"[{league_key}] tuning Dixon-Coles half-life"
+                  f"{'' if args.tune_half_life else ' (recency diagnostic only; production stays fixed)'}...",
+                  file=sys.stderr)
             training = pipe._history_for_league(
                 LEAGUES[league_key],
                 now=datetime.now(timezone.utc),
@@ -3779,14 +3959,16 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                 min_validation_matches=args.tune_min_validation_matches,
                 **({'collect_recency_metrics':True} if args.recency_experiment else {}),
             )
-            pipe.half_life_days = float(tuning["selected_half_life_days"])
+            tuning["applied_to_production"] = bool(args.tune_half_life)
+            if args.tune_half_life:
+                pipe.half_life_days = float(tuning["selected_half_life_days"])
             (out_dir / f"{league_key}_decay_tuning.json").write_text(
                 json.dumps(tuning, indent=2),
                 encoding="utf-8",
             )
             print(
-                f"[{league_key}] selected half-life: "
-                f"{pipe.half_life_days:g} days",
+                f"[{league_key}] tuned half-life: {tuning['selected_half_life_days']:g} days; "
+                f"production uses {pipe.half_life_days:g} days",
                 file=sys.stderr,
             )
 
@@ -3889,6 +4071,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                 "selected_xi_per_day": tuning["selected_xi_per_day"],
                 "selection_metric": tuning["selection_metric"],
                 "validation_days": tuning["validation_days"],
+                "applied_to_production": tuning["applied_to_production"],
             }
 
         if not args.backtest:
@@ -3902,6 +4085,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
             from goal_market_validation import VALIDATOR_VERSION, validation_cache_matches, validation_code_fingerprint
             config = {
                 "validator_version": VALIDATOR_VERSION,
+                "model_version": diagnostics.get("model_version"),
                 "min_train": validation_min_train,
                 "step_days": 56,
                 "devig": pipe.devig_method,
@@ -4047,6 +4231,14 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     if combined:
         from pipeline_health import write_generation_metadata
         write_generation_metadata(out_dir, selection_summary)
+    if not args.backtest:
+        # Separate labelled list; never merged into the shortlist above.
+        from bet365_pinnacle import write_list as write_bet365_list
+        bet365_rows = write_bet365_list(
+            all_predictions.astype(object).where(all_predictions.notna(), None).to_dict('records'),
+            out_dir, selection_summary['generated_at_utc'])
+        print(f"bet365 vs Pinnacle list: {len(bet365_rows)} entries at >= 2% EV "
+              f"(see {out_dir / 'bet365_vs_pinnacle.csv'})", file=sys.stderr)
 
     # Retain a timestamped historical audit even though the current raw
     # shortlist is overwritten each run. No picks are ever added by force.
