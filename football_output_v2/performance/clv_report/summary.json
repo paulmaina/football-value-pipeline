@@ -1,45 +1,45 @@
 {
   "version": "candidate-clv-v2-validated-fixture-clustered",
-  "generated_at_utc": "2026-10-25T15:58:03.902969+00:00",
+  "generated_at_utc": "2026-10-25T19:09:24.269962+00:00",
   "status": "OK",
-  "candidates": 1315,
-  "fixtures": 124,
+  "candidates": 1322,
+  "fixtures": 127,
   "uncertainty_method": "fixture-cluster-robust",
   "rejected_observation_files": [],
   "entry_files": 71,
   "overall_pinnacle_fair": {
-    "n": 1315,
-    "independent_fixtures": 124,
-    "mean": -0.032664224581647264,
-    "median": -0.028258147778639997,
-    "positive_share": 0.2768060836501901,
-    "standard_error": 0.002906020264609175,
-    "t_stat": -11.24019160480294
+    "n": 1322,
+    "independent_fixtures": 127,
+    "mean": -0.032586933223964436,
+    "median": -0.02822973318171157,
+    "positive_share": 0.27685325264750377,
+    "standard_error": 0.0028928020628979363,
+    "t_stat": -11.26483337450322
   },
   "overall_same_book": {
-    "n": 769,
-    "independent_fixtures": 118,
-    "mean": 0.007606923183788728,
-    "median": 0.007418397626112627,
-    "positive_share": 0.5318595578673602,
-    "standard_error": 0.0027543626330728045,
-    "t_stat": 2.7617725757854696
+    "n": 776,
+    "independent_fixtures": 121,
+    "mean": 0.00768679103009944,
+    "median": 0.007440542096638358,
+    "positive_share": 0.5322164948453608,
+    "standard_error": 0.0027331540860272186,
+    "t_stat": 2.8124250547734726
   },
   "shortlisted_pinnacle_fair": {
-    "n": 60,
-    "independent_fixtures": 48,
-    "mean": -0.029757722613219253,
+    "n": 62,
+    "independent_fixtures": 50,
+    "mean": -0.02902163663731472,
     "median": -0.022729293400416573,
-    "positive_share": 0.21666666666666667,
-    "standard_error": 0.009262850713626666,
-    "t_stat": -3.212587953019948
+    "positive_share": 0.22580645161290322,
+    "standard_error": 0.008990500296344269,
+    "t_stat": -3.2280335554980786
   },
   "market_move_towards_model": {
-    "n": 124,
-    "correlation": -0.0991673226844626,
-    "sign_agreement": 0.6129032258064516,
-    "mean_abs_model_gap": 0.010399498419682828,
-    "mean_abs_market_move": 0.004105213115031595
+    "n": 127,
+    "correlation": -0.09729479445743257,
+    "sign_agreement": 0.6062992125984252,
+    "mean_abs_model_gap": 0.010328183663388857,
+    "mean_abs_market_move": 0.004130868103461226
   },
   "positive_cells": [
     {
