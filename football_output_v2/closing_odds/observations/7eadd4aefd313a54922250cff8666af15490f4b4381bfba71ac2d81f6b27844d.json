@@ -1,0 +1,464 @@
+{
+  "fixture": {
+    "away_team": "Lille",
+    "home_team": "AS Monaco",
+    "kickoff_utc": "2026-10-25T14:00:00+00:00",
+    "league": "Ligue 1",
+    "odds_event_id": "c177a3c900d7febf9870ca8de90a9e35"
+  },
+  "observed_at_utc": "2026-10-25T13:56:01.654475+00:00",
+  "payload": {
+    "away_team": "Lille",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T13:55:47Z",
+            "outcomes": [
+              {
+                "name": "AS Monaco",
+                "price": 1.91
+              },
+              {
+                "name": "Lille",
+                "price": 4.12
+              },
+              {
+                "name": "Draw",
+                "price": 3.62
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T13:55:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.78
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.1
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-25T13:54:07Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 0.5,
+                "price": 1.02
+              },
+              {
+                "name": "Over",
+                "point": 1.0,
+                "price": 1.05
+              },
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.22
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.36
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.78
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.24
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.77
+              },
+              {
+                "name": "Over",
+                "point": 4.0,
+                "price": 4.37
+              },
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 5.11
+              },
+              {
+                "name": "Over",
+                "point": 5.0,
+                "price": 8.3
+              },
+              {
+                "name": "Over",
+                "point": 5.5,
+                "price": 9.01
+              },
+              {
+                "name": "Over",
+                "point": 6.5,
+                "price": 14.8
+              },
+              {
+                "name": "Over",
+                "point": 7.5,
+                "price": 11.6
+              },
+              {
+                "name": "Under",
+                "point": 0.5,
+                "price": 13.0
+              },
+              {
+                "name": "Under",
+                "point": 1.0,
+                "price": 8.15
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 4.33
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 3.13
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.1
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.65
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.45
+              },
+              {
+                "name": "Under",
+                "point": 4.0,
+                "price": 1.22
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.17
+              },
+              {
+                "name": "Under",
+                "point": 5.0,
+                "price": 1.05
+              },
+              {
+                "name": "Under",
+                "point": 5.5,
+                "price": 1.06
+              },
+              {
+                "name": "Under",
+                "point": 6.5,
+                "price": 1.02
+              },
+              {
+                "name": "Under",
+                "point": 7.5,
+                "price": 1.0
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T13:55:48Z",
+            "outcomes": [
+              {
+                "name": "AS Monaco",
+                "price": 1.89
+              },
+              {
+                "name": "Lille",
+                "price": 4.43
+              },
+              {
+                "name": "Draw",
+                "price": 3.64
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T13:55:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.03
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.88
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-10-25T13:55:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.03
+              },
+              {
+                "name": "Over",
+                "point": 1.75,
+                "price": 1.3
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.37
+              },
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.6
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.81
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.37
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.67
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.97
+              },
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 3.6
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 1.75,
+                "price": 3.74
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 3.25
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.47
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.09
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.65
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.52
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.43
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 1.32
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-25T14:00:00Z",
+    "home_team": "AS Monaco",
+    "id": "c177a3c900d7febf9870ca8de90a9e35",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.22,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.8024716828505492,
+      "selection": "over_1_5",
+      "updated_at_utc": "2026-10-25T13:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.33,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.19752831714945082,
+      "selection": "under_1_5",
+      "updated_at_utc": "2026-10-25T13:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.78,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5435826572395897,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-25T13:55:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.1,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.45641734276041024,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-25T13:55:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.77,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3314790071765728,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-25T13:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.45,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6685209928234273,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-25T13:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5095418777953261,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T13:55:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.62,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2617331755152136,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T13:55:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.12,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2287249466894603,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T13:55:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.89,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5193419261928457,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T13:55:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.64,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2645390829474087,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T13:55:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.43,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21611899085974554,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T13:55:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.81,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5375495397993294,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-25T13:55:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.09,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4624504602006707,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-25T13:55:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.97,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.31549064095417356,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-25T13:55:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.43,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6845093590458264,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-25T13:55:48+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

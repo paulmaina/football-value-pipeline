@@ -1,0 +1,252 @@
+{
+  "fixture": {
+    "away_team": "Frosinone",
+    "home_team": "Atalanta BC",
+    "kickoff_utc": "2026-10-25T14:00:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "63aa6e3f679ee4c68de5b4bd8d3361bb"
+  },
+  "observed_at_utc": "2026-10-25T13:54:24.635047+00:00",
+  "payload": {
+    "away_team": "Frosinone",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T13:54:15Z",
+            "outcomes": [
+              {
+                "name": "Atalanta BC",
+                "price": 1.94
+              },
+              {
+                "name": "Frosinone",
+                "price": 3.63
+              },
+              {
+                "name": "Draw",
+                "price": 4.18
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T13:54:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 2.05
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 1.86
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-25T13:54:15Z",
+            "outcomes": [
+              {
+                "name": "Atalanta BC or Draw",
+                "price": 1.35
+              },
+              {
+                "name": "Frosinone or Draw",
+                "price": 1.93
+              },
+              {
+                "name": "Atalanta BC or Frosinone",
+                "price": 1.25
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T13:54:15Z",
+            "outcomes": [
+              {
+                "name": "Atalanta BC",
+                "price": 1.94
+              },
+              {
+                "name": "Frosinone",
+                "price": 3.35
+              },
+              {
+                "name": "Draw",
+                "price": 4.4
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T13:54:15Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.0
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-25T13:54:15Z",
+            "outcomes": [
+              {
+                "name": "Atalanta BC or Draw",
+                "price": 1.32
+              },
+              {
+                "name": "Frosinone or Draw",
+                "price": 1.86
+              },
+              {
+                "name": "Atalanta BC or Frosinone",
+                "price": 1.21
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-25T14:00:00Z",
+    "home_team": "Atalanta BC",
+    "id": "63aa6e3f679ee4c68de5b4bd8d3361bb",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5054726345648899,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.18,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22933821029798324,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.63,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2651891551371269,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.35,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7195585713220489,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.5033181716501379,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7771232570278129,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5017821495498533,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21400647731800335,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.35,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2842113731321434,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.86,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5191557873792018,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.0,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4808442126207982,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.32,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7141361256544502,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.86,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.506806282722513,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.21,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7790575916230366,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-25T13:54:15+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
