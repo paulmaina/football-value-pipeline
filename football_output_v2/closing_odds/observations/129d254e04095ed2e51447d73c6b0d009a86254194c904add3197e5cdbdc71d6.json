@@ -1,0 +1,104 @@
+{
+  "fixture": {
+    "away_team": "Famalic\u00e3o",
+    "home_team": "Rio Ave FC",
+    "kickoff_utc": "2026-10-25T18:00:00+00:00",
+    "league": "Primeira Liga",
+    "odds_event_id": "fa1bd8d92c7780ff1ebb56219fcb6ea6"
+  },
+  "observed_at_utc": "2026-10-25T17:55:40.849594+00:00",
+  "payload": {
+    "away_team": "Famalic\u00e3o",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T17:55:25Z",
+            "outcomes": [
+              {
+                "name": "Famalic\u00e3o",
+                "price": 2.1
+              },
+              {
+                "name": "Rio Ave FC",
+                "price": 3.79
+              },
+              {
+                "name": "Draw",
+                "price": 3.41
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T17:55:25Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.98
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.9
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-25T18:00:00Z",
+    "home_team": "Rio Ave FC",
+    "id": "fa1bd8d92c7780ff1ebb56219fcb6ea6",
+    "sport_key": "soccer_portugal_primeira_liga",
+    "sport_title": "Primeira Liga - Portugal"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.79,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2528969922102082,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T17:55:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.41,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2820258606149177,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T17:55:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.1,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.465077147174874,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T17:55:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.98,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.48920993600957,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-25T17:55:25+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.51079006399043,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-25T17:55:25+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
