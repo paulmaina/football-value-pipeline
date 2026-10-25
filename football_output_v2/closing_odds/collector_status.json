@@ -1,11 +1,17 @@
 {
-  "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-25T13:24:16.884063+00:00",
+  "already_complete_fixtures": 5,
+  "checked_at_utc": "2026-10-25T13:58:09.595443+00:00",
   "coverage_checks": [
     {
-      "event_id": "c655584661b81e424d8979da8b040c46",
-      "missing_required_quotes": [],
+      "event_id": "c177a3c900d7febf9870ca8de90a9e35",
+      "missing_required_quotes": [
+        {
+          "bookmaker": "pinnacle",
+          "selection": "over_1_5"
+        }
+      ],
       "requested_markets": [
+        "alternate_totals",
         "h2h",
         "totals"
       ],
@@ -15,27 +21,34 @@
       ]
     },
     {
-      "event_id": "9b70765a6abd2b34bae75afa9d3acedb",
-      "missing_required_quotes": [],
+      "event_id": "69493b5ebb84f24ab1d6023a30ee89f0",
+      "missing_required_quotes": [
+        {
+          "bookmaker": "pinnacle",
+          "selection": "Asian Handicap Home +3.00"
+        }
+      ],
       "requested_markets": [
+        "alternate_spreads",
+        "draw_no_bet",
         "h2h",
+        "spreads",
         "totals"
       ],
       "returned_bookmakers": [
-        "onexbet",
         "pinnacle"
       ]
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 22,
-  "eligible_fixtures": 2,
+  "daily_requests": 35,
+  "eligible_fixtures": 7,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "request_limit": 10,
+  "request_limit": 2,
   "requests": 2,
-  "reservation_allowance": 10,
-  "reservation_id": "actions-40183748992-1-5",
-  "reservation_used": 2,
+  "reservation_allowance": 21,
+  "reservation_id": "actions-40183748992-1-6",
+  "reservation_used": 21,
   "written": 2
 }

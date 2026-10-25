@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Bournemouth",
+    "home_team": "Manchester United",
+    "kickoff_utc": "2026-10-25T14:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "33fb7467b23c91d57dc976d9ab05ea97"
+  },
+  "observed_at_utc": "2026-10-25T13:54:24.973562+00:00",
+  "payload": {
+    "away_team": "Bournemouth",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T13:54:10Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 3.06
+              },
+              {
+                "name": "Manchester United",
+                "price": 2.33
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T13:54:10Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.7
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.23
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-25T13:54:10Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 2.94
+              },
+              {
+                "name": "Manchester United",
+                "price": 2.49
+              },
+              {
+                "name": "Draw",
+                "price": 3.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-25T13:54:10Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.99
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.91
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-25T14:00:00Z",
+    "home_team": "Manchester United",
+    "id": "33fb7467b23c91d57dc976d9ab05ea97",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.33,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4151907641491185,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T13:54:10+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2720259584608223,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T13:54:10+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.06,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.31278327739005934,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T13:54:10+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.7,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5711304789090206,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-25T13:54:10+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.23,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4288695210909794,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-25T13:54:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.49,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.39236728610071053,
+      "selection": "home",
+      "updated_at_utc": "2026-10-25T13:54:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2767270784141645,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-25T13:54:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.330905635485125,
+      "selection": "away",
+      "updated_at_utc": "2026-10-25T13:54:10+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
