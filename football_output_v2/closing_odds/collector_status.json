@@ -1,33 +1,33 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-25T15:14:10.976408+00:00",
+  "checked_at_utc": "2026-10-25T15:24:43.241484+00:00",
   "coverage_checks": [],
   "daily_request_cap": 100,
-  "daily_requests": 50,
+  "daily_requests": 60,
   "eligible_fixtures": 1,
   "errors": [
     {
-      "at_utc": "2026-10-25T15:14:12.091541+00:00",
+      "at_utc": "2026-10-25T15:24:44.310867+00:00",
       "attempts": [
         {
           "credential": "THE_ODDS_API_KEY",
           "error_code": "OUT_OF_USAGE_CREDITS",
           "http_status": 401,
           "x-requests-last": 0,
-          "x-requests-remaining": 3,
-          "x-requests-used": 497
+          "x-requests-remaining": 0,
+          "x-requests-used": 500
         }
       ],
       "category": "CREDITS_EXHAUSTED",
       "error": "OddsProviderError",
-      "event_id": "2013e3955186ebe5258e85eb741a7553"
+      "event_id": "399511b408ef714458e62100cac3fb16"
     }
   ],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "request_limit": 1,
+  "request_limit": 9,
   "requests": 1,
   "reservation_allowance": 10,
-  "reservation_id": "actions-40188185643-1-1",
-  "reservation_used": 10,
+  "reservation_id": "actions-40204747880-1-1",
+  "reservation_used": 2,
   "written": 0
 }
