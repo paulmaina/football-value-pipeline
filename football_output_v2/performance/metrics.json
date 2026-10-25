@@ -1441,12 +1441,16 @@
     "PENDING_KICKOFF_OR_FINAL_SCORE": 3,
     "UNVERIFIED_FIXTURE_OR_RESULT": 7
   },
-  "prediction_1x2_multiclass_brier": 0.555828,
-  "prediction_fixtures_graded": 118,
+  "prediction_1x2_multiclass_brier": 0.564882,
+  "prediction_fixtures_graded": 125,
   "provider_errors": {
-    "UEL": "Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {\"declared_rows\": 134, \"eligibility\": \"CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout "
+    "Bundesliga": "500 Server Error:  for url: https://api.football-data.org/v4/competitions/BL1/matches",
+    "LaLiga": "500 Server Error:  for url: https://api.football-data.org/v4/competitions/PD/matches",
+    "Ligue1": "500 Server Error:  for url: https://api.football-data.org/v4/competitions/FL1/matches",
+    "SerieA": "500 Server Error:  for url: https://api.football-data.org/v4/competitions/SA/matches",
+    "UCL": "500 Server Error:  for url: https://api.football-data.org/v4/competitions/CL/matches"
   },
-  "reviewed_at_utc": "2026-10-25T08:56:36Z",
+  "reviewed_at_utc": "2026-10-25T10:04:55Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
@@ -2103,7 +2107,7 @@
     "win_rate": 0.827586,
     "wins": 144
   },
-  "source": "football-data.org v4 FINISHED regulation-time scorelines; Europa: corroborated Cornerflick / Fixture Download / UEFA league-phase scores",
+  "source": "football-data.org v4 FINISHED regulation-time scorelines; Europa: corroborated Cornerflick / Fixture Download league-phase scores",
   "status": "PARTIALLY_GRADED",
   "tracked_prediction_runs": 38,
   "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",

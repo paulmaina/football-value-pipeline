@@ -2783,7 +2783,7 @@
         "minimum_settled_per_weighting": 100,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-25T08:56:36.946061+00:00",
+      "reviewed_at_utc": "2026-10-25T10:04:55.324752+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 23,
       "variants": {
@@ -2843,7 +2843,7 @@
     "minimum_settled_per_weighting": 100,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-25T08:56:36.946061+00:00",
+  "reviewed_at_utc": "2026-10-25T10:04:55.324752+00:00",
   "status": "COLLECT_MORE_DATA",
   "total_fixtures": 0,
   "variants": {

@@ -1466,7 +1466,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-25T08:56:36.946061+00:00",
+  "reviewed_at_utc": "2026-10-25T10:04:55.324752+00:00",
   "status": "COLLECT_MORE_DATA",
   "verified_coverage": 0.15254237288135594,
   "version": "pinnacle-totals-anchor-v1"
