@@ -311,8 +311,11 @@ def qualifying_alternatives(selected, decisions, tolerance):
     return result
 
 
-def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY):
+def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY, *, _required_ev=None):
     """Risk first, strict gates, one market per fixture. No target-filling bypass."""
+    if _required_ev is not None and (policy_version != POLICY or
+            not math.isfinite(_required_ev) or not 0 <= _required_ev <= 1):
+        raise ValueError("Internal EV floor requires the common no-loss evaluator")
     if policy_version == NO_LOSS_CORNERS_POLICY:
         if adjusted_ev_floor is not None:
             raise ValueError('This Asian handicap policy does not accept a custom EV floor')
@@ -341,7 +344,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     legacy = policy_version == LEGACY_POLICY
     current = policy_version in RISK_BAND_POLICIES
     one_percent = policy_version in ONE_PERCENT_POLICIES
-    required_ev = MIN_ADJUSTED_EV if one_percent else 0.
+    required_ev = (_required_ev if _required_ev is not None else MIN_ADJUSTED_EV) if one_percent else 0.
     safest = policy_version == POLICY
     minimum_no_loss = policy.get('min_adjusted_no_loss_probability', MIN_ADJUSTED_NO_LOSS) if safest else None
     default_tolerance = 0. if safest else DEFAULT_RISK_TOLERANCE
@@ -367,7 +370,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
         # Do not alter historical policy constants or replay their old gates at 1%.
         specs = [s for s in CURRENT_MARKET_SPECS if s[0] in ordinary_markets(policy_version)]
         records = [_evaluate_market(row,spec,now,(market_reliability or {}).get(str(row.get('league'))),
-            policy,MIN_ADJUSTED_EV,require_fresh_references=True,lookahead_hours=48.,uniform_probability_rules=safest)
+            policy,required_ev,require_fresh_references=True,lookahead_hours=48.,uniform_probability_rules=safest)
             for _,row in predictions.iterrows() for spec in specs]
         ordinary = pd.DataFrame(records,columns=SHORTLIST_COLUMNS)
     else:
@@ -451,7 +454,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
             if legacy and (adjusted_ev < floor or raw['estimated_ev'] < 0):
                 reasons.append('positive conservative EV and nonnegative raw EV required')
             if current and (adjusted_ev + (1e-12 if safest else 0.) < required_ev or raw['estimated_ev'] < 0):
-                reasons.append('adjusted EV below +1.0% or negative unblended EV' if one_percent else 'negative adjusted or unblended EV')
+                reasons.append(f'adjusted EV below +{required_ev:.1%} or negative unblended EV' if one_percent else 'negative adjusted or unblended EV')
             item = {field: None for field in SHORTLIST_COLUMNS+FIELDS}
             item.update({k: row.get(k) for k in ('date','league','home_team','away_team','fixture_id','kickoff_utc')})
             item.update(evaluated_at_utc=now.isoformat(), market=name,
