@@ -18,7 +18,9 @@ Card participation cannot be checked without line-ups, which would cost another 
 
 - **Scope:** Bundesliga, Serie A and Ligue 1, seasons 2022-23 to 2024-25 (the free plan's 2022–2024 start years). Pinnacle quoted card totals only in these leagues. 3,033 of 3,050 football-data.co.uk matches link to an API-Football fixture (date within a day, identical score, similar names).
 - **Collection order:** every red-card match (508 linked), then a fixed sample of 50 red-free matches per league to test the shortcut. That is 658 `/fixtures/events` requests, cached in `.football_cache/api_football/card_events/` (local, not committed).
-- **Pace:** at most 80 requests a run, leaving room in the shared 100-a-day allowance. About nine daily runs complete it. Resume with `python card_bookings.py`; check progress with `--plan-only`.
+- **Pace:** at most 80 requests a run, leaving room in the shared 100-a-day allowance. About nine daily runs complete it.
+- **Where it runs:** the `Card bookings research (free plan)` GitHub workflow (`.github/workflows/card-bookings-research.yml` on `main`) runs daily at 07:47 UTC, plus manual dispatch. It checks out this branch, uses the `API_FOOTBALL_KEY` secret, and shares a concurrency group with the supplementary API-Football collector. Events persist in the Actions cache, not the repository. When collection completes it runs the study once, comments the summary on the draft PR, uploads the full study as an artifact and disables itself.
+- **Running it locally instead:** `python card_bookings.py`; check progress with `--plan-only`.
 
 ## Study
 

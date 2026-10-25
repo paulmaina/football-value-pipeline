@@ -90,3 +90,35 @@ class PlanAndTargetTests(OfflineQuotePolicyTestCase):
         import count_markets
         self.assertEqual(count_markets.LEAGUES['cards'], ())
         self.assertIn('Research only', cb.__doc__)
+
+
+class ScheduledStepTests(OfflineQuotePolicyTestCase):
+    def test_collects_until_complete_then_studies_once(self):
+        import json, tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        ready = {'ready': True, 'shortcut': {'agree': 3, 'checked': 3}, 'shortcut_valid': True,
+                 'red_with_clean_events': 2, 'red_matches': 2, 'excluded_red_matches': [], 'leagues': {}}
+        steps = iter([{'planned': 5, 'cached': 3, 'fetched': 3, 'stopped': 'limit'},
+                      {'planned': 5, 'cached': 5, 'fetched': 2, 'stopped': None}])
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch.object(cb, 'linked_matches', return_value=pd.DataFrame()), \
+                patch.object(cb, 'collection_plan', return_value=[]), \
+                patch.object(cb, 'events_store'), patch('api_football_data.Client'), \
+                patch('api_key_config.load_api_keys') as keys, \
+                patch.object(cb, 'collect', side_effect=lambda *a: next(steps)), \
+                patch.object(cb, 'study', return_value=ready) as study:
+            out = Path(tmp)/'study'
+            cb.auto('.football_cache', out, 80, 'environment')
+            keys.assert_called_with('environment')
+            self.assertFalse((out/'just_completed').exists())
+            study.assert_not_called()
+            cb.auto('.football_cache', out, 80, 'environment')
+            study.assert_called_once()
+            self.assertTrue((out/'just_completed').exists())
+            self.assertIn('3/3 sampled matches agree; valid', (out/'card_bookings_study.md').read_text())
+            self.assertEqual(json.loads((out/'study_complete.json').read_text())['ready'], True)
+            self.assertEqual(len((out/'progress.log').read_text().splitlines()), 2)
+            # Once complete, later scheduled steps make no requests and change nothing.
+            cb.auto('.football_cache', out, 80, 'environment')
+            study.assert_called_once()

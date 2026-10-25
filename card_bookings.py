@@ -230,13 +230,74 @@ def study(cache='.football_cache', events_for=None):
     return report
 
 
+def summary(result):
+    """Short Markdown summary of a study for the person who scheduled it."""
+    lines = ['# Card bookings study', '',
+             f"Shortcut (football-data.co.uk yellows for red-free matches): "
+             f"{result['shortcut']['agree']}/{result['shortcut']['checked']} sampled matches agree; "
+             f"{'valid' if result['shortcut_valid'] else 'REFUSED'}.",
+             f"Red-card matches with clean events: {result['red_with_clean_events']}/{result['red_matches']}; "
+             f"excluded for flags: {len(result['excluded_red_matches'])}.", '']
+    if not result['leagues']:
+        lines.append('Not validated: the study is not ready (see the counts above).')
+        return '\n'.join(lines) + '\n'
+    lines += ['| league | lines passing | audit count log loss (model / constant) | forecasts |', '|---|---:|---|---|']
+    for league, report in result['leagues'].items():
+        passing = sum(m['status'] == 'RELIABLE_FOR_RANKING' for m in report['markets'].values())
+        audit = report.get('count_accuracy', {}).get('audit', {})
+        loss = (f"{audit['model_log_loss']:.4f} / {audit['constant_rate_log_loss']:.4f}"
+                if audit.get('model_log_loss') is not None else 'n/a')
+        lines.append(f"| {league} | {passing} / {len(report['markets'])} | {loss} | "
+                     f"{report.get('first_forecast_date', '-')} to {report.get('last_forecast_date', '-')} |")
+    lines += ['', 'Research only: three seasons, probability accuracy only, and no current-season grading source, '
+              'so card totals stay out of production.']
+    return '\n'.join(lines) + '\n'
+
+
+def auto(cache, out, max_requests, api_key_source='dotenv'):
+    """One scheduled step: collect a capped batch; once complete, run the study once.
+
+    Writes the study and its summary to OUT, appends a progress line, and leaves
+    OUT/just_completed for the scheduler to announce. Later steps do nothing.
+    """
+    out.mkdir(parents=True, exist_ok=True)
+    done = out/'study_complete.json'
+    if done.exists():
+        return 0
+    linked = linked_matches(cache)
+    plan = collection_plan(linked)
+    store = events_store(cache)
+    from api_football_data import Client
+    from api_key_config import load_api_keys
+    load_api_keys(api_key_source)
+    client = Client(store, os.environ.get('API_FOOTBALL_KEY', ''), max_requests=max_requests)
+    step = collect(client, plan, store)
+    stamp = datetime.now(timezone.utc).isoformat(timespec='seconds')
+    with (out/'progress.log').open('a', encoding='utf-8') as log:
+        log.write(json.dumps({'at_utc': stamp, **step}) + '\n')
+    print(json.dumps(step))
+    if step['cached'] < step['planned']:
+        return 0
+    result = study(cache)
+    (out/'card_bookings_study.json').write_text(json.dumps(result, indent=2, default=str), encoding='utf-8')
+    (out/'card_bookings_study.md').write_text(summary(result), encoding='utf-8')
+    done.write_text(json.dumps({'completed_at_utc': stamp, 'ready': result['ready']}), encoding='utf-8')
+    (out/'just_completed').write_text(stamp, encoding='utf-8')
+    return 0
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--cache', default='.football_cache')
     parser.add_argument('--max-requests', type=int, default=DEFAULT_MAX_REQUESTS)
     parser.add_argument('--plan-only', action='store_true', help='Print the plan and progress; no requests')
     parser.add_argument('--study', type=Path, help='Write the validation study to this file (keep it out of git); no requests')
+    parser.add_argument('--auto', type=Path, metavar='OUT_DIR',
+                        help='Scheduled step: collect a batch; when complete, write the study to OUT_DIR once')
+    parser.add_argument('--api-key-source', choices=('dotenv', 'environment'), default='dotenv')
     args = parser.parse_args(argv)
+    if args.auto:
+        return auto(args.cache, args.auto, args.max_requests, args.api_key_source)
     linked = linked_matches(args.cache)
     plan = collection_plan(linked)
     store = events_store(args.cache)
@@ -253,7 +314,7 @@ def main(argv=None):
         return 0
     from api_football_data import Client
     from api_key_config import load_api_keys
-    load_api_keys()
+    load_api_keys(args.api_key_source)
     client = Client(store, os.environ.get('API_FOOTBALL_KEY', ''), max_requests=args.max_requests)
     print(json.dumps({**progress, **collect(client, plan, store)}, indent=2))
     return 0
