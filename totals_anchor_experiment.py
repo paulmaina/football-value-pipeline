@@ -33,6 +33,9 @@ def decision(row,matrix,inputs,clock,r):
     if row.get('odds_source')!='The Odds API':reasons.append('no_live_odds')
     weight=number(row.get('market_weight'),min_value=0,max_value=1)
     if weight is None or abs(weight-r['baseline_market_weight'])>1e-12 or row.get('market_blend_applied') not in (True,1,'True'):reasons.append('production_basis_changed')
+    from benchmark_forward_experiment import production_version_reasons
+    reasons+=production_version_reasons(row)
+    if row.get('totals_anchor_applied') in (True,1,'True'):reasons.append('candidate_adopted_in_production')
     if any(number(row.get(k),min_value=90,max_value=100) is None for k in ('home_name_match_score','away_name_match_score')) or any(row.get(k) in (None,'','__LEAGUE_AVERAGE__') for k in ('model_home_team','model_away_team')):reasons.append('unreliable_model_identity')
     if ref.get('bookmaker')!='pinnacle' or str(ref.get('event_id'))!=str(row.get('odds_event_id')):reasons.append('missing_pinnacle_reference')
     rk=utc(ref.get('kickoff_utc'))
@@ -118,7 +121,7 @@ def evaluate(root,archive,records,clock):
     from performance_tracking import load_json,utc,fixture_key,fixture_match
     from forecast_integrity import forecast_digest_variants, snapshot_generated_at
     from historical_benchmark import metrics,score
-    from benchmark_forward_experiment import block_interval
+    from benchmark_forward_experiment import block_interval,excluded_reasons
     r,sha=registry();observations={};rejected=[]
     for meta,predictions,_ in archive:
         directory=root/'performance/snapshots'/meta['git_commit_sha'][:16];path=directory/FILE;digest=meta.get('sha256',{}).get(FILE)
@@ -149,7 +152,7 @@ def evaluate(root,archive,records,clock):
         return {m:{v:metrics([{**x[v+'_goals'],'home_goals':x['home_goals'],'away_goals':x['away_goals']} for x in items],m) for v in ('baseline','candidate')} for m in r['markets']}
     c=comparison(graded);interval=block_interval(graded,r);weeks=len({x['week'] for x in graded});fraction=len(graded)/verified if verified else None;g=r['review_gates'];enough=len(graded)>=g['minimum_paired_fixtures'] and weeks>=g['minimum_gameweeks'];quality=fraction is not None and fraction>=g['minimum_verified_coverage'] and not rejected
     supports=enough and quality and interval is not None and interval[0]>0 and all(c[m]['candidate']['brier']<=c[m]['baseline']['brier'] and c[m]['candidate']['log_loss']<=c[m]['baseline']['log_loss'] for m in r['markets'])
-    summary={'version':VERSION,'registry_sha256':sha,'candidate_id':r['candidate_id'],'reviewed_at_utc':clock.isoformat(),'paired_fixtures':len(graded),'gameweeks':weeks,'verified_coverage':fraction,'observed_fixtures':len(observations),'comparison':c,'by_league':{l:comparison([x for x in graded if x['league']==l]) for l in r['leagues']},'primary_log_loss_gain_week_block95':interval,'rejected_snapshot_commits':rejected,'review_gates':g,'status':'READY_FOR_REVIEW' if enough and quality else 'DATA_QUALITY_BLOCKED' if enough else 'COLLECT_MORE_DATA','evidence':'SUPPORTS_FORECASTING_REVIEW' if supports else 'NO_CLEAR_PROMOTION_EVIDENCE','automatic_production_change':False,'note':'Separate proportional intensity scaling to fresh Pinnacle O/U 2.5, fitted rho and production HDA preserved. Primary Under 3.5 log loss; other markets are guardrails. No bets, automatic promotion or backfill.'}
+    summary={'version':VERSION,'registry_sha256':sha,'candidate_id':r['candidate_id'],'reviewed_at_utc':clock.isoformat(),'paired_fixtures':len(graded),'gameweeks':weeks,'verified_coverage':fraction,'observed_fixtures':len(observations),'comparison':c,'by_league':{l:comparison([x for x in graded if x['league']==l]) for l in r['leagues']},'primary_log_loss_gain_week_block95':interval,'excluded_forecast_reasons':excluded_reasons(observations.values()),'rejected_snapshot_commits':rejected,'review_gates':g,'status':'READY_FOR_REVIEW' if enough and quality else 'DATA_QUALITY_BLOCKED' if enough else 'COLLECT_MORE_DATA','evidence':'SUPPORTS_FORECASTING_REVIEW' if supports else 'NO_CLEAR_PROMOTION_EVIDENCE','automatic_production_change':False,'note':'Separate proportional intensity scaling to fresh Pinnacle O/U 2.5, fitted rho and production HDA preserved. Primary Under 3.5 log loss; other markets are guardrails. No bets, automatic promotion or backfill.'}
     return summary,graded,coverage
 
 
@@ -158,7 +161,7 @@ def review_experiment(root,archive,records,clock):
     s,g,c=evaluate(root,archive,records,clock);dest=root/'performance/totals_anchor_experiment'
     for directory in (dest,dest/'versions'/s['registry_sha256']):
         write_json(directory/'summary.json',s);write_json(directory/'graded.json',g);write_json(directory/'coverage.json',c)
-    (dest/'report.md').write_text('# Pinnacle totals anchoring trial\n\n'+s['note']+'\n\nStatus: '+s['status']+'; paired fixtures: '+str(len(g))+'; gameweeks: '+str(s['gameweeks'])+'\n\n'+json.dumps(s['comparison'],indent=2)+'\n',encoding='utf-8');return s
+    (dest/'report.md').write_text('# Pinnacle totals anchoring trial\n\n'+s['note']+'\n\nStatus: '+s['status']+'; paired fixtures: '+str(len(g))+'; gameweeks: '+str(s['gameweeks'])+'\n\nExcluded forecasts by reason: '+(', '.join(f'{k}: {v}' for k,v in s['excluded_forecast_reasons'].items()) or 'none')+'\n\n'+json.dumps(s['comparison'],indent=2)+'\n',encoding='utf-8');return s
 
 
 def validate_report(root):

@@ -58,6 +58,7 @@ from __future__ import annotations
 import argparse
 from collections import Counter
 import io
+import hashlib
 import json
 import math
 import os
@@ -101,16 +102,24 @@ PIPELINE_VERSION = "2.9.1"
 # Forecast model profiles. Rows without model_version were produced under the
 # legacy profile; it stays importable so archived forecasts replay unchanged.
 LEGACY_MODEL_VERSION = "dc-blend50-tuned-half-life-v1"
-MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2"
-CUSTOM_MODEL_VERSION = MODEL_VERSION + "+custom-settings"
+MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-v2"
+# Explicitly enabled experiment only (--experimental-shot-features); never default.
+SHOT_EXPERIMENT_MODEL_VERSION = "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-v2"
+CUSTOM_MODEL_VERSION = MODEL_VERSION + "+custom"
 MODEL_PROFILES = {
     LEGACY_MODEL_VERSION: {"market_weight": 0.50, "half_life_days": None,
                            "half_life_tuning": True, "totals_anchor": False,
                            "shot_features": False},
     MODEL_VERSION: {"market_weight": 0.70, "half_life_days": 480.0,
                     "half_life_tuning": False, "totals_anchor": True,
-                    "shot_features": True},
+                    "shot_features": False},
+    SHOT_EXPERIMENT_MODEL_VERSION: {"market_weight": 0.70, "half_life_days": 480.0,
+                                    "half_life_tuning": False, "totals_anchor": True,
+                                    "shot_features": True},
 }
+# Shots and BBS statistics never stack until their combination (and its gain
+# over shots alone) has been validated chronologically.
+SHOTS_WITH_BBS_VALIDATED = False
 DEFAULT_MARKET_WEIGHT = MODEL_PROFILES[MODEL_VERSION]["market_weight"]
 DEFAULT_HALF_LIFE_DAYS = MODEL_PROFILES[MODEL_VERSION]["half_life_days"]
 
@@ -125,7 +134,9 @@ def model_version_for(*, market_weight, half_life_days, half_life_tuning,
     for name, profile in MODEL_PROFILES.items():
         if settings == profile:
             return name
-    return CUSTOM_MODEL_VERSION
+    # Each distinct custom configuration gets its own stable identity.
+    digest = hashlib.sha256(json.dumps(settings, sort_keys=True).encode()).hexdigest()[:12]
+    return f"{CUSTOM_MODEL_VERSION}-{digest}"
 
 
 # ---------------------------------------------------------------------------
@@ -1928,15 +1939,7 @@ class DixonColesModel:
         if self.shot_features_enabled:
             meta.update(shot_features_applied=False,
                         shot_features_status=self.shot_features_report.get('status'))
-        if self.shot_model is not None:
-            if home is None or away is None:
-                meta['shot_features_status'] = 'UNKNOWN_TEAM_BASELINE_RETAINED'
-            else:
-                rates, info = self.shot_model.apply(home, away, [lam, mu])
-                meta.update(info)
-                lam, mu = float(rates[0]), float(rates[1])
-                meta.update(lambda_home=lam, lambda_away=mu)
-        # BBS still applies on top and keeps its own unchanged gate/baseline.
+        # BBS (production, own unchanged gate) first, on pure Dixon-Coles rates.
         if self.statistics_model is not None:
             if home is None or away is None:
                 meta['bbs_statistics_status'] = 'UNKNOWN_TEAM_BASELINE_RETAINED'
@@ -1944,6 +1947,19 @@ class DixonColesModel:
                 rates, info = self.statistics_model.apply(home, away, [lam, mu])
                 meta.update(info)
                 meta.update(lambda_home=float(rates[0]), lambda_away=float(rates[1]))
+        # Experimental shots only where BBS did not apply: never both until the
+        # combination is validated chronologically (SHOTS_WITH_BBS_VALIDATED).
+        if self.shot_model is not None:
+            if home is None or away is None:
+                meta['shot_features_status'] = 'UNKNOWN_TEAM_BASELINE_RETAINED'
+            elif meta.get('bbs_statistics_applied') and not SHOTS_WITH_BBS_VALIDATED:
+                meta['shot_features_status'] = 'SKIPPED_BBS_STATISTICS_APPLIED'
+            else:
+                rates, info = self.shot_model.apply(home, away, [lam, mu])
+                meta.update(info)
+                meta.update(lambda_home=float(rates[0]), lambda_away=float(rates[1]))
+        meta['goal_rate_features_used'] = ('bbs_statistics' if meta.get('bbs_statistics_applied') else
+                                           'shot_features' if meta.get('shot_features_applied') else 'none')
         return meta
 
     def score_matrix(self, home: str, away: str) -> Tuple[np.ndarray, Dict[str, object]]:
@@ -1969,6 +1985,7 @@ class DixonColesModel:
             if meta.get('shot_features_applied'):
                 meta.update(shot_features_applied=False, shot_features_weight=0.,
                     shot_features_status='UNSAFE_ADJUSTMENT_BASELINE_RETAINED')
+            meta['goal_rate_features_used'] = 'none'
         meta.update(grid_info)
         return matrix, meta
 
@@ -2593,7 +2610,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         devig_method: str = "power",
         market_weight: float = DEFAULT_MARKET_WEIGHT,
         totals_anchor: bool = True,
-        shot_features: bool = True,
+        shot_features: bool = False,
         odds_api_key: Optional[str] = None,
         football_data_api_key: Optional[str] = None,
         odds_regions: str = "eu",
@@ -2874,11 +2891,49 @@ class FootballValuePipelineV2(FootballValuePipeline):
         )
         return result
 
+    LEGACY_COLUMNS = ('p_home', 'p_draw', 'p_away', 'p_over_1_5', 'p_under_3_5', 'p_btts_yes',
+                      'p_over_2_5', 'goal_margin_distribution', 'market_blend_applied')
+
+    def _fit_legacy_model(self, history, now, league):
+        """dc-blend50-tuned-half-life-v1 refit for side-by-side grading only."""
+        if not getattr(self, 'legacy_comparison', False):
+            return None, None
+        half_life = getattr(self, '_legacy_half_life', None)
+        if half_life is None:
+            return None, getattr(self, '_legacy_status', None) or 'UNAVAILABLE_HALF_LIFE_TUNING'
+        try:
+            legacy = DixonColesModel(half_life_days=half_life, l2=self.l2, max_goals=self.max_goals,
+                                     bbs_statistics=getattr(self, 'bbs_statistics', True)).fit(history, as_of=pd.Timestamp(now))
+        except (ValueError, RuntimeError) as exc:
+            return None, 'UNAVAILABLE_FIT_' + type(exc).__name__
+        legacy.league_key = league.key
+        return legacy, 'AVAILABLE'
+
+    def _legacy_columns(self, legacy_model, row, status) -> Dict[str, object]:
+        """Legacy probabilities beside production; never read by selection or staking."""
+        import copy
+        out = {'legacy_model_version': LEGACY_MODEL_VERSION, 'legacy_status': status,
+               'legacy_half_life_days': getattr(self, '_legacy_half_life', None),
+               **{'legacy_' + k: None for k in self.LEGACY_COLUMNS}}
+        if legacy_model is None:
+            return out
+        legacy = copy.copy(self)
+        legacy.market_weight = MODEL_PROFILES[LEGACY_MODEL_VERSION]['market_weight']
+        legacy.totals_anchor = legacy.shot_features = legacy._benchmark_trial_enabled = False
+        legacy.model_version = LEGACY_MODEL_VERSION
+        try:
+            pred, _ = legacy._predict_row(legacy_model, row)
+        except (ValueError, RuntimeError) as exc:
+            out['legacy_status'] = 'UNAVAILABLE_PREDICTION_' + type(exc).__name__
+            return out
+        out.update({'legacy_' + k: pred.get(k) for k in self.LEGACY_COLUMNS})
+        return out
+
     def _model_version(self) -> str:
         if getattr(self, "model_version", None):
             return self.model_version
         if getattr(self, "half_life_days", None) is None or getattr(self, "market_weight", None) is None:
-            return CUSTOM_MODEL_VERSION
+            return CUSTOM_MODEL_VERSION + "-unspecified"
         return model_version_for(
             market_weight=self.market_weight, half_life_days=self.half_life_days,
             half_life_tuning=getattr(self, "half_life_tuning", False),
@@ -3030,6 +3085,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             shot_features=getattr(self, 'shot_features', False),
         ).fit(history, as_of=pd.Timestamp(now))
         model.league_key = league.key
+        legacy_model, legacy_status = self._fit_legacy_model(history, now, league)
         from elo_ratings import diagnostics as elo_diagnostics, fit_history, fixture_features
         elo = fit_history(history)
 
@@ -3103,6 +3159,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
             (row.to_dict(), *self._predict_row(model, row))
             for _, row in fixtures.iterrows()
         ]
+        if getattr(self, 'legacy_comparison', False):
+            # Same fixtures, same odds snapshot, same run; comparison columns only.
+            for (_, row), (_, pred, _) in zip(fixtures.iterrows(), prepared):
+                pred.update(self._legacy_columns(legacy_model, row, legacy_status))
         from goal_market_validation import prioritized_additional_events
 
         quota = max(
@@ -3263,6 +3323,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         diagnostics['totals_anchor_fixtures'] = dict(Counter(
             str(r.get('totals_anchor_status')) for r in records))
         diagnostics['shot_features_applied_fixtures'] = sum(r.get('shot_features_applied') is True for r in records)
+        diagnostics['goal_rate_features_used'] = dict(Counter(str(r.get('goal_rate_features_used', 'none')) for r in records))
+        diagnostics['legacy_comparison_status'] = dict(Counter(str(r.get('legacy_status')) for r in records))
         diagnostics['bbs_statistics_applied_fixtures'] = sum(r.get('bbs_statistics_applied') is True for r in records)
         diagnostics['training_data_provenance']['bbs_statistics_used_as_predictor_features'] = bool(diagnostics['bbs_statistics_applied_fixtures'])
         return pd.DataFrame(records), diagnostics, scorelines
@@ -3694,8 +3756,12 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--no-totals-anchor", action="store_true",
                    help="Do not anchor goal totals to fresh Pinnacle O/U 2.5 (tags forecasts custom).")
-    p.add_argument("--no-shot-features", action="store_true",
-                   help="Do not try the gated lagged shot features (tags forecasts custom).")
+    p.add_argument("--no-legacy-comparison", action="store_true",
+                   help=(f"Skip the side-by-side {LEGACY_MODEL_VERSION} columns (legacy_*), which are "
+                         "graded in the forward review and never used for selection or staking."))
+    p.add_argument("--experimental-shot-features", action="store_true",
+                   help=("Experimental, off by default: try the per-league gated lagged shot features "
+                         f"(tags forecasts {SHOT_EXPERIMENT_MODEL_VERSION})."))
     p.add_argument(
         "--half-life-candidates",
         nargs="+",
@@ -3858,7 +3924,8 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         )
     if args.auto_market_weight:
         from market_blend_validation import select_market_weight
-    if args.tune_half_life or args.recency_experiment:
+    legacy_comparison = not args.backtest and not args.no_legacy_comparison
+    if args.tune_half_life or args.recency_experiment or legacy_comparison:
         # Lazy import preserves standalone operation without tuning enabled.
         from dc_decay_validation import tune_half_life
 
@@ -3894,11 +3961,12 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         bbs_statistics=not args.no_bbs_statistics,
         bbs_statistics_validation=args.bbs_statistics_validation,
         totals_anchor=not args.no_totals_anchor,
-        shot_features=not args.no_shot_features,
+        shot_features=args.experimental_shot_features,
     )
     pipe.half_life_tuning = bool(args.tune_half_life)
+    pipe.legacy_comparison = legacy_comparison
     if args.auto_market_weight:
-        pipe.model_version = CUSTOM_MODEL_VERSION
+        pipe.model_version = CUSTOM_MODEL_VERSION + "-auto-market-weight"
 
     # Verify Europa before tuning/modeling or consuming odds credits. Exclude
     # unavailable Europa only; never use its stale or disputed training rows.
@@ -3939,26 +4007,35 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         pipe.market_weight = args.market_weight
         tuning = None
         market_selection = None
-        if args.tune_half_life or args.recency_experiment:
-            print(f"[{league_key}] tuning Dixon-Coles half-life"
-                  f"{'' if args.tune_half_life else ' (recency diagnostic only; production stays fixed)'}...",
-                  file=sys.stderr)
+        pipe._legacy_half_life, pipe._legacy_status = None, None
+        if args.tune_half_life or args.recency_experiment or legacy_comparison:
+            purpose = ("production" if args.tune_half_life else
+                       "legacy comparison/recency diagnostic only; production stays fixed")
+            print(f"[{league_key}] tuning Dixon-Coles half-life ({purpose})...", file=sys.stderr)
             training = pipe._history_for_league(
                 LEAGUES[league_key],
                 now=datetime.now(timezone.utc),
             )
-            tuning = tune_half_life(
-                history=training,
-                model_class=DixonColesModel,
-                candidates=args.half_life_candidates,
-                l2=args.l2,
-                max_goals=args.max_goals,
-                validation_days=args.tune_validation_days,
-                step_days=args.tune_step_days,
-                min_train=args.tune_min_train,
-                min_validation_matches=args.tune_min_validation_matches,
-                **({'collect_recency_metrics':True} if args.recency_experiment else {}),
-            )
+            try:
+                tuning = tune_half_life(
+                    history=training,
+                    model_class=DixonColesModel,
+                    candidates=args.half_life_candidates,
+                    l2=args.l2,
+                    max_goals=args.max_goals,
+                    validation_days=args.tune_validation_days,
+                    step_days=args.tune_step_days,
+                    min_train=args.tune_min_train,
+                    min_validation_matches=args.tune_min_validation_matches,
+                    **({'collect_recency_metrics': True} if args.recency_experiment else {}),
+                )
+            except (ValueError, RuntimeError) as exc:
+                if args.tune_half_life or args.recency_experiment:
+                    raise
+                # Legacy comparison only: production continues on its fixed half-life.
+                pipe._legacy_status = 'UNAVAILABLE_HALF_LIFE_TUNING_' + type(exc).__name__
+        if tuning is not None:
+            pipe._legacy_half_life = float(tuning["selected_half_life_days"])
             tuning["applied_to_production"] = bool(args.tune_half_life)
             if args.tune_half_life:
                 pipe.half_life_days = float(tuning["selected_half_life_days"])
@@ -4038,7 +4115,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                 from model_reliability_experiment import generate_league as reliability_generate
                 reliability_rows.extend(reliability_generate(predictions, pipe._recency_history,
                     DixonColesModel, half_life=pipe.half_life_days, l2=pipe.l2, max_goals=pipe.max_goals,
-                    as_of=diagnostics.get('training_as_of_utc')))
+                    as_of=diagnostics.get('training_as_of_utc'), shot_features=pipe.shot_features))
             except Exception as exc:
                 warnings.warn(f'{league_key}: reliability trial unavailable ({type(exc).__name__}); production outputs complete')
         if args.recency_experiment and not predictions.empty:
@@ -4086,6 +4163,8 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
             config = {
                 "validator_version": VALIDATOR_VERSION,
                 "model_version": diagnostics.get("model_version"),
+                "totals_anchor": bool(getattr(pipe, "totals_anchor", False)),
+                "shot_features": bool(getattr(pipe, "shot_features", False)),
                 "min_train": validation_min_train,
                 "step_days": 56,
                 "devig": pipe.devig_method,

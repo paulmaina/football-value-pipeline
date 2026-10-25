@@ -1066,6 +1066,11 @@ def review(*, root: Path = ROOT, token: str = "",
     except Exception as exc:
         warnings.warn(f'Closing quote review failed ({type(exc).__name__}); production report complete')
     try:
+        from model_comparison import review as review_model_comparison
+        review_model_comparison(root, archived, records, clock)
+    except Exception as exc:
+        warnings.warn(f'Model comparison review failed ({type(exc).__name__}); production report complete')
+    try:
         from clv_report import build_report as build_clv_report
         build_clv_report(root, clock=clock)
     except Exception as exc:
