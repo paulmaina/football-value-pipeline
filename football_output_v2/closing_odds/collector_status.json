@@ -1,25 +1,15 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-25T20:29:01.865090+00:00",
+  "checked_at_utc": "2026-10-26T18:39:21.159890+00:00",
   "coverage_checks": [
     {
-      "event_id": "9b60d2e564e8761e9ec267bd7baf6998",
-      "missing_required_quotes": [
-        {
-          "bookmaker": "1xbet",
-          "selection": "away"
-        },
-        {
-          "bookmaker": "1xbet",
-          "selection": "draw"
-        },
-        {
-          "bookmaker": "1xbet",
-          "selection": "home"
-        }
-      ],
+      "event_id": "7f4d1fc269584543a305935a2d3552fd",
+      "missing_required_quotes": [],
       "requested_markets": [
+        "alternate_spreads",
+        "draw_no_bet",
         "h2h",
+        "spreads",
         "totals"
       ],
       "returned_bookmakers": [
@@ -28,14 +18,14 @@
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 85,
+  "daily_requests": 10,
   "eligible_fixtures": 1,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "request_limit": 1,
+  "request_limit": 10,
   "requests": 1,
   "reservation_allowance": 10,
-  "reservation_id": "actions-40218641971-1-6",
-  "reservation_used": 10,
+  "reservation_id": "actions-40370768243-1-1",
+  "reservation_used": 1,
   "written": 1
 }
