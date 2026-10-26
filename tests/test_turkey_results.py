@@ -48,7 +48,7 @@ class TurkeyResultsTests(OfflineQuotePolicyTestCase):
         self.assertEqual(pt.fixture_match({**forecast(), 'league': 'SuperLig'}, records)[1], state)
 
     def test_aliases_work_both_ways_and_are_not_fuzzy(self):
-        aliases = json.loads(Path('bbs_team_aliases.json').read_text())['SuperLig']
+        aliases = json.loads(Path('bbs_team_aliases.json').read_text(encoding='utf-8'))['SuperLig']
         for feed, training in aliases.items():
             self.assertEqual(tr.team_key(feed), tr.team_key(training))
         record = tr.parse_results(CSV, 2026, CLOCK)[0]
