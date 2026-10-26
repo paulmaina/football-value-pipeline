@@ -3086,6 +3086,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PPL:567331": {
+    "away_goals": 2,
+    "away_short_name": "SL Benfica",
+    "away_team": "Sport Lisboa e Benfica",
+    "first_verified_at_utc": "2026-10-26T20:53:56Z",
+    "home_goals": 1,
+    "home_short_name": "Santa Clara",
+    "home_team": "CD Santa Clara",
+    "kickoff_utc": "2026-10-26T18:45:00Z",
+    "league_code": "PPL",
+    "match_id": 567331,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PPL:567332": {
     "away_goals": 2,
     "away_short_name": "Acad. Viseu",
