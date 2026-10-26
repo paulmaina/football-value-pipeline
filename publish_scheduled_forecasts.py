@@ -7,6 +7,7 @@ import sys
 import tempfile
 
 import league_registry
+from prediction_runs import prune_captured_runs
 from publish_performance import git
 
 
@@ -45,10 +46,14 @@ def publish(repo,attempts=3,runner=None):
                 # Capture forecast commit before review output is committed. Token pushes do not trigger other workflows.
                 sha=git(work,'rev-parse','HEAD').stdout.strip()
                 runner([sys.executable,'performance_tracking.py','capture','--commit-sha',sha],cwd=work,check=True)
+                # Captured, non-current bundles leave in the commit that adds their snapshots.
+                pruned=prune_captured_runs(work/'football_output_v2')
                 runner([sys.executable,'performance_tracking.py','review','--api-key-source','environment'],cwd=work,check=True)
                 runner([sys.executable,'workflow_checks.py','reports','--output',
                     'football_output_v2/performance/workflow_health.json'],cwd=work,check=True)
                 git(work,'add','football_output_v2/performance','football_output_v2/readable')
+                if pruned:
+                    git(work,'add','--all','--',*[f'football_output_v2/raw/prediction_runs/{run}' for run in pruned])
                 if git(work,'diff','--cached','--quiet',check=False).returncode:
                     git(work,'-c','user.name=github-actions[bot]','-c','user.email=41898282+github-actions[bot]@users.noreply.github.com','commit','-m','Capture and grade automated forecasts')
                 pushed=git(work,'push','origin','HEAD:main',check=False)
