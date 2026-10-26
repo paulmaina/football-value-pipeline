@@ -1,0 +1,179 @@
+{
+  "league": "Primeira Liga",
+  "training_matches": 1602,
+  "training_seasons_requested": 6,
+  "training_seasons_loaded": [
+    "2122",
+    "2223",
+    "2324",
+    "2425",
+    "2526",
+    "2627"
+  ],
+  "training_sha256": "9aa0490d3c785bbac1db1df68144a198798f6e850afaca727c2a89dab1ac3be4",
+  "training_as_of_utc": "2026-10-26T11:01:08.952231+00:00",
+  "training_data_provenance": {
+    "bbs_confirmed_rows": 0,
+    "bbs_added_results": 0,
+    "bbs_result_conflicts": 0,
+    "bbs_rows_with_statistics": 0,
+    "bbs_statistics_used_as_predictor_features": false,
+    "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass."
+  },
+  "bbs_statistics_model": {
+    "status": "NO_OBSERVATIONS"
+  },
+  "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+  "totals_anchor_enabled": true,
+  "shot_features_model": {
+    "version": "football-data-lagged-shot-strength-v1",
+    "status": "VALIDATED",
+    "cutoff_date": "2026-10-26",
+    "selected_weight": 0.3,
+    "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
+    "lag_rule": "matches dated strictly before the origin date",
+    "gates": {
+      "min_form": 3,
+      "min_train": 60,
+      "min_tune": 20,
+      "min_audit": 40,
+      "min_audit_matchdays": 8,
+      "min_audit_gain": 0.01,
+      "bootstrap_lower95": ">0",
+      "market_brier_safety": [
+        "1x2",
+        "over_1_5",
+        "under_3_5",
+        "btts_yes"
+      ],
+      "max_goal_rate_ratio": 1.25
+    },
+    "bbs_shot_source_enabled": false,
+    "shot_matches": 1602,
+    "tune_start_date": "2025-10-27",
+    "audit_start_date": "2026-04-27",
+    "training_shot_matches": 1304,
+    "tuning_matches": 197,
+    "audit_matches": 95,
+    "audit_matchdays": 39,
+    "selected_shrinkage": 5.0,
+    "selected_component": "shots_on_target_and_total_shots",
+    "proposed_weight": 0.3,
+    "audit_baseline_poisson_score": 0.8842989647630213,
+    "audit_candidate_poisson_score": 0.8712722566731389,
+    "audit_gain": 0.013026708089882377,
+    "audit_gain_lower95": 0.0016952519471041152,
+    "audit_baseline_briers": [
+      0.6014046160164832,
+      0.17871464745604035,
+      0.23959646082409236,
+      0.25147632394995034
+    ],
+    "audit_candidate_briers": [
+      0.596003028732249,
+      0.17800083852090984,
+      0.2385408793338746,
+      0.24933758220041838
+    ],
+    "audit_brier_order": [
+      "1x2",
+      "over_1_5",
+      "under_3_5",
+      "btts_yes"
+    ],
+    "failed_gates": []
+  },
+  "training_end": "2026-10-19",
+  "fit_success": true,
+  "objective": 1441.4638001471244,
+  "base": 0.09158955336965928,
+  "home_adv": 0.17758284771047028,
+  "rho": 0.04281625529037721,
+  "half_life_days": 480.0,
+  "xi_per_day": 0.0014440566261665526,
+  "max_goals": 10,
+  "devig_method": "power",
+  "market_weight": 0.7,
+  "elo_ratings": {
+    "version": "venue-elo-v1",
+    "teams": 27,
+    "matches": 1602,
+    "k_factor": 20.0,
+    "home_advantage": 60.0,
+    "venue_weight": 0.5,
+    "season_regression": 0.2,
+    "last_match_date": "2026-10-19"
+  },
+  "training_data_health": {
+    "training_end": "2026-10-19",
+    "days_since_latest_result": 7,
+    "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
+  },
+  "training_source": "Football-Data.co.uk",
+  "fixture_provider_mode": "auto",
+  "fixture_sources": [
+    "The Odds API"
+  ],
+  "the_odds_api_enabled": true,
+  "odds_regions": "eu",
+  "live_odds_matched": 1,
+  "additional_event_odds_calls_used_before_this_league": 5,
+  "additional_event_odds_calls_budget": null,
+  "additional_event_odds_league_quota": null,
+  "over_1_5_in_window_quote_fixtures": 1,
+  "additional_odds_coverage_mode": "all",
+  "additional_odds_coverage": [
+    {
+      "fixture_id": "7f4d1fc269584543a305935a2d3552fd",
+      "event_id": "7f4d1fc269584543a305935a2d3552fd",
+      "home_team": "Santa Clara",
+      "away_team": "Benfica",
+      "kickoff_utc": "2026-10-26T18:45:00+00:00",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    }
+  ],
+  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_event_odds_hard_cap_applies": false,
+  "additional_event_odds_calls_this_league": 1,
+  "totals_anchor_fixtures": {
+    "NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE": 1
+  },
+  "shot_features_applied_fixtures": 1,
+  "goal_rate_features_used": {
+    "shot_features": 1
+  },
+  "legacy_comparison_status": {
+    "AVAILABLE": 1
+  },
+  "bbs_statistics_applied_fixtures": 0,
+  "decay_tuning": {
+    "selected_half_life_days": 730.0,
+    "selected_xi_per_day": 0.0009495166856985552,
+    "selection_metric": "walk_forward_1x2_log_loss",
+    "validation_days": 365,
+    "applied_to_production": false
+  },
+  "goal_market_reliability": {
+    "home_draw": "RELIABLE_FOR_RANKING",
+    "draw_away": "RELIABLE_FOR_RANKING",
+    "home_away": "RELIABLE_FOR_RANKING",
+    "home": "RELIABLE_FOR_RANKING",
+    "draw": "RELIABLE_FOR_RANKING",
+    "away": "RELIABLE_FOR_RANKING",
+    "over_1_5": "RELIABLE_FOR_RANKING",
+    "under_3_5": "RELIABLE_FOR_RANKING",
+    "btts_yes": "RELIABLE_FOR_RANKING"
+  }
+}

@@ -1,20 +1,20 @@
 {
-  "generated_at_utc": "2026-10-25T10:24:47.847996+00:00",
-  "selection_policy_version": "48h-two-per-market-group-probability-ev-corners-cards-v25",
+  "generated_at_utc": "2026-10-26T11:01:43.961218+00:00",
+  "selection_policy_version": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
   "status": "BELOW_TARGET",
-  "n_fixtures": 45,
-  "n_markets_evaluated": 1138,
-  "n_shortlisted": 16,
-  "n_strict_qualified": 16,
+  "n_fixtures": 31,
+  "n_markets_evaluated": 376,
+  "n_shortlisted": 2,
+  "n_strict_qualified": 2,
   "n_provisional_watchlist": 0,
-  "n_total_candidates": 16,
-  "target_distinct_matches": 18,
-  "shortfall": 2,
-  "usable_distinct_fixtures": 32,
+  "n_total_candidates": 2,
+  "target_distinct_matches": 12,
+  "shortfall": 10,
+  "usable_distinct_fixtures": 2,
   "shortlist_lookahead_hours": 48.0,
   "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-10-25T10:24:47.847996+00:00",
-  "shortlist_window_end_utc": "2026-10-27T10:24:47.847996+00:00",
+  "shortlist_window_start_utc": "2026-10-26T11:01:43.961218+00:00",
+  "shortlist_window_end_utc": "2026-10-28T11:01:43.961218+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -83,19 +83,11 @@
     "Corners Over 11.5",
     "Corners Under 11.5",
     "Corners Over 12.5",
-    "Corners Under 12.5",
-    "Cards Over 2.5",
-    "Cards Under 2.5",
-    "Cards Over 3.5",
-    "Cards Under 3.5",
-    "Cards Over 4.5",
-    "Cards Under 4.5",
-    "Cards Over 5.5",
-    "Cards Under 5.5",
-    "Cards Over 6.5",
-    "Cards Under 6.5"
+    "Corners Under 12.5"
   ],
   "quote_execution_policy": {
+    "asian_handicap_risk_tolerance": 0,
+    "min_adjusted_no_loss_probability": 0.75,
     "allowed_bookmakers": [
       "Pinnacle",
       "bet365"
@@ -105,12 +97,12 @@
     "account_availability": "USER_ALLOWLIST"
   },
   "validation_required": true,
-  "selection_objective": "PER_MARKET_PROBABILITY_WEIGHTED",
-  "selection_method": "Within each market group, 0.8 x adjusted-probability percentile + 0.2 x adjusted-EV percentile; at most 2 per group and 18 in total; one market per fixture; fill the most slots possible, then prefer higher scores in rank order",
-  "ranking_metric": "selection_score descending; ties: adjusted probability descending, adjusted EV descending, unblended EV descending, odds descending",
-  "min_estimated_ev": null,
-  "min_raw_dc_ev": null,
-  "ev_required_for_selection": false,
+  "selection_objective": "MINIMIZE_CONSERVATIVE_ESTIMATED_LOSS_RISK",
+  "selection_method": "Require common adjusted no-loss probability floor; zero risk tolerance; lowest conservative loss estimate per fixture, then adjusted EV, unblended EV and refund probability; Corners totals compete under the same floors; cap 12",
+  "ranking_metric": "loss_probability_upper ascending; EV breaks equal minimum-risk ties",
+  "min_estimated_ev": 0.005,
+  "min_raw_dc_ev": 0.0,
+  "ev_required_for_selection": true,
   "validation_market_statuses": {
     "Premier League": {
       "home_draw": "RELIABLE_FOR_RANKING",
@@ -132,7 +124,7 @@
       "away": "RELIABLE_FOR_RANKING",
       "over_1_5": "RELIABLE_FOR_RANKING",
       "under_3_5": "RELIABLE_FOR_RANKING",
-      "btts_yes": "UNRELIABLE_AUDIT"
+      "btts_yes": "RELIABLE_FOR_RANKING"
     },
     "Bundesliga": {
       "home_draw": "RELIABLE_FOR_RANKING",
@@ -203,114 +195,37 @@
     "Primeira Liga": {
       "home_draw": "RELIABLE_FOR_RANKING",
       "draw_away": "RELIABLE_FOR_RANKING",
-      "home_away": "UNRELIABLE_AUDIT",
+      "home_away": "RELIABLE_FOR_RANKING",
       "home": "RELIABLE_FOR_RANKING",
-      "draw": "UNRELIABLE_AUDIT",
+      "draw": "RELIABLE_FOR_RANKING",
       "away": "RELIABLE_FOR_RANKING",
       "over_1_5": "RELIABLE_FOR_RANKING",
       "under_3_5": "RELIABLE_FOR_RANKING",
       "btts_yes": "RELIABLE_FOR_RANKING"
     }
   },
-  "legacy_ranking_experiments": "NOT_APPLICABLE_TO_WIN_FIRST_POLICY; archived experiments remain graded",
+  "legacy_ranking_experiments": "NOT_APPLICABLE_TO_LOSS_FIRST_POLICY; archived experiments remain graded",
   "ranking_is_empirically_optimized": false,
-  "shortfall_reason": "Short groups: Cards 0/2. No allocation of eligible candidates fills these slots; they are not filled from other groups.",
+  "shortfall_reason": "No padding: missing evidence or failing the common safety/EV cutoffs can reduce the shortlist",
   "bookmaker_coverage": {
-    "Pinnacle": 616,
+    "Pinnacle": 122,
     "bet365": 0,
-    "1xBet": 252
+    "1xBet": 42
   },
-  "warning": "Full and half wins count as profitable outcomes; refunds do not. No probability or EV floor. Negative adjusted EV is explicitly flagged. Corners and Cards picks are UNPROVEN EDGE: validated on probability accuracy only, with no historical corner or card odds. Percentile scores are relative ranks within a market group, not probabilities. Estimates are not guarantees; 18 individual picks are not an accumulator recommendation.",
-  "probability_basis": "net_profit",
-  "probability_cutoff_status": "NO_FIXED_PROBABILITY_CUTOFF",
-  "negative_adjusted_ev_selections": 10,
-  "ranking_weights": {
-    "adjusted_probability_percentile": 0.8,
-    "adjusted_ev_percentile": 0.2
-  },
-  "score_formula": "0.8 * probability_percentile + 0.2 * ev_percentile (within market group)",
-  "market_groups": [
-    "Asian handicap",
-    "Home win",
-    "Away win",
-    "Over 1.5",
-    "Double Chance 1X",
-    "Double Chance X2",
-    "Double Chance 12",
-    "Corners",
-    "Cards"
-  ],
-  "max_per_market_group": 2,
+  "warning": "Probabilities and EV are model estimates, not guarantees. Required adjusted no-loss probability: 75%; required adjusted EV: +0.5%; unblended EV must be nonnegative. Refunds are not wins. Corners picks are UNPROVEN EDGE: validated on probability accuracy only, with no historical corner odds. Flat-stake research, not accumulator protection.",
+  "loss_risk_tolerance": 0,
+  "risk_tolerance_status": "USER_REQUESTED_ZERO_TOLERANCE",
+  "min_adjusted_no_loss_probability": 0.75,
+  "max_estimated_loss_probability": 0.25,
+  "probability_cutoff_status": "USER_SELECTED_POLICY_SETTING_NOT_EMPIRICALLY_OPTIMIZED",
   "shortlist_approval": "per-market for every league",
   "unproven_edge_market_groups": [
-    "Corners",
-    "Cards"
+    "Corners"
   ],
-  "unproven_edge_selections": 2,
-  "unproven_edge_markets": [
-    "Lecce vs Juventus: Corners Under 10.5",
-    "Celta Vigo vs Real Betis: Corners Under 10.5"
-  ],
-  "count_market_validation": "Probability accuracy only: walk-forward on six football-data.co.uk seasons; no historical corner or card odds exist, so profitability is unproven.",
-  "group_shortfall": {
-    "Asian handicap": {
-      "eligible_fixtures": 32,
-      "selected": 2,
-      "shortfall": 0
-    },
-    "Home win": {
-      "eligible_fixtures": 21,
-      "selected": 2,
-      "shortfall": 0
-    },
-    "Away win": {
-      "eligible_fixtures": 10,
-      "selected": 2,
-      "shortfall": 0
-    },
-    "Over 1.5": {
-      "eligible_fixtures": 11,
-      "selected": 2,
-      "shortfall": 0
-    },
-    "Double Chance 1X": {
-      "eligible_fixtures": 24,
-      "selected": 2,
-      "shortfall": 0
-    },
-    "Double Chance X2": {
-      "eligible_fixtures": 23,
-      "selected": 2,
-      "shortfall": 0
-    },
-    "Double Chance 12": {
-      "eligible_fixtures": 24,
-      "selected": 2,
-      "shortfall": 0
-    },
-    "Corners": {
-      "eligible_fixtures": 24,
-      "selected": 2,
-      "shortfall": 0
-    },
-    "Cards": {
-      "eligible_fixtures": 0,
-      "selected": 0,
-      "shortfall": 2
-    }
-  },
-  "negative_adjusted_ev_markets": [
-    "Toulouse vs Troyes: Home win",
-    "Rio Ave FC vs Famalic\u00e3o: Away win",
-    "Nacional vs Braga: Over 1.5",
-    "Estoril vs Moreirense FC: Over 1.5",
-    "Marseille vs Le Havre: Double Chance 1X",
-    "Inter Milan vs Fiorentina: Double Chance 1X",
-    "SC Freiburg vs Bayern Munich: Double Chance X2",
-    "Udinese vs AC Milan: Double Chance X2",
-    "Paris Saint Germain vs Lyon: Double Chance 12",
-    "Real Sociedad vs Levante: Double Chance 12"
-  ],
+  "unproven_edge_selections": 0,
+  "unproven_edge_markets": [],
+  "count_market_validation": "Probability accuracy only: walk-forward on six football-data.co.uk seasons; no historical corner odds exist, so profitability is unproven. Card totals are excluded.",
+  "negative_adjusted_ev_selections": 0,
   "league_availability": {
     "requested_leagues": [
       "EPL",

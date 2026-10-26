@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "2f4fd2fcddcb84697ea931176b022e41bf3522fece1debae7653f99b8c0db30f",
-  "training_as_of_utc": "2026-10-25T10:24:08.731329+00:00",
+  "training_as_of_utc": "2026-10-26T11:00:22.155234+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -22,17 +22,45 @@
   "bbs_statistics_model": {
     "status": "NO_OBSERVATIONS"
   },
+  "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+  "totals_anchor_enabled": true,
+  "shot_features_model": {
+    "version": "football-data-lagged-shot-strength-v1",
+    "status": "NO_SHOT_DATA",
+    "cutoff_date": "2026-10-26",
+    "selected_weight": 0.0,
+    "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
+    "lag_rule": "matches dated strictly before the origin date",
+    "gates": {
+      "min_form": 3,
+      "min_train": 60,
+      "min_tune": 20,
+      "min_audit": 40,
+      "min_audit_matchdays": 8,
+      "min_audit_gain": 0.01,
+      "bootstrap_lower95": ">0",
+      "market_brier_safety": [
+        "1x2",
+        "over_1_5",
+        "under_3_5",
+        "btts_yes"
+      ],
+      "max_goal_rate_ratio": 1.25
+    },
+    "bbs_shot_source_enabled": false,
+    "shot_matches": 0
+  },
   "training_end": "2026-10-22",
   "fit_success": true,
-  "objective": 446.4994365726448,
-  "base": 0.13064888900070695,
-  "home_adv": 0.21682347169325691,
+  "objective": 804.435716985011,
+  "base": 0.10231435133785922,
+  "home_adv": 0.26707434446024514,
   "rho": 0.05,
-  "half_life_days": 240.0,
-  "xi_per_day": 0.0028881132523331052,
+  "half_life_days": 480.0,
+  "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
   "devig_method": "power",
-  "market_weight": 0.5,
+  "market_weight": 0.7,
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 108,
@@ -45,7 +73,7 @@
   },
   "training_data_health": {
     "training_end": "2026-10-22",
-    "verified_at_utc": "2026-10-25T09:03:20.399009+00:00",
+    "verified_at_utc": "2026-10-26T04:43:36.945745+00:00",
     "official_source_health": {
       "2025": {
         "status": "REVIEWED_HISTORICAL_FACTS",
@@ -61,14 +89,15 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 0,
-  "additional_event_odds_calls_used_before_this_league": 24,
+  "additional_event_odds_calls_used_before_this_league": 5,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "decay_tuning": {
     "selected_half_life_days": 240.0,
     "selected_xi_per_day": 0.0028881132523331052,
     "selection_metric": "walk_forward_1x2_log_loss",
-    "validation_days": 365
+    "validation_days": 365,
+    "applied_to_production": false
   },
   "goal_market_reliability": {
     "home_draw": "UNRELIABLE_AUDIT",
