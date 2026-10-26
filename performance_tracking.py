@@ -279,6 +279,74 @@ def capture(commit_sha: str, *, root: Path = ROOT,
     return True
 
 
+def load_snapshot(directory: Path) -> tuple[dict, list[dict], list[dict]] | None:
+    """One archived snapshot as performance reporting accepts it, or None if rejected."""
+    meta = load_json(directory / "metadata.json", {})
+    if 'archive_id' in meta:
+        from prediction_runs import archive_identity
+        try:
+            archive_id = archive_identity(meta, directory.name)
+        except ValueError:
+            warnings.warn(f'Invalid prediction-run archive identity ignored: {directory}')
+            return None
+        meta = {**meta, 'source_git_commit_sha': meta['git_commit_sha'],
+                'git_commit_sha': archive_id}
+    if utc(meta.get("captured_at_utc")) is None or utc(meta.get("generated_at_utc")) is None:
+        warnings.warn(f"Invalid snapshot metadata ignored: {directory}")
+        return None
+    required = {'predictions.csv', 'shortlist.csv', 'selection_summary.json'}
+    if 'archive_id' in meta:
+        required.add('run_manifest.json')
+    optional = {'goal_blend_experiment.json', 'market_led_experiment.json',
+        'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json',
+        'totals_anchor_experiment.json', 'model_reliability_experiment.json',
+        'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json',
+        'bet365_vs_pinnacle.csv'}
+    digests = meta.get('sha256')
+    if not isinstance(digests, dict) or not required.issubset(digests) or set(digests)-required-optional:
+        warnings.warn(f'Missing required or invalid snapshot manifest ignored: {directory}')
+        return None
+    if any(not isinstance(digests[name], str) or len(digests[name]) != 64 or
+           any(c not in '0123456789abcdef' for c in digests[name].lower()) for name in required):
+        warnings.warn(f'Invalid snapshot digest ignored: {directory}')
+        return None
+    # Fail closed if an archived artifact changes after capture.
+    if any(
+        not (directory / name).exists() or hashlib.sha256(
+            (directory / name).read_bytes()
+        ).hexdigest() != digest
+        for name, digest in digests.items()
+        if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "filter_sensitivity_experiment.json", "benchmark_forward_experiment.json", "totals_anchor_experiment.json", "model_reliability_experiment.json", "shortlist_policy_experiment.json", "shortlist_weight_experiment.json", "pipeline_health.json"}
+    ):
+        warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
+        return None
+    summary = load_json(directory / "selection_summary.json", {})
+    if 'archive_id' in meta:
+        from prediction_runs import validate_archive_binding
+        try:
+            validate_archive_binding(directory, meta)
+        except (ValueError, KeyError, OSError):
+            warnings.warn(f'Unbound prediction-run archive ignored: {directory}')
+            return None
+    # The immutable summary restores legacy subsecond generation precision;
+    # a different generation instant cannot relabel an archived forecast.
+    from forecast_integrity import snapshot_generated_at
+    try:
+        generated = snapshot_generated_at(directory, meta)
+    except (ValueError, TypeError, KeyError, OSError):
+        warnings.warn(f'Unbound snapshot generation ignored: {directory}')
+        return None
+    meta = {**meta, 'generated_at_utc': generated, "selection_policy_version": (
+        meta.get("selection_policy_version") or summary.get("selection_policy_version")
+        or "legacy/unspecified"
+    )}
+    return (
+        meta,
+        read_csv(directory / "predictions.csv"),
+        read_csv(directory / "shortlist.csv"),
+    )
+
+
 def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
     base = root / "performance" / "snapshots"
     if not base.exists():
@@ -288,70 +356,9 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
         directory = meta_path.parent
         if directory.name.startswith('.capture-'):
             continue
-        meta = load_json(meta_path, {})
-        if 'archive_id' in meta:
-            from prediction_runs import archive_identity
-            try:
-                archive_id = archive_identity(meta, directory.name)
-            except ValueError:
-                warnings.warn(f'Invalid prediction-run archive identity ignored: {directory}')
-                continue
-            meta = {**meta, 'source_git_commit_sha': meta['git_commit_sha'],
-                    'git_commit_sha': archive_id}
-        if utc(meta.get("captured_at_utc")) is None or utc(meta.get("generated_at_utc")) is None:
-            warnings.warn(f"Invalid snapshot metadata ignored: {directory}")
-            continue
-        required = {'predictions.csv', 'shortlist.csv', 'selection_summary.json'}
-        if 'archive_id' in meta:
-            required.add('run_manifest.json')
-        optional = {'goal_blend_experiment.json', 'market_led_experiment.json',
-            'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json',
-            'totals_anchor_experiment.json', 'model_reliability_experiment.json',
-            'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json',
-            'bet365_vs_pinnacle.csv'}
-        digests = meta.get('sha256')
-        if not isinstance(digests, dict) or not required.issubset(digests) or set(digests)-required-optional:
-            warnings.warn(f'Missing required or invalid snapshot manifest ignored: {directory}')
-            continue
-        if any(not isinstance(digests[name], str) or len(digests[name]) != 64 or
-               any(c not in '0123456789abcdef' for c in digests[name].lower()) for name in required):
-            warnings.warn(f'Invalid snapshot digest ignored: {directory}')
-            continue
-        # Fail closed if an archived artifact changes after capture.
-        if any(
-            not (directory / name).exists() or hashlib.sha256(
-                (directory / name).read_bytes()
-            ).hexdigest() != digest
-            for name, digest in digests.items()
-            if name not in {"goal_blend_experiment.json", "market_led_experiment.json", "filter_sensitivity_experiment.json", "benchmark_forward_experiment.json", "totals_anchor_experiment.json", "model_reliability_experiment.json", "shortlist_policy_experiment.json", "shortlist_weight_experiment.json", "pipeline_health.json"}
-        ):
-            warnings.warn(f"Tampered/incomplete snapshot ignored: {directory}")
-            continue
-        summary = load_json(directory / "selection_summary.json", {})
-        if 'archive_id' in meta:
-            from prediction_runs import validate_archive_binding
-            try:
-                validate_archive_binding(directory, meta)
-            except (ValueError, KeyError, OSError):
-                warnings.warn(f'Unbound prediction-run archive ignored: {directory}')
-                continue
-        # The immutable summary restores legacy subsecond generation precision;
-        # a different generation instant cannot relabel an archived forecast.
-        from forecast_integrity import snapshot_generated_at
-        try:
-            generated = snapshot_generated_at(directory, meta)
-        except (ValueError, TypeError, KeyError, OSError):
-            warnings.warn(f'Unbound snapshot generation ignored: {directory}')
-            continue
-        meta = {**meta, 'generated_at_utc': generated, "selection_policy_version": (
-            meta.get("selection_policy_version") or summary.get("selection_policy_version")
-            or "legacy/unspecified"
-        )}
-        output.append((
-            meta,
-            read_csv(directory / "predictions.csv"),
-            read_csv(directory / "shortlist.csv"),
-        ))
+        snapshot = load_snapshot(directory)
+        if snapshot is not None:
+            output.append(snapshot)
     return sorted(output, key=lambda item: (
         utc(item[0]["captured_at_utc"]), utc(item[0]["generated_at_utc"]), item[0]["git_commit_sha"]
     ))

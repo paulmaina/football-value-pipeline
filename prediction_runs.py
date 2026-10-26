@@ -24,6 +24,12 @@ MANIFEST = 'run_manifest.json'
 LOCK = '.prediction-run.lock'
 LOCK_OWNER = 'owner.json'
 LOCK_GUARD = '.prediction-run.guard'
+# Experiment files capture() copies verbatim from a bundle into its archive.
+SIDECARS = frozenset({'goal_blend_experiment.json', 'market_led_experiment.json',
+    'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json',
+    'totals_anchor_experiment.json', 'model_reliability_experiment.json',
+    'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json',
+    'bet365_vs_pinnacle.csv'})
 # An ownerless lock younger than this may belong to a writer that has created
 # the directory but not yet recorded itself; older ones are abandoned.
 OWNERLESS_LOCK_GRACE_SECONDS = 120
@@ -425,16 +431,28 @@ def capture_runs(root, source_commit, *, captured_at=None):
     return count
 
 
-def _captured(snapshots, run_id):
-    """True only for a run whose own archive snapshot is present and bound to it."""
+def _captured(snapshots, bundle):
+    """True only if reporting accepts this run's archive and it holds all the run's sidecars.
+
+    Snapshot loading leaves sidecar checksums to each experiment, so every
+    sidecar in the bundle must be archived byte-identical to the bundle copy.
+    """
+    from performance_tracking import load_snapshot
+    run_id = bundle.name
     directory = snapshots/digest(('prediction-run:'+run_id).encode())[:16]
     try:
-        metadata = json.loads((directory/'metadata.json').read_bytes())
-        archive_identity(metadata, directory.name)
-        validate_archive_binding(directory, metadata)
-    except (OSError, ValueError, KeyError, TypeError, AttributeError):
+        snapshot = load_snapshot(directory)
+        # Legacy commit snapshots skip run binding, so require a prediction-run archive.
+        if (snapshot is None or 'archive_id' not in snapshot[0]
+                or snapshot[0]['prediction_run_id'] != run_id):
+            return False
+        manifest = validate_bundle(bundle)
+        archived = snapshot[0]['sha256']
+        return manifest['run_id'] == run_id and all(
+            archived.get(name) == expected and digest((directory/name).read_bytes()) == expected
+            for name, expected in manifest['sha256'].items() if name in SIDECARS)
+    except Exception:
         return False
-    return metadata['prediction_run_id'] == run_id
 
 
 def prune_captured_runs(root):
@@ -454,7 +472,7 @@ def prune_captured_runs(root):
     except (OSError, ValueError, KeyError, TypeError):
         return []
     pruned = [d for d in directories if d.name != current
-              and re.fullmatch('[0-9a-f]{64}', d.name) and _captured(snapshots, d.name)]
+              and re.fullmatch('[0-9a-f]{64}', d.name) and _captured(snapshots, d)]
     if not pruned:
         return []
     # Move out of the run folder first: capture_runs rejects a half-deleted bundle.
