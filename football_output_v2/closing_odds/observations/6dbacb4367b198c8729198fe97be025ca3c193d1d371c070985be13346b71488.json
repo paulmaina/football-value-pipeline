@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "CA Osasuna",
+    "home_team": "Sevilla",
+    "kickoff_utc": "2026-10-26T20:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "85e464708d03287f24590e1478aeca31"
+  },
+  "observed_at_utc": "2026-10-26T19:54:09.374840+00:00",
+  "payload": {
+    "away_team": "CA Osasuna",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-26T19:53:35Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "price": 4.26
+              },
+              {
+                "name": "Sevilla",
+                "price": 1.94
+              },
+              {
+                "name": "Draw",
+                "price": 3.45
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-26T19:53:35Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.29
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.67
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-26T19:54:03Z",
+            "outcomes": [
+              {
+                "name": "CA Osasuna",
+                "price": 4.42
+              },
+              {
+                "name": "Sevilla",
+                "price": 1.95
+              },
+              {
+                "name": "Draw",
+                "price": 3.43
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-26T19:54:03Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.99
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 1.91
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-26T20:00:00Z",
+    "home_team": "Sevilla",
+    "id": "85e464708d03287f24590e1478aeca31",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5021978967106503,
+      "selection": "home",
+      "updated_at_utc": "2026-10-26T19:53:35+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.45,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.27607097315731743,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-26T19:53:35+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22173113013203224,
+      "selection": "away",
+      "updated_at_utc": "2026-10-26T19:53:35+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.29,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.41756240124911276,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-26T19:53:35+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5824375987508873,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-26T19:53:35+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5026521032764811,
+      "selection": "home",
+      "updated_at_utc": "2026-10-26T19:54:03+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.43,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.280965423256275,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-26T19:54:03+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.42,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2163824734672438,
+      "selection": "away",
+      "updated_at_utc": "2026-10-26T19:54:03+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
