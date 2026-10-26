@@ -9077,13 +9077,13 @@
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 316,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-10-26T11:46:06.173479+00:00",
+        "reviewed_at_utc": "2026-10-26T15:20:41.751460+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
       "dependencies": {
-        "PyYAML": "6.0.3",
-        "coverage": "7.17.0",
+        "PyYAML": "NOT_INSTALLED",
+        "coverage": "NOT_INSTALLED",
         "numpy": "2.5.4",
         "pandas": "3.1.0",
         "python": "3.12.15",
@@ -9135,7 +9135,7 @@
         "totals_anchor_experiment:LEGACY_NOT_RECORDED": 21
       },
       "forecast_freshness": {
-        "age_hours": 0.0030967330555555558,
+        "age_hours": 3.579646172222222,
         "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
         "status": "WITHIN_24_HOURS",
         "upcoming_fixture_count": 3
@@ -9266,10 +9266,10 @@
           }
         ],
         "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-10-26T11:46:06.173479+00:00",
+        "reviewed_at_utc": "2026-10-26T15:20:41.751460+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-10-26T11:46:06.173479+00:00",
+      "reviewed_at_utc": "2026-10-26T15:20:41.751460+00:00",
       "selection_policy_groups": {
         "48h-top-ten-probability-ev-no-under35-v14": {
           "brier": 0.178674,
@@ -10011,11 +10011,11 @@
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-10-26T11:45:10.704940+00:00",
+            "checked_at_utc": "2026-10-26T15:20:26.408407+00:00",
             "completed_matches": 54,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.0154079275,
+            "download_age_hours": 0.004261959166666667,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-21",
             "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -10024,7 +10024,7 @@
             "overdue_unfinished_match_ids": [],
             "provider": "football-data.org",
             "season_start": 2026,
-            "sha256": "2353e57e5396c911f4d49ba4847d1a1c4e28fb1c506d2f6773e004ce4a578376",
+            "sha256": "f0b6dd9e5f4a09026f2c14cfc4f8c1a64fd00577ecbf11c398a8b4c46fad1dcb",
             "source_schedule_matches": 144,
             "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
             "training_end": "2026-10-21"
@@ -10077,7 +10077,7 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-10-26T11:46:06.173479+00:00"
+            "verified_at_utc": "2026-10-26T15:20:41.751460+00:00"
           },
           "days_since_latest_result": 4,
           "diagnostics_sha256": "8ae7866f1810fb246df28047c7750da4b0f72f725eb3fd8b952b522d504445ef",
