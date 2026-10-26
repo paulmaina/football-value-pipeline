@@ -207,15 +207,15 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-10-24 | 1593 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-10-24 | 1975 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Eredivisie | 2026-10-18 | 1611 | 7 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-24 | 1994 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-24 | 1745 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| PrimeiraLiga | 2026-10-19 | 1602 | 6 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-24 | 1975 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-10-21 | 557 | 4 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
-| UEL | 2026-10-22 | 714 | 3 | VERIFIED_WITHIN_24_HOURS |
+| Bundesliga | 2026-10-24 | 1593 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-10-24 | 1975 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Eredivisie | 2026-10-18 | 1611 | 8 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-24 | 1994 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-24 | 1745 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| PrimeiraLiga | 2026-10-19 | 1602 | 7 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-24 | 1975 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| UCL | 2026-10-21 | 557 | 5 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UEL | 2026-10-22 | 714 | 4 | VERIFIED_WITHIN_24_HOURS |
 
 Latest shortlist audit: {"selected_quotes": 16, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 1, "costs_recorded": 16, "bookmakers": {"Pinnacle": 16}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 15, "upcoming_kickoff_count": 1, "unknown_kickoff_count": 0}.
 
