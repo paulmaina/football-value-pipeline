@@ -55,6 +55,7 @@ Whole-fixture 1X2 multiclass Brier (n=155): 0.5763
 | 2026-10-24T14:27:12.490111+00:00 | 1 | 0-1 | 0.0% | -100.0% |
 | 2026-10-25T10:24:47.847996+00:00 | 11 | 8-3 | 72.7% | -0.6% |
 | 2026-10-26T11:01:43.961218+00:00 | 0 | 0-0 | — | — |
+| 2026-10-26T11:45:55.025240+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -219,13 +220,12 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-10-21 | 557 | 5 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-10-22 | 714 | 4 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 2, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 2, "bookmakers": {"Pinnacle": 2}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 2, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 1, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 1, "bookmakers": {"Pinnacle": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 1, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| 3a3ff5eef038 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | b4dfb7c51677 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 67fd2fe2099c | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 4827bd2b8014 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
@@ -245,6 +245,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | ac2ae4201750 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | b5f46a88705f | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 61fd07517a6d | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| be93fe1f5e1c | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
