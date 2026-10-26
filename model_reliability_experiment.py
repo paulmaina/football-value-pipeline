@@ -283,11 +283,11 @@ def frozen(root, archive):
 
 
 def evaluate(root, archive, records, clock):
-    from performance_tracking import fixture_match, utc
+    from performance_tracking import fixture_match, utc, verified_result_source
     from historical_benchmark import metrics, score
     from benchmark_forward_experiment import block_interval
     rows, rejected = frozen(root, archive)
-    records = [r for r in records if r.get('source_status') == 'FINISHED' and r.get('source') == 'football-data.org/v4']
+    records = [r for r in records if verified_result_source(r) and r.get('league_code') != 'EL']
     comparisons, ledger = [], []
     from collections import Counter
     for name in REGISTRY['candidates']:

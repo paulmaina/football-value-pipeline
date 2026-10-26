@@ -42,7 +42,7 @@ COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_footb
     'publish_bbs_data.py':75, 'forecast_integrity.py':100, 'api_key_config.py':90, 'conservative_bet_filter.py':90,
     'shortlist_policy_experiment.py':85, 'shortlist_weight_experiment.py':85, 'quote_freshness.py':95, 'score_probability.py':95,
     'double_chance.py':90, 'goal_market_validation.py':85, 'goal_blend_experiment.py':90,
-    'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85,
+    'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85, 'turkey_results.py':90,
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
     'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'league_registry.py':90, 'recency_experiment.py':85, 'filter_sensitivity_experiment.py':85, 'historical_benchmark.py':85, 'benchmark_forward_experiment.py':85, 'experiment_review_queue.py':85, 'publish_scheduled_forecasts.py':80, 'totals_anchor_experiment.py':90, 'closing_odds.py':90, 'model_reliability_experiment.py':90, 'model_comparison.py':90,
     'staking.py':95, 'elo_ratings.py':95, 'match_simulation.py':95, 'pipeline_service.py':90, 'clv_report.py':90}
@@ -305,6 +305,14 @@ def report_check(root):
     performance=root/'performance'
     metrics=read_json(performance/'metrics.json')
     require(utc(metrics.get('reviewed_at_utc')) is not None, 'Missing report review timestamp')
+    evidence_cache = {}
+    def result_source_verified(record):
+        if not verified_result_source(record):
+            return False
+        if record.get('league_code') == 'T1':
+            from turkey_results import validate_evidence
+            validate_evidence(root, record, utc(metrics['reviewed_at_utc']), evidence_cache=evidence_cache)
+        return True
     selections=read_csv(performance/'shortlist_grades.csv');predictions=read_csv(performance/'prediction_grades.csv')
     latest = metrics.get('tracking_basis') == 'LATEST_PREMATCH_PER_FIXTURE'
     history = read_csv(performance/'shortlist_run_history.csv') if latest else []
@@ -350,7 +358,7 @@ def report_check(root):
         if row['status'] in SETTLED:
             verified,state=fixture_match(original,records)
             require(verified is not None and str(verified['match_id'])==row.get('source_match_id'), 'Selection result absent from verified cache')
-            require(verified_result_source(verified),'Selection cache source is not verified finished')
+            require(result_source_verified(verified),'Selection cache source is not verified finished')
             require(row.get('final_score')==f"{verified['home_goals']}-{verified['away_goals']}", 'Selection score differs from verified cache')
             require(row.get('match_source')==verified['source'] and row.get('source_match_id'), 'Graded result lacks verified source')
             match=re.fullmatch(r'(\d+)-(\d+)',row.get('final_score',''));require(match is not None,'Invalid graded score')
@@ -396,7 +404,7 @@ def report_check(root):
             if utc(original['kickoff_utc']) > utc(metrics['reviewed_at_utc'])-timedelta(hours=2):
                 match,state=None,'PENDING_KICKOFF_OR_FINAL_SCORE'
             if match is not None:
-                require(verified_result_source(match),
+                require(result_source_verified(match),
                         'History cache source is not verified finished')
             expected=score_shortlist(original,match,state)
             for field,value in expected.items():
@@ -443,7 +451,7 @@ def report_check(root):
         original=frozen_predictions[row['fixture_key']]
         verified,state=fixture_match(original,records)
         require(verified is not None and str(verified['match_id'])==row.get('source_match_id'),'Prediction result absent from verified cache')
-        require(verified_result_source(verified),'Prediction cache source is not verified finished')
+        require(result_source_verified(verified),'Prediction cache source is not verified finished')
         require(row.get('match_source')==verified['source'], 'Prediction result lacks verified source')
         require(row.get('final_score')==f"{verified['home_goals']}-{verified['away_goals']}", 'Prediction score differs from verified cache')
         probs=[number(original.get('p_'+side),min_value=0,max_value=1) for side in ('home','draw','away')]

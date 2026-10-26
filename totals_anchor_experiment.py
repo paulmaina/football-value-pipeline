@@ -141,7 +141,8 @@ def evaluate(root,archive,records,clock):
         for row in d['rows']:
             kick=utc(row['kickoff_utc'])
             if kick and max(generated,captured)<=kick-timedelta(minutes=20) and kick<=generated+timedelta(hours=72):observations.setdefault(fixture_key(row),{**row,'snapshot_commit':meta['git_commit_sha']})
-    records=[x for x in records if x.get('source_status')=='FINISHED' and x.get('source')=='football-data.org/v4'];graded=[];coverage=[];verified=0
+    from performance_tracking import verified_result_source
+    records=[x for x in records if verified_result_source(x) and x.get('league_code') != 'EL'];graded=[];coverage=[];verified=0
     for row in observations.values():
         match,state=fixture_match(row,records)
         if utc(row['kickoff_utc'])>clock-timedelta(hours=2):match=None;state='PENDING_KICKOFF_OR_FINAL_SCORE'
