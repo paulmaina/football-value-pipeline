@@ -199,11 +199,11 @@ def metrics(rows):
 
 
 def evaluate(root,archive,records,clock):
-    from performance_tracking import utc,fixture_match
+    from performance_tracking import utc,fixture_match, verified_result_source
     from historical_benchmark import score
     registry=load_registry();all_observations,rejected=frozen(root,archive);active_hash=registry_hash(registry)
     observations=[r for r in all_observations if r['registry_sha256']==active_hash];graded=[];coverage=[]
-    records=[x for x in records if x.get('source_status')=='FINISHED' and x.get('source')=='football-data.org/v4']
+    records=[x for x in records if verified_result_source(x) and x.get('league_code') != 'EL']
     verified=available=0
     for row in observations:
         match,state=fixture_match(row,records)

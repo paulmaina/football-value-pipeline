@@ -12,7 +12,7 @@
 | BBS | No Turkish league in `openapi.json` known league values. No slug. |
 | API-Football | Left off, like Eredivisie and Primeira Liga. The daily allowance was already exhausted on 2026-10-26, so league 203 could not be confirmed, and adding a league would share the allowance with the existing six. |
 
-Without football-data.org there is no verified-results source, so forward performance tracking does not settle Süper Lig forecasts (fail closed). The fixture lookup skips football-data.org for leagues without a code instead of requesting `/competitions//matches`.
+The initial registration had no forward-results adapter. The follow-up Turkish grading repair uses keyless Football-Data.co.uk T1 season results, retaining the downloaded CSV bytes and their SHA-256 for report verification. Matching requires the exact forecast UTC date, home/away order and reviewed team aliases, with no fuzzy match or fabricated kickoff time. Missing, conflicting or ambiguous results remain ungraded. This source can lag completed matches; review retries on subsequent runs. The fixture lookup still skips football-data.org for leagues without a code instead of requesting `/competitions//matches`.
 
 ## Team names (Odds API vs football-data.co.uk)
 

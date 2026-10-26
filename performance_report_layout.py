@@ -435,7 +435,7 @@ def add_clv(parts, root, st):
           'CLV = entry odds x Pinnacle fair closing probability - 1, for every priced candidate (shortlisted or not). '
           'The t-ratio uses fixture-clustered uncertainty and is descriptive, not proof of a profitable edge. Near-kickoff quotes are not '
           'guaranteed official closing prices; candidates from one fixture are not independent.',
-          [30, 22, 11, 11, 16, 13, 11, 16, 13, 30], st, (1, 6, 'A7'))
+          [30, 22, 11, 11, 16, 13, 11, 16, 13, 30], st, (1, 6, 'B7'))
     sheet.data.find(f"{q('row')}[@r='4']").set('ht', '48')
     if summary.get('status') != 'OK':
         sheet.put('A6', 'No CLV report yet. Run py clv_report.py or the daily performance review.', st['warning'])
