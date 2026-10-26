@@ -819,5 +819,6 @@
       "recency_diagnostics_error": null
     }
   ],
-  "note": "Validation scores were used for model selection and are not an independent final test. Evaluate on a later untouched period."
+  "note": "Validation scores were used for model selection and are not an independent final test. Evaluate on a later untouched period.",
+  "applied_to_production": false
 }
