@@ -423,3 +423,43 @@ def capture_runs(root, source_commit, *, captured_at=None):
         count += bool(capture(source_commit, root=root, captured_at=clock,
                               raw_dir=directory, prediction_run_id=manifest['run_id']))
     return count
+
+
+def _captured(snapshots, run_id):
+    """True only for a run whose own archive snapshot is present and bound to it."""
+    directory = snapshots/digest(('prediction-run:'+run_id).encode())[:16]
+    try:
+        metadata = json.loads((directory/'metadata.json').read_bytes())
+        archive_identity(metadata, directory.name)
+        validate_archive_binding(directory, metadata)
+    except (OSError, ValueError, KeyError, TypeError, AttributeError):
+        return False
+    return metadata['prediction_run_id'] == run_id
+
+
+def prune_captured_runs(root):
+    """Delete non-current run bundles whose graded content is already archived.
+
+    Keeps the current run and every run without a verified snapshot. Call after
+    capture and commit the deletions with the snapshots they rely on. A missing
+    or unreadable pointer, run folder or snapshot folder deletes nothing.
+    """
+    root = Path(root)
+    raw, snapshots = root/'raw', root/'performance'/'snapshots'
+    try:
+        current = json.loads((raw/POINTER).read_bytes())['run_id']
+        if not snapshots.is_dir() or not re.fullmatch('[0-9a-f]{64}', current):
+            return []
+        directories = sorted(p for p in (raw/RUNS).iterdir() if p.is_dir())
+    except (OSError, ValueError, KeyError, TypeError):
+        return []
+    pruned = [d for d in directories if d.name != current
+              and re.fullmatch('[0-9a-f]{64}', d.name) and _captured(snapshots, d.name)]
+    if not pruned:
+        return []
+    # Move out of the run folder first: capture_runs rejects a half-deleted bundle.
+    with tempfile.TemporaryDirectory(prefix='.prediction-prune-', dir=root,
+                                     ignore_cleanup_errors=True) as temporary:
+        for directory in pruned:
+            directory.rename(Path(temporary)/directory.name)
+    return [d.name for d in pruned]
