@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "2f4fd2fcddcb84697ea931176b022e41bf3522fece1debae7653f99b8c0db30f",
-  "training_as_of_utc": "2026-10-26T11:00:22.155234+00:00",
+  "training_as_of_utc": "2026-10-26T11:45:37.475535+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -52,9 +52,9 @@
   },
   "training_end": "2026-10-22",
   "fit_success": true,
-  "objective": 804.435716985011,
-  "base": 0.10231435133785922,
-  "home_adv": 0.26707434446024514,
+  "objective": 804.3993612359238,
+  "base": 0.10235441174137647,
+  "home_adv": 0.2670416021348025,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -89,7 +89,7 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 0,
-  "additional_event_odds_calls_used_before_this_league": 5,
+  "additional_event_odds_calls_used_before_this_league": 2,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "decay_tuning": {

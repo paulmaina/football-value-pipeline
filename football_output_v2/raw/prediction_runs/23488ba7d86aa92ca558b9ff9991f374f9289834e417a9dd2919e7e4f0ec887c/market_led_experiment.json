@@ -1,0 +1,4067 @@
+{
+  "version": "market-led-dc-v1",
+  "baseline_generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+  "generated_at_utc": "2026-10-26T11:45:56.049670+00:00",
+  "settings": {
+    "reference": "pinnacle",
+    "devig": "power",
+    "max_age_minutes": 10.0,
+    "max_skew_minutes": 5.0,
+    "cost_bps": 0.0,
+    "min_probability": 0.8,
+    "min_ev": 0.03,
+    "settlement": "regulation_time",
+    "promotion": "disabled",
+    "selection": "one market per fixture; at most ten fixtures"
+  },
+  "predictions_sha256": "34094ac51939014096e425d533f37d8fb801875777bce225454c241080ad2c23",
+  "rows": [
+    {
+      "league": "Premier League",
+      "home_team": "Chelsea",
+      "away_team": "Tottenham Hotspur",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "fixture_id": "0382a9faef0bb8df1bcc436536cffb05",
+      "odds_event_id": "0382a9faef0bb8df1bcc436536cffb05",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.851732+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.747620507333031,
+      "raw_probability": 0.747620507333031,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Chelsea",
+      "away_team": "Tottenham Hotspur",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "fixture_id": "0382a9faef0bb8df1bcc436536cffb05",
+      "odds_event_id": "0382a9faef0bb8df1bcc436536cffb05",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.851732+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.49174468934451376,
+      "raw_probability": 0.49174468934451376,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Crystal Palace",
+      "away_team": "Newcastle United",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "fe235b26408c477368c40672a4488694",
+      "odds_event_id": "fe235b26408c477368c40672a4488694",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.851790+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.6121604744514957,
+      "raw_probability": 0.6121604744514957,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Crystal Palace",
+      "away_team": "Newcastle United",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "fe235b26408c477368c40672a4488694",
+      "odds_event_id": "fe235b26408c477368c40672a4488694",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.851790+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.653549436047957,
+      "raw_probability": 0.653549436047957,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Hull City",
+      "away_team": "Brentford",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "69493b5ebb84f24ab1d6023a30ee89f0",
+      "odds_event_id": "69493b5ebb84f24ab1d6023a30ee89f0",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.851821+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.6901543452534853,
+      "raw_probability": 0.6901543452534853,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Hull City",
+      "away_team": "Brentford",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "69493b5ebb84f24ab1d6023a30ee89f0",
+      "odds_event_id": "69493b5ebb84f24ab1d6023a30ee89f0",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.851821+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.6025112609441707,
+      "raw_probability": 0.6025112609441707,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Liverpool",
+      "away_team": "Brighton and Hove Albion",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "290ba8cd3f3a2e9252effca673bf5549",
+      "odds_event_id": "290ba8cd3f3a2e9252effca673bf5549",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.851846+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.7456232701340213,
+      "raw_probability": 0.7456232701340213,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Liverpool",
+      "away_team": "Brighton and Hove Albion",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "290ba8cd3f3a2e9252effca673bf5549",
+      "odds_event_id": "290ba8cd3f3a2e9252effca673bf5549",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.851846+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.49607872640951445,
+      "raw_probability": 0.49607872640951445,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Manchester United",
+      "away_team": "Bournemouth",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "33fb7467b23c91d57dc976d9ab05ea97",
+      "odds_event_id": "33fb7467b23c91d57dc976d9ab05ea97",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.851868+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.7090806690127931,
+      "raw_probability": 0.7090806690127931,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Manchester United",
+      "away_team": "Bournemouth",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "33fb7467b23c91d57dc976d9ab05ea97",
+      "odds_event_id": "33fb7467b23c91d57dc976d9ab05ea97",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.851868+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.5441184513506566,
+      "raw_probability": 0.5441184513506566,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Sunderland",
+      "away_team": "Leeds United",
+      "kickoff_utc": "2026-10-25T16:30:00+00:00",
+      "fixture_id": "e82f6b60fa41b82c8510f5b67ce61849",
+      "odds_event_id": "e82f6b60fa41b82c8510f5b67ce61849",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.851890+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.6680182835529347,
+      "raw_probability": 0.6680182835529347,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Sunderland",
+      "away_team": "Leeds United",
+      "kickoff_utc": "2026-10-25T16:30:00+00:00",
+      "fixture_id": "e82f6b60fa41b82c8510f5b67ce61849",
+      "odds_event_id": "e82f6b60fa41b82c8510f5b67ce61849",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.851890+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.6306172768146592,
+      "raw_probability": 0.6306172768146592,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Valencia",
+      "away_team": "Villarreal",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "fixture_id": "0dae715cc56fe201f9e667917c126691",
+      "odds_event_id": "0dae715cc56fe201f9e667917c126691",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.851911+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.5556201844304878,
+      "raw_probability": 0.5556201844304878,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Valencia",
+      "away_team": "Villarreal",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "fixture_id": "0dae715cc56fe201f9e667917c126691",
+      "odds_event_id": "0dae715cc56fe201f9e667917c126691",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.851911+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.7005569593038792,
+      "raw_probability": 0.7005569593038792,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Atl\u00e9tico Madrid",
+      "away_team": "Deportivo La Coru\u00f1a",
+      "kickoff_utc": "2026-10-24T19:00:00+00:00",
+      "fixture_id": "70df1835c3b5ddff1c99e0189532136b",
+      "odds_event_id": "70df1835c3b5ddff1c99e0189532136b",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.851931+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.8601024228414496,
+      "raw_probability": 0.8601024228414496,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Atl\u00e9tico Madrid",
+      "away_team": "Deportivo La Coru\u00f1a",
+      "kickoff_utc": "2026-10-24T19:00:00+00:00",
+      "fixture_id": "70df1835c3b5ddff1c99e0189532136b",
+      "odds_event_id": "70df1835c3b5ddff1c99e0189532136b",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.851931+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.3521606234701662,
+      "raw_probability": 0.3521606234701662,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Athletic Bilbao",
+      "away_team": "Getafe",
+      "kickoff_utc": "2026-10-25T13:00:00+00:00",
+      "fixture_id": "9c4254cba9944a839b421db27260504d",
+      "odds_event_id": "9c4254cba9944a839b421db27260504d",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.851968+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.8207371589017252,
+      "raw_probability": 0.8207371589017252,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Athletic Bilbao",
+      "away_team": "Getafe",
+      "kickoff_utc": "2026-10-25T13:00:00+00:00",
+      "fixture_id": "9c4254cba9944a839b421db27260504d",
+      "odds_event_id": "9c4254cba9944a839b421db27260504d",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.851968+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.48768415214045824,
+      "raw_probability": 0.48768415214045824,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Celta Vigo",
+      "away_team": "Real Betis",
+      "kickoff_utc": "2026-10-25T15:15:00+00:00",
+      "fixture_id": "2013e3955186ebe5258e85eb741a7553",
+      "odds_event_id": "2013e3955186ebe5258e85eb741a7553",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.851990+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.6692390591822037,
+      "raw_probability": 0.6692390591822037,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Celta Vigo",
+      "away_team": "Real Betis",
+      "kickoff_utc": "2026-10-25T15:15:00+00:00",
+      "fixture_id": "2013e3955186ebe5258e85eb741a7553",
+      "odds_event_id": "2013e3955186ebe5258e85eb741a7553",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.851990+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.5990196235990924,
+      "raw_probability": 0.5990196235990924,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Real Sociedad",
+      "away_team": "Levante",
+      "kickoff_utc": "2026-10-25T17:30:00+00:00",
+      "fixture_id": "3cb8660cd2375b60e81144a7572cfb89",
+      "odds_event_id": "3cb8660cd2375b60e81144a7572cfb89",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.852010+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.7680162656151738,
+      "raw_probability": 0.7680162656151738,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Real Sociedad",
+      "away_team": "Levante",
+      "kickoff_utc": "2026-10-25T17:30:00+00:00",
+      "fixture_id": "3cb8660cd2375b60e81144a7572cfb89",
+      "odds_event_id": "3cb8660cd2375b60e81144a7572cfb89",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.852010+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.4537831652544348,
+      "raw_probability": 0.4537831652544348,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Barcelona",
+      "away_team": "Real Madrid",
+      "kickoff_utc": "2026-10-25T20:00:00+00:00",
+      "fixture_id": "72089d103a5fe6a922c35e17efba6ffc",
+      "odds_event_id": "72089d103a5fe6a922c35e17efba6ffc",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.852029+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.7432601572263643,
+      "raw_probability": 0.7432601572263643,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Barcelona",
+      "away_team": "Real Madrid",
+      "kickoff_utc": "2026-10-25T20:00:00+00:00",
+      "fixture_id": "72089d103a5fe6a922c35e17efba6ffc",
+      "odds_event_id": "72089d103a5fe6a922c35e17efba6ffc",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.852029+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.47797781237836967,
+      "raw_probability": 0.47797781237836967,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Sevilla",
+      "away_team": "CA Osasuna",
+      "kickoff_utc": "2026-10-26T20:00:00+00:00",
+      "fixture_id": "85e464708d03287f24590e1478aeca31",
+      "odds_event_id": "85e464708d03287f24590e1478aeca31",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.943531+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": 0.8012361374273209,
+      "reference_odds": {
+        "away": 4.8,
+        "home": 1.88,
+        "draw": 3.45
+      },
+      "reference_updated_at_utc": "2026-10-26T11:45:15Z",
+      "baseline_probability": 0.736307601875648,
+      "raw_probability": 0.736307601875648,
+      "model_minus_reference": -0.06492853555167288,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Sevilla",
+      "away_team": "CA Osasuna",
+      "kickoff_utc": "2026-10-26T20:00:00+00:00",
+      "fixture_id": "85e464708d03287f24590e1478aeca31",
+      "odds_event_id": "85e464708d03287f24590e1478aeca31",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.943531+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage",
+        "below_probability_threshold"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": 0.47805611365667633,
+      "reference_odds": {
+        "away": 4.8,
+        "home": 1.88,
+        "draw": 3.45
+      },
+      "reference_updated_at_utc": "2026-10-26T11:45:15Z",
+      "baseline_probability": 0.5260026323133189,
+      "raw_probability": 0.5260026323133189,
+      "model_minus_reference": 0.04794651865664257,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "Borussia Dortmund",
+      "away_team": "Eintracht Frankfurt",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "fixture_id": "3ed4d1e775910625c50518a384e9c547",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.944766+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.8365718699042075,
+      "raw_probability": 0.8365718699042075,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "Borussia Dortmund",
+      "away_team": "Eintracht Frankfurt",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "fixture_id": "3ed4d1e775910625c50518a384e9c547",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.944766+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.36244756671037165,
+      "raw_probability": 0.36244756671037165,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "TSG Hoffenheim",
+      "away_team": "Bayer Leverkusen",
+      "kickoff_utc": "2026-10-25T14:30:00+00:00",
+      "fixture_id": "2fd479cbb110c8f057e363bb06195f2b",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.944800+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.5358258662750655,
+      "raw_probability": 0.5358258662750655,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "TSG Hoffenheim",
+      "away_team": "Bayer Leverkusen",
+      "kickoff_utc": "2026-10-25T14:30:00+00:00",
+      "fixture_id": "2fd479cbb110c8f057e363bb06195f2b",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.944800+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.6916071017102129,
+      "raw_probability": 0.6916071017102129,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "SC Freiburg",
+      "away_team": "Bayern Munich",
+      "kickoff_utc": "2026-10-25T16:30:00+00:00",
+      "fixture_id": "f2bd909f25eea6b4ce42d2f52275e5c4",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.944829+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.3350424951970308,
+      "raw_probability": 0.3350424951970308,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "SC Freiburg",
+      "away_team": "Bayern Munich",
+      "kickoff_utc": "2026-10-25T16:30:00+00:00",
+      "fixture_id": "f2bd909f25eea6b4ce42d2f52275e5c4",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.944829+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.8457216544491166,
+      "raw_probability": 0.8457216544491166,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Napoli",
+      "away_team": "AS Roma",
+      "kickoff_utc": "2026-10-24T16:00:00+00:00",
+      "fixture_id": "0b4894e9fb123ef3045269f97e339eba",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.944855+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.6522308831906599,
+      "raw_probability": 0.6522308831906599,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Napoli",
+      "away_team": "AS Roma",
+      "kickoff_utc": "2026-10-24T16:00:00+00:00",
+      "fixture_id": "0b4894e9fb123ef3045269f97e339eba",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.944855+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.6354742542884985,
+      "raw_probability": 0.6354742542884985,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Lazio",
+      "away_team": "Parma",
+      "kickoff_utc": "2026-10-24T18:45:00+00:00",
+      "fixture_id": "b27cb3ea731fa3f18d05e6a627bdf984",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.944881+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.840237179695807,
+      "raw_probability": 0.840237179695807,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Lazio",
+      "away_team": "Parma",
+      "kickoff_utc": "2026-10-24T18:45:00+00:00",
+      "fixture_id": "b27cb3ea731fa3f18d05e6a627bdf984",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.944881+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.4171094965830009,
+      "raw_probability": 0.4171094965830009,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Inter Milan",
+      "away_team": "Fiorentina",
+      "kickoff_utc": "2026-10-25T11:30:00+00:00",
+      "fixture_id": "c9b6c7048d8dc33dae618f67f462f67a",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.944906+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.8776780515482523,
+      "raw_probability": 0.8776780515482523,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Inter Milan",
+      "away_team": "Fiorentina",
+      "kickoff_utc": "2026-10-25T11:30:00+00:00",
+      "fixture_id": "c9b6c7048d8dc33dae618f67f462f67a",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.944906+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.29398724800686477,
+      "raw_probability": 0.29398724800686477,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Atalanta BC",
+      "away_team": "Frosinone",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "63aa6e3f679ee4c68de5b4bd8d3361bb",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.944930+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.7849013157692188,
+      "raw_probability": 0.7849013157692188,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Atalanta BC",
+      "away_team": "Frosinone",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "63aa6e3f679ee4c68de5b4bd8d3361bb",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.944930+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.41444342684168717,
+      "raw_probability": 0.41444342684168717,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Genoa",
+      "away_team": "Venezia",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "95cfaecfe96bb7ced1fb6af974a4110b",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.944976+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.7808634814603721,
+      "raw_probability": 0.7808634814603721,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Genoa",
+      "away_team": "Venezia",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "fixture_id": "95cfaecfe96bb7ced1fb6af974a4110b",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.944976+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.5013813682655841,
+      "raw_probability": 0.5013813682655841,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Lecce",
+      "away_team": "Juventus",
+      "kickoff_utc": "2026-10-25T17:00:00+00:00",
+      "fixture_id": "63af660d4d0d52f8ac7685172ef939c4",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.945003+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.41116525376971114,
+      "raw_probability": 0.41116525376971114,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Lecce",
+      "away_team": "Juventus",
+      "kickoff_utc": "2026-10-25T17:00:00+00:00",
+      "fixture_id": "63af660d4d0d52f8ac7685172ef939c4",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.945003+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.8520293597931063,
+      "raw_probability": 0.8520293597931063,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Udinese",
+      "away_team": "AC Milan",
+      "kickoff_utc": "2026-10-25T19:45:00+00:00",
+      "fixture_id": "3564688383b255192409c9deb8e526ed",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:55.945027+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.46618587581346027,
+      "raw_probability": 0.46618587581346027,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Udinese",
+      "away_team": "AC Milan",
+      "kickoff_utc": "2026-10-25T19:45:00+00:00",
+      "fixture_id": "3564688383b255192409c9deb8e526ed",
+      "odds_event_id": null,
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:55.945027+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "outside_selection_window",
+        "unlinked_fixture",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.7801266808651728,
+      "raw_probability": 0.7801266808651728,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Ligue 1",
+      "home_team": "Paris Saint Germain",
+      "away_team": "Lyon",
+      "kickoff_utc": "2026-10-26T19:30:00+00:00",
+      "fixture_id": "8664b2167f22c59026d86615421463b1",
+      "odds_event_id": "8664b2167f22c59026d86615421463b1",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:56.048289+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": 0.8895950662834263,
+      "reference_odds": {
+        "away": 8.22,
+        "home": 1.36,
+        "draw": 5.61
+      },
+      "reference_updated_at_utc": "2026-10-26T11:45:14Z",
+      "baseline_probability": 0.8781319911188137,
+      "raw_probability": 0.8319743284089944,
+      "model_minus_reference": -0.011463075164612646,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Ligue 1",
+      "home_team": "Paris Saint Germain",
+      "away_team": "Lyon",
+      "kickoff_utc": "2026-10-26T19:30:00+00:00",
+      "fixture_id": "8664b2167f22c59026d86615421463b1",
+      "odds_event_id": "8664b2167f22c59026d86615421463b1",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:56.048289+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage",
+        "below_probability_threshold"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": 0.2750464404936994,
+      "reference_odds": {
+        "away": 8.22,
+        "home": 1.36,
+        "draw": 5.61
+      },
+      "reference_updated_at_utc": "2026-10-26T11:45:14Z",
+      "baseline_probability": 0.2867388982993544,
+      "raw_probability": 0.3720582617165436,
+      "model_minus_reference": 0.011692457805654977,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Santa Clara",
+      "away_team": "Benfica",
+      "kickoff_utc": "2026-10-26T18:45:00+00:00",
+      "fixture_id": "7f4d1fc269584543a305935a2d3552fd",
+      "odds_event_id": "7f4d1fc269584543a305935a2d3552fd",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "home_draw",
+      "generated_at_utc": "2026-10-26T11:45:56.049510+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "competition_excluded_from_shortlist_validation",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "competition_excluded_from_shortlist_validation",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.30582860837267606,
+      "raw_probability": 0.4110793903513228,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Santa Clara",
+      "away_team": "Benfica",
+      "kickoff_utc": "2026-10-26T18:45:00+00:00",
+      "fixture_id": "7f4d1fc269584543a305935a2d3552fd",
+      "odds_event_id": "7f4d1fc269584543a305935a2d3552fd",
+      "policy_settings": {
+        "reference": "pinnacle",
+        "devig": "power",
+        "max_age_minutes": 10.0,
+        "max_skew_minutes": 5.0,
+        "cost_bps": 0.0,
+        "min_probability": 0.8,
+        "min_ev": 0.03,
+        "settlement": "regulation_time",
+        "promotion": "disabled",
+        "selection": "one market per fixture; at most ten fixtures"
+      },
+      "market": "draw_away",
+      "generated_at_utc": "2026-10-26T11:45:56.049510+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "competition_excluded_from_shortlist_validation",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer"
+      ],
+      "selection_reasons": [
+        "competition_excluded_from_shortlist_validation",
+        "event_identity_or_kickoff_mismatch",
+        "missing_invalid_or_stale_pinnacle_1x2",
+        "no_fresh_independent_complete_dc_offer",
+        "insufficient_independent_bookmaker_coverage"
+      ],
+      "qualifies": false,
+      "selected": false,
+      "reference_bookmaker": "pinnacle",
+      "reference_probability": null,
+      "reference_odds": null,
+      "reference_updated_at_utc": null,
+      "baseline_probability": 0.8842462055562413,
+      "raw_probability": 0.8189783454724041,
+      "model_minus_reference": null,
+      "decimal_odds": null,
+      "bookmaker_key": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": null,
+      "independent_bookmaker_count": 0,
+      "estimated_ev_after_cost": null,
+      "cost_per_unit": 0.0,
+      "execution_status": "unverified_feed_quote"
+    }
+  ],
+  "quote_evidence": [
+    {
+      "event_id": "0382a9faef0bb8df1bcc436536cffb05",
+      "retrieved_at_utc": "2026-10-26T11:45:55.851732+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "fe235b26408c477368c40672a4488694",
+      "retrieved_at_utc": "2026-10-26T11:45:55.851790+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "69493b5ebb84f24ab1d6023a30ee89f0",
+      "retrieved_at_utc": "2026-10-26T11:45:55.851821+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "290ba8cd3f3a2e9252effca673bf5549",
+      "retrieved_at_utc": "2026-10-26T11:45:55.851846+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "33fb7467b23c91d57dc976d9ab05ea97",
+      "retrieved_at_utc": "2026-10-26T11:45:55.851868+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "e82f6b60fa41b82c8510f5b67ce61849",
+      "retrieved_at_utc": "2026-10-26T11:45:55.851890+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "0dae715cc56fe201f9e667917c126691",
+      "retrieved_at_utc": "2026-10-26T11:45:55.851911+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "70df1835c3b5ddff1c99e0189532136b",
+      "retrieved_at_utc": "2026-10-26T11:45:55.851931+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "9c4254cba9944a839b421db27260504d",
+      "retrieved_at_utc": "2026-10-26T11:45:55.851968+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "2013e3955186ebe5258e85eb741a7553",
+      "retrieved_at_utc": "2026-10-26T11:45:55.851990+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "3cb8660cd2375b60e81144a7572cfb89",
+      "retrieved_at_utc": "2026-10-26T11:45:55.852010+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "72089d103a5fe6a922c35e17efba6ffc",
+      "retrieved_at_utc": "2026-10-26T11:45:55.852029+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "85e464708d03287f24590e1478aeca31",
+      "retrieved_at_utc": "2026-10-26T11:45:55.943531+00:00",
+      "response": {
+        "id": "85e464708d03287f24590e1478aeca31",
+        "sport_key": "soccer_spain_la_liga",
+        "sport_title": "La Liga - Spain",
+        "commence_time": "2026-10-26T20:00:00Z",
+        "home_team": "Sevilla",
+        "away_team": "CA Osasuna",
+        "bookmakers": [
+          {
+            "key": "unibet_fr",
+            "title": "Unibet (FR)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:39Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.2
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.76
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "onexbet",
+            "title": "1xBet",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:14Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.72
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.92
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.54
+                  }
+                ]
+              },
+              {
+                "key": "double_chance",
+                "last_update": "2026-10-26T11:45:14Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna or Draw",
+                    "price": 1.98
+                  },
+                  {
+                    "name": "Sevilla or Draw",
+                    "price": 1.23
+                  },
+                  {
+                    "name": "CA Osasuna or Sevilla",
+                    "price": 1.35
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "tipico_de",
+            "title": "Tipico",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:15Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.6
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.8
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.5
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "winamax_fr",
+            "title": "Winamax (FR)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:16Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.2
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.78
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.25
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "coolbet",
+            "title": "Coolbet",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:15Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.6
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.91
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.45
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "winamax_de",
+            "title": "Winamax (DE)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:34Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.3
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.82
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.35
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "betclic_fr",
+            "title": "Betclic (FR)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:22Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.3
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.79
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.33
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "williamhill",
+            "title": "William Hill",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:16Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.2
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.85
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.25
+                  }
+                ]
+              },
+              {
+                "key": "double_chance",
+                "last_update": "2026-10-26T11:45:16Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna or Draw",
+                    "price": 1.85
+                  },
+                  {
+                    "name": "Sevilla or Draw",
+                    "price": 1.22
+                  },
+                  {
+                    "name": "CA Osasuna or Sevilla",
+                    "price": 1.3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "marathonbet",
+            "title": "Marathon Bet",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:57Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.65
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.89
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.48
+                  }
+                ]
+              },
+              {
+                "key": "double_chance",
+                "last_update": "2026-10-26T11:44:57Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna or Draw",
+                    "price": 1.98
+                  },
+                  {
+                    "name": "Sevilla or Draw",
+                    "price": 1.22
+                  },
+                  {
+                    "name": "CA Osasuna or Sevilla",
+                    "price": 1.34
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "pinnacle",
+            "title": "Pinnacle",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:15Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.8
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.88
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.45
+                  }
+                ]
+              },
+              {
+                "key": "double_chance",
+                "last_update": "2026-10-26T11:45:55Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna or Draw",
+                    "price": 2.01
+                  },
+                  {
+                    "name": "Sevilla or Draw",
+                    "price": 1.22
+                  },
+                  {
+                    "name": "CA Osasuna or Sevilla",
+                    "price": 1.35
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "leovegas_se",
+            "title": "LeoVegas (SE)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:15Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.4
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.78
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "pmu_fr",
+            "title": "PMU (FR)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:40Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.3
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.76
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.25
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "unibet_nl",
+            "title": "Unibet (NL)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:52Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.9
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.87
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.55
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "unibet_se",
+            "title": "Unibet (SE)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:16Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.9
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.87
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.55
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "nordicbet",
+            "title": "Nordic Bet",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:16Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.5
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.85
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.35
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "betsson",
+            "title": "Betsson",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:38Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.55
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.85
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.35
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "betfair_ex_eu",
+            "title": "Betfair",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:35Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.9
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.93
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.55
+                  }
+                ]
+              },
+              {
+                "key": "h2h_lay",
+                "last_update": "2026-10-26T11:45:35Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 5.0
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.95
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.6
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "codere_it",
+            "title": "Codere (IT)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:52Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.4
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.88
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.4
+                  }
+                ]
+              },
+              {
+                "key": "double_chance",
+                "last_update": "2026-10-26T11:44:52Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna or Draw",
+                    "price": 1.92
+                  },
+                  {
+                    "name": "Sevilla or Draw",
+                    "price": 1.21
+                  },
+                  {
+                    "name": "CA Osasuna or Sevilla",
+                    "price": 1.32
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "matchbook",
+            "title": "Matchbook",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:36Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.9
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.93
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.5
+                  }
+                ]
+              },
+              {
+                "key": "h2h_lay",
+                "last_update": "2026-10-26T11:45:36Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 5.0
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.95
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.6
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "betonlineag",
+            "title": "BetOnline.ag",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:52Z",
+                "outcomes": [
+                  {
+                    "name": "CA Osasuna",
+                    "price": 4.5
+                  },
+                  {
+                    "name": "Sevilla",
+                    "price": 1.91
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 3.46
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "event_id": null,
+      "retrieved_at_utc": "2026-10-26T11:45:55.944766+00:00",
+      "response": {}
+    },
+    {
+      "event_id": null,
+      "retrieved_at_utc": "2026-10-26T11:45:55.944800+00:00",
+      "response": {}
+    },
+    {
+      "event_id": null,
+      "retrieved_at_utc": "2026-10-26T11:45:55.944829+00:00",
+      "response": {}
+    },
+    {
+      "event_id": null,
+      "retrieved_at_utc": "2026-10-26T11:45:55.944855+00:00",
+      "response": {}
+    },
+    {
+      "event_id": null,
+      "retrieved_at_utc": "2026-10-26T11:45:55.944881+00:00",
+      "response": {}
+    },
+    {
+      "event_id": null,
+      "retrieved_at_utc": "2026-10-26T11:45:55.944906+00:00",
+      "response": {}
+    },
+    {
+      "event_id": null,
+      "retrieved_at_utc": "2026-10-26T11:45:55.944930+00:00",
+      "response": {}
+    },
+    {
+      "event_id": null,
+      "retrieved_at_utc": "2026-10-26T11:45:55.944976+00:00",
+      "response": {}
+    },
+    {
+      "event_id": null,
+      "retrieved_at_utc": "2026-10-26T11:45:55.945003+00:00",
+      "response": {}
+    },
+    {
+      "event_id": null,
+      "retrieved_at_utc": "2026-10-26T11:45:55.945027+00:00",
+      "response": {}
+    },
+    {
+      "event_id": "8664b2167f22c59026d86615421463b1",
+      "retrieved_at_utc": "2026-10-26T11:45:56.048289+00:00",
+      "response": {
+        "id": "8664b2167f22c59026d86615421463b1",
+        "sport_key": "soccer_france_ligue_one",
+        "sport_title": "Ligue 1 - France",
+        "commence_time": "2026-10-26T19:30:00Z",
+        "home_team": "Paris Saint Germain",
+        "away_team": "Lyon",
+        "bookmakers": [
+          {
+            "key": "tipico_de",
+            "title": "Tipico",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:36Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 8.0
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.3
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.7
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "sport888",
+            "title": "888sport",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:54Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 7.0
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.33
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "winamax_fr",
+            "title": "Winamax (FR)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:53Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 7.0
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.3
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 6.0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "unibet_fr",
+            "title": "Unibet (FR)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:35Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 7.0
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.29
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.8
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "williamhill",
+            "title": "William Hill",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:51Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 7.0
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.35
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.0
+                  }
+                ]
+              },
+              {
+                "key": "double_chance",
+                "last_update": "2026-10-26T11:44:51Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon or Draw",
+                    "price": 3.1
+                  },
+                  {
+                    "name": "Paris Saint Germain or Draw",
+                    "price": 1.1
+                  },
+                  {
+                    "name": "Lyon or Paris Saint Germain",
+                    "price": 1.15
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "onexbet",
+            "title": "1xBet",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:16Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 8.1
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.38
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.89
+                  }
+                ]
+              },
+              {
+                "key": "double_chance",
+                "last_update": "2026-10-26T11:45:16Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon or Draw",
+                    "price": 3.28
+                  },
+                  {
+                    "name": "Paris Saint Germain or Draw",
+                    "price": 1.1
+                  },
+                  {
+                    "name": "Lyon or Paris Saint Germain",
+                    "price": 1.17
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "winamax_de",
+            "title": "Winamax (DE)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:52Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 6.75
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.33
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.6
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "betclic_fr",
+            "title": "Betclic (FR)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:43:38Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 7.0
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.3
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 6.0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "marathonbet",
+            "title": "Marathon Bet",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:22Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 8.0
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.36
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.8
+                  }
+                ]
+              },
+              {
+                "key": "double_chance",
+                "last_update": "2026-10-26T11:45:22Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon or Draw",
+                    "price": 3.32
+                  },
+                  {
+                    "name": "Paris Saint Germain or Draw",
+                    "price": 1.1
+                  },
+                  {
+                    "name": "Lyon or Paris Saint Germain",
+                    "price": 1.16
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "betfair_ex_eu",
+            "title": "Betfair",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:14Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 9.4
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.37
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 6.0
+                  }
+                ]
+              },
+              {
+                "key": "h2h_lay",
+                "last_update": "2026-10-26T11:45:14Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 9.6
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.38
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 6.2
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "pinnacle",
+            "title": "Pinnacle",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:14Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 8.22
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.36
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.61
+                  }
+                ]
+              },
+              {
+                "key": "double_chance",
+                "last_update": "2026-10-26T11:45:46Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon or Draw",
+                    "price": 3.45
+                  },
+                  {
+                    "name": "Paris Saint Germain or Draw",
+                    "price": 1.1
+                  },
+                  {
+                    "name": "Lyon or Paris Saint Germain",
+                    "price": 1.17
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "leovegas_se",
+            "title": "LeoVegas (SE)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:36Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 8.0
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.36
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 6.1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "unibet_nl",
+            "title": "Unibet (NL)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:55Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 7.0
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.33
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.6
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "pmu_fr",
+            "title": "PMU (FR)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:15Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 6.75
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.3
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "unibet_se",
+            "title": "Unibet (SE)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:14Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 8.0
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.36
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 6.1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "codere_it",
+            "title": "Codere (IT)",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:17Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 7.2
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.36
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.8
+                  }
+                ]
+              },
+              {
+                "key": "double_chance",
+                "last_update": "2026-10-26T11:45:17Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon or Draw",
+                    "price": 3.21
+                  },
+                  {
+                    "name": "Paris Saint Germain or Draw",
+                    "price": 1.1
+                  },
+                  {
+                    "name": "Lyon or Paris Saint Germain",
+                    "price": 1.14
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "coolbet",
+            "title": "Coolbet",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:15Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 8.5
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.35
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.75
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "gtbets",
+            "title": "GTbets",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:54Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 7.49
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.38
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.61
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "betonlineag",
+            "title": "BetOnline.ag",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:45:35Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 8.5
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.34
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.88
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "nordicbet",
+            "title": "Nordic Bet",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:51Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 8.2
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.32
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.55
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "key": "betsson",
+            "title": "Betsson",
+            "markets": [
+              {
+                "key": "h2h",
+                "last_update": "2026-10-26T11:44:51Z",
+                "outcomes": [
+                  {
+                    "name": "Lyon",
+                    "price": 8.1
+                  },
+                  {
+                    "name": "Paris Saint Germain",
+                    "price": 1.32
+                  },
+                  {
+                    "name": "Draw",
+                    "price": 5.5
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "event_id": "7f4d1fc269584543a305935a2d3552fd",
+      "retrieved_at_utc": "2026-10-26T11:45:56.049510+00:00",
+      "response": {}
+    }
+  ]
+}
