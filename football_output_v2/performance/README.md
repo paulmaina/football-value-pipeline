@@ -19,7 +19,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 59 | 45-14 | 76.3% | +5.7% |
 
-Unsettled / unverified entries: **12**.
+Unsettled / unverified entries: **14**.
 Whole-fixture 1X2 multiclass Brier (n=155): 0.5763
 
 ## First-prediction reference — historical comparison
@@ -54,6 +54,7 @@ Whole-fixture 1X2 multiclass Brier (n=155): 0.5763
 | 2026-10-24T14:22:17.608235+00:00 | 2 | 2-0 | 100.0% | +81.0% |
 | 2026-10-24T14:27:12.490111+00:00 | 1 | 0-1 | 0.0% | -100.0% |
 | 2026-10-25T10:24:47.847996+00:00 | 11 | 8-3 | 72.7% | -0.6% |
+| 2026-10-26T11:01:43.961218+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -71,6 +72,7 @@ Whole-fixture 1X2 multiclass Brier (n=155): 0.5763
 | 48h-top-twelve-profitable-win-probability-v23 | 0 | 0-0 | — | — |
 | 48h-two-per-market-group-probability-ev-corners-cards-v25 | 11 | 8-3 | 72.7% | -0.6% |
 | 48h-two-per-market-group-probability-ev-v24 | 3 | 2-1 | 66.7% | +20.7% |
+| 48h-zero-tolerance-ev05-no-loss75-corners-v26 | 0 | 0-0 | — | — |
 | 48h-zero-tolerance-ev1-common-no-loss75-v22 | 7 | 7-0 | 100.0% | +33.9% |
 | 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
 | 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
@@ -207,23 +209,22 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-10-24 | 1593 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-10-24 | 1975 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Bundesliga | 2026-10-25 | 1595 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-10-25 | 1980 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Eredivisie | 2026-10-18 | 1611 | 8 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-24 | 1994 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-24 | 1745 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-25 | 1998 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-25 | 1751 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | PrimeiraLiga | 2026-10-19 | 1602 | 7 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-24 | 1975 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-25 | 1980 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-21 | 557 | 5 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-10-22 | 714 | 4 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 16, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 1, "costs_recorded": 16, "bookmakers": {"Pinnacle": 16}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 15, "upcoming_kickoff_count": 1, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 2, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 2, "bookmakers": {"Pinnacle": 2}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 2, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| 2a86586863a4 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 3a3ff5eef038 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | b4dfb7c51677 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 67fd2fe2099c | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
@@ -243,6 +244,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 007f589ff289 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | ac2ae4201750 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | b5f46a88705f | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| 61fd07517a6d | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
