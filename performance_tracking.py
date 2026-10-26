@@ -39,9 +39,11 @@ MIN_LEAD_MINUTES = 20
 MATCH_KICKOFF_TOLERANCE_HOURS = 36
 MAX_RESULTS_LOOKBACK_DAYS = 60
 
+# Leagues without a football-data.org competition have no verified-results
+# source, so their forecasts are not settled (fail closed).
 LEAGUE_CODES = {
     name: cfg.football_data_org_code
-    for cfg in LEAGUES.values()
+    for cfg in LEAGUES.values() if cfg.football_data_org_code
     for name in (cfg.name, cfg.key)
 }
 SUPPORTED_MARKETS = {

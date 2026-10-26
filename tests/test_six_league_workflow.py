@@ -95,14 +95,16 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             # v26 has no market quotas: every qualifying toy fixture gets one pick.
             self.assertEqual(len(picks),len(keys))
             self.assertEqual(picks.selection_tier.unique().tolist(),['STRICT'])
-            self.assertEqual(data['shortlist']['graded'],len(picks))
+            # Leagues without a verified-results source (Super Lig) stay ungraded.
+            settled = [k for k in keys if LEAGUES[k].football_data_org_code]
+            self.assertEqual(data['shortlist']['graded'],len(settled))
             self.assertEqual(len(data['training_end_dates']),len(keys))
-            self.assertEqual(data['experiments']['goal_blend_experiment']['graded_fixture_markets'],3*len(keys))
+            self.assertEqual(data['experiments']['goal_blend_experiment']['graded_fixture_markets'],3*len(settled))
             # The market-led paper experiment stays limited to league-approved leagues.
             from league_registry import ARCHIVED_LEAGUE_APPROVAL
             self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],
                              len(set(keys) & set(ARCHIVED_LEAGUE_APPROVAL)))
-            self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],2*len(keys))
+            self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],2*len(settled))
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
             for name in ('filter_sensitivity_experiment','shortlist_weight_experiment','shortlist_policy_experiment'):
                 self.assertEqual(data['experiments'][name]['total_fixtures'],0)
