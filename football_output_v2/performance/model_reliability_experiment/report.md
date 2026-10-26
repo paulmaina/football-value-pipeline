@@ -23,7 +23,7 @@ Evidence: NO_CLEAR_PROMOTION_EVIDENCE. Calibration and league breakdowns: summar
 
 | fixed_half_life | COLLECT_MORE_DATA | 82/300 | 2/6 | 0.9761904761904762 |
 
-Excluded fixed_half_life forecasts (not comparable like for like): ValueError: 2
+Excluded fixed_half_life forecasts (not comparable like for like): ValueError: 2, candidate_equals_production_half_life: 8
 
 ## fixed_half_life
 

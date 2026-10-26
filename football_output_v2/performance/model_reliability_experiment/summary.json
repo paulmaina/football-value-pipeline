@@ -6369,7 +6369,8 @@
       "candidate_id": "fixed_half_life",
       "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
       "excluded_forecast_reasons": {
-        "ValueError": 2
+        "ValueError": 2,
+        "candidate_equals_production_half_life": 8
       },
       "gameweeks": 2,
       "guardrails_passed": false,
@@ -7207,7 +7208,7 @@
     }
   ],
   "note": "Two separate one-factor trials against actual production, not a combined configuration. First eligible snapshot freezes missing candidates too. Primary 1X2 week-block intervals use 97.5% per trial (familywise 95%); other markets/calibration are guardrails and descriptive. No automatic promotion or betting-edge claim.",
-  "observed_fixtures": 98,
+  "observed_fixtures": 106,
   "registry": {
     "approval_required": true,
     "automatic_production_change": false,
@@ -7239,6 +7240,6 @@
   },
   "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
   "rejected_snapshot_commits": [],
-  "reviewed_at_utc": "2026-10-26T08:18:02.029854+00:00",
+  "reviewed_at_utc": "2026-10-26T11:02:03.101536+00:00",
   "version": "model-reliability-forward-v1"
 }

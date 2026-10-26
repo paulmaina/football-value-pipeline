@@ -25,7 +25,7 @@
   "note": "First eligible pre-kickoff forecast per fixture only, with no backfill. Both models come from the same run and odds snapshot. 1X2 distance to the Pinnacle close is total variation; binary markets use absolute difference. Asian handicap is the home side and integer lines exclude refunds. Legacy probabilities are never used for selection or staking.",
   "paired_matches": 0,
   "production_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
-  "reviewed_at_utc": "2026-10-26T08:18:02.029854+00:00",
+  "reviewed_at_utc": "2026-10-26T11:02:03.101536+00:00",
   "status": "COLLECT_MORE_DATA",
   "tables": [
     {
