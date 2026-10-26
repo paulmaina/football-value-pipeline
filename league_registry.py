@@ -84,6 +84,11 @@ REGISTRY: Tuple[League, ...] = (
            FOOTBALL_DATA_UK, PER_MARKET_APPROVAL),
     League('PrimeiraLiga', 'Primeira Liga', 'Portugal', 'P1', 'soccer_portugal_primeira_liga', 'PPL', 6,
            FOOTBALL_DATA_UK, PER_MARKET_APPROVAL),
+    # Sport key verified against The Odds API GET /v4/sports on 2026-10-26
+    # (docs/audits/2026-10-26-super-lig-validation.md). football-data.org and BBS
+    # do not offer this league, so it has no competition code or BBS slug.
+    League('SuperLig', 'Super Lig', 'Turkey', 'T1', 'soccer_turkey_super_league', '', 6,
+           FOOTBALL_DATA_UK, PER_MARKET_APPROVAL),
 )
 
 LEAGUES: Dict[str, League] = {league.key: league for league in REGISTRY}

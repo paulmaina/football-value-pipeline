@@ -32,6 +32,8 @@ Every league uses `shortlist_approval=PER_MARKET_APPROVAL`; there is no league-l
 
 Eredivisie (`N1`, `soccer_netherlands_eredivisie`) and Primeira Liga (`P1`, `soccer_portugal_primeira_liga`) sport keys were checked against `GET /v4/sports` on 2026-10-24. Their six seasons of football-data.co.uk CSVs are refreshed and committed by `Refresh league training data`, and they are forecast by the scheduled run.
 
+Süper Lig (`T1`, `soccer_turkey_super_league`) was added the same way on 2026-10-26; see [audits/2026-10-26-super-lig-validation.md](audits/2026-10-26-super-lig-validation.md). football-data.org does not offer it, so it has no competition code and its forecasts are not settled by forward performance tracking. Its reviewed Odds API team names are under `SuperLig` in `bbs_team_aliases.json`.
+
 ### Archived policies
 
 Archived captures replay unchanged. Policies up to v24 keep their frozen view: the seven leagues in `ARCHIVED_LEAGUE_APPROVAL` (EPL, LaLiga, Bundesliga, SerieA, Ligue1, UCL, UEL) were league-reviewed, so older policies that showed their failed audits as PROVISIONAL warnings still do. Leagues added later are rejected with `per-market approval: …` in every policy. The market-led paper experiment, which does not use the model audit, stays limited to those seven and spends no event-odds credits on the others.
