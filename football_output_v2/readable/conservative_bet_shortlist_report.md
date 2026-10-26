@@ -1,11 +1,11 @@
 # Conservative shortlisted matches and markets
 
 
-**Candidates:** 2 of target 12 distinct matches.
-**Strictly qualified:** 2. **Provisional watchlist:** 0.
+**Candidates:** 1 of target 12 distinct matches.
+**Strictly qualified:** 1. **Provisional watchlist:** 0.
 **Pipeline status:** BELOW_TARGET.
-**Generated (UTC):** 2026-10-26T11:01:43.961218+00:00.
-**UNPROVEN EDGE (Corners):** validated on probability accuracy only; no historical corner or card odds exist, so profitability is untested. 0 of 2 selections.
+**Generated (UTC):** 2026-10-26T11:45:55.025240+00:00.
+**UNPROVEN EDGE (Corners):** validated on probability accuracy only; no historical corner or card odds exist, so profitability is untested. 0 of 1 selections.
 **Kickoffs within next 48 hours of run:** Not available.
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. The shortlist is not an accumulator recommendation.
@@ -19,8 +19,7 @@
 
 | Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons | Unblended estimated EV | Any loss chance | Conservative loss estimate | Full refund chance | Probability meaning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Santa Clara vs Benfica | Asian Handicap Home +2.00 | STRICT | 2026-10-26T18:45:00+00:00 | 82.9% | 79.9% | Pinnacle | 1.36 | +0.9% | — | +9.9% | 17.1% | 20.1% | 21.4% | net_no_loss |
-| AS Roma vs Cagliari | Asian Handicap Away +2.00 | STRICT | 2026-10-27T19:45:00+00:00 | 77.8% | 77.8% | Pinnacle | 1.48 | +4.5% | — | +7.5% | 22.2% | 22.2% | 22.3% | net_no_loss |
+| Santa Clara vs Benfica | Asian Handicap Home +2.00 | STRICT | 2026-10-26T18:45:00+00:00 | 83.0% | 79.9% | Pinnacle | 1.46 | +6.9% | — | +16.6% | 17.0% | 20.1% | 21.3% | net_no_loss |
 
 ## Qualifying alternatives for comparison
 
@@ -28,8 +27,7 @@ Prefer another market type when one qualifies; otherwise show another qualifying
 
 | Match | Shortlisted market | Alternative market | Alternative bookmaker | Alternative odds | Alternative conservative loss estimate | Alternative refund chance | Alternative adjusted EV | Alternative unblended EV | Alternative risk increase | Alternative comparison |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Santa Clara vs Benfica | Asian Handicap Home +2.00 | — | — | — | — | — | — | — | — | No qualifying alternative |
-| AS Roma vs Cagliari | Asian Handicap Away +2.00 | Asian Handicap Away +2.25 | Pinnacle | 1.39 | 22.2% | 0.0% | +3.8% | +6.2% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
+| Santa Clara vs Benfica | Asian Handicap Home +2.00 | Asian Handicap Home +2.25 | Pinnacle | 1.37 | 20.1% | 0.0% | +5.5% | +13.9% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
 
 ## Interpretation
 
