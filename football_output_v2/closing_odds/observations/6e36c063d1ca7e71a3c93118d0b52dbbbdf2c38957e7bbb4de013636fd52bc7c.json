@@ -1,0 +1,268 @@
+{
+  "fixture": {
+    "away_team": "Lyon",
+    "home_team": "Paris Saint Germain",
+    "kickoff_utc": "2026-10-26T19:30:00+00:00",
+    "league": "Ligue 1",
+    "odds_event_id": "8664b2167f22c59026d86615421463b1"
+  },
+  "observed_at_utc": "2026-10-26T19:24:26.863139+00:00",
+  "payload": {
+    "away_team": "Lyon",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-26T19:24:17Z",
+            "outcomes": [
+              {
+                "name": "Lyon",
+                "price": 9.18
+              },
+              {
+                "name": "Paris Saint Germain",
+                "price": 1.32
+              },
+              {
+                "name": "Draw",
+                "price": 5.61
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-26T19:24:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.91
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-26T19:24:17Z",
+            "outcomes": [
+              {
+                "name": "Lyon or Draw",
+                "price": 3.38
+              },
+              {
+                "name": "Paris Saint Germain or Draw",
+                "price": 1.06
+              },
+              {
+                "name": "Lyon or Paris Saint Germain",
+                "price": 1.14
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-26T19:24:17Z",
+            "outcomes": [
+              {
+                "name": "Lyon",
+                "price": 9.5
+              },
+              {
+                "name": "Paris Saint Germain",
+                "price": 1.31
+              },
+              {
+                "name": "Draw",
+                "price": 5.93
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-26T19:24:17Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.91
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.0
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-10-26T19:24:23Z",
+            "outcomes": [
+              {
+                "name": "Lyon or Draw",
+                "price": 3.66
+              },
+              {
+                "name": "Paris Saint Germain or Draw",
+                "price": 1.09
+              },
+              {
+                "name": "Lyon or Paris Saint Germain",
+                "price": 1.17
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-26T19:30:00Z",
+    "home_team": "Paris Saint Germain",
+    "id": "8664b2167f22c59026d86615421463b1",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.32,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7447164794836384,
+      "selection": "home",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.61,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.16027023873422466,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 9.18,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.095013281782137,
+      "selection": "away",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49453701116582316,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5054629888341767,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.06,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8914904446809494,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.38,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.27957984359816757,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.14,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.828929711720883,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7526928781077561,
+      "selection": "home",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.93,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.153695853002787,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 9.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.09361126888945681,
+      "selection": "away",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5119090623547486,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4880909376452514,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-26T19:24:17+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.09,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8970870125381013,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-10-26T19:24:23+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.66,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.2671652578323853,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-10-26T19:24:23+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.17,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8357477296295133,
+      "selection": "home_away",
+      "updated_at_utc": "2026-10-26T19:24:23+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
