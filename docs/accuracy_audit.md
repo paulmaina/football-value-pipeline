@@ -127,7 +127,7 @@ Across all 54 snapshots, **9 runs** carried past-kickoff rows (148 rows in total
 | BBS / API-Football statistics | live use requires `observed > kickoff`. Validation is a *retrospective latest-revision* study with an assumed 24 h publication delay, so historical corrections may leak into the gate. | OK live; the gate has never passed, so nothing reaches forecasts |
 | Totals anchor | live: fresh, same-event Pinnacle quote checked against `now`. Historical: `P>2.5` (Pinnacle pre-close) | OK; no closing price reaches a forecast |
 | Corners / cards | fit on all completed CSV rows; forecasts are future fixtures only | OK live |
-| Backtest folds | `train = Date < s`, test `[s, s+28d)`, fit `as_of=s` (`:3405-3417`) | OK |
+| Backtest folds | `train = Date < s`, test `[s, s+28d)`, fit `as_of=s` (`:3407-3421`) | OK |
 | Benchmark | closing columns are oracle/evaluation-only | OK. But **0.70 / 480 d / anchor were chosen on periods already inspected** (stated in the reports), so benchmark gains are optimistic: a selection effect, not leakage |
 
 **No closing odds or same-day results reach a graded forecast.** The only leak is D4's past-kickoff rows in the published raw and readable files.
