@@ -86,12 +86,12 @@ def distance(record, close, market):
 
 
 def evaluate(root, archive, records, clock):
-    from performance_tracking import frozen_rows, fixture_match, utc
+    from performance_tracking import frozen_rows, fixture_match, utc, verified_result_source
     from football_value_pipeline_v2_standalone import MODEL_VERSION, LEGACY_MODEL_VERSION
     from historical_benchmark import AH, score
     from closing_odds import load_observations
     observations, _ = load_observations(root, clock)
-    records = [r for r in records if r.get('source_status') == 'FINISHED' and r.get('source') == 'football-data.org/v4']
+    records = [r for r in records if verified_result_source(r) and r.get('league_code') != 'EL']
     markets = ('1x2', *BINARY, *AH)
     excluded, paired = Counter(), []
     # frozen_rows keeps the FIRST eligible pre-kickoff forecast per fixture (no backfill).

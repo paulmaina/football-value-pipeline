@@ -106,5 +106,20 @@ class MonitoringLayoutTests(OfflineQuotePolicyTestCase):
         self.assertEqual(health,original)
         self.assertIsNotNone(get_sheet(data,'Experiments').root.find(q('conditionalFormatting')))
 
+    def test_clv_scrollable_view_starts_beyond_frozen_rows_and_column(self):
+        # Excel repairs sheet13's View if column A is frozen but the lower-right
+        # pane starts at A7. Valid XML alone does not catch this contradiction.
+        path=write_workbook(self.root,[row('a')],[],{})
+        clv=get_sheet(parts(path),'CLV')
+        pane=clv.root.find('.//'+q('pane'))
+        self.assertEqual(pane.get('xSplit'),'1')
+        self.assertEqual(pane.get('ySplit'),'6')
+        self.assertEqual(pane.get('topLeftCell'),'B7')
+        self.assertEqual(pane.get('activePane'),'bottomRight')
+        # Formatting again must preserve the corrected view.
+        format_report(path,self.root)
+        pane=get_sheet(parts(path),'CLV').root.find('.//'+q('pane'))
+        self.assertEqual(pane.get('topLeftCell'),'B7')
+
 
 if __name__=='__main__':unittest.main()

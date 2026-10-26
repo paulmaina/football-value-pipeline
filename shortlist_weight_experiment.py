@@ -274,8 +274,8 @@ def paired_returns(coverage, variant):
 
 
 def evaluate(root, archived, records, clock):
-    from performance_tracking import utc, fixture_match, result_for_market
-    records = [r for r in records if r.get('source_status') == 'FINISHED' and r.get('source') == 'football-data.org/v4']
+    from performance_tracking import utc, fixture_match, result_for_market, verified_result_source
+    records = [r for r in records if verified_result_source(r) and r.get('league_code') != 'EL']
     candidates, rejected = frozen(root, archived)
     coverage, selections, matches = [], [], {}
     for row in candidates:

@@ -9,3 +9,5 @@ football_output_v2/performance/snapshots/** -text
 football_output_v2/raw/prediction_runs/** -text
 # Preserve complementary-source observation/recovery bytes across Windows/Linux.
 .football_cache/api_football/** -text
+# T1 result provenance binds the downloaded source bytes by SHA-256.
+football_output_v2/performance/result_sources/** -text
