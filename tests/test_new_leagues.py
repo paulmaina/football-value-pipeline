@@ -132,20 +132,29 @@ class NewLeagueRefreshTests(OfflineQuotePolicyTestCase):
 
 
 class NewLeagueShortlistTests(OfflineQuotePolicyTestCase):
-    def _committed(self):
-        raw = REPO/'football_output_v2/raw'
-        predictions = pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False)
-        reliability = {}
-        for path in sorted(raw.glob('*_goal_market_validation.json')):
-            report = json.loads(path.read_text(encoding='utf-8'))
-            reliability[report['league']] = report
-        as_of = datetime.fromisoformat(json.loads((raw/'conservative_bet_summary.json').read_text())['generated_at_utc'])
-        # Every policy window is at most 72 hours; later fixtures can never be selected.
-        kickoff = pd.to_datetime(predictions.kickoff_utc, utc=True, errors='coerce')
-        window = kickoff.gt(pd.Timestamp(as_of)) & kickoff.le(pd.Timestamp(as_of) + pd.Timedelta(hours=72))
-        # The 20 earliest eligible fixtures keep the tests fast across all policies.
-        predictions = predictions.loc[kickoff[window].sort_values(kind='stable').index[:20]].reset_index(drop=True)
-        return predictions, reliability, as_of
+    def _sample(self):
+        """Fixed eligible markets; production forecasts must not define test coverage."""
+        import copy
+        from test_asian_handicap import NOW, row
+        from test_shortlist_market_alternatives import dc_fixture
+        from test_win_first_shortlist import reports
+
+        values = []
+        for i, key in enumerate(('home_draw', 'draw_away', 'home_away')):
+            value, evidence = dc_fixture(key)
+            # Keep the quotes made by dc_fixture, but give each market a
+            # distinct fixture so one-pick-per-fixture cannot hide a test case.
+            identity = row(i)
+            for field in ('fixture_id', 'home_team', 'away_team',
+                          'model_home_team', 'model_away_team'):
+                value[field] = identity[field]
+            values.append(value)
+        values.append(row(3))
+        report = copy.deepcopy(evidence['Premier League'])
+        report['asian_handicap_win'] = reports()['Premier League']['asian_handicap_win']
+        report['markets']['draw'] = copy.deepcopy(report['markets']['home'])
+        report['league'] = 'Serie A'
+        return pd.DataFrame(values).assign(league='Serie A'), {'Serie A': report}, NOW
 
     @staticmethod
     def _evidence(reliability, failed_markets, failed_lines):
@@ -163,7 +172,7 @@ class NewLeagueShortlistTests(OfflineQuotePolicyTestCase):
     def test_only_markets_that_passed_their_own_audit_reach_the_shortlist(self):
         from conservative_bet_filter import build_conservative_shortlist
         from per_market_shortlist import POLICY as V24
-        predictions, reliability, as_of = self._committed()
+        predictions, reliability, as_of = self._sample()
         control, _, _ = build_conservative_shortlist(predictions, as_of=as_of, market_reliability=reliability,
                                                      selection_policy_version=V24)
         self.assertIn('Double Chance 12', set(control.market), 'control: DC 12 must be selectable')
@@ -196,7 +205,7 @@ class NewLeagueShortlistTests(OfflineQuotePolicyTestCase):
                                              PREVIOUS_SELECTION_POLICY_VERSION, SELECTION_POLICY_VERSION,
                                              PROBABILITY_SELECTION_POLICY_VERSION, BALANCED_SELECTION_POLICIES)
         from asian_handicap import POLICIES
-        predictions, reliability, as_of = self._committed()
+        predictions, reliability, as_of = self._sample()
         name = NEW['Eredivisie'][0]
         failed = ('home_away', 'draw', 'over_1_5', 'under_3_5', 'btts_yes')
         lines = sorted(reliability['Serie A']['asian_handicap_win']['markets'])
@@ -224,11 +233,11 @@ class NewLeagueShortlistTests(OfflineQuotePolicyTestCase):
         from conservative_bet_filter import build_conservative_shortlist, LEGACY_SELECTION_POLICY_VERSION
         from per_market_shortlist import POLICY as V24
         from asian_handicap import POLICY as V22
-        predictions, reliability, as_of = self._committed()
+        predictions, reliability, as_of = self._sample()
         # Both leagues: no report at all, and a report map that lacks the league.
         cases = [(key, V24, evidence) for key in NEW for evidence in (None, {})]
         # One league covers the other policy paths; the code path is per league name.
-        # Committed reports now include the league's own; drop it to test a map that lacks it.
+        # The evidence map intentionally lacks the tested league.
         others = {k: v for k, v in reliability.items() if k != NEW['Eredivisie'][0]}
         cases += [('Eredivisie', V24, others), ('Eredivisie', V22, None),
                   ('Eredivisie', LEGACY_SELECTION_POLICY_VERSION, None)]
