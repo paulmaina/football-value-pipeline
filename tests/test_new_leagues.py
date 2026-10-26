@@ -70,16 +70,16 @@ class NewLeagueRegistryTests(OfflineQuotePolicyTestCase):
                                   'UEL': 2, 'Eredivisie': 2, 'PrimeiraLiga': 2, 'SuperLig': 2})
         self.assertEqual(sum(budget.values()), 24)
 
-    def test_league_without_football_data_org_is_never_settled_or_queried_there(self):
-        """Super Lig has no verified-results source, so its forecasts stay unsettled."""
+    def test_t1_results_do_not_require_a_football_data_org_competition(self):
+        """T1 settles keylessly; no invented football-data.org competition."""
         import performance_tracking
         import football_value_pipeline_v2_standalone as fv
         self.assertEqual(league_registry.get('SuperLig').football_data_org_code, '')
-        self.assertNotIn('Super Lig', performance_tracking.LEAGUE_CODES)
-        self.assertNotIn('SuperLig', performance_tracking.LEAGUE_CODES)
+        self.assertEqual(performance_tracking.LEAGUE_CODES['Super Lig'], 'T1')
+        self.assertEqual(performance_tracking.LEAGUE_CODES['SuperLig'], 'T1')
         self.assertNotIn('', performance_tracking.LEAGUE_CODES.values())
         row = {'league': 'Super Lig', 'home_team': 'A', 'away_team': 'B', 'kickoff_utc': '2026-10-20T17:00:00Z'}
-        self.assertEqual(performance_tracking.fixture_match(row, []), (None, 'INVALID_FIXTURE'))
+        self.assertEqual(performance_tracking.fixture_match(row, []), (None, 'UNVERIFIED_FIXTURE_OR_RESULT'))
         with tempfile.TemporaryDirectory() as tmp:
             pipe = fv.FootballValuePipelineV2(cache_dir=tmp, live_odds=False, odds_api_key='',
                                               fixture_provider='football-data-org')

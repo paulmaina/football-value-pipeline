@@ -5,7 +5,7 @@ Usage:
   python performance_tracking.py review
 
 Only pre-kickoff GitHub snapshots are graded. Reporting never retrains or
-changes a model. Official football-data.org finished scores are evidence;
+changes a model. Finished API scores and validated Turkish T1 CSVs are evidence;
 unknown, ambiguous, postponed and extra-time-only scores fail closed.
 """
 from __future__ import annotations
@@ -39,13 +39,13 @@ MIN_LEAD_MINUTES = 20
 MATCH_KICKOFF_TOLERANCE_HOURS = 36
 MAX_RESULTS_LOOKBACK_DAYS = 60
 
-# Leagues without a football-data.org competition have no verified-results
-# source, so their forecasts are not settled (fail closed).
+# API competition codes remain separate from the keyless T1 result source.
 LEAGUE_CODES = {
     name: cfg.football_data_org_code
     for cfg in LEAGUES.values() if cfg.football_data_org_code
     for name in (cfg.name, cfg.key)
 }
+LEAGUE_CODES.update({'SuperLig': 'T1', 'Super Lig': 'T1'})
 SUPPORTED_MARKETS = {
     "Home win", "Draw", "Away win", "Over 1.5", "Under 3.5",
     "Both Teams to Score - Yes", "Double Chance 1X", "Double Chance X2", "Double Chance 12",
@@ -421,6 +421,9 @@ def verified_result_source(record):
     """Recognize the finished-result contract of each competition's collector."""
     if record.get('source_status') != 'FINISHED':
         return False
+    if record.get('league_code') == 'T1':
+        from turkey_results import verified
+        return verified(record)
     if record.get('league_code') == 'EL':
         # Current Europa league-phase results are corroborated by both feeds.
         # Keep previously verified three-source cache records readable, too.
@@ -493,6 +496,9 @@ def fixture_match(row: dict, verified: list[dict]) -> tuple[dict | None, str]:
     code = LEAGUE_CODES.get(row.get("league"))
     if when is None or not code:
         return None, "INVALID_FIXTURE"
+    if code == 'T1':
+        from turkey_results import fixture_match as match_turkey
+        return match_turkey(row, verified)
     candidates = []
     for match in verified:
         kick = utc(match.get("kickoff_utc"))
@@ -671,7 +677,7 @@ def collect_results(eligible: list[dict], *, root: Path, token: str,
     if not isinstance(old, dict):
         raise ValueError("Invalid result cache")
     errors = {}
-    if not token:
+    if not token and any(LEAGUE_CODES.get(r.get('league')) not in (None, 'T1', 'EL') for r in eligible):
         errors["configuration"] = "FOOTBALL_DATA_API_KEY is missing"
     # Only fetch when results might exist. Previously verified results
     # remain useful for cumulative reports and for temporary API failures.
@@ -696,6 +702,9 @@ def collect_results(eligible: list[dict], *, root: Path, token: str,
             if league == "UEL":
                 from europa_training import results
                 fetched = results(root.parent/".football_cache", clock)
+            elif code == 'T1':
+                from turkey_results import fetch_results
+                fetched = fetch_results(root, dates, clock, session=session)
             elif not token:
                 continue
             else:
@@ -716,7 +725,19 @@ def collect_results(eligible: list[dict], *, root: Path, token: str,
                     "revised_at_utc": iso(clock),
                 }
     write_json(cache, old)
-    return list(old.values()), errors
+    # T1 cache records must still bind to retained downloaded CSV evidence.
+    records = []
+    from turkey_results import validate_evidence
+    evidence_cache = {}
+    for record in old.values():
+        if record.get('league_code') == 'T1':
+            try:
+                validate_evidence(root, record, clock, evidence_cache=evidence_cache)
+            except (OSError, ValueError) as exc:
+                errors['SuperLig'] = str(exc)
+                continue
+        records.append(record)
+    return records, errors
 
 
 SHORTLIST_COLUMNS = [
