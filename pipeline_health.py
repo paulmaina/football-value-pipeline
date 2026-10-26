@@ -194,7 +194,8 @@ def write_report(root, metrics, clock):
     data['review_queue']=read(output/'experiment_review_queue.json',{})
     data['closing_odds']=read(output/'closing_odds/summary.json',{})
     history = read(output/'health_history.json', {'schema_version': 1, 'days': {}})
-    observation = {k:v for k,v in data.items() if k != 'snapshot_capture_history'}
+    # Full experiment summaries stay in pipeline_health.json; repeating them daily dominated the history size.
+    observation = {k:v for k,v in data.items() if k not in ('snapshot_capture_history', 'experimental_reports')}
     observation['shortlist_performance'] = metrics['shortlist']
     history['days'][clock.date().isoformat()] = observation
     write_json(output/'health_history.json', history)
