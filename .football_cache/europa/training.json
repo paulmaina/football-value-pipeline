@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "score_basis": "REGULATION_90_MINUTES",
-  "verified_at_utc": "2026-10-26T15:10:42.985962+00:00",
+  "verified_at_utc": "2026-10-26T20:49:26.495088+00:00",
   "matches": [
     {
       "date": "2022-09-08",
@@ -12882,7 +12882,7 @@
     "openfootball-2022.txt": "3e794b6770cf16a93e25f2656f153b352ef9103503ec0b7aee3c4524d4ac4812",
     "openfootball-2023.txt": "865278d811c3ef4da9d2bf0017b8b7d7fa7d3cec82e3c4421f7d60b19eb490e3",
     "openfootball-2024.txt": "765006752613d43db282cf55e3e9eabd9d839c14286ca44c3abf88403d48727a",
-    "cornerflick.json": "a79e7c8233f37b1a984956976eb58fac9559d59cfea6a952a0334fbaa299d41b",
+    "cornerflick.json": "c24d2aebe75d7654655cb3d192a3756e28538a2036fd38297cc8e76b5163ce8f",
     "uefa-reviewed-facts.json": "31144d02b24f476c70e9c9a5861e3cbc1a53fe73625b34e0f756415cf51fdb35"
   }
 }
