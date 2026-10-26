@@ -233,6 +233,74 @@ class PublicationTests(OfflineQuotePolicyTestCase):
             self.assertEqual(raw_check(root)['forecasts'],1)
 
 
+class PruneCapturedRunsTests(OfflineQuotePolicyTestCase):
+    """Retention deletes only captured, non-current bundles and fails safe."""
+
+    def runs_on_disk(self, root):
+        return sorted(p.name for p in (root/'raw/prediction_runs').iterdir())
+
+    def test_keeps_current_and_uncaptured_runs_and_capture_still_succeeds(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            first=publish(root);second=publish(root,T0+timedelta(hours=1),price=2.)
+            self.assertEqual(runs.capture_runs(root,'a'*40,captured_at=T0+timedelta(hours=2)),2)
+            third=publish(root,T0+timedelta(hours=3),price=2.5)
+            current=publish(root,T0+timedelta(hours=4),price=3.)
+            self.assertEqual(sorted(runs.prune_captured_runs(root)),sorted([first.name,second.name]))
+            self.assertEqual(self.runs_on_disk(root),sorted([third.name,current.name]))
+            self.assertEqual(runs.resolve_raw(root/'raw'),current)
+            self.assertEqual(list(root.glob('.prediction-prune-*')),[])
+            # The current run is kept even once captured; capture skips nothing it needs.
+            self.assertEqual(runs.capture_runs(root,'b'*40,captured_at=T0+timedelta(hours=5)),2)
+            self.assertEqual(runs.prune_captured_runs(root),[third.name])
+            self.assertEqual(self.runs_on_disk(root),[current.name])
+            self.assertEqual(runs.prune_captured_runs(root),[])
+            self.assertEqual(runs.capture_runs(root,'c'*40,captured_at=T0+timedelta(hours=6)),0)
+            self.assertEqual(len(snapshots(root)),4)
+            self.assertEqual(len(archive_check(root)['snapshots']),4)
+
+    def captured_old_run(self, root):
+        """An older, captured run plus a current one; returns the older run's snapshot."""
+        old=publish(root);publish(root,T0+timedelta(hours=1),price=2.)
+        self.assertEqual(runs.prune_captured_runs(root),[])  # Nothing captured yet.
+        runs.capture_runs(root,'a'*40,captured_at=T0+timedelta(hours=2))
+        return root/'performance/snapshots'/runs.digest(('prediction-run:'+old.name).encode())[:16]
+
+    def test_missing_or_unreadable_snapshots_delete_nothing(self):
+        def missing(base): base.rename(base.with_name('moved'))
+        def not_a_directory(base):
+            missing(base);base.write_text('not a directory')
+        damages={'missing folder':lambda s: missing(s.parent),
+                 'folder is a file':lambda s: not_a_directory(s.parent),
+                 'no metadata':lambda s: (s/'metadata.json').unlink(),
+                 'corrupt metadata':lambda s: (s/'metadata.json').write_text('{corrupt'),
+                 'metadata not an object':lambda s: (s/'metadata.json').write_text('[]'),
+                 'tampered predictions':lambda s: (s/'predictions.csv').write_text('tampered'),
+                 'no run manifest':lambda s: (s/'run_manifest.json').unlink()}
+        for name,damage in damages.items():
+            with self.subTest(name),tempfile.TemporaryDirectory() as temp:
+                root=Path(temp);snapshot=self.captured_old_run(root)
+                before=self.runs_on_disk(root)
+                damage(snapshot)
+                self.assertEqual(runs.prune_captured_runs(root),[])
+                self.assertEqual(self.runs_on_disk(root),before)
+
+    def test_missing_or_corrupt_pointer_deletes_nothing(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);self.captured_old_run(root)
+            pointer=root/'raw/current_run.json';original=pointer.read_bytes()
+            for data in (b'{corrupt',b'[]',json.dumps({'version':1}).encode(),
+                         json.dumps({'version':1,'run_id':'../escape'}).encode(),
+                         json.dumps({'version':1,'run_id':7}).encode()):
+                pointer.write_bytes(data)
+                self.assertEqual(runs.prune_captured_runs(root),[])
+            pointer.unlink()
+            self.assertEqual(runs.prune_captured_runs(root),[])
+            self.assertEqual(len(self.runs_on_disk(root)),2)
+            pointer.write_bytes(original)
+            self.assertEqual(len(runs.prune_captured_runs(root)),1)
+
+
 class StaleLockTests(OfflineQuotePolicyTestCase):
     """A writer killed before its finally block must not block later runs forever."""
 
