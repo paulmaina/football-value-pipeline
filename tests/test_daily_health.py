@@ -203,5 +203,50 @@ class DailyHealthTests(OfflineQuotePolicyTestCase):
             write_report(root, metrics, NOW+timedelta(days=1))
             self.assertEqual(len(json.loads((root/'performance/health_history.json').read_text())['days']), 2)
 
+    def test_health_history_omits_experiment_summaries_but_trend_and_checks_still_work(self):
+        from performance_excel import REPORT_NAME
+        from performance_report_layout import get_sheet, text, q
+        from workflow_checks import report_check
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); raw = root/'raw'; raw.mkdir()
+            pd.DataFrame([forecast_fixture()]).to_csv(raw/'all_leagues_predictions.csv',index=False)
+            pd.DataFrame([pick()]).to_csv(raw/'conservative_bet_shortlist.csv',index=False)
+            write_json(raw/'conservative_bet_summary.json',{'generated_at_utc':NOW.isoformat()})
+            self.assertTrue(capture(COMMIT, root=root, captured_at=NOW))
+            write_json(root/'performance/filter_sensitivity_experiment/summary.json', {'comparisons': [
+                {'ev_floor': .02, 'tier': 'STRICT', 'selected': 4, 'graded': 3, 'flat_stake_roi': .1, 'max_drawdown_units': 1.}]})
+            legacy_day = (NOW-timedelta(days=1)).date().isoformat()
+            legacy = {'experimental_reports': {'goal_blend_experiment': {'large': 'x'*1000}},
+                      'shortlist_performance': {'graded': 0, 'win_rate': None, 'flat_stake_roi': None, 'brier': None}}
+            write_json(root/'performance/health_history.json', {'schema_version': 1, 'days': {legacy_day: legacy}})
+            with patch('performance_tracking.collect_results', return_value=([], {})):
+                review(root=root, clock=NOW)
+                metrics = review(root=root, clock=NOW+timedelta(days=1))
+            history = json.loads((root/'performance/health_history.json').read_text())
+            today = (NOW+timedelta(days=1)).date().isoformat()
+            self.assertEqual(sorted(history['days']), [legacy_day, NOW.date().isoformat(), today])
+            for day in (NOW.date().isoformat(), today):
+                self.assertNotIn('experimental_reports', history['days'][day])
+                self.assertNotIn('snapshot_capture_history', history['days'][day])
+                self.assertIn('review_queue', history['days'][day])
+            self.assertEqual(history['days'][today]['shortlist_performance'], metrics['shortlist'])
+            # Older days are kept as written; only new observations are slimmed.
+            self.assertEqual(history['days'][legacy_day], legacy)
+            health = json.loads((root/'performance/pipeline_health.json').read_text())
+            self.assertIn('filter_sensitivity_experiment', health['experimental_reports'])
+            with ZipFile(root/'readable'/REPORT_NAME) as z: parts = {n: z.read(n) for n in z.namelist()}
+            contents = [text(c) for c in get_sheet(parts, 'Pipeline Health').root.iter(q('c'))]
+            start = contents.index('Daily review observations')
+            for day in history['days']:
+                self.assertIn(day, contents[start:])
+            # The EV sensitivity table is still read from the current health report.
+            self.assertIn('STRICT', contents[contents.index('EV sensitivity results'):start])
+            # Workflow verification compares today's history entry with the review.
+            report_check(root)
+            history['days'][today]['shortlist_performance']['graded'] += 1
+            write_json(root/'performance/health_history.json', history)
+            with self.assertRaisesRegex(Exception, 'Daily health performance graded'):
+                report_check(root)
+
 
 if __name__ == '__main__': unittest.main()

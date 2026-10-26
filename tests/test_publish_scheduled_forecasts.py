@@ -54,6 +54,39 @@ class ScheduledPublisherTests(OfflineQuotePolicyTestCase):
             self.assertEqual(sum(c[1]=='football_value_pipeline_v2_standalone.py' for c in calls),2)
             with patch('publish_scheduled_forecasts.publish') as p: self.assertEqual(main(['--repo',str(source)]),0);p.assert_called_once()
 
+    def test_pruned_runs_leave_main_in_the_capture_commit(self):
+        import shutil
+        old='a'*64;kept='b'*64
+        with tempfile.TemporaryDirectory() as tmp:
+            source,_=repo(tmp)
+            for run in (old,kept):
+                bundle=source/'football_output_v2/raw/prediction_runs'/run;bundle.mkdir(parents=True)
+                (bundle/'run_manifest.json').write_text(run)
+            git(source,'add','.');git(source,'commit','-m','runs');git(source,'push','origin','main')
+            order=[]
+            def runner(cmd,cwd,check):
+                work=Path(cwd);order.append(cmd[1:3])
+                if cmd[1]=='football_value_pipeline_v2_standalone.py':
+                    (work/'football_output_v2/raw/forecast.csv').write_text('new forecast')
+                if cmd[1]=='performance_tracking.py' and cmd[2]=='capture':
+                    p=work/'football_output_v2/performance';p.mkdir(parents=True,exist_ok=True);(p/'snapshot.json').write_text('captured')
+                if cmd[1]=='performance_tracking.py' and cmd[2]=='review':
+                    p=work/'football_output_v2/readable';p.mkdir(parents=True,exist_ok=True);(p/'report.xlsx').write_bytes(b'workbook')
+            def prune(root):
+                order.append('prune');self.assertTrue((root/'performance/snapshot.json').exists())
+                shutil.rmtree(root/'raw/prediction_runs'/old);return [old]
+            with patch('publish_scheduled_forecasts.prune_captured_runs',side_effect=prune):
+                publish(source,runner=runner)
+            self.assertEqual(order.index('prune'),order.index(['performance_tracking.py','capture'])+1)
+            git(source,'fetch','origin','main')
+            files=git(source,'ls-tree','-r','--name-only','FETCH_HEAD').stdout.split()
+            self.assertNotIn(f'football_output_v2/raw/prediction_runs/{old}/run_manifest.json',files)
+            self.assertIn(f'football_output_v2/raw/prediction_runs/{kept}/run_manifest.json',files)
+            # The deletion and the snapshot it relies on land in one commit.
+            changed=git(source,'show','--name-status','--format=','FETCH_HEAD').stdout
+            self.assertIn(f'D\tfootball_output_v2/raw/prediction_runs/{old}/run_manifest.json',changed)
+            self.assertIn('A\tfootball_output_v2/performance/snapshot.json',changed)
+
     def test_report_validation_failure_never_publishes_forecast_or_health(self):
         with tempfile.TemporaryDirectory() as tmp:
             source,_=repo(tmp);old=git(source,'rev-parse','HEAD').stdout.strip()
