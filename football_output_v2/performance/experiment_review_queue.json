@@ -29,7 +29,7 @@
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
       "report": "recency_experiment/report.md",
       "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 258,
+      "settled_evidence": 260,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -65,12 +65,12 @@
     {
       "automatic_production_change": false,
       "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-      "gameweeks": 2,
+      "gameweeks": 3,
       "key": "benchmark_forward:761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
       "name": "benchmark_forward_experiment",
       "report": "benchmark_forward_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 82,
+      "settled_evidence": 83,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -88,28 +88,28 @@
       "automatic_production_change": false,
       "candidate_id": "stronger_l2",
       "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-      "gameweeks": 2,
+      "gameweeks": 3,
       "key": "model_reliability:24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb:stronger_l2",
       "name": "model_reliability_experiment",
       "report": "model_reliability_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 82,
+      "settled_evidence": 83,
       "status": "COLLECT_MORE_DATA"
     },
     {
       "automatic_production_change": false,
       "candidate_id": "fixed_half_life",
       "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-      "gameweeks": 2,
+      "gameweeks": 3,
       "key": "model_reliability:24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb:fixed_half_life",
       "name": "model_reliability_experiment",
       "report": "model_reliability_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 82,
+      "settled_evidence": 83,
       "status": "COLLECT_MORE_DATA"
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-26T21:07:15.221661+00:00",
+  "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
   "version": "experiment-review-queue-v1"
 }
