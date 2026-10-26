@@ -91,12 +91,12 @@
     },
     "La Liga": {
       "baseline": {
-        "brier": 0.5517571876790552,
+        "brier": 0.5411775757752743,
         "calibration": [],
-        "ece": 0.22963148168415373,
-        "log_loss": 0.925506081495271,
-        "n": 15,
-        "rps": 0.18291243319023615,
+        "ece": 0.24682158405615004,
+        "log_loss": 0.9115705370259746,
+        "n": 16,
+        "rps": 0.18120214042646898,
         "top_label_calibration": [
           {
             "band": 3,
@@ -107,9 +107,9 @@
           },
           {
             "band": 4,
-            "gap": -0.5432084089378707,
-            "mean_probability": 0.4567915910621293,
-            "n": 2,
+            "gap": -0.5303633125039453,
+            "mean_probability": 0.46963668749605464,
+            "n": 3,
             "observed_rate": 1.0
           },
           {
@@ -135,14 +135,14 @@
           }
         ]
       },
-      "brier_gain": 0.0004891586311137619,
+      "brier_gain": 0.001053829729262934,
       "candidate": {
-        "brier": 0.5512680290479415,
+        "brier": 0.5401237460460113,
         "calibration": [],
-        "ece": 0.13640303426521275,
-        "log_loss": 0.9238754988973612,
-        "n": 15,
-        "rps": 0.18355397258393327,
+        "ece": 0.1407246759686537,
+        "log_loss": 0.9092303719106719,
+        "n": 16,
+        "rps": 0.18150581723335957,
         "top_label_calibration": [
           {
             "band": 3,
@@ -160,10 +160,10 @@
           },
           {
             "band": 5,
-            "gap": 0.036581326148711346,
-            "mean_probability": 0.5365813261487113,
-            "n": 4,
-            "observed_rate": 0.5
+            "gap": -0.07037492122302269,
+            "mean_probability": 0.5296250787769773,
+            "n": 5,
+            "observed_rate": 0.6
           },
           {
             "band": 6,
@@ -181,8 +181,8 @@
           }
         ]
       },
-      "log_loss_gain": 0.0016305825979098243,
-      "rps_gain": -0.000641539393697127
+      "log_loss_gain": 0.0023401651153026615,
+      "rps_gain": -0.00030367680689058485
     },
     "Ligue 1": {
       "baseline": {
@@ -452,12 +452,12 @@
   "candidate_id": "market-weight-085-v1",
   "comparison": {
     "baseline": {
-      "brier": 0.5715096787325958,
+      "brier": 0.5692322536541135,
       "calibration": [],
-      "ece": 0.17088441042477337,
-      "log_loss": 0.9606699991996932,
-      "n": 82,
-      "rps": 0.1996983542439092,
+      "ece": 0.17490596113816279,
+      "log_loss": 0.9575599675224261,
+      "n": 83,
+      "rps": 0.19916641924060863,
       "top_label_calibration": [
         {
           "band": 3,
@@ -468,10 +468,10 @@
         },
         {
           "band": 4,
-          "gap": -0.15335512669047574,
-          "mean_probability": 0.44664487330952424,
-          "n": 25,
-          "observed_rate": 0.6
+          "gap": -0.1668673571883842,
+          "mean_probability": 0.4485172581962312,
+          "n": 26,
+          "observed_rate": 0.6153846153846154
         },
         {
           "band": 5,
@@ -503,14 +503,14 @@
         }
       ]
     },
-    "brier_gain": 0.0044795414221079355,
+    "brier_gain": 0.004540316780895726,
     "candidate": {
-      "brier": 0.5670301373104879,
+      "brier": 0.5646919368732177,
       "calibration": [],
-      "ece": 0.13944275365443579,
-      "log_loss": 0.9547541614412611,
-      "n": 82,
-      "rps": 0.19764032173237928,
+      "ece": 0.1317603119151057,
+      "log_loss": 0.9515589723529366,
+      "n": 83,
+      "rps": 0.19707578155457658,
       "top_label_calibration": [
         {
           "band": 3,
@@ -528,10 +528,10 @@
         },
         {
           "band": 5,
-          "gap": 0.1877330566536185,
-          "mean_probability": 0.5513694202899821,
-          "n": 22,
-          "observed_rate": 0.36363636363636365
+          "gap": 0.15790988415954982,
+          "mean_probability": 0.5492142319856368,
+          "n": 23,
+          "observed_rate": 0.391304347826087
         },
         {
           "band": 6,
@@ -556,23 +556,23 @@
         }
       ]
     },
-    "log_loss_gain": 0.005915837758432074,
-    "rps_gain": 0.002058032511529917
+    "log_loss_gain": 0.006000995169489487,
+    "rps_gain": 0.002090637686032043
   },
   "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
   "excluded_forecast_reasons": {
     "league_outside_frozen_trial": 55,
     "unreliable_team_identity": 16
   },
-  "gameweeks": 2,
+  "gameweeks": 3,
   "log_loss_gain_week_block95": [
     0.0015797358587853133,
-    0.011456412407980832
+    0.01298390287619755
   ],
   "note": "Primary 1X2 log loss; week-block bootstrap, one preregistered candidate. Calibration and subgroup metrics are descriptive. Ready means enough evidence to review, including negative findings; it does not mean approval or profitability. Baseline is the actual production forecast. No closing odds, backfill, bets or automatic promotion.",
   "observed_fixtures": 161,
   "other_archived_registry_versions": [],
-  "paired_fixtures": 82,
+  "paired_fixtures": 83,
   "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
   "rejected_snapshot_commits": [],
   "review_gates": {
@@ -583,11 +583,11 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-26T21:07:15.221661+00:00",
+  "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
   "secondary_comparison": {
     "btts_yes": {
       "baseline": {
-        "brier": 0.25067208596261376,
+        "brier": 0.25048387144434586,
         "calibration": [
           {
             "high": 0.4,
@@ -604,14 +604,14 @@
           {
             "high": 0.5,
             "low": 0.4,
-            "mean_probability": 0.45597990121422854,
-            "n": 19,
-            "observed_rate": 0.47368421052631576,
+            "mean_probability": 0.4574218983437297,
+            "n": 20,
+            "observed_rate": 0.45,
             "observed_wilson95": [
-              0.27329505487448547,
-              0.6829251748817489
+              0.25819502085709295,
+              0.6579179916924003
             ],
-            "overconfidence": -0.01770430931208722
+            "overconfidence": 0.007421898343729694
           },
           {
             "high": 0.6,
@@ -656,12 +656,12 @@
           "observed_rate": 0.5,
           "threshold": 0.7
         },
-        "log_loss": 0.6960049090090445,
-        "n": 82,
+        "log_loss": 0.6956101344623642,
+        "n": 83,
         "rps": null
       },
       "candidate": {
-        "brier": 0.250970854622455,
+        "brier": 0.25077688566880113,
         "calibration": [
           {
             "high": 0.4,
@@ -678,14 +678,14 @@
           {
             "high": 0.5,
             "low": 0.4,
-            "mean_probability": 0.454751452112486,
-            "n": 19,
-            "observed_rate": 0.47368421052631576,
+            "mean_probability": 0.45624564747110574,
+            "n": 20,
+            "observed_rate": 0.45,
             "observed_wilson95": [
-              0.27329505487448547,
-              0.6829251748817489
+              0.25819502085709295,
+              0.6579179916924003
             ],
-            "overconfidence": -0.018932758413829742
+            "overconfidence": 0.006245647471105731
           },
           {
             "high": 0.6,
@@ -730,14 +730,14 @@
           "observed_rate": 0.5,
           "threshold": 0.7
         },
-        "log_loss": 0.6967625322986487,
-        "n": 82,
+        "log_loss": 0.6963543161099554,
+        "n": 83,
         "rps": null
       }
     },
     "over_1_5": {
       "baseline": {
-        "brier": 0.17058981616784594,
+        "brier": 0.16956192909031947,
         "calibration": [
           {
             "high": 0.5,
@@ -778,14 +778,14 @@
           {
             "high": 0.8,
             "low": 0.7000000000000001,
-            "mean_probability": 0.7559400762030206,
-            "n": 27,
-            "observed_rate": 0.7407407407407407,
+            "mean_probability": 0.7542272464043001,
+            "n": 28,
+            "observed_rate": 0.75,
             "observed_wilson95": [
-              0.553210695973843,
-              0.8682979157713322
+              0.566439747592954,
+              0.8732366505779922
             ],
-            "overconfidence": 0.015199335462279917
+            "overconfidence": 0.004227246404300056
           },
           {
             "high": 0.9,
@@ -818,12 +818,12 @@
           "observed_rate": 0.825,
           "threshold": 0.78
         },
-        "log_loss": 0.5210647459151122,
-        "n": 82,
+        "log_loss": 0.5189475591595588,
+        "n": 83,
         "rps": null
       },
       "candidate": {
-        "brier": 0.17049961572281747,
+        "brier": 0.16946949978414957,
         "calibration": [
           {
             "high": 0.5,
@@ -864,14 +864,14 @@
           {
             "high": 0.8,
             "low": 0.7000000000000001,
-            "mean_probability": 0.7534200878081481,
-            "n": 26,
-            "observed_rate": 0.7307692307692307,
+            "mean_probability": 0.7517546185405382,
+            "n": 27,
+            "observed_rate": 0.7407407407407407,
             "observed_wilson95": [
-              0.5391659658023868,
-              0.8629572447493261
+              0.553210695973843,
+              0.8682979157713322
             ],
-            "overconfidence": 0.022650857038917338
+            "overconfidence": 0.011013877799797456
           },
           {
             "high": 0.9,
@@ -904,8 +904,8 @@
           "observed_rate": 0.8461538461538461,
           "threshold": 0.78
         },
-        "log_loss": 0.520930040341107,
-        "n": 82,
+        "log_loss": 0.518806454089791,
+        "n": 83,
         "rps": null
       }
     }
@@ -913,7 +913,7 @@
   "secondary_coverage": 1.0,
   "secondary_gate_passed": false,
   "status": "COLLECT_MORE_DATA",
-  "verified_coverage": 0.9761904761904762,
-  "verified_in_scope_fixtures": 84,
+  "verified_coverage": 0.9764705882352941,
+  "verified_in_scope_fixtures": 85,
   "version": "benchmark-forward-shadow-v1"
 }

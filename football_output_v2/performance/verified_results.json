@@ -1781,6 +1781,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "FL1:559648": {
+    "away_goals": 0,
+    "away_short_name": "Olympique Lyon",
+    "away_team": "Olympique Lyonnais",
+    "first_verified_at_utc": "2026-10-26T23:09:44Z",
+    "home_goals": 2,
+    "home_short_name": "PSG",
+    "home_team": "Paris Saint-Germain FC",
+    "kickoff_utc": "2026-10-26T19:30:00Z",
+    "league_code": "FL1",
+    "match_id": 559648,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559649": {
     "away_goals": 3,
     "away_short_name": "Le Havre",
@@ -2512,6 +2527,21 @@
     "kickoff_utc": "2026-10-25T13:00:00Z",
     "league_code": "PD",
     "match_id": 564720,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PD:564721": {
+    "away_goals": 0,
+    "away_short_name": "Osasuna",
+    "away_team": "CA Osasuna",
+    "first_verified_at_utc": "2026-10-26T23:09:44Z",
+    "home_goals": 2,
+    "home_short_name": "Sevilla FC",
+    "home_team": "Sevilla FC",
+    "kickoff_utc": "2026-10-26T20:00:00Z",
+    "league_code": "PD",
+    "match_id": 564721,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"

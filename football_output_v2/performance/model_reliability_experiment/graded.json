@@ -2870,6 +2870,41 @@
     "week": "2026-W43"
   },
   {
+    "away_team": "CA Osasuna",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.484819843804251,
+      "home_goals": 2,
+      "over_1_5": 0.7079808418388479,
+      "over_2_5": 0.4466734366063201,
+      "p_away": 0.23748797918356856,
+      "p_draw": 0.26718514045252617,
+      "p_home": 0.49532688036390526,
+      "under_3_5": 0.7652260986496796,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.48564823224436643,
+      "home_goals": 2,
+      "over_1_5": 0.7084949213462719,
+      "over_2_5": 0.4472920995210331,
+      "p_away": 0.23805645800108105,
+      "p_draw": 0.26722024600441496,
+      "p_home": 0.494723295994504,
+      "under_3_5": 0.764714300261094,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Sevilla",
+    "kickoff_utc": "2026-10-26T20:00:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.0012193007154448487,
+    "snapshot_commit": "089cdbb10f80fa5c2ab9bdb1d45166e2fe2090bc",
+    "source_match_id": 564721,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,
@@ -5738,5 +5773,40 @@
     "snapshot_commit": "10a7df008090a45923c14f3c84ec260b147ea047",
     "source_match_id": 559655,
     "week": "2026-W43"
+  },
+  {
+    "away_team": "CA Osasuna",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.484819843804251,
+      "home_goals": 2,
+      "over_1_5": 0.7079808418388479,
+      "over_2_5": 0.4466734366063201,
+      "p_away": 0.23748797918356856,
+      "p_draw": 0.26718514045252617,
+      "p_home": 0.49532688036390526,
+      "under_3_5": 0.7652260986496796,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.5228143747767148,
+      "home_goals": 2,
+      "over_1_5": 0.7407793478722609,
+      "over_2_5": 0.4861459002733407,
+      "p_away": 0.24598410226869372,
+      "p_draw": 0.26460372955644496,
+      "p_home": 0.4894121681748613,
+      "under_3_5": 0.7309919578475751,
+      "y": 0
+    },
+    "candidate_id": "fixed_half_life",
+    "home_team": "Sevilla",
+    "kickoff_utc": "2026-10-26T20:00:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.012012894841159194,
+    "snapshot_commit": "089cdbb10f80fa5c2ab9bdb1d45166e2fe2090bc",
+    "source_match_id": 564721,
+    "week": "2026-W44"
   }
 ]
