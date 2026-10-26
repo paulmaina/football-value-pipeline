@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "56dcfd7c8c10501f08c1085ba680ee0b381343806f4e9c1a234ff9a27fa939ba",
-  "training_as_of_utc": "2026-10-26T10:38:54.715248+00:00",
+  "training_as_of_utc": "2026-10-26T11:38:12.675051+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 98,
     "bbs_added_results": 9,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-26T10:38:54.715248+00:00",
+    "cutoff_utc": "2026-10-26T11:38:12.675051+00:00",
     "observations": 332,
     "observations_sha256": "52efabc87e46235c26e5fe0236415abc5f8894bcd748bed7cedd6b88ca6e7660",
     "eligible_training_matches": 113,
@@ -145,10 +145,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1842.2832969926335,
-  "base": 0.0922400871043631,
-  "home_adv": 0.2856126650602824,
-  "rho": -0.0323010485205352,
+  "objective": 1842.1737695113313,
+  "base": 0.09224035367983373,
+  "home_adv": 0.28560202749026514,
+  "rho": -0.032323634441866936,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -176,17 +176,17 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 7,
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261026T103854715248Z_84ed46fb02defcda6d9085ff4317007eee9e39b18b405c4e878125aa317ad44a.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261026T113812675051Z_f8243e45de9aaaffa417000b5b13bec472b867d1ca5a78d7eb67b729761d3a87.json",
   "over_1_5_in_window_quote_fixtures": 1,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
       "fixture_id": "0dae715cc56fe201f9e667917c126691",
-      "event_id": null,
+      "event_id": "0dae715cc56fe201f9e667917c126691",
       "home_team": "Valencia",
       "away_team": "Villarreal",
       "kickoff_utc": "2026-10-24T16:30:00+00:00",
@@ -199,7 +199,7 @@
     },
     {
       "fixture_id": "70df1835c3b5ddff1c99e0189532136b",
-      "event_id": null,
+      "event_id": "70df1835c3b5ddff1c99e0189532136b",
       "home_team": "Atl\u00e9tico Madrid",
       "away_team": "Deportivo La Coru\u00f1a",
       "kickoff_utc": "2026-10-24T19:00:00+00:00",
@@ -212,7 +212,7 @@
     },
     {
       "fixture_id": "9c4254cba9944a839b421db27260504d",
-      "event_id": null,
+      "event_id": "9c4254cba9944a839b421db27260504d",
       "home_team": "Athletic Bilbao",
       "away_team": "Getafe",
       "kickoff_utc": "2026-10-25T13:00:00+00:00",
@@ -225,7 +225,7 @@
     },
     {
       "fixture_id": "2013e3955186ebe5258e85eb741a7553",
-      "event_id": null,
+      "event_id": "2013e3955186ebe5258e85eb741a7553",
       "home_team": "Celta Vigo",
       "away_team": "Real Betis",
       "kickoff_utc": "2026-10-25T15:15:00+00:00",
@@ -238,7 +238,7 @@
     },
     {
       "fixture_id": "3cb8660cd2375b60e81144a7572cfb89",
-      "event_id": null,
+      "event_id": "3cb8660cd2375b60e81144a7572cfb89",
       "home_team": "Real Sociedad",
       "away_team": "Levante",
       "kickoff_utc": "2026-10-25T17:30:00+00:00",
@@ -251,7 +251,7 @@
     },
     {
       "fixture_id": "72089d103a5fe6a922c35e17efba6ffc",
-      "event_id": null,
+      "event_id": "72089d103a5fe6a922c35e17efba6ffc",
       "home_team": "Barcelona",
       "away_team": "Real Madrid",
       "kickoff_utc": "2026-10-25T20:00:00+00:00",
@@ -274,9 +274,8 @@
       "home_away_quote": true,
       "count_market_quotes": 6,
       "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
-        "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",

@@ -1,0 +1,4910 @@
+{
+  "version": "goal-blend-shadow-v1",
+  "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+  "predictions_sha256": "34094ac51939014096e425d533f37d8fb801875777bce225454c241080ad2c23",
+  "calibrated": false,
+  "selection_policy": "none; research only",
+  "rows": [
+    {
+      "league": "Premier League",
+      "home_team": "Chelsea",
+      "away_team": "Tottenham Hotspur",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8342126753907882,
+      "baseline_probability": 0.8342126753907882,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Chelsea",
+      "away_team": "Tottenham Hotspur",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6063472038071046,
+      "baseline_probability": 0.6063472038071046,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Chelsea",
+      "away_team": "Tottenham Hotspur",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6230395420225345,
+      "baseline_probability": 0.6230395420225345,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Crystal Palace",
+      "away_team": "Newcastle United",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.7920360791819754,
+      "baseline_probability": 0.7920360791819754,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Crystal Palace",
+      "away_team": "Newcastle United",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6726448994596914,
+      "baseline_probability": 0.6726448994596914,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Crystal Palace",
+      "away_team": "Newcastle United",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5917376166056644,
+      "baseline_probability": 0.5917376166056644,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Hull City",
+      "away_team": "Brentford",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.708139537199344,
+      "baseline_probability": 0.708139537199344,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Hull City",
+      "away_team": "Brentford",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.7721170069458584,
+      "baseline_probability": 0.7721170069458584,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Hull City",
+      "away_team": "Brentford",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5022593369327218,
+      "baseline_probability": 0.5022593369327218,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Liverpool",
+      "away_team": "Brighton and Hove Albion",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8292235843207084,
+      "baseline_probability": 0.8292235843207084,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Liverpool",
+      "away_team": "Brighton and Hove Albion",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6148689176331942,
+      "baseline_probability": 0.6148689176331942,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Liverpool",
+      "away_team": "Brighton and Hove Albion",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6177266334585134,
+      "baseline_probability": 0.6177266334585134,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Manchester United",
+      "away_team": "Bournemouth",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8145646339467912,
+      "baseline_probability": 0.8145646339467912,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Manchester United",
+      "away_team": "Bournemouth",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6389379451504623,
+      "baseline_probability": 0.6389379451504623,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Manchester United",
+      "away_team": "Bournemouth",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6102542127574405,
+      "baseline_probability": 0.6102542127574405,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Sunderland",
+      "away_team": "Leeds United",
+      "kickoff_utc": "2026-10-25T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6938875471175252,
+      "baseline_probability": 0.6938875471175252,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Sunderland",
+      "away_team": "Leeds United",
+      "kickoff_utc": "2026-10-25T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.7859264894235944,
+      "baseline_probability": 0.7859264894235944,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Premier League",
+      "home_team": "Sunderland",
+      "away_team": "Leeds United",
+      "kickoff_utc": "2026-10-25T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.4904995048012344,
+      "baseline_probability": 0.4904995048012344,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Valencia",
+      "away_team": "Villarreal",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.7744857115431113,
+      "baseline_probability": 0.7744857115431113,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Valencia",
+      "away_team": "Villarreal",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6896118669405977,
+      "baseline_probability": 0.6896118669405977,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Valencia",
+      "away_team": "Villarreal",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5669945757724795,
+      "baseline_probability": 0.5669945757724795,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Atl\u00e9tico Madrid",
+      "away_team": "Deportivo La Coru\u00f1a",
+      "kickoff_utc": "2026-10-24T19:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.7714990079416848,
+      "baseline_probability": 0.7714990079416848,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Atl\u00e9tico Madrid",
+      "away_team": "Deportivo La Coru\u00f1a",
+      "kickoff_utc": "2026-10-24T19:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6927037627328888,
+      "baseline_probability": 0.6927037627328888,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Atl\u00e9tico Madrid",
+      "away_team": "Deportivo La Coru\u00f1a",
+      "kickoff_utc": "2026-10-24T19:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.4809204809902669,
+      "baseline_probability": 0.4809204809902669,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Athletic Bilbao",
+      "away_team": "Getafe",
+      "kickoff_utc": "2026-10-25T13:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5557770151677212,
+      "baseline_probability": 0.5557770151677212,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Athletic Bilbao",
+      "away_team": "Getafe",
+      "kickoff_utc": "2026-10-25T13:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8830938191390192,
+      "baseline_probability": 0.8830938191390192,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Athletic Bilbao",
+      "away_team": "Getafe",
+      "kickoff_utc": "2026-10-25T13:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.3285807721665056,
+      "baseline_probability": 0.3285807721665056,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Celta Vigo",
+      "away_team": "Real Betis",
+      "kickoff_utc": "2026-10-25T15:15:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.7456640016415647,
+      "baseline_probability": 0.7456640016415647,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Celta Vigo",
+      "away_team": "Real Betis",
+      "kickoff_utc": "2026-10-25T15:15:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.7256183189257157,
+      "baseline_probability": 0.7256183189257157,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Celta Vigo",
+      "away_team": "Real Betis",
+      "kickoff_utc": "2026-10-25T15:15:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5410453070044186,
+      "baseline_probability": 0.5410453070044186,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Real Sociedad",
+      "away_team": "Levante",
+      "kickoff_utc": "2026-10-25T17:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8390325479779204,
+      "baseline_probability": 0.8390325479779204,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Real Sociedad",
+      "away_team": "Levante",
+      "kickoff_utc": "2026-10-25T17:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.590174961175754,
+      "baseline_probability": 0.590174961175754,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Real Sociedad",
+      "away_team": "Levante",
+      "kickoff_utc": "2026-10-25T17:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.620480799985407,
+      "baseline_probability": 0.620480799985407,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Barcelona",
+      "away_team": "Real Madrid",
+      "kickoff_utc": "2026-10-25T20:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8553930754228092,
+      "baseline_probability": 0.8553930754228092,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Barcelona",
+      "away_team": "Real Madrid",
+      "kickoff_utc": "2026-10-25T20:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5598512882436888,
+      "baseline_probability": 0.5598512882436888,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Barcelona",
+      "away_team": "Real Madrid",
+      "kickoff_utc": "2026-10-25T20:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6506288090687019,
+      "baseline_probability": 0.6506288090687019,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Sevilla",
+      "away_team": "CA Osasuna",
+      "kickoff_utc": "2026-10-26T20:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7413287826008541,
+      "baseline_probability": 0.7413287826008541,
+      "bookmaker_probability": 0.6858999561076061,
+      "reference_odds": 1.43,
+      "reference_opposite_odds": 3.0,
+      "decimal_odds": 1.42,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-26T11:38:23Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7413287826008541,
+        "book25": 0.7274715759775421,
+        "book50": 0.7136143693542301,
+        "bookmaker": 0.6858999561076061,
+        "baseline": 0.7413287826008541
+      },
+      "opposite_variants": {
+        "raw": 0.2586712173991459,
+        "book25": 0.2725284240224579,
+        "book50": 0.28638563064576994,
+        "bookmaker": 0.3141000438923939,
+        "baseline": 0.2586712173991459
+      }
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Sevilla",
+      "away_team": "CA Osasuna",
+      "kickoff_utc": "2026-10-26T20:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.730540255030456,
+      "baseline_probability": 0.730540255030456,
+      "bookmaker_probability": 0.789420006070948,
+      "reference_odds": 1.25,
+      "reference_opposite_odds": 4.35,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "La Liga",
+      "home_team": "Sevilla",
+      "away_team": "CA Osasuna",
+      "kickoff_utc": "2026-10-26T20:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.524101004142419,
+      "baseline_probability": 0.524101004142419,
+      "bookmaker_probability": 0.4553192373551984,
+      "reference_odds": 2.11,
+      "reference_opposite_odds": 1.78,
+      "decimal_odds": 2.11,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-26T11:38:35Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.524101004142419,
+        "book25": 0.5069055624456138,
+        "book50": 0.4897101207488087,
+        "bookmaker": 0.4553192373551984,
+        "baseline": 0.524101004142419
+      },
+      "opposite_variants": {
+        "raw": 0.475898995857581,
+        "book25": 0.4930944375543862,
+        "book50": 0.5102898792511913,
+        "bookmaker": 0.5446807626448016,
+        "baseline": 0.475898995857581
+      }
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "Borussia Dortmund",
+      "away_team": "Eintracht Frankfurt",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8660682180556079,
+      "baseline_probability": 0.8660682180556079,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "Borussia Dortmund",
+      "away_team": "Eintracht Frankfurt",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5449645795198002,
+      "baseline_probability": 0.5449645795198002,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "Borussia Dortmund",
+      "away_team": "Eintracht Frankfurt",
+      "kickoff_utc": "2026-10-24T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6162322008135817,
+      "baseline_probability": 0.6162322008135817,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "TSG Hoffenheim",
+      "away_team": "Bayer Leverkusen",
+      "kickoff_utc": "2026-10-25T14:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8831712287828064,
+      "baseline_probability": 0.8831712287828064,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "TSG Hoffenheim",
+      "away_team": "Bayer Leverkusen",
+      "kickoff_utc": "2026-10-25T14:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5098190310597933,
+      "baseline_probability": 0.5098190310597933,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "TSG Hoffenheim",
+      "away_team": "Bayer Leverkusen",
+      "kickoff_utc": "2026-10-25T14:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.7004398528742236,
+      "baseline_probability": 0.7004398528742236,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "SC Freiburg",
+      "away_team": "Bayern Munich",
+      "kickoff_utc": "2026-10-25T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8994807598026437,
+      "baseline_probability": 0.8994807598026437,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "SC Freiburg",
+      "away_team": "Bayern Munich",
+      "kickoff_utc": "2026-10-25T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.46929257007055464,
+      "baseline_probability": 0.46929257007055464,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Bundesliga",
+      "home_team": "SC Freiburg",
+      "away_team": "Bayern Munich",
+      "kickoff_utc": "2026-10-25T16:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6577350142285846,
+      "baseline_probability": 0.6577350142285846,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Napoli",
+      "away_team": "AS Roma",
+      "kickoff_utc": "2026-10-24T16:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6793942092063767,
+      "baseline_probability": 0.6793942092063767,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Napoli",
+      "away_team": "AS Roma",
+      "kickoff_utc": "2026-10-24T16:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.793010512189197,
+      "baseline_probability": 0.793010512189197,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Napoli",
+      "away_team": "AS Roma",
+      "kickoff_utc": "2026-10-24T16:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.4767364424677199,
+      "baseline_probability": 0.4767364424677199,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Lazio",
+      "away_team": "Parma",
+      "kickoff_utc": "2026-10-24T18:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6623197676409147,
+      "baseline_probability": 0.6623197676409147,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Lazio",
+      "away_team": "Parma",
+      "kickoff_utc": "2026-10-24T18:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8075993229707243,
+      "baseline_probability": 0.8075993229707243,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Lazio",
+      "away_team": "Parma",
+      "kickoff_utc": "2026-10-24T18:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.3971000968632692,
+      "baseline_probability": 0.3971000968632692,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Inter Milan",
+      "away_team": "Fiorentina",
+      "kickoff_utc": "2026-10-25T11:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8555824643157602,
+      "baseline_probability": 0.8555824643157602,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Inter Milan",
+      "away_team": "Fiorentina",
+      "kickoff_utc": "2026-10-25T11:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5572283046343129,
+      "baseline_probability": 0.5572283046343129,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Inter Milan",
+      "away_team": "Fiorentina",
+      "kickoff_utc": "2026-10-25T11:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5593651779280292,
+      "baseline_probability": 0.5593651779280292,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Atalanta BC",
+      "away_team": "Frosinone",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.881845524966983,
+      "baseline_probability": 0.881845524966983,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Atalanta BC",
+      "away_team": "Frosinone",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.5029003182698552,
+      "baseline_probability": 0.5029003182698552,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Atalanta BC",
+      "away_team": "Frosinone",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6696627142195023,
+      "baseline_probability": 0.6696627142195023,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Genoa",
+      "away_team": "Venezia",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.6484750404465499,
+      "baseline_probability": 0.6484750404465499,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Genoa",
+      "away_team": "Venezia",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8193129686019981,
+      "baseline_probability": 0.8193129686019981,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Genoa",
+      "away_team": "Venezia",
+      "kickoff_utc": "2026-10-25T14:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.4215056998443292,
+      "baseline_probability": 0.4215056998443292,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Lecce",
+      "away_team": "Juventus",
+      "kickoff_utc": "2026-10-25T17:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.63230713519443,
+      "baseline_probability": 0.63230713519443,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Lecce",
+      "away_team": "Juventus",
+      "kickoff_utc": "2026-10-25T17:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.8317111488321409,
+      "baseline_probability": 0.8317111488321409,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Lecce",
+      "away_team": "Juventus",
+      "kickoff_utc": "2026-10-25T17:00:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.3629180178574501,
+      "baseline_probability": 0.3629180178574501,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Udinese",
+      "away_team": "AC Milan",
+      "kickoff_utc": "2026-10-25T19:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.7528605771722108,
+      "baseline_probability": 0.7528605771722108,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Udinese",
+      "away_team": "AC Milan",
+      "kickoff_utc": "2026-10-25T19:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.7155690734026486,
+      "baseline_probability": 0.7155690734026486,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Serie A",
+      "home_team": "Udinese",
+      "away_team": "AC Milan",
+      "kickoff_utc": "2026-10-25T19:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "invalid_exact_market_reference",
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote",
+        "insufficient_lead_time"
+      ],
+      "raw_probability": 0.518522814421891,
+      "baseline_probability": 0.518522814421891,
+      "bookmaker_probability": null,
+      "reference_odds": null,
+      "reference_opposite_odds": null,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Ligue 1",
+      "home_team": "Paris Saint Germain",
+      "away_team": "Lyon",
+      "kickoff_utc": "2026-10-26T19:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.8476226504138331,
+      "baseline_probability": 0.8546885480934402,
+      "bookmaker_probability": 0.886556922898537,
+      "reference_odds": 1.1,
+      "reference_opposite_odds": 5.6,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    },
+    {
+      "league": "Ligue 1",
+      "home_team": "Paris Saint Germain",
+      "away_team": "Lyon",
+      "kickoff_utc": "2026-10-26T19:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.5780245116794513,
+      "baseline_probability": 0.5668349479220609,
+      "bookmaker_probability": 0.5145612213121185,
+      "reference_odds": 1.9,
+      "reference_opposite_odds": 2.01,
+      "decimal_odds": 1.9,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-26T11:44:30Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.5780245116794513,
+        "book25": 0.5621586890876181,
+        "book50": 0.5462928664957849,
+        "bookmaker": 0.5145612213121185,
+        "baseline": 0.5668349479220609
+      },
+      "opposite_variants": {
+        "raw": 0.42197548832054865,
+        "book25": 0.4378413109123819,
+        "book50": 0.4537071335042151,
+        "bookmaker": 0.48543877868788154,
+        "baseline": 0.4331650520779391
+      }
+    },
+    {
+      "league": "Ligue 1",
+      "home_team": "Paris Saint Germain",
+      "away_team": "Lyon",
+      "kickoff_utc": "2026-10-26T19:30:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.5948435672677671,
+      "baseline_probability": 0.5805806385211497,
+      "bookmaker_probability": 0.6030747490349213,
+      "reference_odds": 1.57,
+      "reference_opposite_odds": 2.28,
+      "decimal_odds": 1.65,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-26T11:44:03Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.5948435672677671,
+        "book25": 0.5969013627095556,
+        "book50": 0.5989591581513443,
+        "bookmaker": 0.6030747490349213,
+        "baseline": 0.5805806385211497
+      },
+      "opposite_variants": {
+        "raw": 0.4051564327322329,
+        "book25": 0.4030986372904444,
+        "book50": 0.40104084184865574,
+        "bookmaker": 0.3969252509650787,
+        "baseline": 0.4194193614788503
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Santa Clara",
+      "away_team": "Benfica",
+      "kickoff_utc": "2026-10-26T18:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "over_1_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7052569159401745,
+      "baseline_probability": 0.7187429328697066,
+      "bookmaker_probability": 0.8049063921141046,
+      "reference_odds": 1.22,
+      "reference_opposite_odds": 4.47,
+      "decimal_odds": 1.22,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-26T11:45:35Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7052569159401745,
+        "book25": 0.730169284983657,
+        "book50": 0.7550816540271396,
+        "bookmaker": 0.8049063921141046,
+        "baseline": 0.7187429328697066
+      },
+      "opposite_variants": {
+        "raw": 0.2947430840598255,
+        "book25": 0.26983071501634304,
+        "book50": 0.24491834597286044,
+        "bookmaker": 0.19509360788589536,
+        "baseline": 0.2812570671302934
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Santa Clara",
+      "away_team": "Benfica",
+      "kickoff_utc": "2026-10-26T18:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "under_3_5",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "available",
+      "reasons": [],
+      "raw_probability": 0.7603070387184687,
+      "baseline_probability": 0.7495455857046807,
+      "bookmaker_probability": 0.6546293933102065,
+      "reference_odds": 1.49,
+      "reference_opposite_odds": 2.72,
+      "decimal_odds": 1.49,
+      "bookmaker": "Pinnacle",
+      "quote_updated_at_utc": "2026-10-26T11:45:35Z",
+      "bookmaker_count": 1.0,
+      "variants": {
+        "raw": 0.7603070387184687,
+        "book25": 0.7338876273664032,
+        "book50": 0.7074682160143376,
+        "bookmaker": 0.6546293933102065,
+        "baseline": 0.7495455857046807
+      },
+      "opposite_variants": {
+        "raw": 0.23969296128153128,
+        "book25": 0.26611237263359677,
+        "book50": 0.2925317839856624,
+        "bookmaker": 0.34537060668979347,
+        "baseline": 0.25045441429531934
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "home_team": "Santa Clara",
+      "away_team": "Benfica",
+      "kickoff_utc": "2026-10-26T18:45:00+00:00",
+      "version": "goal-blend-shadow-v1",
+      "market": "btts_yes",
+      "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+      "status": "unavailable",
+      "reasons": [
+        "missing_quote_or_coverage",
+        "stale_or_missing_quote"
+      ],
+      "raw_probability": 0.44447410666387255,
+      "baseline_probability": 0.430538904830018,
+      "bookmaker_probability": 0.4742796966678955,
+      "reference_odds": 2.08,
+      "reference_opposite_odds": 1.88,
+      "decimal_odds": null,
+      "bookmaker": null,
+      "quote_updated_at_utc": "None",
+      "bookmaker_count": null,
+      "variants": {},
+      "opposite_variants": {}
+    }
+  ],
+  "recency_experiment": {
+    "version": "goal-recency-shadow-v1",
+    "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+    "leagues": [
+      {
+        "league": "Premier League",
+        "training_end": "2026-10-25T00:00:00",
+        "training_matches": 1980,
+        "training_sha256": "74228efe41520c1086698e8036380a4bfe2ef100b42582cf523655c81c5e9e23",
+        "production_half_life_days": 480.0,
+        "l2": 0.08,
+        "max_goals": 10,
+        "training_as_of_utc": "2026-10-26T11:35:40.173016+00:00",
+        "candidate_fit_errors": {},
+        "historical_diagnostic_errors": {},
+        "historical_audit": {
+          "status": "AUDIT_COMPLETE",
+          "selection_metric": "development_binary_log_loss",
+          "markets": {
+            "over_1_5": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 1000000000.0,
+              "development": {
+                "n": 295,
+                "brier": 0.1653722110236179,
+                "log_loss": 0.5114838456967844,
+                "mean_probability": 0.7683763286498151,
+                "event_rate": 0.7898305084745763
+              },
+              "audit": {
+                "n": 80,
+                "brier": 0.17912360980822004,
+                "log_loss": 0.5423632945172827,
+                "mean_probability": 0.770069136750101,
+                "event_rate": 0.7625
+              },
+              "development_1x2_audit": {
+                "n": 80,
+                "brier": 0.17507197883082817,
+                "log_loss": 0.5317236578333021,
+                "mean_probability": 0.7680943071324142,
+                "event_rate": 0.7625
+              },
+              "audit_brier_gain": -0.004051630977391862,
+              "audit_log_loss_gain": -0.010639636683980602,
+              "development_log_loss_margin": 5.175648288502366e-05,
+              "development_fold_winners": {
+                "730.0": 1,
+                "240.0": 1,
+                "1000000000.0": 2
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 295,
+                    "brier": 0.16914383970459498,
+                    "log_loss": 0.5232939315198246,
+                    "mean_probability": 0.7679096967473975,
+                    "event_rate": 0.7898305084745763
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.1764213568159722,
+                    "log_loss": 0.5356237245158451,
+                    "mean_probability": 0.7653971763514125,
+                    "event_rate": 0.7625
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 295,
+                    "brier": 0.166939363405886,
+                    "log_loss": 0.5159270319290274,
+                    "mean_probability": 0.7730070413059148,
+                    "event_rate": 0.7898305084745763
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.17507197883082817,
+                    "log_loss": 0.5317236578333021,
+                    "mean_probability": 0.7680943071324142,
+                    "event_rate": 0.7625
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 295,
+                    "brier": 0.16606687682183777,
+                    "log_loss": 0.5132733848961715,
+                    "mean_probability": 0.7741885947756585,
+                    "event_rate": 0.7898305084745763
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.1753996114585683,
+                    "log_loss": 0.5324113785911893,
+                    "mean_probability": 0.768993270861748,
+                    "event_rate": 0.7625
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 295,
+                    "brier": 0.16544467562361498,
+                    "log_loss": 0.5115356021796694,
+                    "mean_probability": 0.7730593883091275,
+                    "event_rate": 0.7898305084745763
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.17675537158960727,
+                    "log_loss": 0.5359078787105289,
+                    "mean_probability": 0.770003977388833,
+                    "event_rate": 0.7625
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 295,
+                    "brier": 0.1653722110236179,
+                    "log_loss": 0.5114838456967844,
+                    "mean_probability": 0.7683763286498151,
+                    "event_rate": 0.7898305084745763
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.17912360980822004,
+                    "log_loss": 0.5423632945172827,
+                    "mean_probability": 0.770069136750101,
+                    "event_rate": 0.7625
+                  }
+                }
+              ]
+            },
+            "btts_yes": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 1000000000.0,
+              "development": {
+                "n": 295,
+                "brier": 0.24496325964845642,
+                "log_loss": 0.683059575806808,
+                "mean_probability": 0.5338701407338898,
+                "event_rate": 0.5661016949152542
+              },
+              "audit": {
+                "n": 80,
+                "brier": 0.26345331613129563,
+                "log_loss": 0.7223289396752132,
+                "mean_probability": 0.5284167139208072,
+                "event_rate": 0.5
+              },
+              "development_1x2_audit": {
+                "n": 80,
+                "brier": 0.26022981828629377,
+                "log_loss": 0.7152040573207454,
+                "mean_probability": 0.535161047072816,
+                "event_rate": 0.5
+              },
+              "audit_brier_gain": -0.003223497845001866,
+              "audit_log_loss_gain": -0.007124882354467732,
+              "development_log_loss_margin": 0.0012888072549791518,
+              "development_fold_winners": {
+                "1000000000.0": 2,
+                "240.0": 2
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 295,
+                    "brier": 0.2492141092676755,
+                    "log_loss": 0.692187105199473,
+                    "mean_probability": 0.5353032822139003,
+                    "event_rate": 0.5661016949152542
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.2611068342072958,
+                    "log_loss": 0.7169558784285007,
+                    "mean_probability": 0.5331610545859794,
+                    "event_rate": 0.5
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 295,
+                    "brier": 0.24745836096750537,
+                    "log_loss": 0.6883305296780592,
+                    "mean_probability": 0.5437064656368193,
+                    "event_rate": 0.5661016949152542
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.26022981828629377,
+                    "log_loss": 0.7152040573207454,
+                    "mean_probability": 0.535161047072816,
+                    "event_rate": 0.5
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 295,
+                    "brier": 0.2465046498583124,
+                    "log_loss": 0.6863177437277865,
+                    "mean_probability": 0.5445904212420473,
+                    "event_rate": 0.5661016949152542
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.2609708449264727,
+                    "log_loss": 0.7168331533211998,
+                    "mean_probability": 0.5349028873098407,
+                    "event_rate": 0.5
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 295,
+                    "brier": 0.24557030011414316,
+                    "log_loss": 0.6843483830617871,
+                    "mean_probability": 0.5416997000467944,
+                    "event_rate": 0.5661016949152542
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.262175239168451,
+                    "log_loss": 0.7194223362283403,
+                    "mean_probability": 0.5332793874559748,
+                    "event_rate": 0.5
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 295,
+                    "brier": 0.24496325964845642,
+                    "log_loss": 0.683059575806808,
+                    "mean_probability": 0.5338701407338898,
+                    "event_rate": 0.5661016949152542
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.26345331613129563,
+                    "log_loss": 0.7223289396752132,
+                    "mean_probability": 0.5284167139208072,
+                    "event_rate": 0.5
+                  }
+                }
+              ]
+            }
+          },
+          "minimum_matches_per_phase": 25,
+          "development_folds": 4,
+          "audit_folds": 2,
+          "audit_start": "2026-08-02T00:00:00",
+          "production_half_life": 240.0,
+          "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+          "development_1x2_half_life": 240.0
+        }
+      },
+      {
+        "league": "La Liga",
+        "training_end": "2026-10-25T00:00:00",
+        "training_matches": 1998,
+        "training_sha256": "ee6a3e565ad9b57cbc5036df5a26b10634492199af0d35d02422374b6214d88f",
+        "production_half_life_days": 480.0,
+        "l2": 0.08,
+        "max_goals": 10,
+        "training_as_of_utc": "2026-10-26T11:38:12.675051+00:00",
+        "candidate_fit_errors": {},
+        "historical_diagnostic_errors": {},
+        "historical_audit": {
+          "status": "AUDIT_COMPLETE",
+          "selection_metric": "development_binary_log_loss",
+          "markets": {
+            "over_1_5": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 120.0,
+              "development": {
+                "n": 285,
+                "brier": 0.17076809034530763,
+                "log_loss": 0.521424549962555,
+                "mean_probability": 0.7189749169373495,
+                "event_rate": 0.7789473684210526
+              },
+              "audit": {
+                "n": 98,
+                "brier": 0.18246723774387083,
+                "log_loss": 0.5531599095675743,
+                "mean_probability": 0.752498333905161,
+                "event_rate": 0.7653061224489796
+              },
+              "development_1x2_audit": {
+                "n": 98,
+                "brier": 0.18170306609634218,
+                "log_loss": 0.5457186549732064,
+                "mean_probability": 0.7299830161035185,
+                "event_rate": 0.7653061224489796
+              },
+              "audit_brier_gain": -0.0007641716475286497,
+              "audit_log_loss_gain": -0.007441254594367952,
+              "development_log_loss_margin": 0.0005912556082473541,
+              "development_fold_winners": {
+                "120.0": 2,
+                "730.0": 1,
+                "1000000000.0": 1
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 285,
+                    "brier": 0.17076809034530763,
+                    "log_loss": 0.521424549962555,
+                    "mean_probability": 0.7189749169373495,
+                    "event_rate": 0.7789473684210526
+                  },
+                  "audit": {
+                    "n": 98,
+                    "brier": 0.18246723774387083,
+                    "log_loss": 0.5531599095675743,
+                    "mean_probability": 0.752498333905161,
+                    "event_rate": 0.7653061224489796
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 285,
+                    "brier": 0.17074942207440752,
+                    "log_loss": 0.5220158055708024,
+                    "mean_probability": 0.7169839169622995,
+                    "event_rate": 0.7789473684210526
+                  },
+                  "audit": {
+                    "n": 98,
+                    "brier": 0.18199899162791341,
+                    "log_loss": 0.5485718437619007,
+                    "mean_probability": 0.7457722733507627,
+                    "event_rate": 0.7653061224489796
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 285,
+                    "brier": 0.17095482622402816,
+                    "log_loss": 0.5228151535389738,
+                    "mean_probability": 0.7166311221524111,
+                    "event_rate": 0.7789473684210526
+                  },
+                  "audit": {
+                    "n": 98,
+                    "brier": 0.18177277107728726,
+                    "log_loss": 0.5471321837325629,
+                    "mean_probability": 0.7415263327609368,
+                    "event_rate": 0.7653061224489796
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 285,
+                    "brier": 0.1712746469054409,
+                    "log_loss": 0.524030741464252,
+                    "mean_probability": 0.7165946732272351,
+                    "event_rate": 0.7789473684210526
+                  },
+                  "audit": {
+                    "n": 98,
+                    "brier": 0.18152834129640602,
+                    "log_loss": 0.545820764823274,
+                    "mean_probability": 0.7361226945743736,
+                    "event_rate": 0.7653061224489796
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 285,
+                    "brier": 0.17174196252003673,
+                    "log_loss": 0.5258161168164063,
+                    "mean_probability": 0.7164678968283051,
+                    "event_rate": 0.7789473684210526
+                  },
+                  "audit": {
+                    "n": 98,
+                    "brier": 0.18170306609634218,
+                    "log_loss": 0.5457186549732064,
+                    "mean_probability": 0.7299830161035185,
+                    "event_rate": 0.7653061224489796
+                  }
+                }
+              ]
+            },
+            "btts_yes": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 240.0,
+              "development": {
+                "n": 285,
+                "brier": 0.25136012235416155,
+                "log_loss": 0.6969413183017811,
+                "mean_probability": 0.47848843834043775,
+                "event_rate": 0.5649122807017544
+              },
+              "audit": {
+                "n": 98,
+                "brier": 0.25165133788834976,
+                "log_loss": 0.6971527081192268,
+                "mean_probability": 0.5159727764512492,
+                "event_rate": 0.5918367346938775
+              },
+              "development_1x2_audit": {
+                "n": 98,
+                "brier": 0.2527896280369026,
+                "log_loss": 0.6995881219773266,
+                "mean_probability": 0.4969500177813756,
+                "event_rate": 0.5918367346938775
+              },
+              "audit_brier_gain": 0.001138290148552823,
+              "audit_log_loss_gain": 0.0024354138580997553,
+              "development_log_loss_margin": 0.0007039545856852847,
+              "development_fold_winners": {
+                "240.0": 1,
+                "1000000000.0": 1,
+                "120.0": 2
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 285,
+                    "brier": 0.25209925449921233,
+                    "log_loss": 0.6986447366311838,
+                    "mean_probability": 0.47743075747929586,
+                    "event_rate": 0.5649122807017544
+                  },
+                  "audit": {
+                    "n": 98,
+                    "brier": 0.2526761897131673,
+                    "log_loss": 0.6992849512986027,
+                    "mean_probability": 0.5235554624728324,
+                    "event_rate": 0.5918367346938775
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 285,
+                    "brier": 0.25136012235416155,
+                    "log_loss": 0.6969413183017811,
+                    "mean_probability": 0.47848843834043775,
+                    "event_rate": 0.5649122807017544
+                  },
+                  "audit": {
+                    "n": 98,
+                    "brier": 0.25165133788834976,
+                    "log_loss": 0.6971527081192268,
+                    "mean_probability": 0.5159727764512492,
+                    "event_rate": 0.5918367346938775
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 285,
+                    "brier": 0.25175314371605684,
+                    "log_loss": 0.6976452728874664,
+                    "mean_probability": 0.47831909559949276,
+                    "event_rate": 0.5649122807017544
+                  },
+                  "audit": {
+                    "n": 98,
+                    "brier": 0.25171588343256757,
+                    "log_loss": 0.6973218077920407,
+                    "mean_probability": 0.5112976607397461,
+                    "event_rate": 0.5918367346938775
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 285,
+                    "brier": 0.25289660840291894,
+                    "log_loss": 0.6998591823330397,
+                    "mean_probability": 0.47726585014029516,
+                    "event_rate": 0.5649122807017544
+                  },
+                  "audit": {
+                    "n": 98,
+                    "brier": 0.25204265561135764,
+                    "log_loss": 0.698018909225496,
+                    "mean_probability": 0.504793035589906,
+                    "event_rate": 0.5918367346938775
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 285,
+                    "brier": 0.2545491831970714,
+                    "log_loss": 0.7030985391872648,
+                    "mean_probability": 0.47520876193432604,
+                    "event_rate": 0.5649122807017544
+                  },
+                  "audit": {
+                    "n": 98,
+                    "brier": 0.2527896280369026,
+                    "log_loss": 0.6995881219773266,
+                    "mean_probability": 0.4969500177813756,
+                    "event_rate": 0.5918367346938775
+                  }
+                }
+              ]
+            }
+          },
+          "minimum_matches_per_phase": 25,
+          "development_folds": 4,
+          "audit_folds": 2,
+          "audit_start": "2026-08-02T00:00:00",
+          "production_half_life": 1000000000.0,
+          "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+          "development_1x2_half_life": 1000000000.0
+        }
+      },
+      {
+        "league": "Bundesliga",
+        "training_end": "2026-10-25T00:00:00",
+        "training_matches": 1595,
+        "training_sha256": "5cab8c05ac7291345003b8ef9605aa5561c4d58adbd815eb0f20c8d040838294",
+        "production_half_life_days": 480.0,
+        "l2": 0.08,
+        "max_goals": 10,
+        "training_as_of_utc": "2026-10-26T11:40:15.551836+00:00",
+        "candidate_fit_errors": {},
+        "historical_diagnostic_errors": {},
+        "historical_audit": {
+          "status": "AUDIT_COMPLETE",
+          "selection_metric": "development_binary_log_loss",
+          "markets": {
+            "over_1_5": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 1000000000.0,
+              "development": {
+                "n": 236,
+                "brier": 0.13319807533315753,
+                "log_loss": 0.4364137096354283,
+                "mean_probability": 0.8039853631614818,
+                "event_rate": 0.847457627118644
+              },
+              "audit": {
+                "n": 63,
+                "brier": 0.16127764991499458,
+                "log_loss": 0.5042556968208993,
+                "mean_probability": 0.8259463487229733,
+                "event_rate": 0.7936507936507936
+              },
+              "development_1x2_audit": {
+                "n": 63,
+                "brier": 0.16099263594210253,
+                "log_loss": 0.5057399398167086,
+                "mean_probability": 0.8257828547023459,
+                "event_rate": 0.7936507936507936
+              },
+              "audit_brier_gain": -0.00028501397289204533,
+              "audit_log_loss_gain": 0.0014842429958092929,
+              "development_log_loss_margin": 0.0010843659116649418,
+              "development_fold_winners": {
+                "1000000000.0": 2,
+                "730.0": 2
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 236,
+                    "brier": 0.13664203237255135,
+                    "log_loss": 0.44931743014760867,
+                    "mean_probability": 0.807511275920386,
+                    "event_rate": 0.847457627118644
+                  },
+                  "audit": {
+                    "n": 63,
+                    "brier": 0.15999125508006862,
+                    "log_loss": 0.5127854575138955,
+                    "mean_probability": 0.8214977374257059,
+                    "event_rate": 0.7936507936507936
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 236,
+                    "brier": 0.13452080502470054,
+                    "log_loss": 0.44119462404864873,
+                    "mean_probability": 0.8062652683306863,
+                    "event_rate": 0.847457627118644
+                  },
+                  "audit": {
+                    "n": 63,
+                    "brier": 0.15896472839446582,
+                    "log_loss": 0.5078312802020748,
+                    "mean_probability": 0.8214867556593738,
+                    "event_rate": 0.7936507936507936
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 236,
+                    "brier": 0.13396868675109017,
+                    "log_loss": 0.4390916471228143,
+                    "mean_probability": 0.8054672773800149,
+                    "event_rate": 0.847457627118644
+                  },
+                  "audit": {
+                    "n": 63,
+                    "brier": 0.1597153992757918,
+                    "log_loss": 0.506008586103316,
+                    "mean_probability": 0.8238688724256286,
+                    "event_rate": 0.7936507936507936
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 236,
+                    "brier": 0.13353297628264604,
+                    "log_loss": 0.43749807554709325,
+                    "mean_probability": 0.8046662163655146,
+                    "event_rate": 0.847457627118644
+                  },
+                  "audit": {
+                    "n": 63,
+                    "brier": 0.16099263594210253,
+                    "log_loss": 0.5057399398167086,
+                    "mean_probability": 0.8257828547023459,
+                    "event_rate": 0.7936507936507936
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 236,
+                    "brier": 0.13319807533315753,
+                    "log_loss": 0.4364137096354283,
+                    "mean_probability": 0.8039853631614818,
+                    "event_rate": 0.847457627118644
+                  },
+                  "audit": {
+                    "n": 63,
+                    "brier": 0.16127764991499458,
+                    "log_loss": 0.5042556968208993,
+                    "mean_probability": 0.8259463487229733,
+                    "event_rate": 0.7936507936507936
+                  }
+                }
+              ]
+            },
+            "btts_yes": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 240.0,
+              "development": {
+                "n": 236,
+                "brier": 0.24358549840957083,
+                "log_loss": 0.6802281107334599,
+                "mean_probability": 0.5719378624842347,
+                "event_rate": 0.6440677966101694
+              },
+              "audit": {
+                "n": 63,
+                "brier": 0.23617740536057102,
+                "log_loss": 0.6656812585885586,
+                "mean_probability": 0.5917022763863311,
+                "event_rate": 0.5714285714285714
+              },
+              "development_1x2_audit": {
+                "n": 63,
+                "brier": 0.23634625324444147,
+                "log_loss": 0.6655906038730022,
+                "mean_probability": 0.5946420826197526,
+                "event_rate": 0.5714285714285714
+              },
+              "audit_brier_gain": 0.0001688478838704488,
+              "audit_log_loss_gain": -9.065471555647076e-05,
+              "development_log_loss_margin": 0.0010179273041132086,
+              "development_fold_winners": {
+                "1000000000.0": 1,
+                "120.0": 2,
+                "730.0": 1
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 236,
+                    "brier": 0.24492286837524116,
+                    "log_loss": 0.6831954347224437,
+                    "mean_probability": 0.5649301079191793,
+                    "event_rate": 0.6440677966101694
+                  },
+                  "audit": {
+                    "n": 63,
+                    "brier": 0.23791983747466858,
+                    "log_loss": 0.6692509568605568,
+                    "mean_probability": 0.5944543494628365,
+                    "event_rate": 0.5714285714285714
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 236,
+                    "brier": 0.24358549840957083,
+                    "log_loss": 0.6802281107334599,
+                    "mean_probability": 0.5719378624842347,
+                    "event_rate": 0.6440677966101694
+                  },
+                  "audit": {
+                    "n": 63,
+                    "brier": 0.23617740536057102,
+                    "log_loss": 0.6656812585885586,
+                    "mean_probability": 0.5917022763863311,
+                    "event_rate": 0.5714285714285714
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 236,
+                    "brier": 0.24405871441425253,
+                    "log_loss": 0.6812460380375731,
+                    "mean_probability": 0.5736741232036251,
+                    "event_rate": 0.6440677966101694
+                  },
+                  "audit": {
+                    "n": 63,
+                    "brier": 0.23596478444803537,
+                    "log_loss": 0.6650770152360591,
+                    "mean_probability": 0.5930734534817979,
+                    "event_rate": 0.5714285714285714
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 236,
+                    "brier": 0.2449760515689191,
+                    "log_loss": 0.6832333880780764,
+                    "mean_probability": 0.5750232855645316,
+                    "event_rate": 0.6440677966101694
+                  },
+                  "audit": {
+                    "n": 63,
+                    "brier": 0.23634625324444147,
+                    "log_loss": 0.6655906038730022,
+                    "mean_probability": 0.5946420826197526,
+                    "event_rate": 0.5714285714285714
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 236,
+                    "brier": 0.2461878538617411,
+                    "log_loss": 0.6858667056789702,
+                    "mean_probability": 0.575937480970503,
+                    "event_rate": 0.6440677966101694
+                  },
+                  "audit": {
+                    "n": 63,
+                    "brier": 0.236566269949772,
+                    "log_loss": 0.6658409219382349,
+                    "mean_probability": 0.5949549686367144,
+                    "event_rate": 0.5714285714285714
+                  }
+                }
+              ]
+            }
+          },
+          "minimum_matches_per_phase": 25,
+          "development_folds": 4,
+          "audit_folds": 2,
+          "audit_start": "2026-08-02T00:00:00",
+          "production_half_life": 1000000000.0,
+          "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+          "development_1x2_half_life": 730.0
+        }
+      },
+      {
+        "league": "Serie A",
+        "training_end": "2026-10-25T00:00:00",
+        "training_matches": 1980,
+        "training_sha256": "7766b3599097f53243073479cc92531c67fb82536fd50f27e11a827cb52ac666",
+        "production_half_life_days": 480.0,
+        "l2": 0.08,
+        "max_goals": 10,
+        "training_as_of_utc": "2026-10-26T11:42:05.183279+00:00",
+        "candidate_fit_errors": {},
+        "historical_diagnostic_errors": {},
+        "historical_audit": {
+          "status": "AUDIT_COMPLETE",
+          "selection_metric": "development_binary_log_loss",
+          "markets": {
+            "over_1_5": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 240.0,
+              "development": {
+                "n": 305,
+                "brier": 0.20855321916631822,
+                "log_loss": 0.6075418997522313,
+                "mean_probability": 0.7022643963107238,
+                "event_rate": 0.7081967213114754
+              },
+              "audit": {
+                "n": 80,
+                "brier": 0.14937843990475322,
+                "log_loss": 0.47913833801018324,
+                "mean_probability": 0.716440750980271,
+                "event_rate": 0.85
+              },
+              "development_1x2_audit": {
+                "n": 80,
+                "brier": 0.14520563384433188,
+                "log_loss": 0.46761124110874785,
+                "mean_probability": 0.7300533044170429,
+                "event_rate": 0.85
+              },
+              "audit_brier_gain": -0.004172806060421336,
+              "audit_log_loss_gain": -0.011527096901435385,
+              "development_log_loss_margin": 0.0003674872429284548,
+              "development_fold_winners": {
+                "365.0": 1,
+                "240.0": 1,
+                "1000000000.0": 1,
+                "120.0": 1
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 305,
+                    "brier": 0.21118354032502293,
+                    "log_loss": 0.612728679319817,
+                    "mean_probability": 0.6880086800058317,
+                    "event_rate": 0.7081967213114754
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.15534908397413433,
+                    "log_loss": 0.49228802718004605,
+                    "mean_probability": 0.7099039167839031,
+                    "event_rate": 0.85
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 305,
+                    "brier": 0.20855321916631822,
+                    "log_loss": 0.6075418997522313,
+                    "mean_probability": 0.7022643963107238,
+                    "event_rate": 0.7081967213114754
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.14937843990475322,
+                    "log_loss": 0.47913833801018324,
+                    "mean_probability": 0.716440750980271,
+                    "event_rate": 0.85
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 305,
+                    "brier": 0.20855685132968677,
+                    "log_loss": 0.6079093869951597,
+                    "mean_probability": 0.7086224105689,
+                    "event_rate": 0.7081967213114754
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.1469316313920967,
+                    "log_loss": 0.47331962736292993,
+                    "mean_probability": 0.7204549408289698,
+                    "event_rate": 0.85
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 305,
+                    "brier": 0.20912858099268208,
+                    "log_loss": 0.6095867068867581,
+                    "mean_probability": 0.7149439396037958,
+                    "event_rate": 0.7081967213114754
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.1453589655480446,
+                    "log_loss": 0.4689422602177335,
+                    "mean_probability": 0.7252061464161723,
+                    "event_rate": 0.85
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 305,
+                    "brier": 0.2101240256644957,
+                    "log_loss": 0.6121810455347741,
+                    "mean_probability": 0.7208154988093148,
+                    "event_rate": 0.7081967213114754
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.14520563384433188,
+                    "log_loss": 0.46761124110874785,
+                    "mean_probability": 0.7300533044170429,
+                    "event_rate": 0.85
+                  }
+                }
+              ]
+            },
+            "btts_yes": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 365.0,
+              "development": {
+                "n": 305,
+                "brier": 0.2508304478203337,
+                "log_loss": 0.6949267705417961,
+                "mean_probability": 0.46528827966908654,
+                "event_rate": 0.4491803278688525
+              },
+              "audit": {
+                "n": 80,
+                "brier": 0.23881884078705595,
+                "log_loss": 0.670522133657377,
+                "mean_probability": 0.4793350107819084,
+                "event_rate": 0.5625
+              },
+              "development_1x2_audit": {
+                "n": 80,
+                "brier": 0.23639717627707055,
+                "log_loss": 0.6654637505471026,
+                "mean_probability": 0.48879528517247756,
+                "event_rate": 0.5625
+              },
+              "audit_brier_gain": -0.002421664509985405,
+              "audit_log_loss_gain": -0.0050583831102744,
+              "development_log_loss_margin": 4.363790313832716e-05,
+              "development_fold_winners": {
+                "1000000000.0": 2,
+                "120.0": 1,
+                "240.0": 1
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 305,
+                    "brier": 0.25707457343574913,
+                    "log_loss": 0.7079829825577374,
+                    "mean_probability": 0.44161751533349225,
+                    "event_rate": 0.4491803278688525
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.24416537632210406,
+                    "log_loss": 0.6814989742836214,
+                    "mean_probability": 0.46725949488948926,
+                    "event_rate": 0.5625
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 305,
+                    "brier": 0.2516978087899923,
+                    "log_loss": 0.6966946724800533,
+                    "mean_probability": 0.45803196230538373,
+                    "event_rate": 0.4491803278688525
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.24028596669002295,
+                    "log_loss": 0.6735593132063615,
+                    "mean_probability": 0.4745974711206289,
+                    "event_rate": 0.5625
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 305,
+                    "brier": 0.2508304478203337,
+                    "log_loss": 0.6949267705417961,
+                    "mean_probability": 0.46528827966908654,
+                    "event_rate": 0.4491803278688525
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.23881884078705595,
+                    "log_loss": 0.670522133657377,
+                    "mean_probability": 0.4793350107819084,
+                    "event_rate": 0.5625
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 305,
+                    "brier": 0.25084773965115464,
+                    "log_loss": 0.6949704084449344,
+                    "mean_probability": 0.47252959009746925,
+                    "event_rate": 0.4491803278688525
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.23756787346784897,
+                    "log_loss": 0.6679112039170111,
+                    "mean_probability": 0.48430683761812005,
+                    "event_rate": 0.5625
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 305,
+                    "brier": 0.2517171817341384,
+                    "log_loss": 0.6967540575157817,
+                    "mean_probability": 0.47895518139273363,
+                    "event_rate": 0.4491803278688525
+                  },
+                  "audit": {
+                    "n": 80,
+                    "brier": 0.23639717627707055,
+                    "log_loss": 0.6654637505471026,
+                    "mean_probability": 0.48879528517247756,
+                    "event_rate": 0.5625
+                  }
+                }
+              ]
+            }
+          },
+          "minimum_matches_per_phase": 25,
+          "development_folds": 4,
+          "audit_folds": 2,
+          "audit_start": "2026-08-02T00:00:00",
+          "production_half_life": 730.0,
+          "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+          "development_1x2_half_life": 1000000000.0
+        }
+      },
+      {
+        "league": "Ligue 1",
+        "training_end": "2026-10-25T00:00:00",
+        "training_matches": 1751,
+        "training_sha256": "2934bcfa94668cd21ddeef2745271c6ab20726a98508d169dd6261bfd39439ff",
+        "production_half_life_days": 480.0,
+        "l2": 0.08,
+        "max_goals": 10,
+        "training_as_of_utc": "2026-10-26T11:44:12.100474+00:00",
+        "candidate_fit_errors": {},
+        "historical_diagnostic_errors": {},
+        "historical_audit": {
+          "status": "AUDIT_COMPLETE",
+          "selection_metric": "development_binary_log_loss",
+          "markets": {
+            "over_1_5": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 1000000000.0,
+              "development": {
+                "n": 230,
+                "brier": 0.20213097128587604,
+                "log_loss": 0.5986761771973992,
+                "mean_probability": 0.7728098058715916,
+                "event_rate": 0.7304347826086957
+              },
+              "audit": {
+                "n": 71,
+                "brier": 0.1659578157467138,
+                "log_loss": 0.5124564218900585,
+                "mean_probability": 0.7727743361736213,
+                "event_rate": 0.7887323943661971
+              },
+              "development_1x2_audit": {
+                "n": 71,
+                "brier": 0.1659578157467138,
+                "log_loss": 0.5124564218900585,
+                "mean_probability": 0.7727743361736213,
+                "event_rate": 0.7887323943661971
+              },
+              "audit_brier_gain": 0.0,
+              "audit_log_loss_gain": 0.0,
+              "development_log_loss_margin": 0.0017403694115359913,
+              "development_fold_winners": {
+                "1000000000.0": 2,
+                "240.0": 1,
+                "365.0": 1
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 230,
+                    "brier": 0.20883803165144302,
+                    "log_loss": 0.6167662211323661,
+                    "mean_probability": 0.7680448105153291,
+                    "event_rate": 0.7304347826086957
+                  },
+                  "audit": {
+                    "n": 71,
+                    "brier": 0.15797761508739191,
+                    "log_loss": 0.4903465717091514,
+                    "mean_probability": 0.7823242765545556,
+                    "event_rate": 0.7887323943661971
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 230,
+                    "brier": 0.20496061227654336,
+                    "log_loss": 0.6072766336998293,
+                    "mean_probability": 0.7735732604547463,
+                    "event_rate": 0.7304347826086957
+                  },
+                  "audit": {
+                    "n": 71,
+                    "brier": 0.16084731163455795,
+                    "log_loss": 0.49904976546800817,
+                    "mean_probability": 0.7822319880159576,
+                    "event_rate": 0.7887323943661971
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 230,
+                    "brier": 0.20361359972077145,
+                    "log_loss": 0.6035011180940822,
+                    "mean_probability": 0.7745288873863986,
+                    "event_rate": 0.7304347826086957
+                  },
+                  "audit": {
+                    "n": 71,
+                    "brier": 0.16275341519723147,
+                    "log_loss": 0.5043188013404707,
+                    "mean_probability": 0.779744200380196,
+                    "event_rate": 0.7887323943661971
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 230,
+                    "brier": 0.20260593629849974,
+                    "log_loss": 0.6004165466089352,
+                    "mean_probability": 0.774405349141855,
+                    "event_rate": 0.7304347826086957
+                  },
+                  "audit": {
+                    "n": 71,
+                    "brier": 0.16463706079872495,
+                    "log_loss": 0.5093109908503748,
+                    "mean_probability": 0.7763891541862513,
+                    "event_rate": 0.7887323943661971
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 230,
+                    "brier": 0.20213097128587604,
+                    "log_loss": 0.5986761771973992,
+                    "mean_probability": 0.7728098058715916,
+                    "event_rate": 0.7304347826086957
+                  },
+                  "audit": {
+                    "n": 71,
+                    "brier": 0.1659578157467138,
+                    "log_loss": 0.5124564218900585,
+                    "mean_probability": 0.7727743361736213,
+                    "event_rate": 0.7887323943661971
+                  }
+                }
+              ]
+            },
+            "btts_yes": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 1000000000.0,
+              "development": {
+                "n": 230,
+                "brier": 0.25169975047726634,
+                "log_loss": 0.6967545329109683,
+                "mean_probability": 0.5365476838079606,
+                "event_rate": 0.5
+              },
+              "audit": {
+                "n": 71,
+                "brier": 0.24504827914467892,
+                "log_loss": 0.683366291034707,
+                "mean_probability": 0.5473487537551336,
+                "event_rate": 0.6338028169014085
+              },
+              "development_1x2_audit": {
+                "n": 71,
+                "brier": 0.24504827914467892,
+                "log_loss": 0.683366291034707,
+                "mean_probability": 0.5473487537551336,
+                "event_rate": 0.6338028169014085
+              },
+              "audit_brier_gain": 0.0,
+              "audit_log_loss_gain": 0.0,
+              "development_log_loss_margin": 0.0016297343858338031,
+              "development_fold_winners": {
+                "1000000000.0": 3,
+                "240.0": 1
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 230,
+                    "brier": 0.2588569642058854,
+                    "log_loss": 0.7123287187143468,
+                    "mean_probability": 0.522253158986342,
+                    "event_rate": 0.5
+                  },
+                  "audit": {
+                    "n": 71,
+                    "brier": 0.23978690286783333,
+                    "log_loss": 0.6738643446598148,
+                    "mean_probability": 0.5585254229532982,
+                    "event_rate": 0.6338028169014085
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 230,
+                    "brier": 0.2551555459117712,
+                    "log_loss": 0.7042686055421532,
+                    "mean_probability": 0.5347664045327583,
+                    "event_rate": 0.5
+                  },
+                  "audit": {
+                    "n": 71,
+                    "brier": 0.24134481255935455,
+                    "log_loss": 0.6766968668961826,
+                    "mean_probability": 0.5563907821260233,
+                    "event_rate": 0.6338028169014085
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 230,
+                    "brier": 0.2536710875960427,
+                    "log_loss": 0.7010655887731864,
+                    "mean_probability": 0.5375751208335187,
+                    "event_rate": 0.5
+                  },
+                  "audit": {
+                    "n": 71,
+                    "brier": 0.24256456058206727,
+                    "log_loss": 0.6789109096653269,
+                    "mean_probability": 0.5547213160215418,
+                    "event_rate": 0.6338028169014085
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 230,
+                    "brier": 0.2524379638288937,
+                    "log_loss": 0.6983842672968021,
+                    "mean_probability": 0.5383007983516366,
+                    "event_rate": 0.5
+                  },
+                  "audit": {
+                    "n": 71,
+                    "brier": 0.243963485687896,
+                    "log_loss": 0.6814291983975482,
+                    "mean_probability": 0.5518215910012504,
+                    "event_rate": 0.6338028169014085
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 230,
+                    "brier": 0.25169975047726634,
+                    "log_loss": 0.6967545329109683,
+                    "mean_probability": 0.5365476838079606,
+                    "event_rate": 0.5
+                  },
+                  "audit": {
+                    "n": 71,
+                    "brier": 0.24504827914467892,
+                    "log_loss": 0.683366291034707,
+                    "mean_probability": 0.5473487537551336,
+                    "event_rate": 0.6338028169014085
+                  }
+                }
+              ]
+            }
+          },
+          "minimum_matches_per_phase": 25,
+          "development_folds": 4,
+          "audit_folds": 2,
+          "audit_start": "2026-08-02T00:00:00",
+          "production_half_life": 1000000000.0,
+          "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+          "development_1x2_half_life": 1000000000.0
+        }
+      },
+      {
+        "league": "Primeira Liga",
+        "training_end": "2026-10-19T00:00:00",
+        "training_matches": 1602,
+        "training_sha256": "f3513a92c34703429b1aa91a72c107f126d0de327666c3207383908b39576af3",
+        "production_half_life_days": 480.0,
+        "l2": 0.08,
+        "max_goals": 10,
+        "training_as_of_utc": "2026-10-26T11:45:49.757538+00:00",
+        "candidate_fit_errors": {},
+        "historical_diagnostic_errors": {},
+        "historical_audit": {
+          "status": "AUDIT_COMPLETE",
+          "selection_metric": "development_binary_log_loss",
+          "markets": {
+            "over_1_5": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 730.0,
+              "development": {
+                "n": 234,
+                "brier": 0.1889878117523912,
+                "log_loss": 0.5618280679574992,
+                "mean_probability": 0.7281174558234564,
+                "event_rate": 0.7350427350427351
+              },
+              "audit": {
+                "n": 72,
+                "brier": 0.1766978622570629,
+                "log_loss": 0.5345785892252668,
+                "mean_probability": 0.7273330073956036,
+                "event_rate": 0.75
+              },
+              "development_1x2_audit": {
+                "n": 72,
+                "brier": 0.17584273234989495,
+                "log_loss": 0.5314609637575104,
+                "mean_probability": 0.7238182717111099,
+                "event_rate": 0.75
+              },
+              "audit_brier_gain": -0.0008551299071679619,
+              "audit_log_loss_gain": -0.003117625467756402,
+              "development_log_loss_margin": 0.0006193780367808044,
+              "development_fold_winners": {
+                "240.0": 2,
+                "1000000000.0": 2
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.1956773444981172,
+                    "log_loss": 0.5800744925116986,
+                    "mean_probability": 0.7292979774628505,
+                    "event_rate": 0.7350427350427351
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.1835995601787476,
+                    "log_loss": 0.5565636947814041,
+                    "mean_probability": 0.7311565705726426,
+                    "event_rate": 0.75
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.19049480376985925,
+                    "log_loss": 0.5659329268168749,
+                    "mean_probability": 0.7268362259228104,
+                    "event_rate": 0.7350427350427351
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.1793618125543367,
+                    "log_loss": 0.5438324396409722,
+                    "mean_probability": 0.7328293426801756,
+                    "event_rate": 0.75
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.1892366289200343,
+                    "log_loss": 0.56244744599428,
+                    "mean_probability": 0.7264651162722272,
+                    "event_rate": 0.7350427350427351
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.17796878256593274,
+                    "log_loss": 0.5390552720907968,
+                    "mean_probability": 0.7306211288571274,
+                    "event_rate": 0.75
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.1889878117523912,
+                    "log_loss": 0.5618280679574992,
+                    "mean_probability": 0.7281174558234564,
+                    "event_rate": 0.7350427350427351
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.1766978622570629,
+                    "log_loss": 0.5345785892252668,
+                    "mean_probability": 0.7273330073956036,
+                    "event_rate": 0.75
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.19009646538493427,
+                    "log_loss": 0.5652097999132063,
+                    "mean_probability": 0.7310184867026469,
+                    "event_rate": 0.7350427350427351
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.17584273234989495,
+                    "log_loss": 0.5314609637575104,
+                    "mean_probability": 0.7238182717111099,
+                    "event_rate": 0.75
+                  }
+                }
+              ]
+            },
+            "btts_yes": {
+              "status": "AUDIT_COMPLETE",
+              "selected_half_life_days": 730.0,
+              "development": {
+                "n": 234,
+                "brier": 0.24798479556105374,
+                "log_loss": 0.6890515474583578,
+                "mean_probability": 0.4543259454968388,
+                "event_rate": 0.49145299145299143
+              },
+              "audit": {
+                "n": 72,
+                "brier": 0.2533170624545418,
+                "log_loss": 0.6999027818991271,
+                "mean_probability": 0.4644355138625104,
+                "event_rate": 0.5138888888888888
+              },
+              "development_1x2_audit": {
+                "n": 72,
+                "brier": 0.2511270598502792,
+                "log_loss": 0.695439294494222,
+                "mean_probability": 0.4606403640052801,
+                "event_rate": 0.5138888888888888
+              },
+              "audit_brier_gain": -0.002190002604262553,
+              "audit_log_loss_gain": -0.004463487404905098,
+              "development_log_loss_margin": 0.0011779662748949704,
+              "development_fold_winners": {
+                "240.0": 1,
+                "730.0": 2,
+                "1000000000.0": 1
+              },
+              "candidate_phase_scores": [
+                {
+                  "half_life_days": 120.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.2581192381094081,
+                    "log_loss": 0.7098051575069368,
+                    "mean_probability": 0.4433693056732011,
+                    "event_rate": 0.49145299145299143
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.2573091552209625,
+                    "log_loss": 0.7086024081525861,
+                    "mean_probability": 0.46781673413069225,
+                    "event_rate": 0.5138888888888888
+                  }
+                },
+                {
+                  "half_life_days": 240.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.2514741136760203,
+                    "log_loss": 0.6959575374484552,
+                    "mean_probability": 0.4485860957699841,
+                    "event_rate": 0.49145299145299143
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.2565560053488499,
+                    "log_loss": 0.7067651580757308,
+                    "mean_probability": 0.4685364942134581,
+                    "event_rate": 0.5138888888888888
+                  }
+                },
+                {
+                  "half_life_days": 365.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.24922577445763566,
+                    "log_loss": 0.6914659522417292,
+                    "mean_probability": 0.4506967374591054,
+                    "event_rate": 0.49145299145299143
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.255318459042434,
+                    "log_loss": 0.7040812748562087,
+                    "mean_probability": 0.4671295615618838,
+                    "event_rate": 0.5138888888888888
+                  }
+                },
+                {
+                  "half_life_days": 730.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.24798479556105374,
+                    "log_loss": 0.6890515474583578,
+                    "mean_probability": 0.4543259454968388,
+                    "event_rate": 0.49145299145299143
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.2533170624545418,
+                    "log_loss": 0.6999027818991271,
+                    "mean_probability": 0.4644355138625104,
+                    "event_rate": 0.5138888888888888
+                  }
+                },
+                {
+                  "half_life_days": 1000000000.0,
+                  "development": {
+                    "n": 234,
+                    "brier": 0.2485471730301861,
+                    "log_loss": 0.6902295137332528,
+                    "mean_probability": 0.4584637486404499,
+                    "event_rate": 0.49145299145299143
+                  },
+                  "audit": {
+                    "n": 72,
+                    "brier": 0.2511270598502792,
+                    "log_loss": 0.695439294494222,
+                    "mean_probability": 0.4606403640052801,
+                    "event_rate": 0.5138888888888888
+                  }
+                }
+              ]
+            }
+          },
+          "minimum_matches_per_phase": 25,
+          "development_folds": 4,
+          "audit_folds": 2,
+          "audit_start": "2026-07-27T00:00:00",
+          "production_half_life": 730.0,
+          "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+          "development_1x2_half_life": 1000000000.0
+        }
+      }
+    ],
+    "rows": [
+      {
+        "league": "Premier League",
+        "home_team": "Chelsea",
+        "away_team": "Tottenham Hotspur",
+        "kickoff_utc": "2026-10-24T16:30:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Premier League",
+        "home_team": "Chelsea",
+        "away_team": "Tottenham Hotspur",
+        "kickoff_utc": "2026-10-24T16:30:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Premier League",
+        "home_team": "Crystal Palace",
+        "away_team": "Newcastle United",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Premier League",
+        "home_team": "Crystal Palace",
+        "away_team": "Newcastle United",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Premier League",
+        "home_team": "Hull City",
+        "away_team": "Brentford",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Premier League",
+        "home_team": "Hull City",
+        "away_team": "Brentford",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Premier League",
+        "home_team": "Liverpool",
+        "away_team": "Brighton and Hove Albion",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Premier League",
+        "home_team": "Liverpool",
+        "away_team": "Brighton and Hove Albion",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Premier League",
+        "home_team": "Manchester United",
+        "away_team": "Bournemouth",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Premier League",
+        "home_team": "Manchester United",
+        "away_team": "Bournemouth",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Premier League",
+        "home_team": "Sunderland",
+        "away_team": "Leeds United",
+        "kickoff_utc": "2026-10-25T16:30:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Premier League",
+        "home_team": "Sunderland",
+        "away_team": "Leeds United",
+        "kickoff_utc": "2026-10-25T16:30:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 240.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Valencia",
+        "away_team": "Villarreal",
+        "kickoff_utc": "2026-10-24T16:30:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 120.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Valencia",
+        "away_team": "Villarreal",
+        "kickoff_utc": "2026-10-24T16:30:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Atl\u00e9tico Madrid",
+        "away_team": "Deportivo La Coru\u00f1a",
+        "kickoff_utc": "2026-10-24T19:00:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 120.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Atl\u00e9tico Madrid",
+        "away_team": "Deportivo La Coru\u00f1a",
+        "kickoff_utc": "2026-10-24T19:00:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Athletic Bilbao",
+        "away_team": "Getafe",
+        "kickoff_utc": "2026-10-25T13:00:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 120.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Athletic Bilbao",
+        "away_team": "Getafe",
+        "kickoff_utc": "2026-10-25T13:00:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Celta Vigo",
+        "away_team": "Real Betis",
+        "kickoff_utc": "2026-10-25T15:15:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 120.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Celta Vigo",
+        "away_team": "Real Betis",
+        "kickoff_utc": "2026-10-25T15:15:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Real Sociedad",
+        "away_team": "Levante",
+        "kickoff_utc": "2026-10-25T17:30:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 120.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Real Sociedad",
+        "away_team": "Levante",
+        "kickoff_utc": "2026-10-25T17:30:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Barcelona",
+        "away_team": "Real Madrid",
+        "kickoff_utc": "2026-10-25T20:00:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 120.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Barcelona",
+        "away_team": "Real Madrid",
+        "kickoff_utc": "2026-10-25T20:00:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Sevilla",
+        "away_team": "CA Osasuna",
+        "kickoff_utc": "2026-10-26T20:00:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.7413287826008541,
+          "half_life_120": 0.8159721038175924,
+          "half_life_240": 0.7687667857226403,
+          "half_life_365": 0.7505344470642157,
+          "half_life_730": 0.7304969803643997,
+          "half_life_1000000000": 0.7077091455791006,
+          "goal_selected": 0.8159721038175924,
+          "development_1x2": 0.7077091455791006
+        },
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 120.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "La Liga",
+        "home_team": "Sevilla",
+        "away_team": "CA Osasuna",
+        "kickoff_utc": "2026-10-26T20:00:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.524101004142419,
+          "half_life_120": 0.5745449263640996,
+          "half_life_240": 0.547474431607153,
+          "half_life_365": 0.5327726997184121,
+          "half_life_730": 0.5128251619233574,
+          "half_life_1000000000": 0.4855243492559243,
+          "goal_selected": 0.547474431607153,
+          "development_1x2": 0.4855243492559243
+        },
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Bundesliga",
+        "home_team": "Borussia Dortmund",
+        "away_team": "Eintracht Frankfurt",
+        "kickoff_utc": "2026-10-24T16:30:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 730.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Bundesliga",
+        "home_team": "Borussia Dortmund",
+        "away_team": "Eintracht Frankfurt",
+        "kickoff_utc": "2026-10-24T16:30:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 730.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Bundesliga",
+        "home_team": "TSG Hoffenheim",
+        "away_team": "Bayer Leverkusen",
+        "kickoff_utc": "2026-10-25T14:30:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 730.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Bundesliga",
+        "home_team": "TSG Hoffenheim",
+        "away_team": "Bayer Leverkusen",
+        "kickoff_utc": "2026-10-25T14:30:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 730.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Bundesliga",
+        "home_team": "SC Freiburg",
+        "away_team": "Bayern Munich",
+        "kickoff_utc": "2026-10-25T16:30:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 730.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Bundesliga",
+        "home_team": "SC Freiburg",
+        "away_team": "Bayern Munich",
+        "kickoff_utc": "2026-10-25T16:30:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 730.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Napoli",
+        "away_team": "AS Roma",
+        "kickoff_utc": "2026-10-24T16:00:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Napoli",
+        "away_team": "AS Roma",
+        "kickoff_utc": "2026-10-24T16:00:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 365.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Lazio",
+        "away_team": "Parma",
+        "kickoff_utc": "2026-10-24T18:45:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Lazio",
+        "away_team": "Parma",
+        "kickoff_utc": "2026-10-24T18:45:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 365.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Inter Milan",
+        "away_team": "Fiorentina",
+        "kickoff_utc": "2026-10-25T11:30:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Inter Milan",
+        "away_team": "Fiorentina",
+        "kickoff_utc": "2026-10-25T11:30:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 365.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Atalanta BC",
+        "away_team": "Frosinone",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Atalanta BC",
+        "away_team": "Frosinone",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 365.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Genoa",
+        "away_team": "Venezia",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Genoa",
+        "away_team": "Venezia",
+        "kickoff_utc": "2026-10-25T14:00:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 365.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Lecce",
+        "away_team": "Juventus",
+        "kickoff_utc": "2026-10-25T17:00:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Lecce",
+        "away_team": "Juventus",
+        "kickoff_utc": "2026-10-25T17:00:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 365.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Udinese",
+        "away_team": "AC Milan",
+        "kickoff_utc": "2026-10-25T19:45:00+00:00",
+        "market": "over_1_5",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 240.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Serie A",
+        "home_team": "Udinese",
+        "away_team": "AC Milan",
+        "kickoff_utc": "2026-10-25T19:45:00+00:00",
+        "market": "btts_yes",
+        "status": "unavailable",
+        "reasons": [
+          "insufficient_lead_time"
+        ],
+        "variants": {},
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 365.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Ligue 1",
+        "home_team": "Paris Saint Germain",
+        "away_team": "Lyon",
+        "kickoff_utc": "2026-10-26T19:30:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.8476226504138331,
+          "half_life_120": 0.777983549126346,
+          "half_life_240": 0.817613777972431,
+          "half_life_365": 0.8379550716875002,
+          "half_life_730": 0.8574307106679699,
+          "half_life_1000000000": 0.8711291535411354,
+          "goal_selected": 0.8711291535411354,
+          "development_1x2": 0.8711291535411354
+        },
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Ligue 1",
+        "home_team": "Paris Saint Germain",
+        "away_team": "Lyon",
+        "kickoff_utc": "2026-10-26T19:30:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.5948435672677671,
+          "half_life_120": 0.5449582523027376,
+          "half_life_240": 0.5711220290471866,
+          "half_life_365": 0.5870513796513133,
+          "half_life_730": 0.6025937962267405,
+          "half_life_1000000000": 0.6117567711529724,
+          "goal_selected": 0.6117567711529724,
+          "development_1x2": 0.6117567711529724
+        },
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 1000000000.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Santa Clara",
+        "away_team": "Benfica",
+        "kickoff_utc": "2026-10-26T18:45:00+00:00",
+        "market": "over_1_5",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.7052569159401745,
+          "half_life_120": 0.700452046740458,
+          "half_life_240": 0.6944047178139638,
+          "half_life_365": 0.6976788203828619,
+          "half_life_730": 0.7152537699850334,
+          "half_life_1000000000": 0.751225028161294,
+          "goal_selected": 0.7152537699850334,
+          "development_1x2": 0.751225028161294
+        },
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      },
+      {
+        "league": "Primeira Liga",
+        "home_team": "Santa Clara",
+        "away_team": "Benfica",
+        "kickoff_utc": "2026-10-26T18:45:00+00:00",
+        "market": "btts_yes",
+        "status": "available",
+        "reasons": [],
+        "variants": {
+          "production_raw": 0.44447410666387255,
+          "half_life_120": 0.4529832524132411,
+          "half_life_240": 0.4275863255073523,
+          "half_life_365": 0.4195153223229456,
+          "half_life_730": 0.41704029452192204,
+          "half_life_1000000000": 0.42294180180603297,
+          "goal_selected": 0.41704029452192204,
+          "development_1x2": 0.42294180180603297
+        },
+        "half_lives": {
+          "production_raw": 480.0,
+          "half_life_120": 120.0,
+          "half_life_240": 240.0,
+          "half_life_365": 365.0,
+          "half_life_730": 730.0,
+          "half_life_1000000000": 1000000000.0,
+          "goal_selected": 730.0,
+          "development_1x2": 1000000000.0
+        },
+        "candidate_errors": {},
+        "generated_at_utc": "2026-10-26T11:45:55.025240+00:00"
+      }
+    ],
+    "probability_basis": "raw Dixon-Coles; same-history fits; no bookmaker blend or calibration",
+    "selection_policy": "none; no paper bets, ROI or automatic promotion",
+    "sample_policy": "first eligible recency snapshot per fixture-market; missing variants stay missing"
+  }
+}
