@@ -285,6 +285,37 @@ class PruneCapturedRunsTests(OfflineQuotePolicyTestCase):
                 self.assertEqual(runs.prune_captured_runs(root),[])
                 self.assertEqual(self.runs_on_disk(root),before)
 
+    def old_run_id(self, root):
+        current=json.loads((root/'raw/current_run.json').read_text())['run_id']
+        return next(r for r in self.runs_on_disk(root) if r!=current)
+
+    def test_archive_rejected_by_reporting_is_not_captured(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);snapshot=self.captured_old_run(root);run_id=self.old_run_id(root)
+            metadata=json.loads((snapshot/'metadata.json').read_text())
+            for key in ('sha256','captured_at_utc','generated_at_utc'):
+                metadata.pop(key)
+            write_json(snapshot/'metadata.json',metadata)
+            # Identity and core-file binding alone still accept this archive...
+            runs.archive_identity(metadata,snapshot.name)
+            runs.validate_archive_binding(snapshot,metadata)
+            # ...but performance reporting rejects it, so the bundle must stay.
+            with self.assertWarnsRegex(UserWarning,'Invalid snapshot metadata ignored'):
+                archived=snapshots(root)
+            self.assertNotIn(run_id,[m['prediction_run_id'] for m,_,_ in archived])
+            before=self.runs_on_disk(root)
+            self.assertFalse(runs._captured(root/'performance/snapshots',root/'raw/prediction_runs'/run_id))
+            self.assertEqual(runs.prune_captured_runs(root),[])
+            self.assertEqual(self.runs_on_disk(root),before)
+
+    def test_valid_archive_still_allows_pruning(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);self.captured_old_run(root);run_id=self.old_run_id(root)
+            self.assertIn(run_id,[m['prediction_run_id'] for m,_,_ in snapshots(root)])
+            self.assertTrue(runs._captured(root/'performance/snapshots',root/'raw/prediction_runs'/run_id))
+            self.assertEqual(runs.prune_captured_runs(root),[run_id])
+            self.assertNotIn(run_id,self.runs_on_disk(root))
+
     def test_missing_or_corrupt_pointer_deletes_nothing(self):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp);self.captured_old_run(root)
@@ -299,6 +330,128 @@ class PruneCapturedRunsTests(OfflineQuotePolicyTestCase):
             self.assertEqual(len(self.runs_on_disk(root)),2)
             pointer.write_bytes(original)
             self.assertEqual(len(runs.prune_captured_runs(root)),1)
+
+
+SIDECARS=('goal_blend_experiment.json','market_led_experiment.json')
+
+
+def publish_with_sidecars(root, clock=T0, *, market='over_1_5', **kwargs):
+    """A run whose experiment sidecars are bound to its own generation, as the pipeline writes them."""
+    import hashlib
+    from goal_blend_experiment import VERSION as GOAL_VERSION
+    from market_led_experiment import VERSION as MARKET_VERSION
+    with runs.stage_run(root/'raw') as staging:
+        populate(staging, clock, **kwargs)
+        generated=json.loads((staging/'conservative_bet_summary.json').read_text())['generated_at_utc']
+        forecast=hashlib.sha256((staging/'all_leagues_predictions.csv').read_bytes()).hexdigest()
+        row={k:fixture()[k] for k in ('league','home_team','away_team','kickoff_utc')}
+        write_json(staging/'goal_blend_experiment.json',{'version':GOAL_VERSION,'generated_at_utc':generated,
+            'predictions_sha256':forecast,'rows':[{**row,'market':market,'status':'available','variants':{'raw':.6}}]})
+        write_json(staging/'market_led_experiment.json',{'version':MARKET_VERSION,
+            'baseline_generated_at_utc':generated,'predictions_sha256':forecast,'rows':[]})
+        raw_check(staging.parent)
+        return runs.publish_run(staging, root/'raw')
+
+
+class PruneSidecarTests(OfflineQuotePolicyTestCase):
+    """Pruning requires the archive to hold every core file and sidecar of the run."""
+
+    def setUp(self):
+        self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
+        self.root=root=Path(self.temp.name)
+        self.old=publish_with_sidecars(root)
+        self.current=publish_with_sidecars(root,T0+timedelta(hours=1),price=2.,market='under_3_5')
+        self.assertEqual(runs.capture_runs(root,'a'*40,captured_at=T0+timedelta(hours=2)),2)
+        self.archive=self.archive_of(self.old)
+        self.metadata=json.loads((self.archive/'metadata.json').read_text())
+        for name in SIDECARS:  # Guard against a vacuous fixture.
+            self.assertIn(name,self.metadata['sha256'])
+            self.assertIn(name,runs.validate_bundle(self.old)['sha256'])
+
+    def archive_of(self, bundle):
+        return self.root/'performance/snapshots'/runs.digest(('prediction-run:'+bundle.name).encode())[:16]
+
+    def bundles(self):
+        return {p.name:{f.relative_to(p).as_posix():f.read_bytes() for f in sorted(p.rglob('*')) if f.is_file()}
+                for p in (self.root/'raw/prediction_runs').iterdir()}
+
+    def assert_kept(self):
+        before=self.bundles()
+        self.assertFalse(runs._captured(self.root/'performance/snapshots',self.old))
+        self.assertEqual(runs.prune_captured_runs(self.root),[])
+        self.assertEqual(self.bundles(),before)
+
+    def test_missing_or_corrupted_core_file_keeps_bundle(self):
+        import shutil
+        pristine=self.root/'pristine';shutil.copytree(self.archive,pristine)
+        for name in ('predictions.csv','shortlist.csv','selection_summary.json','run_manifest.json'):
+            for damage in ('missing','corrupted'):
+                with self.subTest(name=name,damage=damage):
+                    shutil.rmtree(self.archive);shutil.copytree(pristine,self.archive)
+                    path=self.archive/name
+                    if damage=='missing': path.unlink()
+                    else: path.write_bytes(path.read_bytes()+b' ')
+                    self.assert_kept()
+
+    def test_missing_corrupted_or_mismatched_sidecar_keeps_bundle(self):
+        import shutil
+        pristine=self.root/'pristine';shutil.copytree(self.archive,pristine)
+        other=self.archive_of(self.current)
+        def missing_file(name): (self.archive/name).unlink()
+        def not_recorded(name):
+            metadata=json.loads((self.archive/'metadata.json').read_text())
+            del metadata['sha256'][name];write_json(self.archive/'metadata.json',metadata)
+            (self.archive/name).unlink()
+        def corrupted(name):
+            path=self.archive/name;path.write_bytes(path.read_bytes().replace(b'"rows"',b'"Rows"'))
+        def mismatched(name):
+            # Another run's valid sidecar, with the archive digest updated to match it.
+            (self.archive/name).write_bytes((other/name).read_bytes())
+            metadata=json.loads((self.archive/'metadata.json').read_text())
+            metadata['sha256'][name]=runs.digest((other/name).read_bytes())
+            write_json(self.archive/'metadata.json',metadata)
+        for name in SIDECARS:
+            for damage in (missing_file,not_recorded,corrupted,mismatched):
+                with self.subTest(name=name,damage=damage.__name__):
+                    shutil.rmtree(self.archive);shutil.copytree(pristine,self.archive)
+                    damage(name)
+                    tree=lambda d:{f.name:f.read_bytes() for f in d.iterdir()}
+                    self.assertNotEqual(tree(self.archive),tree(pristine))
+                    # Performance reporting alone still accepts the archive.
+                    if damage is not not_recorded:
+                        self.assertIn(self.old.name,[m.get('prediction_run_id') for m,_,_ in snapshots(self.root)])
+                    self.assert_kept()
+
+    def test_current_and_uncaptured_runs_are_never_touched(self):
+        uncaptured=publish_with_sidecars(self.root,T0+timedelta(hours=3),price=2.5)
+        current=publish_with_sidecars(self.root,T0+timedelta(hours=4),price=3.,market='btts_yes')
+        runs.capture_runs(self.root,'b'*40,captured_at=T0+timedelta(hours=5))
+        # The newest run is current and fully captured; the third run's archive is removed.
+        import shutil
+        shutil.rmtree(self.archive_of(uncaptured))
+        self.assertTrue(runs._captured(self.root/'performance/snapshots',current))
+        before=self.bundles()
+        self.assertEqual(sorted(runs.prune_captured_runs(self.root)),sorted([self.old.name,self.current.name]))
+        after=self.bundles()
+        self.assertEqual(sorted(after),sorted([uncaptured.name,current.name]))
+        for run in after:
+            self.assertEqual(after[run],before[run])
+        self.assertEqual(runs.resolve_raw(self.root/'raw'),current)
+
+    def test_pruned_archive_still_loads_for_reporting_and_experiments(self):
+        from goal_blend_experiment import review_experiment
+        self.assertEqual(runs.prune_captured_runs(self.root),[self.old.name])
+        self.assertFalse(self.old.exists())
+        archived={m['prediction_run_id']:m for m,_,_ in snapshots(self.root)}
+        self.assertEqual(set(archived),{self.old.name,self.current.name})
+        for name in SIDECARS:
+            self.assertEqual(archived[self.old.name]['sha256'][name],self.metadata['sha256'][name])
+        self.assertEqual(len(archive_check(self.root)['snapshots']),2)
+        review_experiment(self.root,snapshots(self.root),[],T0+timedelta(hours=3))
+        summary=json.loads((self.root/'performance/goal_blend_experiment/summary.json').read_text())
+        # One fixture-market from each run's sidecar, including the pruned run's.
+        self.assertEqual(summary['total_fixture_markets'],2)
+        self.assertEqual(runs.capture_runs(self.root,'b'*40,captured_at=T0+timedelta(hours=3)),0)
 
 
 class StaleLockTests(OfflineQuotePolicyTestCase):
