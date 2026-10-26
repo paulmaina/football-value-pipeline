@@ -78,5 +78,18 @@
     "Inter": "Inter Milan",
     "Sporting CP": "Sporting Clube de Portugal",
     "Galatasaray": "Galatasaray SK"
+  },
+  "SuperLig": {
+    "Amed SK": "Amedspor",
+    "Basaksehir": "Buyuksehyr",
+    "Besiktas JK": "Besiktas",
+    "Erzurum BB": "Erzurumspor",
+    "Gazişehir Gaziantep": "Gaziantep",
+    "Genclerbirligi SK": "Genclerbirligi",
+    "Goztepe": "Goztep",
+    "Kasimpasa SK": "Kasimpasa",
+    "Torku Konyaspor": "Konyaspor",
+    "Çaykur Rizespor": "Rizespor",
+    "Çorum FK": "Corum"
   }
 }

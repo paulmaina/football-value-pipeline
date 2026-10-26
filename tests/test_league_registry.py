@@ -67,7 +67,7 @@ class RegistryTests(OfflineQuotePolicyTestCase):
         # Archived policies keep their frozen view: only leagues added later are per-market there.
         self.assertEqual(conservative_bet_filter.PER_MARKET_APPROVAL_LEAGUES,
                          league_registry.shortlist_names() - league_registry.archived_league_approved_names())
-        self.assertEqual(conservative_bet_filter.PER_MARKET_APPROVAL_LEAGUES, frozenset({'Eredivisie', 'Primeira Liga'}))
+        self.assertEqual(conservative_bet_filter.PER_MARKET_APPROVAL_LEAGUES, frozenset({'Eredivisie', 'Primeira Liga', 'Super Lig'}))
         self.assertEqual(bbs_data.LEAGUES, {'EPL': 'epl', 'LaLiga': 'laliga', 'Bundesliga': 'bundesliga',
                                             'SerieA': 'serie_a', 'Ligue1': 'ligue1', 'UCL': 'cl'})
         self.assertEqual(set(bbs_data.DISPLAY_NAMES), set(bbs_data.LEAGUES))
