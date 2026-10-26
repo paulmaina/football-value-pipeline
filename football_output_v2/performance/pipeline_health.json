@@ -31,7 +31,7 @@
     "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
     "observations": 316,
     "rejected_files": [],
-    "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+    "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
     "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
     "version": "local-closing-quotes-v4"
   },
@@ -674,7 +674,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+      "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
       "secondary_comparison": {
         "btts_yes": {
           "baseline": {
@@ -2439,7 +2439,7 @@
       ],
       "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+      "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
       "total_fixtures": 73,
       "version": "conservative-ev-sensitivity-v1"
     },
@@ -2569,7 +2569,7 @@
       ],
       "graded_fixture_markets": 78,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+      "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
       "total_fixture_markets": 654,
       "version": "goal-blend-shadow-v1"
     },
@@ -3033,7 +3033,7 @@
       "observed_fixture_markets": 436,
       "paired_graded_fixture_markets": 46,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+      "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -10292,7 +10292,7 @@
       },
       "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+      "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
       "version": "model-reliability-forward-v1"
     },
     "recency_experiment": {
@@ -72383,7 +72383,7 @@
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+      "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
       "total_fixture_markets": 436,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": [
@@ -77976,7 +77976,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+      "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 57,
       "variants": {
@@ -80795,7 +80795,7 @@
             "minimum_settled_per_weighting": 100,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+          "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
           "status": "COLLECT_MORE_DATA",
           "total_fixtures": 23,
           "variants": {
@@ -80855,7 +80855,7 @@
         "minimum_settled_per_weighting": 100,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+      "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 0,
       "variants": {
@@ -82458,14 +82458,14 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+      "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
       "status": "COLLECT_MORE_DATA",
       "verified_coverage": 0.14285714285714285,
       "version": "pinnacle-totals-anchor-v1"
     }
   },
   "forecast_freshness": {
-    "age_hours": 12.292780145833333,
+    "age_hours": 18.67166178861111,
     "generated_at_utc": "2026-10-25T10:24:47.847996+00:00",
     "status": "WITHIN_24_HOURS",
     "upcoming_fixture_count": 3
@@ -82596,10 +82596,10 @@
       }
     ],
     "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-    "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+    "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
     "version": "experiment-review-queue-v1"
   },
-  "reviewed_at_utc": "2026-10-25T22:42:21.856521+00:00",
+  "reviewed_at_utc": "2026-10-26T05:05:05.830435+00:00",
   "selection_policy_groups": {
     "48h-top-ten-probability-ev-no-under35-v14": {
       "brier": 0.178674,
@@ -97045,7 +97045,7 @@
         "version": "bbs-lagged-poisson-v2"
       },
       "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261025T101957059078Z_82d0ecc2fd4d0c8fa43bf04a90896ddebf38361b0d9534719f30100086c32fcd.json",
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "2317ce47e104a6ad6f2b2f33f11a7ddecef4cbcaf0edf3d3f3e1cf8285f56cb9",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -97158,7 +97158,7 @@
         "version": "bbs-lagged-poisson-v2"
       },
       "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261025T101628509803Z_072f48178a32cd2b2b89f2afaa48572860da958c76ced67b1534c2c310c4e36e.json",
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "64ccf7a92987bcfaf7404a0a7050d0d7f377e2a0ae0b7a6b396d55a0b24049a8",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -97179,7 +97179,7 @@
         "status": "NO_OBSERVATIONS"
       },
       "bbs_statistics_model_artifact": null,
-      "days_since_latest_result": 7,
+      "days_since_latest_result": 8,
       "diagnostics_sha256": "89162dd7aeba06074adc73964dde39905448ebce643b8b0d932fdf8691f07016",
       "forecast_training_health": {
         "days_since_latest_result": 7,
@@ -97253,7 +97253,7 @@
         "version": "bbs-lagged-poisson-v2"
       },
       "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261025T101826012941Z_3ef75cb45d9cd4bf65d46e73c6ab1c6c139b467e939131a61211ba4a4052f457.json",
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "8822c1407ead23e7d3ef9c877535a478775db1e3937b8bc6c9cd8f95d5284b83",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -97327,7 +97327,7 @@
         "version": "bbs-lagged-poisson-v2"
       },
       "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261025T102257997574Z_9fbef83d8799904dbbfa2933150f06d149ef22760588983da82d9829d2a1526d.json",
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "d441528289388a7936270053be3b85180004b38d6bcf138fc4ca08a4257eb713",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -97348,7 +97348,7 @@
         "status": "NO_OBSERVATIONS"
       },
       "bbs_statistics_model_artifact": null,
-      "days_since_latest_result": 6,
+      "days_since_latest_result": 7,
       "diagnostics_sha256": "f88ff08f8d8c413947dffcb64fc27e3ecc9fc1fa4a452eb6c87c96e7e1480de1",
       "forecast_training_health": {
         "days_since_latest_result": 6,
@@ -97422,7 +97422,7 @@
         "version": "bbs-lagged-poisson-v2"
       },
       "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261025T102123834393Z_76a3723c9bd68b3a0488b2323553797c7ca5c069011a81abebe99cb33a3d7bce.json",
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "73d6e5da284ddf82383492bbc0643f30a6d21124fdad6c097631ca7f27788442",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -97499,11 +97499,11 @@
       "current_source_health": {
         "added_matches": 0,
         "cache_hash_verified": true,
-        "checked_at_utc": "2026-10-25T22:42:05.372959+00:00",
+        "checked_at_utc": "2026-10-26T05:04:49.090858+00:00",
         "completed_matches": 54,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 0.004578767222222222,
+        "download_age_hours": 0.0046498825,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-10-21",
         "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -97517,7 +97517,7 @@
         "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
         "training_end": "2026-10-21"
       },
-      "days_since_latest_result": 4,
+      "days_since_latest_result": 5,
       "diagnostics_sha256": "ae5389e0cf0cdcbc4c96e997ac61cb0ec9969436141f6d324e79f01278f699f4",
       "forecast_training_health": {
         "added_matches": 0,
@@ -97565,9 +97565,9 @@
           }
         },
         "status": "VERIFIED_WITHIN_24_HOURS",
-        "verified_at_utc": "2026-10-25T22:42:21.856521+00:00"
+        "verified_at_utc": "2026-10-26T05:05:05.830435+00:00"
       },
-      "days_since_latest_result": 3,
+      "days_since_latest_result": 4,
       "diagnostics_sha256": "593df8bb579e10980c6c65e6837e3d2349a6649989ac0154887acd28198e82ab",
       "forecast_training_health": {
         "official_source_health": {
