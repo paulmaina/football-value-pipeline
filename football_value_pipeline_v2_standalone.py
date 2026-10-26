@@ -2758,6 +2758,9 @@ class FootballValuePipelineV2(FootballValuePipeline):
                         continue
                     df = self.odds_api.events(league, self.lookahead_days, now)
                 elif provider == "football-data-org":
+                    if not league.football_data_org_code:
+                        failures.append(f"football-data.org: {league.name} not offered")
+                        continue
                     if self.football_data_org is None:
                         failures.append(
                             "football-data.org: FOOTBALL_DATA_API_KEY not set"

@@ -1,4 +1,5 @@
 from offline_test_case import OfflineQuotePolicyTestCase
+import io
 import json
 import subprocess
 import tempfile
@@ -14,7 +15,9 @@ import refresh_training_data as refresh
 
 REPO = Path(__file__).resolve().parents[1]
 NEW = {'Eredivisie': ('Eredivisie', 'N1', 'soccer_netherlands_eredivisie'),
-       'PrimeiraLiga': ('Primeira Liga', 'P1', 'soccer_portugal_primeira_liga')}
+       'PrimeiraLiga': ('Primeira Liga', 'P1', 'soccer_portugal_primeira_liga'),
+       'SuperLig': ('Super Lig', 'T1', 'soccer_turkey_super_league')}
+DIVISIONS = tuple(division for _, division, _ in NEW.values())
 CLOCK = datetime(2026, 10, 12, tzinfo=timezone.utc)
 
 
@@ -63,9 +66,38 @@ class NewLeagueRegistryTests(OfflineQuotePolicyTestCase):
     def test_every_league_shares_the_unchanged_odds_request_budget(self):
         from goal_market_validation import distribute_event_odds_budget
         budget = distribute_event_odds_budget(list(league_registry.LEAGUES), 24)
-        self.assertEqual(budget, {'EPL': 3, 'LaLiga': 3, 'Bundesliga': 3, 'SerieA': 3, 'Ligue1': 3, 'UCL': 3,
-                                  'UEL': 2, 'Eredivisie': 2, 'PrimeiraLiga': 2})
+        self.assertEqual(budget, {'EPL': 3, 'LaLiga': 3, 'Bundesliga': 3, 'SerieA': 3, 'Ligue1': 2, 'UCL': 2,
+                                  'UEL': 2, 'Eredivisie': 2, 'PrimeiraLiga': 2, 'SuperLig': 2})
         self.assertEqual(sum(budget.values()), 24)
+
+    def test_league_without_football_data_org_is_never_settled_or_queried_there(self):
+        """Super Lig has no verified-results source, so its forecasts stay unsettled."""
+        import performance_tracking
+        import football_value_pipeline_v2_standalone as fv
+        self.assertEqual(league_registry.get('SuperLig').football_data_org_code, '')
+        self.assertNotIn('Super Lig', performance_tracking.LEAGUE_CODES)
+        self.assertNotIn('SuperLig', performance_tracking.LEAGUE_CODES)
+        self.assertNotIn('', performance_tracking.LEAGUE_CODES.values())
+        row = {'league': 'Super Lig', 'home_team': 'A', 'away_team': 'B', 'kickoff_utc': '2026-10-20T17:00:00Z'}
+        self.assertEqual(performance_tracking.fixture_match(row, []), (None, 'INVALID_FIXTURE'))
+        with tempfile.TemporaryDirectory() as tmp:
+            pipe = fv.FootballValuePipelineV2(cache_dir=tmp, live_odds=False, odds_api_key='',
+                                              fixture_provider='football-data-org')
+            pipe.football_data_org = MagicMock()
+            with self.assertWarnsRegex(RuntimeWarning, 'football-data.org: Super Lig not offered'):
+                self.assertTrue(pipe._current_fixtures(fv.LEAGUES['SuperLig'], CLOCK).empty)
+        pipe.football_data_org.fixtures.assert_not_called()
+
+    def test_reviewed_super_lig_odds_names_resolve_exactly(self):
+        import football_value_pipeline_v2_standalone as fv
+        aliases = json.loads((REPO/'bbs_team_aliases.json').read_text(encoding='utf-8'))['SuperLig']
+        teams = sorted(set(aliases.values()) | {'Galatasaray', 'Fenerbahce'})
+        history = pd.read_csv(io.BytesIO(season_csv('T1', 2025, teams)))
+        history['Date'] = pd.to_datetime(history['Date'], dayfirst=True)
+        model = fv.DixonColesModel(max_goals=8).fit(history, as_of=pd.Timestamp(CLOCK))
+        model.league_key = 'SuperLig'
+        for odds_name, csv_name in {**aliases, 'Galatasaray': 'Galatasaray'}.items():
+            self.assertEqual(model.resolve_team(odds_name), (csv_name, 100.0), odds_name)
 
 
 class NewLeagueLoadTests(OfflineQuotePolicyTestCase):
@@ -74,7 +106,7 @@ class NewLeagueLoadTests(OfflineQuotePolicyTestCase):
         now = datetime(2026, 10, 20, tzinfo=timezone.utc)
         with tempfile.TemporaryDirectory() as tmp:
             cache = Path(tmp)
-            for division in ('N1', 'P1'):
+            for division in DIVISIONS:
                 for year in range(2021, 2027):
                     (cache/f'{refresh.season_code(year)}_{division}.csv').write_bytes(season_csv(division, year))
             pipe = fv.FootballValuePipelineV2(cache_dir=str(cache), seasons_back=4, domestic_seasons_back=6,
@@ -93,9 +125,9 @@ class NewLeagueLoadTests(OfflineQuotePolicyTestCase):
 class NewLeagueRefreshTests(OfflineQuotePolicyTestCase):
     def test_scheduled_refresh_downloads_and_commits_new_league_csvs(self):
         batch = refresh.fetch_batch(CLOCK, 1, fake_download)
-        self.assertEqual({x['division'] for x in batch} >= {'N1', 'P1'}, True)
+        self.assertEqual({x['division'] for x in batch} >= set(DIVISIONS), True)
         full = refresh.fetch_batch(CLOCK, 1, fake_download, full_history=True)
-        for division in ('N1', 'P1'):
+        for division in DIVISIONS:
             self.assertEqual(sorted(x['year'] for x in full if x['division'] == division), list(range(2021, 2027)))
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp); remote = root/'remote.git'; repo = root/'repo'
@@ -110,7 +142,7 @@ class NewLeagueRefreshTests(OfflineQuotePolicyTestCase):
             refresh.publish(repo, full, CLOCK)
             refresh.git(repo, 'fetch', 'origin', 'main')
             files = set(refresh.git(repo, 'ls-tree', '-r', '--name-only', 'FETCH_HEAD').stdout.split())
-            for division in ('N1', 'P1'):
+            for division in DIVISIONS:
                 self.assertTrue({f'.football_cache/{refresh.season_code(y)}_{division}.csv'
                                  for y in range(2021, 2027)} <= files)
             status = json.loads(refresh.git(repo, 'show', f'FETCH_HEAD:{refresh.STATUS.as_posix()}').stdout)
@@ -125,10 +157,10 @@ class NewLeagueRefreshTests(OfflineQuotePolicyTestCase):
         self.assertTrue(set(NEW) <= set(league_registry.keys()))
         with tempfile.TemporaryDirectory() as tmp:
             work = Path(tmp); cache = work/'.football_cache'; cache.mkdir()
-            for name in ('2627_N1.csv', '2122_P1.csv', '2627_E0.csv'):
+            for name in ('2627_N1.csv', '2122_P1.csv', '2324_T1.csv', '2627_E0.csv'):
                 (cache/name).write_text('csv')
             found = {p.name for p in scheduled.training_files(work)}
-        self.assertEqual(found, {'2627_N1.csv', '2122_P1.csv', '2627_E0.csv'})
+        self.assertEqual(found, {'2627_N1.csv', '2122_P1.csv', '2324_T1.csv', '2627_E0.csv'})
 
 
 class NewLeagueShortlistTests(OfflineQuotePolicyTestCase):
