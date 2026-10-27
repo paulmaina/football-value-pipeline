@@ -22,10 +22,10 @@
       "probability_band": "60%–70%"
     },
     {
-      "binary_brier": 0.159659,
-      "mean_forecast": 0.762211,
-      "n": 20,
-      "observed_win_rate": 0.8,
+      "binary_brier": 0.155497,
+      "mean_forecast": 0.760734,
+      "n": 21,
+      "observed_win_rate": 0.809524,
       "probability_band": "70%–80%"
     },
     {
@@ -154,20 +154,20 @@
         "wins": 1
       },
       "Serie A": {
-        "brier": 0.178807,
-        "flat_stake_roi": -0.134545,
-        "graded": 11,
+        "brier": 0.169928,
+        "flat_stake_roi": -0.079167,
+        "graded": 12,
         "half_losses": 0,
         "half_wins": 0,
         "losses": 4,
-        "no_loss_rate": 0.636364,
-        "pending": 3,
-        "profit_per_unit_staked": -1.48,
+        "no_loss_rate": 0.666667,
+        "pending": 2,
+        "profit_per_unit_staked": -0.95,
         "refunds": 0,
-        "settled_with_odds": 11,
+        "settled_with_odds": 12,
         "total": 14,
-        "win_rate": 0.636364,
-        "wins": 7
+        "win_rate": 0.666667,
+        "wins": 8
       },
       "UEFA Champions League": {
         "brier": 0.144313,
@@ -908,16 +908,16 @@
         "wins": 0
       },
       "Corners Under 10.5": {
-        "brier": null,
-        "flat_stake_roi": null,
-        "graded": 0,
+        "brier": 0.072256,
+        "flat_stake_roi": 0.53,
+        "graded": 1,
         "losses": 0,
-        "pending": 2,
-        "profit_per_unit_staked": null,
-        "settled_with_odds": 0,
+        "pending": 1,
+        "profit_per_unit_staked": 0.53,
+        "settled_with_odds": 1,
         "total": 2,
-        "win_rate": null,
-        "wins": 0
+        "win_rate": 1.0,
+        "wins": 1
       },
       "Corners Under 11.5": {
         "brier": null,
@@ -1102,20 +1102,20 @@
         "wins": 0
       },
       "48h-two-per-market-group-probability-ev-corners-cards-v25": {
-        "brier": 0.135751,
-        "flat_stake_roi": -0.006364,
-        "graded": 11,
+        "brier": 0.130459,
+        "flat_stake_roi": 0.038333,
+        "graded": 12,
         "half_losses": 0,
         "half_wins": 0,
         "losses": 3,
-        "no_loss_rate": 0.727273,
-        "pending": 5,
-        "profit_per_unit_staked": -0.07,
+        "no_loss_rate": 0.75,
+        "pending": 4,
+        "profit_per_unit_staked": 0.46,
         "refunds": 0,
-        "settled_with_odds": 11,
+        "settled_with_odds": 12,
         "total": 16,
-        "win_rate": 0.727273,
-        "wins": 8
+        "win_rate": 0.75,
+        "wins": 9
       },
       "48h-two-per-market-group-probability-ev-v24": {
         "brier": 0.232071,
@@ -1492,20 +1492,20 @@
         "wins": 0
       },
       "2026-10-25T10:24:47.847996+00:00": {
-        "brier": 0.135751,
-        "flat_stake_roi": -0.006364,
-        "graded": 11,
+        "brier": 0.130459,
+        "flat_stake_roi": 0.038333,
+        "graded": 12,
         "half_losses": 0,
         "half_wins": 0,
         "losses": 3,
-        "no_loss_rate": 0.727273,
-        "pending": 5,
-        "profit_per_unit_staked": -0.07,
+        "no_loss_rate": 0.75,
+        "pending": 4,
+        "profit_per_unit_staked": 0.46,
         "refunds": 0,
-        "settled_with_odds": 11,
+        "settled_with_odds": 12,
         "total": 16,
-        "win_rate": 0.727273,
-        "wins": 8
+        "win_rate": 0.75,
+        "wins": 9
       },
       "2026-10-26T11:01:43.961218+00:00": {
         "brier": null,
@@ -1554,20 +1554,20 @@
         "wins": 18
       },
       "STRICT": {
-        "brier": 0.107882,
-        "flat_stake_roi": 0.195,
-        "graded": 32,
+        "brier": 0.106802,
+        "flat_stake_roi": 0.205152,
+        "graded": 33,
         "half_losses": 0,
         "half_wins": 1,
         "losses": 5,
-        "no_loss_rate": 0.84375,
-        "pending": 12,
-        "profit_per_unit_staked": 6.24,
+        "no_loss_rate": 0.848485,
+        "pending": 11,
+        "profit_per_unit_staked": 6.77,
         "refunds": 0,
-        "settled_with_odds": 32,
+        "settled_with_odds": 33,
         "total": 44,
-        "win_rate": 0.84375,
-        "wins": 27
+        "win_rate": 0.848485,
+        "wins": 28
       }
     },
     "week": {
@@ -1596,20 +1596,20 @@
         "wins": 19
       },
       "2026-W43": {
-        "brier": 0.149427,
-        "flat_stake_roi": 0.016364,
-        "graded": 33,
+        "brier": 0.147157,
+        "flat_stake_roi": 0.031471,
+        "graded": 34,
         "half_losses": 0,
         "half_wins": 1,
         "losses": 9,
-        "no_loss_rate": 0.727273,
-        "pending": 8,
-        "profit_per_unit_staked": 0.54,
+        "no_loss_rate": 0.735294,
+        "pending": 7,
+        "profit_per_unit_staked": 1.07,
         "refunds": 0,
-        "settled_with_odds": 33,
+        "settled_with_odds": 34,
         "total": 41,
-        "win_rate": 0.727273,
-        "wins": 24
+        "win_rate": 0.735294,
+        "wins": 25
       },
       "2026-W44": {
         "brier": null,
@@ -1630,14 +1630,13 @@
     }
   },
   "pending_reason_counts": {
-    "AWAITING_COUNT_RESULT": 1,
     "PENDING_KICKOFF_OR_FINAL_SCORE": 1,
     "UNVERIFIED_FIXTURE_OR_RESULT": 12
   },
   "prediction_1x2_multiclass_brier": 0.575189,
   "prediction_fixtures_graded": 156,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-10-26T23:09:44Z",
+  "reviewed_at_utc": "2026-10-27T05:20:22Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
@@ -2172,20 +2171,20 @@
       "wins": 6
     },
     "2026-10-25T10:24:47.847996+00:00": {
-      "brier": 0.135751,
-      "flat_stake_roi": -0.006364,
-      "graded": 11,
+      "brier": 0.130459,
+      "flat_stake_roi": 0.038333,
+      "graded": 12,
       "half_losses": 0,
       "half_wins": 0,
       "losses": 3,
-      "no_loss_rate": 0.727273,
-      "pending": 5,
-      "profit_per_unit_staked": -0.07,
+      "no_loss_rate": 0.75,
+      "pending": 4,
+      "profit_per_unit_staked": 0.46,
       "refunds": 0,
-      "settled_with_odds": 11,
+      "settled_with_odds": 12,
       "total": 16,
-      "win_rate": 0.727273,
-      "wins": 8
+      "win_rate": 0.75,
+      "wins": 9
     },
     "2026-10-26T11:01:43.961218+00:00": {
       "brier": null,
@@ -2403,36 +2402,36 @@
     }
   },
   "shortlist": {
-    "brier": 0.154528,
-    "flat_stake_roi": 0.05678,
-    "graded": 59,
+    "brier": 0.153157,
+    "flat_stake_roi": 0.064667,
+    "graded": 60,
     "half_losses": 0,
     "half_wins": 1,
     "losses": 14,
-    "no_loss_rate": 0.762712,
-    "pending": 14,
-    "profit_per_unit_staked": 3.35,
+    "no_loss_rate": 0.766667,
+    "pending": 13,
+    "profit_per_unit_staked": 3.88,
     "refunds": 0,
-    "settled_with_odds": 59,
+    "settled_with_odds": 60,
     "total": 73,
-    "win_rate": 0.762712,
-    "wins": 45
+    "win_rate": 0.766667,
+    "wins": 46
   },
   "shortlist_run_history": {
-    "brier": 0.137434,
-    "flat_stake_roi": 0.111505,
-    "graded": 216,
+    "brier": 0.137133,
+    "flat_stake_roi": 0.113433,
+    "graded": 217,
     "half_losses": 0,
     "half_wins": 4,
     "losses": 39,
-    "no_loss_rate": 0.819444,
-    "pending": 33,
-    "profit_per_unit_staked": 24.085,
+    "no_loss_rate": 0.820276,
+    "pending": 32,
+    "profit_per_unit_staked": 24.615,
     "refunds": 0,
-    "settled_with_odds": 216,
+    "settled_with_odds": 217,
     "total": 249,
-    "win_rate": 0.819444,
-    "wins": 177
+    "win_rate": 0.820276,
+    "wins": 178
   },
   "source": "football-data.org v4 FINISHED regulation-time scorelines; Europa: corroborated Cornerflick / Fixture Download league-phase scores",
   "status": "PARTIALLY_GRADED",

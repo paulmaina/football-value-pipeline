@@ -31,13 +31,13 @@
     "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
     "observations": 319,
     "rejected_files": [],
-    "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+    "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
     "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
     "version": "local-closing-quotes-v4"
   },
   "dependencies": {
-    "PyYAML": "6.0.3",
-    "coverage": "7.17.0",
+    "PyYAML": "NOT_INSTALLED",
+    "coverage": "NOT_INSTALLED",
     "numpy": "2.5.4",
     "pandas": "3.1.0",
     "python": "3.12.15",
@@ -48,7 +48,7 @@
   },
   "evidence": {
     "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
-    "graded_selections": 59,
+    "graded_selections": 60,
     "model_improvement_established": false,
     "prediction_fixtures_graded": 156
   },
@@ -674,7 +674,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+      "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
       "secondary_comparison": {
         "btts_yes": {
           "baseline": {
@@ -2439,7 +2439,7 @@
       ],
       "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+      "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
       "total_fixtures": 73,
       "version": "conservative-ev-sensitivity-v1"
     },
@@ -2569,7 +2569,7 @@
       ],
       "graded_fixture_markets": 78,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+      "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
       "total_fixture_markets": 654,
       "version": "goal-blend-shadow-v1"
     },
@@ -3033,7 +3033,7 @@
       "observed_fixture_markets": 436,
       "paired_graded_fixture_markets": 46,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+      "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -10293,7 +10293,7 @@
       },
       "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+      "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
       "version": "model-reliability-forward-v1"
     },
     "recency_experiment": {
@@ -75568,7 +75568,7 @@
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+      "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
       "total_fixture_markets": 436,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": [
@@ -81641,7 +81641,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+      "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 57,
       "variants": {
@@ -84460,7 +84460,7 @@
             "minimum_settled_per_weighting": 100,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+          "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
           "status": "COLLECT_MORE_DATA",
           "total_fixtures": 23,
           "variants": {
@@ -84520,7 +84520,7 @@
         "minimum_settled_per_weighting": 100,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+      "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 0,
       "variants": {
@@ -86123,14 +86123,14 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+      "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
       "status": "COLLECT_MORE_DATA",
       "verified_coverage": 0.1411764705882353,
       "version": "pinnacle-totals-anchor-v1"
     }
   },
   "forecast_freshness": {
-    "age_hours": 11.397193860833335,
+    "age_hours": 17.574262072499998,
     "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
     "status": "WITHIN_24_HOURS",
     "upcoming_fixture_count": 0
@@ -86261,10 +86261,10 @@
       }
     ],
     "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-    "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+    "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
     "version": "experiment-review-queue-v1"
   },
-  "reviewed_at_utc": "2026-10-26T23:09:44.923139+00:00",
+  "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
   "selection_policy_groups": {
     "48h-top-ten-probability-ev-no-under35-v14": {
       "brier": 0.178674,
@@ -86303,20 +86303,20 @@
       "wins": 0
     },
     "48h-two-per-market-group-probability-ev-corners-cards-v25": {
-      "brier": 0.135751,
-      "flat_stake_roi": -0.006364,
-      "graded": 11,
+      "brier": 0.130459,
+      "flat_stake_roi": 0.038333,
+      "graded": 12,
       "half_losses": 0,
       "half_wins": 0,
       "losses": 3,
-      "no_loss_rate": 0.727273,
-      "pending": 5,
-      "profit_per_unit_staked": -0.07,
+      "no_loss_rate": 0.75,
+      "pending": 4,
+      "profit_per_unit_staked": 0.46,
       "refunds": 0,
-      "settled_with_odds": 11,
+      "settled_with_odds": 12,
       "total": 16,
-      "win_rate": 0.727273,
-      "wins": 8
+      "win_rate": 0.75,
+      "wins": 9
     },
     "48h-two-per-market-group-probability-ev-v24": {
       "brier": 0.232071,
@@ -102270,7 +102270,7 @@
         "version": "bbs-lagged-poisson-v2"
       },
       "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261026T114015551836Z_3a567ca64e2358404bc44966cc1a49af9afa750646816a59b0c0c64552c3cceb.json",
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "0c003256a3b8eb4f0cbaaa8e0da75549f97935ceb7fd45def092bae7af21a557",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -102383,7 +102383,7 @@
         "version": "bbs-lagged-poisson-v2"
       },
       "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261026T113540173016Z_973100bf0296eab266e778210a8ef964a86d67e2fbd4eac6d96afe98990e85c4.json",
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "66108de160cfd72dac0500ee24d848b5d14ee4b7cfa6405163e23363be2624e2",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -102404,7 +102404,7 @@
         "status": "NO_OBSERVATIONS"
       },
       "bbs_statistics_model_artifact": null,
-      "days_since_latest_result": 8,
+      "days_since_latest_result": 9,
       "diagnostics_sha256": "3305d7bcb079b9656904401eaeb16800852ffeb8b61b3a11b7489026b0caf8fc",
       "forecast_training_health": {
         "days_since_latest_result": 8,
@@ -102478,7 +102478,7 @@
         "version": "bbs-lagged-poisson-v2"
       },
       "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261026T113812675051Z_f8243e45de9aaaffa417000b5b13bec472b867d1ca5a78d7eb67b729761d3a87.json",
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "ab270510b0f47ad402c5110521f8d9f4591100f60eca9aec54d88b61613e4180",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -102552,7 +102552,7 @@
         "version": "bbs-lagged-poisson-v2"
       },
       "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261026T114412100474Z_53cd7f0d414f918a7bbe999be4b5de61addfad777c8ea4e4ff5dce3b917c4470.json",
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "646b6532db28419e63c360d90f50a2177eebd71f2a7b84dab8decb57668e46b8",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -102573,7 +102573,7 @@
         "status": "NO_OBSERVATIONS"
       },
       "bbs_statistics_model_artifact": null,
-      "days_since_latest_result": 7,
+      "days_since_latest_result": 8,
       "diagnostics_sha256": "41fdceb9070213d93e92d11dec0499c72bb2d28b782834aaa5f19adf30ae9da1",
       "forecast_training_health": {
         "days_since_latest_result": 7,
@@ -102686,7 +102686,7 @@
         "version": "bbs-lagged-poisson-v2"
       },
       "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261026T114205183279Z_19a646af00db45aaf2a96caf6606e9f41139b1dde1b78b7d7fb61abc12833a41.json",
-      "days_since_latest_result": 1,
+      "days_since_latest_result": 2,
       "diagnostics_sha256": "3b60b8543b9a54183b9f2daf0bcf55729212d0b847f957bf713ce2db93a8b75c",
       "forecast_training_health": {
         "days_since_latest_result": 1,
@@ -102763,11 +102763,11 @@
       "current_source_health": {
         "added_matches": 0,
         "cache_hash_verified": true,
-        "checked_at_utc": "2026-10-26T21:07:00.666088+00:00",
+        "checked_at_utc": "2026-10-27T05:20:06.693768+00:00",
         "completed_matches": 54,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 2.045626958611111,
+        "download_age_hours": 0.004354148055555555,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-10-21",
         "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -102776,12 +102776,12 @@
         "overdue_unfinished_match_ids": [],
         "provider": "football-data.org",
         "season_start": 2026,
-        "sha256": "f0b6dd9e5f4a09026f2c14cfc4f8c1a64fd00577ecbf11c398a8b4c46fad1dcb",
+        "sha256": "e7843aef1287a6a5daa0f4f72bf68fa7b71ce6608a6d8dd74c2ae9bfe2abdb09",
         "source_schedule_matches": 144,
         "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
         "training_end": "2026-10-21"
       },
-      "days_since_latest_result": 5,
+      "days_since_latest_result": 6,
       "diagnostics_sha256": "6b5941c3f2eedbcb3d1c9c132df39292b957be81a70358933ced2bb214f2b2b8",
       "forecast_training_health": {
         "added_matches": 0,
@@ -102829,9 +102829,9 @@
           }
         },
         "status": "VERIFIED_WITHIN_24_HOURS",
-        "verified_at_utc": "2026-10-26T23:09:44.923139+00:00"
+        "verified_at_utc": "2026-10-27T05:20:22.368701+00:00"
       },
-      "days_since_latest_result": 4,
+      "days_since_latest_result": 5,
       "diagnostics_sha256": "8ae7866f1810fb246df28047c7750da4b0f72f725eb3fd8b952b522d504445ef",
       "forecast_training_health": {
         "official_source_health": {
@@ -102878,20 +102878,20 @@
       "wins": 19
     },
     "2026-W43": {
-      "brier": 0.149427,
-      "flat_stake_roi": 0.016364,
-      "graded": 33,
+      "brier": 0.147157,
+      "flat_stake_roi": 0.031471,
+      "graded": 34,
       "half_losses": 0,
       "half_wins": 1,
       "losses": 9,
-      "no_loss_rate": 0.727273,
-      "pending": 8,
-      "profit_per_unit_staked": 0.54,
+      "no_loss_rate": 0.735294,
+      "pending": 7,
+      "profit_per_unit_staked": 1.07,
       "refunds": 0,
-      "settled_with_odds": 33,
+      "settled_with_odds": 34,
       "total": 41,
-      "win_rate": 0.727273,
-      "wins": 24
+      "win_rate": 0.735294,
+      "wins": 25
     },
     "2026-W44": {
       "brier": null,
