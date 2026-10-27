@@ -1,0 +1,141 @@
+{
+  "league": "Super Lig",
+  "training_matches": 1831,
+  "training_seasons_requested": 6,
+  "training_seasons_loaded": [
+    "2122",
+    "2223",
+    "2324",
+    "2425",
+    "2526",
+    "2627"
+  ],
+  "training_sha256": "36930ef41a7cb5e7e2f4d6e9884819c8b34ead9559d248ba647b034c279b2986",
+  "training_as_of_utc": "2026-10-27T11:34:33.112482+00:00",
+  "training_data_provenance": {
+    "bbs_confirmed_rows": 0,
+    "bbs_added_results": 0,
+    "bbs_result_conflicts": 0,
+    "bbs_rows_with_statistics": 0,
+    "bbs_statistics_used_as_predictor_features": false,
+    "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass."
+  },
+  "bbs_statistics_model": {
+    "status": "NO_OBSERVATIONS"
+  },
+  "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+  "totals_anchor_enabled": true,
+  "shot_features_model": {
+    "version": "football-data-lagged-shot-strength-v1",
+    "status": "VALIDATED",
+    "cutoff_date": "2026-10-27",
+    "selected_weight": 0.2,
+    "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
+    "lag_rule": "matches dated strictly before the origin date",
+    "gates": {
+      "min_form": 3,
+      "min_train": 60,
+      "min_tune": 20,
+      "min_audit": 40,
+      "min_audit_matchdays": 8,
+      "min_audit_gain": 0.01,
+      "bootstrap_lower95": ">0",
+      "market_brier_safety": [
+        "1x2",
+        "over_1_5",
+        "under_3_5",
+        "btts_yes"
+      ],
+      "max_goal_rate_ratio": 1.25
+    },
+    "bbs_shot_source_enabled": false,
+    "shot_matches": 1800,
+    "tune_start_date": "2025-10-28",
+    "audit_start_date": "2026-04-28",
+    "training_shot_matches": 1503,
+    "tuning_matches": 189,
+    "audit_matches": 94,
+    "audit_matchdays": 36,
+    "selected_shrinkage": 5.0,
+    "selected_component": "shots_on_target",
+    "proposed_weight": 0.2,
+    "audit_baseline_poisson_score": 0.8834219549355979,
+    "audit_candidate_poisson_score": 0.8730013923574726,
+    "audit_gain": 0.010420562578125292,
+    "audit_gain_lower95": 0.002954456195036203,
+    "audit_baseline_briers": [
+      0.6143653087533946,
+      0.1743779921268648,
+      0.20593221896722164,
+      0.24831396633762895
+    ],
+    "audit_candidate_briers": [
+      0.6098511613182359,
+      0.1731752528766611,
+      0.20306897173039457,
+      0.24811040995120862
+    ],
+    "audit_brier_order": [
+      "1x2",
+      "over_1_5",
+      "under_3_5",
+      "btts_yes"
+    ],
+    "failed_gates": []
+  },
+  "training_end": "2026-10-26",
+  "fit_success": true,
+  "objective": 1662.7663450162156,
+  "base": 0.12389366378701921,
+  "home_adv": 0.24561122053534776,
+  "rho": -0.09601923676918228,
+  "half_life_days": 480.0,
+  "xi_per_day": 0.0014440566261665526,
+  "max_goals": 10,
+  "devig_method": "power",
+  "market_weight": 0.7,
+  "elo_ratings": {
+    "version": "venue-elo-v1",
+    "teams": 32,
+    "matches": 1831,
+    "k_factor": 20.0,
+    "home_advantage": 60.0,
+    "venue_weight": 0.5,
+    "season_regression": 0.2,
+    "last_match_date": "2026-10-26"
+  },
+  "training_data_health": {
+    "training_end": "2026-10-26",
+    "days_since_latest_result": 1,
+    "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
+  },
+  "training_source": "Football-Data.co.uk",
+  "fixture_provider_mode": "auto",
+  "fixture_sources": [],
+  "the_odds_api_enabled": true,
+  "odds_regions": "eu",
+  "live_odds_matched": 0,
+  "excluded_started_fixtures": [],
+  "excluded_unresolved_team_fixtures": [],
+  "additional_event_odds_calls_used_before_this_league": 8,
+  "additional_event_odds_calls_budget": null,
+  "additional_event_odds_league_quota": null,
+  "decay_tuning": {
+    "selected_half_life_days": 365.0,
+    "selected_xi_per_day": 0.0018990333713971104,
+    "selection_metric": "walk_forward_1x2_log_loss",
+    "validation_days": 365,
+    "applied_to_production": false
+  },
+  "goal_market_reliability": {
+    "home_draw": "RELIABLE_FOR_RANKING",
+    "draw_away": "RELIABLE_FOR_RANKING",
+    "home_away": "RELIABLE_FOR_RANKING",
+    "home": "RELIABLE_FOR_RANKING",
+    "draw": "RELIABLE_FOR_RANKING",
+    "away": "RELIABLE_FOR_RANKING",
+    "over_1_5": "RELIABLE_FOR_RANKING",
+    "under_3_5": "RELIABLE_FOR_RANKING",
+    "btts_yes": "RELIABLE_FOR_RANKING"
+  }
+}

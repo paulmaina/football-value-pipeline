@@ -2,16 +2,16 @@
   "dependencies": {
     "PyYAML": "6.0.3",
     "coverage": "7.17.0",
-    "numpy": "2.5.3",
-    "pandas": "3.0.6",
-    "python": "3.14.8",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "python": "3.12.15",
     "python-dotenv": "1.2.4",
     "rapidfuzz": "3.14.6",
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
-  "model_code_sha256": "6e874fdb0cc5b19b339e29bc09439cdd58ee96c5802ae64a14b00bfc7a894da1",
+  "generated_at_utc": "2026-10-27T11:35:10.735016+00:00",
+  "model_code_sha256": "9498dec93cdc469f8538bb06a0279d8a57cde597902d507f892b5d69aa1ea03e",
   "model_component_sha256": {
     "api_football_data.py": "c5ae292a50d10b4e1a0d9901a0989c8eebc99082aa19d75d3d0e87cc59b00de5",
     "api_football_integration.py": "3a95ec1edc5eaf6b79a8075450905df9b4d5a3050a91cfe8df2b5a2ffb2ddeac",
@@ -49,6 +49,6 @@
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47",
     "win_first_shortlist.py": "13a189d481338e75ee2f386a6de316df0ca9b73d8a96e8d5b9cdc3de91c59bb8"
   },
-  "predictions_sha256": "1972a12411a4e699da51397ab5d158d8e89ad27650fd11e28d65c4e34192e5c3",
+  "predictions_sha256": "9d656ac2c952bd0a829dff5e327948f12fcc20bd2002669c898b93271a98e4a9",
   "selection_policy_version": "48h-zero-tolerance-ev05-no-loss75-corners-v26"
 }

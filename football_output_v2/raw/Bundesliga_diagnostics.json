@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "d416c800c8cd5396cd2db39cef51d74d5912c40efad2b0935eb158da772490ea",
-  "training_as_of_utc": "2026-10-27T09:40:20.583278+00:00",
+  "training_as_of_utc": "2026-10-27T11:16:39.568817+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 63,
     "bbs_added_results": 9,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-27T09:40:20.583278+00:00",
+    "cutoff_utc": "2026-10-27T11:16:39.568817+00:00",
     "observations": 244,
     "observations_sha256": "05b2bdee66ed9f00c42c7ebcab62d7126dfe2cc10cc19b9613387901fab98719",
     "eligible_training_matches": 54,
@@ -115,21 +115,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.718609505468729,
-    "audit_candidate_poisson_score": 0.7073770032094111,
-    "audit_gain": 0.011232502259317934,
-    "audit_gain_lower95": 0.0026092305140833767,
+    "audit_baseline_poisson_score": 0.7186137182435159,
+    "audit_candidate_poisson_score": 0.7073850582948938,
+    "audit_gain": 0.0112286599486221,
+    "audit_gain_lower95": 0.0026023292935761426,
     "audit_baseline_briers": [
-      0.6258439297953934,
-      0.1538374644891699,
-      0.29444453626110517,
-      0.24507981562246348
+      0.6258342320050883,
+      0.15383815738674458,
+      0.2944585981957748,
+      0.2450746250555013
     ],
     "audit_candidate_briers": [
-      0.6198875462724068,
-      0.15130347893335316,
-      0.2911831385362309,
-      0.24282864760143635
+      0.6198817111628098,
+      0.15130525608300216,
+      0.2911944534960592,
+      0.24282563076420938
     ],
     "audit_brier_order": [
       "1x2",
@@ -141,10 +141,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1582.3584611327556,
-  "base": 0.2251997181629767,
-  "home_adv": 0.22722451498648477,
-  "rho": -0.07370702375965228,
+  "objective": 1582.2056578620209,
+  "base": 0.2252081460059146,
+  "home_adv": 0.2272467544940123,
+  "rho": -0.07367583863244206,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -178,7 +178,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261027T094020583278Z_7b1a48969a670e0075b267edcb4c29a80493ea82676d91e1549e6fccbd6ff3c8.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261027T111639568817Z_2d6883f1e8fdee4c63cea3b8366bab090e838a70c850f48f22a06addda88ef58.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
