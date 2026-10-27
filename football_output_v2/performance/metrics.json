@@ -1633,10 +1633,10 @@
     "PENDING_KICKOFF_OR_FINAL_SCORE": 1,
     "UNVERIFIED_FIXTURE_OR_RESULT": 12
   },
-  "prediction_1x2_multiclass_brier": 0.5731,
-  "prediction_fixtures_graded": 167,
+  "prediction_1x2_multiclass_brier": 0.572478,
+  "prediction_fixtures_graded": 168,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-10-27T14:46:03Z",
+  "reviewed_at_utc": "2026-10-27T20:49:41Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
