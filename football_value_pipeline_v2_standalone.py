@@ -1975,20 +1975,20 @@ class DixonColesModel:
 
         normalized_raw = canonical_team_key(raw_name)
 
-        explicit = TEAM_ALIASES.get(normalize_team_name(raw_name))
-        if explicit in self.team_to_idx:
-            return explicit, 100.0
-
-        # Reuse the existing reviewed competition-specific provider identities.
-        # Keep global canonical keys stable for immutable archived forecasts.
+        # A reviewed alias decides the identity: the league-scoped one (the
+        # existing competition-specific provider identities) first, then the
+        # global one. If its target is not uniquely in training the team is
+        # unresolved; never fall through to fuzzy matching, which can pick a
+        # similarly named club (Espanyol -> Barcelona at 90).
+        league_aliases = {}
         if self.league_key is not None:
-            aliases = json.loads(Path(__file__).with_name('bbs_team_aliases.json').read_text(encoding='utf-8'))
-            target = aliases.get(self.league_key, {}).get(raw_name)
-            if target:
-                candidates = [team for team in self.teams
-                              if canonical_team_key(team) == canonical_team_key(target)]
-                if len(candidates) == 1:
-                    return candidates[0], 100.0
+            league_aliases = json.loads(Path(__file__).with_name(
+                'bbs_team_aliases.json').read_text(encoding='utf-8')).get(self.league_key, {})
+        target = league_aliases.get(raw_name) or TEAM_ALIASES.get(normalize_team_name(raw_name))
+        if target:
+            candidates = {team for team in self.teams
+                          if team == target or canonical_team_key(team) == canonical_team_key(target)}
+            return (candidates.pop(), 100.0) if len(candidates) == 1 else (None, 0.0)
 
         # Use the same canonical cross-provider key used by fixture/odds matching.
         # This is especially important for UCL names such as PSG, Inter and Bayern.
@@ -3944,10 +3944,12 @@ def self_test() -> None:
     flat = TheOddsAPI.flatten_odds_event(sample_event)
     assert flat["live_best_home_odds"] == 2.20
     assert flat["live_best_draw_odds"] == 3.60
-    assert flat["live_ref_1x2_bookmaker"] == "Book B"
-    assert flat["live_ref_home_odds"] == 2.10
+    # No Pinnacle quote: the lowest-overround book is the reference, not the
+    # newest (Book A 1X2 1.0344 vs 1.0481; O/U 1.0391 vs 1.0405).
+    assert flat["live_ref_1x2_bookmaker"] == "Book A"
+    assert flat["live_ref_home_odds"] == 2.20
     assert flat["live_best_over_2_5_odds"] == 2.00
-    assert flat["live_ref_ou25_bookmaker"] == "Book B"
+    assert flat["live_ref_ou25_bookmaker"] == "Book A"
 
     print("V2 self-test passed.")
 

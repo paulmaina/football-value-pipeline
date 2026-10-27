@@ -83,6 +83,28 @@ class ResolutionTests(OfflineQuotePolicyTestCase):
                 with self.subTest(league=league, feed=feed):
                     self.assertEqual(model.resolve_team(feed), (name, 100.0))
 
+    def test_aliased_name_with_target_missing_from_training_is_unresolved(self):
+        # Without the alias target, fuzzy matching scored Barcelona at 90.
+        model = model_with(["Barcelona", "Villarreal"], "LaLiga")
+        self.assertEqual(model.resolve_team("RCD Espanyol de Barcelona"), (None, 0.0))
+        fixtures = pd.DataFrame([dict(Date=pd.Timestamp("2026-10-30"), kickoff_utc="2026-10-30T20:00:00+00:00",
+                                      HomeTeam="Villarreal CF", AwayTeam="RCD Espanyol de Barcelona")])
+        with self.assertWarnsRegex(RuntimeWarning, "RCD Espanyol de Barcelona"):
+            kept, excluded = FootballValuePipelineV2._drop_unresolved_fixtures(model, fixtures, LEAGUES["LaLiga"])
+        self.assertTrue(kept.empty)
+        self.assertEqual(excluded[0]["unresolved"], ["away"])
+
+    def test_global_alias_with_target_missing_from_training_is_unresolved(self):
+        # "manchester city" -> "Man City" globally; never fuzzy-match it to Man United.
+        model = model_with(["Man United", "Arsenal"], "EPL")
+        self.assertEqual(model.resolve_team("Manchester City"), (None, 0.0))
+        self.assertEqual(model.resolve_team("Manchester United"), ("Man United", 100.0))
+
+    def test_league_alias_takes_precedence_over_global_alias(self):
+        # Globally "sporting lisbon" -> "Sporting CP", which is not a Primeira training name.
+        model = model_with(PRIMEIRA, "PrimeiraLiga")
+        self.assertEqual(model.resolve_team("Sporting Lisbon"), ("Sp Lisbon", 100.0))
+
     def test_fuzzy_floor_is_90(self):
         model = model_with(["Porto", "Benfica"], "PrimeiraLiga")
         self.assertEqual(model.resolve_team.__defaults__, (90.0,))
