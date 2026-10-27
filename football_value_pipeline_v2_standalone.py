@@ -315,14 +315,24 @@ class CachedHttpClient:
         headers: Optional[Mapping[str, str]] = None,
         allow_stale: bool = True,
         validator=None,
+        stamped: bool = False,
+        request_key: Optional[Mapping[str, object]] = None,
     ) -> bytes:
-        """GET bytes with TTL caching. Secrets in params are never written to cache names/logs."""
+        """GET bytes with TTL caching. Secrets in params are never written to cache names/logs.
+
+        stamped=True (JSON only) stores the fetch time and request_key inside the
+        cached file and judges freshness from them alone. File mtimes are reset
+        by git checkout, so they cannot prove when a response was fetched.
+        """
         path = self.cache_dir / cache_name
 
         if path.exists() and not force_refresh:
-            age = datetime.now(timezone.utc).timestamp() - path.stat().st_mtime
-            if age <= ttl.total_seconds():
-                content = path.read_bytes()
+            if stamped:
+                content = self._fresh_stamped_payload(path, ttl, request_key)
+            else:
+                age = datetime.now(timezone.utc).timestamp() - path.stat().st_mtime
+                content = path.read_bytes() if age <= ttl.total_seconds() else None
+            if content is not None:
                 if validator is not None:
                     validator(content)
                 return content
@@ -345,9 +355,16 @@ class CachedHttpClient:
                 raise RuntimeError(f"Suspiciously small response from {url}")
             if validator is not None:
                 validator(content)
+            stored = content
+            if stamped:
+                stored = json.dumps({
+                    "fetched_at_utc": datetime.now(timezone.utc).isoformat(),
+                    "request": None if request_key is None else dict(request_key),
+                    "payload": json.loads(content.decode("utf-8-sig")),
+                }).encode("utf-8")
             with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as handle:
                 temporary = Path(handle.name)
-                handle.write(content)
+                handle.write(stored)
             try:
                 os.replace(temporary, path)
             finally:
@@ -360,10 +377,45 @@ class CachedHttpClient:
                     RuntimeWarning,
                 )
                 content = path.read_bytes()
+                if stamped:
+                    content = self._stamped_payload(content) or content
                 if validator is not None:
                     validator(content)
                 return content
             raise
+
+    @staticmethod
+    def _stamped_payload(content: bytes) -> Optional[bytes]:
+        try:
+            stored = json.loads(content.decode("utf-8-sig"))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            return None
+        if not isinstance(stored, dict) or "payload" not in stored:
+            return None
+        return json.dumps(stored["payload"]).encode("utf-8")
+
+    @staticmethod
+    def _fresh_stamped_payload(
+        path: Path, ttl: timedelta, request_key: Optional[Mapping[str, object]]
+    ) -> Optional[bytes]:
+        """Cached payload only if its recorded fetch time and request match; else None."""
+        try:
+            stored = json.loads(path.read_bytes().decode("utf-8-sig"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+            return None
+        if not isinstance(stored, dict) or "payload" not in stored:
+            return None
+        fetched = pd.to_datetime(stored.get("fetched_at_utc"), utc=True, errors="coerce")
+        if not isinstance(fetched, pd.Timestamp) or pd.isna(fetched):
+            return None
+        age = (pd.Timestamp.now(tz="UTC") - fetched).total_seconds()
+        # A fetch time in the future is not evidence of freshness.
+        if not -300 <= age <= ttl.total_seconds():
+            return None
+        expected = None if request_key is None else dict(request_key)
+        if stored.get("request") != expected:
+            return None
+        return json.dumps(stored["payload"]).encode("utf-8")
 
     def get_json(
         self,
@@ -374,6 +426,8 @@ class CachedHttpClient:
         params: Optional[Mapping[str, object]] = None,
         headers: Optional[Mapping[str, str]] = None,
         allow_stale: bool = True,
+        stamped: bool = False,
+        request_key: Optional[Mapping[str, object]] = None,
     ):
         content = self.get_bytes(
             url=url,
@@ -383,6 +437,8 @@ class CachedHttpClient:
             params=params,
             headers=headers,
             allow_stale=allow_stale,
+            stamped=stamped,
+            request_key=request_key,
         )
         try:
             return json.loads(content.decode("utf-8-sig"))
@@ -689,6 +745,9 @@ class TheOddsAPI:
             )
         original = dict(kwargs.pop("params", {}) or {})
         original.pop("apiKey", None)
+        # Odds caches are committed by hand and their mtimes reset on checkout;
+        # freshness comes only from the fetch time stored in the payload.
+        kwargs["stamped"] = True
         # Normal pipeline uses allow_stale=False for current odds;
         # never turn a quota error into a fabricated or stale live price.
         from odds_provider_health import OddsProviderError, http_details
@@ -777,6 +836,8 @@ class TheOddsAPI:
                 "commenceTimeTo": end,
             },
             allow_stale=False,
+            # A schedule fetched for another window is a different response.
+            request_key={"commenceTimeFrom": start, "commenceTimeTo": end},
         )
         if not isinstance(payload, list):
             raise RuntimeError("The Odds API events response was not a list")
@@ -2898,6 +2959,42 @@ class FootballValuePipelineV2(FootballValuePipeline):
         )
         return result
 
+    @staticmethod
+    def _drop_started_fixtures(
+        fixtures: pd.DataFrame,
+        league: LeagueConfig,
+        now: datetime,
+    ) -> Tuple[pd.DataFrame, List[Dict[str, object]]]:
+        """Remove fixtures whose kickoff is not strictly after now.
+
+        A fixture without a parseable kickoff is kept only when its date is
+        after today, because a same-day match may already have been played.
+        """
+        if fixtures.empty:
+            return fixtures, []
+        clock = pd.Timestamp(now).tz_convert("UTC") if pd.Timestamp(now).tzinfo else pd.Timestamp(now, tz="UTC")
+        keep: List[bool] = []
+        started: List[Dict[str, object]] = []
+        for _, row in fixtures.iterrows():
+            kickoff = pd.to_datetime(row.get("kickoff_utc"), utc=True, errors="coerce")
+            if pd.isna(kickoff):
+                upcoming = pd.Timestamp(row["Date"]).date() > clock.date()
+            else:
+                upcoming = kickoff > clock
+            keep.append(bool(upcoming))
+            if not upcoming:
+                started.append({"home_team": str(row["HomeTeam"]), "away_team": str(row["AwayTeam"]),
+                                "kickoff_utc": None if pd.isna(kickoff) else kickoff.isoformat(),
+                                "fixture_source": row.get("fixture_source")})
+        if started:
+            warnings.warn(
+                f"[{league.key}] excluded {len(started)} fixture(s) with kickoff at or before "
+                f"{clock.isoformat()}: "
+                + "; ".join(f"{x['home_team']} v {x['away_team']} ({x['kickoff_utc']})" for x in started),
+                RuntimeWarning,
+            )
+        return fixtures.loc[keep].reset_index(drop=True), started
+
     LEGACY_COLUMNS = ('p_home', 'p_draw', 'p_away', 'p_over_1_5', 'p_under_3_5', 'p_btts_yes',
                       'p_over_2_5', 'goal_margin_distribution', 'market_blend_applied',
                       'raw_p_home', 'raw_p_draw', 'raw_p_away', 'market_weight',
@@ -3116,6 +3213,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             self._benchmark_score_matrices = {}
         fixtures = self._current_fixtures(league, now)
         fixtures = self._attach_live_odds(fixtures, league, now)
+        fixtures, started = self._drop_started_fixtures(fixtures, league, now)
 
         from goal_market_validation import training_fingerprint
         from bbs_integration import training_provenance
@@ -3159,6 +3257,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "live_odds_matched": int(
                 fixtures.get("odds_source", pd.Series(dtype=object)).notna().sum()
             ),
+            "excluded_started_fixtures": started,
             "additional_event_odds_calls_used_before_this_league": self.extra_event_odds_requests,
             "additional_event_odds_calls_budget": (self.max_extra_event_odds_requests
                 if self.additional_odds_coverage == "ranked" else None),
