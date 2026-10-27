@@ -5,7 +5,7 @@ First eligible pre-kickoff forecast per fixture only, with no backfill. Both mod
 Production `dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2` vs legacy `dc-blend50-tuned-half-life-v1`.
 Status: **COLLECT_MORE_DATA** (paired matches 0/300, weeks 0/6). No automatic production change.
 
-Excluded fixtures: first_forecast_without_legacy_model: 239
+Excluded fixtures: first_forecast_without_legacy_model: 239, pending_or_unverified_result: 4
 
 | League | Market | Matches | Prod log loss | Legacy log loss | Prod Brier | Legacy Brier | Prod dist. to Pinnacle close | Legacy dist. to Pinnacle close | Close N |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|
