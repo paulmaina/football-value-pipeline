@@ -1,0 +1,390 @@
+{
+  "fixture": {
+    "away_team": "Cagliari",
+    "home_team": "AS Roma",
+    "kickoff_utc": "2026-10-27T19:45:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "7eecf109ae6a5f87441a79b0e4111982"
+  },
+  "observed_at_utc": "2026-10-27T19:39:02.473969+00:00",
+  "payload": {
+    "away_team": "Cagliari",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-27T19:38:56Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "price": 1.42
+              },
+              {
+                "name": "Cagliari",
+                "price": 8.5
+              },
+              {
+                "name": "Draw",
+                "price": 4.8
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-10-27T19:38:56Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "point": -1.25,
+                "price": 2.04
+              },
+              {
+                "name": "Cagliari",
+                "point": 1.25,
+                "price": 1.89
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-27T19:38:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.93
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.98
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-10-27T19:38:56Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "point": -1.25,
+                "price": 2.04
+              },
+              {
+                "name": "AS Roma",
+                "point": -2.25,
+                "price": 3.97
+              },
+              {
+                "name": "AS Roma",
+                "point": -2.0,
+                "price": 3.53
+              },
+              {
+                "name": "AS Roma",
+                "point": -1.75,
+                "price": 2.73
+              },
+              {
+                "name": "AS Roma",
+                "point": -1.5,
+                "price": 2.32
+              },
+              {
+                "name": "AS Roma",
+                "point": -1.0,
+                "price": 1.72
+              },
+              {
+                "name": "AS Roma",
+                "point": -0.75,
+                "price": 1.53
+              },
+              {
+                "name": "AS Roma",
+                "point": -0.5,
+                "price": 1.42
+              },
+              {
+                "name": "AS Roma",
+                "point": -0.25,
+                "price": 1.28
+              },
+              {
+                "name": "Cagliari",
+                "point": 1.25,
+                "price": 1.89
+              },
+              {
+                "name": "Cagliari",
+                "point": 2.25,
+                "price": 1.26
+              },
+              {
+                "name": "Cagliari",
+                "point": 2.0,
+                "price": 1.31
+              },
+              {
+                "name": "Cagliari",
+                "point": 1.75,
+                "price": 1.49
+              },
+              {
+                "name": "Cagliari",
+                "point": 1.5,
+                "price": 1.68
+              },
+              {
+                "name": "Cagliari",
+                "point": 1.0,
+                "price": 2.23
+              },
+              {
+                "name": "Cagliari",
+                "point": 0.75,
+                "price": 2.59
+              },
+              {
+                "name": "Cagliari",
+                "point": 0.5,
+                "price": 2.93
+              },
+              {
+                "name": "Cagliari",
+                "point": 0.25,
+                "price": 3.79
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-10-27T19:39:00Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "price": 1.14
+              },
+              {
+                "name": "Cagliari",
+                "price": 6.42
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-27T19:45:00Z",
+    "home_team": "AS Roma",
+    "id": "7eecf109ae6a5f87441a79b0e4111982",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.42,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6950156703654744,
+      "selection": "home",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1964193526232265,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 8.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.10856497701129925,
+      "selection": "away",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.89,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.04,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5066125227940743,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.98,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49338747720592563,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.79,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.93,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.59,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.68,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.00",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +2.25",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.97,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.25",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -2.00",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.73,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.72,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.42,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.42,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-10-27T19:39:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.14,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-10-27T19:39:00+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
