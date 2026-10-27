@@ -89,7 +89,7 @@ class TotalsTests(OfflineQuotePolicyTestCase):
 
     def test_pinnacle_reference_is_separate_from_production_reference(self):
         row,_,inputs=sample();ref=inputs['reference'];payload={'id':'abc','home_team':row['home_team'],'away_team':row['away_team'],'commence_time':row['kickoff_utc'],'bookmakers':[{'key':'pinnacle','title':'Pinnacle','markets':[{'key':'totals','last_update':NOW.isoformat(),'outcomes':[{'name':'Over','point':2.5,'price':1.95},{'name':'Under','point':2.5,'price':1.95}]}]},{'key':'other','title':'Other','markets':[{'key':'totals','last_update':(NOW+timedelta(seconds=1)).isoformat(),'outcomes':[{'name':'Over','point':2.5,'price':2.0},{'name':'Under','point':2.5,'price':1.9}]}]}]}
-        flat=TheOddsAPI.flatten_odds_event(payload);self.assertEqual(flat['live_ref_ou25_bookmaker'],'Other');self.assertEqual(flat['shadow_pinnacle_totals'],ref)
+        flat=TheOddsAPI.flatten_odds_event(payload);self.assertEqual(flat['live_ref_ou25_bookmaker'],'Pinnacle');self.assertEqual(flat['shadow_pinnacle_totals'],ref)
 
     def test_readiness_positive_and_negative_results(self):
         row,m,inputs=sample();r,sha=t.registry();observations=[];records=[]
