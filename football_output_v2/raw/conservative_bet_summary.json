@@ -1,20 +1,20 @@
 {
-  "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
+  "generated_at_utc": "2026-10-27T09:50:40.995248+00:00",
   "selection_policy_version": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
-  "status": "BELOW_TARGET",
-  "n_fixtures": 25,
-  "n_markets_evaluated": 230,
-  "n_shortlisted": 1,
-  "n_strict_qualified": 1,
+  "status": "NO BET",
+  "n_fixtures": 15,
+  "n_markets_evaluated": 322,
+  "n_shortlisted": 0,
+  "n_strict_qualified": 0,
   "n_provisional_watchlist": 0,
-  "n_total_candidates": 1,
+  "n_total_candidates": 0,
   "target_distinct_matches": 12,
-  "shortfall": 11,
-  "usable_distinct_fixtures": 1,
+  "shortfall": 12,
+  "usable_distinct_fixtures": 0,
   "shortlist_lookahead_hours": 48.0,
-  "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-10-26T11:45:55.025240+00:00",
-  "shortlist_window_end_utc": "2026-10-28T11:45:55.025240+00:00",
+  "selected_matches_within_48_hours": false,
+  "shortlist_window_start_utc": "2026-10-27T09:50:40.995248+00:00",
+  "shortlist_window_end_utc": "2026-10-29T09:50:40.995248+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -183,9 +183,9 @@
     },
     "Eredivisie": {
       "home_draw": "RELIABLE_FOR_RANKING",
-      "draw_away": "RELIABLE_FOR_RANKING",
+      "draw_away": "UNRELIABLE_AUDIT",
       "home_away": "UNRELIABLE_AUDIT",
-      "home": "RELIABLE_FOR_RANKING",
+      "home": "UNRELIABLE_AUDIT",
       "draw": "UNRELIABLE_AUDIT",
       "away": "RELIABLE_FOR_RANKING",
       "over_1_5": "UNRELIABLE_AUDIT",
@@ -202,15 +202,26 @@
       "over_1_5": "RELIABLE_FOR_RANKING",
       "under_3_5": "RELIABLE_FOR_RANKING",
       "btts_yes": "RELIABLE_FOR_RANKING"
+    },
+    "Super Lig": {
+      "home_draw": "RELIABLE_FOR_RANKING",
+      "draw_away": "RELIABLE_FOR_RANKING",
+      "home_away": "RELIABLE_FOR_RANKING",
+      "home": "RELIABLE_FOR_RANKING",
+      "draw": "RELIABLE_FOR_RANKING",
+      "away": "RELIABLE_FOR_RANKING",
+      "over_1_5": "RELIABLE_FOR_RANKING",
+      "under_3_5": "RELIABLE_FOR_RANKING",
+      "btts_yes": "RELIABLE_FOR_RANKING"
     }
   },
   "legacy_ranking_experiments": "NOT_APPLICABLE_TO_LOSS_FIRST_POLICY; archived experiments remain graded",
   "ranking_is_empirically_optimized": false,
   "shortfall_reason": "No padding: missing evidence or failing the common safety/EV cutoffs can reduce the shortlist",
   "bookmaker_coverage": {
-    "Pinnacle": 56,
+    "Pinnacle": 152,
     "bet365": 0,
-    "1xBet": 12
+    "1xBet": 44
   },
   "warning": "Probabilities and EV are model estimates, not guarantees. Required adjusted no-loss probability: 75%; required adjusted EV: +0.5%; unblended EV must be nonnegative. Refunds are not wins. Corners picks are UNPROVEN EDGE: validated on probability accuracy only, with no historical corner odds. Flat-stake research, not accumulator protection.",
   "loss_risk_tolerance": 0,
@@ -236,7 +247,8 @@
       "UCL",
       "UEL",
       "Eredivisie",
-      "PrimeiraLiga"
+      "PrimeiraLiga",
+      "SuperLig"
     ],
     "excluded_leagues": {},
     "forecast_leagues": [
@@ -248,7 +260,8 @@
       "UCL",
       "UEL",
       "Eredivisie",
-      "PrimeiraLiga"
+      "PrimeiraLiga",
+      "SuperLig"
     ]
   }
 }

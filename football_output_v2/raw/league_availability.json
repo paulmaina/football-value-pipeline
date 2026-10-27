@@ -8,7 +8,8 @@
     "UCL",
     "UEL",
     "Eredivisie",
-    "PrimeiraLiga"
+    "PrimeiraLiga",
+    "SuperLig"
   ],
   "excluded_leagues": {},
   "forecast_leagues": [
@@ -20,6 +21,7 @@
     "UCL",
     "UEL",
     "Eredivisie",
-    "PrimeiraLiga"
+    "PrimeiraLiga",
+    "SuperLig"
   ]
 }

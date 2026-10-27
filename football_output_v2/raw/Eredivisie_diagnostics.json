@@ -1,6 +1,6 @@
 {
   "league": "Eredivisie",
-  "training_matches": 1611,
+  "training_matches": 1620,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "07f731cdf742d41e92a355644fdc463e45a578cdc0186b7ef5b6327b823cce3b",
-  "training_as_of_utc": "2026-10-26T11:45:42.502464+00:00",
+  "training_sha256": "173f00460382fe819ab1795f92939756d58effd9917931edff4bdbeeab528135",
+  "training_as_of_utc": "2026-10-27T09:49:09.762613+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-10-26",
+    "cutoff_date": "2026-10-27",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -49,31 +49,31 @@
       "max_goal_rate_ratio": 1.25
     },
     "bbs_shot_source_enabled": false,
-    "shot_matches": 1611,
-    "tune_start_date": "2025-10-27",
-    "audit_start_date": "2026-04-27",
+    "shot_matches": 1620,
+    "tune_start_date": "2025-10-28",
+    "audit_start_date": "2026-04-28",
     "training_shot_matches": 1314,
     "tuning_matches": 189,
-    "audit_matches": 102,
-    "audit_matchdays": 33,
+    "audit_matches": 111,
+    "audit_matchdays": 36,
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6859779232796878,
-    "audit_candidate_poisson_score": 0.6785572727858196,
-    "audit_gain": 0.007420650493868197,
-    "audit_gain_lower95": -0.0064075375601907155,
+    "audit_baseline_poisson_score": 0.697295429673695,
+    "audit_candidate_poisson_score": 0.6895337614389805,
+    "audit_gain": 0.007761668234714469,
+    "audit_gain_lower95": -0.003973487753075113,
     "audit_baseline_briers": [
-      0.6163612077717364,
-      0.08964475711053262,
-      0.284219784644612,
-      0.22561857788157708
+      0.6186426397777589,
+      0.09054901543003653,
+      0.28289897762945193,
+      0.22291830747066746
     ],
     "audit_candidate_briers": [
-      0.6148471518832004,
-      0.08824478590996306,
-      0.28094972360157106,
-      0.21979742888028067
+      0.6177397016743719,
+      0.08918400891243135,
+      0.2792610336457486,
+      0.21723513001195865
     ],
     "audit_brier_order": [
       "1x2",
@@ -86,12 +86,12 @@
       "bootstrap_lower95_not_positive"
     ]
   },
-  "training_end": "2026-10-18",
+  "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1596.1651540568223,
-  "base": 0.27548339120300636,
-  "home_adv": 0.19498531138859662,
-  "rho": -0.09353164704033125,
+  "objective": 1621.9738542406428,
+  "base": 0.29192700263953725,
+  "home_adv": 0.184139225752039,
+  "rho": -0.09554948415853286,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -100,16 +100,16 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 25,
-    "matches": 1611,
+    "matches": 1620,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-10-18"
+    "last_match_date": "2026-10-25"
   },
   "training_data_health": {
-    "training_end": "2026-10-18",
-    "days_since_latest_result": 8,
+    "training_end": "2026-10-25",
+    "days_since_latest_result": 2,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -118,7 +118,9 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 0,
-  "additional_event_odds_calls_used_before_this_league": 2,
+  "excluded_started_fixtures": [],
+  "excluded_unresolved_team_fixtures": [],
+  "additional_event_odds_calls_used_before_this_league": 8,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "decay_tuning": {
@@ -130,9 +132,9 @@
   },
   "goal_market_reliability": {
     "home_draw": "RELIABLE_FOR_RANKING",
-    "draw_away": "RELIABLE_FOR_RANKING",
+    "draw_away": "UNRELIABLE_AUDIT",
     "home_away": "UNRELIABLE_AUDIT",
-    "home": "RELIABLE_FOR_RANKING",
+    "home": "UNRELIABLE_AUDIT",
     "draw": "UNRELIABLE_AUDIT",
     "away": "RELIABLE_FOR_RANKING",
     "over_1_5": "UNRELIABLE_AUDIT",
