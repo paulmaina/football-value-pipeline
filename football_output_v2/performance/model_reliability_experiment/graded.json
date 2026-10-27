@@ -2905,6 +2905,41 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Lazio",
+    "baseline": {
+      "away_goals": 6,
+      "btts_yes": 0.5453844764685711,
+      "home_goals": 2,
+      "over_1_5": 0.7603210066246963,
+      "over_2_5": 0.5155707176234778,
+      "p_away": 0.46035057587583433,
+      "p_draw": 0.25322561287954126,
+      "p_home": 0.28642381124462446,
+      "under_3_5": 0.7062640818641958,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 6,
+      "btts_yes": 0.543356340027146,
+      "home_goals": 2,
+      "over_1_5": 0.7572150658230526,
+      "over_2_5": 0.5117759400112636,
+      "p_away": 0.4574567087814381,
+      "p_draw": 0.2537606443520005,
+      "p_home": 0.2887826468665614,
+      "under_3_5": 0.7098741360254442,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Sassuolo",
+    "kickoff_utc": "2026-10-27T17:30:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.006306066061301463,
+    "snapshot_commit": "61fd07517a6df27aaf13e10dfc2e47db9451d4a2",
+    "source_match_id": 558556,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,
