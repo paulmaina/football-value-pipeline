@@ -962,6 +962,7 @@ class TheOddsAPI:
         main_over15 = []
         all_updates: List[str] = []
         pinnacle_totals = None
+        pinnacle_lines = None
 
         def update_best(
             current,
@@ -1032,6 +1033,13 @@ class TheOddsAPI:
                         all_updates.append(updated)
 
             totals = TheOddsAPI._market(bookmaker, "totals")
+            if totals and str(bookmaker.get("key", "")).lower() == "pinnacle":
+                # Which main line Pinnacle quoted (fresh or not) explains a missing anchor.
+                outcomes = totals.get("outcomes")
+                pinnacle_lines = {
+                    "lines": sorted({p for o in (outcomes if isinstance(outcomes, list) else [])
+                                     if isinstance(o, dict) and (p := safe_float(o.get("point"))) is not None}),
+                    "updated_at_utc": TheOddsAPI._last_update(bookmaker, totals)}
             if totals and clock is not None and not quote_is_fresh(TheOddsAPI._last_update(bookmaker, totals), clock):
                 totals = None
             if totals:
@@ -1128,6 +1136,7 @@ class TheOddsAPI:
             "live_ref_under_2_5_odds": None if ref_ou is None else ref_ou[3],
             "live_ref_ou25_bookmaker": None if ref_ou is None else ref_ou[1],
             "shadow_pinnacle_totals": pinnacle_totals,
+            "pinnacle_totals_lines": pinnacle_lines,
             "_main_over_1_5_offers": main_over15,
             "asian_handicap_offers": json.dumps(parse_handicap_quotes(event, clock), sort_keys=True),
             # Same response, same capture instant; no extra request (live only).
@@ -1169,6 +1178,34 @@ class TheOddsAPI:
             if isinstance(event, dict) and event.get("id")
         ]
         return pd.DataFrame(rows)
+
+    @staticmethod
+    def _pinnacle_alternate_ou25(payload: Mapping[str, object]) -> Optional[Dict[str, object]]:
+        """Pinnacle's exact, complete 2.5 pair from alternate_totals, in the
+        same shape as the main-line shadow quote. Freshness is judged by the
+        anchor, so a stale quote is kept here and reported as stale there."""
+        books = payload.get("bookmakers")
+        for book in books if isinstance(books, list) else []:
+            if not isinstance(book, dict) or str(book.get("key", "")).lower() != "pinnacle":
+                continue
+            market = TheOddsAPI._market(book, "alternate_totals")
+            outcomes = market.get("outcomes") if market else None
+            pair: Dict[str, Optional[float]] = {}
+            duplicate = False
+            for outcome in outcomes if isinstance(outcomes, list) else []:
+                if not isinstance(outcome, dict) or safe_float(outcome.get("point")) != 2.5:
+                    continue
+                side = str(outcome.get("name") or "").strip().lower()
+                if side in ("over", "under"):
+                    duplicate |= side in pair
+                    pair[side] = _valid_price(outcome.get("price"))
+            if duplicate or set(pair) != {"over", "under"} or None in pair.values():
+                return None
+            return {"updated_at_utc": TheOddsAPI._last_update(book, market),
+                    "over": pair["over"], "under": pair["under"], "bookmaker": "pinnacle",
+                    "event_id": str(payload.get("id")), "kickoff_utc": payload.get("commence_time"),
+                    "home_team": payload.get("home_team"), "away_team": payload.get("away_team")}
+        return None
 
     def extra_markets_for_event(
         self, league: LeagueConfig, event_id: str, *, main_over_1_5_offers=None
@@ -1272,6 +1309,9 @@ class TheOddsAPI:
 
         from double_chance import parse_quotes
         result: Dict[str, object] = parse_quotes(payload, as_of=clock)
+        pinnacle_alternate = self._pinnacle_alternate_ou25(payload)
+        if pinnacle_alternate is not None:
+            result['pinnacle_alternate_ou25'] = pinnacle_alternate
         from asian_handicap import parse_quotes as parse_handicaps
         asian_offers = parse_handicaps(payload, clock)
         if asian_offers:
@@ -2358,28 +2398,50 @@ def pinnacle_ou25_reference(row, as_of) -> Tuple[Optional[Dict[str, object]], st
     """Pinnacle O/U 2.5 pair for the totals anchor, or the reason none applies.
 
     Live rows need a fresh, same-event Pinnacle quote; there is no fallback to
-    another bookmaker. Historical rows (no live odds) use Pinnacle's nominal
-    opening CSV columns, as the historical benchmark does.
+    another bookmaker. Pinnacle's main totals line is used when it is exactly
+    2.5, otherwise its exact 2.5 pair from the per-event alternate_totals.
+    Historical rows (no live odds) use Pinnacle's nominal opening CSV columns,
+    as the historical benchmark does.
     """
     from quote_freshness import quote_is_fresh
     if row.get("odds_source") == "The Odds API":
-        ref = row.get("shadow_pinnacle_totals")
-        if not isinstance(ref, dict) or ref.get("bookmaker") != "pinnacle":
-            return None, "NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE"
-        if row.get("odds_event_id") and str(ref.get("event_id")) != str(row.get("odds_event_id")):
-            return None, "NOT_ANCHORED_PINNACLE_EVENT_MISMATCH"
-        if not quote_is_fresh(ref.get("updated_at_utc"), as_of):
-            return None, "NOT_ANCHORED_PINNACLE_OU25_STALE"
-        over, under = _valid_price(ref.get("over")), _valid_price(ref.get("under"))
-        source, updated = "live_pinnacle", ref.get("updated_at_utc")
-    else:
-        over, under = _valid_price(row.get("P>2.5")), _valid_price(row.get("P<2.5"))
-        source, updated = "historical_pinnacle_nominal_opening", None
-        if over is None or under is None:
-            return None, "NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE"
-    if over is None or under is None or not TheOddsAPI._coherent_overround([over, under]):
+        failures = []
+        for field, status, source in (
+                ("shadow_pinnacle_totals", "ANCHORED_MAIN", "live_pinnacle"),
+                ("pinnacle_alternate_ou25", "ANCHORED_ALTERNATE", "live_pinnacle_alternate")):
+            ref = row.get(field)
+            if not isinstance(ref, dict) or ref.get("bookmaker") != "pinnacle":
+                continue
+            if row.get("odds_event_id") and str(ref.get("event_id")) != str(row.get("odds_event_id")):
+                failures.append("NOT_ANCHORED_PINNACLE_EVENT_MISMATCH")
+                continue
+            if not quote_is_fresh(ref.get("updated_at_utc"), as_of):
+                failures.append("NOT_ANCHORED_STALE")
+                continue
+            over, under = _valid_price(ref.get("over")), _valid_price(ref.get("under"))
+            if over is None or under is None or not TheOddsAPI._coherent_overround([over, under]):
+                failures.append("NOT_ANCHORED_INCOHERENT_PINNACLE_OU25")
+                continue
+            return {"over": over, "under": under, "updated_at_utc": ref.get("updated_at_utc"),
+                    "source": source}, status
+        if failures:
+            # Report why the main line failed before the alternate's reason.
+            return None, failures[0]
+        main = row.get("pinnacle_totals_lines")
+        if isinstance(main, dict):
+            if not quote_is_fresh(main.get("updated_at_utc"), as_of):
+                return None, "NOT_ANCHORED_STALE"
+            if 2.5 in (main.get("lines") or []):
+                return None, "NOT_ANCHORED_INCOHERENT_PINNACLE_OU25"
+            return None, "NOT_ANCHORED_PINNACLE_NO_2_5_LINE"
+        return None, "NOT_ANCHORED_NO_PINNACLE"
+    over, under = _valid_price(row.get("P>2.5")), _valid_price(row.get("P<2.5"))
+    if over is None or under is None:
+        return None, "NOT_ANCHORED_NO_PINNACLE"
+    if not TheOddsAPI._coherent_overround([over, under]):
         return None, "NOT_ANCHORED_INCOHERENT_PINNACLE_OU25"
-    return {"over": over, "under": under, "updated_at_utc": updated, "source": source}, "ANCHORED"
+    return {"over": over, "under": under, "updated_at_utc": None,
+            "source": "historical_pinnacle_nominal_opening"}, "ANCHORED_MAIN"
 
 
 def prediction_from_matrix(
@@ -3336,6 +3398,17 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 row_kick = pd.to_datetime(row.get('kickoff_utc'),utc=True,errors='coerce')
                 identity_rejected = (not valid_identity or pd.isna(event_kick) or pd.isna(row_kick)
                                      or abs((event_kick-row_kick).total_seconds()) > 300)
+                alternate = extra.pop('pinnacle_alternate_ou25', None)
+                if (alternate is not None and not identity_rejected and getattr(self, 'totals_anchor', False)
+                        and pred.get('totals_anchor_status') != 'ANCHORED_MAIN'):
+                    # Anchoring needs the per-event alternate line: re-predict
+                    # this fixture with it, keeping the legacy comparison columns.
+                    anchored, score_dist = self._predict_row(
+                        model, pd.Series({**row, 'pinnacle_alternate_ou25': alternate}))
+                    anchored.update({k: v for k, v in pred.items() if k.startswith('legacy_')})
+                    pred.clear()
+                    pred.update(anchored)
+                    prepared[idx] = (row, pred, score_dist)
                 if 'count_market_offers' in extra:
                     if identity_rejected:
                         extra['count_market_offers'] = '[]'
