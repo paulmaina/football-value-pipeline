@@ -66,6 +66,23 @@ class ResolutionTests(OfflineQuotePolicyTestCase):
         model = model_with(["For Sittard", "Excelsior", "Sparta Rotterdam"], "Eredivisie")
         self.assertEqual(model.resolve_team("Fortuna Sittard"), ("For Sittard", 100.0))
 
+    def test_football_data_org_names_resolve_to_the_right_team(self):
+        # football-data.org spellings that matched the wrong team (Espanyol scored
+        # 90 against Barcelona) or fell below the floor with the right one.
+        cases = {
+            "LaLiga": (["Barcelona", "Espanol", "Villarreal"], {"RCD Espanyol de Barcelona": "Espanol"}),
+            "Ligue1": (["Rennes", "Lens", "Lille"], {"Stade Rennais FC 1901": "Rennes"}),
+            "Eredivisie": (["Nijmegen", "Almere City", "Ajax"], {"NEC": "Nijmegen"}),
+            "PrimeiraLiga": (PRIMEIRA + ["Estoril"], {"Sporting Clube de Portugal": "Sp Lisbon",
+                                                     "Sporting Clube de Braga": "Sp Braga",
+                                                     "Vitória SC": "Guimaraes"}),
+        }
+        for league, (teams, expected) in cases.items():
+            model = model_with(teams, league)
+            for feed, name in expected.items():
+                with self.subTest(league=league, feed=feed):
+                    self.assertEqual(model.resolve_team(feed), (name, 100.0))
+
     def test_fuzzy_floor_is_90(self):
         model = model_with(["Porto", "Benfica"], "PrimeiraLiga")
         self.assertEqual(model.resolve_team.__defaults__, (90.0,))
