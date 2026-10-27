@@ -1,21 +1,41 @@
 ﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,1,2-1,11.14%,0.11138354516991052
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,2,2-0,10.29%,0.10294042836630506
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,3,1-0,8.68%,0.08676505015500449
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,4,3-1,8.27%,0.08273788591181594
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,5,3-0,7.65%,0.07646617285248372
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,6,1-1,7.51%,0.07511460839803316
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,7,4-1,4.61%,0.046094495520281414
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,8,3-2,4.48%,0.04476200069776551
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,9,2-2,4.29%,0.04286880283061701
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,10,4-0,4.26%,0.042600431750921874
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,11,1-2,3.45%,0.0345331623944061
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,12,0-0,3.35%,0.03349274114545717
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,13,0-1,2.51%,0.02505366060609833
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,14,4-2,2.49%,0.024937570230415148
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,15,5-1,2.05%,0.020543938186032975
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,16,5-0,1.90%,0.0189866626526844
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,17,0-2,1.55%,0.015496431938958012
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,18,2-3,1.39%,0.013877933556850337
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,19,1-3,1.25%,0.012455184402801713
-2026-10-26,Ligue 1,Paris Saint Germain,Lyon,20,3-3,1.15%,0.011485199657269943
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,1,0-2,12.00%,0.12002969413171313
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,2,0-1,10.14%,0.10136575715381145
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,3,1-2,9.57%,0.09570789319125005
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,4,0-3,9.05%,0.09050212121379866
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,5,1-1,8.94%,0.08938422212321859
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,6,1-3,7.22%,0.07216353764266802
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,7,0-0,5.17%,0.0516792379842051
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,8,0-4,5.12%,0.05117879790151681
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,9,1-4,4.08%,0.040808359620078234
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,10,2-2,3.82%,0.03815722803165737
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,11,2-1,3.37%,0.03373770211591139
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,12,1-0,3.26%,0.032649031015386354
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,13,2-3,2.88%,0.0287704646877977
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,14,0-5,2.32%,0.02315321956670292
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,15,1-5,1.85%,0.01846164718950231
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,16,2-4,1.63%,0.01626964957330774
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,17,2-0,1.49%,0.014915031866539549
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,18,3-2,1.01%,0.010141790138809637
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,19,3-1,0.90%,0.008967126604201216
+2026-10-30,Ligue 1,Le Havre AC,Paris Saint-Germain FC,20,0-6,0.87%,0.008728737913037018
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,1,1-1,13.77%,0.137721494678084
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,2,1-0,11.23%,0.11234637887363844
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,3,0-0,10.07%,0.1007224315906982
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,4,0-1,9.44%,0.09439970879628469
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,5,2-1,8.36%,0.08355042333001075
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,6,2-0,7.67%,0.07669264611012966
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,7,1-2,7.10%,0.07102189193934638
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,8,0-2,5.54%,0.05541672895727641
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,9,2-2,4.55%,0.045510707953666456
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,10,3-1,3.57%,0.03569264641973258
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,11,3-0,3.28%,0.03276301174190811
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,12,1-3,2.58%,0.02579086539235957
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,13,0-3,2.01%,0.020124011878514658
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,14,3-2,1.94%,0.019442123002606677
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,15,2-3,1.65%,0.01652674282102209
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,16,4-1,1.14%,0.011435893658600252
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,17,4-0,1.05%,0.01049724119108173
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,18,3-3,0.71%,0.007060205854979948
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,19,1-4,0.70%,0.0070242644858173504
+2026-10-30,Ligue 1,Lille OSC,Racing Club de Lens,20,4-2,0.62%,0.006229239730240816
