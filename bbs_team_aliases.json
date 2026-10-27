@@ -21,7 +21,8 @@
     "Athletic Club": "Ath Bilbao",
     "Celta Vigo": "Celta",
     "Deportivo La Coruna": "La Coruna",
-    "Racing Santander": "Santander"
+    "Racing Santander": "Santander",
+    "RCD Espanyol de Barcelona": "Espanol"
   },
   "Bundesliga": {
     "1. FC Union Berlin": "Union Berlin",
@@ -55,7 +56,8 @@
     "Rennes": "Rennes",
     "Auxerre": "Auxerre",
     "Monaco": "Monaco",
-    "Le Havre": "Le Havre AC"
+    "Le Havre": "Le Havre AC",
+    "Stade Rennais FC 1901": "Rennes"
   },
   "UCL": {
     "RC Lens": "Racing Club de Lens",
@@ -80,10 +82,14 @@
     "Galatasaray": "Galatasaray SK"
   },
   "Eredivisie": {
-    "Fortuna Sittard": "For Sittard"
+    "Fortuna Sittard": "For Sittard",
+    "NEC": "Nijmegen"
   },
   "PrimeiraLiga": {
-    "Sporting Lisbon": "Sp Lisbon"
+    "Sporting Lisbon": "Sp Lisbon",
+    "Sporting Clube de Portugal": "Sp Lisbon",
+    "Sporting Clube de Braga": "Sp Braga",
+    "Vitória SC": "Guimaraes"
   },
   "SuperLig": {
     "Amed SK": "Amedspor",
