@@ -8,7 +8,7 @@
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
       "report": "goal_blend_experiment/report.md",
       "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 78,
+      "settled_evidence": 111,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -19,7 +19,7 @@
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
       "report": "market_led_experiment/report.md",
       "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 46,
+      "settled_evidence": 68,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -110,6 +110,6 @@
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
+  "reviewed_at_utc": "2026-10-27T09:25:51.470413+00:00",
   "version": "experiment-review-queue-v1"
 }
