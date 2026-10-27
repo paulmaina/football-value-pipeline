@@ -1,6 +1,6 @@
 {
   "league": "Ligue 1",
-  "training_matches": 1751,
+  "training_matches": 1752,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "dcb4f67f73dec029a09c4b807eb50a43374b03d4f76d82f7042fe6eda94a0d6f",
-  "training_as_of_utc": "2026-10-26T11:44:12.100474+00:00",
+  "training_sha256": "ed606a506424ef7ecb06a191d932b6a5dbe577e0d070ca7f9c54a36f28d8a21f",
+  "training_as_of_utc": "2026-10-27T09:45:56.043984+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 71,
     "bbs_added_results": 8,
@@ -27,18 +27,18 @@
       "unmapped": 242,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 80,
+      "statistics_observations": 93,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
   },
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
-    "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-26T11:44:12.100474+00:00",
-    "observations": 278,
-    "observations_sha256": "f15706afdba55ec4b08959f76ce1965327f38aa94fa471773b034c391c8f8aef",
-    "eligible_training_matches": 115,
+    "status": "INSUFFICIENT_PAIRED_AUDIT",
+    "cutoff_utc": "2026-10-27T09:45:56.043984+00:00",
+    "observations": 305,
+    "observations_sha256": "bdb5ae3123e606d9b4647db4cd909db1f138cc75659c329dee54df99786e17cc",
+    "eligible_training_matches": 131,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -63,17 +63,56 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 122,
+    "usable_current_matches": 131,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
-    "strict_eligible_training_matches": 14,
-    "retrospective_eligible_training_matches": 115,
+    "strict_eligible_training_matches": 15,
+    "retrospective_eligible_training_matches": 131,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:29.253586+00:00",
-    "retrospective_inputs_sha256": "481fe77c86554edabad44b4faa13b6ff0b095bdefe697545466dd95806316859",
+    "retrospective_inputs_sha256": "d15b2d7e53c0dbe7a26607a8e495f3f81d7c4a2ef77ffeda9d6178db16e7a8b8",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+    "training_matches": 70,
+    "tuning_matches": 21,
+    "audit_matches": 40,
+    "tuning_origin_utc": "2025-08-24T00:00:00+00:00",
+    "audit_origin_utc": "2025-09-27T00:00:00+00:00",
+    "supported_feature_columns": [
+      "own_shots_on_target",
+      "own_shots_off_target",
+      "own_total_shots",
+      "own_blocked_shots",
+      "own_shots_inside_box",
+      "own_shots_outside_box",
+      "own_fouls",
+      "own_corner_kicks",
+      "own_offsides",
+      "own_ball_possession",
+      "own_yellow_cards",
+      "own_goalkeeper_saves",
+      "own_total_passes",
+      "own_accurate_passes",
+      "own_pass_percentage",
+      "opponent_conceded_shots_on_target",
+      "opponent_conceded_shots_off_target",
+      "opponent_conceded_total_shots",
+      "opponent_conceded_blocked_shots",
+      "opponent_conceded_shots_inside_box",
+      "opponent_conceded_shots_outside_box",
+      "opponent_conceded_fouls",
+      "opponent_conceded_corner_kicks",
+      "opponent_conceded_offsides",
+      "opponent_conceded_ball_possession",
+      "opponent_conceded_yellow_cards",
+      "opponent_conceded_goalkeeper_saves",
+      "opponent_conceded_total_passes",
+      "opponent_conceded_accurate_passes",
+      "opponent_conceded_pass_percentage",
+      "is_home"
+    ],
+    "paired_audit_matches": 28,
     "input_providers": [
       "api-football",
       "bigballsdata"
@@ -84,7 +123,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-10-26",
+    "cutoff_date": "2026-10-27",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -105,31 +144,31 @@
       "max_goal_rate_ratio": 1.25
     },
     "bbs_shot_source_enabled": false,
-    "shot_matches": 1741,
-    "tune_start_date": "2025-10-27",
-    "audit_start_date": "2026-04-27",
+    "shot_matches": 1750,
+    "tune_start_date": "2025-10-28",
+    "audit_start_date": "2026-04-28",
     "training_shot_matches": 1453,
     "tuning_matches": 196,
-    "audit_matches": 88,
-    "audit_matchdays": 28,
+    "audit_matches": 97,
+    "audit_matchdays": 32,
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.873365030729784,
-    "audit_candidate_poisson_score": 0.8692351434347145,
-    "audit_gain": 0.004129887295069468,
-    "audit_gain_lower95": -0.0034463444146306393,
+    "audit_baseline_poisson_score": 0.879426769336302,
+    "audit_candidate_poisson_score": 0.8748035361105513,
+    "audit_gain": 0.004623233225750756,
+    "audit_gain_lower95": -0.0027891338576792996,
     "audit_baseline_briers": [
-      0.6036683508631172,
-      0.16968918140114747,
-      0.22109314542147204,
-      0.24521839802974899
+      0.6035169394724798,
+      0.16831616921077902,
+      0.21500580835138103,
+      0.24570292417482623
     ],
     "audit_candidate_briers": [
-      0.602908213184978,
-      0.16856938601387472,
-      0.21938689348044688,
-      0.24310665446246993
+      0.6021996013147317,
+      0.16740657079254465,
+      0.21307578129039514,
+      0.24370977187978007
     ],
     "audit_brier_order": [
       "1x2",
@@ -142,12 +181,12 @@
       "bootstrap_lower95_not_positive"
     ]
   },
-  "training_end": "2026-10-25",
+  "training_end": "2026-10-26",
   "fit_success": true,
-  "objective": 1588.3181093819962,
-  "base": 0.20923504745343371,
-  "home_adv": 0.1910961400334567,
-  "rho": -0.05624037394976375,
+  "objective": 1588.594397536737,
+  "base": 0.20805360521983782,
+  "home_adv": 0.19240609524644642,
+  "rho": -0.05626998191487263,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -156,69 +195,75 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 26,
-    "matches": 1751,
+    "matches": 1752,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-10-25"
+    "last_match_date": "2026-10-26"
   },
   "training_data_health": {
-    "training_end": "2026-10-25",
+    "training_end": "2026-10-26",
     "days_since_latest_result": 1,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "The Odds API"
+    "football-data.org"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
-  "additional_event_odds_calls_used_before_this_league": 1,
+  "live_odds_matched": 0,
+  "excluded_started_fixtures": [],
+  "excluded_unresolved_team_fixtures": [],
+  "additional_event_odds_calls_used_before_this_league": 8,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261026T114412100474Z_53cd7f0d414f918a7bbe999be4b5de61addfad777c8ea4e4ff5dce3b917c4470.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261027T094556043984Z_b69156ec7e5da06718e0564c9a9395f92a15ede3d3b87cd7619f5a096455b67d.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "8664b2167f22c59026d86615421463b1",
-      "event_id": "8664b2167f22c59026d86615421463b1",
-      "home_team": "Paris Saint Germain",
-      "away_team": "Lyon",
-      "kickoff_utc": "2026-10-26T19:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 6,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 32,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
+      "fixture_id": "fdorg:559644",
+      "event_id": null,
+      "home_team": "Le Havre AC",
+      "away_team": "Paris Saint-Germain FC",
+      "kickoff_utc": "2026-10-30T18:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "fdorg:559639",
+      "event_id": null,
+      "home_team": "Lille OSC",
+      "away_team": "Racing Club de Lens",
+      "kickoff_utc": "2026-10-30T20:05:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_in_window_linked_fixtures": 0,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 1,
+  "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE": 1
+    "NOT_ANCHORED_NO_PINNACLE": 2
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 1
+    "none": 2
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 1
+    "AVAILABLE": 2
   },
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
