@@ -17,9 +17,9 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 59 | 45-14 | 76.3% | +5.7% |
+| All selections | 60 | 46-14 | 76.7% | +6.5% |
 
-Unsettled / unverified entries: **14**.
+Unsettled / unverified entries: **13**.
 Whole-fixture 1X2 multiclass Brier (n=156): 0.5752
 
 ## First-prediction reference — historical comparison
@@ -53,7 +53,7 @@ Whole-fixture 1X2 multiclass Brier (n=156): 0.5752
 | 2026-10-23T16:24:03.614429+00:00 | 0 | 0-0 | — | — |
 | 2026-10-24T14:22:17.608235+00:00 | 2 | 2-0 | 100.0% | +81.0% |
 | 2026-10-24T14:27:12.490111+00:00 | 1 | 0-1 | 0.0% | -100.0% |
-| 2026-10-25T10:24:47.847996+00:00 | 11 | 8-3 | 72.7% | -0.6% |
+| 2026-10-25T10:24:47.847996+00:00 | 12 | 9-3 | 75.0% | +3.8% |
 | 2026-10-26T11:01:43.961218+00:00 | 0 | 0-0 | — | — |
 | 2026-10-26T11:45:55.025240+00:00 | 0 | 0-0 | — | — |
 
@@ -62,7 +62,7 @@ Whole-fixture 1X2 multiclass Brier (n=156): 0.5752
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | PROVISIONAL | 27 | 18-9 | 66.7% | -10.7% |
-| STRICT | 32 | 27-5 | 84.4% | +19.5% |
+| STRICT | 33 | 28-5 | 84.8% | +20.5% |
 
 ## By policy
 
@@ -71,7 +71,7 @@ Whole-fixture 1X2 multiclass Brier (n=156): 0.5752
 | 48h-top-ten-probability-ev-no-under35-v14 | 8 | 6-2 | 75.0% | +0.6% |
 | 48h-top-twelve-probability-ev-no-under35-v15 | 11 | 7-4 | 63.6% | -12.5% |
 | 48h-top-twelve-profitable-win-probability-v23 | 0 | 0-0 | — | — |
-| 48h-two-per-market-group-probability-ev-corners-cards-v25 | 11 | 8-3 | 72.7% | -0.6% |
+| 48h-two-per-market-group-probability-ev-corners-cards-v25 | 12 | 9-3 | 75.0% | +3.8% |
 | 48h-two-per-market-group-probability-ev-v24 | 3 | 2-1 | 66.7% | +20.7% |
 | 48h-zero-tolerance-ev05-no-loss75-corners-v26 | 0 | 0-0 | — | — |
 | 48h-zero-tolerance-ev1-common-no-loss75-v22 | 7 | 7-0 | 100.0% | +33.9% |
@@ -144,7 +144,7 @@ Whole-fixture 1X2 multiclass Brier (n=156): 0.5752
 | Corners Over 7.5 | 0 | 0-0 | — | — |
 | Corners Over 8.5 | 0 | 0-0 | — | — |
 | Corners Over 9.5 | 0 | 0-0 | — | — |
-| Corners Under 10.5 | 0 | 0-0 | — | — |
+| Corners Under 10.5 | 1 | 1-0 | 100.0% | +53.0% |
 | Corners Under 11.5 | 0 | 0-0 | — | — |
 | Corners Under 12.5 | 0 | 0-0 | — | — |
 | Corners Under 7.5 | 0 | 0-0 | — | — |
@@ -168,7 +168,7 @@ Whole-fixture 1X2 multiclass Brier (n=156): 0.5752
 | Ligue 1 | 5 | 3-2 | 60.0% | -18.4% |
 | Premier League | 10 | 6-4 | 60.0% | -9.1% |
 | Primeira Liga | 1 | 1-0 | 100.0% | +109.0% |
-| Serie A | 11 | 7-4 | 63.6% | -13.5% |
+| Serie A | 12 | 8-4 | 66.7% | -7.9% |
 | UEFA Champions League | 12 | 10-2 | 83.3% | +16.8% |
 
 ## Gameweeks
@@ -177,7 +177,7 @@ Whole-fixture 1X2 multiclass Brier (n=156): 0.5752
 |---|---:|---:|---:|---:|
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
 | 2026-W42 | 22 | 19-3 | 86.4% | +19.5% |
-| 2026-W43 | 33 | 24-9 | 72.7% | +1.6% |
+| 2026-W43 | 34 | 25-9 | 73.5% | +3.1% |
 | 2026-W44 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
@@ -187,7 +187,7 @@ Whole-fixture 1X2 multiclass Brier (n=156): 0.5752
 | 0%–50% | 5 | 44.7% | 40.0% | 0.2733 |
 | 50%–60% | 2 | 56.7% | 50.0% | 0.2721 |
 | 60%–70% | 9 | 64.4% | 55.6% | 0.2389 |
-| 70%–80% | 20 | 76.2% | 80.0% | 0.1597 |
+| 70%–80% | 21 | 76.1% | 81.0% | 0.1555 |
 | 80%–90% | 19 | 84.0% | 89.5% | 0.0969 |
 | 90%–100% | 4 | 92.8% | 100.0% | 0.0053 |
 
@@ -210,15 +210,15 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-10-25 | 1595 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-10-25 | 1980 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Eredivisie | 2026-10-18 | 1611 | 8 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-25 | 1998 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-25 | 1751 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| PrimeiraLiga | 2026-10-19 | 1602 | 7 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-25 | 1980 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-10-21 | 557 | 5 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
-| UEL | 2026-10-22 | 714 | 4 | VERIFIED_WITHIN_24_HOURS |
+| Bundesliga | 2026-10-25 | 1595 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-10-25 | 1980 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Eredivisie | 2026-10-18 | 1611 | 9 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-25 | 1998 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-25 | 1751 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| PrimeiraLiga | 2026-10-19 | 1602 | 8 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-25 | 1980 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| UCL | 2026-10-21 | 557 | 6 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UEL | 2026-10-22 | 714 | 5 | VERIFIED_WITHIN_24_HOURS |
 
 Latest shortlist audit: {"selected_quotes": 1, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 1, "bookmakers": {"Pinnacle": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 1, "upcoming_kickoff_count": 0, "unknown_kickoff_count": 0}.
 
@@ -247,7 +247,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 61fd07517a6d | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | be93fe1f5e1c | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 
