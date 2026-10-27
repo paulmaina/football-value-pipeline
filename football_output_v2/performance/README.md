@@ -212,21 +212,21 @@ A missing, ambiguous or unverified result is **never called a win**.
 |---|---|---:|---:|---|
 | Bundesliga | 2026-10-25 | 1595 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | EPL | 2026-10-25 | 1980 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Eredivisie | 2026-10-18 | 1611 | 9 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-25 | 1998 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-25 | 1751 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| PrimeiraLiga | 2026-10-19 | 1602 | 8 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Eredivisie | 2026-10-25 | 1620 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-26 | 1999 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-26 | 1752 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| PrimeiraLiga | 2026-10-26 | 1611 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SerieA | 2026-10-25 | 1980 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SuperLig | 2026-10-26 | 1831 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-21 | 557 | 6 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-10-22 | 714 | 5 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 1, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 1, "bookmakers": {"Pinnacle": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 1, "upcoming_kickoff_count": 0, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 0, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 0, "bookmakers": {}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 0, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| b4dfb7c51677 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 67fd2fe2099c | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 4827bd2b8014 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | f7295b8c0c24 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
@@ -246,6 +246,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | b5f46a88705f | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 61fd07517a6d | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | be93fe1f5e1c | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| 026e1ab4c40e | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
