@@ -942,6 +942,22 @@ class TheOddsAPI:
         }
 
     @staticmethod
+    def _reference_quote(quotes, pinnacle_titles, clock):
+        """De-vig reference among complete (and, live, already fresh) books:
+        Pinnacle when it quotes, otherwise the lowest overround. Ties go to the
+        newest update, then the name, so the choice is deterministic. Recency
+        alone never selects the reference."""
+        from quote_freshness import quote_utc
+        if not quotes:
+            return None
+        candidates = [q for q in quotes if q[1] in pinnacle_titles] or list(quotes)
+        overround = lambda q: round(sum(1.0 / float(p) for p in q[2:]), 12)
+        lowest = min(overround(q) for q in candidates)
+        tied = [q for q in candidates if overround(q) == lowest]
+        newest = (lambda q: quote_utc(q[0])) if clock is not None else (lambda q: str(q[0]))
+        return max(tied, key=lambda q: (newest(q), q[1]))
+
+    @staticmethod
     def flatten_odds_event(event: Mapping[str, object], *, as_of=None) -> Dict[str, object]:
         """Flatten complete books; live callers filter timing before ranking.
 
@@ -963,6 +979,7 @@ class TheOddsAPI:
         all_updates: List[str] = []
         pinnacle_totals = None
         pinnacle_lines = None
+        pinnacle_titles = set()
 
         def update_best(
             current,
@@ -988,6 +1005,8 @@ class TheOddsAPI:
             if not isinstance(bookmaker, dict):
                 continue
             book_name = str(bookmaker.get("title") or bookmaker.get("key") or "unknown")
+            if str(bookmaker.get("key", "")).lower() == "pinnacle":
+                pinnacle_titles.add(book_name)
 
             h2h = TheOddsAPI._market(bookmaker, "h2h")
             if h2h and clock is not None and not quote_is_fresh(TheOddsAPI._last_update(bookmaker, h2h), clock):
@@ -1098,9 +1117,8 @@ class TheOddsAPI:
                         all_updates.append(updated)
 
         from quote_policy import usable_bookmaker, bookmaker_priority
-        reference_order = lambda x: quote_utc(x[0]) if clock is not None else x[0]
-        ref_h2h = max(complete_h2h, key=reference_order, default=None)
-        ref_ou = max(complete_ou, key=reference_order, default=None)
+        ref_h2h = TheOddsAPI._reference_quote(complete_h2h, pinnacle_titles, clock)
+        ref_ou = TheOddsAPI._reference_quote(complete_ou, pinnacle_titles, clock)
 
         return {
             "fixture_id": event_id,
