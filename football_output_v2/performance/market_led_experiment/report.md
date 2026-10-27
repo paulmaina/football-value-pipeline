@@ -2,17 +2,17 @@
 
 Paper results at feed odds, not realized returns. Costs are user-configured per stake. Late reference proxy uses only archived quotes 20–60 minutes before kickoff; not actual closing odds. No automatic collection at close or promotion.
 
-Selected: 0; graded: 0; paired forecast samples: 46.
+Selected: 0; graded: 0; paired forecast samples: 68.
 
 Paper ROI after configured costs: None
 
 | Market | Variant | N | Brier | Log loss | Mean probability | Event rate |
 |---|---|---:|---:|---:|---:|---:|
-| draw_away | baseline | 23 | 0.1977 | 0.5717 | 60.6% | 60.9% |
-| draw_away | market | 23 | 0.2003 | 0.5676 | 61.7% | 60.9% |
-| draw_away | raw | 23 | 0.2103 | 0.6178 | 59.5% | 60.9% |
-| home_draw | baseline | 23 | 0.2471 | 0.7302 | 58.6% | 52.2% |
-| home_draw | market | 23 | 0.2318 | 0.6917 | 58.1% | 52.2% |
-| home_draw | raw | 23 | 0.2791 | 0.8252 | 59.7% | 52.2% |
+| draw_away | baseline | 34 | 0.1977 | 0.5734 | 59.9% | 58.8% |
+| draw_away | market | 34 | 0.1886 | 0.5451 | 60.9% | 58.8% |
+| draw_away | raw | 34 | 0.2290 | 0.6541 | 59.0% | 58.8% |
+| home_draw | baseline | 34 | 0.2305 | 0.6821 | 60.1% | 55.9% |
+| home_draw | market | 34 | 0.2171 | 0.6445 | 59.3% | 55.9% |
+| home_draw | raw | 34 | 0.2654 | 0.7743 | 61.5% | 55.9% |
 
 Decision: inconclusive; no automatic promotion.

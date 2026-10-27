@@ -10192,13 +10192,13 @@
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 319,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
+        "reviewed_at_utc": "2026-10-27T09:25:51.470413+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
       "dependencies": {
-        "PyYAML": "NOT_INSTALLED",
-        "coverage": "NOT_INSTALLED",
+        "PyYAML": "6.0.3",
+        "coverage": "7.17.0",
         "numpy": "2.5.4",
         "pandas": "3.1.0",
         "python": "3.12.15",
@@ -10211,7 +10211,7 @@
         "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
         "graded_selections": 60,
         "model_improvement_established": false,
-        "prediction_fixtures_graded": 156
+        "prediction_fixtures_graded": 167
       },
       "execution_policy": {
         "account_availability": "USER_ALLOWLIST",
@@ -10250,7 +10250,7 @@
         "totals_anchor_experiment:LEGACY_NOT_RECORDED": 21
       },
       "forecast_freshness": {
-        "age_hours": 17.574262072499998,
+        "age_hours": 21.66567921472222,
         "generated_at_utc": "2026-10-26T11:45:55.025240+00:00",
         "status": "WITHIN_24_HOURS",
         "upcoming_fixture_count": 0
@@ -10279,7 +10279,7 @@
             "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
             "report": "goal_blend_experiment/report.md",
             "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-            "settled_evidence": 78,
+            "settled_evidence": 111,
             "status": "COLLECT_MORE_DATA"
           },
           {
@@ -10290,7 +10290,7 @@
             "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
             "report": "market_led_experiment/report.md",
             "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-            "settled_evidence": 46,
+            "settled_evidence": 68,
             "status": "COLLECT_MORE_DATA"
           },
           {
@@ -10381,10 +10381,10 @@
           }
         ],
         "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
+        "reviewed_at_utc": "2026-10-27T09:25:51.470413+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-10-27T05:20:22.368701+00:00",
+      "reviewed_at_utc": "2026-10-27T09:25:51.470413+00:00",
       "selection_policy_groups": {
         "48h-top-ten-probability-ev-no-under35-v14": {
           "brier": 0.178674,
@@ -11130,7 +11130,7 @@
             "completed_matches": 54,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.004354148055555555,
+            "download_age_hours": 4.095771290277778,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-21",
             "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -11192,7 +11192,7 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-10-27T05:20:22.368701+00:00"
+            "verified_at_utc": "2026-10-27T09:25:51.470413+00:00"
           },
           "days_since_latest_result": 5,
           "diagnostics_sha256": "8ae7866f1810fb246df28047c7750da4b0f72f725eb3fd8b952b522d504445ef",

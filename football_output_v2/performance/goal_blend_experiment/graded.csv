@@ -254,6 +254,36 @@ UEFA Europa League,Dinamo Zagreb,NEC Nijmegen,2026-10-22T16:45:00+00:00,btts_yes
 UEFA Europa League,Dinamo Zagreb,NEC Nijmegen,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.5598247562358243,1,0.1937542452228515
 UEFA Europa League,Dinamo Zagreb,NEC Nijmegen,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.578679324698447,1,0.17751111143655668
 UEFA Europa League,Dinamo Zagreb,NEC Nijmegen,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.5687155072902891,1,0.1860063136518727
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.7770598560322428,1,0.0497023077923643
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.7955667436446541,1,0.04179295630405058
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.8140736312570653,1,0.03456861459393371
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.8510874064818877,1,0.022174960508290528
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.7765958753398883,1,0.04990940291515074
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.6731600363553083,0,0.45314443454588
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.6518899109944142,0,0.4249604560563052
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.6306197856335201,0,0.3976813140324668
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5880795349117318,0,0.3458375393819988
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.67289215985407,0,0.4527838587930753
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.5772216476848495,0,0.33318483055601256
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.5704761232590321,0,0.3254430072086544
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.5637305988332145,0,0.31779218806085463
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5502395499815795,0,0.30276356236393115
+UEFA Europa League,FC Ararat-Armenia,AZ Alkmaar,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.5675429612264352,0,0.32210501283767096
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.9600172792489371,1,0.0015986179586574762
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.9287389832293902,1,0.005078132511181132
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.8974606872098432,1,0.010514310667477619
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.8349040951707493,1,0.027256657791389017
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.9563455738587107,1,0.0019057089217252858
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.2547761180100694,0,0.0649108703082808
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.34579351760485644,0,0.11957315681754016
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.43681091719964354,0,0.19080377738479384
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.6188457163892177,0,0.38297002069328406
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.2652491904117915,0,0.07035713301411083
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.8373141909160664,1,0.02646667247729409
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.7441642881634569,1,0.06545191145091071
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.6510143854108472,1,0.12179095919016869
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.46471457990562814,1,0.2865304809656082
+UEFA Europa League,Ferencváros TC,Torreense,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.8411844087093339,1,0.02522239203700391
 UEFA Europa League,Juventus,Rennes,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.7044295127818381,1,0.08736191291438163
 UEFA Europa League,Juventus,Rennes,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.7348012061647691,1,0.07033040025166132
 UEFA Europa League,Juventus,Rennes,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.7651728995477001,1,0.055143767106834565
@@ -299,6 +329,51 @@ UEFA Europa League,OFI Crete,Bayer Leverkusen,2026-10-22T16:45:00+00:00,btts_yes
 UEFA Europa League,OFI Crete,Bayer Leverkusen,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.48272823991809244,0,0.2330265536144194
 UEFA Europa League,OFI Crete,Bayer Leverkusen,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5246613105467786,0,0.27526949078466323
 UEFA Europa League,OFI Crete,Bayer Leverkusen,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.41730974058240555,0,0.1741474195849546
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.8085541921979303,0,0.6537598817208476
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.8115064597626762,0,0.6585427342365521
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.8144587273274222,0,0.6633430185198043
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.8203632624569139,0,0.6729958823889515
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.8021489581757126,0,0.6434429511023811
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.6271659085282877,1,0.13900525976353714
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.6297550891404513,1,0.13708129401739516
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.632344269752615,1,0.13517073598373788
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.6375226309769424,1,0.13138984305387788
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.63508520522267,1,0.13316280744738088
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.5999073007913237,0,0.35988876954273175
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.6009530517871141,0,0.36114457045224585
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.6019988027829046,0,0.3624025585520505
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.6040903047744856,0,0.36492509632253084
+UEFA Europa League,SK Sturm Graz,Marseille,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.606386993522377,0,0.3677051859131073
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.6930161610147909,1,0.09423907739809678
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.7306844232895259,1,0.07253087985889527
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.7683526855642608,1,0.053660478285290206
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.8436892101137309,1,0.024433063034869373
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.701814750297003,1,0.08891444314043866
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.7718226833375641,0,0.5957102545143977
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.7282634993346108,0,0.5303677244630927
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.6847043153316574,0,0.46881999943379377
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5975859473257508,0,0.357108964441215
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.7650058338844044,0,0.5852339258771728
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.4304714477926696,0,0.18530566736471707
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.453019955311522,0,0.20522707991045339
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.47556846283037446,0,0.22616536283884525
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5206654778680793,0,0.2710925398435953
+UEFA Europa League,Union Saint-Gilloise,Hapoel Be'er Sheva,2026-10-22T16:45:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.4191565016241665,0,0.1756921728538099
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.8607258944949835,1,0.01939727646422247
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.8602001126703581,1,0.019544008497380565
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.8596743308457327,1,0.01969129342359287
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.858622767196482,1,0.019987521955180124
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.8612762562414162,1,0.019244277082397208
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.5341500541930618,0,0.2853162803944509
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.5454840007291317,0,0.2975527950514594
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.5568179472652016,0,0.3100462263966329
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5794858403373414,0,0.3358038391514747
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.5338468660226483,0,0.28499247636220343
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.6793196648278513,1,0.10283587736612161
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.6776855966638196,1,0.10388657459795801
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.6760515284997879,1,0.10494261218732373
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.6727833921717244,1,0.10707070843864348
+UEFA Europa League,Besiktas JK,Crystal Palace,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.6833773671648252,1,0.1002498916234779
 UEFA Europa League,Bournemouth,AC Milan,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.8985078548525656,1,0.010300655526627898
 UEFA Europa League,Bournemouth,AC Milan,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.873313784902607,1,0.016049397095702918
 UEFA Europa League,Bournemouth,AC Milan,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.8481197149526485,1,0.023067620986064748
@@ -329,6 +404,21 @@ UEFA Europa League,Celtic,Celta Vigo,2026-10-22T19:00:00+00:00,btts_yes,93aabf61
 UEFA Europa League,Celtic,Celta Vigo,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.6660740837607666,1,0.11150651753621152
 UEFA Europa League,Celtic,Celta Vigo,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.6236361986747072,1,0.14164971094802448
 UEFA Europa League,Celtic,Celta Vigo,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.7171069647572642,1,0.08002846938884775
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.7689266117947169,1,0.05339491073666947
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.7755552055404746,1,0.05037546575997859
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.7821837992862322,1,0.047443897293380395
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.7954409867777475,1,0.04184438989046165
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.7597510179615347,1,0.05771957337051884
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.6845669149811727,1,0.09949803112449472
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.6826663054515371,1,0.10070067369577718
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.6807656959219014,1,0.10191054090022793
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.6769644768626301,1,0.10435194920863428
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.6940208916371204,1,0.09362321475454279
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.5404798914430505,0,0.2921185130542917
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.5542986792644725,0,0.30724702583433855
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.5681174670858945,0,0.32275745640809245
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5957550427287385,0,0.354924070936721
+UEFA Europa League,Jagiellonia Białystok,Anderlecht,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.548582502057712,0,0.30094276156389954
 UEFA Europa League,Lillestrom,Real Sociedad,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.47398470505163204,1,0.2766920905196185
 UEFA Europa League,Lillestrom,Real Sociedad,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.568260380409196,1,0.18639909912441213
 UEFA Europa League,Lillestrom,Real Sociedad,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.6625360557667599,1,0.1138819136574554
@@ -344,6 +434,81 @@ UEFA Europa League,Lillestrom,Real Sociedad,2026-10-22T19:00:00+00:00,btts_yes,9
 UEFA Europa League,Lillestrom,Real Sociedad,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.43789514241457506,0,0.19175215575028098
 UEFA Europa League,Lillestrom,Real Sociedad,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5806382683551867,0,0.3371407986785098
 UEFA Europa League,Lillestrom,Real Sociedad,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.27898495060622797,0,0.07783260266475946
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.745795616322955,1,0.0646198686806263
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.766247092860722,1,0.054640421596063915
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.786698569398489,1,0.0454975002966512
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.8276015224740231,1,0.02972123505327477
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.7225211004944981,1,0.0769945396707844
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.7139684968243084,0,0.5097510144575624
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.6912550310312201,0,0.47783351792597306
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.6685415652381318,0,0.44694782445105125
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.6231146336519552,0,0.38827184667121034
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.7342998757514083,0,0.5391963075285336
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.505903251719153,1,0.24413159666170672
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.5179486783673002,1,0.2323734766878326
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.5299941050154473,1,0.22090554132023038
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5540849583117418,1,0.19884022440384108
+UEFA Europa League,NK Celje,Salzburg,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.5082320555902431,1,0.24183571114899777
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.6042413378580708,0,0.36510759437651125
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.6504953020451164,0,0.42314413798276723
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.696749266232162,0,0.4854595399950562
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.7892571946062533,0,0.6229269192377332
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.6113285401775221,0,0.3737225840355803
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.8455173570913455,1,0.023864886960042873
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.8049247007299933,1,0.03805437238528266
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.7643320443686412,1,0.055539385311464094
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.683146731645937,1,0.10039599366665188
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.8413912797301186,1,0.02515672614564948
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.39998070916011097,0,0.1599845677002253
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.4253291586647453,0,0.18090489321046008
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.45067760816937963,0,0.20311030650527287
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5013745071786483,0,0.25137639644863247
+UEFA Europa League,Olympiakos Piraeus,Sparta Prague,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.38821721453125935,0,0.15071260565840985
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.6084130992567868,1,0.15334030083367514
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.6672321269710227,1,0.11073445732022953
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.7260511546852588,1,0.07504796984927999
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.8436892101137309,1,0.024433063034869373
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.6221997576900414,1,0.1427330230894634
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.8433348211031539,0,0.7112136204850886
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.7827279219627918,0,0.6126629998201903
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.7221210228224297,0,0.5214587716021121
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.6009072245417056,0,0.36108949250641587
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.8358580178065041,0,0.6986586259314183
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.33988769018751014,1,0.4357482615659807
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.38333307549813034,1,0.3802780957745946
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.4267784608087505,1,0.3285829329927852
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5136692314299909,1,0.23651761645789576
+UEFA Europa League,Omonoia FC,Benfica,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.32617817076801203,1,0.45403585754954234
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.7405763491171506,1,0.0673006306373865
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.7703770682019173,1,0.05272669080754693
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.800177787286684,1,0.03992891669364571
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.8597792254562173,1,0.019661865613658333
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.73318412027301,1,0.07119071367448757
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.7199028614187184,1,0.07845440704142168
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.6818284409681471,1,0.10123314097675985
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.6437540205175758,1,0.1269111978973918
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5676051796164333,1,0.1869652806945369
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.7263320553282779,1,0.07489414394084473
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.5199408753750446,0,0.2703385138857677
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.559505617541081,0,0.31304653606002636
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.5990703597071172,0,0.35888529587961476
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.6781998440391898,0,0.4599550284547813
+UEFA Europa League,TSG Hoffenheim,Lyon,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.5196777317499622,0,0.27006494487678573
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.6326499383222178,1,0.13494606781467036
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.6736378747687323,1,0.10651223678546969
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.7146258112152468,1,0.08143842762455594
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.7966016841082758,1,0.04137087490758962
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,over_1_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.6367388547308984,1,0.1319586596622193
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.8244615006882641,1,0.030813764740616315
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.7875872447318556,1,0.04511917860060461
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.7507129887754471,1,0.062144013965270355
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.6769644768626301,1,0.10435194920863428
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,under_3_5,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.8218426750313413,1,0.03174003243998825
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,raw,0.4121235638293371,1,0.34559870420471944
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book25,0.44638454884323275,1,0.30649006775951093
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,book50,0.4806455338571285,1,0.26972906150254705
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,bookmaker,0.5491675038849199,1,0.20324993955335374
+UEFA Europa League,Viktoria Plzeň,PFC Levski Sofia,2026-10-22T19:00:00+00:00,btts_yes,93aabf61cc3a55fc007e1e56dcfc8baa6ebe3dd6,baseline,0.4060306454894274,1,0.35279959409770634
 Eredivisie,Fortuna Sittard,Excelsior,2026-10-25T11:15:00+00:00,over_1_5,007f589ff28970f5c6dcc58af5d09a89aaf2fb4a,raw,0.8184312328830525,0,0.6698296829584733
 Eredivisie,Fortuna Sittard,Excelsior,2026-10-25T11:15:00+00:00,over_1_5,007f589ff28970f5c6dcc58af5d09a89aaf2fb4a,book25,0.8200184446252351,0,0.6724302495255897
 Eredivisie,Fortuna Sittard,Excelsior,2026-10-25T11:15:00+00:00,over_1_5,007f589ff28970f5c6dcc58af5d09a89aaf2fb4a,book50,0.8216056563674179,0,0.6750358545749355
