@@ -125,7 +125,9 @@ class FreshnessTests(OfflineQuotePolicyTestCase):
         new = book('Book B', NOW.isoformat())
         response = payload([old, new])
         flat = TheOddsAPI.flatten_odds_event(response, as_of=NOW)
-        self.assertEqual(flat['live_ref_1x2_bookmaker'], 'Book B')
+        # The lower-margin 1X2 book is the reference however old (but fresh) it is;
+        # equal-margin O/U books fall back to the newest UTC update.
+        self.assertEqual(flat['live_ref_1x2_bookmaker'], 'Book A')
         self.assertEqual(flat['live_ref_ou25_bookmaker'], 'Book B')
         self.assertEqual(extra(response)['market_reference_btts_yes_last_update_utc'], NOW.isoformat())
         # Repeated display names must not relabel an older selected price as new.

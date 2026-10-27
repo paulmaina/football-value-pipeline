@@ -54,6 +54,7 @@ class CoverageTests(OfflineQuotePolicyTestCase):
             pipeline.odds_api.extra_markets_for_event.side_effect = [
                 {}, RuntimeError('provider failed')] + [quote] * 16
         model = SimpleNamespace(training_matches=100, training_end=None, fit_result=None,
+            resolve_team=lambda name: (name, 100.0),
             base=0, home_adv=0, rho=0, half_life_days=365, max_goals=10)
         with patch('football_value_pipeline_v2_standalone.DixonColesModel') as model_class:
             model_class.return_value.fit.return_value = model
