@@ -1,11 +1,11 @@
 # Conservative shortlisted matches and markets
 
 
-**Candidates:** 1 of target 12 distinct matches.
-**Strictly qualified:** 1. **Provisional watchlist:** 0.
-**Pipeline status:** BELOW_TARGET.
-**Generated (UTC):** 2026-10-26T11:45:55.025240+00:00.
-**UNPROVEN EDGE (Corners):** validated on probability accuracy only; no historical corner or card odds exist, so profitability is untested. 0 of 1 selections.
+**Candidates:** 0 of target 12 distinct matches.
+**Strictly qualified:** 0. **Provisional watchlist:** 0.
+**Pipeline status:** NO BET.
+**Generated (UTC):** 2026-10-27T11:35:10.735016+00:00.
+**UNPROVEN EDGE (Corners):** validated on probability accuracy only; no historical corner or card odds exist, so profitability is untested. 0 of 0 selections.
 **Kickoffs within next 48 hours of run:** Not available.
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. The shortlist is not an accumulator recommendation.
@@ -17,17 +17,13 @@
 **Shortlist policy:** require adjusted estimated EV >= 0.5% and unblended EV >= 0. For each match, admit candidates within 0.0% of its lowest eligible estimated loss risk; rank highest adjusted EV, unblended EV, then full-refund probability. The risk tolerance is a provisional policy setting, not empirically tuned.
 **Probability meaning:** Asian model chance includes refunds. Half-losses lose money. Estimates do not guarantee outcomes. Pinnacle/bet365 take priority, with 1xBet as an exact-line fallback.
 
-| Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons | Unblended estimated EV | Any loss chance | Conservative loss estimate | Full refund chance | Probability meaning |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Santa Clara vs Benfica | Asian Handicap Home +2.00 | STRICT | 2026-10-26T18:45:00+00:00 | 83.0% | 79.9% | Pinnacle | 1.46 | +6.9% | — | +16.6% | 17.0% | 20.1% | 21.3% | net_no_loss |
+_No qualifying matches were shortlisted. No bet is a valid outcome._
 
 ## Qualifying alternatives for comparison
 
 Prefer another market type when one qualifies; otherwise show another qualifying line. Alternatives meet the eligibility checks, including adjusted EV >= 1% and unblended EV >= 0. Their risk band is ranked separately; an alternative outside the selected risk band is explicitly marked. Risk increase is measured in percentage points against the selected pick. These are comparisons, not additional selections. Double Chance 1X/X2 and Asian +0.5 cover the same outcomes; different market names do not guarantee diversification.
 
-| Match | Shortlisted market | Alternative market | Alternative bookmaker | Alternative odds | Alternative conservative loss estimate | Alternative refund chance | Alternative adjusted EV | Alternative unblended EV | Alternative risk increase | Alternative comparison |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Santa Clara vs Benfica | Asian Handicap Home +2.00 | Asian Handicap Home +2.25 | Pinnacle | 1.37 | 20.1% | 0.0% | +5.5% | +13.9% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
+_No data available._
 
 ## Interpretation
 

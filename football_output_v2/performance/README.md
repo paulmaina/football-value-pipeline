@@ -227,7 +227,6 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| 67fd2fe2099c | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 4827bd2b8014 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | f7295b8c0c24 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | ca1e126489f9 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
@@ -247,6 +246,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 61fd07517a6d | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | be93fe1f5e1c | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 026e1ab4c40e | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| d414de1a572b | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 

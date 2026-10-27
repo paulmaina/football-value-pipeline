@@ -2,7 +2,7 @@
   "automatic_promotion": false,
   "experiments": [
     {
-      "collection_days": 13,
+      "collection_days": 14,
       "key": "goal_blend_experiment",
       "name": "goal_blend_experiment",
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
@@ -12,7 +12,7 @@
       "status": "COLLECT_MORE_DATA"
     },
     {
-      "collection_days": 13,
+      "collection_days": 14,
       "graded_paper_bets": 0,
       "key": "market_led_experiment",
       "name": "market_led_experiment",
@@ -110,6 +110,6 @@
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-27T09:58:39.525824+00:00",
+  "reviewed_at_utc": "2026-10-27T11:35:27.251567+00:00",
   "version": "experiment-review-queue-v1"
 }
