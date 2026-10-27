@@ -1943,7 +1943,7 @@ class DixonColesModel:
         ):
             raise RuntimeError("Model is not fitted")
 
-    def resolve_team(self, raw_name: str, min_score: float = 72.0) -> Tuple[Optional[str], float]:
+    def resolve_team(self, raw_name: str, min_score: float = 90.0) -> Tuple[Optional[str], float]:
         """Resolve source name to training name. Returns (team, confidence_score)."""
         self._check_fitted()
 
@@ -2006,8 +2006,8 @@ class DixonColesModel:
         away, away_match_score = self.resolve_team(away_raw)
 
         # Unknown teams fall back to league-average strength (0 attack/weakness).
-        # This avoids hard failure in early-season/promoted-team edge cases,
-        # while explicitly lowering matching confidence in output.
+        # Only historical evaluation reaches this (a promoted team's first
+        # test-fold match); run_league excludes such fixtures before predicting.
         if home is None:
             h_attack = 0.0
             h_weak = 0.0
@@ -3057,6 +3057,38 @@ class FootballValuePipelineV2(FootballValuePipeline):
             )
         return fixtures.loc[keep].reset_index(drop=True), started
 
+    @staticmethod
+    def _drop_unresolved_fixtures(
+        model: DixonColesModel,
+        fixtures: pd.DataFrame,
+        league: LeagueConfig,
+    ) -> Tuple[pd.DataFrame, List[Dict[str, object]]]:
+        """Fail closed on team identity: a fixture with a team that does not
+        resolve to a training name (score >= 90) is excluded, never priced
+        with league-average ratings."""
+        if fixtures.empty:
+            return fixtures, []
+        keep: List[bool] = []
+        unresolved: List[Dict[str, object]] = []
+        for _, row in fixtures.iterrows():
+            names = {side: model.resolve_team(str(row[field]))
+                     for side, field in (("home", "HomeTeam"), ("away", "AwayTeam"))}
+            missing = [side for side, (team, _) in names.items() if team is None]
+            keep.append(not missing)
+            if missing:
+                unresolved.append({"home_team": str(row["HomeTeam"]), "away_team": str(row["AwayTeam"]),
+                                   "kickoff_utc": row.get("kickoff_utc"), "unresolved": missing,
+                                   **{f"{side}_best_score": score for side, (_, score) in names.items()}})
+        if unresolved:
+            warnings.warn(
+                f"[{league.key}] excluded {len(unresolved)} fixture(s) with a team that has no "
+                "training match at score >= 90 (no league-average fallback): "
+                + "; ".join(f"{x['home_team']} v {x['away_team']} (unresolved: {', '.join(x['unresolved'])})"
+                            for x in unresolved),
+                RuntimeWarning,
+            )
+        return fixtures.loc[keep].reset_index(drop=True), unresolved
+
     LEGACY_COLUMNS = ('p_home', 'p_draw', 'p_away', 'p_over_1_5', 'p_under_3_5', 'p_btts_yes',
                       'p_over_2_5', 'goal_margin_distribution', 'market_blend_applied',
                       'raw_p_home', 'raw_p_draw', 'raw_p_away', 'market_weight',
@@ -3276,6 +3308,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
         fixtures = self._current_fixtures(league, now)
         fixtures = self._attach_live_odds(fixtures, league, now)
         fixtures, started = self._drop_started_fixtures(fixtures, league, now)
+        fixtures, unresolved = self._drop_unresolved_fixtures(model, fixtures, league)
 
         from goal_market_validation import training_fingerprint
         from bbs_integration import training_provenance
@@ -3320,6 +3353,7 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 fixtures.get("odds_source", pd.Series(dtype=object)).notna().sum()
             ),
             "excluded_started_fixtures": started,
+            "excluded_unresolved_team_fixtures": unresolved,
             "additional_event_odds_calls_used_before_this_league": self.extra_event_odds_requests,
             "additional_event_odds_calls_budget": (self.max_extra_event_odds_requests
                 if self.additional_odds_coverage == "ranked" else None),
