@@ -315,14 +315,24 @@ class CachedHttpClient:
         headers: Optional[Mapping[str, str]] = None,
         allow_stale: bool = True,
         validator=None,
+        stamped: bool = False,
+        request_key: Optional[Mapping[str, object]] = None,
     ) -> bytes:
-        """GET bytes with TTL caching. Secrets in params are never written to cache names/logs."""
+        """GET bytes with TTL caching. Secrets in params are never written to cache names/logs.
+
+        stamped=True (JSON only) stores the fetch time and request_key inside the
+        cached file and judges freshness from them alone. File mtimes are reset
+        by git checkout, so they cannot prove when a response was fetched.
+        """
         path = self.cache_dir / cache_name
 
         if path.exists() and not force_refresh:
-            age = datetime.now(timezone.utc).timestamp() - path.stat().st_mtime
-            if age <= ttl.total_seconds():
-                content = path.read_bytes()
+            if stamped:
+                content = self._fresh_stamped_payload(path, ttl, request_key)
+            else:
+                age = datetime.now(timezone.utc).timestamp() - path.stat().st_mtime
+                content = path.read_bytes() if age <= ttl.total_seconds() else None
+            if content is not None:
                 if validator is not None:
                     validator(content)
                 return content
@@ -345,9 +355,16 @@ class CachedHttpClient:
                 raise RuntimeError(f"Suspiciously small response from {url}")
             if validator is not None:
                 validator(content)
+            stored = content
+            if stamped:
+                stored = json.dumps({
+                    "fetched_at_utc": datetime.now(timezone.utc).isoformat(),
+                    "request": None if request_key is None else dict(request_key),
+                    "payload": json.loads(content.decode("utf-8-sig")),
+                }).encode("utf-8")
             with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as handle:
                 temporary = Path(handle.name)
-                handle.write(content)
+                handle.write(stored)
             try:
                 os.replace(temporary, path)
             finally:
@@ -360,10 +377,45 @@ class CachedHttpClient:
                     RuntimeWarning,
                 )
                 content = path.read_bytes()
+                if stamped:
+                    content = self._stamped_payload(content) or content
                 if validator is not None:
                     validator(content)
                 return content
             raise
+
+    @staticmethod
+    def _stamped_payload(content: bytes) -> Optional[bytes]:
+        try:
+            stored = json.loads(content.decode("utf-8-sig"))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            return None
+        if not isinstance(stored, dict) or "payload" not in stored:
+            return None
+        return json.dumps(stored["payload"]).encode("utf-8")
+
+    @staticmethod
+    def _fresh_stamped_payload(
+        path: Path, ttl: timedelta, request_key: Optional[Mapping[str, object]]
+    ) -> Optional[bytes]:
+        """Cached payload only if its recorded fetch time and request match; else None."""
+        try:
+            stored = json.loads(path.read_bytes().decode("utf-8-sig"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+            return None
+        if not isinstance(stored, dict) or "payload" not in stored:
+            return None
+        fetched = pd.to_datetime(stored.get("fetched_at_utc"), utc=True, errors="coerce")
+        if not isinstance(fetched, pd.Timestamp) or pd.isna(fetched):
+            return None
+        age = (pd.Timestamp.now(tz="UTC") - fetched).total_seconds()
+        # A fetch time in the future is not evidence of freshness.
+        if not -300 <= age <= ttl.total_seconds():
+            return None
+        expected = None if request_key is None else dict(request_key)
+        if stored.get("request") != expected:
+            return None
+        return json.dumps(stored["payload"]).encode("utf-8")
 
     def get_json(
         self,
@@ -374,6 +426,8 @@ class CachedHttpClient:
         params: Optional[Mapping[str, object]] = None,
         headers: Optional[Mapping[str, str]] = None,
         allow_stale: bool = True,
+        stamped: bool = False,
+        request_key: Optional[Mapping[str, object]] = None,
     ):
         content = self.get_bytes(
             url=url,
@@ -383,6 +437,8 @@ class CachedHttpClient:
             params=params,
             headers=headers,
             allow_stale=allow_stale,
+            stamped=stamped,
+            request_key=request_key,
         )
         try:
             return json.loads(content.decode("utf-8-sig"))
@@ -689,6 +745,9 @@ class TheOddsAPI:
             )
         original = dict(kwargs.pop("params", {}) or {})
         original.pop("apiKey", None)
+        # Odds caches are committed by hand and their mtimes reset on checkout;
+        # freshness comes only from the fetch time stored in the payload.
+        kwargs["stamped"] = True
         # Normal pipeline uses allow_stale=False for current odds;
         # never turn a quota error into a fabricated or stale live price.
         from odds_provider_health import OddsProviderError, http_details
@@ -777,6 +836,8 @@ class TheOddsAPI:
                 "commenceTimeTo": end,
             },
             allow_stale=False,
+            # A schedule fetched for another window is a different response.
+            request_key={"commenceTimeFrom": start, "commenceTimeTo": end},
         )
         if not isinstance(payload, list):
             raise RuntimeError("The Odds API events response was not a list")
@@ -881,6 +942,22 @@ class TheOddsAPI:
         }
 
     @staticmethod
+    def _reference_quote(quotes, pinnacle_titles, clock):
+        """De-vig reference among complete (and, live, already fresh) books:
+        Pinnacle when it quotes, otherwise the lowest overround. Ties go to the
+        newest update, then the name, so the choice is deterministic. Recency
+        alone never selects the reference."""
+        from quote_freshness import quote_utc
+        if not quotes:
+            return None
+        candidates = [q for q in quotes if q[1] in pinnacle_titles] or list(quotes)
+        overround = lambda q: round(sum(1.0 / float(p) for p in q[2:]), 12)
+        lowest = min(overround(q) for q in candidates)
+        tied = [q for q in candidates if overround(q) == lowest]
+        newest = (lambda q: quote_utc(q[0])) if clock is not None else (lambda q: str(q[0]))
+        return max(tied, key=lambda q: (newest(q), q[1]))
+
+    @staticmethod
     def flatten_odds_event(event: Mapping[str, object], *, as_of=None) -> Dict[str, object]:
         """Flatten complete books; live callers filter timing before ranking.
 
@@ -901,6 +978,8 @@ class TheOddsAPI:
         main_over15 = []
         all_updates: List[str] = []
         pinnacle_totals = None
+        pinnacle_lines = None
+        pinnacle_titles = set()
 
         def update_best(
             current,
@@ -926,6 +1005,8 @@ class TheOddsAPI:
             if not isinstance(bookmaker, dict):
                 continue
             book_name = str(bookmaker.get("title") or bookmaker.get("key") or "unknown")
+            if str(bookmaker.get("key", "")).lower() == "pinnacle":
+                pinnacle_titles.add(book_name)
 
             h2h = TheOddsAPI._market(bookmaker, "h2h")
             if h2h and clock is not None and not quote_is_fresh(TheOddsAPI._last_update(bookmaker, h2h), clock):
@@ -971,6 +1052,13 @@ class TheOddsAPI:
                         all_updates.append(updated)
 
             totals = TheOddsAPI._market(bookmaker, "totals")
+            if totals and str(bookmaker.get("key", "")).lower() == "pinnacle":
+                # Which main line Pinnacle quoted (fresh or not) explains a missing anchor.
+                outcomes = totals.get("outcomes")
+                pinnacle_lines = {
+                    "lines": sorted({p for o in (outcomes if isinstance(outcomes, list) else [])
+                                     if isinstance(o, dict) and (p := safe_float(o.get("point"))) is not None}),
+                    "updated_at_utc": TheOddsAPI._last_update(bookmaker, totals)}
             if totals and clock is not None and not quote_is_fresh(TheOddsAPI._last_update(bookmaker, totals), clock):
                 totals = None
             if totals:
@@ -1029,9 +1117,8 @@ class TheOddsAPI:
                         all_updates.append(updated)
 
         from quote_policy import usable_bookmaker, bookmaker_priority
-        reference_order = lambda x: quote_utc(x[0]) if clock is not None else x[0]
-        ref_h2h = max(complete_h2h, key=reference_order, default=None)
-        ref_ou = max(complete_ou, key=reference_order, default=None)
+        ref_h2h = TheOddsAPI._reference_quote(complete_h2h, pinnacle_titles, clock)
+        ref_ou = TheOddsAPI._reference_quote(complete_ou, pinnacle_titles, clock)
 
         return {
             "fixture_id": event_id,
@@ -1067,6 +1154,7 @@ class TheOddsAPI:
             "live_ref_under_2_5_odds": None if ref_ou is None else ref_ou[3],
             "live_ref_ou25_bookmaker": None if ref_ou is None else ref_ou[1],
             "shadow_pinnacle_totals": pinnacle_totals,
+            "pinnacle_totals_lines": pinnacle_lines,
             "_main_over_1_5_offers": main_over15,
             "asian_handicap_offers": json.dumps(parse_handicap_quotes(event, clock), sort_keys=True),
             # Same response, same capture instant; no extra request (live only).
@@ -1108,6 +1196,34 @@ class TheOddsAPI:
             if isinstance(event, dict) and event.get("id")
         ]
         return pd.DataFrame(rows)
+
+    @staticmethod
+    def _pinnacle_alternate_ou25(payload: Mapping[str, object]) -> Optional[Dict[str, object]]:
+        """Pinnacle's exact, complete 2.5 pair from alternate_totals, in the
+        same shape as the main-line shadow quote. Freshness is judged by the
+        anchor, so a stale quote is kept here and reported as stale there."""
+        books = payload.get("bookmakers")
+        for book in books if isinstance(books, list) else []:
+            if not isinstance(book, dict) or str(book.get("key", "")).lower() != "pinnacle":
+                continue
+            market = TheOddsAPI._market(book, "alternate_totals")
+            outcomes = market.get("outcomes") if market else None
+            pair: Dict[str, Optional[float]] = {}
+            duplicate = False
+            for outcome in outcomes if isinstance(outcomes, list) else []:
+                if not isinstance(outcome, dict) or safe_float(outcome.get("point")) != 2.5:
+                    continue
+                side = str(outcome.get("name") or "").strip().lower()
+                if side in ("over", "under"):
+                    duplicate |= side in pair
+                    pair[side] = _valid_price(outcome.get("price"))
+            if duplicate or set(pair) != {"over", "under"} or None in pair.values():
+                return None
+            return {"updated_at_utc": TheOddsAPI._last_update(book, market),
+                    "over": pair["over"], "under": pair["under"], "bookmaker": "pinnacle",
+                    "event_id": str(payload.get("id")), "kickoff_utc": payload.get("commence_time"),
+                    "home_team": payload.get("home_team"), "away_team": payload.get("away_team")}
+        return None
 
     def extra_markets_for_event(
         self, league: LeagueConfig, event_id: str, *, main_over_1_5_offers=None
@@ -1211,6 +1327,9 @@ class TheOddsAPI:
 
         from double_chance import parse_quotes
         result: Dict[str, object] = parse_quotes(payload, as_of=clock)
+        pinnacle_alternate = self._pinnacle_alternate_ou25(payload)
+        if pinnacle_alternate is not None:
+            result['pinnacle_alternate_ou25'] = pinnacle_alternate
         from asian_handicap import parse_quotes as parse_handicaps
         asian_offers = parse_handicaps(payload, clock)
         if asian_offers:
@@ -1842,7 +1961,7 @@ class DixonColesModel:
         ):
             raise RuntimeError("Model is not fitted")
 
-    def resolve_team(self, raw_name: str, min_score: float = 72.0) -> Tuple[Optional[str], float]:
+    def resolve_team(self, raw_name: str, min_score: float = 90.0) -> Tuple[Optional[str], float]:
         """Resolve source name to training name. Returns (team, confidence_score)."""
         self._check_fitted()
 
@@ -1856,20 +1975,20 @@ class DixonColesModel:
 
         normalized_raw = canonical_team_key(raw_name)
 
-        explicit = TEAM_ALIASES.get(normalize_team_name(raw_name))
-        if explicit in self.team_to_idx:
-            return explicit, 100.0
-
-        # Reuse the existing reviewed competition-specific provider identities.
-        # Keep global canonical keys stable for immutable archived forecasts.
+        # A reviewed alias decides the identity: the league-scoped one (the
+        # existing competition-specific provider identities) first, then the
+        # global one. If its target is not uniquely in training the team is
+        # unresolved; never fall through to fuzzy matching, which can pick a
+        # similarly named club (Espanyol -> Barcelona at 90).
+        league_aliases = {}
         if self.league_key is not None:
-            aliases = json.loads(Path(__file__).with_name('bbs_team_aliases.json').read_text(encoding='utf-8'))
-            target = aliases.get(self.league_key, {}).get(raw_name)
-            if target:
-                candidates = [team for team in self.teams
-                              if canonical_team_key(team) == canonical_team_key(target)]
-                if len(candidates) == 1:
-                    return candidates[0], 100.0
+            league_aliases = json.loads(Path(__file__).with_name(
+                'bbs_team_aliases.json').read_text(encoding='utf-8')).get(self.league_key, {})
+        target = league_aliases.get(raw_name) or TEAM_ALIASES.get(normalize_team_name(raw_name))
+        if target:
+            candidates = {team for team in self.teams
+                          if team == target or canonical_team_key(team) == canonical_team_key(target)}
+            return (candidates.pop(), 100.0) if len(candidates) == 1 else (None, 0.0)
 
         # Use the same canonical cross-provider key used by fixture/odds matching.
         # This is especially important for UCL names such as PSG, Inter and Bayern.
@@ -1905,8 +2024,8 @@ class DixonColesModel:
         away, away_match_score = self.resolve_team(away_raw)
 
         # Unknown teams fall back to league-average strength (0 attack/weakness).
-        # This avoids hard failure in early-season/promoted-team edge cases,
-        # while explicitly lowering matching confidence in output.
+        # Only historical evaluation reaches this (a promoted team's first
+        # test-fold match); run_league excludes such fixtures before predicting.
         if home is None:
             h_attack = 0.0
             h_weak = 0.0
@@ -2297,28 +2416,50 @@ def pinnacle_ou25_reference(row, as_of) -> Tuple[Optional[Dict[str, object]], st
     """Pinnacle O/U 2.5 pair for the totals anchor, or the reason none applies.
 
     Live rows need a fresh, same-event Pinnacle quote; there is no fallback to
-    another bookmaker. Historical rows (no live odds) use Pinnacle's nominal
-    opening CSV columns, as the historical benchmark does.
+    another bookmaker. Pinnacle's main totals line is used when it is exactly
+    2.5, otherwise its exact 2.5 pair from the per-event alternate_totals.
+    Historical rows (no live odds) use Pinnacle's nominal opening CSV columns,
+    as the historical benchmark does.
     """
     from quote_freshness import quote_is_fresh
     if row.get("odds_source") == "The Odds API":
-        ref = row.get("shadow_pinnacle_totals")
-        if not isinstance(ref, dict) or ref.get("bookmaker") != "pinnacle":
-            return None, "NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE"
-        if row.get("odds_event_id") and str(ref.get("event_id")) != str(row.get("odds_event_id")):
-            return None, "NOT_ANCHORED_PINNACLE_EVENT_MISMATCH"
-        if not quote_is_fresh(ref.get("updated_at_utc"), as_of):
-            return None, "NOT_ANCHORED_PINNACLE_OU25_STALE"
-        over, under = _valid_price(ref.get("over")), _valid_price(ref.get("under"))
-        source, updated = "live_pinnacle", ref.get("updated_at_utc")
-    else:
-        over, under = _valid_price(row.get("P>2.5")), _valid_price(row.get("P<2.5"))
-        source, updated = "historical_pinnacle_nominal_opening", None
-        if over is None or under is None:
-            return None, "NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE"
-    if over is None or under is None or not TheOddsAPI._coherent_overround([over, under]):
+        failures = []
+        for field, status, source in (
+                ("shadow_pinnacle_totals", "ANCHORED_MAIN", "live_pinnacle"),
+                ("pinnacle_alternate_ou25", "ANCHORED_ALTERNATE", "live_pinnacle_alternate")):
+            ref = row.get(field)
+            if not isinstance(ref, dict) or ref.get("bookmaker") != "pinnacle":
+                continue
+            if row.get("odds_event_id") and str(ref.get("event_id")) != str(row.get("odds_event_id")):
+                failures.append("NOT_ANCHORED_PINNACLE_EVENT_MISMATCH")
+                continue
+            if not quote_is_fresh(ref.get("updated_at_utc"), as_of):
+                failures.append("NOT_ANCHORED_STALE")
+                continue
+            over, under = _valid_price(ref.get("over")), _valid_price(ref.get("under"))
+            if over is None or under is None or not TheOddsAPI._coherent_overround([over, under]):
+                failures.append("NOT_ANCHORED_INCOHERENT_PINNACLE_OU25")
+                continue
+            return {"over": over, "under": under, "updated_at_utc": ref.get("updated_at_utc"),
+                    "source": source}, status
+        if failures:
+            # Report why the main line failed before the alternate's reason.
+            return None, failures[0]
+        main = row.get("pinnacle_totals_lines")
+        if isinstance(main, dict):
+            if not quote_is_fresh(main.get("updated_at_utc"), as_of):
+                return None, "NOT_ANCHORED_STALE"
+            if 2.5 in (main.get("lines") or []):
+                return None, "NOT_ANCHORED_INCOHERENT_PINNACLE_OU25"
+            return None, "NOT_ANCHORED_PINNACLE_NO_2_5_LINE"
+        return None, "NOT_ANCHORED_NO_PINNACLE"
+    over, under = _valid_price(row.get("P>2.5")), _valid_price(row.get("P<2.5"))
+    if over is None or under is None:
+        return None, "NOT_ANCHORED_NO_PINNACLE"
+    if not TheOddsAPI._coherent_overround([over, under]):
         return None, "NOT_ANCHORED_INCOHERENT_PINNACLE_OU25"
-    return {"over": over, "under": under, "updated_at_utc": updated, "source": source}, "ANCHORED"
+    return {"over": over, "under": under, "updated_at_utc": None,
+            "source": "historical_pinnacle_nominal_opening"}, "ANCHORED_MAIN"
 
 
 def prediction_from_matrix(
@@ -2898,6 +3039,74 @@ class FootballValuePipelineV2(FootballValuePipeline):
         )
         return result
 
+    @staticmethod
+    def _drop_started_fixtures(
+        fixtures: pd.DataFrame,
+        league: LeagueConfig,
+        now: datetime,
+    ) -> Tuple[pd.DataFrame, List[Dict[str, object]]]:
+        """Remove fixtures whose kickoff is not strictly after now.
+
+        A fixture without a parseable kickoff is kept only when its date is
+        after today, because a same-day match may already have been played.
+        """
+        if fixtures.empty:
+            return fixtures, []
+        clock = pd.Timestamp(now).tz_convert("UTC") if pd.Timestamp(now).tzinfo else pd.Timestamp(now, tz="UTC")
+        keep: List[bool] = []
+        started: List[Dict[str, object]] = []
+        for _, row in fixtures.iterrows():
+            kickoff = pd.to_datetime(row.get("kickoff_utc"), utc=True, errors="coerce")
+            if pd.isna(kickoff):
+                upcoming = pd.Timestamp(row["Date"]).date() > clock.date()
+            else:
+                upcoming = kickoff > clock
+            keep.append(bool(upcoming))
+            if not upcoming:
+                started.append({"home_team": str(row["HomeTeam"]), "away_team": str(row["AwayTeam"]),
+                                "kickoff_utc": None if pd.isna(kickoff) else kickoff.isoformat(),
+                                "fixture_source": row.get("fixture_source")})
+        if started:
+            warnings.warn(
+                f"[{league.key}] excluded {len(started)} fixture(s) with kickoff at or before "
+                f"{clock.isoformat()}: "
+                + "; ".join(f"{x['home_team']} v {x['away_team']} ({x['kickoff_utc']})" for x in started),
+                RuntimeWarning,
+            )
+        return fixtures.loc[keep].reset_index(drop=True), started
+
+    @staticmethod
+    def _drop_unresolved_fixtures(
+        model: DixonColesModel,
+        fixtures: pd.DataFrame,
+        league: LeagueConfig,
+    ) -> Tuple[pd.DataFrame, List[Dict[str, object]]]:
+        """Fail closed on team identity: a fixture with a team that does not
+        resolve to a training name (score >= 90) is excluded, never priced
+        with league-average ratings."""
+        if fixtures.empty:
+            return fixtures, []
+        keep: List[bool] = []
+        unresolved: List[Dict[str, object]] = []
+        for _, row in fixtures.iterrows():
+            names = {side: model.resolve_team(str(row[field]))
+                     for side, field in (("home", "HomeTeam"), ("away", "AwayTeam"))}
+            missing = [side for side, (team, _) in names.items() if team is None]
+            keep.append(not missing)
+            if missing:
+                unresolved.append({"home_team": str(row["HomeTeam"]), "away_team": str(row["AwayTeam"]),
+                                   "kickoff_utc": row.get("kickoff_utc"), "unresolved": missing,
+                                   **{f"{side}_best_score": score for side, (_, score) in names.items()}})
+        if unresolved:
+            warnings.warn(
+                f"[{league.key}] excluded {len(unresolved)} fixture(s) with a team that has no "
+                "training match at score >= 90 (no league-average fallback): "
+                + "; ".join(f"{x['home_team']} v {x['away_team']} (unresolved: {', '.join(x['unresolved'])})"
+                            for x in unresolved),
+                RuntimeWarning,
+            )
+        return fixtures.loc[keep].reset_index(drop=True), unresolved
+
     LEGACY_COLUMNS = ('p_home', 'p_draw', 'p_away', 'p_over_1_5', 'p_under_3_5', 'p_btts_yes',
                       'p_over_2_5', 'goal_margin_distribution', 'market_blend_applied',
                       'raw_p_home', 'raw_p_draw', 'raw_p_away', 'market_weight',
@@ -3116,6 +3325,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
             self._benchmark_score_matrices = {}
         fixtures = self._current_fixtures(league, now)
         fixtures = self._attach_live_odds(fixtures, league, now)
+        fixtures, started = self._drop_started_fixtures(fixtures, league, now)
+        fixtures, unresolved = self._drop_unresolved_fixtures(model, fixtures, league)
 
         from goal_market_validation import training_fingerprint
         from bbs_integration import training_provenance
@@ -3159,6 +3370,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
             "live_odds_matched": int(
                 fixtures.get("odds_source", pd.Series(dtype=object)).notna().sum()
             ),
+            "excluded_started_fixtures": started,
+            "excluded_unresolved_team_fixtures": unresolved,
             "additional_event_odds_calls_used_before_this_league": self.extra_event_odds_requests,
             "additional_event_odds_calls_budget": (self.max_extra_event_odds_requests
                 if self.additional_odds_coverage == "ranked" else None),
@@ -3237,6 +3450,17 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 row_kick = pd.to_datetime(row.get('kickoff_utc'),utc=True,errors='coerce')
                 identity_rejected = (not valid_identity or pd.isna(event_kick) or pd.isna(row_kick)
                                      or abs((event_kick-row_kick).total_seconds()) > 300)
+                alternate = extra.pop('pinnacle_alternate_ou25', None)
+                if (alternate is not None and not identity_rejected and getattr(self, 'totals_anchor', False)
+                        and pred.get('totals_anchor_status') != 'ANCHORED_MAIN'):
+                    # Anchoring needs the per-event alternate line: re-predict
+                    # this fixture with it, keeping the legacy comparison columns.
+                    anchored, score_dist = self._predict_row(
+                        model, pd.Series({**row, 'pinnacle_alternate_ou25': alternate}))
+                    anchored.update({k: v for k, v in pred.items() if k.startswith('legacy_')})
+                    pred.clear()
+                    pred.update(anchored)
+                    prepared[idx] = (row, pred, score_dist)
                 if 'count_market_offers' in extra:
                     if identity_rejected:
                         extra['count_market_offers'] = '[]'
@@ -3720,10 +3944,12 @@ def self_test() -> None:
     flat = TheOddsAPI.flatten_odds_event(sample_event)
     assert flat["live_best_home_odds"] == 2.20
     assert flat["live_best_draw_odds"] == 3.60
-    assert flat["live_ref_1x2_bookmaker"] == "Book B"
-    assert flat["live_ref_home_odds"] == 2.10
+    # No Pinnacle quote: the lowest-overround book is the reference, not the
+    # newest (Book A 1X2 1.0344 vs 1.0481; O/U 1.0391 vs 1.0405).
+    assert flat["live_ref_1x2_bookmaker"] == "Book A"
+    assert flat["live_ref_home_odds"] == 2.20
     assert flat["live_best_over_2_5_odds"] == 2.00
-    assert flat["live_ref_ou25_bookmaker"] == "Book B"
+    assert flat["live_ref_ou25_bookmaker"] == "Book A"
 
     print("V2 self-test passed.")
 

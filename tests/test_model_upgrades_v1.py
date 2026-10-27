@@ -80,7 +80,7 @@ class TotalsAnchorTests(OfflineQuotePolicyTestCase):
         plain, _ = pipe(anchor=False)._predict_row(toy_model(), row)
         target = devig([1.80, 2.10], 'power')[0]
         self.assertTrue(anchored['totals_anchor_applied'])
-        self.assertEqual(anchored['totals_anchor_status'], 'ANCHORED')
+        self.assertEqual(anchored['totals_anchor_status'], 'ANCHORED_MAIN')
         self.assertAlmostEqual(anchored['p_over_2_5'], target, places=7)
         for side in ('home', 'draw', 'away'):
             self.assertAlmostEqual(anchored['p_'+side], plain['p_'+side], places=9)
@@ -88,8 +88,8 @@ class TotalsAnchorTests(OfflineQuotePolicyTestCase):
         self.assertEqual(anchored['model_version'], MODEL_VERSION)
 
     def test_missing_or_stale_pinnacle_quote_means_no_anchor(self):
-        cases = {'NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE': live_row(),
-                 'NOT_ANCHORED_PINNACLE_OU25_STALE': live_row(shadow_pinnacle_totals=pinnacle_totals(minutes_old=60*25)),
+        cases = {'NOT_ANCHORED_NO_PINNACLE': live_row(),
+                 'NOT_ANCHORED_STALE': live_row(shadow_pinnacle_totals=pinnacle_totals(minutes_old=60*25)),
                  'NOT_ANCHORED_PINNACLE_EVENT_MISMATCH': live_row(shadow_pinnacle_totals=pinnacle_totals(event='other'))}
         plain, _ = pipe(anchor=False)._predict_row(toy_model(), live_row())
         for status, row in cases.items():
@@ -102,13 +102,13 @@ class TotalsAnchorTests(OfflineQuotePolicyTestCase):
         # A non-Pinnacle totals reference is never used as a fallback.
         other = {**pinnacle_totals(), 'bookmaker': 'onexbet'}
         self.assertEqual(pinnacle_ou25_reference(live_row(shadow_pinnacle_totals=other), NOW)[1],
-                         'NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE')
+                         'NOT_ANCHORED_NO_PINNACLE')
 
     def test_historical_rows_use_only_pinnacle_opening_totals(self):
         row = pd.Series({'HomeTeam': 'A', 'AwayTeam': 'B', 'B365>2.5': 1.9, 'B365<2.5': 1.95})
-        self.assertEqual(pinnacle_ou25_reference(row, NOW), (None, 'NOT_ANCHORED_NO_PINNACLE_OU25_QUOTE'))
+        self.assertEqual(pinnacle_ou25_reference(row, NOW), (None, 'NOT_ANCHORED_NO_PINNACLE'))
         ref, status = pinnacle_ou25_reference(pd.Series({**row, 'P>2.5': 1.9, 'P<2.5': 2.0}), NOW)
-        self.assertEqual(status, 'ANCHORED'); self.assertEqual(ref['source'], 'historical_pinnacle_nominal_opening')
+        self.assertEqual(status, 'ANCHORED_MAIN'); self.assertEqual(ref['source'], 'historical_pinnacle_nominal_opening')
 
 
 def shot_history(days=420, start='2024-01-01'):
