@@ -19,7 +19,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 61 | 46-14 | 75.4% | +6.4% |
 
-Unsettled / unverified entries: **12**.
+Unsettled / unverified entries: **13**.
 Whole-fixture 1X2 multiclass Brier (n=169): 0.5700
 
 ## First-prediction reference — historical comparison
@@ -56,6 +56,7 @@ Whole-fixture 1X2 multiclass Brier (n=169): 0.5700
 | 2026-10-25T10:24:47.847996+00:00 | 12 | 9-3 | 75.0% | +3.8% |
 | 2026-10-26T11:01:43.961218+00:00 | 1 | 0-0 | 0.0% | +0.0% |
 | 2026-10-26T11:45:55.025240+00:00 | 0 | 0-0 | — | — |
+| 2026-10-28T12:13:37.819395+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -216,18 +217,17 @@ A missing, ambiguous or unverified result is **never called a win**.
 | LaLiga | 2026-10-26 | 1999 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Ligue1 | 2026-10-26 | 1752 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | PrimeiraLiga | 2026-10-26 | 1611 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-25 | 1980 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-27 | 1983 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SuperLig | 2026-10-26 | 1831 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-21 | 557 | 7 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-10-22 | 714 | 6 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 0, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 0, "bookmakers": {}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 0, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 1, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 1, "bookmakers": {"Pinnacle": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 1, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| 4827bd2b8014 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | f7295b8c0c24 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | ca1e126489f9 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | a18515a42a8d | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
@@ -247,6 +247,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | be93fe1f5e1c | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 026e1ab4c40e | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | d414de1a572b | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| 04e55dde9bbe | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
