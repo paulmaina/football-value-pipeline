@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "b503b49ce85ac150be86a06eec2c967cda0f9fae8047e393c246966dba30bb37",
-  "training_as_of_utc": "2026-10-28T11:55:30.932324+00:00",
+  "training_sha256": "157145a543f3ae14e59f10e73d35c6980ff24d7eaab3b250d7dd1b775467ecae",
+  "training_as_of_utc": "2026-10-28T16:04:41.599646+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 63,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-28T11:55:30.932324+00:00",
-    "observations": 260,
-    "observations_sha256": "e6bab8164c20bd8257bd3373e3316e614981a1eff2a913b47788b32caf425504",
+    "cutoff_utc": "2026-10-28T16:04:41.599646+00:00",
+    "observations": 262,
+    "observations_sha256": "71a31c0c6acb88e6ff92aa936a5c23b55f083658064152074249d035f64249f4",
     "eligible_training_matches": 59,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
-    "retrospective_inputs_sha256": "86afca44e1adf1be84b9cfb5e19a2b782fb50b436efbc71a1eb81cc00479ac30",
+    "retrospective_inputs_sha256": "c1f0ef7e4785a136a353ea55d0261f2f82942dfd7d64beb26b52203d2ee89021",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -115,21 +115,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.7190086120619453,
-    "audit_candidate_poisson_score": 0.7076402922761562,
-    "audit_gain": 0.011368319785789116,
-    "audit_gain_lower95": 0.00274138308502032,
+    "audit_baseline_poisson_score": 0.7186312149690913,
+    "audit_candidate_poisson_score": 0.7073931745812553,
+    "audit_gain": 0.011238040387836046,
+    "audit_gain_lower95": 0.0026129711351637174,
     "audit_baseline_briers": [
-      0.6261395427176581,
-      0.15436575802266503,
-      0.29463586752978754,
-      0.24503067338840298
+      0.6258589840085264,
+      0.15383203970219236,
+      0.29445155359603986,
+      0.24507738272494933
     ],
     "audit_candidate_briers": [
-      0.6200888825660128,
-      0.15165219550089012,
-      0.2913539013203029,
-      0.24278841118449657
+      0.6198990730161955,
+      0.15129996655980035,
+      0.29118797323657974,
+      0.24282660793240185
     ],
     "audit_brier_order": [
       "1x2",
@@ -141,10 +141,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1579.861444499381,
-  "base": 0.22508644289059682,
-  "home_adv": 0.22723613861843028,
-  "rho": -0.07367669640938888,
+  "objective": 1579.466791018278,
+  "base": 0.22515721148035156,
+  "home_adv": 0.2272690641748096,
+  "rho": -0.07368835062678569,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -172,13 +172,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 6,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261028T115530932324Z_a1c589e24d18d6e36750b72da1e6eb69325b0669940347df26d458feae34932a.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261028T160441599646Z_54474c2b544bc31025fc1ffd074f977c260a579a3b627a5ce3101f3e1925ce0d.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -194,6 +194,71 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "24400b6372faf9f4996cd5704d707374",
+      "event_id": "24400b6372faf9f4996cd5704d707374",
+      "home_team": "Augsburg",
+      "away_team": "SC Freiburg",
+      "kickoff_utc": "2026-10-31T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "a7ba9b844f121a4a8777d87b1f863137",
+      "event_id": "a7ba9b844f121a4a8777d87b1f863137",
+      "home_team": "Bayer Leverkusen",
+      "away_team": "VfB Stuttgart",
+      "kickoff_utc": "2026-10-31T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "aecb9d8c01176616c87d893bee4bc0de",
+      "event_id": "aecb9d8c01176616c87d893bee4bc0de",
+      "home_team": "Borussia Monchengladbach",
+      "away_team": "SC Paderborn",
+      "kickoff_utc": "2026-10-31T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "3966f2fe1c2f73bfa12e61db83bd0bf9",
+      "event_id": "3966f2fe1c2f73bfa12e61db83bd0bf9",
+      "home_team": "FC Schalke 04",
+      "away_team": "RB Leipzig",
+      "kickoff_utc": "2026-10-31T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "2fad25b09c01b71e47a5b0fd1d0b4e61",
+      "event_id": "2fad25b09c01b71e47a5b0fd1d0b4e61",
+      "home_team": "Werder Bremen",
+      "away_team": "TSG Hoffenheim",
+      "kickoff_utc": "2026-10-31T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -201,14 +266,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 6
   },
-  "shot_features_applied_fixtures": 1,
+  "shot_features_applied_fixtures": 6,
   "goal_rate_features_used": {
-    "shot_features": 1
+    "shot_features": 6
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 1
+    "AVAILABLE": 6
   },
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {

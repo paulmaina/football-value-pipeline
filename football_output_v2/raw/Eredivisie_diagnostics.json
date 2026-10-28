@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "173f00460382fe819ab1795f92939756d58effd9917931edff4bdbeeab528135",
-  "training_as_of_utc": "2026-10-28T12:13:15.610708+00:00",
+  "training_as_of_utc": "2026-10-28T16:14:25.998108+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6975442860051377,
-    "audit_candidate_poisson_score": 0.6897612562350397,
-    "audit_gain": 0.007783029770098038,
-    "audit_gain_lower95": -0.00402373188232256,
+    "audit_baseline_poisson_score": 0.6975442993296386,
+    "audit_candidate_poisson_score": 0.6897612672790439,
+    "audit_gain": 0.007783032050594718,
+    "audit_gain_lower95": -0.004023726923927405,
     "audit_baseline_briers": [
-      0.6185566037682171,
-      0.09069928369638267,
-      0.2827177738526286,
-      0.2228947232444893
+      0.6185565974902838,
+      0.09069928592477247,
+      0.2827177901715695,
+      0.22289472155761134
     ],
     "audit_candidate_briers": [
-      0.6176462072637358,
-      0.08929912310831868,
-      0.2791575945393188,
-      0.2172656537775724
+      0.617646204983342,
+      0.08929912487105075,
+      0.2791576066179441,
+      0.21726565343662246
     ],
     "audit_brier_order": [
       "1x2",
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1619.399674375542,
-  "base": 0.29192335745810605,
-  "home_adv": 0.18416213530897518,
-  "rho": -0.09555584577386989,
+  "objective": 1619.0081230662415,
+  "base": 0.2919250974009574,
+  "home_adv": 0.18415690672984683,
+  "rho": -0.09555346505993315,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -115,11 +115,11 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "football-data.org"
+    "The Odds API"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 1,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 7,
@@ -129,63 +129,11 @@
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:558854",
-      "event_id": null,
-      "home_team": "Feyenoord Rotterdam",
+      "fixture_id": "1836e9e3241ea98ae062bab0f288ce2c",
+      "event_id": "1836e9e3241ea98ae062bab0f288ce2c",
+      "home_team": "Feyenoord",
       "away_team": "Fortuna Sittard",
       "kickoff_utc": "2026-10-31T15:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "fdorg:558853",
-      "event_id": null,
-      "home_team": "PSV",
-      "away_team": "Willem II Tilburg",
-      "kickoff_utc": "2026-10-31T17:45:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "fdorg:558852",
-      "event_id": null,
-      "home_team": "SC Heerenveen",
-      "away_team": "NEC",
-      "kickoff_utc": "2026-10-31T17:45:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "fdorg:558851",
-      "event_id": null,
-      "home_team": "AFC Ajax",
-      "away_team": "AZ",
-      "kickoff_utc": "2026-10-31T20:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "fdorg:558850",
-      "event_id": null,
-      "home_team": "SC Cambuur-Leeuwarden",
-      "away_team": "Go Ahead Eagles",
-      "kickoff_utc": "2026-10-31T20:00:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
@@ -199,14 +147,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 5
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 5
+    "none": 1
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 5
+    "AVAILABLE": 1
   },
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
