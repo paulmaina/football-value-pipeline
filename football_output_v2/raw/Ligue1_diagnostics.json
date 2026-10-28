@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "75605fc70c5fab48a94dc33df8eaa78843d715720f70cba1d0b7be434d2a1503",
-  "training_as_of_utc": "2026-10-28T12:07:18.629492+00:00",
+  "training_sha256": "dad0ad7f0e260e5fee63d5ef1fe615b35e955888ac9e3dc448efa81a654046cd",
+  "training_as_of_utc": "2026-10-28T16:10:42.048441+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 72,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-10-28T12:07:18.629492+00:00",
-    "observations": 330,
-    "observations_sha256": "7b9358c16fd1f008b4d972df06d71636243c316fd61918804a341803691724cf",
+    "cutoff_utc": "2026-10-28T16:10:42.048441+00:00",
+    "observations": 337,
+    "observations_sha256": "fb5fe05f26d7789c54cd577539c872a5e747fc3a59e91f0e25d0df20f3ada3e5",
     "eligible_training_matches": 144,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:29.253586+00:00",
-    "retrospective_inputs_sha256": "f700d16b6d25e158300163ac33592d057e48dfa5c8b457b44d350c75afe24e31",
+    "retrospective_inputs_sha256": "55953c539863c32a7c169d31e44708bd47ebe68340e08606f0789d8190dc1a74",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 83,
@@ -154,21 +154,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8794253162835202,
-    "audit_candidate_poisson_score": 0.8748028465307758,
-    "audit_gain": 0.004622469752744385,
-    "audit_gain_lower95": -0.0027888357450894592,
+    "audit_baseline_poisson_score": 0.8794253162837602,
+    "audit_candidate_poisson_score": 0.874802846530951,
+    "audit_gain": 0.004622469752809222,
+    "audit_gain_lower95": -0.002788835744845332,
     "audit_baseline_briers": [
-      0.6035182490481663,
-      0.16831698204661508,
-      0.2150009196653262,
-      0.24570077103413518
+      0.6035182490482103,
+      0.16831698204664922,
+      0.2150009196655041,
+      0.24570077103396187
     ],
     "audit_candidate_briers": [
-      0.6021999125630176,
-      0.16740770566387364,
-      0.21307232465179426,
-      0.24370844486088672
+      0.6021999125629951,
+      0.16740770566389948,
+      0.2130723246518978,
+      0.24370844486079418
     ],
     "audit_brier_order": [
       "1x2",
@@ -183,10 +183,10 @@
   },
   "training_end": "2026-10-26",
   "fit_success": true,
-  "objective": 1586.077578469823,
-  "base": 0.2080269287379561,
-  "home_adv": 0.19243392848289417,
-  "rho": -0.0563103509562894,
+  "objective": 1585.6905695202838,
+  "base": 0.2080303541996569,
+  "home_adv": 0.19240699105136522,
+  "rho": -0.05631363274991921,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -220,7 +220,7 @@
   "additional_event_odds_calls_used_before_this_league": 7,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261028T120718629492Z_046e870c819c72e369ecec59eb9ab1f638f712c3743f4316c64bc372d9b093a2.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261028T161042048441Z_d6d86b3f78fce5588d5f86e4aec25d43341e3915c98aba7ff559c14d9e9e8667.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [

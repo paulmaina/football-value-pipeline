@@ -4,7 +4,7 @@
 **Candidates:** 1 of target 12 distinct matches.
 **Strictly qualified:** 1. **Provisional watchlist:** 0.
 **Pipeline status:** BELOW_TARGET.
-**Generated (UTC):** 2026-10-28T12:13:37.819395+00:00.
+**Generated (UTC):** 2026-10-28T16:16:05.061508+00:00.
 **UNPROVEN EDGE (Corners):** validated on probability accuracy only; no historical corner or card odds exist, so profitability is untested. 0 of 1 selections.
 **Kickoffs within next 48 hours of run:** Not available.
 
@@ -19,7 +19,7 @@
 
 | Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons | Unblended estimated EV | Any loss chance | Conservative loss estimate | Full refund chance | Probability meaning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Fiorentina vs Atalanta BC | Asian Handicap Away +1.25 | STRICT | 2026-10-29T19:45:00+00:00 | 82.8% | 82.8% | Pinnacle | 1.29 | +3.7% | — | +10.8% | 17.2% | 17.2% | 0.0% | net_no_loss |
+| Fiorentina vs Atalanta BC | Asian Handicap Away +1.00 | STRICT | 2026-10-29T19:45:00+00:00 | 83.2% | 83.2% | Pinnacle | 1.33 | +3.6% | — | +11.2% | 16.8% | 16.8% | 21.3% | net_no_loss |
 
 ## Qualifying alternatives for comparison
 
@@ -27,7 +27,7 @@ Prefer another market type when one qualifies; otherwise show another qualifying
 
 | Match | Shortlisted market | Alternative market | Alternative bookmaker | Alternative odds | Alternative conservative loss estimate | Alternative refund chance | Alternative adjusted EV | Alternative unblended EV | Alternative risk increase | Alternative comparison |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Fiorentina vs Atalanta BC | Asian Handicap Away +1.25 | Asian Handicap Away +1.00 | Pinnacle | 1.34 | 17.2% | 21.6% | +3.7% | +11.9% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
+| Fiorentina vs Atalanta BC | Asian Handicap Away +1.00 | Asian Handicap Away +1.25 | Pinnacle | 1.28 | 16.8% | 0.0% | +3.5% | +10.0% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
 
 ## Interpretation
 

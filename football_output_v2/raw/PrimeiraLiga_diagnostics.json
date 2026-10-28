@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "84c0a9d8af08458f9d90e4a3ffe4465c5e09f0dc593fdcb0fb4ebd37c58b23a7",
-  "training_as_of_utc": "2026-10-28T12:13:24.224429+00:00",
+  "training_as_of_utc": "2026-10-28T16:14:56.548861+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8910498907404766,
-    "audit_candidate_poisson_score": 0.8787218636559287,
-    "audit_gain": 0.012328027084547832,
-    "audit_gain_lower95": 0.0008780097723124651,
+    "audit_baseline_poisson_score": 0.8910498907299429,
+    "audit_candidate_poisson_score": 0.8787218636487978,
+    "audit_gain": 0.01232802708114511,
+    "audit_gain_lower95": 0.0008780097625350776,
     "audit_baseline_briers": [
-      0.6072179100391997,
-      0.18432497321850397,
-      0.24265429790114143,
-      0.2511458707386006
+      0.6072179100258951,
+      0.18432497321758096,
+      0.24265429789867352,
+      0.251145870738951
     ],
     "audit_candidate_briers": [
-      0.6028489965068238,
-      0.183492365578184,
-      0.24110273505874388,
-      0.24950419867902912
+      0.602848996497705,
+      0.1834923655776512,
+      0.24110273505676244,
+      0.24950419867956106
     ],
     "audit_brier_order": [
       "1x2",
@@ -85,9 +85,9 @@
   },
   "training_end": "2026-10-26",
   "fit_success": true,
-  "objective": 1464.9433571678749,
-  "base": 0.0942923305805702,
-  "home_adv": 0.1701254836585455,
+  "objective": 1464.5886431584277,
+  "base": 0.09428904044352324,
+  "home_adv": 0.1701166787427639,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -116,7 +116,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 2,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 7,
@@ -137,6 +137,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "853df01a49c2a57a62c1ac2d356b395b",
+      "event_id": "853df01a49c2a57a62c1ac2d356b395b",
+      "home_team": "Moreirense FC",
+      "away_team": "CF Estrela",
+      "kickoff_utc": "2026-10-31T15:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -144,14 +157,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1,
+    "ANCHORED_MAIN": 1
   },
-  "shot_features_applied_fixtures": 1,
+  "shot_features_applied_fixtures": 2,
   "goal_rate_features_used": {
-    "shot_features": 1
+    "shot_features": 2
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 1
+    "AVAILABLE": 2
   },
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
