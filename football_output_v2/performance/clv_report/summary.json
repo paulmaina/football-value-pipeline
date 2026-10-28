@@ -1,6 +1,6 @@
 {
   "version": "candidate-clv-v2-validated-fixture-clustered",
-  "generated_at_utc": "2026-10-28T14:15:28.025096+00:00",
+  "generated_at_utc": "2026-10-28T15:16:00.190157+00:00",
   "status": "OK",
   "candidates": 1423,
   "fixtures": 136,
@@ -10,10 +10,10 @@
   "overall_pinnacle_fair": {
     "n": 1423,
     "independent_fixtures": 136,
-    "mean": -0.03255403577692877,
+    "mean": -0.032554035776928766,
     "median": -0.028258147778639997,
     "positive_share": 0.27898805340829236,
-    "standard_error": 0.002734608501983885,
+    "standard_error": 0.0027346085019838845,
     "t_stat": -11.904459359835858
   },
   "overall_same_book": {
