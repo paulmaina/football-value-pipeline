@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Lazio",
+    "home_team": "Sassuolo",
+    "kickoff_utc": "2026-10-27T17:30:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "c7445242bf16a8f37afef7863af45a78"
+  },
+  "observed_at_utc": "2026-10-27T17:24:08.095434+00:00",
+  "payload": {
+    "away_team": "Lazio",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-27T17:24:01Z",
+            "outcomes": [
+              {
+                "name": "Lazio",
+                "price": 2.03
+              },
+              {
+                "name": "Sassuolo",
+                "price": 3.81
+              },
+              {
+                "name": "Draw",
+                "price": 3.67
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-27T17:24:01Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.81
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.12
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-27T17:23:39Z",
+            "outcomes": [
+              {
+                "name": "Lazio",
+                "price": 1.92
+              },
+              {
+                "name": "Sassuolo",
+                "price": 3.92
+              },
+              {
+                "name": "Draw",
+                "price": 3.78
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-27T17:23:39Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.62
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.3
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-27T17:30:00Z",
+    "home_team": "Sassuolo",
+    "id": "c7445242bf16a8f37afef7863af45a78",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.92,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24160199904787216,
+      "selection": "home",
+      "updated_at_utc": "2026-10-27T17:23:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.78,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2509131478874622,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-27T17:23:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.92,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5074848530646657,
+      "selection": "away",
+      "updated_at_utc": "2026-10-27T17:23:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5936071493942947,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-27T17:23:39+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.3,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.40639285060570535,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-27T17:23:39+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.81,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2533159174420204,
+      "selection": "home",
+      "updated_at_utc": "2026-10-27T17:24:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.67,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.263240530521393,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-27T17:24:01+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.03,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4834435520365867,
+      "selection": "away",
+      "updated_at_utc": "2026-10-27T17:24:01+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
