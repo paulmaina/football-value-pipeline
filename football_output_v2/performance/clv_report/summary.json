@@ -1,29 +1,29 @@
 {
   "version": "candidate-clv-v2-validated-fixture-clustered",
-  "generated_at_utc": "2026-10-28T15:16:00.190157+00:00",
+  "generated_at_utc": "2026-10-28T17:36:22.686763+00:00",
   "status": "OK",
-  "candidates": 1423,
-  "fixtures": 136,
+  "candidates": 1450,
+  "fixtures": 139,
   "uncertainty_method": "fixture-cluster-robust",
   "rejected_observation_files": [],
-  "entry_files": 76,
+  "entry_files": 77,
   "overall_pinnacle_fair": {
-    "n": 1423,
-    "independent_fixtures": 136,
-    "mean": -0.032554035776928766,
-    "median": -0.028258147778639997,
-    "positive_share": 0.27898805340829236,
-    "standard_error": 0.0027346085019838845,
-    "t_stat": -11.904459359835858
+    "n": 1450,
+    "independent_fixtures": 139,
+    "mean": -0.03229140311454652,
+    "median": -0.02821590406018004,
+    "positive_share": 0.2793103448275862,
+    "standard_error": 0.002693693636281165,
+    "t_stat": -11.987778669265111
   },
   "overall_same_book": {
-    "n": 857,
-    "independent_fixtures": 130,
-    "mean": 0.007629260563868786,
-    "median": 0.0071428571428571175,
-    "positive_share": 0.5262543757292882,
-    "standard_error": 0.0025901013284318516,
-    "t_stat": 2.9455452109620124
+    "n": 875,
+    "independent_fixtures": 133,
+    "mean": 0.008314700853950238,
+    "median": 0.007418397626112627,
+    "positive_share": 0.5291428571428571,
+    "standard_error": 0.002597936525981678,
+    "t_stat": 3.200501925584335
   },
   "shortlisted_pinnacle_fair": {
     "n": 64,
@@ -35,11 +35,11 @@
     "t_stat": -3.2155349002498825
   },
   "market_move_towards_model": {
-    "n": 136,
-    "correlation": -0.09566069162638342,
-    "sign_agreement": 0.6102941176470589,
-    "mean_abs_model_gap": 0.010326275738236093,
-    "mean_abs_market_move": 0.003988415305959627
+    "n": 139,
+    "correlation": -0.08897481771419502,
+    "sign_agreement": 0.6187050359712231,
+    "mean_abs_model_gap": 0.01017951863922612,
+    "mean_abs_market_move": 0.00397706823070697
   },
   "positive_cells": [
     {

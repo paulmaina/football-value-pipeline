@@ -1,0 +1,26 @@
+{
+  "archive_id": "fd052ff5e9f0163b18958342eaa037bbf5f0e16e",
+  "captured_at_utc": "2026-10-28T17:36:15Z",
+  "data_origin": "immutable prediction generation received at actual capture time",
+  "generated_at_utc": "2026-10-28T16:16:05.061508Z",
+  "git_commit_sha": "de82f4acb8e90329c757e27708f93bbbbb18040f",
+  "n_all_forecasts": 33,
+  "n_pre_kickoff_forecasts": 30,
+  "n_shortlist": 1,
+  "prediction_run_id": "4eae633a3d69fc52b834b8a5dcb5926801d4416ac4f86acccf8b680dc3269e55",
+  "schema_version": 1,
+  "selection_policy_version": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
+  "sha256": {
+    "benchmark_forward_experiment.json": "31c277fa3449399a2494284d1681fc592d6c780d22f19f44dbcd9f0e627578a9",
+    "bet365_vs_pinnacle.csv": "4ed3f1d791bf449852c1332608bcf5e2429b412c9d33ee007fd6ea0debe4b768",
+    "goal_blend_experiment.json": "24798b5b663bad38baa256bb2e354d6197d335eb7f09186ccd081001fbce1219",
+    "market_led_experiment.json": "0e8acbfcbf67d130034181504049a65b9f6ee742fd2ac2e536936b520e929dee",
+    "model_reliability_experiment.json": "b0fb52ddb37121b49ace3dc0d70815697892d80946eb7ba2bc36e49bc4b2a2e8",
+    "pipeline_health.json": "544e0f3a3d227633b3e50b82e0238bb523d385a5660bb9a96b87ea6532b5ab87",
+    "predictions.csv": "7ec8599ea80956371fdf60191c47ba1cb15b12bda0ccb2eb30bba55c2b288959",
+    "run_manifest.json": "a560a09cdbc0423586d52c2fe455bc6eb399968e942d2213c0931a1e542af127",
+    "selection_summary.json": "10c6e35cbc25a4d5d5bcf33fdbc4b051fb891ea99beedf93008f8ed75eb44854",
+    "shortlist.csv": "2119eef2e4b8b263d96ce5a1bec5eacc4fb5f5994d612615efadeac1c651582c",
+    "totals_anchor_experiment.json": "ef379400ac8786f45b16b98665f0ddc99b6735e0e5505d78e51d87b10b237328"
+  }
+}
