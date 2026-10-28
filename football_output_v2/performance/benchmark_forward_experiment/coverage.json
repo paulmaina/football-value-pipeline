@@ -32106,7 +32106,7 @@
     "reference_source": "The Odds API / Winamax (FR)",
     "reference_updated_at_utc": "2026-10-26T10:50:12Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "61fd07517a6df27aaf13e10dfc2e47db9451d4a2",
     "status": "available"
@@ -32448,7 +32448,7 @@
     "reference_source": "The Odds API / Winamax (FR)",
     "reference_updated_at_utc": "2026-10-26T10:50:13Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "available",
     "snapshot_commit": "61fd07517a6df27aaf13e10dfc2e47db9451d4a2",
     "status": "available"

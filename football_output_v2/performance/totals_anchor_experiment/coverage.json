@@ -49549,7 +49549,7 @@
       "stale_or_unsynchronized_production_hda",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "61fd07517a6df27aaf13e10dfc2e47db9451d4a2",
     "status": "unavailable",
@@ -49876,7 +49876,7 @@
       "stale_or_unsynchronized_production_hda",
       "incoherent_totals_prices"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "scale": null,
     "snapshot_commit": "61fd07517a6df27aaf13e10dfc2e47db9451d4a2",
     "status": "unavailable",

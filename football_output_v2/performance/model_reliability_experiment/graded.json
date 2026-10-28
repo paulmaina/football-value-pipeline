@@ -2940,6 +2940,41 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Cagliari",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.42025330942011613,
+      "home_goals": 4,
+      "over_1_5": 0.7507298046866917,
+      "over_2_5": 0.5093780439567256,
+      "p_away": 0.11060201828959498,
+      "p_draw": 0.172112215755527,
+      "p_home": 0.7172857659548779,
+      "under_3_5": 0.7194690562425172,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.4284715227283914,
+      "home_goals": 4,
+      "over_1_5": 0.7500294070597293,
+      "over_2_5": 0.5090754907869344,
+      "p_away": 0.11372121142391854,
+      "p_draw": 0.1738394488699223,
+      "p_home": 0.7124393397061592,
+      "under_3_5": 0.7203994161308227,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "AS Roma",
+    "kickoff_utc": "2026-10-27T19:45:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.006779547749764192,
+    "snapshot_commit": "61fd07517a6df27aaf13e10dfc2e47db9451d4a2",
+    "source_match_id": 558555,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,
