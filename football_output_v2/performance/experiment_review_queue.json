@@ -29,7 +29,7 @@
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
       "report": "recency_experiment/report.md",
       "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 262,
+      "settled_evidence": 264,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -70,7 +70,7 @@
       "name": "benchmark_forward_experiment",
       "report": "benchmark_forward_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 84,
+      "settled_evidence": 85,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -93,7 +93,7 @@
       "name": "model_reliability_experiment",
       "report": "model_reliability_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 84,
+      "settled_evidence": 85,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -110,6 +110,6 @@
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-27T20:49:41.268566+00:00",
+  "reviewed_at_utc": "2026-10-28T05:59:45.402320+00:00",
   "version": "experiment-review-queue-v1"
 }
