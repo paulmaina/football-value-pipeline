@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "6dcf18d065b80178c455efad87d64d39fdcb495470ef88dfe2315b54745d4758",
-  "training_as_of_utc": "2026-10-27T09:35:29.460102+00:00",
+  "training_as_of_utc": "2026-10-27T11:09:50.329525+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 98,
     "bbs_added_results": 9,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_utc": "2026-10-27T09:35:29.460102+00:00",
+    "cutoff_utc": "2026-10-27T11:09:50.329525+00:00",
     "observations": 356,
     "observations_sha256": "8f28f0cb7578e6b78f36d45352ed53fbcb098bcf3c6322ddd69b23c496281a58",
     "eligible_training_matches": 125,
@@ -116,21 +116,21 @@
     "audit_matchdays": 16,
     "selected_ridge": 1.0,
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.8175310728786089,
-    "audit_candidate_poisson_score": 0.8126906271323413,
-    "audit_gain": 0.00484044574626763,
-    "audit_gain_lower95": -0.026682866880522266,
+    "audit_baseline_poisson_score": 0.8175310729051967,
+    "audit_candidate_poisson_score": 0.8126906056458083,
+    "audit_gain": 0.004840467259388359,
+    "audit_gain_lower95": -0.026685529545786346,
     "audit_baseline_briers": [
-      0.5520932991942327,
-      0.18075667919310287,
-      0.22581865901120918,
-      0.25218525802844377
+      0.552093299134768,
+      0.18075667919524327,
+      0.22581865901912312,
+      0.2521852580679206
     ],
     "audit_candidate_briers": [
-      0.5470741510710765,
-      0.18561572937238077,
-      0.22770443457924244,
-      0.2522783016499634
+      0.5470740827394455,
+      0.1856155448426209,
+      0.22770400315207753,
+      0.25227791876363415
     ],
     "audit_brier_order": [
       "1x2",
@@ -179,21 +179,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8133482516016047,
-    "audit_candidate_poisson_score": 0.8146365525594516,
-    "audit_gain": -0.0012883009578468219,
-    "audit_gain_lower95": -0.01108183709914437,
+    "audit_baseline_poisson_score": 0.8133482612547668,
+    "audit_candidate_poisson_score": 0.81463656116035,
+    "audit_gain": -0.0012882999055832123,
+    "audit_gain_lower95": -0.011081835699235662,
     "audit_baseline_briers": [
-      0.5681496128324928,
-      0.18533589369958237,
-      0.2023504661476844,
-      0.2464322476781731
+      0.5681496176107701,
+      0.18533589590382055,
+      0.2023504703592159,
+      0.24643224739779093
     ],
     "audit_candidate_briers": [
-      0.5715846090202268,
-      0.18207449179723748,
-      0.20445928843500435,
-      0.24385806890266915
+      0.5715846134636372,
+      0.18207449322873548,
+      0.20445929168328134,
+      0.24385806851016284
     ],
     "audit_brier_order": [
       "1x2",
@@ -209,10 +209,10 @@
   },
   "training_end": "2026-10-26",
   "fit_success": true,
-  "objective": 1842.176180768189,
-  "base": 0.0909891850958222,
-  "home_adv": 0.2875309061367733,
-  "rho": -0.032572900044125525,
+  "objective": 1842.0019268799228,
+  "base": 0.09100204881686269,
+  "home_adv": 0.2875140735563845,
+  "rho": -0.032550485511530725,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -246,7 +246,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261027T093529460102Z_34a9e0bd65d7847c061c14cae744e0b5c14959dc4532c39e5a41fcd96f56182c.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261027T110950329525Z_38e99356deaf6291211f928a106d23c5e652a27e9278f0405a680808c79eb10b.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [

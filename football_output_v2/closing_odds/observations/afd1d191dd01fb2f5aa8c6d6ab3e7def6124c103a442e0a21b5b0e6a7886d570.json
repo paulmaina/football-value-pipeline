@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Como",
+    "home_team": "Torino",
+    "kickoff_utc": "2026-10-27T19:45:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "7d989a0a7bae47eb957731e97c5bd9c1"
+  },
+  "observed_at_utc": "2026-10-27T19:39:02.596957+00:00",
+  "payload": {
+    "away_team": "Como",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-27T19:38:56Z",
+            "outcomes": [
+              {
+                "name": "Como",
+                "price": 1.74
+              },
+              {
+                "name": "Torino",
+                "price": 4.93
+              },
+              {
+                "name": "Draw",
+                "price": 3.94
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-27T19:38:56Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.03
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-27T19:38:53Z",
+            "outcomes": [
+              {
+                "name": "Como",
+                "price": 1.74
+              },
+              {
+                "name": "Torino",
+                "price": 5.04
+              },
+              {
+                "name": "Draw",
+                "price": 3.73
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-27T19:38:53Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.7
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.23
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-27T19:45:00Z",
+    "home_team": "Torino",
+    "id": "7d989a0a7bae47eb957731e97c5bd9c1",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.04,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18520573231229365,
+      "selection": "home",
+      "updated_at_utc": "2026-10-27T19:38:53+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.73,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2534797624876084,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-27T19:38:53+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.74,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.561314505200098,
+      "selection": "away",
+      "updated_at_utc": "2026-10-27T19:38:53+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.7,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5711304789090206,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-27T19:38:53+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.23,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4288695210909794,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-27T19:38:53+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.93,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19265679960268595,
+      "selection": "home",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24281640843472022,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.74,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5645267919625938,
+      "selection": "away",
+      "updated_at_utc": "2026-10-27T19:38:56+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

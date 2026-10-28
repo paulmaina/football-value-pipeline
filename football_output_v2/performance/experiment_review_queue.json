@@ -2,7 +2,7 @@
   "automatic_promotion": false,
   "experiments": [
     {
-      "collection_days": 13,
+      "collection_days": 14,
       "key": "goal_blend_experiment",
       "name": "goal_blend_experiment",
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
@@ -12,7 +12,7 @@
       "status": "COLLECT_MORE_DATA"
     },
     {
-      "collection_days": 13,
+      "collection_days": 14,
       "graded_paper_bets": 0,
       "key": "market_led_experiment",
       "name": "market_led_experiment",
@@ -23,17 +23,17 @@
       "status": "COLLECT_MORE_DATA"
     },
     {
-      "collection_days": 13,
+      "collection_days": 14,
       "key": "recency_experiment",
       "name": "recency_experiment",
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
       "report": "recency_experiment/report.md",
       "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 260,
+      "settled_evidence": 264,
       "status": "COLLECT_MORE_DATA"
     },
     {
-      "collection_days": 13,
+      "collection_days": 14,
       "key": "filter_sensitivity_experiment",
       "name": "filter_sensitivity_experiment",
       "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
@@ -70,7 +70,7 @@
       "name": "benchmark_forward_experiment",
       "report": "benchmark_forward_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 83,
+      "settled_evidence": 85,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -93,7 +93,7 @@
       "name": "model_reliability_experiment",
       "report": "model_reliability_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 83,
+      "settled_evidence": 85,
       "status": "COLLECT_MORE_DATA"
     },
     {
@@ -110,6 +110,6 @@
     }
   ],
   "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-10-27T09:25:51.470413+00:00",
+  "reviewed_at_utc": "2026-10-28T05:59:45.402320+00:00",
   "version": "experiment-review-queue-v1"
 }

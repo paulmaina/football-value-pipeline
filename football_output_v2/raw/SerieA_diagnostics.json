@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "34f774ea6c8b28bbf406fea4f12d7c6ac22c4bad665671049928b740958dceea",
-  "training_as_of_utc": "2026-10-27T09:42:43.135786+00:00",
+  "training_as_of_utc": "2026-10-27T11:21:28.034045+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 80,
     "bbs_added_results": 10,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-10-27T09:42:43.135786+00:00",
+    "cutoff_utc": "2026-10-27T11:21:28.034045+00:00",
     "observations": 361,
     "observations_sha256": "4e6ebf22826fb4b836c7d26ebe88df634966f073934d272765852e6b1d316821",
     "eligible_training_matches": 153,
@@ -154,21 +154,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.8683032126394588,
-    "audit_candidate_poisson_score": 0.8659324767923771,
-    "audit_gain": 0.0023707358470816953,
-    "audit_gain_lower95": -0.0023650143919051124,
+    "audit_baseline_poisson_score": 0.8683030579689072,
+    "audit_candidate_poisson_score": 0.8659323450055266,
+    "audit_gain": 0.002370712963380539,
+    "audit_gain_lower95": -0.0023650968332127507,
     "audit_baseline_briers": [
-      0.5674428890434589,
-      0.1666910468746878,
-      0.19159866759361152,
-      0.2430103150935403
+      0.567442969879403,
+      0.16669100025817393,
+      0.1915984976695833,
+      0.24301028697932203
     ],
     "audit_candidate_briers": [
-      0.5684825050360086,
-      0.16511594561674112,
-      0.19111535495367624,
-      0.24295146432089748
+      0.5684825959917928,
+      0.16511590229380282,
+      0.19111521784659802,
+      0.2429514320891489
     ],
     "audit_brier_order": [
       "1x2",
@@ -184,10 +184,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1778.9724682318717,
-  "base": 0.1420255098652813,
-  "home_adv": 0.1138141160115213,
-  "rho": -0.023953273694142546,
+  "objective": 1778.796339504474,
+  "base": 0.1420136453798758,
+  "home_adv": 0.11385173242012539,
+  "rho": -0.02396603735846424,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -221,7 +221,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261027T094243135786Z_db379c1f432452fb3cc4fc2af80e6d7b9f77e63660aaa167bcd41f970b340865.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261027T112128034045Z_1d376575803f74f47b0ba67329f7ee7a04f964817a28eb6bff51d07fe2658979.json",
   "over_1_5_in_window_quote_fixtures": 3,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -281,7 +281,7 @@
       "home_away_quote": true,
       "count_market_quotes": 4,
       "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 34,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"

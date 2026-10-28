@@ -1,29 +1,29 @@
 {
   "version": "candidate-clv-v2-validated-fixture-clustered",
-  "generated_at_utc": "2026-10-27T09:25:51.470413+00:00",
+  "generated_at_utc": "2026-10-28T05:59:45.402320+00:00",
   "status": "OK",
-  "candidates": 1376,
-  "fixtures": 133,
+  "candidates": 1423,
+  "fixtures": 136,
   "uncertainty_method": "fixture-cluster-robust",
   "rejected_observation_files": [],
-  "entry_files": 73,
+  "entry_files": 75,
   "overall_pinnacle_fair": {
-    "n": 1376,
-    "independent_fixtures": 133,
-    "mean": -0.03274642082773921,
-    "median": -0.028245587194846378,
-    "positive_share": 0.2754360465116279,
-    "standard_error": 0.0027956168295972575,
-    "t_stat": -11.713486798710083
+    "n": 1423,
+    "independent_fixtures": 136,
+    "mean": -0.03255403577692877,
+    "median": -0.028258147778639997,
+    "positive_share": 0.27898805340829236,
+    "standard_error": 0.002734608501983885,
+    "t_stat": -11.904459359835858
   },
   "overall_same_book": {
-    "n": 824,
-    "independent_fixtures": 127,
-    "mean": 0.007429215813202136,
-    "median": 0.007299270072992581,
-    "positive_share": 0.529126213592233,
-    "standard_error": 0.002616578591826268,
-    "t_stat": 2.8392863246721123
+    "n": 857,
+    "independent_fixtures": 130,
+    "mean": 0.007629260563868786,
+    "median": 0.0071428571428571175,
+    "positive_share": 0.5262543757292882,
+    "standard_error": 0.0025901013284318516,
+    "t_stat": 2.9455452109620124
   },
   "shortlisted_pinnacle_fair": {
     "n": 64,
@@ -35,11 +35,11 @@
     "t_stat": -3.2155349002498825
   },
   "market_move_towards_model": {
-    "n": 133,
-    "correlation": -0.09782435117087487,
-    "sign_agreement": 0.6015037593984962,
-    "mean_abs_model_gap": 0.010524397593580818,
-    "mean_abs_market_move": 0.0040556268164263255
+    "n": 136,
+    "correlation": -0.09566069162638342,
+    "sign_agreement": 0.6102941176470589,
+    "mean_abs_model_gap": 0.010326275738236093,
+    "mean_abs_market_move": 0.003988415305959627
   },
   "positive_cells": [
     {
