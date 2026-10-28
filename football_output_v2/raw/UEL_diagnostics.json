@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "2f4fd2fcddcb84697ea931176b022e41bf3522fece1debae7653f99b8c0db30f",
-  "training_as_of_utc": "2026-10-27T11:33:06.628429+00:00",
+  "training_as_of_utc": "2026-10-28T12:13:11.156473+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -27,7 +27,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "NO_SHOT_DATA",
-    "cutoff_date": "2026-10-27",
+    "cutoff_date": "2026-10-28",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -52,9 +52,9 @@
   },
   "training_end": "2026-10-22",
   "fit_success": true,
-  "objective": 803.2534044656213,
-  "base": 0.10232277515431235,
-  "home_adv": 0.26712253602843133,
+  "objective": 802.0669410451133,
+  "base": 0.10239810357361893,
+  "home_adv": 0.2670800155343725,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -73,7 +73,7 @@
   },
   "training_data_health": {
     "training_end": "2026-10-22",
-    "verified_at_utc": "2026-10-27T05:00:30.087148+00:00",
+    "verified_at_utc": "2026-10-28T05:38:56.923274+00:00",
     "official_source_health": {
       "2025": {
         "status": "REVIEWED_HISTORICAL_FACTS",
@@ -91,7 +91,7 @@
   "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 8,
+  "additional_event_odds_calls_used_before_this_league": 7,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "decay_tuning": {

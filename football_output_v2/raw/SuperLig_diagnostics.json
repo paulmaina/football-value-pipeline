@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "36930ef41a7cb5e7e2f4d6e9884819c8b34ead9559d248ba647b034c279b2986",
-  "training_as_of_utc": "2026-10-27T11:34:33.112482+00:00",
+  "training_as_of_utc": "2026-10-28T12:13:32.613686+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "VALIDATED",
-    "cutoff_date": "2026-10-27",
+    "cutoff_date": "2026-10-28",
     "selected_weight": 0.2,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -50,8 +50,8 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1800,
-    "tune_start_date": "2025-10-28",
-    "audit_start_date": "2026-04-28",
+    "tune_start_date": "2025-10-29",
+    "audit_start_date": "2026-04-29",
     "training_shot_matches": 1503,
     "tuning_matches": 189,
     "audit_matches": 94,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.8834219549355979,
-    "audit_candidate_poisson_score": 0.8730013923574726,
-    "audit_gain": 0.010420562578125292,
-    "audit_gain_lower95": 0.002954456195036203,
+    "audit_baseline_poisson_score": 0.8834213336709461,
+    "audit_candidate_poisson_score": 0.8729981312512226,
+    "audit_gain": 0.010423202419723498,
+    "audit_gain_lower95": 0.0029566890809536155,
     "audit_baseline_briers": [
-      0.6143653087533946,
-      0.1743779921268648,
-      0.20593221896722164,
-      0.24831396633762895
+      0.6143674697310673,
+      0.1743712209488181,
+      0.2059329930887126,
+      0.2483102672048143
     ],
     "audit_candidate_briers": [
-      0.6098511613182359,
-      0.1731752528766611,
-      0.20306897173039457,
-      0.24811040995120862
+      0.6098523383208784,
+      0.17316940263649583,
+      0.20306892001246502,
+      0.24810657399937736
     ],
     "audit_brier_order": [
       "1x2",
@@ -85,10 +85,10 @@
   },
   "training_end": "2026-10-26",
   "fit_success": true,
-  "objective": 1662.7663450162156,
-  "base": 0.12389366378701921,
-  "home_adv": 0.24561122053534776,
-  "rho": -0.09601923676918228,
+  "objective": 1660.3025229648463,
+  "base": 0.12392974383942852,
+  "home_adv": 0.2455914362129404,
+  "rho": -0.09605179698188743,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -106,20 +106,68 @@
   },
   "training_data_health": {
     "training_end": "2026-10-26",
-    "days_since_latest_result": 1,
+    "days_since_latest_result": 2,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
-  "fixture_sources": [],
+  "fixture_sources": [
+    "The Odds API"
+  ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 2,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 8,
+  "additional_event_odds_calls_used_before_this_league": 7,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
+  "over_1_5_in_window_quote_fixtures": 0,
+  "additional_odds_coverage_mode": "all",
+  "additional_odds_coverage": [
+    {
+      "fixture_id": "feb03ec355aa5c94e0d7ae612a59b813",
+      "event_id": "feb03ec355aa5c94e0d7ae612a59b813",
+      "home_team": "Torku Konyaspor",
+      "away_team": "Galatasaray",
+      "kickoff_utc": "2026-10-30T17:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "7ef8c62daf5d4e448691625fb8c2de1b",
+      "event_id": "7ef8c62daf5d4e448691625fb8c2de1b",
+      "home_team": "Erzurum BB",
+      "away_team": "\u00c7orum FK",
+      "kickoff_utc": "2026-10-31T10:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    }
+  ],
+  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_event_odds_hard_cap_applies": false,
+  "additional_event_odds_calls_this_league": 0,
+  "totals_anchor_fixtures": {
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1,
+    "ANCHORED_MAIN": 1
+  },
+  "shot_features_applied_fixtures": 2,
+  "goal_rate_features_used": {
+    "shot_features": 2
+  },
+  "legacy_comparison_status": {
+    "AVAILABLE": 2
+  },
+  "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 365.0,
     "selected_xi_per_day": 0.0018990333713971104,

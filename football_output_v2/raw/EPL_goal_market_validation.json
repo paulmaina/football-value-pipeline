@@ -2402,7 +2402,7 @@
     "max_goals": 10,
     "training_end": "2026-10-25",
     "training_matches": 1980,
-    "training_sha256": "d9598058d734d17f6d1d4f6f59755e73c32726d950b05fc03c5786c99fb3d4b2",
+    "training_sha256": "30a33d991b082a6507018bf35f2bdcbab0a2789ad34f80f577bfe75cb71541a2",
     "validation_code_sha256": "2316b9e57bbb09b4ff5de0427aa1e3270d6f1a12aa227cc0ee77353f007c6520"
   },
   "count_markets": {

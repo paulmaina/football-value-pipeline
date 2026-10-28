@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "173f00460382fe819ab1795f92939756d58effd9917931edff4bdbeeab528135",
-  "training_as_of_utc": "2026-10-27T11:33:16.364907+00:00",
+  "training_as_of_utc": "2026-10-28T12:13:15.610708+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-10-27",
+    "cutoff_date": "2026-10-28",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -50,8 +50,8 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1620,
-    "tune_start_date": "2025-10-28",
-    "audit_start_date": "2026-04-28",
+    "tune_start_date": "2025-10-29",
+    "audit_start_date": "2026-04-29",
     "training_shot_matches": 1314,
     "tuning_matches": 189,
     "audit_matches": 111,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6973024793590988,
-    "audit_candidate_poisson_score": 0.6895394479677971,
-    "audit_gain": 0.007763031391301745,
-    "audit_gain_lower95": -0.003968105484094122,
+    "audit_baseline_poisson_score": 0.6975442860051377,
+    "audit_candidate_poisson_score": 0.6897612562350397,
+    "audit_gain": 0.007783029770098038,
+    "audit_gain_lower95": -0.00402373188232256,
     "audit_baseline_briers": [
-      0.6186530862327145,
-      0.09054801986030338,
-      0.2828994187721844,
-      0.22291150220082231
+      0.6185566037682171,
+      0.09069928369638267,
+      0.2827177738526286,
+      0.2228947232444893
     ],
     "audit_candidate_briers": [
-      0.6177477615878948,
-      0.08918318241939492,
-      0.27926110172034346,
-      0.21723068244676202
+      0.6176462072637358,
+      0.08929912310831868,
+      0.2791575945393188,
+      0.2172656537775724
     ],
     "audit_brier_order": [
       "1x2",
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1621.8045447413992,
-  "base": 0.29191679709053436,
-  "home_adv": 0.1841470499863581,
-  "rho": -0.09553008565503497,
+  "objective": 1619.399674375542,
+  "base": 0.29192335745810605,
+  "home_adv": 0.18416213530897518,
+  "rho": -0.09555584577386989,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -109,20 +109,106 @@
   },
   "training_data_health": {
     "training_end": "2026-10-25",
-    "days_since_latest_result": 2,
+    "days_since_latest_result": 3,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
-  "fixture_sources": [],
+  "fixture_sources": [
+    "football-data.org"
+  ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 8,
+  "additional_event_odds_calls_used_before_this_league": 7,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
+  "over_1_5_in_window_quote_fixtures": 0,
+  "additional_odds_coverage_mode": "all",
+  "additional_odds_coverage": [
+    {
+      "fixture_id": "fdorg:558854",
+      "event_id": null,
+      "home_team": "Feyenoord Rotterdam",
+      "away_team": "Fortuna Sittard",
+      "kickoff_utc": "2026-10-31T15:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "fdorg:558853",
+      "event_id": null,
+      "home_team": "PSV",
+      "away_team": "Willem II Tilburg",
+      "kickoff_utc": "2026-10-31T17:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "fdorg:558852",
+      "event_id": null,
+      "home_team": "SC Heerenveen",
+      "away_team": "NEC",
+      "kickoff_utc": "2026-10-31T17:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "fdorg:558851",
+      "event_id": null,
+      "home_team": "AFC Ajax",
+      "away_team": "AZ",
+      "kickoff_utc": "2026-10-31T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "fdorg:558850",
+      "event_id": null,
+      "home_team": "SC Cambuur-Leeuwarden",
+      "away_team": "Go Ahead Eagles",
+      "kickoff_utc": "2026-10-31T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    }
+  ],
+  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_event_odds_hard_cap_applies": false,
+  "additional_event_odds_calls_this_league": 0,
+  "totals_anchor_fixtures": {
+    "NOT_ANCHORED_NO_PINNACLE": 5
+  },
+  "shot_features_applied_fixtures": 0,
+  "goal_rate_features_used": {
+    "none": 5
+  },
+  "legacy_comparison_status": {
+    "AVAILABLE": 5
+  },
+  "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 365.0,
     "selected_xi_per_day": 0.0018990333713971104,
