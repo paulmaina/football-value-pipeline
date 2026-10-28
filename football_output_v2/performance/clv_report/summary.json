@@ -1,29 +1,29 @@
 {
   "version": "candidate-clv-v2-validated-fixture-clustered",
-  "generated_at_utc": "2026-10-28T17:36:22.686763+00:00",
+  "generated_at_utc": "2026-10-28T21:13:39.496730+00:00",
   "status": "OK",
-  "candidates": 1450,
-  "fixtures": 139,
+  "candidates": 1468,
+  "fixtures": 141,
   "uncertainty_method": "fixture-cluster-robust",
   "rejected_observation_files": [],
   "entry_files": 77,
   "overall_pinnacle_fair": {
-    "n": 1450,
-    "independent_fixtures": 139,
-    "mean": -0.03229140311454652,
-    "median": -0.02821590406018004,
-    "positive_share": 0.2793103448275862,
-    "standard_error": 0.002693693636281165,
-    "t_stat": -11.987778669265111
+    "n": 1468,
+    "independent_fixtures": 141,
+    "mean": -0.03256003728109431,
+    "median": -0.028215904060180208,
+    "positive_share": 0.28133514986376024,
+    "standard_error": 0.00267221136611203,
+    "t_stat": -12.184678837163982
   },
   "overall_same_book": {
-    "n": 875,
-    "independent_fixtures": 133,
-    "mean": 0.008314700853950238,
+    "n": 887,
+    "independent_fixtures": 135,
+    "mean": 0.008019271112234478,
     "median": 0.007418397626112627,
-    "positive_share": 0.5291428571428571,
-    "standard_error": 0.002597936525981678,
-    "t_stat": 3.200501925584335
+    "positive_share": 0.5287485907553551,
+    "standard_error": 0.0025914429741308942,
+    "t_stat": 3.094519614086412
   },
   "shortlisted_pinnacle_fair": {
     "n": 64,
@@ -35,11 +35,11 @@
     "t_stat": -3.2155349002498825
   },
   "market_move_towards_model": {
-    "n": 139,
-    "correlation": -0.08897481771419502,
-    "sign_agreement": 0.6187050359712231,
-    "mean_abs_model_gap": 0.01017951863922612,
-    "mean_abs_market_move": 0.00397706823070697
+    "n": 141,
+    "correlation": -0.08533465674812053,
+    "sign_agreement": 0.6170212765957447,
+    "mean_abs_model_gap": 0.010076606911090946,
+    "mean_abs_market_move": 0.0039597858353194034
   },
   "positive_cells": [
     {

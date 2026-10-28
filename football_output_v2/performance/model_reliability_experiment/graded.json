@@ -2975,6 +2975,111 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Bologna",
+    "baseline": {
+      "away_goals": 4,
+      "btts_yes": 0.5253263633211127,
+      "home_goals": 2,
+      "over_1_5": 0.7603154500241851,
+      "over_2_5": 0.5174392635007743,
+      "p_away": 0.19224339542579005,
+      "p_draw": 0.2328285209503071,
+      "p_home": 0.5749280836239031,
+      "under_3_5": 0.7073672004616837,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 4,
+      "btts_yes": 0.5264531134714211,
+      "home_goals": 2,
+      "over_1_5": 0.7600197910881799,
+      "over_2_5": 0.5174392635007741,
+      "p_away": 0.19360002976836185,
+      "p_draw": 0.23293943578614296,
+      "p_home": 0.5734605344454953,
+      "under_3_5": 0.7074160415026336,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "AC Milan",
+    "kickoff_utc": "2026-10-28T17:30:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": 0.007032074901145879,
+    "snapshot_commit": "61fd07517a6df27aaf13e10dfc2e47db9451d4a2",
+    "source_match_id": 558549,
+    "week": "2026-W44"
+  },
+  {
+    "away_team": "Udinese",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.44068458038209657,
+      "home_goals": 0,
+      "over_1_5": 0.6445215006322202,
+      "over_2_5": 0.3751415622793083,
+      "p_away": 0.38654666046014163,
+      "p_draw": 0.2894750487854077,
+      "p_home": 0.3239782907544507,
+      "under_3_5": 0.8226564871964603,
+      "y": 1
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.4491679183031103,
+      "home_goals": 0,
+      "over_1_5": 0.6527014987574371,
+      "over_2_5": 0.3839037508950132,
+      "p_away": 0.3847511320882184,
+      "p_draw": 0.2885491016717746,
+      "p_home": 0.3266997662400071,
+      "under_3_5": 0.815800952389854,
+      "y": 1
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Parma",
+    "kickoff_utc": "2026-10-28T17:30:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.0032038381266203952,
+    "snapshot_commit": "61fd07517a6df27aaf13e10dfc2e47db9451d4a2",
+    "source_match_id": 558553,
+    "week": "2026-W44"
+  },
+  {
+    "away_team": "Inter Milan",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.46267991622278387,
+      "home_goals": 0,
+      "over_1_5": 0.8454207153914718,
+      "over_2_5": 0.650482645575816,
+      "p_away": 0.763940608616505,
+      "p_draw": 0.1356854569608515,
+      "p_home": 0.1003739344226435,
+      "under_3_5": 0.5709836027517196,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.4848252900818373,
+      "home_goals": 0,
+      "over_1_5": 0.8439095671209695,
+      "over_2_5": 0.6477111277583858,
+      "p_away": 0.7548220287035108,
+      "p_draw": 0.14004972335164462,
+      "p_home": 0.10512824794484459,
+      "under_3_5": 0.5762567214757034,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Venezia",
+    "kickoff_utc": "2026-10-28T17:30:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.012008050841511742,
+    "snapshot_commit": "61fd07517a6df27aaf13e10dfc2e47db9451d4a2",
+    "source_match_id": 558550,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,

@@ -11427,15 +11427,15 @@
         },
         "frozen_selections": 74,
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-        "observations": 325,
+        "observations": 327,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-10-28T17:36:22.686763+00:00",
+        "reviewed_at_utc": "2026-10-28T21:13:39.496730+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
       "dependencies": {
-        "PyYAML": "6.0.3",
-        "coverage": "7.17.0",
+        "PyYAML": "NOT_INSTALLED",
+        "coverage": "NOT_INSTALLED",
         "numpy": "2.5.4",
         "pandas": "3.1.0",
         "python": "3.12.15",
@@ -11448,7 +11448,7 @@
         "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
         "graded_selections": 61,
         "model_improvement_established": false,
-        "prediction_fixtures_graded": 169
+        "prediction_fixtures_graded": 172
       },
       "execution_policy": {
         "account_availability": "USER_ALLOWLIST",
@@ -11487,10 +11487,10 @@
         "totals_anchor_experiment:LEGACY_NOT_RECORDED": 21
       },
       "forecast_freshness": {
-        "age_hours": 1.3382292375,
+        "age_hours": 4.9595653394444446,
         "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
         "status": "WITHIN_24_HOURS",
-        "upcoming_fixture_count": 30
+        "upcoming_fixture_count": 28
       },
       "quote_audit": {
         "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -11537,7 +11537,7 @@
             "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
             "report": "recency_experiment/report.md",
             "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-            "settled_evidence": 264,
+            "settled_evidence": 270,
             "status": "COLLECT_MORE_DATA"
           },
           {
@@ -11578,7 +11578,7 @@
             "name": "benchmark_forward_experiment",
             "report": "benchmark_forward_experiment/report.md",
             "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 85,
+            "settled_evidence": 88,
             "status": "COLLECT_MORE_DATA"
           },
           {
@@ -11601,7 +11601,7 @@
             "name": "model_reliability_experiment",
             "report": "model_reliability_experiment/report.md",
             "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 85,
+            "settled_evidence": 88,
             "status": "COLLECT_MORE_DATA"
           },
           {
@@ -11618,10 +11618,10 @@
           }
         ],
         "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-10-28T17:36:22.686763+00:00",
+        "reviewed_at_utc": "2026-10-28T21:13:39.496730+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-10-28T17:36:22.686763+00:00",
+      "reviewed_at_utc": "2026-10-28T21:13:39.496730+00:00",
       "selection_policy_groups": {
         "48h-top-ten-probability-ev-no-under35-v14": {
           "brier": 0.178674,
@@ -12487,11 +12487,11 @@
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-10-28T16:13:47.556632+00:00",
+            "checked_at_utc": "2026-10-28T21:13:23.797205+00:00",
             "completed_matches": 54,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 1.3764250363888888,
+            "download_age_hours": 0.004360979166666667,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-21",
             "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -12553,7 +12553,7 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-10-28T17:36:22.686763+00:00"
+            "verified_at_utc": "2026-10-28T21:13:39.496730+00:00"
           },
           "days_since_latest_result": 6,
           "diagnostics_sha256": "997033bffa0daf0213d30dee52bed5d26e9d78acc48e59055e6f8fa6445c952a",
