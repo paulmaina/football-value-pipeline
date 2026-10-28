@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "84c0a9d8af08458f9d90e4a3ffe4465c5e09f0dc593fdcb0fb4ebd37c58b23a7",
-  "training_as_of_utc": "2026-10-27T11:33:53.566516+00:00",
+  "training_as_of_utc": "2026-10-28T12:13:24.224429+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "VALIDATED",
-    "cutoff_date": "2026-10-27",
+    "cutoff_date": "2026-10-28",
     "selected_weight": 0.3,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -50,8 +50,8 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1611,
-    "tune_start_date": "2025-10-28",
-    "audit_start_date": "2026-04-28",
+    "tune_start_date": "2025-10-29",
+    "audit_start_date": "2026-04-29",
     "training_shot_matches": 1305,
     "tuning_matches": 197,
     "audit_matches": 103,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8910497749735755,
-    "audit_candidate_poisson_score": 0.8787221690113957,
-    "audit_gain": 0.012327605962179855,
-    "audit_gain_lower95": 0.0008799922952641381,
+    "audit_baseline_poisson_score": 0.8910498907404766,
+    "audit_candidate_poisson_score": 0.8787218636559287,
+    "audit_gain": 0.012328027084547832,
+    "audit_gain_lower95": 0.0008780097723124651,
     "audit_baseline_briers": [
-      0.60720757984065,
-      0.1843284639978682,
-      0.2426553752464772,
-      0.25114749006502723
+      0.6072179100391997,
+      0.18432497321850397,
+      0.24265429790114143,
+      0.2511458707386006
     ],
     "audit_candidate_briers": [
-      0.6028416023799343,
-      0.18349463130084334,
-      0.24110362881070824,
-      0.24950570381127885
+      0.6028489965068238,
+      0.183492365578184,
+      0.24110273505874388,
+      0.24950419867902912
     ],
     "audit_brier_order": [
       "1x2",
@@ -85,9 +85,9 @@
   },
   "training_end": "2026-10-26",
   "fit_success": true,
-  "objective": 1467.1179846291618,
-  "base": 0.09432781777973154,
-  "home_adv": 0.1701297213984002,
+  "objective": 1464.9433571678749,
+  "base": 0.0942923305805702,
+  "home_adv": 0.1701254836585455,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -106,30 +106,30 @@
   },
   "training_data_health": {
     "training_end": "2026-10-26",
-    "days_since_latest_result": 1,
+    "days_since_latest_result": 2,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "football-data.org"
+    "The Odds API"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 1,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 8,
+  "additional_event_odds_calls_used_before_this_league": 7,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:567344",
-      "event_id": null,
-      "home_team": "Casa Pia AC",
-      "away_team": "Sporting Clube de Portugal",
+      "fixture_id": "75daf3f21fd7945dcc4215b1fe8a5da3",
+      "event_id": "75daf3f21fd7945dcc4215b1fe8a5da3",
+      "home_team": "Casa Pia",
+      "away_team": "Sporting Lisbon",
       "kickoff_utc": "2026-10-30T20:15:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
@@ -144,7 +144,7 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
   },
   "shot_features_applied_fixtures": 1,
   "goal_rate_features_used": {

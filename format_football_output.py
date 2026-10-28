@@ -488,6 +488,102 @@ def positive_value_candidates(row: Mapping[str, Any]) -> List[Dict[str, Any]]:
     return sorted(found, key=lambda x: x["ev"], reverse=True)
 
 
+SAFEST_AH_MIN_ODDS = 1.20
+SAFEST_AH_COLUMNS = [
+    "Safest AH line",
+    "Safest AH odds and bookmaker",
+    "Safest AH expected value",
+    "Safest AH model no-loss probability",
+    "Safest AH model break-even win share",
+    "Safest AH Pinnacle no-vig win share",
+    "Safest AH model minus Pinnacle win share",
+    "Totals anchor status",
+    "Safest AH reason",
+]
+
+
+def safest_asian_handicap(row: Mapping[str, Any]) -> Dict[str, str]:
+    """Display only: the quoted AH line with the highest model no-loss probability.
+
+    Lines need EV >= 0 at the best available price and odds >= 1.20; ties go to
+    higher EV, then higher odds. Never feeds the shortlist or any policy gate.
+    """
+    from asian_handicap import distribution, line, probabilities
+
+    out = dict.fromkeys(SAFEST_AH_COLUMNS, "—")
+    out["Totals anchor status"] = format_value("totals_anchor_status", row.get("totals_anchor_status"))
+    out["Safest AH reason"] = ""
+    offers = row.get("asian_handicap_offers")
+    try:
+        offers = json.loads(offers) if isinstance(offers, str) else offers
+    except ValueError:
+        offers = None
+    if not isinstance(offers, list) or not offers:
+        out["Safest AH reason"] = "No Asian handicap quotes"
+        return out
+    try:
+        distribution(row.get("goal_margin_distribution"))
+    except (ValueError, TypeError):
+        out["Safest AH reason"] = "Model goal-margin distribution unavailable"
+        return out
+
+    # Best available price per side/line across bookmakers; Pinnacle kept for the no-vig reference.
+    best: Dict[Tuple[str, float], Dict[str, Any]] = {}
+    pinnacle: Dict[Tuple[str, float], Dict[str, Any]] = {}
+    for offer in offers:
+        try:
+            key = (offer["side"], line(offer["line"]))
+            price = float(offer["price"])
+            if key[0] not in ("home", "away") or not math.isfinite(price) or price <= 1:
+                continue
+        except (ValueError, TypeError, KeyError):
+            continue
+        book = str(offer.get("bookmaker"))
+        if book == "Pinnacle":
+            pinnacle[key] = offer
+        current = best.get(key)
+        if current is None or price > current["price"]:
+            best[key] = {"price": price, "books": {book}}
+        elif price == current["price"]:
+            current["books"].add(book)
+
+    candidates = []
+    for (side, point), quote in best.items():
+        values = probabilities(row["goal_margin_distribution"], side, point, quote["price"])
+        if quote["price"] >= SAFEST_AH_MIN_ODDS and values["estimated_ev"] + 1e-12 >= 0:
+            candidates.append((side, point, quote, values))
+    if not candidates:
+        out["Safest AH reason"] = (
+            f"No quoted line has EV >= 0 at odds >= {SAFEST_AH_MIN_ODDS:.2f} "
+            f"({len(best)} lines checked)"
+        )
+        return out
+
+    side, point, quote, values = min(candidates, key=lambda c: (
+        -round(c[3]["p_no_loss"], 12), -round(c[3]["estimated_ev"], 12), -c[2]["price"], c[0], c[1]))
+    team = row.get("home_team" if side == "home" else "away_team") or side.title()
+    out.update({
+        "Safest AH line": f"{team} {point:+.2f}",
+        "Safest AH odds and bookmaker": f"{quote['price']:.2f} ({'/'.join(sorted(quote['books']))})",
+        "Safest AH expected value": signed_pct(values["estimated_ev"]),
+        "Safest AH model no-loss probability": pct(values["p_no_loss"]),
+    })
+    # Break-even win share excludes refunds, so it is comparable with a two-way
+    # no-vig price on half, whole and quarter lines alike (v26 audit measure).
+    won = values["p_full_win"] + values["p_half_win"] / 2
+    lost = values["p_full_loss"] + values["p_half_loss"] / 2
+    share = won / (won + lost) if won + lost > 0 else None
+    out["Safest AH model break-even win share"] = pct(share)
+    reference = pinnacle.get((side, point))
+    if reference is not None and share is not None:
+        from football_value_pipeline_v2_standalone import devig
+        fair = to_float(devig([reference.get("price"), reference.get("opposite_price")], "proportional")[0])
+        if fair is not None:
+            out["Safest AH Pinnacle no-vig win share"] = pct(fair)
+            out["Safest AH model minus Pinnacle win share"] = f"{100 * (share - fair):+.1f} pp"
+    return out
+
+
 def build_match_summary(
     row: Mapping[str, Any],
     scorelines: Sequence[Tuple[str, float]],
@@ -605,6 +701,7 @@ def readable_predictions_frame(
                 f"{best_value['selection']} ({signed_pct(best_value['ev'])})"
                 if best_value else "No positive EV found / no odds available"
             ),
+            **safest_asian_handicap(row),
         }
         rows.append(out)
 
@@ -999,7 +1096,13 @@ This folder is generated by `format_football_output.py`.
 - `*_report.md` — narrative report intended for reading and sharing.
 - `*_predictions_readable.csv` — compact fixture-level summary for Excel or filtering,
   including **Under 3.5**, **BTTS Yes**, and **BTTS No** model probabilities
-  (percentages) alongside the other goal markets.
+  (percentages) alongside the other goal markets. The **Safest AH** columns show,
+  for display only, the quoted Asian handicap line with the highest model
+  no-loss probability (win or refund) among lines with EV >= 0 at the best
+  price and odds >= 1.20; ties go to higher EV, then higher odds. The model's
+  break-even win share, (full win + ½ half win) / (that + full loss + ½ half
+  loss), excludes refunds and is compared with Pinnacle's no-vig share at the
+  same line when Pinnacle quotes it. These columns do not affect the shortlist.
 - `*_scorelines_readable.csv` — flattened scoreline probabilities, ranked per match.
 - `*_backtest_bets_readable.csv` — historical selected bets, when backtest files exist.
 - `conservative_bet_shortlist_readable.csv` — shortlisted matches with
