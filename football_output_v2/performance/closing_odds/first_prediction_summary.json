@@ -30,7 +30,7 @@
   "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
   "observations": 327,
   "rejected_files": [],
-  "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
+  "reviewed_at_utc": "2026-10-29T14:35:53.517035+00:00",
   "tracking_basis": "FIRST_PREMATCH_PER_FIXTURE",
   "version": "local-closing-quotes-v4"
 }
