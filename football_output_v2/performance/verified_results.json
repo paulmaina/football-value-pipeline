@@ -3251,6 +3251,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "SA:558552": {
+    "away_goals": 0,
+    "away_short_name": "Juventus",
+    "away_team": "Juventus FC",
+    "first_verified_at_utc": "2026-10-29T06:06:36Z",
+    "home_goals": 2,
+    "home_short_name": "Genoa",
+    "home_team": "Genoa CFC",
+    "kickoff_utc": "2026-10-28T19:45:00Z",
+    "league_code": "SA",
+    "match_id": 558552,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "SA:558553": {
     "away_goals": 0,
     "away_short_name": "Udinese",
@@ -3262,6 +3277,21 @@
     "kickoff_utc": "2026-10-28T17:30:00Z",
     "league_code": "SA",
     "match_id": 558553,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558554": {
+    "away_goals": 4,
+    "away_short_name": "Napoli",
+    "away_team": "SSC Napoli",
+    "first_verified_at_utc": "2026-10-29T06:06:36Z",
+    "home_goals": 1,
+    "home_short_name": "Monza",
+    "home_team": "AC Monza",
+    "kickoff_utc": "2026-10-28T19:45:00Z",
+    "league_code": "SA",
+    "match_id": 558554,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"

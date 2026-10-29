@@ -3080,6 +3080,76 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Juventus",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.4073251384818529,
+      "home_goals": 2,
+      "over_1_5": 0.6558450764979723,
+      "over_2_5": 0.3904184385931648,
+      "p_away": 0.5654170040864336,
+      "p_draw": 0.2502059574079192,
+      "p_home": 0.18437703850564724,
+      "under_3_5": 0.8138534198497878,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.41719586937189873,
+      "home_goals": 2,
+      "over_1_5": 0.6616246234829648,
+      "over_2_5": 0.3970881776956188,
+      "p_away": 0.5617238788617065,
+      "p_draw": 0.250412142976838,
+      "p_home": 0.1878639781614554,
+      "under_3_5": 0.8088740584066044,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Genoa",
+    "kickoff_utc": "2026-10-28T19:45:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": 0.018735397210163596,
+    "snapshot_commit": "61fd07517a6df27aaf13e10dfc2e47db9451d4a2",
+    "source_match_id": 558552,
+    "week": "2026-W44"
+  },
+  {
+    "away_team": "Napoli",
+    "baseline": {
+      "away_goals": 4,
+      "btts_yes": 0.5151330084653455,
+      "home_goals": 1,
+      "over_1_5": 0.7777016999325288,
+      "over_2_5": 0.5409400693523454,
+      "p_away": 0.5731378970919594,
+      "p_draw": 0.22444619834018523,
+      "p_home": 0.20241590456785521,
+      "under_3_5": 0.6814450777077548,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 4,
+      "btts_yes": 0.517788398930977,
+      "home_goals": 1,
+      "over_1_5": 0.7734551507000791,
+      "over_2_5": 0.5352407232507324,
+      "p_away": 0.5662474197938863,
+      "p_draw": 0.22684639989663025,
+      "p_home": 0.2069061803094833,
+      "under_3_5": 0.6875597010770371,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Monza",
+    "kickoff_utc": "2026-10-28T19:45:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.012095225730901049,
+    "snapshot_commit": "61fd07517a6df27aaf13e10dfc2e47db9451d4a2",
+    "source_match_id": 558554,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,
