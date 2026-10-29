@@ -20,7 +20,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 | All selections | 61 | 46-14 | 75.4% | +6.4% |
 
 Unsettled / unverified entries: **13**.
-Whole-fixture 1X2 multiclass Brier (n=172): 0.5707
+Whole-fixture 1X2 multiclass Brier (n=174): 0.5716
 
 ## First-prediction reference — historical comparison
 
@@ -211,16 +211,16 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-10-25 | 1595 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-10-25 | 1980 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Eredivisie | 2026-10-25 | 1620 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-26 | 1999 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-26 | 1752 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| PrimeiraLiga | 2026-10-26 | 1611 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-27 | 1983 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SuperLig | 2026-10-26 | 1831 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-10-21 | 557 | 7 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
-| UEL | 2026-10-22 | 714 | 6 | VERIFIED_WITHIN_24_HOURS |
+| Bundesliga | 2026-10-25 | 1595 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-10-25 | 1980 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Eredivisie | 2026-10-25 | 1620 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-10-26 | 1999 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-10-26 | 1752 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| PrimeiraLiga | 2026-10-26 | 1611 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-27 | 1983 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SuperLig | 2026-10-26 | 1831 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| UCL | 2026-10-21 | 557 | 8 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UEL | 2026-10-22 | 714 | 7 | VERIFIED_WITHIN_24_HOURS |
 
 Latest shortlist audit: {"selected_quotes": 1, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 1, "bookmakers": {"Pinnacle": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 1, "unknown_kickoff_count": 0}.
 
