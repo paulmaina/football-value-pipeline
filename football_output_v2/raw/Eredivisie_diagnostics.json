@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "173f00460382fe819ab1795f92939756d58effd9917931edff4bdbeeab528135",
-  "training_as_of_utc": "2026-10-28T16:14:25.998108+00:00",
+  "training_as_of_utc": "2026-10-29T12:07:26.581354+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-10-28",
+    "cutoff_date": "2026-10-29",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -50,8 +50,8 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1620,
-    "tune_start_date": "2025-10-29",
-    "audit_start_date": "2026-04-29",
+    "tune_start_date": "2025-10-30",
+    "audit_start_date": "2026-04-30",
     "training_shot_matches": 1314,
     "tuning_matches": 189,
     "audit_matches": 111,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6975442993296386,
-    "audit_candidate_poisson_score": 0.6897612672790439,
-    "audit_gain": 0.007783032050594718,
-    "audit_gain_lower95": -0.004023726923927405,
+    "audit_baseline_poisson_score": 0.6975685523532026,
+    "audit_candidate_poisson_score": 0.689780887594241,
+    "audit_gain": 0.007787664758961532,
+    "audit_gain_lower95": -0.00402175103644076,
     "audit_baseline_briers": [
-      0.6185565974902838,
-      0.09069928592477247,
-      0.2827177901715695,
-      0.22289472155761134
+      0.6185564921508145,
+      0.09070136083816509,
+      0.2827267992416926,
+      0.2228996446888604
     ],
     "audit_candidate_briers": [
-      0.617646204983342,
-      0.08929912487105075,
-      0.2791576066179441,
-      0.21726565343662246
+      0.6176506864425231,
+      0.08930055661656652,
+      0.27916416497962393,
+      0.21726701099822363
     ],
     "audit_brier_order": [
       "1x2",
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1619.0081230662415,
-  "base": 0.2919250974009574,
-  "home_adv": 0.18415690672984683,
-  "rho": -0.09555346505993315,
+  "objective": 1617.0726317864041,
+  "base": 0.29188097538988733,
+  "home_adv": 0.18418669705175764,
+  "rho": -0.09552170386925038,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -109,7 +109,7 @@
   },
   "training_data_health": {
     "training_end": "2026-10-25",
-    "days_since_latest_result": 3,
+    "days_since_latest_result": 4,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -119,7 +119,7 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 6,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 7,
@@ -140,6 +140,71 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "c27c8af8c7ee29d153de0b9999ea0434",
+      "event_id": "c27c8af8c7ee29d153de0b9999ea0434",
+      "home_team": "Heerenveen",
+      "away_team": "NEC Nijmegen",
+      "kickoff_utc": "2026-10-31T17:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "49a7de86105dbc67bec3e1390c7bcbb3",
+      "event_id": "49a7de86105dbc67bec3e1390c7bcbb3",
+      "home_team": "PSV Eindhoven",
+      "away_team": "Willem II",
+      "kickoff_utc": "2026-10-31T17:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "43ebf45469e32887fe9caff703c94ae6",
+      "event_id": "43ebf45469e32887fe9caff703c94ae6",
+      "home_team": "Ajax",
+      "away_team": "AZ Alkmaar",
+      "kickoff_utc": "2026-10-31T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "314c3b27fe569849986fdd2d013d1aca",
+      "event_id": "314c3b27fe569849986fdd2d013d1aca",
+      "home_team": "SC Cambuur",
+      "away_team": "Go Ahead Eagles",
+      "kickoff_utc": "2026-10-31T20:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "016bdfefaa570d0fcaeffc5a1cb3625f",
+      "event_id": "016bdfefaa570d0fcaeffc5a1cb3625f",
+      "home_team": "FC Zwolle",
+      "away_team": "ADO Den Haag",
+      "kickoff_utc": "2026-11-01T11:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -147,14 +212,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 6
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 1
+    "none": 6
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 1
+    "AVAILABLE": 6
   },
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
