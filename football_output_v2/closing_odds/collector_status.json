@@ -1,29 +1,31 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-10-29T17:24:14.559604+00:00",
+  "checked_at_utc": "2026-10-29T19:39:09.735235+00:00",
   "coverage_checks": [
     {
-      "event_id": "667cf69986b200753742c90cb9c5126c",
+      "event_id": "da159a6b84dbb548b4d7b94c722caac5",
       "missing_required_quotes": [],
       "requested_markets": [
+        "alternate_spreads",
+        "draw_no_bet",
         "h2h",
+        "spreads",
         "totals"
       ],
       "returned_bookmakers": [
-        "onexbet",
         "pinnacle"
       ]
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 10,
+  "daily_requests": 11,
   "eligible_fixtures": 1,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
   "request_limit": 10,
   "requests": 1,
   "reservation_allowance": 10,
-  "reservation_id": "actions-40876908641-1-1",
+  "reservation_id": "actions-40922955656-1-1",
   "reservation_used": 1,
   "written": 1
 }
