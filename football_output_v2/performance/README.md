@@ -56,7 +56,7 @@ Whole-fixture 1X2 multiclass Brier (n=174): 0.5716
 | 2026-10-25T10:24:47.847996+00:00 | 12 | 9-3 | 75.0% | +3.8% |
 | 2026-10-26T11:01:43.961218+00:00 | 1 | 0-0 | 0.0% | +0.0% |
 | 2026-10-26T11:45:55.025240+00:00 | 0 | 0-0 | — | — |
-| 2026-10-28T16:16:05.061508+00:00 | 0 | 0-0 | — | — |
+| 2026-10-29T12:08:22.532184+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -217,7 +217,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | LaLiga | 2026-10-26 | 1999 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Ligue1 | 2026-10-26 | 1752 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | PrimeiraLiga | 2026-10-26 | 1611 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-27 | 1983 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-10-28 | 1988 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SuperLig | 2026-10-26 | 1831 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-21 | 557 | 8 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-10-22 | 714 | 7 | VERIFIED_WITHIN_24_HOURS |
@@ -228,7 +228,6 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| ca1e126489f9 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | a18515a42a8d | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | e93027ea804f | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 4c569effb9e7 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
@@ -248,8 +247,9 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | d414de1a572b | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 04e55dde9bbe | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | fd052ff5e9f0 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| c75d4ab52706 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 

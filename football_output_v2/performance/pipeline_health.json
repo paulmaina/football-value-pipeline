@@ -31,13 +31,13 @@
     "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
     "observations": 327,
     "rejected_files": [],
-    "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
+    "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
     "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
     "version": "local-closing-quotes-v4"
   },
   "dependencies": {
-    "PyYAML": "NOT_INSTALLED",
-    "coverage": "NOT_INSTALLED",
+    "PyYAML": "6.0.3",
+    "coverage": "7.17.0",
     "numpy": "2.5.4",
     "pandas": "3.1.0",
     "python": "3.12.15",
@@ -64,28 +64,28 @@
     "per_stake_cost_bps": 0
   },
   "experiment_capture_counts": {
-    "benchmark_forward_experiment:CAPTURED": 36,
+    "benchmark_forward_experiment:CAPTURED": 37,
     "benchmark_forward_experiment:LEGACY_NOT_RECORDED": 20,
     "benchmark_forward_experiment:PRESENT_BUT_REJECTED": 1,
     "filter_sensitivity_experiment:CAPTURED": 23,
     "filter_sensitivity_experiment:LEGACY_NOT_RECORDED": 19,
-    "filter_sensitivity_experiment:NOT_GENERATED": 15,
-    "goal_blend_experiment:CAPTURED": 43,
+    "filter_sensitivity_experiment:NOT_GENERATED": 16,
+    "goal_blend_experiment:CAPTURED": 44,
     "goal_blend_experiment:LEGACY_NOT_RECORDED": 14,
-    "market_led_experiment:CAPTURED": 43,
+    "market_led_experiment:CAPTURED": 44,
     "market_led_experiment:LEGACY_NOT_RECORDED": 14,
-    "model_reliability_experiment:CAPTURED": 34,
+    "model_reliability_experiment:CAPTURED": 35,
     "model_reliability_experiment:LEGACY_NOT_RECORDED": 23,
-    "recency_experiment:CAPTURED": 39,
+    "recency_experiment:CAPTURED": 40,
     "recency_experiment:LEGACY_NOT_RECORDED": 18,
     "shortlist_policy_experiment:CAPTURED": 15,
     "shortlist_policy_experiment:LEGACY_NOT_RECORDED": 26,
-    "shortlist_policy_experiment:NOT_GENERATED": 15,
+    "shortlist_policy_experiment:NOT_GENERATED": 16,
     "shortlist_policy_experiment:PRESENT_BUT_REJECTED": 1,
     "shortlist_weight_experiment:CAPTURED": 7,
     "shortlist_weight_experiment:LEGACY_NOT_RECORDED": 35,
-    "shortlist_weight_experiment:NOT_GENERATED": 15,
-    "totals_anchor_experiment:CAPTURED": 36,
+    "shortlist_weight_experiment:NOT_GENERATED": 16,
+    "totals_anchor_experiment:CAPTURED": 37,
     "totals_anchor_experiment:LEGACY_NOT_RECORDED": 21
   },
   "experimental_reports": {
@@ -652,7 +652,7 @@
       },
       "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
       "excluded_forecast_reasons": {
-        "league_outside_frozen_trial": 62,
+        "league_outside_frozen_trial": 69,
         "unreliable_team_identity": 16
       },
       "gameweeks": 3,
@@ -661,7 +661,7 @@
         0.011456412407980832
       ],
       "note": "Primary 1X2 log loss; week-block bootstrap, one preregistered candidate. Calibration and subgroup metrics are descriptive. Ready means enough evidence to review, including negative findings; it does not mean approval or profitability. Baseline is the actual production forecast. No closing odds, backfill, bets or automatic promotion.",
-      "observed_fixtures": 189,
+      "observed_fixtures": 206,
       "other_archived_registry_versions": [],
       "paired_fixtures": 90,
       "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
@@ -674,7 +674,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
+      "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
       "secondary_comparison": {
         "btts_yes": {
           "baseline": {
@@ -2439,7 +2439,7 @@
       ],
       "note": "One unit per simulated selection, net of frozen costs; simultaneous kickoff P&L grouped for drawdown. First eligible fixture snapshot freezes all policies and rejections. Different policies may select different markets/cohorts; results are not paired probability tests. Four weeks or 30 selections do not establish profitability. No automatic promotion; validate a chosen policy on later untouched data.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
+      "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
       "total_fixtures": 73,
       "version": "conservative-ev-sensitivity-v1"
     },
@@ -2569,8 +2569,8 @@
       ],
       "graded_fixture_markets": 111,
       "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-      "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
-      "total_fixture_markets": 702,
+      "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
+      "total_fixture_markets": 732,
       "version": "goal-blend-shadow-v1"
     },
     "market_led_experiment": {
@@ -3062,18 +3062,18 @@
       "graded_selections": 0,
       "late_reference_proxy_count": 0,
       "missing_reasons": {
-        "competition_excluded_from_shortlist_validation": 42,
-        "event_identity_or_kickoff_mismatch": 392,
-        "missing_invalid_or_stale_pinnacle_1x2": 392,
-        "no_fresh_independent_complete_dc_offer": 396,
+        "competition_excluded_from_shortlist_validation": 56,
+        "event_identity_or_kickoff_mismatch": 406,
+        "missing_invalid_or_stale_pinnacle_1x2": 406,
+        "no_fresh_independent_complete_dc_offer": 416,
         "outside_selection_window": 362,
         "unlinked_fixture": 54
       },
       "note": "Paper results at feed odds, not realized returns. Costs are user-configured per stake. Late reference proxy uses only archived quotes 20–60 minutes before kickoff; not actual closing odds. No automatic collection at close or promotion.",
-      "observed_fixture_markets": 468,
+      "observed_fixture_markets": 488,
       "paired_graded_fixture_markets": 68,
       "pending_or_unverified_selections": 0,
-      "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
+      "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
       "selected": 0,
       "settings_observed": [
         {
@@ -5807,7 +5807,7 @@
           "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
           "excluded_forecast_reasons": {
             "ValueError": 2,
-            "feature_application_differs": 12
+            "feature_application_differs": 15
           },
           "gameweeks": 3,
           "guardrails_passed": false,
@@ -9464,7 +9464,7 @@
           "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
           "excluded_forecast_reasons": {
             "ValueError": 2,
-            "candidate_equals_production_half_life": 29
+            "candidate_equals_production_half_life": 39
           },
           "gameweeks": 3,
           "guardrails_passed": false,
@@ -10302,7 +10302,7 @@
         }
       ],
       "note": "Two separate one-factor trials against actual production, not a combined configuration. First eligible snapshot freezes missing candidates too. Primary 1X2 week-block intervals use 97.5% per trial (familywise 95%); other markets/calibration are guardrails and descriptive. No automatic promotion or betting-edge claim.",
-      "observed_fixtures": 127,
+      "observed_fixtures": 137,
       "registry": {
         "approval_required": true,
         "automatic_production_change": false,
@@ -10334,11 +10334,11 @@
       },
       "registry_sha256": "24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
+      "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
       "version": "model-reliability-forward-v1"
     },
     "recency_experiment": {
-      "available_fixture_markets": 426,
+      "available_fixture_markets": 446,
       "comparisons": [
         {
           "assessment": "REVIEW_ON_LATER_HOLDOUT",
@@ -82261,12 +82261,2132 @@
             }
           ],
           "snapshot_commit": "fd052ff5e9f0163b18958342eaa037bbf5f0e16e"
+        },
+        {
+          "leagues": [
+            {
+              "candidate_fit_errors": {},
+              "historical_audit": {
+                "audit_folds": 2,
+                "audit_start": "2026-08-02T00:00:00",
+                "development_1x2_half_life": 240.0,
+                "development_folds": 4,
+                "markets": {
+                  "btts_yes": {
+                    "audit": {
+                      "brier": 0.26346356432359885,
+                      "event_rate": 0.5,
+                      "log_loss": 0.7223563702840898,
+                      "mean_probability": 0.5284080532797262,
+                      "n": 80
+                    },
+                    "audit_brier_gain": -0.003226857179267295,
+                    "audit_log_loss_gain": -0.007138012006526306,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.2611154627993954,
+                          "event_rate": 0.5,
+                          "log_loss": 0.7169787740605201,
+                          "mean_probability": 0.5331477381337156,
+                          "n": 80
+                        },
+                        "development": {
+                          "brier": 0.24921196799211903,
+                          "event_rate": 0.5661016949152542,
+                          "log_loss": 0.6921826839162921,
+                          "mean_probability": 0.5352999786049634,
+                          "n": 295
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.26023670714433156,
+                          "event_rate": 0.5,
+                          "log_loss": 0.7152183582775635,
+                          "mean_probability": 0.5351486113738294,
+                          "n": 80
+                        },
+                        "development": {
+                          "brier": 0.2474565320439879,
+                          "event_rate": 0.5661016949152542,
+                          "log_loss": 0.6883267970953019,
+                          "mean_probability": 0.5437068474164002,
+                          "n": 295
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2609581252923254,
+                          "event_rate": 0.5,
+                          "log_loss": 0.7168027542897928,
+                          "mean_probability": 0.5349225050939612,
+                          "n": 80
+                        },
+                        "development": {
+                          "brier": 0.24650597534885596,
+                          "event_rate": 0.5661016949152542,
+                          "log_loss": 0.6863207480130299,
+                          "mean_probability": 0.5445751981180792,
+                          "n": 295
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.26217397507205054,
+                          "event_rate": 0.5,
+                          "log_loss": 0.719415040856668,
+                          "mean_probability": 0.5332925827203374,
+                          "n": 80
+                        },
+                        "development": {
+                          "brier": 0.24557047258440814,
+                          "event_rate": 0.5661016949152542,
+                          "log_loss": 0.6843487695639782,
+                          "mean_probability": 0.5416999253247994,
+                          "n": 295
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.26346356432359885,
+                          "event_rate": 0.5,
+                          "log_loss": 0.7223563702840898,
+                          "mean_probability": 0.5284080532797262,
+                          "n": 80
+                        },
+                        "development": {
+                          "brier": 0.24496325759002788,
+                          "event_rate": 0.5661016949152542,
+                          "log_loss": 0.6830595716681034,
+                          "mean_probability": 0.5338701494978979,
+                          "n": 295
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.24496325759002788,
+                      "event_rate": 0.5661016949152542,
+                      "log_loss": 0.6830595716681034,
+                      "mean_probability": 0.5338701494978979,
+                      "n": 295
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.26023670714433156,
+                      "event_rate": 0.5,
+                      "log_loss": 0.7152183582775635,
+                      "mean_probability": 0.5351486113738294,
+                      "n": 80
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 2,
+                      "240.0": 2
+                    },
+                    "development_log_loss_margin": 0.001289197895874783,
+                    "selected_half_life_days": 1000000000.0,
+                    "status": "AUDIT_COMPLETE"
+                  },
+                  "over_1_5": {
+                    "audit": {
+                      "brier": 0.17912429135144486,
+                      "event_rate": 0.7625,
+                      "log_loss": 0.5423659775278404,
+                      "mean_probability": 0.7700570651785466,
+                      "n": 80
+                    },
+                    "audit_brier_gain": -0.004051539381839331,
+                    "audit_log_loss_gain": -0.010639281310227844,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.17642414406861096,
+                          "event_rate": 0.7625,
+                          "log_loss": 0.5356299655520266,
+                          "mean_probability": 0.7653865230430679,
+                          "n": 80
+                        },
+                        "development": {
+                          "brier": 0.16914226419099226,
+                          "event_rate": 0.7898305084745763,
+                          "log_loss": 0.5232888128739847,
+                          "mean_probability": 0.7679064894720001,
+                          "n": 295
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.17507275196960553,
+                          "event_rate": 0.7625,
+                          "log_loss": 0.5317266962176126,
+                          "mean_probability": 0.7680896675841751,
+                          "n": 80
+                        },
+                        "development": {
+                          "brier": 0.16693815091255654,
+                          "event_rate": 0.7898305084745763,
+                          "log_loss": 0.5159244975515558,
+                          "mean_probability": 0.7730090327205296,
+                          "n": 295
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.1753959150385565,
+                          "event_rate": 0.7625,
+                          "log_loss": 0.5323988775945744,
+                          "mean_probability": 0.768995758460405,
+                          "n": 80
+                        },
+                        "development": {
+                          "brier": 0.16606825177340456,
+                          "event_rate": 0.7898305084745763,
+                          "log_loss": 0.5132766724267795,
+                          "mean_probability": 0.7741745740792334,
+                          "n": 295
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.17675339442752167,
+                          "event_rate": 0.7625,
+                          "log_loss": 0.5359009905413901,
+                          "mean_probability": 0.7700127981997155,
+                          "n": 80
+                        },
+                        "development": {
+                          "brier": 0.165444898388176,
+                          "event_rate": 0.7898305084745763,
+                          "log_loss": 0.5115366053572479,
+                          "mean_probability": 0.7730597366060448,
+                          "n": 295
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.17912429135144486,
+                          "event_rate": 0.7625,
+                          "log_loss": 0.5423659775278404,
+                          "mean_probability": 0.7700570651785466,
+                          "n": 80
+                        },
+                        "development": {
+                          "brier": 0.16537220999124408,
+                          "event_rate": 0.7898305084745763,
+                          "log_loss": 0.5114838431136675,
+                          "mean_probability": 0.7683763377085979,
+                          "n": 295
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.16537220999124408,
+                      "event_rate": 0.7898305084745763,
+                      "log_loss": 0.5114838431136675,
+                      "mean_probability": 0.7683763377085979,
+                      "n": 295
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.17507275196960553,
+                      "event_rate": 0.7625,
+                      "log_loss": 0.5317266962176126,
+                      "mean_probability": 0.7680896675841751,
+                      "n": 80
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 2,
+                      "240.0": 1,
+                      "730.0": 1
+                    },
+                    "development_log_loss_margin": 5.276224358041759e-05,
+                    "selected_half_life_days": 1000000000.0,
+                    "status": "AUDIT_COMPLETE"
+                  }
+                },
+                "minimum_matches_per_phase": 25,
+                "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+                "production_half_life": 240.0,
+                "selection_metric": "development_binary_log_loss",
+                "status": "AUDIT_COMPLETE"
+              },
+              "historical_diagnostic_errors": {},
+              "l2": 0.08,
+              "league": "Premier League",
+              "max_goals": 10,
+              "production_half_life_days": 480.0,
+              "training_as_of_utc": "2026-10-29T11:48:36.104635+00:00",
+              "training_end": "2026-10-25T00:00:00",
+              "training_matches": 1980,
+              "training_sha256": "184e644ff7b99f2bcf80cf1ce7d355ec8c708d6ad826097d161904961482d5b6"
+            },
+            {
+              "candidate_fit_errors": {},
+              "historical_audit": {
+                "audit_folds": 2,
+                "audit_start": "2026-08-03T00:00:00",
+                "development_1x2_half_life": 1000000000.0,
+                "development_folds": 4,
+                "markets": {
+                  "btts_yes": {
+                    "audit": {
+                      "brier": 0.25169773963155007,
+                      "event_rate": 0.5858585858585859,
+                      "log_loss": 0.6972380859668564,
+                      "mean_probability": 0.5158910002861662,
+                      "n": 99
+                    },
+                    "audit_brier_gain": 0.0008528060713007823,
+                    "audit_log_loss_gain": 0.0018699247572002697,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.252598582511056,
+                          "event_rate": 0.5858585858585859,
+                          "log_loss": 0.6991186591455202,
+                          "mean_probability": 0.5232950082343649,
+                          "n": 99
+                        },
+                        "development": {
+                          "brier": 0.2526241133560136,
+                          "event_rate": 0.5622775800711743,
+                          "log_loss": 0.69990360053835,
+                          "mean_probability": 0.4788595068542939,
+                          "n": 281
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.25169773963155007,
+                          "event_rate": 0.5858585858585859,
+                          "log_loss": 0.6972380859668564,
+                          "mean_probability": 0.5158910002861662,
+                          "n": 99
+                        },
+                        "development": {
+                          "brier": 0.25204956198894446,
+                          "event_rate": 0.5622775800711743,
+                          "log_loss": 0.6985564300843193,
+                          "mean_probability": 0.47896023060750603,
+                          "n": 281
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2517430320744033,
+                          "event_rate": 0.5858585858585859,
+                          "log_loss": 0.6973682546186288,
+                          "mean_probability": 0.5112191544596167,
+                          "n": 99
+                        },
+                        "development": {
+                          "brier": 0.25250797597936,
+                          "event_rate": 0.5622775800711743,
+                          "log_loss": 0.6993937915631676,
+                          "mean_probability": 0.4786107510538372,
+                          "n": 281
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2519845047195765,
+                          "event_rate": 0.5858585858585859,
+                          "log_loss": 0.697897746407451,
+                          "mean_probability": 0.5047120631550629,
+                          "n": 99
+                        },
+                        "development": {
+                          "brier": 0.253745359270202,
+                          "event_rate": 0.5622775800711743,
+                          "log_loss": 0.7017894981936066,
+                          "mean_probability": 0.47742932285598433,
+                          "n": 281
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.25255054570285085,
+                          "event_rate": 0.5858585858585859,
+                          "log_loss": 0.6991080107240567,
+                          "mean_probability": 0.49675955206253225,
+                          "n": 99
+                        },
+                        "development": {
+                          "brier": 0.2554575272362339,
+                          "event_rate": 0.5622775800711743,
+                          "log_loss": 0.7051405897353036,
+                          "mean_probability": 0.4752491985637286,
+                          "n": 281
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.25204956198894446,
+                      "event_rate": 0.5622775800711743,
+                      "log_loss": 0.6985564300843193,
+                      "mean_probability": 0.47896023060750603,
+                      "n": 281
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.25255054570285085,
+                      "event_rate": 0.5858585858585859,
+                      "log_loss": 0.6991080107240567,
+                      "mean_probability": 0.49675955206253225,
+                      "n": 99
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 1,
+                      "120.0": 2,
+                      "365.0": 1
+                    },
+                    "development_log_loss_margin": 0.0008373614788482753,
+                    "selected_half_life_days": 240.0,
+                    "status": "AUDIT_COMPLETE"
+                  },
+                  "over_1_5": {
+                    "audit": {
+                      "brier": 0.18130152454293894,
+                      "event_rate": 0.7676767676767676,
+                      "log_loss": 0.550599471288894,
+                      "mean_probability": 0.7523758195402347,
+                      "n": 99
+                    },
+                    "audit_brier_gain": -0.0005115928036335537,
+                    "audit_log_loss_gain": -0.006758245483555525,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.18130152454293894,
+                          "event_rate": 0.7676767676767676,
+                          "log_loss": 0.550599471288894,
+                          "mean_probability": 0.7523758195402347,
+                          "n": 99
+                        },
+                        "development": {
+                          "brier": 0.171620535049448,
+                          "event_rate": 0.7793594306049823,
+                          "log_loss": 0.523988500723143,
+                          "mean_probability": 0.7215030804587866,
+                          "n": 281
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.1809097819384453,
+                          "event_rate": 0.7676767676767676,
+                          "log_loss": 0.5462445530641613,
+                          "mean_probability": 0.7455983009045369,
+                          "n": 99
+                        },
+                        "development": {
+                          "brier": 0.1718026693404045,
+                          "event_rate": 0.7793594306049823,
+                          "log_loss": 0.5247109901431644,
+                          "mean_probability": 0.7181021707315524,
+                          "n": 281
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.18071886684043523,
+                          "event_rate": 0.7676767676767676,
+                          "log_loss": 0.5448976614975727,
+                          "mean_probability": 0.7413154722883276,
+                          "n": 99
+                        },
+                        "development": {
+                          "brier": 0.17196688361273008,
+                          "event_rate": 0.7793594306049823,
+                          "log_loss": 0.5252978160753867,
+                          "mean_probability": 0.7173974785776862,
+                          "n": 281
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.18054036548796334,
+                          "event_rate": 0.7676767676767676,
+                          "log_loss": 0.5437534884201148,
+                          "mean_probability": 0.7358888425639453,
+                          "n": 99
+                        },
+                        "development": {
+                          "brier": 0.17218495273272577,
+                          "event_rate": 0.7793594306049823,
+                          "log_loss": 0.5261845575179526,
+                          "mean_probability": 0.7171200277150919,
+                          "n": 281
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.18078993173930538,
+                          "event_rate": 0.7676767676767676,
+                          "log_loss": 0.5438412258053384,
+                          "mean_probability": 0.7296773076344039,
+                          "n": 99
+                        },
+                        "development": {
+                          "brier": 0.17249445164406646,
+                          "event_rate": 0.7793594306049823,
+                          "log_loss": 0.5275645241778657,
+                          "mean_probability": 0.7168377376076495,
+                          "n": 281
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.171620535049448,
+                      "event_rate": 0.7793594306049823,
+                      "log_loss": 0.523988500723143,
+                      "mean_probability": 0.7215030804587866,
+                      "n": 281
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.18078993173930538,
+                      "event_rate": 0.7676767676767676,
+                      "log_loss": 0.5438412258053384,
+                      "mean_probability": 0.7296773076344039,
+                      "n": 99
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 1,
+                      "120.0": 2,
+                      "240.0": 1
+                    },
+                    "development_log_loss_margin": 0.0007224894200213994,
+                    "selected_half_life_days": 120.0,
+                    "status": "AUDIT_COMPLETE"
+                  }
+                },
+                "minimum_matches_per_phase": 25,
+                "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+                "production_half_life": 1000000000.0,
+                "selection_metric": "development_binary_log_loss",
+                "status": "AUDIT_COMPLETE"
+              },
+              "historical_diagnostic_errors": {},
+              "l2": 0.08,
+              "league": "La Liga",
+              "max_goals": 10,
+              "production_half_life_days": 480.0,
+              "training_as_of_utc": "2026-10-29T11:52:59.394319+00:00",
+              "training_end": "2026-10-26T00:00:00",
+              "training_matches": 1999,
+              "training_sha256": "95ecb8796a02cd2692b4ea85cbdadb17da0d680bac5294d8a4fd11f095d1e6ad"
+            },
+            {
+              "candidate_fit_errors": {},
+              "historical_audit": {
+                "audit_folds": 2,
+                "audit_start": "2026-08-02T00:00:00",
+                "development_1x2_half_life": 730.0,
+                "development_folds": 4,
+                "markets": {
+                  "btts_yes": {
+                    "audit": {
+                      "brier": 0.2361785461458886,
+                      "event_rate": 0.5714285714285714,
+                      "log_loss": 0.6656834566378133,
+                      "mean_probability": 0.5917031267747745,
+                      "n": 63
+                    },
+                    "audit_brier_gain": 0.00016765475454383338,
+                    "audit_log_loss_gain": -9.272699484486058e-05,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.23792122835880497,
+                          "event_rate": 0.5714285714285714,
+                          "log_loss": 0.6692544377160334,
+                          "mean_probability": 0.5944615852894637,
+                          "n": 63
+                        },
+                        "development": {
+                          "brier": 0.24492184070824577,
+                          "event_rate": 0.6440677966101694,
+                          "log_loss": 0.683193278717754,
+                          "mean_probability": 0.564929207558914,
+                          "n": 236
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2361785461458886,
+                          "event_rate": 0.5714285714285714,
+                          "log_loss": 0.6656834566378133,
+                          "mean_probability": 0.5917031267747745,
+                          "n": 63
+                        },
+                        "development": {
+                          "brier": 0.24358494330587888,
+                          "event_rate": 0.6440677966101694,
+                          "log_loss": 0.6802269226455625,
+                          "mean_probability": 0.5719435666585408,
+                          "n": 236
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2359583386222661,
+                          "event_rate": 0.5714285714285714,
+                          "log_loss": 0.6650638055144218,
+                          "mean_probability": 0.59308531905875,
+                          "n": 63
+                        },
+                        "development": {
+                          "brier": 0.24405770344349856,
+                          "event_rate": 0.6440677966101694,
+                          "log_loss": 0.6812440219074445,
+                          "mean_probability": 0.5736793452635364,
+                          "n": 236
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.23634620090043243,
+                          "event_rate": 0.5714285714285714,
+                          "log_loss": 0.6655907296429684,
+                          "mean_probability": 0.5946677952546096,
+                          "n": 63
+                        },
+                        "development": {
+                          "brier": 0.24497889486998767,
+                          "event_rate": 0.6440677966101694,
+                          "log_loss": 0.6832391327887302,
+                          "mean_probability": 0.5750195944659856,
+                          "n": 236
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2365579869877222,
+                          "event_rate": 0.5714285714285714,
+                          "log_loss": 0.66582251782542,
+                          "mean_probability": 0.5948917822576475,
+                          "n": 63
+                        },
+                        "development": {
+                          "brier": 0.24622089269035002,
+                          "event_rate": 0.6440677966101694,
+                          "log_loss": 0.6859334761707298,
+                          "mean_probability": 0.5758989751317419,
+                          "n": 236
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.24358494330587888,
+                      "event_rate": 0.6440677966101694,
+                      "log_loss": 0.6802269226455625,
+                      "mean_probability": 0.5719435666585408,
+                      "n": 236
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.23634620090043243,
+                      "event_rate": 0.5714285714285714,
+                      "log_loss": 0.6655907296429684,
+                      "mean_probability": 0.5946677952546096,
+                      "n": 63
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 1,
+                      "120.0": 2,
+                      "730.0": 1
+                    },
+                    "development_log_loss_margin": 0.0010170992618819819,
+                    "selected_half_life_days": 240.0,
+                    "status": "AUDIT_COMPLETE"
+                  },
+                  "over_1_5": {
+                    "audit": {
+                      "brier": 0.16128884161648446,
+                      "event_rate": 0.7936507936507936,
+                      "log_loss": 0.504279605596802,
+                      "mean_probability": 0.8258903048351188,
+                      "n": 63
+                    },
+                    "audit_brier_gain": -0.0002998090467557779,
+                    "audit_log_loss_gain": 0.0014421740069653355,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.15999023547756497,
+                          "event_rate": 0.7936507936507936,
+                          "log_loss": 0.5127815453823752,
+                          "mean_probability": 0.8215028404643231,
+                          "n": 63
+                        },
+                        "development": {
+                          "brier": 0.1366419049904246,
+                          "event_rate": 0.847457627118644,
+                          "log_loss": 0.44931618545520047,
+                          "mean_probability": 0.8075088594742386,
+                          "n": 236
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.15896494948744438,
+                          "event_rate": 0.7936507936507936,
+                          "log_loss": 0.5078359750301978,
+                          "mean_probability": 0.8214827219139655,
+                          "n": 63
+                        },
+                        "development": {
+                          "brier": 0.13452074443758655,
+                          "event_rate": 0.847457627118644,
+                          "log_loss": 0.44119447136279405,
+                          "mean_probability": 0.80626852881505,
+                          "n": 236
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.15971952607732298,
+                          "event_rate": 0.7936507936507936,
+                          "log_loss": 0.5060197833094932,
+                          "mean_probability": 0.8238760660920342,
+                          "n": 63
+                        },
+                        "development": {
+                          "brier": 0.13396873079651428,
+                          "event_rate": 0.847457627118644,
+                          "log_loss": 0.4390911061140245,
+                          "mean_probability": 0.8054699798511793,
+                          "n": 236
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.16098903256972869,
+                          "event_rate": 0.7936507936507936,
+                          "log_loss": 0.5057217796037673,
+                          "mean_probability": 0.8258016564756577,
+                          "n": 63
+                        },
+                        "development": {
+                          "brier": 0.13353374823989583,
+                          "event_rate": 0.847457627118644,
+                          "log_loss": 0.43750019290234754,
+                          "mean_probability": 0.8046636942588441,
+                          "n": 236
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.16128884161648446,
+                          "event_rate": 0.7936507936507936,
+                          "log_loss": 0.504279605596802,
+                          "mean_probability": 0.8258903048351188,
+                          "n": 63
+                        },
+                        "development": {
+                          "brier": 0.13321121307472283,
+                          "event_rate": 0.847457627118644,
+                          "log_loss": 0.4364470660775617,
+                          "mean_probability": 0.8039492863552662,
+                          "n": 236
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.13321121307472283,
+                      "event_rate": 0.847457627118644,
+                      "log_loss": 0.4364470660775617,
+                      "mean_probability": 0.8039492863552662,
+                      "n": 236
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.16098903256972869,
+                      "event_rate": 0.7936507936507936,
+                      "log_loss": 0.5057217796037673,
+                      "mean_probability": 0.8258016564756577,
+                      "n": 63
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 2,
+                      "730.0": 2
+                    },
+                    "development_log_loss_margin": 0.001053126824785866,
+                    "selected_half_life_days": 1000000000.0,
+                    "status": "AUDIT_COMPLETE"
+                  }
+                },
+                "minimum_matches_per_phase": 25,
+                "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+                "production_half_life": 1000000000.0,
+                "selection_metric": "development_binary_log_loss",
+                "status": "AUDIT_COMPLETE"
+              },
+              "historical_diagnostic_errors": {},
+              "l2": 0.08,
+              "league": "Bundesliga",
+              "max_goals": 10,
+              "production_half_life_days": 480.0,
+              "training_as_of_utc": "2026-10-29T11:57:09.762880+00:00",
+              "training_end": "2026-10-25T00:00:00",
+              "training_matches": 1595,
+              "training_sha256": "4e57675a191ac9abe6c961d531822a9ea05d1ca526c552366995d082f8c1dcc4"
+            },
+            {
+              "candidate_fit_errors": {},
+              "historical_audit": {
+                "audit_folds": 2,
+                "audit_start": "2026-08-05T00:00:00",
+                "development_1x2_half_life": 1000000000.0,
+                "development_folds": 4,
+                "markets": {
+                  "btts_yes": {
+                    "audit": {
+                      "brier": 0.2389413516389797,
+                      "event_rate": 0.5681818181818182,
+                      "log_loss": 0.6707803921175581,
+                      "mean_probability": 0.4787174177082088,
+                      "n": 88
+                    },
+                    "audit_brier_gain": -0.0029516860680597057,
+                    "audit_log_loss_gain": -0.006138440183928062,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.2446575620274867,
+                          "event_rate": 0.5681818181818182,
+                          "log_loss": 0.6824937858096483,
+                          "mean_probability": 0.4684628734858313,
+                          "n": 88
+                        },
+                        "development": {
+                          "brier": 0.2517139516353012,
+                          "event_rate": 0.4463087248322148,
+                          "log_loss": 0.6969757218230871,
+                          "mean_probability": 0.44144469782042095,
+                          "n": 298
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.24062145974314084,
+                          "event_rate": 0.5681818181818182,
+                          "log_loss": 0.6742406662258205,
+                          "mean_probability": 0.4744471476019083,
+                          "n": 88
+                        },
+                        "development": {
+                          "brier": 0.24921615279614337,
+                          "event_rate": 0.4463087248322148,
+                          "log_loss": 0.6916264220627935,
+                          "mean_probability": 0.45788795296678003,
+                          "n": 298
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2389413516389797,
+                          "event_rate": 0.5681818181818182,
+                          "log_loss": 0.6707803921175581,
+                          "mean_probability": 0.4787174177082088,
+                          "n": 88
+                        },
+                        "development": {
+                          "brier": 0.24907275821503636,
+                          "event_rate": 0.4463087248322148,
+                          "log_loss": 0.6913265167231518,
+                          "mean_probability": 0.4653853106058042,
+                          "n": 298
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2373649819452881,
+                          "event_rate": 0.5681818181818182,
+                          "log_loss": 0.6675176292528731,
+                          "mean_probability": 0.4833936897231533,
+                          "n": 88
+                        },
+                        "development": {
+                          "brier": 0.24963367094302782,
+                          "event_rate": 0.4463087248322148,
+                          "log_loss": 0.6924612699978184,
+                          "mean_probability": 0.47291870018560944,
+                          "n": 298
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.23598966557092,
+                          "event_rate": 0.5681818181818182,
+                          "log_loss": 0.6646419519336301,
+                          "mean_probability": 0.48772400661626636,
+                          "n": 88
+                        },
+                        "development": {
+                          "brier": 0.2508533275146103,
+                          "event_rate": 0.4463087248322148,
+                          "log_loss": 0.6949370295788346,
+                          "mean_probability": 0.4795950995197397,
+                          "n": 298
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.24907275821503636,
+                      "event_rate": 0.4463087248322148,
+                      "log_loss": 0.6913265167231518,
+                      "mean_probability": 0.4653853106058042,
+                      "n": 298
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.23598966557092,
+                      "event_rate": 0.5681818181818182,
+                      "log_loss": 0.6646419519336301,
+                      "mean_probability": 0.48772400661626636,
+                      "n": 88
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 2,
+                      "120.0": 1,
+                      "240.0": 1
+                    },
+                    "development_log_loss_margin": 0.00029990533964163735,
+                    "selected_half_life_days": 365.0,
+                    "status": "AUDIT_COMPLETE"
+                  },
+                  "over_1_5": {
+                    "audit": {
+                      "brier": 0.14534894262268658,
+                      "event_rate": 0.8522727272727273,
+                      "log_loss": 0.46913676575765156,
+                      "mean_probability": 0.7188212212201687,
+                      "n": 88
+                    },
+                    "audit_brier_gain": -0.00258725634740381,
+                    "audit_log_loss_gain": -0.007364040733074617,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.15073328563043586,
+                          "event_rate": 0.8522727272727273,
+                          "log_loss": 0.48022236910177135,
+                          "mean_probability": 0.7136314267794743,
+                          "n": 88
+                        },
+                        "development": {
+                          "brier": 0.20858351451538054,
+                          "event_rate": 0.7114093959731543,
+                          "log_loss": 0.6068139685989535,
+                          "mean_probability": 0.6877174825373911,
+                          "n": 298
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.14534894262268658,
+                          "event_rate": 0.8522727272727273,
+                          "log_loss": 0.46913676575765156,
+                          "mean_probability": 0.7188212212201687,
+                          "n": 88
+                        },
+                        "development": {
+                          "brier": 0.20645759148527573,
+                          "event_rate": 0.7114093959731543,
+                          "log_loss": 0.6030343918231056,
+                          "mean_probability": 0.702497891185185,
+                          "n": 298
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.1433806428390277,
+                          "event_rate": 0.8522727272727273,
+                          "log_loss": 0.4647240374863703,
+                          "mean_probability": 0.7220455213219628,
+                          "n": 88
+                        },
+                        "development": {
+                          "brier": 0.20650787937008086,
+                          "event_rate": 0.7114093959731543,
+                          "log_loss": 0.6034939643395518,
+                          "mean_probability": 0.7092134784501598,
+                          "n": 298
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.1423539633889429,
+                          "event_rate": 0.8522727272727273,
+                          "log_loss": 0.4618011461109019,
+                          "mean_probability": 0.726069335607835,
+                          "n": 88
+                        },
+                        "development": {
+                          "brier": 0.20709868180402793,
+                          "event_rate": 0.7114093959731543,
+                          "log_loss": 0.6051798254116153,
+                          "mean_probability": 0.7158703170946774,
+                          "n": 298
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.14276168627528277,
+                          "event_rate": 0.8522727272727273,
+                          "log_loss": 0.46177272502457695,
+                          "mean_probability": 0.7305138645959814,
+                          "n": 88
+                        },
+                        "development": {
+                          "brier": 0.20807154817135642,
+                          "event_rate": 0.7114093959731543,
+                          "log_loss": 0.6077071973741144,
+                          "mean_probability": 0.7219864385056707,
+                          "n": 298
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.20645759148527573,
+                      "event_rate": 0.7114093959731543,
+                      "log_loss": 0.6030343918231056,
+                      "mean_probability": 0.702497891185185,
+                      "n": 298
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.14276168627528277,
+                      "event_rate": 0.8522727272727273,
+                      "log_loss": 0.46177272502457695,
+                      "mean_probability": 0.7305138645959814,
+                      "n": 88
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 1,
+                      "120.0": 1,
+                      "240.0": 1,
+                      "365.0": 1
+                    },
+                    "development_log_loss_margin": 0.0004595725164462383,
+                    "selected_half_life_days": 240.0,
+                    "status": "AUDIT_COMPLETE"
+                  }
+                },
+                "minimum_matches_per_phase": 25,
+                "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+                "production_half_life": 730.0,
+                "selection_metric": "development_binary_log_loss",
+                "status": "AUDIT_COMPLETE"
+              },
+              "historical_diagnostic_errors": {},
+              "l2": 0.08,
+              "league": "Serie A",
+              "max_goals": 10,
+              "production_half_life_days": 480.0,
+              "training_as_of_utc": "2026-10-29T12:00:04.904189+00:00",
+              "training_end": "2026-10-28T00:00:00",
+              "training_matches": 1988,
+              "training_sha256": "7b365c75c1b8dd74d1074a0fb5cda2531bc93bb6c104deefae0acc24be2a6490"
+            },
+            {
+              "candidate_fit_errors": {},
+              "historical_audit": {
+                "audit_folds": 2,
+                "audit_start": "2026-08-03T00:00:00",
+                "development_1x2_half_life": 1000000000.0,
+                "development_folds": 4,
+                "markets": {
+                  "btts_yes": {
+                    "audit": {
+                      "brier": 0.24450108372668666,
+                      "event_rate": 0.625,
+                      "log_loss": 0.6823122367112919,
+                      "mean_probability": 0.5507137125621655,
+                      "n": 72
+                    },
+                    "audit_brier_gain": 0.0,
+                    "audit_log_loss_gain": 0.0,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.24220684009551435,
+                          "event_rate": 0.625,
+                          "log_loss": 0.6788797506868023,
+                          "mean_probability": 0.5565795717914622,
+                          "n": 72
+                        },
+                        "development": {
+                          "brier": 0.2583188124717569,
+                          "event_rate": 0.49777777777777776,
+                          "log_loss": 0.7111612412047026,
+                          "mean_probability": 0.5229503709570643,
+                          "n": 225
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.24227163339078858,
+                          "event_rate": 0.625,
+                          "log_loss": 0.6785631249136448,
+                          "mean_probability": 0.5570875855561558,
+                          "n": 72
+                        },
+                        "development": {
+                          "brier": 0.25477968049180555,
+                          "event_rate": 0.49777777777777776,
+                          "log_loss": 0.703474954046735,
+                          "mean_probability": 0.5349383741607494,
+                          "n": 225
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.24277413397692335,
+                          "event_rate": 0.625,
+                          "log_loss": 0.6793271103862661,
+                          "mean_probability": 0.5566449897314126,
+                          "n": 72
+                        },
+                        "development": {
+                          "brier": 0.25338415700540406,
+                          "event_rate": 0.49777777777777776,
+                          "log_loss": 0.7004641609774154,
+                          "mean_probability": 0.5377940372005038,
+                          "n": 225
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2435794473953148,
+                          "event_rate": 0.625,
+                          "log_loss": 0.6806768689639355,
+                          "mean_probability": 0.5548100527800345,
+                          "n": 72
+                        },
+                        "development": {
+                          "brier": 0.2521952094720952,
+                          "event_rate": 0.49777777777777776,
+                          "log_loss": 0.6978865795374262,
+                          "mean_probability": 0.5386054289347456,
+                          "n": 225
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.24450108372668666,
+                          "event_rate": 0.625,
+                          "log_loss": 0.6823122367112919,
+                          "mean_probability": 0.5507137125621655,
+                          "n": 72
+                        },
+                        "development": {
+                          "brier": 0.2514811526300794,
+                          "event_rate": 0.49777777777777776,
+                          "log_loss": 0.6963178449635036,
+                          "mean_probability": 0.5368714377384505,
+                          "n": 225
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.2514811526300794,
+                      "event_rate": 0.49777777777777776,
+                      "log_loss": 0.6963178449635036,
+                      "mean_probability": 0.5368714377384505,
+                      "n": 225
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.24450108372668666,
+                      "event_rate": 0.625,
+                      "log_loss": 0.6823122367112919,
+                      "mean_probability": 0.5507137125621655,
+                      "n": 72
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 3,
+                      "240.0": 1
+                    },
+                    "development_log_loss_margin": 0.0015687345739225922,
+                    "selected_half_life_days": 1000000000.0,
+                    "status": "AUDIT_COMPLETE"
+                  },
+                  "over_1_5": {
+                    "audit": {
+                      "brier": 0.1628193705473454,
+                      "event_rate": 0.7916666666666666,
+                      "log_loss": 0.504518711246273,
+                      "mean_probability": 0.7761432012071724,
+                      "n": 72
+                    },
+                    "audit_brier_gain": 0.0,
+                    "audit_log_loss_gain": 0.0,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.1577841740664638,
+                          "event_rate": 0.7916666666666666,
+                          "log_loss": 0.49123145841850757,
+                          "mean_probability": 0.7788617912450371,
+                          "n": 72
+                        },
+                        "development": {
+                          "brier": 0.2092449129440317,
+                          "event_rate": 0.7288888888888889,
+                          "log_loss": 0.6179045751950372,
+                          "mean_probability": 0.7702726573728155,
+                          "n": 225
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.15938719188080416,
+                          "event_rate": 0.7916666666666666,
+                          "log_loss": 0.4958420945785416,
+                          "mean_probability": 0.7819945186809782,
+                          "n": 72
+                        },
+                        "development": {
+                          "brier": 0.20540565682041076,
+                          "event_rate": 0.7288888888888889,
+                          "log_loss": 0.6079055982841534,
+                          "mean_probability": 0.7748180773999694,
+                          "n": 225
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.16063246857415864,
+                          "event_rate": 0.7916666666666666,
+                          "log_loss": 0.4991420614429607,
+                          "mean_probability": 0.7810177605434498,
+                          "n": 72
+                        },
+                        "development": {
+                          "brier": 0.20414982291482942,
+                          "event_rate": 0.7288888888888889,
+                          "log_loss": 0.6044094906772705,
+                          "mean_probability": 0.7755575104857773,
+                          "n": 225
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.16187206891416542,
+                          "event_rate": 0.7916666666666666,
+                          "log_loss": 0.5023383026556338,
+                          "mean_probability": 0.7790452547152722,
+                          "n": 72
+                        },
+                        "development": {
+                          "brier": 0.2032513923409641,
+                          "event_rate": 0.7288888888888889,
+                          "log_loss": 0.601705236202463,
+                          "mean_probability": 0.7752606775270936,
+                          "n": 225
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.1628193705473454,
+                          "event_rate": 0.7916666666666666,
+                          "log_loss": 0.504518711246273,
+                          "mean_probability": 0.7761432012071724,
+                          "n": 72
+                        },
+                        "development": {
+                          "brier": 0.20291417372634493,
+                          "event_rate": 0.7288888888888889,
+                          "log_loss": 0.6004153895683964,
+                          "mean_probability": 0.7734883480991405,
+                          "n": 225
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.20291417372634493,
+                      "event_rate": 0.7288888888888889,
+                      "log_loss": 0.6004153895683964,
+                      "mean_probability": 0.7734883480991405,
+                      "n": 225
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.1628193705473454,
+                      "event_rate": 0.7916666666666666,
+                      "log_loss": 0.504518711246273,
+                      "mean_probability": 0.7761432012071724,
+                      "n": 72
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 2,
+                      "240.0": 1,
+                      "365.0": 1
+                    },
+                    "development_log_loss_margin": 0.001289846634066616,
+                    "selected_half_life_days": 1000000000.0,
+                    "status": "AUDIT_COMPLETE"
+                  }
+                },
+                "minimum_matches_per_phase": 25,
+                "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+                "production_half_life": 1000000000.0,
+                "selection_metric": "development_binary_log_loss",
+                "status": "AUDIT_COMPLETE"
+              },
+              "historical_diagnostic_errors": {},
+              "l2": 0.08,
+              "league": "Ligue 1",
+              "max_goals": 10,
+              "production_half_life_days": 480.0,
+              "training_as_of_utc": "2026-10-29T12:04:07.426807+00:00",
+              "training_end": "2026-10-26T00:00:00",
+              "training_matches": 1752,
+              "training_sha256": "8cfb79e71d880381aec06ba764a5933969ee2474d121253e61cb115387f8940a"
+            },
+            {
+              "candidate_fit_errors": {},
+              "historical_audit": {
+                "audit_folds": 2,
+                "audit_start": "2026-08-02T00:00:00",
+                "development_1x2_half_life": 365.0,
+                "development_folds": 4,
+                "markets": {
+                  "btts_yes": {
+                    "audit": {
+                      "brier": 0.22279466567375622,
+                      "event_rate": 0.7222222222222222,
+                      "log_loss": 0.6373425127629324,
+                      "mean_probability": 0.593870197482623,
+                      "n": 90
+                    },
+                    "audit_brier_gain": 0.0018579019097428318,
+                    "audit_log_loss_gain": 0.003879361885974264,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.2182743142664335,
+                          "event_rate": 0.7222222222222222,
+                          "log_loss": 0.6278805299483198,
+                          "mean_probability": 0.6078518270507766,
+                          "n": 90
+                        },
+                        "development": {
+                          "brier": 0.2338205149230724,
+                          "event_rate": 0.6363636363636364,
+                          "log_loss": 0.6596936873469004,
+                          "mean_probability": 0.5752506256059547,
+                          "n": 220
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.22279466567375622,
+                          "event_rate": 0.7222222222222222,
+                          "log_loss": 0.6373425127629324,
+                          "mean_probability": 0.593870197482623,
+                          "n": 90
+                        },
+                        "development": {
+                          "brier": 0.23295176602568843,
+                          "event_rate": 0.6363636363636364,
+                          "log_loss": 0.658209649949345,
+                          "mean_probability": 0.5722379972059212,
+                          "n": 220
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.22465256758349905,
+                          "event_rate": 0.7222222222222222,
+                          "log_loss": 0.6412218746489067,
+                          "mean_probability": 0.5864417633569703,
+                          "n": 90
+                        },
+                        "development": {
+                          "brier": 0.2331302607320264,
+                          "event_rate": 0.6363636363636364,
+                          "log_loss": 0.6587106537905546,
+                          "mean_probability": 0.569647733914555,
+                          "n": 220
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.22721567745345897,
+                          "event_rate": 0.7222222222222222,
+                          "log_loss": 0.6465989528185171,
+                          "mean_probability": 0.5761447076744434,
+                          "n": 90
+                        },
+                        "development": {
+                          "brier": 0.23399510044197463,
+                          "event_rate": 0.6363636363636364,
+                          "log_loss": 0.6605852767177435,
+                          "mean_probability": 0.5640293084126038,
+                          "n": 220
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.23081831407554879,
+                          "event_rate": 0.7222222222222222,
+                          "log_loss": 0.654058320601128,
+                          "mean_probability": 0.5624369986928452,
+                          "n": 90
+                        },
+                        "development": {
+                          "brier": 0.23583540847574835,
+                          "event_rate": 0.6363636363636364,
+                          "log_loss": 0.664373195994846,
+                          "mean_probability": 0.553917202655084,
+                          "n": 220
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.23295176602568843,
+                      "event_rate": 0.6363636363636364,
+                      "log_loss": 0.658209649949345,
+                      "mean_probability": 0.5722379972059212,
+                      "n": 220
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.22465256758349905,
+                      "event_rate": 0.7222222222222222,
+                      "log_loss": 0.6412218746489067,
+                      "mean_probability": 0.5864417633569703,
+                      "n": 90
+                    },
+                    "development_fold_winners": {
+                      "120.0": 3,
+                      "730.0": 1
+                    },
+                    "development_log_loss_margin": 0.0005010038412095463,
+                    "selected_half_life_days": 240.0,
+                    "status": "AUDIT_COMPLETE"
+                  },
+                  "over_1_5": {
+                    "audit": {
+                      "brier": 0.08856556516855618,
+                      "event_rate": 0.9111111111111111,
+                      "log_loss": 0.32619890525797346,
+                      "mean_probability": 0.8196098703785064,
+                      "n": 90
+                    },
+                    "audit_brier_gain": -0.00038409069648706606,
+                    "audit_log_loss_gain": -0.0008631634956846046,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.0869156031034076,
+                          "event_rate": 0.9111111111111111,
+                          "log_loss": 0.32068457253799243,
+                          "mean_probability": 0.8414025879812795,
+                          "n": 90
+                        },
+                        "development": {
+                          "brier": 0.12106592196855666,
+                          "event_rate": 0.8636363636363636,
+                          "log_loss": 0.4039135065681039,
+                          "mean_probability": 0.8055258741820744,
+                          "n": 220
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.08786628660965251,
+                          "event_rate": 0.9111111111111111,
+                          "log_loss": 0.32460849463760627,
+                          "mean_probability": 0.8315595715083615,
+                          "n": 90
+                        },
+                        "development": {
+                          "brier": 0.11814028515760003,
+                          "event_rate": 0.8636363636363636,
+                          "log_loss": 0.39670206621713144,
+                          "mean_probability": 0.8094964847363467,
+                          "n": 220
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.08818147447206912,
+                          "event_rate": 0.9111111111111111,
+                          "log_loss": 0.32533574176228885,
+                          "mean_probability": 0.8261769694993961,
+                          "n": 90
+                        },
+                        "development": {
+                          "brier": 0.11718251970018993,
+                          "event_rate": 0.8636363636363636,
+                          "log_loss": 0.39448838056316476,
+                          "mean_probability": 0.8116866606417567,
+                          "n": 220
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.08856556516855618,
+                          "event_rate": 0.9111111111111111,
+                          "log_loss": 0.32619890525797346,
+                          "mean_probability": 0.8196098703785064,
+                          "n": 90
+                        },
+                        "development": {
+                          "brier": 0.11680983204855293,
+                          "event_rate": 0.8636363636363636,
+                          "log_loss": 0.39402158622599726,
+                          "mean_probability": 0.8118131930059793,
+                          "n": 220
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.08973306249225957,
+                          "event_rate": 0.9111111111111111,
+                          "log_loss": 0.32940819468716176,
+                          "mean_probability": 0.8117284612122034,
+                          "n": 90
+                        },
+                        "development": {
+                          "brier": 0.11752352282115079,
+                          "event_rate": 0.8636363636363636,
+                          "log_loss": 0.3966078419717939,
+                          "mean_probability": 0.8077309852293042,
+                          "n": 220
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.11680983204855293,
+                      "event_rate": 0.8636363636363636,
+                      "log_loss": 0.39402158622599726,
+                      "mean_probability": 0.8118131930059793,
+                      "n": 220
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.08818147447206912,
+                      "event_rate": 0.9111111111111111,
+                      "log_loss": 0.32533574176228885,
+                      "mean_probability": 0.8261769694993961,
+                      "n": 90
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 2,
+                      "240.0": 2
+                    },
+                    "development_log_loss_margin": 0.00046679433716750873,
+                    "selected_half_life_days": 730.0,
+                    "status": "AUDIT_COMPLETE"
+                  }
+                },
+                "minimum_matches_per_phase": 25,
+                "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+                "production_half_life": 365.0,
+                "selection_metric": "development_binary_log_loss",
+                "status": "AUDIT_COMPLETE"
+              },
+              "historical_diagnostic_errors": {},
+              "l2": 0.08,
+              "league": "Eredivisie",
+              "max_goals": 10,
+              "production_half_life_days": 480.0,
+              "training_as_of_utc": "2026-10-29T12:07:26.581354+00:00",
+              "training_end": "2026-10-25T00:00:00",
+              "training_matches": 1620,
+              "training_sha256": "21037d50fe954d7efe9044bbe28fab86d735107fa8eef30225d877ac5be8267f"
+            },
+            {
+              "candidate_fit_errors": {},
+              "historical_audit": {
+                "audit_folds": 2,
+                "audit_start": "2026-08-03T00:00:00",
+                "development_1x2_half_life": 1000000000.0,
+                "development_folds": 4,
+                "markets": {
+                  "btts_yes": {
+                    "audit": {
+                      "brier": 0.25131799996294973,
+                      "event_rate": 0.49382716049382713,
+                      "log_loss": 0.6958683189396391,
+                      "mean_probability": 0.46620887234909325,
+                      "n": 81
+                    },
+                    "audit_brier_gain": -0.001991409858726867,
+                    "audit_log_loss_gain": -0.004045559457440784,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.2535390607542719,
+                          "event_rate": 0.49382716049382713,
+                          "log_loss": 0.7008340150910167,
+                          "mean_probability": 0.46968358919571845,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.2613619953254225,
+                          "event_rate": 0.5,
+                          "log_loss": 0.7166936452864905,
+                          "mean_probability": 0.44305549167117236,
+                          "n": 226
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2540293625888884,
+                          "event_rate": 0.49382716049382713,
+                          "log_loss": 0.7015865137992054,
+                          "mean_probability": 0.47081014909002833,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.25372748317952926,
+                          "event_rate": 0.5,
+                          "log_loss": 0.7007158531996626,
+                          "mean_probability": 0.44888236935432313,
+                          "n": 226
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2531270074305545,
+                          "event_rate": 0.49382716049382713,
+                          "log_loss": 0.6996200753055348,
+                          "mean_probability": 0.4692334194968843,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.2507212387725489,
+                          "event_rate": 0.5,
+                          "log_loss": 0.6945632594901551,
+                          "mean_probability": 0.4510826870885028,
+                          "n": 226
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.25131799996294973,
+                          "event_rate": 0.49382716049382713,
+                          "log_loss": 0.6958683189396391,
+                          "mean_probability": 0.46620887234909325,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.24866822232815886,
+                          "event_rate": 0.5,
+                          "log_loss": 0.6904580705280119,
+                          "mean_probability": 0.45467897777542554,
+                          "n": 226
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.24932659010422287,
+                          "event_rate": 0.49382716049382713,
+                          "log_loss": 0.6918227594821983,
+                          "mean_probability": 0.4619899252527968,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.2488288502717058,
+                          "event_rate": 0.5,
+                          "log_loss": 0.6908227883702411,
+                          "mean_probability": 0.45877034551907453,
+                          "n": 226
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.24866822232815886,
+                      "event_rate": 0.5,
+                      "log_loss": 0.6904580705280119,
+                      "mean_probability": 0.45467897777542554,
+                      "n": 226
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.24932659010422287,
+                      "event_rate": 0.49382716049382713,
+                      "log_loss": 0.6918227594821983,
+                      "mean_probability": 0.4619899252527968,
+                      "n": 81
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 2,
+                      "730.0": 2
+                    },
+                    "development_log_loss_margin": 0.0003647178422292452,
+                    "selected_half_life_days": 730.0,
+                    "status": "AUDIT_COMPLETE"
+                  },
+                  "over_1_5": {
+                    "audit": {
+                      "brier": 0.18197019073398651,
+                      "event_rate": 0.7407407407407407,
+                      "log_loss": 0.546152938182364,
+                      "mean_probability": 0.7272574792014884,
+                      "n": 81
+                    },
+                    "audit_brier_gain": -0.0004268079140949399,
+                    "audit_log_loss_gain": -0.0020306851891422895,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.18725025417452948,
+                          "event_rate": 0.7407407407407407,
+                          "log_loss": 0.5637009727472225,
+                          "mean_probability": 0.7310742091222314,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.19779711147043583,
+                          "event_rate": 0.7256637168141593,
+                          "log_loss": 0.5847767326990371,
+                          "mean_probability": 0.7302628927330252,
+                          "n": 226
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.1837179774053287,
+                          "event_rate": 0.7407407407407407,
+                          "log_loss": 0.5530216340446658,
+                          "mean_probability": 0.7326726575828328,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.19384426086689344,
+                          "event_rate": 0.7256637168141593,
+                          "log_loss": 0.5736530309244638,
+                          "mean_probability": 0.7277079341558862,
+                          "n": 226
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.1827568628028148,
+                          "event_rate": 0.7407407407407407,
+                          "log_loss": 0.5493788852537905,
+                          "mean_probability": 0.730488530719527,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.19276394430087365,
+                          "event_rate": 0.7256637168141593,
+                          "log_loss": 0.5706166872806011,
+                          "mean_probability": 0.7272745734307243,
+                          "n": 226
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.18197019073398651,
+                          "event_rate": 0.7407407407407407,
+                          "log_loss": 0.546152938182364,
+                          "mean_probability": 0.7272574792014884,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.1926034391971052,
+                          "event_rate": 0.7256637168141593,
+                          "log_loss": 0.570168817560035,
+                          "mean_probability": 0.7287798194939404,
+                          "n": 226
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.18154338281989157,
+                          "event_rate": 0.7407407407407407,
+                          "log_loss": 0.5441222529932217,
+                          "mean_probability": 0.7237857339858146,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.19391276836503502,
+                          "event_rate": 0.7256637168141593,
+                          "log_loss": 0.5738973144952144,
+                          "mean_probability": 0.7315684993337576,
+                          "n": 226
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.1926034391971052,
+                      "event_rate": 0.7256637168141593,
+                      "log_loss": 0.570168817560035,
+                      "mean_probability": 0.7287798194939404,
+                      "n": 226
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.18154338281989157,
+                      "event_rate": 0.7407407407407407,
+                      "log_loss": 0.5441222529932217,
+                      "mean_probability": 0.7237857339858146,
+                      "n": 81
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 2,
+                      "120.0": 1,
+                      "240.0": 1
+                    },
+                    "development_log_loss_margin": 0.0004478697205660964,
+                    "selected_half_life_days": 730.0,
+                    "status": "AUDIT_COMPLETE"
+                  }
+                },
+                "minimum_matches_per_phase": 25,
+                "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+                "production_half_life": 730.0,
+                "selection_metric": "development_binary_log_loss",
+                "status": "AUDIT_COMPLETE"
+              },
+              "historical_diagnostic_errors": {},
+              "l2": 0.08,
+              "league": "Primeira Liga",
+              "max_goals": 10,
+              "production_half_life_days": 480.0,
+              "training_as_of_utc": "2026-10-29T12:07:44.956402+00:00",
+              "training_end": "2026-10-26T00:00:00",
+              "training_matches": 1611,
+              "training_sha256": "79c9ba56c3b41c93e8e9b4d1b924c8bcf81747dc4967e8dfecffb0f09dab04a8"
+            },
+            {
+              "candidate_fit_errors": {},
+              "historical_audit": {
+                "audit_folds": 2,
+                "audit_start": "2026-08-03T00:00:00",
+                "development_1x2_half_life": 730.0,
+                "development_folds": 4,
+                "markets": {
+                  "btts_yes": {
+                    "audit": {
+                      "brier": 0.25246410383703916,
+                      "event_rate": 0.4567901234567901,
+                      "log_loss": 0.6991988941296476,
+                      "mean_probability": 0.526877731266641,
+                      "n": 81
+                    },
+                    "audit_brier_gain": 0.0024906383949990785,
+                    "audit_log_loss_gain": 0.005055667994223412,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.2645345291518351,
+                          "event_rate": 0.4567901234567901,
+                          "log_loss": 0.7251738463751479,
+                          "mean_probability": 0.5346859703297605,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.25294777726910544,
+                          "event_rate": 0.5458715596330275,
+                          "log_loss": 0.6993577342969052,
+                          "mean_probability": 0.5070406914256645,
+                          "n": 218
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2599326603943428,
+                          "event_rate": 0.4567901234567901,
+                          "log_loss": 0.7147519511350333,
+                          "mean_probability": 0.5311285652631411,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.2509915177697366,
+                          "event_rate": 0.5458715596330275,
+                          "log_loss": 0.6951085989365445,
+                          "mean_probability": 0.5167717519314277,
+                          "n": 218
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.2575898832753358,
+                          "event_rate": 0.4567901234567901,
+                          "log_loss": 0.7097429436581306,
+                          "mean_probability": 0.5290801052822879,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.24997821470298515,
+                          "event_rate": 0.5458715596330275,
+                          "log_loss": 0.6930468746004019,
+                          "mean_probability": 0.5217267506845501,
+                          "n": 218
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.25495474223203823,
+                          "event_rate": 0.4567901234567901,
+                          "log_loss": 0.704254562123871,
+                          "mean_probability": 0.5277184137177467,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.24933506449778833,
+                          "event_rate": 0.5458715596330275,
+                          "log_loss": 0.6917584470238447,
+                          "mean_probability": 0.5273989371392415,
+                          "n": 218
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.25246410383703916,
+                          "event_rate": 0.4567901234567901,
+                          "log_loss": 0.6991988941296476,
+                          "mean_probability": 0.526877731266641,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.249166430721352,
+                          "event_rate": 0.5458715596330275,
+                          "log_loss": 0.691416557444916,
+                          "mean_probability": 0.5321400712810782,
+                          "n": 218
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.249166430721352,
+                      "event_rate": 0.5458715596330275,
+                      "log_loss": 0.691416557444916,
+                      "mean_probability": 0.5321400712810782,
+                      "n": 218
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.25495474223203823,
+                      "event_rate": 0.4567901234567901,
+                      "log_loss": 0.704254562123871,
+                      "mean_probability": 0.5277184137177467,
+                      "n": 81
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 2,
+                      "120.0": 1,
+                      "240.0": 1
+                    },
+                    "development_log_loss_margin": 0.0003418895789286669,
+                    "selected_half_life_days": 1000000000.0,
+                    "status": "AUDIT_COMPLETE"
+                  },
+                  "over_1_5": {
+                    "audit": {
+                      "brier": 0.1837540449201304,
+                      "event_rate": 0.7654320987654321,
+                      "log_loss": 0.5510399646957076,
+                      "mean_probability": 0.7602439569458905,
+                      "n": 81
+                    },
+                    "audit_brier_gain": 7.013944183631438e-05,
+                    "audit_log_loss_gain": 6.934583213880074e-05,
+                    "candidate_phase_scores": [
+                      {
+                        "audit": {
+                          "brier": 0.18521868338370878,
+                          "event_rate": 0.7654320987654321,
+                          "log_loss": 0.5567677726207054,
+                          "mean_probability": 0.7663363377365786,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.17696998252332904,
+                          "event_rate": 0.7614678899082569,
+                          "log_loss": 0.536895362672147,
+                          "mean_probability": 0.7497108312386515,
+                          "n": 218
+                        },
+                        "half_life_days": 120.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.18385277268168373,
+                          "event_rate": 0.7654320987654321,
+                          "log_loss": 0.5517271151114356,
+                          "mean_probability": 0.7623374446762318,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.1755896922911111,
+                          "event_rate": 0.7614678899082569,
+                          "log_loss": 0.5325998432729977,
+                          "mean_probability": 0.7577816474421964,
+                          "n": 218
+                        },
+                        "half_life_days": 240.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.1837540449201304,
+                          "event_rate": 0.7654320987654321,
+                          "log_loss": 0.5510399646957076,
+                          "mean_probability": 0.7602439569458905,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.17551412144258008,
+                          "event_rate": 0.7614678899082569,
+                          "log_loss": 0.5325399346321379,
+                          "mean_probability": 0.7591879824953465,
+                          "n": 218
+                        },
+                        "half_life_days": 365.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.1838241843619667,
+                          "event_rate": 0.7654320987654321,
+                          "log_loss": 0.5511093105278464,
+                          "mean_probability": 0.7583154609359855,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.1757645377870849,
+                          "event_rate": 0.7614678899082569,
+                          "log_loss": 0.5335653736611224,
+                          "mean_probability": 0.7606104126260594,
+                          "n": 218
+                        },
+                        "half_life_days": 730.0
+                      },
+                      {
+                        "audit": {
+                          "brier": 0.18408438582743347,
+                          "event_rate": 0.7654320987654321,
+                          "log_loss": 0.5520043066083932,
+                          "mean_probability": 0.7563500757510053,
+                          "n": 81
+                        },
+                        "development": {
+                          "brier": 0.1763973424019079,
+                          "event_rate": 0.7614678899082569,
+                          "log_loss": 0.5357732767063561,
+                          "mean_probability": 0.761340536960208,
+                          "n": 218
+                        },
+                        "half_life_days": 1000000000.0
+                      }
+                    ],
+                    "development": {
+                      "brier": 0.17551412144258008,
+                      "event_rate": 0.7614678899082569,
+                      "log_loss": 0.5325399346321379,
+                      "mean_probability": 0.7591879824953465,
+                      "n": 218
+                    },
+                    "development_1x2_audit": {
+                      "brier": 0.1838241843619667,
+                      "event_rate": 0.7654320987654321,
+                      "log_loss": 0.5511093105278464,
+                      "mean_probability": 0.7583154609359855,
+                      "n": 81
+                    },
+                    "development_fold_winners": {
+                      "1000000000.0": 1,
+                      "120.0": 2,
+                      "240.0": 1
+                    },
+                    "development_log_loss_margin": 5.990864085980707e-05,
+                    "selected_half_life_days": 365.0,
+                    "status": "AUDIT_COMPLETE"
+                  }
+                },
+                "minimum_matches_per_phase": 25,
+                "note": "Goal and comparison 1X2 selectors use development folds only. Production tuning uses the whole tuning period and is assessed independently in forward snapshots.",
+                "production_half_life": 365.0,
+                "selection_metric": "development_binary_log_loss",
+                "status": "AUDIT_COMPLETE"
+              },
+              "historical_diagnostic_errors": {},
+              "l2": 0.08,
+              "league": "Super Lig",
+              "max_goals": 10,
+              "production_half_life_days": 480.0,
+              "training_as_of_utc": "2026-10-29T12:08:03.532144+00:00",
+              "training_end": "2026-10-26T00:00:00",
+              "training_matches": 1831,
+              "training_sha256": "c5f5d209340e39bfe8e574c09b73118b3ac49fc21ea01e9cd362373fc169a26f"
+            }
+          ],
+          "snapshot_commit": "c75d4ab52706e716a3a14117d34c979609102533"
         }
       ],
       "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
       "rejected_snapshot_commits": [],
-      "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
-      "total_fixture_markets": 468,
+      "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
+      "total_fixture_markets": 488,
       "version": "goal-recency-shadow-v1",
       "weekly_comparisons": [
         {
@@ -88758,7 +90878,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
+      "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 57,
       "variants": {
@@ -91577,7 +93697,7 @@
             "minimum_settled_per_weighting": 100,
             "minimum_verified_coverage": 0.8
           },
-          "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
+          "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
           "status": "COLLECT_MORE_DATA",
           "total_fixtures": 23,
           "variants": {
@@ -91637,7 +93757,7 @@
         "minimum_settled_per_weighting": 100,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
+      "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
       "status": "COLLECT_MORE_DATA",
       "total_fixtures": 0,
       "variants": {
@@ -93214,17 +95334,17 @@
       },
       "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
       "excluded_forecast_reasons": {
-        "incoherent_totals_prices": 159,
-        "missing_pinnacle_reference": 159,
-        "outside_registered_leagues": 62,
-        "reference_fixture_mismatch": 159,
-        "reference_stale_or_future": 166,
-        "stale_or_unsynchronized_production_hda": 43,
+        "incoherent_totals_prices": 176,
+        "missing_pinnacle_reference": 176,
+        "outside_registered_leagues": 69,
+        "reference_fixture_mismatch": 176,
+        "reference_stale_or_future": 183,
+        "stale_or_unsynchronized_production_hda": 48,
         "unreliable_model_identity": 16
       },
       "gameweeks": 2,
       "note": "Separate proportional intensity scaling to fresh Pinnacle O/U 2.5, fitted rho and production HDA preserved. Primary Under 3.5 log loss; other markets are guardrails. No bets, automatic promotion or backfill.",
-      "observed_fixtures": 189,
+      "observed_fixtures": 206,
       "paired_fixtures": 12,
       "primary_log_loss_gain_week_block95": [
         0.0682252301459352,
@@ -93240,17 +95360,17 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
+      "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
       "status": "COLLECT_MORE_DATA",
       "verified_coverage": 0.13043478260869565,
       "version": "pinnacle-totals-anchor-v1"
     }
   },
   "forecast_freshness": {
-    "age_hours": 13.842074821111112,
-    "generated_at_utc": "2026-10-28T16:16:05.061508+00:00",
+    "age_hours": 0.0037465805555555558,
+    "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
     "status": "WITHIN_24_HOURS",
-    "upcoming_fixture_count": 28
+    "upcoming_fixture_count": 45
   },
   "quote_audit": {
     "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -93270,7 +95390,7 @@
     "automatic_promotion": false,
     "experiments": [
       {
-        "collection_days": 15,
+        "collection_days": 16,
         "key": "goal_blend_experiment",
         "name": "goal_blend_experiment",
         "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
@@ -93280,7 +95400,7 @@
         "status": "COLLECT_MORE_DATA"
       },
       {
-        "collection_days": 15,
+        "collection_days": 16,
         "graded_paper_bets": 0,
         "key": "market_led_experiment",
         "name": "market_led_experiment",
@@ -93378,10 +95498,10 @@
       }
     ],
     "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-    "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
+    "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
     "version": "experiment-review-queue-v1"
   },
-  "reviewed_at_utc": "2026-10-29T06:06:36.530864+00:00",
+  "reviewed_at_utc": "2026-10-29T12:08:36.019874+00:00",
   "selection_policy_groups": {
     "48h-top-ten-probability-ev-no-under35-v14": {
       "brier": 0.178674,
@@ -112903,6 +115023,902 @@
         }
       },
       "policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26"
+    },
+    {
+      "captured_at_utc": "2026-10-29T12:08:32Z",
+      "commit": "c75d4ab52706e716a3a14117d34c979609102533",
+      "experiments": {
+        "benchmark_forward_experiment": "CAPTURED",
+        "filter_sensitivity_experiment": "NOT_GENERATED",
+        "goal_blend_experiment": "CAPTURED",
+        "market_led_experiment": "CAPTURED",
+        "model_reliability_experiment": "CAPTURED",
+        "recency_experiment": "CAPTURED",
+        "shortlist_policy_experiment": "NOT_GENERATED",
+        "shortlist_weight_experiment": "NOT_GENERATED",
+        "totals_anchor_experiment": "CAPTURED"
+      },
+      "health": {
+        "captured_at_utc": "2026-10-29T12:08:32.398273+00:00",
+        "dependencies": {
+          "PyYAML": "6.0.3",
+          "coverage": "7.17.0",
+          "numpy": "2.5.4",
+          "pandas": "3.1.0",
+          "python": "3.12.15",
+          "python-dotenv": "1.2.4",
+          "rapidfuzz": "3.14.6",
+          "requests": "2.34.2",
+          "scipy": "1.18.1"
+        },
+        "execution_policy": {
+          "account_availability": "USER_ALLOWLIST",
+          "allowed_bookmakers": [
+            "Pinnacle",
+            "bet365"
+          ],
+          "asian_handicap_risk_tolerance": 0,
+          "exchange_policy": "EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER",
+          "min_adjusted_no_loss_probability": 0.75,
+          "per_stake_cost_bps": 0
+        },
+        "experiments": {
+          "benchmark_forward_experiment": "CAPTURED",
+          "filter_sensitivity_experiment": "NOT_GENERATED",
+          "goal_blend_experiment": "CAPTURED",
+          "market_led_experiment": "CAPTURED",
+          "model_reliability_experiment": "CAPTURED",
+          "recency_experiment": "CAPTURED",
+          "shortlist_policy_experiment": "NOT_GENERATED",
+          "shortlist_weight_experiment": "NOT_GENERATED",
+          "totals_anchor_experiment": "CAPTURED"
+        },
+        "forecast_freshness": {
+          "age_hours": 0.002740580277777778,
+          "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+          "status": "WITHIN_24_HOURS",
+          "upcoming_fixture_count": 45
+        },
+        "forecast_generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+        "forecast_runtime": {
+          "dependencies": {
+            "PyYAML": "6.0.3",
+            "coverage": "7.17.0",
+            "numpy": "2.5.4",
+            "pandas": "3.1.0",
+            "python": "3.12.15",
+            "python-dotenv": "1.2.4",
+            "rapidfuzz": "3.14.6",
+            "requests": "2.34.2",
+            "scipy": "1.18.1"
+          },
+          "generated_at_utc": "2026-10-29T12:08:22.532184+00:00",
+          "model_code_sha256": "9498dec93cdc469f8538bb06a0279d8a57cde597902d507f892b5d69aa1ea03e",
+          "model_component_sha256": {
+            "api_football_data.py": "c5ae292a50d10b4e1a0d9901a0989c8eebc99082aa19d75d3d0e87cc59b00de5",
+            "api_football_integration.py": "3a95ec1edc5eaf6b79a8075450905df9b4d5a3050a91cfe8df2b5a2ffb2ddeac",
+            "api_key_config.py": "f4b833b31f9f3311cab770cf80854294e5e6306bbb956b687d708ff1b801908e",
+            "asian_handicap.py": "587e995f7e1867c7f5a972dae623d75b729fc7f558e514a02f2e18211a0853a8",
+            "bbs_data.py": "ea3888908b6c27648c2cc6aeb24149c454bb5c90303c7d93ccba437a897299be",
+            "bbs_integration.py": "68912f30219c8c2f4399a93231e7379cd91e7095bbcde1db624b7560af2569ae",
+            "bbs_statistics_model.py": "42f5b8221cf032348df233a7fdc3ab812835278fa4adffa959168303537a21e7",
+            "bbs_team_aliases.json": "0eaefff9782e7c695e56dc1a2f96626e145897bafa0086ec1753557d2a0320f8",
+            "bet365_pinnacle.py": "29c1e233fdf48673b404693148e9b301561bb984e0acd916f76fda58bb9d5276",
+            "conservative_bet_filter.py": "1cb82aeb67c4b544e87c574ca0ee93a46126a1be3162e02ed42d564ebf7f2b72",
+            "corners_cards_shortlist.py": "0d3ef4717e16a2c0cdf8ba58515beb168c0cdaabdbb562b8323ed24c5393b873",
+            "count_markets.py": "d38d266ebcd55778361e6ec8fa2aee6d3742b21ffa767615245bba5e45088af2",
+            "dc_decay_validation.py": "0bdd59436fc7693ace85b2eb92e9cf23f575ce6ceac3e04d1714b3e7d415d17a",
+            "double_chance.py": "9e50e5058f1916a9b8fd4f6e89d5a2a843dfecc22e730c1738af9817eb235ade",
+            "elo_ratings.py": "e74edd69c0f90f6e22b0be61a2b88d6e4cea9cca60c88efeb579c7090ff9bc0d",
+            "football_value_pipeline_v2_standalone.py": "9498dec93cdc469f8538bb06a0279d8a57cde597902d507f892b5d69aa1ea03e",
+            "forward_trial_basis.py": "99f5091db8075d2fb9933204e2b9c4c3a7f526096bfd4783e42813c005b3bf1d",
+            "goal_market_validation.py": "03fd13322278df85fe8cad6105a5bf63d3e3ee62d0d8a904092af33d7f8643c4",
+            "historical_benchmark.py": "b3388dcf86b9ee19d125658414be9ffdbbf4ad8240162e5d88321627dcb47e4e",
+            "league_registry.py": "09ab1ad80a45dffdd5a397add9481c4d01a107d328602d6b4ab00dcdc095f9b5",
+            "market_blend_validation.py": "1136fba8bdc85eaaed468ef3f8458781a366d1fcc7913e1057783b023692ea04",
+            "match_scores.py": "1e39b0fd63354fa734e768d5a34e2ea6782b3590f2af7ba7989123b17a7eec1a",
+            "no_loss_corners_shortlist.py": "873b8f0aab9ecb2d9afac068833dc711d587140de38616e1c71dfde9bfeb46fe",
+            "odds_provider_health.py": "8554bc4e6f47957e0e996466308123ba98c9ad65cab2986bc2230832f64675e2",
+            "per_market_shortlist.py": "83debc1318f8a87649d225cf64cd6b299524d7dbfe20d2ad423c5a690a227bea",
+            "prediction_runs.py": "88b96297e86e426f3dc56eb48ff43c0fed6a09bdc8ba8dea686873f663554622",
+            "quote_freshness.py": "b682731ba7c20bb30d885b726a299b62ef3695419ce612a5da1d4b67d75e47c6",
+            "quote_policy.py": "c0f587a2dc44dd73ed8f631e9bfc2b429d9b5538142f8311c46763de21eda3ef",
+            "refresh_training_data.py": "276568aac115a2d3bea942770be56755783d66771ca67c17e6d236f2e46357c4",
+            "score_probability.py": "c49cc8992a0e3d962f63a213aebd32d959e001d894689d3eea8a5816ca9fbc9e",
+            "shortlist_quote_policy.json": "492bc7d85e029be3b20c1c54308251422a560897f50bd7662e71273b17d6a484",
+            "shot_features.py": "f6bcb9d9020e9fc56efaa2e05e9553f5c89df498372177a007540a674dddd5e7",
+            "staking.py": "1c0ec2a00fc760d4003f96aea82bdec6e6c0246bfad0d856d3d33f7c6d75e792",
+            "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47",
+            "win_first_shortlist.py": "13a189d481338e75ee2f386a6de316df0ca9b73d8a96e8d5b9cdc3de91c59bb8"
+          },
+          "predictions_sha256": "4b82ba2bf541265a720377a938988c0e9a624f2c8303a80ed58e713cddcb4190",
+          "selection_policy_version": "48h-zero-tolerance-ev05-no-loss75-corners-v26"
+        },
+        "pre_kickoff_forecasts": 45,
+        "quote_audit": {
+          "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
+          "bookmakers": {
+            "Pinnacle": 1
+          },
+          "costs_recorded": 1,
+          "exchange_quotes": 0,
+          "missing_quote_age": 0,
+          "past_kickoff_count": 0,
+          "quote_age_over_24h": 0,
+          "selected_quotes": 1,
+          "unknown_kickoff_count": 0,
+          "upcoming_kickoff_count": 1
+        },
+        "training": {
+          "Bundesliga": {
+            "api_football": {
+              "added_results": 2,
+              "ambiguous": 0,
+              "conflicts": 0,
+              "excluded_phase": 0,
+              "matched_results": 254,
+              "source": "api-football",
+              "statistics_observations": 55,
+              "status": "AVAILABLE",
+              "unmapped": 668,
+              "usage": "supplementary_cached_observations"
+            },
+            "bbs_statistics_model": {
+              "cutoff_utc": "2026-10-29T11:57:09.762880+00:00",
+              "eligible_training_matches": 63,
+              "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+              "feature_fields": [
+                "shots_on_target",
+                "shots_off_target",
+                "total_shots",
+                "blocked_shots",
+                "shots_inside_box",
+                "shots_outside_box",
+                "fouls",
+                "corner_kicks",
+                "offsides",
+                "ball_possession",
+                "yellow_cards",
+                "red_cards",
+                "goalkeeper_saves",
+                "total_passes",
+                "accurate_passes",
+                "pass_percentage"
+              ],
+              "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
+              "forward_accuracy_improvement_established": false,
+              "historical_corrections_may_be_present": true,
+              "input_providers": [
+                "api-football",
+                "bigballsdata"
+              ],
+              "max_form_age_days": 180,
+              "max_form_matches": 8,
+              "max_goal_rate_ratio": 1.25,
+              "minimum_team_matches": 3,
+              "observations": 273,
+              "observations_sha256": "31451cc8cf8ed55bf701b893734092212cfd2325b5758f9f8ca06f243a899933",
+              "required_training_matches": 120,
+              "retrospective_eligible_training_matches": 63,
+              "retrospective_inputs_sha256": "bb286f060ce438b97ba59a81e19c2b17cb82ff915ae624a17c41d3275d0fdd77",
+              "retrospective_publication_delay_hours": 24,
+              "selected_weight": 0.0,
+              "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
+              "strict_eligible_training_matches": 14,
+              "usable_current_matches": 98,
+              "validation_mode": "retrospective_backfill",
+              "validation_policy": "auto",
+              "version": "bbs-lagged-poisson-v2"
+            },
+            "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261029T115709762880Z_ad0f28be0b3cde4437ee6a3b100181cd41cdb248f1277efdb99c1060586b4d2d.json",
+            "days_since_latest_result": 4,
+            "diagnostics_sha256": "8de70d2295b002938755bb06c493b72ae0c03686b7d4825eee25dbf3448526b9",
+            "forecast_training_health": {
+              "days_since_latest_result": 4,
+              "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+              "training_end": "2026-10-25"
+            },
+            "odds_provider_health": {
+              "state": "NOT_RECORDED"
+            },
+            "training_end": "2026-10-25",
+            "training_matches": 1595
+          },
+          "EPL": {
+            "api_football": {
+              "added_results": 0,
+              "ambiguous": 0,
+              "conflicts": 0,
+              "excluded_phase": 0,
+              "matched_results": 1102,
+              "source": "api-football",
+              "statistics_observations": 166,
+              "status": "AVAILABLE",
+              "unmapped": 38,
+              "usage": "supplementary_cached_observations"
+            },
+            "bbs_statistics_model": {
+              "audit_matches": 40,
+              "audit_origin_utc": "2025-10-19T00:00:00+00:00",
+              "cutoff_utc": "2026-10-29T11:48:36.104635+00:00",
+              "eligible_training_matches": 222,
+              "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+              "feature_fields": [
+                "shots_on_target",
+                "shots_off_target",
+                "total_shots",
+                "blocked_shots",
+                "shots_inside_box",
+                "shots_outside_box",
+                "fouls",
+                "corner_kicks",
+                "offsides",
+                "ball_possession",
+                "yellow_cards",
+                "red_cards",
+                "goalkeeper_saves",
+                "total_passes",
+                "accurate_passes",
+                "pass_percentage"
+              ],
+              "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
+              "forward_accuracy_improvement_established": false,
+              "historical_corrections_may_be_present": true,
+              "input_providers": [
+                "api-football",
+                "bigballsdata"
+              ],
+              "max_form_age_days": 180,
+              "max_form_matches": 8,
+              "max_goal_rate_ratio": 1.25,
+              "minimum_team_matches": 3,
+              "observations": 431,
+              "observations_sha256": "1b32174bba2caf259c3e394bbae13fb0c88637f7ab6777517d9205e2ee261e6b",
+              "paired_audit_matches": 31,
+              "required_training_matches": 120,
+              "retrospective_eligible_training_matches": 222,
+              "retrospective_inputs_sha256": "3ed3f2793af1dc0a4980cf0477553a4f9137b241daadad05ecd1d5f71a333ebe",
+              "retrospective_publication_delay_hours": 24,
+              "selected_weight": 0.0,
+              "status": "INSUFFICIENT_PAIRED_AUDIT",
+              "strict_eligible_training_matches": 18,
+              "supported_feature_columns": [
+                "own_shots_on_target",
+                "own_shots_off_target",
+                "own_total_shots",
+                "own_blocked_shots",
+                "own_shots_inside_box",
+                "own_shots_outside_box",
+                "own_fouls",
+                "own_corner_kicks",
+                "own_offsides",
+                "own_ball_possession",
+                "own_yellow_cards",
+                "own_goalkeeper_saves",
+                "own_total_passes",
+                "own_accurate_passes",
+                "own_pass_percentage",
+                "opponent_conceded_shots_on_target",
+                "opponent_conceded_shots_off_target",
+                "opponent_conceded_total_shots",
+                "opponent_conceded_blocked_shots",
+                "opponent_conceded_shots_inside_box",
+                "opponent_conceded_shots_outside_box",
+                "opponent_conceded_fouls",
+                "opponent_conceded_corner_kicks",
+                "opponent_conceded_offsides",
+                "opponent_conceded_ball_possession",
+                "opponent_conceded_yellow_cards",
+                "opponent_conceded_goalkeeper_saves",
+                "opponent_conceded_total_passes",
+                "opponent_conceded_accurate_passes",
+                "opponent_conceded_pass_percentage",
+                "is_home"
+              ],
+              "training_matches": 161,
+              "tuning_matches": 21,
+              "tuning_origin_utc": "2025-09-21T00:00:00+00:00",
+              "usable_current_matches": 205,
+              "validation_mode": "retrospective_backfill",
+              "validation_policy": "auto",
+              "version": "bbs-lagged-poisson-v2"
+            },
+            "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261029T114836104635Z_fadf22c0fdc19c5d939ce8c3c5ca4b913de1efaa7f3f7640f80581e4a58053a5.json",
+            "days_since_latest_result": 4,
+            "diagnostics_sha256": "57f4790161ddf8500940cad381d3aeab7a635fb0452bad8d3a1397fcfbbdea55",
+            "forecast_training_health": {
+              "days_since_latest_result": 4,
+              "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+              "training_end": "2026-10-25"
+            },
+            "odds_provider_health": {
+              "state": "NOT_RECORDED"
+            },
+            "training_end": "2026-10-25",
+            "training_matches": 1980
+          },
+          "Eredivisie": {
+            "api_football": {
+              "status": "NOT_COLLECTED"
+            },
+            "bbs_statistics_model": {
+              "status": "NO_OBSERVATIONS"
+            },
+            "bbs_statistics_model_artifact": null,
+            "days_since_latest_result": 4,
+            "diagnostics_sha256": "97aa00e1bd4f35a7a75a00477d356404f12aadce9e6598cdf6cb05dac24817c9",
+            "forecast_training_health": {
+              "days_since_latest_result": 4,
+              "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+              "training_end": "2026-10-25"
+            },
+            "odds_provider_health": {
+              "state": "NOT_RECORDED"
+            },
+            "training_end": "2026-10-25",
+            "training_matches": 1620
+          },
+          "LaLiga": {
+            "api_football": {
+              "added_results": 0,
+              "ambiguous": 0,
+              "conflicts": 0,
+              "excluded_phase": 0,
+              "matched_results": 574,
+              "source": "api-football",
+              "statistics_observations": 89,
+              "status": "AVAILABLE",
+              "unmapped": 566,
+              "usage": "supplementary_cached_observations"
+            },
+            "bbs_statistics_model": {
+              "audit_baseline_briers": [
+                0.5521078342824518,
+                0.18074894030573588,
+                0.22581628123747038,
+                0.25215851249634236
+              ],
+              "audit_baseline_poisson_score": 0.817502522631521,
+              "audit_brier_order": [
+                "1x2",
+                "over_1_5",
+                "under_3_5",
+                "btts_yes"
+              ],
+              "audit_candidate_briers": [
+                0.5295194447555117,
+                0.1898167447857306,
+                0.23341590827406827,
+                0.2546994560406538
+              ],
+              "audit_candidate_poisson_score": 0.809197371286247,
+              "audit_gain": 0.008305151345273987,
+              "audit_gain_lower95": -0.03007730499333999,
+              "audit_matchdays": 16,
+              "audit_matches": 40,
+              "audit_origin_utc": "2026-09-18T00:00:00+00:00",
+              "cutoff_utc": "2026-10-29T11:52:59.394319+00:00",
+              "eligible_training_matches": 146,
+              "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+              "feature_fields": [
+                "shots_on_target",
+                "shots_off_target",
+                "total_shots",
+                "blocked_shots",
+                "shots_inside_box",
+                "shots_outside_box",
+                "fouls",
+                "corner_kicks",
+                "offsides",
+                "ball_possession",
+                "yellow_cards",
+                "red_cards",
+                "goalkeeper_saves",
+                "total_passes",
+                "accurate_passes",
+                "pass_percentage"
+              ],
+              "first_observed_at_utc": "2026-10-16T20:39:27.155286+00:00",
+              "forward_accuracy_improvement_established": false,
+              "historical_corrections_may_be_present": true,
+              "input_providers": [
+                "api-football",
+                "bigballsdata"
+              ],
+              "max_form_age_days": 180,
+              "max_form_matches": 8,
+              "max_goal_rate_ratio": 1.25,
+              "minimum_team_matches": 3,
+              "observations": 399,
+              "observations_sha256": "bd790a5a2c6d3b70ab38e60cbc6daa2d0932d05780e915a529531d55eae59ed0",
+              "paired_audit_matches": 40,
+              "proposed_weight": 0.3,
+              "required_training_matches": 120,
+              "retrospective_eligible_training_matches": 146,
+              "retrospective_inputs_sha256": "ca8c6cbd50780303a93d4bb1797607cf82c3dc96bf1a279f54240aff4979a3b1",
+              "retrospective_publication_delay_hours": 24,
+              "selected_ridge": 1.0,
+              "selected_weight": 0.0,
+              "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
+              "strict_eligible_training_matches": 20,
+              "supported_feature_columns": [
+                "own_shots_on_target",
+                "own_shots_off_target",
+                "own_total_shots",
+                "own_blocked_shots",
+                "own_shots_inside_box",
+                "own_shots_outside_box",
+                "own_fouls",
+                "own_corner_kicks",
+                "own_offsides",
+                "own_ball_possession",
+                "own_yellow_cards",
+                "own_goalkeeper_saves",
+                "own_total_passes",
+                "own_accurate_passes",
+                "own_pass_percentage",
+                "opponent_conceded_shots_on_target",
+                "opponent_conceded_shots_off_target",
+                "opponent_conceded_total_shots",
+                "opponent_conceded_blocked_shots",
+                "opponent_conceded_shots_inside_box",
+                "opponent_conceded_shots_outside_box",
+                "opponent_conceded_fouls",
+                "opponent_conceded_corner_kicks",
+                "opponent_conceded_offsides",
+                "opponent_conceded_ball_possession",
+                "opponent_conceded_yellow_cards",
+                "opponent_conceded_goalkeeper_saves",
+                "opponent_conceded_total_passes",
+                "opponent_conceded_accurate_passes",
+                "opponent_conceded_pass_percentage",
+                "is_home"
+              ],
+              "training_matches": 86,
+              "tuning_matches": 20,
+              "tuning_origin_utc": "2025-10-20T00:00:00+00:00",
+              "usable_current_matches": 158,
+              "validation_mode": "retrospective_backfill",
+              "validation_policy": "auto",
+              "version": "bbs-lagged-poisson-v2"
+            },
+            "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261029T115259394319Z_dc62af34df6d1b686d84cfba5f44da539d429b6614bb6534f923a9a87fbf6eb5.json",
+            "days_since_latest_result": 3,
+            "diagnostics_sha256": "4d909d6e1367419ca4779e5c5e08c522ff99cc05da65682b966178b533def17b",
+            "forecast_training_health": {
+              "days_since_latest_result": 3,
+              "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+              "training_end": "2026-10-26"
+            },
+            "odds_provider_health": {
+              "state": "NOT_RECORDED"
+            },
+            "training_end": "2026-10-26",
+            "training_matches": 1999
+          },
+          "Ligue1": {
+            "api_football": {
+              "added_results": 2,
+              "ambiguous": 0,
+              "conflicts": 0,
+              "excluded_phase": 0,
+              "matched_results": 752,
+              "source": "api-football",
+              "statistics_observations": 118,
+              "status": "AVAILABLE",
+              "unmapped": 242,
+              "usage": "supplementary_cached_observations"
+            },
+            "bbs_statistics_model": {
+              "audit_matches": 40,
+              "audit_origin_utc": "2025-09-27T00:00:00+00:00",
+              "cutoff_utc": "2026-10-29T12:04:07.426807+00:00",
+              "eligible_training_matches": 154,
+              "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+              "feature_fields": [
+                "shots_on_target",
+                "shots_off_target",
+                "total_shots",
+                "blocked_shots",
+                "shots_inside_box",
+                "shots_outside_box",
+                "fouls",
+                "corner_kicks",
+                "offsides",
+                "ball_possession",
+                "yellow_cards",
+                "red_cards",
+                "goalkeeper_saves",
+                "total_passes",
+                "accurate_passes",
+                "pass_percentage"
+              ],
+              "first_observed_at_utc": "2026-10-16T20:39:29.253586+00:00",
+              "forward_accuracy_improvement_established": false,
+              "historical_corrections_may_be_present": true,
+              "input_providers": [
+                "api-football",
+                "bigballsdata"
+              ],
+              "max_form_age_days": 180,
+              "max_form_matches": 8,
+              "max_goal_rate_ratio": 1.25,
+              "minimum_team_matches": 3,
+              "observations": 350,
+              "observations_sha256": "92b269fb1624102b58094cce481daaae31d2b99b17eeb4694b8c859ec9748df1",
+              "paired_audit_matches": 28,
+              "required_training_matches": 120,
+              "retrospective_eligible_training_matches": 154,
+              "retrospective_inputs_sha256": "1a85c01f470efd86f2d1d95a2700e7cd9c4de28619c6ff2bc9ae53f2909662ad",
+              "retrospective_publication_delay_hours": 24,
+              "selected_weight": 0.0,
+              "status": "INSUFFICIENT_PAIRED_AUDIT",
+              "strict_eligible_training_matches": 15,
+              "supported_feature_columns": [
+                "own_shots_on_target",
+                "own_shots_off_target",
+                "own_total_shots",
+                "own_blocked_shots",
+                "own_shots_inside_box",
+                "own_shots_outside_box",
+                "own_fouls",
+                "own_corner_kicks",
+                "own_offsides",
+                "own_ball_possession",
+                "own_yellow_cards",
+                "own_goalkeeper_saves",
+                "own_total_passes",
+                "own_accurate_passes",
+                "own_pass_percentage",
+                "opponent_conceded_shots_on_target",
+                "opponent_conceded_shots_off_target",
+                "opponent_conceded_total_shots",
+                "opponent_conceded_blocked_shots",
+                "opponent_conceded_shots_inside_box",
+                "opponent_conceded_shots_outside_box",
+                "opponent_conceded_fouls",
+                "opponent_conceded_corner_kicks",
+                "opponent_conceded_offsides",
+                "opponent_conceded_ball_possession",
+                "opponent_conceded_yellow_cards",
+                "opponent_conceded_goalkeeper_saves",
+                "opponent_conceded_total_passes",
+                "opponent_conceded_accurate_passes",
+                "opponent_conceded_pass_percentage",
+                "is_home"
+              ],
+              "training_matches": 93,
+              "tuning_matches": 21,
+              "tuning_origin_utc": "2025-08-24T00:00:00+00:00",
+              "usable_current_matches": 154,
+              "validation_mode": "retrospective_backfill",
+              "validation_policy": "auto",
+              "version": "bbs-lagged-poisson-v2"
+            },
+            "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261029T120407426807Z_3770778614c605c6e7b52651fcd2ce661c1de0b58aa22a5209ec4de18e879a91.json",
+            "days_since_latest_result": 3,
+            "diagnostics_sha256": "e23c13030f3ef6461c83145e540c2405863ccfa7f66eba31652794f37a805d2c",
+            "forecast_training_health": {
+              "days_since_latest_result": 3,
+              "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+              "training_end": "2026-10-26"
+            },
+            "odds_provider_health": {
+              "state": "NOT_RECORDED"
+            },
+            "training_end": "2026-10-26",
+            "training_matches": 1752
+          },
+          "PrimeiraLiga": {
+            "api_football": {
+              "status": "NOT_COLLECTED"
+            },
+            "bbs_statistics_model": {
+              "status": "NO_OBSERVATIONS"
+            },
+            "bbs_statistics_model_artifact": null,
+            "days_since_latest_result": 3,
+            "diagnostics_sha256": "298086f94c523731e13f5680fc49a1dbf33a6de4322dafbed1620982de0e5f43",
+            "forecast_training_health": {
+              "days_since_latest_result": 3,
+              "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+              "training_end": "2026-10-26"
+            },
+            "odds_provider_health": {
+              "state": "NOT_RECORDED"
+            },
+            "training_end": "2026-10-26",
+            "training_matches": 1611
+          },
+          "SerieA": {
+            "api_football": {
+              "added_results": 0,
+              "ambiguous": 0,
+              "conflicts": 0,
+              "excluded_phase": 0,
+              "matched_results": 918,
+              "source": "api-football",
+              "statistics_observations": 144,
+              "status": "AVAILABLE",
+              "unmapped": 223,
+              "usage": "supplementary_cached_observations"
+            },
+            "bbs_statistics_model": {
+              "audit_matches": 40,
+              "audit_origin_utc": "2025-10-25T00:00:00+00:00",
+              "cutoff_utc": "2026-10-29T12:00:04.904189+00:00",
+              "eligible_training_matches": 187,
+              "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+              "feature_fields": [
+                "shots_on_target",
+                "shots_off_target",
+                "total_shots",
+                "blocked_shots",
+                "shots_inside_box",
+                "shots_outside_box",
+                "fouls",
+                "corner_kicks",
+                "offsides",
+                "ball_possession",
+                "yellow_cards",
+                "red_cards",
+                "goalkeeper_saves",
+                "total_passes",
+                "accurate_passes",
+                "pass_percentage"
+              ],
+              "first_observed_at_utc": "2026-10-16T20:39:28.568690+00:00",
+              "forward_accuracy_improvement_established": false,
+              "historical_corrections_may_be_present": true,
+              "input_providers": [
+                "api-football",
+                "bigballsdata"
+              ],
+              "max_form_age_days": 180,
+              "max_form_matches": 8,
+              "max_goal_rate_ratio": 1.25,
+              "minimum_team_matches": 3,
+              "observations": 433,
+              "observations_sha256": "e34000de2095b37e0a7276d609840c3377204d1e954083e0d836093d3be431d0",
+              "paired_audit_matches": 16,
+              "required_training_matches": 120,
+              "retrospective_eligible_training_matches": 187,
+              "retrospective_inputs_sha256": "5842adce891b2d16a7b2ad65ab97aae96922630ae093cd0107ed7284867425be",
+              "retrospective_publication_delay_hours": 24,
+              "selected_weight": 0.0,
+              "status": "INSUFFICIENT_PAIRED_AUDIT",
+              "strict_eligible_training_matches": 24,
+              "supported_feature_columns": [
+                "own_shots_on_target",
+                "own_shots_off_target",
+                "own_total_shots",
+                "own_blocked_shots",
+                "own_shots_inside_box",
+                "own_shots_outside_box",
+                "own_fouls",
+                "own_corner_kicks",
+                "own_offsides",
+                "own_ball_possession",
+                "own_yellow_cards",
+                "own_goalkeeper_saves",
+                "own_total_passes",
+                "own_accurate_passes",
+                "own_pass_percentage",
+                "opponent_conceded_shots_on_target",
+                "opponent_conceded_shots_off_target",
+                "opponent_conceded_total_shots",
+                "opponent_conceded_blocked_shots",
+                "opponent_conceded_shots_inside_box",
+                "opponent_conceded_shots_outside_box",
+                "opponent_conceded_fouls",
+                "opponent_conceded_corner_kicks",
+                "opponent_conceded_offsides",
+                "opponent_conceded_ball_possession",
+                "opponent_conceded_yellow_cards",
+                "opponent_conceded_goalkeeper_saves",
+                "opponent_conceded_total_passes",
+                "opponent_conceded_accurate_passes",
+                "opponent_conceded_pass_percentage",
+                "is_home"
+              ],
+              "training_matches": 127,
+              "tuning_matches": 20,
+              "tuning_origin_utc": "2025-09-21T00:00:00+00:00",
+              "usable_current_matches": 185,
+              "validation_mode": "retrospective_backfill",
+              "validation_policy": "auto",
+              "version": "bbs-lagged-poisson-v2"
+            },
+            "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261029T120004904189Z_f80bd4c266cc6010d1d95eabae5541854f94d7640778e690a86d281c257600ea.json",
+            "days_since_latest_result": 1,
+            "diagnostics_sha256": "ea39e4cd3c39bad6ddd762df3f0a3010cad44a2c875dfc8f74d59cc4f0625355",
+            "forecast_training_health": {
+              "days_since_latest_result": 1,
+              "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+              "training_end": "2026-10-28"
+            },
+            "odds_provider_health": {
+              "state": "NOT_RECORDED"
+            },
+            "training_end": "2026-10-28",
+            "training_matches": 1988
+          },
+          "SuperLig": {
+            "api_football": {
+              "status": "NOT_COLLECTED"
+            },
+            "bbs_statistics_model": {
+              "status": "NO_OBSERVATIONS"
+            },
+            "bbs_statistics_model_artifact": null,
+            "days_since_latest_result": 3,
+            "diagnostics_sha256": "a777d185fa7e7aae3d5bad434d12b41205f9df6bccfe73e9dd5b92d6205a753d",
+            "forecast_training_health": {
+              "days_since_latest_result": 3,
+              "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+              "training_end": "2026-10-26"
+            },
+            "odds_provider_health": {
+              "state": "NOT_RECORDED"
+            },
+            "training_end": "2026-10-26",
+            "training_matches": 1831
+          },
+          "UCL": {
+            "api_football": {
+              "added_results": 0,
+              "ambiguous": 0,
+              "conflicts": 1,
+              "excluded_phase": 460,
+              "matched_results": 139,
+              "source": "api-football",
+              "statistics_observations": 52,
+              "status": "AVAILABLE",
+              "unmapped": 78,
+              "usage": "supplementary_cached_observations"
+            },
+            "bbs_statistics_model": {
+              "cutoff_utc": "2026-10-29T12:07:14.427724+00:00",
+              "eligible_training_matches": 14,
+              "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+              "feature_fields": [
+                "shots_on_target",
+                "shots_off_target",
+                "total_shots",
+                "blocked_shots",
+                "shots_inside_box",
+                "shots_outside_box",
+                "fouls",
+                "corner_kicks",
+                "offsides",
+                "ball_possession",
+                "yellow_cards",
+                "red_cards",
+                "goalkeeper_saves",
+                "total_passes",
+                "accurate_passes",
+                "pass_percentage"
+              ],
+              "first_observed_at_utc": "2026-10-16T20:39:29.957146+00:00",
+              "forward_accuracy_improvement_established": false,
+              "historical_corrections_may_be_present": true,
+              "input_providers": [
+                "api-football",
+                "bigballsdata"
+              ],
+              "max_form_age_days": 180,
+              "max_form_matches": 8,
+              "max_goal_rate_ratio": 1.25,
+              "minimum_team_matches": 3,
+              "observations": 338,
+              "observations_sha256": "cf77b6734999e38a5c759afe2df0b2417534ebad9962e1cab11196afaf3fa192",
+              "required_training_matches": 120,
+              "retrospective_eligible_training_matches": 14,
+              "retrospective_inputs_sha256": "8654ab238d346ec9731251f73c79bab158901b6485f75611548f8290d4235cf5",
+              "retrospective_publication_delay_hours": 24,
+              "selected_weight": 0.0,
+              "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
+              "strict_eligible_training_matches": 0,
+              "usable_current_matches": 94,
+              "validation_mode": "retrospective_backfill",
+              "validation_policy": "auto",
+              "version": "bbs-lagged-poisson-v2"
+            },
+            "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261029T120714427724Z_fca202821554d28ac0eea4650a6b9af4c0a92b0489b61c5595c0405737b305d2.json",
+            "current_source_health": {
+              "added_matches": 0,
+              "cache_hash_verified": true,
+              "checked_at_utc": "2026-10-29T12:07:01.202560+00:00",
+              "completed_matches": 54,
+              "corrected_scores": 0,
+              "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+              "download_age_hours": 0.025332142499999998,
+              "download_status": "VERIFIED_LIVE",
+              "latest_completed_date": "2026-10-21",
+              "latest_completed_utc": "2026-10-21T19:00:00+00:00",
+              "next_fixture_utc": "2026-11-03T17:45:00+00:00",
+              "note": "Provider schedule comparison is not independent proof of complete coverage.",
+              "overdue_unfinished_match_ids": [],
+              "provider": "football-data.org",
+              "season_start": 2026,
+              "sha256": "47a40d13e6f7e8eccc32c0ab36772be5befd47aba6d0ad00751dac053fc03523",
+              "source_schedule_matches": 144,
+              "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+              "training_end": "2026-10-21"
+            },
+            "days_since_latest_result": 8,
+            "diagnostics_sha256": "89259c2bcd42fa1fcb1a443d60277d0f25f49caa400d2d70c1d7431b1ece325b",
+            "forecast_training_health": {
+              "added_matches": 0,
+              "cache_hash_verified": true,
+              "checked_at_utc": "2026-10-29T12:07:01.202560+00:00",
+              "completed_matches": 54,
+              "corrected_scores": 0,
+              "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+              "download_age_hours": 0.0036736566666666667,
+              "download_status": "VERIFIED_LIVE",
+              "last_refresh_error": null,
+              "last_refresh_error_reason": null,
+              "latest_completed_date": "2026-10-21",
+              "latest_completed_utc": "2026-10-21T19:00:00+00:00",
+              "next_fixture_utc": "2026-11-03T17:45:00+00:00",
+              "note": "Provider schedule comparison is not independent proof of complete coverage.",
+              "overdue_unfinished_match_ids": [],
+              "provider": "football-data.org",
+              "season_start": 2026,
+              "sha256": "47a40d13e6f7e8eccc32c0ab36772be5befd47aba6d0ad00751dac053fc03523",
+              "source_schedule_matches": 144,
+              "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+              "training_end": "2026-10-21"
+            },
+            "odds_provider_health": {
+              "state": "NOT_RECORDED"
+            },
+            "training_end": "2026-10-21",
+            "training_matches": 557
+          },
+          "UEL": {
+            "api_football": {
+              "status": "NOT_COLLECTED"
+            },
+            "bbs_statistics_model": {
+              "status": "NO_OBSERVATIONS"
+            },
+            "bbs_statistics_model_artifact": null,
+            "current_source_health": {
+              "official_source_health": {
+                "2025": {
+                  "original_source_sha256": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b",
+                  "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00",
+                  "status": "REVIEWED_HISTORICAL_FACTS"
+                }
+              },
+              "status": "VERIFIED_WITHIN_24_HOURS",
+              "verified_at_utc": "2026-10-29T05:45:05.486106+00:00"
+            },
+            "days_since_latest_result": 7,
+            "diagnostics_sha256": "546985bcc2bb9c1a62b6298fdbd96012a9e2b379f7f363765ace5e29f7a02a3c",
+            "forecast_training_health": {
+              "official_source_health": {
+                "2025": {
+                  "original_source_sha256": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b",
+                  "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00",
+                  "status": "REVIEWED_HISTORICAL_FACTS"
+                }
+              },
+              "status": "VERIFIED_WITHIN_24_HOURS",
+              "training_end": "2026-10-22",
+              "verified_at_utc": "2026-10-29T05:45:05.486106+00:00"
+            },
+            "odds_provider_health": {
+              "state": "NOT_RECORDED"
+            },
+            "training_end": "2026-10-22",
+            "training_matches": 714
+          }
+        }
+      },
+      "policy": "48h-zero-tolerance-ev05-no-loss75-corners-v26"
     }
   ],
   "training": {
@@ -112914,14 +115930,14 @@
         "excluded_phase": 0,
         "matched_results": 254,
         "source": "api-football",
-        "statistics_observations": 51,
+        "statistics_observations": 55,
         "status": "AVAILABLE",
         "unmapped": 668,
         "usage": "supplementary_cached_observations"
       },
       "bbs_statistics_model": {
-        "cutoff_utc": "2026-10-28T16:04:41.599646+00:00",
-        "eligible_training_matches": 59,
+        "cutoff_utc": "2026-10-29T11:57:09.762880+00:00",
+        "eligible_training_matches": 63,
         "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
         "feature_fields": [
           "shots_on_target",
@@ -112952,25 +115968,25 @@
         "max_form_matches": 8,
         "max_goal_rate_ratio": 1.25,
         "minimum_team_matches": 3,
-        "observations": 262,
-        "observations_sha256": "71a31c0c6acb88e6ff92aa936a5c23b55f083658064152074249d035f64249f4",
+        "observations": 273,
+        "observations_sha256": "31451cc8cf8ed55bf701b893734092212cfd2325b5758f9f8ca06f243a899933",
         "required_training_matches": 120,
-        "retrospective_eligible_training_matches": 59,
-        "retrospective_inputs_sha256": "c1f0ef7e4785a136a353ea55d0261f2f82942dfd7d64beb26b52203d2ee89021",
+        "retrospective_eligible_training_matches": 63,
+        "retrospective_inputs_sha256": "bb286f060ce438b97ba59a81e19c2b17cb82ff915ae624a17c41d3275d0fdd77",
         "retrospective_publication_delay_hours": 24,
         "selected_weight": 0.0,
         "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
         "strict_eligible_training_matches": 14,
-        "usable_current_matches": 94,
+        "usable_current_matches": 98,
         "validation_mode": "retrospective_backfill",
         "validation_policy": "auto",
         "version": "bbs-lagged-poisson-v2"
       },
-      "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261028T160441599646Z_54474c2b544bc31025fc1ffd074f977c260a579a3b627a5ce3101f3e1925ce0d.json",
+      "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261029T115709762880Z_ad0f28be0b3cde4437ee6a3b100181cd41cdb248f1277efdb99c1060586b4d2d.json",
       "days_since_latest_result": 4,
-      "diagnostics_sha256": "0cb4d59df0f051244d522d77258160b9c6c9fe8c8e7317dfd2db3f963e9d0444",
+      "diagnostics_sha256": "8de70d2295b002938755bb06c493b72ae0c03686b7d4825eee25dbf3448526b9",
       "forecast_training_health": {
-        "days_since_latest_result": 3,
+        "days_since_latest_result": 4,
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-25"
       },
@@ -112988,7 +116004,7 @@
         "excluded_phase": 0,
         "matched_results": 1102,
         "source": "api-football",
-        "statistics_observations": 151,
+        "statistics_observations": 166,
         "status": "AVAILABLE",
         "unmapped": 38,
         "usage": "supplementary_cached_observations"
@@ -112996,8 +116012,8 @@
       "bbs_statistics_model": {
         "audit_matches": 40,
         "audit_origin_utc": "2025-10-19T00:00:00+00:00",
-        "cutoff_utc": "2026-10-28T15:54:19.274058+00:00",
-        "eligible_training_matches": 209,
+        "cutoff_utc": "2026-10-29T11:48:36.104635+00:00",
+        "eligible_training_matches": 222,
         "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
         "feature_fields": [
           "shots_on_target",
@@ -113028,12 +116044,12 @@
         "max_form_matches": 8,
         "max_goal_rate_ratio": 1.25,
         "minimum_team_matches": 3,
-        "observations": 411,
-        "observations_sha256": "12ab74e11af389796b3f3ba7ba8bcc5fe9a3345dfc5b9b70062daadd81763223",
+        "observations": 431,
+        "observations_sha256": "1b32174bba2caf259c3e394bbae13fb0c88637f7ab6777517d9205e2ee261e6b",
         "paired_audit_matches": 31,
         "required_training_matches": 120,
-        "retrospective_eligible_training_matches": 209,
-        "retrospective_inputs_sha256": "aa0ef3f42a5f7eee4dbdec991826b824706923fff334859ad0c3ff2c5a666e85",
+        "retrospective_eligible_training_matches": 222,
+        "retrospective_inputs_sha256": "3ed3f2793af1dc0a4980cf0477553a4f9137b241daadad05ecd1d5f71a333ebe",
         "retrospective_publication_delay_hours": 24,
         "selected_weight": 0.0,
         "status": "INSUFFICIENT_PAIRED_AUDIT",
@@ -113071,19 +116087,19 @@
           "opponent_conceded_pass_percentage",
           "is_home"
         ],
-        "training_matches": 148,
+        "training_matches": 161,
         "tuning_matches": 21,
         "tuning_origin_utc": "2025-09-21T00:00:00+00:00",
-        "usable_current_matches": 193,
+        "usable_current_matches": 205,
         "validation_mode": "retrospective_backfill",
         "validation_policy": "auto",
         "version": "bbs-lagged-poisson-v2"
       },
-      "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261028T155419274058Z_d772deaf7d9a6c6bb17144bf0aca6de9d75ce1e665bcb5581652ac6013e69d80.json",
+      "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261029T114836104635Z_fadf22c0fdc19c5d939ce8c3c5ca4b913de1efaa7f3f7640f80581e4a58053a5.json",
       "days_since_latest_result": 4,
-      "diagnostics_sha256": "3b7e65488dee9fb7e3a9617a9d439bbabffef2980dd4fa8f3b3264b96fb66f12",
+      "diagnostics_sha256": "57f4790161ddf8500940cad381d3aeab7a635fb0452bad8d3a1397fcfbbdea55",
       "forecast_training_health": {
-        "days_since_latest_result": 3,
+        "days_since_latest_result": 4,
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-25"
       },
@@ -113102,9 +116118,9 @@
       },
       "bbs_statistics_model_artifact": null,
       "days_since_latest_result": 4,
-      "diagnostics_sha256": "270ccbb084e9f4f5e6f3fcd5c2c15c80078bfaf433ddde185f7f9ea45f1e02a1",
+      "diagnostics_sha256": "97aa00e1bd4f35a7a75a00477d356404f12aadce9e6598cdf6cb05dac24817c9",
       "forecast_training_health": {
-        "days_since_latest_result": 3,
+        "days_since_latest_result": 4,
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-25"
       },
@@ -113122,19 +116138,19 @@
         "excluded_phase": 0,
         "matched_results": 574,
         "source": "api-football",
-        "statistics_observations": 82,
+        "statistics_observations": 89,
         "status": "AVAILABLE",
         "unmapped": 566,
         "usage": "supplementary_cached_observations"
       },
       "bbs_statistics_model": {
         "audit_baseline_briers": [
-          0.5520932991942327,
-          0.18075667919310287,
-          0.22581865901120918,
-          0.25218525802844377
+          0.5521078342824518,
+          0.18074894030573588,
+          0.22581628123747038,
+          0.25215851249634236
         ],
-        "audit_baseline_poisson_score": 0.8175310728786089,
+        "audit_baseline_poisson_score": 0.817502522631521,
         "audit_brier_order": [
           "1x2",
           "over_1_5",
@@ -113142,19 +116158,19 @@
           "btts_yes"
         ],
         "audit_candidate_briers": [
-          0.5384658625434342,
-          0.1851688742905936,
-          0.2282336223405601,
-          0.2528553522553332
+          0.5295194447555117,
+          0.1898167447857306,
+          0.23341590827406827,
+          0.2546994560406538
         ],
-        "audit_candidate_poisson_score": 0.8069323340505633,
-        "audit_gain": 0.010598738828045629,
-        "audit_gain_lower95": -0.01699136798163119,
+        "audit_candidate_poisson_score": 0.809197371286247,
+        "audit_gain": 0.008305151345273987,
+        "audit_gain_lower95": -0.03007730499333999,
         "audit_matchdays": 16,
         "audit_matches": 40,
         "audit_origin_utc": "2026-09-18T00:00:00+00:00",
-        "cutoff_utc": "2026-10-28T15:59:44.737672+00:00",
-        "eligible_training_matches": 140,
+        "cutoff_utc": "2026-10-29T11:52:59.394319+00:00",
+        "eligible_training_matches": 146,
         "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
         "feature_fields": [
           "shots_on_target",
@@ -113185,13 +116201,13 @@
         "max_form_matches": 8,
         "max_goal_rate_ratio": 1.25,
         "minimum_team_matches": 3,
-        "observations": 385,
-        "observations_sha256": "e9aba83339f7cd22cbb96ddc5864adef18c0911a1bfa03e0cc0fa7f6b0243bc7",
+        "observations": 399,
+        "observations_sha256": "bd790a5a2c6d3b70ab38e60cbc6daa2d0932d05780e915a529531d55eae59ed0",
         "paired_audit_matches": 40,
-        "proposed_weight": 0.2,
+        "proposed_weight": 0.3,
         "required_training_matches": 120,
-        "retrospective_eligible_training_matches": 140,
-        "retrospective_inputs_sha256": "399eac33c0d3f071a8265fdfd4d8ddc53472a8540086322c85ce6a9ee576f360",
+        "retrospective_eligible_training_matches": 146,
+        "retrospective_inputs_sha256": "ca8c6cbd50780303a93d4bb1797607cf82c3dc96bf1a279f54240aff4979a3b1",
         "retrospective_publication_delay_hours": 24,
         "selected_ridge": 1.0,
         "selected_weight": 0.0,
@@ -113230,19 +116246,19 @@
           "opponent_conceded_pass_percentage",
           "is_home"
         ],
-        "training_matches": 80,
+        "training_matches": 86,
         "tuning_matches": 20,
         "tuning_origin_utc": "2025-10-20T00:00:00+00:00",
-        "usable_current_matches": 153,
+        "usable_current_matches": 158,
         "validation_mode": "retrospective_backfill",
         "validation_policy": "auto",
         "version": "bbs-lagged-poisson-v2"
       },
-      "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261028T155944737672Z_1744bdb8ebd7b818e7e971ba125d41c592f98d6607cfa61200a8cdc3ccc1c94a.json",
+      "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261029T115259394319Z_dc62af34df6d1b686d84cfba5f44da539d429b6614bb6534f923a9a87fbf6eb5.json",
       "days_since_latest_result": 3,
-      "diagnostics_sha256": "efbdf8927a06c0af3b61ba483d565e198104ab9acc034ca2edf771f680e66b04",
+      "diagnostics_sha256": "4d909d6e1367419ca4779e5c5e08c522ff99cc05da65682b966178b533def17b",
       "forecast_training_health": {
-        "days_since_latest_result": 2,
+        "days_since_latest_result": 3,
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-26"
       },
@@ -113260,7 +116276,7 @@
         "excluded_phase": 0,
         "matched_results": 752,
         "source": "api-football",
-        "statistics_observations": 107,
+        "statistics_observations": 118,
         "status": "AVAILABLE",
         "unmapped": 242,
         "usage": "supplementary_cached_observations"
@@ -113268,8 +116284,8 @@
       "bbs_statistics_model": {
         "audit_matches": 40,
         "audit_origin_utc": "2025-09-27T00:00:00+00:00",
-        "cutoff_utc": "2026-10-28T16:10:42.048441+00:00",
-        "eligible_training_matches": 144,
+        "cutoff_utc": "2026-10-29T12:04:07.426807+00:00",
+        "eligible_training_matches": 154,
         "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
         "feature_fields": [
           "shots_on_target",
@@ -113300,12 +116316,12 @@
         "max_form_matches": 8,
         "max_goal_rate_ratio": 1.25,
         "minimum_team_matches": 3,
-        "observations": 337,
-        "observations_sha256": "fb5fe05f26d7789c54cd577539c872a5e747fc3a59e91f0e25d0df20f3ada3e5",
+        "observations": 350,
+        "observations_sha256": "92b269fb1624102b58094cce481daaae31d2b99b17eeb4694b8c859ec9748df1",
         "paired_audit_matches": 28,
         "required_training_matches": 120,
-        "retrospective_eligible_training_matches": 144,
-        "retrospective_inputs_sha256": "55953c539863c32a7c169d31e44708bd47ebe68340e08606f0789d8190dc1a74",
+        "retrospective_eligible_training_matches": 154,
+        "retrospective_inputs_sha256": "1a85c01f470efd86f2d1d95a2700e7cd9c4de28619c6ff2bc9ae53f2909662ad",
         "retrospective_publication_delay_hours": 24,
         "selected_weight": 0.0,
         "status": "INSUFFICIENT_PAIRED_AUDIT",
@@ -113343,19 +116359,19 @@
           "opponent_conceded_pass_percentage",
           "is_home"
         ],
-        "training_matches": 83,
+        "training_matches": 93,
         "tuning_matches": 21,
         "tuning_origin_utc": "2025-08-24T00:00:00+00:00",
-        "usable_current_matches": 143,
+        "usable_current_matches": 154,
         "validation_mode": "retrospective_backfill",
         "validation_policy": "auto",
         "version": "bbs-lagged-poisson-v2"
       },
-      "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261028T161042048441Z_d6d86b3f78fce5588d5f86e4aec25d43341e3915c98aba7ff559c14d9e9e8667.json",
+      "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261029T120407426807Z_3770778614c605c6e7b52651fcd2ce661c1de0b58aa22a5209ec4de18e879a91.json",
       "days_since_latest_result": 3,
-      "diagnostics_sha256": "ba173e7c9ea9895d20c3366282272dfdf112ca3b4194f8f7ccb506d2c27ae6de",
+      "diagnostics_sha256": "e23c13030f3ef6461c83145e540c2405863ccfa7f66eba31652794f37a805d2c",
       "forecast_training_health": {
-        "days_since_latest_result": 2,
+        "days_since_latest_result": 3,
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-26"
       },
@@ -113374,9 +116390,9 @@
       },
       "bbs_statistics_model_artifact": null,
       "days_since_latest_result": 3,
-      "diagnostics_sha256": "0ec656524cbcda52130cc449b56b934cbcbd704843f48a6aa5247c1f55ccc312",
+      "diagnostics_sha256": "298086f94c523731e13f5680fc49a1dbf33a6de4322dafbed1620982de0e5f43",
       "forecast_training_health": {
-        "days_since_latest_result": 2,
+        "days_since_latest_result": 3,
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-26"
       },
@@ -113394,16 +116410,16 @@
         "excluded_phase": 0,
         "matched_results": 918,
         "source": "api-football",
-        "statistics_observations": 131,
+        "statistics_observations": 144,
         "status": "AVAILABLE",
         "unmapped": 223,
         "usage": "supplementary_cached_observations"
       },
       "bbs_statistics_model": {
         "audit_matches": 40,
-        "audit_origin_utc": "2025-10-19T00:00:00+00:00",
-        "cutoff_utc": "2026-10-28T16:07:21.315970+00:00",
-        "eligible_training_matches": 171,
+        "audit_origin_utc": "2025-10-25T00:00:00+00:00",
+        "cutoff_utc": "2026-10-29T12:00:04.904189+00:00",
+        "eligible_training_matches": 187,
         "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
         "feature_fields": [
           "shots_on_target",
@@ -113434,16 +116450,16 @@
         "max_form_matches": 8,
         "max_goal_rate_ratio": 1.25,
         "minimum_team_matches": 3,
-        "observations": 399,
-        "observations_sha256": "210ae88113333ba6d5521020580e6c5b01ac916d906742efb429d80863a1e1ba",
-        "paired_audit_matches": 28,
+        "observations": 433,
+        "observations_sha256": "e34000de2095b37e0a7276d609840c3377204d1e954083e0d836093d3be431d0",
+        "paired_audit_matches": 16,
         "required_training_matches": 120,
-        "retrospective_eligible_training_matches": 171,
-        "retrospective_inputs_sha256": "2f1a134e7b9dd41208774447c6f4987ffc4403888724d1aadccfd09314f619bd",
+        "retrospective_eligible_training_matches": 187,
+        "retrospective_inputs_sha256": "5842adce891b2d16a7b2ad65ab97aae96922630ae093cd0107ed7284867425be",
         "retrospective_publication_delay_hours": 24,
         "selected_weight": 0.0,
         "status": "INSUFFICIENT_PAIRED_AUDIT",
-        "strict_eligible_training_matches": 19,
+        "strict_eligible_training_matches": 24,
         "supported_feature_columns": [
           "own_shots_on_target",
           "own_shots_off_target",
@@ -113477,27 +116493,27 @@
           "opponent_conceded_pass_percentage",
           "is_home"
         ],
-        "training_matches": 110,
-        "tuning_matches": 21,
-        "tuning_origin_utc": "2025-09-14T00:00:00+00:00",
-        "usable_current_matches": 169,
+        "training_matches": 127,
+        "tuning_matches": 20,
+        "tuning_origin_utc": "2025-09-21T00:00:00+00:00",
+        "usable_current_matches": 185,
         "validation_mode": "retrospective_backfill",
         "validation_policy": "auto",
         "version": "bbs-lagged-poisson-v2"
       },
-      "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261028T160721315970Z_765bb1e5f0a7b3ddca17aa2cbc2f93ee7a4b799512e4c5ba4b28e661dc6b5643.json",
-      "days_since_latest_result": 2,
-      "diagnostics_sha256": "8d0f2457e88d8117553d1e732b0b750be3045ae47c67de1d89b3e4e98fc543da",
+      "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261029T120004904189Z_f80bd4c266cc6010d1d95eabae5541854f94d7640778e690a86d281c257600ea.json",
+      "days_since_latest_result": 1,
+      "diagnostics_sha256": "ea39e4cd3c39bad6ddd762df3f0a3010cad44a2c875dfc8f74d59cc4f0625355",
       "forecast_training_health": {
         "days_since_latest_result": 1,
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
-        "training_end": "2026-10-27"
+        "training_end": "2026-10-28"
       },
       "odds_provider_health": {
         "state": "NOT_RECORDED"
       },
-      "training_end": "2026-10-27",
-      "training_matches": 1983
+      "training_end": "2026-10-28",
+      "training_matches": 1988
     },
     "SuperLig": {
       "api_football": {
@@ -113508,9 +116524,9 @@
       },
       "bbs_statistics_model_artifact": null,
       "days_since_latest_result": 3,
-      "diagnostics_sha256": "2ee5527c58c9b4d0c0f1eb63c9cd3fdc073a318ec724496465c086e6be68d934",
+      "diagnostics_sha256": "a777d185fa7e7aae3d5bad434d12b41205f9df6bccfe73e9dd5b92d6205a753d",
       "forecast_training_health": {
-        "days_since_latest_result": 2,
+        "days_since_latest_result": 3,
         "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
         "training_end": "2026-10-26"
       },
@@ -113528,14 +116544,14 @@
         "excluded_phase": 460,
         "matched_results": 139,
         "source": "api-football",
-        "statistics_observations": 36,
+        "statistics_observations": 52,
         "status": "AVAILABLE",
         "unmapped": 78,
         "usage": "supplementary_cached_observations"
       },
       "bbs_statistics_model": {
-        "cutoff_utc": "2026-10-28T16:14:05.609653+00:00",
-        "eligible_training_matches": 9,
+        "cutoff_utc": "2026-10-29T12:07:14.427724+00:00",
+        "eligible_training_matches": 14,
         "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
         "feature_fields": [
           "shots_on_target",
@@ -113566,29 +116582,29 @@
         "max_form_matches": 8,
         "max_goal_rate_ratio": 1.25,
         "minimum_team_matches": 3,
-        "observations": 322,
-        "observations_sha256": "9c81d3bfca815a3c89aa54609ae90a1244f24464f39b3630068a805e4a282980",
+        "observations": 338,
+        "observations_sha256": "cf77b6734999e38a5c759afe2df0b2417534ebad9962e1cab11196afaf3fa192",
         "required_training_matches": 120,
-        "retrospective_eligible_training_matches": 9,
-        "retrospective_inputs_sha256": "c31ab90b6c865e86a21d9e283801903573de304e1754c843fb4d5ec29b29803d",
+        "retrospective_eligible_training_matches": 14,
+        "retrospective_inputs_sha256": "8654ab238d346ec9731251f73c79bab158901b6485f75611548f8290d4235cf5",
         "retrospective_publication_delay_hours": 24,
         "selected_weight": 0.0,
         "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
         "strict_eligible_training_matches": 0,
-        "usable_current_matches": 78,
+        "usable_current_matches": 94,
         "validation_mode": "retrospective_backfill",
         "validation_policy": "auto",
         "version": "bbs-lagged-poisson-v2"
       },
-      "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261028T161405609653Z_ff9808a03979331131f6b7cdff8a8da156696c6b231744c951702327fd79f633.json",
+      "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261029T120714427724Z_fca202821554d28ac0eea4650a6b9af4c0a92b0489b61c5595c0405737b305d2.json",
       "current_source_health": {
         "added_matches": 0,
         "cache_hash_verified": true,
-        "checked_at_utc": "2026-10-29T06:06:22.321793+00:00",
+        "checked_at_utc": "2026-10-29T12:07:01.202560+00:00",
         "completed_matches": 54,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 0.003946964166666666,
+        "download_age_hours": 0.026338142777777778,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-10-21",
         "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -113597,21 +116613,21 @@
         "overdue_unfinished_match_ids": [],
         "provider": "football-data.org",
         "season_start": 2026,
-        "sha256": "e5dfb5b44b6065a9ebc1ef5d271f0119081f9398088191b87c327ecd32a0a80f",
+        "sha256": "47a40d13e6f7e8eccc32c0ab36772be5befd47aba6d0ad00751dac053fc03523",
         "source_schedule_matches": 144,
         "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
         "training_end": "2026-10-21"
       },
       "days_since_latest_result": 8,
-      "diagnostics_sha256": "a091e1c8af879f6f5211b9205e7715be516c52576ab7080f1f1f6a29a4dca29c",
+      "diagnostics_sha256": "89259c2bcd42fa1fcb1a443d60277d0f25f49caa400d2d70c1d7431b1ece325b",
       "forecast_training_health": {
         "added_matches": 0,
         "cache_hash_verified": true,
-        "checked_at_utc": "2026-10-28T16:13:47.556632+00:00",
+        "checked_at_utc": "2026-10-29T12:07:01.202560+00:00",
         "completed_matches": 54,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 0.005014728055555556,
+        "download_age_hours": 0.0036736566666666667,
         "download_status": "VERIFIED_LIVE",
         "last_refresh_error": null,
         "last_refresh_error_reason": null,
@@ -113622,7 +116638,7 @@
         "overdue_unfinished_match_ids": [],
         "provider": "football-data.org",
         "season_start": 2026,
-        "sha256": "75f97b7b0048f2a1e24fe7a26fe277c24a6d08479f1041e6105639b140ebdd5d",
+        "sha256": "47a40d13e6f7e8eccc32c0ab36772be5befd47aba6d0ad00751dac053fc03523",
         "source_schedule_matches": 144,
         "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
         "training_end": "2026-10-21"
@@ -113650,10 +116666,10 @@
           }
         },
         "status": "VERIFIED_WITHIN_24_HOURS",
-        "verified_at_utc": "2026-10-29T06:06:36.530864+00:00"
+        "verified_at_utc": "2026-10-29T12:08:36.019874+00:00"
       },
       "days_since_latest_result": 7,
-      "diagnostics_sha256": "997033bffa0daf0213d30dee52bed5d26e9d78acc48e59055e6f8fa6445c952a",
+      "diagnostics_sha256": "546985bcc2bb9c1a62b6298fdbd96012a9e2b379f7f363765ace5e29f7a02a3c",
       "forecast_training_health": {
         "official_source_health": {
           "2025": {
@@ -113664,7 +116680,7 @@
         },
         "status": "VERIFIED_WITHIN_24_HOURS",
         "training_end": "2026-10-22",
-        "verified_at_utc": "2026-10-28T15:05:52.015611+00:00"
+        "verified_at_utc": "2026-10-29T05:45:05.486106+00:00"
       },
       "odds_provider_health": {
         "state": "NOT_RECORDED"
