@@ -3150,6 +3150,41 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Lecce",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.5367925687094516,
+      "home_goals": 5,
+      "over_1_5": 0.7827961728828848,
+      "over_2_5": 0.5472271938687753,
+      "p_away": 0.19413766988304618,
+      "p_draw": 0.2266847224590899,
+      "p_home": 0.5791776076578639,
+      "under_3_5": 0.6769561639976455,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.522718067139575,
+      "home_goals": 5,
+      "over_1_5": 0.7654017430164406,
+      "over_2_5": 0.5242487046273971,
+      "p_away": 0.19866307009675307,
+      "p_draw": 0.22975776286053434,
+      "p_home": 0.5715791670427125,
+      "under_3_5": 0.700018501547463,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Frosinone",
+    "kickoff_utc": "2026-10-29T17:30:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": -0.013206180862176065,
+    "snapshot_commit": "026e1ab4c40e3e64dd34bad82c62ace7981ad77e",
+    "source_match_id": 558558,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,

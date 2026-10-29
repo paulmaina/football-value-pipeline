@@ -20,7 +20,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 | All selections | 61 | 46-14 | 75.4% | +6.4% |
 
 Unsettled / unverified entries: **13**.
-Whole-fixture 1X2 multiclass Brier (n=174): 0.5716
+Whole-fixture 1X2 multiclass Brier (n=175): 0.5704
 
 ## First-prediction reference — historical comparison
 
@@ -222,7 +222,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-10-21 | 557 | 8 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-10-22 | 714 | 7 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 1, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 1, "bookmakers": {"Pinnacle": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 1, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 1, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 1, "bookmakers": {"Pinnacle": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 1, "upcoming_kickoff_count": 0, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
