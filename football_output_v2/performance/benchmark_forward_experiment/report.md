@@ -10,6 +10,6 @@ Comparison: {"baseline": {"n": 90, "log_loss": 0.9540567306749529, "brier": 0.56
 
 Week-block 95% log-loss gain interval: [-0.029390606416060755, 0.011456412407980832].
 
-Excluded forecasts by reason: league_outside_frozen_trial: 62, unreliable_team_identity: 16
+Excluded forecasts by reason: league_outside_frozen_trial: 69, unreliable_team_identity: 16
 
 Production changes require your review and approval.

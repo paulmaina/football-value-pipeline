@@ -1,121 +1,161 @@
 ﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-10-31,Premier League,Chelsea,Manchester United,1,1-1,11.04%,0.11037684491652935
-2026-10-31,Premier League,Chelsea,Manchester United,2,2-1,10.45%,0.10445672518799151
-2026-10-31,Premier League,Chelsea,Manchester United,3,1-0,7.83%,0.07826026290139612
-2026-10-31,Premier League,Chelsea,Manchester United,4,2-0,7.58%,0.07583871993664959
-2026-10-31,Premier League,Chelsea,Manchester United,5,2-2,6.13%,0.06132513400801668
-2026-10-31,Premier League,Chelsea,Manchester United,6,1-2,6.06%,0.06064225186876722
-2026-10-31,Premier League,Chelsea,Manchester United,7,3-1,6.04%,0.060438869114956315
-2026-10-31,Premier League,Chelsea,Manchester United,8,0-0,5.07%,0.050690395381557216
-2026-10-31,Premier League,Chelsea,Manchester United,9,0-1,4.41%,0.044055817137713844
-2026-10-31,Premier League,Chelsea,Manchester United,10,3-0,4.39%,0.043880434312370445
-2026-10-31,Premier League,Chelsea,Manchester United,11,3-2,4.16%,0.04162284349661774
-2026-10-31,Premier League,Chelsea,Manchester United,12,0-2,3.49%,0.034936077455874834
-2026-10-31,Premier League,Chelsea,Manchester United,13,1-3,2.78%,0.027841938979315483
-2026-10-31,Premier League,Chelsea,Manchester United,14,4-1,2.62%,0.02622753748014366
-2026-10-31,Premier League,Chelsea,Manchester United,15,2-3,2.42%,0.024164101969246368
-2026-10-31,Premier League,Chelsea,Manchester United,16,4-0,1.90%,0.019041979977879497
-2026-10-31,Premier League,Chelsea,Manchester United,17,4-2,1.81%,0.018062295073081547
-2026-10-31,Premier League,Chelsea,Manchester United,18,3-3,1.63%,0.016290806555735483
-2026-10-31,Premier League,Chelsea,Manchester United,19,0-3,1.60%,0.01603977600977039
-2026-10-31,Premier League,Chelsea,Manchester United,20,1-4,0.96%,0.00958704791923096
-2026-10-31,Premier League,Bournemouth,Leeds United,1,1-1,13.11%,0.13107746185369493
-2026-10-31,Premier League,Bournemouth,Leeds United,2,1-0,9.33%,0.09333518661337584
-2026-10-31,Premier League,Bournemouth,Leeds United,3,2-1,9.15%,0.09153211374436256
-2026-10-31,Premier League,Bournemouth,Leeds United,4,2-0,8.02%,0.08022429852340715
-2026-10-31,Premier League,Bournemouth,Leeds United,5,0-0,7.72%,0.07723588413556524
-2026-10-31,Premier League,Bournemouth,Leeds United,6,1-2,6.88%,0.06877745433024252
-2026-10-31,Premier League,Bournemouth,Leeds United,7,0-1,6.76%,0.06763361382347448
-2026-10-31,Premier League,Bournemouth,Leeds United,8,2-2,5.46%,0.054578734932553455
-2026-10-31,Premier League,Bournemouth,Leeds United,9,3-1,4.79%,0.047914413390947805
-2026-10-31,Premier League,Bournemouth,Leeds United,10,0-2,4.38%,0.04379576921484203
-2026-10-31,Premier League,Bournemouth,Leeds United,11,3-0,4.20%,0.041995099273953757
-2026-10-31,Premier League,Bournemouth,Leeds United,12,3-2,2.73%,0.027334034807515454
-2026-10-31,Premier League,Bournemouth,Leeds United,13,1-3,2.62%,0.026157269425325293
-2026-10-31,Premier League,Bournemouth,Leeds United,14,2-3,2.05%,0.02053886066572936
-2026-10-31,Premier League,Bournemouth,Leeds United,15,4-1,1.88%,0.018811356883529043
-2026-10-31,Premier League,Bournemouth,Leeds United,16,0-3,1.67%,0.016656297418938665
-2026-10-31,Premier League,Bournemouth,Leeds United,17,4-0,1.65%,0.016487414618976067
-2026-10-31,Premier League,Bournemouth,Leeds United,18,3-3,1.09%,0.010865818777463107
-2026-10-31,Premier League,Bournemouth,Leeds United,19,4-2,1.07%,0.010731432306925024
-2026-10-31,Premier League,Bournemouth,Leeds United,20,1-4,0.75%,0.0074610504683386035
-2026-10-31,Premier League,Brentford,Nottingham Forest,1,1-1,12.24%,0.12235497885769123
-2026-10-31,Premier League,Brentford,Nottingham Forest,2,2-1,9.57%,0.09565752405303977
-2026-10-31,Premier League,Brentford,Nottingham Forest,3,1-0,9.19%,0.09192052594125577
-2026-10-31,Premier League,Brentford,Nottingham Forest,4,2-0,7.97%,0.07972494743151469
-2026-10-31,Premier League,Brentford,Nottingham Forest,5,1-2,6.95%,0.0695052436162238
-2026-10-31,Premier League,Brentford,Nottingham Forest,6,0-0,6.87%,0.06873178970648579
-2026-10-31,Premier League,Brentford,Nottingham Forest,7,0-1,6.47%,0.06469036196905617
-2026-10-31,Premier League,Brentford,Nottingham Forest,8,2-2,5.38%,0.05379830806232443
-2026-10-31,Premier League,Brentford,Nottingham Forest,9,3-1,5.03%,0.05028124447743418
-2026-10-31,Premier League,Brentford,Nottingham Forest,10,0-2,4.41%,0.04407673664491472
-2026-10-31,Premier League,Brentford,Nottingham Forest,11,3-0,4.19%,0.04190647429398098
-2026-10-31,Premier League,Brentford,Nottingham Forest,12,3-2,3.02%,0.030164832389188014
-2026-10-31,Premier League,Brentford,Nottingham Forest,13,1-3,2.78%,0.02779849021429869
-2026-10-31,Premier League,Brentford,Nottingham Forest,14,2-3,2.19%,0.021917920671776423
-2026-10-31,Premier League,Brentford,Nottingham Forest,15,4-1,1.98%,0.01982230544246847
-2026-10-31,Premier League,Brentford,Nottingham Forest,16,0-3,1.76%,0.017628407132377604
-2026-10-31,Premier League,Brentford,Nottingham Forest,17,4-0,1.65%,0.016520731380167967
-2026-10-31,Premier League,Brentford,Nottingham Forest,18,4-2,1.19%,0.01189184013748307
-2026-10-31,Premier League,Brentford,Nottingham Forest,19,3-3,1.13%,0.011309909747208219
-2026-10-31,Premier League,Brentford,Nottingham Forest,20,1-4,0.83%,0.008338465035040371
-2026-10-31,Premier League,Coventry City,Sunderland,1,1-1,13.97%,0.1397282933872598
-2026-10-31,Premier League,Coventry City,Sunderland,2,0-1,9.41%,0.09407336181280214
-2026-10-31,Premier League,Coventry City,Sunderland,3,0-0,8.71%,0.08714897814079127
-2026-10-31,Premier League,Coventry City,Sunderland,4,1-2,8.71%,0.08707835206238847
-2026-10-31,Premier League,Coventry City,Sunderland,5,1-0,7.76%,0.07762929677272506
-2026-10-31,Premier League,Coventry City,Sunderland,6,2-1,7.28%,0.07281573927762192
-2026-10-31,Premier League,Coventry City,Sunderland,7,0-2,7.14%,0.07138939340137004
-2026-10-31,Premier League,Coventry City,Sunderland,8,2-2,5.46%,0.054556480623203285
-2026-10-31,Premier League,Coventry City,Sunderland,9,2-0,5.29%,0.05286323308556822
-2026-10-31,Premier League,Coventry City,Sunderland,10,1-3,4.00%,0.03998162938840294
-2026-10-31,Premier League,Coventry City,Sunderland,11,0-3,3.28%,0.03277811535973372
-2026-10-31,Premier League,Coventry City,Sunderland,12,3-1,2.96%,0.029606053403717372
-2026-10-31,Premier League,Coventry City,Sunderland,13,2-3,2.44%,0.02438411530083455
-2026-10-31,Premier League,Coventry City,Sunderland,14,3-0,2.15%,0.021493590772420784
-2026-10-31,Premier League,Coventry City,Sunderland,15,3-2,2.04%,0.020390227194342463
-2026-10-31,Premier League,Coventry City,Sunderland,16,1-4,1.38%,0.013768037497479712
-2026-10-31,Premier League,Coventry City,Sunderland,17,0-4,1.13%,0.011287441964544615
-2026-10-31,Premier League,Coventry City,Sunderland,18,3-3,1.02%,0.010184785559337911
-2026-10-31,Premier League,Coventry City,Sunderland,19,4-1,0.90%,0.00902811404690161
-2026-10-31,Premier League,Coventry City,Sunderland,20,2-4,0.84%,0.0083968917460412
-2026-10-31,Premier League,Hull City,Ipswich Town,1,1-1,13.01%,0.13014777595202373
-2026-10-31,Premier League,Hull City,Ipswich Town,2,1-2,8.50%,0.0850356979176843
-2026-10-31,Premier League,Hull City,Ipswich Town,3,0-1,8.21%,0.08212654842765589
-2026-10-31,Premier League,Hull City,Ipswich Town,4,0-0,7.71%,0.07712781038103579
-2026-10-31,Premier League,Hull City,Ipswich Town,5,1-0,7.56%,0.07564128217756941
-2026-10-31,Premier League,Hull City,Ipswich Town,6,2-0,7.56%,0.07555099863098902
-2026-10-31,Premier League,Hull City,Ipswich Town,7,2-1,7.26%,0.07261694470322229
-2026-10-31,Premier League,Hull City,Ipswich Town,8,2-2,5.38%,0.05384097820720438
-2026-10-31,Premier League,Hull City,Ipswich Town,9,3-0,4.66%,0.046642674192590564
-2026-10-31,Premier League,Hull City,Ipswich Town,10,0-2,4.59%,0.045913118606342215
-2026-10-31,Premier League,Hull City,Ipswich Town,11,3-1,4.48%,0.04483128686620014
-2026-10-31,Premier League,Hull City,Ipswich Town,12,1-3,2.72%,0.027244433938144134
-2026-10-31,Premier League,Hull City,Ipswich Town,13,2-3,2.52%,0.025229711296308095
-2026-10-31,Premier League,Hull City,Ipswich Town,14,4-0,2.16%,0.021596726998229954
-2026-10-31,Premier League,Hull City,Ipswich Town,15,3-2,2.15%,0.021545122753690683
-2026-10-31,Premier League,Hull City,Ipswich Town,16,4-1,2.08%,0.0207580092734576
-2026-10-31,Premier League,Hull City,Ipswich Town,17,0-3,1.47%,0.014710021289829745
-2026-10-31,Premier League,Hull City,Ipswich Town,18,3-3,1.06%,0.010649584973074284
-2026-10-31,Premier League,Hull City,Ipswich Town,19,4-2,1.00%,0.009975931747256594
-2026-10-31,Premier League,Hull City,Ipswich Town,20,5-0,0.80%,0.007999860644528275
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,1,1-1,10.00%,0.09998025690127886
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,2,2-1,9.93%,0.09927643095499036
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,3,2-0,9.31%,0.09309160568848811
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,4,1-0,8.45%,0.08450552446237085
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,5,3-1,6.70%,0.06701625416754156
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,6,3-0,6.28%,0.06284120659527674
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,7,1-2,5.58%,0.05578813597128638
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,8,2-2,5.02%,0.050178661358742806
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,9,0-0,5.01%,0.05007592869392199
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,10,0-1,4.37%,0.04373398905765715
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,11,3-2,3.57%,0.035734341891090426
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,12,4-1,3.39%,0.03392933961851978
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,13,4-0,3.18%,0.03181557470040445
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,14,0-2,2.75%,0.02754777975213214
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,15,2-3,2.01%,0.02008082185356179
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,16,1-3,1.98%,0.01983153041529975
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,17,4-2,1.81%,0.018091769483802873
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,18,5-1,1.37%,0.01374233879525215
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,19,5-0,1.29%,0.012886204429984284
-2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,20,3-3,1.20%,0.012041135533592493
+2026-10-31,Premier League,Chelsea,Manchester United,1,1-1,11.03%,0.11029398031717674
+2026-10-31,Premier League,Chelsea,Manchester United,2,2-1,10.36%,0.10364139857498714
+2026-10-31,Premier League,Chelsea,Manchester United,3,1-0,7.77%,0.07765363159050329
+2026-10-31,Premier League,Chelsea,Manchester United,4,2-0,7.53%,0.0752510966766849
+2026-10-31,Premier League,Chelsea,Manchester United,5,1-2,6.17%,0.061674896087771366
+2026-10-31,Premier League,Chelsea,Manchester United,6,2-2,6.13%,0.061270994755885155
+2026-10-31,Premier League,Chelsea,Manchester United,7,3-1,6.00%,0.0599645515755968
+2026-10-31,Premier League,Chelsea,Manchester United,8,0-0,5.07%,0.050658542250584894
+2026-10-31,Premier League,Chelsea,Manchester United,9,0-1,4.48%,0.044807738557666864
+2026-10-31,Premier League,Chelsea,Manchester United,10,3-0,4.35%,0.04353856981700666
+2026-10-31,Premier League,Chelsea,Manchester United,11,3-2,4.13%,0.04129381673278882
+2026-10-31,Premier League,Chelsea,Manchester United,12,0-2,3.55%,0.035532506675743786
+2026-10-31,Premier League,Chelsea,Manchester United,13,1-3,2.83%,0.028314415646623108
+2026-10-31,Premier League,Chelsea,Manchester United,14,4-1,2.60%,0.02602059236296002
+2026-10-31,Premier League,Chelsea,Manchester United,15,2-3,2.46%,0.024573113553842636
+2026-10-31,Premier League,Chelsea,Manchester United,16,4-0,1.89%,0.018892818298597104
+2026-10-31,Premier League,Chelsea,Manchester United,17,4-2,1.79%,0.017918746060496687
+2026-10-31,Premier League,Chelsea,Manchester United,18,0-3,1.63%,0.016312668959371
+2026-10-31,Premier League,Chelsea,Manchester United,19,3-3,1.63%,0.016274791497560285
+2026-10-31,Premier League,Chelsea,Manchester United,20,1-4,0.97%,0.009749178972293732
+2026-10-31,Premier League,Bournemouth,Leeds United,1,1-1,12.90%,0.12902963073188653
+2026-10-31,Premier League,Bournemouth,Leeds United,2,1-0,9.64%,0.09635558196132302
+2026-10-31,Premier League,Bournemouth,Leeds United,3,2-1,9.47%,0.09474554626060382
+2026-10-31,Premier League,Bournemouth,Leeds United,4,2-0,8.29%,0.08292957919824175
+2026-10-31,Premier League,Bournemouth,Leeds United,5,0-0,7.59%,0.07586464086875688
+2026-10-31,Premier League,Bournemouth,Leeds United,6,1-2,6.58%,0.06583629638189782
+2026-10-31,Premier League,Bournemouth,Leeds United,7,0-1,6.46%,0.06456658969156183
+2026-10-31,Premier League,Bournemouth,Leeds United,8,2-2,5.39%,0.05385811908899292
+2026-10-31,Premier League,Bournemouth,Leeds United,9,3-1,4.97%,0.04965349523512376
+2026-10-31,Premier League,Bournemouth,Leeds United,10,3-0,4.35%,0.043461076832515086
+2026-10-31,Premier League,Bournemouth,Leeds United,11,0-2,4.19%,0.041874835698478136
+2026-10-31,Premier League,Bournemouth,Leeds United,12,3-2,2.84%,0.028364110702613056
+2026-10-31,Premier League,Bournemouth,Leeds United,13,1-3,2.51%,0.025072259800759476
+2026-10-31,Premier League,Bournemouth,Leeds United,14,2-3,1.97%,0.019709506911172594
+2026-10-31,Premier League,Bournemouth,Leeds United,15,4-1,1.95%,0.01951650779142977
+2026-10-31,Premier League,Bournemouth,Leeds United,16,4-0,1.71%,0.017082552610026634
+2026-10-31,Premier League,Bournemouth,Leeds United,17,0-3,1.59%,0.01594708113069128
+2026-10-31,Premier League,Bournemouth,Leeds United,18,4-2,1.11%,0.011148628810584565
+2026-10-31,Premier League,Bournemouth,Leeds United,19,3-3,1.07%,0.010749055143783721
+2026-10-31,Premier League,Bournemouth,Leeds United,20,1-4,0.72%,0.007161150984295299
+2026-10-31,Premier League,Brentford,Nottingham Forest,1,1-1,12.24%,0.12235627359115825
+2026-10-31,Premier League,Brentford,Nottingham Forest,2,2-1,9.57%,0.09565752052149644
+2026-10-31,Premier League,Brentford,Nottingham Forest,3,1-0,9.19%,0.09191723344529276
+2026-10-31,Premier League,Brentford,Nottingham Forest,4,2-0,7.97%,0.07972643347067938
+2026-10-31,Premier League,Brentford,Nottingham Forest,5,1-2,6.95%,0.06950592213748105
+2026-10-31,Premier League,Brentford,Nottingham Forest,6,0-0,6.87%,0.0687346794320388
+2026-10-31,Premier League,Brentford,Nottingham Forest,7,0-1,6.47%,0.06468741616122568
+2026-10-31,Premier League,Brentford,Nottingham Forest,8,2-2,5.38%,0.05379675712067297
+2026-10-31,Premier League,Brentford,Nottingham Forest,9,3-1,5.03%,0.05028180125781633
+2026-10-31,Premier League,Brentford,Nottingham Forest,10,0-2,4.41%,0.044076677226554666
+2026-10-31,Premier League,Brentford,Nottingham Forest,11,3-0,4.19%,0.041907721012550705
+2026-10-31,Premier League,Brentford,Nottingham Forest,12,3-2,3.02%,0.030164603045025582
+2026-10-31,Premier League,Brentford,Nottingham Forest,13,1-3,2.78%,0.027798242413861435
+2026-10-31,Premier League,Brentford,Nottingham Forest,14,2-3,2.19%,0.021917968802927665
+2026-10-31,Premier League,Brentford,Nottingham Forest,15,4-1,1.98%,0.019822745174246776
+2026-10-31,Premier League,Brentford,Nottingham Forest,16,0-3,1.76%,0.017628054137858486
+2026-10-31,Premier League,Brentford,Nottingham Forest,17,4-0,1.65%,0.016521406427063567
+2026-10-31,Premier League,Brentford,Nottingham Forest,18,4-2,1.19%,0.011891881843650134
+2026-10-31,Premier League,Brentford,Nottingham Forest,19,3-3,1.13%,0.011309498126287471
+2026-10-31,Premier League,Brentford,Nottingham Forest,20,1-4,0.83%,0.008338234975553659
+2026-10-31,Premier League,Coventry City,Sunderland,1,1-1,13.97%,0.13973270716872968
+2026-10-31,Premier League,Coventry City,Sunderland,2,0-1,9.41%,0.09406976337602851
+2026-10-31,Premier League,Coventry City,Sunderland,3,0-0,8.72%,0.08715299554343543
+2026-10-31,Premier League,Coventry City,Sunderland,4,1-2,8.71%,0.08708008429002957
+2026-10-31,Premier League,Coventry City,Sunderland,5,1-0,7.76%,0.0776248801397403
+2026-10-31,Premier League,Coventry City,Sunderland,6,2-1,7.28%,0.07281529788395294
+2026-10-31,Premier League,Coventry City,Sunderland,7,0-2,7.14%,0.07138605209810484
+2026-10-31,Premier League,Coventry City,Sunderland,8,2-2,5.46%,0.05455675587496549
+2026-10-31,Premier League,Coventry City,Sunderland,9,2-0,5.29%,0.052866158274477666
+2026-10-31,Premier League,Coventry City,Sunderland,10,1-3,4.00%,0.03997997007472723
+2026-10-31,Premier League,Coventry City,Sunderland,11,0-3,3.28%,0.03277456894884893
+2026-10-31,Premier League,Coventry City,Sunderland,12,3-1,2.96%,0.02960784864352406
+2026-10-31,Premier League,Coventry City,Sunderland,13,2-3,2.44%,0.024384729661444136
+2026-10-31,Premier League,Coventry City,Sunderland,14,3-0,2.15%,0.02149621381828163
+2026-10-31,Premier League,Coventry City,Sunderland,15,3-2,2.04%,0.020390211706777336
+2026-10-31,Premier League,Coventry City,Sunderland,16,1-4,1.38%,0.013766620865792195
+2026-10-31,Premier League,Coventry City,Sunderland,17,0-4,1.13%,0.011285527825939647
+2026-10-31,Premier League,Coventry City,Sunderland,18,3-3,1.02%,0.010184890946939975
+2026-10-31,Premier League,Coventry City,Sunderland,19,4-1,0.90%,0.009029263699795495
+2026-10-31,Premier League,Coventry City,Sunderland,20,2-4,0.84%,0.00839658777974283
+2026-10-31,Premier League,Hull City,Ipswich Town,1,1-1,13.01%,0.13014799018278325
+2026-10-31,Premier League,Hull City,Ipswich Town,2,1-2,8.50%,0.08503672407867342
+2026-10-31,Premier League,Hull City,Ipswich Town,3,0-1,8.21%,0.08212215884918105
+2026-10-31,Premier League,Hull City,Ipswich Town,4,0-0,7.71%,0.07712980723859576
+2026-10-31,Premier League,Hull City,Ipswich Town,5,1-0,7.56%,0.07564116861230548
+2026-10-31,Premier League,Hull City,Ipswich Town,6,2-0,7.56%,0.07555115568284508
+2026-10-31,Premier League,Hull City,Ipswich Town,7,2-1,7.26%,0.0726194021224038
+2026-10-31,Premier League,Hull City,Ipswich Town,8,2-2,5.38%,0.05383920849633367
+2026-10-31,Premier League,Hull City,Ipswich Town,9,3-0,4.66%,0.046641165150405145
+2026-10-31,Premier League,Hull City,Ipswich Town,10,0-2,4.59%,0.045915253609905386
+2026-10-31,Premier League,Hull City,Ipswich Town,11,3-1,4.48%,0.044831260314973496
+2026-10-31,Premier League,Hull City,Ipswich Town,12,1-3,2.72%,0.027245628057031703
+2026-10-31,Premier League,Hull City,Ipswich Town,13,2-3,2.52%,0.025229948364437912
+2026-10-31,Premier League,Hull City,Ipswich Town,14,4-0,2.16%,0.02159528468088001
+2026-10-31,Premier League,Hull City,Ipswich Town,15,3-2,2.15%,0.021545794310109112
+2026-10-31,Premier League,Hull City,Ipswich Town,16,4-1,2.08%,0.020757282241609724
+2026-10-31,Premier League,Hull City,Ipswich Town,17,0-3,1.47%,0.014711172561661545
+2026-10-31,Premier League,Hull City,Ipswich Town,18,3-3,1.06%,0.010649206485486522
+2026-10-31,Premier League,Hull City,Ipswich Town,19,4-2,1.00%,0.009975899193385596
+2026-10-31,Premier League,Hull City,Ipswich Town,20,5-0,0.80%,0.007999050948995428
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,1,2-1,9.96%,0.09963976076165817
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,2,1-1,9.89%,0.09885667992066137
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,3,2-0,9.34%,0.09343605241733036
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,4,1-0,8.48%,0.08480953716309333
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,5,3-1,6.73%,0.06726595470407355
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,6,3-0,6.31%,0.06307788398514609
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,7,1-2,5.59%,0.05585267323223471
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,8,2-2,4.96%,0.0496144537475018
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,9,0-0,4.95%,0.04951364998776389
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,10,0-1,4.38%,0.04377934040778936
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,11,3-2,3.59%,0.035866046674266815
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,12,4-1,3.41%,0.034058005265641914
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,13,4-0,3.19%,0.031937507084569126
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,14,0-2,2.76%,0.027577829048101996
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,15,2-3,2.01%,0.02010457040158559
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,16,1-3,1.99%,0.01985367480317737
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,17,4-2,1.82%,0.018159647207325866
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,18,5-1,1.38%,0.013795361743128549
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,19,5-0,1.29%,0.01293644357527402
+2026-10-31,Premier League,Manchester City,Brighton and Hove Albion,20,3-3,1.19%,0.0119060523645289
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,1,2-1,11.67%,0.11669518770743315
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,2,1-0,10.77%,0.10772388504108397
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,3,1-1,10.58%,0.10584118543309363
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,4,2-0,9.62%,0.09616560046933016
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,5,3-1,6.31%,0.06305970180103701
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,6,0-0,5.75%,0.05746989885480251
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,7,3-0,5.20%,0.051965931142911696
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,8,1-2,5.14%,0.05139304057305355
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,9,2-2,4.84%,0.048384719195346294
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,10,0-1,4.58%,0.04582707406389554
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,11,3-2,3.83%,0.03826089424145845
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,12,0-2,3.17%,0.031701812437207905
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,13,4-1,2.56%,0.025557133520398054
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,14,4-0,2.11%,0.021060997797318556
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,15,1-3,2.08%,0.020788169876610994
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,16,2-3,1.69%,0.01685025517112506
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,17,4-2,1.55%,0.01550655576875408
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,18,0-3,1.28%,0.012823188801300007
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,19,3-3,1.06%,0.010575943820848692
+2026-10-31,Premier League,Tottenham Hotspur,Crystal Palace,20,5-1,0.83%,0.008286332540427118
+2026-10-31,Premier League,Aston Villa,Fulham,1,1-1,12.32%,0.12315169544714821
+2026-10-31,Premier League,Aston Villa,Fulham,2,1-0,9.89%,0.09892658506608647
+2026-10-31,Premier League,Aston Villa,Fulham,3,2-1,9.77%,0.09771818562290002
+2026-10-31,Premier League,Aston Villa,Fulham,4,2-0,8.48%,0.08478015976500844
+2026-10-31,Premier League,Aston Villa,Fulham,5,0-0,7.22%,0.07217204296016949
+2026-10-31,Premier League,Aston Villa,Fulham,6,1-2,6.57%,0.06568038017926595
+2026-10-31,Premier League,Aston Villa,Fulham,7,0-1,6.42%,0.06421876502900675
+2026-10-31,Premier League,Aston Villa,Fulham,8,2-2,5.16%,0.05159616310458309
+2026-10-31,Premier League,Aston Villa,Fulham,9,3-1,5.10%,0.05095066747277578
+2026-10-31,Premier League,Aston Villa,Fulham,10,3-0,4.42%,0.04420472710315511
+2026-10-31,Premier League,Aston Villa,Fulham,11,0-2,4.20%,0.04198942428359444
+2026-10-31,Premier League,Aston Villa,Fulham,12,3-2,2.94%,0.029363041987155322
+2026-10-31,Premier League,Aston Villa,Fulham,13,1-3,2.52%,0.02523455015862938
+2026-10-31,Premier League,Aston Villa,Fulham,14,4-1,1.99%,0.019924417082962696
+2026-10-31,Premier League,Aston Villa,Fulham,15,2-3,1.97%,0.019736098748073288
+2026-10-31,Premier League,Aston Villa,Fulham,16,4-0,1.73%,0.01728639610683052
+2026-10-31,Premier League,Aston Villa,Fulham,17,0-3,1.61%,0.016132431485998387
+2026-10-31,Premier League,Aston Villa,Fulham,18,4-2,1.15%,0.011482508952198335
+2026-10-31,Premier League,Aston Villa,Fulham,19,3-3,1.03%,0.010335983310636678
+2026-10-31,Premier League,Aston Villa,Fulham,20,1-4,0.73%,0.007271378301675111

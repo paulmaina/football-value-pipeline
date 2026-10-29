@@ -6,7 +6,7 @@ Two separate one-factor trials against actual production, not a combined configu
 |---|---|---:|---:|---:|
 | stronger_l2 | COLLECT_MORE_DATA | 90/300 | 3/6 | 0.9782608695652174 |
 
-Excluded stronger_l2 forecasts (not comparable like for like): ValueError: 2, feature_application_differs: 12
+Excluded stronger_l2 forecasts (not comparable like for like): ValueError: 2, feature_application_differs: 15
 
 ## stronger_l2
 
@@ -23,7 +23,7 @@ Evidence: NO_CLEAR_PROMOTION_EVIDENCE. Calibration and league breakdowns: summar
 
 | fixed_half_life | COLLECT_MORE_DATA | 83/300 | 3/6 | 0.9021739130434783 |
 
-Excluded fixed_half_life forecasts (not comparable like for like): ValueError: 2, candidate_equals_production_half_life: 29
+Excluded fixed_half_life forecasts (not comparable like for like): ValueError: 2, candidate_equals_production_half_life: 39
 
 ## fixed_half_life
 
