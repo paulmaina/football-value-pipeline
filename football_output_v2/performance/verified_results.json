@@ -3341,6 +3341,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "SA:558558": {
+    "away_goals": 1,
+    "away_short_name": "Lecce",
+    "away_team": "US Lecce",
+    "first_verified_at_utc": "2026-10-29T21:16:43Z",
+    "home_goals": 5,
+    "home_short_name": "Frosinone",
+    "home_team": "Frosinone Calcio",
+    "kickoff_utc": "2026-10-29T17:30:00Z",
+    "league_code": "SA",
+    "match_id": 558558,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "SA:558559": {
     "away_goals": 2,
     "away_short_name": "Milan",
