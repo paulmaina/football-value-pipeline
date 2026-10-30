@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-10-30T07:29:50.498587+00:00",
+  "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
   "selection_policy_version": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
   "status": "BELOW_TARGET",
   "n_fixtures": 67,
-  "n_markets_evaluated": 1598,
+  "n_markets_evaluated": 1694,
   "n_shortlisted": 3,
   "n_strict_qualified": 3,
   "n_provisional_watchlist": 0,
@@ -13,8 +13,8 @@
   "usable_distinct_fixtures": 3,
   "shortlist_lookahead_hours": 48.0,
   "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-10-30T07:29:50.498587+00:00",
-  "shortlist_window_end_utc": "2026-11-01T07:29:50.498587+00:00",
+  "shortlist_window_start_utc": "2026-10-30T12:03:48.308948+00:00",
+  "shortlist_window_end_utc": "2026-11-01T12:03:48.308948+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -219,9 +219,9 @@
   "ranking_is_empirically_optimized": false,
   "shortfall_reason": "No padding: missing evidence or failing the common safety/EV cutoffs can reduce the shortlist",
   "bookmaker_coverage": {
-    "Pinnacle": 750,
+    "Pinnacle": 800,
     "bet365": 0,
-    "1xBet": 320
+    "1xBet": 360
   },
   "warning": "Probabilities and EV are model estimates, not guarantees. Required adjusted no-loss probability: 75%; required adjusted EV: +0.5%; unblended EV must be nonnegative. Refunds are not wins. Corners picks are UNPROVEN EDGE: validated on probability accuracy only, with no historical corner odds. Flat-stake research, not accumulator protection.",
   "loss_risk_tolerance": 0,

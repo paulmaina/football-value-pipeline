@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "173f00460382fe819ab1795f92939756d58effd9917931edff4bdbeeab528135",
-  "training_as_of_utc": "2026-10-30T07:26:39.353694+00:00",
+  "training_as_of_utc": "2026-10-30T12:02:44.805088+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6975264417818999,
-    "audit_candidate_poisson_score": 0.6897599095674726,
-    "audit_gain": 0.007766532214427357,
-    "audit_gain_lower95": -0.004043472232242698,
+    "audit_baseline_poisson_score": 0.697527130180536,
+    "audit_candidate_poisson_score": 0.6897609882876101,
+    "audit_gain": 0.007766141892925904,
+    "audit_gain_lower95": -0.0040409684446989,
     "audit_baseline_briers": [
-      0.6185436744320431,
-      0.09069762579431699,
-      0.2827207992348542,
-      0.22288997938438054
+      0.6185431327072937,
+      0.0906978089419721,
+      0.2827167334442277,
+      0.222891032722524
     ],
     "audit_candidate_briers": [
-      0.6176465928802188,
-      0.08929774811962869,
-      0.27915947396895324,
-      0.21726068541197704
+      0.6176465875952819,
+      0.08929765884844829,
+      0.27915634412666435,
+      0.21726144428100155
     ],
     "audit_brier_order": [
       "1x2",
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1615.1942003326906,
-  "base": 0.2919495468484311,
-  "home_adv": 0.1841544864523239,
-  "rho": -0.09553565927589752,
+  "objective": 1614.7471178575681,
+  "base": 0.29188506859593194,
+  "home_adv": 0.1841587016813371,
+  "rho": -0.0955354757870666,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -122,10 +122,10 @@
   "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 27,
+  "additional_event_odds_calls_used_before_this_league": 28,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 3,
+  "over_1_5_in_window_quote_fixtures": 4,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -158,7 +158,7 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 34,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -178,9 +178,8 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
+      "asian_handicap_quotes": 8,
       "asian_handicap_bookmakers": [
-        "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
@@ -234,12 +233,19 @@
       "home_team": "FC Zwolle",
       "away_team": "ADO Den Haag",
       "kickoff_utc": "2026-11-01T11:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "c0c32575c239ac72913af247ce084ea2",
@@ -281,13 +287,13 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 5,
+  "additional_odds_in_window_linked_fixtures": 6,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 5,
+  "additional_event_odds_calls_this_league": 6,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 4,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
+    "ANCHORED_ALTERNATE": 5,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
