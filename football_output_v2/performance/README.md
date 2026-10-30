@@ -57,7 +57,7 @@ Whole-fixture 1X2 multiclass Brier (n=176): 0.5719
 | 2026-10-26T11:01:43.961218+00:00 | 1 | 0-0 | 0.0% | +0.0% |
 | 2026-10-26T11:45:55.025240+00:00 | 0 | 0-0 | — | — |
 | 2026-10-29T12:08:22.532184+00:00 | 1 | 1-0 | 100.0% | +34.0% |
-| 2026-10-30T07:29:50.498587+00:00 | 0 | 0-0 | — | — |
+| 2026-10-30T12:03:48.308948+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -229,7 +229,6 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| e93027ea804f | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 4c569effb9e7 | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | 4613e5b8880d | CAPTURED | CAPTURED | CAPTURED | CAPTURED |
 | d737a7a239cb | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
@@ -249,6 +248,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | fd052ff5e9f0 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | c75d4ab52706 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 02d8d3b21fd6 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| 2f2bbe3e322e | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
