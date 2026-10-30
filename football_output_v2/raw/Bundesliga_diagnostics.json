@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "0aa051fe6c1eced652e1963c5d980770531e2933b5292bf4365a81ae6279ef4f",
-  "training_as_of_utc": "2026-10-30T07:07:52.260041+00:00",
+  "training_sha256": "69df04e69ba5d7ae4236cbf04e74187a5243585339c354bc88d80c442420a325",
+  "training_as_of_utc": "2026-10-30T11:50:54.576591+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 63,
     "bbs_added_results": 0,
@@ -27,7 +27,7 @@
       "unmapped": 668,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 55,
+      "statistics_observations": 64,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -35,10 +35,10 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-30T07:07:52.260041+00:00",
-    "observations": 283,
-    "observations_sha256": "bbbe14ca6dd6689da99173474c37ea1fa225ac0bf7837fb30b4d58b314fcec19",
-    "eligible_training_matches": 63,
+    "cutoff_utc": "2026-10-30T11:50:54.576591+00:00",
+    "observations": 292,
+    "observations_sha256": "df3ff0afa9102c7ffb274e2c208da88e976185bb9af2524035f0d343658fb9e7",
+    "eligible_training_matches": 68,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -63,15 +63,15 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 98,
+    "usable_current_matches": 104,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
     "strict_eligible_training_matches": 14,
-    "retrospective_eligible_training_matches": 63,
+    "retrospective_eligible_training_matches": 68,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
-    "retrospective_inputs_sha256": "acadce0870f028e96213f4e63468c23357c3f6f49669565a2062a71bc9cb614c",
+    "retrospective_inputs_sha256": "1c67f28e7f02f59f28b2ec48a8efb884fcdd954e1bb0d6574d720b78af23c23a",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -115,21 +115,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.7186056671345318,
-    "audit_candidate_poisson_score": 0.7073719740261049,
-    "audit_gain": 0.011233693108426923,
-    "audit_gain_lower95": 0.0026075807174826063,
+    "audit_baseline_poisson_score": 0.7186083396552695,
+    "audit_candidate_poisson_score": 0.7073752479581806,
+    "audit_gain": 0.01123309169708886,
+    "audit_gain_lower95": 0.002610647947329236,
     "audit_baseline_briers": [
-      0.6258597853190151,
-      0.1538213906142604,
-      0.29443542199261524,
-      0.245066994306836
+      0.625855444724906,
+      0.15383375866533233,
+      0.29443943969390557,
+      0.24506868373662988
     ],
     "audit_candidate_briers": [
-      0.619897914987577,
-      0.15129274554244465,
-      0.2911730671606795,
-      0.24281854580735565
+      0.6198948864567517,
+      0.1513017524624931,
+      0.2911766969145373,
+      0.2428205789901822
     ],
     "audit_brier_order": [
       "1x2",
@@ -141,10 +141,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1575.760542244776,
-  "base": 0.2250902610468895,
-  "home_adv": 0.22713948563287567,
-  "rho": -0.07372370618864069,
+  "objective": 1575.3134144572978,
+  "base": 0.22515747514375942,
+  "home_adv": 0.22722941654464743,
+  "rho": -0.07370528475961038,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -178,7 +178,7 @@
   "additional_event_odds_calls_used_before_this_league": 13,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261030T070752260041Z_c4be91739d7d15f2fc088a98483dfdff04b8e1d26648d5133ddd26348fbe1c09.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261030T115054576591Z_4039d1b4c9421952453410e5fcd24d59c79b3b8a06f1d28dc83145cb90f40f68.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -260,7 +260,7 @@
       "home_away_quote": true,
       "count_market_quotes": 6,
       "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 32,
+      "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"

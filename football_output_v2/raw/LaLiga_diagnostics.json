@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "0bc30dcf0bcd145287e49f4b5ad93c0c5d833f1685e3b08d1a34845052679fae",
-  "training_as_of_utc": "2026-10-30T07:00:18.879025+00:00",
+  "training_sha256": "b0c6831fb5090bc7a8040a418fd6e7b8533f159a47786af87217f753bfe49191",
+  "training_as_of_utc": "2026-10-30T11:46:35.127291+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 99,
     "bbs_added_results": 0,
@@ -27,7 +27,7 @@
       "unmapped": 566,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 89,
+      "statistics_observations": 95,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -35,10 +35,10 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_utc": "2026-10-30T07:00:18.879025+00:00",
-    "observations": 410,
-    "observations_sha256": "8165964735e76ea42f02a3748dfeaa705e175692adb5582ba6a727ccb63ed467",
-    "eligible_training_matches": 146,
+    "cutoff_utc": "2026-10-30T11:46:35.127291+00:00",
+    "observations": 416,
+    "observations_sha256": "23105b594b35eaf1394dc72fb672aa50390e5f858e1e00f9092a12402b94dee5",
+    "eligible_training_matches": 152,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -63,18 +63,18 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 158,
+    "usable_current_matches": 164,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
     "strict_eligible_training_matches": 20,
-    "retrospective_eligible_training_matches": 146,
+    "retrospective_eligible_training_matches": 152,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.155286+00:00",
-    "retrospective_inputs_sha256": "26c05c669722a7f57680f57ff47ece9746f1a55f42adc6192265e13cc0c4195e",
+    "retrospective_inputs_sha256": "f65f773067d2b2d23a6553106aac64520c4d7bf5f0344e70bdd29b486064ec08",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
-    "training_matches": 86,
+    "training_matches": 92,
     "tuning_matches": 20,
     "audit_matches": 40,
     "tuning_origin_utc": "2025-10-20T00:00:00+00:00",
@@ -115,22 +115,22 @@
     "paired_audit_matches": 40,
     "audit_matchdays": 16,
     "selected_ridge": 1.0,
-    "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8175310728786089,
-    "audit_candidate_poisson_score": 0.8092170230971366,
-    "audit_gain": 0.008314049781472321,
-    "audit_gain_lower95": -0.030066464950571126,
+    "proposed_weight": 0.1,
+    "audit_baseline_poisson_score": 0.817502522631521,
+    "audit_candidate_poisson_score": 0.809374548264147,
+    "audit_gain": 0.008127974367374002,
+    "audit_gain_lower95": -0.007072001060020365,
     "audit_baseline_briers": [
-      0.5520932991942327,
-      0.18075667919310287,
-      0.22581865901120918,
-      0.25218525802844377
+      0.5521078342824518,
+      0.18074894030573588,
+      0.22581628123747038,
+      0.25215851249634236
     ],
     "audit_candidate_briers": [
-      0.5294982728718252,
-      0.18982470750712058,
-      0.23342014665888827,
-      0.2547217781537697
+      0.5419827780121326,
+      0.18287728247711024,
+      0.22694550278521158,
+      0.2502796026252731
     ],
     "audit_brier_order": [
       "1x2",
@@ -179,21 +179,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8318743559297036,
-    "audit_candidate_poisson_score": 0.8321637367930856,
-    "audit_gain": -0.0002893808633820383,
-    "audit_gain_lower95": -0.00911269101088794,
+    "audit_baseline_poisson_score": 0.8318519327596118,
+    "audit_candidate_poisson_score": 0.8321484414148786,
+    "audit_gain": -0.0002965086552668694,
+    "audit_gain_lower95": -0.00911683030416819,
     "audit_baseline_briers": [
-      0.5680229999189184,
-      0.18323019113367303,
-      0.19905730595023735,
-      0.24590362970652666
+      0.568024980216413,
+      0.1832233366275823,
+      0.19904895402390196,
+      0.24589676700044888
     ],
     "audit_candidate_briers": [
-      0.5724719440820307,
-      0.18024247132351665,
-      0.20128393456909932,
-      0.24347527965161764
+      0.5724746293057228,
+      0.1802373351182294,
+      0.20127854712845308,
+      0.24346965372402718
     ],
     "audit_brier_order": [
       "1x2",
@@ -209,10 +209,10 @@
   },
   "training_end": "2026-10-26",
   "fit_success": true,
-  "objective": 1834.4995699564956,
-  "base": 0.09099621176872065,
-  "home_adv": 0.28753568169673444,
-  "rho": -0.03261153051005905,
+  "objective": 1833.973091220784,
+  "base": 0.09099929019014676,
+  "home_adv": 0.28753048649593127,
+  "rho": -0.03259339001709071,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -246,7 +246,7 @@
   "additional_event_odds_calls_used_before_this_league": 8,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261030T070018879025Z_9462347a3d68b1d5ac19be044fb8ad3a4305d977ccddb208e36eebab9b97b2fa.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261030T114635127291Z_1621a7c7e263830fc2d26f6251f9597ef12d66985f9f3682af6ab610e77b96de.json",
   "over_1_5_in_window_quote_fixtures": 1,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -262,7 +262,7 @@
       "home_away_quote": true,
       "count_market_quotes": 4,
       "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 22,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -306,7 +306,7 @@
       "home_away_quote": true,
       "count_market_quotes": 6,
       "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 30,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"

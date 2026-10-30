@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "84c0a9d8af08458f9d90e4a3ffe4465c5e09f0dc593fdcb0fb4ebd37c58b23a7",
-  "training_as_of_utc": "2026-10-30T07:27:43.564568+00:00",
+  "training_as_of_utc": "2026-10-30T12:03:05.225313+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8837344359511681,
-    "audit_candidate_poisson_score": 0.8736484990801736,
-    "audit_gain": 0.01008593687099446,
-    "audit_gain_lower95": 0.00023297794577317968,
+    "audit_baseline_poisson_score": 0.8837344359927919,
+    "audit_candidate_poisson_score": 0.8736484991075407,
+    "audit_gain": 0.010085936885251168,
+    "audit_gain_lower95": 0.00023297797298160757,
     "audit_baseline_briers": [
-      0.5954697810046405,
-      0.18598455544953954,
-      0.24306383498498632,
-      0.24914758134276963
+      0.5954697810381541,
+      0.18598455548023424,
+      0.2430638350018896,
+      0.24914758134392181
     ],
     "audit_candidate_briers": [
-      0.5923556867208057,
-      0.18512769162308795,
-      0.2410787201841528,
-      0.24810667643781506
+      0.5923556867513526,
+      0.18512769164413956,
+      0.24107872019596324,
+      0.24810667643793355
     ],
     "audit_brier_order": [
       "1x2",
@@ -85,9 +85,9 @@
   },
   "training_end": "2026-10-26",
   "fit_success": true,
-  "objective": 1461.1379259056955,
-  "base": 0.09430152710037933,
-  "home_adv": 0.1701096970642805,
+  "objective": 1460.7345980239102,
+  "base": 0.09428895882891704,
+  "home_adv": 0.1701106400006635,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -119,7 +119,7 @@
   "live_odds_matched": 7,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 32,
+  "additional_event_odds_calls_used_before_this_league": 34,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 3,
