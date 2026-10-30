@@ -4,7 +4,7 @@ Separate proportional intensity scaling to fresh Pinnacle O/U 2.5, fitted rho an
 
 Status: COLLECT_MORE_DATA; paired fixtures: 12; gameweeks: 2
 
-Excluded forecasts by reason: incoherent_totals_prices: 176, missing_pinnacle_reference: 176, outside_registered_leagues: 69, reference_fixture_mismatch: 176, reference_stale_or_future: 183, stale_or_unsynchronized_production_hda: 48, unreliable_model_identity: 16
+Excluded forecasts by reason: incoherent_totals_prices: 194, missing_pinnacle_reference: 194, outside_registered_leagues: 79, reference_fixture_mismatch: 194, reference_stale_or_future: 206, stale_or_unsynchronized_production_hda: 63, unreliable_model_identity: 16
 
 {
   "under_3_5": {
