@@ -34967,7 +34967,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-27T09:42:40Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "026e1ab4c40e3e64dd34bad82c62ace7981ad77e",
     "status": "available"

@@ -3185,6 +3185,41 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Atalanta BC",
+    "baseline": {
+      "away_goals": 2,
+      "btts_yes": 0.5783126498413742,
+      "home_goals": 2,
+      "over_1_5": 0.7791522224377476,
+      "over_2_5": 0.5430394971779481,
+      "p_away": 0.348826619836224,
+      "p_draw": 0.25338087281259436,
+      "p_home": 0.3977925073511816,
+      "under_3_5": 0.6812082412616943,
+      "y": 1
+    },
+    "candidate": {
+      "away_goals": 2,
+      "btts_yes": 0.5750492673766415,
+      "home_goals": 2,
+      "over_1_5": 0.7760108298153697,
+      "over_2_5": 0.5388695591766528,
+      "p_away": 0.34669831197098966,
+      "p_draw": 0.2537526105919395,
+      "p_home": 0.39954907743707074,
+      "under_3_5": 0.6851606266785492,
+      "y": 1
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Fiorentina",
+    "kickoff_utc": "2026-10-29T19:45:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": 0.0014660355038269568,
+    "snapshot_commit": "026e1ab4c40e3e64dd34bad82c62ace7981ad77e",
+    "source_match_id": 558551,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,
