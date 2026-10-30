@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "c913096327d9efa08f5a726520cc60ba30678e0bfd1415f333a3f08aba3fec06",
-  "training_as_of_utc": "2026-10-29T11:48:36.104635+00:00",
+  "training_sha256": "caec3d999508121198de612578e3af7a9d9a0431629bf22227bd2f33a911fe1d",
+  "training_as_of_utc": "2026-10-30T06:51:51.118483+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 80,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-10-29T11:48:36.104635+00:00",
-    "observations": 431,
-    "observations_sha256": "1b32174bba2caf259c3e394bbae13fb0c88637f7ab6777517d9205e2ee261e6b",
+    "cutoff_utc": "2026-10-30T06:51:51.118483+00:00",
+    "observations": 441,
+    "observations_sha256": "81e21d5556bad4ceb97313573c6a1780e32425548ccd50a954ec78000a67b1c7",
     "eligible_training_matches": 222,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
-    "retrospective_inputs_sha256": "3ed3f2793af1dc0a4980cf0477553a4f9137b241daadad05ecd1d5f71a333ebe",
+    "retrospective_inputs_sha256": "c1bea8bcc71272d16515e30303b9d6597c8fbc0948816402b03c46fe3d949b4a",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 161,
@@ -123,7 +123,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "VALIDATED",
-    "cutoff_date": "2026-10-29",
+    "cutoff_date": "2026-10-30",
     "selected_weight": 0.3,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -145,8 +145,8 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1979,
-    "tune_start_date": "2025-10-30",
-    "audit_start_date": "2026-04-30",
+    "tune_start_date": "2025-10-31",
+    "audit_start_date": "2026-05-01",
     "training_shot_matches": 1609,
     "tuning_matches": 249,
     "audit_matches": 114,
@@ -154,21 +154,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.929200845416159,
-    "audit_candidate_poisson_score": 0.9172355016612314,
-    "audit_gain": 0.011965343754927638,
-    "audit_gain_lower95": 0.0018383116577410925,
+    "audit_baseline_poisson_score": 0.9291857747736281,
+    "audit_candidate_poisson_score": 0.9172214195203522,
+    "audit_gain": 0.011964355253275882,
+    "audit_gain_lower95": 0.0018385349221286726,
     "audit_baseline_briers": [
-      0.6363739648435346,
-      0.15621970125887985,
-      0.21728847237239374,
-      0.2522562096024789
+      0.6363657019212162,
+      0.15621635836881023,
+      0.2172863699964663,
+      0.25224676296374665
     ],
     "audit_candidate_briers": [
-      0.6347872769493693,
-      0.15465302512048604,
-      0.21528351959541353,
-      0.24899227063248608
+      0.6347789666987903,
+      0.15464943556253888,
+      0.21528153413704115,
+      0.2489835188738788
     ],
     "audit_brier_order": [
       "1x2",
@@ -180,10 +180,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1869.7031691072227,
-  "base": 0.20268934934745791,
-  "home_adv": 0.175395004333777,
-  "rho": -0.07582070607003918,
+  "objective": 1867.561221097714,
+  "base": 0.20265353962745195,
+  "home_adv": 0.17541418370537168,
+  "rho": -0.07578572043628784,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -201,7 +201,7 @@
   },
   "training_data_health": {
     "training_end": "2026-10-25",
-    "days_since_latest_result": 4,
+    "days_since_latest_result": 5,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -211,14 +211,14 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 8,
+  "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261029T114836104635Z_fadf22c0fdc19c5d939ce8c3c5ca4b913de1efaa7f3f7640f80581e4a58053a5.json",
-  "over_1_5_in_window_quote_fixtures": 0,
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261030T065151118483Z_60701e3d60548b90cd33aac756bad765f4a8497c0ace47267d86457d7daabc0d.json",
+  "over_1_5_in_window_quote_fixtures": 3,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -227,10 +227,19 @@
       "home_team": "Chelsea",
       "away_team": "Manchester United",
       "kickoff_utc": "2026-10-31T12:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 4,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -240,12 +249,21 @@
       "home_team": "Bournemouth",
       "away_team": "Leeds United",
       "kickoff_utc": "2026-10-31T15:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "b9254b648ca25ce7831988b53ed17c3c",
@@ -253,10 +271,19 @@
       "home_team": "Brentford",
       "away_team": "Nottingham Forest",
       "kickoff_utc": "2026-10-31T15:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 4,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -266,12 +293,21 @@
       "home_team": "Coventry City",
       "away_team": "Sunderland",
       "kickoff_utc": "2026-10-31T15:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 4,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "1ec76c009147b63859f68c6b5a1dd77b",
@@ -279,12 +315,21 @@
       "home_team": "Hull City",
       "away_team": "Ipswich Town",
       "kickoff_utc": "2026-10-31T15:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "7df53f9af95d5a4e13b504882078dab8",
@@ -292,10 +337,19 @@
       "home_team": "Manchester City",
       "away_team": "Brighton and Hove Albion",
       "kickoff_utc": "2026-10-31T15:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 4,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 34,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -305,10 +359,19 @@
       "home_team": "Tottenham Hotspur",
       "away_team": "Crystal Palace",
       "kickoff_utc": "2026-10-31T17:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 6,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -318,6 +381,28 @@
       "home_team": "Aston Villa",
       "away_team": "Fulham",
       "kickoff_utc": "2026-10-31T20:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "count_market_quotes": 4,
+      "count_market_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "6a3819cdbe2ba2fe5a3d8f9b4b459965",
+      "event_id": "6a3819cdbe2ba2fe5a3d8f9b4b459965",
+      "home_team": "Liverpool",
+      "away_team": "Arsenal",
+      "kickoff_utc": "2026-11-01T16:30:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
@@ -326,20 +411,20 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 8,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 8,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5,
-    "ANCHORED_MAIN": 3
+    "ANCHORED_ALTERNATE": 5,
+    "ANCHORED_MAIN": 4
   },
-  "shot_features_applied_fixtures": 8,
+  "shot_features_applied_fixtures": 9,
   "goal_rate_features_used": {
-    "shot_features": 8
+    "shot_features": 9
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 8
+    "AVAILABLE": 9
   },
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {

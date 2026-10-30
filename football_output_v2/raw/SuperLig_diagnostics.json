@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "36930ef41a7cb5e7e2f4d6e9884819c8b34ead9559d248ba647b034c279b2986",
-  "training_as_of_utc": "2026-10-29T12:08:03.532144+00:00",
+  "training_as_of_utc": "2026-10-30T07:28:48.223760+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,8 +28,8 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "VALIDATED",
-    "cutoff_date": "2026-10-29",
-    "selected_weight": 0.2,
+    "cutoff_date": "2026-10-30",
+    "selected_weight": 0.3,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
     "gates": {
@@ -50,30 +50,30 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1800,
-    "tune_start_date": "2025-10-30",
-    "audit_start_date": "2026-04-30",
+    "tune_start_date": "2025-10-31",
+    "audit_start_date": "2026-05-01",
     "training_shot_matches": 1503,
     "tuning_matches": 189,
     "audit_matches": 94,
     "audit_matchdays": 36,
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target",
-    "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.8834269290076148,
-    "audit_candidate_poisson_score": 0.8730025498190247,
-    "audit_gain": 0.010424379188590072,
-    "audit_gain_lower95": 0.0029519965878100065,
+    "proposed_weight": 0.3,
+    "audit_baseline_poisson_score": 0.88342479621755,
+    "audit_candidate_poisson_score": 0.8703833305136697,
+    "audit_gain": 0.013041465703880317,
+    "audit_gain_lower95": 0.0035143404939131564,
     "audit_baseline_briers": [
-      0.6143663322631336,
-      0.17437378698225448,
-      0.2059347184072143,
-      0.24831204298872858
+      0.6143728531190132,
+      0.17437373082125635,
+      0.20593066792660297,
+      0.24831244922428455
     ],
     "audit_candidate_briers": [
-      0.6098513843205008,
-      0.17317189145574685,
-      0.20307008736569596,
-      0.24810792752303473
+      0.6097721846414722,
+      0.17271774778864193,
+      0.20182683299664475,
+      0.24790656013702597
     ],
     "audit_brier_order": [
       "1x2",
@@ -85,10 +85,10 @@
   },
   "training_end": "2026-10-26",
   "fit_success": true,
-  "objective": 1657.9162808803267,
-  "base": 0.12392597221461576,
-  "home_adv": 0.2456099513790372,
-  "rho": -0.0960329586373722,
+  "objective": 1655.987951679149,
+  "base": 0.1239074707069248,
+  "home_adv": 0.24561310476313974,
+  "rho": -0.09607348160363201,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -106,7 +106,7 @@
   },
   "training_data_health": {
     "training_end": "2026-10-26",
-    "days_since_latest_result": 3,
+    "days_since_latest_result": 4,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -116,13 +116,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 5,
+  "live_odds_matched": 8,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 8,
+  "additional_event_odds_calls_used_before_this_league": 35,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 2,
+  "over_1_5_in_window_quote_fixtures": 4,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -171,12 +171,19 @@
       "home_team": "Kocaelispor",
       "away_team": "\u00c7aykur Rizespor",
       "kickoff_utc": "2026-10-31T13:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "dc20aff5555a04cd21c2355e222a3297",
@@ -184,12 +191,19 @@
       "home_team": "Fenerbahce",
       "away_team": "Goztepe",
       "kickoff_utc": "2026-10-31T16:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "5706f8b2f4d8a94519bbea0efc91e36b",
@@ -203,23 +217,62 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "f4e049de3ce6858d46dd45ab5cfa0e8c",
+      "event_id": "f4e049de3ce6858d46dd45ab5cfa0e8c",
+      "home_team": "Basaksehir",
+      "away_team": "Samsunspor",
+      "kickoff_utc": "2026-11-01T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "cd2960ff2b4d605144a83562b0085400",
+      "event_id": "cd2960ff2b4d605144a83562b0085400",
+      "home_team": "Trabzonspor",
+      "away_team": "Gazi\u015fehir Gaziantep",
+      "kickoff_utc": "2026-11-01T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "bf609ced8c6472e7d11428e42a2e468e",
+      "event_id": "bf609ced8c6472e7d11428e42a2e468e",
+      "home_team": "Kasimpasa SK",
+      "away_team": "Besiktas JK",
+      "kickoff_utc": "2026-11-01T16:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 2,
+  "additional_odds_in_window_linked_fixtures": 4,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 2,
+  "additional_event_odds_calls_this_league": 4,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 1,
+    "ANCHORED_ALTERNATE": 2,
     "ANCHORED_MAIN": 2,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 2
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
   },
-  "shot_features_applied_fixtures": 5,
+  "shot_features_applied_fixtures": 8,
   "goal_rate_features_used": {
-    "shot_features": 5
+    "shot_features": 8
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 5
+    "AVAILABLE": 8
   },
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
