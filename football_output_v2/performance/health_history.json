@@ -13905,9 +13905,9 @@
         },
         "frozen_selections": 77,
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-        "observations": 329,
+        "observations": 333,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-10-30T15:09:38.613706+00:00",
+        "reviewed_at_utc": "2026-10-30T20:57:02.377451+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
@@ -13926,7 +13926,7 @@
         "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
         "graded_selections": 62,
         "model_improvement_established": false,
-        "prediction_fixtures_graded": 176
+        "prediction_fixtures_graded": 177
       },
       "execution_policy": {
         "account_availability": "USER_ALLOWLIST",
@@ -13965,10 +13965,10 @@
         "totals_anchor_experiment:LEGACY_NOT_RECORDED": 21
       },
       "forecast_freshness": {
-        "age_hours": 3.097306877222222,
+        "age_hours": 8.887241250833332,
         "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
         "status": "WITHIN_24_HOURS",
-        "upcoming_fixture_count": 67
+        "upcoming_fixture_count": 60
       },
       "quote_audit": {
         "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -14009,17 +14009,17 @@
             "status": "COLLECT_MORE_DATA"
           },
           {
-            "collection_days": 16,
+            "collection_days": 17,
             "key": "recency_experiment",
             "name": "recency_experiment",
             "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
             "report": "recency_experiment/report.md",
             "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-            "settled_evidence": 278,
+            "settled_evidence": 280,
             "status": "COLLECT_MORE_DATA"
           },
           {
-            "collection_days": 16,
+            "collection_days": 17,
             "key": "filter_sensitivity_experiment",
             "name": "filter_sensitivity_experiment",
             "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
@@ -14056,7 +14056,7 @@
             "name": "benchmark_forward_experiment",
             "report": "benchmark_forward_experiment/report.md",
             "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 92,
+            "settled_evidence": 93,
             "status": "COLLECT_MORE_DATA"
           },
           {
@@ -14079,7 +14079,7 @@
             "name": "model_reliability_experiment",
             "report": "model_reliability_experiment/report.md",
             "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 92,
+            "settled_evidence": 93,
             "status": "COLLECT_MORE_DATA"
           },
           {
@@ -14096,10 +14096,10 @@
           }
         ],
         "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-10-30T15:09:38.613706+00:00",
+        "reviewed_at_utc": "2026-10-30T20:57:02.377451+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-10-30T15:09:38.613706+00:00",
+      "reviewed_at_utc": "2026-10-30T20:57:02.377451+00:00",
       "selection_policy_groups": {
         "48h-top-ten-probability-ev-no-under35-v14": {
           "brier": 0.178674,
@@ -14965,11 +14965,11 @@
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-10-30T15:09:20.297559+00:00",
+            "checked_at_utc": "2026-10-30T20:56:46.152219+00:00",
             "completed_matches": 54,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.005087818611111111,
+            "download_age_hours": 0.0045070088888888886,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-21",
             "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -15031,7 +15031,7 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-10-30T15:09:38.613706+00:00"
+            "verified_at_utc": "2026-10-30T20:57:02.377451+00:00"
           },
           "days_since_latest_result": 8,
           "diagnostics_sha256": "f02c6b9f4e39ff0c25aad43da47c523bf81ea87b0ae1c735806f1a9bc81e299e",

@@ -3220,6 +3220,41 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Paris Saint Germain",
+    "baseline": {
+      "away_goals": 5,
+      "btts_yes": 0.48160199744342286,
+      "home_goals": 1,
+      "over_1_5": 0.8232303812654659,
+      "over_2_5": 0.6120083433670113,
+      "p_away": 0.7661696626220661,
+      "p_draw": 0.14224511063923181,
+      "p_home": 0.091585226738702,
+      "under_3_5": 0.6225727198329113,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 5,
+      "btts_yes": 0.49512124482618586,
+      "home_goals": 1,
+      "over_1_5": 0.824300686299515,
+      "over_2_5": 0.6143054808871236,
+      "p_away": 0.7603506262587441,
+      "p_draw": 0.1443761631809761,
+      "p_home": 0.09527321056027974,
+      "under_3_5": 0.6211608306301237,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Le Havre",
+    "kickoff_utc": "2026-10-30T18:00:00+00:00",
+    "league": "Ligue 1",
+    "log_loss_gain": -0.00762395965716578,
+    "snapshot_commit": "04e55dde9bbe885fb80dc3c1a84f550621a793c2",
+    "source_match_id": 559644,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,
