@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Galatasaray",
+    "home_team": "Torku Konyaspor",
+    "kickoff_utc": "2026-10-30T17:00:00+00:00",
+    "league": "Super Lig",
+    "odds_event_id": "feb03ec355aa5c94e0d7ae612a59b813"
+  },
+  "observed_at_utc": "2026-10-30T16:54:09.935520+00:00",
+  "payload": {
+    "away_team": "Galatasaray",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-30T16:53:26Z",
+            "outcomes": [
+              {
+                "name": "Galatasaray",
+                "price": 1.55
+              },
+              {
+                "name": "Torku Konyaspor",
+                "price": 5.49
+              },
+              {
+                "name": "Draw",
+                "price": 4.64
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-30T16:53:26Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.52
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.52
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-30T16:53:46Z",
+            "outcomes": [
+              {
+                "name": "Galatasaray",
+                "price": 1.56
+              },
+              {
+                "name": "Torku Konyaspor",
+                "price": 5.49
+              },
+              {
+                "name": "Draw",
+                "price": 4.7
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-30T16:53:46Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.9
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.99
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-30T17:00:00Z",
+    "home_team": "Torku Konyaspor",
+    "id": "feb03ec355aa5c94e0d7ae612a59b813",
+    "sport_key": "soccer_turkey_super_league",
+    "sport_title": "Turkey Super League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.49,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.16791984299962046,
+      "selection": "home",
+      "updated_at_utc": "2026-10-30T16:53:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.64,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2002837994212049,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-30T16:53:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6317963575791745,
+      "selection": "away",
+      "updated_at_utc": "2026-10-30T16:53:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.52,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6341290140006339,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-30T16:53:26+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.52,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.36587098599936607,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-30T16:53:26+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.49,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1701965912543761,
+      "selection": "home",
+      "updated_at_utc": "2026-10-30T16:53:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.20003898581504959,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-30T16:53:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6297644229305743,
+      "selection": "away",
+      "updated_at_utc": "2026-10-30T16:53:46+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
