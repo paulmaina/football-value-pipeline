@@ -3251,6 +3251,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "SA:558551": {
+    "away_goals": 2,
+    "away_short_name": "Atalanta",
+    "away_team": "Atalanta BC",
+    "first_verified_at_utc": "2026-10-30T06:07:50Z",
+    "home_goals": 2,
+    "home_short_name": "Fiorentina",
+    "home_team": "ACF Fiorentina",
+    "kickoff_utc": "2026-10-29T19:45:00Z",
+    "league_code": "SA",
+    "match_id": 558551,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "SA:558552": {
     "away_goals": 0,
     "away_short_name": "Juventus",
