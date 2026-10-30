@@ -78286,7 +78286,7 @@
   ],
   "note": "Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.",
   "rejected_snapshot_commits": [],
-  "reviewed_at_utc": "2026-10-30T14:28:11.789880+00:00",
+  "reviewed_at_utc": "2026-10-30T15:09:38.613706+00:00",
   "total_fixture_markets": 518,
   "version": "goal-recency-shadow-v1",
   "weekly_comparisons": [
