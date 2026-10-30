@@ -24,14 +24,14 @@ Fixtures in this report: **9**.
 | --- | --- |
 | Training seasons requested | 6 |
 | Training seasons loaded | ['2122', '2223', '2324', '2425', '2526', '2627'] |
-| Training sha256 | 0aa051fe6c1eced652e1963c5d980770531e2933b5292bf4365a81ae6279ef4f |
-| Training as of utc | 2026-10-30T07:07:52.260041+00:00 |
-| Training data provenance | {'bbs_confirmed_rows': 63, 'bbs_added_results': 0, 'bbs_result_conflicts': 0, 'bbs_rows_with_statistics': 63, 'bbs_statistics_used_as_predictor_features': False, 'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.', 'api_football': {'status': 'AVAILABLE', 'matched_results': 254, 'added_results': 2, 'conflicts': 0, 'unmapped': 668, 'ambiguous': 0, 'excluded_phase': 0, 'statistics_observations': 55, 'source': 'api-football', 'usage': 'supplementary_cached_observations'}} |
-| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES', 'cutoff_utc': '2026-10-30T07:07:52.260041+00:00', 'observations': 283, 'observations_sha256': 'bbbe14ca6dd6689da99173474c37ea1fa225ac0bf7837fb30b4d58b314fcec19', 'eligible_training_matches': 63, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 98, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 14, 'retrospective_eligible_training_matches': 63, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:27.947476+00:00', 'retrospective_inputs_sha256': 'acadce0870f028e96213f4e63468c23357c3f6f49669565a2062a71bc9cb614c', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.', 'input_providers': ['api-football', 'bigballsdata']} |
+| Training sha256 | 69df04e69ba5d7ae4236cbf04e74187a5243585339c354bc88d80c442420a325 |
+| Training as of utc | 2026-10-30T11:50:54.576591+00:00 |
+| Training data provenance | {'bbs_confirmed_rows': 63, 'bbs_added_results': 0, 'bbs_result_conflicts': 0, 'bbs_rows_with_statistics': 63, 'bbs_statistics_used_as_predictor_features': False, 'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.', 'api_football': {'status': 'AVAILABLE', 'matched_results': 254, 'added_results': 2, 'conflicts': 0, 'unmapped': 668, 'ambiguous': 0, 'excluded_phase': 0, 'statistics_observations': 64, 'source': 'api-football', 'usage': 'supplementary_cached_observations'}} |
+| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_RETROSPECTIVE_EXAMPLES', 'cutoff_utc': '2026-10-30T11:50:54.576591+00:00', 'observations': 292, 'observations_sha256': 'df3ff0afa9102c7ffb274e2c208da88e976185bb9af2524035f0d343658fb9e7', 'eligible_training_matches': 68, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 104, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 14, 'retrospective_eligible_training_matches': 68, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:27.947476+00:00', 'retrospective_inputs_sha256': '1c67f28e7f02f59f28b2ec48a8efb884fcdd954e1bb0d6574d720b78af23c23a', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.', 'input_providers': ['api-football', 'bigballsdata']} |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Totals anchor enabled | 1 |
-| Shot features model | {'version': 'football-data-lagged-shot-strength-v1', 'status': 'VALIDATED', 'cutoff_date': '2026-10-30', 'selected_weight': 0.2, 'feature_source': 'football-data.co.uk HST/AST (+HS/AS candidate)', 'lag_rule': 'matches dated strictly before the origin date', 'gates': {'min_form': 3, 'min_train': 60, 'min_tune': 20, 'min_audit': 40, 'min_audit_matchdays': 8, 'min_audit_gain': 0.01, 'bootstrap_lower95': '>0', 'market_brier_safety': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'max_goal_rate_ratio': 1.25}, 'bbs_shot_source_enabled': False, 'shot_matches': 1592, 'tune_start_date': '2025-10-31', 'audit_start_date': '2026-05-01', 'training_shot_matches': 1295, 'tuning_matches': 207, 'audit_matches': 84, 'audit_matchdays': 27, 'selected_shrinkage': 5.0, 'selected_component': 'shots_on_target', 'proposed_weight': 0.2, 'audit_baseline_poisson_score': 0.7186056671345318, 'audit_candidate_poisson_score': 0.7073719740261049, 'audit_gain': 0.011233693108426923, 'audit_gain_lower95': 0.0026075807174826063, 'audit_baseline_briers': [0.6258597853190151, 0.1538213906142604, 0.29443542199261524, 0.245066994306836], 'audit_candidate_briers': [0.619897914987577, 0.15129274554244465, 0.2911730671606795, 0.24281854580735565], 'audit_brier_order': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'failed_gates': []} |
-| Optimizer objective | 1575.761 |
+| Shot features model | {'version': 'football-data-lagged-shot-strength-v1', 'status': 'VALIDATED', 'cutoff_date': '2026-10-30', 'selected_weight': 0.2, 'feature_source': 'football-data.co.uk HST/AST (+HS/AS candidate)', 'lag_rule': 'matches dated strictly before the origin date', 'gates': {'min_form': 3, 'min_train': 60, 'min_tune': 20, 'min_audit': 40, 'min_audit_matchdays': 8, 'min_audit_gain': 0.01, 'bootstrap_lower95': '>0', 'market_brier_safety': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'max_goal_rate_ratio': 1.25}, 'bbs_shot_source_enabled': False, 'shot_matches': 1592, 'tune_start_date': '2025-10-31', 'audit_start_date': '2026-05-01', 'training_shot_matches': 1295, 'tuning_matches': 207, 'audit_matches': 84, 'audit_matchdays': 27, 'selected_shrinkage': 5.0, 'selected_component': 'shots_on_target', 'proposed_weight': 0.2, 'audit_baseline_poisson_score': 0.7186083396552695, 'audit_candidate_poisson_score': 0.7073752479581806, 'audit_gain': 0.01123309169708886, 'audit_gain_lower95': 0.002610647947329236, 'audit_baseline_briers': [0.625855444724906, 0.15383375866533233, 0.29443943969390557, 0.24506868373662988], 'audit_candidate_briers': [0.6198948864567517, 0.1513017524624931, 0.2911766969145373, 0.2428205789901822], 'audit_brier_order': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'failed_gates': []} |
+| Optimizer objective | 1575.313 |
 | Base scoring parameter | 0.225 |
 | Home-advantage parameter | 0.227 |
 | Dixon-Coles low-score adjustment | -0.074 |
@@ -47,7 +47,7 @@ Fixtures in this report: **9**.
 | Excluded started fixtures | [] |
 | Excluded unresolved team fixtures | [] |
 | Additional event odds calls used before this league | 13.00 |
-| Bbs statistics model artifact | bbs/feature_models/Bundesliga/20261030T070752260041Z_c4be91739d7d15f2fc088a98483dfdff04b8e1d26648d5133ddd26348fbe1c09.json |
+| Bbs statistics model artifact | bbs/feature_models/Bundesliga/20261030T115054576591Z_4039d1b4c9421952453410e5fcd24d59c79b3b8a06f1d28dc83145cb90f40f68.json |
 | Over 1 5 in window quote fixtures | 0 |
 | Additional odds coverage mode | — |
 | Additional odds coverage | — |
@@ -77,7 +77,7 @@ Fixtures in this report: **9**.
 
 ## 2026-10-30 — Elversberg vs FSV Mainz 05
 
-The model's most likely 1X2 outcome is **FSV Mainz 05 win** at **42.7%**. Expected goals are 1.83 for Elversberg and 1.67 for FSV Mainz 05 (3.51 combined). The most likely exact score is 1-1 at 10.3%. Goal-market probabilities: at least one goal: 96.0%; Over 2.5 goals: 66.2%; Under 3.5 goals: 55.6%; Double Chance 1X: 57.3%; Double Chance X2: 66.8%; Double Chance 12 (either team wins): 75.9%; Under 4.5 goals: 74.2%; BTTS Yes (both teams score): 67.8%; BTTS No (at least one team does not score): 32.2%.
+The model's most likely 1X2 outcome is **FSV Mainz 05 win** at **43.4%**. Expected goals are 1.83 for Elversberg and 1.67 for FSV Mainz 05 (3.51 combined). The most likely exact score is 1-1 at 10.6%. Goal-market probabilities: at least one goal: 95.6%; Over 2.5 goals: 64.3%; Under 3.5 goals: 57.9%; Double Chance 1X: 56.6%; Double Chance X2: 67.6%; Double Chance 12 (either team wins): 75.8%; Under 4.5 goals: 76.1%; BTTS Yes (both teams score): 66.1%; BTTS No (at least one team does not score): 33.9%.
 
 **Fixture source:** The Odds API
 
@@ -85,9 +85,9 @@ The model's most likely 1X2 outcome is **FSV Mainz 05 win** at **42.7%**. Expect
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Elversberg win | 33.2% | 3.01 |
-| Draw | 24.1% | 4.15 |
-| FSV Mainz 05 win | 42.7% | 2.34 |
+| Elversberg win | 32.4% | 3.09 |
+| Draw | 24.2% | 4.13 |
+| FSV Mainz 05 win | 43.4% | 2.30 |
 
 ### Goals outlook
 
@@ -96,34 +96,34 @@ The model's most likely 1X2 outcome is **FSV Mainz 05 win** at **42.7%**. Expect
 | Elversberg expected goals | 1.83 |
 | FSV Mainz 05 expected goals | 1.67 |
 | Expected total goals | 3.51 |
-| Over 0.5 | 96.0% |
-| Under 0.5 | 4.0% |
-| Over 1.5 | 86.1% |
-| Under 1.5 | 13.9% |
-| Over 2.5 | 66.2% |
-| Under 2.5 | 33.8% |
-| Over 3.5 | 44.4% |
-| Under 3.5 | 55.6% |
-| Over 4.5 | 25.8% |
-| Under 4.5 | 74.2% |
+| Over 0.5 | 95.6% |
+| Under 0.5 | 4.4% |
+| Over 1.5 | 84.9% |
+| Under 1.5 | 15.1% |
+| Over 2.5 | 64.3% |
+| Under 2.5 | 35.7% |
+| Over 3.5 | 42.1% |
+| Under 3.5 | 57.9% |
+| Over 4.5 | 23.9% |
+| Under 4.5 | 76.1% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 10.34% |
-| 2 | 1-2 | 9.56% |
-| 3 | 2-2 | 7.01% |
-| 4 | 2-1 | 6.86% |
-| 5 | 0-1 | 5.70% |
+| 1 | 1-1 | 10.65% |
+| 2 | 1-2 | 9.88% |
+| 3 | 2-1 | 6.82% |
+| 4 | 2-2 | 6.78% |
+| 5 | 0-1 | 6.30% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Elversberg win | 33.2% | 29.6% | 3.25 | +7.9% |
-| Draw | 24.1% | 24.3% | 3.93 | -5.3% |
-| FSV Mainz 05 win | 42.7% | 46.0% | 2.12 | -9.5% |
+| Elversberg win | 32.4% | 28.4% | 3.42 | +10.7% |
+| Draw | 24.2% | 24.5% | 3.95 | -4.3% |
+| FSV Mainz 05 win | 43.4% | 47.0% | 2.09 | -9.3% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -139,9 +139,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-30T07:08:04Z |
-| Market best draw last update utc | 2026-10-30T07:08:04Z |
-| Market best away last update utc | 2026-10-30T07:08:04Z |
+| Market best home last update utc | 2026-10-30T11:50:53Z |
+| Market best draw last update utc | 2026-10-30T11:50:53Z |
+| Market best away last update utc | 2026-10-30T11:50:53Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -151,15 +151,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Mainz |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.8825 |
-| Dc lambda away | 1.7410 |
+| Dc lambda home | 1.8827 |
+| Dc lambda away | 1.7409 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Shot features applied | 1 |
 | Shot features status | APPLIED |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-30T07:07:52.260041+00:00 |
+| Bbs statistics cutoff utc | 2026-10-30T11:50:54.576591+00:00 |
 | Bbs statistics weight | 0 |
 | Shot features version | football-data-lagged-shot-strength-v1 |
 | Shot features weight | 0.2000 |
@@ -169,29 +169,29 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 16 |
 | Score grid omitted mass | 0 |
-| P btts yes | 67.8% |
-| P btts no | 32.2% |
-| Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 24.90 |
-| Fair Over 1.5 odds | 1.16 |
-| Fair Under 1.5 odds | 7.21 |
-| Fair Over 2.5 odds | 1.51 |
-| Fair Under 2.5 odds | 2.96 |
-| Fair Over 3.5 odds | 2.25 |
-| Fair Under 3.5 odds | 1.80 |
-| Fair Over 4.5 odds | 3.88 |
-| Fair Under 4.5 odds | 1.35 |
-| Goal margin distribution | {"-1": 0.21212589700979495, "-10": 1.9113957978170873e-06, "-11": 2.772533901632264e-07, "-12": 3.698393101472055e-08, "-13": 4.56538104308684e-09, "-14": 5.239721437480042e-10, "-15": 5.5542937773743826e-11, "-16": 4.787475341211962e-12, "-2": 0.1285514950851776, "-3": 0.05753310377050595, "-4": 0.02068592178189985, "-5": 0.006181302649822422, "-6": 0.0015753707551606382, "-7": 0.0003493847739146027, "-8": 6.850726595068536e-05, "-9": 1.2029135158471312e-05, "0": 0.2410234232338331, "1": 0.15283053400068297, "10": 3.1318023875540147e-06, "11": 4.978977089176303e-07, "12": 7.279404814622093e-08, "13": 9.848710484966862e-09, "14": 1.2388823833502753e-09, "15": 1.43936276535328e-10, "16": 1.3597764200897299e-11, "2": 0.10114968786808504, "3": 0.049616343707670305, "4": 0.019552458394119593, "5": 0.006403627174947697, "6": 0.0017887446529474245, "7": 0.0004347995468006815, "8": 9.34418186280221e-05, "9": 1.7982852825855164e-05} |
-| Raw goal margin distribution | {"-1": 0.17148913535187493, "-10": 1.8760895790833274e-06, "-11": 2.790828027662219e-07, "-12": 3.818510622278314e-08, "-13": 4.835440364981558e-09, "-14": 5.692969897471673e-10, "-15": 6.183853349054601e-11, "-16": 5.42719222919328e-12, "-2": 0.10521264775317139, "-3": 0.04793925297496527, "-4": 0.017593739717768838, "-5": 0.0053748873467360896, "-6": 0.0014019444565333931, "-7": 0.00031843328574205786, "-8": 6.397864953644605e-05, "-9": 1.1515307560375489e-05, "0": 0.23538964732044496, "1": 0.1886070282682574, "10": 4.692982744522188e-06, "11": 7.65152498501826e-07, "12": 1.1474359870572956e-07, "13": 1.5925388423303504e-08, "14": 2.0550028482761735e-09, "15": 2.446539663908217e-10, "16": 2.3533570462451928e-11, "2": 0.12638834509823857, "3": 0.06311751299389351, "4": 0.025388457588687227, "5": 0.008500942122357694, "6": 0.0024302337029867126, "7": 0.0006049997963851132, "8": 0.0001332267328550849, "9": 2.6281575093216512e-05} |
+| P btts yes | 66.1% |
+| P btts no | 33.9% |
+| Fair Over 0.5 odds | 1.05 |
+| Fair Under 0.5 odds | 22.96 |
+| Fair Over 1.5 odds | 1.18 |
+| Fair Under 1.5 odds | 6.64 |
+| Fair Over 2.5 odds | 1.56 |
+| Fair Under 2.5 odds | 2.80 |
+| Fair Over 3.5 odds | 2.38 |
+| Fair Under 3.5 odds | 1.73 |
+| Fair Over 4.5 odds | 4.19 |
+| Fair Under 4.5 odds | 1.31 |
+| Goal margin distribution | {"-1": 0.21871733753100345, "-10": 1.5587636331964226e-06, "-11": 2.1935812159630787e-07, "-12": 2.8382849583783308e-08, "-13": 3.398011942373696e-09, "-14": 3.7823575056155536e-10, "-15": 3.893154573797865e-11, "-16": 3.282280017804513e-12, "-2": 0.13053508602550806, "-3": 0.05715792734466583, "-4": 0.020045969397784268, "-5": 0.005832041698400265, "-6": 0.0014454115786473264, "-7": 0.0003114787831651683, "-8": 5.931008862002821e-05, "-9": 1.0109110098200609e-05, "0": 0.2423274943661528, "1": 0.15142122882970088, "10": 2.456732482092375e-06, "11": 3.789715553380897e-07, "12": 5.375070734318269e-08, "13": 7.05388510617415e-09, "14": 8.606792820470698e-10, "15": 9.710815729561259e-11, "16": 8.97439100151092e-12, "2": 0.09869667508926533, "3": 0.0473725788393716, "4": 0.018211801612942464, "5": 0.005807935180246658, "6": 0.0015778581674287355, "7": 0.00037271785217906733, "8": 7.77956996398013e-05, "9": 1.453500672237929e-05} |
+| Raw goal margin distribution | {"-1": 0.17147717044455799, "-10": 1.8749821029389834e-06, "-11": 2.78902493406037e-07, "-12": 3.81583084237936e-08, "-13": 4.831777759393868e-09, "-14": 5.688340843224571e-10, "-15": 6.178478593530688e-11, "-16": 5.4221593256928276e-12, "-2": 0.10519820657135437, "-3": 0.04792988000111971, "-4": 0.017589290228634313, "-5": 0.005373222522976669, "-6": 0.0014014310304508535, "-7": 0.00031829875922463776, "-8": 6.394803383880759e-05, "-9": 1.1509152989638557e-05, "0": 0.23538256072800054, "1": 0.1886188195652639, "10": 4.696237501107353e-06, "11": 7.657387323801883e-07, "12": 1.1483985213472651e-07, "13": 1.5939905914763517e-08, "14": 2.057025649467544e-09, "15": 2.4491249050379426e-10, "16": 2.3560090573354455e-11, "2": 0.12640344812239215, "3": 0.06312948106152758, "4": 0.025395074145941273, "5": 0.008503765768748235, "6": 0.002431215661479837, "7": 0.0006052879018474023, "8": 0.00013329981188839557, "9": 2.6297895550419184e-05} |
 | Unadjusted home-win probability | 41.5% |
 | Unadjusted draw probability | 23.5% |
 | Unadjusted away-win probability | 34.9% |
 | Raw p over 1 5 | 87.2% |
 | Raw p under 3 5 | 53.5% |
 | Raw p btts yes | 68.9% |
-| P home draw | 57.3% |
-| P draw away | 66.8% |
-| P home away | 75.9% |
+| P home draw | 56.6% |
+| P draw away | 67.6% |
+| P home away | 75.8% |
 | Raw p home draw | 65.1% |
 | Raw p draw away | 58.5% |
 | Raw p home away | 76.5% |
@@ -199,111 +199,111 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blend applied | Yes |
 | Totals anchor applied | 1 |
 | Totals anchor status | ANCHORED_ALTERNATE |
-| Totals anchor scale | 0.9740 |
-| Totals anchor target over 2 5 | 0.6623 |
-| Totals anchor reference over odds | 1.47 |
-| Totals anchor reference under odds | 2.76 |
-| Totals anchor reference last update utc | 2026-10-30T07:08:04Z |
+| Totals anchor scale | 0.9438 |
+| Totals anchor target over 2 5 | 0.6427 |
+| Totals anchor reference over odds | 1.52 |
+| Totals anchor reference under odds | 2.65 |
+| Totals anchor reference last update utc | 2026-10-30T11:50:53Z |
 | Totals anchor reference source | live_pinnacle_alternate |
-| Unanchored p over 2 5 | 0.6782 |
+| Unanchored p over 2 5 | 0.6777 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.42, "price": 1.66, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.66, "price": 2.42, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 6.57, "price": 1.07, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 5.98, "price": 1.1, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 5.78, "price": 1.11, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 5.16, "price": 1.17, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.56, "price": 1.28, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.93, "price": 1.42, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.42, "price": 2.93, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.28, "price": 3.56, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.17, "price": 5.16, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.11, "price": 5.78, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.1, "price": 5.98, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:02Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.07, "price": 6.57, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 4.02, "price": 1.27, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.36, "price": 1.35, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.23, "price": 1.38, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.99, "price": 1.43, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.86, "price": 1.47, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.47, "price": 1.6, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.43, "price": 1.61, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.12, "price": 1.79, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.05, "price": 1.87, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.87, "price": 2.05, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.79, "price": 2.12, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.61, "price": 2.43, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.6, "price": 2.47, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.47, "price": 2.86, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.43, "price": 2.99, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.38, "price": 3.23, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.35, "price": 3.36, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.27, "price": 4.02, "quote_source": "The Odds API", "side": "home"}] |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 6.11, "price": 1.08, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 6.26, "price": 1.08, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 5.72, "price": 1.11, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 5.48, "price": 1.14, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.42, "price": 1.3, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.81, "price": 1.45, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.55, "price": 1.61, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.61, "price": 2.55, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.45, "price": 2.81, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.3, "price": 3.42, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.14, "price": 5.48, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.11, "price": 5.72, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.08, "price": 6.11, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:43Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.08, "price": 6.26, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 4.26, "price": 1.26, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.38, "price": 1.36, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.3, "price": 1.37, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.99, "price": 1.44, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.93, "price": 1.45, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.39, "price": 1.65, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.11, "price": 1.83, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.08, "price": 1.84, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.84, "price": 2.08, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.83, "price": 2.11, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.65, "price": 2.39, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.45, "price": 2.93, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.44, "price": 2.99, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.37, "price": 3.3, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.36, "price": 3.38, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.26, "price": 4.26, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:54Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 2.56, "price": 1.55, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:54Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 1.55, "price": 2.56, "quote_source": "The Odds API", "side": "home"}] |
 | 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 3.25 |
-| Reference draw odds | 3.93 |
-| Reference away odds | 2.12 |
-| Market reference 1x2 last update utc | 2026-10-30T07:08:04Z |
-| Market reference home last update utc | 2026-10-30T07:08:04Z |
-| Market reference draw last update utc | 2026-10-30T07:08:04Z |
-| Market reference away last update utc | 2026-10-30T07:08:04Z |
+| Reference home odds | 3.42 |
+| Reference draw odds | 3.95 |
+| Reference away odds | 2.09 |
+| Market reference 1x2 last update utc | 2026-10-30T11:50:53Z |
+| Market reference home last update utc | 2026-10-30T11:50:53Z |
+| Market reference draw last update utc | 2026-10-30T11:50:53Z |
+| Market reference away last update utc | 2026-10-30T11:50:53Z |
 | O/U 2.5 market source | The Odds API / Betsson |
-| Reference Over 2.5 odds | 1.47 |
-| Reference Under 2.5 odds | 2.72 |
-| Market reference over 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Market reference under 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Home probability edge | +3.6% |
-| Draw probability edge | -0.2% |
-| Away probability edge | -3.3% |
-| Over 2.5 probability edge | +0.2% |
-| Under 2.5 probability edge | -0.2% |
-| Raw edge prob home | 0.1190 |
-| Raw ev home | 0.3494 |
-| Raw edge prob draw | -0.0080 |
-| Raw ev draw | -0.0749 |
-| Raw edge prob away | -0.1110 |
-| Raw ev away | -0.2593 |
+| Reference Over 2.5 odds | 1.51 |
+| Reference Under 2.5 odds | 2.61 |
+| Market reference over 2 5 last update utc | 2026-10-30T11:50:11Z |
+| Market reference under 2 5 last update utc | 2026-10-30T11:50:11Z |
+| Home probability edge | +3.9% |
+| Draw probability edge | -0.3% |
+| Away probability edge | -3.6% |
+| Over 2.5 probability edge | -0.0% |
+| Under 2.5 probability edge | +0.0% |
+| Raw edge prob home | 0.1310 |
+| Raw ev home | 0.4202 |
+| Raw edge prob draw | -0.0099 |
+| Raw ev draw | -0.0702 |
+| Raw edge prob away | -0.1211 |
+| Raw ev away | -0.2698 |
 | Legacy model version | dc-blend50-tuned-half-life-v1 |
 | Legacy status | AVAILABLE |
 | Legacy half life days | 1,000,000,000 |
-| Legacy trial matrix | [[0.04201603771775746, 0.04887547580331379, 0.05099395025922457, 0.02849126223219471, 0.011938945984629462, 0.00400230583151444, 0.0011180811096164521, 0.00026772538923603345, 5.6093670662141856e-05, 1.0446856749851086e-05, 1.751055568253442e-06, 2.668219364951863e-07, 3.726958650654441e-08, 4.80535537305686e-09, 5.753230363181956e-10, 6.42887221430702e-11, 6.7348681749492606e-12], [0.03997526872405912, 0.10442199077192416, 0.0905115140545463, 0.050570455296205755, 0.021190985828535243, 0.007103877198730681, 0.0019845337251327335, 0.00047519814031690206, 9.956324298663481e-05, 1.8542607833542586e-05, 3.1080292832892026e-06, 4.7359456038173103e-07, 6.61515078895855e-08, 8.529246865060176e-09, 1.0211673899140376e-09, 1.1410901779959112e-10, 1.1954028122427442e-11], [0.04357220629861937, 0.07303379024640375, 0.06991639642401898, 0.0448799166569699, 0.018806429016569443, 0.0063044996283492544, 0.0017612202157409797, 0.00042172554722025177, 8.835969581774897e-05, 1.6456064895953326e-05, 2.758292255515978e-06, 4.2030241322982745e-07, 5.8707681064525335e-08, 7.569476806338797e-09, 9.062585472825684e-10, 1.0126867908659273e-10, 1.0608877905235521e-11], [0.025779439474271526, 0.04321034749377529, 0.036213629322628504, 0.02311191805994712, 0.011126799392189553, 0.003730049047108884, 0.0010420236616293784, 0.0002495133743012459, 5.227789969338502e-05, 9.736209501591276e-06, 1.6319400437539731e-06, 2.486713789173425e-07, 3.473432353426002e-08, 4.478471157589655e-09, 5.361866968038406e-10, 5.991548294021009e-11, 6.276728884775832e-12], [0.011439279004825494, 0.019174009635472312, 0.0160693101963026, 0.008978220521570938, 0.0042974958786239775, 0.0016551590190371176, 0.00046238396327060436, 0.00011071819877682048, 2.3197613779607253e-05, 4.320311814742544e-06, 7.24151411371071e-07, 1.1034457466731032e-07, 1.5412888179699437e-08, 1.9872612489445734e-09, 2.379256240049892e-10, 2.6586688463337623e-11, 2.785213891956697e-12], [0.004060820772487001, 0.006806566793829125, 0.0057044319504014245, 0.0031871715322779226, 0.0013355487186740797, 0.0005114167200873464, 0.00016414132412734, 3.930376742236967e-05, 8.234902905036442e-06, 1.5336641368329984e-06, 2.5706594729274054e-07, 3.9171134889815745e-08, 5.471409208372362e-09, 7.054563278567128e-10, 8.446103254049718e-11, 9.437987895742293e-12, 9.887209170705648e-13], [0.0012012896776759062, 0.002013548217945807, 0.0016875098909684282, 0.0009428429564408276, 0.0003950878356037049, 0.00013244572430706097, 4.2264125204131216e-05, 1.1627011568242848e-05, 2.43608482391235e-06, 4.536952010001833e-07, 7.604636753658555e-08, 1.1587775635113141e-08, 1.6185760890730516e-09, 2.0869116175900658e-10, 2.4985630305128875e-11, 2.791986662893691e-12, 2.924877255914222e-13], [0.0003046034928564194, 0.0005105627989809313, 0.0004278913042965609, 0.00023907077791808872, 0.0001001799457253299, 3.358343202938378e-05, 9.381842000298581e-06, 2.566109985400848e-06, 6.177027573347806e-07, 1.1504064796778769e-07, 1.9282600692533674e-08, 2.938239625700206e-09, 4.1041219228601957e-10, 5.2916509632414686e-11, 6.335449645156061e-12, 7.07946555547943e-13, 7.416427901481838e-14], [6.75818483971792e-05, 0.00011327768225636618, 9.493550118636476e-05, 5.304221864938301e-05, 2.222675072093877e-05, 7.45109778874604e-06, 2.0815330047752767e-06, 4.984246930907195e-07, 1.1928745006961588e-07, 2.5523868940455727e-08, 4.27819715554089e-09, 6.519021271770394e-10, 9.105744093519578e-11, 1.174049416882895e-11, 1.4056352191887758e-12, 1.570708738159435e-13, 1.64546998915345e-14], [1.3328237717826118e-05, 2.234019804199731e-05, 1.8722822143551288e-05, 1.0460786675810929e-05, 4.383476100897824e-06, 1.4694774550043359e-06, 4.105121029259055e-07, 9.829744156901325e-08, 2.0595223822579634e-08, 4.381362618781586e-09, 8.437299370337509e-10, 1.2856568332828777e-10, 1.7958005700416092e-11, 2.3154160609409273e-12, 2.772140861817356e-13, 3.097692641465166e-14, 3.2451339661644017e-15], [2.365690379715437e-06, 3.965264779019165e-06, 3.323200048186617e-06, 1.8567332701549127e-06, 7.780433888673085e-07, 2.6082433042614446e-07, 7.286368634839784e-08, 1.7447266232312013e-08, 3.655541257341076e-09, 6.808061481415371e-10, 1.3034928731147693e-10, 2.281971605326973e-11, 3.187449250513403e-12, 4.1097387489424016e-13, 4.920400661256375e-14, 5.498237528753124e-15, 5.759937935662111e-16], [3.817248141715236e-07, 6.39830120581566e-07, 5.362273658996006e-07, 2.99600137276301e-07, 1.25544099337497e-07, 4.2086284797467155e-08, 1.1757192475263821e-08, 2.8152688608098928e-09, 5.89853523994425e-10, 1.0985402088730625e-10, 1.841324137736353e-11, 3.2049610293025592e-12, 5.143227885044485e-13, 6.631422580423454e-14, 7.939496411586457e-15, 8.871886688682584e-16, 9.294163162613894e-17], [5.6461748088449264e-08, 9.463866572594813e-08, 7.931455678946676e-08, 4.431450838445713e-08, 1.8569500979833863e-08, 6.225073985223226e-09, 1.7390319285543537e-09, 4.1641254463714035e-10, 8.724651855064483e-11, 1.6248747326798842e-11, 2.7235426085592597e-12, 4.150073396401504e-13, 6.62155092395447e-14, 9.808681471665636e-15, 1.1743481945575405e-15, 1.3122600697909537e-16, 1.37471990213519e-17], [7.70896619889123e-09, 1.2921425564908287e-08, 1.0829158821158122e-08, 6.050451125266331e-09, 2.5353741290398026e-09, 8.499362234145979e-10, 2.3743753620622883e-10, 5.685460227645189e-11, 1.1912143800865627e-11, 2.2185116146313913e-12, 3.718570292533787e-13, 5.66627435722662e-14, 7.91463044981992e-15, 1.1656615766741338e-15, 1.6033882839389191e-16, 1.791685320533431e-17, 1.8769644258802657e-18], [9.773571163273789e-10, 1.6382024389695767e-09, 1.3729409579225522e-09, 7.670874812138328e-10, 3.2143946200280186e-10, 1.0775650002177357e-10, 3.010277379705913e-11, 7.2081325429660355e-12, 1.5102438140363888e-12, 2.8126704129625e-13, 4.714472789482729e-14, 7.183808338523137e-15, 1.0034316137415986e-15, 1.293774884178446e-16, 1.769358644627285e-17, 2.2715320745530197e-18, 2.379650515254899e-19], [1.1565041463557263e-10, 1.9384807063744357e-10, 1.6245974823466425e-10, 9.076926313024444e-11, 3.803584835044809e-11, 1.275079876025772e-11, 3.5620534328258767e-12, 8.529364583487139e-13, 1.7870675966471622e-13, 3.328225620484061e-14, 5.578623450767099e-15, 8.500581815320754e-16, 1.1873580316653266e-16, 1.5309204721665742e-17, 1.8329004746391255e-18, 2.339552614541578e-19, 2.8158342961796026e-20], [1.2829578406470103e-11, 2.1504367528839543e-11, 1.802233121636311e-11, 1.006940945172186e-11, 4.219473835925033e-12, 1.414498797564456e-12, 3.9515330704589565e-13, 9.461976597839084e-14, 1.982467933305161e-14, 3.6921382155848295e-15, 6.188597523607567e-16, 9.430046683700037e-17, 1.3171853306193635e-17, 1.698313343157695e-18, 2.0333122388482906e-19, 2.2720982352795024e-20, 2.718894233685518e-21]] |
-| Legacy trial inputs | {"lambda_home": 1.7749461180088357, "lambda_away": 1.6761554314204623, "rho": -0.11084228618346421, "max_goals": 16, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
-| Legacy p home | 0.3470 |
-| Legacy p draw | 0.2443 |
-| Legacy p away | 0.4087 |
-| Legacy p over 1 5 | 0.8691 |
-| Legacy p under 3 5 | 0.5477 |
-| Legacy p btts yes | 0.6858 |
-| Legacy p over 2 5 | 0.6701 |
-| Legacy goal margin distribution | {"-1": 0.19722527735545245, "-10": 2.2880839369569146e-06, "-11": 3.4110668329729485e-07, "-12": 4.6767792615719326e-08, "-13": 5.934068170942266e-09, "-14": 7.000409320230222e-10, "-15": 7.624275026549764e-11, "-16": 6.7348681749492606e-12, "-2": 0.1246051268852913, "-3": 0.057148198100471316, "-4": 0.021078367129348935, "-5": 0.006465432391533972, "-6": 0.001692140150728742, "-7": 0.00038549266833317865, "-8": 7.765938618465688e-05, "-9": 1.4011997358336803e-05, "0": 0.2443202096099829, "1": 0.1596788048192031, "10": 3.0912200936258062e-06, "11": 4.879991765469916e-07, "12": 7.085110334824627e-08, "13": 9.519697795547192e-09, "14": 1.1892275181811855e-09, "15": 1.3715478216441217e-10, "16": 1.2829578406470103e-11, "2": 0.1064698903872311, "3": 0.05170878362595076, "4": 0.020196198464185328, "5": 0.00655995899961418, "6": 0.0018180706916233536, "7": 0.0004385927445278821, "8": 9.356429703737762e-05, "9": 1.78766911584316e-05} |
+| Legacy trial matrix | [[0.042175837698018796, 0.049473346239278466, 0.05158773891989809, 0.02880248049916818, 0.012060756590724236, 0.004040258950471967, 0.0011278792409689545, 0.00026987907694666854, 5.650461001227148e-05, 1.051588977062025e-05, 1.7613703356139827e-06, 2.682023911046772e-07, 3.7435708083743704e-08, 4.823334178430376e-09, 5.770639837123896e-10, 6.443730423407836e-11, 6.74562249727161e-12], [0.03930140886362381, 0.10481843760819931, 0.09162743334431271, 0.051157453638086534, 0.02142168262723208, 0.007176095821004134, 0.0020032798904558195, 0.00047934504693745083, 0.00010036052162675434, 1.8677771291929888e-05, 3.12845351240757e-06, 4.7636700557640254e-07, 6.649133920109307e-08, 8.566952926890318e-09, 1.0249507501212842e-09, 1.1445015661110652e-10, 1.1981220512385108e-11], [0.04285837787278527, 0.07178610375753895, 0.07018026428708118, 0.04543159160907259, 0.019024033987004654, 0.006372902314369896, 0.0017790602813369553, 0.000425693752592893, 8.91275446287194e-05, 1.6587238362287613e-05, 2.778297437342615e-06, 4.2304903223860733e-07, 5.904921283797831e-08, 7.608085997831301e-09, 9.102318545474911e-10, 1.0164017958233693e-10, 1.0640207410395329e-11], [0.025374266857489662, 0.04250090282954656, 0.035593673532943654, 0.023198300550638595, 0.011263163447880585, 0.0037730714975150364, 0.001053291155073547, 0.00025203163101320317, 5.276788842720082e-05, 9.820460631589534e-06, 1.6448886794984459e-06, 2.5046582653426856e-07, 3.496003718859817e-08, 4.504360966640479e-09, 5.389020099648201e-10, 6.017598351063733e-11, 6.299525918871745e-12], [0.011267110140044634, 0.018871968042319654, 0.015804903536201852, 0.008824198063798127, 0.0043134013396977635, 0.001675382873819545, 0.00046770011210178357, 0.000111911337629945, 2.3430888234367603e-05, 4.360646641872603e-06, 7.303912276208755e-07, 1.1121606270353963e-07, 1.5523545634490948e-08, 2.000102363811788e-09, 2.392923639948573e-10, 2.6720355618855412e-11, 2.7972217978405783e-12], [0.004002409894114465, 0.006703879759330456, 0.0056143679703630186, 0.0031346154603252518, 0.0013125895206697808, 0.000513290871850023, 0.0001661408766655766, 3.975420843732889e-05, 8.323342696706043e-06, 1.5490303234134161e-06, 2.594565101138367e-07, 3.950722627331469e-08, 5.5144213438014585e-09, 7.104953613358677e-10, 8.500370665900518e-11, 9.491858548809772e-12, 9.936556988041862e-13], [0.00118481171905022, 0.0019845132088140735, 0.0016619909360428096, 0.0009279232338423614, 0.0003885587652276553, 0.00013016414162630077, 4.2417466064131316e-05, 1.1768222966711802e-05, 2.4639140491906716e-06, 4.585510552138065e-07, 7.680550515797672e-08, 1.1695110174653519e-08, 1.6324042776138955e-09, 2.103240929119794e-10, 2.516318679913203e-11, 2.8098234667903817e-12, 2.941465136730361e-13], [0.00030062862412603525, 0.0005035411668648682, 0.0004217058629475906, 0.00023544693270609538, 9.859109688427203e-05, 3.302724490185648e-05, 9.219890202050086e-06, 2.575326648826484e-06, 6.251821100881625e-07, 1.1635061554841453e-07, 1.948827224586976e-08, 2.967462951520196e-09, 4.1419868161830596e-10, 5.3366658732386065e-11, 6.384790177559707e-12, 7.129515595400983e-13, 7.463537056156235e-14], [6.674509727319121e-05, 0.00011179542287816771, 9.362647660361091e-05, 5.22735600172076e-05, 2.188904124130431e-05, 7.332657294522116e-06, 2.04698561280706e-06, 4.89802957303198e-07, 1.197115430175522e-07, 2.5831981818600423e-08, 4.3267557456261604e-09, 6.588314866210831e-10, 9.195974393792663e-11, 1.1848382164517355e-11, 1.417541136373888e-12, 1.5828839097047302e-13, 1.657042832376365e-14], [1.3172126382276426e-05, 2.2062795610049088e-05, 1.8477159116305014e-05, 1.0316172529944523e-05, 4.319796200718547e-06, 1.4470978775569389e-06, 4.039720413356287e-07, 9.666247738921e-08, 2.0238232802228888e-08, 4.396779544969426e-09, 8.538840429485753e-10, 1.3002021063622978e-10, 1.8148229888319905e-11, 2.338274924639578e-12, 2.7975134898623323e-13, 3.1238169931437205e-14, 3.2701694207693813e-15], [2.339563930043397e-06, 3.9186779193558024e-06, 3.28181599110264e-06, 1.8323044014850729e-06, 7.672595208271156e-07, 2.570259272739737e-07, 7.175139299654216e-08, 1.7168681724214368e-08, 3.5946086529829467e-09, 6.689809619972075e-10, 1.3080320078260045e-10, 2.309350716452793e-11, 3.2233933086140747e-12, 4.1531211540549107e-13, 4.968796582075177e-14, 5.548359732601219e-15, 5.808303230568257e-16], [3.7776460161601506e-07, 6.327409069943475e-07, 5.299081143010099e-07, 2.958584432670066e-07, 1.2388782520509005e-07, 4.150145066556847e-08, 1.1585550641580501e-08, 2.7721919151402254e-09, 5.804141055185422e-10, 1.0801898736440422e-10, 1.8092757168136535e-11, 3.2160047527011986e-12, 5.204747232779134e-13, 6.705959764884458e-14, 8.023014191810646e-15, 8.958822954539057e-16, 9.378548402906564e-17], [5.591380429265368e-08, 9.365343150282682e-08, 7.843291422586195e-08, 4.3790686116153235e-08, 1.8336920884400373e-08, 6.1427248091776755e-09, 1.714803897519279e-09, 4.103184775432809e-10, 8.590842171508423e-11, 1.5988137833843767e-11, 2.6779504460875506e-12, 4.077692796217977e-13, 6.64412616418238e-14, 9.925644707951997e-15, 1.1875047144148973e-15, 1.3260159136927297e-16, 1.388140439061896e-17], [7.639320271292633e-09, 1.2795562147962472e-08, 1.0716032635627816e-08, 5.982978271161834e-09, 2.505313548191065e-09, 8.392604071458015e-10, 2.3428804999648006e-10, 5.6060472057598046e-11, 1.1737386782838272e-11, 2.1844069992989316e-12, 3.6587961393643966e-13, 5.5712183480144155e-14, 7.776310378443429e-15, 1.1695932327404345e-15, 1.6224488660445516e-16, 1.8116921890182348e-17, 1.8965708968795527e-18], [9.69182826895841e-10, 1.6233432627357695e-09, 1.3595181814714646e-09, 7.590465628062807e-10, 3.178433133665976e-10, 1.0647501937521063e-10, 2.9723580965284097e-11, 7.11226193645428e-12, 1.4890950108884782e-12, 2.7713064454533877e-13, 4.641829717115338e-14, 7.068075373241216e-15, 9.86562443745274e-16, 1.271118030792302e-16, 1.7752619970329775e-17, 2.298451818830082e-18, 2.4061354648966437e-19], [1.1476077679070154e-10, 1.922198048289709e-10, 1.6098032098490206e-10, 8.987857682843826e-11, 3.7635773692470955e-11, 1.2607689275139597e-11, 3.5195642616807402e-12, 8.421617489660196e-13, 1.7632349173174698e-13, 3.281499337167771e-14, 5.496382821520717e-15, 8.369296253900337e-16, 1.1681869432144633e-16, 1.5051287389563777e-17, 1.800736905160531e-18, 2.3472730849136363e-19, 2.8491009885059655e-20], [1.2739504151193377e-11, 2.1338170323004194e-11, 1.787029963371395e-11, 9.977350577693338e-12, 4.177917826950928e-12, 1.3995697340958655e-12, 3.9070407830932877e-13, 9.348771764150497e-14, 1.9573533028329112e-14, 3.642766770760857e-15, 6.101491618431132e-16, 9.290690369200205e-17, 1.2967951968112135e-17, 1.67083165121699e-18, 1.9989839664764665e-19, 2.2321465494732313e-20, 2.7277673980369087e-21]] |
+| Legacy trial inputs | {"lambda_home": 1.7761474967256365, "lambda_away": 1.6749608202769282, "rho": -0.11082685883326926, "max_goals": 16, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
+| Legacy p home | 0.3413 |
+| Legacy p draw | 0.2452 |
+| Legacy p away | 0.4135 |
+| Legacy p over 1 5 | 0.8690 |
+| Legacy p under 3 5 | 0.5478 |
+| Legacy p btts yes | 0.6860 |
+| Legacy p over 2 5 | 0.6698 |
+| Legacy goal margin distribution | {"-1": 0.1996494785055962, "-10": 2.3015399933640616e-06, "-11": 3.4286843232488407e-07, "-12": 4.697586607048999e-08, "-13": 5.956224634052869e-09, "-14": 7.021543477338915e-10, "-15": 7.641852474646346e-11, "-16": 6.74562249727161e-12, "-2": 0.1260523370877758, "-3": 0.057771069992901006, "-4": 0.021293004109953037, "-5": 0.006526632706542499, "-6": 0.001706943878840905, "-7": 0.0003885886729696979, "-8": 7.822740450178287e-05, "-9": 1.4104440342984334e-05, "0": 0.24524464939060805, "1": 0.15695786849908216, "10": 3.0570515712414884e-06, "11": 4.829321476607025e-07, "12": 7.0162941116743e-08, "13": 9.433621205590997e-09, "14": 1.1792729313585259e-09, "15": 1.3609894711370574e-10, "16": 1.2739504151193377e-11, "2": 0.10472253306244093, "3": 0.050894871595691865, "4": 0.019891838518967864, "5": 0.006465491355910556, "6": 0.001793106068407026, "7": 0.00043286378265228545, "8": 9.240477408421774e-05, "9": 1.7667118503668936e-05} |
 | Legacy market blend applied | 1 |
-| Legacy raw p home | 0.3978 |
+| Legacy raw p home | 0.3983 |
 | Legacy raw p draw | 0.2452 |
-| Legacy raw p away | 0.3570 |
+| Legacy raw p away | 0.3565 |
 | Legacy market weight | 0.5000 |
-| Legacy lambda home | 1.7749 |
-| Legacy lambda away | 1.6762 |
+| Legacy lambda home | 1.7761 |
+| Legacy lambda away | 1.6750 |
 | Legacy model home team | Elversberg |
 | Legacy model away team | Mainz |
 | Legacy home name match score | 100/100 |
 | Legacy away name match score | 100/100 |
-| Market p home draw | 55.2% |
-| Market home draw odds | 1.78 |
+| Market p home draw | 53.0% |
+| Market home draw odds | 1.83 |
 | Best home draw bookmaker | Pinnacle |
-| Market best home draw last update utc | 2026-10-30T07:07:49Z |
-| Market reference home draw last update utc | 2026-10-30T07:08:06Z |
+| Market best home draw last update utc | 2026-10-30T11:50:54Z |
+| Market reference home draw last update utc | 2026-10-30T11:50:59Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 69.7% |
-| Market draw away odds | 1.37 |
+| Market p draw away | 71.0% |
+| Market draw away odds | 1.36 |
 | Best draw away bookmaker | Pinnacle |
-| Market best draw away last update utc | 2026-10-30T07:07:49Z |
-| Market reference draw away last update utc | 2026-10-30T07:08:06Z |
+| Market best draw away last update utc | 2026-10-30T11:50:54Z |
+| Market reference draw away last update utc | 2026-10-30T11:50:59Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market p home away | 75.2% |
-| Market home away odds | 1.28 |
+| Market p home away | 76.0% |
+| Market home away odds | 1.29 |
 | Best home away bookmaker | Pinnacle |
-| Market best home away last update utc | 2026-10-30T07:07:49Z |
-| Market reference home away last update utc | 2026-10-30T07:08:06Z |
+| Market best home away last update utc | 2026-10-30T11:50:54Z |
+| Market reference home away last update utc | 2026-10-30T11:50:59Z |
 | Market home away bookmakers | 1 |
 | Market reference home away method | proportional_overlap_sum_two |
-| Market reference dc home draw odds | 1.73 |
-| Market reference dc draw away odds | 1.37 |
+| Market reference dc home draw odds | 1.82 |
+| Market reference dc draw away odds | 1.36 |
 | Market reference dc home away odds | 1.27 |
-| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:49Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 2.1, "price": 1.71, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:49Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.71, "price": 2.1, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:49Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.69, "price": 2.13, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:49Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.13, "price": 1.69, "quote_source": "The Odds API", "side": "Under"}] |
-| Market p over 1 5 | 86.7% |
-| Market reference over 1 5 odds | 1.12 |
-| Market reference over 1 5 opposite odds | 5.00 |
-| Market reference over 1 5 last update utc | 2026-10-30T07:08:06Z |
+| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 2.11, "price": 1.72, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.72, "price": 2.11, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.7, "price": 2.14, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.14, "price": 1.7, "quote_source": "The Odds API", "side": "Under"}] |
+| Market p over 1 5 | 85.4% |
+| Market reference over 1 5 odds | 1.15 |
+| Market reference over 1 5 opposite odds | 5.50 |
+| Market reference over 1 5 last update utc | 2026-10-30T11:50:54Z |
 | Market over 1 5 bookmakers | 0 |
-| Market p under 3 5 | 56.3% |
-| Market under 3 5 odds | 1.74 |
+| Market p under 3 5 | 57.5% |
+| Market under 3 5 odds | 1.70 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-30T07:08:04Z |
-| Market reference under 3 5 odds | 1.65 |
-| Market reference under 3 5 opposite odds | 2.06 |
-| Market reference under 3 5 last update utc | 2026-10-30T07:08:06Z |
+| Market best under 3 5 last update utc | 2026-10-30T11:50:53Z |
+| Market reference under 3 5 odds | 1.70 |
+| Market reference under 3 5 opposite odds | 2.27 |
+| Market reference under 3 5 last update utc | 2026-10-30T11:50:53Z |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 67.5% |
-| Market btts yes odds | 1.41 |
+| Market p btts yes | 66.6% |
+| Market btts yes odds | 1.47 |
 | Best btts yes bookmaker | Pinnacle |
-| Market best btts yes last update utc | 2026-10-30T07:07:49Z |
+| Market best btts yes last update utc | 2026-10-30T11:50:54Z |
 | Market reference btts yes odds | 1.47 |
-| Market reference btts yes opposite odds | 3.00 |
-| Market reference btts yes last update utc | 2026-10-30T07:08:05Z |
+| Market reference btts yes opposite odds | 2.82 |
+| Market reference btts yes last update utc | 2026-10-30T11:50:54Z |
 | Market btts yes bookmakers | 1 |
-| Count model | {"corners": {"alpha": 0.01169351969556193, "mu": 10.093593341434618, "version": "count-markets-nb2-v1"}} |
+| Count model | {"corners": {"alpha": 0.01168409266038481, "mu": 10.09333149511901, "version": "count-markets-nb2-v1"}} |
 | Elo home rating | 1,430.0448 |
 | Elo away rating | 1,516.7168 |
 | Elo rating diff | -26.6720 |
@@ -316,7 +316,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Augsburg vs SC Freiburg
 
-The model's most likely 1X2 outcome is **SC Freiburg win** at **41.6%**. Expected goals are 1.51 for Augsburg and 1.46 for SC Freiburg (2.97 combined). The most likely exact score is 1-1 at 10.8%. Goal-market probabilities: at least one goal: 95.8%; Over 2.5 goals: 66.1%; Under 3.5 goals: 55.4%; Double Chance 1X: 58.4%; Double Chance X2: 66.9%; Double Chance 12 (either team wins): 74.7%; Under 4.5 goals: 74.2%; BTTS Yes (both teams score): 68.2%; BTTS No (at least one team does not score): 31.8%.
+The model's most likely 1X2 outcome is **SC Freiburg win** at **41.4%**. Expected goals are 1.51 for Augsburg and 1.46 for SC Freiburg (2.97 combined). The most likely exact score is 1-1 at 10.8%. Goal-market probabilities: at least one goal: 95.8%; Over 2.5 goals: 66.1%; Under 3.5 goals: 55.3%; Double Chance 1X: 58.6%; Double Chance X2: 66.7%; Double Chance 12 (either team wins): 74.8%; Under 4.5 goals: 74.2%; BTTS Yes (both teams score): 68.2%; BTTS No (at least one team does not score): 31.8%.
 
 **Fixture source:** The Odds API
 
@@ -324,9 +324,9 @@ The model's most likely 1X2 outcome is **SC Freiburg win** at **41.6%**. Expecte
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Augsburg win | 33.1% | 3.02 |
-| Draw | 25.3% | 3.96 |
-| SC Freiburg win | 41.6% | 2.40 |
+| Augsburg win | 33.3% | 3.00 |
+| Draw | 25.2% | 3.96 |
+| SC Freiburg win | 41.4% | 2.41 |
 
 ### Goals outlook
 
@@ -337,12 +337,12 @@ The model's most likely 1X2 outcome is **SC Freiburg win** at **41.6%**. Expecte
 | Expected total goals | 2.97 |
 | Over 0.5 | 95.8% |
 | Under 0.5 | 4.2% |
-| Over 1.5 | 86.2% |
-| Under 1.5 | 13.8% |
+| Over 1.5 | 86.3% |
+| Under 1.5 | 13.7% |
 | Over 2.5 | 66.1% |
 | Under 2.5 | 33.9% |
-| Over 3.5 | 44.6% |
-| Under 3.5 | 55.4% |
+| Over 3.5 | 44.7% |
+| Under 3.5 | 55.3% |
 | Over 4.5 | 25.8% |
 | Under 4.5 | 74.2% |
 
@@ -350,19 +350,19 @@ The model's most likely 1X2 outcome is **SC Freiburg win** at **41.6%**. Expecte
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 10.81% |
-| 2 | 1-2 | 9.10% |
+| 1 | 1-1 | 10.79% |
+| 2 | 1-2 | 9.05% |
 | 3 | 2-2 | 7.38% |
-| 4 | 2-1 | 7.00% |
-| 5 | 0-1 | 5.40% |
+| 4 | 2-1 | 7.04% |
+| 5 | 0-1 | 5.37% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Augsburg win | 33.1% | 30.9% | 3.12 | +3.4% |
-| Draw | 25.3% | 24.9% | 3.85 | -2.7% |
-| SC Freiburg win | 41.6% | 44.1% | 2.21 | -8.1% |
+| Augsburg win | 33.3% | 31.2% | 3.09 | +3.0% |
+| Draw | 25.2% | 24.9% | 3.85 | -2.8% |
+| SC Freiburg win | 41.4% | 43.9% | 2.22 | -8.0% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -378,9 +378,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-30T07:08:04Z |
-| Market best draw last update utc | 2026-10-30T07:08:04Z |
-| Market best away last update utc | 2026-10-30T07:08:04Z |
+| Market best home last update utc | 2026-10-30T11:50:53Z |
+| Market best draw last update utc | 2026-10-30T11:50:53Z |
+| Market best away last update utc | 2026-10-30T11:50:53Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -390,7 +390,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Freiburg |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.5006 |
+| Dc lambda home | 1.5009 |
 | Dc lambda away | 1.4609 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
@@ -398,7 +398,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Shot features status | APPLIED |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-30T07:07:52.260041+00:00 |
+| Bbs statistics cutoff utc | 2026-10-30T11:50:54.576591+00:00 |
 | Bbs statistics weight | 0 |
 | Shot features version | football-data-lagged-shot-strength-v1 |
 | Shot features weight | 0.2000 |
@@ -411,26 +411,26 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 68.2% |
 | P btts no | 31.8% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 23.96 |
+| Fair Under 0.5 odds | 24.03 |
 | Fair Over 1.5 odds | 1.16 |
-| Fair Under 1.5 odds | 7.27 |
+| Fair Under 1.5 odds | 7.29 |
 | Fair Over 2.5 odds | 1.51 |
 | Fair Under 2.5 odds | 2.95 |
 | Fair Over 3.5 odds | 2.24 |
 | Fair Under 3.5 odds | 1.81 |
-| Fair Over 4.5 odds | 3.88 |
+| Fair Over 4.5 odds | 3.87 |
 | Fair Under 4.5 odds | 1.35 |
-| Goal margin distribution | {"-1": 0.2020772848520441, "-10": 2.358520581100067e-06, "-11": 3.5230313836243026e-07, "-12": 4.8396386737533884e-08, "-13": 6.1523966779363635e-09, "-14": 7.271807024979318e-10, "-15": 7.937202291250006e-11, "-16": 7.0384318651855475e-12, "-2": 0.12575907541474465, "-3": 0.05790298482037262, "-4": 0.021425568142084683, "-5": 0.006590315420888486, "-6": 0.0017291748835846091, "-7": 0.00039484953187802373, "-8": 7.971960538425973e-05, "-9": 1.4414021238418369e-05, "0": 0.2526634749446426, "1": 0.15574345818679763, "10": 2.5991557042760348e-06, "11": 4.040538826090305e-07, "12": 5.776514351130805e-08, "13": 7.642358260926402e-09, "14": 9.400599594111415e-10, "15": 1.0678513582527248e-10, "16": 9.854836239281144e-12, "2": 0.10071422066882552, "3": 0.04825947111345121, "4": 0.018584209779075295, "5": 0.00594905657330389, "6": 0.0016244672583379997, "7": 0.0003860413421652219, "8": 8.111430947844494e-05, "9": 1.5263271819716332e-05} |
-| Raw goal margin distribution | {"-1": 0.1850738953196599, "-10": 7.34867826081072e-07, "-11": 9.564568280011207e-08, "-12": 1.1439240656532276e-08, "-13": 1.264814363821921e-09, "-14": 1.2899323187468174e-10, "-15": 1.0911376166888676e-11, "-2": 0.10702938493789946, "-3": 0.04450749080119088, "-4": 0.014680501454137204, "-5": 0.003993530340305843, "-6": 0.0009220055910634543, "-7": 0.0001846250696534723, "-8": 3.26100061788373e-05, "-9": 5.149253236468836e-06, "0": 0.26096757719674285, "1": 0.19294788904841942, "10": 1.0952435163817442e-06, "11": 1.4835321927604338e-07, "12": 1.846540959644101e-08, "13": 2.1248030622201738e-09, "14": 2.2552202593654825e-10, "15": 1.9853254701676943e-11, "2": 0.1159213208929256, "3": 0.050167625751959405, "4": 0.017221123185961383, "5": 0.00487537153052754, "6": 0.0011714248402028306, "7": 0.00024411906186806316, "8": 4.487371723672513e-05, "9": 7.374211038226032e-06} |
+| Goal margin distribution | {"-1": 0.20119288686283385, "-10": 2.360199666023207e-06, "-11": 3.52792522258853e-07, "-12": 4.8496646270667393e-08, "-13": 6.1693668539659935e-09, "-14": 7.29685928378753e-10, "-15": 7.969748397414451e-11, "-16": 7.070566178681259e-12, "-2": 0.125244303566906, "-3": 0.05769240560691106, "-4": 0.0213590968489787, "-5": 0.006573707758517426, "-6": 0.0017258786986656975, "-7": 0.00039434769429382206, "-8": 7.96701476074611e-05, "-9": 1.4414618903307374e-05, "0": 0.2524206186936619, "1": 0.1565824357870296, "10": 2.630565270579937e-06, "11": 4.0928373793210383e-07, "12": 5.8562769207920664e-08, "13": 7.754526317500053e-09, "14": 9.546747362508754e-10, "15": 1.0853475995340574e-10, "16": 1.002266491120014e-11, "2": 0.10130247998663289, "3": 0.04857194826235394, "4": 0.018717788721844007, "5": 0.005996347999352954, "6": 0.0016386699324248378, "7": 0.0003897313147873182, "8": 8.195706528341024e-05, "9": 1.5434718820341932e-05} |
+| Raw goal margin distribution | {"-1": 0.1850539750992949, "-10": 7.347302176897305e-07, "-11": 9.562799794687114e-08, "-12": 1.1437157306276928e-08, "-13": 1.2645876808462098e-09, "-14": 1.2897017348708738e-10, "-15": 1.0909228265615806e-11, "-2": 0.10701327539753647, "-3": 0.04449996911090908, "-4": 0.014677863428138612, "-5": 0.003992788374162031, "-6": 0.0009218313489326426, "-7": 0.00018458994787437136, "-8": 3.260380592286186e-05, "-9": 5.14827972854421e-06, "0": 0.2609478695443053, "1": 0.19296163165547656, "10": 1.096921893188198e-06, "11": 1.4860644557167678e-07, "12": 1.850015886626093e-08, "13": 2.129173687336241e-09, "14": 2.2602485953399785e-10, "15": 1.9900579966683743e-11, "2": 0.11594371654514087, "3": 0.050185014084799785, "4": 0.017229868527493104, "5": 0.004878655968380195, "6": 0.0011724117299634098, "7": 0.00024436641029656824, "8": 4.4926909174445016e-05, "9": 7.384229033418027e-06} |
 | Unadjusted home-win probability | 38.3% |
 | Unadjusted draw probability | 26.1% |
 | Unadjusted away-win probability | 35.6% |
 | Raw p over 1 5 | 80.5% |
 | Raw p under 3 5 | 65.4% |
 | Raw p btts yes | 60.6% |
-| P home draw | 58.4% |
-| P draw away | 66.9% |
-| P home away | 74.7% |
+| P home draw | 58.6% |
+| P draw away | 66.7% |
+| P home away | 74.8% |
 | Raw p home draw | 64.4% |
 | Raw p draw away | 61.7% |
 | Raw p home away | 73.9% |
@@ -438,111 +438,111 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blend applied | Yes |
 | Totals anchor applied | 1 |
 | Totals anchor status | ANCHORED_ALTERNATE |
-| Totals anchor scale | 1.1537 |
-| Totals anchor target over 2 5 | 0.6606 |
+| Totals anchor scale | 1.1545 |
+| Totals anchor target over 2 5 | 0.6612 |
 | Totals anchor reference over odds | 1.47 |
-| Totals anchor reference under odds | 2.73 |
-| Totals anchor reference last update utc | 2026-10-30T07:08:04Z |
+| Totals anchor reference under odds | 2.74 |
+| Totals anchor reference last update utc | 2026-10-30T11:50:53Z |
 | Totals anchor reference source | live_pinnacle_alternate |
-| Unanchored p over 2 5 | 0.5728 |
+| Unanchored p over 2 5 | 0.5729 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.32, "price": 1.71, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.71, "price": 2.32, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 6.88, "price": 1.06, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 6.27, "price": 1.09, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 5.5, "price": 1.12, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 4.83, "price": 1.19, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.68, "price": 1.26, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 3.83, "price": 1.29, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.58, "price": 1.32, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.19, "price": 1.38, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.09, "price": 1.39, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.09, "price": 1.4, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.73, "price": 1.5, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.56, "price": 1.56, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 2.34, "price": 1.65, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.2, "price": 1.73, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.96, "price": 1.94, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.94, "price": 1.96, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.73, "price": 2.2, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.65, "price": 2.34, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.56, "price": 2.56, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.5, "price": 2.73, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.39, "price": 3.09, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.4, "price": 3.09, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.38, "price": 3.19, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.32, "price": 3.58, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.26, "price": 3.68, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.29, "price": 3.83, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.19, "price": 4.83, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.12, "price": 5.5, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.09, "price": 6.27, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.06, "price": 6.88, "quote_source": "The Odds API", "side": "away"}] |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 6.88, "price": 1.06, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 6.27, "price": 1.09, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 5.5, "price": 1.12, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 4.83, "price": 1.19, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.68, "price": 1.26, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.09, "price": 1.39, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": -0.0, "market_key": "spreads", "opposite_price": 2.32, "price": 1.71, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.71, "price": 2.32, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.39, "price": 3.09, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.26, "price": 3.68, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.19, "price": 4.83, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.12, "price": 5.5, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.09, "price": 6.27, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.06, "price": 6.88, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 3.78, "price": 1.3, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.62, "price": 1.32, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.23, "price": 1.38, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.06, "price": 1.41, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.7, "price": 1.51, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.58, "price": 1.55, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.22, "price": 1.72, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.95, "price": 1.95, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.95, "price": 1.95, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.72, "price": 2.22, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.55, "price": 2.58, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.51, "price": 2.7, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.41, "price": 3.06, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.38, "price": 3.23, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.32, "price": 3.62, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.3, "price": 3.78, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:56Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 2.3, "price": 1.65, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:56Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 1.65, "price": 2.3, "quote_source": "The Odds API", "side": "home"}] |
 | 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 3.12 |
+| Reference home odds | 3.09 |
 | Reference draw odds | 3.85 |
-| Reference away odds | 2.21 |
-| Market reference 1x2 last update utc | 2026-10-30T07:08:04Z |
-| Market reference home last update utc | 2026-10-30T07:08:04Z |
-| Market reference draw last update utc | 2026-10-30T07:08:04Z |
-| Market reference away last update utc | 2026-10-30T07:08:04Z |
+| Reference away odds | 2.22 |
+| Market reference 1x2 last update utc | 2026-10-30T11:50:53Z |
+| Market reference home last update utc | 2026-10-30T11:50:53Z |
+| Market reference draw last update utc | 2026-10-30T11:50:53Z |
+| Market reference away last update utc | 2026-10-30T11:50:53Z |
 | O/U 2.5 market source | The Odds API / Betsson |
 | Reference Over 2.5 odds | 1.47 |
 | Reference Under 2.5 odds | 2.71 |
-| Market reference over 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Market reference under 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Home probability edge | +2.2% |
+| Market reference over 2 5 last update utc | 2026-10-30T11:50:12Z |
+| Market reference under 2 5 last update utc | 2026-10-30T11:50:12Z |
+| Home probability edge | +2.1% |
 | Draw probability edge | +0.4% |
-| Away probability edge | -2.6% |
-| Over 2.5 probability edge | +0.1% |
-| Under 2.5 probability edge | -0.1% |
-| Raw edge prob home | 0.0732 |
-| Raw ev home | 0.1937 |
-| Raw edge prob draw | 0.0119 |
-| Raw ev draw | 0.0047 |
-| Raw edge prob away | -0.0851 |
-| Raw ev away | -0.2123 |
+| Away probability edge | -2.5% |
+| Over 2.5 probability edge | +0.2% |
+| Under 2.5 probability edge | -0.2% |
+| Raw edge prob home | 0.0705 |
+| Raw ev home | 0.1824 |
+| Raw edge prob draw | 0.0122 |
+| Raw ev draw | 0.0046 |
+| Raw edge prob away | -0.0827 |
+| Raw ev away | -0.2088 |
 | Legacy model version | dc-blend50-tuned-half-life-v1 |
 | Legacy status | AVAILABLE |
 | Legacy half life days | 1,000,000,000 |
-| Legacy trial matrix | [[0.07006758646164293, 0.08048253132694631, 0.06798539904791116, 0.032489555033908574, 0.011644829637141831, 0.0033389698846052465, 0.0007978304705249691, 0.0001634037224559021, 2.928338827798455e-05, 4.6647479623598456e-06, 6.687711821869173e-07, 8.716341409548918e-08, 1.0413635055679593e-08, 1.1484401537208392e-09, 1.1760605985149554e-10], [0.06627788167310471, 0.12523262001766733, 0.09285879547537922, 0.04437630709284611, 0.01590525125636092, 0.0045605780940479075, 0.0010897277580777828, 0.00022318722925719804, 3.999711998476579e-05, 6.371410377038503e-06, 9.134503481072171e-07, 1.1905335198113392e-07, 1.4223607147015802e-08, 1.568612832218906e-09, 1.6063385978979213e-10], [0.053815109942428614, 0.07715313878932484, 0.0551901829489514, 0.030305995713750436, 0.010862203458996363, 0.003114564262439974, 0.0007442098482048804, 0.00015242167851147958, 2.7315309141983214e-05, 4.351239393874715e-06, 6.2382438170309e-07, 8.130533185870974e-08, 9.713755052434774e-09, 1.0712557417249294e-09, 1.0970198705555257e-10], [0.024501370184438962, 0.03512689310476089, 0.02518019624830938, 0.012008149501468956, 0.004945430163615359, 0.0014180235260859541, 0.0003388297637091107, 6.939575099518548e-05, 1.243633064591148e-05, 1.981066790804497e-06, 2.840197134696477e-07, 3.701733650586323e-08, 4.422555462123581e-09, 4.877298126546153e-10, 4.9945990962242474e-11], [0.008366383645185339, 0.011994637922922944, 0.008598179631937864, 0.004108985668325793, 0.001469646435181048, 0.00048420675039097727, 0.00011569882713736189, 2.3696286036289216e-05, 4.246583457938702e-06, 6.764668536428656e-07, 9.698306126535905e-08, 1.2640159974713179e-08, 1.5101521020949003e-09, 1.6654312379862192e-10, 1.7054855250277853e-11], [0.0022854681112611437, 0.003276608346156795, 0.002348788460710583, 0.0011224629556632797, 0.00040231052346084153, 0.0001151143906288589, 3.160576793354763e-05, 6.473179857396081e-06, 1.1600509236165897e-06, 1.8479231743283028e-07, 2.6493130515478982e-08, 3.452947386661047e-09, 4.1253241769256924e-10, 4.549504478086067e-11, 4.6589218794808515e-12], [0.0005202730264664093, 0.0007459001210300871, 0.0005346875219838249, 0.00025552191962858567, 9.158356337982651e-05, 2.62601317132822e-05, 6.26157922741628e-06, 1.4735803394826022e-06, 2.6407859375124485e-07, 4.206685614417418e-08, 6.0310013191353916e-09, 7.860426396831713e-10, 9.391051592926544e-11, 1.0356672456174391e-11, 1.0605754568898954e-12], [0.00010151744183851278, 0.00014554256765586984, 0.00010433004721277052, 4.98583057256282e-05, 1.7870096268339905e-05, 5.123966183641713e-06, 1.2243465776967358e-06, 2.502329881151522e-07, 5.152791307290482e-08, 8.208227997038026e-09, 1.1767894826330197e-09, 1.5337531237895036e-10, 1.8324139161362913e-11, 2.0208291420583426e-12, 2.0694308907656867e-13], [1.7332374857105063e-05, 2.4848915561622332e-05, 1.781257934008731e-05, 8.512456863830242e-06, 3.0510146990122288e-06, 8.748299902127367e-07, 2.0903633361260447e-07, 4.281274819995032e-08, 7.656342446917968e-09, 1.4014151852206677e-09, 2.009167692911304e-10, 2.6186223370426277e-11, 3.1285347929050378e-12, 3.4502217134306715e-13, 3.5332009248893805e-14], [2.6304070424564345e-06, 3.7711371366920613e-06, 2.7032841446579173e-06, 1.29187296419722e-06, 4.630300588975553e-07, 1.3276651273581026e-07, 3.172390676967543e-08, 6.497375881868784e-09, 1.1643870646100056e-09, 1.850943205728236e-10, 3.0491660216680515e-11, 3.97409050616456e-12, 4.747947133426986e-13, 5.2361477107817264e-14, 5.362079156413365e-15], [3.5927777580642677e-07, 5.150859699137917e-07, 3.6923179537965407e-07, 1.7645225157540233e-07, 6.324359956734253e-08, 1.813409735732471e-08, 4.333053584534039e-09, 8.87453051082226e-10, 1.5903941405212599e-10, 2.533445841690074e-11, 3.6245146130977984e-12, 5.428066359550463e-13, 6.485049112973547e-14, 7.151864608630167e-15, 7.323869811476532e-16], [4.461131891375534e-08, 6.395793455425334e-08, 4.584730391354631e-08, 2.1909976620211673e-08, 7.852922110808972e-09, 2.251700647513943e-09, 5.380328212513415e-10, 1.101945451369781e-10, 1.9747834399750977e-11, 3.1457654217737315e-12, 4.5099912727933475e-13, 5.865718900675454e-14, 8.05244893038146e-15, 8.880429972810279e-16, 9.094007863671489e-17], [5.077748797184095e-09, 7.2798189598716965e-09, 5.218431061211286e-09, 2.493836993357932e-09, 8.938351694920549e-10, 2.5629303353788933e-10, 6.123996280486986e-11, 1.25425616782877e-11, 2.2477376776100607e-12, 3.5805725935867093e-13, 5.133361514150632e-14, 6.69049934084483e-15, 7.976557800829178e-16, 1.0107881522196206e-16, 1.0350980113502648e-17], [5.335010205090364e-10, 7.648647066523592e-10, 5.482820060252262e-10, 2.6201859014322706e-10, 9.391208469298961e-11, 2.692779820412675e-11, 6.434265253620222e-12, 1.3178023810226348e-12, 2.361618096402461e-13, 3.7619803755249466e-14, 5.393440510408699e-15, 7.029469886409473e-16, 8.398286688468075e-17, 9.242417314796821e-18, 1.0875406945859185e-18], [5.204926650546804e-11, 7.462150104078567e-11, 5.34913245799054e-11, 2.5562979082475498e-11, 9.162222631937233e-12, 2.627121769691755e-12, 6.277378563081482e-13, 1.285670405390081e-13, 2.304034762042331e-14, 3.670252007525863e-15, 5.261932249722757e-16, 6.858070321229905e-17, 8.193511263021017e-18, 9.0359968292582e-19, 9.233923336633744e-20]] |
-| Legacy trial inputs | {"lambda_home": 1.3658637998129437, "lambda_away": 1.4336705596599775, "rho": -0.11084228618346421, "max_goals": 14, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
-| Legacy p home | 0.3272 |
-| Legacy p draw | 0.2641 |
-| Legacy p away | 0.4087 |
-| Legacy p over 1 5 | 0.7832 |
+| Legacy trial matrix | [[0.0700370369637164, 0.08026531783023459, 0.06779247056921384, 0.032394301165753245, 0.011609594021353696, 0.0033285527019336785, 0.0007952663309595304, 0.00016286320051966136, 2.918376953676168e-05, 4.648440608954181e-06, 6.6637039677071e-07, 8.684232041894416e-08, 1.0374294733483537e-08, 1.1439937156975147e-09, 1.171396742573511e-10], [0.06657132916566051, 0.12515806947189026, 0.0925848224268998, 0.044241205489224264, 0.015855333075935344, 0.004545836112175208, 0.0010861027989650695, 0.0002224238233742288, 3.9856551879902704e-05, 6.3484195918573935e-06, 9.100683945803338e-07, 1.1860138371737055e-07, 1.4168273078693226e-08, 1.5623631081154737e-09, 1.5997876827912611e-10], [0.05404488853982907, 0.07747525858530271, 0.05514666300961959, 0.03021031775195352, 0.010826889660674664, 0.00310414582691621, 0.0007416504660121134, 0.0001518831665058605, 2.7216236164323234e-05, 4.335048536131147e-06, 6.214445350721426e-07, 8.098751940192568e-08, 9.674872711323948e-09, 1.0668670850660804e-09, 1.0924226340206097e-10], [0.024603206258395217, 0.03526956606621464, 0.02528008499043932, 0.011996193823927562, 0.004928795426456583, 0.0014131205022186886, 0.0003376263672647528, 6.914276213129718e-05, 1.2389824274215396e-05, 1.9734723515247386e-06, 2.829042391911797e-07, 3.6868475410638045e-08, 4.404355254891518e-09, 4.85676844810765e-10, 4.973106636410403e-11], [0.008400208251151833, 0.012041995533930287, 0.008631313183176937, 0.004124430875052744, 0.0014678789314563946, 0.0004824780306249208, 0.00011527488597694611, 2.360723211693448e-05, 4.230225239975451e-06, 6.737974943831333e-07, 9.659125316354548e-08, 1.2587906962172948e-08, 1.5037674750427784e-09, 1.65823372625698e-10, 1.697954769077218e-11], [0.002294448875374244, 0.0032891735876071217, 0.0023575733165219657, 0.0011265549019604333, 0.00040373907088180375, 0.00011495211706184338, 3.1486401834434416e-05, 6.448124327628651e-06, 1.155451776223587e-06, 1.8404233049881565e-07, 2.6383118794905696e-08, 3.4382848745104627e-09, 4.1074191124525553e-10, 4.529331171993584e-11, 4.63782598462527e-12], [0.0005222584452974989, 0.0007486759468097124, 0.0005366267203320453, 0.0002564244590301307, 9.1898382102846e-05, 2.6347915998538474e-05, 6.2514565772734905e-06, 1.4677107965123162e-06, 2.630019150757226e-07, 4.1891393801294575e-08, 6.005279416687474e-09, 7.826163974818793e-10, 9.349235639450956e-11, 1.0309584499837844e-11, 1.0556538497270563e-12], [0.00010189333293384528, 0.00014606769540009812, 0.00010469660293352163, 5.002876068658837e-05, 1.7929499327393375e-05, 5.140514243714665e-06, 1.2281848202280985e-06, 2.497766775812542e-07, 5.131203130623236e-08, 8.173067901710335e-09, 1.1716381812011559e-09, 1.526895234842641e-10, 1.824048587945563e-11, 2.0114139566535776e-12, 2.0595950174029585e-13], [1.73945868489434e-05, 2.4935755267831262e-05, 1.787314341458314e-05, 8.540594341661855e-06, 3.0608109895757693e-06, 8.775561549113306e-07, 2.0966796263188405e-07, 4.2938062522356533e-08, 7.640796905502566e-09, 1.3952545799136304e-09, 2.0001467722793504e-10, 2.606619197445643e-11, 3.1139006514107835e-12, 3.4337589860666803e-13, 3.516010652740835e-14], [2.639550316947684e-06, 3.783888705843677e-06, 2.7121691233316083e-06, 1.2959967774586434e-06, 4.6446430075126666e-07, 1.3316519943538046e-07, 3.181617028474474e-08, 6.515657860933334e-09, 1.1675532396952517e-09, 1.8468021987051366e-10, 3.0351327643246315e-11, 3.955427391595388e-12, 4.725204181480286e-13, 5.210574817731191e-14, 5.3353880223934376e-15], [3.604858995837336e-07, 5.16769282742119e-07, 3.70403519103212e-07, 1.769955136600863e-07, 6.343233171416322e-08, 1.8186498057449938e-08, 4.34516466413426e-09, 8.898495968413591e-10, 1.5945385743210568e-10, 2.539808249267163e-11, 3.6156562027392367e-12, 5.401964843565683e-13, 6.453256333629883e-14, 7.116131632187432e-15, 7.286590213990971e-16], [4.475627498308289e-08, 6.415970263448394e-08, 4.598760110958029e-08, 2.1974950724259284e-08, 7.875467207720222e-09, 2.2579521389836383e-09, 5.394757042628673e-10, 1.10479642326666e-10, 1.979705918757285e-11, 3.1533093677107803e-12, 4.5203804700754897e-13, 5.850170235233562e-14, 8.012066916841288e-15, 8.835062467457649e-16, 9.046696020094108e-17], [5.093672567918892e-09, 7.301959722935664e-09, 5.23380871899653e-09, 2.5009499500983436e-09, 8.963000448690624e-10, 2.569755609545706e-10, 6.139725875089373e-11, 1.25735916057701e-11, 2.253086016370267e-12, 3.588753851955106e-13, 5.144605534236933e-14, 6.704521755443543e-15, 7.953765039304411e-16, 1.0055107433169796e-16, 1.0295965731123102e-17], [5.351136243640887e-10, 7.671043005218389e-10, 5.498355686405789e-10, 2.627362427218391e-10, 9.416042337474735e-11, 2.699645922697729e-11, 6.450063135808077e-12, 1.3209133656948989e-12, 2.3669700165209726e-13, 3.770150230631903e-14, 5.40464365669629e-15, 7.043407066993877e-16, 8.414144220051889e-17, 9.21409739336131e-18, 1.081638339576418e-18], [5.220069792620306e-11, 7.483154613567918e-11, 5.363683360108279e-11, 2.5630099134341352e-11, 9.185413327925792e-12, 2.6335229547914913e-12, 6.292080448472528e-13, 1.288559970254254e-13, 2.3089953461682604e-14, 3.677807186454964e-15, 5.272266637898483e-16, 6.870891487996759e-17, 8.208054901618242e-18, 9.05118224108757e-19, 9.203721586224407e-20]] |
+| Legacy trial inputs | {"lambda_home": 1.3657095197965063, "lambda_away": 1.4335353569691673, "rho": -0.11082685883326926, "max_goals": 14, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
+| Legacy p home | 0.3286 |
+| Legacy p draw | 0.2639 |
+| Legacy p away | 0.4075 |
+| Legacy p over 1 5 | 0.7831 |
 | Legacy p under 3 5 | 0.6909 |
-| Legacy p btts yes | 0.5771 |
+| Legacy p btts yes | 0.5770 |
 | Legacy p over 2 5 | 0.5361 |
-| Legacy goal margin distribution | {"-1": 0.20911009173872622, "-10": 7.980430738883909e-07, "-11": 1.0250822297519215e-07, "-12": 1.2091949874954052e-08, "-13": 1.3090740135106312e-09, "-14": 1.1760605985149554e-10, "-2": 0.1247643776246127, "-3": 0.05187309992369238, "-4": 0.017023450893723438, "-5": 0.004594259416541741, "-6": 0.001050414607690284, "-7": 0.00020804916480402023, "-8": 3.631719708095434e-05, "-9": 5.664097399833574e-06, "0": 0.2640898194128768, "1": 0.17315004138374404, "10": 4.287253222346666e-07, "11": 5.2464982858734735e-08, "12": 5.896104828416359e-09, "13": 6.081225215498221e-10, "14": 5.204926650546804e-11, "2": 0.09875956886030084, "3": 0.0391190960454308, "4": 0.012230726045797348, "5": 0.0031446924513393016, "6": 0.000684985604307584, "7": 0.00012925420957434505, "8": 2.149557515650254e-05, "9": 3.193930692483593e-06} |
+| Legacy goal margin distribution | {"-1": 0.20850473831698596, "-10": 7.95149309591906e-07, "-11": 1.0212719164906756e-07, "-12": 1.2045900105001072e-08, "-13": 1.3039724839766409e-09, "-14": 1.171396742573511e-10, "-2": 0.12439568061065454, "-3": 0.05171621220934061, "-4": 0.01697064379037846, "-5": 0.004579629473497596, "-6": 0.0010469799879265756, "-7": 0.0002073507143393038, "-8": 3.6192052255542465e-05, "-9": 5.644071339389943e-06, "0": 0.26392730338007897, "1": 0.17388246291962853, "10": 4.301513325932638e-07, "11": 5.263370037379347e-08, "12": 5.914413702041813e-09, "13": 6.099451704997679e-10, "14": 5.220069792620306e-11, "2": 0.09916957793380746, "3": 0.039278039349541195, "4": 0.01227923575390222, "5": 0.0031568452225476194, "6": 0.000687561033914754, "7": 0.00012972639186035608, "8": 2.1571777950326687e-05, "9": 3.204904944695811e-06} |
 | Legacy market blend applied | 1 |
 | Legacy raw p home | 0.3451 |
 | Legacy raw p draw | 0.2791 |
 | Legacy raw p away | 0.3758 |
 | Legacy market weight | 0.5000 |
-| Legacy lambda home | 1.3659 |
-| Legacy lambda away | 1.4337 |
+| Legacy lambda home | 1.3657 |
+| Legacy lambda away | 1.4335 |
 | Legacy model home team | Augsburg |
 | Legacy model away team | Freiburg |
 | Legacy home name match score | 100/100 |
 | Legacy away name match score | 100/100 |
-| Market p home draw | 56.6% |
+| Market p home draw | 56.3% |
 | Market home draw odds | 1.71 |
 | Best home draw bookmaker | Pinnacle |
-| Market best home draw last update utc | 2026-10-30T07:07:54Z |
-| Market reference home draw last update utc | 2026-10-30T07:08:06Z |
+| Market best home draw last update utc | 2026-10-30T11:50:56Z |
+| Market reference home draw last update utc | 2026-10-30T11:50:59Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 68.4% |
+| Market p draw away | 67.8% |
 | Market draw away odds | 1.40 |
 | Best draw away bookmaker | Pinnacle |
-| Market best draw away last update utc | 2026-10-30T07:07:54Z |
-| Market reference draw away last update utc | 2026-10-30T07:08:06Z |
+| Market best draw away last update utc | 2026-10-30T11:50:56Z |
+| Market reference draw away last update utc | 2026-10-30T11:50:59Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market p home away | 74.9% |
+| Market p home away | 75.8% |
 | Market home away odds | 1.29 |
 | Best home away bookmaker | Pinnacle |
-| Market best home away last update utc | 2026-10-30T07:07:54Z |
-| Market reference home away last update utc | 2026-10-30T07:08:06Z |
+| Market best home away last update utc | 2026-10-30T11:50:56Z |
+| Market reference home away last update utc | 2026-10-30T11:50:59Z |
 | Market home away bookmakers | 1 |
 | Market reference home away method | proportional_overlap_sum_two |
-| Market reference dc home draw odds | 1.68 |
-| Market reference dc draw away odds | 1.39 |
+| Market reference dc home draw odds | 1.71 |
+| Market reference dc draw away odds | 1.42 |
 | Market reference dc home away odds | 1.27 |
-| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:54Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 2.02, "price": 1.78, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:54Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.78, "price": 2.02, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:54Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.64, "price": 2.21, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:54Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.21, "price": 1.64, "quote_source": "The Odds API", "side": "Under"}] |
-| Market p over 1 5 | 86.1% |
-| Market reference over 1 5 odds | 1.13 |
-| Market reference over 1 5 opposite odds | 5.00 |
-| Market reference over 1 5 last update utc | 2026-10-30T07:08:06Z |
+| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:56Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 2.02, "price": 1.77, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:56Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.77, "price": 2.02, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:56Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.65, "price": 2.21, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:56Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.21, "price": 1.65, "quote_source": "The Odds API", "side": "Under"}] |
+| Market p over 1 5 | 86.3% |
+| Market reference over 1 5 odds | 1.14 |
+| Market reference over 1 5 opposite odds | 5.80 |
+| Market reference over 1 5 last update utc | 2026-10-30T11:50:54Z |
 | Market over 1 5 bookmakers | 0 |
-| Market p under 3 5 | 56.4% |
-| Market under 3 5 odds | 1.74 |
+| Market p under 3 5 | 55.4% |
+| Market under 3 5 odds | 1.75 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-30T07:08:04Z |
-| Market reference under 3 5 odds | 1.65 |
-| Market reference under 3 5 opposite odds | 2.07 |
-| Market reference under 3 5 last update utc | 2026-10-30T07:08:06Z |
+| Market best under 3 5 last update utc | 2026-10-30T11:50:53Z |
+| Market reference under 3 5 odds | 1.75 |
+| Market reference under 3 5 opposite odds | 2.15 |
+| Market reference under 3 5 last update utc | 2026-10-30T11:50:53Z |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 67.5% |
+| Market p btts yes | 69.3% |
 | Market btts yes odds | 1.41 |
 | Best btts yes bookmaker | Pinnacle |
-| Market best btts yes last update utc | 2026-10-30T07:07:54Z |
-| Market reference btts yes odds | 1.47 |
-| Market reference btts yes opposite odds | 3.00 |
-| Market reference btts yes last update utc | 2026-10-30T07:08:05Z |
+| Market best btts yes last update utc | 2026-10-30T11:50:56Z |
+| Market reference btts yes odds | 1.41 |
+| Market reference btts yes opposite odds | 3.03 |
+| Market reference btts yes last update utc | 2026-10-30T11:50:56Z |
 | Market btts yes bookmakers | 1 |
-| Count model | {"corners": {"alpha": 0.01169351969556193, "mu": 9.859744839060301, "version": "count-markets-nb2-v1"}} |
+| Count model | {"corners": {"alpha": 0.01168409266038481, "mu": 9.85969265539543, "version": "count-markets-nb2-v1"}} |
 | Elo home rating | 1,473.6758 |
 | Elo away rating | 1,485.3747 |
 | Elo rating diff | 48.3011 |
@@ -555,7 +555,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Bayer Leverkusen vs VfB Stuttgart
 
-The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **53.4%**. Expected goals are 2.13 for Bayer Leverkusen and 1.42 for VfB Stuttgart (3.54 combined). The most likely exact score is 2-1 at 8.4%. Goal-market probabilities: at least one goal: 97.3%; Over 2.5 goals: 74.6%; Under 3.5 goals: 45.1%; Double Chance 1X: 75.2%; Double Chance X2: 46.6%; Double Chance 12 (either team wins): 78.2%; Under 4.5 goals: 64.8%; BTTS Yes (both teams score): 72.3%; BTTS No (at least one team does not score): 27.7%.
+The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **53.6%**. Expected goals are 2.13 for Bayer Leverkusen and 1.42 for VfB Stuttgart (3.54 combined). The most likely exact score is 2-1 at 8.4%. Goal-market probabilities: at least one goal: 97.3%; Over 2.5 goals: 74.6%; Under 3.5 goals: 45.1%; Double Chance 1X: 75.3%; Double Chance X2: 46.4%; Double Chance 12 (either team wins): 78.3%; Under 4.5 goals: 64.8%; BTTS Yes (both teams score): 72.3%; BTTS No (at least one team does not score): 27.7%.
 
 **Fixture source:** The Odds API
 
@@ -563,9 +563,9 @@ The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **53.4%**. Ex
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Bayer Leverkusen win | 53.4% | 1.87 |
-| Draw | 21.8% | 4.59 |
-| VfB Stuttgart win | 24.8% | 4.03 |
+| Bayer Leverkusen win | 53.6% | 1.87 |
+| Draw | 21.7% | 4.61 |
+| VfB Stuttgart win | 24.7% | 4.04 |
 
 ### Goals outlook
 
@@ -589,19 +589,19 @@ The model's most likely 1X2 outcome is **Bayer Leverkusen win** at **53.4%**. Ex
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 2-1 | 8.41% |
-| 2 | 1-1 | 8.30% |
-| 3 | 2-2 | 7.11% |
-| 4 | 3-1 | 6.59% |
-| 5 | 1-2 | 5.77% |
+| 1 | 2-1 | 8.44% |
+| 2 | 1-1 | 8.27% |
+| 3 | 2-2 | 7.08% |
+| 4 | 3-1 | 6.62% |
+| 5 | 1-2 | 5.75% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Bayer Leverkusen win | 53.4% | 53.5% | 1.83 | -2.3% |
-| Draw | 21.8% | 21.6% | 4.39 | -4.4% |
-| VfB Stuttgart win | 24.8% | 24.9% | 3.83 | -4.9% |
+| Bayer Leverkusen win | 53.6% | 53.8% | 1.82 | -2.5% |
+| Draw | 21.7% | 21.5% | 4.41 | -4.4% |
+| VfB Stuttgart win | 24.7% | 24.7% | 3.85 | -4.8% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -617,9 +617,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-30T07:08:04Z |
-| Market best draw last update utc | 2026-10-30T07:08:04Z |
-| Market best away last update utc | 2026-10-30T07:08:04Z |
+| Market best home last update utc | 2026-10-30T11:50:53Z |
+| Market best draw last update utc | 2026-10-30T11:50:53Z |
+| Market best away last update utc | 2026-10-30T11:50:53Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -629,15 +629,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Stuttgart |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.1729 |
-| Dc lambda away | 1.3809 |
+| Dc lambda home | 2.1730 |
+| Dc lambda away | 1.3808 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Shot features applied | 1 |
 | Shot features status | APPLIED |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-30T07:07:52.260041+00:00 |
+| Bbs statistics cutoff utc | 2026-10-30T11:50:54.576591+00:00 |
 | Bbs statistics weight | 0 |
 | Shot features version | football-data-lagged-shot-strength-v1 |
 | Shot features weight | 0.2000 |
@@ -650,26 +650,26 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 72.3% |
 | P btts no | 27.7% |
 | Fair Over 0.5 odds | 1.03 |
-| Fair Under 0.5 odds | 37.43 |
+| Fair Under 0.5 odds | 37.58 |
 | Fair Over 1.5 odds | 1.10 |
-| Fair Under 1.5 odds | 10.74 |
+| Fair Under 1.5 odds | 10.75 |
 | Fair Over 2.5 odds | 1.34 |
 | Fair Under 2.5 odds | 3.93 |
 | Fair Over 3.5 odds | 1.82 |
 | Fair Under 3.5 odds | 2.22 |
 | Fair Over 4.5 odds | 2.84 |
 | Fair Under 4.5 odds | 1.54 |
-| Goal margin distribution | {"-1": 0.1321889738761326, "-10": 6.766188127831924e-07, "-11": 9.369821067626784e-08, "-12": 1.1941916315429028e-08, "-13": 1.40940962635101e-09, "-14": 1.548562059053506e-10, "-15": 1.591258544032877e-11, "-16": 1.5339504667022284e-12, "-17": 1.373019075060519e-13, "-18": 9.910545706397854e-15, "-2": 0.07249197014617308, "-3": 0.02993563625535692, "-4": 0.010050199694984026, "-5": 0.0028252110796721367, "-6": 0.0006806962687760796, "-7": 0.0001431963478946419, "-8": 2.6696678422958073e-05, "-9": 4.464842054120543e-06, "0": 0.2176555446970281, "1": 0.19529310606192524, "10": 3.844667291969226e-05, "11": 7.99869551693982e-06, "12": 1.5315637000771979e-06, "13": 2.7156353156209363e-07, "14": 4.4826620902572156e-08, "15": 6.9202424434676815e-09, "16": 1.0022246278300462e-09, "17": 1.3477318096964176e-10, "18": 1.461496064507724e-11, "2": 0.15871545186153044, "3": 0.09846706054482214, "4": 0.04966498915000511, "5": 0.020974891739822296, "6": 0.007592335143307424, "7": 0.002399535147889938, "8": 0.0006720871277326667, "9": 0.00016886810152633174} |
-| Raw goal margin distribution | {"-1": 0.13624261840138271, "-10": 3.377695102791891e-07, "-11": 4.2514247588872024e-08, "-12": 4.921571188501389e-09, "-13": 5.272943568172742e-10, "-14": 5.256804926294846e-11, "-15": 4.896250099491044e-12, "-16": 4.23206126114034e-13, "-17": 2.993762421441812e-14, "-2": 0.0715593178245505, "-3": 0.02766431523035382, "-4": 0.00860584164046099, "-5": 0.002227145409204388, "-6": 0.0004919071118943561, "-7": 9.458613131724529e-05, "-8": 1.6084904187594948e-05, "-9": 2.4500403827910364e-06, "0": 0.22114517661404615, "1": 0.20791273774162206, "10": 1.9785734552570395e-05, "11": 3.7414453400589383e-06, "12": 6.507015664866118e-07, "13": 1.0473802437519867e-07, "14": 1.5687230895867914e-08, "15": 2.195134798407201e-09, "16": 2.8505109929194855e-10, "17": 3.0294325024006825e-11, "2": 0.16151487982052531, "3": 0.0938079066983153, "4": 0.043841564512983995, "5": 0.017045684267212105, "6": 0.00565616593635893, "7": 0.0016339534381284123, "8": 0.000417449423420836, "9": 9.552824591710435e-05} |
+| Goal margin distribution | {"-1": 0.13160406013713918, "-10": 6.733409518016251e-07, "-11": 9.323967769951616e-08, "-12": 1.1882885715691885e-08, "-13": 1.4023728658248755e-09, "-14": 1.540753638734217e-10, "-15": 1.5831556713376676e-11, "-16": 1.52606319568253e-12, "-17": 1.3658926206212985e-13, "-18": 9.858684393009842e-15, "-2": 0.07216788487976039, "-3": 0.029800545473934868, "-4": 0.010004398572272848, "-5": 0.0028122056991922995, "-6": 0.0006775307125633825, "-7": 0.00014252356498113312, "-8": 2.656995745207998e-05, "-9": 4.443431166796772e-06, "0": 0.21678544001866704, "1": 0.19601359146831365, "10": 3.8591366263440716e-05, "11": 8.028842136498479e-06, "12": 1.5373441692328588e-06, "13": 2.725898711217195e-07, "14": 4.499626291757719e-08, "15": 6.946465677348106e-09, "16": 1.0060274275722808e-09, "17": 1.3528538777478902e-10, "18": 1.467068273755078e-11, "2": 0.15930260108435726, "3": 0.0988325800720569, "4": 0.04984985902615025, "5": 0.021053148918269426, "6": 0.007620719813790077, "7": 0.0024085225361075817, "8": 0.0006746086814539174, "9": 0.00016950267375098255} |
+| Raw goal margin distribution | {"-1": 0.13623825044320545, "-10": 3.376406050741335e-07, "-11": 4.249634637625766e-08, "-12": 4.919304468518568e-09, "-13": 5.27030638987047e-10, "-14": 5.2539675892446126e-11, "-15": 4.89341346992229e-12, "-16": 4.2294438605684395e-13, "-17": 2.99180251971475e-14, "-2": 0.07155389809106699, "-3": 0.027661225248122187, "-4": 0.008604560330240398, "-5": 0.0022267292800591068, "-6": 0.0004917962873716762, "-7": 9.456115264945111e-05, "-8": 1.608002869876482e-05, "-9": 2.4492017134333505e-06, "0": 0.2211395341251234, "1": 0.20791714180252494, "10": 1.9789050858220507e-05, "11": 3.7421304032254586e-06, "12": 6.508307391057089e-07, "13": 1.0476042385866175e-07, "14": 1.5690825842238537e-08, "15": 2.195671452083698e-09, "16": 2.8512528760950545e-10, "17": 3.030277664227359e-11, "2": 0.16152039092558484, "3": 0.0938128870982631, "4": 0.043844669615025735, "5": 0.017047180799687117, "6": 0.005656755694729291, "7": 0.0016341501709840856, "8": 0.0004175063212806922, "9": 9.554276814702703e-05} |
 | Unadjusted home-win probability | 53.2% |
 | Unadjusted draw probability | 22.1% |
 | Unadjusted away-win probability | 24.7% |
 | Raw p over 1 5 | 87.5% |
 | Raw p under 3 5 | 52.8% |
 | Raw p btts yes | 67.3% |
-| P home draw | 75.2% |
-| P draw away | 46.6% |
-| P home away | 78.2% |
+| P home draw | 75.3% |
+| P draw away | 46.4% |
+| P home away | 78.3% |
 | Raw p home draw | 75.3% |
 | Raw p draw away | 46.8% |
 | Raw p home away | 77.9% |
@@ -678,52 +678,52 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Totals anchor applied | 1 |
 | Totals anchor status | ANCHORED_ALTERNATE |
 | Totals anchor scale | 1.1054 |
-| Totals anchor target over 2 5 | 0.7455 |
+| Totals anchor target over 2 5 | 0.7458 |
 | Totals anchor reference over odds | 1.31 |
-| Totals anchor reference under odds | 3.52 |
-| Totals anchor reference last update utc | 2026-10-30T07:08:04Z |
+| Totals anchor reference under odds | 3.53 |
+| Totals anchor reference last update utc | 2026-10-30T11:50:53Z |
 | Totals anchor reference source | live_pinnacle_alternate |
-| Unanchored p over 2 5 | 0.6881 |
+| Unanchored p over 2 5 | 0.6884 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.89, "price": 1.49, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.49, "price": 2.89, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": 3.0, "market_key": "alternate_spreads", "opposite_price": 8.1, "price": 1.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 6.62, "price": 1.07, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 6.02, "price": 1.1, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 4.86, "price": 1.17, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 4.36, "price": 1.23, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 2.86, "price": 1.4, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.27, "price": 1.65, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.65, "price": 2.27, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.4, "price": 2.86, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.23, "price": 4.36, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.17, "price": 4.86, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.1, "price": 6.02, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.07, "price": 6.62, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:03Z", "line": -3.0, "market_key": "alternate_spreads", "opposite_price": 1.05, "price": 8.1, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.75, "market_key": "alternate_spreads", "opposite_price": 3.47, "price": 1.34, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 3.4, "price": 1.35, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 2.99, "price": 1.42, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.89, "price": 1.45, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 2.62, "price": 1.54, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.4, "price": 1.62, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.33, "price": 1.66, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 2.07, "price": 1.83, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.04, "price": 1.88, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.88, "price": 2.04, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.83, "price": 2.07, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.66, "price": 2.33, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.62, "price": 2.4, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.54, "price": 2.62, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.45, "price": 2.89, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.42, "price": 2.99, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.35, "price": 3.4, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.75, "market_key": "alternate_spreads", "opposite_price": 1.34, "price": 3.47, "quote_source": "The Odds API", "side": "home"}] |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": 3.0, "market_key": "alternate_spreads", "opposite_price": 8.1, "price": 1.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 6.62, "price": 1.07, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 6.02, "price": 1.1, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 4.86, "price": 1.17, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 4.36, "price": 1.23, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 2.86, "price": 1.4, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": 1.5, "market_key": "spreads", "opposite_price": 2.89, "price": 1.49, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.27, "price": 1.65, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.65, "price": 2.27, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.4, "price": 2.86, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": -1.5, "market_key": "spreads", "opposite_price": 1.49, "price": 2.89, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.23, "price": 4.36, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.17, "price": 4.86, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.1, "price": 6.02, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.07, "price": 6.62, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:40Z", "line": -3.0, "market_key": "alternate_spreads", "opposite_price": 1.05, "price": 8.1, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.75, "market_key": "alternate_spreads", "opposite_price": 3.45, "price": 1.34, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 3.42, "price": 1.34, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 3.01, "price": 1.42, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 2.87, "price": 1.45, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 2.6, "price": 1.54, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.41, "price": 1.62, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.32, "price": 1.67, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 2.08, "price": 1.81, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.02, "price": 1.88, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.88, "price": 2.02, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.81, "price": 2.08, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.67, "price": 2.32, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.62, "price": 2.41, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.54, "price": 2.6, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.45, "price": 2.87, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.42, "price": 3.01, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.34, "price": 3.42, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.75, "market_key": "alternate_spreads", "opposite_price": 1.34, "price": 3.45, "quote_source": "The Odds API", "side": "home"}] |
 | 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 1.83 |
-| Reference draw odds | 4.39 |
-| Reference away odds | 3.83 |
-| Market reference 1x2 last update utc | 2026-10-30T07:08:04Z |
-| Market reference home last update utc | 2026-10-30T07:08:04Z |
-| Market reference draw last update utc | 2026-10-30T07:08:04Z |
-| Market reference away last update utc | 2026-10-30T07:08:04Z |
+| Reference home odds | 1.82 |
+| Reference draw odds | 4.41 |
+| Reference away odds | 3.85 |
+| Market reference 1x2 last update utc | 2026-10-30T11:50:53Z |
+| Market reference home last update utc | 2026-10-30T11:50:53Z |
+| Market reference draw last update utc | 2026-10-30T11:50:53Z |
+| Market reference away last update utc | 2026-10-30T11:50:53Z |
 | O/U 2.5 market source | The Odds API / Betsson |
 | Reference Over 2.5 odds | 1.31 |
 | Reference Under 2.5 odds | 3.51 |
-| Market reference over 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Market reference under 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Home probability edge | -0.1% |
-| Draw probability edge | +0.1% |
-| Away probability edge | -0.1% |
-| Over 2.5 probability edge | +0.0% |
-| Under 2.5 probability edge | -0.0% |
-| Raw edge prob home | -0.0029 |
-| Raw ev home | -0.0265 |
-| Raw edge prob draw | 0.0050 |
-| Raw ev draw | -0.0292 |
-| Raw edge prob away | -0.0021 |
-| Raw ev away | -0.0544 |
+| Market reference over 2 5 last update utc | 2026-10-30T11:50:12Z |
+| Market reference under 2 5 last update utc | 2026-10-30T11:50:12Z |
+| Home probability edge | -0.2% |
+| Draw probability edge | +0.2% |
+| Away probability edge | -0.0% |
+| Over 2.5 probability edge | +0.1% |
+| Under 2.5 probability edge | -0.1% |
+| Raw edge prob home | -0.0057 |
+| Raw ev home | -0.0318 |
+| Raw edge prob draw | 0.0062 |
+| Raw ev draw | -0.0248 |
+| Raw edge prob away | -0.0005 |
+| Raw ev away | -0.0495 |
 | Legacy model version | dc-blend50-tuned-half-life-v1 |
 | Legacy status | AVAILABLE |
 | Legacy half life days | 1,000,000,000 |
-| Legacy trial matrix | [[0.03902716751823496, 0.03168292639899261, 0.02620576092132138, 0.010779924410575946, 0.0033257983992515086, 0.0008208543638107346, 0.00016883211330016466, 2.976440548295286e-05, 4.5914242224537324e-06, 6.295715689327532e-07, 7.769361032315226e-08, 8.716312926725032e-09, 8.963791852021171e-10, 8.509197555133989e-11, 7.500682228483111e-12, 6.170916974596384e-13, 4.759594087666254e-14, 3.455104527955027e-15, 2.368802655887941e-16], [0.05498219408953774, 0.09334116933532523, 0.06005170602802285, 0.02470269242140261, 0.007621219943963759, 0.0018810255155489836, 0.00038688655011510784, 6.820650365877756e-05, 1.052145970821259e-05, 1.442692196370861e-06, 1.7803848021774765e-07, 1.997383182634767e-08, 2.0540941162139683e-09, 1.9499217429688406e-10, 1.7188158189598986e-11, 1.414093997096241e-12, 1.0906828686386315e-13, 7.917530883067521e-15, 5.428220197721688e-16], [0.07297982339398351, 0.09006229378871887, 0.05940590458747982, 0.028303677726522144, 0.008732187953326165, 0.0021552282269173264, 0.00044328415884320905, 7.814916955118211e-05, 1.2055204336180946e-05, 1.6529977497218397e-06, 2.0399168159649532e-07, 2.2885476989013833e-08, 2.3535255547647883e-09, 2.234167663323671e-10, 1.9693727380477563e-11, 1.6202307054653033e-12, 1.2496749702085192e-13, 9.071693023630553e-15, 6.219508079686055e-16], [0.055745540247053194, 0.06879396235363942, 0.04244832174322799, 0.01866619828932013, 0.006670070059899696, 0.0016462681913684877, 0.00033860201037034057, 5.969413837809252e-05, 9.208351668393144e-06, 1.2626401147608673e-06, 1.558187724723786e-07, 1.7481040912867636e-08, 1.797737339364742e-09, 1.7065659740242944e-10, 1.504302725393292e-11, 1.2376110519400562e-12, 9.545625504108455e-14, 6.929400552638215e-15, 4.750762907458534e-16], [0.03193586712994171, 0.039411131927888664, 0.02431807023616397, 0.010003409545862025, 0.003299169763680842, 0.0009431248129768136, 0.00019398051871405024, 3.419796567098284e-05, 5.275340306404618e-06, 7.23349469019972e-07, 8.926647032166044e-08, 1.0014652246839192e-08, 1.0298994421804397e-09, 9.77668598301914e-11, 8.617947148500172e-12, 7.090106569627215e-13, 5.468559931796613e-14, 3.969759990816428e-15, 2.721647907726062e-16], [0.014636501572269974, 0.018062484168048787, 0.011145195206316454, 0.004584654581331146, 0.0014144474754157923, 0.00037319294561017474, 8.890305547664406e-05, 1.5673242134781152e-05, 2.4177369718750855e-06, 3.3151771321985694e-07, 4.091164419922731e-08, 4.58980721457136e-09, 4.720123848029514e-10, 4.4807450876412334e-11, 3.949684424585484e-12, 3.24946103801315e-13, 2.5062913029454288e-14, 1.8193775077628568e-15, 1.247356263054145e-16], [0.0055900360505688595, 0.006898502156657275, 0.004256621207350016, 0.0017509911273881058, 0.0005402119037919882, 0.00013333198389594393, 2.931566134422236e-05, 5.985992494867299e-06, 9.233925721144059e-07, 1.266146803695343e-07, 1.5625152283317e-08, 1.7529590433840112e-09, 1.8027301362522686e-10, 1.7113055636722896e-11, 1.5084805759617711e-12, 1.2410482284801386e-13, 9.572136256409595e-15, 6.948645349280122e-16, 4.76395704529967e-17], [0.0018299749465812412, 0.0022583192668918133, 0.0013934633150969103, 0.0005732109535286807, 0.00017684577359455378, 4.364805305374037e-05, 8.977467092079462e-06, 1.6918910268309517e-06, 3.022852191904232e-07, 4.144905164288891e-08, 5.1151078376457e-09, 5.738551778121925e-10, 5.901484274780173e-11, 5.602193401143974e-12, 4.938217994378706e-13, 4.062741537036371e-14, 3.13357004785487e-15, 2.274734328514192e-16, 1.5595466577716307e-17], [0.0005241839659830905, 0.0006468803040101199, 0.0003991481568226028, 0.00016419240685614143, 5.065627764102591e-05, 1.2502690050425912e-05, 2.5715348254359178e-06, 4.5335098733100084e-07, 7.475860419790527e-08, 1.1872800945716599e-08, 1.4651880987646515e-09, 1.6437694055183204e-10, 1.690440318934596e-11, 1.604710469234601e-12, 1.4145191976635493e-13, 1.1637448783801795e-14, 8.975899798185938e-16, 6.515822875641299e-17, 4.467216088032464e-18], [0.00013346573986082173, 0.00016470621762377415, 0.00010162959480170457, 4.180604994180782e-05, 1.28979099184671e-05, 3.183387677074537e-06, 6.547544761522625e-07, 1.1543051460432867e-07, 1.7806183330896984e-08, 2.610026617314861e-09, 3.730606548984048e-10, 4.185303521381707e-11, 4.304135236834913e-12, 4.08585313435e-13, 3.601595308422533e-14, 2.9630832166137466e-15, 2.285409675274447e-16, 1.6590341890152097e-17, 1.137425673044436e-18], [3.058428793194718e-05, 3.774318704740627e-05, 2.3288888916839352e-05, 9.580048558161433e-06, 2.9556153592530384e-06, 7.2948792263984e-07, 1.500399986112867e-07, 2.645143314286562e-08, 4.0803687787524375e-09, 5.59496149647993e-10, 7.380974542137253e-11, 9.590815449269142e-12, 9.863123788821903e-13, 9.362920314900344e-14, 8.253221241796716e-15, 6.790041426192045e-16, 5.237121348440502e-17, 3.8017531224640726e-18, 2.6064632258327975e-19], [6.371391089712595e-06, 7.86274985987192e-06, 4.85159633810084e-06, 1.9957383398397032e-06, 6.157207716087434e-07, 1.5196864680002758e-07, 3.125668684455063e-08, 5.51042501991815e-09, 8.50032060171936e-10, 1.1655555919848983e-10, 1.4383785171105525e-11, 1.7250318106307168e-12, 2.0547092404002e-13, 1.9505056714343824e-14, 1.7193305398646391e-15, 1.4145174652384029e-16, 1.0910094872714935e-17, 7.919901886763488e-19, 5.42984574618388e-20], [1.2166946352550743e-06, 1.5014877344925765e-06, 9.264713394413099e-07, 3.811105137426698e-07, 1.1757937145642491e-07, 2.9020261774090432e-08, 5.9688445841939504e-09, 1.0522826907510053e-09, 1.6232396235665165e-10, 2.225770190358143e-11, 2.746758754238553e-12, 3.081541549759875e-13, 3.387687854454073e-14, 3.724727854644786e-15, 3.2832708189286177e-16, 2.7011931730403393e-17, 2.0834153350261446e-18, 1.5124016092702843e-19, 1.036895098200999e-20], [2.1447013056396558e-07, 2.646713983326678e-07, 1.633116670166736e-07, 6.717940498238052e-08, 2.072604120803226e-08, 5.115481856616229e-09, 1.0521447536585217e-09, 1.8548878209548087e-10, 2.8613294076859965e-11, 3.923426712828538e-12, 4.841787672761097e-13, 5.4319185715545685e-14, 5.586144949345889e-15, 5.668725841132808e-16, 5.787512337184377e-17, 4.7614679617536165e-18, 3.6724938696581765e-19, 2.6659521724392895e-20, 1.827763685714638e-21], [3.510486892853975e-08, 4.3321905587363485e-08, 2.6731156688561725e-08, 1.0996049661565295e-08, 3.3924768829218596e-09, 8.373115622703311e-10, 1.7221700557512922e-10, 3.036114803517714e-11, 4.683477067601964e-12, 6.421937644295839e-13, 7.925127904065144e-14, 8.891065109323081e-15, 9.143505706223498e-16, 8.67979730957355e-17, 8.178961299526923e-18, 7.7936591107240205e-19, 6.011206110436204e-20, 4.363679983648098e-21, 2.991717515657519e-22], [5.362961412386121e-09, 6.618275899249438e-09, 4.083711639004456e-09, 1.6798635580636864e-09, 5.182677836672009e-10, 1.2791586283205967e-10, 2.6309545759483967e-11, 4.638264443597531e-12, 7.154935356823004e-13, 9.810776917930236e-14, 1.2107196646779737e-14, 1.3582856324966119e-15, 1.3968509147898613e-16, 1.3260103073830826e-17, 1.1688507503710321e-18, 1.0279793867481728e-19, 9.183303455082867e-21, 6.66638220924413e-22, 4.5704388259906095e-23], [7.68092040771016e-10, 9.478802197046527e-10, 5.848758112409574e-10, 2.4059278620763256e-10, 7.42271534349334e-11, 1.8320317558642957e-11, 3.768095859777842e-12, 6.642997642851525e-13, 1.024741458537126e-13, 1.4051153989357976e-14, 1.7340123609622404e-15, 1.9453587359490002e-16, 2.0005925593942316e-17, 1.8991334913001322e-18, 1.674047022109323e-19, 1.377262077011907e-20, 1.1355681731089191e-21, 9.547700835273624e-23, 6.545856692100072e-24], [1.0353636626005046e-10, 1.277712414510693e-10, 7.883940074226193e-11, 3.243114302722695e-11, 1.0005584404657757e-11, 2.4695205887670057e-12, 5.079273476773934e-13, 8.954549721990575e-14, 1.3813189219674284e-14, 1.8940509061364487e-15, 2.3373935592904277e-16, 2.6222817566267495e-17, 2.6967351954155167e-18, 2.559971595781684e-19, 2.2565621880897645e-20, 1.8565055133033678e-21, 1.4319124209925792e-22, 1.1111792944594039e-23, 8.823606807313889e-25], [1.3181019090771316e-11, 1.6266315244133958e-11, 1.0036895091321106e-11, 4.12874751953078e-12, 1.273792038643383e-12, 3.143899984265766e-13, 6.466327058112941e-14, 1.1399867997913375e-14, 1.758531010752845e-15, 2.411280408467473e-16, 2.9756915604194616e-17, 3.338377339674436e-18, 3.4331626053252914e-19, 3.25905145164926e-20, 2.872786669566607e-21, 2.3634820785106004e-22, 1.8229406380759112e-23, 1.323316723401006e-24, 9.698574385734337e-26]] |
-| Legacy trial inputs | {"lambda_home": 2.2915459775550318, "lambda_away": 1.2340711391217702, "rho": -0.11084228618346421, "max_goals": 18, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
-| Legacy p home | 0.5684 |
-| Legacy p draw | 0.2141 |
-| Legacy p away | 0.2175 |
-| Legacy p over 1 5 | 0.8743 |
-| Legacy p under 3 5 | 0.5349 |
-| Legacy p btts yes | 0.6496 |
-| Legacy p over 2 5 | 0.6818 |
-| Legacy goal margin distribution | {"-1": 0.1277467086152665, "-10": 1.0020057699899636e-07, "-11": 1.1009601620555294e-08, "-12": 1.1123592505478149e-09, "-13": 1.039999151970624e-10, "-14": 9.046945287943616e-12, "-15": 7.35706753637878e-13, "-16": 5.613542256769866e-14, "-17": 3.997926547727196e-15, "-18": 2.368802655887941e-16, "-2": 0.06149752959793852, "-3": 0.020931722193034887, "-4": 0.005715425286370265, "-5": 0.0012958645098739394, "-6": 0.0002504505037070955, "-7": 4.21051859967386e-05, "-8": 6.256665398249444e-06, "-9": 8.323951073278228e-07, "0": 0.21414388743622223, "1": 0.1990534478251149, "10": 3.9444212788388435e-05, "11": 8.047723648311854e-06, "12": 1.5098538151716618e-06, "13": 2.621266605509442e-07, "14": 4.234172557409602e-08, "15": 6.393809780352567e-09, "16": 9.059001773134063e-10, "17": 1.1980268150418443e-10, "18": 1.3181019090771316e-11, "2": 0.17126306168703015, "3": 0.10824288905098367, "4": 0.05488217884093894, "5": 0.02310631918695874, "6": 0.00829242326734785, "7": 0.0025887107182202937, "8": 0.0007142976826765248, "9": 0.00017646322410074167} |
+| Legacy trial matrix | [[0.03891529704545585, 0.03157161472815633, 0.02611198591034282, 0.010741270735588018, 0.00331384878417559, 0.0008178990389282559, 0.00016822303446529176, 2.965681020462179e-05, 4.574793190599713e-06, 6.272865443003622e-07, 7.741105510997682e-08, 8.684549940734308e-09, 8.931061625344786e-10, 8.4780651368981e-11, 7.473184913903174e-12, 6.148249519815408e-13, 4.7420760768425644e-14, 3.4423625699085337e-15, 2.3600495484078606e-16], [0.05512285280063982, 0.09307267602717312, 0.059834947688865485, 0.02461334709595104, 0.007593599710522887, 0.0018741947233381854, 0.00038547877981605426, 6.795782187172833e-05, 1.0483021559018533e-05, 1.4374110683505888e-06, 1.773854523723024e-07, 1.9900424011769657e-08, 2.0465299230529628e-09, 1.942726936629356e-10, 1.712461204321876e-11, 1.4088556483577602e-12, 1.0866346013234739e-13, 7.888085762753138e-15, 5.407993162870889e-16], [0.07316254133962091, 0.09028711951639545, 0.0592335641831774, 0.02820042759273197, 0.008700269734546512, 0.002147334630440136, 0.0004416573811095185, 7.786180512477766e-05, 1.2010787857324026e-05, 1.6468953448708523e-06, 2.03237113023609e-07, 2.2800656254544667e-08, 2.344785481081862e-09, 2.2258545371863925e-10, 1.9620305198469264e-11, 1.6141783376816806e-12, 1.2449976947434646e-13, 9.037673361961119e-15, 6.196138989833609e-16], [0.05588336391918141, 0.06896354151679743, 0.042552646485429294, 0.018611328912027304, 0.006645481839043262, 0.0016401874567492823, 0.00033734886328736305, 5.9472778166550215e-05, 9.17413770075584e-06, 1.2579395167125354e-06, 1.5523754835497343e-07, 1.7415706832190823e-08, 1.7910053143650067e-09, 1.700162909258953e-10, 1.498647580490328e-11, 1.232949455055002e-12, 9.509601222150695e-14, 6.903199099176916e-15, 4.73276465965493e-16], [0.03201382468824021, 0.03950704777170951, 0.024377075198538784, 0.010027608215948808, 0.0032893450253183667, 0.0009396118990288451, 0.00019325657245110507, 3.407008741814532e-05, 5.2555754596756334e-06, 7.20634055148959e-07, 8.893071765070526e-08, 9.97691166469263e-09, 1.0260107146146141e-09, 9.739699527963179e-11, 8.585281476730312e-12, 7.063180334075051e-13, 5.447751978948275e-14, 3.954626032689707e-15, 2.711252284740972e-16], [0.014671772052256105, 0.018105877851484452, 0.011171888835420715, 0.004595601537974771, 0.0014178144228983972, 0.0003720672541927152, 8.856849833517323e-05, 1.561414674027018e-05, 2.4086033424215215e-06, 3.302629002689049e-07, 4.0756492875216634e-08, 4.57236756792872e-09, 4.702154608077069e-10, 4.463654459388408e-11, 3.934590573219256e-12, 3.2370194075434525e-13, 2.49667685791122e-14, 1.8123848764891426e-15, 1.2425530496670167e-16], [0.005603331718136233, 0.006914859315465065, 0.0042666829091976555, 0.0017551172257811872, 0.0005414809130050496, 0.00013364421468464868, 2.9226107447127555e-05, 5.963236299594477e-06, 9.198754899497038e-07, 1.2613149780471487e-07, 1.5565410124578475e-08, 1.746243884453801e-09, 1.7958111648120342e-10, 1.704724999952904e-11, 1.50266893993961e-12, 1.2362578599169047e-13, 9.535118578753699e-15, 6.921722630185233e-16, 4.745464208323406e-17], [0.001834270183099772, 0.0022636033168684324, 0.0013967135330845272, 0.000574543745942287, 0.00017725566562979916, 4.374889984585342e-05, 8.998143213655447e-06, 1.686657588844965e-06, 3.011244502833506e-07, 4.128958576984927e-08, 5.095391298505923e-09, 5.716390267073699e-10, 5.878650488299179e-11, 5.580476750425982e-12, 4.91903918998778e-13, 4.0469332267598946e-14, 3.1213543265195194e-15, 2.265850046882236e-16, 1.5534442614063276e-17], [0.0005253978997895169, 0.0006483736363360867, 0.00040006666610591205, 0.00016456903690445043, 5.0772102880889335e-05, 1.2531185595717142e-05, 2.5773768717488425e-06, 4.543775883855424e-07, 7.452448419329876e-08, 1.1826753684671301e-08, 1.4594948505986674e-09, 1.637370256775522e-10, 1.6838471500035317e-11, 1.598439963486317e-12, 1.4089815574684773e-13, 1.1591804945195513e-14, 8.940629481753263e-16, 6.490171768796349e-17, 4.4495972289299736e-18], [0.00013377064956422304, 0.0001650812889197739, 0.00010186028116104165, 4.1900637542872365e-05, 1.2926997205049812e-05, 3.190543467380575e-06, 6.562214627119205e-07, 1.1568829104590939e-07, 1.7845816945831364e-08, 2.601752545100624e-09, 3.715994568658111e-10, 4.1688800604979226e-11, 4.287214073620712e-12, 4.0697603148135756e-13, 3.587383547632703e-14, 2.9513693864436645e-15, 2.2763581920793967e-16, 1.652451396633072e-17, 1.1329042461943347e-18], [3.065320212129262e-05, 3.782795502739865e-05, 2.334102283821291e-05, 9.60142389826743e-06, 2.9621883383136e-06, 7.311048731615286e-07, 1.5037146936467164e-07, 2.6509675927040006e-08, 4.089323298064192e-09, 5.607198781008451e-10, 7.35729239478916e-11, 9.552882005893074e-12, 9.824041369616962e-13, 9.325751644444488e-14, 8.220397623126675e-15, 6.762987443954894e-16, 5.2162165609257866e-17, 3.7865501006098855e-18, 2.59602109698908e-19], [6.385548041638031e-06, 7.880162835470542e-06, 4.8623051544376084e-06, 2.0001288390008096e-06, 6.170707995802619e-07, 1.5230073754042606e-07, 3.132476137143355e-08, 5.522385835272429e-09, 8.518708836438333e-10, 1.168068414303523e-10, 1.4414689620470639e-11, 1.7194306893348305e-12, 2.046503588124424e-13, 1.9427019374468525e-14, 1.7124391682192359e-15, 1.4088375190783384e-16, 1.0866206184130602e-17, 7.887984258166018e-19, 5.4079235723352833e-20], [1.219359997959182e-06, 1.5047659615622482e-06, 9.284873223929379e-07, 3.819370054283553e-07, 1.1783349588954687e-07, 2.9082770312826178e-08, 5.981657441597595e-09, 1.0545338218299968e-09, 1.6267002803332957e-10, 2.2304990738366852e-11, 2.7525743744448467e-12, 3.0880433791388635e-13, 3.376557968224226e-14, 3.709709824488033e-15, 3.270008787107008e-16, 2.6902626104861444e-17, 2.0749694566712046e-18, 1.5062595107298063e-19, 1.0326765428946028e-20], [2.149332492580726e-07, 2.652409772608832e-07, 1.6366191890077247e-07, 6.732299052454441e-08, 2.0770187791436673e-08, 5.12634031887537e-09, 1.054370384482908e-09, 1.8587979034723254e-10, 2.8673400587703774e-11, 3.9316396651457855e-12, 4.851887507496715e-13, 5.443209539750807e-14, 5.5977155029254905e-15, 5.649884029760669e-16, 5.763954983693713e-17, 4.742052266738765e-18, 3.657491866061107e-19, 2.655042410845672e-20, 1.820270676161384e-21], [3.5179574430225336e-08, 4.3413779551115614e-08, 2.6787650013377263e-08, 1.1019207889886826e-08, 3.3995967113550738e-09, 8.390626923710722e-10, 1.7257591157245594e-10, 3.0424198871825066e-11, 4.693168849513896e-12, 6.43517979234325e-13, 7.941411498046778e-14, 8.909268147388972e-15, 9.1621584773021e-16, 8.697440419033224e-17, 8.151461661571951e-18, 7.761636752136409e-19, 5.986463600871088e-20, 4.345686971660674e-21, 2.979359775940804e-22], [5.3742063203634565e-09, 6.632104345583377e-09, 4.092214313027272e-09, 1.6833488649694652e-09, 5.19339259463982e-10, 1.281793795847493e-10, 2.636355242314502e-11, 4.647751558031274e-12, 7.169517568671995e-13, 9.83069990834587e-14, 1.2131694188074531e-14, 1.361024002222529e-15, 1.3996567836415746e-16, 1.3286641475342472e-17, 1.171181478635094e-18, 1.0244835757520239e-19, 9.14521879286449e-21, 6.638687013039666e-22, 4.551417803605067e-23], [7.696785184020284e-10, 9.498310898959023e-10, 5.860752754318133e-10, 2.4108442867817003e-10, 7.437828917316502e-11, 1.835748556854976e-11, 3.7757128698192886e-12, 6.656377369680702e-13, 1.0267978806477193e-13, 1.407924833782505e-14, 1.7374666791267168e-15, 1.949219801202924e-16, 2.0045485701258656e-17, 1.902874939231757e-18, 1.6773327474237953e-19, 1.3799551834631112e-20, 1.1316628602090794e-21, 9.507738407753561e-23, 6.5184109110839766e-24], [1.037469784812439e-10, 1.2803021428847363e-10, 7.899861764993905e-11, 3.249640003746682e-11, 1.0025643930326626e-11, 2.4744534435028584e-12, 5.089382027573878e-13, 8.972304971808898e-14, 1.3840476910972214e-14, 1.897778669163095e-15, 2.3419767326425975e-16, 2.6274042984916092e-17, 2.701983391731208e-18, 2.5649348481603027e-19, 2.2609206349444555e-20, 1.8600776467175344e-21, 1.4346570810342878e-22, 1.1073151668545164e-23, 8.786336377532874e-25], [1.3207419279103825e-11, 1.6298775590915953e-11, 1.0056850628772616e-11, 4.136926073793101e-12, 1.2763059210901708e-12, 3.15008153426587e-13, 6.478993730102301e-14, 1.1422115168789363e-14, 1.7619499310913723e-15, 2.4159507052157705e-16, 2.981433204390471e-17, 3.344794296074065e-18, 3.439736565072178e-19, 3.2652681031440347e-20, 2.878245440939519e-21, 2.3679557449789828e-22, 1.8263777768121357e-23, 1.3258021161054406e-24, 9.664474986904095e-26]] |
+| Legacy trial inputs | {"lambda_home": 2.2914744169329992, "lambda_away": 1.2340621014964772, "rho": -0.11082685883326926, "max_goals": 18, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
+| Legacy p home | 0.5698 |
+| Legacy p draw | 0.2135 |
+| Legacy p away | 0.2167 |
+| Legacy p over 1 5 | 0.8744 |
+| Legacy p under 3 5 | 0.5347 |
+| Legacy p btts yes | 0.6493 |
+| Legacy p over 2 5 | 0.6820 |
+| Legacy goal margin distribution | {"-1": 0.1272869288150254, "-10": 9.98351996433249e-08, "-11": 1.0969383785819504e-08, "-12": 1.1082884482102463e-09, "-13": 1.036186166434406e-10, "-14": 9.013714656062932e-12, "-15": 7.329993619418148e-13, "-16": 5.592846043016214e-14, "-17": 3.983161886195622e-15, "-18": 2.3600495484078606e-16, "-2": 0.061275623584042566, "-3": 0.02085616402560731, "-4": 0.005694775659452749, "-5": 0.001291176958783258, "-6": 0.000249543272101771, "-7": 4.195242933496884e-05, "-8": 6.2339292701144285e-06, "-9": 8.293651166406021e-07, "0": 0.21352526841394417, "1": 0.19955115659806447, "10": 3.953270691296945e-05, "11": 8.06553334709629e-06, "12": 1.5131488916309656e-06, "13": 2.626906682029774e-07, "14": 4.243152675719908e-08, "15": 6.40717295398309e-09, "16": 9.077655833192747e-10, "17": 1.2004575407215986e-10, "18": 1.3207419279103825e-11, "2": 0.17168668667988365, "3": 0.1085078882091271, "4": 0.05501504790175054, "5": 0.0231616044484128, "6": 0.008312023000059777, "7": 0.002594752763590913, "8": 0.0007159434775509836, "9": 0.00017686448304524366} |
 | Legacy market blend applied | 1 |
 | Legacy raw p home | 0.6019 |
 | Legacy raw p draw | 0.2121 |
@@ -735,53 +735,53 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Legacy model away team | Stuttgart |
 | Legacy home name match score | 100/100 |
 | Legacy away name match score | 100/100 |
-| Market p home draw | 74.7% |
-| Market home draw odds | 1.30 |
+| Market p home draw | 74.8% |
+| Market home draw odds | 1.29 |
 | Best home draw bookmaker | Pinnacle |
-| Market best home draw last update utc | 2026-10-30T07:07:51Z |
-| Market reference home draw last update utc | 2026-10-30T07:08:06Z |
+| Market best home draw last update utc | 2026-10-30T11:50:17Z |
+| Market reference home draw last update utc | 2026-10-30T11:50:59Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 47.5% |
-| Market draw away odds | 2.05 |
+| Market p draw away | 46.8% |
+| Market draw away odds | 2.06 |
 | Best draw away bookmaker | Pinnacle |
-| Market best draw away last update utc | 2026-10-30T07:07:51Z |
-| Market reference draw away last update utc | 2026-10-30T07:08:06Z |
+| Market best draw away last update utc | 2026-10-30T11:50:17Z |
+| Market reference draw away last update utc | 2026-10-30T11:50:59Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market p home away | 77.8% |
+| Market p home away | 78.4% |
 | Market home away odds | 1.24 |
 | Best home away bookmaker | Pinnacle |
-| Market best home away last update utc | 2026-10-30T07:07:51Z |
-| Market reference home away last update utc | 2026-10-30T07:08:06Z |
+| Market best home away last update utc | 2026-10-30T11:50:17Z |
+| Market reference home away last update utc | 2026-10-30T11:50:59Z |
 | Market home away bookmakers | 1 |
 | Market reference home away method | proportional_overlap_sum_two |
-| Market reference dc home draw odds | 1.27 |
-| Market reference dc draw away odds | 2.00 |
-| Market reference dc home away odds | 1.22 |
-| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 2.3, "price": 1.58, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.58, "price": 2.3, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.84, "price": 1.97, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.97, "price": 1.84, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 11.5, "market_key": "alternate_totals_corners", "opposite_price": 1.51, "price": 2.47, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 11.5, "market_key": "alternate_totals_corners", "opposite_price": 2.47, "price": 1.51, "quote_source": "The Odds API", "side": "Under"}] |
+| Market reference dc home draw odds | 1.29 |
+| Market reference dc draw away odds | 2.06 |
+| Market reference dc home away odds | 1.23 |
+| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:17Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 2.3, "price": 1.58, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:17Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.58, "price": 2.3, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:17Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.84, "price": 1.97, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:17Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.97, "price": 1.84, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:17Z", "line": 11.5, "market_key": "alternate_totals_corners", "opposite_price": 1.51, "price": 2.47, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:17Z", "line": 11.5, "market_key": "alternate_totals_corners", "opposite_price": 2.47, "price": 1.51, "quote_source": "The Odds API", "side": "Under"}] |
 | Market p over 1 5 | 91.3% |
-| Market reference over 1 5 odds | 1.07 |
-| Market reference over 1 5 opposite odds | 6.20 |
-| Market reference over 1 5 last update utc | 2026-10-30T07:08:06Z |
+| Market reference over 1 5 odds | 1.08 |
+| Market reference over 1 5 opposite odds | 8.00 |
+| Market reference over 1 5 last update utc | 2026-10-30T11:50:54Z |
 | Market over 1 5 bookmakers | 0 |
-| Market p under 3 5 | 46.5% |
-| Market under 3 5 odds | 2.13 |
+| Market p under 3 5 | 45.2% |
+| Market under 3 5 odds | 2.14 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-30T07:08:04Z |
-| Market reference under 3 5 odds | 1.96 |
-| Market reference under 3 5 opposite odds | 1.73 |
-| Market reference under 3 5 last update utc | 2026-10-30T07:08:06Z |
+| Market best under 3 5 last update utc | 2026-10-30T11:50:53Z |
+| Market reference under 3 5 odds | 2.14 |
+| Market reference under 3 5 opposite odds | 1.78 |
+| Market reference under 3 5 last update utc | 2026-10-30T11:50:53Z |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 71.7% |
+| Market p btts yes | 72.3% |
 | Market btts yes odds | 1.34 |
 | Best btts yes bookmaker | Pinnacle |
-| Market best btts yes last update utc | 2026-10-30T07:07:51Z |
-| Market reference btts yes odds | 1.39 |
-| Market reference btts yes opposite odds | 3.50 |
-| Market reference btts yes last update utc | 2026-10-30T07:08:05Z |
+| Market best btts yes last update utc | 2026-10-30T11:50:17Z |
+| Market reference btts yes odds | 1.33 |
+| Market reference btts yes opposite odds | 3.10 |
+| Market reference btts yes last update utc | 2026-10-30T11:50:54Z |
 | Market btts yes bookmakers | 1 |
-| Count model | {"corners": {"alpha": 0.01169351969556193, "mu": 10.79641364538342, "version": "count-markets-nb2-v1"}} |
+| Count model | {"corners": {"alpha": 0.01168409266038481, "mu": 10.79589043379434, "version": "count-markets-nb2-v1"}} |
 | Elo home rating | 1,573.7454 |
 | Elo away rating | 1,532.5206 |
 | Elo rating diff | 101.2247 |
@@ -794,7 +794,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Bayern Munich vs Borussia Dortmund
 
-The model's most likely 1X2 outcome is **Bayern Munich win** at **70.9%**. Expected goals are 2.52 for Bayern Munich and 1.24 for Borussia Dortmund (3.76 combined). The most likely exact score is 2-1 at 10.0%. Goal-market probabilities: at least one goal: 97.4%; Over 2.5 goals: 73.3%; Under 3.5 goals: 47.4%; Double Chance 1X: 87.7%; Double Chance X2: 29.1%; Double Chance 12 (either team wins): 83.2%; Under 4.5 goals: 66.8%; BTTS Yes (both teams score): 64.9%; BTTS No (at least one team does not score): 35.1%.
+The model's most likely 1X2 outcome is **Bayern Munich win** at **70.9%**. Expected goals are 2.52 for Bayern Munich and 1.24 for Borussia Dortmund (3.76 combined). The most likely exact score is 2-1 at 10.1%. Goal-market probabilities: at least one goal: 97.4%; Over 2.5 goals: 73.3%; Under 3.5 goals: 47.4%; Double Chance 1X: 87.7%; Double Chance X2: 29.1%; Double Chance 12 (either team wins): 83.2%; Under 4.5 goals: 66.8%; BTTS Yes (both teams score): 64.9%; BTTS No (at least one team does not score): 35.1%.
 
 **Fixture source:** The Odds API
 
@@ -803,8 +803,8 @@ The model's most likely 1X2 outcome is **Bayern Munich win** at **70.9%**. Expec
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
 | Bayern Munich win | 70.9% | 1.41 |
-| Draw | 16.8% | 5.94 |
-| Borussia Dortmund win | 12.3% | 8.13 |
+| Draw | 16.8% | 5.95 |
+| Borussia Dortmund win | 12.3% | 8.15 |
 
 ### Goals outlook
 
@@ -831,16 +831,16 @@ The model's most likely 1X2 outcome is **Bayern Munich win** at **70.9%**. Expec
 | 1 | 2-1 | 10.05% |
 | 2 | 3-1 | 8.44% |
 | 3 | 2-0 | 8.13% |
-| 4 | 1-1 | 7.02% |
-| 5 | 3-0 | 6.82% |
+| 4 | 1-1 | 7.01% |
+| 5 | 3-0 | 6.83% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Bayern Munich win | 70.9% | 73.5% | 1.34 | -5.0% |
-| Draw | 16.8% | 16.0% | 5.71 | -3.9% |
-| Borussia Dortmund win | 12.3% | 10.5% | 8.53 | +4.9% |
+| Bayern Munich win | 70.9% | 73.6% | 1.34 | -5.0% |
+| Draw | 16.8% | 16.0% | 5.75 | -3.3% |
+| Borussia Dortmund win | 12.3% | 10.4% | 8.62 | +5.7% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -856,9 +856,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-30T07:08:04Z |
-| Market best draw last update utc | 2026-10-30T07:08:04Z |
-| Market best away last update utc | 2026-10-30T07:08:04Z |
+| Market best home last update utc | 2026-10-30T11:50:53Z |
+| Market best draw last update utc | 2026-10-30T11:50:53Z |
+| Market best away last update utc | 2026-10-30T11:50:53Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -868,15 +868,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Dortmund |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.5378 |
-| Dc lambda away | 1.2790 |
+| Dc lambda home | 2.5385 |
+| Dc lambda away | 1.2791 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Shot features applied | 1 |
 | Shot features status | APPLIED |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-30T07:07:52.260041+00:00 |
+| Bbs statistics cutoff utc | 2026-10-30T11:50:54.576591+00:00 |
 | Bbs statistics weight | 0 |
 | Shot features version | football-data-lagged-shot-strength-v1 |
 | Shot features weight | 0.2000 |
@@ -889,7 +889,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 64.9% |
 | P btts no | 35.1% |
 | Fair Over 0.5 odds | 1.03 |
-| Fair Under 0.5 odds | 38.76 |
+| Fair Under 0.5 odds | 38.83 |
 | Fair Over 1.5 odds | 1.11 |
 | Fair Under 1.5 odds | 9.81 |
 | Fair Over 2.5 odds | 1.36 |
@@ -898,8 +898,8 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 3.5 odds | 2.11 |
 | Fair Over 4.5 odds | 3.01 |
 | Fair Under 4.5 odds | 1.50 |
-| Goal margin distribution | {"-1": 0.07383929530923447, "-10": 5.306357070739465e-08, "-11": 5.82953816568828e-09, "-12": 5.890799770956091e-10, "-13": 5.509760658132482e-11, "-14": 4.795746046479613e-12, "-15": 3.9028159772520827e-13, "-16": 2.9800077367140196e-14, "-17": 2.1203288697604463e-15, "-18": 1.2416272828502214e-16, "-2": 0.03381918536260396, "-3": 0.011357119169196345, "-4": 0.0030741601419459674, "-5": 0.0006929810867825784, "-6": 0.00013341109398590375, "-7": 2.237042429069915e-05, "-8": 3.3185317842065373e-06, "-9": 4.4104798124514825e-07, "0": 0.16832859265731756, "1": 0.22712512859468054, "10": 9.599382858737655e-05, "11": 2.148391719232505e-05, "12": 4.422685509016901e-06, "13": 8.427077891642683e-07, "14": 1.494283253149545e-07, "15": 2.4773496308175556e-08, "16": 3.853533138120119e-09, "17": 5.585697475269632e-10, "18": 6.663431047361339e-11, "2": 0.2062292042421955, "3": 0.1410872225660294, "4": 0.07779979738900017, "5": 0.035727764053541874, "6": 0.014012282311390048, "7": 0.004786561373025421, "8": 0.001446531413543824, "9": 0.000391651869328988} |
-| Raw goal margin distribution | {"-1": 0.09909364903197888, "-10": 7.121225669937499e-08, "-11": 7.823344014728103e-09, "-12": 7.905558179775598e-10, "-13": 7.394196905870304e-11, "-14": 6.435976583824714e-12, "-15": 5.237648532079783e-13, "-16": 3.99922344244786e-14, "-17": 2.8455190962004924e-15, "-18": 1.6662859210670468e-16, "-2": 0.04538594891560673, "-3": 0.015241456141388113, "-4": 0.004125577646676085, "-5": 0.0009299929571625274, "-6": 0.0001790400635467353, "-7": 3.0021507709077013e-05, "-8": 4.453528741687536e-06, "-9": 5.91894243799801e-07, "0": 0.18769302333003243, "1": 0.2074442468407548, "10": 8.767575651307848e-05, "11": 1.9622289478608554e-05, "12": 4.039450280593121e-06, "13": 7.696853435446489e-07, "14": 1.3648003896985815e-07, "15": 2.2626819476381183e-08, "16": 3.519616188923717e-09, "17": 5.101684754157813e-10, "18": 6.086030390155383e-11, "2": 0.18835899935553152, "3": 0.12886171074577166, "4": 0.07105827731869237, "5": 0.03263187631967189, "6": 0.012798087858405372, "7": 0.004371795516982544, "8": 0.0013211863498802615, "9": 0.0003577143910030063} |
+| Goal margin distribution | {"-1": 0.0736527137292316, "-10": 5.295881971169751e-08, "-11": 5.818534669621386e-09, "-12": 5.880196745222647e-10, "-13": 5.5003309860580364e-11, "-14": 4.787966081406043e-12, "-15": 3.8968347584254207e-13, "-16": 2.975707716302193e-14, "-17": 2.117446159200522e-15, "-18": 1.2399949520547215e-16, "-2": 0.03373342447099601, "-3": 0.011328765723552264, "-4": 0.0030666574492401954, "-5": 0.0006913357748977263, "-6": 0.00013310409093068965, "-7": 2.2320683690469994e-05, "-8": 3.3114216709592057e-06, "-9": 4.4013977252850366e-07, "0": 0.16812604434114087, "1": 0.22723650800999545, "10": 9.622019863032812e-05, "11": 2.1539568058933563e-05, "12": 4.435173695791028e-06, "13": 8.452847069446955e-07, "14": 1.499203766220675e-07, "15": 2.4860908874299835e-08, "16": 3.8680376656993395e-09, "17": 5.608002666779297e-10, "18": 6.691310211114557e-11, "2": 0.20635979473222354, "3": 0.14120259032264318, "4": 0.07787906830246964, "5": 0.03577172826497317, "6": 0.014032585838150277, "7": 0.004794564979319557, "8": 0.001449277715296796, "9": 0.000392485082089406} |
+| Raw goal margin distribution | {"-1": 0.09906992719027721, "-10": 7.123466532691499e-08, "-11": 7.826484278538047e-09, "-12": 7.90942565341632e-10, "-13": 7.398469964249617e-11, "-14": 6.440271200572942e-12, "-15": 5.241614548094067e-13, "-16": 4.002610791469069e-14, "-17": 2.848167110210243e-15, "-18": 1.6679115187525917e-16, "-2": 0.045374674428240606, "-3": 0.015238270778644673, "-4": 0.004124946859808216, "-5": 0.0009299125777624782, "-6": 0.00017903770179750886, "-7": 3.0023449185884337e-05, "-8": 4.454178091037966e-06, "-9": 5.920299879003379e-07, "0": 0.18764673805933016, "1": 0.20742321688210819, "10": 8.783053085844889e-05, "11": 1.96614819342259e-05, "12": 4.04846036171009e-06, "13": 7.7158232465008e-07, "14": 1.368484627204295e-07, "15": 2.2693227151217238e-08, "16": 3.5307742697983445e-09, "17": 5.119027587660501e-10, "18": 6.107878972882424e-11, "2": 0.18836679384549648, "3": 0.1288908009250026, "4": 0.07108860726890379, "5": 0.03265270627124312, "6": 0.012809051332523613, "7": 0.004376515465186676, "8": 0.0013229117473024645, "9": 0.0003582633750983442} |
 | Unadjusted home-win probability | 64.7% |
 | Unadjusted draw probability | 18.8% |
 | Unadjusted away-win probability | 16.5% |
@@ -916,47 +916,47 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blend applied | Yes |
 | Totals anchor applied | 0 |
 | Totals anchor status | NOT_ANCHORED_PINNACLE_NO_2_5_LINE |
-| Unanchored p over 2 5 | 0.7333 |
+| Unanchored p over 2 5 | 0.7335 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 2.08, "price": 1.87, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 1.87, "price": 2.08, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:07:50Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 6.93, "price": 1.12, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:07:50Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 1.12, "price": 6.93, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 5.68, "price": 1.1, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 3.0, "market_key": "alternate_spreads", "opposite_price": 3.96, "price": 1.23, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 3.47, "price": 1.32, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 3.16, "price": 1.38, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 2.74, "price": 1.44, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 2.73, "price": 1.45, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 2.81, "price": 1.45, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 2.83, "price": 1.45, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 2.25, "market_key": "alternate_spreads", "opposite_price": 2.54, "price": 1.54, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 2.38, "price": 1.63, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 2.26, "price": 1.66, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 2.27, "price": 1.67, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 2.11, "price": 1.81, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.75, "market_key": "alternate_spreads", "opposite_price": 1.99, "price": 1.88, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.75, "market_key": "alternate_spreads", "opposite_price": 1.88, "price": 1.99, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 1.81, "price": 2.11, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.66, "price": 2.26, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.67, "price": 2.27, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 1.63, "price": 2.38, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -2.25, "market_key": "alternate_spreads", "opposite_price": 1.54, "price": 2.54, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.45, "price": 2.73, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 1.44, "price": 2.74, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.45, "price": 2.81, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 1.45, "price": 2.83, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 1.38, "price": 3.16, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.32, "price": 3.47, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -3.0, "market_key": "alternate_spreads", "opposite_price": 1.23, "price": 3.96, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.1, "price": 5.68, "quote_source": "The Odds API", "side": "away"}] |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 5.75, "price": 1.1, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 3.0, "market_key": "alternate_spreads", "opposite_price": 3.98, "price": 1.23, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 2.73, "price": 1.44, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 2.72, "price": 1.46, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 2.27, "price": 1.67, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": -1.5, "market_key": "spreads", "opposite_price": 2.08, "price": 1.87, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": 1.5, "market_key": "spreads", "opposite_price": 1.87, "price": 2.08, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.67, "price": 2.27, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.46, "price": 2.72, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 1.44, "price": 2.73, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -3.0, "market_key": "alternate_spreads", "opposite_price": 1.23, "price": 3.98, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.1, "price": 5.75, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 3.48, "price": 1.32, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 3.16, "price": 1.38, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 2.84, "price": 1.45, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 2.8, "price": 1.46, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 2.25, "market_key": "alternate_spreads", "opposite_price": 2.53, "price": 1.54, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 2.38, "price": 1.62, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 2.26, "price": 1.67, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 2.11, "price": 1.81, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.75, "market_key": "alternate_spreads", "opposite_price": 1.98, "price": 1.88, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.75, "market_key": "alternate_spreads", "opposite_price": 1.88, "price": 1.98, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 1.81, "price": 2.11, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.67, "price": 2.26, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 1.62, "price": 2.38, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -2.25, "market_key": "alternate_spreads", "opposite_price": 1.54, "price": 2.53, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.46, "price": 2.8, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 1.45, "price": 2.84, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 1.38, "price": 3.16, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.32, "price": 3.48, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:54Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 7.09, "price": 1.12, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:54Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 1.12, "price": 7.09, "quote_source": "The Odds API", "side": "away"}] |
 | 1X2 market source | The Odds API / Pinnacle |
 | Reference home odds | 1.34 |
-| Reference draw odds | 5.71 |
-| Reference away odds | 8.53 |
-| Market reference 1x2 last update utc | 2026-10-30T07:08:04Z |
-| Market reference home last update utc | 2026-10-30T07:08:04Z |
-| Market reference draw last update utc | 2026-10-30T07:08:04Z |
-| Market reference away last update utc | 2026-10-30T07:08:04Z |
+| Reference draw odds | 5.75 |
+| Reference away odds | 8.62 |
+| Market reference 1x2 last update utc | 2026-10-30T11:50:53Z |
+| Market reference home last update utc | 2026-10-30T11:50:53Z |
+| Market reference draw last update utc | 2026-10-30T11:50:53Z |
+| Market reference away last update utc | 2026-10-30T11:50:53Z |
 | O/U 2.5 market source | The Odds API / Betsson |
 | Reference Over 2.5 odds | 1.25 |
 | Reference Under 2.5 odds | 4.02 |
-| Market reference over 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Market reference under 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Home probability edge | -2.6% |
+| Market reference over 2 5 last update utc | 2026-10-30T11:50:12Z |
+| Market reference under 2 5 last update utc | 2026-10-30T11:50:12Z |
+| Home probability edge | -2.7% |
 | Draw probability edge | +0.8% |
 | Away probability edge | +1.8% |
-| Over 2.5 probability edge | -5.0% |
-| Under 2.5 probability edge | +5.0% |
-| Raw edge prob home | -0.0877 |
-| Raw ev home | -0.1326 |
-| Raw edge prob draw | 0.0277 |
-| Raw ev draw | 0.0717 |
-| Raw edge prob away | 0.0601 |
-| Raw ev away | 0.4074 |
+| Over 2.5 probability edge | -4.9% |
+| Under 2.5 probability edge | +4.9% |
+| Raw edge prob home | -0.0883 |
+| Raw ev home | -0.1325 |
+| Raw edge prob draw | 0.0279 |
+| Raw ev draw | 0.0790 |
+| Raw edge prob away | 0.0605 |
+| Raw ev away | 0.4219 |
 | Legacy model version | dc-blend50-tuned-half-life-v1 |
 | Legacy status | AVAILABLE |
 | Legacy half life days | 1,000,000,000 |
-| Legacy trial matrix | [[0.022164090585910044, 0.013098439283099601, 0.012942909604636522, 0.005965481448297784, 0.0020621504358593027, 0.0005702761068953633, 0.00013142220876181845, 2.59600520023752e-05, 4.486941499659158e-06, 6.893546890009317e-07, 9.531858138897105e-08, 1.1981735307174878e-08, 1.3806173008378524e-09, 1.4684690418742663e-10, 1.4503459137573542e-11, 1.3369500222785428e-12, 1.1553937829906843e-13, 9.397578045048518e-15, 7.219020452014502e-16, 5.253630292390595e-17], [0.040880698391435745, 0.0651765698684808, 0.03506929007935826, 0.016163691609067714, 0.005587472526001305, 0.0015451841068932705, 0.00035609331307445393, 7.033971664457809e-05, 1.2157533184369078e-05, 1.8678319091001942e-06, 2.5826920551815295e-07, 3.2464952933834916e-08, 3.740833405366505e-09, 3.978870932050536e-10, 3.9297656491974665e-11, 3.6225153064574314e-12, 3.13058199194039e-13, 2.5463083693882465e-14, 1.9560201689875457e-15, 1.4234904694656064e-16], [0.0654086778585865, 0.09044201023778417, 0.054955225998262594, 0.0218980587482672, 0.007569731258672701, 0.0020933666125290077, 0.00048242397084555954, 9.529402593621253e-05, 1.647064187712979e-05, 2.530479661862546e-06, 3.4989496038962177e-07, 4.3982492601258616e-08, 5.067962917100035e-09, 5.390448638164828e-10, 5.323922352290656e-11, 4.9076692946059845e-12, 4.2412135812662945e-13, 3.449658135817673e-14, 2.6499543303125005e-15, 1.9284999170900561e-16], [0.05907574024695732, 0.08168531881612712, 0.05647403893881797, 0.0228768582561562, 0.006836821844089871, 0.0018906846353137568, 0.00043571516996863925, 8.606755720495709e-05, 1.4875936849505433e-05, 2.285475935281819e-06, 3.160177589644281e-07, 3.972406098687997e-08, 4.57727736859477e-09, 4.868539679876535e-10, 4.808454539608235e-11, 4.432503544757887e-12, 3.8305747809250973e-13, 3.115658573820496e-14, 2.3933829395282637e-15, 1.74178050830812e-16], [0.040016973282251914, 0.055332344663857974, 0.03825462191262056, 0.017631834286290112, 0.0053568105984125, 0.0012807199066864276, 0.00029514657357518137, 5.830080372656605e-05, 1.0076724641394332e-05, 1.548145297157115e-06, 2.1406543810253787e-07, 2.6908451430812084e-08, 3.1005753867628833e-09, 3.297871875642506e-10, 3.25717115073029e-11, 3.002507885344678e-12, 2.594770848797661e-13, 2.1104979029292058e-14, 1.6212397973334408e-15, 1.1798546031440226e-16], [0.021685492474280983, 0.029985004995982296, 0.020730461290547512, 0.009554820826309056, 0.003302914962069497, 0.0008027793177809814, 0.00015994210144106724, 3.159363481939568e-05, 5.460651280022586e-06, 8.389513358193903e-07, 1.1600363711253216e-07, 1.4581887962431966e-08, 1.6802246322164527e-09, 1.787141052272107e-10, 1.7650850297549544e-11, 1.627081131108156e-12, 1.4061254287575365e-13, 1.143694353597089e-14, 8.78561783673728e-16, 6.3937189693887e-17], [0.009792940038534939, 0.013540912493875071, 0.0093616580130829, 0.004314856466458547, 0.0014915616149500865, 0.00041248297707914235, 8.354559703034378e-05, 1.4267352782172406e-05, 2.4659726137201002e-06, 3.788615885330725e-07, 5.2386020923541896e-08, 6.585027046726797e-09, 7.587717500112118e-10, 8.070540794063874e-11, 7.970938119024226e-12, 7.347727045475869e-13, 6.349914361785025e-14, 5.1648032621212715e-15, 3.967492496593805e-16, 2.887336156406242e-17], [0.0037906187958376917, 0.005241371560542629, 0.0036236795778344694, 0.0016701803502052776, 0.0005773487298535191, 0.00015966254462160468, 3.6794815733975296e-05, 6.387889271838399e-06, 9.545205120021178e-07, 1.4664848889744033e-07, 2.0277407476256955e-08, 2.548910459596408e-09, 2.9370285593757694e-10, 3.1239182008848583e-11, 3.085364327315191e-12, 2.844133849045052e-13, 2.4579038202038237e-14, 1.9991749408413233e-15, 1.5357238552216657e-16, 1.1176205165463914e-17], [0.0012838526478223138, 0.0017752111511746323, 0.0012273116531714764, 0.0005656768935210174, 0.00019554345489797132, 5.407644284768977e-05, 1.2462113483442196e-05, 2.4616624323822094e-06, 3.739446274671607e-07, 4.966868495899833e-08, 6.86779776113345e-09, 8.632958413565992e-10, 9.947483763930015e-11, 1.0580464219167223e-11, 1.0449885294373798e-12, 9.632856716869157e-14, 8.32472611365265e-15, 6.771047629683757e-16, 5.201375406081983e-17, 3.785292419813308e-18], [0.0003865162239486289, 0.0005344444411337779, 0.0003694940121022691, 0.00017030248543678248, 5.887024335170692e-05, 1.6280234752419706e-05, 3.7518394764459144e-06, 7.411072209995963e-07, 1.2809314655055054e-07, 1.7296258672040137e-08, 2.0676167642593325e-09, 2.5990354057975084e-10, 2.994785942721874e-11, 3.1853508146381028e-12, 3.146038769736349e-13, 2.900064435243315e-14, 2.5062390986328288e-15, 2.0384892039136033e-16, 1.565924239598809e-17, 1.1395987967383145e-18], [0.00010472799387532547, 0.00014480968893352086, 0.0001001157629066534, 4.61440854139839e-05, 1.595110917257618e-05, 4.411189543409385e-06, 1.016574718898875e-06, 2.0080572998695345e-07, 3.4707309645041394e-08, 5.332284062146569e-09, 6.480105317247251e-10, 7.042182117982504e-11, 8.114482767713583e-12, 8.630825303998618e-13, 8.524307871026783e-14, 7.857831355937538e-15, 6.790747107335008e-16, 5.5233615469335405e-17, 4.242929378191488e-18, 3.087784895182066e-19], [2.5796759551495493e-05, 3.5669743952051676e-05, 2.4660667768467198e-05, 1.136628166071145e-05, 3.929101596221357e-06, 1.0865709518208741e-06, 2.504042388206388e-07, 4.946277438678635e-08, 8.549157569639836e-09, 1.3134563617748776e-09, 1.8161448542860532e-10, 2.0064418907353252e-11, 1.9987718001421553e-12, 2.125958083024756e-13, 2.099720546099451e-14, 1.9355530320444844e-15, 1.672707208652146e-16, 1.360522859932209e-17, 1.0451248507011652e-18, 7.605878957499882e-20], [5.824772478095992e-06, 8.05404037115184e-06, 5.568248935394265e-06, 2.5664465516856415e-06, 8.871704523829015e-07, 2.453419997589537e-07, 5.653995866300493e-08, 1.11684340183619e-08, 1.9303547650292885e-09, 2.965715306984314e-10, 4.1007594548315245e-11, 5.154736215143799e-12, 5.220282272951776e-13, 4.800301412613054e-14, 4.7410584357304466e-15, 4.370376832967138e-16, 3.776884803465542e-17, 3.0719889816138424e-18, 2.359836883538118e-19, 1.7173674210878334e-20], [1.2140334979977415e-06, 1.6786706848334619e-06, 1.1605673454508275e-06, 5.349139552289678e-07, 1.849093079046277e-07, 5.113562929594228e-08, 1.1784392274620346e-08, 2.3277910114870284e-09, 4.023359464387469e-10, 6.181319084553398e-11, 8.547045166344067e-12, 1.0743805808827569e-12, 1.237974616884354e-13, 1.1572766082100415e-14, 9.881594137086364e-16, 9.108997637328744e-17, 7.872006480473935e-18, 6.40282095684238e-19, 4.9185114735371765e-20, 3.5794386568935164e-21], [2.349620327592283e-07, 3.248871444587847e-07, 2.2461428213541361e-07, 1.0352636107583819e-07, 3.578704124147173e-08, 9.896705013175256e-09, 2.2807317658397043e-09, 4.5051681753403285e-10, 7.786743280417441e-11, 1.1963222593408045e-11, 1.654180967560809e-12, 2.0793383844645991e-13, 2.3959555726197582e-14, 2.548415539891503e-15, 2.2121317857868157e-16, 1.762940318200141e-17, 1.5235350981636706e-18, 1.2391913648958236e-19, 9.519205655180629e-21, 6.927586300936047e-22], [4.244255187420538e-08, 5.868624526280131e-08, 4.057337778903461e-08, 1.8700565783798546e-08, 6.464420385194491e-09, 1.7876991059905692e-09, 4.119817791242606e-10, 8.137946022106465e-11, 1.4065645063128065e-11, 2.1609861369546927e-12, 2.988042821240251e-13, 3.7560292703587443e-14, 4.327953222272741e-15, 4.603350485127607e-16, 4.54653818045516e-17, 3.683480461638532e-18, 2.752049625917466e-19, 2.23842308346699e-20, 1.7195092120914794e-21, 1.2513700085400914e-22], [7.187478554143651e-09, 9.938283883112908e-09, 6.870941304193539e-09, 3.166866966901035e-09, 1.094724064218967e-09, 3.0273978397086087e-10, 6.976748737752491e-11, 1.3781290220727085e-11, 2.381961446170047e-12, 3.6595446855313255e-13, 5.060132519877914e-14, 6.360687243654275e-15, 7.32921787092818e-16, 7.795592260127478e-17, 7.699382865684151e-18, 7.097403451249776e-19, 5.3907389060517254e-20, 3.7906810964627714e-21, 2.9119209472112694e-22, 2.1191456928269008e-23], [1.1455728091970152e-09, 1.5840085922776767e-09, 1.0951216719992846e-09, 5.047495669443832e-10, 1.7448206795968844e-10, 4.825203472492549e-11, 1.1119857388598635e-11, 2.1965243073199923e-12, 3.7964777838743995e-13, 5.832747679461584e-14, 8.065067856604361e-15, 1.0137950742038507e-15, 1.1681638619673791e-16, 1.2424967194705954e-17, 1.2271624314538265e-18, 1.1312162322857202e-19, 9.775983995075348e-21, 6.988441718131081e-22, 4.641151183307971e-23, 3.3775901606411234e-24], [1.7244287232655052e-10, 2.3844053319820196e-10, 1.6484847156854394e-10, 7.597986302632534e-11, 2.626475482561013e-11, 7.2633702517773475e-12, 1.6738701656995995e-12, 3.306424154348137e-13, 5.714831292426805e-14, 8.78002476426968e-15, 1.214033237814227e-15, 1.5260639318836576e-16, 1.758434995039124e-17, 1.8703281139503497e-18, 1.8472454373237306e-19, 1.7028177934364695e-20, 1.471577141492066e-21, 1.1969305391867945e-22, 8.081002292370624e-24, 5.084280494149564e-25], [2.459159532726609e-11, 3.4003337006147354e-11, 2.3508579093111038e-11, 1.0835275586376427e-11, 3.745543166424151e-12, 1.0358089002691128e-12, 2.3870593889968873e-13, 4.715198934407235e-14, 8.1497609388474e-15, 1.2520947549367108e-15, 1.731298817711782e-16, 2.1762770562852276e-17, 2.5076549250129456e-18, 2.6672225698246047e-19, 2.6343050108084774e-20, 2.428340790621966e-21, 2.0985749696803246e-22, 1.7069091379311314e-23, 1.3112114544180588e-24, 8.386638444911874e-26]] |
-| Legacy trial inputs | {"lambda_home": 2.7095368159563935, "lambda_away": 1.382721883376388, "rho": -0.11084228618346421, "max_goals": 19, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
-| Legacy p home | 0.6917 |
-| Legacy p draw | 0.1714 |
-| Legacy p away | 0.1369 |
+| Legacy trial matrix | [[0.022147921647216674, 0.013080090996370806, 0.012923408130764086, 0.00595628531999328, 0.002058899698952896, 0.0005693572745575744, 0.00013120588400384125, 2.5916417034488378e-05, 4.479243384390631e-06, 6.881479803977367e-07, 9.51484083490842e-08, 1.1959927052227541e-08, 1.3780563379367943e-09, 1.4656939954450028e-10, 1.4475546245237747e-11, 1.3343304293570415e-12, 1.1530897076426476e-13, 9.378510359022417e-15, 7.204121777788283e-16, 5.242604943269911e-17], [0.04090645876193128, 0.06512794378504928, 0.03501551479818909, 0.01613834328020484, 0.00557851552370727, 0.0015426532901386156, 0.00035549767727364605, 7.021961041584112e-05, 1.2136350676526033e-05, 1.8645124836381868e-06, 2.5780122912318136e-07, 3.2404997075471556e-08, 3.733794646545079e-09, 3.9712457633330987e-10, 3.922097782823986e-11, 3.615320852059408e-12, 3.124255561153857e-13, 2.5410740335560627e-14, 1.9519311791880053e-15, 1.42046516766064e-16], [0.06544608405064609, 0.0904905762638471, 0.05491160622175714, 0.021863133634272128, 0.007557394724976104, 0.0020898821178887477, 0.0004816041578716757, 9.51287687721422e-05, 1.6441505306107833e-05, 2.525915137928142e-06, 3.4925163169091924e-07, 4.390009365758389e-08, 5.058291914045143e-09, 5.379974592855886e-10, 5.313392240066096e-11, 4.897791647318468e-12, 4.232529675143807e-13, 3.442474869050495e-14, 2.6443440615019603e-15, 1.9243499313517608e-16], [0.059107945865139594, 0.0817269995706635, 0.05650088461932591, 0.0228572922949171, 0.006825497426854361, 0.0018874870953791145, 0.0004349631136047189, 8.591600546260118e-05, 1.4849224665952085e-05, 2.2812924164729964e-06, 3.1542829244486674e-07, 3.964858092012016e-08, 4.568420692582326e-09, 4.858949952517638e-10, 4.798815780070788e-11, 4.4234641040463436e-12, 3.822629551332602e-13, 3.109087749917582e-14, 2.3882520689107327e-15, 1.7379859042429916e-16], [0.040037719388519105, 0.055359099819533526, 0.03827178445268619, 0.01763912936888762, 0.0053518994241722045, 0.001278519792358572, 0.0002946292724601886, 5.819659044728971e-05, 1.0058361555465667e-05, 1.5452701709901784e-06, 2.1366043558545666e-07, 2.685660504350221e-08, 3.0944933555234662e-09, 3.2912880303034703e-10, 3.2505551798068375e-11, 2.9963046749599023e-12, 2.589319710952435e-13, 2.1059906762704488e-14, 1.6177210147391117e-15, 1.1772527520081197e-16], [0.02169615540342059, 0.029998702499085993, 0.020739207820358523, 0.00955851876213924, 0.0033040780191883577, 0.0008019939251425483, 0.0001596575074534842, 3.153631849109979e-05, 5.450554595618441e-06, 8.373709162786876e-07, 1.157810705710144e-07, 1.4553403278988945e-08, 1.676883942484039e-09, 1.7835255772175324e-10, 1.7614527352101367e-11, 1.6236761947676499e-12, 1.4031339370961608e-13, 1.141221370456498e-14, 8.766315132630539e-16, 6.379448941339277e-17], [0.009797493598506445, 0.013546736287294315, 0.009365357690331736, 0.004316411117174165, 0.0014920469843638798, 0.00041260281157032785, 8.345872041923525e-05, 1.4241088929898506e-05, 2.461347310890956e-06, 3.781377870533903e-07, 5.228411562579856e-08, 6.571988115456475e-09, 7.572429025529291e-10, 8.053998554419622e-11, 7.954322586835886e-12, 7.332154858079292e-13, 6.336235849591774e-14, 5.153497872606266e-15, 3.958669856360676e-16, 2.880815010889727e-17], [0.003792280074955095, 0.005243485753418489, 0.0036250148067753433, 0.0016707374912160783, 0.0005775211785351447, 0.0001597046637955582, 3.6803238544928e-05, 6.380853679083616e-06, 9.527047168531953e-07, 1.4636441259311342e-07, 2.0237421737595208e-08, 2.5437954444682227e-09, 2.931032454760064e-10, 3.1174318140201406e-11, 3.0788506011804307e-12, 2.838030410044672e-13, 2.4525436756892653e-14, 1.994745605303327e-15, 1.5322678875636587e-16, 1.1150665479479432e-17], [0.001284381002091906, 0.0017758797750480016, 0.0012277310900301172, 0.000565850478020412, 0.00019559663720909403, 5.4089263469528655e-05, 1.2464633272931933e-05, 2.4620742929014248e-06, 3.735097610228396e-07, 4.9571146434684723e-08, 6.854071824164211e-09, 8.615404130249026e-10, 9.926910267705389e-11, 1.0558213312585543e-11, 1.0427545282193364e-12, 9.611928101232454e-14, 8.306349851792648e-15, 6.755865360203518e-16, 5.189531695982564e-17, 3.776541452491481e-18], [0.0003866649616658151, 0.0005346314559493118, 0.0003696104147361525, 0.00017035019440180842, 5.8884681496561746e-05, 1.6283659562009704e-05, 3.7524978482294556e-06, 7.412114166532933e-07, 1.2810668735808966e-07, 1.727508054434869e-08, 2.0634293210727172e-09, 2.59368123814702e-10, 2.9885122653407396e-11, 3.1785670600243407e-12, 3.1392292397979066e-13, 2.89368637868693e-14, 2.5006399516927992e-15, 2.0338641075100369e-16, 1.562316844474039e-17, 1.1369338643117747e-18], [0.00010476549645538473, 0.00014485649194044033, 0.00010014462760755781, 4.615577943987933e-05, 1.5954595068627613e-05, 4.411999656692046e-06, 1.0167259488003371e-06, 2.0082859773365033e-07, 3.471005141635926e-08, 5.3325192966531994e-09, 6.471772241431245e-10, 7.027487088326807e-11, 8.09726771705856e-12, 8.612214425262301e-13, 8.505630000137771e-14, 7.840340349000461e-15, 6.775395031052461e-16, 5.5106824789114377e-17, 4.233041937050263e-18, 3.0804818781202924e-19], [2.5805307943783223e-05, 3.568031946253509e-05, 2.466711886798584e-05, 1.1368858470867358e-05, 3.929855274819724e-06, 1.0867414715806687e-06, 2.5043480049179256e-07, 4.9467085861059223e-08, 8.549604553490973e-09, 1.3134792199920836e-09, 1.8161131143567393e-10, 2.0037382958370075e-11, 1.994478086885551e-12, 2.1213171591892264e-13, 2.0950638219225916e-14, 1.931193035258382e-15, 1.6688810833015527e-16, 1.3573634751903216e-17, 1.0426615099471161e-18, 7.587687375107369e-20], [5.826547023783851e-06, 8.056213071550442e-06, 5.569556788033218e-06, 2.5669598142970518e-06, 8.873169274044017e-07, 2.453739478968807e-07, 5.654534891178798e-08, 1.1169109181991012e-08, 1.93040412748388e-09, 2.9656877014290816e-10, 4.1005782548157177e-11, 5.154328658827063e-12, 5.212927086569027e-13, 4.789694510641655e-14, 4.730417440804496e-15, 4.360415716196714e-16, 3.768144960774398e-17, 3.064773392277373e-18, 2.3542119050975735e-19, 1.7132140949120045e-20], [1.2143709215288838e-06, 1.6790786810432993e-06, 1.1608089287845517e-06, 5.350066415822278e-07, 1.8493489719070267e-07, 5.1140922060765544e-08, 1.1785200940777235e-08, 2.327869552004891e-09, 4.023354878363931e-10, 6.181096440568116e-11, 8.54643920966422e-12, 1.0742669402190276e-12, 1.2378004975616237e-13, 1.1555748728339678e-14, 9.859152193155225e-16, 9.087993334494827e-17, 7.85358060235537e-18, 6.387611175993049e-19, 4.906656496545365e-20, 3.57068667037629e-21], [2.350210593666967e-07, 3.249574272430782e-07, 2.2465503688263074e-07, 1.0354153368113492e-07, 3.57910377143334e-08, 9.897464989180334e-09, 2.280827349244938e-09, 4.5051998403492274e-10, 7.786526414275375e-11, 1.1962472155386542e-11, 1.6540195102329645e-12, 2.0790629111493467e-13, 2.395554595916251e-14, 2.5479001767460196e-15, 2.2087428796355377e-16, 1.7588281991316204e-17, 1.5199283845363364e-18, 1.236214667849926e-19, 9.496008075644196e-21, 6.910463261767243e-22], [4.245208022977907e-08, 5.86973729492965e-08, 4.0579655608159746e-08, 1.8702806917773506e-08, 6.464969601661299e-09, 1.787788630194781e-09, 4.119880400562137e-10, 8.137785847322019e-11, 1.4064877630151337e-11, 2.1607928627987844e-12, 2.9876713660996983e-13, 3.755431353458402e-14, 4.3271133308091705e-15, 4.602296620232895e-16, 4.5453387792760775e-17, 3.677610988122426e-18, 2.7454612747353806e-19, 2.2329864567120288e-20, 1.7152730813832833e-21, 1.2482436323110814e-22], [7.188900116647527e-09, 9.939902802362554e-09, 6.871820870874063e-09, 3.1671618941891793e-09, 1.0947878283454261e-09, 3.027468576942164e-10, 6.976668406322087e-11, 1.3780650868088286e-11, 2.381767863641728e-12, 3.6591196425113714e-13, 5.059368331541093e-14, 6.359504822569534e-15, 7.327599816128729e-16, 7.793599402186695e-17, 7.697146124212526e-18, 7.095094111645873e-19, 5.3818175059055885e-20, 3.7813733772859674e-21, 2.904669638824627e-22, 2.113794835342599e-23], [1.1457687789572292e-09, 1.584224305807653e-09, 1.0952326059171784e-09, 5.047830902340138e-10, 1.7448757013549114e-10, 4.825187328311406e-11, 1.1119432335121793e-11, 2.1963637360604544e-12, 3.796067844321326e-13, 5.831914447037554e-14, 8.06363446628053e-15, 1.0135795402768936e-15, 1.1678747733009675e-16, 1.2421459090865074e-17, 1.2267731604409992e-18, 1.1308179533697787e-19, 9.772201207136732e-21, 6.976446502028261e-22, 4.629470059882048e-23, 3.3689717316395624e-24], [1.7246776473328897e-10, 2.3846663469697464e-10, 1.6486076673992017e-10, 7.598287965836806e-11, 2.6264881490661133e-11, 7.2631519397014735e-12, 1.6737614736603844e-12, 3.306094135715164e-13, 5.714061579526189e-14, 8.778536012403323e-15, 1.2137850477051838e-15, 1.5256987352199093e-16, 1.7579528726810715e-17, 1.869750095719323e-18, 1.8466101424810225e-19, 1.7021727971629315e-20, 1.4709684272010826e-21, 1.1963937012761548e-22, 8.066634919114506e-24, 5.071171729206308e-25], [2.4594488206058725e-11, 3.4006150909783484e-11, 2.350970449171799e-11, 1.0835416348730664e-11, 3.745461182584184e-12, 1.0357501008727424e-12, 2.386840630036313e-13, 4.714602369591219e-14, 8.148445614963365e-15, 1.2518490093345688e-15, 1.7308986457057957e-16, 2.1756981432091406e-17, 2.5069004205408165e-18, 2.6663270523949764e-19, 2.633328694244499e-20, 2.427356140971501e-21, 2.0976508676985776e-22, 1.7060979958395615e-23, 1.3105426401800013e-24, 8.371212069008319e-26]] |
+| Legacy trial inputs | {"lambda_home": 2.709464441878524, "lambda_away": 1.3826736553682886, "rho": -0.11082685883326926, "max_goals": 19, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
+| Legacy p home | 0.6920 |
+| Legacy p draw | 0.1713 |
+| Legacy p away | 0.1367 |
 | Legacy p over 1 5 | 0.9239 |
 | Legacy p under 3 5 | 0.4102 |
-| Legacy p btts yes | 0.7006 |
-| Legacy p over 2 5 | 0.7803 |
-| Legacy goal margin distribution | {"-1": 0.07835854564500792, "-10": 1.3337261555200398e-07, "-11": 1.6312846564343105e-08, "-12": 1.836447443064441e-09, "-13": 1.914572998662743e-10, "-14": 1.8582937564882834e-11, "-15": 1.687016171230601e-12, "-16": 1.4382659437409422e-13, "-17": 1.1546448205745068e-14, "-18": 8.642510921480108e-16, "-19": 5.253630292390595e-17, "-2": 0.0388963770732211, "-3": 0.014146197244927558, "-4": 0.004186796784459092, "-5": 0.0010382104213228036, "-6": 0.00022074748163048723, "-7": 4.099275517329765e-05, "-8": 6.747679983512242e-06, "-9": 9.965318625716154e-07, "0": 0.1714226600208002, "1": 0.20918336988396924, "10": 0.00014653854748075993, "11": 3.5121672247992724e-05, "12": 7.747902707969764e-06, "13": 1.5828428713566124e-06, "14": 3.010512694568934e-07, "15": 5.355568283551031e-08, "16": 8.947170893576247e-09, "17": 1.407521921488328e-09, "18": 2.0644620933269786e-10, "19": 2.459159532726609e-11, "2": 0.1965679028567918, "3": 0.14008878934021748, "4": 0.08124670836252651, "5": 0.039479304859683956, "6": 0.016449022365639946, "7": 0.005985654737473469, "8": 0.001930719804157886, "9": 0.0005587482593668907} |
+| Legacy p btts yes | 0.7005 |
+| Legacy p over 2 5 | 0.7804 |
+| Legacy goal margin distribution | {"-1": 0.0782376596560392, "-10": 1.3313178697198184e-07, "-11": 1.628284924442879e-08, "-12": 1.8330090519772625e-09, "-13": 1.9109239732161792e-10, "-14": 1.8546892457814867e-11, "-15": 1.6836867115070436e-12, "-16": 1.4353785375175167e-13, "-17": 1.1522876531345599e-14, "-18": 8.624586945448923e-16, "-19": 5.242604943269911e-17, "-2": 0.03883541365575309, "-3": 0.014123692487753869, "-4": 0.004180023815343299, "-5": 0.0010365008724823835, "-6": 0.0002203772954707311, "-7": 4.092272834788564e-05, "-8": 6.735937173192776e-06, "-9": 9.94765225633907e-07, "0": 0.17128888832494252, "1": 0.20929312878368708, "10": 0.00014658803019532008, "11": 3.51326506524489e-05, "12": 7.750128309236681e-06, "13": 1.5832571556804492e-06, "14": 3.011223369086928e-07, "15": 5.356694397889975e-08, "16": 8.94882060554383e-09, "17": 1.407745118145922e-09, "18": 2.0647391564307247e-10, "19": 2.4594488206058725e-11, "2": 0.19666838039461915, "3": 0.1401582372455885, "4": 0.08128546555286609, "5": 0.039497315675176795, "6": 0.01645616092619321, "7": 0.005988113523561779, "8": 0.0019314667666156385, "9": 0.0005589507908079676} |
 | Legacy market blend applied | 1 |
 | Legacy raw p home | 0.6483 |
 | Legacy raw p draw | 0.1828 |
@@ -968,53 +968,53 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Legacy model away team | Dortmund |
 | Legacy home name match score | 100/100 |
 | Legacy away name match score | 100/100 |
-| Market p home draw | 87.0% |
+| Market p home draw | 87.6% |
 | Market home draw odds | 1.10 |
 | Best home draw bookmaker | Pinnacle |
-| Market best home draw last update utc | 2026-10-30T07:07:50Z |
-| Market reference home draw last update utc | 2026-10-30T07:08:06Z |
+| Market best home draw last update utc | 2026-10-30T11:50:54Z |
+| Market reference home draw last update utc | 2026-10-30T11:50:59Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 28.4% |
+| Market p draw away | 27.9% |
 | Market draw away odds | 3.50 |
 | Best draw away bookmaker | Pinnacle |
-| Market best draw away last update utc | 2026-10-30T07:07:50Z |
-| Market reference draw away last update utc | 2026-10-30T07:08:06Z |
+| Market best draw away last update utc | 2026-10-30T11:50:54Z |
+| Market reference draw away last update utc | 2026-10-30T11:50:59Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market p home away | 84.7% |
+| Market p home away | 84.5% |
 | Market home away odds | 1.16 |
 | Best home away bookmaker | Pinnacle |
-| Market best home away last update utc | 2026-10-30T07:07:50Z |
-| Market reference home away last update utc | 2026-10-30T07:08:06Z |
+| Market best home away last update utc | 2026-10-30T11:50:54Z |
+| Market reference home away last update utc | 2026-10-30T11:50:59Z |
 | Market home away bookmakers | 1 |
 | Market reference home away method | proportional_overlap_sum_two |
 | Market reference dc home draw odds | 1.10 |
-| Market reference dc draw away odds | 3.37 |
-| Market reference dc home away odds | 1.13 |
-| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 2.11, "price": 1.7, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.7, "price": 2.11, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.68, "price": 2.15, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.15, "price": 1.68, "quote_source": "The Odds API", "side": "Under"}] |
+| Market reference dc draw away odds | 3.45 |
+| Market reference dc home away odds | 1.14 |
+| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 2.11, "price": 1.7, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.7, "price": 2.11, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.68, "price": 2.15, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.15, "price": 1.68, "quote_source": "The Odds API", "side": "Under"}] |
 | Market p over 1 5 | 92.5% |
-| Market reference over 1 5 odds | 1.06 |
-| Market reference over 1 5 opposite odds | 7.00 |
-| Market reference over 1 5 last update utc | 2026-10-30T07:08:06Z |
+| Market reference over 1 5 odds | 1.07 |
+| Market reference over 1 5 opposite odds | 9.50 |
+| Market reference over 1 5 last update utc | 2026-10-30T11:50:54Z |
 | Market over 1 5 bookmakers | 0 |
-| Market p under 3 5 | 42.1% |
+| Market p under 3 5 | 40.9% |
 | Market under 3 5 odds | 2.30 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-30T07:08:04Z |
-| Market reference under 3 5 odds | 2.13 |
-| Market reference under 3 5 opposite odds | 1.61 |
-| Market reference under 3 5 last update utc | 2026-10-30T07:08:06Z |
+| Market best under 3 5 last update utc | 2026-10-30T11:50:53Z |
+| Market reference under 3 5 odds | 2.30 |
+| Market reference under 3 5 opposite odds | 1.63 |
+| Market reference under 3 5 last update utc | 2026-10-30T11:50:53Z |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 65.8% |
+| Market p btts yes | 65.9% |
 | Market btts yes odds | 1.48 |
 | Best btts yes bookmaker | Pinnacle |
-| Market best btts yes last update utc | 2026-10-30T07:07:50Z |
-| Market reference btts yes odds | 1.51 |
-| Market reference btts yes opposite odds | 2.88 |
-| Market reference btts yes last update utc | 2026-10-30T07:08:05Z |
+| Market best btts yes last update utc | 2026-10-30T11:50:54Z |
+| Market reference btts yes odds | 1.48 |
+| Market reference btts yes opposite odds | 2.75 |
+| Market reference btts yes last update utc | 2026-10-30T11:50:54Z |
 | Market btts yes bookmakers | 1 |
-| Count model | {"corners": {"alpha": 0.01169351969556193, "mu": 10.05076042999458, "version": "count-markets-nb2-v1"}} |
+| Count model | {"corners": {"alpha": 0.01168409266038481, "mu": 10.05076922801949, "version": "count-markets-nb2-v1"}} |
 | Elo home rating | 1,725.3258 |
 | Elo away rating | 1,617.6463 |
 | Elo rating diff | 167.6795 |
@@ -1027,7 +1027,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Borussia Monchengladbach vs SC Paderborn
 
-The model's most likely 1X2 outcome is **Borussia Monchengladbach win** at **47.9%**. Expected goals are 1.45 for Borussia Monchengladbach and 0.99 for SC Paderborn (2.44 combined). The most likely exact score is 1-1 at 11.2%. Goal-market probabilities: at least one goal: 95.4%; Over 2.5 goals: 64.1%; Under 3.5 goals: 57.3%; Double Chance 1X: 73.3%; Double Chance X2: 52.1%; Double Chance 12 (either team wins): 74.6%; Under 4.5 goals: 75.9%; BTTS Yes (both teams score): 65.4%; BTTS No (at least one team does not score): 34.6%.
+The model's most likely 1X2 outcome is **Borussia Monchengladbach win** at **48.2%**. Expected goals are 1.45 for Borussia Monchengladbach and 0.99 for SC Paderborn (2.44 combined). The most likely exact score is 1-1 at 11.2%. Goal-market probabilities: at least one goal: 95.4%; Over 2.5 goals: 64.1%; Under 3.5 goals: 57.3%; Double Chance 1X: 73.5%; Double Chance X2: 51.8%; Double Chance 12 (either team wins): 74.7%; Under 4.5 goals: 75.9%; BTTS Yes (both teams score): 65.4%; BTTS No (at least one team does not score): 34.6%.
 
 **Fixture source:** The Odds API
 
@@ -1035,9 +1035,9 @@ The model's most likely 1X2 outcome is **Borussia Monchengladbach win** at **47.
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Borussia Monchengladbach win | 47.9% | 2.09 |
-| Draw | 25.4% | 3.93 |
-| SC Paderborn win | 26.7% | 3.75 |
+| Borussia Monchengladbach win | 48.2% | 2.07 |
+| Draw | 25.3% | 3.95 |
+| SC Paderborn win | 26.5% | 3.78 |
 
 ### Goals outlook
 
@@ -1061,19 +1061,19 @@ The model's most likely 1X2 outcome is **Borussia Monchengladbach win** at **47.
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 11.21% |
-| 2 | 2-1 | 8.80% |
-| 3 | 2-2 | 7.06% |
-| 4 | 1-2 | 6.77% |
-| 5 | 2-0 | 6.48% |
+| 1 | 1-1 | 11.18% |
+| 2 | 2-1 | 8.86% |
+| 3 | 2-2 | 7.02% |
+| 4 | 1-2 | 6.72% |
+| 5 | 2-0 | 6.53% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Borussia Monchengladbach win | 47.9% | 48.4% | 2.02 | -3.2% |
-| Draw | 25.4% | 24.2% | 3.96 | +0.6% |
-| SC Paderborn win | 26.7% | 27.4% | 3.50 | -6.7% |
+| Borussia Monchengladbach win | 48.2% | 48.8% | 2.00 | -3.6% |
+| Draw | 25.3% | 24.0% | 3.97 | +0.5% |
+| SC Paderborn win | 26.5% | 27.1% | 3.53 | -6.6% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1089,9 +1089,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-30T07:08:04Z |
-| Market best draw last update utc | 2026-10-30T07:08:04Z |
-| Market best away last update utc | 2026-10-30T07:08:04Z |
+| Market best home last update utc | 2026-10-30T11:50:53Z |
+| Market best draw last update utc | 2026-10-30T11:50:53Z |
+| Market best away last update utc | 2026-10-30T11:50:53Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -1101,15 +1101,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Paderborn |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.3259 |
-| Dc lambda away | 0.8755 |
+| Dc lambda home | 1.3258 |
+| Dc lambda away | 0.8762 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Shot features applied | 1 |
 | Shot features status | APPLIED |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-30T07:07:52.260041+00:00 |
+| Bbs statistics cutoff utc | 2026-10-30T11:50:54.576591+00:00 |
 | Bbs statistics weight | 0 |
 | Shot features version | football-data-lagged-shot-strength-v1 |
 | Shot features weight | 0.2000 |
@@ -1122,7 +1122,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 65.4% |
 | P btts no | 34.6% |
 | Fair Over 0.5 odds | 1.05 |
-| Fair Under 0.5 odds | 21.59 |
+| Fair Under 0.5 odds | 21.63 |
 | Fair Over 1.5 odds | 1.17 |
 | Fair Under 1.5 odds | 6.77 |
 | Fair Over 2.5 odds | 1.56 |
@@ -1131,17 +1131,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 3.5 odds | 1.75 |
 | Fair Over 4.5 odds | 4.15 |
 | Fair Under 4.5 odds | 1.32 |
-| Goal margin distribution | {"-1": 0.1488426105979325, "-10": 2.7840363322684247e-07, "-11": 3.371682924775622e-08, "-12": 3.75433814561461e-09, "-13": 3.8680182442673836e-10, "-14": 3.7074707144096734e-11, "-15": 3.320066389210948e-12, "-16": 2.764260410638984e-13, "-17": 1.9066318515283036e-14, "-2": 0.07716719965581038, "-3": 0.029123436300475238, "-4": 0.008798617821869137, "-5": 0.002204364997066275, "-6": 0.00047036615706229557, "-7": 8.725518815510142e-05, "-8": 1.4300954496557244e-05, "-9": 2.097928121272956e-06, "0": 0.25415874133254307, "1": 0.19657080986016792, "10": 1.1154504049068313e-05, "11": 1.9771308312693033e-06, "12": 3.222073055689419e-07, "13": 4.858518112077158e-08, "14": 6.815635503338639e-09, "15": 8.932822626580541e-10, "16": 1.088514482119134e-10, "17": 1.0988424198470452e-11, "2": 0.14685934475646992, "3": 0.08111940891582692, "4": 0.03586822869609555, "5": 0.013152015061248431, "6": 0.004107316529846153, "7": 0.0011151330329275282, "8": 0.0002674938252894802, "9": 5.743183017899568e-05} |
-| Raw goal margin distribution | {"-1": 0.1558018315721125, "-10": 2.4869385063050723e-08, "-11": 2.2156506748793446e-09, "-12": 1.8124065577101635e-10, "-13": 1.3700948654243626e-11, "-14": 9.59128412468068e-13, "-15": 5.780481108755755e-14, "-2": 0.06725842088229814, "-3": 0.01997149984794132, "-4": 0.004628188233758379, "-5": 0.0008763155057246577, "-6": 0.00014000584853808128, "-7": 1.9326199123751065e-05, "-8": 2.3469138567192006e-06, "-9": 2.543035971729882e-07, "0": 0.28348478896456136, "1": 0.23230320543096034, "10": 1.121497211176268e-06, "11": 1.4623379669723246e-07, "12": 1.7507148128724725e-08, "13": 1.9369737507641686e-09, "14": 1.9845551307943012e-10, "15": 1.7505064407137264e-11, "2": 0.14406991396317664, "3": 0.06261099805192413, "4": 0.02123558719561612, "5": 0.005884737185624056, "6": 0.0013760241902948096, "7": 0.0002779967096985121, "8": 4.9408727630565005e-05, "9": 7.835601478101362e-06} |
+| Goal margin distribution | {"-1": 0.14767627902957742, "-10": 2.7566523733601724e-07, "-11": 3.3375100085626526e-08, "-12": 3.7151508356464388e-09, "-13": 3.8264635111394505e-10, "-14": 3.666501372312752e-11, "-15": 3.2823579673503736e-12, "-16": 2.732069166905809e-13, "-17": 1.884132335596564e-14, "-2": 0.07655966258657322, "-3": 0.02889006038772881, "-4": 0.008726369221272512, "-5": 0.002185750405888394, "-6": 0.00046627397015978477, "-7": 8.64724434264431e-05, "-8": 1.4168640078705325e-05, "-9": 2.077911303112393e-06, "0": 0.2532667766911285, "1": 0.19793660513726846, "10": 1.1151061393735128e-05, "11": 1.9747747369712567e-06, "12": 3.215379354796767e-07, "13": 4.8441114489050586e-08, "14": 6.789365420696615e-09, "15": 8.890456409275678e-10, "16": 1.082406985676997e-10, "17": 1.091870372012351e-11, "2": 0.14779098985558947, "3": 0.08157501811064524, "4": 0.036041519780512524, "5": 0.013204770609446755, "6": 0.004120332340605136, "7": 0.0011177111631898698, "8": 0.00026788031928353, "9": 5.7464605196975295e-05} |
+| Raw goal margin distribution | {"-1": 0.1558636527673419, "-10": 2.499194659902522e-08, "-11": 2.2277403265187893e-09, "-12": 1.8232552371887097e-10, "-13": 1.3790221340237563e-11, "-14": 9.658837397405938e-13, "-15": 5.824039590637929e-14, "-2": 0.06731331198777729, "-3": 0.019997500642713602, "-4": 0.004636536525677836, "-5": 0.0008783440716121051, "-6": 0.00014040230380286153, "-7": 1.9390987771281512e-05, "-8": 2.35600996085085e-06, "-9": 2.5542283899334705e-07, "0": 0.2834756915943044, "1": 0.2322522815395958, "10": 1.1204897940643177e-06, "11": 1.4609426556473825e-07, "12": 1.7489478294539073e-08, "13": 1.9349128287610798e-09, "14": 1.9823293186265362e-10, "15": 1.7483808858290906e-11, "2": 0.14401990617936508, "3": 0.06258324323040067, "4": 0.021224468024152746, "5": 0.005881235700279791, "6": 0.001375114705831229, "7": 0.0002777956284249188, "8": 4.937002861919257e-05, "9": 7.82900853518389e-06} |
 | Unadjusted home-win probability | 46.8% |
 | Unadjusted draw probability | 28.3% |
 | Unadjusted away-win probability | 24.9% |
-| Raw p over 1 5 | 70.9% |
+| Raw p over 1 5 | 71.0% |
 | Raw p under 3 5 | 77.0% |
-| Raw p btts yes | 49.0% |
-| P home draw | 73.3% |
-| P draw away | 52.1% |
-| P home away | 74.6% |
+| Raw p btts yes | 49.1% |
+| P home draw | 73.5% |
+| P draw away | 51.8% |
+| P home away | 74.7% |
 | Raw p home draw | 75.1% |
 | Raw p draw away | 53.2% |
 | Raw p home away | 71.7% |
@@ -1149,111 +1149,111 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blend applied | Yes |
 | Totals anchor applied | 1 |
 | Totals anchor status | ANCHORED_ALTERNATE |
-| Totals anchor scale | 1.3719 |
+| Totals anchor scale | 1.3708 |
 | Totals anchor target over 2 5 | 0.6414 |
 | Totals anchor reference over odds | 1.51 |
 | Totals anchor reference under odds | 2.59 |
-| Totals anchor reference last update utc | 2026-10-30T07:08:04Z |
+| Totals anchor reference last update utc | 2026-10-30T11:50:53Z |
 | Totals anchor reference source | live_pinnacle_alternate |
-| Unanchored p over 2 5 | 0.4509 |
+| Unanchored p over 2 5 | 0.4515 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 6.26, "price": 1.08, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 6.02, "price": 1.09, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 5.45, "price": 1.12, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 5.7, "price": 1.13, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.25, "price": 1.32, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.67, "price": 1.49, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:20Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.66, "price": 1.56, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:20Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.56, "price": 2.66, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.49, "price": 2.67, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.32, "price": 3.25, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.12, "price": 5.45, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.13, "price": 5.7, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.09, "price": 6.02, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T06:54:11Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.08, "price": 6.26, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.47, "price": 1.34, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.47, "price": 1.34, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.12, "price": 1.4, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 3.06, "price": 1.41, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.78, "price": 1.49, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 2.66, "price": 1.52, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.29, "price": 1.68, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.15, "price": 1.77, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.02, "price": 1.88, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.88, "price": 2.02, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.77, "price": 2.15, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.68, "price": 2.29, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.52, "price": 2.66, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.49, "price": 2.78, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.41, "price": 3.06, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.4, "price": 3.12, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.34, "price": 3.47, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.34, "price": 3.47, "quote_source": "The Odds API", "side": "home"}] |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 3.5, "price": 1.33, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.43, "price": 1.34, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.09, "price": 1.4, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 3.09, "price": 1.4, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.75, "price": 1.5, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.27, "price": 1.69, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.17, "price": 1.75, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.01, "price": 1.9, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.9, "price": 2.01, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.75, "price": 2.17, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.69, "price": 2.27, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.5, "price": 2.75, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.4, "price": 3.09, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.4, "price": 3.09, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.34, "price": 3.43, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.33, "price": 3.5, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:54Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 2.67, "price": 1.51, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.66, "price": 1.56, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.56, "price": 2.66, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:54Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 1.51, "price": 2.67, "quote_source": "The Odds API", "side": "away"}] |
 | 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 2.02 |
-| Reference draw odds | 3.96 |
-| Reference away odds | 3.50 |
-| Market reference 1x2 last update utc | 2026-10-30T07:08:04Z |
-| Market reference home last update utc | 2026-10-30T07:08:04Z |
-| Market reference draw last update utc | 2026-10-30T07:08:04Z |
-| Market reference away last update utc | 2026-10-30T07:08:04Z |
+| Reference home odds | 2.00 |
+| Reference draw odds | 3.97 |
+| Reference away odds | 3.53 |
+| Market reference 1x2 last update utc | 2026-10-30T11:50:53Z |
+| Market reference home last update utc | 2026-10-30T11:50:53Z |
+| Market reference draw last update utc | 2026-10-30T11:50:53Z |
+| Market reference away last update utc | 2026-10-30T11:50:53Z |
 | O/U 2.5 market source | The Odds API / Betsson |
 | Reference Over 2.5 odds | 1.51 |
 | Reference Under 2.5 odds | 2.61 |
-| Market reference over 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Market reference under 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Home probability edge | -0.5% |
+| Market reference over 2 5 last update utc | 2026-10-30T11:50:11Z |
+| Market reference under 2 5 last update utc | 2026-10-30T11:50:11Z |
+| Home probability edge | -0.6% |
 | Draw probability edge | +1.3% |
-| Away probability edge | -0.8% |
+| Away probability edge | -0.7% |
 | Over 2.5 probability edge | -0.1% |
 | Under 2.5 probability edge | +0.1% |
-| Raw edge prob home | -0.0162 |
-| Raw ev home | -0.0550 |
-| Raw edge prob draw | 0.0419 |
-| Raw ev draw | 0.1226 |
-| Raw edge prob away | -0.0257 |
-| Raw ev away | -0.1296 |
+| Raw edge prob home | -0.0206 |
+| Raw ev home | -0.0647 |
+| Raw edge prob draw | 0.0432 |
+| Raw ev draw | 0.1254 |
+| Raw edge prob away | -0.0225 |
+| Raw ev away | -0.1216 |
 | Legacy model version | dc-blend50-tuned-half-life-v1 |
 | Legacy status | AVAILABLE |
 | Legacy half life days | 1,000,000,000 |
-| Legacy trial matrix | [[0.10789604932095316, 0.08653709469341767, 0.04328154385398982, 0.012191168456992162, 0.0025754266445787827, 0.0004352542531098977, 6.129931431265153e-05, 7.399824503270571e-06, 7.816193032752148e-07, 7.338657348276491e-08, 6.201267331137599e-09, 4.763779070848693e-10, 3.354549536202398e-11, 2.1804930187651817e-12, 1.3161049067508735e-13], [0.13410159777816, 0.12539721666870862, 0.06061784670298185, 0.017074307310968418, 0.003607006673849511, 0.0006095941420399323, 8.585258535456966e-05, 1.036380377006525e-05, 1.0946947564039074e-06, 1.0278136280079289e-07, 8.685167832996696e-09, 6.671897620328524e-10, 4.698205087809749e-11, 3.0538834750056044e-12, 1.843267092125975e-13], [0.10361249647592753, 0.08755399782286861, 0.03339928016871897, 0.011956686972944882, 0.0025258916173329427, 0.0004268826959808873, 6.012030064863581e-05, 7.257498372896976e-06, 7.66585858791322e-07, 7.19750768965198e-08, 6.081993910225669e-09, 4.672153892331426e-10, 3.290029079747896e-11, 2.1385540331135193e-12, 1.290791317427132e-13], [0.04837139858873157, 0.0408745032768404, 0.017269761334931123, 0.004391938016271969, 0.0011792101760846397, 0.00019928979360825668, 2.8067107007938803e-05, 3.388156433756345e-06, 3.578799024179018e-07, 3.360149838513963e-08, 2.8393732575888144e-09, 2.181190743206962e-10, 1.5359470469083547e-11, 9.98381981494935e-13, 6.026047381712102e-14], [0.016936607173442277, 0.014311668167698898, 0.006046779134828825, 0.0017032041025063396, 0.00032486118520371284, 6.977869250209622e-05, 9.827327299962895e-06, 1.1863182838395387e-06, 1.2530692722070412e-07, 1.1765121439361059e-08, 9.94169093422939e-10, 7.637151677613637e-11, 5.377915985822992e-12, 3.495702816738845e-13, 2.1099410041946554e-14], [0.004744103679719855, 0.00400883346481433, 0.001693759963269212, 0.0004770835603180625, 0.00010078555778047169, 1.5378692760920925e-05, 2.752727221463311e-06, 3.322989591744916e-07, 3.509965416534531e-08, 3.2955216674296665e-09, 2.784761555884232e-10, 2.13923833772084e-11, 1.506405076075318e-12, 9.791793850011819e-14, 5.910144091720842e-15], [0.0011073902176042649, 0.0009357601061539511, 0.00039536513974434143, 0.00011136301045326954, 2.3525822430692406e-05, 3.9759293057022126e-06, 5.055667744638523e-07, 7.756673157945e-08, 8.193120616261795e-09, 7.69255628205413e-10, 6.500316842840868e-11, 4.993507242354277e-12, 3.5163191144543527e-13, 2.285644972021565e-14, 1.379572664016859e-15], [0.00022156461581464268, 0.00018722517602079905, 7.910393635539747e-05, 2.2281308101511693e-05, 4.707003661145391e-06, 7.954966868227256e-07, 1.1203429051365725e-07, 1.2210798072096183e-08, 1.6392646357237264e-09, 1.539112636332607e-10, 1.3005715429501562e-11, 9.99091825204507e-13, 7.035387176900077e-14, 4.573076789591079e-15, 2.7602238346709896e-16], [3.878896384093222e-05, 3.277721289602686e-05, 1.3848599947619142e-05, 3.900753065197199e-06, 8.240476221349686e-07, 1.3926633595033115e-07, 1.961366451813895e-08, 2.367688397948332e-09, 2.2580090607423597e-10, 2.6944999398176413e-11, 2.276889852946684e-12, 1.7490941204280265e-13, 1.2316740098971178e-14, 8.006012583780618e-16, 4.832279835039279e-17], [6.036197352666982e-06, 5.10067055470086e-06, 2.155068711934785e-06, 6.070209924170293e-07, 1.2823529124419826e-07, 2.1672120240859108e-08, 3.052207074311045e-09, 3.6845104958835044e-10, 3.891828144613201e-11, 3.2991515535212867e-12, 3.5432131054163223e-13, 2.7218765993825773e-14, 1.916686258590977e-15, 1.245866534662084e-16, 7.519817973799508e-18], [8.453979530565686e-07, 7.143730057558175e-07, 3.018275532295104e-07, 8.50161574364342e-08, 1.795995829718179e-08, 3.0352828145890688e-09, 4.2747601878644095e-10, 5.160330998553429e-11, 5.450689158879562e-12, 5.117675559107566e-13, 3.904486010040175e-14, 3.8121167535616114e-15, 2.684409645666304e-16, 1.744894934092316e-17, 1.0531860293797832e-18], [1.0763816074557756e-07, 9.095574001313067e-08, 3.8429431458285675e-08, 1.0824467680609477e-08, 2.286706362591071e-09, 3.864597238777154e-10, 5.4427305221941536e-11, 6.570261206742167e-12, 6.939952406276964e-13, 6.515951245011755e-14, 5.506069253453634e-15, 3.8189159977597725e-16, 3.4178568318330685e-17, 2.2216434369270956e-18, 1.3409425314493535e-19], [1.2562694061695461e-08, 1.0615650871635873e-08, 4.4851861740416595e-09, 1.2633481927811011e-09, 2.668866900286975e-10, 4.510459157434567e-11, 6.3523343335636106e-12, 7.668300988608179e-13, 8.099775978972848e-14, 7.604914599525015e-15, 6.426258404502502e-16, 4.9366159619534816e-17, 3.1386234723441565e-18, 2.5929304829221937e-19, 1.5650444656641724e-20], [1.3534343438844816e-09, 1.1436708083313918e-09, 4.83208854474369e-10, 1.3610606323748786e-10, 2.8752878199259584e-11, 4.8593162425037405e-12, 6.843649466156958e-13, 8.261398284680464e-14, 8.72624528932682e-15, 8.193109336865079e-16, 6.923291122601901e-17, 5.318433731382654e-18, 3.7451252758777513e-19, 2.19793132442857e-20, 1.686091310616823e-21], [1.353963380143695e-10, 1.1441178513142638e-10, 4.8339773323745434e-11, 1.3615926496306606e-11, 2.8764117248418413e-12, 4.861215673014638e-13, 6.846324541404828e-14, 8.264627535707048e-15, 8.729656241757357e-16, 8.19631189481293e-17, 6.925997328524263e-18, 5.320512623719648e-19, 3.7465891866135686e-20, 2.4353229777731636e-21, 1.3271489017150036e-22]] |
-| Legacy trial inputs | {"lambda_home": 1.4005472380439106, "lambda_away": 0.8450138815370615, "rho": -0.11084228618346421, "max_goals": 14, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
-| Legacy p home | 0.4850 |
-| Legacy p draw | 0.2714 |
-| Legacy p away | 0.2436 |
-| Legacy p over 1 5 | 0.6715 |
-| Legacy p under 3 5 | 0.8096 |
-| Legacy p btts yes | 0.4379 |
-| Legacy p over 2 5 | 0.3992 |
-| Legacy goal margin distribution | {"-1": 0.16036344919845197, "-10": 6.902376865359467e-09, "-11": 5.255587724698974e-10, "-12": 3.672845796877229e-11, "-13": 2.3648197279777794e-12, "-14": 1.3161049067508735e-13, "-2": 0.06309120055149484, "-3": 0.01625434713420669, "-4": 0.0032486579121646974, "-5": 0.0005287342654020464, "-6": 7.246432135762336e-05, "-7": 8.56941161088291e-06, "-8": 8.90706256274051e-07, "-9": 8.25546716558896e-08, "0": 0.27142524205932933, "1": 0.24073343696696672, "10": 9.409778617187032e-07, "11": 1.1875063639818412e-07, "12": 1.3754704643350599e-08, "13": 1.467846129015908e-09, "14": 1.353963380143695e-10, "2": 0.1510352037546644, "3": 0.06449303910466211, "4": 0.02136393323997294, "5": 0.005762999801071402, "6": 0.0013090893674189425, "7": 0.0002565842460836245, "8": 4.420255823101272e-05, "9": 6.790292377073633e-06} |
+| Legacy trial matrix | [[0.10782421791559614, 0.08613531702104124, 0.04305894883172664, 0.01212605519351949, 0.0025611612431177986, 0.00043275718664083406, 6.09355043838461e-05, 7.35444225169179e-06, 7.766710673495642e-07, 7.290746356965727e-08, 6.159555339263878e-09, 4.730794117744948e-10, 3.330659023118359e-11, 2.1645329113258885e-12, 1.3062115805225514e-13], [0.13488608682100275, 0.12512438023752845, 0.0602148701784703, 0.016957423696250095, 0.0035816014079478797, 0.0006051800733504561, 8.521395866100077e-05, 1.0284663175390386e-05, 1.086119117180331e-06, 1.0195589007629807e-07, 8.613699014352024e-09, 6.615678305439489e-10, 4.657689194169316e-11, 3.0269449624018677e-12, 1.8266437727998286e-13], [0.10405734242424326, 0.08791239301672936, 0.03327003660738086, 0.011856874054466674, 0.0025043071145724473, 0.00042315059401246407, 5.95828230528583e-05, 7.19118411779623e-06, 7.594300768343428e-07, 7.12890218113169e-08, 6.022821991458566e-09, 4.625777232293239e-10, 3.256723140811087e-11, 2.1164833663345878e-12, 1.277215545498981e-13], [0.04850559163809776, 0.040979738058387595, 0.017310776702443697, 0.00436745533312086, 0.0011673649874757257, 0.00019724864614460044, 2.7774110085033725e-05, 3.352119438050649e-06, 3.5400294036371287e-07, 3.323087155312124e-08, 2.8074957251510688e-09, 2.1562732260030387e-10, 1.5180983779355303e-11, 9.865836997614304e-13, 5.95364961669156e-14], [0.016957902960150078, 0.014326810535812253, 0.006051971774204693, 0.0017043273408837978, 0.00032249738106533883, 6.895954234096817e-05, 9.710028219851608e-06, 1.1719250136235424e-06, 1.2376196862179046e-07, 1.1617751192141553e-08, 9.815206548424873e-10, 7.538485953320348e-11, 5.30738088282012e-12, 3.4491674212421356e-13, 2.0814386351962774e-14], [0.004742883665065949, 0.0040070046291972245, 0.0016926502136949137, 0.00047667605623163175, 0.00010067942304890295, 1.52406639178145e-05, 2.71575644344034e-06, 3.277707165124678e-07, 3.461445797349342e-08, 3.249319357676109e-09, 2.7451733222655907e-10, 2.108407034251348e-11, 1.4843987580636606e-12, 9.646829480466724e-14, 5.82148708239938e-15], [0.0011054307792464579, 0.0009339183843624933, 0.0003945084418785621, 0.00011109958023415574, 2.3465499247805192e-05, 3.96494498926623e-06, 5.001716686824656e-07, 7.639399659690134e-08, 8.06764195644688e-09, 7.573235784872569e-10, 6.398215303382195e-11, 4.914094874407537e-12, 3.4597097287562716e-13, 2.2484005476237532e-14, 1.3568224431202559e-15], [0.00022083801947132912, 0.00018657403993316336, 7.881313294765562e-05, 2.219497749079488e-05, 4.687832541919759e-06, 7.920989854644762e-07, 1.1153356360380839e-07, 1.2059816813781892e-08, 1.6117174452841134e-09, 1.5129471904706006e-10, 1.2782068513717847e-11, 9.817159065338623e-13, 6.91165343672669e-14, 4.491754103806971e-15, 2.7105992228403708e-16], [3.860327827818034e-05, 3.2613811699028135e-05, 1.3776818459235307e-05, 3.879761711802255e-06, 8.194499505585917e-07, 1.3846174509692756e-07, 1.9496467154804937e-08, 2.353072207276747e-09, 2.2262731052324509e-10, 2.644685980871616e-11, 2.2343514444978883e-12, 1.7160746333791002e-13, 1.208181823125531e-14, 7.85174735951346e-16, 4.738224711053936e-17], [5.998214729269689e-06, 5.067565617123021e-06, 2.1406553818867795e-06, 6.02841128623593e-07, 1.2732692617243583e-07, 2.1514319921119527e-08, 3.0293799302214636e-09, 3.656226362697358e-10, 3.8611836688697113e-11, 3.2472155922739306e-12, 3.4717568928148514e-13, 2.6664533691374886e-14, 1.8772846064743774e-15, 1.2200121016395198e-16, 7.362299400488385e-18], [8.388075673585343e-07, 7.086629238173764e-07, 2.9935539397603825e-07, 8.430303405726803e-08, 1.7805762884874966e-08, 3.0086242608731605e-09, 4.2363718615709154e-10, 5.112971908192621e-11, 5.3995900890387765e-12, 5.068689104785382e-13, 3.8364436749105695e-14, 3.72884493969009e-15, 2.625248686600655e-16, 1.706099946923402e-17, 1.0295650837829808e-18], [1.0663750750923399e-07, 9.009223426305839e-08, 3.805701607291859e-08, 1.0717434817192774e-08, 2.2636445440315156e-09, 3.824860488820446e-10, 5.385694571435364e-11, 6.500115181022702e-12, 6.864492537661412e-13, 6.443818505067095e-14, 5.444032028382358e-15, 3.7459429503056634e-16, 3.337475571573189e-17, 2.1689628584834078e-18, 1.3088848816527753e-19], [1.2427079320023088e-08, 1.0498963896058625e-08, 4.435001984462176e-09, 1.24896404362132e-09, 2.6379545957205775e-10, 4.4573289260796036e-11, 6.276258250583128e-12, 7.574956394855782e-13, 7.999586191550672e-14, 7.509350655009194e-15, 6.344242229367137e-16, 4.8726413137195713e-17, 3.0733807699375938e-18, 2.527616606401206e-19, 1.525318494871009e-20], [1.3367988058865039e-09, 1.129388655038424e-09, 4.770795457449689e-10, 1.3435285951848723e-10, 2.8376857206183277e-11, 4.794812869847778e-12, 6.751461319874521e-13, 8.148489602838338e-14, 8.605269985861196e-15, 8.077916564373128e-16, 6.824592664189226e-17, 5.241570381866259e-18, 3.690264943509005e-19, 2.148559414110138e-20, 1.6408070553269601e-21], [1.3352984477456514e-10, 1.1281210839908502e-10, 4.765440948026576e-11, 1.3420206838549271e-11, 2.8345008398020353e-12, 4.789431404445907e-13, 6.74388380715584e-14, 8.13934413333505e-15, 8.595611848211263e-16, 8.0688503026252e-17, 6.816933072396782e-18, 5.23568749750202e-19, 3.686123169125668e-20, 2.395542401486428e-21, 1.2951169853317103e-22]] |
+| Legacy trial inputs | {"lambda_home": 1.3984287079043336, "lambda_away": 0.8448456492220346, "rho": -0.11082685883326926, "max_goals": 14, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
+| Legacy p home | 0.4869 |
+| Legacy p draw | 0.2709 |
+| Legacy p away | 0.2422 |
+| Legacy p over 1 5 | 0.6712 |
+| Legacy p under 3 5 | 0.8098 |
+| Legacy p btts yes | 0.4373 |
+| Legacy p over 2 5 | 0.3989 |
+| Legacy goal margin distribution | {"-1": 0.15944617957275017, "-10": 6.854697799302051e-09, "-11": 5.218323235786894e-10, "-12": 3.646125674813536e-11, "-13": 2.3471972886058714e-12, "-14": 1.3062115805225514e-13, "-2": 0.0627279743088281, "-3": 0.016159788615315612, "-4": 0.003229403335223217, "-5": 0.000525528229612523, "-6": 7.201383146285925e-05, "-7": 8.514734778421943e-06, "-8": 8.848708119459213e-07, "-9": 8.199927202924719e-08, "0": 0.27092434059600823, "1": 0.24191834217485778, "10": 9.334719909664131e-07, "11": 1.1762697115787613e-07, "12": 1.3604122384541778e-08, "13": 1.4496109142855889e-09, "14": 1.3352984477456514e-10, "2": 0.15159000577885495, "3": 0.06464098134332978, "4": 0.02138245240320525, "5": 0.0057596253342614605, "6": 0.0013064026733750167, "7": 0.00025567909848742007, "8": 4.398118538180787e-05, "9": 6.746212489003953e-06} |
 | Legacy market blend applied | 1 |
-| Legacy raw p home | 0.4860 |
-| Legacy raw p draw | 0.3013 |
-| Legacy raw p away | 0.2127 |
+| Legacy raw p home | 0.4855 |
+| Legacy raw p draw | 0.3015 |
+| Legacy raw p away | 0.2130 |
 | Legacy market weight | 0.5000 |
-| Legacy lambda home | 1.4005 |
-| Legacy lambda away | 0.8450 |
+| Legacy lambda home | 1.3984 |
+| Legacy lambda away | 0.8448 |
 | Legacy model home team | M'gladbach |
 | Legacy model away team | Paderborn |
 | Legacy home name match score | 100/100 |
 | Legacy away name match score | 100/100 |
-| Market p home draw | 72.6% |
-| Market home draw odds | 1.34 |
+| Market p home draw | 72.3% |
+| Market home draw odds | 1.33 |
 | Best home draw bookmaker | Pinnacle |
-| Market best home draw last update utc | 2026-10-30T07:07:50Z |
-| Market reference home draw last update utc | 2026-10-30T07:08:06Z |
+| Market best home draw last update utc | 2026-10-30T11:50:54Z |
+| Market reference home draw last update utc | 2026-10-30T11:50:59Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 52.0% |
-| Market draw away odds | 1.85 |
+| Market p draw away | 51.4% |
+| Market draw away odds | 1.87 |
 | Best draw away bookmaker | Pinnacle |
-| Market best draw away last update utc | 2026-10-30T07:07:50Z |
-| Market reference draw away last update utc | 2026-10-30T07:08:06Z |
+| Market best draw away last update utc | 2026-10-30T11:50:54Z |
+| Market reference draw away last update utc | 2026-10-30T11:50:59Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market p home away | 75.5% |
+| Market p home away | 76.3% |
 | Market home away odds | 1.28 |
 | Best home away bookmaker | Pinnacle |
-| Market best home away last update utc | 2026-10-30T07:07:50Z |
-| Market reference home away last update utc | 2026-10-30T07:08:06Z |
+| Market best home away last update utc | 2026-10-30T11:50:54Z |
+| Market reference home away last update utc | 2026-10-30T11:50:59Z |
 | Market home away bookmakers | 1 |
 | Market reference home away method | proportional_overlap_sum_two |
-| Market reference dc home draw odds | 1.31 |
-| Market reference dc draw away odds | 1.83 |
+| Market reference dc home draw odds | 1.33 |
+| Market reference dc draw away odds | 1.87 |
 | Market reference dc home away odds | 1.26 |
-| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 8.5, "market_key": "alternate_totals_corners", "opposite_price": 2.32, "price": 1.57, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 8.5, "market_key": "alternate_totals_corners", "opposite_price": 1.57, "price": 2.32, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.85, "price": 1.96, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.96, "price": 1.85, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.52, "price": 2.45, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.45, "price": 1.52, "quote_source": "The Odds API", "side": "Under"}] |
-| Market p over 1 5 | 85.2% |
-| Market reference over 1 5 odds | 1.14 |
-| Market reference over 1 5 opposite odds | 4.80 |
-| Market reference over 1 5 last update utc | 2026-10-30T07:08:06Z |
+| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 8.5, "market_key": "alternate_totals_corners", "opposite_price": 2.32, "price": 1.57, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 8.5, "market_key": "alternate_totals_corners", "opposite_price": 1.57, "price": 2.32, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.85, "price": 1.96, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.96, "price": 1.85, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.52, "price": 2.45, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.45, "price": 1.52, "quote_source": "The Odds API", "side": "Under"}] |
+| Market p over 1 5 | 85.4% |
+| Market reference over 1 5 odds | 1.15 |
+| Market reference over 1 5 opposite odds | 5.50 |
+| Market reference over 1 5 last update utc | 2026-10-30T11:50:54Z |
 | Market over 1 5 bookmakers | 0 |
-| Market p under 3 5 | 58.1% |
+| Market p under 3 5 | 57.9% |
 | Market under 3 5 odds | 1.68 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-30T07:08:04Z |
-| Market reference under 3 5 odds | 1.61 |
-| Market reference under 3 5 opposite odds | 2.14 |
-| Market reference under 3 5 last update utc | 2026-10-30T07:08:06Z |
+| Market best under 3 5 last update utc | 2026-10-30T11:50:53Z |
+| Market reference under 3 5 odds | 1.68 |
+| Market reference under 3 5 opposite odds | 2.27 |
+| Market reference under 3 5 last update utc | 2026-10-30T11:50:53Z |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 64.9% |
+| Market p btts yes | 65.5% |
 | Market btts yes odds | 1.49 |
 | Best btts yes bookmaker | Pinnacle |
-| Market best btts yes last update utc | 2026-10-30T07:07:50Z |
-| Market reference btts yes odds | 1.53 |
-| Market reference btts yes opposite odds | 2.80 |
-| Market reference btts yes last update utc | 2026-10-30T07:08:05Z |
+| Market best btts yes last update utc | 2026-10-30T11:50:54Z |
+| Market reference btts yes odds | 1.49 |
+| Market reference btts yes opposite odds | 2.72 |
+| Market reference btts yes last update utc | 2026-10-30T11:50:54Z |
 | Market btts yes bookmakers | 1 |
-| Count model | {"corners": {"alpha": 0.01169351969556193, "mu": 10.201945309097006, "version": "count-markets-nb2-v1"}} |
+| Count model | {"corners": {"alpha": 0.01168409266038481, "mu": 10.201980448238338, "version": "count-markets-nb2-v1"}} |
 | Elo home rating | 1,420.8820 |
 | Elo away rating | 1,406.2048 |
 | Elo rating diff | 74.6772 |
@@ -1266,7 +1266,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — FC Schalke 04 vs RB Leipzig
 
-The model's most likely 1X2 outcome is **RB Leipzig win** at **52.9%**. Expected goals are 0.87 for FC Schalke 04 and 1.62 for RB Leipzig (2.49 combined). The most likely exact score is 1-1 at 11.0%. Goal-market probabilities: at least one goal: 95.6%; Over 2.5 goals: 66.1%; Under 3.5 goals: 54.5%; Double Chance 1X: 47.1%; Double Chance X2: 78.2%; Double Chance 12 (either team wins): 74.7%; Under 4.5 goals: 73.7%; BTTS Yes (both teams score): 65.4%; BTTS No (at least one team does not score): 34.6%.
+The model's most likely 1X2 outcome is **RB Leipzig win** at **53.7%**. Expected goals are 0.87 for FC Schalke 04 and 1.62 for RB Leipzig (2.49 combined). The most likely exact score is 1-1 at 10.9%. Goal-market probabilities: at least one goal: 95.6%; Over 2.5 goals: 66.5%; Under 3.5 goals: 54.1%; Double Chance 1X: 46.3%; Double Chance X2: 78.9%; Double Chance 12 (either team wins): 74.9%; Under 4.5 goals: 73.4%; BTTS Yes (both teams score): 65.5%; BTTS No (at least one team does not score): 34.5%.
 
 **Fixture source:** The Odds API
 
@@ -1274,9 +1274,9 @@ The model's most likely 1X2 outcome is **RB Leipzig win** at **52.9%**. Expected
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| FC Schalke 04 win | 21.8% | 4.58 |
-| Draw | 25.3% | 3.95 |
-| RB Leipzig win | 52.9% | 1.89 |
+| FC Schalke 04 win | 21.1% | 4.73 |
+| Draw | 25.1% | 3.98 |
+| RB Leipzig win | 53.7% | 1.86 |
 
 ### Goals outlook
 
@@ -1287,32 +1287,32 @@ The model's most likely 1X2 outcome is **RB Leipzig win** at **52.9%**. Expected
 | Expected total goals | 2.49 |
 | Over 0.5 | 95.6% |
 | Under 0.5 | 4.4% |
-| Over 1.5 | 86.5% |
-| Under 1.5 | 13.5% |
-| Over 2.5 | 66.1% |
-| Under 2.5 | 33.9% |
-| Over 3.5 | 45.5% |
-| Under 3.5 | 54.5% |
-| Over 4.5 | 26.3% |
-| Under 4.5 | 73.7% |
+| Over 1.5 | 86.8% |
+| Under 1.5 | 13.2% |
+| Over 2.5 | 66.5% |
+| Under 2.5 | 33.5% |
+| Over 3.5 | 45.9% |
+| Under 3.5 | 54.1% |
+| Over 4.5 | 26.6% |
+| Under 4.5 | 73.4% |
 
 ### 5 most likely scorelines
 
 | Rank | Score | Probability |
 | --- | --- | --- |
-| 1 | 1-1 | 11.03% |
-| 2 | 1-2 | 8.37% |
+| 1 | 1-1 | 10.92% |
+| 2 | 1-2 | 8.47% |
 | 3 | 2-2 | 7.16% |
-| 4 | 0-2 | 6.84% |
-| 5 | 1-3 | 6.36% |
+| 4 | 0-2 | 6.89% |
+| 5 | 1-3 | 6.47% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| FC Schalke 04 win | 21.8% | 22.9% | 4.15 | -9.5% |
-| Draw | 25.3% | 24.8% | 3.85 | -2.6% |
-| RB Leipzig win | 52.9% | 52.3% | 1.87 | -1.1% |
+| FC Schalke 04 win | 21.1% | 22.0% | 4.33 | -8.4% |
+| Draw | 25.1% | 24.5% | 3.89 | -2.3% |
+| RB Leipzig win | 53.7% | 53.5% | 1.83 | -1.7% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1328,9 +1328,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-30T07:08:04Z |
-| Market best draw last update utc | 2026-10-30T07:08:04Z |
-| Market best away last update utc | 2026-10-30T07:08:04Z |
+| Market best home last update utc | 2026-10-30T11:50:53Z |
+| Market best draw last update utc | 2026-10-30T11:50:53Z |
+| Market best away last update utc | 2026-10-30T11:50:53Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -1340,15 +1340,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | RB Leipzig |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 0.7500 |
-| Dc lambda away | 1.5473 |
+| Dc lambda home | 0.7503 |
+| Dc lambda away | 1.5472 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Shot features applied | 1 |
 | Shot features status | APPLIED |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-30T07:07:52.260041+00:00 |
+| Bbs statistics cutoff utc | 2026-10-30T11:50:54.576591+00:00 |
 | Bbs statistics weight | 0 |
 | Shot features version | football-data-lagged-shot-strength-v1 |
 | Shot features weight | 0.2000 |
@@ -1358,141 +1358,141 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Score engine version | dc-positive-tail-bounded-v1 |
 | Score grid max goals | 15 |
 | Score grid omitted mass | 0 |
-| P btts yes | 65.4% |
-| P btts no | 34.6% |
+| P btts yes | 65.5% |
+| P btts no | 34.5% |
 | Fair Over 0.5 odds | 1.05 |
-| Fair Under 0.5 odds | 22.51 |
-| Fair Over 1.5 odds | 1.16 |
-| Fair Under 1.5 odds | 7.43 |
-| Fair Over 2.5 odds | 1.51 |
-| Fair Under 2.5 odds | 2.95 |
-| Fair Over 3.5 odds | 2.20 |
-| Fair Under 3.5 odds | 1.83 |
-| Fair Over 4.5 odds | 3.81 |
+| Fair Under 0.5 odds | 22.94 |
+| Fair Over 1.5 odds | 1.15 |
+| Fair Under 1.5 odds | 7.56 |
+| Fair Over 2.5 odds | 1.50 |
+| Fair Under 2.5 odds | 2.98 |
+| Fair Over 3.5 odds | 2.18 |
+| Fair Under 3.5 odds | 1.85 |
+| Fair Over 4.5 odds | 3.75 |
 | Fair Under 4.5 odds | 1.36 |
-| Goal margin distribution | {"-1": 0.18760300160435808, "-10": 3.5324871411215304e-05, "-11": 7.1713973310336105e-06, "-12": 1.3386924935412314e-06, "-13": 2.3123724753067002e-07, "-14": 3.716242873581782e-08, "-15": 5.583095669656871e-09, "-16": 7.870028223941308e-10, "-17": 1.0357122900544263e-10, "-18": 1.135697260600831e-11, "-2": 0.15879936939428196, "-3": 0.1000552916991778, "-4": 0.050539631957189, "-5": 0.021189013123883552, "-6": 0.007570487861450332, "-7": 0.002352389873266233, "-8": 0.0006460002619534155, "-9": 0.00015881619022861231, "0": 0.252862277825036, "1": 0.13004209566024588, "10": 9.258902785108747e-08, "11": 1.0085868301055932e-08, "12": 1.0102315067103786e-09, "13": 9.363289366172076e-11, "14": 8.074308085644633e-12, "15": 6.508889070018954e-13, "16": 4.923100064954063e-14, "17": 3.4764186903310893e-15, "18": 2.0454369534629755e-16, "2": 0.06057356342223446, "3": 0.02047882266053895, "4": 0.005550442025678967, "5": 0.0012486387222026543, "6": 0.00023937594705789733, "7": 3.991135903798638e-05, "8": 5.880990562148884e-06, "9": 7.757881385958671e-07} |
-| Raw goal margin distribution | {"-1": 0.24531994445894464, "-10": 3.2754995301939193e-06, "-11": 4.781292116484307e-07, "-12": 6.407963920562244e-08, "-13": 7.93650390280608e-09, "-14": 9.103561488933078e-10, "-15": 9.000547495213905e-11, "-2": 0.16997515218611975, "-3": 0.08280768153086882, "-4": 0.03146731950450244, "-5": 0.009767141325131987, "-6": 0.002557593420984469, "-7": 0.000578572741923616, "-8": 0.00011513279235976509, "-9": 2.044180084689941e-05, "0": 0.2649002598113799, "1": 0.12764398800044194, "10": 6.480123348173356e-09, "11": 5.075532141664111e-10, "12": 3.6499501688896525e-11, "13": 2.425641893262479e-12, "14": 1.4929296853968215e-13, "15": 7.920042731821303e-15, "2": 0.04893804150308462, "3": 0.01279270380788285, "4": 0.0026084471523626193, "5": 0.0004344305292737965, "6": 6.10400590146379e-05, "7": 7.4092113081153245e-06, "8": 7.911222933860578e-07, "9": 7.536927036352804e-08} |
-| Unadjusted home-win probability | 19.2% |
+| Goal margin distribution | {"-1": 0.18990392546563478, "-10": 3.705462643064533e-05, "-11": 7.557362031360532e-06, "-12": 1.417309323649976e-06, "-13": 2.459626494070273e-07, "-14": 3.971469539997015e-08, "-15": 5.994657619648734e-09, "-16": 8.489991549382228e-10, "-17": 1.1223919635866459e-10, "-18": 1.2350275433443988e-11, "-2": 0.16111936620353462, "-3": 0.1018514096960286, "-4": 0.05164097390885839, "-5": 0.02173878424240569, "-6": 0.007799961334836684, "-7": 0.002434318376410414, "-8": 0.0006714896291533969, "-9": 0.0001658320082781182, "0": 0.25117509885730566, "1": 0.12582620776064726, "10": 9.309870725912161e-08, "11": 1.0191685510026826e-08, "12": 1.0259235662371135e-09, "13": 9.556395159425532e-11, "14": 8.282296016211591e-12, "15": 6.710246458891181e-13, "16": 5.1010070184691903e-14, "17": 3.619660069493221e-15, "18": 2.137836348984771e-16, "2": 0.058756017794752056, "3": 0.01993637658021921, "4": 0.005425605136654522, "5": 0.0012259241118434282, "6": 0.00023609965905847005, "7": 3.955076270345855e-05, "8": 5.855869237098054e-06, "9": 7.76238173013424e-07} |
+| Raw goal margin distribution | {"-1": 0.2453026033150293, "-10": 3.2730448046219087e-06, "-11": 4.777389168518878e-07, "-12": 6.402306626808465e-08, "-13": 7.928970350781306e-09, "-14": 9.094305233813943e-10, "-15": 8.990656820330662e-11, "-2": 0.16994607308315604, "-3": 0.08278658782207483, "-4": 0.03145687940601581, "-5": 0.009763184565773813, "-6": 0.002556375568760655, "-7": 0.000578256986435907, "-8": 0.0001150620655303287, "-9": 2.0427856806219784e-05, "0": 0.2649104131458789, "1": 0.1276805632384595, "10": 6.496773162054238e-09, "11": 5.089919911794845e-10, "12": 3.661266768006999e-11, "13": 2.433807767498456e-12, "14": 1.498351064294812e-13, "15": 7.95078574155928e-15, "2": 0.04896212794852985, "3": 0.012802173503659914, "4": 0.002611042486389904, "5": 0.0004349750792618577, "6": 6.113249347474009e-05, "7": 7.422375398344941e-06, "8": 7.9273634212427e-07, "9": 7.554295736518684e-08} |
+| Unadjusted home-win probability | 19.3% |
 | Unadjusted draw probability | 26.5% |
 | Unadjusted away-win probability | 54.3% |
 | Raw p over 1 5 | 72.0% |
 | Raw p under 3 5 | 75.9% |
 | Raw p btts yes | 47.5% |
-| P home draw | 47.1% |
-| P draw away | 78.2% |
-| P home away | 74.7% |
+| P home draw | 46.3% |
+| P draw away | 78.9% |
+| P home away | 74.9% |
 | Raw p home draw | 45.7% |
-| Raw p draw away | 80.8% |
+| Raw p draw away | 80.7% |
 | Raw p home away | 73.5% |
 | Market blending weight | 70.0% |
 | Market blend applied | Yes |
 | Totals anchor applied | 1 |
 | Totals anchor status | ANCHORED_ALTERNATE |
-| Totals anchor scale | 1.4047 |
-| Totals anchor target over 2 5 | 0.6606 |
-| Totals anchor reference over odds | 1.47 |
-| Totals anchor reference under odds | 2.73 |
-| Totals anchor reference last update utc | 2026-10-30T07:08:04Z |
+| Totals anchor scale | 1.4116 |
+| Totals anchor target over 2 5 | 0.6646 |
+| Totals anchor reference over odds | 1.46 |
+| Totals anchor reference under odds | 2.75 |
+| Totals anchor reference last update utc | 2026-10-30T11:50:53Z |
 | Totals anchor reference source | live_pinnacle_alternate |
-| Unanchored p over 2 5 | 0.4576 |
+| Unanchored p over 2 5 | 0.4587 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 3.1, "price": 1.44, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.44, "price": 3.1, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 4.1, "price": 1.26, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 3.61, "price": 1.32, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.16, "price": 1.39, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 3.13, "price": 1.4, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 2.83, "price": 1.47, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.5, "price": 1.58, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.38, "price": 1.63, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.1, "price": 1.8, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 2.03, "price": 1.88, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.88, "price": 2.03, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.8, "price": 2.1, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.63, "price": 2.38, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.58, "price": 2.5, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.47, "price": 2.83, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.4, "price": 3.13, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.39, "price": 3.16, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.32, "price": 3.61, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.26, "price": 4.1, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 7.7, "price": 1.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": 3.0, "market_key": "alternate_spreads", "opposite_price": 6.86, "price": 1.07, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 7.0, "price": 1.09, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 5.68, "price": 1.11, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 4.95, "price": 1.16, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.0, "price": 1.39, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.41, "price": 1.6, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.6, "price": 2.41, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.39, "price": 3.0, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.16, "price": 4.95, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.11, "price": 5.68, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": -3.0, "market_key": "alternate_spreads", "opposite_price": 1.07, "price": 6.86, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.09, "price": 7.0, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:08:05Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.05, "price": 7.7, "quote_source": "The Odds API", "side": "home"}] |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": 3.0, "market_key": "alternate_spreads", "opposite_price": 9.95, "price": 1.02, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 7.7, "price": 1.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 7.0, "price": 1.09, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 5.68, "price": 1.11, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 4.95, "price": 1.16, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.0, "price": 1.39, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": -0.0, "market_key": "spreads", "opposite_price": 3.1, "price": 1.44, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.41, "price": 1.6, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.6, "price": 2.41, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.39, "price": 3.0, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.44, "price": 3.1, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.16, "price": 4.95, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.11, "price": 5.68, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.09, "price": 7.0, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.05, "price": 7.7, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:39Z", "line": -3.0, "market_key": "alternate_spreads", "opposite_price": 1.02, "price": 9.95, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 4.28, "price": 1.25, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 3.78, "price": 1.3, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 3.28, "price": 1.38, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.05, "price": 1.41, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 2.72, "price": 1.5, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 2.47, "price": 1.6, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 2.41, "price": 1.62, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 2.09, "price": 1.83, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.04, "price": 1.85, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.85, "price": 2.04, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 1.83, "price": 2.09, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.62, "price": 2.41, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 1.6, "price": 2.47, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.5, "price": 2.72, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.41, "price": 3.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 1.38, "price": 3.28, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.3, "price": 3.78, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.25, "price": 4.28, "quote_source": "The Odds API", "side": "home"}] |
 | 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 4.15 |
-| Reference draw odds | 3.85 |
-| Reference away odds | 1.87 |
-| Market reference 1x2 last update utc | 2026-10-30T07:08:04Z |
-| Market reference home last update utc | 2026-10-30T07:08:04Z |
-| Market reference draw last update utc | 2026-10-30T07:08:04Z |
-| Market reference away last update utc | 2026-10-30T07:08:04Z |
+| Reference home odds | 4.33 |
+| Reference draw odds | 3.89 |
+| Reference away odds | 1.83 |
+| Market reference 1x2 last update utc | 2026-10-30T11:50:53Z |
+| Market reference home last update utc | 2026-10-30T11:50:53Z |
+| Market reference draw last update utc | 2026-10-30T11:50:53Z |
+| Market reference away last update utc | 2026-10-30T11:50:53Z |
 | O/U 2.5 market source | The Odds API / Betsson |
 | Reference Over 2.5 odds | 1.46 |
 | Reference Under 2.5 odds | 2.76 |
-| Market reference over 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Market reference under 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Home probability edge | -1.1% |
-| Draw probability edge | +0.5% |
-| Away probability edge | +0.6% |
-| Over 2.5 probability edge | -0.4% |
-| Under 2.5 probability edge | +0.4% |
-| Raw edge prob home | -0.0367 |
-| Raw ev home | -0.2012 |
-| Raw edge prob draw | 0.0172 |
-| Raw ev draw | 0.0199 |
-| Raw edge prob away | 0.0195 |
-| Raw ev away | 0.0147 |
+| Market reference over 2 5 last update utc | 2026-10-30T11:50:12Z |
+| Market reference under 2 5 last update utc | 2026-10-30T11:50:12Z |
+| Home probability edge | -0.8% |
+| Draw probability edge | +0.6% |
+| Away probability edge | +0.2% |
+| Over 2.5 probability edge | -0.1% |
+| Under 2.5 probability edge | +0.1% |
+| Raw edge prob home | -0.0270 |
+| Raw ev home | -0.1662 |
+| Raw edge prob draw | 0.0196 |
+| Raw ev draw | 0.0305 |
+| Raw edge prob away | 0.0074 |
+| Raw ev away | -0.0072 |
 | Legacy model version | dc-blend50-tuned-half-life-v1 |
 | Legacy status | AVAILABLE |
 | Legacy half life days | 1,000,000,000 |
-| Legacy trial matrix | [[0.06691618635594139, 0.08943092153032924, 0.10172139181531217, 0.06954670406790349, 0.03566170271851657, 0.014629099196903934, 0.0050009423508199135, 0.0014653430941950756, 0.0003756945099425135, 8.56205184134958e-05, 1.7561571120817597e-05, 3.274584452272036e-06, 5.597066452379193e-07, 8.830852373376408e-08, 1.2937790153751391e-08, 1.769108045138133e-09, 2.2678790471886786e-10, 2.736254450836545e-11], [0.0472809794561323, 0.11258659821859737, 0.09027050527485993, 0.0617177567508054, 0.03164722646743956, 0.012982285757731629, 0.004437980888804593, 0.0013003878452054801, 0.00033340217466820455, 7.598212451825952e-05, 1.558464616149656e-05, 2.905960956653963e-06, 4.966998658753919e-07, 7.836753818702535e-08, 1.148136919360792e-08, 1.569957648735195e-09, 2.0125814623505078e-10, 2.4282313427844564e-11], [0.027152265489148432, 0.05569184236612168, 0.046120435082237766, 0.027385061229015996, 0.014042332063989967, 0.00576042793978288, 0.001969196302189493, 0.0005770008930526388, 0.00014793536654354695, 3.371436749790976e-05, 6.9151328861213495e-06, 1.2894169023092399e-06, 2.203929137340873e-07, 3.4772810040457796e-08, 5.0944495541113095e-09, 6.966129133819213e-10, 8.930115006834232e-11, 1.077441363736868e-11], [0.008031901914701657, 0.016474183913400754, 0.01689504792854739, 0.009327601411559345, 0.004153857210799347, 0.0017039901225750023, 0.0005825072517908432, 0.00017068242720100934, 4.3760707712145724e-05, 9.973034956056973e-06, 2.0455629785533748e-06, 3.814219513522835e-07, 6.519434875572183e-08, 1.0286132464899867e-08, 1.506987295199025e-09, 2.0606481602922892e-10, 2.641614116898036e-11, 3.1871754332379737e-12], [0.001781935518230621, 0.0036549168255427763, 0.003748288550558769, 0.0025626970879450857, 0.0010611312147208638, 0.00037804253019732396, 0.0001292334459031509, 3.786713067431528e-05, 9.708629438371026e-06, 2.2125899197330513e-06, 4.5382293819972215e-07, 8.462121795877436e-08, 1.4463837689936505e-08, 2.282052866069019e-09, 3.3433602842212786e-10, 4.5716969484902e-11, 5.860611932702957e-12, 7.070979162386558e-13], [0.0003162682238755681, 0.0006486957810769338, 0.0006652679349674001, 0.0004548423038002358, 0.00023323105299270558, 7.725883850634138e-05, 2.293709956558545e-05, 6.720877404992475e-06, 1.7231437149805245e-06, 3.927032582939919e-07, 8.054712033628253e-08, 1.5019063278217442e-08, 2.5671255832887466e-09, 4.0503194383736924e-10, 5.933989238380106e-11, 8.114112206664155e-12, 1.040175308150538e-12, 1.2549982857795646e-13], [4.6777594928877805e-05, 9.594523315509387e-05, 9.839633460400912e-05, 6.727336936655375e-05, 3.449599706235685e-05, 1.4150904876992841e-05, 3.9062925676124125e-06, 9.940501671804912e-07, 2.548612621143802e-07, 5.808270498573441e-08, 1.1913307387025375e-08, 2.221391860460984e-09, 3.7969024897640596e-10, 5.990617700984933e-11, 8.77665614027903e-12, 1.2001163106418539e-12, 1.5384694239415583e-13, 1.856202963713787e-14], [5.930255818530637e-06, 1.2163510715832431e-05, 1.2474250475996224e-05, 8.5286191118791e-06, 4.3732493644894e-06, 1.793988898143498e-06, 6.132732396486384e-07, 1.4510680526060873e-07, 3.2310179368345813e-08, 7.363467483126397e-09, 1.510316222056056e-09, 2.816181983226083e-10, 4.813544415131168e-11, 7.594639171140217e-12, 1.1126655019837501e-12, 1.5214541801301011e-13, 1.9504032361716333e-14, 2.353211712289624e-15], [6.578350674259979e-07, 1.3492814031535422e-06, 1.38375133452489e-06, 9.460679100861724e-07, 4.851184971768053e-07, 1.9900470466788899e-07, 6.802955138869241e-08, 1.9933569782556214e-08, 4.126928074446744e-09, 8.168192530776523e-10, 1.6753728745836755e-10, 3.1239516835522165e-11, 5.339598175497306e-12, 8.424628083685324e-13, 1.234264436338297e-13, 1.6877280572685988e-14, 2.1635553062747228e-15, 2.610385171891713e-16], [6.48646517756002e-08, 1.3304348262445467e-07, 1.3644232863593285e-07, 9.32853363745506e-08, 4.7834242878540046e-08, 1.9622503434633156e-08, 6.707932397924702e-09, 1.9655140423713994e-09, 5.039316989032376e-10, 9.273869372648155e-11, 1.651971496888638e-11, 3.0803167564521704e-12, 5.26501540318425e-13, 8.306954038272877e-14, 1.2170244005895491e-14, 1.6641541040825243e-15, 2.1333350635727396e-16, 2.573923671133476e-17], [5.756276812346796e-09, 1.1806663461547986e-08, 1.2108286887390049e-08, 8.278410567322099e-09, 4.244949068260949e-09, 1.741357710694795e-09, 5.952813229391075e-10, 1.7442540115046838e-10, 4.472035652697981e-11, 1.0191738255803258e-11, 1.6880296382073733e-12, 2.7335621844066944e-13, 4.672326953491579e-14, 7.371831282955853e-15, 1.0800226541583186e-15, 1.476818485766604e-16, 1.8931832397548573e-17, 2.2841743136389596e-18], [4.6438968519740767e-10, 9.525067863969984e-10, 9.768403638709861e-10, 6.678637255678228e-10, 3.4246278032710537e-10, 1.4048465448206016e-10, 4.8024533075031995e-11, 1.4071831458305747e-11, 3.607830715321897e-12, 8.222221193523986e-13, 1.6864546598961628e-13, 2.5392987017755048e-14, 3.769416436710089e-15, 5.947251184094068e-16, 8.713121288657606e-17, 1.1914285814536105e-17, 1.5273323319771565e-18, 1.8427657755644685e-19], [3.4342736549878875e-11, 7.044017270387571e-11, 7.223969940987906e-11, 4.939013227360197e-11, 2.5325948051394132e-11, 1.0389178812460592e-11, 3.5515299755757257e-12, 1.0406458540125855e-12, 2.6680777743844815e-13, 6.080530754768822e-14, 1.2471738700119776e-14, 2.325518677073258e-15, 3.209743971519642e-16, 4.398135598650844e-17, 6.443563207402173e-18, 8.810901532721136e-19, 1.1294990731524634e-19, 1.3627697076527796e-20], [2.344364441520251e-12, 4.8085112816117144e-12, 4.93135374685886e-12, 3.371556302627333e-12, 1.7288445250495593e-12, 7.092044441232536e-13, 2.424408018749566e-13, 7.103840233637946e-14, 1.8213302985895947e-14, 4.150799126431464e-15, 8.513678195104669e-16, 1.5874865669785974e-16, 2.713403162185532e-17, 3.4570270721798735e-18, 4.398618740874657e-19, 6.014652973576318e-20, 7.710385746292706e-21, 9.302778885899214e-22], [1.486040581096552e-13, 3.0480085658106396e-13, 3.1258756777690606e-13, 2.1371547010442857e-13, 1.0958761688793716e-13, 4.4954895475967465e-14, 1.5367784279569853e-14, 4.5029666385686865e-15, 1.1545008477989489e-15, 2.631099430026052e-16, 5.396631627853116e-17, 1.0062724970124777e-17, 1.71996603449105e-18, 2.713701233858976e-19, 3.210449201261835e-20, 3.8125550113494375e-21, 4.887442375413801e-22, 5.89682503990282e-23], [8.791702624890665e-15, 1.8032606410353166e-14, 1.849328325949571e-14, 1.2643819310172449e-14, 6.483414728407009e-15, 2.6596183010433517e-15, 9.091877510488347e-16, 2.6640418922400363e-16, 6.830249633252136e-17, 1.556609157216914e-17, 3.1927513320769497e-18, 5.953302127733134e-19, 1.0175650714060326e-19, 1.6054779771412498e-20, 2.3521327598392412e-21, 2.597181960493895e-22, 2.8915051518458893e-23, 3.4886753996704104e-24], [4.876256999708406e-16, 1.0001660313500973e-15, 1.0257171538809607e-15, 7.012806852648007e-16, 3.5959810972110105e-16, 1.4751388792766987e-16, 5.04274692202315e-17, 1.4775923935113145e-17, 3.788350676194045e-18, 8.6336249331267355e-19, 1.770837424288129e-19, 3.3019578129894564e-20, 5.643854226887204e-21, 8.904672459858221e-22, 1.304594152438384e-22, 1.78389661858111e-23, 1.846636883769673e-24, 1.9349696598234202e-25], [2.545489118731385e-17, 5.22103685240271e-17, 5.354418059294746e-17, 3.660804493333279e-17, 1.8771633149486877e-17, 7.700475930700507e-18, 2.6323996908476522e-18, 7.7132836924473585e-19, 1.9775835081635925e-19, 4.5068991080240986e-20, 9.244072645960407e-21, 1.7236781580579847e-21, 2.946187931256822e-22, 4.648390528594282e-23, 6.810203440038292e-24, 9.312243862067702e-25, 1.1937678309210184e-25, 1.1630617046380073e-26]] |
-| Legacy trial inputs | {"lambda_home": 0.8874289238861108, "lambda_away": 2.0510937618954577, "rho": -0.11084228618346421, "max_goals": 17, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
-| Legacy p home | 0.1860 |
-| Legacy p draw | 0.2361 |
-| Legacy p away | 0.5779 |
-| Legacy p over 1 5 | 0.7964 |
-| Legacy p under 3 5 | 0.6686 |
-| Legacy p btts yes | 0.5305 |
-| Legacy p over 2 5 | 0.5549 |
-| Legacy goal margin distribution | {"-1": 0.2116423520687301, "-10": 2.0698553730011327e-05, "-11": 3.807610891189907e-06, "-12": 6.433806839068464e-07, "-13": 1.0051362907983913e-07, "-14": 1.4600236127988166e-08, "-15": 1.9811406050105525e-09, "-16": 2.510702181467124e-10, "-17": 2.736254450836545e-11, "-2": 0.17932168747138522, "-3": 0.10757651562610074, "-4": 0.05079398073868472, "-5": 0.019690137093895468, "-6": 0.006459707826936474, "-7": 0.001834592448719221, "-8": 0.00045898806709887134, "-9": 0.00010256211843869715, "0": 0.23609326674231645, "1": 0.12267858251772003, "10": 6.7845071528902874e-09, "11": 5.399815606792628e-10, "12": 3.947684651716332e-11, "13": 2.6683786336792253e-12, "14": 1.6769898971882269e-13, "15": 9.845412836833709e-15, "16": 5.398360684948677e-16, "17": 2.545489118731385e-17, "2": 0.04786594028348933, "3": 0.012423939184674842, "4": 0.002538061603648222, "5": 0.00042568340010099226, "6": 6.042253137307104e-05, "7": 7.424611059859517e-06, "8": 8.036807514539278e-07, "9": 7.769932045687473e-08} |
+| Legacy trial matrix | [[0.06657192137020919, 0.09036309144966664, 0.10277133790245718, 0.07025702690551326, 0.036022080161252794, 0.014775350638037282, 0.0050503974576074796, 0.0014796756593170458, 0.0003793285708222201, 8.643946243579223e-05, 1.772764594291908e-05, 3.3051973529602498e-06, 5.648786521961983e-07, 8.91150021659647e-08, 1.3054546765060901e-08, 1.7848821705185503e-09, 2.2878554450958682e-10, 2.760060941961421e-11], [0.046058505681657695, 0.11201702157599396, 0.09122042820937416, 0.06236053952242274, 0.031973404690135085, 0.013114685861389237, 0.004482761712684427, 0.001313368590978145, 0.0003366942123035796, 7.672416199412498e-05, 1.5735160085121253e-05, 2.9337121030737833e-06, 5.013895273853328e-07, 7.909898638445424e-08, 1.1587290486754322e-08, 1.5842716385818948e-09, 2.0307135981909176e-10, 2.4498459020612767e-11], [0.026453582930650976, 0.05425296952356408, 0.04589197685949689, 0.0276757860445592, 0.014189888575324274, 0.005820335146569832, 0.001989462487000883, 0.000582876742246363, 0.0001494258557337325, 3.4050402835818963e-05, 6.98330911226512e-06, 1.3019898336801537e-06, 2.2251810826475717e-07, 3.5104356701893536e-08, 5.142472704750423e-09, 7.031042906562766e-10, 9.012365109686169e-11, 1.0872486278475663e-11], [0.007826783912898988, 0.016051748838983495, 0.016460058413339602, 0.009282252215188044, 0.00419834212697494, 0.0017220542719024534, 0.0005886194331178014, 0.0001724549117363944, 4.4210415159787304e-05, 1.0074444200688082e-05, 2.0661417231065625e-06, 3.852178781120252e-07, 6.583611583583922e-08, 1.0386276030257461e-08, 1.5214960764890349e-09, 2.0802646528544858e-10, 2.6664756317728798e-11, 3.2168270332480906e-12], [0.0017367745584730215, 0.0035619060539796446, 0.0036525105332414175, 0.00249694648375768, 0.0010560694765494722, 0.00038212630897103495, 0.000130615495130382, 3.8267991875163686e-05, 9.810354434661846e-06, 2.2355335950536486e-06, 4.5847980713727927e-07, 8.548039879717596e-08, 1.4609128383361315e-08, 2.3047295245880814e-09, 3.376221582031534e-10, 4.616137054728231e-11, 5.916947611673744e-12, 7.138185252752404e-13], [0.00030831420931276587, 0.0006323136433116671, 0.0006483978542689881, 0.0004432608003613835, 0.00022726802977917983, 7.689738832820597e-05, 2.318701233194319e-05, 6.7933777584534515e-06, 1.7415453582300603e-06, 3.968544848774609e-07, 8.138986060901319e-08, 1.5174578322970403e-08, 2.5934292071993735e-09, 4.0913822556101136e-10, 5.993507231266352e-11, 8.194619383181171e-12, 1.0503833186283898e-12, 1.2671788237532442e-13], [4.561024304143179e-05, 9.354086862925591e-05, 9.592027492560626e-05, 6.557347090906581e-05, 3.362073417531118e-05, 1.3790378954372673e-05, 3.8883754960969505e-06, 1.0049735019542928e-06, 2.5763427262598604e-07, 5.870838566827529e-08, 1.2040351081320215e-08, 2.2448404402270447e-09, 3.8365710329982344e-10, 6.052557210053053e-11, 8.866452250059124e-12, 1.2122651840537324e-12, 1.5538770839039266e-13, 1.8745919708718417e-14], [5.783416140683602e-06, 1.1861058687027347e-05, 1.2162769352481516e-05, 8.314769770282566e-06, 4.263136605400197e-06, 1.7486313361324002e-06, 5.977038021392748e-07, 1.4445455005894774e-07, 3.266823659205025e-08, 7.444271344025763e-09, 1.526726369775087e-09, 2.8464760478199854e-10, 4.8648034646439824e-11, 7.674692070646084e-12, 1.1242734007580645e-12, 1.5371621733908316e-13, 1.9703288578236497e-14, 2.3769979589207114e-15], [6.416741618257536e-07, 1.3159929540302334e-06, 1.3494679683919546e-06, 9.22529659518766e-07, 4.729980588420042e-07, 1.9401189879142582e-07, 6.631566481267448e-08, 1.942929757081482e-08, 4.1087560844426995e-09, 8.259472358350108e-10, 1.6939138388663629e-10, 3.1581855562724186e-11, 5.397534276780354e-12, 8.515125804383997e-13, 1.2473893881154275e-13, 1.7054924377000262e-14, 2.1860939756198195e-15, 2.6372962551017263e-16], [6.328374018076314e-08, 1.2978698713004934e-07, 1.3308838874077797e-07, 9.098251223942357e-08, 4.664842071339477e-08, 1.9134008076870547e-08, 6.540240439133472e-09, 1.9161728685906846e-09, 4.912286764427178e-10, 9.233884748102367e-11, 1.6705862514770756e-11, 3.114692878035115e-12, 5.323202602028508e-13, 8.397860488536833e-14, 1.2302110734384505e-14, 1.6820053966419981e-15, 2.1559883722016464e-16, 2.6009769586589398e-17], [5.617101028167087e-09, 1.1519967321282263e-08, 1.1813001619334914e-08, 8.075659902298902e-09, 4.140540543323191e-09, 1.698345517103582e-09, 5.805154877094935e-10, 1.7008060142403576e-10, 4.360173870302167e-11, 9.935742110291619e-12, 1.6809065052536349e-12, 2.764619239896634e-13, 4.724905121534722e-14, 7.45398907362671e-15, 1.0919423955877707e-15, 1.4929576247979634e-16, 1.913667628938823e-17, 2.3086420472289245e-18], [4.532519134602264e-10, 9.29562634744754e-10, 9.532079912437411e-10, 6.516365443342213e-10, 3.3410613670825664e-10, 1.3704192811981202e-10, 4.684262474151777e-11, 1.3724046915187014e-11, 3.5182866390042647e-12, 8.017292372977889e-13, 1.6442457715952469e-13, 2.5288163801413687e-14, 3.812593500659274e-15, 6.014730362852979e-16, 8.81103931915569e-17, 1.2046888541997981e-17, 1.544165771977308e-18, 1.8628762775568116e-19], [3.352574955594014e-11, 6.875709327093045e-11, 7.050607276027027e-11, 4.819969411726369e-11, 2.4712876728686175e-11, 1.0136600032712575e-11, 3.46481517008492e-12, 1.015128554582281e-12, 2.602376144973913e-13, 5.93016219526213e-14, 1.2162016377621555e-14, 2.267524095833498e-15, 3.1967885582479565e-16, 4.4489242693337886e-17, 6.517274142020287e-18, 8.910739396642183e-19, 1.1421753203190623e-19, 1.3779163789575963e-20], [2.289049795812601e-12, 4.694553064350651e-12, 4.81396877305162e-12, 3.290948045568859e-12, 1.687330072526837e-12, 6.921003271350736e-13, 2.365684455280445e-13, 6.931030152548513e-14, 1.7768338253975456e-14, 4.048958410176766e-15, 8.303904155643698e-16, 1.548205673942393e-16, 2.645979168644226e-17, 3.4433908083243432e-18, 4.449822969402639e-19, 6.084017946381482e-20, 7.798471975685629e-21, 9.408049775701056e-22], [1.451266936234623e-13, 2.9763658506487113e-13, 3.052075898556698e-13, 2.086474525865248e-13, 1.0697741697241094e-13, 4.3879443914488277e-14, 1.4998536238893582e-14, 4.394301475153387e-15, 1.1265199152503932e-15, 2.5670561984400407e-16, 5.264709210255025e-17, 9.815687317915308e-18, 1.6775616189929818e-18, 2.6465136667649225e-19, 3.198080216229731e-20, 3.857292270877435e-21, 4.944263140176528e-22, 5.964742051003547e-23], [8.587685637609634e-15, 1.7612262520225624e-14, 1.8060267001557682e-14, 1.234644493831051e-14, 6.3302512056543424e-15, 2.5965097176983324e-15, 8.87519111942965e-16, 2.6002714403052276e-16, 6.666036864160335e-17, 1.519022524104163e-17, 3.1153240346260442e-18, 5.8083068592489925e-19, 9.926755348681181e-20, 1.5660404601225234e-20, 2.294108503142139e-21, 2.587414114875234e-22, 2.9257041897213254e-23, 3.529559474175759e-24], [4.764049352053786e-16, 9.770465686379855e-16, 1.0018997776290087e-15, 6.849234530771447e-16, 3.5117295191338164e-16, 1.4404230616021054e-16, 4.923544047385671e-17, 1.442509890685543e-17, 3.698007815329076e-18, 8.426831834668629e-19, 1.728237161313803e-19, 3.222179024363648e-20, 5.506903068245584e-21, 8.687665518009563e-22, 1.272664905206931e-22, 1.7400503741946145e-23, 1.8398613063985035e-24, 1.958035754399452e-25], [2.4874102905629383e-17, 5.1013654762867275e-17, 5.23112930371461e-17, 3.5761292957587257e-17, 1.833547786359808e-17, 7.520751531779681e-18, 2.5706858230230935e-18, 7.531647305003675e-19, 1.930807599729472e-19, 4.399826003767533e-20, 9.023489434953068e-21, 1.682367387689417e-21, 2.87526982800493e-22, 4.536012751662573e-23, 6.644850940272727e-24, 9.085168702132942e-25, 1.1645336049690447e-25, 1.1589010371373993e-26]] |
+| Legacy trial inputs | {"lambda_home": 0.8876057281258103, "lambda_away": 2.0508741543930062, "rho": -0.11082685883326926, "max_goals": 17, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
+| Legacy p home | 0.1812 |
+| Legacy p draw | 0.2349 |
+| Legacy p away | 0.5839 |
+| Legacy p over 1 5 | 0.7970 |
+| Legacy p under 3 5 | 0.6678 |
+| Legacy p btts yes | 0.5298 |
+| Legacy p over 2 5 | 0.5558 |
+| Legacy goal margin distribution | {"-1": 0.2138639996365499, "-10": 2.089460840483017e-05, "-11": 3.8432599636237515e-06, "-12": 6.493341814161825e-07, "-13": 1.0143277551821833e-07, "-14": 1.4732158881772905e-08, "-15": 1.9988260166161177e-09, "-16": 2.532840035301996e-10, "-17": 2.760060941961421e-11, "-2": 0.18118149439609338, "-3": 0.10867945597980314, "-4": 0.05130890296078016, "-5": 0.01988751872593596, "-6": 0.006523740394363741, "-7": 0.0018525745516746739, "-8": 0.00046343628709571175, "-9": 0.00010354481436725857, "0": 0.23490017591861334, "1": 0.11951015614548344, "10": 6.620570307632976e-09, "11": 5.270380998209925e-10, "12": 3.853821534878822e-11, "13": 2.605449906809971e-12, "14": 1.6377661721427452e-13, "15": 9.617043499284767e-15, "16": 5.274185899682458e-16, "17": 2.4874102905629383e-17, "2": 0.04663654074500219, "3": 0.012107125154460349, "4": 0.00247381597305137, "5": 0.000414988771596034, "6": 5.8916033326829316e-05, "7": 7.240917627123913e-06, "8": 7.839512073588334e-07, "9": 7.580684729906015e-08} |
 | Legacy market blend applied | 1 |
-| Legacy raw p home | 0.1428 |
+| Legacy raw p home | 0.1429 |
 | Legacy raw p draw | 0.2245 |
-| Legacy raw p away | 0.6327 |
+| Legacy raw p away | 0.6326 |
 | Legacy market weight | 0.5000 |
-| Legacy lambda home | 0.8874 |
-| Legacy lambda away | 2.0511 |
+| Legacy lambda home | 0.8876 |
+| Legacy lambda away | 2.0509 |
 | Legacy model home team | Schalke 04 |
 | Legacy model away team | RB Leipzig |
 | Legacy home name match score | 100/100 |
 | Legacy away name match score | 100/100 |
-| Market p home draw | 49.0% |
-| Market home draw odds | 2.01 |
+| Market p home draw | 47.5% |
+| Market home draw odds | 2.07 |
 | Best home draw bookmaker | Pinnacle |
-| Market best home draw last update utc | 2026-10-30T07:07:51Z |
-| Market reference home draw last update utc | 2026-10-30T07:08:06Z |
+| Market best home draw last update utc | 2026-10-30T11:49:37Z |
+| Market reference home draw last update utc | 2026-10-30T11:50:59Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 74.9% |
-| Market draw away odds | 1.26 |
+| Market p draw away | 75.0% |
+| Market draw away odds | 1.24 |
 | Best draw away bookmaker | Pinnacle |
-| Market best draw away last update utc | 2026-10-30T07:07:51Z |
-| Market reference draw away last update utc | 2026-10-30T07:08:06Z |
+| Market best draw away last update utc | 2026-10-30T11:49:37Z |
+| Market reference draw away last update utc | 2026-10-30T11:50:59Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market p home away | 76.1% |
-| Market home away odds | 1.29 |
+| Market p home away | 77.4% |
+| Market home away odds | 1.28 |
 | Best home away bookmaker | Pinnacle |
-| Market best home away last update utc | 2026-10-30T07:07:51Z |
-| Market reference home away last update utc | 2026-10-30T07:08:06Z |
+| Market best home away last update utc | 2026-10-30T11:49:37Z |
+| Market reference home away last update utc | 2026-10-30T11:50:59Z |
 | Market home away bookmakers | 1 |
 | Market reference home away method | proportional_overlap_sum_two |
-| Market reference dc home draw odds | 1.94 |
-| Market reference dc draw away odds | 1.27 |
-| Market reference dc home away odds | 1.25 |
-| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 8.5, "market_key": "alternate_totals_corners", "opposite_price": 2.47, "price": 1.51, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 8.5, "market_key": "alternate_totals_corners", "opposite_price": 1.51, "price": 2.47, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.95, "price": 1.86, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.86, "price": 1.95, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.58, "price": 2.31, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:51Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.31, "price": 1.58, "quote_source": "The Odds API", "side": "Under"}] |
-| Market p over 1 5 | 86.7% |
+| Market reference dc home draw odds | 2.02 |
+| Market reference dc draw away odds | 1.28 |
+| Market reference dc home away odds | 1.24 |
+| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:49:37Z", "line": 8.5, "market_key": "alternate_totals_corners", "opposite_price": 2.47, "price": 1.51, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:49:37Z", "line": 8.5, "market_key": "alternate_totals_corners", "opposite_price": 1.51, "price": 2.47, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:49:37Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.95, "price": 1.85, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:49:37Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.85, "price": 1.95, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:49:37Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.58, "price": 2.3, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:49:37Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.3, "price": 1.58, "quote_source": "The Odds API", "side": "Under"}] |
+| Market p over 1 5 | 87.6% |
 | Market reference over 1 5 odds | 1.12 |
-| Market reference over 1 5 opposite odds | 5.00 |
-| Market reference over 1 5 last update utc | 2026-10-30T07:08:06Z |
+| Market reference over 1 5 opposite odds | 6.00 |
+| Market reference over 1 5 last update utc | 2026-10-30T11:50:54Z |
 | Market over 1 5 bookmakers | 0 |
-| Market p under 3 5 | 56.0% |
-| Market under 3 5 odds | 1.75 |
+| Market p under 3 5 | 55.0% |
+| Market under 3 5 odds | 1.76 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-30T07:08:04Z |
-| Market reference under 3 5 odds | 1.66 |
-| Market reference under 3 5 opposite odds | 2.05 |
-| Market reference under 3 5 last update utc | 2026-10-30T07:08:06Z |
+| Market best under 3 5 last update utc | 2026-10-30T11:50:53Z |
+| Market reference under 3 5 odds | 1.76 |
+| Market reference under 3 5 opposite odds | 2.13 |
+| Market reference under 3 5 last update utc | 2026-10-30T11:50:53Z |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 66.2% |
+| Market p btts yes | 67.8% |
 | Market btts yes odds | 1.44 |
 | Best btts yes bookmaker | Pinnacle |
-| Market best btts yes last update utc | 2026-10-30T07:07:51Z |
-| Market reference btts yes odds | 1.50 |
-| Market reference btts yes opposite odds | 2.90 |
-| Market reference btts yes last update utc | 2026-10-30T07:08:05Z |
+| Market best btts yes last update utc | 2026-10-30T11:49:37Z |
+| Market reference btts yes odds | 1.41 |
+| Market reference btts yes opposite odds | 2.73 |
+| Market reference btts yes last update utc | 2026-10-30T11:50:54Z |
 | Market btts yes bookmakers | 1 |
-| Count model | {"corners": {"alpha": 0.01169351969556193, "mu": 10.282019492259554, "version": "count-markets-nb2-v1"}} |
+| Count model | {"corners": {"alpha": 0.01168409266038481, "mu": 10.281793634485094, "version": "count-markets-nb2-v1"}} |
 | Elo home rating | 1,439.0953 |
 | Elo away rating | 1,517.4051 |
 | Elo rating diff | -18.3098 |
@@ -1505,7 +1505,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-10-31 — Werder Bremen vs TSG Hoffenheim
 
-The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **40.0%**. Expected goals are 1.77 for Werder Bremen and 1.65 for TSG Hoffenheim (3.41 combined). The most likely exact score is 1-1 at 9.9%. Goal-market probabilities: at least one goal: 96.4%; Over 2.5 goals: 69.0%; Under 3.5 goals: 52.1%; Double Chance 1X: 60.0%; Double Chance X2: 64.2%; Double Chance 12 (either team wins): 75.8%; Under 4.5 goals: 71.3%; BTTS Yes (both teams score): 70.2%; BTTS No (at least one team does not score): 29.8%.
+The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **39.9%**. Expected goals are 1.77 for Werder Bremen and 1.65 for TSG Hoffenheim (3.41 combined). The most likely exact score is 1-1 at 10.0%. Goal-market probabilities: at least one goal: 96.4%; Over 2.5 goals: 69.0%; Under 3.5 goals: 52.1%; Double Chance 1X: 60.1%; Double Chance X2: 64.1%; Double Chance 12 (either team wins): 75.8%; Under 4.5 goals: 71.3%; BTTS Yes (both teams score): 70.2%; BTTS No (at least one team does not score): 29.8%.
 
 **Fixture source:** The Odds API
 
@@ -1513,9 +1513,9 @@ The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **40.0%**. Expe
 
 | Outcome | Model probability | Model fair odds |
 | --- | --- | --- |
-| Werder Bremen win | 35.8% | 2.79 |
+| Werder Bremen win | 35.9% | 2.78 |
 | Draw | 24.2% | 4.14 |
-| TSG Hoffenheim win | 40.0% | 2.50 |
+| TSG Hoffenheim win | 39.9% | 2.51 |
 
 ### Goals outlook
 
@@ -1540,18 +1540,18 @@ The model's most likely 1X2 outcome is **TSG Hoffenheim win** at **40.0%**. Expe
 | Rank | Score | Probability |
 | --- | --- | --- |
 | 1 | 1-1 | 9.95% |
-| 2 | 1-2 | 8.62% |
+| 2 | 1-2 | 8.59% |
 | 3 | 2-2 | 7.40% |
-| 4 | 2-1 | 7.24% |
-| 5 | 1-3 | 4.96% |
+| 4 | 2-1 | 7.26% |
+| 5 | 1-3 | 4.94% |
 
 ### Market comparison
 
 | Selection | Model | Market fair | Available odds | Model EV |
 | --- | --- | --- | --- | --- |
-| Werder Bremen win | 35.8% | 33.8% | 2.86 | +2.4% |
-| Draw | 24.2% | 24.2% | 3.95 | -4.6% |
-| TSG Hoffenheim win | 40.0% | 42.0% | 2.32 | -7.1% |
+| Werder Bremen win | 35.9% | 34.0% | 2.85 | +2.4% |
+| Draw | 24.2% | 24.2% | 3.95 | -4.5% |
+| TSG Hoffenheim win | 39.9% | 41.8% | 2.33 | -7.0% |
 
 _EV is a model estimate, not a guarantee or a recommendation to bet._
 
@@ -1567,9 +1567,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-30T07:08:04Z |
-| Market best draw last update utc | 2026-10-30T07:08:04Z |
-| Market best away last update utc | 2026-10-30T07:08:04Z |
+| Market best home last update utc | 2026-10-30T11:50:53Z |
+| Market best draw last update utc | 2026-10-30T11:50:53Z |
+| Market best away last update utc | 2026-10-30T11:50:53Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -1579,15 +1579,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Hoffenheim |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.7766 |
-| Dc lambda away | 1.6724 |
+| Dc lambda home | 1.7768 |
+| Dc lambda away | 1.6720 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Shot features applied | 1 |
 | Shot features status | APPLIED |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-30T07:07:52.260041+00:00 |
+| Bbs statistics cutoff utc | 2026-10-30T11:50:54.576591+00:00 |
 | Bbs statistics weight | 0 |
 | Shot features version | football-data-lagged-shot-strength-v1 |
 | Shot features weight | 0.2000 |
@@ -1600,7 +1600,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 70.2% |
 | P btts no | 29.8% |
 | Fair Over 0.5 odds | 1.04 |
-| Fair Under 0.5 odds | 27.92 |
+| Fair Under 0.5 odds | 27.91 |
 | Fair Over 1.5 odds | 1.14 |
 | Fair Under 1.5 odds | 8.20 |
 | Fair Over 2.5 odds | 1.45 |
@@ -1609,16 +1609,16 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 3.5 odds | 1.92 |
 | Fair Over 4.5 odds | 3.48 |
 | Fair Under 4.5 odds | 1.40 |
-| Goal margin distribution | {"-1": 0.19300612853323185, "-10": 2.6918431195246145e-06, "-11": 4.1257749737568276e-07, "-12": 5.8170003534043826e-08, "-13": 7.59128771852709e-09, "-14": 9.21052058138592e-10, "-15": 1.0301120496399278e-10, "-16": 9.262482461209125e-12, "-2": 0.12074370628956188, "-3": 0.05636355341887958, "-4": 0.02123464472516977, "-5": 0.006667710611044543, "-6": 0.0017890067581639898, "-7": 0.0004182293075975203, "-8": 8.652002557078593e-05, "-9": 1.6038639326222863e-05, "0": 0.2415268938428914, "1": 0.16259779423816675, "10": 4.248342162434464e-06, "11": 6.983793550591503e-07, "12": 1.0560903128953486e-07, "13": 1.478201144678117e-08, "14": 1.9236159657577034e-09, "15": 2.307463162119023e-10, "16": 2.225326917172554e-11, "2": 0.10881915203546137, "3": 0.05448228496291083, "4": 0.02201496811681003, "5": 0.007414227663952346, "6": 0.0021336209624072617, "7": 0.0005349779284407861, "8": 0.00011870093895074853, "9": 2.3600497052578897e-05} |
-| Raw goal margin distribution | {"-1": 0.17509796742763914, "-10": 1.7248302131026451e-06, "-11": 2.5265712339248344e-07, "-12": 3.4034854207162256e-08, "-13": 4.242695721287377e-09, "-14": 4.917306039957812e-10, "-15": 5.264053170267563e-11, "-16": 4.583316676316518e-12, "-2": 0.1071657616876014, "-3": 0.04844864469822228, "-4": 0.01759456829106465, "-5": 0.0053100178075331066, "-6": 0.0013667624573628586, "-7": 0.0003061232764533908, "-8": 6.061813048596946e-05, "-9": 1.0748987708367634e-05, "0": 0.23973742629745315, "1": 0.18831343435468792, "10": 3.474621359019385e-06, "11": 5.458945954927405e-07, "12": 7.887098333357375e-08, "13": 1.054511597205893e-08, "14": 1.310849480126358e-09, "15": 1.505088260760004e-10, "16": 1.4055221029718986e-11, "2": 0.12327876696037877, "3": 0.05977642979652085, "4": 0.02328322145318784, "5": 0.007536618717099836, "6": 0.002080605400415096, "7": 0.0004998148402251872, "8": 0.00010615279790377342, "9": 2.0188896748131173e-05} |
+| Goal margin distribution | {"-1": 0.19245422383797667, "-10": 2.68219525171254e-06, "-11": 4.1106992161615084e-07, "-12": 5.795340710896029e-08, "-13": 7.562496795698022e-09, "-14": 9.174951171904926e-10, "-15": 1.0260593606876813e-10, "-16": 9.22520895053791e-12, "-2": 0.12038522533099609, "-3": 0.05619113835926964, "-4": 0.021167926173299895, "-5": 0.006646236931376509, "-6": 0.0017831097563401031, "-7": 0.0004168198887978018, "-8": 8.622219858002341e-05, "-9": 1.5982286171444523e-05, "0": 0.24166775336653576, "1": 0.16304388364390848, "10": 4.267365532836169e-06, "11": 7.016494332998071e-07, "12": 1.0612518854122745e-07, "13": 1.4857294357650793e-08, "14": 1.9338078045391086e-09, "15": 2.320155305937904e-10, "16": 2.237977955177343e-11, "2": 0.10913460059714244, "3": 0.054650246681798666, "4": 0.02208704577100929, "5": 0.00743995247141049, "6": 0.002141447545445547, "7": 0.0005370476502912725, "8": 0.00011918414983788586, "9": 2.3701363756323784e-05} |
+| Raw goal margin distribution | {"-1": 0.1750734094173767, "-10": 1.722086607181755e-06, "-11": 2.5221367579119987e-07, "-12": 3.3969515159112955e-08, "-13": 4.2338517932500895e-09, "-14": 4.906245994604308e-10, "-15": 5.251352365498404e-11, "-16": 4.5715403848911155e-12, "-2": 0.10713409375221326, "-3": 0.04842673210449478, "-4": 0.01758380271434011, "-5": 0.0053059122762528785, "-6": 0.0013654837611465542, "-7": 0.00030578693797568286, "-8": 6.054160903906311e-05, "-9": 1.0733655688797215e-05, "0": 0.23973422260249236, "1": 0.18834047404320772, "10": 3.478605803638224e-06, "11": 5.465801838984988e-07, "12": 7.897863470945378e-08, "13": 1.056065725266595e-08, "14": 1.3129241556827742e-09, "15": 1.5076360111280397e-10, "16": 1.4080657197565457e-11, "2": 0.12330984330045883, "3": 0.05979849194881843, "4": 0.023294473211856962, "5": 0.007541108327059772, "6": 0.002082076471785673, "7": 0.0005002234989670907, "8": 0.00010625127288607357, "9": 2.0209839531734475e-05} |
 | Unadjusted home-win probability | 40.5% |
 | Unadjusted draw probability | 24.0% |
 | Unadjusted away-win probability | 35.5% |
 | Raw p over 1 5 | 86.2% |
 | Raw p under 3 5 | 55.6% |
 | Raw p btts yes | 67.6% |
-| P home draw | 60.0% |
-| P draw away | 64.2% |
+| P home draw | 60.1% |
+| P draw away | 64.1% |
 | P home away | 75.8% |
 | Raw p home draw | 64.5% |
 | Raw p draw away | 59.5% |
@@ -1627,111 +1627,111 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blend applied | Yes |
 | Totals anchor applied | 1 |
 | Totals anchor status | ANCHORED_ALTERNATE |
-| Totals anchor scale | 1.0485 |
+| Totals anchor scale | 1.0486 |
 | Totals anchor target over 2 5 | 0.6901 |
 | Totals anchor reference over odds | 1.41 |
 | Totals anchor reference under odds | 2.96 |
-| Totals anchor reference last update utc | 2026-10-30T07:08:04Z |
+| Totals anchor reference last update utc | 2026-10-30T11:50:53Z |
 | Totals anchor reference source | live_pinnacle_alternate |
-| Unanchored p over 2 5 | 0.6617 |
+| Unanchored p over 2 5 | 0.6616 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 8.0, "price": 1.04, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 7.33, "price": 1.05, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 6.67, "price": 1.08, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 5.24, "price": 1.15, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 4.55, "price": 1.21, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.85, "price": 1.24, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.2, "price": 1.36, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:20Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.23, "price": 1.76, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:20Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.76, "price": 2.23, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.36, "price": 3.2, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.24, "price": 3.85, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.21, "price": 4.55, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.15, "price": 5.24, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.08, "price": 6.67, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.05, "price": 7.33, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:10Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.04, "price": 8.0, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.74, "price": 1.3, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 3.44, "price": 1.34, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.37, "price": 1.35, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.84, "price": 1.46, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.7, "price": 1.51, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.51, "price": 1.58, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.32, "price": 1.67, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.0, "market_key": "alternate_spreads", "opposite_price": 2.16, "price": 1.76, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.05, "price": 1.86, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.86, "price": 2.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.0, "market_key": "alternate_spreads", "opposite_price": 1.76, "price": 2.16, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.67, "price": 2.32, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.58, "price": 2.51, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.51, "price": 2.7, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.46, "price": 2.84, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.35, "price": 3.37, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.34, "price": 3.44, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.3, "price": 3.74, "quote_source": "The Odds API", "side": "away"}] |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 10.4, "price": 1.02, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 2.5, "market_key": "alternate_spreads", "opposite_price": 7.33, "price": 1.05, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 2.0, "market_key": "alternate_spreads", "opposite_price": 6.67, "price": 1.08, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 5.24, "price": 1.15, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 4.55, "price": 1.21, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 1.5, "market_key": "alternate_spreads", "opposite_price": 3.85, "price": 1.24, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.2, "price": 1.36, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": 0.0, "market_key": "spreads", "opposite_price": 2.23, "price": 1.76, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.76, "price": 2.23, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.36, "price": 3.2, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.24, "price": 3.85, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.21, "price": 4.55, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -1.5, "market_key": "alternate_spreads", "opposite_price": 1.15, "price": 5.24, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.08, "price": 6.67, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -2.5, "market_key": "alternate_spreads", "opposite_price": 1.05, "price": 7.33, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:49:46Z", "line": -2.0, "market_key": "alternate_spreads", "opposite_price": 1.02, "price": 10.4, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.25, "market_key": "alternate_spreads", "opposite_price": 3.75, "price": 1.3, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 3.43, "price": 1.34, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.0, "market_key": "alternate_spreads", "opposite_price": 3.37, "price": 1.35, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.83, "price": 1.47, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.75, "market_key": "alternate_spreads", "opposite_price": 2.71, "price": 1.51, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.5, "price": 1.58, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.5, "market_key": "alternate_spreads", "opposite_price": 2.32, "price": 1.67, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.25, "market_key": "alternate_spreads", "opposite_price": 2.05, "price": 1.86, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.86, "price": 2.05, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.67, "price": 2.32, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.25, "market_key": "alternate_spreads", "opposite_price": 1.58, "price": 2.5, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.51, "price": 2.71, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.5, "market_key": "alternate_spreads", "opposite_price": 1.47, "price": 2.83, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.0, "market_key": "alternate_spreads", "opposite_price": 1.35, "price": 3.37, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.75, "market_key": "alternate_spreads", "opposite_price": 1.34, "price": 3.43, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.25, "market_key": "alternate_spreads", "opposite_price": 1.3, "price": 3.75, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:54Z", "line": 0.0, "market_key": "draw_no_bet", "opposite_price": 2.15, "price": 1.75, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:54Z", "line": -0.0, "market_key": "draw_no_bet", "opposite_price": 1.75, "price": 2.15, "quote_source": "The Odds API", "side": "home"}] |
 | 1X2 market source | The Odds API / Pinnacle |
-| Reference home odds | 2.86 |
+| Reference home odds | 2.85 |
 | Reference draw odds | 3.95 |
-| Reference away odds | 2.32 |
-| Market reference 1x2 last update utc | 2026-10-30T07:08:04Z |
-| Market reference home last update utc | 2026-10-30T07:08:04Z |
-| Market reference draw last update utc | 2026-10-30T07:08:04Z |
-| Market reference away last update utc | 2026-10-30T07:08:04Z |
+| Reference away odds | 2.33 |
+| Market reference 1x2 last update utc | 2026-10-30T11:50:53Z |
+| Market reference home last update utc | 2026-10-30T11:50:53Z |
+| Market reference draw last update utc | 2026-10-30T11:50:53Z |
+| Market reference away last update utc | 2026-10-30T11:50:53Z |
 | O/U 2.5 market source | The Odds API / Betsson |
 | Reference Over 2.5 odds | 1.41 |
 | Reference Under 2.5 odds | 2.95 |
-| Market reference over 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Market reference under 2 5 last update utc | 2026-10-30T07:07:42Z |
+| Market reference over 2 5 last update utc | 2026-10-30T11:50:12Z |
+| Market reference under 2 5 last update utc | 2026-10-30T11:50:12Z |
 | Home probability edge | +2.0% |
 | Draw probability edge | -0.1% |
 | Away probability edge | -1.9% |
 | Over 2.5 probability edge | +0.0% |
 | Under 2.5 probability edge | -0.0% |
-| Raw edge prob home | 0.0668 |
-| Raw ev home | 0.1580 |
-| Raw edge prob draw | -0.0026 |
+| Raw edge prob home | 0.0655 |
+| Raw ev home | 0.1542 |
+| Raw edge prob draw | -0.0028 |
 | Raw ev draw | -0.0530 |
-| Raw edge prob away | -0.0642 |
-| Raw ev away | -0.1756 |
+| Raw edge prob away | -0.0627 |
+| Raw ev away | -0.1722 |
 | Legacy model version | dc-blend50-tuned-half-life-v1 |
 | Legacy status | AVAILABLE |
 | Legacy half life days | 1,000,000,000 |
-| Legacy trial matrix | [[0.042494693104322766, 0.046720196893322095, 0.04702073564437462, 0.025146096863111922, 0.010085861781779504, 0.0032362750667801784, 0.0008653595609436657, 0.00019833573765188194, 3.977529489434661e-05, 7.090442152562262e-06, 1.1375637326419818e-06, 1.6591493141929833e-07, 2.218230361207353e-08, 2.7375730219316833e-09, 3.137184756407032e-10, 3.355453745289381e-11, 3.364601957350739e-12], [0.043563681066705225, 0.10460504666199713, 0.0860923857063181, 0.04604112293182435, 0.018466659247205027, 0.0059254419881521435, 0.00158442585115797, 0.000363141847767236, 7.282638144000007e-05, 1.2982210343188378e-05, 2.0828167465697454e-06, 3.037811313336275e-07, 4.061458019008599e-08, 5.012345920869268e-09, 5.744013069537928e-10, 6.143651606048902e-11, 6.160401480131399e-12], [0.04850749990451242, 0.07782359895929385, 0.06915410823845046, 0.042149384303314705, 0.016905719666337492, 0.005424579498103164, 0.0014504983772757336, 0.00033244639408169487, 6.667055326343054e-05, 1.1884857232343614e-05, 1.9067615621483112e-06, 2.7810328752486454e-07, 3.7181533371473196e-08, 4.588665111246436e-09, 5.258486302988682e-10, 5.624344413850964e-11, 5.63967846382148e-12], [0.029604856482986462, 0.04749691249218686, 0.038101125360748285, 0.022571125660586423, 0.010317814883239632, 0.003310702424120515, 0.0008852609673263778, 0.0002028970325093869, 4.069004102232767e-05, 7.2535070530729526e-06, 1.1637252487923956e-06, 1.6973061755043037e-07, 2.2692448826401745e-08, 2.8005313061764427e-09, 3.2093332499960106e-10, 3.4326219555886647e-11, 3.4419805568271063e-12], [0.013551216756741579, 0.02174105984359368, 0.017440267232371295, 0.00932683513207077, 0.004143916336886255, 0.001515428598416266, 0.000405216058433407, 9.287333206342168e-05, 1.8625307846067464e-05, 3.3201933060960337e-06, 5.32679261618496e-07, 7.769186079328917e-08, 1.0387157018124994e-08, 1.2819047707881077e-09, 1.4690282501557548e-10, 1.5712355907168285e-11, 1.5755193619958722e-12], [0.004962306794325501, 0.007961337414518904, 0.006386434379702016, 0.0034153846238496235, 0.001369878491890106, 0.000486910020962892, 0.00014838567163598363, 3.4009194523487364e-05, 6.820383241598175e-06, 1.2158183355098249e-06, 1.9506129719390204e-07, 2.84499064253055e-08, 3.803662856999523e-09, 4.694194527288832e-10, 5.37942016400662e-11, 5.753692223557167e-12, 5.76937892365571e-13], [0.0015142852214579793, 0.00242946195983538, 0.0019488684597358575, 0.001042230292452784, 0.0004180287195935639, 0.0001341338947220831, 3.973049305565904e-05, 1.0378161366301944e-05, 2.081291217069059e-06, 3.7101610475706534e-07, 5.95244211738218e-08, 8.681702812282149e-09, 1.1607163141040564e-09, 1.4324687476902766e-10, 1.6415705017842453e-11, 1.7557824342730085e-12, 1.7605693487297748e-13], [0.0003960818731461523, 0.0006354587828985306, 0.0005097530234789096, 0.0002726094930035056, 0.000109341091056868, 3.508454254262545e-05, 9.381385606632663e-06, 2.38180179036165e-06, 5.443899947895143e-07, 9.704430292073967e-08, 1.5569421072318155e-08, 2.2708173224302673e-09, 3.0360112174837727e-10, 3.746816628522662e-11, 4.29375067546491e-12, 4.592487502020188e-13, 4.60500832714454e-14], [9.065052079384851e-05, 0.00014543626840383348, 0.00011666622531233842, 6.239162705887351e-05, 2.5024691914682196e-05, 8.029733923545063e-06, 2.147100255444817e-06, 4.921037822842224e-07, 1.0932094724388836e-07, 2.2210348910854984e-08, 3.5633444102188673e-09, 5.197177322730909e-10, 6.948462342262169e-11, 8.575269451154645e-12, 9.827027220359784e-13, 1.0510740632751795e-13, 1.0539396812073393e-14], [1.8441791911853877e-05, 2.9587313728064442e-05, 2.373438377970804e-05, 1.2692849342568993e-05, 5.090981903990764e-06, 1.633555779148053e-06, 4.368025222364592e-07, 1.001127789718966e-07, 2.0077144711504014e-08, 3.964570179126382e-09, 7.249208890147198e-10, 1.0573051525293967e-10, 1.4135836782974922e-11, 1.7445386239524268e-12, 1.999194152696991e-13, 2.1382876776790626e-14, 2.144117443370531e-15], [3.3765908606768525e-06, 5.417274720573409e-06, 4.345635377376016e-06, 2.323991035736519e-06, 9.321308390773616e-07, 2.9909509556561776e-07, 7.9976143942726e-08, 1.8330100248890945e-08, 3.676014980831447e-09, 6.552954954267929e-10, 1.1645921346458528e-10, 1.9358676922726545e-11, 2.588194114625742e-12, 3.1941544519593166e-13, 3.660414745476145e-14, 3.915087354015831e-15, 3.9257613349650716e-16], [5.620320458160525e-07, 9.017029659735376e-07, 7.233290742923082e-07, 3.8682727347409147e-07, 1.551527632666362e-07, 4.978424552763116e-08, 1.3311993561339891e-08, 3.051037027575325e-09, 6.118710573400677e-10, 1.0907364353729764e-10, 1.7499363002392072e-11, 2.8272631002661017e-12, 4.3080375835661106e-13, 5.316655867887077e-14, 6.0927440510894884e-15, 6.516645474438654e-16, 6.534412268218048e-17], [8.575415187330516e-08, 1.3758071922114578e-07, 1.103646522524823e-07, 5.9021625199447566e-08, 2.3673016020664197e-08, 7.596018383036587e-09, 2.0311274527737916e-09, 4.6552344226899104e-10, 9.335852638408639e-11, 1.664232113258091e-11, 2.6700310841072096e-12, 3.894269934029836e-13, 5.767418626418302e-14, 8.112087525025351e-15, 9.29623324100111e-16, 9.943016770655787e-17, 9.970125124056664e-18], [1.207778034654574e-08, 1.9377134172206207e-08, 1.554397074438713e-08, 8.312719667594117e-09, 3.334153290446631e-09, 1.0698378974604334e-09, 2.860679126846726e-10, 6.5565220564475e-11, 1.3148795137173941e-11, 2.3439366456909665e-12, 3.7605233388512973e-13, 5.48476497591145e-14, 7.332957974051488e-15, 1.0024726061481094e-15, 1.309299441278947e-16, 1.4003936825755542e-17, 1.4042116754164844e-18], [1.5795537707558481e-09, 2.5341763527686625e-09, 2.0328683663167734e-09, 1.087152383917952e-09, 4.360465458960936e-10, 1.399153185886875e-10, 3.741247457796015e-11, 8.57473711240946e-12, 1.7196230055433398e-12, 3.065442375074211e-13, 4.918079853635334e-14, 7.17307398448284e-15, 9.590173927960106e-16, 1.183547113949274e-16, 1.502429786591819e-17, 1.8314599689565636e-18, 1.8364532084555204e-19], [1.92805082852917e-10, 3.0932918568872706e-10, 2.4813802546856305e-10, 1.327010889630842e-10, 5.322515254988404e-11, 1.7078484501338263e-11, 4.566679143366256e-12, 1.0466581955035147e-12, 2.0990235482829515e-13, 3.7417711384665606e-14, 6.003156152156028e-15, 8.755669794175614e-16, 1.1706054665485887e-16, 1.4446731956210977e-17, 1.655556469538237e-18, 1.9615049560000955e-19, 2.2416300069502453e-20], [2.2063470152632752e-11, 3.539779737543454e-11, 2.8395443925279477e-11, 1.518552556932539e-11, 6.090770778846845e-12, 1.95436047365479e-12, 5.225836761428905e-13, 1.1977335615221762e-13, 2.4019980553387956e-14, 4.28186096600568e-15, 6.869655852679422e-16, 1.0019469212721494e-16, 1.3395714671799575e-17, 1.653198321343551e-18, 1.8945206325042857e-19, 2.026331518690999e-20, 2.250749628718604e-21]] |
-| Legacy trial inputs | {"lambda_home": 1.830945103825015, "lambda_away": 1.6043621937327326, "rho": -0.11084228618346421, "max_goals": 16, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
-| Legacy p home | 0.3813 |
-| Legacy p draw | 0.2435 |
-| Legacy p away | 0.3752 |
+| Legacy trial matrix | [[0.042515438295106206, 0.04662361403481065, 0.046916750323211645, 0.025087527166933486, 0.010061183079855871, 0.0032279755367775097, 0.0008630385034685291, 0.00019778043101619815, 3.96592520423766e-05, 7.068922123968614e-06, 1.1339773616306588e-06, 1.6537234572036848e-07, 2.2107153561031588e-08, 2.7279767397744534e-09, 3.125818913213915e-10, 3.3429027528094374e-11, 3.351621344579985e-12], [0.04365297582449653, 0.10465167729458864, 0.08590499022037891, 0.04593548702930248, 0.018422116368380547, 0.00591045213080973, 0.0015802312327585636, 0.0003621377413222718, 7.261644584028996e-05, 1.29432597472061e-05, 2.076322709691553e-06, 3.0279824676605816e-07, 4.047839625246302e-08, 4.994949853460004e-09, 5.723402437731654e-10, 6.120884893123058e-11, 6.136848712774348e-12], [0.04860592026591624, 0.07797230222113367, 0.06918014800306091, 0.04205414416850905, 0.01686553006721631, 0.005411045404865018, 0.001446708773102095, 0.0003315387245749707, 6.648068149194182e-05, 1.184961228499095e-05, 1.9008827427478312e-06, 2.772131514649786e-07, 3.7058153114284404e-08, 4.572898968457281e-09, 5.239800572860455e-10, 5.603697541511729e-11, 5.6183124899211604e-12], [0.02966595850686519, 0.047589328002064966, 0.03817075620806295, 0.02257774866749904, 0.010293645556612835, 0.003302557539931053, 0.000882978908733055, 0.00020235012510517043, 4.057557449500725e-05, 7.2322487558266405e-06, 1.1601777780209314e-06, 1.6919325472959174e-07, 2.2617936798952506e-08, 2.79100632828607e-09, 3.198040599340899e-10, 3.4201401360582954e-11, 3.4290601698879653e-12], [0.013579658958975236, 0.021784121494179944, 0.017472749157649087, 0.009343103820143887, 0.004144787871290587, 0.0015117531117114405, 0.00040418557336646297, 9.262622303601922e-05, 1.8573560115348406e-05, 3.3105780683901037e-06, 5.310739767150957e-07, 7.744859134941417e-08, 1.035341123444074e-08, 1.2775893986939814e-09, 1.4639102480358469e-10, 1.565576808476518e-11, 1.5696599739431386e-12], [0.004972895445785823, 0.00797738432873188, 0.006398552053032431, 0.003421461361957787, 0.001372153936665494, 0.00048697196167062925, 0.00014801348127509194, 3.391988886375699e-05, 6.801670998416255e-06, 1.2123396212637975e-06, 1.9448024196781175e-07, 2.836181294151538e-08, 3.791437747563543e-09, 4.678555272664219e-10, 5.3608655618594576e-11, 5.73317032807744e-12, 5.748122953187312e-13], [0.001517569353142255, 0.0024344436973393387, 0.0019526343567903117, 0.0010441210683943913, 0.00041873769211087813, 0.00013434553528469836, 3.9732245723989935e-05, 1.0351270072498898e-05, 2.0756534236206714e-06, 3.699674515355307e-07, 5.9349177600777664e-08, 8.655122270079365e-09, 1.1570260812390589e-09, 1.4277461040919532e-10, 1.6359654796056278e-11, 1.7495810400775452e-12, 1.7541441051697338e-13], [0.0003969547261671833, 0.0006367840318110173, 0.0005107558575819992, 0.00027311357595070695, 0.0001095303523121231, 3.5141125550735947e-05, 9.395407139851949e-06, 2.3817089547685317e-06, 5.429342881004299e-07, 9.67733883864817e-08, 1.5524125137334558e-08, 2.263943775320024e-09, 3.0264644597332406e-10, 3.734594156191803e-11, 4.279239216521938e-12, 4.576426515422493e-13, 4.588362248378634e-14], [9.085345754556186e-05, 0.00014574465848648922, 0.00011689981895675809, 6.25091755861943e-05, 2.5068882060743647e-05, 8.042964468906203e-06, 2.1503843321021434e-06, 4.927983379007494e-07, 1.0930760340687981e-07, 2.2149117654310078e-08, 3.5531015280135395e-09, 5.18162667220515e-10, 6.926854428978893e-11, 8.547594202885844e-12, 9.79415668480635e-13, 1.0474347443698342e-13, 1.0501665486183342e-14], [1.8483721646845453e-05, 2.9651086174985253e-05, 2.3782735104822605e-05, 1.2717206731836084e-05, 5.100149741423003e-06, 1.636304445366621e-06, 4.3748588663652153e-07, 1.002575746907334e-07, 2.0103811096920645e-08, 3.96375689398642e-09, 7.228623037692163e-10, 1.0541783182976805e-10, 1.4092369471933089e-11, 1.7389690636385647e-12, 1.9925765162736465e-13, 2.1309582245076026e-14, 2.1365159556811934e-15], [3.384385995129099e-06, 5.429140446297112e-06, 4.354640107251546e-06, 2.328531947338267e-06, 9.33841987437587e-07, 2.9960881009108954e-07, 8.010405783469326e-08, 1.835725175762082e-08, 3.6810258250535376e-09, 6.561113372944349e-10, 1.1642564892283684e-10, 1.93020994634179e-11, 2.58032547720902e-12, 3.1840679368516403e-13, 3.64842545497355e-14, 3.90180360266329e-15, 3.9119798582399376e-16], [5.633491892276532e-07, 9.037095275262388e-07, 7.248531867609272e-07, 3.8759662358597584e-07, 1.5544300421017356e-07, 4.987149234549379e-08, 1.333374978503246e-08, 3.0556629500853132e-09, 6.127264789106483e-10, 1.0921324885514188e-10, 1.7519693896746093e-11, 2.8262134168615084e-12, 4.2950900624847613e-13, 5.30005174720833e-14, 6.072999725725668e-15, 6.494761233646026e-16, 6.511700156501544e-17], [8.595811776154589e-08, 1.3789168685204222e-07, 1.1060105664277242e-07, 5.9141074224067495e-08, 2.3718127791086717e-08, 7.60959577816245e-09, 2.03451794400585e-09, 4.662455200532538e-10, 9.349230608111348e-11, 1.6664203101244975e-11, 2.6732263752565175e-12, 3.8984703864107213e-13, 5.764798324422302e-14, 8.087035198424981e-15, 9.26643076038598e-16, 9.909971677074067e-17, 9.93581777667642e-18], [1.210692952418171e-08, 1.9421608780678177e-08, 1.5577809669921668e-08, 8.329833601073812e-09, 3.3406234232444202e-09, 1.0717875425017516e-09, 2.8655542961157206e-10, 6.566920960169563e-11, 1.3168096164195365e-11, 2.347100399325854e-12, 3.7651549580455046e-13, 5.490872467835574e-14, 7.34025754437433e-15, 1.0019338994747758e-15, 1.305147519259558e-16, 1.3957882257706478e-17, 1.3994285673056814e-18], [1.5834211741446573e-09, 2.5400814069212276e-09, 2.037364934592408e-09, 1.0894285685480921e-09, 4.36907958590462e-10, 1.4017518525998393e-10, 3.747753994163518e-11, 8.588636513079602e-12, 1.7222072902889263e-12, 3.069687043864351e-13, 4.924308903093199e-14, 7.181311919535943e-15, 9.600055237971617e-16, 1.184626836622671e-16, 1.501497648183761e-17, 1.825500534130206e-18, 1.830261604107674e-19], [1.9328389049762026e-10, 3.100607876963702e-10, 2.4869556334824824e-10, 1.3298356469306098e-10, 5.333215912775383e-11, 1.7110801346274765e-11, 4.574780762365521e-12, 1.048391360696989e-12, 2.102251319774239e-13, 3.7470829880037745e-14, 6.01096914922883e-15, 8.766030979942129e-16, 1.1718524772093862e-16, 1.446041568150715e-17, 1.6569291142096503e-18, 1.9601251228334383e-19, 2.2341502642936608e-20], [2.2119033458957652e-11, 3.5482755027901394e-11, 2.8460237801670045e-11, 1.521838115615482e-11, 6.103228826510841e-12, 1.958126911215547e-12, 5.235290353978291e-13, 1.1997587344520236e-13, 2.4057756267999372e-14, 4.2880890782859614e-15, 6.878836481935969e-16, 1.0031675792969752e-16, 1.3410452410505444e-17, 1.654821917471858e-18, 1.8961575339759397e-19, 2.0278430760313002e-20, 2.2489794473582283e-21]] |
+| Legacy trial inputs | {"lambda_home": 1.8310089600958186, "lambda_away": 1.604172944253664, "rho": -0.11082685883326926, "max_goals": 16, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
+| Legacy p home | 0.3820 |
+| Legacy p draw | 0.2436 |
+| Legacy p away | 0.3744 |
 | Legacy p over 1 5 | 0.8672 |
 | Legacy p under 3 5 | 0.5516 |
 | Legacy p btts yes | 0.6820 |
-| Legacy p over 2 5 | 0.6671 |
-| Legacy goal margin distribution | {"-1": 0.18695454156267538, "-10": 1.4814797612274327e-06, "-11": 2.1145539933942987e-07, "-12": 2.7756399902159548e-08, "-13": 3.371659753580813e-09, "-14": 3.807946701650137e-10, "-15": 3.971493893302521e-11, "-16": 3.364601957350739e-12, "-2": 0.11371968792685111, "-3": 0.05002267741075652, "-4": 0.01768460217240327, "-5": 0.005197361601728564, "-6": 0.0013029877973844072, "-7": 0.00028429234474454526, "-8": 5.484487087919775e-05, "-9": 9.475392136288218e-06, "0": 0.24349802572291454, "1": 0.1703291471451557, "10": 4.397424846184541e-06, "11": 7.162990676785268e-07, "12": 1.0730294627157007e-07, "13": 1.4875280250352291e-08, "14": 1.9172784003698545e-09, "15": 2.2820288022835154e-10, "16": 2.2063470152632752e-11, "2": 0.11731542851590526, "3": 0.05889240758523457, "4": 0.023760773494627175, "5": 0.007969317272676668, "6": 0.0022800870925464233, "7": 0.0005677395600039141, "8": 0.00012499507850983395, "9": 2.4644896086980578e-05} |
+| Legacy p over 2 5 | 0.6670 |
+| Legacy goal margin distribution | {"-1": 0.18654707766937834, "-10": 1.4767770674488295e-06, "-11": 2.1075967558160297e-07, "-12": 2.7661854533112164e-08, "-13": 3.3597830191326237e-09, "-14": 3.7940905274254327e-10, "-15": 3.956587624086872e-11, "-16": 3.351621344579985e-12, "-2": 0.11346060650985734, "-3": 0.04990348176710282, "-4": 0.017640541692775513, "-5": 0.005183835093435943, "-6": 0.0012994498062013655, "-7": 0.00028348805410932665, "-8": 5.468342588162094e-05, "-9": 9.446408915443072e-06, "0": 0.2435989994385656, "1": 0.17065554652910442, "10": 4.407480955188156e-06, "11": 7.17963404604204e-07, "12": 1.0755617827033606e-07, "13": 1.491092487560734e-08, "14": 1.9219421996426972e-09, "15": 2.2876664552552167e-10, "16": 2.2119033458957652e-11, "2": 0.11754559204012469, "3": 0.05901078291216588, "4": 0.023809579662564574, "5": 0.00798601774832135, "6": 0.0022849562260691693, "7": 0.0005689739996644011, "8": 0.0001252716089167073, "9": 2.47003418474927e-05} |
 | Legacy market blend applied | 1 |
-| Legacy raw p home | 0.4244 |
+| Legacy raw p home | 0.4245 |
 | Legacy raw p draw | 0.2447 |
-| Legacy raw p away | 0.3309 |
+| Legacy raw p away | 0.3308 |
 | Legacy market weight | 0.5000 |
-| Legacy lambda home | 1.8309 |
-| Legacy lambda away | 1.6044 |
+| Legacy lambda home | 1.8310 |
+| Legacy lambda away | 1.6042 |
 | Legacy model home team | Werder Bremen |
 | Legacy model away team | Hoffenheim |
 | Legacy home name match score | 100/100 |
 | Legacy away name match score | 100/100 |
-| Market p home draw | 58.7% |
+| Market p home draw | 57.3% |
 | Market home draw odds | 1.65 |
 | Best home draw bookmaker | Pinnacle |
-| Market best home draw last update utc | 2026-10-30T07:07:50Z |
-| Market reference home draw last update utc | 2026-10-30T07:08:06Z |
+| Market best home draw last update utc | 2026-10-30T11:50:54Z |
+| Market reference home draw last update utc | 2026-10-30T11:50:59Z |
 | Market home draw bookmakers | 1 |
 | Market reference home draw method | proportional_overlap_sum_two |
-| Market p draw away | 66.0% |
+| Market p draw away | 66.4% |
 | Market draw away odds | 1.46 |
 | Best draw away bookmaker | Pinnacle |
-| Market best draw away last update utc | 2026-10-30T07:07:50Z |
-| Market reference draw away last update utc | 2026-10-30T07:08:06Z |
+| Market best draw away last update utc | 2026-10-30T11:50:54Z |
+| Market reference draw away last update utc | 2026-10-30T11:50:59Z |
 | Market draw away bookmakers | 1 |
 | Market reference draw away method | proportional_overlap_sum_two |
-| Market p home away | 75.3% |
+| Market p home away | 76.4% |
 | Market home away odds | 1.28 |
 | Best home away bookmaker | Pinnacle |
-| Market best home away last update utc | 2026-10-30T07:07:50Z |
-| Market reference home away last update utc | 2026-10-30T07:08:06Z |
+| Market best home away last update utc | 2026-10-30T11:50:54Z |
+| Market reference home away last update utc | 2026-10-30T11:50:59Z |
 | Market home away bookmakers | 1 |
 | Market reference home away method | proportional_overlap_sum_two |
-| Market reference dc home draw odds | 1.63 |
+| Market reference dc home draw odds | 1.68 |
 | Market reference dc draw away odds | 1.45 |
-| Market reference dc home away odds | 1.27 |
-| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 2.15, "price": 1.68, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.68, "price": 2.15, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.72, "price": 2.08, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T07:07:50Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.08, "price": 1.72, "quote_source": "The Odds API", "side": "Under"}] |
-| Market p over 1 5 | 88.5% |
-| Market reference over 1 5 odds | 1.10 |
-| Market reference over 1 5 opposite odds | 5.40 |
-| Market reference over 1 5 last update utc | 2026-10-30T07:08:06Z |
+| Market reference dc home away odds | 1.26 |
+| Count market offers | [{"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 2.15, "price": 1.68, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 9.5, "market_key": "alternate_totals_corners", "opposite_price": 1.68, "price": 2.15, "quote_source": "The Odds API", "side": "Under"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 1.73, "price": 2.08, "quote_source": "The Odds API", "side": "Over"}, {"bookmaker": "Pinnacle", "kind": "corners", "last_update_utc": "2026-10-30T11:50:54Z", "line": 10.5, "market_key": "alternate_totals_corners", "opposite_price": 2.08, "price": 1.73, "quote_source": "The Odds API", "side": "Under"}] |
+| Market p over 1 5 | 87.6% |
+| Market reference over 1 5 odds | 1.12 |
+| Market reference over 1 5 opposite odds | 6.00 |
+| Market reference over 1 5 last update utc | 2026-10-30T11:50:54Z |
 | Market over 1 5 bookmakers | 0 |
-| Market p under 3 5 | 52.8% |
-| Market under 3 5 odds | 1.85 |
+| Market p under 3 5 | 51.9% |
+| Market under 3 5 odds | 1.86 |
 | Best under 3 5 bookmaker | Pinnacle |
-| Market best under 3 5 last update utc | 2026-10-30T07:08:04Z |
-| Market reference under 3 5 odds | 1.75 |
-| Market reference under 3 5 opposite odds | 1.93 |
-| Market reference under 3 5 last update utc | 2026-10-30T07:08:06Z |
+| Market best under 3 5 last update utc | 2026-10-30T11:50:53Z |
+| Market reference under 3 5 odds | 1.86 |
+| Market reference under 3 5 opposite odds | 2.00 |
+| Market reference under 3 5 last update utc | 2026-10-30T11:50:53Z |
 | Market under 3 5 bookmakers | 1 |
-| Market p btts yes | 70.4% |
+| Market p btts yes | 70.9% |
 | Market btts yes odds | 1.38 |
 | Best btts yes bookmaker | Pinnacle |
-| Market best btts yes last update utc | 2026-10-30T07:07:50Z |
-| Market reference btts yes odds | 1.41 |
-| Market reference btts yes opposite odds | 3.30 |
-| Market reference btts yes last update utc | 2026-10-30T07:08:05Z |
+| Market best btts yes last update utc | 2026-10-30T11:50:54Z |
+| Market reference btts yes odds | 1.38 |
+| Market reference btts yes opposite odds | 3.17 |
+| Market reference btts yes last update utc | 2026-10-30T11:50:54Z |
 | Market btts yes bookmakers | 1 |
-| Count model | {"corners": {"alpha": 0.01169351969556193, "mu": 9.899897913813646, "version": "count-markets-nb2-v1"}} |
+| Count model | {"corners": {"alpha": 0.01168409266038481, "mu": 9.899922336466238, "version": "count-markets-nb2-v1"}} |
 | Elo home rating | 1,429.1271 |
 | Elo away rating | 1,502.6430 |
 | Elo rating diff | -13.5159 |
@@ -1744,7 +1744,7 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 
 ## 2026-11-01 — Eintracht Frankfurt vs Hamburger SV
 
-The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **59.9%**. Expected goals are 2.01 for Eintracht Frankfurt and 1.15 for Hamburger SV (3.16 combined). The most likely exact score is 2-1 at 10.5%. Goal-market probabilities: at least one goal: 95.4%; Over 2.5 goals: 61.9%; Under 3.5 goals: 60.8%; Double Chance 1X: 81.0%; Double Chance X2: 40.1%; Double Chance 12 (either team wins): 78.9%; Under 4.5 goals: 78.3%; BTTS Yes (both teams score): 59.4%; BTTS No (at least one team does not score): 40.6%.
+The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **59.9%**. Expected goals are 2.01 for Eintracht Frankfurt and 1.15 for Hamburger SV (3.16 combined). The most likely exact score is 2-1 at 10.5%. Goal-market probabilities: at least one goal: 95.4%; Over 2.5 goals: 62.0%; Under 3.5 goals: 60.7%; Double Chance 1X: 81.0%; Double Chance X2: 40.1%; Double Chance 12 (either team wins): 78.9%; Under 4.5 goals: 78.3%; BTTS Yes (both teams score): 59.4%; BTTS No (at least one team does not score): 40.6%.
 
 **Fixture source:** The Odds API
 
@@ -1767,10 +1767,10 @@ The model's most likely 1X2 outcome is **Eintracht Frankfurt win** at **59.9%**.
 | Under 0.5 | 4.6% |
 | Over 1.5 | 83.3% |
 | Under 1.5 | 16.7% |
-| Over 2.5 | 61.9% |
-| Under 2.5 | 38.1% |
-| Over 3.5 | 39.2% |
-| Under 3.5 | 60.8% |
+| Over 2.5 | 62.0% |
+| Under 2.5 | 38.0% |
+| Over 3.5 | 39.3% |
+| Under 3.5 | 60.7% |
 | Over 4.5 | 21.7% |
 | Under 4.5 | 78.3% |
 
@@ -1806,9 +1806,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-30T07:08:04Z |
-| Market best draw last update utc | 2026-10-30T07:08:04Z |
-| Market best away last update utc | 2026-10-30T07:08:04Z |
+| Market best home last update utc | 2026-10-30T11:50:53Z |
+| Market best draw last update utc | 2026-10-30T11:50:53Z |
+| Market best away last update utc | 2026-10-30T11:50:53Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 3.00 |
 | Best home bookmaker | Pinnacle |
@@ -1818,15 +1818,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | Hamburg |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 2.0306 |
-| Dc lambda away | 1.1031 |
+| Dc lambda home | 2.0310 |
+| Dc lambda away | 1.1033 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Shot features applied | 1 |
 | Shot features status | APPLIED |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-30T07:07:52.260041+00:00 |
+| Bbs statistics cutoff utc | 2026-10-30T11:50:54.576591+00:00 |
 | Bbs statistics weight | 0 |
 | Shot features version | football-data-lagged-shot-strength-v1 |
 | Shot features weight | 0.2000 |
@@ -1839,17 +1839,17 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | P btts yes | 59.4% |
 | P btts no | 40.6% |
 | Fair Over 0.5 odds | 1.05 |
-| Fair Under 0.5 odds | 21.80 |
+| Fair Under 0.5 odds | 21.81 |
 | Fair Over 1.5 odds | 1.20 |
 | Fair Under 1.5 odds | 6.00 |
 | Fair Over 2.5 odds | 1.61 |
 | Fair Under 2.5 odds | 2.63 |
 | Fair Over 3.5 odds | 2.55 |
 | Fair Under 3.5 odds | 1.65 |
-| Fair Over 4.5 odds | 4.62 |
+| Fair Over 4.5 odds | 4.61 |
 | Fair Under 4.5 odds | 1.28 |
-| Goal margin distribution | {"-1": 0.11433550313481809, "-10": 5.443750525747833e-08, "-11": 5.605359116767933e-09, "-12": 5.304492197870383e-10, "-13": 4.643120050027021e-11, "-14": 3.78006473850951e-12, "-15": 2.8751200115677593e-13, "-16": 2.037576852552339e-14, "-17": 1.2155359710581878e-15, "-2": 0.05245694231121034, "-3": 0.017159822848062393, "-4": 0.004461895558546254, "-5": 0.0009580304547992488, "-6": 0.00017472082697000832, "-7": 2.7651644900047264e-05, "-8": 3.861544769403741e-06, "-9": 4.822259183715555e-07, "0": 0.211395867706314, "1": 0.2362343787404043, "10": 1.633016233519198e-05, "11": 2.9314971990150326e-06, "12": 4.836415575427537e-07, "13": 7.380460548173448e-08, "14": 1.0475301757878156e-08, "15": 1.3890473053429739e-09, "16": 1.716203610683683e-10, "17": 1.7849102463241642e-11, "2": 0.18439333792787896, "3": 0.10515957158790998, "4": 0.04767044024173193, "5": 0.017844436232629275, "6": 0.005673642241983335, "7": 0.0015654240297888569, "8": 0.0003811236100522032, "9": 8.29753479634767e-05} |
-| Raw goal margin distribution | {"-1": 0.12465181889623184, "-10": 5.934931723278023e-08, "-11": 6.111122007726759e-09, "-12": 5.783108331676698e-10, "-13": 5.062061596973721e-11, "-14": 4.121134138405952e-12, "-15": 3.134537647193313e-13, "-16": 2.2214242632231223e-14, "-17": 1.3252119033187618e-15, "-2": 0.05719005115250002, "-3": 0.01870812714600032, "-4": 0.004864485499678854, "-5": 0.001044472062259584, "-6": 0.00019048561718562986, "-7": 3.014661008837558e-05, "-8": 4.209965986573977e-06, "-9": 5.257364177865333e-07, "0": 0.22862855621409617, "1": 0.22269264177925696, "10": 1.5394063347165297e-05, "11": 2.7634540709018935e-06, "12": 4.559176217183216e-07, "13": 6.957388106607617e-08, "14": 9.874822768536341e-09, "15": 1.3094225134907463e-09, "16": 1.6178251359182113e-10, "17": 1.682593279658023e-11, "2": 0.1738233011156196, "3": 0.09913147667224453, "4": 0.04493781272994624, "5": 0.016821534049760403, "6": 0.005348410278446726, "7": 0.0014756887399589426, "8": 0.0003592763425015252, "9": 7.821892621668335e-05} |
+| Goal margin distribution | {"-1": 0.1143304761043796, "-10": 5.448961940197728e-08, "-11": 5.611454605765257e-09, "-12": 5.310954638682456e-10, "-13": 4.649387061462342e-11, "-14": 3.785665478879192e-12, "-15": 2.879759517770036e-13, "-16": 2.0411267168771386e-14, "-17": 1.2177755646226303e-15, "-2": 0.05245739789669819, "-3": 0.01716161519531015, "-4": 0.004462845591321097, "-5": 0.0009583456075938561, "-6": 0.00017479941694737114, "-7": 2.7667513283099886e-05, "-8": 3.8642485703900426e-06, "-9": 4.826252696093095e-07, "0": 0.21138706167227966, "1": 0.23621297539979844, "10": 1.6348142847426958e-05, "11": 2.9351658156878323e-06, "12": 4.843199025572041e-07, "13": 7.391932019866324e-08, "14": 1.0493177846997367e-08, "15": 1.3916292826835542e-09, "16": 1.7196491168912269e-10, "17": 1.788708894148615e-11, "2": 0.18439158367908767, "3": 0.10517076853909935, "4": 0.047681651169156215, "5": 0.017851064498996448, "6": 0.005676550157049899, "7": 0.0015664522626488197, "8": 0.00038142980821850213, "9": 8.305430898791453e-05} |
+| Raw goal margin distribution | {"-1": 0.12464442236455131, "-10": 5.9405220433290346e-08, "-11": 6.117673447996062e-09, "-12": 5.790064868955363e-10, "-13": 5.068816157960465e-11, "-14": 4.127176785737569e-12, "-15": 3.1395475106179063e-13, "-16": 2.225260221655442e-14, "-17": 1.327633164786922e-15, "-2": 0.05718966877748274, "-3": 0.018709793624135874, "-4": 0.004865446465249992, "-5": 0.0010447995911001488, "-6": 0.0001905683689725387, "-7": 3.0163446606196993e-05, "-8": 4.212848991283605e-06, "-9": 5.261637141619829e-07, "0": 0.22859920276731518, "1": 0.2226821018239395, "10": 1.5411680090907258e-05, "11": 2.7670321324765886e-06, "12": 4.565768399219607e-07, "13": 6.968503554631216e-08, "14": 9.892102217614961e-09, "15": 1.311913255837086e-09, "16": 1.6211432885974587e-10, "17": 1.6862471480494634e-11, "2": 0.17382916981087695, "3": 0.09914632229278325, "4": 0.0449503262164686, "5": 0.016828510608713296, "6": 0.0053513830810581475, "7": 0.0014767219356308168, "8": 0.0003595805490728799, "9": 7.82967491928028e-05} |
 | Unadjusted home-win probability | 56.5% |
 | Unadjusted draw probability | 22.9% |
 | Unadjusted away-win probability | 20.7% |
@@ -1866,59 +1866,59 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blend applied | Yes |
 | Totals anchor applied | 0 |
 | Totals anchor status | NOT_ANCHORED_PINNACLE_NO_2_5_LINE |
-| Unanchored p over 2 5 | 0.6194 |
+| Unanchored p over 2 5 | 0.6195 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 1.0, "market_key": "spreads", "opposite_price": 1.96, "price": 1.94, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:20Z", "line": 1.5, "market_key": "spreads", "opposite_price": 2.54, "price": 1.61, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:20Z", "line": -1.5, "market_key": "spreads", "opposite_price": 1.61, "price": 2.54, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -1.0, "market_key": "spreads", "opposite_price": 1.94, "price": 1.96, "quote_source": "The Odds API", "side": "home"}] |
+| Asian handicap offers | [{"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 1.0, "market_key": "spreads", "opposite_price": 1.96, "price": 1.94, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": 1.5, "market_key": "spreads", "opposite_price": 2.54, "price": 1.61, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": -1.5, "market_key": "spreads", "opposite_price": 1.61, "price": 2.54, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -1.0, "market_key": "spreads", "opposite_price": 1.94, "price": 1.96, "quote_source": "The Odds API", "side": "home"}] |
 | 1X2 market source | The Odds API / Pinnacle |
 | Reference home odds | 1.60 |
 | Reference draw odds | 4.62 |
 | Reference away odds | 5.15 |
-| Market reference 1x2 last update utc | 2026-10-30T07:08:04Z |
-| Market reference home last update utc | 2026-10-30T07:08:04Z |
-| Market reference draw last update utc | 2026-10-30T07:08:04Z |
-| Market reference away last update utc | 2026-10-30T07:08:04Z |
+| Market reference 1x2 last update utc | 2026-10-30T11:50:53Z |
+| Market reference home last update utc | 2026-10-30T11:50:53Z |
+| Market reference draw last update utc | 2026-10-30T11:50:53Z |
+| Market reference away last update utc | 2026-10-30T11:50:53Z |
 | O/U 2.5 market source | The Odds API / Betsson |
 | Reference Over 2.5 odds | 1.42 |
 | Reference Under 2.5 odds | 2.91 |
-| Market reference over 2 5 last update utc | 2026-10-30T07:07:42Z |
-| Market reference under 2 5 last update utc | 2026-10-30T07:07:42Z |
+| Market reference over 2 5 last update utc | 2026-10-30T11:50:12Z |
+| Market reference under 2 5 last update utc | 2026-10-30T11:50:12Z |
 | Home probability edge | -1.5% |
 | Draw probability edge | +0.7% |
 | Away probability edge | +0.7% |
 | Over 2.5 probability edge | -6.5% |
 | Under 2.5 probability edge | +6.5% |
-| Raw edge prob home | -0.0491 |
-| Raw ev home | -0.0965 |
+| Raw edge prob home | -0.0490 |
+| Raw ev home | -0.0964 |
 | Raw edge prob draw | 0.0246 |
-| Raw ev draw | 0.0563 |
+| Raw ev draw | 0.0561 |
 | Raw edge prob away | 0.0244 |
 | Raw ev away | 0.0644 |
 | Legacy model version | dc-blend50-tuned-half-life-v1 |
 | Legacy status | AVAILABLE |
 | Legacy half life days | 1,000,000,000 |
-| Legacy trial matrix | [[0.05718609646005874, 0.040533926581039985, 0.0265804853491651, 0.009093443939772594, 0.0023332170650634193, 0.00047892982317889994, 8.192328772317402e-05, 1.2011467615431464e-05, 1.5409651943970828e-06, 1.7572642014518132e-07, 1.803531797109178e-08, 1.6827432615769865e-09, 1.439207308780492e-10, 1.1362312910441085e-11, 8.329625028070957e-13, 5.699292336997827e-14, 3.6558443169445286e-15], [0.09014165243245846, 0.10456674553926584, 0.052145319417023675, 0.017839423645254635, 0.004577280946105977, 0.0009395595407661299, 0.00016071625291642105, 2.356397211135134e-05, 3.0230494747108074e-06, 3.447382614767945e-07, 3.538149902216546e-08, 3.3011882107913558e-09, 2.823421914153688e-10, 2.2290467169732576e-11, 1.634097165672853e-12, 1.1180812368916427e-13, 7.171997318400024e-15], [0.09976930225786854, 0.10239616151561189, 0.04738276102528538, 0.017498597786639498, 0.004489831052006162, 0.0009216090624564318, 0.00015764573584238896, 2.3113777576654548e-05, 2.965293492603817e-06, 3.381519660727627e-07, 3.470552820477149e-08, 3.2381183309136832e-09, 2.769479857657923e-10, 2.1864603208927008e-11, 1.602877403161122e-12, 1.0967200648525205e-13, 7.0349748342302855e-15], [0.0652421261426609, 0.0669599078568173, 0.034361458809522766, 0.010600272296363171, 0.0029360346040820345, 0.0006026676878183726, 0.00010308925441914248, 1.5114789400770532e-05, 1.9390939669442454e-06, 2.2112766879822514e-07, 2.269498129926834e-08, 2.117502276043746e-09, 1.811045583498871e-10, 1.4297916977800055e-11, 1.0481694004230754e-12, 7.17178001599708e-14, 4.600380128538976e-15], [0.031997830950645754, 0.03284031252121102, 0.016852488035115465, 0.0057654009390699255, 0.0013339397242408133, 0.0002955767988318097, 5.0559856503126786e-05, 7.413009119949907e-06, 9.510235889005996e-07, 1.0845148959805821e-07, 1.1130694506401277e-08, 1.0385234797268669e-09, 8.882225925316385e-11, 7.012376166307364e-12, 5.140719542008688e-13, 3.517380841717226e-14, 2.2562444599034412e-15], [0.01255460232313447, 0.012885156637873211, 0.006612207113744584, 0.002262100707235226, 0.0005804150779363849, 0.0001074324213965348, 1.983756001744521e-05, 2.9085528222925357e-06, 3.7314163503717725e-07, 4.25518006315893e-08, 4.367216119233402e-09, 4.074729100019041e-10, 3.485011668715372e-11, 2.7513613108340567e-12, 2.0170020150501035e-13, 1.3800722228604867e-14, 8.852553781396663e-16], [0.004104914687685325, 0.004212994356536998, 0.002161959845531048, 0.0007396276026236488, 0.0001897753761570557, 3.89544070749103e-05, 6.00858252885044e-06, 9.509947740946341e-07, 1.220042291127392e-07, 1.3912946575631469e-08, 1.4279265189549632e-09, 1.332293520774056e-10, 1.1394766012861504e-11, 8.995986623296009e-13, 6.594889255403288e-14, 4.512352197128107e-15, 2.8944746400941174e-16], [0.001150425556607542, 0.0011807154950488098, 0.0006059014736943721, 0.00020728481860615965, 5.318562244444449e-05, 1.0917192889760204e-05, 1.8674392175054211e-06, 2.4689660477950757e-07, 3.419237520491353e-08, 3.899181962621291e-09, 4.001844825890232e-10, 3.7338279399550084e-11, 3.1934476183110865e-12, 2.521176128065896e-13, 1.848255011285152e-14, 1.2646122228955592e-15, 8.111928876150015e-17], [0.0002821116099216179, 0.000289539420655666, 0.00014858140034880335, 5.0831149876169975e-05, 1.3042375046614297e-05, 2.6771544184373176e-06, 4.5794035177275106e-07, 6.714251659069747e-08, 7.767375678843739e-09, 9.561718222743584e-10, 9.813471893110312e-11, 9.156230972625804e-12, 7.831090361542048e-13, 6.182521348726079e-14, 4.532359297692726e-15, 3.101128865562297e-16, 1.9892372015523934e-17], [6.149373546198099e-05, 6.311282454685815e-05, 3.238727158431581e-05, 1.1080002289101031e-05, 2.8429328418468012e-06, 5.835570738970946e-07, 9.982029047689383e-08, 1.4635498888639072e-08, 1.8776052279453182e-09, 1.9307607390036632e-10, 2.139107443065455e-11, 1.995844288067004e-12, 1.7069946153769906e-13, 1.347645112557553e-14, 9.87948364650444e-16, 6.759735912512969e-17, 4.33607203465966e-18], [1.2063776999134705e-05, 1.2381408210101994e-05, 6.35370121961707e-06, 2.173663313204602e-06, 5.577236050127449e-07, 1.144816191905369e-07, 1.958264065852057e-08, 2.8711769343201623e-09, 3.6834663876202454e-10, 4.200499559465156e-11, 3.8874751527206095e-12, 3.9154265447288004e-13, 3.34876426418483e-14, 2.643796150897283e-15, 1.938146815812062e-16, 1.3261179534623734e-17, 8.506460972867578e-19], [2.15150837415315e-06, 2.2081561562149e-06, 1.133147718318543e-06, 3.8766091426297287e-07, 9.946694196468258e-08, 2.0417168055470438e-08, 3.492456414592293e-09, 5.120586378800171e-10, 6.569260008242066e-11, 7.491360275031713e-12, 7.688602799998905e-13, 6.468765726768922e-14, 5.972337152763398e-15, 4.715065239201093e-16, 3.456578403974983e-17, 2.3650585402845076e-18, 1.517080597464979e-19], [3.5173389401052224e-07, 3.60994813099197e-07, 1.8524978300872206e-07, 6.337576212459056e-08, 1.626110092940128e-08, 3.3378489766020624e-09, 5.709553860556492e-10, 8.371260871069318e-11, 1.073958824062704e-11, 1.2247060493128608e-12, 1.2569517436381203e-13, 1.1727694960104159e-14, 9.044781878653686e-16, 7.708304913061898e-17, 5.650899604150242e-18, 3.866456017232757e-19, 2.480160767601934e-20], [5.3079068555048154e-08, 5.447660506648772e-08, 2.7955468891586544e-08, 9.563839254112183e-09, 2.453912192455434e-09, 5.037044131156667e-10, 8.616110245382034e-11, 1.2632809553872222e-11, 1.6206778766113978e-12, 1.8481658281506084e-13, 1.8968268030762827e-14, 1.7697899900469622e-15, 1.5136561511440118e-16, 1.077582576151471e-17, 8.527596930349061e-19, 5.834748584042813e-20, 3.7427335168087534e-21], [7.4378545758624836e-09, 7.633688331418413e-09, 3.917339129642526e-09, 1.3401600196740116e-09, 3.438613850295895e-10, 7.058300524036182e-11, 1.2073568123805266e-11, 1.7702081612231215e-12, 2.2710207033967877e-13, 2.589794628292382e-14, 2.6579821954199953e-15, 2.4799682688731906e-16, 2.1210534842737253e-17, 1.6745380072117978e-18, 1.1069644052648653e-19, 8.176106445768171e-21, 5.244611175751748e-22], [9.727670445463435e-10, 9.983793527289704e-10, 5.123330079609988e-10, 1.7527413157392724e-10, 4.497224567072934e-11, 9.23126698734951e-12, 1.5790533494749168e-12, 2.3151839601880793e-13, 2.970176514227799e-14, 3.387088092205468e-15, 3.476267865045867e-16, 3.243450619899681e-17, 2.7740404281599168e-18, 2.190060818804131e-19, 1.605516900748713e-20, 9.9058171067131e-22, 6.859215733777848e-23], [1.1927276625569717e-10, 1.2241313872643607e-10, 6.281809755603747e-11, 2.149068540416758e-11, 5.514130208204382e-12, 1.1318627165659677e-12, 1.9361065129938706e-13, 2.8386898679450135e-14, 3.641788351134632e-15, 4.152971346777894e-16, 4.2623163154460054e-17, 3.9768547857169996e-18, 3.401302268890844e-19, 2.6852740704101985e-20, 1.9685539625972565e-21, 1.3469231179300183e-22, 7.790933672667494e-24]] |
-| Legacy trial inputs | {"lambda_home": 1.9617895885660186, "lambda_away": 1.0263293337559267, "rho": -0.11084228618346421, "max_goals": 16, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
+| Legacy trial matrix | [[0.05717525911347834, 0.040530202613566, 0.026581901522878416, 0.00909558440849838, 0.0023341912445837085, 0.0004792170373308199, 8.198734408224158e-05, 1.2023048429938098e-05, 1.5427317870936345e-06, 1.7595991238759012e-07, 1.8062570515384227e-08, 1.6855928830414374e-09, 1.4419070370936581e-10, 1.1385699766557391e-11, 8.348289680218104e-13, 5.713103209540257e-14, 3.665370715116459e-15], [0.09012697074698366, 0.10456423412679815, 0.05214842570745431, 0.01784373504597559, 0.004579220888332557, 0.0009401289086668219, 0.0001608429298462504, 2.3586839612889336e-05, 3.02653419720701e-06, 3.451984957034326e-07, 3.5435185695668466e-08, 3.3067993709421352e-09, 2.82873600807742e-10, 2.2336487775062843e-11, 1.637769080584644e-12, 1.1207976902077834e-13, 7.190731342639909e-15], [0.09975422920280273, 0.10239933486750843, 0.047391207387455545, 0.017502936924728242, 0.0044917621880380615, 0.0009221733536791213, 0.0001577709850899375, 2.3136353736164316e-05, 2.9687303144637706e-06, 3.3860553753127717e-07, 3.47584078417035e-08, 3.2436426938195854e-09, 2.7747098798832037e-10, 2.190988241192601e-11, 1.6064892714941064e-12, 1.099391535827155e-13, 7.053395312618614e-15], [0.06523267978790588, 0.06696240425382431, 0.03436899724211478, 0.01060415921716283, 0.002937315909684537, 0.0006030404883104369, 0.00010317180767615215, 1.5129647803328646e-05, 1.9413536200691044e-06, 2.2142566566560118e-07, 2.2729703861132893e-08, 2.1211281655251212e-09, 1.8144770657370214e-10, 1.4327616533051048e-11, 1.0505379177160427e-12, 7.189294788930301e-14, 4.612454845499813e-15], [0.03199339927478412, 0.03284174347363383, 0.01685629127940248, 0.0057677521682970405, 0.0013346802472930092, 0.0002957614984407488, 5.0600662852062427e-05, 7.420343064742473e-06, 9.521378196076146e-07, 1.0859832455691691e-07, 1.1147794225090992e-08, 1.0403083321623282e-09, 8.899111523213237e-11, 7.026986441278864e-12, 5.152368285967764e-13, 3.525993097849335e-14, 2.2621807043460953e-15], [0.012552942488136497, 0.012885799145437617, 0.006613740952509145, 0.002263037466966564, 0.0005807611698510233, 0.00010751231178836198, 1.9853695607273372e-05, 2.9114486689562093e-06, 3.735811624035289e-07, 4.260968053949178e-08, 4.373952844937001e-09, 4.081757787411924e-10, 3.4916588320908365e-11, 2.7571111123478375e-12, 2.021585209372479e-13, 1.3834600128206479e-14, 8.875900943045464e-16], [0.004104397799815784, 0.004213230938593556, 0.0021624749607261095, 0.0007399385450141679, 0.0001898897306354855, 3.898497792151298e-05, 6.014183510287712e-06, 9.519476029173154e-07, 1.2214870756165565e-07, 1.3931958918988543e-08, 1.4301381887333482e-09, 1.3346000507743483e-10, 1.1416571725462007e-11, 9.014843168494458e-13, 6.609916275271881e-14, 4.5234575384381706e-15, 2.902126599914565e-16], [0.0011502879320960703, 0.0011807892266230838, 0.000606049650181279, 0.00020737326651445036, 5.3218005717860976e-05, 1.0925829274677234e-05, 1.8692568384383274e-06, 2.471733088765236e-07, 3.4233081460966284e-08, 3.904534842039437e-09, 4.008068369502433e-10, 3.7403156503237525e-11, 3.199578920517297e-12, 2.5264766750735743e-13, 1.852478072167349e-14, 1.2677325326623944e-15, 8.133425092096469e-17], [0.0002820796356379211, 0.00028955932294628657, 0.00014861867166606672, 5.0853159306687554e-05, 1.3050398290205894e-05, 2.679289119574703e-06, 4.58388959136136e-07, 6.722052918209369e-08, 7.77754573133934e-09, 9.574904985494242e-10, 9.828795327974435e-11, 9.172198076455354e-12, 7.846175126341443e-13, 6.195558521194147e-14, 4.542743821297101e-15, 3.108800161435414e-16, 1.9945211302758267e-17], [6.148715261935879e-05, 6.311755984118633e-05, 3.2395599654515934e-05, 1.1084869563148688e-05, 2.844699616824925e-06, 5.840260628319185e-07, 9.991870496320073e-08, 1.4652595986329375e-08, 1.8801409412327656e-09, 1.9336529519214504e-10, 2.1424610714236196e-11, 1.9993373208476393e-12, 1.7102935005589493e-13, 1.350495407062349e-14, 9.902181772855133e-16, 6.776500173682488e-17, 4.347617113956562e-18], [1.206256146714641e-05, 1.238241507057351e-05, 6.3553749921838655e-06, 2.1746318501449545e-06, 5.580737198215104e-07, 1.145743457163685e-07, 1.9602070822788494e-08, 2.874549108372813e-09, 3.688464126956225e-10, 4.206964749502466e-11, 3.8940319128703164e-12, 3.922303814519354e-13, 3.355257090057209e-14, 2.6494044958685516e-15, 1.9426119312006526e-16, 1.3294151118560246e-17, 8.52916364453788e-19], [2.1513051241399993e-06, 2.208349616547477e-06, 1.1334533567977553e-06, 3.878360873083794e-07, 9.953000914190606e-08, 2.043383386737022e-08, 3.4959436699804064e-09, 5.126632716672431e-10, 6.5782145841406e-11, 7.502937785917899e-12, 7.701887378311788e-13, 6.48089689063749e-14, 5.983954395015167e-15, 4.725097139115276e-16, 3.46456348694247e-17, 2.370953756409408e-18, 1.5211390634649046e-19], [3.517028786914906e-07, 3.61028711632657e-07, 1.8530091523286956e-07, 6.340479871321345e-08, 1.62715136679611e-08, 3.3405945596539668e-09, 5.715290865431834e-10, 8.381198297793553e-11, 1.075429505527472e-11, 1.22660648568174e-12, 1.2591314602073323e-13, 1.1750171584555916e-14, 9.063451097645926e-16, 7.724753905321073e-17, 5.663989445728666e-18, 3.8761180458162048e-19, 2.4868112919340107e-20], [5.3074722012400305e-08, 5.4482063324839975e-08, 2.7963361008639524e-08, 9.56828126763189e-09, 2.4554989935284314e-09, 5.041219118519e-10, 8.624822038175275e-11, 1.2647885381012039e-11, 1.6229074456871852e-12, 1.851045362164127e-13, 1.9001280989284307e-14, 1.7731930223845484e-15, 1.5168428407743807e-16, 1.0800102248910083e-17, 8.547404173422011e-19, 5.849366048248976e-20, 3.752793224432857e-21], [7.437292290839531e-09, 7.634501212464068e-09, 3.918469685190762e-09, 1.3407909040336896e-09, 3.44085904594403e-10, 7.06419528261201e-11, 1.2085851799543488e-11, 1.7723318535261549e-12, 2.274159256403708e-13, 2.5938459741345576e-14, 2.6626249796402614e-15, 2.484752495259397e-16, 2.1255322945395197e-17, 1.6783795298293471e-18, 1.1096672576175481e-19, 8.196641144305291e-21, 5.258740707236924e-22], [9.726996246165497e-10, 9.984919474853837e-10, 5.124840927054835e-10, 1.75357745539894e-10, 4.500189277851298e-11, 9.23903462565011e-12, 1.5806698256389466e-12, 2.317976033756559e-13, 2.974300012044352e-14, 3.392408025245206e-15, 3.482361882402736e-16, 3.249728160315488e-17, 2.779915571632807e-18, 2.1950988004598404e-19, 1.609503239911877e-20, 9.931874646404328e-22, 6.877738445462817e-23], [1.192652500478737e-10, 1.2242771434663357e-10, 6.283701763139064e-11, 2.1501072726219527e-11, 5.517800006320301e-12, 1.1328222474265934e-12, 1.9381006965256557e-13, 2.842131160274027e-14, 3.646867189793587e-15, 4.1595203817908313e-16, 4.269815163398183e-17, 3.984576860307024e-18, 3.408527333332369e-19, 2.6914681643866665e-20, 1.97345410137919e-21, 1.350521770607184e-22, 7.812899541160363e-24]] |
+| Legacy trial inputs | {"lambda_home": 1.9618019298796734, "lambda_away": 1.0265162257865592, "rho": -0.11082685883326926, "max_goals": 16, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
 | Legacy p home | 0.5969 |
 | Legacy p draw | 0.2212 |
-| Legacy p away | 0.1819 |
-| Legacy p over 1 5 | 0.8121 |
-| Legacy p under 3 5 | 0.6477 |
+| Legacy p away | 0.1820 |
+| Legacy p over 1 5 | 0.8122 |
+| Legacy p under 3 5 | 0.6476 |
 | Legacy p btts yes | 0.5584 |
-| Legacy p over 2 5 | 0.5812 |
-| Legacy goal margin distribution | {"-1": 0.11343027891274424, "-10": 2.162828024675062e-08, "-11": 1.9880342846655003e-09, "-12": 1.6788804949556275e-10, "-13": 1.311068246272773e-11, "-14": 9.518056013304904e-13, "-15": 6.416492068837829e-14, "-16": 3.6558443169445286e-15, "-2": 0.04956600214714529, "-3": 0.014703223675969799, "-4": 0.0034465321725238207, "-5": 0.0006648119028302633, "-6": 0.00010868523081482824, "-7": 1.539643832950638e-05, "-8": 1.9226181272086537e-06, "-9": 2.1453436072644964e-07, "0": 0.22118351091014896, "1": 0.23328597968379938, "10": 1.4467100063875108e-05, "11": 2.541844920271995e-06, "12": 4.103086264684346e-07, "13": 6.124658057983174e-08, "14": 8.49905202614749e-09, "15": 1.0951801832727795e-09, "16": 1.1927276625569717e-10, "2": 0.18604496437789952, "3": 0.10549023891550698, "4": 0.04726587829040309, "5": 0.017427290295519, "6": 0.005445870309963834, "7": 0.0014746288049130973, "8": 0.00035198257371642694, "9": 7.507419325516406e-05} |
+| Legacy p over 2 5 | 0.5813 |
+| Legacy goal margin distribution | {"-1": 0.1134354835094789, "-10": 2.1661697852489118e-08, "-11": 1.991463051699894e-09, "-12": 1.6820783588451643e-10, "-13": 1.3138020455570251e-11, "-14": 9.539621323552075e-13, "-15": 6.432176343804248e-14, "-16": 3.665370715116459e-15, "-2": 0.04957407751028725, "-3": 0.014707958724525023, "-4": 0.003448217001983608, "-5": 0.0006652507835332489, "-6": 0.00010877590731909486, "-7": 1.5411994013782328e-05, "-8": 1.9249016344174803e-06, "-9": 2.1482742223340588e-07, "0": 0.22118332173566618, "1": 0.23328473957303678, "10": 1.4466133798943679e-05, "11": 2.5416841224003556e-06, "12": 4.102842872470676e-07, "13": 6.124320839029608e-08, "14": 8.498621255956306e-09, "15": 1.0951273389631833e-09, "16": 1.192652500478737e-10, "2": 0.18603725118093845, "3": 0.10548410291418253, "4": 0.04726270119749152, "5": 0.01742603909158541, "6": 0.005445469659629595, "7": 0.0014745204452014304, "8": 0.0003519571945154758, "9": 7.506895359548077e-05} |
 | Legacy market blend applied | 1 |
 | Legacy raw p home | 0.5800 |
 | Legacy raw p draw | 0.2384 |
-| Legacy raw p away | 0.1816 |
+| Legacy raw p away | 0.1817 |
 | Legacy market weight | 0.5000 |
 | Legacy lambda home | 1.9618 |
-| Legacy lambda away | 1.0263 |
+| Legacy lambda away | 1.0265 |
 | Legacy model home team | Ein Frankfurt |
 | Legacy model away team | Hamburg |
 | Legacy home name match score | 100/100 |
 | Legacy away name match score | 100/100 |
-| Count model | {"corners": {"alpha": 0.01169351969556193, "mu": 10.303560003176896, "version": "count-markets-nb2-v1"}} |
+| Count model | {"corners": {"alpha": 0.01168409266038481, "mu": 10.303801471653667, "version": "count-markets-nb2-v1"}} |
 | Elo home rating | 1,474.6826 |
 | Elo away rating | 1,410.4900 |
 | Elo rating diff | 124.1926 |
@@ -1993,9 +1993,9 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Odds event id | — |
 | Odds last update utc | — |
 | Odds h2h last update utc | — |
-| Market best home last update utc | 2026-10-30T07:08:04Z |
-| Market best draw last update utc | 2026-10-30T07:08:04Z |
-| Market best away last update utc | 2026-10-30T07:08:04Z |
+| Market best home last update utc | 2026-10-30T11:50:53Z |
+| Market best draw last update utc | 2026-10-30T11:50:53Z |
+| Market best away last update utc | 2026-10-30T11:50:53Z |
 | Odds bookmakers 1x2 | 1.00 |
 | Odds bookmakers ou25 | 12.00 |
 | Best home bookmaker | Pinnacle |
@@ -2005,15 +2005,15 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Matched away-team name | FC Koln |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 100/100 |
-| Dc lambda home | 1.4296 |
-| Dc lambda away | 1.1556 |
+| Dc lambda home | 1.4298 |
+| Dc lambda away | 1.1555 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_RETROSPECTIVE_EXAMPLES |
 | Shot features applied | 1 |
 | Shot features status | APPLIED |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-10-30T07:07:52.260041+00:00 |
+| Bbs statistics cutoff utc | 2026-10-30T11:50:54.576591+00:00 |
 | Bbs statistics weight | 0 |
 | Shot features version | football-data-lagged-shot-strength-v1 |
 | Shot features weight | 0.2000 |
@@ -2035,8 +2035,8 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Fair Under 3.5 odds | 1.37 |
 | Fair Over 4.5 odds | 7.82 |
 | Fair Under 4.5 odds | 1.15 |
-| Goal margin distribution | {"-1": 0.20457190556190685, "-10": 1.536322758524374e-07, "-11": 1.6394334305568974e-08, "-12": 1.6063691930187036e-09, "-13": 1.446572743177323e-10, "-14": 1.0945221633419647e-11, "-2": 0.10218857824193099, "-3": 0.035773913202444, "-4": 0.009834433545620783, "-5": 0.0022166849334776216, "-6": 0.0004225055294147349, "-7": 6.967711814385711e-05, "-8": 1.0118631959935952e-05, "-9": 1.3120832758299454e-06, "0": 0.26388243311985904, "1": 0.19350056773669877, "10": 8.127036210212674e-07, "11": 1.0511162656559668e-07, "12": 1.2482729969086606e-08, "13": 1.3624222454453467e-09, "14": 1.249405023555792e-10, "2": 0.11608982956469835, "3": 0.04925672182694792, "4": 0.01641177843736865, "5": 0.0044835034051608534, "6": 0.001035745775825778, "7": 0.00020702280700615744, "8": 3.643821147595801e-05, "9": 5.726692861813597e-06} |
-| Raw goal margin distribution | {"-1": 0.1742405269733373, "-10": 1.3085359219348463e-07, "-11": 1.3963586255567035e-08, "-12": 1.3681967420526996e-09, "-13": 1.232092922946391e-10, "-14": 9.32240025827931e-12, "-2": 0.08703732643357502, "-3": 0.030469802151820803, "-4": 0.00837630601702872, "-5": 0.0018880224529468264, "-6": 0.0003598616627838683, "-7": 5.934626140389158e-05, "-8": 8.618367024082673e-06, "-9": 1.117543881627132e-06, "0": 0.27791297046531055, "1": 0.21311209115741261, "10": 8.950721447118296e-07, "11": 1.1576482076699831e-07, "12": 1.3747870190671388e-08, "13": 1.5005054360425462e-09, "14": 1.3760337780241687e-10, "2": 0.12785567830635536, "3": 0.05424895190170012, "4": 0.018075132612318582, "5": 0.0049379120565959675, "6": 0.0011407198995614376, "7": 0.00022800482621008946, "8": 4.0131269569420855e-05, "9": 6.30710031227397e-06} |
+| Goal margin distribution | {"-1": 0.20457174950567306, "-10": 1.5357258214202695e-07, "-11": 1.638734366328606e-08, "-12": 1.605623583270681e-09, "-13": 1.4458454896495927e-10, "-14": 1.0939210209841303e-11, "-2": 0.10218211477717205, "-3": 0.03576998905173618, "-4": 0.009832930629983633, "-5": 0.002216254783398782, "-6": 0.0004224066194623863, "-7": 6.96580697840569e-05, "-8": 1.011547371456423e-05, "-9": 1.3116234192166793e-06, "0": 0.2638771233768783, "1": 0.19349454305532857, "10": 8.135518888552048e-07, "11": 1.0523450972233525e-07, "12": 1.249888891554101e-08, "13": 1.3643556813734894e-09, "14": 1.2513238907307387e-10, "2": 0.11609728496478487, "3": 0.04926562915183484, "4": 0.016416714696852356, "5": 0.004485398264749163, "6": 0.0010363109554979383, "7": 0.00020716141052700245, "8": 3.646713951335382e-05, "9": 5.731953841091889e-06} |
+| Raw goal margin distribution | {"-1": 0.17422238171380447, "-10": 1.3078922720940425e-07, "-11": 1.3956189209307928e-08, "-12": 1.367420308469883e-09, "-13": 1.2313461922557805e-10, "-14": 9.316316947143606e-12, "-2": 0.08702282425628159, "-3": 0.03046331031302721, "-4": 0.008374160155162874, "-5": 0.0018874609411190472, "-6": 0.0003597402254819783, "-7": 5.93239039734968e-05, "-8": 8.614786386552814e-06, "-9": 1.1170367196825321e-06, "0": 0.2778952713220413, "1": 0.21312575287034746, "10": 8.96091724725174e-07, "11": 1.1591119707237118e-07, "12": 1.3766977962814236e-08, "13": 1.5027779449703358e-09, "14": 1.378278384938137e-10, "2": 0.1278760675811299, "3": 0.05426392981332706, "4": 0.018082291232491696, "5": 0.0049404694675273956, "6": 0.0011414510668403314, "7": 0.0002281792079874092, "8": 4.0166954794116086e-05, "9": 6.313495763296394e-06} |
 | Unadjusted home-win probability | 42.0% |
 | Unadjusted draw probability | 27.8% |
 | Unadjusted away-win probability | 30.2% |
@@ -2053,59 +2053,59 @@ _EV is a model estimate, not a guarantee or a recommendation to bet._
 | Market blend applied | Yes |
 | Totals anchor applied | 0 |
 | Totals anchor status | NOT_ANCHORED_PINNACLE_NO_2_5_LINE |
-| Unanchored p over 2 5 | 0.4932 |
+| Unanchored p over 2 5 | 0.4933 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
-| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:20Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.98, "price": 1.96, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.99, "price": 1.92, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T07:07:20Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.96, "price": 1.98, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T07:08:04Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.92, "price": 1.99, "quote_source": "The Odds API", "side": "home"}] |
+| Asian handicap offers | [{"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.98, "price": 1.96, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": 0.0, "market_key": "spreads", "opposite_price": 1.99, "price": 1.92, "quote_source": "The Odds API", "side": "away"}, {"bookmaker": "1xBet", "last_update_utc": "2026-10-30T11:50:54Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.96, "price": 1.98, "quote_source": "The Odds API", "side": "home"}, {"bookmaker": "Pinnacle", "last_update_utc": "2026-10-30T11:50:53Z", "line": -0.0, "market_key": "spreads", "opposite_price": 1.92, "price": 1.99, "quote_source": "The Odds API", "side": "home"}] |
 | 1X2 market source | The Odds API / Pinnacle |
 | Reference home odds | 2.66 |
 | Reference draw odds | 3.72 |
 | Reference away odds | 2.57 |
-| Market reference 1x2 last update utc | 2026-10-30T07:08:04Z |
-| Market reference home last update utc | 2026-10-30T07:08:04Z |
-| Market reference draw last update utc | 2026-10-30T07:08:04Z |
-| Market reference away last update utc | 2026-10-30T07:08:04Z |
+| Market reference 1x2 last update utc | 2026-10-30T11:50:53Z |
+| Market reference home last update utc | 2026-10-30T11:50:53Z |
+| Market reference draw last update utc | 2026-10-30T11:50:53Z |
+| Market reference away last update utc | 2026-10-30T11:50:53Z |
 | O/U 2.5 market source | The Odds API / 1xBet |
 | Reference Over 2.5 odds | 1.69 |
 | Reference Under 2.5 odds | 2.36 |
-| Market reference over 2 5 last update utc | 2026-10-30T07:07:20Z |
-| Market reference under 2 5 last update utc | 2026-10-30T07:07:20Z |
+| Market reference over 2 5 last update utc | 2026-10-30T11:50:54Z |
+| Market reference under 2 5 last update utc | 2026-10-30T11:50:54Z |
 | Home probability edge | +1.7% |
 | Draw probability edge | +0.6% |
 | Away probability edge | -2.3% |
 | Over 2.5 probability edge | -9.1% |
 | Under 2.5 probability edge | +9.1% |
 | Raw edge prob home | 0.0552 |
-| Raw ev home | 0.1163 |
+| Raw ev home | 0.1164 |
 | Raw edge prob draw | 0.0200 |
 | Raw ev draw | 0.0338 |
-| Raw edge prob away | -0.0752 |
-| Raw ev away | -0.2227 |
+| Raw edge prob away | -0.0753 |
+| Raw ev away | -0.2228 |
 | Legacy model version | dc-blend50-tuned-half-life-v1 |
 | Legacy status | AVAILABLE |
 | Legacy half life days | 1,000,000,000 |
-| Legacy trial matrix | [[0.09100997214148701, 0.08950078043035267, 0.05641399748450739, 0.019949358399982346, 0.0052909329020723985, 0.0011226013554102893, 0.00019848953963540748, 3.0081736104501516e-05, 3.989111933216533e-06, 4.702155918853167e-07, 4.988389293112637e-08, 4.81095135722144e-09, 4.253172844933088e-10, 3.470827203449502e-11, 2.6300758264207167e-12], [0.09546538930647137, 0.13126334641743584, 0.08065086203405696, 0.028520101813858906, 0.007564050032683473, 0.0016048989802451888, 0.0002837656111984441, 4.3005602447784875e-05, 5.70293420976966e-06, 6.722319728861569e-07, 7.13152612100357e-08, 6.877856409136425e-09, 6.080442294802772e-10, 4.961981394889301e-11, 3.760022194385676e-12], [0.07733346264594136, 0.08204096667990288, 0.04480397316823019, 0.02038652550032882, 0.005406877573001203, 0.0011472018648377086, 0.00020283920816868695, 3.074094253523086e-05, 4.076528704314461e-06, 4.805198223633447e-07, 5.0977040710090206e-08, 4.916377788115893e-09, 4.3463762052924567e-10, 3.546886364546984e-11, 2.6877108941594717e-12], [0.036852617580631145, 0.039095939423300065, 0.020737909268535755, 0.007550217637471063, 0.002576602478223078, 0.000546689494639741, 9.666133538106824e-05, 1.464934015053413e-05, 1.942635804171521e-06, 2.2898771951469742e-07, 2.4292684206864686e-08, 2.3428588906829846e-09, 2.0712293834369513e-10, 1.6902391580866985e-11, 1.2808062430003384e-12], [0.013171355995936902, 0.013973133252019331, 0.007411858465404723, 0.0026210130026135493, 0.0007156899838885402, 0.00019539024432618196, 3.4547365775608945e-05, 5.235765785322878e-06, 6.943101854627623e-07, 8.18416430210647e-08, 8.682357259573774e-09, 8.373524195374921e-10, 7.40270334903732e-11, 6.041020456884274e-12, 4.577681612836743e-13], [0.0037660200042426827, 0.003995268168690193, 0.0021192356548513547, 0.0007494131509517885, 0.0001987580060529704, 4.3418056761389524e-05, 9.877955667204455e-06, 1.4970363485079258e-06, 1.985206419452043e-07, 2.34005720362047e-08, 2.4825030265390413e-09, 2.3941999316941954e-10, 2.1166179781754342e-11, 1.7272787929871113e-12, 1.3088736294361158e-13], [0.0008973327345548924, 0.0009519558863341246, 0.00050495205102247, 0.00017856329793718015, 4.73582362508069e-05, 1.004821289345261e-05, 1.8291668950523558e-06, 3.5670010218249575e-07, 4.730167930642876e-08, 5.575673860399174e-09, 5.91508071342025e-10, 5.704680191177886e-11, 5.0432833501269365e-12, 4.11560161896028e-13, 3.1186641381765003e-14], [0.00018326418923425195, 0.00019441999269349615, 0.00010312744054601823, 3.646836537138462e-05, 9.672074177003474e-06, 2.0521680735130937e-06, 3.628482133955935e-07, 5.661645908664883e-08, 9.660523430933603e-09, 1.1387318328106292e-09, 1.2080496224600956e-10, 1.1650790724752715e-11, 1.0300005768741697e-12, 8.405381469606817e-14, 6.369314667433331e-15], [3.27498836742025e-05, 3.4743460636014246e-05, 1.8429196099971587e-05, 6.517010926638473e-06, 1.7284298995273623e-06, 3.667288517647008e-07, 6.484211034218201e-08, 9.827032977936019e-09, 1.3416776388820074e-09, 2.034949392812931e-10, 2.158822450449473e-11, 2.0820327339587793e-12, 1.840643238481965e-13, 1.5020679518302295e-14, 1.1382164476017944e-15], [5.202228106527968e-06, 5.5189022726543384e-06, 2.927426640220652e-06, 1.0352090941872369e-06, 2.745562913424155e-07, 5.8253860047382694e-08, 1.0299989223302223e-08, 1.5609969082688933e-09, 2.070023941722476e-10, 2.5121676237783337e-11, 3.4292295326772067e-12, 3.3072511997480817e-13, 2.9238106872618436e-14, 2.3859932434145976e-15, 1.8080252296256944e-16], [7.437235437969135e-07, 7.889960747658842e-07, 4.185122356204183e-07, 1.479960817430537e-07, 3.92512542294499e-08, 8.328117557921615e-09, 1.4725122254081543e-09, 2.2316402293412684e-10, 2.95935800998506e-11, 3.4883360045092618e-12, 3.8100797460761705e-13, 4.728129048045258e-14, 4.179952899399023e-15, 3.4110756278469544e-16, 2.584798097115545e-17], [9.665870753686492e-08, 1.0254259324531349e-07, 5.439232376174426e-08, 1.9234445515563827e-08, 5.101324994567525e-09, 1.0823713812448433e-09, 1.9137639211143607e-10, 2.9003715433580847e-11, 3.846156582910796e-12, 4.5336476498886925e-13, 4.809623454801528e-14, 4.775668213285126e-15, 5.432513844569209e-16, 4.433235497896509e-17, 3.359356381746608e-18], [1.1515475522552181e-08, 1.2216454705698124e-08, 6.480052225550532e-09, 2.291503705859741e-09, 6.077484854131882e-10, 1.289487669000985e-10, 2.2799706463207995e-11, 3.4553697607749123e-12, 4.582134720715173e-13, 5.4011800768449185e-14, 5.729965005515554e-15, 5.526149083468085e-16, 5.0298740023662645e-17, 5.281553639879396e-18, 4.002183266394133e-19], [1.2663701441240664e-09, 1.3434576345581356e-09, 7.126188280050438e-10, 2.5199930932659256e-10, 6.683480291861258e-11, 1.4180644837817939e-11, 2.5073100544787583e-12, 3.7999100370495696e-13, 5.0390264781544274e-14, 5.9397401166445325e-15, 6.301308700322244e-16, 6.077169976678092e-17, 5.37258691673365e-18, 4.513940737408638e-19, 4.401247165128955e-20], [1.293167455038171e-10, 1.3718861726914978e-10, 7.276983593615768e-11, 2.5733179752010986e-11, 6.824907583242308e-12, 1.448071756966866e-12, 2.560366554112522e-13, 3.880318890006915e-14, 5.145655933899304e-15, 6.065429326385654e-16, 6.434648963587125e-17, 6.205767301953435e-18, 5.486274753334019e-19, 4.4771074098610944e-20, 3.4928926082457864e-21]] |
-| Legacy trial inputs | {"lambda_home": 1.4296250156037171, "lambda_away": 1.060872795202693, "rho": -0.11084228618346421, "max_goals": 14, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
-| Legacy p home | 0.4028 |
+| Legacy trial matrix | [[0.0910149480883111, 0.08951013361608896, 0.05642069448353078, 0.01995296635699147, 0.00529221861881874, 0.0011229439235558244, 0.00019856244710030727, 3.0094655336419557e-05, 3.991073117870648e-06, 4.7047599808383144e-07, 4.991462005636342e-08, 4.8142138938561545e-09, 4.2563215828330634e-10, 3.473612575514285e-11, 2.6323500429954344e-12], [0.09547047398340833, 0.1312653461969073, 0.08065113037910522, 0.028521968859801145, 0.00756501524357642, 0.0016052035093889392, 0.00028383709126720587, 4.301910838691112e-05, 5.7050796933363845e-06, 6.725266572671262e-07, 7.135095671614538e-08, 6.8817265717923625e-09, 6.084241784947749e-10, 4.965390505713789e-11, 3.762839299736713e-12], [0.077327865063896, 0.08204012574827162, 0.044802892521950306, 0.02038550792610386, 0.005406943642883524, 0.0011472871674640098, 0.00020286689541635768, 3.0747049031081924e-05, 4.077591833832956e-06, 4.806750042265743e-07, 5.099667210288848e-08, 4.918576703597552e-09, 4.348590370498334e-10, 3.5489137516411627e-11, 2.6894142808475344e-12], [0.03684569869439538, 0.039091028204042165, 0.020736592603706833, 0.007549633558144722, 0.002576336695169914, 0.0005466670682475898, 9.666337609866939e-05, 1.4650559709684652e-05, 1.9429182479561743e-06, 2.2903524313034052e-07, 2.4299235639924673e-08, 2.3436363473410123e-09, 2.072045444476392e-10, 1.6910101769564937e-11, 1.2814701165567093e-12], [0.013167363839248441, 0.013969766063663788, 0.007410532824033792, 0.0026207070557858567, 0.0007155965174417367, 0.00019535968760571202, 3.454410930236745e-05, 5.235597559054984e-06, 6.943310179281667e-07, 8.184918416994639e-08, 8.683696822804176e-09, 8.375336494031637e-10, 7.404765610545472e-11, 6.0430788517643054e-12, 4.579525934296627e-13], [0.003764444190095281, 0.0039938445794743815, 0.0021186121668326776, 0.0007492392228646635, 0.00019872422447122915, 4.3410075200573314e-05, 9.87588504068676e-06, 1.496815539805613e-06, 1.985036943121195e-07, 2.340002824970771e-08, 2.482599588819431e-09, 2.394441832849812e-10, 2.1169633665432505e-11, 1.7276679942574023e-12, 1.3092499005281211e-13], [0.0008968537813988992, 0.0009515068978431144, 0.0005047452524707266, 0.0001785012597521172, 4.734472426009708e-05, 1.00459701780364e-05, 1.8287332694829302e-06, 3.566063432321256e-07, 4.7292184416996103e-08, 5.5749010373986315e-09, 5.914628339531059e-10, 5.7045983515476456e-11, 5.043524367721341e-12, 4.1160540451853127e-13, 3.1192007765031e-14], [0.00018314523956835925, 0.0001943058750163367, 0.00010307331262020663, 3.645148926011492e-05, 9.668199038407971e-06, 2.051473331676502e-06, 3.6274791318950154e-07, 5.6600023878414374e-08, 9.657469951514227e-09, 1.138442639414086e-09, 1.207817870279375e-10, 1.1649279441135253e-11, 1.0299309628314363e-12, 8.405335627909787e-14, 6.369675696560244e-15], [3.272485107182575e-05, 3.471906142511031e-05, 1.841739819678469e-05, 6.5132435885032975e-06, 1.7275380698419765e-06, 3.66562403779421e-07, 6.481670756891933e-08, 9.823793485697354e-09, 1.3412167512030127e-09, 2.0341978812251118e-10, 2.1581592849444104e-11, 2.081522488401569e-12, 1.8403064940347875e-13, 1.501886466065589e-14, 1.138149640345737e-15], [5.197652021105753e-06, 5.514390253176222e-06, 2.92521505295537e-06, 1.0344912992097394e-06, 2.743829672606765e-07, 5.822070250782027e-08, 1.029476621169596e-08, 1.5603022899566596e-09, 2.0692313819796395e-10, 2.5111709494270436e-11, 3.427780601549315e-12, 3.306059222415244e-13, 2.922938517635949e-14, 2.3854297178262644e-15, 1.807710527231977e-16], [7.429836067363236e-07, 7.882600725519284e-07, 4.1814781399348063e-07, 1.4787640140262464e-07, 3.9221949798590464e-08, 8.322416999124213e-09, 1.4715957319601173e-09, 2.2303898342627375e-10, 2.9578836542199905e-11, 3.4868147571735446e-12, 3.808365367184667e-13, 4.725879676399341e-14, 4.1782239235778474e-15, 3.40987655227739e-16, 2.584050032599727e-17], [9.655140045357346e-08, 1.024351186708401e-07, 5.4338691556082654e-08, 1.921667385391609e-08, 5.096928313409749e-09, 1.0815057144447018e-09, 1.912352137167342e-10, 2.8984120255550293e-11, 3.843796910246303e-12, 4.531147724861822e-13, 4.807270041976369e-14, 4.773265211831067e-15, 5.429640271635662e-16, 4.431165822653528e-17, 3.3579966937029367e-18], [1.1501364374584497e-08, 1.2202242733430298e-08, 6.472915859207857e-09, 2.289122343364827e-09, 6.07154629019079e-10, 1.2883077031083573e-10, 2.2780258638146916e-11, 3.4526369018971714e-12, 4.578795194990728e-13, 5.397578986310452e-14, 5.7265005106146e-15, 5.523150990680647e-16, 5.0270754292690753e-17, 5.27847887147425e-18, 4.0001018484966013e-19], [1.2646724018872137e-09, 1.341739912196773e-09, 7.11751908753345e-10, 2.517083850151011e-10, 6.676179260047473e-11, 1.416603408253211e-11, 2.504882331280631e-12, 3.796466628964155e-13, 5.0347730307498877e-14, 5.935095140605695e-15, 6.296772208322421e-16, 6.073172192340163e-17, 5.36938624839825e-18, 4.511189031008879e-19, 4.398450694867614e-20], [1.291284793703214e-10, 1.369974028957179e-10, 7.26729242522363e-11, 2.570050627597871e-11, 6.816665521973574e-12, 1.4464128710769899e-12, 2.55759235322271e-13, 3.876355347414561e-14, 5.140719323559794e-15, 6.059986833593812e-16, 6.429274640520607e-17, 6.200969428768676e-18, 5.482373778165317e-19, 4.474201990825399e-20, 3.490577482457789e-21]] |
+| Legacy trial inputs | {"lambda_home": 1.4294600787419822, "lambda_away": 1.0609387144011009, "rho": -0.11082685883326926, "max_goals": 14, "score_engine_version": "dc-positive-tail-bounded-v1", "reference": null} |
+| Legacy p home | 0.4027 |
 | Legacy p draw | 0.2754 |
-| Legacy p away | 0.3218 |
+| Legacy p away | 0.3219 |
 | Legacy p over 1 5 | 0.7240 |
 | Legacy p under 3 5 | 0.7605 |
 | Legacy p btts yes | 0.5088 |
 | Legacy p over 2 5 | 0.4590 |
-| Legacy goal margin distribution | {"-1": 0.19332040521055252, "-10": 5.721374712053419e-08, "-11": 5.455745256590188e-09, "-12": 4.776248093363612e-10, "-13": 3.8468294228880696e-11, "-14": 2.6300758264207167e-12, "-2": 0.09092375923046567, "-3": 0.0287627116179023, "-4": 0.007114038744739645, "-5": 0.0014391349271861875, "-6": 0.00024580958541274957, "-7": 3.6290341757370186e-05, "-8": 4.714739591202388e-06, "-9": 5.466605257296319e-07, "0": 0.2753885045558134, "1": 0.20107445736225577, "10": 8.530050134846873e-07, "11": 1.096135142503201e-07, "12": 1.2931702993046474e-08, "13": 1.403558761393216e-09, "14": 1.293167455038171e-10, "2": 0.12464015052308225, "3": 0.05313359911552184, "4": 0.017709832766760684, "5": 0.004827903421341123, "6": 0.0011112574892530012, "7": 0.0002210883054121046, "8": 3.870715481315973e-05, "9": 6.047976291636132e-06} |
+| Legacy goal margin distribution | {"-1": 0.19332871065982293, "-10": 5.724857371956861e-08, "-11": 5.4594086799838975e-09, "-12": 4.779754776212918e-10, "-13": 3.849896505487956e-11, "-14": 2.6323500429954344e-12, "-2": 0.09093236343184868, "-3": 0.028767371943177855, "-4": 0.007115657917678455, "-5": 0.0014395553719769414, "-6": 0.00024589711083390365, "-7": 3.630556839088059e-05, "-8": 4.717015890104112e-06, "-9": 5.46958910051864e-07, "0": 0.2753937136579632, "1": 0.20107704236798715, "10": 8.521501663169086e-07, "11": 1.0949109560203309e-07, "12": 1.2915777211033506e-08, "13": 1.4016698047829315e-09, "14": 1.291284793703214e-10, "2": 0.12462812791947599, "3": 0.05312262346778975, "4": 0.01770419242026975, "5": 0.00482582054427017, "6": 0.0011106518725317893, "7": 0.00022094262075055717, "8": 3.86772273892717e-05, "9": 6.0426081157626e-06} |
 | Legacy market blend applied | 1 |
-| Legacy raw p home | 0.4411 |
+| Legacy raw p home | 0.4410 |
 | Legacy raw p draw | 0.2929 |
-| Legacy raw p away | 0.2660 |
+| Legacy raw p away | 0.2661 |
 | Legacy market weight | 0.5000 |
-| Legacy lambda home | 1.4296 |
+| Legacy lambda home | 1.4295 |
 | Legacy lambda away | 1.0609 |
 | Legacy model home team | Union Berlin |
 | Legacy model away team | FC Koln |
 | Legacy home name match score | 100/100 |
 | Legacy away name match score | 100/100 |
-| Count model | {"corners": {"alpha": 0.01169351969556193, "mu": 10.176335074241845, "version": "count-markets-nb2-v1"}} |
+| Count model | {"corners": {"alpha": 0.01168409266038481, "mu": 10.176468642637284, "version": "count-markets-nb2-v1"}} |
 | Elo home rating | 1,423.5449 |
 | Elo away rating | 1,399.5689 |
 | Elo rating diff | 83.9760 |

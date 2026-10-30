@@ -4,7 +4,7 @@
 **Candidates:** 3 of target 12 distinct matches.
 **Strictly qualified:** 3. **Provisional watchlist:** 0.
 **Pipeline status:** BELOW_TARGET.
-**Generated (UTC):** 2026-10-30T07:29:50.498587+00:00.
+**Generated (UTC):** 2026-10-30T12:03:48.308948+00:00.
 **UNPROVEN EDGE (Corners):** validated on probability accuracy only; no historical corner or card odds exist, so profitability is untested. 0 of 3 selections.
 **Kickoffs within next 48 hours of run:** Not available.
 
@@ -19,9 +19,9 @@
 
 | Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons | Unblended estimated EV | Any loss chance | Conservative loss estimate | Full refund chance | Probability meaning |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Hull City vs Ipswich Town | Asian Handicap Home +1.00 | STRICT | 2026-10-31T15:00:00+00:00 | 89.1% | 86.5% | Pinnacle | 1.22 | +1.2% | — | +11.6% | 10.9% | 13.5% | 19.8% | net_no_loss |
-| Tottenham Hotspur vs Crystal Palace | Asian Handicap Away +2.00 | STRICT | 2026-10-31T17:30:00+00:00 | 86.2% | 85.6% | Pinnacle | 1.27 | +3.9% | — | +10.3% | 13.8% | 14.4% | 17.7% | net_no_loss |
-| Levante vs Atlético Madrid | Asian Handicap Home +2.00 | STRICT | 2026-10-31T13:00:00+00:00 | 83.8% | 83.2% | Pinnacle | 1.29 | +2.0% | — | +6.5% | 16.2% | 16.8% | 18.3% | net_no_loss |
+| Hull City vs Ipswich Town | Asian Handicap Home +1.00 | STRICT | 2026-10-31T15:00:00+00:00 | 89.2% | 86.7% | Pinnacle | 1.22 | +1.5% | — | +11.6% | 10.8% | 13.3% | 19.5% | net_no_loss |
+| Tottenham Hotspur vs Crystal Palace | Asian Handicap Away +2.00 | STRICT | 2026-10-31T17:30:00+00:00 | 86.8% | 86.1% | Pinnacle | 1.25 | +3.3% | — | +8.8% | 13.2% | 13.9% | 17.4% | net_no_loss |
+| Levante vs Atlético Madrid | Asian Handicap Home +2.00 | STRICT | 2026-10-31T13:00:00+00:00 | 83.6% | 83.0% | Pinnacle | 1.31 | +3.0% | — | +7.9% | 16.4% | 17.0% | 18.5% | net_no_loss |
 
 ## Qualifying alternatives for comparison
 
