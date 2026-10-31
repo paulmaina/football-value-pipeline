@@ -1,8 +1,8 @@
 {
-  "checked_at_utc": "2026-10-31T16:54:19.326295+00:00",
-  "incident_started_at_utc": "2026-10-30T19:54:13.025587+00:00",
+  "checked_at_utc": "2026-10-31T17:27:09.700420+00:00",
+  "incident_started_at_utc": "2026-10-31T17:27:09.700420+00:00",
   "last_failure": {
-    "at_utc": "2026-10-30T19:56:05.021219+00:00",
+    "at_utc": "2026-10-31T17:27:09.700420+00:00",
     "attempts": [
       {
         "credential": "THE_ODDS_API_KEY",
@@ -17,5 +17,5 @@
     "error": "OddsProviderError"
   },
   "recovered_at_utc": "2026-10-31T12:24:22.318018+00:00",
-  "state": "AVAILABLE"
+  "state": "CREDITS_EXHAUSTED"
 }
