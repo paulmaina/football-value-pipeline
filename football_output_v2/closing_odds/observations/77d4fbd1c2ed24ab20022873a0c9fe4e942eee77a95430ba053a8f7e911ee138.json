@@ -1,0 +1,360 @@
+{
+  "fixture": {
+    "away_team": "CF Estrela",
+    "home_team": "Moreirense FC",
+    "kickoff_utc": "2026-10-31T15:30:00+00:00",
+    "league": "Primeira Liga",
+    "odds_event_id": "853df01a49c2a57a62c1ac2d356b395b"
+  },
+  "observed_at_utc": "2026-10-31T15:24:01.284880+00:00",
+  "payload": {
+    "away_team": "CF Estrela",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T15:23:50Z",
+            "outcomes": [
+              {
+                "name": "CF Estrela",
+                "price": 2.63
+              },
+              {
+                "name": "Moreirense FC",
+                "price": 2.88
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-10-31T15:23:50Z",
+            "outcomes": [
+              {
+                "name": "CF Estrela",
+                "point": -0.0,
+                "price": 1.87
+              },
+              {
+                "name": "Moreirense FC",
+                "point": 0.0,
+                "price": 2.05
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T15:23:50Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.06
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.84
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-10-31T15:23:50Z",
+            "outcomes": [
+              {
+                "name": "CF Estrela",
+                "point": -0.0,
+                "price": 1.87
+              },
+              {
+                "name": "CF Estrela",
+                "point": 1.0,
+                "price": 1.18
+              },
+              {
+                "name": "CF Estrela",
+                "point": 0.75,
+                "price": 1.32
+              },
+              {
+                "name": "CF Estrela",
+                "point": 0.5,
+                "price": 1.47
+              },
+              {
+                "name": "CF Estrela",
+                "point": 0.25,
+                "price": 1.61
+              },
+              {
+                "name": "CF Estrela",
+                "point": -0.25,
+                "price": 2.24
+              },
+              {
+                "name": "CF Estrela",
+                "point": -0.5,
+                "price": 2.62
+              },
+              {
+                "name": "CF Estrela",
+                "point": -0.75,
+                "price": 3.2
+              },
+              {
+                "name": "CF Estrela",
+                "point": -1.0,
+                "price": 4.46
+              },
+              {
+                "name": "Moreirense FC",
+                "point": 0.0,
+                "price": 2.05
+              },
+              {
+                "name": "Moreirense FC",
+                "point": -1.0,
+                "price": 5.31
+              },
+              {
+                "name": "Moreirense FC",
+                "point": -0.75,
+                "price": 3.6
+              },
+              {
+                "name": "Moreirense FC",
+                "point": -0.5,
+                "price": 2.87
+              },
+              {
+                "name": "Moreirense FC",
+                "point": -0.25,
+                "price": 2.46
+              },
+              {
+                "name": "Moreirense FC",
+                "point": 0.25,
+                "price": 1.71
+              },
+              {
+                "name": "Moreirense FC",
+                "point": 0.5,
+                "price": 1.54
+              },
+              {
+                "name": "Moreirense FC",
+                "point": 0.75,
+                "price": 1.38
+              },
+              {
+                "name": "Moreirense FC",
+                "point": 1.0,
+                "price": 1.23
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-31T15:30:00Z",
+    "home_team": "Moreirense FC",
+    "id": "853df01a49c2a57a62c1ac2d356b395b",
+    "sport_key": "soccer_portugal_primeira_liga",
+    "sport_title": "Primeira Liga - Portugal"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.88,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.33701262577140045,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.3,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.29299260657859205,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.63,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.36999476765000755,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.87,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.05,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.06,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4705849308196228,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.84,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5294150691803772,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.46,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.2,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.62,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.24,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.61,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.47,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.18,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.87,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.46,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.71,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.54,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.38,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-10-31T15:23:50+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
