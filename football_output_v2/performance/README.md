@@ -17,16 +17,16 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 62 | 47-14 | 75.8% | +6.8% |
+| All selections | 65 | 48-14 | 73.8% | +6.9% |
 
-Unsettled / unverified entries: **19**.
-Whole-fixture 1X2 multiclass Brier (n=184): 0.5728
+Unsettled / unverified entries: **16**.
+Whole-fixture 1X2 multiclass Brier (n=205): 0.5697
 
 ## First-prediction reference — historical comparison
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Unique fixtures | 62 | 51-10 | 82.3% | +13.1% |
+| Unique fixtures | 65 | 52-10 | 80.0% | +12.9% |
 
 ## Latest selections by prediction run (generation UTC)
 
@@ -57,15 +57,15 @@ Whole-fixture 1X2 multiclass Brier (n=184): 0.5728
 | 2026-10-26T11:01:43.961218+00:00 | 1 | 0-0 | 0.0% | +0.0% |
 | 2026-10-26T11:45:55.025240+00:00 | 0 | 0-0 | — | — |
 | 2026-10-29T12:08:22.532184+00:00 | 1 | 1-0 | 100.0% | +34.0% |
-| 2026-10-30T12:03:48.308948+00:00 | 0 | 0-0 | — | — |
-| 2026-10-31T12:03:11.165007+00:00 | 0 | 0-0 | — | — |
+| 2026-10-30T12:03:48.308948+00:00 | 1 | 0-0 | 0.0% | +0.0% |
+| 2026-10-31T12:03:11.165007+00:00 | 2 | 1-0 | 50.0% | +12.5% |
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | PROVISIONAL | 27 | 18-9 | 66.7% | -10.7% |
-| STRICT | 35 | 29-5 | 82.9% | +20.3% |
+| STRICT | 38 | 30-5 | 78.9% | +19.4% |
 
 ## By policy
 
@@ -76,7 +76,7 @@ Whole-fixture 1X2 multiclass Brier (n=184): 0.5728
 | 48h-top-twelve-profitable-win-probability-v23 | 0 | 0-0 | — | — |
 | 48h-two-per-market-group-probability-ev-corners-cards-v25 | 12 | 9-3 | 75.0% | +3.8% |
 | 48h-two-per-market-group-probability-ev-v24 | 3 | 2-1 | 66.7% | +20.7% |
-| 48h-zero-tolerance-ev05-no-loss75-corners-v26 | 2 | 1-0 | 50.0% | +17.0% |
+| 48h-zero-tolerance-ev05-no-loss75-corners-v26 | 5 | 2-0 | 40.0% | +11.8% |
 | 48h-zero-tolerance-ev1-common-no-loss75-v22 | 7 | 7-0 | 100.0% | +33.9% |
 | 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
 | 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
@@ -97,7 +97,7 @@ Whole-fixture 1X2 multiclass Brier (n=184): 0.5728
 | Asian Handicap Away +1.25 | 1 | 1-0 | 100.0% | +16.0% |
 | Asian Handicap Away +1.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away +1.75 | 0 | 0-0 | — | — |
-| Asian Handicap Away +2.00 | 4 | 3-0 | 75.0% | +29.2% |
+| Asian Handicap Away +2.00 | 5 | 3-0 | 60.0% | +23.4% |
 | Asian Handicap Away +2.25 | 0 | 0-0 | — | — |
 | Asian Handicap Away +2.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away +2.75 | 0 | 0-0 | — | — |
@@ -118,11 +118,11 @@ Whole-fixture 1X2 multiclass Brier (n=184): 0.5728
 | Asian Handicap Home +0.25 | 0 | 0-0 | — | — |
 | Asian Handicap Home +0.50 | 0 | 0-0 | — | — |
 | Asian Handicap Home +0.75 | 0 | 0-0 | — | — |
-| Asian Handicap Home +1.00 | 0 | 0-0 | — | — |
+| Asian Handicap Home +1.00 | 1 | 1-0 | 100.0% | +25.0% |
 | Asian Handicap Home +1.25 | 1 | 1-0 | 100.0% | +60.0% |
 | Asian Handicap Home +1.50 | 0 | 0-0 | — | — |
 | Asian Handicap Home +1.75 | 0 | 0-0 | — | — |
-| Asian Handicap Home +2.00 | 1 | 1-0 | 100.0% | +26.0% |
+| Asian Handicap Home +2.00 | 2 | 1-0 | 50.0% | +13.0% |
 | Asian Handicap Home +2.25 | 1 | 1-0 | 100.0% | +35.0% |
 | Asian Handicap Home +2.50 | 0 | 0-0 | — | — |
 | Asian Handicap Home +2.75 | 0 | 0-0 | — | — |
@@ -167,9 +167,9 @@ Whole-fixture 1X2 multiclass Brier (n=184): 0.5728
 |---|---:|---:|---:|---:|
 | Bundesliga | 8 | 7-1 | 87.5% | +10.8% |
 | Eredivisie | 2 | 1-1 | 50.0% | -32.5% |
-| La Liga | 10 | 10-0 | 100.0% | +33.5% |
+| La Liga | 11 | 10-0 | 90.9% | +30.5% |
 | Ligue 1 | 5 | 3-2 | 60.0% | -18.4% |
-| Premier League | 10 | 6-4 | 60.0% | -9.1% |
+| Premier League | 12 | 7-4 | 58.3% | -5.5% |
 | Primeira Liga | 1 | 1-0 | 100.0% | +109.0% |
 | Serie A | 14 | 9-4 | 64.3% | -4.4% |
 | Super Lig | 0 | 0-0 | — | — |
@@ -182,7 +182,7 @@ Whole-fixture 1X2 multiclass Brier (n=184): 0.5728
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
 | 2026-W42 | 22 | 19-3 | 86.4% | +19.5% |
 | 2026-W43 | 34 | 25-9 | 73.5% | +3.1% |
-| 2026-W44 | 2 | 1-0 | 50.0% | +17.0% |
+| 2026-W44 | 5 | 2-0 | 40.0% | +11.8% |
 
 ## Confidence calibration of shortlisted markets
 
@@ -192,7 +192,7 @@ Whole-fixture 1X2 multiclass Brier (n=184): 0.5728
 | 50%–60% | 2 | 56.7% | 50.0% | 0.2721 |
 | 60%–70% | 9 | 64.4% | 55.6% | 0.2389 |
 | 70%–80% | 22 | 76.2% | 81.8% | 0.1507 |
-| 80%–90% | 20 | 83.9% | 90.0% | 0.0936 |
+| 80%–90% | 23 | 84.2% | 91.3% | 0.0839 |
 | 90%–100% | 4 | 92.8% | 100.0% | 0.0053 |
 
 Calibration bins report observed outcomes against the originally
@@ -225,7 +225,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-10-21 | 557 | 10 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-10-22 | 714 | 9 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 6, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 6, "bookmakers": {"Pinnacle": 6}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 2, "upcoming_kickoff_count": 4, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 6, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 6, "bookmakers": {"Pinnacle": 6}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 4, "upcoming_kickoff_count": 2, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
@@ -252,7 +252,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 2f2bbe3e322e | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | f82ff3e276c6 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 
