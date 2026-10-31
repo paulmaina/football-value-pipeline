@@ -1,0 +1,1 @@
+{"entity":"6b2d8d45-6fd8-4d85-9c99-cefae127e101","kind":"team","league":"LaLiga","observed":"2026-10-31T01:52:48.484408+00:00","payload":{"conference":null,"flag_url":null,"id":"6b2d8d45-6fd8-4d85-9c99-cefae127e101","league":"La Liga","logo_url":null,"name":"Las Palmas","short_name":null,"sport":"football"},"query":"/v1/teams?league=laliga&limit=200&offset=0&sport=football"}
