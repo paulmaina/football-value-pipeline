@@ -3220,6 +3220,41 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Espanyol",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.5406432496465324,
+      "home_goals": 0,
+      "over_1_5": 0.8236655388678287,
+      "over_2_5": 0.6097330839327321,
+      "p_away": 0.1356068911304923,
+      "p_draw": 0.18551766989139643,
+      "p_home": 0.6788754389781113,
+      "under_3_5": 0.6169942418787349,
+      "y": 2
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.5408237529241916,
+      "home_goals": 0,
+      "over_1_5": 0.8207581342762575,
+      "over_2_5": 0.6056758336093465,
+      "p_away": 0.13742295736167853,
+      "p_draw": 0.1865684500380146,
+      "p_home": 0.676008592600307,
+      "under_3_5": 0.6217212775751081,
+      "y": 2
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Villarreal",
+    "kickoff_utc": "2026-10-30T20:00:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": 0.01330325621595052,
+    "snapshot_commit": "04e55dde9bbe885fb80dc3c1a84f550621a793c2",
+    "source_match_id": 564737,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "Paris Saint Germain",
     "baseline": {
       "away_goals": 5,
@@ -3252,6 +3287,41 @@
     "log_loss_gain": -0.00762395965716578,
     "snapshot_commit": "04e55dde9bbe885fb80dc3c1a84f550621a793c2",
     "source_match_id": 559644,
+    "week": "2026-W44"
+  },
+  {
+    "away_team": "RC Lens",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.4834855503344385,
+      "home_goals": 1,
+      "over_1_5": 0.6925964724703526,
+      "over_2_5": 0.42738079985266547,
+      "p_away": 0.3417334795450059,
+      "p_draw": 0.2765733173947321,
+      "p_home": 0.3816932030602621,
+      "under_3_5": 0.7846807421410975,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.4926306585662444,
+      "home_goals": 1,
+      "over_1_5": 0.7013688869562854,
+      "over_2_5": 0.4374897751844602,
+      "p_away": 0.34243563856644416,
+      "p_draw": 0.2756442666960569,
+      "p_home": 0.38192009473749905,
+      "under_3_5": 0.7761526867092021,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Lille",
+    "kickoff_utc": "2026-10-30T20:05:00+00:00",
+    "league": "Ligue 1",
+    "log_loss_gain": 0.0005942580742592796,
+    "snapshot_commit": "04e55dde9bbe885fb80dc3c1a84f550621a793c2",
+    "source_match_id": 559639,
     "week": "2026-W44"
   },
   {

@@ -404,6 +404,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "BL1:565846": {
+    "away_goals": 1,
+    "away_short_name": "Mainz",
+    "away_team": "1. FSV Mainz 05",
+    "first_verified_at_utc": "2026-10-31T06:02:35Z",
+    "home_goals": 4,
+    "home_short_name": "Elversberg",
+    "home_team": "SV 07 Elversberg",
+    "kickoff_utc": "2026-10-30T19:30:00Z",
+    "league_code": "BL1",
+    "match_id": 565846,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "CL:575341": {
     "away_goals": 2,
     "away_short_name": "Sporting CP",
@@ -1781,6 +1796,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "FL1:559639": {
+    "away_goals": 0,
+    "away_short_name": "RC Lens",
+    "away_team": "Racing Club de Lens",
+    "first_verified_at_utc": "2026-10-31T06:02:35Z",
+    "home_goals": 1,
+    "home_short_name": "Lille",
+    "home_team": "Lille OSC",
+    "kickoff_utc": "2026-10-30T20:05:00Z",
+    "league_code": "FL1",
+    "match_id": 559639,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559644": {
     "away_goals": 5,
     "away_short_name": "PSG",
@@ -2666,6 +2696,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564737": {
+    "away_goals": 1,
+    "away_short_name": "Espanyol",
+    "away_team": "RCD Espanyol de Barcelona",
+    "first_verified_at_utc": "2026-10-31T06:02:35Z",
+    "home_goals": 0,
+    "home_short_name": "Villarreal",
+    "home_team": "Villarreal CF",
+    "kickoff_utc": "2026-10-30T20:00:00Z",
+    "league_code": "PD",
+    "match_id": 564737,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560592": {
     "away_goals": 2,
     "away_short_name": "Brighton Hove",
@@ -3247,6 +3292,21 @@
     "kickoff_utc": "2026-10-24T14:30:00Z",
     "league_code": "PPL",
     "match_id": 567337,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PPL:567344": {
+    "away_goals": 2,
+    "away_short_name": "Sporting CP",
+    "away_team": "Sporting Clube de Portugal",
+    "first_verified_at_utc": "2026-10-31T06:02:35Z",
+    "home_goals": 0,
+    "home_short_name": "Casa Pia",
+    "home_team": "Casa Pia AC",
+    "kickoff_utc": "2026-10-30T20:15:00Z",
+    "league_code": "PPL",
+    "match_id": 567344,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
