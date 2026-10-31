@@ -582,7 +582,7 @@
   },
   "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
   "excluded_forecast_reasons": {
-    "league_outside_frozen_trial": 79,
+    "league_outside_frozen_trial": 82,
     "unreliable_team_identity": 16
   },
   "gameweeks": 3,
@@ -591,7 +591,7 @@
     0.011456412407980832
   ],
   "note": "Primary 1X2 log loss; week-block bootstrap, one preregistered candidate. Calibration and subgroup metrics are descriptive. Ready means enough evidence to review, including negative findings; it does not mean approval or profitability. Baseline is the actual production forecast. No closing odds, backfill, bets or automatic promotion.",
-  "observed_fixtures": 231,
+  "observed_fixtures": 239,
   "other_archived_registry_versions": [],
   "paired_fixtures": 96,
   "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
@@ -604,7 +604,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-10-31T06:02:35.810767+00:00",
+  "reviewed_at_utc": "2026-10-31T12:04:01.756278+00:00",
   "secondary_comparison": {
     "btts_yes": {
       "baseline": {

@@ -2,7 +2,7 @@
 
 Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.
 
-Coverage: 476/518 fixture-markets; 294 graded.
+Coverage: 510/552 fixture-markets; 294 graded.
 Rejected snapshot data: 0 commit(s); details in summary.json.
 
 | League | Market | Variant | N | Brier | Log loss | Brier gain | Log-loss gain | Overconfidence |
@@ -178,17 +178,19 @@ Calibration buckets, approximate paired-gain intervals, gameweek comparisons and
 |---|---|---:|---:|---:|---:|---|
 | Premier League | over_1_5 | 1000000000.0 | 295 | 80 | -0.0106 | {'730.0': 1, '240.0': 1, '1000000000.0': 2} |
 | Premier League | btts_yes | 1000000000.0 | 295 | 80 | -0.0071 | {'1000000000.0': 2, '240.0': 2} |
-| La Liga | over_1_5 | 120.0 | 281 | 99 | -0.0068 | {'120.0': 2, '1000000000.0': 1, '240.0': 1} |
-| La Liga | btts_yes | 240.0 | 281 | 99 | +0.0019 | {'1000000000.0': 1, '365.0': 1, '120.0': 2} |
-| Bundesliga | over_1_5 | 1000000000.0 | 236 | 63 | +0.0014 | {'1000000000.0': 2, '730.0': 2} |
-| Bundesliga | btts_yes | 240.0 | 236 | 63 | -0.0001 | {'1000000000.0': 1, '120.0': 2, '730.0': 1} |
+| La Liga | over_1_5 | 120.0 | 280 | 100 | -0.0068 | {'240.0': 1, '120.0': 2, '1000000000.0': 1} |
+| La Liga | btts_yes | 240.0 | 280 | 100 | +0.0018 | {'1000000000.0': 1, '240.0': 1, '120.0': 2} |
+| Bundesliga | over_1_5 | 1000000000.0 | 234 | 64 | +0.0013 | {'1000000000.0': 4} |
+| Bundesliga | btts_yes | 240.0 | 234 | 64 | +0.0004 | {'1000000000.0': 2, '120.0': 2} |
 | Serie A | over_1_5 | 240.0 | 292 | 90 | -0.0078 | {'240.0': 2, '1000000000.0': 1, '120.0': 1} |
 | Serie A | btts_yes | 240.0 | 292 | 90 | -0.0125 | {'365.0': 1, '120.0': 1, '1000000000.0': 1, '240.0': 1} |
-| Ligue 1 | over_1_5 | 1000000000.0 | 225 | 72 | +0.0000 | {'1000000000.0': 2, '240.0': 1, '365.0': 1} |
-| Ligue 1 | btts_yes | 1000000000.0 | 225 | 72 | +0.0000 | {'1000000000.0': 3, '240.0': 1} |
+| Ligue 1 | over_1_5 | 1000000000.0 | 216 | 75 | +0.0000 | {'1000000000.0': 2, '240.0': 1, '365.0': 1} |
+| Ligue 1 | btts_yes | 1000000000.0 | 216 | 75 | +0.0000 | {'1000000000.0': 3, '240.0': 1} |
+| UEFA Champions League | over_1_5 | 365.0 | 144 | 54 | +0.0036 | {'730.0': 1, '120.0': 2, '240.0': 1} |
+| UEFA Champions League | btts_yes | 1000000000.0 | 144 | 54 | +0.0032 | {'240.0': 1, '1000000000.0': 3} |
 | Eredivisie | over_1_5 | 730.0 | 220 | 90 | -0.0009 | {'1000000000.0': 2, '240.0': 2} |
 | Eredivisie | btts_yes | 240.0 | 220 | 90 | +0.0039 | {'730.0': 1, '120.0': 3} |
 | Primeira Liga | over_1_5 | 730.0 | 226 | 81 | -0.0020 | {'120.0': 1, '240.0': 1, '1000000000.0': 2} |
 | Primeira Liga | btts_yes | 730.0 | 226 | 81 | -0.0040 | {'1000000000.0': 2, '730.0': 2} |
-| Super Lig | over_1_5 | 365.0 | 218 | 81 | +0.0001 | {'240.0': 1, '120.0': 2, '1000000000.0': 1} |
+| Super Lig | over_1_5 | 365.0 | 218 | 81 | +0.0001 | {'240.0': 2, '120.0': 1, '1000000000.0': 1} |
 | Super Lig | btts_yes | 1000000000.0 | 218 | 81 | +0.0051 | {'120.0': 1, '1000000000.0': 2, '240.0': 1} |
