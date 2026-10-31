@@ -6555,13 +6555,25 @@
     "calibration_penalty": "0.005564277135364023",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.37,
+        "devig_method": "split_settlement_fair_probability_unavailable",
+        "fair_close_ev": null,
+        "fair_probability": null,
+        "observation_sha256": "50849604648db406290f051aff6553d330f1cbb38cc23409ce72ba0e0e140c77",
+        "observed_at_utc": "2026-10-31T12:54:10.406721+00:00",
+        "offered_price_clv": -0.02919708029197088,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 349.593279,
+        "selection": "Asian Handicap Home +2.00",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-31T12:53:59+00:00"
       }
     },
     "conservative_estimated_ev": "0.03579849148068768",
@@ -6825,13 +6837,25 @@
     "calibration_penalty": "0.018382880526930795",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.21,
+        "devig_method": "split_settlement_fair_probability_unavailable",
+        "fair_close_ev": null,
+        "fair_probability": null,
+        "observation_sha256": "7bf6d2392f4bc24fcaffefe7c05ba9062b87ad4515a98b9e40b38c44d0260a9d",
+        "observed_at_utc": "2026-10-31T12:54:10.495183+00:00",
+        "offered_price_clv": 0.06611570247933884,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 349.504817,
+        "selection": "Asian Handicap Home +1.00",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-10-31T12:54:00+00:00"
       }
     },
     "conservative_estimated_ev": "0.008136998245628947",

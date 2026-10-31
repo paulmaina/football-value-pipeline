@@ -55210,7 +55210,7 @@
     "reasons": [
       "outside_registered_leagues"
     ],
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "scale": null,
     "snapshot_commit": "04e55dde9bbe885fb80dc3c1a84f550621a793c2",
     "status": "unavailable",
