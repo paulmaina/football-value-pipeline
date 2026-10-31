@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Borussia Dortmund",
+    "home_team": "Bayern Munich",
+    "kickoff_utc": "2026-10-31T17:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "bad7337b335a16859b1db6b8e6cf6ca5"
+  },
+  "observed_at_utc": "2026-10-31T17:24:30.917885+00:00",
+  "payload": {
+    "away_team": "Borussia Dortmund",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T17:24:11Z",
+            "outcomes": [
+              {
+                "name": "Bayern Munich",
+                "price": 1.35
+              },
+              {
+                "name": "Borussia Dortmund",
+                "price": 8.25
+              },
+              {
+                "name": "Draw",
+                "price": 6.0
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T17:24:11Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 1.85
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 2.05
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T17:23:48Z",
+            "outcomes": [
+              {
+                "name": "Bayern Munich",
+                "price": 1.35
+              },
+              {
+                "name": "Borussia Dortmund",
+                "price": 7.61
+              },
+              {
+                "name": "Draw",
+                "price": 5.84
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T17:23:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.6
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.34
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-31T17:30:00Z",
+    "home_team": "Bayern Munich",
+    "id": "bad7337b335a16859b1db6b8e6cf6ca5",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.35,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7281548411191072,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T17:23:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.84,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1548183514239357,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T17:23:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 7.61,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.11702680745695715,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T17:23:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.6,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6013960028458347,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-31T17:23:48+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.34,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.39860399715416533,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-31T17:23:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.35,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.732368331686639,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T17:24:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15573082329858134,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T17:24:11+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 8.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.11190084501477979,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T17:24:11+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

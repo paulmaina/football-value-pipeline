@@ -1,0 +1,358 @@
+{
+  "fixture": {
+    "away_team": "Crystal Palace",
+    "home_team": "Tottenham Hotspur",
+    "kickoff_utc": "2026-10-31T17:30:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "01b17432a283eb27af86ae45602eb6dd"
+  },
+  "observed_at_utc": "2026-10-31T17:25:02.940977+00:00",
+  "payload": {
+    "away_team": "Crystal Palace",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T17:24:54Z",
+            "outcomes": [
+              {
+                "name": "Crystal Palace",
+                "price": 5.04
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.69
+              },
+              {
+                "name": "Draw",
+                "price": 4.17
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-10-31T17:24:54Z",
+            "outcomes": [
+              {
+                "name": "Crystal Palace",
+                "point": 0.75,
+                "price": 2.05
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -0.75,
+                "price": 1.88
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T17:24:54Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.87
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.04
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-10-31T17:24:54Z",
+            "outcomes": [
+              {
+                "name": "Crystal Palace",
+                "point": 0.75,
+                "price": 2.05
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 1.75,
+                "price": 1.34
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 1.5,
+                "price": 1.47
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 1.25,
+                "price": 1.59
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 1.0,
+                "price": 1.76
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 0.5,
+                "price": 2.31
+              },
+              {
+                "name": "Crystal Palace",
+                "point": 0.25,
+                "price": 2.81
+              },
+              {
+                "name": "Crystal Palace",
+                "point": -0.0,
+                "price": 3.87
+              },
+              {
+                "name": "Crystal Palace",
+                "point": -0.25,
+                "price": 4.43
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -0.75,
+                "price": 1.88
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -1.75,
+                "price": 3.49
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -1.5,
+                "price": 2.84
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -1.25,
+                "price": 2.52
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -1.0,
+                "price": 2.18
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -0.5,
+                "price": 1.68
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": -0.25,
+                "price": 1.49
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": 0.0,
+                "price": 1.29
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "point": 0.25,
+                "price": 1.24
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-10-31T17:24:51Z",
+            "outcomes": [
+              {
+                "name": "Crystal Palace",
+                "price": 4.1
+              },
+              {
+                "name": "Tottenham Hotspur",
+                "price": 1.27
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-31T17:30:00Z",
+    "home_team": "Tottenham Hotspur",
+    "id": "01b17432a283eb27af86ae45602eb6dd",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.87,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.69,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5820700610534814,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.17,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2293187633887283,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.04,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1886111755577905,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.05,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.88,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.43,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.76,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.59,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.47,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.34,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.84,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.52,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.18,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.68,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.24,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-10-31T17:24:54+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
