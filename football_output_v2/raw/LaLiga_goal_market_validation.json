@@ -6,22 +6,22 @@
     "home_draw": {
       "status": "RELIABLE_FOR_RANKING",
       "development": {
-        "n": 495,
-        "observed_rate": 0.7171717171717171,
-        "mean_forecast": 0.7050644022397817,
-        "overconfidence": -0.012107314931935398,
-        "brier": 0.17482785268327222,
-        "baseline_brier": 0.2028364452606877,
-        "log_loss": 0.5243476046525938
+        "n": 494,
+        "observed_rate": 0.7165991902834008,
+        "mean_forecast": 0.7050897278419347,
+        "overconfidence": -0.011509462441466112,
+        "brier": 0.17518674264349365,
+        "baseline_brier": 0.20308479076857514,
+        "log_loss": 0.525207235686177
       },
       "audit": {
-        "n": 169,
-        "observed_rate": 0.7159763313609467,
-        "mean_forecast": 0.6987728289592092,
-        "overconfidence": -0.017203502401737514,
-        "brier": 0.17212567866208586,
-        "baseline_brier": 0.20335422429186653,
-        "log_loss": 0.5204206524323549
+        "n": 166,
+        "observed_rate": 0.7108433734939759,
+        "mean_forecast": 0.6979796914291783,
+        "overconfidence": -0.012863682064797599,
+        "brier": 0.1759394905788169,
+        "baseline_brier": 0.20554507185367976,
+        "log_loss": 0.5302396092960592
       },
       "high_confidence": {
         "75plus": {
@@ -30,11 +30,11 @@
           "development": {
             "n": 215,
             "observed_rate": 0.8604651162790697,
-            "mean_forecast": 0.840153066964184,
-            "overconfidence": -0.020312049314885727,
-            "brier": 0.11653020117096458,
-            "baseline_brier": 0.12006489994591674,
-            "log_loss": 0.3868771284452169,
+            "mean_forecast": 0.8400348104903859,
+            "overconfidence": -0.020430305788683878,
+            "brier": 0.11670109036789714,
+            "baseline_brier": 0.12006489994591672,
+            "log_loss": 0.3874542595991937,
             "n_wins": 185,
             "observed_wilson95": [
               0.807794257207579,
@@ -42,17 +42,17 @@
             ]
           },
           "audit": {
-            "n": 65,
-            "observed_rate": 0.7846153846153846,
-            "mean_forecast": 0.8248138904624422,
-            "overconfidence": 0.04019850584705764,
-            "brier": 0.15607056202977435,
-            "baseline_brier": 0.16899408284023673,
-            "log_loss": 0.47239835648936135,
-            "n_wins": 51,
+            "n": 63,
+            "observed_rate": 0.7619047619047619,
+            "mean_forecast": 0.8247019082552701,
+            "overconfidence": 0.06279714635050826,
+            "brier": 0.17051301884683376,
+            "baseline_brier": 0.1814058956916099,
+            "log_loss": 0.5073150654699097,
+            "n_wins": 48,
             "observed_wilson95": [
-              0.6703320947133157,
-              0.8671336236895105
+              0.6436410519607181,
+              0.8500634673805303
             ]
           },
           "development_only_penalty": 0.0,
@@ -64,31 +64,31 @@
           "threshold": 0.85,
           "status": "PASSED",
           "development": {
-            "n": 86,
-            "observed_rate": 0.9534883720930233,
-            "mean_forecast": 0.9028707167786102,
-            "overconfidence": -0.05061765531441309,
-            "brier": 0.047457620249969155,
-            "baseline_brier": 0.04434829637641969,
-            "log_loss": 0.20568788084378584,
-            "n_wins": 82,
+            "n": 87,
+            "observed_rate": 0.9540229885057471,
+            "mean_forecast": 0.9021151358195337,
+            "overconfidence": -0.05190785268621334,
+            "brier": 0.04719975060368627,
+            "baseline_brier": 0.043863125908310235,
+            "log_loss": 0.2053382326765954,
+            "n_wins": 83,
             "observed_wilson95": [
-              0.8864283624928285,
-              0.9817663268270408
+              0.8876680217351718,
+              0.9819776031767629
             ]
           },
           "audit": {
-            "n": 22,
-            "observed_rate": 0.9545454545454546,
-            "mean_forecast": 0.8999207701945234,
-            "overconfidence": -0.05462468435093115,
-            "brier": 0.0435425405263078,
-            "baseline_brier": 0.04338842975206613,
-            "log_loss": 0.18671416265834154,
-            "n_wins": 21,
+            "n": 21,
+            "observed_rate": 0.9523809523809523,
+            "mean_forecast": 0.8977567400853087,
+            "overconfidence": -0.054624212295643626,
+            "brier": 0.04558036280295534,
+            "baseline_brier": 0.04535147392290251,
+            "log_loss": 0.19299795725502153,
+            "n_wins": 20,
             "observed_wilson95": [
-              0.7820151050048196,
-              0.9919307806988522
+              0.7733018341376452,
+              0.9915442305280766
             ]
           },
           "development_only_penalty": 0.0,
@@ -104,7 +104,7 @@
             0.2
           ],
           "n": 1,
-          "mean_probability": 0.15806275173418635,
+          "mean_probability": 0.15624323717178254,
           "observed_frequency": 0.0
         },
         {
@@ -112,9 +112,9 @@
             0.2,
             0.4
           ],
-          "n": 28,
-          "mean_probability": 0.32617681196929754,
-          "observed_frequency": 0.42857142857142855
+          "n": 29,
+          "mean_probability": 0.32843594183981606,
+          "observed_frequency": 0.41379310344827586
         },
         {
           "range": [
@@ -122,26 +122,26 @@
             0.6
           ],
           "n": 73,
-          "mean_probability": 0.5136160906227026,
-          "observed_frequency": 0.4383561643835616
+          "mean_probability": 0.5163548992695975,
+          "observed_frequency": 0.4520547945205479
         },
         {
           "range": [
             0.6,
             0.8
           ],
-          "n": 246,
-          "mean_probability": 0.7085882303942438,
-          "observed_frequency": 0.7398373983739838
+          "n": 245,
+          "mean_probability": 0.7096043893603752,
+          "observed_frequency": 0.7346938775510204
         },
         {
           "range": [
             0.8,
             1.0
           ],
-          "n": 147,
-          "mean_probability": 0.870130519247457,
-          "observed_frequency": 0.8775510204081632
+          "n": 146,
+          "mean_probability": 0.8704551846809364,
+          "observed_frequency": 0.8835616438356164
         }
       ],
       "audit_bins": [
@@ -151,7 +151,7 @@
             0.2
           ],
           "n": 1,
-          "mean_probability": 0.19663974194284933,
+          "mean_probability": 0.19661654258327582,
           "observed_frequency": 0.0
         },
         {
@@ -160,7 +160,7 @@
             0.4
           ],
           "n": 7,
-          "mean_probability": 0.3004342211850605,
+          "mean_probability": 0.30043353898318426,
           "observed_frequency": 0.14285714285714285
         },
         {
@@ -169,7 +169,7 @@
             0.6
           ],
           "n": 26,
-          "mean_probability": 0.5213911020028827,
+          "mean_probability": 0.5222233557426159,
           "observed_frequency": 0.5384615384615384
         },
         {
@@ -177,9 +177,9 @@
             0.6,
             0.8
           ],
-          "n": 100,
-          "mean_probability": 0.7172684189044546,
-          "observed_frequency": 0.74
+          "n": 97,
+          "mean_probability": 0.7173461392614979,
+          "observed_frequency": 0.7422680412371134
         },
         {
           "range": [
@@ -187,8 +187,8 @@
             1.0
           ],
           "n": 35,
-          "mean_probability": 0.8717119503242194,
-          "observed_frequency": 0.9142857142857143
+          "mean_probability": 0.8687027058315626,
+          "observed_frequency": 0.8857142857142857
         }
       ],
       "confidence_penalty": 0.0,
@@ -202,22 +202,22 @@
     "draw_away": {
       "status": "RELIABLE_FOR_RANKING",
       "development": {
-        "n": 495,
-        "observed_rate": 0.5333333333333333,
-        "mean_forecast": 0.5468318364792436,
-        "overconfidence": 0.013498503145910279,
-        "brier": 0.2060635140841741,
-        "baseline_brier": 0.24888888888888885,
-        "log_loss": 0.5988138040861047
+        "n": 494,
+        "observed_rate": 0.5344129554655871,
+        "mean_forecast": 0.5466256076809898,
+        "overconfidence": 0.012212652215402686,
+        "brier": 0.20575327663962173,
+        "baseline_brier": 0.24881574849612353,
+        "log_loss": 0.5981509117566591
       },
       "audit": {
-        "n": 169,
-        "observed_rate": 0.5325443786982249,
-        "mean_forecast": 0.5485610303340008,
-        "overconfidence": 0.016016651635775925,
-        "brier": 0.2088905599591625,
-        "baseline_brier": 0.24894086341514654,
-        "log_loss": 0.6020892517426282
+        "n": 166,
+        "observed_rate": 0.536144578313253,
+        "mean_forecast": 0.5491741138346419,
+        "overconfidence": 0.013029535521388858,
+        "brier": 0.2120764777525828,
+        "baseline_brier": 0.2486935694585571,
+        "log_loss": 0.6087881293232672
       },
       "high_confidence": {
         "75plus": {
@@ -226,11 +226,11 @@
           "development": {
             "n": 64,
             "observed_rate": 0.8125,
-            "mean_forecast": 0.8248441276748755,
-            "overconfidence": 0.012344127674875471,
-            "brier": 0.15387212983505463,
+            "mean_forecast": 0.825136914556204,
+            "overconfidence": 0.01263691455620397,
+            "brier": 0.15361084928697427,
             "baseline_brier": 0.15234375,
-            "log_loss": 0.48648434891577025,
+            "log_loss": 0.4857282997456591,
             "n_wins": 52,
             "observed_wilson95": [
               0.7002540844522482,
@@ -240,18 +240,18 @@
           "audit": {
             "n": 16,
             "observed_rate": 0.875,
-            "mean_forecast": 0.8303544704686858,
-            "overconfidence": -0.044645529531314176,
-            "brier": 0.10661461932693349,
+            "mean_forecast": 0.8298732744492875,
+            "overconfidence": -0.04512672555071251,
+            "brier": 0.10687347243066474,
             "baseline_brier": 0.109375,
-            "log_loss": 0.362557327911605,
+            "log_loss": 0.36325732143518386,
             "n_wins": 14,
             "observed_wilson95": [
               0.6397666856325173,
               0.9650232506629428
             ]
           },
-          "development_only_penalty": 0.008404512459489682,
+          "development_only_penalty": 0.008603856719117597,
           "minimum_development_samples": 30,
           "minimum_audit_samples": 12,
           "maximum_audit_overconfidence": 0.1
@@ -262,11 +262,11 @@
           "development": {
             "n": 18,
             "observed_rate": 0.8888888888888888,
-            "mean_forecast": 0.8832976610541202,
-            "overconfidence": -0.0055912278347686195,
-            "brier": 0.09940076222902755,
+            "mean_forecast": 0.8832181893401719,
+            "overconfidence": -0.0056706995487169065,
+            "brier": 0.09948827541511564,
             "baseline_brier": 0.09876543209876544,
-            "log_loss": 0.3506138783977661,
+            "log_loss": 0.35097157267839807,
             "n_wins": 16,
             "observed_wilson95": [
               0.6719975513339578,
@@ -276,11 +276,11 @@
           "audit": {
             "n": 6,
             "observed_rate": 1.0,
-            "mean_forecast": 0.8920539378962101,
-            "overconfidence": -0.10794606210378987,
-            "brier": 0.012024309192400646,
+            "mean_forecast": 0.8920584783556339,
+            "overconfidence": -0.1079415216443661,
+            "brier": 0.012023495533683093,
             "baseline_brier": 0.0,
-            "log_loss": 0.11446271428450018,
+            "log_loss": 0.11445772623768774,
             "n_wins": 6,
             "observed_wilson95": [
               0.6096569663469354,
@@ -299,8 +299,8 @@
             0.0,
             0.2
           ],
-          "n": 14,
-          "mean_probability": 0.16229236254365995,
+          "n": 13,
+          "mean_probability": 0.16195458568785492,
           "observed_frequency": 0.0
         },
         {
@@ -308,18 +308,18 @@
             0.2,
             0.4
           ],
-          "n": 87,
-          "mean_probability": 0.2987923500396878,
-          "observed_frequency": 0.1839080459770115
+          "n": 89,
+          "mean_probability": 0.2987266256217857,
+          "observed_frequency": 0.19101123595505617
         },
         {
           "range": [
             0.4,
             0.6
           ],
-          "n": 199,
-          "mean_probability": 0.514392089622298,
-          "observed_frequency": 0.542713567839196
+          "n": 197,
+          "mean_probability": 0.5148109255072224,
+          "observed_frequency": 0.5431472081218274
         },
         {
           "range": [
@@ -327,7 +327,7 @@
             0.8
           ],
           "n": 151,
-          "mean_probability": 0.6806988619361158,
+          "mean_probability": 0.679856067263643,
           "observed_frequency": 0.6887417218543046
         },
         {
@@ -336,7 +336,7 @@
             1.0
           ],
           "n": 44,
-          "mean_probability": 0.8469358532038794,
+          "mean_probability": 0.846930736781704,
           "observed_frequency": 0.8181818181818182
         }
       ],
@@ -347,7 +347,7 @@
             0.2
           ],
           "n": 6,
-          "mean_probability": 0.15441734821523848,
+          "mean_probability": 0.15569054524339068,
           "observed_frequency": 0.0
         },
         {
@@ -356,26 +356,26 @@
             0.4
           ],
           "n": 21,
-          "mean_probability": 0.313644144736773,
-          "observed_frequency": 0.19047619047619047
+          "mean_probability": 0.32135059924600007,
+          "observed_frequency": 0.23809523809523808
         },
         {
           "range": [
             0.4,
             0.6
           ],
-          "n": 83,
-          "mean_probability": 0.5217442850985899,
-          "observed_frequency": 0.5180722891566265
+          "n": 81,
+          "mean_probability": 0.5216375636874123,
+          "observed_frequency": 0.5185185185185185
         },
         {
           "range": [
             0.6,
             0.8
           ],
-          "n": 48,
-          "mean_probability": 0.6761854366364018,
-          "observed_frequency": 0.6875
+          "n": 47,
+          "mean_probability": 0.676475040778374,
+          "observed_frequency": 0.6808510638297872
         },
         {
           "range": [
@@ -383,11 +383,11 @@
             1.0
           ],
           "n": 11,
-          "mean_probability": 0.8574642159956564,
+          "mean_probability": 0.8575843150600208,
           "observed_frequency": 0.9090909090909091
         }
       ],
-      "confidence_penalty": 0.011229847155000989,
+      "confidence_penalty": 0.010156650158937588,
       "historical_betting": {
         "status": "UNAVAILABLE_NO_HISTORICAL_PRICES",
         "n_quotes": 0,
@@ -398,49 +398,49 @@
     "home_away": {
       "status": "RELIABLE_FOR_RANKING",
       "development": {
-        "n": 495,
-        "observed_rate": 0.7494949494949495,
-        "mean_forecast": 0.7481037612809747,
-        "overconfidence": -0.001391188213974881,
-        "brier": 0.18204818321727678,
-        "baseline_brier": 0.1877522701765126,
-        "log_loss": 0.545221537503295
+        "n": 494,
+        "observed_rate": 0.7489878542510121,
+        "mean_forecast": 0.7482846644770755,
+        "overconfidence": -0.0007031897739365744,
+        "brier": 0.1822734862403708,
+        "baseline_brier": 0.18800504843547675,
+        "log_loss": 0.5457290871003196
       },
       "audit": {
-        "n": 169,
-        "observed_rate": 0.7514792899408284,
-        "mean_forecast": 0.75266614070679,
-        "overconfidence": 0.0011868507659617,
-        "brier": 0.17771267838320737,
-        "baseline_brier": 0.18675816673085674,
-        "log_loss": 0.5337965485431881
+        "n": 166,
+        "observed_rate": 0.7530120481927711,
+        "mean_forecast": 0.75284619473618,
+        "overconfidence": -0.00016585345659114736,
+        "brier": 0.17720470930284438,
+        "baseline_brier": 0.1859849034692989,
+        "log_loss": 0.5328141384346726
       },
       "high_confidence": {
         "75plus": {
           "threshold": 0.75,
           "status": "PASSED",
           "development": {
-            "n": 189,
-            "observed_rate": 0.8412698412698413,
-            "mean_forecast": 0.8065305235201714,
-            "overconfidence": -0.034739317749669874,
-            "brier": 0.1299513614758731,
-            "baseline_brier": 0.13353489543965735,
-            "log_loss": 0.42381586591433706,
-            "n_wins": 159,
+            "n": 188,
+            "observed_rate": 0.8404255319148937,
+            "mean_forecast": 0.8067210213764583,
+            "overconfidence": -0.03370451053843537,
+            "brier": 0.1303680355531663,
+            "baseline_brier": 0.13411045722046178,
+            "log_loss": 0.42475155012222143,
+            "n_wins": 158,
             "observed_wilson95": [
-              0.7824486248440552,
-              0.8864941758794402
+              0.7813398947856832,
+              0.8858772260056363
             ]
           },
           "audit": {
             "n": 67,
             "observed_rate": 0.8656716417910447,
-            "mean_forecast": 0.8015205523482261,
-            "overconfidence": -0.06415108944281867,
-            "brier": 0.11410135554877707,
-            "baseline_brier": 0.11628425038984182,
-            "log_loss": 0.3856565171281875,
+            "mean_forecast": 0.8004960971485818,
+            "overconfidence": -0.06517554464246289,
+            "brier": 0.11444010342897552,
+            "baseline_brier": 0.1162842503898418,
+            "log_loss": 0.3868635541759531,
             "n_wins": 58,
             "observed_wilson95": [
               0.7639940822527299,
@@ -456,30 +456,30 @@
           "threshold": 0.85,
           "status": "PASSED",
           "development": {
-            "n": 43,
-            "observed_rate": 0.9534883720930233,
-            "mean_forecast": 0.8729441504206323,
-            "overconfidence": -0.08054422167239095,
-            "brier": 0.04973029427811479,
-            "baseline_brier": 0.04434829637641968,
-            "log_loss": 0.21948505731756807,
-            "n_wins": 41,
+            "n": 42,
+            "observed_rate": 0.9523809523809523,
+            "mean_forecast": 0.8728517882259167,
+            "overconfidence": -0.07952916415503564,
+            "brier": 0.0504881260375483,
+            "baseline_brier": 0.045351473922902494,
+            "log_loss": 0.22137158302869508,
+            "n_wins": 40,
             "observed_wilson95": [
-              0.8454422407613695,
-              0.9871510096826803
+              0.8420986468452026,
+              0.9868427513607937
             ]
           },
           "audit": {
-            "n": 13,
+            "n": 12,
             "observed_rate": 1.0,
-            "mean_forecast": 0.8806442695033664,
-            "overconfidence": -0.11935573049663362,
-            "brier": 0.01469338691930002,
+            "mean_forecast": 0.8818095497182629,
+            "overconfidence": -0.11819045028173714,
+            "brier": 0.014426195214948421,
             "baseline_brier": 0.0,
-            "log_loss": 0.1273862131990075,
-            "n_wins": 13,
+            "log_loss": 0.1260695414009327,
+            "n_wins": 12,
             "observed_wilson95": [
-              0.7718981569447083,
+              0.7574992425007574,
               1.0
             ]
           },
@@ -496,7 +496,7 @@
             0.8
           ],
           "n": 406,
-          "mean_probability": 0.726527947976742,
+          "mean_probability": 0.7269038986062474,
           "observed_frequency": 0.7118226600985221
         },
         {
@@ -504,9 +504,9 @@
             0.8,
             1.0
           ],
-          "n": 89,
-          "mean_probability": 0.8465282579272495,
-          "observed_frequency": 0.9213483146067416
+          "n": 88,
+          "mean_probability": 0.8469277433811239,
+          "observed_frequency": 0.9204545454545454
         }
       ],
       "audit_bins": [
@@ -515,9 +515,9 @@
             0.6,
             0.8
           ],
-          "n": 140,
-          "mean_probability": 0.7327922835842441,
-          "observed_frequency": 0.7071428571428572
+          "n": 137,
+          "mean_probability": 0.7330070345707435,
+          "observed_frequency": 0.708029197080292
         },
         {
           "range": [
@@ -525,7 +525,7 @@
             1.0
           ],
           "n": 29,
-          "mean_probability": 0.8486088992294248,
+          "mean_probability": 0.8465691237935867,
           "observed_frequency": 0.9655172413793104
         }
       ],
@@ -540,22 +540,22 @@
     "home": {
       "status": "RELIABLE_FOR_RANKING",
       "development": {
-        "n": 495,
-        "observed_rate": 0.4666666666666667,
-        "mean_forecast": 0.4531681635207565,
-        "overconfidence": -0.013498503145910168,
-        "brier": 0.20606351408417412,
-        "baseline_brier": 0.24888888888888885,
-        "log_loss": 0.5988138040861047
+        "n": 494,
+        "observed_rate": 0.46558704453441296,
+        "mean_forecast": 0.45337439231901033,
+        "overconfidence": -0.01221265221540263,
+        "brier": 0.20575327663962173,
+        "baseline_brier": 0.2488157484961235,
+        "log_loss": 0.5981509117566591
       },
       "audit": {
-        "n": 169,
-        "observed_rate": 0.46745562130177515,
-        "mean_forecast": 0.4514389696659992,
-        "overconfidence": -0.016016651635775925,
-        "brier": 0.2088905599591625,
-        "baseline_brier": 0.24894086341514654,
-        "log_loss": 0.6020892517426282
+        "n": 166,
+        "observed_rate": 0.463855421686747,
+        "mean_forecast": 0.4508258861653581,
+        "overconfidence": -0.013029535521388858,
+        "brier": 0.2120764777525828,
+        "baseline_brier": 0.2486935694585571,
+        "log_loss": 0.6087881293232672
       },
       "high_confidence": {
         "75plus": {
@@ -564,11 +564,11 @@
           "development": {
             "n": 41,
             "observed_rate": 0.8780487804878049,
-            "mean_forecast": 0.800067764658782,
-            "overconfidence": -0.07798101582902284,
-            "brier": 0.1055913855013063,
+            "mean_forecast": 0.7991215795537733,
+            "overconfidence": -0.0789272009340316,
+            "brier": 0.10581216111311749,
             "baseline_brier": 0.10707911957168353,
-            "log_loss": 0.3676484281189548,
+            "log_loss": 0.368452557642931,
             "n_wins": 36,
             "observed_wilson95": [
               0.7445549235115514,
@@ -576,16 +576,16 @@
             ]
           },
           "audit": {
-            "n": 9,
+            "n": 8,
             "observed_rate": 1.0,
-            "mean_forecast": 0.8265481551432607,
-            "overconfidence": -0.17345184485673926,
-            "brier": 0.031311000536364424,
+            "mean_forecast": 0.8301192140253761,
+            "overconfidence": -0.16988078597462386,
+            "brier": 0.03008292623940472,
             "baseline_brier": 0.0,
-            "log_loss": 0.19138445619968117,
-            "n_wins": 9,
+            "log_loss": 0.18706735320835866,
+            "n_wins": 8,
             "observed_wilson95": [
-              0.7008472464490407,
+              0.6755843804891231,
               1.0
             ]
           },
@@ -600,11 +600,11 @@
           "development": {
             "n": 3,
             "observed_rate": 1.0,
-            "mean_forecast": 0.8837707302258307,
-            "overconfidence": -0.11622926977416925,
-            "brier": 0.013573514704313073,
+            "mean_forecast": 0.884297919000803,
+            "overconfidence": -0.11570208099919699,
+            "brier": 0.013451997471201876,
             "baseline_brier": 0.0,
-            "log_loss": 0.12359859371607089,
+            "log_loss": 0.12300274429694652,
             "n_wins": 3,
             "observed_wilson95": [
               0.43849391955098227,
@@ -614,11 +614,11 @@
           "audit": {
             "n": 2,
             "observed_rate": 1.0,
-            "mean_forecast": 0.8807334918184611,
-            "overconfidence": -0.11926650818153894,
-            "brier": 0.014307811978954973,
+            "mean_forecast": 0.8807381901058142,
+            "overconfidence": -0.11926180989418578,
+            "brier": 0.014306829742035367,
             "baseline_brier": 0.0,
-            "log_loss": 0.127053909909351,
+            "log_loss": 0.1270486640777082,
             "n_wins": 2,
             "observed_wilson95": [
               0.34237195288961925,
@@ -638,7 +638,7 @@
             0.2
           ],
           "n": 44,
-          "mean_probability": 0.15306414679612057,
+          "mean_probability": 0.15306926321829592,
           "observed_frequency": 0.18181818181818182
         },
         {
@@ -647,7 +647,7 @@
             0.4
           ],
           "n": 151,
-          "mean_probability": 0.31930113806388427,
+          "mean_probability": 0.3201439327363569,
           "observed_frequency": 0.31125827814569534
         },
         {
@@ -655,26 +655,26 @@
             0.4,
             0.6
           ],
-          "n": 199,
-          "mean_probability": 0.4856079103777021,
-          "observed_frequency": 0.457286432160804
+          "n": 197,
+          "mean_probability": 0.48518907449277765,
+          "observed_frequency": 0.45685279187817257
         },
         {
           "range": [
             0.6,
             0.8
           ],
-          "n": 87,
-          "mean_probability": 0.7012076499603122,
-          "observed_frequency": 0.8160919540229885
+          "n": 89,
+          "mean_probability": 0.7012733743782145,
+          "observed_frequency": 0.8089887640449438
         },
         {
           "range": [
             0.8,
             1.0
           ],
-          "n": 14,
-          "mean_probability": 0.83770763745634,
+          "n": 13,
+          "mean_probability": 0.838045414312145,
           "observed_frequency": 1.0
         }
       ],
@@ -685,7 +685,7 @@
             0.2
           ],
           "n": 11,
-          "mean_probability": 0.1425357840043434,
+          "mean_probability": 0.14241568493997922,
           "observed_frequency": 0.09090909090909091
         },
         {
@@ -693,18 +693,18 @@
             0.2,
             0.4
           ],
-          "n": 48,
-          "mean_probability": 0.3238145633635982,
-          "observed_frequency": 0.3125
+          "n": 47,
+          "mean_probability": 0.32352495922162616,
+          "observed_frequency": 0.3191489361702128
         },
         {
           "range": [
             0.4,
             0.6
           ],
-          "n": 83,
-          "mean_probability": 0.47825571490141006,
-          "observed_frequency": 0.4819277108433735
+          "n": 81,
+          "mean_probability": 0.4783624363125876,
+          "observed_frequency": 0.48148148148148145
         },
         {
           "range": [
@@ -712,8 +712,8 @@
             0.8
           ],
           "n": 21,
-          "mean_probability": 0.6863558552632268,
-          "observed_frequency": 0.8095238095238095
+          "mean_probability": 0.6786494007539998,
+          "observed_frequency": 0.7619047619047619
         },
         {
           "range": [
@@ -721,7 +721,7 @@
             1.0
           ],
           "n": 6,
-          "mean_probability": 0.8455826517847616,
+          "mean_probability": 0.8443094547566093,
           "observed_frequency": 1.0
         }
       ],
@@ -736,22 +736,22 @@
     "draw": {
       "status": "RELIABLE_FOR_RANKING",
       "development": {
-        "n": 495,
-        "observed_rate": 0.2505050505050505,
-        "mean_forecast": 0.2518962387190253,
-        "overconfidence": 0.00139118821397477,
-        "brier": 0.18204818321727678,
-        "baseline_brier": 0.18775227017651255,
-        "log_loss": 0.545221537503295
+        "n": 494,
+        "observed_rate": 0.25101214574898784,
+        "mean_forecast": 0.25171533552292447,
+        "overconfidence": 0.00070318977393663,
+        "brier": 0.1822734862403708,
+        "baseline_brier": 0.18800504843547675,
+        "log_loss": 0.5457290871003196
       },
       "audit": {
-        "n": 169,
-        "observed_rate": 0.2485207100591716,
-        "mean_forecast": 0.24733385929321006,
-        "overconfidence": -0.0011868507659615335,
-        "brier": 0.17771267838320737,
-        "baseline_brier": 0.18675816673085677,
-        "log_loss": 0.5337965485431881
+        "n": 166,
+        "observed_rate": 0.2469879518072289,
+        "mean_forecast": 0.24715380526382005,
+        "overconfidence": 0.00016585345659114736,
+        "brier": 0.17720470930284435,
+        "baseline_brier": 0.1859849034692989,
+        "log_loss": 0.5328141384346726
       },
       "high_confidence": {
         "75plus": {
@@ -797,9 +797,9 @@
             0.0,
             0.2
           ],
-          "n": 89,
-          "mean_probability": 0.1534717420727504,
-          "observed_frequency": 0.07865168539325842
+          "n": 88,
+          "mean_probability": 0.15307225661887616,
+          "observed_frequency": 0.07954545454545454
         },
         {
           "range": [
@@ -807,7 +807,7 @@
             0.4
           ],
           "n": 406,
-          "mean_probability": 0.2734720520232579,
+          "mean_probability": 0.2730961013937527,
           "observed_frequency": 0.2881773399014778
         }
       ],
@@ -818,7 +818,7 @@
             0.2
           ],
           "n": 29,
-          "mean_probability": 0.15139110077057524,
+          "mean_probability": 0.15343087620641319,
           "observed_frequency": 0.034482758620689655
         },
         {
@@ -826,12 +826,12 @@
             0.2,
             0.4
           ],
-          "n": 140,
-          "mean_probability": 0.2672077164157558,
-          "observed_frequency": 0.29285714285714287
+          "n": 137,
+          "mean_probability": 0.26699296542925655,
+          "observed_frequency": 0.291970802919708
         }
       ],
-      "confidence_penalty": 0.0011573750687689263,
+      "confidence_penalty": 0.0005848076571122815,
       "historical_betting": {
         "status": "UNAVAILABLE_NO_HISTORICAL_PRICES",
         "n_quotes": 0,
@@ -842,22 +842,22 @@
     "away": {
       "status": "RELIABLE_FOR_RANKING",
       "development": {
-        "n": 495,
-        "observed_rate": 0.2828282828282828,
-        "mean_forecast": 0.2949355977602182,
-        "overconfidence": 0.012107314931935398,
-        "brier": 0.17482785268327222,
-        "baseline_brier": 0.20283644526068767,
-        "log_loss": 0.5243476046525938
+        "n": 494,
+        "observed_rate": 0.2834008097165992,
+        "mean_forecast": 0.29491027215806526,
+        "overconfidence": 0.011509462441466056,
+        "brier": 0.17518674264349363,
+        "baseline_brier": 0.20308479076857514,
+        "log_loss": 0.5252072356861769
       },
       "audit": {
-        "n": 169,
-        "observed_rate": 0.28402366863905326,
-        "mean_forecast": 0.3012271710407908,
-        "overconfidence": 0.017203502401737514,
-        "brier": 0.17212567866208586,
-        "baseline_brier": 0.20335422429186653,
-        "log_loss": 0.5204206524323549
+        "n": 166,
+        "observed_rate": 0.2891566265060241,
+        "mean_forecast": 0.3020203085708218,
+        "overconfidence": 0.01286368206479771,
+        "brier": 0.17593949057881692,
+        "baseline_brier": 0.20554507185367976,
+        "log_loss": 0.5302396092960592
       },
       "high_confidence": {
         "75plus": {
@@ -866,11 +866,11 @@
           "development": {
             "n": 4,
             "observed_rate": 1.0,
-            "mean_forecast": 0.7937245035781941,
-            "overconfidence": -0.20627549642180587,
-            "brier": 0.04341377302321401,
+            "mean_forecast": 0.7939931584625866,
+            "overconfidence": -0.20600684153741344,
+            "brier": 0.04335451929800285,
             "baseline_brier": 0.0,
-            "log_loss": 0.23169210805015186,
+            "log_loss": 0.23139260947424922,
             "n_wins": 4,
             "observed_wilson95": [
               0.5100999795960008,
@@ -880,11 +880,11 @@
           "audit": {
             "n": 3,
             "observed_rate": 1.0,
-            "mean_forecast": 0.7748149661429938,
-            "overconfidence": -0.22518503385700617,
-            "brier": 0.05112169584255557,
+            "mean_forecast": 0.7748257667985466,
+            "overconfidence": -0.22517423320145336,
+            "brier": 0.051117208594448425,
             "baseline_brier": 0.0,
-            "log_loss": 0.25547152465700923,
+            "log_loss": 0.25545788524238805,
             "n_wins": 3,
             "observed_wilson95": [
               0.43849391955098227,
@@ -921,18 +921,18 @@
             0.0,
             0.2
           ],
-          "n": 147,
-          "mean_probability": 0.12986948075254312,
-          "observed_frequency": 0.12244897959183673
+          "n": 146,
+          "mean_probability": 0.1295448153190637,
+          "observed_frequency": 0.11643835616438356
         },
         {
           "range": [
             0.2,
             0.4
           ],
-          "n": 246,
-          "mean_probability": 0.2914117696057561,
-          "observed_frequency": 0.2601626016260163
+          "n": 245,
+          "mean_probability": 0.29039561063962455,
+          "observed_frequency": 0.2653061224489796
         },
         {
           "range": [
@@ -940,17 +940,17 @@
             0.6
           ],
           "n": 73,
-          "mean_probability": 0.4863839093772974,
-          "observed_frequency": 0.5616438356164384
+          "mean_probability": 0.48364510073040246,
+          "observed_frequency": 0.547945205479452
         },
         {
           "range": [
             0.6,
             0.8
           ],
-          "n": 28,
-          "mean_probability": 0.6738231880307024,
-          "observed_frequency": 0.5714285714285714
+          "n": 29,
+          "mean_probability": 0.671564058160184,
+          "observed_frequency": 0.5862068965517241
         },
         {
           "range": [
@@ -958,7 +958,7 @@
             1.0
           ],
           "n": 1,
-          "mean_probability": 0.8419372482658137,
+          "mean_probability": 0.8437567628282175,
           "observed_frequency": 1.0
         }
       ],
@@ -969,17 +969,17 @@
             0.2
           ],
           "n": 35,
-          "mean_probability": 0.12828804967578053,
-          "observed_frequency": 0.08571428571428572
+          "mean_probability": 0.13129729416843727,
+          "observed_frequency": 0.11428571428571428
         },
         {
           "range": [
             0.2,
             0.4
           ],
-          "n": 100,
-          "mean_probability": 0.28273158109554547,
-          "observed_frequency": 0.26
+          "n": 97,
+          "mean_probability": 0.282653860738502,
+          "observed_frequency": 0.25773195876288657
         },
         {
           "range": [
@@ -987,7 +987,7 @@
             0.6
           ],
           "n": 26,
-          "mean_probability": 0.4786088979971173,
+          "mean_probability": 0.4777766442573842,
           "observed_frequency": 0.46153846153846156
         },
         {
@@ -996,7 +996,7 @@
             0.8
           ],
           "n": 7,
-          "mean_probability": 0.6995657788149394,
+          "mean_probability": 0.6995664610168157,
           "observed_frequency": 0.8571428571428571
         },
         {
@@ -1005,11 +1005,11 @@
             1.0
           ],
           "n": 1,
-          "mean_probability": 0.8033602580571506,
+          "mean_probability": 0.8033834574167241,
           "observed_frequency": 1.0
         }
       ],
-      "confidence_penalty": 0.01007247208623197,
+      "confidence_penalty": 0.009571842501825306,
       "historical_betting": {
         "status": "UNAVAILABLE_NO_HISTORICAL_PRICES",
         "n_quotes": 0,
@@ -1020,53 +1020,53 @@
     "over_1_5": {
       "status": "RELIABLE_FOR_RANKING",
       "development": {
-        "n": 495,
-        "observed_rate": 0.7616161616161616,
-        "mean_forecast": 0.7245082297221312,
-        "overconfidence": -0.03710793189403039,
-        "brier": 0.17790554847305887,
-        "baseline_brier": 0.18155698398122638,
-        "log_loss": 0.5367825646210959
+        "n": 494,
+        "observed_rate": 0.7611336032388664,
+        "mean_forecast": 0.7249822859074486,
+        "overconfidence": -0.03615131733141774,
+        "brier": 0.17843150281126136,
+        "baseline_brier": 0.18180924125948636,
+        "log_loss": 0.5378665565539235
       },
       "audit": {
-        "n": 169,
-        "observed_rate": 0.7633136094674556,
-        "mean_forecast": 0.7329824465386319,
-        "overconfidence": -0.030331162928823763,
-        "brier": 0.18122102792268738,
-        "baseline_brier": 0.18066594306922026,
-        "log_loss": 0.547677471621542
+        "n": 166,
+        "observed_rate": 0.7590361445783133,
+        "mean_forecast": 0.734106603636266,
+        "overconfidence": -0.024929540942047246,
+        "brier": 0.18466408263214648,
+        "baseline_brier": 0.1829002758020032,
+        "log_loss": 0.5564120226929165
       },
       "high_confidence": {
         "75plus": {
           "threshold": 0.75,
           "status": "PASSED",
           "development": {
-            "n": 184,
-            "observed_rate": 0.842391304347826,
-            "mean_forecast": 0.8207288569325056,
-            "overconfidence": -0.02166244741532042,
-            "brier": 0.13037695056392568,
-            "baseline_brier": 0.13276819470699436,
-            "log_loss": 0.4259719455843727,
-            "n_wins": 155,
+            "n": 186,
+            "observed_rate": 0.8440860215053764,
+            "mean_forecast": 0.8196575700479851,
+            "overconfidence": -0.024428451457391254,
+            "brier": 0.12956485332479142,
+            "baseline_brier": 0.1316048098046017,
+            "log_loss": 0.4242976330509456,
+            "n_wins": 157,
             "observed_wilson95": [
-              0.7828122463727961,
-              0.8879656856720756
+              0.7850500149989162,
+              0.889196304037586
             ]
           },
           "audit": {
             "n": 78,
-            "observed_rate": 0.7692307692307693,
-            "mean_forecast": 0.8093837121441396,
-            "overconfidence": 0.04015294291337035,
-            "brier": 0.17494550632402545,
-            "baseline_brier": 0.1775147928994083,
-            "log_loss": 0.5335828075675781,
-            "n_wins": 60,
+            "observed_rate": 0.7564102564102564,
+            "mean_forecast": 0.809019053806083,
+            "overconfidence": 0.05260879739582658,
+            "brier": 0.1837698148675189,
+            "baseline_brier": 0.18425378040762658,
+            "log_loss": 0.5552779960035057,
+            "n_wins": 59,
             "observed_wilson95": [
-              0.6644403349060594,
-              0.8487461130617223
+              0.6506001354577253,
+              0.8381488626068285
             ]
           },
           "development_only_penalty": 0.0,
@@ -1078,27 +1078,27 @@
           "threshold": 0.85,
           "status": "HIGH_CONFIDENCE_OVERESTIMATION",
           "development": {
-            "n": 59,
-            "observed_rate": 0.9152542372881356,
-            "mean_forecast": 0.8796459172080632,
-            "overconfidence": -0.03560832008007242,
-            "brier": 0.07803682343628736,
-            "baseline_brier": 0.07756391841424878,
-            "log_loss": 0.2923659151324297,
-            "n_wins": 54,
+            "n": 57,
+            "observed_rate": 0.9122807017543859,
+            "mean_forecast": 0.8797571372910893,
+            "overconfidence": -0.03252356446329663,
+            "brier": 0.07994223497379936,
+            "baseline_brier": 0.08002462296091105,
+            "log_loss": 0.29676582494892684,
+            "n_wins": 52,
             "observed_wilson95": [
-              0.8164797538583944,
-              0.9632585086938003
+              0.8105488754539574,
+              0.9619488892333616
             ]
           },
           "audit": {
             "n": 13,
             "observed_rate": 0.7692307692307693,
-            "mean_forecast": 0.882141451581363,
-            "overconfidence": 0.11291068235059376,
-            "brier": 0.19090989664086291,
+            "mean_forecast": 0.8819169669765744,
+            "overconfidence": 0.11268619774580513,
+            "brier": 0.191468459694327,
             "baseline_brier": 0.1775147928994083,
-            "log_loss": 0.592312228524908,
+            "log_loss": 0.5952282645251128,
             "n_wins": 10,
             "observed_wilson95": [
               0.49743126004873084,
@@ -1117,27 +1117,27 @@
             0.4,
             0.6
           ],
-          "n": 36,
-          "mean_probability": 0.5659699138457782,
-          "observed_frequency": 0.6388888888888888
+          "n": 34,
+          "mean_probability": 0.565452161232702,
+          "observed_frequency": 0.6470588235294118
         },
         {
           "range": [
             0.6,
             0.8
           ],
-          "n": 353,
-          "mean_probability": 0.7014640687937822,
-          "observed_frequency": 0.7365439093484419
+          "n": 355,
+          "mean_probability": 0.701931563893981,
+          "observed_frequency": 0.7352112676056338
         },
         {
           "range": [
             0.8,
             1.0
           ],
-          "n": 106,
-          "mean_probability": 0.8550928351868093,
-          "observed_frequency": 0.8867924528301887
+          "n": 105,
+          "mean_probability": 0.8545730530857572,
+          "observed_frequency": 0.8857142857142857
         }
       ],
       "audit_bins": [
@@ -1147,7 +1147,7 @@
             0.6
           ],
           "n": 19,
-          "mean_probability": 0.5504593007268105,
+          "mean_probability": 0.5510549428416806,
           "observed_frequency": 0.5789473684210527
         },
         {
@@ -1155,9 +1155,9 @@
             0.6,
             0.8
           ],
-          "n": 111,
-          "mean_probability": 0.7256323003542859,
-          "observed_frequency": 0.7477477477477478
+          "n": 108,
+          "mean_probability": 0.726965044111603,
+          "observed_frequency": 0.75
         },
         {
           "range": [
@@ -1165,8 +1165,8 @@
             1.0
           ],
           "n": 39,
-          "mean_probability": 0.8428236259459903,
-          "observed_frequency": 0.8974358974358975
+          "mean_probability": 0.8430622442455155,
+          "observed_frequency": 0.8717948717948718
         }
       ],
       "confidence_penalty": 0.0,
@@ -1180,56 +1180,56 @@
     "under_3_5": {
       "status": "RELIABLE_FOR_RANKING",
       "development": {
-        "n": 495,
-        "observed_rate": 0.7474747474747475,
-        "mean_forecast": 0.7260374185688311,
-        "overconfidence": -0.02143732890591643,
-        "brier": 0.18460764903369714,
-        "baseline_brier": 0.18875624936230997,
-        "log_loss": 0.5548722330233711
+        "n": 494,
+        "observed_rate": 0.7489878542510121,
+        "mean_forecast": 0.7257924206871482,
+        "overconfidence": -0.023195433563863888,
+        "brier": 0.18444989193512687,
+        "baseline_brier": 0.18800504843547675,
+        "log_loss": 0.5544876797644286
       },
       "audit": {
-        "n": 169,
-        "observed_rate": 0.6863905325443787,
-        "mean_forecast": 0.716453371253799,
-        "overconfidence": 0.030062838709420392,
-        "brier": 0.20199967439807465,
-        "baseline_brier": 0.21525856937782287,
-        "log_loss": 0.5917289071351408
+        "n": 166,
+        "observed_rate": 0.6867469879518072,
+        "mean_forecast": 0.7152137443961822,
+        "overconfidence": 0.02846675644437502,
+        "brier": 0.202747347324343,
+        "baseline_brier": 0.21512556249092754,
+        "log_loss": 0.5938013149299041
       },
       "high_confidence": {
         "75plus": {
           "threshold": 0.75,
           "status": "PASSED",
           "development": {
-            "n": 260,
-            "observed_rate": 0.7923076923076923,
-            "mean_forecast": 0.8082582374423771,
-            "overconfidence": 0.015950545134684857,
-            "brier": 0.16494427313991591,
-            "baseline_brier": 0.1645562130177515,
-            "log_loss": 0.5117393232803993,
+            "n": 259,
+            "observed_rate": 0.7953667953667953,
+            "mean_forecast": 0.807753383577151,
+            "overconfidence": 0.012386588210355653,
+            "brier": 0.16339813016815316,
+            "baseline_brier": 0.16275845619474966,
+            "log_loss": 0.5083682145702779,
             "n_wins": 206,
             "observed_wilson95": [
-              0.738918188518305,
-              0.8371850491818907
+              0.7420859910912937,
+              0.8400136461046447
             ]
           },
           "audit": {
-            "n": 64,
-            "observed_rate": 0.8125,
-            "mean_forecast": 0.8179206966235686,
-            "overconfidence": 0.005420696623568588,
-            "brier": 0.15426027829050348,
-            "baseline_brier": 0.15234375,
-            "log_loss": 0.4900135899941234,
-            "n_wins": 52,
+            "n": 61,
+            "observed_rate": 0.8032786885245902,
+            "mean_forecast": 0.8184534779081061,
+            "overconfidence": 0.015174789383515908,
+            "brier": 0.1597795374828489,
+            "baseline_brier": 0.15802203708680465,
+            "log_loss": 0.5030792212028136,
+            "n_wins": 49,
             "observed_wilson95": [
-              0.7002540844522482,
-              0.889354651190779
+              0.6868982151122219,
+              0.8837231144046315
             ]
           },
-          "development_only_penalty": 0.014300488741441596,
+          "development_only_penalty": 0.011100783205820464,
           "minimum_development_samples": 30,
           "minimum_audit_samples": 12,
           "maximum_audit_overconfidence": 0.1
@@ -1238,34 +1238,34 @@
           "threshold": 0.85,
           "status": "PASSED",
           "development": {
-            "n": 41,
-            "observed_rate": 0.8048780487804879,
-            "mean_forecast": 0.871413292181672,
-            "overconfidence": 0.06653524340118411,
-            "brier": 0.1586342853298996,
-            "baseline_brier": 0.1570493753718025,
-            "log_loss": 0.4988107180138044,
-            "n_wins": 33,
+            "n": 39,
+            "observed_rate": 0.8205128205128205,
+            "mean_forecast": 0.8712764011069735,
+            "overconfidence": 0.05076358059415298,
+            "brier": 0.1474644643525427,
+            "baseline_brier": 0.14727153188691647,
+            "log_loss": 0.4707086922298575,
+            "n_wins": 32,
             "observed_wilson95": [
-              0.6598611764744329,
-              0.8976568425079408
+              0.6733164837555724,
+              0.9102284818853
             ]
           },
           "audit": {
-            "n": 20,
-            "observed_rate": 0.85,
-            "mean_forecast": 0.8812053783069211,
-            "overconfidence": 0.03120537830692116,
-            "brier": 0.13145474012875033,
-            "baseline_brier": 0.1275,
-            "log_loss": 0.44015701140760466,
-            "n_wins": 17,
+            "n": 19,
+            "observed_rate": 0.8421052631578947,
+            "mean_forecast": 0.8824193092663146,
+            "overconfidence": 0.04031404610841993,
+            "brier": 0.1373830285074628,
+            "baseline_brier": 0.13296398891966757,
+            "log_loss": 0.4557079240735005,
+            "n_wins": 16,
             "observed_wilson95": [
-              0.6395767041130426,
-              0.9476322080405041
+              0.6243407235682331,
+              0.9447962896007217
             ]
           },
-          "development_only_penalty": 0.03842176027392322,
+          "development_only_penalty": 0.02869245859669516,
           "minimum_development_samples": 30,
           "minimum_audit_samples": 12,
           "maximum_audit_overconfidence": 0.1
@@ -1278,7 +1278,7 @@
             0.4
           ],
           "n": 1,
-          "mean_probability": 0.33588531189891424,
+          "mean_probability": 0.3391643005101181,
           "observed_frequency": 1.0
         },
         {
@@ -1286,18 +1286,18 @@
             0.4,
             0.6
           ],
-          "n": 76,
-          "mean_probability": 0.5227263559638803,
-          "observed_frequency": 0.5526315789473685
+          "n": 74,
+          "mean_probability": 0.5230336608565926,
+          "observed_frequency": 0.5540540540540541
         },
         {
           "range": [
             0.6,
             0.8
           ],
-          "n": 278,
-          "mean_probability": 0.7271064115451417,
-          "observed_frequency": 0.7733812949640287
+          "n": 279,
+          "mean_probability": 0.7257173615779398,
+          "observed_frequency": 0.7706093189964157
         },
         {
           "range": [
@@ -1305,8 +1305,8 @@
             1.0
           ],
           "n": 140,
-          "mean_probability": 0.8370703672633444,
-          "observed_frequency": 0.8
+          "mean_probability": 0.835876119537915,
+          "observed_frequency": 0.8071428571428572
         }
       ],
       "audit_bins": [
@@ -1315,27 +1315,27 @@
             0.4,
             0.6
           ],
-          "n": 24,
-          "mean_probability": 0.5383787804253609,
-          "observed_frequency": 0.4166666666666667
+          "n": 25,
+          "mean_probability": 0.5402863063261425,
+          "observed_frequency": 0.44
         },
         {
           "range": [
             0.6,
             0.8
           ],
-          "n": 108,
-          "mean_probability": 0.708323954573837,
-          "observed_frequency": 0.7037037037037037
+          "n": 106,
+          "mean_probability": 0.7096793310471792,
+          "observed_frequency": 0.7075471698113207
         },
         {
           "range": [
             0.8,
             1.0
           ],
-          "n": 37,
-          "mean_probability": 0.8556903221002432,
-          "observed_frequency": 0.8108108108108109
+          "n": 35,
+          "mean_probability": 0.8569232805889068,
+          "observed_frequency": 0.8
         }
       ],
       "confidence_penalty": 0.0,
@@ -1349,22 +1349,22 @@
     "btts_yes": {
       "status": "RELIABLE_FOR_RANKING",
       "development": {
-        "n": 495,
-        "observed_rate": 0.5515151515151515,
-        "mean_forecast": 0.4839336304713974,
-        "overconfidence": -0.06758152104375409,
-        "brier": 0.2513186156508505,
-        "baseline_brier": 0.24734618916437104,
-        "log_loss": 0.695976719414219
+        "n": 494,
+        "observed_rate": 0.5526315789473685,
+        "mean_forecast": 0.484325467799197,
+        "overconfidence": -0.06830611114817148,
+        "brier": 0.2512254515944184,
+        "baseline_brier": 0.2472299168975069,
+        "log_loss": 0.6958885463856158
       },
       "audit": {
-        "n": 169,
-        "observed_rate": 0.5857988165680473,
-        "mean_forecast": 0.5011095866992492,
-        "overconfidence": -0.08468922986879812,
-        "brier": 0.24664980649926768,
-        "baseline_brier": 0.24263856307552256,
-        "log_loss": 0.6867005600329188
+        "n": 166,
+        "observed_rate": 0.5783132530120482,
+        "mean_forecast": 0.5030003163497005,
+        "overconfidence": -0.07531293666234762,
+        "brier": 0.247006445148373,
+        "baseline_brier": 0.24386703440267088,
+        "log_loss": 0.6874699412705465
       },
       "high_confidence": {
         "75plus": {
@@ -1378,11 +1378,11 @@
           "audit": {
             "n": 1,
             "observed_rate": 1.0,
-            "mean_forecast": 0.7644991316416525,
-            "overconfidence": -0.2355008683583475,
-            "brier": 0.05546065899753572,
+            "mean_forecast": 0.7643900710683321,
+            "overconfidence": -0.23560992893166788,
+            "brier": 0.05551203861118559,
             "baseline_brier": 0.0,
-            "log_loss": 0.26853438946500263,
+            "log_loss": 0.26867705588361823,
             "n_wins": 1,
             "observed_wilson95": [
               0.20654329147389294,
@@ -1419,18 +1419,18 @@
             0.2,
             0.4
           ],
-          "n": 63,
-          "mean_probability": 0.3605102708863599,
-          "observed_frequency": 0.4603174603174603
+          "n": 65,
+          "mean_probability": 0.3616076621190467,
+          "observed_frequency": 0.4461538461538462
         },
         {
           "range": [
             0.4,
             0.6
           ],
-          "n": 396,
-          "mean_probability": 0.4894152445040861,
-          "observed_frequency": 0.553030303030303
+          "n": 393,
+          "mean_probability": 0.49041923973746143,
+          "observed_frequency": 0.5572519083969466
         },
         {
           "range": [
@@ -1438,7 +1438,7 @@
             0.8
           ],
           "n": 36,
-          "mean_probability": 0.6396267553856378,
+          "mean_probability": 0.6393756066178597,
           "observed_frequency": 0.6944444444444444
         }
       ],
@@ -1449,7 +1449,7 @@
             0.4
           ],
           "n": 24,
-          "mean_probability": 0.3474560596810858,
+          "mean_probability": 0.3505514277684821,
           "observed_frequency": 0.375
         },
         {
@@ -1457,9 +1457,9 @@
             0.4,
             0.6
           ],
-          "n": 128,
-          "mean_probability": 0.5114928404884784,
-          "observed_frequency": 0.6015625
+          "n": 125,
+          "mean_probability": 0.5136998503543124,
+          "observed_frequency": 0.592
         },
         {
           "range": [
@@ -1467,7 +1467,7 @@
             0.8
           ],
           "n": 17,
-          "mean_probability": 0.6398524198412816,
+          "mean_probability": 0.6395492325480985,
           "observed_frequency": 0.7647058823529411
         }
       ],
@@ -1498,451 +1498,451 @@
       "Asian Handicap Home -3.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03200692636825747,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": -0.010735214286120363,
+        "audit_matches": 231,
+        "confidence_penalty": 0.034611355978439444,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": -0.010016145938545707,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -2.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03200692636825747,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": -0.010735214286120363,
+        "audit_matches": 231,
+        "confidence_penalty": 0.034611355978439444,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": -0.010016145938545707,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -2.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03200692636825747,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": -0.010735214286120363,
+        "audit_matches": 231,
+        "confidence_penalty": 0.034611355978439444,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": -0.010016145938545707,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -2.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03200692636825747,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": -0.010735214286120363,
+        "audit_matches": 231,
+        "confidence_penalty": 0.034611355978439444,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": -0.010016145938545707,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -2.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.07342683929929182,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": 0.011640997365078204,
+        "audit_matches": 231,
+        "confidence_penalty": 0.07423456843120955,
+        "audit_brier": 0.15031557864911851,
+        "audit_overconfidence": 0.014830185343700144,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -1.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.07342683929929182,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": 0.011640997365078204,
+        "audit_matches": 231,
+        "confidence_penalty": 0.07423456843120955,
+        "audit_brier": 0.15031557864911851,
+        "audit_overconfidence": 0.014830185343700144,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -1.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.07342683929929182,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": 0.011640997365078204,
+        "audit_matches": 231,
+        "confidence_penalty": 0.07423456843120955,
+        "audit_brier": 0.15031557864911851,
+        "audit_overconfidence": 0.014830185343700144,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -1.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.07342683929929182,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": 0.011640997365078204,
+        "audit_matches": 231,
+        "confidence_penalty": 0.07423456843120955,
+        "audit_brier": 0.15031557864911851,
+        "audit_overconfidence": 0.014830185343700144,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -1.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03807713077469829,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": -0.03219498547143969,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038809428684073576,
+        "audit_brier": 0.2225434721189316,
+        "audit_overconfidence": -0.029037463131249455,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -0.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03807713077469829,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": -0.03219498547143969,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038809428684073576,
+        "audit_brier": 0.2225434721189316,
+        "audit_overconfidence": -0.029037463131249455,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -0.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03807713077469829,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": -0.03219498547143969,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038809428684073576,
+        "audit_brier": 0.2225434721189316,
+        "audit_overconfidence": -0.029037463131249455,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -0.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03807713077469829,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": -0.03219498547143969,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038809428684073576,
+        "audit_brier": 0.2225434721189316,
+        "audit_overconfidence": -0.029037463131249455,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +0.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03523029848697237,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": -0.02941913565307775,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0357055113668549,
+        "audit_brier": 0.17195439304519913,
+        "audit_overconfidence": -0.026102635769839677,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +0.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03523029848697237,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": -0.02941913565307775,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0357055113668549,
+        "audit_brier": 0.17195439304519913,
+        "audit_overconfidence": -0.026102635769839677,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +0.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03523029848697237,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": -0.02941913565307775,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0357055113668549,
+        "audit_brier": 0.17195439304519913,
+        "audit_overconfidence": -0.026102635769839677,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +0.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03523029848697237,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": -0.02941913565307775,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0357055113668549,
+        "audit_brier": 0.17195439304519913,
+        "audit_overconfidence": -0.026102635769839677,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +1.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.021000370657142102,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": -0.037477318555334226,
+        "audit_matches": 231,
+        "confidence_penalty": 0.021177380289613773,
+        "audit_brier": 0.07390707241034647,
+        "audit_overconfidence": -0.03670178981054219,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +1.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.021000370657142102,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": -0.037477318555334226,
+        "audit_matches": 231,
+        "confidence_penalty": 0.021177380289613773,
+        "audit_brier": 0.07390707241034647,
+        "audit_overconfidence": -0.03670178981054219,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +1.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.021000370657142102,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": -0.037477318555334226,
+        "audit_matches": 231,
+        "confidence_penalty": 0.021177380289613773,
+        "audit_brier": 0.07390707241034647,
+        "audit_overconfidence": -0.03670178981054219,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +1.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.021000370657142102,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": -0.037477318555334226,
+        "audit_matches": 231,
+        "confidence_penalty": 0.021177380289613773,
+        "audit_brier": 0.07390707241034647,
+        "audit_overconfidence": -0.03670178981054219,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +2.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.005521418470661711,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": -0.016037149880504777,
+        "audit_matches": 231,
+        "confidence_penalty": 0.005564277135364023,
+        "audit_brier": 0.027593943283544097,
+        "audit_overconfidence": -0.01588613826846759,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +2.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.005521418470661711,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": -0.016037149880504777,
+        "audit_matches": 231,
+        "confidence_penalty": 0.005564277135364023,
+        "audit_brier": 0.027593943283544097,
+        "audit_overconfidence": -0.01588613826846759,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +2.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.005521418470661711,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": -0.016037149880504777,
+        "audit_matches": 231,
+        "confidence_penalty": 0.005564277135364023,
+        "audit_brier": 0.027593943283544097,
+        "audit_overconfidence": -0.01588613826846759,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +2.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.005521418470661711,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": -0.016037149880504777,
+        "audit_matches": 231,
+        "confidence_penalty": 0.005564277135364023,
+        "audit_brier": 0.027593943283544097,
+        "audit_overconfidence": -0.01588613826846759,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +3.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.00399440853442985,
-        "audit_brier": 0.007391437126940509,
-        "audit_overconfidence": -0.0059958867566712514,
+        "audit_matches": 231,
+        "confidence_penalty": 0.003995512285695202,
+        "audit_brier": 0.007516358500664081,
+        "audit_overconfidence": -0.005989712394485547,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -3.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03069785276474029,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": 0.01603714988050478,
+        "audit_matches": 231,
+        "confidence_penalty": 0.030656392706796223,
+        "audit_brier": 0.027593943283544108,
+        "audit_overconfidence": 0.0158861382684676,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -2.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03069785276474029,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": 0.01603714988050478,
+        "audit_matches": 231,
+        "confidence_penalty": 0.030656392706796223,
+        "audit_brier": 0.027593943283544108,
+        "audit_overconfidence": 0.0158861382684676,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -2.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03069785276474029,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": 0.01603714988050478,
+        "audit_matches": 231,
+        "confidence_penalty": 0.030656392706796223,
+        "audit_brier": 0.027593943283544108,
+        "audit_overconfidence": 0.0158861382684676,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -2.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03069785276474029,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": 0.01603714988050478,
+        "audit_matches": 231,
+        "confidence_penalty": 0.030656392706796223,
+        "audit_brier": 0.027593943283544108,
+        "audit_overconfidence": 0.0158861382684676,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -2.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03856947086486977,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": 0.03747731855533423,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038403292196387676,
+        "audit_brier": 0.0739070724103465,
+        "audit_overconfidence": 0.0367017898105422,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -1.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03856947086486977,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": 0.03747731855533423,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038403292196387676,
+        "audit_brier": 0.0739070724103465,
+        "audit_overconfidence": 0.0367017898105422,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -1.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03856947086486977,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": 0.03747731855533423,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038403292196387676,
+        "audit_brier": 0.0739070724103465,
+        "audit_overconfidence": 0.0367017898105422,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -1.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03856947086486977,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": 0.03747731855533423,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038403292196387676,
+        "audit_brier": 0.0739070724103465,
+        "audit_overconfidence": 0.0367017898105422,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -1.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04449377596356167,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": 0.029419135653077754,
+        "audit_matches": 231,
+        "confidence_penalty": 0.04405673190768336,
+        "audit_brier": 0.17195439304519916,
+        "audit_overconfidence": 0.02610263576983967,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -0.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04449377596356167,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": 0.029419135653077754,
+        "audit_matches": 231,
+        "confidence_penalty": 0.04405673190768336,
+        "audit_brier": 0.17195439304519916,
+        "audit_overconfidence": 0.02610263576983967,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -0.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04449377596356167,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": 0.029419135653077754,
+        "audit_matches": 231,
+        "confidence_penalty": 0.04405673190768336,
+        "audit_brier": 0.17195439304519916,
+        "audit_overconfidence": 0.02610263576983967,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -0.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04449377596356167,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": 0.029419135653077754,
+        "audit_matches": 231,
+        "confidence_penalty": 0.04405673190768336,
+        "audit_brier": 0.17195439304519916,
+        "audit_overconfidence": 0.02610263576983967,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +0.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04657480722170695,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": 0.0321949854714397,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0457478860623526,
+        "audit_brier": 0.22254347211893166,
+        "audit_overconfidence": 0.02903746313124946,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +0.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04657480722170695,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": 0.0321949854714397,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0457478860623526,
+        "audit_brier": 0.22254347211893166,
+        "audit_overconfidence": 0.02903746313124946,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +0.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04657480722170695,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": 0.0321949854714397,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0457478860623526,
+        "audit_brier": 0.22254347211893166,
+        "audit_overconfidence": 0.02903746313124946,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +0.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04657480722170695,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": 0.0321949854714397,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0457478860623526,
+        "audit_brier": 0.22254347211893166,
+        "audit_overconfidence": 0.02903746313124946,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +1.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
+        "audit_matches": 231,
         "confidence_penalty": 0.0,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": -0.011640997365078192,
+        "audit_brier": 0.15031557864911854,
+        "audit_overconfidence": -0.014830185343700132,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +1.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
+        "audit_matches": 231,
         "confidence_penalty": 0.0,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": -0.011640997365078192,
+        "audit_brier": 0.15031557864911854,
+        "audit_overconfidence": -0.014830185343700132,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +1.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
+        "audit_matches": 231,
         "confidence_penalty": 0.0,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": -0.011640997365078192,
+        "audit_brier": 0.15031557864911854,
+        "audit_overconfidence": -0.014830185343700132,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +1.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
+        "audit_matches": 231,
         "confidence_penalty": 0.0,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": -0.011640997365078192,
+        "audit_brier": 0.15031557864911854,
+        "audit_overconfidence": -0.014830185343700132,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +2.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.023198840403104413,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": 0.010735214286120367,
+        "audit_matches": 231,
+        "confidence_penalty": 0.020013356773801404,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": 0.010016145938545724,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +2.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.023198840403104413,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": 0.010735214286120367,
+        "audit_matches": 231,
+        "confidence_penalty": 0.020013356773801404,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": 0.010016145938545724,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +2.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.023198840403104413,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": 0.010735214286120367,
+        "audit_matches": 231,
+        "confidence_penalty": 0.020013356773801404,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": 0.010016145938545724,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +2.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.023198840403104413,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": 0.010735214286120367,
+        "audit_matches": 231,
+        "confidence_penalty": 0.020013356773801404,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": 0.010016145938545724,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +3.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.010299625268115897,
-        "audit_brier": 0.028451844622610748,
-        "audit_overconfidence": -0.013359829513273237,
+        "audit_matches": 231,
+        "confidence_penalty": 0.007091440821352001,
+        "audit_brier": 0.02837140681172109,
+        "audit_overconfidence": -0.011601862651771691,
         "note": "Chronological no-loss calibration only; no historical handicap price/ROI claim"
       }
     }
@@ -1953,451 +1953,451 @@
       "Asian Handicap Home -3.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.02461094571848302,
-        "audit_brier": 0.028451844622610748,
-        "audit_overconfidence": 0.01335982951327325,
+        "audit_matches": 231,
+        "confidence_penalty": 0.026784002524373456,
+        "audit_brier": 0.028371406811721088,
+        "audit_overconfidence": 0.011601862651771704,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -2.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03200692636825747,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": -0.010735214286120367,
+        "audit_matches": 231,
+        "confidence_penalty": 0.034611355978439444,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": -0.010016145938545704,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -2.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03200692636825747,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": -0.010735214286120363,
+        "audit_matches": 231,
+        "confidence_penalty": 0.034611355978439444,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": -0.010016145938545707,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -2.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03200692636825747,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": -0.010735214286120363,
+        "audit_matches": 231,
+        "confidence_penalty": 0.034611355978439444,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": -0.010016145938545707,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -2.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03200692636825747,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": -0.010735214286120363,
+        "audit_matches": 231,
+        "confidence_penalty": 0.034611355978439444,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": -0.010016145938545707,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -1.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.07342683929929182,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": 0.011640997365078202,
+        "audit_matches": 231,
+        "confidence_penalty": 0.07423456843120955,
+        "audit_brier": 0.15031557864911854,
+        "audit_overconfidence": 0.014830185343700142,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -1.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.07342683929929182,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": 0.011640997365078204,
+        "audit_matches": 231,
+        "confidence_penalty": 0.07423456843120955,
+        "audit_brier": 0.15031557864911851,
+        "audit_overconfidence": 0.014830185343700144,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -1.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.07342683929929182,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": 0.011640997365078204,
+        "audit_matches": 231,
+        "confidence_penalty": 0.07423456843120955,
+        "audit_brier": 0.15031557864911851,
+        "audit_overconfidence": 0.014830185343700144,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -1.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.07342683929929182,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": 0.011640997365078204,
+        "audit_matches": 231,
+        "confidence_penalty": 0.07423456843120955,
+        "audit_brier": 0.15031557864911851,
+        "audit_overconfidence": 0.014830185343700144,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -0.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.0380771307746983,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": -0.032194985471439695,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038809428684073576,
+        "audit_brier": 0.2225434721189316,
+        "audit_overconfidence": -0.02903746313124945,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -0.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03807713077469829,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": -0.03219498547143969,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038809428684073576,
+        "audit_brier": 0.2225434721189316,
+        "audit_overconfidence": -0.029037463131249455,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home -0.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03807713077469829,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": -0.03219498547143969,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038809428684073576,
+        "audit_brier": 0.2225434721189316,
+        "audit_overconfidence": -0.029037463131249455,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +0.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03807713077469829,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": -0.03219498547143969,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038809428684073576,
+        "audit_brier": 0.2225434721189316,
+        "audit_overconfidence": -0.029037463131249455,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +0.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03523029848697239,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": -0.029419135653077744,
+        "audit_matches": 231,
+        "confidence_penalty": 0.035705511366854896,
+        "audit_brier": 0.17195439304519913,
+        "audit_overconfidence": -0.02610263576983967,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +0.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03523029848697237,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": -0.02941913565307775,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0357055113668549,
+        "audit_brier": 0.17195439304519913,
+        "audit_overconfidence": -0.026102635769839677,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +0.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03523029848697237,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": -0.02941913565307775,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0357055113668549,
+        "audit_brier": 0.17195439304519913,
+        "audit_overconfidence": -0.026102635769839677,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +1.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03523029848697237,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": -0.02941913565307775,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0357055113668549,
+        "audit_brier": 0.17195439304519913,
+        "audit_overconfidence": -0.026102635769839677,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +1.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.02100037065714211,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": -0.03747731855533423,
+        "audit_matches": 231,
+        "confidence_penalty": 0.021177380289613783,
+        "audit_brier": 0.07390707241034648,
+        "audit_overconfidence": -0.036701789810542194,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +1.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.021000370657142102,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": -0.037477318555334226,
+        "audit_matches": 231,
+        "confidence_penalty": 0.021177380289613773,
+        "audit_brier": 0.07390707241034647,
+        "audit_overconfidence": -0.03670178981054219,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +1.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.021000370657142102,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": -0.037477318555334226,
+        "audit_matches": 231,
+        "confidence_penalty": 0.021177380289613773,
+        "audit_brier": 0.07390707241034647,
+        "audit_overconfidence": -0.03670178981054219,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +2.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.021000370657142102,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": -0.037477318555334226,
+        "audit_matches": 231,
+        "confidence_penalty": 0.021177380289613773,
+        "audit_brier": 0.07390707241034647,
+        "audit_overconfidence": -0.03670178981054219,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +2.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.005521418470661709,
-        "audit_brier": 0.027127174189407133,
-        "audit_overconfidence": -0.016037149880504777,
+        "audit_matches": 231,
+        "confidence_penalty": 0.005564277135364009,
+        "audit_brier": 0.027593943283544097,
+        "audit_overconfidence": -0.015886138268467583,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +2.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.005521418470661711,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": -0.016037149880504777,
+        "audit_matches": 231,
+        "confidence_penalty": 0.005564277135364023,
+        "audit_brier": 0.027593943283544097,
+        "audit_overconfidence": -0.01588613826846759,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +2.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.005521418470661711,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": -0.016037149880504777,
+        "audit_matches": 231,
+        "confidence_penalty": 0.005564277135364023,
+        "audit_brier": 0.027593943283544097,
+        "audit_overconfidence": -0.01588613826846759,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Home +3.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.005521418470661711,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": -0.016037149880504777,
+        "audit_matches": 231,
+        "confidence_penalty": 0.005564277135364023,
+        "audit_brier": 0.027593943283544097,
+        "audit_overconfidence": -0.01588613826846759,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -3.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.01724287438191914,
-        "audit_brier": 0.007391437126940507,
-        "audit_overconfidence": 0.005995886756671267,
+        "audit_matches": 231,
+        "confidence_penalty": 0.017245007682473446,
+        "audit_brier": 0.007516358500664084,
+        "audit_overconfidence": 0.005989712394485565,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -2.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03069785276474029,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": 0.016037149880504784,
+        "audit_matches": 231,
+        "confidence_penalty": 0.030656392706796223,
+        "audit_brier": 0.027593943283544108,
+        "audit_overconfidence": 0.015886138268467603,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -2.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03069785276474029,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": 0.01603714988050478,
+        "audit_matches": 231,
+        "confidence_penalty": 0.030656392706796223,
+        "audit_brier": 0.027593943283544108,
+        "audit_overconfidence": 0.0158861382684676,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -2.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03069785276474029,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": 0.01603714988050478,
+        "audit_matches": 231,
+        "confidence_penalty": 0.030656392706796223,
+        "audit_brier": 0.027593943283544108,
+        "audit_overconfidence": 0.0158861382684676,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -2.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03069785276474029,
-        "audit_brier": 0.027127174189407136,
-        "audit_overconfidence": 0.01603714988050478,
+        "audit_matches": 231,
+        "confidence_penalty": 0.030656392706796223,
+        "audit_brier": 0.027593943283544108,
+        "audit_overconfidence": 0.0158861382684676,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -1.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03856947086486976,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": 0.037477318555334226,
+        "audit_matches": 231,
+        "confidence_penalty": 0.03840329219638768,
+        "audit_brier": 0.0739070724103465,
+        "audit_overconfidence": 0.0367017898105422,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -1.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03856947086486977,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": 0.03747731855533423,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038403292196387676,
+        "audit_brier": 0.0739070724103465,
+        "audit_overconfidence": 0.0367017898105422,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -1.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03856947086486977,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": 0.03747731855533423,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038403292196387676,
+        "audit_brier": 0.0739070724103465,
+        "audit_overconfidence": 0.0367017898105422,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -1.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.03856947086486977,
-        "audit_brier": 0.0727841365375842,
-        "audit_overconfidence": 0.03747731855533423,
+        "audit_matches": 231,
+        "confidence_penalty": 0.038403292196387676,
+        "audit_brier": 0.0739070724103465,
+        "audit_overconfidence": 0.0367017898105422,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -0.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04449377596356167,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": 0.029419135653077758,
+        "audit_matches": 231,
+        "confidence_penalty": 0.04405673190768336,
+        "audit_brier": 0.1719543930451992,
+        "audit_overconfidence": 0.026102635769839684,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -0.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04449377596356167,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": 0.029419135653077754,
+        "audit_matches": 231,
+        "confidence_penalty": 0.04405673190768336,
+        "audit_brier": 0.17195439304519916,
+        "audit_overconfidence": 0.02610263576983967,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away -0.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04449377596356167,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": 0.029419135653077754,
+        "audit_matches": 231,
+        "confidence_penalty": 0.04405673190768336,
+        "audit_brier": 0.17195439304519916,
+        "audit_overconfidence": 0.02610263576983967,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +0.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04449377596356167,
-        "audit_brier": 0.16882255239504013,
-        "audit_overconfidence": 0.029419135653077754,
+        "audit_matches": 231,
+        "confidence_penalty": 0.04405673190768336,
+        "audit_brier": 0.17195439304519916,
+        "audit_overconfidence": 0.02610263576983967,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +0.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04657480722170695,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": 0.0321949854714397,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0457478860623526,
+        "audit_brier": 0.22254347211893166,
+        "audit_overconfidence": 0.02903746313124946,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +0.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04657480722170695,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": 0.0321949854714397,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0457478860623526,
+        "audit_brier": 0.22254347211893166,
+        "audit_overconfidence": 0.02903746313124946,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +0.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04657480722170695,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": 0.0321949854714397,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0457478860623526,
+        "audit_brier": 0.22254347211893166,
+        "audit_overconfidence": 0.02903746313124946,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +1.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.04657480722170695,
-        "audit_brier": 0.2198756384915252,
-        "audit_overconfidence": 0.0321949854714397,
+        "audit_matches": 231,
+        "confidence_penalty": 0.0457478860623526,
+        "audit_brier": 0.22254347211893166,
+        "audit_overconfidence": 0.02903746313124946,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +1.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
+        "audit_matches": 231,
         "confidence_penalty": 0.0,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": -0.011640997365078192,
+        "audit_brier": 0.15031557864911854,
+        "audit_overconfidence": -0.014830185343700132,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +1.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
+        "audit_matches": 231,
         "confidence_penalty": 0.0,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": -0.011640997365078192,
+        "audit_brier": 0.15031557864911854,
+        "audit_overconfidence": -0.014830185343700132,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +1.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
+        "audit_matches": 231,
         "confidence_penalty": 0.0,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": -0.011640997365078192,
+        "audit_brier": 0.15031557864911854,
+        "audit_overconfidence": -0.014830185343700132,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +2.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
+        "audit_matches": 231,
         "confidence_penalty": 0.0,
-        "audit_brier": 0.15011591678136166,
-        "audit_overconfidence": -0.011640997365078192,
+        "audit_brier": 0.15031557864911854,
+        "audit_overconfidence": -0.014830185343700132,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +2.25": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.023198840403104413,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": 0.010735214286120367,
+        "audit_matches": 231,
+        "confidence_penalty": 0.020013356773801404,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": 0.010016145938545724,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +2.50": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.023198840403104413,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": 0.010735214286120367,
+        "audit_matches": 231,
+        "confidence_penalty": 0.020013356773801404,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": 0.010016145938545724,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +2.75": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.023198840403104413,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": 0.010735214286120367,
+        "audit_matches": 231,
+        "confidence_penalty": 0.020013356773801404,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": 0.010016145938545724,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       },
       "Asian Handicap Away +3.00": {
         "status": "RELIABLE_FOR_RANKING",
         "development_matches": 429,
-        "audit_matches": 235,
-        "confidence_penalty": 0.023198840403104413,
-        "audit_brier": 0.0879752075667276,
-        "audit_overconfidence": 0.010735214286120367,
+        "audit_matches": 231,
+        "confidence_penalty": 0.020013356773801404,
+        "audit_brier": 0.0885380030464117,
+        "audit_overconfidence": 0.010016145938545724,
         "note": "Chronological profitable-outcome calibration; refunds excluded; no historical handicap price/ROI claim"
       }
     },
@@ -2418,9 +2418,9 @@
     "market_weight": 0.7,
     "l2": 0.08,
     "max_goals": 10,
-    "training_end": "2026-10-26",
-    "training_matches": 1999,
-    "training_sha256": "b0c6831fb5090bc7a8040a418fd6e7b8533f159a47786af87217f753bfe49191",
+    "training_end": "2026-10-30",
+    "training_matches": 2000,
+    "training_sha256": "b5bed448bb93fbfd7dd50ef4e0ecc1bc52ae9a3813a734cfef8f20d1e2aaa45e",
     "validation_code_sha256": "2316b9e57bbb09b4ff5de0427aa1e3270d6f1a12aa227cc0ee77353f007c6520"
   },
   "count_markets": {
@@ -2438,20 +2438,20 @@
           "development": {
             "n": 1107,
             "observed_rate": 0.7181571815718157,
-            "mean_forecast": 0.7195964767258239,
-            "overconfidence": 0.0014392951540082022,
-            "brier": 0.19962898180723257,
+            "mean_forecast": 0.7195948949503679,
+            "overconfidence": 0.0014377133785521412,
+            "brier": 0.19963184935160097,
             "baseline_brier": 0.2024074441286418,
-            "log_loss": 0.5881750005359342
+            "log_loss": 0.58818254457701
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.7046070460704607,
-            "mean_forecast": 0.7392195419356364,
-            "overconfidence": 0.034612495865175785,
-            "brier": 0.20706025714843004,
+            "mean_forecast": 0.7392171056712211,
+            "overconfidence": 0.03461005960076047,
+            "brier": 0.20705807774554608,
             "baseline_brier": 0.20813595669832033,
-            "log_loss": 0.6038227394930537
+            "log_loss": 0.6038176000954585
           },
           "high_confidence": {
             "75plus": {
@@ -2460,11 +2460,11 @@
               "development": {
                 "n": 318,
                 "observed_rate": 0.7515723270440252,
-                "mean_forecast": 0.7796425178404899,
-                "overconfidence": 0.028070190796464667,
-                "brier": 0.18672421013454124,
+                "mean_forecast": 0.7796476569996283,
+                "overconfidence": 0.028075329955603134,
+                "brier": 0.18672661501271345,
                 "baseline_brier": 0.18671136426565405,
-                "log_loss": 0.5608266212101718,
+                "log_loss": 0.5608343024602023,
                 "n_wins": 239,
                 "observed_wilson95": [
                   0.7012655593661768,
@@ -2474,18 +2474,18 @@
               "audit": {
                 "n": 161,
                 "observed_rate": 0.7701863354037267,
-                "mean_forecast": 0.7862233831691254,
-                "overconfidence": 0.016037047765398715,
-                "brier": 0.17641790124839302,
+                "mean_forecast": 0.7862163915452578,
+                "overconfidence": 0.01603005614153108,
+                "brier": 0.17641655128311512,
                 "baseline_brier": 0.1769993441611049,
-                "log_loss": 0.5368119794037055,
+                "log_loss": 0.5368085453425705,
                 "n_wins": 124,
                 "observed_wilson95": [
                   0.6993561297091901,
                   0.8284232657832098
                 ]
               },
-              "development_only_penalty": 0.02565034676228668,
+              "development_only_penalty": 0.02565504289046493,
               "minimum_development_samples": 30,
               "minimum_audit_samples": 12,
               "maximum_audit_overconfidence": 0.1
@@ -2501,11 +2501,11 @@
               "audit": {
                 "n": 3,
                 "observed_rate": 1.0,
-                "mean_forecast": 0.8508617918752296,
-                "overconfidence": -0.1491382081247704,
-                "brier": 0.022242467385169707,
+                "mean_forecast": 0.8508959841916383,
+                "overconfidence": -0.14910401580836175,
+                "brier": 0.02223226708385899,
                 "baseline_brier": 0.0,
-                "log_loss": 0.16150575150578272,
+                "log_loss": 0.16146556491556838,
                 "n_wins": 3,
                 "observed_wilson95": [
                   0.43849391955098227,
@@ -2525,7 +2525,7 @@
                 0.6
               ],
               "n": 19,
-              "mean_probability": 0.5869827225449008,
+              "mean_probability": 0.5869819214337975,
               "observed_frequency": 0.5789473684210527
             },
             {
@@ -2534,7 +2534,7 @@
                 0.8
               ],
               "n": 1028,
-              "mean_probability": 0.7163290097889683,
+              "mean_probability": 0.7163265407739798,
               "observed_frequency": 0.7169260700389105
             },
             {
@@ -2543,7 +2543,7 @@
                 1.0
               ],
               "n": 60,
-              "mean_probability": 0.8175734324012419,
+              "mean_probability": 0.8175868047860629,
               "observed_frequency": 0.7833333333333333
             }
           ],
@@ -2554,7 +2554,7 @@
                 0.6
               ],
               "n": 1,
-              "mean_probability": 0.5990210995538354,
+              "mean_probability": 0.5989488822886131,
               "observed_frequency": 1.0
             },
             {
@@ -2563,7 +2563,7 @@
                 0.8
               ],
               "n": 328,
-              "mean_probability": 0.7295860794067891,
+              "mean_probability": 0.7295849314489353,
               "observed_frequency": 0.6890243902439024
             },
             {
@@ -2572,31 +2572,31 @@
                 1.0
               ],
               "n": 40,
-              "mean_probability": 0.8217188957317305,
+              "mean_probability": 0.8217076398785297,
               "observed_frequency": 0.825
             }
           ],
-          "confidence_penalty": 0.001320049490875791
+          "confidence_penalty": 0.0013185987655817898
         },
         "Corners Under 7.5": {
           "status": "RELIABLE_FOR_RANKING",
           "development": {
             "n": 1107,
             "observed_rate": 0.28184281842818426,
-            "mean_forecast": 0.28040352327417606,
-            "overconfidence": -0.0014392951540082022,
-            "brier": 0.19962898180723257,
+            "mean_forecast": 0.280405105049632,
+            "overconfidence": -0.0014377133785522522,
+            "brier": 0.19963184935160097,
             "baseline_brier": 0.2024074441286418,
-            "log_loss": 0.5881750005359342
+            "log_loss": 0.58818254457701
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.2953929539295393,
-            "mean_forecast": 0.26078045806436356,
-            "overconfidence": -0.03461249586517573,
-            "brier": 0.20706025714843004,
+            "mean_forecast": 0.2607828943287789,
+            "overconfidence": -0.03461005960076041,
+            "brier": 0.20705807774554605,
             "baseline_brier": 0.20813595669832036,
-            "log_loss": 0.6038227394930537
+            "log_loss": 0.6038176000954585
           },
           "high_confidence": {
             "75plus": {
@@ -2643,7 +2643,7 @@
                 0.2
               ],
               "n": 60,
-              "mean_probability": 0.18242656759875808,
+              "mean_probability": 0.182413195213937,
               "observed_frequency": 0.21666666666666667
             },
             {
@@ -2652,7 +2652,7 @@
                 0.4
               ],
               "n": 1028,
-              "mean_probability": 0.28367099021103165,
+              "mean_probability": 0.28367345922602,
               "observed_frequency": 0.2830739299610895
             },
             {
@@ -2661,7 +2661,7 @@
                 0.6
               ],
               "n": 19,
-              "mean_probability": 0.4130172774550991,
+              "mean_probability": 0.41301807856620276,
               "observed_frequency": 0.42105263157894735
             }
           ],
@@ -2672,7 +2672,7 @@
                 0.2
               ],
               "n": 40,
-              "mean_probability": 0.17828110426826954,
+              "mean_probability": 0.17829236012147026,
               "observed_frequency": 0.175
             },
             {
@@ -2681,7 +2681,7 @@
                 0.4
               ],
               "n": 328,
-              "mean_probability": 0.270413920593211,
+              "mean_probability": 0.2704150685510646,
               "observed_frequency": 0.31097560975609756
             },
             {
@@ -2690,7 +2690,7 @@
                 0.6
               ],
               "n": 1,
-              "mean_probability": 0.4009789004461645,
+              "mean_probability": 0.40105111771138696,
               "observed_frequency": 0.0
             }
           ],
@@ -2701,20 +2701,20 @@
           "development": {
             "n": 1107,
             "observed_rate": 0.5916892502258356,
-            "mean_forecast": 0.6013971132931565,
-            "overconfidence": 0.009707863067320854,
-            "brier": 0.23968080191749283,
+            "mean_forecast": 0.6013950060929217,
+            "overconfidence": 0.009705755867086108,
+            "brier": 0.23968399770597926,
             "baseline_brier": 0.2415930813930241,
-            "log_loss": 0.6724249028629014
+            "log_loss": 0.6724319519051775
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.5880758807588076,
-            "mean_forecast": 0.6257292601891596,
-            "overconfidence": 0.037653379430352074,
-            "brier": 0.2394418532976878,
+            "mean_forecast": 0.6257281304154467,
+            "overconfidence": 0.03765224965663916,
+            "brier": 0.2394395575400086,
             "baseline_brier": 0.24224263922856026,
-            "log_loss": 0.6712898816119657
+            "log_loss": 0.6712851562178126
           },
           "high_confidence": {
             "75plus": {
@@ -2723,11 +2723,11 @@
               "development": {
                 "n": 8,
                 "observed_rate": 0.75,
-                "mean_forecast": 0.7570676860451451,
-                "overconfidence": 0.007067686045145072,
-                "brier": 0.18943819971278186,
+                "mean_forecast": 0.7570674895470311,
+                "overconfidence": 0.0070674895470310695,
+                "brier": 0.1894480618475513,
                 "baseline_brier": 0.1875,
-                "log_loss": 0.5676028120097383,
+                "log_loss": 0.567629776398281,
                 "n_wins": 6,
                 "observed_wilson95": [
                   0.40926987910258916,
@@ -2737,18 +2737,18 @@
               "audit": {
                 "n": 5,
                 "observed_rate": 1.0,
-                "mean_forecast": 0.7609454412532862,
-                "overconfidence": -0.23905455874671377,
-                "brier": 0.057191689273654166,
+                "mean_forecast": 0.7609630081914425,
+                "overconfidence": -0.23903699180855753,
+                "brier": 0.05718372392362281,
                 "baseline_brier": 0.0,
-                "log_loss": 0.27323226229965825,
+                "log_loss": 0.273209550755936,
                 "n_wins": 5,
                 "observed_wilson95": [
                   0.5655085052479191,
                   1.0
                 ]
               },
-              "development_only_penalty": 0.0014879339042410678,
+              "development_only_penalty": 0.0014878925362170673,
               "minimum_development_samples": 30,
               "minimum_audit_samples": 12,
               "maximum_audit_overconfidence": 0.1
@@ -2779,7 +2779,7 @@
                 0.6
               ],
               "n": 541,
-              "mean_probability": 0.5518135441944881,
+              "mean_probability": 0.5518069541247942,
               "observed_frequency": 0.5415896487985212
             },
             {
@@ -2788,7 +2788,7 @@
                 0.8
               ],
               "n": 566,
-              "mean_probability": 0.6487905954175021,
+              "mean_probability": 0.6487927730801248,
               "observed_frequency": 0.6395759717314488
             }
           ],
@@ -2799,7 +2799,7 @@
                 0.6
               ],
               "n": 126,
-              "mean_probability": 0.5579351583324211,
+              "mean_probability": 0.5579410841454904,
               "observed_frequency": 0.5396825396825397
             },
             {
@@ -2808,31 +2808,31 @@
                 0.8
               ],
               "n": 243,
-              "mean_probability": 0.6608817574482092,
+              "mean_probability": 0.6608769692220907,
               "observed_frequency": 0.6131687242798354
             }
           ],
-          "confidence_penalty": 0.008903566210044893
+          "confidence_penalty": 0.008901633591436885
         },
         "Corners Under 8.5": {
           "status": "RELIABLE_FOR_RANKING",
           "development": {
             "n": 1107,
             "observed_rate": 0.4083107497741644,
-            "mean_forecast": 0.3986028867068436,
-            "overconfidence": -0.009707863067320854,
-            "brier": 0.23968080191749283,
+            "mean_forecast": 0.3986049939070783,
+            "overconfidence": -0.009705755867086108,
+            "brier": 0.23968399770597926,
             "baseline_brier": 0.2415930813930241,
-            "log_loss": 0.6724249028629014
+            "log_loss": 0.6724319519051775
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.41192411924119243,
-            "mean_forecast": 0.37427073981084036,
-            "overconfidence": -0.037653379430352074,
-            "brier": 0.2394418532976878,
+            "mean_forecast": 0.3742718695845533,
+            "overconfidence": -0.03765224965663916,
+            "brier": 0.2394395575400086,
             "baseline_brier": 0.24224263922856026,
-            "log_loss": 0.6712898816119656
+            "log_loss": 0.6712851562178128
           },
           "high_confidence": {
             "75plus": {
@@ -2879,7 +2879,7 @@
                 0.4
               ],
               "n": 566,
-              "mean_probability": 0.351209404582498,
+              "mean_probability": 0.35120722691987516,
               "observed_frequency": 0.36042402826855124
             },
             {
@@ -2888,7 +2888,7 @@
                 0.6
               ],
               "n": 541,
-              "mean_probability": 0.44818645580551186,
+              "mean_probability": 0.44819304587520575,
               "observed_frequency": 0.4584103512014787
             }
           ],
@@ -2899,7 +2899,7 @@
                 0.4
               ],
               "n": 243,
-              "mean_probability": 0.3391182425517908,
+              "mean_probability": 0.3391230307779093,
               "observed_frequency": 0.3868312757201646
             },
             {
@@ -2908,7 +2908,7 @@
                 0.6
               ],
               "n": 126,
-              "mean_probability": 0.4420648416675788,
+              "mean_probability": 0.4420589158545095,
               "observed_frequency": 0.4603174603174603
             }
           ],
@@ -2919,20 +2919,20 @@
           "development": {
             "n": 1107,
             "observed_rate": 0.47244805781391147,
-            "mean_forecast": 0.47843348578200284,
-            "overconfidence": 0.0059854279680913725,
-            "brier": 0.2482314594185241,
+            "mean_forecast": 0.4784309825032628,
+            "overconfidence": 0.005982924689351354,
+            "brier": 0.24823662278772027,
             "baseline_brier": 0.2492408904817744,
-            "log_loss": 0.6895940051263786
+            "log_loss": 0.6896046152085475
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.4986449864498645,
-            "mean_forecast": 0.5055195094862679,
-            "overconfidence": 0.0068745230364034016,
-            "brier": 0.2452998489611896,
+            "mean_forecast": 0.5055201528144557,
+            "overconfidence": 0.006875166364591234,
+            "brier": 0.24529811163491877,
             "baseline_brier": 0.24999816393827884,
-            "log_loss": 0.6835613969493586
+            "log_loss": 0.6835578551951017
           },
           "high_confidence": {
             "75plus": {
@@ -2979,7 +2979,7 @@
                 0.4
               ],
               "n": 124,
-              "mean_probability": 0.37120116355384036,
+              "mean_probability": 0.37119694723098157,
               "observed_frequency": 0.3709677419354839
             },
             {
@@ -2988,7 +2988,7 @@
                 0.6
               ],
               "n": 951,
-              "mean_probability": 0.48746906772100973,
+              "mean_probability": 0.4874660847744987,
               "observed_frequency": 0.48370136698212407
             },
             {
@@ -2997,7 +2997,7 @@
                 0.8
               ],
               "n": 32,
-              "mean_probability": 0.6254325336662718,
+              "mean_probability": 0.6254509235600602,
               "observed_frequency": 0.53125
             }
           ],
@@ -3008,7 +3008,7 @@
                 0.4
               ],
               "n": 18,
-              "mean_probability": 0.3778913536642276,
+              "mean_probability": 0.3778908969088532,
               "observed_frequency": 0.5555555555555556
             },
             {
@@ -3017,7 +3017,7 @@
                 0.6
               ],
               "n": 320,
-              "mean_probability": 0.5011074821323263,
+              "mean_probability": 0.5011093289248013,
               "observed_frequency": 0.471875
             },
             {
@@ -3026,31 +3026,31 @@
                 0.8
               ],
               "n": 31,
-              "mean_probability": 0.6251696887784625,
+              "mean_probability": 0.6251585480076904,
               "observed_frequency": 0.7419354838709677
             }
           ],
-          "confidence_penalty": 0.0054895350129885246
+          "confidence_penalty": 0.005487239130995815
         },
         "Corners Under 9.5": {
           "status": "RELIABLE_FOR_RANKING",
           "development": {
             "n": 1107,
             "observed_rate": 0.5275519421860885,
-            "mean_forecast": 0.5215665142179972,
-            "overconfidence": -0.005985427968091317,
-            "brier": 0.2482314594185241,
+            "mean_forecast": 0.5215690174967372,
+            "overconfidence": -0.005982924689351243,
+            "brier": 0.24823662278772027,
             "baseline_brier": 0.2492408904817744,
-            "log_loss": 0.6895940051263786
+            "log_loss": 0.6896046152085475
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.5013550135501355,
-            "mean_forecast": 0.4944804905137321,
-            "overconfidence": -0.006874523036403346,
-            "brier": 0.2452998489611896,
+            "mean_forecast": 0.4944798471855443,
+            "overconfidence": -0.006875166364591179,
+            "brier": 0.24529811163491877,
             "baseline_brier": 0.24999816393827892,
-            "log_loss": 0.6835613969493586
+            "log_loss": 0.6835578551951017
           },
           "high_confidence": {
             "75plus": {
@@ -3097,7 +3097,7 @@
                 0.4
               ],
               "n": 32,
-              "mean_probability": 0.3745674663337282,
+              "mean_probability": 0.37454907643993984,
               "observed_frequency": 0.46875
             },
             {
@@ -3106,7 +3106,7 @@
                 0.6
               ],
               "n": 951,
-              "mean_probability": 0.5125309322789903,
+              "mean_probability": 0.5125339152255013,
               "observed_frequency": 0.5162986330178759
             },
             {
@@ -3115,7 +3115,7 @@
                 0.8
               ],
               "n": 124,
-              "mean_probability": 0.6287988364461597,
+              "mean_probability": 0.6288030527690185,
               "observed_frequency": 0.6290322580645161
             }
           ],
@@ -3126,7 +3126,7 @@
                 0.4
               ],
               "n": 31,
-              "mean_probability": 0.37483031122153754,
+              "mean_probability": 0.37484145199230967,
               "observed_frequency": 0.25806451612903225
             },
             {
@@ -3135,7 +3135,7 @@
                 0.6
               ],
               "n": 320,
-              "mean_probability": 0.49889251786767375,
+              "mean_probability": 0.4988906710751987,
               "observed_frequency": 0.528125
             },
             {
@@ -3144,7 +3144,7 @@
                 0.8
               ],
               "n": 18,
-              "mean_probability": 0.6221086463357723,
+              "mean_probability": 0.6221091030911469,
               "observed_frequency": 0.4444444444444444
             }
           ],
@@ -3155,20 +3155,20 @@
           "development": {
             "n": 1107,
             "observed_rate": 0.3685636856368564,
-            "mean_forecast": 0.3619527550744509,
-            "overconfidence": -0.00661093056240547,
-            "brier": 0.2322553871543779,
+            "mean_forecast": 0.3619500589725401,
+            "overconfidence": -0.006613626664316252,
+            "brier": 0.23225801690336345,
             "baseline_brier": 0.23272449526663289,
-            "log_loss": 0.6572335080029897
+            "log_loss": 0.6572393722587685
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.3794037940379404,
-            "mean_forecast": 0.3893631342689125,
-            "overconfidence": 0.009959340230972114,
-            "brier": 0.22976523001759297,
+            "mean_forecast": 0.38936553793698064,
+            "overconfidence": 0.009961743899040254,
+            "brier": 0.22976435059992265,
             "baseline_brier": 0.23545655510755645,
-            "log_loss": 0.6518663502532837
+            "log_loss": 0.6518642398250987
           },
           "high_confidence": {
             "75plus": {
@@ -3215,7 +3215,7 @@
                 0.2
               ],
               "n": 1,
-              "mean_probability": 0.19773079592094545,
+              "mean_probability": 0.1977347663398329,
               "observed_frequency": 0.0
             },
             {
@@ -3224,7 +3224,7 @@
                 0.4
               ],
               "n": 815,
-              "mean_probability": 0.33447961118937186,
+              "mean_probability": 0.33447443146907074,
               "observed_frequency": 0.3570552147239264
             },
             {
@@ -3233,7 +3233,7 @@
                 0.6
               ],
               "n": 291,
-              "mean_probability": 0.43946077646789733,
+              "mean_probability": 0.4394650132954279,
               "observed_frequency": 0.4020618556701031
             }
           ],
@@ -3244,7 +3244,7 @@
                 0.4
               ],
               "n": 208,
-              "mean_probability": 0.34315248639694423,
+              "mean_probability": 0.3431600801948002,
               "observed_frequency": 0.34134615384615385
             },
             {
@@ -3253,7 +3253,7 @@
                 0.6
               ],
               "n": 161,
-              "mean_probability": 0.4490638470476042,
+              "mean_probability": 0.4490595454548287,
               "observed_frequency": 0.42857142857142855
             }
           ],
@@ -3264,20 +3264,20 @@
           "development": {
             "n": 1107,
             "observed_rate": 0.6314363143631436,
-            "mean_forecast": 0.6380472449255491,
-            "overconfidence": 0.00661093056240547,
-            "brier": 0.2322553871543779,
+            "mean_forecast": 0.6380499410274598,
+            "overconfidence": 0.006613626664316197,
+            "brier": 0.23225801690336345,
             "baseline_brier": 0.23272449526663289,
-            "log_loss": 0.6572335080029897
+            "log_loss": 0.6572393722587685
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.6205962059620597,
-            "mean_forecast": 0.6106368657310876,
-            "overconfidence": -0.009959340230972114,
-            "brier": 0.22976523001759297,
+            "mean_forecast": 0.6106344620630193,
+            "overconfidence": -0.009961743899040365,
+            "brier": 0.22976435059992265,
             "baseline_brier": 0.23545655510755645,
-            "log_loss": 0.6518663502532837
+            "log_loss": 0.6518642398250987
           },
           "high_confidence": {
             "75plus": {
@@ -3286,11 +3286,11 @@
               "development": {
                 "n": 32,
                 "observed_rate": 0.75,
-                "mean_forecast": 0.7650480977968955,
-                "overconfidence": 0.015048097796895532,
-                "brier": 0.1878999130262286,
+                "mean_forecast": 0.7650414537246288,
+                "overconfidence": 0.01504145372462884,
+                "brier": 0.18789896771838538,
                 "baseline_brier": 0.1875,
-                "log_loss": 0.5633827749376159,
+                "log_loss": 0.5633796258978793,
                 "n_wins": 24,
                 "observed_wilson95": [
                   0.5789310822975338,
@@ -3300,18 +3300,18 @@
               "audit": {
                 "n": 2,
                 "observed_rate": 0.5,
-                "mean_forecast": 0.7579113925855088,
-                "overconfidence": 0.25791139258550877,
-                "brier": 0.3160586279490949,
+                "mean_forecast": 0.7579215516437503,
+                "overconfidence": 0.2579215516437503,
+                "brier": 0.3160096408058289,
                 "baseline_brier": 0.25,
-                "log_loss": 0.8465679514374373,
+                "log_loss": 0.8464345224537055,
                 "n_wins": 1,
                 "observed_wilson95": [
                   0.09452865480086614,
                   0.9054713451991339
                 ]
               },
-              "development_only_penalty": 0.007766760153236404,
+              "development_only_penalty": 0.007763330954647143,
               "minimum_development_samples": 30,
               "minimum_audit_samples": 12,
               "maximum_audit_overconfidence": 0.1
@@ -3342,7 +3342,7 @@
                 0.6
               ],
               "n": 291,
-              "mean_probability": 0.5605392235321026,
+              "mean_probability": 0.560534986704572,
               "observed_frequency": 0.5979381443298969
             },
             {
@@ -3351,7 +3351,7 @@
                 0.8
               ],
               "n": 815,
-              "mean_probability": 0.6655203888106281,
+              "mean_probability": 0.6655255685309293,
               "observed_frequency": 0.6429447852760736
             },
             {
@@ -3360,7 +3360,7 @@
                 1.0
               ],
               "n": 1,
-              "mean_probability": 0.8022692040790546,
+              "mean_probability": 0.8022652336601671,
               "observed_frequency": 1.0
             }
           ],
@@ -3371,7 +3371,7 @@
                 0.6
               ],
               "n": 161,
-              "mean_probability": 0.5509361529523957,
+              "mean_probability": 0.5509404545451713,
               "observed_frequency": 0.5714285714285714
             },
             {
@@ -3380,31 +3380,31 @@
                 0.8
               ],
               "n": 208,
-              "mean_probability": 0.6568475136030556,
+              "mean_probability": 0.6568399198051996,
               "observed_frequency": 0.6586538461538461
             }
           ],
-          "confidence_penalty": 0.006063214691452242
+          "confidence_penalty": 0.0060656874212079775
         },
         "Corners Over 11.5": {
           "status": "RELIABLE_FOR_RANKING",
           "development": {
             "n": 1107,
             "observed_rate": 0.2565492321589883,
-            "mean_forecast": 0.2604740273240603,
-            "overconfidence": 0.0039247951650719926,
-            "brier": 0.19019883375682725,
+            "mean_forecast": 0.26047136167913754,
+            "overconfidence": 0.003922129520149253,
+            "brier": 0.19020245910472083,
             "baseline_brier": 0.19073172363762178,
-            "log_loss": 0.5681231934806333
+            "log_loss": 0.5681327418733013
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.2899728997289973,
-            "mean_forecast": 0.28594836329336343,
-            "overconfidence": -0.004024536435633885,
-            "brier": 0.20056842879090428,
+            "mean_forecast": 0.2859520945973537,
+            "overconfidence": -0.004020805131643601,
+            "brier": 0.20056797276478233,
             "baseline_brier": 0.20588861715175422,
-            "log_loss": 0.5893515981369778
+            "log_loss": 0.5893503294242207
           },
           "high_confidence": {
             "75plus": {
@@ -3451,7 +3451,7 @@
                 0.2
               ],
               "n": 142,
-              "mean_probability": 0.17814289967945016,
+              "mean_probability": 0.17813791448571467,
               "observed_frequency": 0.19014084507042253
             },
             {
@@ -3460,7 +3460,7 @@
                 0.4
               ],
               "n": 954,
-              "mean_probability": 0.27089346087503996,
+              "mean_probability": 0.27089098401482387,
               "observed_frequency": 0.2641509433962264
             },
             {
@@ -3469,7 +3469,7 @@
                 0.6
               ],
               "n": 11,
-              "mean_probability": 0.4196449834967929,
+              "mean_probability": 0.4196558883356222,
               "observed_frequency": 0.45454545454545453
             }
           ],
@@ -3480,7 +3480,7 @@
                 0.2
               ],
               "n": 19,
-              "mean_probability": 0.1826625886580076,
+              "mean_probability": 0.18266514059215957,
               "observed_frequency": 0.21052631578947367
             },
             {
@@ -3489,7 +3489,7 @@
                 0.4
               ],
               "n": 336,
-              "mean_probability": 0.28631532713303204,
+              "mean_probability": 0.2863196000388601,
               "observed_frequency": 0.27976190476190477
             },
             {
@@ -3498,65 +3498,65 @@
                 0.6
               ],
               "n": 14,
-              "mean_probability": 0.41731478243215653,
+              "mean_probability": 0.41730711586539165,
               "observed_frequency": 0.6428571428571429
             }
           ],
-          "confidence_penalty": 0.003599625723061057
+          "confidence_penalty": 0.003597180926930591
         },
         "Corners Under 11.5": {
           "status": "RELIABLE_FOR_RANKING",
           "development": {
             "n": 1107,
             "observed_rate": 0.7434507678410117,
-            "mean_forecast": 0.7395259726759397,
-            "overconfidence": -0.003924795165072048,
-            "brier": 0.19019883375682725,
+            "mean_forecast": 0.7395286383208625,
+            "overconfidence": -0.003922129520149253,
+            "brier": 0.19020245910472083,
             "baseline_brier": 0.19073172363762178,
-            "log_loss": 0.5681231934806333
+            "log_loss": 0.5681327418733013
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.7100271002710027,
-            "mean_forecast": 0.7140516367066365,
-            "overconfidence": 0.00402453643563383,
-            "brier": 0.20056842879090428,
+            "mean_forecast": 0.7140479054026463,
+            "overconfidence": 0.004020805131643601,
+            "brier": 0.20056797276478233,
             "baseline_brier": 0.20588861715175422,
-            "log_loss": 0.5893515981369778
+            "log_loss": 0.5893503294242207
           },
           "high_confidence": {
             "75plus": {
               "threshold": 0.75,
               "status": "PASSED",
               "development": {
-                "n": 494,
-                "observed_rate": 0.757085020242915,
-                "mean_forecast": 0.7869952452341387,
-                "overconfidence": 0.029910224991223644,
-                "brier": 0.18375227755689447,
-                "baseline_brier": 0.18390729236669998,
-                "log_loss": 0.553948725216977,
+                "n": 495,
+                "observed_rate": 0.7555555555555555,
+                "mean_forecast": 0.7869254614260116,
+                "overconfidence": 0.03136990587045607,
+                "brier": 0.184520433095638,
+                "baseline_brier": 0.1846913580246914,
+                "log_loss": 0.5556391388197383,
                 "n_wins": 374,
                 "observed_wilson95": [
-                  0.7173777794760384,
-                  0.7928246624251608
+                  0.7158225931622488,
+                  0.7913524299312542
                 ]
               },
               "audit": {
                 "n": 112,
                 "observed_rate": 0.8125,
-                "mean_forecast": 0.7803237444750499,
-                "overconfidence": -0.03217625552495007,
-                "brier": 0.1529182023293001,
+                "mean_forecast": 0.7803126080551213,
+                "overconfidence": -0.03218739194487874,
+                "brier": 0.15291709865946476,
                 "baseline_brier": 0.15234375,
-                "log_loss": 0.48439783406029246,
+                "log_loss": 0.484394106692464,
                 "n_wins": 91,
                 "observed_wilson95": [
                   0.7303070425861289,
                   0.8739663790516938
                 ]
               },
-              "development_only_penalty": 0.028197807529894044,
+              "development_only_penalty": 0.029577339820715726,
               "minimum_development_samples": 30,
               "minimum_audit_samples": 12,
               "maximum_audit_overconfidence": 0.1
@@ -3567,11 +3567,11 @@
               "development": {
                 "n": 9,
                 "observed_rate": 0.7777777777777778,
-                "mean_forecast": 0.8586034553539257,
-                "overconfidence": 0.08082567757614789,
-                "brier": 0.17870645075839386,
+                "mean_forecast": 0.8585939943261623,
+                "overconfidence": 0.08081621654838456,
+                "brier": 0.17869715407544964,
                 "baseline_brier": 0.1728395061728395,
-                "log_loss": 0.5505710087144297,
+                "log_loss": 0.5505332474371895,
                 "n_wins": 7,
                 "observed_wilson95": [
                   0.4525833436728054,
@@ -3583,7 +3583,7 @@
                 "n_wins": 0,
                 "observed_wilson95": null
               },
-              "development_only_penalty": 0.018652079440649512,
+              "development_only_penalty": 0.018649896126550283,
               "minimum_development_samples": 30,
               "minimum_audit_samples": 12,
               "maximum_audit_overconfidence": 0.1
@@ -3596,7 +3596,7 @@
                 0.6
               ],
               "n": 11,
-              "mean_probability": 0.5803550165032071,
+              "mean_probability": 0.5803441116643778,
               "observed_frequency": 0.5454545454545454
             },
             {
@@ -3605,7 +3605,7 @@
                 0.8
               ],
               "n": 954,
-              "mean_probability": 0.72910653912496,
+              "mean_probability": 0.7291090159851761,
               "observed_frequency": 0.7358490566037735
             },
             {
@@ -3614,7 +3614,7 @@
                 1.0
               ],
               "n": 142,
-              "mean_probability": 0.8218571003205498,
+              "mean_probability": 0.8218620855142853,
               "observed_frequency": 0.8098591549295775
             }
           ],
@@ -3625,7 +3625,7 @@
                 0.6
               ],
               "n": 14,
-              "mean_probability": 0.5826852175678435,
+              "mean_probability": 0.5826928841346083,
               "observed_frequency": 0.35714285714285715
             },
             {
@@ -3634,7 +3634,7 @@
                 0.8
               ],
               "n": 336,
-              "mean_probability": 0.7136846728669679,
+              "mean_probability": 0.71368039996114,
               "observed_frequency": 0.7202380952380952
             },
             {
@@ -3643,7 +3643,7 @@
                 1.0
               ],
               "n": 19,
-              "mean_probability": 0.8173374113419924,
+              "mean_probability": 0.8173348594078405,
               "observed_frequency": 0.7894736842105263
             }
           ],
@@ -3654,20 +3654,20 @@
           "development": {
             "n": 1107,
             "observed_rate": 0.16892502258355918,
-            "mean_forecast": 0.17849379141230085,
-            "overconfidence": 0.009568768828741664,
-            "brier": 0.13986935500087666,
+            "mean_forecast": 0.17849134883352902,
+            "overconfidence": 0.009566326249969836,
+            "brier": 0.1398712046541406,
             "baseline_brier": 0.1403893593287032,
-            "log_loss": 0.45222222623826525
+            "log_loss": 0.4522282860667555
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.2086720867208672,
-            "mean_forecast": 0.20041945842480027,
-            "overconfidence": -0.008252628296066933,
-            "brier": 0.16257201227755028,
+            "mean_forecast": 0.20042386560056452,
+            "overconfidence": -0.008248221120302685,
+            "brier": 0.16257219499922496,
             "baseline_brier": 0.16512804694442607,
-            "log_loss": 0.5048403497886172
+            "log_loss": 0.5048409856519558
           },
           "high_confidence": {
             "75plus": {
@@ -3714,7 +3714,7 @@
                 0.2
               ],
               "n": 792,
-              "mean_probability": 0.1566631675052232,
+              "mean_probability": 0.15665982349496488,
               "observed_frequency": 0.15782828282828282
             },
             {
@@ -3723,7 +3723,7 @@
                 0.4
               ],
               "n": 315,
-              "mean_probability": 0.23338221723581043,
+              "mean_probability": 0.23338204111334745,
               "observed_frequency": 0.19682539682539682
             }
           ],
@@ -3734,7 +3734,7 @@
                 0.2
               ],
               "n": 194,
-              "mean_probability": 0.1625548452071859,
+              "mean_probability": 0.16256379678043287,
               "observed_frequency": 0.18041237113402062
             },
             {
@@ -3743,31 +3743,31 @@
                 0.4
               ],
               "n": 175,
-              "mean_probability": 0.24239508679175564,
+              "mean_probability": 0.24239445617831049,
               "observed_frequency": 0.24
             }
           ],
-          "confidence_penalty": 0.00877599593489397
+          "confidence_penalty": 0.008773755723874573
         },
         "Corners Under 12.5": {
           "status": "RELIABLE_FOR_RANKING",
           "development": {
             "n": 1107,
             "observed_rate": 0.8310749774164409,
-            "mean_forecast": 0.8215062085876991,
-            "overconfidence": -0.009568768828741803,
-            "brier": 0.13986935500087666,
+            "mean_forecast": 0.821508651166471,
+            "overconfidence": -0.009566326249969892,
+            "brier": 0.1398712046541406,
             "baseline_brier": 0.14038935932870322,
-            "log_loss": 0.45222222623826525
+            "log_loss": 0.4522282860667555
           },
           "audit": {
             "n": 369,
             "observed_rate": 0.7913279132791328,
-            "mean_forecast": 0.7995805415751998,
-            "overconfidence": 0.008252628296066988,
-            "brier": 0.16257201227755028,
+            "mean_forecast": 0.7995761343994353,
+            "overconfidence": 0.008248221120302546,
+            "brier": 0.16257219499922496,
             "baseline_brier": 0.16512804694442607,
-            "log_loss": 0.5048403497886172
+            "log_loss": 0.5048409856519558
           },
           "high_confidence": {
             "75plus": {
@@ -3776,11 +3776,11 @@
               "development": {
                 "n": 1034,
                 "observed_rate": 0.8355899419729207,
-                "mean_forecast": 0.8283030824115982,
-                "overconfidence": -0.007286859561322467,
-                "brier": 0.13722976811452664,
+                "mean_forecast": 0.828306122458676,
+                "overconfidence": -0.007283819514244727,
+                "brier": 0.1372313313261563,
                 "baseline_brier": 0.13737939084661172,
-                "log_loss": 0.44607466834778237,
+                "log_loss": 0.44608010924144487,
                 "n_wins": 864,
                 "observed_wilson95": [
                   0.8117633103981794,
@@ -3790,11 +3790,11 @@
               "audit": {
                 "n": 308,
                 "observed_rate": 0.7987012987012987,
-                "mean_forecast": 0.8151241030203277,
-                "overconfidence": 0.016422804319028983,
-                "brier": 0.15952246254483204,
+                "mean_forecast": 0.8151180871957222,
+                "overconfidence": 0.016416788494423518,
+                "brier": 0.15952290789053272,
                 "baseline_brier": 0.16077753415415752,
-                "log_loss": 0.49788882271540424,
+                "log_loss": 0.4978899932394961,
                 "n_wins": 246,
                 "observed_wilson95": [
                   0.7503654350807485,
@@ -3812,11 +3812,11 @@
               "development": {
                 "n": 312,
                 "observed_rate": 0.8621794871794872,
-                "mean_forecast": 0.8719092720285468,
-                "overconfidence": 0.00972978484905962,
-                "brier": 0.11840964673046796,
+                "mean_forecast": 0.8719135416774016,
+                "overconfidence": 0.009734054497914424,
+                "brier": 0.11840989444666487,
                 "baseline_brier": 0.11882601906640368,
-                "log_loss": 0.399328346180494,
+                "log_loss": 0.39932986061623094,
                 "n_wins": 269,
                 "observed_wilson95": [
                   0.8195029590852349,
@@ -3826,18 +3826,18 @@
               "audit": {
                 "n": 60,
                 "observed_rate": 0.85,
-                "mean_forecast": 0.8657840954198661,
-                "overconfidence": 0.01578409541986614,
-                "brier": 0.12704419285802757,
+                "mean_forecast": 0.865776055121269,
+                "overconfidence": 0.015776055121269006,
+                "brier": 0.12704255502914805,
                 "baseline_brier": 0.12749999999999997,
-                "log_loss": 0.42046375511673073,
+                "log_loss": 0.42045737453664583,
                 "n_wins": 51,
                 "observed_wilson95": [
                   0.7388517410884038,
                   0.9190265075770431
                 ]
               },
-              "development_only_penalty": 0.008876294950019303,
+              "development_only_penalty": 0.008880190068272807,
               "minimum_development_samples": 30,
               "minimum_audit_samples": 12,
               "maximum_audit_overconfidence": 0.1
@@ -3850,7 +3850,7 @@
                 0.8
               ],
               "n": 315,
-              "mean_probability": 0.7666177827641896,
+              "mean_probability": 0.7666179588866525,
               "observed_frequency": 0.8031746031746032
             },
             {
@@ -3859,7 +3859,7 @@
                 1.0
               ],
               "n": 792,
-              "mean_probability": 0.8433368324947768,
+              "mean_probability": 0.8433401765050351,
               "observed_frequency": 0.8421717171717171
             }
           ],
@@ -3870,7 +3870,7 @@
                 0.8
               ],
               "n": 175,
-              "mean_probability": 0.7576049132082444,
+              "mean_probability": 0.7576055438216894,
               "observed_frequency": 0.76
             },
             {
@@ -3879,7 +3879,7 @@
                 1.0
               ],
               "n": 194,
-              "mean_probability": 0.8374451547928139,
+              "mean_probability": 0.8374362032195671,
               "observed_frequency": 0.8195876288659794
             }
           ],
@@ -3890,13 +3890,13 @@
         "development": {
           "n": 1107,
           "mean_total": 9.512195121951219,
-          "model_log_loss": 2.5866116481941113,
+          "model_log_loss": 2.5866231232661634,
           "constant_rate_log_loss": 2.5900808002671867
         },
         "audit": {
           "n": 369,
           "mean_total": 9.655826558265582,
-          "model_log_loss": 2.6838478693807524,
+          "model_log_loss": 2.6838464448535504,
           "constant_rate_log_loss": 2.6963133417977385
         }
       },
