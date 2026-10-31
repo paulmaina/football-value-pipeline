@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "RB Leipzig",
+    "home_team": "FC Schalke 04",
+    "kickoff_utc": "2026-10-31T14:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "3966f2fe1c2f73bfa12e61db83bd0bf9"
+  },
+  "observed_at_utc": "2026-10-31T14:24:31.487770+00:00",
+  "payload": {
+    "away_team": "RB Leipzig",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T14:24:12Z",
+            "outcomes": [
+              {
+                "name": "FC Schalke 04",
+                "price": 4.26
+              },
+              {
+                "name": "RB Leipzig",
+                "price": 1.87
+              },
+              {
+                "name": "Draw",
+                "price": 3.9
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T14:24:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.98
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.93
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T14:23:47Z",
+            "outcomes": [
+              {
+                "name": "FC Schalke 04",
+                "price": 4.05
+              },
+              {
+                "name": "RB Leipzig",
+                "price": 1.87
+              },
+              {
+                "name": "Draw",
+                "price": 3.84
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T14:23:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.4
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.57
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-31T14:30:00Z",
+    "home_team": "FC Schalke 04",
+    "id": "3966f2fe1c2f73bfa12e61db83bd0bf9",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.05,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23288622188007296,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.84,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24616966405665375,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.87,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5209441140632733,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.4,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3869128436199944,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.57,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6130871563800057,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22616533869455452,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T14:24:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.9,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2476029454312606,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T14:24:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.87,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5262317158741849,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T14:24:12+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

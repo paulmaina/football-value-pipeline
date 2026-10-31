@@ -1,0 +1,184 @@
+{
+  "fixture": {
+    "away_team": "TSG Hoffenheim",
+    "home_team": "Werder Bremen",
+    "kickoff_utc": "2026-10-31T14:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "2fad25b09c01b71e47a5b0fd1d0b4e61"
+  },
+  "observed_at_utc": "2026-10-31T14:24:31.592743+00:00",
+  "payload": {
+    "away_team": "TSG Hoffenheim",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T14:24:12Z",
+            "outcomes": [
+              {
+                "name": "TSG Hoffenheim",
+                "price": 2.91
+              },
+              {
+                "name": "Werder Bremen",
+                "price": 2.34
+              },
+              {
+                "name": "Draw",
+                "price": 3.93
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T14:24:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.0
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.91
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T14:23:47Z",
+            "outcomes": [
+              {
+                "name": "TSG Hoffenheim",
+                "price": 2.83
+              },
+              {
+                "name": "Werder Bremen",
+                "price": 2.33
+              },
+              {
+                "name": "Draw",
+                "price": 3.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T14:23:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.08
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.8
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-31T14:30:00Z",
+    "home_team": "Werder Bremen",
+    "id": "2fad25b09c01b71e47a5b0fd1d0b4e61",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.33,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4149175112448708,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.85,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24611599641109633,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.83,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.33896649234403287,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.08,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4619585192762564,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.8,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5380414807237436,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.34,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4187548726496605,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T14:24:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.93,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24626429608942987,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T14:24:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.91,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3349808312609096,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T14:24:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4880909376452514,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-31T14:24:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5119090623547486,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-31T14:24:12+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
