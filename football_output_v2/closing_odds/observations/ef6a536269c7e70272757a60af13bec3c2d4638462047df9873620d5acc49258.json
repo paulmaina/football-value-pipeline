@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Fortuna Sittard",
+    "home_team": "Feyenoord",
+    "kickoff_utc": "2026-10-31T15:30:00+00:00",
+    "league": "Eredivisie",
+    "odds_event_id": "1836e9e3241ea98ae062bab0f288ce2c"
+  },
+  "observed_at_utc": "2026-10-31T15:24:01.383529+00:00",
+  "payload": {
+    "away_team": "Fortuna Sittard",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T15:23:52Z",
+            "outcomes": [
+              {
+                "name": "Feyenoord",
+                "price": 1.18
+              },
+              {
+                "name": "Fortuna Sittard",
+                "price": 14.4
+              },
+              {
+                "name": "Draw",
+                "price": 8.05
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T15:23:52Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.67
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.2
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T15:23:52Z",
+            "outcomes": [
+              {
+                "name": "Feyenoord",
+                "price": 1.16
+              },
+              {
+                "name": "Fortuna Sittard",
+                "price": 15.28
+              },
+              {
+                "name": "Draw",
+                "price": 8.81
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T15:23:52Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 1.85
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 2.03
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-31T15:30:00Z",
+    "home_team": "Feyenoord",
+    "id": "1836e9e3241ea98ae062bab0f288ce2c",
+    "sport_key": "soccer_netherlands_eredivisie",
+    "sport_title": "Dutch Eredivisie"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.18,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.8369777541010589,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T15:23:52+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 8.05,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.10619560244549792,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T15:23:52+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 14.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.05682664345344326,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T15:23:52+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5740358949483358,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-31T15:23:52+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.2,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4259641050516641,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-31T15:23:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.16,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.8519237461629316,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T15:23:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 8.81,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.09542256494883393,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T15:23:52+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 15.28,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.052653688888234296,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T15:23:52+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
