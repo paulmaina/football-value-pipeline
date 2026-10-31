@@ -53,10 +53,10 @@ Match Number,Round Number,Date,Location,Home Team,Away Team,Result
 124,3,22/10/2026 19:00,Rhein-Neckar-Arena,Hoffenheim,Lyon,3 - 0
 125,3,22/10/2026 19:00,Besiktas Stadium,Besiktas,Crystal Palace,2 - 2
 126,3,22/10/2026 19:00,Åråsen,Lillestrøm,Real Sociedad,0 - 6
+130,4,04/11/2026 15:30,Roazhon Park,Rennes,Olympiacos,
 127,4,05/11/2026 17:45,Stadio San Siro,Milan,Ferencváros,
 128,4,05/11/2026 17:45,ESTADIO DE ANOETA,Real Sociedad,Lyon,
 129,4,05/11/2026 17:45,Stadion Letná,Sparta Praha,Bournemouth,
-130,4,05/11/2026 17:45,Roazhon Park,Rennes,Olympiacos,
 131,4,05/11/2026 17:45,RSC Anderlecht Stadium,Anderlecht,Salzburg,
 132,4,05/11/2026 17:45,Selhurst Park,Crystal Palace,Hoffenheim,
 133,4,05/11/2026 17:45,Goffertstadion,N.E.C.,Omonia,
@@ -78,7 +78,7 @@ Match Number,Round Number,Date,Location,Home Team,Away Team,Result
 5,5,26/11/2026 17:45,Stadion Maksimir,GNK Dinamo,Leverkusen,
 6,5,26/11/2026 17:45,Stadion Salzburg,Salzburg,Ararat-Armenia,
 7,5,26/11/2026 17:45,ESTADIO BALAIDOS,Celta,Bournemouth,
-8,5,26/11/2026 17:45,Besiktas Stadium,Besiktas,H. Beer-Sheva,
+8,5,26/11/2026 17:45,Batumi Stadium,Besiktas,H. Beer-Sheva,
 9,5,26/11/2026 20:00,Juventus Stadium,Juventus,Omonia,
 10,5,26/11/2026 20:00,OL Stadium,Lyon,Lillestrøm,
 11,5,26/11/2026 20:00,Ferencváros Stadion,Ferencváros,Celje,
@@ -97,6 +97,7 @@ Match Number,Round Number,Date,Location,Home Team,Away Team,Result
 24,6,10/12/2026 17:45,GSP,Omonia,Celtic,
 25,6,10/12/2026 17:45,Giulesti Stadium,H. Beer-Sheva,Juventus,
 26,6,10/12/2026 17:45,Republican Stadium after Vazgen Sargsyan,Ararat-Armenia,N.E.C.,
+35,6,10/12/2026 17:45,Stadion Celje,Celje,Olympiacos,
 27,6,10/12/2026 20:00,BayArena,Leverkusen,Besiktas,
 28,6,10/12/2026 20:00,Estádio do SL Benfica,Benfica,OFI Crete,
 29,6,10/12/2026 20:00,Stadio San Siro,Milan,Sunderland,
@@ -105,7 +106,6 @@ Match Number,Round Number,Date,Location,Home Team,Away Team,Result
 32,6,10/12/2026 20:00,Stadion Salzburg,Salzburg,Sparta Praha,
 33,6,10/12/2026 20:00,Poznan Stadium,Lech Poznan,Ferencváros,
 34,6,10/12/2026 20:00,Bournemouth Stadium,Bournemouth,Viktoria Plzen,
-35,6,10/12/2026 20:00,Stadion Celje,Celje,Olympiacos,
 36,6,10/12/2026 20:00,Natsionalen Stadion Vasil Levski,Levski Sofia,Lillestrøm,
 37,7,21/01/2027 17:45,Stadio Georgios Karaiskakis,Olympiacos,Hoffenheim,
 38,7,21/01/2027 17:45,ESTADIO DE ANOETA,Real Sociedad,Viktoria Plzen,
