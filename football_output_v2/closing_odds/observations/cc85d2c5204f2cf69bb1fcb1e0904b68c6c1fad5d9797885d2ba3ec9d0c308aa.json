@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Goztepe",
+    "home_team": "Fenerbahce",
+    "kickoff_utc": "2026-10-31T16:00:00+00:00",
+    "league": "Super Lig",
+    "odds_event_id": "dc20aff5555a04cd21c2355e222a3297"
+  },
+  "observed_at_utc": "2026-10-31T15:54:23.310097+00:00",
+  "payload": {
+    "away_team": "Goztepe",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T15:53:51Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce",
+                "price": 1.57
+              },
+              {
+                "name": "Goztepe",
+                "price": 5.47
+              },
+              {
+                "name": "Draw",
+                "price": 4.5
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T15:53:51Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.31
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.62
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T15:54:14Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce",
+                "price": 1.52
+              },
+              {
+                "name": "Goztepe",
+                "price": 5.75
+              },
+              {
+                "name": "Draw",
+                "price": 4.91
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T15:54:14Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.02
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-10-31T16:00:00Z",
+    "home_team": "Fenerbahce",
+    "id": "dc20aff5555a04cd21c2355e222a3297",
+    "sport_key": "soccer_turkey_super_league",
+    "sport_title": "Turkey Super League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6237670093453315,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T15:53:51+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2072610835322695,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T15:53:51+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.47,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.16897190712239904,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T15:53:51+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.31,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.40552185891679066,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-31T15:53:51+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5944781410832094,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-31T15:53:51+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.52,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6468937033925946,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T15:54:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.91,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1910232359855286,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T15:54:14+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.75,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1620830606218769,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T15:54:14+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
