@@ -45,3 +45,6 @@ football_output_v2/.prediction-backup-*/
 football_output_v2/.prediction-prune-*/
 **/.run-write-*
 
+
+# Research-only API-Football card events (card_bookings.py); local input, not committed.
+.football_cache/api_football/card_events/
