@@ -15121,38 +15121,38 @@
             "covered_selections": 34,
             "mean_fair_close_ev": -0.02780450127606808,
             "mean_same_book_offered_price_clv": 0.009153547906679346,
-            "missing_selections": 42,
-            "pending_selections": 5,
+            "missing_selections": 45,
+            "pending_selections": 2,
             "positive_fair_close_ev": 8
           },
           "bet365": {
             "covered_selections": 0,
             "mean_fair_close_ev": null,
             "mean_same_book_offered_price_clv": null,
-            "missing_selections": 76,
-            "pending_selections": 5,
+            "missing_selections": 79,
+            "pending_selections": 2,
             "positive_fair_close_ev": 0
           },
           "pinnacle": {
-            "covered_selections": 50,
+            "covered_selections": 52,
             "mean_fair_close_ev": -0.030666655948099794,
-            "mean_same_book_offered_price_clv": 0.02452997941009112,
-            "missing_selections": 26,
-            "pending_selections": 5,
+            "mean_same_book_offered_price_clv": 0.020299120019439676,
+            "missing_selections": 27,
+            "pending_selections": 2,
             "positive_fair_close_ev": 10
           }
         },
         "frozen_selections": 81,
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-        "observations": 336,
+        "observations": 359,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-10-31T13:49:12.944977+00:00",
+        "reviewed_at_utc": "2026-10-31T20:09:21.805616+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
       "dependencies": {
-        "PyYAML": "6.0.3",
-        "coverage": "7.17.0",
+        "PyYAML": "NOT_INSTALLED",
+        "coverage": "NOT_INSTALLED",
         "numpy": "2.5.4",
         "pandas": "3.1.0",
         "python": "3.12.15",
@@ -15163,9 +15163,9 @@
       },
       "evidence": {
         "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
-        "graded_selections": 62,
+        "graded_selections": 65,
         "model_improvement_established": false,
-        "prediction_fixtures_graded": 184
+        "prediction_fixtures_graded": 205
       },
       "execution_policy": {
         "account_availability": "USER_ALLOWLIST",
@@ -15204,10 +15204,10 @@
         "totals_anchor_experiment:LEGACY_NOT_RECORDED": 21
       },
       "forecast_freshness": {
-        "age_hours": 1.7671611027777776,
+        "age_hours": 8.102955724722221,
         "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
         "status": "WITHIN_24_HOURS",
-        "upcoming_fixture_count": 73
+        "upcoming_fixture_count": 46
       },
       "quote_audit": {
         "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -15217,11 +15217,11 @@
         "costs_recorded": 6,
         "exchange_quotes": 0,
         "missing_quote_age": 0,
-        "past_kickoff_count": 2,
+        "past_kickoff_count": 4,
         "quote_age_over_24h": 0,
         "selected_quotes": 6,
         "unknown_kickoff_count": 0,
-        "upcoming_kickoff_count": 4
+        "upcoming_kickoff_count": 2
       },
       "review_queue": {
         "automatic_promotion": false,
@@ -15248,17 +15248,17 @@
             "status": "COLLECT_MORE_DATA"
           },
           {
-            "collection_days": 17,
+            "collection_days": 18,
             "key": "recency_experiment",
             "name": "recency_experiment",
             "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
             "report": "recency_experiment/report.md",
             "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-            "settled_evidence": 294,
+            "settled_evidence": 336,
             "status": "COLLECT_MORE_DATA"
           },
           {
-            "collection_days": 17,
+            "collection_days": 18,
             "key": "filter_sensitivity_experiment",
             "name": "filter_sensitivity_experiment",
             "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
@@ -15295,18 +15295,18 @@
             "name": "benchmark_forward_experiment",
             "report": "benchmark_forward_experiment/report.md",
             "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 96,
+            "settled_evidence": 113,
             "status": "COLLECT_MORE_DATA"
           },
           {
             "automatic_production_change": false,
             "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-            "gameweeks": 2,
+            "gameweeks": 3,
             "key": "totals_anchor:05c7b4af8e00fc30b8385f253389892160d83d04840f013bff7e7e6ee144ccc2",
             "name": "totals_anchor_experiment",
             "report": "totals_anchor_experiment/report.md",
             "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 12,
+            "settled_evidence": 13,
             "status": "COLLECT_MORE_DATA"
           },
           {
@@ -15318,7 +15318,7 @@
             "name": "model_reliability_experiment",
             "report": "model_reliability_experiment/report.md",
             "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 95,
+            "settled_evidence": 99,
             "status": "COLLECT_MORE_DATA"
           },
           {
@@ -15335,10 +15335,10 @@
           }
         ],
         "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-10-31T13:49:12.944977+00:00",
+        "reviewed_at_utc": "2026-10-31T20:09:21.805616+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-10-31T13:49:12.944977+00:00",
+      "reviewed_at_utc": "2026-10-31T20:09:21.805616+00:00",
       "selection_policy_groups": {
         "48h-top-ten-probability-ev-no-under35-v14": {
           "brier": 0.178674,
@@ -15405,20 +15405,20 @@
           "wins": 2
         },
         "48h-zero-tolerance-ev05-no-loss75-corners-v26": {
-          "brier": 0.039689,
-          "flat_stake_roi": 0.17,
-          "graded": 2,
+          "brier": 0.027646,
+          "flat_stake_roi": 0.118,
+          "graded": 5,
           "half_losses": 0,
           "half_wins": 0,
           "losses": 0,
           "no_loss_rate": 1.0,
-          "pending": 8,
-          "profit_per_unit_staked": 0.34,
-          "refunds": 1,
-          "settled_with_odds": 2,
+          "pending": 5,
+          "profit_per_unit_staked": 0.59,
+          "refunds": 3,
+          "settled_with_odds": 5,
           "total": 10,
-          "win_rate": 0.5,
-          "wins": 1
+          "win_rate": 0.4,
+          "wins": 2
         },
         "48h-zero-tolerance-ev1-common-no-loss75-v22": {
           "brier": 0.029218,
@@ -15510,20 +15510,20 @@
         }
       },
       "shortlist_performance": {
-        "brier": 0.149497,
-        "flat_stake_roi": 0.068065,
-        "graded": 62,
+        "brier": 0.143502,
+        "flat_stake_roi": 0.068769,
+        "graded": 65,
         "half_losses": 0,
         "half_wins": 1,
         "losses": 14,
-        "no_loss_rate": 0.774194,
-        "pending": 19,
-        "profit_per_unit_staked": 4.22,
-        "refunds": 1,
-        "settled_with_odds": 62,
+        "no_loss_rate": 0.784615,
+        "pending": 16,
+        "profit_per_unit_staked": 4.47,
+        "refunds": 3,
+        "settled_with_odds": 65,
         "total": 81,
-        "win_rate": 0.758065,
-        "wins": 47
+        "win_rate": 0.738462,
+        "wins": 48
       },
       "training": {
         "Bundesliga": {
@@ -16204,11 +16204,11 @@
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-10-31T12:01:43.453660+00:00",
+            "checked_at_utc": "2026-10-31T20:09:02.870784+00:00",
             "completed_matches": 54,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 1.7915253658333334,
+            "download_age_hours": 0.005259675555555556,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-21",
             "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -16270,7 +16270,7 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-10-31T13:49:12.944977+00:00"
+            "verified_at_utc": "2026-10-31T20:09:21.805616+00:00"
           },
           "days_since_latest_result": 9,
           "diagnostics_sha256": "158de4cb42337e1b7b9055c7792b12b0577d72bcfe2bf3803add9ee7bed9796f",
@@ -16335,20 +16335,20 @@
           "wins": 25
         },
         "2026-W44": {
-          "brier": 0.039689,
-          "flat_stake_roi": 0.17,
-          "graded": 2,
+          "brier": 0.027646,
+          "flat_stake_roi": 0.118,
+          "graded": 5,
           "half_losses": 0,
           "half_wins": 0,
           "losses": 0,
           "no_loss_rate": 1.0,
-          "pending": 9,
-          "profit_per_unit_staked": 0.34,
-          "refunds": 1,
-          "settled_with_odds": 2,
+          "pending": 6,
+          "profit_per_unit_staked": 0.59,
+          "refunds": 3,
+          "settled_with_odds": 5,
           "total": 11,
-          "win_rate": 0.5,
-          "wins": 1
+          "win_rate": 0.4,
+          "wins": 2
         }
       }
     }
