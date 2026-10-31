@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "SC Freiburg",
+    "home_team": "Augsburg",
+    "kickoff_utc": "2026-10-31T14:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "24400b6372faf9f4996cd5704d707374"
+  },
+  "observed_at_utc": "2026-10-31T14:24:31.178533+00:00",
+  "payload": {
+    "away_team": "SC Freiburg",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T14:24:12Z",
+            "outcomes": [
+              {
+                "name": "Augsburg",
+                "price": 2.7
+              },
+              {
+                "name": "SC Freiburg",
+                "price": 2.55
+              },
+              {
+                "name": "Draw",
+                "price": 3.81
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T14:24:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.88
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.03
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T14:23:47Z",
+            "outcomes": [
+              {
+                "name": "Augsburg",
+                "price": 2.63
+              },
+              {
+                "name": "SC Freiburg",
+                "price": 2.58
+              },
+              {
+                "name": "Draw",
+                "price": 3.64
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T14:23:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.21
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.67
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-31T14:30:00Z",
+    "home_team": "Augsburg",
+    "id": "24400b6372faf9f4996cd5704d707374",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.63,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3658467330578493,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.64,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2609309451737959,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.58,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.37322232176835474,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.21,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4249905039595596,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5750094960404405,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-31T14:23:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3618951430363507,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T14:24:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.81,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25441096699735355,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T14:24:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.55,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3836938899662958,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T14:24:12+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
