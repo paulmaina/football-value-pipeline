@@ -1,0 +1,1 @@
+{"entity":"4c5a7356-c785-464e-aa8a-ed14cbcd5545","kind":"team","league":"Ligue1","observed":"2026-10-31T01:52:58.967641+00:00","payload":{"conference":null,"flag_url":null,"id":"4c5a7356-c785-464e-aa8a-ed14cbcd5545","league":"Ligue 1","logo_url":null,"name":"Bordeaux","short_name":null,"sport":"football"},"query":"/v1/teams?league=ligue1&limit=200&offset=0&sport=football"}
