@@ -3430,6 +3430,41 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Alavés",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.471726881147364,
+      "home_goals": 6,
+      "over_1_5": 0.8909017941567327,
+      "over_2_5": 0.7294511200860376,
+      "p_away": 0.03937771722459517,
+      "p_draw": 0.07913974580105577,
+      "p_home": 0.8814825369743491,
+      "under_3_5": 0.4883558696080845,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.4803436152056531,
+      "home_goals": 6,
+      "over_1_5": 0.888764729211469,
+      "over_2_5": 0.7260896068558909,
+      "p_away": 0.041175825627561995,
+      "p_draw": 0.08093374915969684,
+      "p_home": 0.877890425212741,
+      "under_3_5": 0.4935607730271465,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Barcelona",
+    "kickoff_utc": "2026-10-31T20:00:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": -0.004083405656571004,
+    "snapshot_commit": "c75d4ab52706e716a3a14117d34c979609102533",
+    "source_match_id": 564732,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "AS Roma",
     "baseline": {
       "away_goals": 5,
@@ -3462,6 +3497,76 @@
     "log_loss_gain": -0.007616627972305445,
     "snapshot_commit": "c75d4ab52706e716a3a14117d34c979609102533",
     "source_match_id": 558542,
+    "week": "2026-W44"
+  },
+  {
+    "away_team": "Inter Milan",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.6019486595240496,
+      "home_goals": 3,
+      "over_1_5": 0.8117758557129559,
+      "over_2_5": 0.5863105343396875,
+      "p_away": 0.494653134231693,
+      "p_draw": 0.24602855030463197,
+      "p_home": 0.25931831546367506,
+      "under_3_5": 0.6346892291921238,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.6031154866117356,
+      "home_goals": 3,
+      "over_1_5": 0.8116060522891032,
+      "over_2_5": 0.5863400418883952,
+      "p_away": 0.49249143225615816,
+      "p_draw": 0.2462500564116256,
+      "p_home": 0.2612585113322162,
+      "under_3_5": 0.6346911044875324,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "AC Milan",
+    "kickoff_utc": "2026-10-31T19:45:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": 0.007454057700042815,
+    "snapshot_commit": "c75d4ab52706e716a3a14117d34c979609102533",
+    "source_match_id": 558548,
+    "week": "2026-W44"
+  },
+  {
+    "away_team": "Le Mans FC",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.6081233415601606,
+      "home_goals": 2,
+      "over_1_5": 0.8056215973201878,
+      "over_2_5": 0.5727921491545596,
+      "p_away": 0.3689367420623996,
+      "p_draw": 0.2650539638500311,
+      "p_home": 0.3660092940875693,
+      "under_3_5": 0.6483692729135867,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.6035296114534602,
+      "home_goals": 2,
+      "over_1_5": 0.7994048885572081,
+      "over_2_5": 0.5629321936734102,
+      "p_away": 0.3533808550306404,
+      "p_draw": 0.2678197058625109,
+      "p_home": 0.37879943910684893,
+      "under_3_5": 0.6581752579447305,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Troyes",
+    "kickoff_utc": "2026-10-31T19:45:00+00:00",
+    "league": "Ligue 1",
+    "log_loss_gain": 0.03434815383945533,
+    "snapshot_commit": "c75d4ab52706e716a3a14117d34c979609102533",
+    "source_match_id": 559643,
     "week": "2026-W44"
   },
   {

@@ -1,6 +1,6 @@
 {
   "version": "candidate-clv-v2-validated-fixture-clustered",
-  "generated_at_utc": "2026-10-31T20:09:21.805616+00:00",
+  "generated_at_utc": "2026-10-31T23:31:19.686116+00:00",
   "status": "OK",
   "candidates": 1739,
   "fixtures": 169,
@@ -13,8 +13,8 @@
     "mean": -0.03253832639731241,
     "median": -0.0278894625108006,
     "positive_share": 0.2765957446808511,
-    "standard_error": 0.0022722555948414837,
-    "t_stat": -14.319835528706152
+    "standard_error": 0.0022722555948414833,
+    "t_stat": -14.319835528706156
   },
   "overall_same_book": {
     "n": 1074,

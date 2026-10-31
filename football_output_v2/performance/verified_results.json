@@ -1049,6 +1049,36 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "DED:558850": {
+    "away_goals": 0,
+    "away_short_name": "Go Ahead",
+    "away_team": "Go Ahead Eagles",
+    "first_verified_at_utc": "2026-10-31T23:31:19Z",
+    "home_goals": 4,
+    "home_short_name": "Cambuur",
+    "home_team": "SC Cambuur-Leeuwarden",
+    "kickoff_utc": "2026-10-31T20:00:00Z",
+    "league_code": "DED",
+    "match_id": 558850,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "DED:558851": {
+    "away_goals": 0,
+    "away_short_name": "AZ",
+    "away_team": "AZ",
+    "first_verified_at_utc": "2026-10-31T23:31:19Z",
+    "home_goals": 1,
+    "home_short_name": "Ajax",
+    "home_team": "AFC Ajax",
+    "kickoff_utc": "2026-10-31T20:00:00Z",
+    "league_code": "DED",
+    "match_id": 558851,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "DED:558852": {
     "away_goals": 0,
     "away_short_name": "NEC",
@@ -1942,6 +1972,21 @@
     "kickoff_utc": "2026-10-30T20:05:00Z",
     "league_code": "FL1",
     "match_id": 559639,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "FL1:559643": {
+    "away_goals": 0,
+    "away_short_name": "Le Mans",
+    "away_team": "Le Mans FC",
+    "first_verified_at_utc": "2026-10-31T23:31:19Z",
+    "home_goals": 2,
+    "home_short_name": "Troyes",
+    "home_team": "ES Troyes AC",
+    "kickoff_utc": "2026-10-31T19:45:00Z",
+    "league_code": "FL1",
+    "match_id": 559643,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
@@ -2846,6 +2891,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564732": {
+    "away_goals": 1,
+    "away_short_name": "Alavés",
+    "away_team": "Deportivo Alavés",
+    "first_verified_at_utc": "2026-10-31T23:31:19Z",
+    "home_goals": 6,
+    "home_short_name": "Barça",
+    "home_team": "FC Barcelona",
+    "kickoff_utc": "2026-10-31T20:00:00Z",
+    "league_code": "PD",
+    "match_id": 564732,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564735": {
     "away_goals": 0,
     "away_short_name": "Celta",
@@ -3416,6 +3476,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PL:560628": {
+    "away_goals": 1,
+    "away_short_name": "Fulham",
+    "away_team": "Fulham FC",
+    "first_verified_at_utc": "2026-10-31T23:31:19Z",
+    "home_goals": 1,
+    "home_short_name": "Aston Villa",
+    "home_team": "Aston Villa FC",
+    "kickoff_utc": "2026-10-31T20:00:00Z",
+    "league_code": "PL",
+    "match_id": 560628,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560629": {
     "away_goals": 2,
     "away_short_name": "Ipswich Town",
@@ -3581,6 +3656,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PPL:567338": {
+    "away_goals": 0,
+    "away_short_name": "Estoril Praia",
+    "away_team": "GD Estoril Praia",
+    "first_verified_at_utc": "2026-10-31T23:31:19Z",
+    "home_goals": 4,
+    "home_short_name": "Porto",
+    "home_team": "FC Porto",
+    "kickoff_utc": "2026-10-31T20:30:00Z",
+    "league_code": "PPL",
+    "match_id": 567338,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PPL:567343": {
     "away_goals": 1,
     "away_short_name": "Amadora",
@@ -3637,6 +3727,21 @@
     "kickoff_utc": "2026-10-31T17:00:00Z",
     "league_code": "SA",
     "match_id": 558542,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558548": {
+    "away_goals": 1,
+    "away_short_name": "Inter",
+    "away_team": "FC Internazionale Milano",
+    "first_verified_at_utc": "2026-10-31T23:31:19Z",
+    "home_goals": 3,
+    "home_short_name": "Milan",
+    "home_team": "AC Milan",
+    "kickoff_utc": "2026-10-31T19:45:00Z",
+    "league_code": "SA",
+    "match_id": 558548,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
