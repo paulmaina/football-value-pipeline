@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Celta Vigo",
+    "home_team": "Rayo Vallecano",
+    "kickoff_utc": "2026-10-31T15:15:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "77383723574e3d39c7aba22eec6c4ce3"
+  },
+  "observed_at_utc": "2026-10-31T15:09:30.714759+00:00",
+  "payload": {
+    "away_team": "Celta Vigo",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T15:09:29Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 3.23
+              },
+              {
+                "name": "Rayo Vallecano",
+                "price": 2.46
+              },
+              {
+                "name": "Draw",
+                "price": 3.23
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T15:09:29Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.98
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 1.93
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T15:09:29Z",
+            "outcomes": [
+              {
+                "name": "Celta Vigo",
+                "price": 3.05
+              },
+              {
+                "name": "Rayo Vallecano",
+                "price": 2.44
+              },
+              {
+                "name": "Draw",
+                "price": 3.3
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T15:09:29Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.29
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.67
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-31T15:15:00Z",
+    "home_team": "Rayo Vallecano",
+    "id": "77383723574e3d39c7aba22eec6c4ce3",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.46,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.39787333075064624,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T15:09:29+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.23,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.30106333462467694,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T15:09:29+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.23,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.30106333462467694,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T15:09:29+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.44,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.396166335451981,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T15:09:29+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.3,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2895787886264429,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T15:09:29+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.05,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3142548759215762,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T15:09:29+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.29,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.41756240124911276,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-10-31T15:09:29+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5824375987508873,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-10-31T15:09:29+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
