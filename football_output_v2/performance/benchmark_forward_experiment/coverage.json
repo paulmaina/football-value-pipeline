@@ -54094,5 +54094,374 @@
     "secondary_status": "unavailable",
     "snapshot_commit": "f82ff3e276c6c573d145eb757208cb5772a45143",
     "status": "unavailable"
+  },
+  {
+    "away_team": "VfB Stuttgart",
+    "baseline": [
+      0.37330108706760917,
+      0.224765128078448,
+      0.40193378485394277
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "comparison_basis": "same_run_legacy_companion",
+    "comparison_model_version": "dc-blend50-tuned-half-life-v1",
+    "fixture_id": "9b8076d3ffa027df6f6cb3189de46706",
+    "fixture_key": "UEFA Champions League|galatasaray|vfb stuttgart|2026-11-03",
+    "forecast_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+    "home_team": "Galatasaray",
+    "kickoff_utc": "2026-11-03T17:45:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.4500513123217508,
+      0.2208353299775587,
+      0.3291133577006905
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.2965508618134677,
+      0.22869492617933726,
+      0.47475421200719486
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Pinnacle",
+    "reference_updated_at_utc": "2026-11-01T07:34:23Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "796c7451f4101f75bf0350075f95a861ab094ef5",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Sporting Lisbon",
+    "baseline": [
+      0.29913385764511524,
+      0.25797369003841325,
+      0.4428924523164715
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "comparison_basis": "same_run_legacy_companion",
+    "comparison_model_version": "dc-blend50-tuned-half-life-v1",
+    "fixture_id": "55e0f74a61f7d72defa7ea0c83532ea5",
+    "fixture_key": "UEFA Champions League|shakhtar|sporting cp|2026-11-03",
+    "forecast_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+    "home_team": "Shakhtar Donetsk",
+    "kickoff_utc": "2026-11-03T17:45:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.25913179916070184,
+      0.24158975916210698,
+      0.4992784416771911
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.33913591612952865,
+      0.27435762091471944,
+      0.3865064629557518
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Pinnacle",
+    "reference_updated_at_utc": "2026-11-01T07:34:24Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "796c7451f4101f75bf0350075f95a861ab094ef5",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Bayern Munich",
+    "baseline": [
+      0.35342702172297225,
+      0.22088428165000842,
+      0.42568869662701936
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "comparison_basis": "same_run_legacy_companion",
+    "comparison_model_version": "dc-blend50-tuned-half-life-v1",
+    "fixture_id": "61b42fd619617a7a2a3770c2444e8a40",
+    "fixture_key": "UEFA Champions League|ath madrid|bayern munich|2026-11-03",
+    "forecast_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+    "home_team": "Atlético Madrid",
+    "kickoff_utc": "2026-11-03T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.3428594508216759,
+      0.2420194986327502,
+      0.4151210505455739
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.36399459262426853,
+      0.19974906466726672,
+      0.4362563427084648
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Pinnacle",
+    "reference_updated_at_utc": "2026-11-01T07:34:23Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "796c7451f4101f75bf0350075f95a861ab094ef5",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Aston Villa",
+    "baseline": [
+      0.5818935523006178,
+      0.16281240789926502,
+      0.2552940398001172
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "comparison_basis": "same_run_legacy_companion",
+    "comparison_model_version": "dc-blend50-tuned-half-life-v1",
+    "fixture_id": "bd680c6ad693dae859030f86e1be2769",
+    "fixture_key": "UEFA Champions League|barcelona|aston villa|2026-11-03",
+    "forecast_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+    "home_team": "Barcelona",
+    "kickoff_utc": "2026-11-03T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.7828501867392443,
+      0.1233670678894942,
+      0.09378274537126144
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.38093691786199113,
+      0.20225774790903586,
+      0.416805334228973
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Pinnacle",
+    "reference_updated_at_utc": "2026-11-01T07:34:23Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "796c7451f4101f75bf0350075f95a861ab094ef5",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Lille",
+    "baseline": [
+      0.6244851348830492,
+      0.18151590151787625,
+      0.19399896359907468
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "comparison_basis": "same_run_legacy_companion",
+    "comparison_model_version": "dc-blend50-tuned-half-life-v1",
+    "fixture_id": "1a5a84045050d0d7baf1301909d3b465",
+    "fixture_key": "UEFA Champions League|bod glimt|lille|2026-11-03",
+    "forecast_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+    "home_team": "Bodø/Glimt",
+    "kickoff_utc": "2026-11-03T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.529359951006439,
+      0.22901973212890078,
+      0.2416203168646602
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.7196103187596593,
+      0.1340120709068516,
+      0.14637761033348914
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Pinnacle",
+    "reference_updated_at_utc": "2026-11-01T07:34:23Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "796c7451f4101f75bf0350075f95a861ab094ef5",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Inter Milan",
+    "baseline": [
+      0.2973813984252847,
+      0.2280087433029311,
+      0.4746098582717842
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "comparison_basis": "same_run_legacy_companion",
+    "comparison_model_version": "dc-blend50-tuned-half-life-v1",
+    "fixture_id": "f6f3cf01c2b20b7f746b5a06097a0569",
+    "fixture_key": "UEFA Champions League|feyenoord|inter|2026-11-03",
+    "forecast_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+    "home_team": "Feyenoord",
+    "kickoff_utc": "2026-11-03T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.23937529901741275,
+      0.21325652755098137,
+      0.5473681734316058
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.3553874978331567,
+      0.24276095905488076,
+      0.40185154311196236
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Pinnacle",
+    "reference_updated_at_utc": "2026-11-01T07:34:24Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "796c7451f4101f75bf0350075f95a861ab094ef5",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "ŠK Slovan Bratislava",
+    "baseline": [
+      0.8061375136031671,
+      0.11095344486135815,
+      0.08290904153547467
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "comparison_basis": "same_run_legacy_companion",
+    "comparison_model_version": "dc-blend50-tuned-half-life-v1",
+    "fixture_id": "adf608a0e9be02eb1d8b0a6f464a12b1",
+    "fixture_key": "UEFA Champions League|lask|sk slovan bratislava|2026-11-03",
+    "forecast_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+    "home_team": "LASK",
+    "kickoff_utc": "2026-11-03T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.6796022957772053,
+      0.17910329796586943,
+      0.14129440625692527
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.9326727314291291,
+      0.04280359175684685,
+      0.024523676814024117
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Pinnacle",
+    "reference_updated_at_utc": "2026-11-01T07:34:23Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "796c7451f4101f75bf0350075f95a861ab094ef5",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "AS Roma",
+    "baseline": [
+      0.49755636782021423,
+      0.211232975595317,
+      0.29121065658446876
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "comparison_basis": "same_run_legacy_companion",
+    "comparison_model_version": "dc-blend50-tuned-half-life-v1",
+    "fixture_id": "bc0b6614c9714816038d5a0ff8963144",
+    "fixture_key": "UEFA Champions League|man united|as roma|2026-11-03",
+    "forecast_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+    "home_team": "Manchester United",
+    "kickoff_utc": "2026-11-03T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.4220961766000111,
+      0.22912466756558872,
+      0.3487791558344002
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.5730165590404174,
+      0.19334128362504532,
+      0.23364215733453728
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Pinnacle",
+    "reference_updated_at_utc": "2026-11-01T07:34:23Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "796c7451f4101f75bf0350075f95a861ab094ef5",
+    "status": "unavailable"
+  },
+  {
+    "away_team": "Paris Saint Germain",
+    "baseline": [
+      0.13204785741072794,
+      0.14173758115039056,
+      0.7262145614388816
+    ],
+    "baseline_goals": null,
+    "candidate": null,
+    "candidate_goals": null,
+    "comparison_basis": "same_run_legacy_companion",
+    "comparison_model_version": "dc-blend50-tuned-half-life-v1",
+    "fixture_id": "a341241606cb5b1b59e425d00be64883",
+    "fixture_key": "UEFA Champions League|villarreal|paris sg|2026-11-03",
+    "forecast_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+    "home_team": "Villarreal",
+    "kickoff_utc": "2026-11-03T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "market_reference": [
+      0.20002407769475153,
+      0.20046145740172905,
+      0.5995144649035195
+    ],
+    "production_market_weight": 0.5,
+    "production_matrix": null,
+    "raw": [
+      0.06407163712670429,
+      0.08301370489905208,
+      0.8529146579742437
+    ],
+    "reasons": [
+      "league_outside_frozen_trial"
+    ],
+    "reference_source": "The Odds API / Pinnacle",
+    "reference_updated_at_utc": "2026-11-01T07:34:24Z",
+    "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
+    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "secondary_status": "unavailable",
+    "snapshot_commit": "796c7451f4101f75bf0350075f95a861ab094ef5",
+    "status": "unavailable"
   }
 ]

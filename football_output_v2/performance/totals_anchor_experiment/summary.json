@@ -1545,17 +1545,17 @@
   },
   "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
   "excluded_forecast_reasons": {
-    "incoherent_totals_prices": 200,
-    "missing_pinnacle_reference": 200,
-    "outside_registered_leagues": 82,
-    "reference_fixture_mismatch": 200,
-    "reference_stale_or_future": 212,
+    "incoherent_totals_prices": 209,
+    "missing_pinnacle_reference": 209,
+    "outside_registered_leagues": 91,
+    "reference_fixture_mismatch": 209,
+    "reference_stale_or_future": 221,
     "stale_or_unsynchronized_production_hda": 67,
     "unreliable_model_identity": 16
   },
   "gameweeks": 3,
   "note": "Separate proportional intensity scaling to fresh Pinnacle O/U 2.5, fitted rho and production HDA preserved. Primary Under 3.5 log loss; other markets are guardrails. No bets, automatic promotion or backfill.",
-  "observed_fixtures": 239,
+  "observed_fixtures": 248,
   "paired_fixtures": 13,
   "primary_log_loss_gain_week_block95": [
     0.002647936242290927,
@@ -1571,7 +1571,7 @@
     "minimum_paired_fixtures": 300,
     "minimum_verified_coverage": 0.8
   },
-  "reviewed_at_utc": "2026-11-01T06:32:17.452669+00:00",
+  "reviewed_at_utc": "2026-11-01T07:46:45.684129+00:00",
   "status": "COLLECT_MORE_DATA",
   "verified_coverage": 0.1092436974789916,
   "version": "pinnacle-totals-anchor-v1"
