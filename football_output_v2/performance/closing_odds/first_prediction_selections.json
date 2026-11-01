@@ -6442,13 +6442,25 @@
     "calibration_penalty": "0.017964238189138126",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "bookmaker": "pinnacle",
+        "decimal_odds": 1.28,
+        "devig_method": "split_settlement_fair_probability_unavailable",
+        "fair_close_ev": null,
+        "fair_probability": null,
+        "observation_sha256": "e60896aab7e2d7aa18c39b79dab6d12dfd6fd30b909042ee76128c570c6c9de8",
+        "observed_at_utc": "2026-11-01T15:54:19.965624+00:00",
+        "offered_price_clv": -0.046875,
+        "official_close_verified": false,
+        "seconds_before_kickoff": 340.034376,
+        "selection": "Asian Handicap Home +2.00",
+        "status": "OBSERVED_NEAR_CLOSE",
+        "updated_at_utc": "2026-11-01T15:54:15+00:00"
       }
     },
     "conservative_estimated_ev": "0.008186194051019086",
