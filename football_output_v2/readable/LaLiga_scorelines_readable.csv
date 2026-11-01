@@ -1,181 +1,101 @@
 ﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-10-31,La Liga,Levante,Atlético Madrid,1,1-2,11.04%,0.11037770203588455
-2026-10-31,La Liga,Levante,Atlético Madrid,2,1-1,9.38%,0.0938475862913382
-2026-10-31,La Liga,Levante,Atlético Madrid,3,0-2,8.64%,0.08642205930094624
-2026-10-31,La Liga,Levante,Atlético Madrid,4,0-1,8.52%,0.08523554849163953
-2026-10-31,La Liga,Levante,Atlético Madrid,5,1-3,7.21%,0.07208455511150746
-2026-10-31,La Liga,Levante,Atlético Madrid,6,2-2,5.72%,0.05719319076733948
-2026-10-31,La Liga,Levante,Atlético Madrid,7,0-3,5.64%,0.05643980243857322
-2026-10-31,La Liga,Levante,Atlético Madrid,8,2-1,4.71%,0.047082755439796405
-2026-10-31,La Liga,Levante,Atlético Madrid,9,2-3,4.60%,0.046032966639804176
-2026-10-31,La Liga,Levante,Atlético Madrid,10,0-0,3.90%,0.038958954751876385
-2026-10-31,La Liga,Levante,Atlético Madrid,11,1-0,3.57%,0.03567804949316333
-2026-10-31,La Liga,Levante,Atlético Madrid,12,1-4,3.53%,0.03530728799690884
-2026-10-31,La Liga,Levante,Atlético Madrid,13,0-4,2.76%,0.027644428908589112
-2026-10-31,La Liga,Levante,Atlético Madrid,14,2-0,2.40%,0.024031437076098647
-2026-10-31,La Liga,Levante,Atlético Madrid,15,2-4,2.25%,0.02254712133534694
-2026-10-31,La Liga,Levante,Atlético Madrid,16,3-1,2.00%,0.02004459815390896
-2026-10-31,La Liga,Levante,Atlético Madrid,17,3-2,1.96%,0.019635840124353956
-2026-10-31,La Liga,Levante,Atlético Madrid,18,3-3,1.59%,0.01590159482127385
-2026-10-31,La Liga,Levante,Atlético Madrid,19,1-5,1.38%,0.013834914663961431
-2026-10-31,La Liga,Levante,Atlético Madrid,20,0-5,1.08%,0.010832276750277823
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,1,1-1,14.19%,0.14194475274809848
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,2,1-0,10.56%,0.10563880128516472
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,3,0-0,9.64%,0.0964130078222791
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,4,0-1,9.42%,0.09424999889433212
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,5,2-1,8.13%,0.08129631338367078
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,6,1-2,7.27%,0.0726877098518327
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,7,2-0,6.88%,0.06875163023077471
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,8,0-2,5.76%,0.057649606945149805
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,9,2-2,5.15%,0.05154115914480348
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,10,3-1,3.42%,0.03416758096823465
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,11,3-0,2.89%,0.028895244997419037
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,12,1-3,2.87%,0.028650195005901203
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,13,0-3,2.27%,0.022722857610438997
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,14,3-2,2.02%,0.02020096367629252
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,15,2-3,1.81%,0.018061849613031748
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,16,4-1,1.08%,0.01077007868466911
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,17,4-0,0.91%,0.009108167842620132
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,18,3-3,0.85%,0.008538157434064072
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,19,1-4,0.85%,0.008469454556513352
-2026-10-31,La Liga,Rayo Vallecano,Celta Vigo,20,0-4,0.67%,0.006717239093349865
-2026-10-31,La Liga,Real Betis,Málaga,1,2-0,11.30%,0.11304612656724684
-2026-10-31,La Liga,Real Betis,Málaga,2,3-0,10.39%,0.1038546176121443
-2026-10-31,La Liga,Real Betis,Málaga,3,1-0,8.05%,0.08051594216345788
-2026-10-31,La Liga,Real Betis,Málaga,4,2-1,7.90%,0.07895442151410098
-2026-10-31,La Liga,Real Betis,Málaga,5,1-1,7.46%,0.07462040465547898
-2026-10-31,La Liga,Real Betis,Málaga,6,3-1,7.25%,0.07253482719071565
-2026-10-31,La Liga,Real Betis,Málaga,7,4-0,7.16%,0.0715578361255173
-2026-10-31,La Liga,Real Betis,Málaga,8,4-1,5.00%,0.04997789599389946
-2026-10-31,La Liga,Real Betis,Málaga,9,0-0,3.97%,0.03969102681430251
-2026-10-31,La Liga,Real Betis,Málaga,10,5-0,3.94%,0.0394437842337604
-2026-10-31,La Liga,Real Betis,Málaga,11,2-2,3.50%,0.0349826013859317
-2026-10-31,La Liga,Real Betis,Málaga,12,1-2,2.78%,0.027843072273517278
-2026-10-31,La Liga,Real Betis,Málaga,13,5-1,2.75%,0.027548588006250832
-2026-10-31,La Liga,Real Betis,Málaga,14,0-1,2.68%,0.02681648226902784
-2026-10-31,La Liga,Real Betis,Málaga,15,3-2,2.53%,0.025330126269569698
-2026-10-31,La Liga,Real Betis,Málaga,16,6-0,1.81%,0.018118352451184188
-2026-10-31,La Liga,Real Betis,Málaga,17,4-2,1.75%,0.01745294591912854
-2026-10-31,La Liga,Real Betis,Málaga,18,6-1,1.27%,0.012654339250809069
-2026-10-31,La Liga,Real Betis,Málaga,19,0-2,1.01%,0.010102428261809496
-2026-10-31,La Liga,Real Betis,Málaga,20,5-2,0.96%,0.009620333290543848
-2026-10-31,La Liga,Barcelona,Alavés,1,2-0,11.82%,0.11817952532463187
-2026-10-31,La Liga,Barcelona,Alavés,2,3-0,11.54%,0.11539423555014143
-2026-10-31,La Liga,Barcelona,Alavés,3,2-1,8.57%,0.08571030007210938
-2026-10-31,La Liga,Barcelona,Alavés,4,4-0,8.45%,0.08450594272753943
-2026-10-31,La Liga,Barcelona,Alavés,5,3-1,8.37%,0.08369025453796475
-2026-10-31,La Liga,Barcelona,Alavés,6,1-0,7.91%,0.07913744469065348
-2026-10-31,La Liga,Barcelona,Alavés,7,4-1,6.13%,0.061288363522849984
-2026-10-31,La Liga,Barcelona,Alavés,8,5-0,4.95%,0.04950856910468212
-2026-10-31,La Liga,Barcelona,Alavés,9,1-1,4.06%,0.04064416276523681
-2026-10-31,La Liga,Barcelona,Alavés,10,5-1,3.59%,0.035906340818739335
-2026-10-31,La Liga,Barcelona,Alavés,11,3-2,3.03%,0.030348390763357953
-2026-10-31,La Liga,Barcelona,Alavés,12,6-0,2.42%,0.024170868301098988
-2026-10-31,La Liga,Barcelona,Alavés,13,4-2,2.22%,0.022224848230022104
-2026-10-31,La Liga,Barcelona,Alavés,14,2-2,2.10%,0.02102976581573035
-2026-10-31,La Liga,Barcelona,Alavés,15,0-0,1.97%,0.019686602176135572
-2026-10-31,La Liga,Barcelona,Alavés,16,6-1,1.75%,0.017530044814444968
-2026-10-31,La Liga,Barcelona,Alavés,17,1-2,1.38%,0.01382345972703717
-2026-10-31,La Liga,Barcelona,Alavés,18,5-2,1.30%,0.013020627886310065
-2026-10-31,La Liga,Barcelona,Alavés,19,0-1,1.20%,0.012003391639520728
-2026-10-31,La Liga,Barcelona,Alavés,20,7-0,1.01%,0.010114800932347002
-2026-11-01,La Liga,Getafe,Sevilla,1,1-1,14.20%,0.14204008283981573
-2026-11-01,La Liga,Getafe,Sevilla,2,0-1,14.09%,0.14093686427380003
-2026-11-01,La Liga,Getafe,Sevilla,3,0-0,13.80%,0.13795382282108218
-2026-11-01,La Liga,Getafe,Sevilla,4,1-0,11.62%,0.11615225839203903
-2026-11-01,La Liga,Getafe,Sevilla,5,1-2,7.47%,0.07473497419043365
-2026-11-01,La Liga,Getafe,Sevilla,6,0-2,6.97%,0.06973462086179348
-2026-11-01,La Liga,Getafe,Sevilla,7,2-0,6.39%,0.06386762312758443
-2026-11-01,La Liga,Getafe,Sevilla,8,2-1,6.14%,0.06140779131188879
-2026-11-01,La Liga,Getafe,Sevilla,9,2-2,3.56%,0.035646052088605266
-2026-11-01,La Liga,Getafe,Sevilla,10,1-3,2.40%,0.02395219713342477
-2026-11-01,La Liga,Getafe,Sevilla,11,3-0,2.28%,0.02281576022094881
-2026-11-01,La Liga,Getafe,Sevilla,12,0-3,2.23%,0.022349608118552307
-2026-11-01,La Liga,Getafe,Sevilla,13,3-1,2.19%,0.021937021822016078
-2026-11-01,La Liga,Getafe,Sevilla,14,2-3,1.28%,0.012834850268408277
-2026-11-01,La Liga,Getafe,Sevilla,15,3-2,1.05%,0.010546063812016983
-2026-11-01,La Liga,Getafe,Sevilla,16,4-0,0.61%,0.0061129437221259355
-2026-11-01,La Liga,Getafe,Sevilla,17,4-1,0.59%,0.00587750653628916
-2026-11-01,La Liga,Getafe,Sevilla,18,1-4,0.58%,0.005757422348771062
-2026-11-01,La Liga,Getafe,Sevilla,19,0-4,0.54%,0.005372205837787778
-2026-11-01,La Liga,Getafe,Sevilla,20,3-3,0.41%,0.004081192651527393
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,1,1-3,7.85%,0.07850257380231636
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,2,1-4,6.88%,0.06883173295841516
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,3,1-2,6.71%,0.06714912398011946
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,4,0-3,6.58%,0.0658345657046201
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,5,0-4,5.77%,0.05772431433171607
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,6,0-2,5.63%,0.05631322898799549
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,7,1-5,4.83%,0.04828180511878993
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,8,2-3,4.68%,0.04680409164722147
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,9,2-4,4.10%,0.04103823074304959
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,10,0-5,4.05%,0.0404905408507364
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,11,2-2,3.87%,0.0386629028205667
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,12,1-1,3.80%,0.03795922921918819
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,13,0-1,3.11%,0.031097996890044874
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,14,2-5,2.88%,0.028786139386508265
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,15,1-6,2.82%,0.028222601762973254
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,16,0-6,2.37%,0.02366830334504225
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,17,2-1,2.22%,0.022184885296474752
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,18,3-3,1.80%,0.017965804463283604
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,19,2-6,1.68%,0.01682662332528845
-2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,20,3-4,1.63%,0.016311627502170207
-2026-11-01,La Liga,Elche CF,Valencia,1,1-1,13.21%,0.13206550365723665
-2026-11-01,La Liga,Elche CF,Valencia,2,1-0,9.98%,0.09981719941958521
-2026-11-01,La Liga,Elche CF,Valencia,3,0-1,8.57%,0.08566028273911869
-2026-11-01,La Liga,Elche CF,Valencia,4,2-1,8.42%,0.08415432333374029
-2026-11-01,La Liga,Elche CF,Valencia,5,0-0,8.20%,0.08196402493656746
-2026-11-01,La Liga,Elche CF,Valencia,6,2-0,7.77%,0.07771472867469778
-2026-11-01,La Liga,Elche CF,Valencia,7,1-2,7.31%,0.0730752429396062
-2026-11-01,La Liga,Elche CF,Valencia,8,2-2,5.27%,0.052678029888463665
-2026-11-01,La Liga,Elche CF,Valencia,9,0-2,4.83%,0.0483154006293515
-2026-11-01,La Liga,Elche CF,Valencia,10,3-1,4.24%,0.04242675932123233
-2026-11-01,La Liga,Elche CF,Valencia,11,3-0,3.92%,0.039180210339524214
-2026-11-01,La Liga,Elche CF,Valencia,12,1-3,2.64%,0.02637680024067053
-2026-11-01,La Liga,Elche CF,Valencia,13,3-2,2.30%,0.022971161855733332
-2026-11-01,La Liga,Elche CF,Valencia,14,2-3,1.99%,0.019946963705662783
-2026-11-01,La Liga,Elche CF,Valencia,15,0-3,1.74%,0.017439636458022018
-2026-11-01,La Liga,Elche CF,Valencia,16,4-1,1.60%,0.016042223101508338
-2026-11-01,La Liga,Elche CF,Valencia,17,4-0,1.48%,0.014814652014115108
-2026-11-01,La Liga,Elche CF,Valencia,18,3-3,0.96%,0.009586162682021882
-2026-11-01,La Liga,Elche CF,Valencia,19,4-2,0.87%,0.008685756566990815
-2026-11-01,La Liga,Elche CF,Valencia,20,1-4,0.71%,0.007140608395013155
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,1,1-1,12.04%,0.12037788383703836
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,2,2-1,8.77%,0.08770534250770001
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,3,1-0,7.74%,0.07741349096678922
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,4,2-0,7.21%,0.0721256868701544
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,5,1-2,7.13%,0.07127379182337648
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,6,2-2,6.43%,0.06429021624695357
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,7,0-1,6.19%,0.06189846273909304
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,8,0-0,5.66%,0.05658507187296352
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,9,3-1,5.27%,0.0527211089874162
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,10,3-0,4.34%,0.04335592438898259
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,11,0-2,3.95%,0.0395230199297957
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,12,3-2,3.21%,0.03205461966311269
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,13,1-3,2.89%,0.02888981071309306
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,14,2-3,2.60%,0.02604920320156808
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,15,4-1,2.38%,0.02376863757717202
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,16,4-0,1.95%,0.019546463900654468
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,17,0-3,1.60%,0.016020090069167735
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,18,3-3,1.57%,0.01566456022656726
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,19,4-2,1.45%,0.01445141523158155
-2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,20,1-4,0.88%,0.008782553253655494
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,1,1-1,13.46%,0.13459218078670018
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,2,1-0,11.54%,0.11537703744448222
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,3,0-0,9.31%,0.09305076078490343
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,4,2-0,8.86%,0.08864738968351742
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,5,2-1,8.67%,0.08668795675243442
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,6,0-1,8.30%,0.08303947756698045
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,7,1-2,6.33%,0.06328462954266006
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,8,2-2,4.80%,0.047981087529006095
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,9,3-0,4.42%,0.044230290039190975
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,10,3-1,4.33%,0.0432526381628802
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,11,0-2,4.23%,0.04227884865834687
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,12,3-2,2.11%,0.02114829799207055
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,13,1-3,2.06%,0.020628602257677785
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,14,4-0,1.66%,0.016551405776881287
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,15,4-1,1.62%,0.01618555891268458
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,16,2-3,1.54%,0.015438848186352962
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,17,0-3,1.38%,0.013781443601525301
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,18,4-2,0.79%,0.007913899304006598
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,19,3-3,0.78%,0.007803608675384965
-2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,20,1-4,0.50%,0.005043158593730256
+2026-11-01,La Liga,Getafe,Sevilla,1,1-1,14.41%,0.14414262208815118
+2026-11-01,La Liga,Getafe,Sevilla,2,0-1,13.99%,0.13991720663730503
+2026-11-01,La Liga,Getafe,Sevilla,3,0-0,13.28%,0.13277372803163578
+2026-11-01,La Liga,Getafe,Sevilla,4,1-0,10.82%,0.10822212115495312
+2026-11-01,La Liga,Getafe,Sevilla,5,1-2,7.83%,0.07834169949069024
+2026-11-01,La Liga,Getafe,Sevilla,6,0-2,7.10%,0.07099352371814413
+2026-11-01,La Liga,Getafe,Sevilla,7,2-0,6.13%,0.0612665792559226
+2026-11-01,La Liga,Getafe,Sevilla,8,2-1,6.04%,0.06040707686311972
+2026-11-01,La Liga,Getafe,Sevilla,9,2-2,3.82%,0.03822384804463462
+2026-11-01,La Liga,Getafe,Sevilla,10,1-3,2.57%,0.02574755067768901
+2026-11-01,La Liga,Getafe,Sevilla,11,0-3,2.33%,0.023332521015041973
+2026-11-01,La Liga,Getafe,Sevilla,12,3-0,2.25%,0.02253598962043236
+2026-11-01,La Liga,Getafe,Sevilla,13,3-1,2.22%,0.022219834593692072
+2026-11-01,La Liga,Getafe,Sevilla,14,2-3,1.42%,0.014206273841407517
+2026-11-01,La Liga,Getafe,Sevilla,15,3-2,1.10%,0.010954057436275184
+2026-11-01,La Liga,Getafe,Sevilla,16,1-4,0.63%,0.006346585249713763
+2026-11-01,La Liga,Getafe,Sevilla,17,4-0,0.62%,0.006217143600233802
+2026-11-01,La Liga,Getafe,Sevilla,18,4-1,0.61%,0.00612992394694651
+2026-11-01,La Liga,Getafe,Sevilla,19,0-4,0.58%,0.005751297883298038
+2026-11-01,La Liga,Getafe,Sevilla,20,3-3,0.46%,0.004620940113414811
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,1,1-3,7.94%,0.07940921875651594
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,2,1-4,6.91%,0.06914196536433856
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,3,1-2,6.84%,0.06840083287651848
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,4,0-3,6.69%,0.06691424069232343
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,5,0-4,5.83%,0.058262531539513544
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,6,0-2,5.76%,0.057638015665267835
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,7,1-5,4.82%,0.0481617771770472
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,8,2-3,4.71%,0.04711869968393456
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,9,2-4,4.10%,0.04102646459158055
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,10,0-5,4.06%,0.040583559448890125
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,11,2-2,3.83%,0.03831231574977882
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,12,1-1,3.80%,0.038032222198508416
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,13,0-1,3.21%,0.03208752846410421
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,14,2-5,2.86%,0.028577542388473015
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,15,1-6,2.80%,0.027956451250081466
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,16,0-6,2.36%,0.023557525651864666
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,17,2-1,2.14%,0.021434148975793755
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,18,3-3,1.76%,0.0175945859535445
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,19,2-6,1.66%,0.016588396804660118
+2026-11-01,La Liga,Real Racing Club de Santander,Real Madrid,20,3-4,1.62%,0.016229128846375382
+2026-11-01,La Liga,Elche CF,Valencia,1,1-1,13.39%,0.13385275251775847
+2026-11-01,La Liga,Elche CF,Valencia,2,1-0,9.52%,0.09518115945269447
+2026-11-01,La Liga,Elche CF,Valencia,3,2-1,8.43%,0.0842579259330122
+2026-11-01,La Liga,Elche CF,Valencia,4,0-1,8.10%,0.08099589696160724
+2026-11-01,La Liga,Elche CF,Valencia,5,0-0,7.92%,0.07922639947719616
+2026-11-01,La Liga,Elche CF,Valencia,6,2-0,7.61%,0.07609924489838175
+2026-11-01,La Liga,Elche CF,Valencia,7,1-2,7.26%,0.072558443854617
+2026-11-01,La Liga,Elche CF,Valencia,8,2-2,5.61%,0.056113139105720834
+2026-11-01,La Liga,Elche CF,Valencia,9,0-2,4.67%,0.04670728921983751
+2026-11-01,La Liga,Elche CF,Valencia,10,3-1,4.36%,0.04363076292254876
+2026-11-01,La Liga,Elche CF,Valencia,11,3-0,3.94%,0.03940600336383777
+2026-11-01,La Liga,Elche CF,Valencia,12,1-3,2.68%,0.026779170613675612
+2026-11-01,La Liga,Elche CF,Valencia,13,3-2,2.42%,0.024154231724887364
+2026-11-01,La Liga,Elche CF,Valencia,14,2-3,2.08%,0.02080033951767357
+2026-11-01,La Liga,Elche CF,Valencia,15,0-3,1.72%,0.017238275801869082
+2026-11-01,La Liga,Elche CF,Valencia,16,4-1,1.69%,0.016944786963280292
+2026-11-01,La Liga,Elche CF,Valencia,17,4-0,1.53%,0.015304026043730963
+2026-11-01,La Liga,Elche CF,Valencia,18,3-3,1.07%,0.010723974429404478
+2026-11-01,La Liga,Elche CF,Valencia,19,4-2,0.94%,0.00938072780360205
+2026-11-01,La Liga,Elche CF,Valencia,20,1-4,0.74%,0.007412548498764928
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,1,1-1,12.45%,0.12448629513192988
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,2,2-1,9.14%,0.09138521614272634
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,3,1-0,8.97%,0.08970830142779394
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,4,2-0,7.93%,0.07925975216127455
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,5,1-2,6.64%,0.06635459323308429
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,6,0-0,6.45%,0.0645132369459845
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,7,0-1,6.42%,0.06416661623602109
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,8,2-2,6.00%,0.05998122971920881
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,9,3-1,5.22%,0.052230205479361455
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,10,3-0,4.53%,0.045300031190615396
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,11,0-2,3.87%,0.03869937449039388
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,12,3-2,3.01%,0.03011029234105103
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,13,1-3,2.55%,0.0255019253333422
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,14,4-1,2.24%,0.022388695455037088
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,15,2-3,2.19%,0.02186301334889078
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,16,4-0,1.94%,0.019418047337208533
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,17,0-3,1.49%,0.014873251580856674
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,18,3-3,1.32%,0.01317537954936026
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,19,4-2,1.29%,0.012906902415926869
+2026-11-01,La Liga,Athletic Bilbao,Real Sociedad,20,5-1,0.77%,0.007677606160312228
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,1,1-1,13.37%,0.13370580420664444
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,2,1-0,12.13%,0.121318655780404
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,3,0-0,9.76%,0.0976344320762393
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,4,2-0,9.08%,0.09077250462421872
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,5,0-1,8.69%,0.08685084050549303
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,6,2-1,8.60%,0.08596290690403881
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,7,1-2,6.24%,0.062384185065005454
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,8,2-2,4.51%,0.0450557818992899
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,9,3-0,4.42%,0.04417463969714784
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,10,0-2,4.27%,0.042730163476254635
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,11,3-1,4.18%,0.04183403835253665
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,12,3-2,1.98%,0.01980872709862196
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,13,1-3,1.97%,0.019692915878833872
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,14,4-0,1.61%,0.016123264421737
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,15,4-1,1.53%,0.015268970314444578
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,16,2-3,1.44%,0.014375401457771806
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,17,0-3,1.35%,0.013488699322590541
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,18,4-2,0.72%,0.007229970568152254
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,19,3-3,0.69%,0.0069215721059345476
+2026-11-02,La Liga,Deportivo La Coruña,CA Osasuna,20,5-0,0.47%,0.00470785332752873

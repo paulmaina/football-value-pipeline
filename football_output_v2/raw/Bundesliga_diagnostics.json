@@ -1,6 +1,6 @@
 {
   "league": "Bundesliga",
-  "training_matches": 1596,
+  "training_matches": 1602,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,13 +10,13 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "a6e137f395277b07dd8371ce84c711b7685e06eff8e056fddaa069df2df72c97",
-  "training_as_of_utc": "2026-10-31T11:37:21.613878+00:00",
+  "training_sha256": "42e1c02dabf9ac4d449e156a41a109c7298d50521993b971575ec7e2ca7daddf",
+  "training_as_of_utc": "2026-11-01T07:11:06.583192+00:00",
   "training_data_provenance": {
-    "bbs_confirmed_rows": 64,
-    "bbs_added_results": 1,
+    "bbs_confirmed_rows": 70,
+    "bbs_added_results": 7,
     "bbs_result_conflicts": 0,
-    "bbs_rows_with_statistics": 64,
+    "bbs_rows_with_statistics": 70,
     "bbs_statistics_used_as_predictor_features": false,
     "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.",
     "api_football": {
@@ -35,10 +35,10 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-10-31T11:37:21.613878+00:00",
-    "observations": 344,
-    "observations_sha256": "57e685e69923ba72d50eca36e40633d2241d396e49c1437718711289d57a0011",
-    "eligible_training_matches": 69,
+    "cutoff_utc": "2026-11-01T07:11:06.583192+00:00",
+    "observations": 363,
+    "observations_sha256": "a7d1b621253d8d4a3fc289448d3bcba403d71404007d411b27fd14028a609736",
+    "eligible_training_matches": 75,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -63,15 +63,15 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 105,
+    "usable_current_matches": 111,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
-    "strict_eligible_training_matches": 15,
-    "retrospective_eligible_training_matches": 69,
+    "strict_eligible_training_matches": 21,
+    "retrospective_eligible_training_matches": 75,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
-    "retrospective_inputs_sha256": "a922e60a3d306786e67e6880adc79d7adde0d3e5a2fc5ed54fc2297e4686ce31",
+    "retrospective_inputs_sha256": "878a9c1d69aa8c24cb7e65f8d509fa0b0aab63a7bace976f1a6ec9057fe87afc",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -84,7 +84,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "VALIDATED",
-    "cutoff_date": "2026-10-31",
+    "cutoff_date": "2026-11-01",
     "selected_weight": 0.2,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -106,30 +106,30 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1592,
-    "tune_start_date": "2025-11-01",
-    "audit_start_date": "2026-05-02",
-    "training_shot_matches": 1296,
+    "tune_start_date": "2025-11-02",
+    "audit_start_date": "2026-05-03",
+    "training_shot_matches": 1302,
     "tuning_matches": 206,
-    "audit_matches": 84,
-    "audit_matchdays": 27,
+    "audit_matches": 78,
+    "audit_matchdays": 26,
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.7195544279347862,
-    "audit_candidate_poisson_score": 0.7082647731827235,
-    "audit_gain": 0.011289654752062672,
-    "audit_gain_lower95": 0.002656610885075427,
+    "audit_baseline_poisson_score": 0.7307409848365726,
+    "audit_candidate_poisson_score": 0.7195456173296279,
+    "audit_gain": 0.01119536750694472,
+    "audit_gain_lower95": 0.0018640767408074723,
     "audit_baseline_briers": [
-      0.6263962287424126,
-      0.153684165257626,
-      0.29449877252531215,
-      0.2450227059534969
+      0.597547620009099,
+      0.16610067079309407,
+      0.2894101452518172,
+      0.25563709869937135
     ],
     "audit_candidate_briers": [
-      0.6204096743402818,
-      0.15115592184763776,
-      0.2912163681860282,
-      0.24278228320516007
+      0.593722815607305,
+      0.1632385342160329,
+      0.28689523973175785,
+      0.2537938886319943
     ],
     "audit_brier_order": [
       "1x2",
@@ -139,12 +139,12 @@
     ],
     "failed_gates": []
   },
-  "training_end": "2026-10-30",
+  "training_end": "2026-10-31",
   "fit_success": true,
-  "objective": 1576.5842268565825,
-  "base": 0.22666385008958703,
-  "home_adv": 0.23047396778621212,
-  "rho": -0.07333306654784989,
+  "objective": 1591.5652652979509,
+  "base": 0.21816908742446675,
+  "home_adv": 0.22500684286068792,
+  "rho": -0.07529990110794807,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -153,15 +153,15 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 27,
-    "matches": 1596,
+    "matches": 1602,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-10-30"
+    "last_match_date": "2026-10-31"
   },
   "training_data_health": {
-    "training_end": "2026-10-30",
+    "training_end": "2026-10-31",
     "days_since_latest_result": 1,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
@@ -172,148 +172,16 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 8,
+  "live_odds_matched": 2,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 17,
+  "additional_event_odds_calls_used_before_this_league": 7,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261031T113721613878Z_e8de525dec6b049d5c69ec181a8d7bfe09419f7767688ab40a2d16248134f147.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261101T071106583192Z_fb23af67526d59741ebb088f51b6bc8bd375f527e6ed082360e37a76d1eca1e8.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "24400b6372faf9f4996cd5704d707374",
-      "event_id": "24400b6372faf9f4996cd5704d707374",
-      "home_team": "Augsburg",
-      "away_team": "SC Freiburg",
-      "kickoff_utc": "2026-10-31T14:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 6,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 34,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "a7ba9b844f121a4a8777d87b1f863137",
-      "event_id": "a7ba9b844f121a4a8777d87b1f863137",
-      "home_team": "Bayer Leverkusen",
-      "away_team": "VfB Stuttgart",
-      "kickoff_utc": "2026-10-31T14:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 6,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 34,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "aecb9d8c01176616c87d893bee4bc0de",
-      "event_id": "aecb9d8c01176616c87d893bee4bc0de",
-      "home_team": "Borussia Monchengladbach",
-      "away_team": "SC Paderborn",
-      "kickoff_utc": "2026-10-31T14:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 6,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "3966f2fe1c2f73bfa12e61db83bd0bf9",
-      "event_id": "3966f2fe1c2f73bfa12e61db83bd0bf9",
-      "home_team": "FC Schalke 04",
-      "away_team": "RB Leipzig",
-      "kickoff_utc": "2026-10-31T14:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 6,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 34,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "2fad25b09c01b71e47a5b0fd1d0b4e61",
-      "event_id": "2fad25b09c01b71e47a5b0fd1d0b4e61",
-      "home_team": "Werder Bremen",
-      "away_team": "TSG Hoffenheim",
-      "kickoff_utc": "2026-10-31T14:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 4,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 34,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "bad7337b335a16859b1db6b8e6cf6ca5",
-      "event_id": "bad7337b335a16859b1db6b8e6cf6ca5",
-      "home_team": "Bayern Munich",
-      "away_team": "Borussia Dortmund",
-      "kickoff_utc": "2026-10-31T17:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 4,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 32,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
     {
       "fixture_id": "60eaeb599578cd5c951f917c4fef06ff",
       "event_id": "60eaeb599578cd5c951f917c4fef06ff",
@@ -326,7 +194,7 @@
       "home_away_quote": true,
       "count_market_quotes": 6,
       "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -359,20 +227,19 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 8,
+  "additional_odds_in_window_linked_fixtures": 2,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 8,
+  "additional_event_odds_calls_this_league": 2,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 6,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 2
+    "ANCHORED_ALTERNATE": 2
   },
-  "shot_features_applied_fixtures": 8,
+  "shot_features_applied_fixtures": 2,
   "goal_rate_features_used": {
-    "shot_features": 8
+    "shot_features": 2
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 8
+    "AVAILABLE": 2
   },
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {

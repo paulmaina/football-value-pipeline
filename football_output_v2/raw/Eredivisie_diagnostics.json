@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "173f00460382fe819ab1795f92939756d58effd9917931edff4bdbeeab528135",
-  "training_as_of_utc": "2026-10-31T12:02:40.831876+00:00",
+  "training_as_of_utc": "2026-11-01T07:35:19.247899+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-10-31",
+    "cutoff_date": "2026-11-01",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -50,30 +50,30 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1620,
-    "tune_start_date": "2025-11-01",
-    "audit_start_date": "2026-05-02",
-    "training_shot_matches": 1315,
+    "tune_start_date": "2025-11-02",
+    "audit_start_date": "2026-05-03",
+    "training_shot_matches": 1319,
     "tuning_matches": 188,
-    "audit_matches": 111,
-    "audit_matchdays": 36,
+    "audit_matches": 106,
+    "audit_matchdays": 35,
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6977042483436141,
-    "audit_candidate_poisson_score": 0.6898503532995676,
-    "audit_gain": 0.007853895044046544,
-    "audit_gain_lower95": -0.003847173731557008,
+    "audit_baseline_poisson_score": 0.6889311505311337,
+    "audit_candidate_poisson_score": 0.6802696190016372,
+    "audit_gain": 0.008661531529496558,
+    "audit_gain_lower95": -0.004719874338947392,
     "audit_baseline_briers": [
-      0.618234730821842,
-      0.09079345116733593,
-      0.2827686416831054,
-      0.22261156699804835
+      0.6137513505339455,
+      0.09292835216410618,
+      0.28403456579068614,
+      0.22642770505098464
     ],
     "audit_candidate_briers": [
-      0.6174115106520035,
-      0.08936023992934143,
-      0.27916143628828854,
-      0.21698304613913946
+      0.6123929798010064,
+      0.09164163610740846,
+      0.2804137062754434,
+      0.2197649245411024
     ],
     "audit_brier_order": [
       "1x2",
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1612.4174704075367,
-  "base": 0.2918737191379165,
-  "home_adv": 0.18418210272225843,
-  "rho": -0.09556796978933162,
+  "objective": 1610.5227463386227,
+  "base": 0.2918956977581126,
+  "home_adv": 0.18418340691798651,
+  "rho": -0.0955414056970753,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -109,7 +109,7 @@
   },
   "training_data_health": {
     "training_end": "2026-10-25",
-    "days_since_latest_result": 6,
+    "days_since_latest_result": 7,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -119,115 +119,15 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 9,
+  "live_odds_matched": 4,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 38,
+  "additional_event_odds_calls_used_before_this_league": 21,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 7,
+  "over_1_5_in_window_quote_fixtures": 4,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "1836e9e3241ea98ae062bab0f288ce2c",
-      "event_id": "1836e9e3241ea98ae062bab0f288ce2c",
-      "home_team": "Feyenoord",
-      "away_team": "Fortuna Sittard",
-      "kickoff_utc": "2026-10-31T15:30:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 26,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "c27c8af8c7ee29d153de0b9999ea0434",
-      "event_id": "c27c8af8c7ee29d153de0b9999ea0434",
-      "home_team": "Heerenveen",
-      "away_team": "NEC Nijmegen",
-      "kickoff_utc": "2026-10-31T17:45:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
-    {
-      "fixture_id": "49a7de86105dbc67bec3e1390c7bcbb3",
-      "event_id": "49a7de86105dbc67bec3e1390c7bcbb3",
-      "home_team": "PSV Eindhoven",
-      "away_team": "Willem II",
-      "kickoff_utc": "2026-10-31T17:45:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 12,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "43ebf45469e32887fe9caff703c94ae6",
-      "event_id": "43ebf45469e32887fe9caff703c94ae6",
-      "home_team": "Ajax",
-      "away_team": "AZ Alkmaar",
-      "kickoff_utc": "2026-10-31T20:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
-    {
-      "fixture_id": "314c3b27fe569849986fdd2d013d1aca",
-      "event_id": "314c3b27fe569849986fdd2d013d1aca",
-      "home_team": "SC Cambuur",
-      "away_team": "Go Ahead Eagles",
-      "kickoff_utc": "2026-10-31T20:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
     {
       "fixture_id": "016bdfefaa570d0fcaeffc5a1cb3625f",
       "event_id": "016bdfefaa570d0fcaeffc5a1cb3625f",
@@ -278,7 +178,7 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -309,19 +209,19 @@
       "over_1_5_bookmakers": 1
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 9,
+  "additional_odds_in_window_linked_fixtures": 4,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 9,
+  "additional_event_odds_calls_this_league": 4,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 9
+    "ANCHORED_ALTERNATE": 4
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 9
+    "none": 4
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 9
+    "AVAILABLE": 4
   },
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {

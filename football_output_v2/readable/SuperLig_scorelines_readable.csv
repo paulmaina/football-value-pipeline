@@ -1,141 +1,101 @@
 ﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,1,1-1,14.03%,0.1403360595072357
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,2,1-2,9.23%,0.09228720029923176
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,3,0-1,8.85%,0.08847440234091672
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,4,0-0,8.43%,0.08427662140644097
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,5,2-1,7.02%,0.07024198243560434
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,6,1-0,7.02%,0.0701931289823082
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,7,2-0,6.06%,0.06061882238760804
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,8,0-2,6.01%,0.06011899675020869
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,9,2-2,5.69%,0.056940247597409566
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,10,3-1,3.59%,0.03594224927706807
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,11,1-3,3.56%,0.03564589152964093
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,12,3-0,3.10%,0.031018156800103946
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,13,2-3,2.74%,0.02735956776781411
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,14,0-3,2.32%,0.02322093670715259
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,15,3-2,2.08%,0.02082401754914353
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,16,4-1,1.38%,0.013793516764840993
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,17,4-0,1.19%,0.011903803307871377
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,18,3-3,1.13%,0.01125371346410076
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,19,1-4,1.03%,0.010326157734954369
-2026-10-31,Super Lig,Kocaelispor,Çaykur Rizespor,20,4-2,0.80%,0.007991609900683577
-2026-10-31,Super Lig,Fenerbahce,Goztepe,1,2-0,10.51%,0.10505671299477605
-2026-10-31,Super Lig,Fenerbahce,Goztepe,2,2-1,10.26%,0.10264937347656437
-2026-10-31,Super Lig,Fenerbahce,Goztepe,3,1-0,8.29%,0.08294021361879939
-2026-10-31,Super Lig,Fenerbahce,Goztepe,4,1-1,8.14%,0.08142684981116313
-2026-10-31,Super Lig,Fenerbahce,Goztepe,5,3-0,8.04%,0.08039278500188703
-2026-10-31,Super Lig,Fenerbahce,Goztepe,6,3-1,7.86%,0.07855061116266021
-2026-10-31,Super Lig,Fenerbahce,Goztepe,7,4-0,4.61%,0.04613936389301226
-2026-10-31,Super Lig,Fenerbahce,Goztepe,8,4-1,4.51%,0.045082095767268404
-2026-10-31,Super Lig,Fenerbahce,Goztepe,9,2-2,4.17%,0.04166253678971117
-2026-10-31,Super Lig,Fenerbahce,Goztepe,10,0-0,4.03%,0.04025363158116135
-2026-10-31,Super Lig,Fenerbahce,Goztepe,11,1-2,3.88%,0.03881406065262636
-2026-10-31,Super Lig,Fenerbahce,Goztepe,12,3-2,3.84%,0.038375325061089795
-2026-10-31,Super Lig,Fenerbahce,Goztepe,13,0-1,2.70%,0.02698089699858185
-2026-10-31,Super Lig,Fenerbahce,Goztepe,14,4-2,2.20%,0.02202452729389452
-2026-10-31,Super Lig,Fenerbahce,Goztepe,15,5-0,2.12%,0.02118439758395567
-2026-10-31,Super Lig,Fenerbahce,Goztepe,16,5-1,2.07%,0.020698964183084846
-2026-10-31,Super Lig,Fenerbahce,Goztepe,17,0-2,1.69%,0.016907311728073957
-2026-10-31,Super Lig,Fenerbahce,Goztepe,18,2-3,1.45%,0.01451058242284796
-2026-10-31,Super Lig,Fenerbahce,Goztepe,19,1-3,1.26%,0.01264154980199942
-2026-10-31,Super Lig,Fenerbahce,Goztepe,20,3-3,1.04%,0.010383654168396194
-2026-11-01,Super Lig,Amed SK,Eyüpspor,1,2-0,14.03%,0.14029216303853348
-2026-11-01,Super Lig,Amed SK,Eyüpspor,2,1-0,11.09%,0.11085655699629386
-2026-11-01,Super Lig,Amed SK,Eyüpspor,3,3-0,11.07%,0.11066716721384076
-2026-11-01,Super Lig,Amed SK,Eyüpspor,4,2-1,9.50%,0.09501550839840077
-2026-11-01,Super Lig,Amed SK,Eyüpspor,5,3-1,7.50%,0.07495142228968109
-2026-11-01,Super Lig,Amed SK,Eyüpspor,6,1-1,6.82%,0.06820695713811954
-2026-11-01,Super Lig,Amed SK,Eyüpspor,7,4-0,6.55%,0.06547348209200557
-2026-11-01,Super Lig,Amed SK,Eyüpspor,8,0-0,4.48%,0.04480272620725744
-2026-11-01,Super Lig,Amed SK,Eyüpspor,9,4-1,4.43%,0.04434314827605018
-2026-11-01,Super Lig,Amed SK,Eyüpspor,10,5-0,3.10%,0.030988608203688026
-2026-11-01,Super Lig,Amed SK,Eyüpspor,11,3-2,2.54%,0.02538113084791924
-2026-11-01,Super Lig,Amed SK,Eyüpspor,12,2-2,2.49%,0.024936038466506917
-2026-11-01,Super Lig,Amed SK,Eyüpspor,13,1-2,2.40%,0.024046066994277054
-2026-11-01,Super Lig,Amed SK,Eyüpspor,14,0-1,2.32%,0.02318930801001456
-2026-11-01,Super Lig,Amed SK,Eyüpspor,15,5-1,2.10%,0.020987618262208595
-2026-11-01,Super Lig,Amed SK,Eyüpspor,16,4-2,1.50%,0.015016115961792288
-2026-11-01,Super Lig,Amed SK,Eyüpspor,17,6-0,1.22%,0.01222242715318244
-2026-11-01,Super Lig,Amed SK,Eyüpspor,18,0-2,1.02%,0.01016102256922655
-2026-11-01,Super Lig,Amed SK,Eyüpspor,19,6-1,0.83%,0.008277868874992492
-2026-11-01,Super Lig,Amed SK,Eyüpspor,20,5-2,0.71%,0.007107129778545026
-2026-11-01,Super Lig,Basaksehir,Samsunspor,1,1-1,11.08%,0.11081897467748597
-2026-11-01,Super Lig,Basaksehir,Samsunspor,2,2-1,9.53%,0.09533434640225327
-2026-11-01,Super Lig,Basaksehir,Samsunspor,3,2-0,8.31%,0.08313220733313613
-2026-11-01,Super Lig,Basaksehir,Samsunspor,4,1-0,7.43%,0.07425727917046139
-2026-11-01,Super Lig,Basaksehir,Samsunspor,5,3-1,6.33%,0.06331933508728758
-2026-11-01,Super Lig,Basaksehir,Samsunspor,6,1-2,6.05%,0.06046969684840148
-2026-11-01,Super Lig,Basaksehir,Samsunspor,7,2-2,5.78%,0.05776083703439135
-2026-11-01,Super Lig,Basaksehir,Samsunspor,8,3-0,5.52%,0.05521489674311439
-2026-11-01,Super Lig,Basaksehir,Samsunspor,9,0-0,5.40%,0.05395676583078031
-2026-11-01,Super Lig,Basaksehir,Samsunspor,10,0-1,4.28%,0.04280353990426047
-2026-11-01,Super Lig,Basaksehir,Samsunspor,11,3-2,3.63%,0.03630667113758748
-2026-11-01,Super Lig,Basaksehir,Samsunspor,12,4-1,3.15%,0.0315416611158629
-2026-11-01,Super Lig,Basaksehir,Samsunspor,13,0-2,3.03%,0.030347965689773097
-2026-11-01,Super Lig,Basaksehir,Samsunspor,14,4-0,2.75%,0.027504545952952146
-2026-11-01,Super Lig,Basaksehir,Samsunspor,15,1-3,2.31%,0.02311514478411189
-2026-11-01,Super Lig,Basaksehir,Samsunspor,16,2-3,2.30%,0.023028986720075032
-2026-11-01,Super Lig,Basaksehir,Samsunspor,17,4-2,1.81%,0.01808567186765639
-2026-11-01,Super Lig,Basaksehir,Samsunspor,18,3-3,1.47%,0.014664905104895576
-2026-11-01,Super Lig,Basaksehir,Samsunspor,19,5-1,1.26%,0.012569637815387318
-2026-11-01,Super Lig,Basaksehir,Samsunspor,20,0-3,1.16%,0.011600812595125643
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,1,2-1,9.75%,0.09747491625706513
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,2,2-0,9.33%,0.09327673933530652
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,3,3-1,8.30%,0.083030732425236
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,4,3-0,7.95%,0.07945465646590862
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,5,1-1,7.29%,0.07288315405607855
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,6,1-0,6.57%,0.06567889720494355
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,7,4-1,5.30%,0.05304520479573716
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,8,4-0,5.08%,0.050760584678740846
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,9,2-2,4.44%,0.04439611711274152
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,10,3-2,4.34%,0.043383879773170805
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,11,1-2,3.33%,0.03331084264488314
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,12,0-0,3.13%,0.03128552010438615
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,13,4-2,2.77%,0.027716325271171953
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,14,5-1,2.71%,0.027110865286949937
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,15,5-0,2.59%,0.025943219154519123
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,16,0-1,1.88%,0.01882763873052041
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,17,2-3,1.48%,0.01482590237510334
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,18,5-2,1.42%,0.014165532277036555
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,19,3-3,1.32%,0.013173138151325398
-2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,20,0-2,1.30%,0.01303522002204005
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,1,1-2,11.67%,0.11674477805301321
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,2,1-1,11.01%,0.11008854021061885
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,3,0-1,9.61%,0.09614025981255386
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,4,0-2,9.00%,0.08999052057330312
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,5,1-3,6.38%,0.06377877291585612
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,6,0-0,5.69%,0.05688488138580045
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,7,2-2,5.34%,0.05339170933179934
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,8,2-1,5.13%,0.05127794386125509
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,9,0-3,4.92%,0.0491626698165301
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,10,2-3,4.14%,0.04137012788191412
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,11,1-0,4.06%,0.04064594647435144
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,12,2-0,3.13%,0.0312874848553716
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,13,1-4,2.61%,0.02613220871090186
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,14,3-1,2.22%,0.02217430657125254
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,15,0-4,2.01%,0.020143522518466666
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,16,3-2,1.82%,0.01817104910763917
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,17,2-4,1.70%,0.016950668173456005
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,18,3-0,1.35%,0.013529760142169821
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,19,3-3,1.26%,0.01261339410480249
-2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,20,1-5,0.86%,0.00856576319536384
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,1,1-1,14.00%,0.1400304914193222
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,2,0-0,9.01%,0.09013145805749169
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,3,1-0,8.66%,0.08664425763532477
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,4,0-1,8.61%,0.08606497090420971
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,5,2-1,8.11%,0.08114167667075851
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,6,1-2,8.04%,0.08041920860582265
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,7,0-2,6.33%,0.063283475248163
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,8,2-0,6.28%,0.06284205294060603
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,9,2-2,5.24%,0.05241031411302129
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,10,1-3,3.46%,0.03461243502541869
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,11,3-1,3.44%,0.03437100231523373
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,12,0-3,2.72%,0.0272372137600362
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,13,3-0,2.66%,0.026619419708072193
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,14,3-2,2.22%,0.022189923993639123
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,15,2-3,2.20%,0.02199234967540304
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,16,1-4,1.12%,0.011172896492873058
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,17,4-1,1.09%,0.010919473031232706
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,18,3-3,0.96%,0.0095551462936416
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,19,0-4,0.88%,0.008792174542809734
-2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,20,4-0,0.85%,0.008456839080323516
+2026-11-01,Super Lig,Amed SK,Eyüpspor,1,2-0,14.17%,0.14167732415114995
+2026-11-01,Super Lig,Amed SK,Eyüpspor,2,1-0,11.54%,0.11536994396794274
+2026-11-01,Super Lig,Amed SK,Eyüpspor,3,3-0,10.82%,0.1082378459090495
+2026-11-01,Super Lig,Amed SK,Eyüpspor,4,2-1,9.86%,0.09857954408885743
+2026-11-01,Super Lig,Amed SK,Eyüpspor,5,3-1,7.53%,0.07531224609727001
+2026-11-01,Super Lig,Amed SK,Eyüpspor,6,1-1,6.92%,0.06916499848531797
+2026-11-01,Super Lig,Amed SK,Eyüpspor,7,4-0,6.20%,0.06201820593321839
+2026-11-01,Super Lig,Amed SK,Eyüpspor,8,0-0,4.56%,0.045631274615996247
+2026-11-01,Super Lig,Amed SK,Eyüpspor,9,4-1,4.32%,0.04315246990113286
+2026-11-01,Super Lig,Amed SK,Eyüpspor,10,5-0,2.84%,0.028428192263966794
+2026-11-01,Super Lig,Amed SK,Eyüpspor,11,3-2,2.62%,0.026201253196510375
+2026-11-01,Super Lig,Amed SK,Eyüpspor,12,2-2,2.52%,0.025158549053159274
+2026-11-01,Super Lig,Amed SK,Eyüpspor,13,1-2,2.44%,0.024382397101710827
+2026-11-01,Super Lig,Amed SK,Eyüpspor,14,0-1,2.38%,0.02384771919566012
+2026-11-01,Super Lig,Amed SK,Eyüpspor,15,5-1,1.98%,0.019780428868506998
+2026-11-01,Super Lig,Amed SK,Eyüpspor,16,4-2,1.50%,0.015012814628766726
+2026-11-01,Super Lig,Amed SK,Eyüpspor,17,6-0,1.09%,0.010859205282763991
+2026-11-01,Super Lig,Amed SK,Eyüpspor,18,0-2,1.06%,0.01063840085615355
+2026-11-01,Super Lig,Amed SK,Eyüpspor,19,6-1,0.76%,0.007555870442613082
+2026-11-01,Super Lig,Amed SK,Eyüpspor,20,5-2,0.69%,0.006881643450786711
+2026-11-01,Super Lig,Basaksehir,Samsunspor,1,1-1,11.34%,0.11341074438795924
+2026-11-01,Super Lig,Basaksehir,Samsunspor,2,2-1,9.68%,0.09677016295594956
+2026-11-01,Super Lig,Basaksehir,Samsunspor,3,2-0,8.43%,0.08425582467082277
+2026-11-01,Super Lig,Basaksehir,Samsunspor,4,1-0,7.83%,0.07828942902167281
+2026-11-01,Super Lig,Basaksehir,Samsunspor,5,3-1,6.18%,0.06177134993979203
+2026-11-01,Super Lig,Basaksehir,Samsunspor,6,1-2,6.10%,0.06100652466564919
+2026-11-01,Super Lig,Basaksehir,Samsunspor,7,0-0,5.70%,0.056983320741782875
+2026-11-01,Super Lig,Basaksehir,Samsunspor,8,2-2,5.69%,0.056895160180645
+2026-11-01,Super Lig,Basaksehir,Samsunspor,9,3-0,5.38%,0.05378306568085788
+2026-11-01,Super Lig,Basaksehir,Samsunspor,10,0-1,4.53%,0.04527208950595411
+2026-11-01,Super Lig,Basaksehir,Samsunspor,11,3-2,3.55%,0.03547305852762411
+2026-11-01,Super Lig,Basaksehir,Samsunspor,12,0-2,3.19%,0.031857332668652066
+2026-11-01,Super Lig,Basaksehir,Samsunspor,13,4-1,2.96%,0.029572904164074657
+2026-11-01,Super Lig,Basaksehir,Samsunspor,14,4-0,2.57%,0.025748529837544585
+2026-11-01,Super Lig,Basaksehir,Samsunspor,15,1-3,2.34%,0.023355897970400333
+2026-11-01,Super Lig,Basaksehir,Samsunspor,16,2-3,2.24%,0.022363174287684362
+2026-11-01,Super Lig,Basaksehir,Samsunspor,17,4-2,1.70%,0.016982652334237965
+2026-11-01,Super Lig,Basaksehir,Samsunspor,18,3-3,1.39%,0.013904047042167238
+2026-11-01,Super Lig,Basaksehir,Samsunspor,19,0-3,1.22%,0.012196344825344452
+2026-11-01,Super Lig,Basaksehir,Samsunspor,20,5-1,1.13%,0.011326372650751095
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,1,2-1,10.07%,0.10068340278649382
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,2,2-0,8.97%,0.0896981755502955
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,3,3-1,8.67%,0.0866888257694894
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,4,3-0,7.72%,0.07723049973400113
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,5,1-1,6.54%,0.06544454674690502
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,6,1-0,6.20%,0.061965102754158265
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,7,4-1,5.60%,0.05597957785476969
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,8,4-0,4.99%,0.049871834509770306
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,9,3-2,4.87%,0.0486527507861275
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,10,2-2,4.33%,0.043279968860833504
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,11,4-2,3.14%,0.03141766457562636
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,12,1-2,3.00%,0.030045627358188467
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,13,5-1,2.89%,0.028919188686495276
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,14,0-0,2.63%,0.02632889373999146
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,15,5-0,2.58%,0.02576391333409864
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,16,5-2,1.62%,0.016230443400425586
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,17,0-1,1.56%,0.015584149322024744
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,18,2-3,1.45%,0.014518802301215947
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,19,3-3,1.39%,0.013942645830003403
+2026-11-01,Super Lig,Trabzonspor,Gazişehir Gaziantep,20,6-1,1.24%,0.012449770468896365
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,1,1-2,11.87%,0.11872404078083872
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,2,1-1,10.92%,0.10915984753626787
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,3,0-1,9.73%,0.09734377558956381
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,4,0-2,9.03%,0.09029898298004892
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,5,1-3,6.42%,0.0641500102440575
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,6,0-0,5.63%,0.0562957938368968
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,7,2-2,5.31%,0.05306531617905328
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,8,2-1,5.04%,0.050428581038681704
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,9,0-3,4.88%,0.04879113484598489
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,10,2-3,4.22%,0.04217183948787915
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,11,1-0,4.00%,0.03995554531298124
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,12,2-0,3.11%,0.03110981530623054
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,13,1-4,2.60%,0.02599657020124469
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,14,3-1,2.21%,0.022100968413192045
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,15,0-4,1.98%,0.019772438966048956
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,16,3-2,1.79%,0.017912682310826645
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,17,2-4,1.71%,0.017089992372430376
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,18,3-0,1.36%,0.013634273090013036
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,19,3-3,1.26%,0.012566182785774186
+2026-11-01,Super Lig,Kasimpasa SK,Besiktas JK,20,1-5,0.84%,0.008428016265713354
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,1,1-1,13.95%,0.13953607515844735
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,2,0-0,8.98%,0.0898141147665056
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,3,1-0,8.67%,0.08673478425961706
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,4,0-1,8.62%,0.08621979095523367
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,5,2-1,8.12%,0.08118071720842694
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,6,1-2,8.06%,0.0806221891215505
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,7,2-0,6.32%,0.06316109576661524
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,8,0-2,6.32%,0.06315212248461019
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,9,2-2,5.22%,0.05222387292633164
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,10,3-1,3.45%,0.034546039406122775
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,11,1-3,3.45%,0.034541131458437783
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,12,0-3,2.71%,0.02705639462768205
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,13,3-0,2.69%,0.02687788157482411
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,14,3-2,2.22%,0.02220094681433609
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,15,2-3,2.20%,0.022048203000565376
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,16,1-4,1.11%,0.011098896365524557
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,17,4-1,1.10%,0.011025667914327412
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,18,3-3,0.95%,0.009521303951194804
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,19,0-4,0.87%,0.008693870389240575
+2026-11-02,Super Lig,Genclerbirligi SK,Alanyaspor,20,4-0,0.86%,0.008578308876475926
