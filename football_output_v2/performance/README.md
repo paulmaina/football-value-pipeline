@@ -20,7 +20,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 | All selections | 65 | 48-14 | 73.8% | +6.9% |
 
 Unsettled / unverified entries: **18**.
-Whole-fixture 1X2 multiclass Brier (n=213): 0.5695
+Whole-fixture 1X2 multiclass Brier (n=214): 0.5697
 
 ## First-prediction reference — historical comparison
 
@@ -253,7 +253,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | dc55908798d7 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | cbf58accd4fa | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 

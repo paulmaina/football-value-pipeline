@@ -2921,6 +2921,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564733": {
+    "away_goals": 1,
+    "away_short_name": "Sevilla FC",
+    "away_team": "Sevilla FC",
+    "first_verified_at_utc": "2026-11-01T15:22:08Z",
+    "home_goals": 3,
+    "home_short_name": "Getafe",
+    "home_team": "Getafe CF",
+    "kickoff_utc": "2026-11-01T13:00:00Z",
+    "league_code": "PD",
+    "match_id": 564733,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564735": {
     "away_goals": 0,
     "away_short_name": "Celta",

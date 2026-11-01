@@ -42,43 +42,43 @@
       "variant": "raw"
     },
     {
-      "brier": 0.14974658054278153,
-      "event_rate": 0.868421052631579,
+      "brier": 0.150373457774464,
+      "event_rate": 0.8717948717948718,
       "market": "over_1_5",
-      "mean_probability": 0.764913203727638,
-      "n": 38,
+      "mean_probability": 0.7602393652548037,
+      "n": 39,
       "variant": "baseline"
     },
     {
-      "brier": 0.13617362295367635,
-      "event_rate": 0.868421052631579,
+      "brier": 0.13698569933706958,
+      "event_rate": 0.8717948717948718,
       "market": "over_1_5",
-      "mean_probability": 0.7877869612232145,
-      "n": 38,
+      "mean_probability": 0.782723489896533,
+      "n": 39,
       "variant": "book25"
     },
     {
-      "brier": 0.12697779705627021,
-      "event_rate": 0.868421052631579,
+      "brier": 0.12787813991127384,
+      "event_rate": 0.8717948717948718,
       "market": "over_1_5",
-      "mean_probability": 0.8074173697886781,
-      "n": 38,
+      "mean_probability": 0.8020321686433892,
+      "n": 39,
       "variant": "book50"
     },
     {
-      "brier": 0.11699182179044745,
-      "event_rate": 0.868421052631579,
+      "brier": 0.11786088559340581,
+      "event_rate": 0.8717948717948718,
       "market": "over_1_5",
-      "mean_probability": 0.8466781869196054,
-      "n": 38,
+      "mean_probability": 0.8406495261371015,
+      "n": 39,
       "variant": "bookmaker"
     },
     {
-      "brier": 0.14817134102741236,
-      "event_rate": 0.868421052631579,
+      "brier": 0.14882588027410654,
+      "event_rate": 0.8717948717948718,
       "market": "over_1_5",
-      "mean_probability": 0.7681565526577508,
-      "n": 38,
+      "mean_probability": 0.7634148111496768,
+      "n": 39,
       "variant": "raw"
     },
     {
@@ -122,9 +122,9 @@
       "variant": "raw"
     }
   ],
-  "graded_fixture_markets": 111,
+  "graded_fixture_markets": 112,
   "note": "Uncalibrated fixed variants; paired samples; no betting policy, ROI or promotion.",
-  "reviewed_at_utc": "2026-11-01T14:28:50.985025+00:00",
+  "reviewed_at_utc": "2026-11-01T15:22:08.690862+00:00",
   "total_fixture_markets": 897,
   "version": "goal-blend-shadow-v1"
 }

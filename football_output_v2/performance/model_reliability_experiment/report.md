@@ -4,7 +4,7 @@ Two separate one-factor trials against actual production, not a combined configu
 
 | Candidate | Status | Paired fixtures | Gameweeks | Verified coverage |
 |---|---|---:|---:|---:|
-| stronger_l2 | COLLECT_MORE_DATA | 102/300 | 3/6 | 0.8571428571428571 |
+| stronger_l2 | COLLECT_MORE_DATA | 103/300 | 3/6 | 0.8583333333333333 |
 
 Excluded stronger_l2 forecasts (not comparable like for like): ValueError: 2, feature_application_differs: 19
 
@@ -12,16 +12,16 @@ Excluded stronger_l2 forecasts (not comparable like for like): ValueError: 2, fe
 
 | Market | Baseline log loss | Candidate log loss | Baseline Brier | Candidate Brier |
 |---|---:|---:|---:|---:|
-| 1x2 | 0.93684469309007 | 0.9386101542818327 | 0.5528741446768082 | 0.5537486744398159 |
-| over_1_5 | 0.49936944117579873 | 0.5035735140155428 | 0.16108126279473553 | 0.16253528725443284 |
-| under_3_5 | 0.6282943055275336 | 0.6187190541884563 | 0.21786761898623225 | 0.21465216776217175 |
-| btts_yes | 0.6958476842935659 | 0.6875654804235688 | 0.25072220010259716 | 0.24698057783458402 |
-| over_2_5 | 0.6648976017422586 | 0.6617066739568037 | 0.23628417485458952 | 0.23505161170131708 |
+| 1x2 | 0.9387734808821063 | 0.9404286244502896 | 0.554222809462405 | 0.5550278840771011 |
+| over_1_5 | 0.4997907600191055 | 0.5037351861676383 | 0.16122071193898332 | 0.1625545799111769 |
+| under_3_5 | 0.641867199687539 | 0.6317635889398928 | 0.22307019511451798 | 0.21973983486461554 |
+| btts_yes | 0.6982671748641993 | 0.6897667261706442 | 0.2519165370421495 | 0.24806854456100524 |
+| over_2_5 | 0.6698957258653481 | 0.6663496743120372 | 0.2386477934279361 | 0.23726099597817366 |
 
 Primary familywise 95% gain interval: [-0.0057028192877419575, 0.0012794862284424835]
 Evidence: NO_CLEAR_PROMOTION_EVIDENCE. Calibration and league breakdowns: summary.json.
 
-| fixed_half_life | COLLECT_MORE_DATA | 83/300 | 3/6 | 0.6974789915966386 |
+| fixed_half_life | COLLECT_MORE_DATA | 83/300 | 3/6 | 0.6916666666666667 |
 
 Excluded fixed_half_life forecasts (not comparable like for like): ValueError: 2, candidate_equals_production_half_life: 63
 

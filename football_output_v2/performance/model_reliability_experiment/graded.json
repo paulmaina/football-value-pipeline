@@ -3570,6 +3570,41 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Sevilla",
+    "baseline": {
+      "away_goals": 1,
+      "btts_yes": 0.3886581113022897,
+      "home_goals": 3,
+      "over_1_5": 0.5811390151228477,
+      "over_2_5": 0.3073695877964329,
+      "p_away": 0.35875068380010217,
+      "p_draw": 0.3199910255611152,
+      "p_home": 0.3212582906387826,
+      "under_3_5": 0.8681779542234781,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 1,
+      "btts_yes": 0.40079957388535964,
+      "home_goals": 3,
+      "over_1_5": 0.594386352671575,
+      "over_2_5": 0.3198395834675882,
+      "p_away": 0.3573885810905079,
+      "p_draw": 0.3182550882849086,
+      "p_home": 0.3243563306245835,
+      "under_3_5": 0.8594660431418362,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Getafe",
+    "kickoff_utc": "2026-11-01T13:00:00+00:00",
+    "league": "La Liga",
+    "log_loss_gain": 0.009597254036904257,
+    "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
+    "source_match_id": 564733,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "Chelsea",
     "baseline": {
       "away_goals": 2,
