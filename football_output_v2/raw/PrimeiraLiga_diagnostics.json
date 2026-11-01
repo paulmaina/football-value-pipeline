@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "84c0a9d8af08458f9d90e4a3ffe4465c5e09f0dc593fdcb0fb4ebd37c58b23a7",
-  "training_as_of_utc": "2026-11-01T07:36:11.587046+00:00",
+  "training_as_of_utc": "2026-11-01T09:34:49.329781+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8767945865083158,
-    "audit_candidate_poisson_score": 0.8692694227707133,
-    "audit_gain": 0.0075251637376024805,
-    "audit_gain_lower95": -0.0029114938120154417,
+    "audit_baseline_poisson_score": 0.8767945865077368,
+    "audit_candidate_poisson_score": 0.8692694227703041,
+    "audit_gain": 0.007525163737432727,
+    "audit_gain_lower95": -0.002911493812078021,
     "audit_baseline_briers": [
-      0.5874602781324599,
-      0.1846374686751059,
-      0.2293671524574864,
-      0.24667944034048228
+      0.5874602781315315,
+      0.18463746867530761,
+      0.22936715245737097,
+      0.24667944034046813
     ],
     "audit_candidate_briers": [
-      0.5856380790775146,
-      0.18480680735752542,
-      0.22778937285479448,
-      0.24688804666670897
+      0.585638079076811,
+      0.18480680735767271,
+      0.22778937285472242,
+      0.24688804666669706
     ],
     "audit_brier_order": [
       "1x2",
@@ -89,9 +89,9 @@
   },
   "training_end": "2026-10-26",
   "fit_success": true,
-  "objective": 1456.9126659525737,
-  "base": 0.09429075403709578,
-  "home_adv": 0.1701162770820665,
+  "objective": 1456.7393986893783,
+  "base": 0.0943117743361887,
+  "home_adv": 0.17013614446051142,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -126,7 +126,7 @@
   "additional_event_odds_calls_used_before_this_league": 25,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 6,
+  "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -139,14 +139,12 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 0,
+      "asian_handicap_bookmakers": [],
+      "asian_handicap_status": "NO_SUPPORTED_HANDICAP_QUOTES",
       "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "ce5c2cbdf5db2a13f40f528d3e5044b9",
@@ -158,14 +156,12 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 0,
+      "asian_handicap_bookmakers": [],
+      "asian_handicap_status": "NO_SUPPORTED_HANDICAP_QUOTES",
       "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "6bf5102547eb3f3eb74023133e27d2d3",
@@ -177,14 +173,12 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 0,
+      "asian_handicap_bookmakers": [],
+      "asian_handicap_status": "NO_SUPPORTED_HANDICAP_QUOTES",
       "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "12fa9f636dbb126cfd4118fa8cdc8fad",
@@ -196,14 +190,12 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 0,
+      "asian_handicap_bookmakers": [],
+      "asian_handicap_status": "NO_SUPPORTED_HANDICAP_QUOTES",
       "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "cdf1a22ce6d16f0903216518d909e02a",
@@ -215,14 +207,12 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 0,
+      "asian_handicap_bookmakers": [],
+      "asian_handicap_status": "NO_SUPPORTED_HANDICAP_QUOTES",
       "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "97ce048d06fc45fc59e114548540828f",
@@ -234,14 +224,12 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
-      "asian_handicap_bookmakers": [
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "asian_handicap_quotes": 0,
+      "asian_handicap_bookmakers": [],
+      "asian_handicap_status": "NO_SUPPORTED_HANDICAP_QUOTES",
       "dc_bookmakers": 0,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 6,
@@ -249,8 +237,7 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 6,
   "totals_anchor_fixtures": {
-    "ANCHORED_MAIN": 3,
-    "ANCHORED_ALTERNATE": 3
+    "NOT_ANCHORED_NO_PINNACLE": 6
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {

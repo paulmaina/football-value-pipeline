@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "47b25ac334e6029623ac9a98dd81bd03d80ab2d781f8f78ce52f1d10b87f3ef8",
-  "training_as_of_utc": "2026-11-01T07:26:21.225636+00:00",
+  "training_as_of_utc": "2026-11-01T09:25:32.352914+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 76,
     "bbs_added_results": 4,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-01T07:26:21.225636+00:00",
+    "cutoff_utc": "2026-11-01T09:25:32.352914+00:00",
     "observations": 462,
     "observations_sha256": "fad4edfd2cff03c9620cae8d9fa11469dc7b5cfbfd352bf74a0a68c8c62cd190",
     "eligible_training_matches": 176,
@@ -154,21 +154,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8740131822149474,
-    "audit_candidate_poisson_score": 0.8703668995751509,
-    "audit_gain": 0.0036462826397964943,
-    "audit_gain_lower95": -0.0020867462877964963,
+    "audit_baseline_poisson_score": 0.8740131822227161,
+    "audit_candidate_poisson_score": 0.8703668995811455,
+    "audit_gain": 0.0036462826415705196,
+    "audit_gain_lower95": -0.0020867462808750554,
     "audit_baseline_briers": [
-      0.5996494886937357,
-      0.1768950345442525,
-      0.21631319722812875,
-      0.2479498473881944
+      0.5996494887036665,
+      0.17689503454333355,
+      0.2163131972282897,
+      0.24794984738788303
     ],
     "audit_candidate_briers": [
-      0.597548154604849,
-      0.17562674277341245,
-      0.21497744296277202,
-      0.24618847014556947
+      0.5975481546118023,
+      0.17562674277288576,
+      0.21497744296286103,
+      0.24618847014566814
     ],
     "audit_brier_order": [
       "1x2",
@@ -183,10 +183,10 @@
   },
   "training_end": "2026-10-31",
   "fit_success": true,
-  "objective": 1592.126256517488,
-  "base": 0.20314382519719634,
-  "home_adv": 0.19622638569317416,
-  "rho": -0.053035722163168895,
+  "objective": 1591.936006627558,
+  "base": 0.20315914755474296,
+  "home_adv": 0.19621872980593982,
+  "rho": -0.053037012497026345,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -220,8 +220,8 @@
   "additional_event_odds_calls_used_before_this_league": 16,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261101T072621225636Z_2f02dfe0b4e7d28e09c54b35f86142b13bd5e2429df03e627c0d41f877834ca8.json",
-  "over_1_5_in_window_quote_fixtures": 2,
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261101T092532352914Z_0ca811d67770e4869b3dd3fcfe40c1a1a5dffb53ecdf6ce6fce7ccf806f89ba0.json",
+  "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -230,19 +230,16 @@
       "home_team": "Strasbourg",
       "away_team": "Auxerre",
       "kickoff_utc": "2026-11-01T14:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 6,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 32,
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 14,
       "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
+        "1xBet"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
+      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -252,19 +249,16 @@
       "home_team": "Lyon",
       "away_team": "Angers",
       "kickoff_utc": "2026-11-01T16:15:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 4,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 22,
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 2,
       "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
+        "1xBet"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
+      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -274,21 +268,18 @@
       "home_team": "Paris FC",
       "away_team": "AS Monaco",
       "kickoff_utc": "2026-11-01T16:15:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 4,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 30,
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 12,
       "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
+        "1xBet"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "dc_bookmakers": 0,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "df1e1589c51bbcac432125567d1f7c58",
@@ -296,19 +287,16 @@
       "home_team": "Marseille",
       "away_team": "Toulouse",
       "kickoff_utc": "2026-11-01T19:45:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 4,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 34,
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 16,
       "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
+        "1xBet"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
+      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -318,21 +306,18 @@
       "home_team": "Lorient",
       "away_team": "Brest",
       "kickoff_utc": "2026-11-02T19:45:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 4,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 30,
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 2,
       "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
+        "1xBet"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "dc_bookmakers": 0,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 5,
@@ -340,8 +325,7 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 5,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 3,
-    "ANCHORED_MAIN": 2
+    "NOT_ANCHORED_NO_PINNACLE": 5
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
