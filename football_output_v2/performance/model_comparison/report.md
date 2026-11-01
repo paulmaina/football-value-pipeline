@@ -3,24 +3,24 @@
 First eligible pre-kickoff forecast per fixture only, with no backfill. Both models come from the same run and odds snapshot. 1X2 distance to the Pinnacle close is total variation; binary markets use absolute difference. Asian handicap is the home side and integer lines exclude refunds. Legacy probabilities are never used for selection or staking.
 
 Production `dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2` vs legacy `dc-blend50-tuned-half-life-v1`.
-Status: **COLLECT_MORE_DATA** (paired matches 14/300, weeks 1/6). No automatic production change.
+Status: **COLLECT_MORE_DATA** (paired matches 15/300, weeks 1/6). No automatic production change.
 
-Excluded fixtures: first_forecast_without_legacy_model: 239, pending_or_unverified_result: 67
+Excluded fixtures: first_forecast_without_legacy_model: 239, pending_or_unverified_result: 66
 
 | League | Market | Matches | Prod log loss | Legacy log loss | Prod Brier | Legacy Brier | Prod dist. to Pinnacle close | Legacy dist. to Pinnacle close | Close N |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| ALL | 1x2 | 14 | 0.8749 | 0.8696 | 0.5251 | 0.5229 | 0.0244 | 0.0351 | 2 |
-| ALL | over_1_5 | 14 | 0.5755 | 0.5770 | 0.2000 | 0.2010 | n.a. | n.a. | 0 |
-| ALL | under_3_5 | 14 | 0.5813 | 0.5749 | 0.1969 | 0.1941 | n.a. | n.a. | 0 |
-| ALL | btts_yes | 14 | 0.7834 | 0.8016 | 0.2916 | 0.2988 | n.a. | n.a. | 0 |
-| ALL | over_2_5 | 14 | 0.6172 | 0.6185 | 0.2198 | 0.2217 | 0.0033 | 0.0052 | 1 |
-| ALL | ah_home_-2.5 | 14 | 0.6732 | 0.6529 | 0.2093 | 0.2049 | n.a. | n.a. | 0 |
-| ALL | ah_home_-1.5 | 14 | 0.7241 | 0.7103 | 0.2543 | 0.2505 | n.a. | n.a. | 0 |
+| ALL | 1x2 | 15 | 0.8728 | 0.8687 | 0.5227 | 0.5213 | 0.0244 | 0.0351 | 2 |
+| ALL | over_1_5 | 15 | 0.6606 | 0.6623 | 0.2341 | 0.2350 | n.a. | n.a. | 0 |
+| ALL | under_3_5 | 15 | 0.5772 | 0.5712 | 0.1947 | 0.1921 | n.a. | n.a. | 0 |
+| ALL | btts_yes | 15 | 0.8010 | 0.8182 | 0.3003 | 0.3070 | n.a. | n.a. | 0 |
+| ALL | over_2_5 | 15 | 0.6418 | 0.6430 | 0.2313 | 0.2331 | 0.0033 | 0.0052 | 1 |
+| ALL | ah_home_-2.5 | 15 | 0.6355 | 0.6163 | 0.1960 | 0.1918 | n.a. | n.a. | 0 |
+| ALL | ah_home_-1.5 | 15 | 0.6936 | 0.6802 | 0.2410 | 0.2373 | n.a. | n.a. | 0 |
 | ALL | ah_home_-1.0 | 10 | 0.8717 | 0.8544 | 0.3342 | 0.3292 | n.a. | n.a. | 0 |
-| ALL | ah_home_+0.0 | 13 | 0.5668 | 0.5648 | 0.2004 | 0.1997 | n.a. | n.a. | 0 |
-| ALL | ah_home_+1.0 | 13 | 0.2482 | 0.2491 | 0.0645 | 0.0650 | n.a. | n.a. | 0 |
-| ALL | ah_home_+1.5 | 14 | 0.2445 | 0.2450 | 0.0688 | 0.0686 | n.a. | n.a. | 0 |
-| ALL | ah_home_+2.5 | 14 | 0.2028 | 0.2135 | 0.0608 | 0.0641 | n.a. | n.a. | 0 |
+| ALL | ah_home_+0.0 | 14 | 0.5657 | 0.5647 | 0.1989 | 0.1987 | n.a. | n.a. | 0 |
+| ALL | ah_home_+1.0 | 14 | 0.2448 | 0.2461 | 0.0622 | 0.0629 | n.a. | n.a. | 0 |
+| ALL | ah_home_+1.5 | 15 | 0.2392 | 0.2400 | 0.0657 | 0.0656 | n.a. | n.a. | 0 |
+| ALL | ah_home_+2.5 | 15 | 0.1931 | 0.2034 | 0.0570 | 0.0600 | n.a. | n.a. | 0 |
 | Bundesliga | 1x2 | 1 | 0.8789 | 0.9217 | 0.5194 | 0.5501 | n.a. | n.a. | 0 |
 | Bundesliga | over_1_5 | 1 | 0.1373 | 0.1402 | 0.0164 | 0.0171 | n.a. | n.a. | 0 |
 | Bundesliga | under_3_5 | 1 | 0.7655 | 0.7929 | 0.2861 | 0.2997 | n.a. | n.a. | 0 |
@@ -33,18 +33,18 @@ Excluded fixtures: first_forecast_without_legacy_model: 239, pending_or_unverifi
 | Bundesliga | ah_home_+1.0 | 1 | 0.2417 | 0.2524 | 0.0461 | 0.0498 | n.a. | n.a. | 0 |
 | Bundesliga | ah_home_+1.5 | 1 | 0.1959 | 0.2041 | 0.0316 | 0.0341 | n.a. | n.a. | 0 |
 | Bundesliga | ah_home_+2.5 | 1 | 0.0755 | 0.0788 | 0.0053 | 0.0057 | n.a. | n.a. | 0 |
-| Eredivisie | 1x2 | 7 | 0.8376 | 0.8160 | 0.5214 | 0.5074 | n.a. | n.a. | 0 |
-| Eredivisie | over_1_5 | 7 | 0.5762 | 0.5704 | 0.2052 | 0.2045 | n.a. | n.a. | 0 |
-| Eredivisie | under_3_5 | 7 | 0.5015 | 0.4671 | 0.1591 | 0.1436 | n.a. | n.a. | 0 |
-| Eredivisie | btts_yes | 7 | 0.9412 | 0.9745 | 0.3658 | 0.3787 | n.a. | n.a. | 0 |
-| Eredivisie | over_2_5 | 7 | 0.5668 | 0.5484 | 0.2017 | 0.1956 | n.a. | n.a. | 0 |
-| Eredivisie | ah_home_-2.5 | 7 | 0.9420 | 0.8887 | 0.2921 | 0.2806 | n.a. | n.a. | 0 |
-| Eredivisie | ah_home_-1.5 | 7 | 0.7452 | 0.7118 | 0.2646 | 0.2540 | n.a. | n.a. | 0 |
+| Eredivisie | 1x2 | 8 | 0.8383 | 0.8211 | 0.5173 | 0.5063 | n.a. | n.a. | 0 |
+| Eredivisie | over_1_5 | 8 | 0.7357 | 0.7310 | 0.2684 | 0.2679 | n.a. | n.a. | 0 |
+| Eredivisie | under_3_5 | 8 | 0.5038 | 0.4736 | 0.1598 | 0.1461 | n.a. | n.a. | 0 |
+| Eredivisie | btts_yes | 8 | 0.9545 | 0.9841 | 0.3728 | 0.3842 | n.a. | n.a. | 0 |
+| Eredivisie | over_2_5 | 8 | 0.6191 | 0.6030 | 0.2255 | 0.2202 | n.a. | n.a. | 0 |
+| Eredivisie | ah_home_-2.5 | 8 | 0.8376 | 0.7905 | 0.2568 | 0.2467 | n.a. | n.a. | 0 |
+| Eredivisie | ah_home_-1.5 | 8 | 0.6855 | 0.6553 | 0.2384 | 0.2288 | n.a. | n.a. | 0 |
 | Eredivisie | ah_home_-1.0 | 5 | 0.9026 | 0.8553 | 0.3528 | 0.3366 | n.a. | n.a. | 0 |
-| Eredivisie | ah_home_+0.0 | 6 | 0.4646 | 0.4490 | 0.1653 | 0.1581 | n.a. | n.a. | 0 |
-| Eredivisie | ah_home_+1.0 | 7 | 0.1656 | 0.1624 | 0.0364 | 0.0351 | n.a. | n.a. | 0 |
-| Eredivisie | ah_home_+1.5 | 7 | 0.1328 | 0.1311 | 0.0245 | 0.0238 | n.a. | n.a. | 0 |
-| Eredivisie | ah_home_+2.5 | 7 | 0.0530 | 0.0529 | 0.0049 | 0.0049 | n.a. | n.a. | 0 |
+| Eredivisie | ah_home_+0.0 | 7 | 0.4771 | 0.4655 | 0.1674 | 0.1621 | n.a. | n.a. | 0 |
+| Eredivisie | ah_home_+1.0 | 8 | 0.1700 | 0.1681 | 0.0360 | 0.0351 | n.a. | n.a. | 0 |
+| Eredivisie | ah_home_+1.5 | 8 | 0.1367 | 0.1360 | 0.0243 | 0.0239 | n.a. | n.a. | 0 |
+| Eredivisie | ah_home_+2.5 | 8 | 0.0537 | 0.0539 | 0.0047 | 0.0047 | n.a. | n.a. | 0 |
 | La Liga | 1x2 | 1 | 1.8870 | 1.8887 | 1.1796 | 1.1866 | n.a. | n.a. | 0 |
 | La Liga | over_1_5 | 1 | 1.7172 | 1.7824 | 0.6731 | 0.6918 | n.a. | n.a. | 0 |
 | La Liga | under_3_5 | 1 | 0.4758 | 0.5096 | 0.1434 | 0.1594 | n.a. | n.a. | 0 |

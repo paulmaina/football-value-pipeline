@@ -1049,6 +1049,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "DED:558849": {
+    "away_goals": 0,
+    "away_short_name": "Den Haag",
+    "away_team": "ADO Den Haag",
+    "first_verified_at_utc": "2026-11-01T14:28:50Z",
+    "home_goals": 1,
+    "home_short_name": "Zwolle",
+    "home_team": "PEC Zwolle",
+    "kickoff_utc": "2026-11-01T11:15:00Z",
+    "league_code": "DED",
+    "match_id": 558849,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "DED:558850": {
     "away_goals": 0,
     "away_short_name": "Go Ahead",
@@ -3727,6 +3742,21 @@
     "kickoff_utc": "2026-10-31T17:00:00Z",
     "league_code": "SA",
     "match_id": 558542,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558543": {
+    "away_goals": 0,
+    "away_short_name": "Venezia FC",
+    "away_team": "Venezia FC",
+    "first_verified_at_utc": "2026-11-01T14:28:50Z",
+    "home_goals": 1,
+    "home_short_name": "Como 1907",
+    "home_team": "Como 1907",
+    "kickoff_utc": "2026-11-01T11:30:00Z",
+    "league_code": "SA",
+    "match_id": 558543,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"

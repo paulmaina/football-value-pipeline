@@ -20,7 +20,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 | All selections | 65 | 48-14 | 73.8% | +6.9% |
 
 Unsettled / unverified entries: **18**.
-Whole-fixture 1X2 multiclass Brier (n=212): 0.5699
+Whole-fixture 1X2 multiclass Brier (n=213): 0.5695
 
 ## First-prediction reference — historical comparison
 
@@ -201,7 +201,7 @@ recorded reliability-adjusted chance; small buckets are unstable.
 
 ## Result-source problems
 
-- UCL: football-data.org rate limited results requests (HTTP 429)
+No provider errors detected.
 
 Accuracy is not calibration or profit. Simulated ROI assumes
 one unit staked separately on each settled selection with recorded
