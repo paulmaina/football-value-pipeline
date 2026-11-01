@@ -1,0 +1,1 @@
+{"entity":"3882211e-964a-4a97-9bac-4c502db87674","kind":"team","league":"EPL","observed":"2026-10-31T01:52:44.979283+00:00","payload":{"conference":null,"flag_url":null,"id":"3882211e-964a-4a97-9bac-4c502db87674","league":"EPL","logo_url":null,"name":"Norwich","short_name":null,"sport":"football"},"query":"/v1/teams?league=epl&limit=200&offset=0&sport=football"}

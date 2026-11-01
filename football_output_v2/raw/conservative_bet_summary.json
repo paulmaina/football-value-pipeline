@@ -1,20 +1,20 @@
 {
-  "generated_at_utc": "2026-10-30T12:03:48.308948+00:00",
+  "generated_at_utc": "2026-10-31T12:03:11.165007+00:00",
   "selection_policy_version": "48h-zero-tolerance-ev05-no-loss75-corners-v26",
   "status": "BELOW_TARGET",
-  "n_fixtures": 67,
-  "n_markets_evaluated": 1694,
-  "n_shortlisted": 3,
-  "n_strict_qualified": 3,
+  "n_fixtures": 76,
+  "n_markets_evaluated": 2122,
+  "n_shortlisted": 6,
+  "n_strict_qualified": 6,
   "n_provisional_watchlist": 0,
-  "n_total_candidates": 3,
+  "n_total_candidates": 6,
   "target_distinct_matches": 12,
-  "shortfall": 9,
-  "usable_distinct_fixtures": 3,
+  "shortfall": 6,
+  "usable_distinct_fixtures": 6,
   "shortlist_lookahead_hours": 48.0,
   "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-10-30T12:03:48.308948+00:00",
-  "shortlist_window_end_utc": "2026-11-01T12:03:48.308948+00:00",
+  "shortlist_window_start_utc": "2026-10-31T12:03:11.165007+00:00",
+  "shortlist_window_end_utc": "2026-11-02T12:03:11.165007+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -157,7 +157,7 @@
       "away": "RELIABLE_FOR_RANKING",
       "over_1_5": "RELIABLE_FOR_RANKING",
       "under_3_5": "RELIABLE_FOR_RANKING",
-      "btts_yes": "UNRELIABLE_AUDIT"
+      "btts_yes": "RELIABLE_FOR_RANKING"
     },
     "UEFA Champions League": {
       "home_draw": "RELIABLE_FOR_RANKING",
@@ -219,9 +219,9 @@
   "ranking_is_empirically_optimized": false,
   "shortfall_reason": "No padding: missing evidence or failing the common safety/EV cutoffs can reduce the shortlist",
   "bookmaker_coverage": {
-    "Pinnacle": 800,
+    "Pinnacle": 1076,
     "bet365": 0,
-    "1xBet": 360
+    "1xBet": 402
   },
   "warning": "Probabilities and EV are model estimates, not guarantees. Required adjusted no-loss probability: 75%; required adjusted EV: +0.5%; unblended EV must be nonnegative. Refunds are not wins. Corners picks are UNPROVEN EDGE: validated on probability accuracy only, with no historical corner odds. Flat-stake research, not accumulator protection.",
   "loss_risk_tolerance": 0,

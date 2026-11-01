@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "M\u00e1laga",
+    "home_team": "Real Betis",
+    "kickoff_utc": "2026-10-31T17:30:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "8f0b7ef29a47f675429758e83a426d7e"
+  },
+  "observed_at_utc": "2026-10-31T17:24:31.206517+00:00",
+  "payload": {
+    "away_team": "M\u00e1laga",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T17:24:21Z",
+            "outcomes": [
+              {
+                "name": "M\u00e1laga",
+                "price": 8.8
+              },
+              {
+                "name": "Real Betis",
+                "price": 1.35
+              },
+              {
+                "name": "Draw",
+                "price": 5.69
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T17:24:21Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.04
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.87
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-31T17:23:54Z",
+            "outcomes": [
+              {
+                "name": "M\u00e1laga",
+                "price": 8.57
+              },
+              {
+                "name": "Real Betis",
+                "price": 1.38
+              },
+              {
+                "name": "Draw",
+                "price": 5.04
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-31T17:23:54Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.21
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.67
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-31T17:30:00Z",
+    "home_team": "Real Betis",
+    "id": "8f0b7ef29a47f675429758e83a426d7e",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.38,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7127975284121013,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T17:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.04,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1826587904838407,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T17:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 8.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.10454368110405804,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T17:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.21,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4249905039595596,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-31T17:23:54+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5750094960404405,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-31T17:23:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.35,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7318988586673545,
+      "selection": "home",
+      "updated_at_utc": "2026-10-31T17:24:21+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.69,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.16393540255385283,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-31T17:24:21+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 8.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1041657387787927,
+      "selection": "away",
+      "updated_at_utc": "2026-10-31T17:24:21+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

@@ -1,20 +1,22 @@
 name: Card bookings research (free plan)
 
-# Research only; card totals stay out of production. Each day collects up to
+# Research only; card totals stay out of production. Each batch collects up to
 # 80 API-Football card-event responses for research/card-bookings (draft PR),
 # keeping them in the Actions cache rather than the repository. When every
 # planned response is cached it runs the study once, posts the summary on the
-# draft PR, uploads the full study and disables this workflow.
+# draft PR and uploads the full study. The cached completion marker stops requests.
 
 on:
-  schedule:
-    - cron: '47 7 * * *'
+  workflow_call:
+    secrets:
+      API_FOOTBALL_KEY:
+        required: false
   workflow_dispatch:
 
 permissions:
   contents: read
   pull-requests: write
-  actions: write
+  actions: read
 
 # Shares the free-plan key with the supplementary collector; never overlap it.
 concurrency:
@@ -46,7 +48,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.EVENTS }}
-          key: card-events-${{ github.run_id }}
+          key: card-events-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: card-events-
       - uses: actions/setup-python@v7
         if: steps.configured.outputs.enabled == 'true'
@@ -60,7 +62,27 @@ jobs:
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: |
-          python -W ignore card_bookings.py --auto "$STUDY" --api-key-source environment
+          python - <<'PYTHON'
+          import json, os, subprocess, sys
+          command = [sys.executable, '-W', 'ignore', 'card_bookings.py', '--auto',
+                     os.environ['STUDY'], '--api-key-source', 'environment']
+          result = subprocess.run(command, text=True, capture_output=True)
+          print(result.stdout, end='')
+          print(result.stderr, end='', file=sys.stderr)
+          if result.returncode:
+              raise SystemExit(result.returncode)
+          # Completed studies produce no batch output and make no requests.
+          batch = json.loads(result.stdout) if result.stdout.strip() else None
+          if batch:
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as output:
+                  output.write('Card research batch: '+json.dumps(batch)+'\n')
+              incomplete = batch['cached'] < batch['planned']
+              if incomplete and batch['fetched'] == 0:
+                  print('::error::Card research made no progress; inspect the batch stop reason above.')
+                  raise SystemExit(1)
+              if incomplete and batch.get('stopped'):
+                  print('::warning::Card research stopped after partial progress; checkpoint retained.')
+          PYTHON
           python -W ignore card_bookings.py --plan-only | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Announce results on the draft PR and stop
         if: steps.configured.outputs.enabled == 'true' && hashFiles(format('{0}/just_completed', env.STUDY)) != ''
@@ -76,17 +98,17 @@ jobs:
           cat comment.md >> "$GITHUB_STEP_SUMMARY"
           if [ -n "$pr" ]; then gh pr comment "$pr" --repo "$GITHUB_REPOSITORY" --body-file comment.md; fi
           rm "$STUDY/just_completed"
-          gh workflow disable card-bookings-research.yml --repo "$GITHUB_REPOSITORY"
       - name: Save collected card events
         if: always() && steps.configured.outputs.enabled == 'true'
         uses: actions/cache/save@v4
         with:
           path: ${{ env.EVENTS }}
-          key: card-events-${{ github.run_id }}
+          key: card-events-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Upload progress and any study
         if: always() && steps.configured.outputs.enabled == 'true'
         uses: actions/upload-artifact@v7
         with:
           name: card-bookings-study-${{ github.run_id }}
           path: ${{ env.STUDY }}
+          include-hidden-files: true
           if-no-files-found: ignore

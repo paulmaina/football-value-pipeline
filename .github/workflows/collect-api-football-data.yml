@@ -8,14 +8,25 @@ on:
 permissions:
   contents: write
   actions: read
+  pull-requests: write
 
 concurrency:
-  group: api-football-collection
+  group: api-football-cycle
   cancel-in-progress: false
 
 jobs:
-  collect:
+  card-research:
     if: github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/card-bookings-research.yml
+    secrets:
+      API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+  collect:
+    needs: card-research
+    # A research/provider failure must not suppress supplementary publication.
+    if: ${{ always() && !cancelled() && github.ref == 'refs/heads/main' }}
+    concurrency:
+      group: api-football-collection
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

@@ -4,26 +4,26 @@ Two separate one-factor trials against actual production, not a combined configu
 
 | Candidate | Status | Paired fixtures | Gameweeks | Verified coverage |
 |---|---|---:|---:|---:|
-| stronger_l2 | COLLECT_MORE_DATA | 92/300 | 3/6 | 0.9787234042553191 |
+| stronger_l2 | COLLECT_MORE_DATA | 102/300 | 3/6 | 0.8571428571428571 |
 
-Excluded stronger_l2 forecasts (not comparable like for like): ValueError: 2, feature_application_differs: 18
+Excluded stronger_l2 forecasts (not comparable like for like): ValueError: 2, feature_application_differs: 19
 
 ## stronger_l2
 
 | Market | Baseline log loss | Candidate log loss | Baseline Brier | Candidate Brier |
 |---|---:|---:|---:|---:|
-| 1x2 | 0.9559864179234671 | 0.9578780465139338 | 0.5666793150542123 | 0.5676471325279193 |
-| over_1_5 | 0.5030587916315045 | 0.5074618852152012 | 0.1625639061681356 | 0.1640615392167076 |
-| under_3_5 | 0.6274438352477064 | 0.6169861992743944 | 0.21736879320074592 | 0.2138898432929234 |
-| btts_yes | 0.689267955292518 | 0.6821741683461293 | 0.24739889787184025 | 0.24427811240658687 |
-| over_2_5 | 0.6657945060395586 | 0.662840452382711 | 0.23666284496705242 | 0.2355820960215183 |
+| 1x2 | 0.93684469309007 | 0.9386101542818327 | 0.5528741446768082 | 0.5537486744398159 |
+| over_1_5 | 0.49936944117579873 | 0.5035735140155428 | 0.16108126279473553 | 0.16253528725443284 |
+| under_3_5 | 0.6282943055275336 | 0.6187190541884563 | 0.21786761898623225 | 0.21465216776217175 |
+| btts_yes | 0.6958476842935659 | 0.6875654804235688 | 0.25072220010259716 | 0.24698057783458402 |
+| over_2_5 | 0.6648976017422586 | 0.6617066739568037 | 0.23628417485458952 | 0.23505161170131708 |
 
 Primary familywise 95% gain interval: [-0.0057028192877419575, 0.0012794862284424835]
 Evidence: NO_CLEAR_PROMOTION_EVIDENCE. Calibration and league breakdowns: summary.json.
 
-| fixed_half_life | COLLECT_MORE_DATA | 83/300 | 3/6 | 0.8829787234042553 |
+| fixed_half_life | COLLECT_MORE_DATA | 83/300 | 3/6 | 0.6974789915966386 |
 
-Excluded fixed_half_life forecasts (not comparable like for like): ValueError: 2, candidate_equals_production_half_life: 54
+Excluded fixed_half_life forecasts (not comparable like for like): ValueError: 2, candidate_equals_production_half_life: 59
 
 ## fixed_half_life
 
