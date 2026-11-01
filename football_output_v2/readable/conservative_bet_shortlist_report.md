@@ -1,11 +1,11 @@
 # Conservative shortlisted matches and markets
 
 
-**Candidates:** 3 of target 12 distinct matches.
-**Strictly qualified:** 3. **Provisional watchlist:** 0.
-**Pipeline status:** BELOW_TARGET.
-**Generated (UTC):** 2026-11-01T07:37:30.159727+00:00.
-**UNPROVEN EDGE (Corners):** validated on probability accuracy only; no historical corner or card odds exist, so profitability is untested. 0 of 3 selections.
+**Candidates:** 0 of target 12 distinct matches.
+**Strictly qualified:** 0. **Provisional watchlist:** 0.
+**Pipeline status:** NO BET.
+**Generated (UTC):** 2026-11-01T09:36:12.166126+00:00.
+**UNPROVEN EDGE (Corners):** validated on probability accuracy only; no historical corner or card odds exist, so profitability is untested. 0 of 0 selections.
 **Kickoffs within next 48 hours of run:** Not available.
 
 > WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. The shortlist is not an accumulator recommendation.
@@ -17,21 +17,13 @@
 **Shortlist policy:** require adjusted estimated EV >= 0.5% and unblended EV >= 0. For each match, admit candidates within 0.0% of its lowest eligible estimated loss risk; rank highest adjusted EV, unblended EV, then full-refund probability. The risk tolerance is a provisional policy setting, not empirically tuned.
 **Probability meaning:** Asian model chance includes refunds. Half-losses lose money. Estimates do not guarantee outcomes. Pinnacle/bet365 take priority, with 1xBet as an exact-line fallback.
 
-| Match | Shortlisted market | Qualification | Kickoff (UTC) | Model chance | Reliability-adjusted chance | Bookmaker | Quoted decimal odds | Conservative estimated EV | Near-miss reasons | Unblended estimated EV | Any loss chance | Conservative loss estimate | Full refund chance | Probability meaning |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Kasimpasa SK vs Besiktas JK | Asian Handicap Home +2.00 | STRICT | 2026-11-01T16:00:00+00:00 | 87.7% | 85.9% | Pinnacle | 1.24 | +2.3% | — | +9.9% | 12.3% | 14.1% | 17.4% | net_no_loss |
-| Juventus vs Napoli | Asian Handicap Away +1.00 | STRICT | 2026-11-01T19:45:00+00:00 | 81.0% | 81.0% | Pinnacle | 1.34 | +1.0% | — | +6.8% | 19.0% | 19.0% | 22.4% | net_no_loss |
-| Excelsior vs FC Twente Enschede | Asian Handicap Home +2.00 | STRICT | 2026-11-01T13:30:00+00:00 | 80.7% | 80.2% | Pinnacle | 1.35 | +1.6% | — | +9.6% | 19.3% | 19.8% | 18.9% | net_no_loss |
+_No qualifying matches were shortlisted. No bet is a valid outcome._
 
 ## Qualifying alternatives for comparison
 
 Prefer another market type when one qualifies; otherwise show another qualifying line. Alternatives meet the eligibility checks, including adjusted EV >= 1% and unblended EV >= 0. Their risk band is ranked separately; an alternative outside the selected risk band is explicitly marked. Risk increase is measured in percentage points against the selected pick. These are comparisons, not additional selections. Double Chance 1X/X2 and Asian +0.5 cover the same outcomes; different market names do not guarantee diversification.
 
-| Match | Shortlisted market | Alternative market | Alternative bookmaker | Alternative odds | Alternative conservative loss estimate | Alternative refund chance | Alternative adjusted EV | Alternative unblended EV | Alternative risk increase | Alternative comparison |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Kasimpasa SK vs Besiktas JK | Asian Handicap Home +2.00 | — | — | — | — | — | — | — | — | No qualifying alternative |
-| Juventus vs Napoli | Asian Handicap Away +1.00 | Asian Handicap Away +1.25 | Pinnacle | 1.28 | 19.0% | 0.0% | +0.6% | +6.0% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
-| Excelsior vs FC Twente Enschede | Asian Handicap Home +2.00 | Asian Handicap Home +2.25 | Pinnacle | 1.29 | 19.8% | 0.0% | +0.7% | +7.9% | +0.0 pp | Same market type; no qualifying other type; within selected risk band |
+_No data available._
 
 ## Interpretation
 

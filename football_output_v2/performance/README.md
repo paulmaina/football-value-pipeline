@@ -226,13 +226,12 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-10-21 | 557 | 11 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-10-22 | 714 | 10 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 3, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 3, "bookmakers": {"Pinnacle": 3}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 3, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 0, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 0, "bookmakers": {}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 0, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| d737a7a239cb | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 93aabf61cc3a | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 0117b0e0fe09 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 10a7df008090 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
@@ -252,6 +251,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | 2f2bbe3e322e | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | f82ff3e276c6 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 796c7451f410 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| dc55908798d7 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
