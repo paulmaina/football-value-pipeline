@@ -46814,7 +46814,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T06:52:26Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "available"
@@ -47721,7 +47721,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:00:40Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "available"
@@ -48030,7 +48030,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:00:40Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "available"
@@ -48648,7 +48648,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:08:04Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "available"
@@ -49025,7 +49025,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:08:04Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "available"
@@ -49402,7 +49402,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:12:04Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "available"
@@ -49779,7 +49779,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:12:04Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "available"
@@ -50057,7 +50057,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:12:04Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "available"
@@ -50712,7 +50712,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:19:10Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "available"
@@ -51126,7 +51126,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:19:10Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "available",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "available"
@@ -51468,7 +51468,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:19:10Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "available",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "available"
@@ -51886,7 +51886,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:26:45Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "unavailable"
@@ -51927,7 +51927,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:26:45Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "unavailable"
@@ -51968,7 +51968,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:26:45Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "unavailable"
@@ -52009,7 +52009,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:27:32Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "unavailable"
@@ -52050,7 +52050,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:27:32Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "unavailable"
@@ -52091,7 +52091,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:27:32Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "unavailable"
@@ -52255,7 +52255,7 @@
     "reference_source": "The Odds API / Pinnacle",
     "reference_updated_at_utc": "2026-10-30T07:28:45Z",
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
     "secondary_status": "unavailable",
     "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
     "status": "unavailable"
@@ -54500,7 +54500,7 @@
     "reference_source": null,
     "reference_updated_at_utc": null,
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "cbf58accd4fa069150a051de865af2a35e146288",
     "status": "unavailable"
@@ -54541,7 +54541,7 @@
     "reference_source": null,
     "reference_updated_at_utc": null,
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "cbf58accd4fa069150a051de865af2a35e146288",
     "status": "unavailable"
@@ -54833,7 +54833,7 @@
     "reference_source": null,
     "reference_updated_at_utc": null,
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "cbf58accd4fa069150a051de865af2a35e146288",
     "status": "unavailable"
@@ -54875,7 +54875,7 @@
     "reference_source": null,
     "reference_updated_at_utc": null,
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "cbf58accd4fa069150a051de865af2a35e146288",
     "status": "unavailable"
@@ -54917,7 +54917,7 @@
     "reference_source": null,
     "reference_updated_at_utc": null,
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "cbf58accd4fa069150a051de865af2a35e146288",
     "status": "unavailable"
@@ -54959,7 +54959,7 @@
     "reference_source": null,
     "reference_updated_at_utc": null,
     "registry_sha256": "761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-    "result_status": "PENDING_KICKOFF_OR_FINAL_SCORE",
+    "result_status": "VERIFIED_FINISHED",
     "secondary_status": "unavailable",
     "snapshot_commit": "cbf58accd4fa069150a051de865af2a35e146288",
     "status": "unavailable"
