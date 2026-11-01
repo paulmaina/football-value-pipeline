@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "42e1c02dabf9ac4d449e156a41a109c7298d50521993b971575ec7e2ca7daddf",
-  "training_as_of_utc": "2026-11-01T09:08:05.465726+00:00",
+  "training_as_of_utc": "2026-11-01T12:15:06.482382+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 70,
     "bbs_added_results": 7,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-01T09:08:05.465726+00:00",
+    "cutoff_utc": "2026-11-01T12:15:06.482382+00:00",
     "observations": 363,
     "observations_sha256": "a7d1b621253d8d4a3fc289448d3bcba403d71404007d411b27fd14028a609736",
     "eligible_training_matches": 75,
@@ -115,21 +115,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.7307058747259999,
-    "audit_candidate_poisson_score": 0.7195187152220802,
-    "audit_gain": 0.011187159503919686,
-    "audit_gain_lower95": 0.0018529305887372996,
+    "audit_baseline_poisson_score": 0.7307657533539447,
+    "audit_candidate_poisson_score": 0.7195617178958151,
+    "audit_gain": 0.011204035458129535,
+    "audit_gain_lower95": 0.0018666686400888987,
     "audit_baseline_briers": [
-      0.5975304647116524,
-      0.16609585680719302,
-      0.2894000422491477,
-      0.2556310978277841
+      0.597551978731233,
+      0.16612337738143562,
+      0.2894189415872849,
+      0.2556428482132183
     ],
     "audit_candidate_briers": [
-      0.593708908876311,
-      0.16323459442926103,
-      0.2868872229847938,
-      0.253789216550467
+      0.5937253982755701,
+      0.1632545398228143,
+      0.2869026835175564,
+      0.2537986208187858
     ],
     "audit_brier_order": [
       "1x2",
@@ -141,10 +141,10 @@
   },
   "training_end": "2026-10-31",
   "fit_success": true,
-  "objective": 1591.3786116559575,
-  "base": 0.21814219059433634,
-  "home_adv": 0.22499843465174457,
-  "rho": -0.0752837309927663,
+  "objective": 1591.0802524628025,
+  "base": 0.21820951343573566,
+  "home_adv": 0.22496532571208044,
+  "rho": -0.07532404095114476,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -167,75 +167,23 @@
   },
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
-  "fixture_sources": [
-    "The Odds API"
-  ],
+  "fixture_sources": [],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 2,
-  "excluded_started_fixtures": [],
-  "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 7,
-  "additional_event_odds_calls_budget": null,
-  "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261101T090805465726Z_35bc8ca22b2fef37dda9ef6bbfa726eb2946d3c9004920971c154481a8e6a7de.json",
-  "over_1_5_in_window_quote_fixtures": 0,
-  "additional_odds_coverage_mode": "all",
-  "additional_odds_coverage": [
+  "live_odds_matched": 0,
+  "excluded_started_fixtures": [
     {
-      "fixture_id": "60eaeb599578cd5c951f917c4fef06ff",
-      "event_id": "60eaeb599578cd5c951f917c4fef06ff",
-      "home_team": "Union Berlin",
-      "away_team": "1. FC K\u00f6ln",
-      "kickoff_utc": "2026-11-01T14:30:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 14,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "1eb5e1a69ae9dd9edd92fde344308a4e",
-      "event_id": "1eb5e1a69ae9dd9edd92fde344308a4e",
-      "home_team": "Eintracht Frankfurt",
-      "away_team": "Hamburger SV",
-      "kickoff_utc": "2026-11-01T16:30:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 14,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "home_team": "SV 07 Elversberg",
+      "away_team": "1. FSV Mainz 05",
+      "kickoff_utc": "2026-10-30T19:30:00+00:00",
+      "fixture_source": "football-data.org"
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 2,
-  "additional_odds_unrequested_linked_fixtures": 0,
-  "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 2,
-  "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 2
-  },
-  "shot_features_applied_fixtures": 2,
-  "goal_rate_features_used": {
-    "shot_features": 2
-  },
-  "legacy_comparison_status": {
-    "AVAILABLE": 2
-  },
-  "bbs_statistics_applied_fixtures": 0,
+  "excluded_unresolved_team_fixtures": [],
+  "additional_event_odds_calls_used_before_this_league": 0,
+  "additional_event_odds_calls_budget": null,
+  "additional_event_odds_league_quota": null,
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261101T121506482382Z_a3fb27b8cc55951b11a8502e084b512e642bdea4858c9b4b269c17b572e8080e.json",
   "decay_tuning": {
     "selected_half_life_days": 1000000000.0,
     "selected_xi_per_day": 6.931471805599453e-10,

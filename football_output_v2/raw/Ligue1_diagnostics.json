@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "47b25ac334e6029623ac9a98dd81bd03d80ab2d781f8f78ce52f1d10b87f3ef8",
-  "training_as_of_utc": "2026-11-01T09:25:32.352914+00:00",
+  "training_as_of_utc": "2026-11-01T12:21:43.479248+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 76,
     "bbs_added_results": 4,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-01T09:25:32.352914+00:00",
+    "cutoff_utc": "2026-11-01T12:21:43.479248+00:00",
     "observations": 462,
     "observations_sha256": "fad4edfd2cff03c9620cae8d9fa11469dc7b5cfbfd352bf74a0a68c8c62cd190",
     "eligible_training_matches": 176,
@@ -154,21 +154,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8740131822227161,
-    "audit_candidate_poisson_score": 0.8703668995811455,
-    "audit_gain": 0.0036462826415705196,
-    "audit_gain_lower95": -0.0020867462808750554,
+    "audit_baseline_poisson_score": 0.8740131822125641,
+    "audit_candidate_poisson_score": 0.8703668995733247,
+    "audit_gain": 0.0036462826392393843,
+    "audit_gain_lower95": -0.002086746289812877,
     "audit_baseline_briers": [
-      0.5996494887036665,
-      0.17689503454333355,
-      0.2163131972282897,
-      0.24794984738788303
+      0.5996494886895843,
+      0.17689503454482072,
+      0.21631319722829082,
+      0.2479498473885013
     ],
     "audit_candidate_briers": [
-      0.5975481546118023,
-      0.17562674277288576,
-      0.21497744296286103,
-      0.24618847014566814
+      0.5975481546017649,
+      0.1756267427737864,
+      0.21497744296289117,
+      0.24618847014565895
     ],
     "audit_brier_order": [
       "1x2",
@@ -183,10 +183,10 @@
   },
   "training_end": "2026-10-31",
   "fit_success": true,
-  "objective": 1591.936006627558,
-  "base": 0.20315914755474296,
-  "home_adv": 0.19621872980593982,
-  "rho": -0.053037012497026345,
+  "objective": 1591.6548134337572,
+  "base": 0.2031389987462322,
+  "home_adv": 0.19621137690206306,
+  "rho": -0.05304158150580198,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -210,120 +210,104 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "The Odds API"
+    "football-data.org"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 5,
+  "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 16,
+  "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261101T092532352914Z_0ca811d67770e4869b3dd3fcfe40c1a1a5dffb53ecdf6ce6fce7ccf806f89ba0.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261101T122143479248Z_ca0cf59994ccefc46a0a698130d242bd657ad0d7318efe701dd84b8dfbab0f59.json",
   "over_1_5_in_window_quote_fixtures": 0,
+  "odds_provider_health": {
+    "state": "CREDITS_EXHAUSTED",
+    "attempts": [
+      {
+        "credential": "THE_ODDS_API_KEY",
+        "http_status": 401,
+        "error_code": "OUT_OF_USAGE_CREDITS",
+        "x-requests-remaining": 1,
+        "x-requests-used": 499,
+        "x-requests-last": 0
+      }
+    ],
+    "blocked_utc_day": "2026-11-01"
+  },
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "448a1083448ea9dff55bfebf15ff20b4",
-      "event_id": "448a1083448ea9dff55bfebf15ff20b4",
-      "home_team": "Strasbourg",
-      "away_team": "Auxerre",
+      "fixture_id": "fdorg:559647",
+      "event_id": null,
+      "home_team": "RC Strasbourg Alsace",
+      "away_team": "AJ Auxerre",
       "kickoff_utc": "2026-11-01T14:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 14,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "961df571fad52d969150e9ced52b16f7",
-      "event_id": "961df571fad52d969150e9ced52b16f7",
-      "home_team": "Lyon",
-      "away_team": "Angers",
+      "fixture_id": "fdorg:559640",
+      "event_id": null,
+      "home_team": "Olympique Lyonnais",
+      "away_team": "Angers SCO",
       "kickoff_utc": "2026-11-01T16:15:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 2,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "cf3a2e2b4a4e9815d1d0be8dcef916da",
-      "event_id": "cf3a2e2b4a4e9815d1d0be8dcef916da",
+      "fixture_id": "fdorg:559642",
+      "event_id": null,
       "home_team": "Paris FC",
-      "away_team": "AS Monaco",
+      "away_team": "AS Monaco FC",
       "kickoff_utc": "2026-11-01T16:15:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 12,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "df1e1589c51bbcac432125567d1f7c58",
-      "event_id": "df1e1589c51bbcac432125567d1f7c58",
-      "home_team": "Marseille",
-      "away_team": "Toulouse",
+      "fixture_id": "fdorg:559645",
+      "event_id": null,
+      "home_team": "Olympique de Marseille",
+      "away_team": "Toulouse FC",
       "kickoff_utc": "2026-11-01T19:45:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 16,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "5118966f484adf525196d196a61bc5d6",
-      "event_id": "5118966f484adf525196d196a61bc5d6",
-      "home_team": "Lorient",
-      "away_team": "Brest",
+      "fixture_id": "fdorg:559641",
+      "event_id": null,
+      "home_team": "FC Lorient",
+      "away_team": "Stade Brestois 29",
       "kickoff_utc": "2026-11-02T19:45:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 2,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 5,
+  "additional_odds_in_window_linked_fixtures": 0,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 5,
+  "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
     "NOT_ANCHORED_NO_PINNACLE": 5
   },
