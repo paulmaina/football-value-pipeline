@@ -10,7 +10,7 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-11-01T09:36:12.166126+00:00",
+  "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
   "model_code_sha256": "9498dec93cdc469f8538bb06a0279d8a57cde597902d507f892b5d69aa1ea03e",
   "model_component_sha256": {
     "api_football_data.py": "c5ae292a50d10b4e1a0d9901a0989c8eebc99082aa19d75d3d0e87cc59b00de5",
@@ -49,6 +49,6 @@
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47",
     "win_first_shortlist.py": "13a189d481338e75ee2f386a6de316df0ca9b73d8a96e8d5b9cdc3de91c59bb8"
   },
-  "predictions_sha256": "a52e514d0e3c3e8814a999254aea3c2d1c5919f9f9d222253172c7609d4edf1d",
+  "predictions_sha256": "01816d99d46a50669e97424a11e5ec78140e3f6fe0e372804e43303fe0c2016f",
   "selection_policy_version": "48h-zero-tolerance-ev05-no-loss75-corners-v26"
 }

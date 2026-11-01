@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "710cd14c77659538d82d7513f6e2c48597e59395dab66f3650b09eb1c23b07c2",
-  "training_as_of_utc": "2026-11-01T08:47:34.311683+00:00",
+  "training_sha256": "5dbc67abb74d17aad6716092b30491fc174e495c246f00de69431ffa0984f52a",
+  "training_as_of_utc": "2026-11-01T12:03:57.378405+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 88,
     "bbs_added_results": 8,
@@ -27,7 +27,7 @@
       "unmapped": 38,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 201,
+      "statistics_observations": 212,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -35,10 +35,10 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-01T08:47:34.311683+00:00",
-    "observations": 565,
-    "observations_sha256": "97785850b77db94b1ef8432706e62e47d106e18a0256c32589f66ea6c50cc421",
-    "eligible_training_matches": 265,
+    "cutoff_utc": "2026-11-01T12:03:57.378405+00:00",
+    "observations": 576,
+    "observations_sha256": "3071ee95d1c21a154dc521fe86ed1bc36a93e26de4ccf16506c129332b8b188f",
+    "eligible_training_matches": 276,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -63,18 +63,18 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 243,
+    "usable_current_matches": 252,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
     "strict_eligible_training_matches": 26,
-    "retrospective_eligible_training_matches": 265,
+    "retrospective_eligible_training_matches": 276,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
-    "retrospective_inputs_sha256": "0e007d7c5c41d11472fcb2df663471f0a76eb9206044dda97d19304c56b83de5",
+    "retrospective_inputs_sha256": "b28c6bf0b892a6277f11253f9ba9cefc5056309437eb31c158cf7ea87791e429",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
-    "training_matches": 205,
+    "training_matches": 216,
     "tuning_matches": 20,
     "audit_matches": 40,
     "tuning_origin_utc": "2025-10-03T00:00:00+00:00",
@@ -154,21 +154,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.9197629882632063,
-    "audit_candidate_poisson_score": 0.9101983643886844,
-    "audit_gain": 0.00956462387452195,
-    "audit_gain_lower95": 0.0010634214007443634,
+    "audit_baseline_poisson_score": 0.9197690623642132,
+    "audit_candidate_poisson_score": 0.91020295395996,
+    "audit_gain": 0.009566108404253204,
+    "audit_gain_lower95": 0.00106704065356859,
     "audit_baseline_briers": [
-      0.6326531963674555,
-      0.1571095989813288,
-      0.22008773968314155,
-      0.2505880399093558
+      0.632655692234939,
+      0.1571100102185937,
+      0.22009131526644332,
+      0.25058796247925585
     ],
     "audit_candidate_briers": [
-      0.6323760785267843,
-      0.15631033250496124,
-      0.21733676331513951,
-      0.24791853345253542
+      0.6323775316870927,
+      0.1563108435222485,
+      0.217339355217242,
+      0.24791856581492158
     ],
     "audit_brier_order": [
       "1x2",
@@ -182,10 +182,10 @@
   },
   "training_end": "2026-10-31",
   "fit_success": true,
-  "objective": 1884.3148973102402,
-  "base": 0.2131884824453782,
-  "home_adv": 0.180514369698639,
-  "rho": -0.06890745992576369,
+  "objective": 1883.94391398054,
+  "base": 0.21323310867262207,
+  "home_adv": 0.18048639337988323,
+  "rho": -0.06892347173217812,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -213,68 +213,63 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 2,
+  "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261101T084734311683Z_fa6eab174b585c528e349ae7047e2c3935e021231618a54561d4b774f581f1c7.json",
-  "over_1_5_in_window_quote_fixtures": 1,
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261101T120357378405Z_fa0b586e0e3b2960bbf564058a52017b3657be7638a4d8279d3ad99310b28696.json",
+  "over_1_5_in_window_quote_fixtures": 0,
+  "odds_provider_health": {
+    "state": "CREDITS_EXHAUSTED",
+    "attempts": [
+      {
+        "credential": "THE_ODDS_API_KEY",
+        "http_status": 401,
+        "error_code": "OUT_OF_USAGE_CREDITS",
+        "x-requests-remaining": 1,
+        "x-requests-used": 499,
+        "x-requests-last": 0
+      }
+    ],
+    "blocked_utc_day": "2026-11-01"
+  },
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
       "fixture_id": "6a3819cdbe2ba2fe5a3d8f9b4b459965",
-      "event_id": "6a3819cdbe2ba2fe5a3d8f9b4b459965",
+      "event_id": null,
       "home_team": "Liverpool",
       "away_team": "Arsenal",
       "kickoff_utc": "2026-11-01T16:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 4,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 30,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "0f552d9c6990c69474f50ff2fb54e9a3",
-      "event_id": "0f552d9c6990c69474f50ff2fb54e9a3",
+      "event_id": null,
       "home_team": "Newcastle United",
       "away_team": "Everton",
       "kickoff_utc": "2026-11-02T20:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 6,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 30,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 2,
+  "additional_odds_in_window_linked_fixtures": 0,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 2,
+  "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "ANCHORED_MAIN": 1,
-    "ANCHORED_ALTERNATE": 1
+    "NOT_ANCHORED_NO_PINNACLE": 2
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {

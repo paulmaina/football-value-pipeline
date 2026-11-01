@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "2f4fd2fcddcb84697ea931176b022e41bf3522fece1debae7653f99b8c0db30f",
-  "training_as_of_utc": "2026-11-01T09:33:58.612728+00:00",
+  "training_as_of_utc": "2026-11-01T12:23:09.675941+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -52,9 +52,9 @@
   },
   "training_end": "2026-10-22",
   "fit_success": true,
-  "objective": 797.5931423003868,
-  "base": 0.10248388239300876,
-  "home_adv": 0.2670941762999354,
+  "objective": 797.4583906555056,
+  "base": 0.10246138520898468,
+  "home_adv": 0.2671032056765573,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -91,7 +91,7 @@
   "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 21,
+  "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "decay_tuning": {

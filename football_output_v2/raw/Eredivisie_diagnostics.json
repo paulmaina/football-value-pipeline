@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "173f00460382fe819ab1795f92939756d58effd9917931edff4bdbeeab528135",
-  "training_as_of_utc": "2026-11-01T09:34:08.418106+00:00",
+  "training_as_of_utc": "2026-11-01T12:23:12.296723+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.688931324746308,
-    "audit_candidate_poisson_score": 0.6802697887067812,
-    "audit_gain": 0.008661536039526796,
-    "audit_gain_lower95": -0.004720200507761522,
+    "audit_baseline_poisson_score": 0.6889275615862654,
+    "audit_candidate_poisson_score": 0.6802694333813243,
+    "audit_gain": 0.008658128204941162,
+    "audit_gain_lower95": -0.004724107977391453,
     "audit_baseline_briers": [
-      0.6137541905831072,
-      0.09292909529206177,
-      0.28403384810112686,
-      0.22642787371071124
+      0.6137514869287697,
+      0.09292906963489717,
+      0.2840351453633093,
+      0.2264232297608972
     ],
     "audit_candidate_briers": [
-      0.612395307466804,
-      0.0916424763272845,
-      0.28041331535269864,
-      0.21976527414055588
+      0.6123945466989743,
+      0.09164250234443909,
+      0.2804142756392567,
+      0.2197628496918597
     ],
     "audit_brier_order": [
       "1x2",
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-10-25",
   "fit_success": true,
-  "objective": 1610.3308900335057,
-  "base": 0.29192955341562793,
-  "home_adv": 0.18419332202253477,
-  "rho": -0.09550838314107507,
+  "objective": 1610.05794105291,
+  "base": 0.2918959163853903,
+  "home_adv": 0.18415679816580943,
+  "rho": -0.09548129991647283,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -115,109 +115,93 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "The Odds API"
+    "football-data.org"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 4,
-  "excluded_started_fixtures": [],
+  "live_odds_matched": 0,
+  "excluded_started_fixtures": [
+    {
+      "home_team": "PEC Zwolle",
+      "away_team": "ADO Den Haag",
+      "kickoff_utc": "2026-11-01T11:15:00+00:00",
+      "fixture_source": "football-data.org"
+    }
+  ],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 21,
+  "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
+  "odds_provider_health": {
+    "state": "CREDITS_EXHAUSTED",
+    "attempts": [
+      {
+        "credential": "THE_ODDS_API_KEY",
+        "http_status": 401,
+        "error_code": "OUT_OF_USAGE_CREDITS",
+        "x-requests-remaining": 1,
+        "x-requests-used": 499,
+        "x-requests-last": 0
+      }
+    ],
+    "blocked_utc_day": "2026-11-01"
+  },
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "016bdfefaa570d0fcaeffc5a1cb3625f",
-      "event_id": "016bdfefaa570d0fcaeffc5a1cb3625f",
-      "home_team": "FC Zwolle",
-      "away_team": "ADO Den Haag",
-      "kickoff_utc": "2026-11-01T11:15:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 2,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "c0c32575c239ac72913af247ce084ea2",
-      "event_id": "c0c32575c239ac72913af247ce084ea2",
-      "home_team": "Excelsior",
-      "away_team": "FC Twente Enschede",
+      "fixture_id": "fdorg:558847",
+      "event_id": null,
+      "home_team": "SBV Excelsior",
+      "away_team": "FC Twente '65",
       "kickoff_utc": "2026-11-01T13:30:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 2,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "d7d5552edc5c81a14b6933537ba2043c",
-      "event_id": "d7d5552edc5c81a14b6933537ba2043c",
-      "home_team": "SC Telstar",
+      "fixture_id": "fdorg:558848",
+      "event_id": null,
+      "home_team": "Telstar 1963",
       "away_team": "FC Utrecht",
       "kickoff_utc": "2026-11-01T13:30:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 2,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
     {
-      "fixture_id": "961d9c9f07b1f911e211cd6a750cddba",
-      "event_id": "961d9c9f07b1f911e211cd6a750cddba",
-      "home_team": "Groningen",
+      "fixture_id": "fdorg:558846",
+      "event_id": null,
+      "home_team": "FC Groningen",
       "away_team": "Sparta Rotterdam",
       "kickoff_utc": "2026-11-01T15:45:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 2,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 4,
+  "additional_odds_in_window_linked_fixtures": 0,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 4,
+  "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 4
+    "NOT_ANCHORED_NO_PINNACLE": 3
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 4
+    "none": 3
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 4
+    "AVAILABLE": 3
   },
   "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {

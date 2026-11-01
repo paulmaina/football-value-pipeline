@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "36930ef41a7cb5e7e2f4d6e9884819c8b34ead9559d248ba647b034c279b2986",
-  "training_as_of_utc": "2026-11-01T09:35:30.572223+00:00",
+  "training_as_of_utc": "2026-11-01T12:23:22.631840+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8780955907880007,
-    "audit_candidate_poisson_score": 0.8666990321435577,
-    "audit_gain": 0.011396558644443,
-    "audit_gain_lower95": 0.0022201969361838937,
+    "audit_baseline_poisson_score": 0.8780932829826771,
+    "audit_candidate_poisson_score": 0.8666980734500748,
+    "audit_gain": 0.011395209532602313,
+    "audit_gain_lower95": 0.002218316112088176,
     "audit_baseline_briers": [
-      0.610715248198682,
-      0.18205787894908704,
-      0.19529145865227437,
-      0.2498807947091839
+      0.6107125274396741,
+      0.1820573510069246,
+      0.19529316948772807,
+      0.24988039025237327
     ],
     "audit_candidate_briers": [
-      0.6061919125448232,
-      0.18035232955524316,
-      0.1919163026788913,
-      0.24956436838083318
+      0.6061927126364134,
+      0.1803517042408337,
+      0.19191721337935966,
+      0.24956334071163958
     ],
     "audit_brier_order": [
       "1x2",
@@ -85,10 +85,10 @@
   },
   "training_end": "2026-10-26",
   "fit_success": true,
-  "objective": 1651.0033818847064,
-  "base": 0.12391915991565262,
-  "home_adv": 0.24560799839576605,
-  "rho": -0.09602416879608063,
+  "objective": 1650.7255301853525,
+  "base": 0.1239308877875337,
+  "home_adv": 0.2456085002590473,
+  "rho": -0.0960169144535871,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -111,131 +111,15 @@
   },
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
-  "fixture_sources": [
-    "The Odds API"
-  ],
+  "fixture_sources": [],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 5,
+  "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 31,
+  "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 0,
-  "additional_odds_coverage_mode": "all",
-  "additional_odds_coverage": [
-    {
-      "fixture_id": "5706f8b2f4d8a94519bbea0efc91e36b",
-      "event_id": "5706f8b2f4d8a94519bbea0efc91e36b",
-      "home_team": "Amed SK",
-      "away_team": "Ey\u00fcpspor",
-      "kickoff_utc": "2026-11-01T10:30:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 2,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "f4e049de3ce6858d46dd45ab5cfa0e8c",
-      "event_id": "f4e049de3ce6858d46dd45ab5cfa0e8c",
-      "home_team": "Basaksehir",
-      "away_team": "Samsunspor",
-      "kickoff_utc": "2026-11-01T13:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 2,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "cd2960ff2b4d605144a83562b0085400",
-      "event_id": "cd2960ff2b4d605144a83562b0085400",
-      "home_team": "Trabzonspor",
-      "away_team": "Gazi\u015fehir Gaziantep",
-      "kickoff_utc": "2026-11-01T13:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 2,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "bf609ced8c6472e7d11428e42a2e468e",
-      "event_id": "bf609ced8c6472e7d11428e42a2e468e",
-      "home_team": "Kasimpasa SK",
-      "away_team": "Besiktas JK",
-      "kickoff_utc": "2026-11-01T16:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 2,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "10a70d197a090f08183739878151539d",
-      "event_id": "10a70d197a090f08183739878151539d",
-      "home_team": "Genclerbirligi SK",
-      "away_team": "Alanyaspor",
-      "kickoff_utc": "2026-11-02T17:00:00+00:00",
-      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "asian_handicap_quotes": 2,
-      "asian_handicap_bookmakers": [
-        "1xBet"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 0,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    }
-  ],
-  "additional_odds_in_window_linked_fixtures": 5,
-  "additional_odds_unrequested_linked_fixtures": 0,
-  "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 5,
-  "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 5
-  },
-  "shot_features_applied_fixtures": 5,
-  "goal_rate_features_used": {
-    "shot_features": 5
-  },
-  "legacy_comparison_status": {
-    "AVAILABLE": 5
-  },
-  "bbs_statistics_applied_fixtures": 0,
   "decay_tuning": {
     "selected_half_life_days": 365.0,
     "selected_xi_per_day": 0.0018990333713971104,
