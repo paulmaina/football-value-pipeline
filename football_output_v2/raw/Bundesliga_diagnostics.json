@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "42e1c02dabf9ac4d449e156a41a109c7298d50521993b971575ec7e2ca7daddf",
-  "training_as_of_utc": "2026-11-01T07:11:06.583192+00:00",
+  "training_as_of_utc": "2026-11-01T09:08:05.465726+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 70,
     "bbs_added_results": 7,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-01T07:11:06.583192+00:00",
+    "cutoff_utc": "2026-11-01T09:08:05.465726+00:00",
     "observations": 363,
     "observations_sha256": "a7d1b621253d8d4a3fc289448d3bcba403d71404007d411b27fd14028a609736",
     "eligible_training_matches": 75,
@@ -115,21 +115,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.7307409848365726,
-    "audit_candidate_poisson_score": 0.7195456173296279,
-    "audit_gain": 0.01119536750694472,
-    "audit_gain_lower95": 0.0018640767408074723,
+    "audit_baseline_poisson_score": 0.7307058747259999,
+    "audit_candidate_poisson_score": 0.7195187152220802,
+    "audit_gain": 0.011187159503919686,
+    "audit_gain_lower95": 0.0018529305887372996,
     "audit_baseline_briers": [
-      0.597547620009099,
-      0.16610067079309407,
-      0.2894101452518172,
-      0.25563709869937135
+      0.5975304647116524,
+      0.16609585680719302,
+      0.2894000422491477,
+      0.2556310978277841
     ],
     "audit_candidate_briers": [
-      0.593722815607305,
-      0.1632385342160329,
-      0.28689523973175785,
-      0.2537938886319943
+      0.593708908876311,
+      0.16323459442926103,
+      0.2868872229847938,
+      0.253789216550467
     ],
     "audit_brier_order": [
       "1x2",
@@ -141,10 +141,10 @@
   },
   "training_end": "2026-10-31",
   "fit_success": true,
-  "objective": 1591.5652652979509,
-  "base": 0.21816908742446675,
-  "home_adv": 0.22500684286068792,
-  "rho": -0.07529990110794807,
+  "objective": 1591.3786116559575,
+  "base": 0.21814219059433634,
+  "home_adv": 0.22499843465174457,
+  "rho": -0.0752837309927663,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -178,7 +178,7 @@
   "additional_event_odds_calls_used_before_this_league": 7,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261101T071106583192Z_fb23af67526d59741ebb088f51b6bc8bd375f527e6ed082360e37a76d1eca1e8.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261101T090805465726Z_35bc8ca22b2fef37dda9ef6bbfa726eb2946d3c9004920971c154481a8e6a7de.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -188,19 +188,16 @@
       "home_team": "Union Berlin",
       "away_team": "1. FC K\u00f6ln",
       "kickoff_utc": "2026-11-01T14:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 6,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 32,
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 14,
       "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
+        "1xBet"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
+      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -210,19 +207,16 @@
       "home_team": "Eintracht Frankfurt",
       "away_team": "Hamburger SV",
       "kickoff_utc": "2026-11-01T16:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "count_market_quotes": 6,
-      "count_market_status": "QUOTES_AVAILABLE",
-      "asian_handicap_quotes": 32,
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 14,
       "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
+        "1xBet"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
+      "dc_bookmakers": 0,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     }
@@ -232,7 +226,7 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 2,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 2
+    "NOT_ANCHORED_NO_PINNACLE": 2
   },
   "shot_features_applied_fixtures": 2,
   "goal_rate_features_used": {

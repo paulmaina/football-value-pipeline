@@ -9,7 +9,7 @@
     "2026"
   ],
   "training_sha256": "47edf6adf265e8fdf87d822df1b1a85f5f0ce0cfc84ab39fc30fc515eb43bb29",
-  "training_as_of_utc": "2026-11-01T07:34:11.643013+00:00",
+  "training_as_of_utc": "2026-11-01T09:33:34.428047+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 54,
     "bbs_added_results": 0,
@@ -33,7 +33,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-01T07:34:11.643013+00:00",
+    "cutoff_utc": "2026-11-01T09:33:34.428047+00:00",
     "observations": 356,
     "observations_sha256": "4d8cb4d3918c784a4a3ed649310146c48327d251cb27dc5f29610ef6b58abcb0",
     "eligible_training_matches": 14,
@@ -107,9 +107,9 @@
   },
   "training_end": "2026-10-21",
   "fit_success": true,
-  "objective": 812.3598934411036,
-  "base": 0.21277387959974933,
-  "home_adv": 0.29997750188957295,
+  "objective": 812.2628446643614,
+  "base": 0.21277608606897355,
+  "home_adv": 0.2999790549657209,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -135,7 +135,7 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-11-01T07:33:34.448847+00:00",
+    "checked_at_utc": "2026-11-01T09:33:05.624664+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
@@ -143,7 +143,7 @@
     "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
     "note": "Provider schedule comparison is not independent proof of complete coverage.",
     "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-    "download_age_hours": 0.010331712777777778,
+    "download_age_hours": 0.008000939722222222,
     "training_end": "2026-10-21",
     "cache_hash_verified": true,
     "last_refresh_error": null,
@@ -162,7 +162,7 @@
   "additional_event_odds_calls_used_before_this_league": 21,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261101T073411643013Z_ad0287ac5b8c33580cc66ba4868ad8a0c1b71b55b237ab38dadadfa226868033.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261101T093334428047Z_0bc4b98fbb2e025f638cabdc45ba848070689f69f961360a6ca28dc823c01952.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -289,7 +289,7 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 9
+    "NOT_ANCHORED_NO_PINNACLE": 9
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
