@@ -1,0 +1,1 @@
+{"entity":"a4b8b16f-cb37-4f83-9ae3-cd99276d43fb","kind":"team","league":"EPL","observed":"2026-10-31T01:52:44.979283+00:00","payload":{"conference":null,"flag_url":null,"id":"a4b8b16f-cb37-4f83-9ae3-cd99276d43fb","league":"EPL","logo_url":null,"name":"Swansea","short_name":null,"sport":"football"},"query":"/v1/teams?league=epl&limit=200&offset=0&sport=football"}

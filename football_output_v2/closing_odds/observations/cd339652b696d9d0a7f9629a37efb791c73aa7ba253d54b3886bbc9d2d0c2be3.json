@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "FSV Mainz 05",
+    "home_team": "Elversberg",
+    "kickoff_utc": "2026-10-30T19:30:00+00:00",
+    "league": "Bundesliga",
+    "odds_event_id": "b275fe870ec88a9f0054c9220beb2673"
+  },
+  "observed_at_utc": "2026-10-30T19:24:31.602481+00:00",
+  "payload": {
+    "away_team": "FSV Mainz 05",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-30T19:24:28Z",
+            "outcomes": [
+              {
+                "name": "Elversberg",
+                "price": 3.92
+              },
+              {
+                "name": "FSV Mainz 05",
+                "price": 1.92
+              },
+              {
+                "name": "Draw",
+                "price": 4.02
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-30T19:24:28Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.79
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 2.15
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      },
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-10-30T19:24:03Z",
+            "outcomes": [
+              {
+                "name": "Elversberg",
+                "price": 3.83
+              },
+              {
+                "name": "FSV Mainz 05",
+                "price": 1.89
+              },
+              {
+                "name": "Draw",
+                "price": 3.98
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-10-30T19:24:03Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.21
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.67
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      }
+    ],
+    "commence_time": "2026-10-30T19:30:00Z",
+    "home_team": "Elversberg",
+    "id": "b275fe870ec88a9f0054c9220beb2673",
+    "sport_key": "soccer_germany_bundesliga",
+    "sport_title": "Bundesliga - Germany"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.83,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24710914874048998,
+      "selection": "home",
+      "updated_at_utc": "2026-10-30T19:24:03+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.98,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2374217132083191,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-30T19:24:03+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.89,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.515469138051191,
+      "selection": "away",
+      "updated_at_utc": "2026-10-30T19:24:03+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.21,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4249905039595596,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-10-30T19:24:03+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5750094960404405,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-10-30T19:24:03+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.92,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24680554559810838,
+      "selection": "home",
+      "updated_at_utc": "2026-10-30T19:24:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.02,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24051942256853528,
+      "selection": "draw",
+      "updated_at_utc": "2026-10-30T19:24:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.92,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5126750318333564,
+      "selection": "away",
+      "updated_at_utc": "2026-10-30T19:24:28+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

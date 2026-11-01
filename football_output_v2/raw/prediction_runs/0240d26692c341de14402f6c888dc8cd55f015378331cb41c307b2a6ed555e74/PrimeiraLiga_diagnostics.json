@@ -1,0 +1,304 @@
+{
+  "league": "Primeira Liga",
+  "training_matches": 1611,
+  "training_seasons_requested": 6,
+  "training_seasons_loaded": [
+    "2122",
+    "2223",
+    "2324",
+    "2425",
+    "2526",
+    "2627"
+  ],
+  "training_sha256": "84c0a9d8af08458f9d90e4a3ffe4465c5e09f0dc593fdcb0fb4ebd37c58b23a7",
+  "training_as_of_utc": "2026-10-31T12:02:52.604255+00:00",
+  "training_data_provenance": {
+    "bbs_confirmed_rows": 0,
+    "bbs_added_results": 0,
+    "bbs_result_conflicts": 0,
+    "bbs_rows_with_statistics": 0,
+    "bbs_statistics_used_as_predictor_features": false,
+    "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass."
+  },
+  "bbs_statistics_model": {
+    "status": "NO_OBSERVATIONS"
+  },
+  "model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
+  "totals_anchor_enabled": true,
+  "shot_features_model": {
+    "version": "football-data-lagged-shot-strength-v1",
+    "status": "VALIDATED",
+    "cutoff_date": "2026-10-31",
+    "selected_weight": 0.3,
+    "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
+    "lag_rule": "matches dated strictly before the origin date",
+    "gates": {
+      "min_form": 3,
+      "min_train": 60,
+      "min_tune": 20,
+      "min_audit": 40,
+      "min_audit_matchdays": 8,
+      "min_audit_gain": 0.01,
+      "bootstrap_lower95": ">0",
+      "market_brier_safety": [
+        "1x2",
+        "over_1_5",
+        "under_3_5",
+        "btts_yes"
+      ],
+      "max_goal_rate_ratio": 1.25
+    },
+    "bbs_shot_source_enabled": false,
+    "shot_matches": 1611,
+    "tune_start_date": "2025-11-01",
+    "audit_start_date": "2026-05-02",
+    "training_shot_matches": 1306,
+    "tuning_matches": 197,
+    "audit_matches": 102,
+    "audit_matchdays": 41,
+    "selected_shrinkage": 5.0,
+    "selected_component": "shots_on_target_and_total_shots",
+    "proposed_weight": 0.3,
+    "audit_baseline_poisson_score": 0.8837369848433605,
+    "audit_candidate_poisson_score": 0.8736504139029021,
+    "audit_gain": 0.010086570940458395,
+    "audit_gain_lower95": 0.00023341876008991057,
+    "audit_baseline_briers": [
+      0.5954781285766396,
+      0.18598260384228765,
+      0.24306091556742074,
+      0.2491479077062837
+    ],
+    "audit_candidate_briers": [
+      0.5923611513039804,
+      0.1851266567366948,
+      0.24107651149451814,
+      0.24810660644395263
+    ],
+    "audit_brier_order": [
+      "1x2",
+      "over_1_5",
+      "under_3_5",
+      "btts_yes"
+    ],
+    "failed_gates": []
+  },
+  "training_end": "2026-10-26",
+  "fit_success": true,
+  "objective": 1458.627521054649,
+  "base": 0.0942777150665892,
+  "home_adv": 0.17012040711909784,
+  "rho": 0.05,
+  "half_life_days": 480.0,
+  "xi_per_day": 0.0014440566261665526,
+  "max_goals": 10,
+  "devig_method": "power",
+  "market_weight": 0.7,
+  "elo_ratings": {
+    "version": "venue-elo-v1",
+    "teams": 27,
+    "matches": 1611,
+    "k_factor": 20.0,
+    "home_advantage": 60.0,
+    "venue_weight": 0.5,
+    "season_regression": 0.2,
+    "last_match_date": "2026-10-26"
+  },
+  "training_data_health": {
+    "training_end": "2026-10-26",
+    "days_since_latest_result": 5,
+    "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
+  },
+  "training_source": "Football-Data.co.uk",
+  "fixture_provider_mode": "auto",
+  "fixture_sources": [
+    "The Odds API"
+  ],
+  "the_odds_api_enabled": true,
+  "odds_regions": "eu",
+  "live_odds_matched": 8,
+  "excluded_started_fixtures": [],
+  "excluded_unresolved_team_fixtures": [],
+  "additional_event_odds_calls_used_before_this_league": 47,
+  "additional_event_odds_calls_budget": null,
+  "additional_event_odds_league_quota": null,
+  "over_1_5_in_window_quote_fixtures": 6,
+  "additional_odds_coverage_mode": "all",
+  "additional_odds_coverage": [
+    {
+      "fixture_id": "853df01a49c2a57a62c1ac2d356b395b",
+      "event_id": "853df01a49c2a57a62c1ac2d356b395b",
+      "home_team": "Moreirense FC",
+      "away_team": "CF Estrela",
+      "kickoff_utc": "2026-10-31T15:30:00+00:00",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "60352ce6c1b34bca7b294edae8aa388b",
+      "event_id": "60352ce6c1b34bca7b294edae8aa388b",
+      "home_team": "FC Porto",
+      "away_team": "Estoril",
+      "kickoff_utc": "2026-10-31T20:30:00+00:00",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "fd5c6a92f2448c1cfe7a2d9b8075172b",
+      "event_id": "fd5c6a92f2448c1cfe7a2d9b8075172b",
+      "home_team": "Arouca",
+      "away_team": "Nacional",
+      "kickoff_utc": "2026-11-01T15:30:00+00:00",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "ce5c2cbdf5db2a13f40f528d3e5044b9",
+      "event_id": "ce5c2cbdf5db2a13f40f528d3e5044b9",
+      "home_team": "Acad\u00e9mico de Viseu",
+      "away_team": "Rio Ave FC",
+      "kickoff_utc": "2026-11-01T18:00:00+00:00",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "6bf5102547eb3f3eb74023133e27d2d3",
+      "event_id": "6bf5102547eb3f3eb74023133e27d2d3",
+      "home_team": "CS Maritimo",
+      "away_team": "Santa Clara",
+      "kickoff_utc": "2026-11-01T18:00:00+00:00",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "12fa9f636dbb126cfd4118fa8cdc8fad",
+      "event_id": "12fa9f636dbb126cfd4118fa8cdc8fad",
+      "home_team": "Braga",
+      "away_team": "Famalic\u00e3o",
+      "kickoff_utc": "2026-11-01T20:30:00+00:00",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "cdf1a22ce6d16f0903216518d909e02a",
+      "event_id": "cdf1a22ce6d16f0903216518d909e02a",
+      "home_team": "Benfica",
+      "away_team": "Alverca",
+      "kickoff_utc": "2026-11-02T20:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "97ce048d06fc45fc59e114548540828f",
+      "event_id": "97ce048d06fc45fc59e114548540828f",
+      "home_team": "Gil Vicente",
+      "away_team": "Vit\u00f3ria SC",
+      "kickoff_utc": "2026-11-02T20:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    }
+  ],
+  "additional_odds_in_window_linked_fixtures": 6,
+  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_event_odds_hard_cap_applies": false,
+  "additional_event_odds_calls_this_league": 6,
+  "totals_anchor_fixtures": {
+    "ANCHORED_ALTERNATE": 4,
+    "ANCHORED_MAIN": 2,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 2
+  },
+  "shot_features_applied_fixtures": 8,
+  "goal_rate_features_used": {
+    "shot_features": 8
+  },
+  "legacy_comparison_status": {
+    "AVAILABLE": 8
+  },
+  "bbs_statistics_applied_fixtures": 0,
+  "decay_tuning": {
+    "selected_half_life_days": 730.0,
+    "selected_xi_per_day": 0.0009495166856985552,
+    "selection_metric": "walk_forward_1x2_log_loss",
+    "validation_days": 365,
+    "applied_to_production": false
+  },
+  "goal_market_reliability": {
+    "home_draw": "RELIABLE_FOR_RANKING",
+    "draw_away": "RELIABLE_FOR_RANKING",
+    "home_away": "RELIABLE_FOR_RANKING",
+    "home": "RELIABLE_FOR_RANKING",
+    "draw": "RELIABLE_FOR_RANKING",
+    "away": "RELIABLE_FOR_RANKING",
+    "over_1_5": "RELIABLE_FOR_RANKING",
+    "under_3_5": "RELIABLE_FOR_RANKING",
+    "btts_yes": "RELIABLE_FOR_RANKING"
+  }
+}
