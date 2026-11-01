@@ -16360,32 +16360,32 @@
             "covered_selections": 34,
             "mean_fair_close_ev": -0.02780450127606808,
             "mean_same_book_offered_price_clv": 0.009153547906679346,
-            "missing_selections": 47,
-            "pending_selections": 2,
+            "missing_selections": 49,
+            "pending_selections": 0,
             "positive_fair_close_ev": 8
           },
           "bet365": {
             "covered_selections": 0,
             "mean_fair_close_ev": null,
             "mean_same_book_offered_price_clv": null,
-            "missing_selections": 81,
-            "pending_selections": 2,
+            "missing_selections": 83,
+            "pending_selections": 0,
             "positive_fair_close_ev": 0
           },
           "pinnacle": {
-            "covered_selections": 54,
+            "covered_selections": 56,
             "mean_fair_close_ev": -0.030666655948099794,
-            "mean_same_book_offered_price_clv": 0.02071475503733582,
+            "mean_same_book_offered_price_clv": 0.015574437835711533,
             "missing_selections": 27,
-            "pending_selections": 2,
+            "pending_selections": 0,
             "positive_fair_close_ev": 10
           }
         },
         "frozen_selections": 83,
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-        "observations": 361,
+        "observations": 363,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-11-01T15:22:08.690862+00:00",
+        "reviewed_at_utc": "2026-11-01T20:40:39.000835+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
@@ -16402,9 +16402,9 @@
       },
       "evidence": {
         "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
-        "graded_selections": 65,
+        "graded_selections": 66,
         "model_improvement_established": false,
-        "prediction_fixtures_graded": 214
+        "prediction_fixtures_graded": 234
       },
       "execution_policy": {
         "account_availability": "USER_ALLOWLIST",
@@ -16443,10 +16443,10 @@
         "totals_anchor_experiment:LEGACY_NOT_RECORDED": 21
       },
       "forecast_freshness": {
-        "age_hours": 2.978950482222222,
+        "age_hours": 8.287369919166666,
         "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
         "status": "WITHIN_24_HOURS",
-        "upcoming_fixture_count": 31
+        "upcoming_fixture_count": 22
       },
       "quote_audit": {
         "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -16485,17 +16485,17 @@
             "status": "COLLECT_MORE_DATA"
           },
           {
-            "collection_days": 18,
+            "collection_days": 19,
             "key": "recency_experiment",
             "name": "recency_experiment",
             "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
             "report": "recency_experiment/report.md",
             "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-            "settled_evidence": 354,
+            "settled_evidence": 394,
             "status": "COLLECT_MORE_DATA"
           },
           {
-            "collection_days": 18,
+            "collection_days": 19,
             "key": "filter_sensitivity_experiment",
             "name": "filter_sensitivity_experiment",
             "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
@@ -16532,7 +16532,7 @@
             "name": "benchmark_forward_experiment",
             "report": "benchmark_forward_experiment/report.md",
             "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 118,
+            "settled_evidence": 128,
             "status": "COLLECT_MORE_DATA"
           },
           {
@@ -16555,7 +16555,7 @@
             "name": "model_reliability_experiment",
             "report": "model_reliability_experiment/report.md",
             "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 103,
+            "settled_evidence": 112,
             "status": "COLLECT_MORE_DATA"
           },
           {
@@ -16572,10 +16572,10 @@
           }
         ],
         "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-11-01T15:22:08.690862+00:00",
+        "reviewed_at_utc": "2026-11-01T20:40:39.000835+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-11-01T15:22:08.690862+00:00",
+      "reviewed_at_utc": "2026-11-01T20:40:39.000835+00:00",
       "selection_policy_groups": {
         "48h-top-ten-probability-ev-no-under35-v14": {
           "brier": 0.178674,
@@ -16642,20 +16642,20 @@
           "wins": 2
         },
         "48h-zero-tolerance-ev05-no-loss75-corners-v26": {
-          "brier": 0.027646,
-          "flat_stake_roi": 0.118,
-          "graded": 5,
+          "brier": 0.028712,
+          "flat_stake_roi": 0.151667,
+          "graded": 6,
           "half_losses": 0,
           "half_wins": 0,
           "losses": 0,
           "no_loss_rate": 1.0,
-          "pending": 7,
-          "profit_per_unit_staked": 0.59,
+          "pending": 6,
+          "profit_per_unit_staked": 0.91,
           "refunds": 3,
-          "settled_with_odds": 5,
+          "settled_with_odds": 6,
           "total": 12,
-          "win_rate": 0.4,
-          "wins": 2
+          "win_rate": 0.5,
+          "wins": 3
         },
         "48h-zero-tolerance-ev1-common-no-loss75-v22": {
           "brier": 0.029218,
@@ -16747,20 +16747,20 @@
         }
       },
       "shortlist_performance": {
-        "brier": 0.143502,
-        "flat_stake_roi": 0.068769,
-        "graded": 65,
+        "brier": 0.141844,
+        "flat_stake_roi": 0.072576,
+        "graded": 66,
         "half_losses": 0,
         "half_wins": 1,
         "losses": 14,
-        "no_loss_rate": 0.784615,
-        "pending": 18,
-        "profit_per_unit_staked": 4.47,
+        "no_loss_rate": 0.787879,
+        "pending": 17,
+        "profit_per_unit_staked": 4.79,
         "refunds": 3,
-        "settled_with_odds": 65,
+        "settled_with_odds": 66,
         "total": 83,
-        "win_rate": 0.738462,
-        "wins": 48
+        "win_rate": 0.742424,
+        "wins": 49
       },
       "training": {
         "Bundesliga": {
@@ -17485,11 +17485,11 @@
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-01T15:21:49.350517+00:00",
+            "checked_at_utc": "2026-11-01T20:40:19.400595+00:00",
             "completed_matches": 54,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.005372318055555555,
+            "download_age_hours": 0.005444511111111111,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-21",
             "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -17562,7 +17562,7 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-11-01T15:22:08.690862+00:00"
+            "verified_at_utc": "2026-11-01T20:40:39.000835+00:00"
           },
           "days_since_latest_result": 10,
           "diagnostics_sha256": "2c4be2e7e938a5b4e399c855747e3a3bfa2981e6ef79fb2e24dd75125ad4fc37",
@@ -17627,20 +17627,20 @@
           "wins": 25
         },
         "2026-W44": {
-          "brier": 0.027646,
-          "flat_stake_roi": 0.118,
-          "graded": 5,
+          "brier": 0.028712,
+          "flat_stake_roi": 0.151667,
+          "graded": 6,
           "half_losses": 0,
           "half_wins": 0,
           "losses": 0,
           "no_loss_rate": 1.0,
-          "pending": 8,
-          "profit_per_unit_staked": 0.59,
+          "pending": 7,
+          "profit_per_unit_staked": 0.91,
           "refunds": 3,
-          "settled_with_odds": 5,
+          "settled_with_odds": 6,
           "total": 13,
-          "win_rate": 0.4,
-          "wins": 2
+          "win_rate": 0.5,
+          "wins": 3
         }
       }
     }

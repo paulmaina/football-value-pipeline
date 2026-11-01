@@ -17,16 +17,16 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 65 | 48-14 | 73.8% | +6.9% |
+| All selections | 66 | 49-14 | 74.2% | +7.3% |
 
-Unsettled / unverified entries: **18**.
-Whole-fixture 1X2 multiclass Brier (n=214): 0.5697
+Unsettled / unverified entries: **17**.
+Whole-fixture 1X2 multiclass Brier (n=234): 0.5596
 
 ## First-prediction reference — historical comparison
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Unique fixtures | 65 | 52-10 | 80.0% | +12.9% |
+| Unique fixtures | 66 | 53-10 | 80.3% | +13.2% |
 
 ## Latest selections by prediction run (generation UTC)
 
@@ -58,7 +58,7 @@ Whole-fixture 1X2 multiclass Brier (n=214): 0.5697
 | 2026-10-26T11:45:55.025240+00:00 | 0 | 0-0 | — | — |
 | 2026-10-29T12:08:22.532184+00:00 | 1 | 1-0 | 100.0% | +34.0% |
 | 2026-10-30T12:03:48.308948+00:00 | 1 | 0-0 | 0.0% | +0.0% |
-| 2026-10-31T12:03:11.165007+00:00 | 2 | 1-0 | 50.0% | +12.5% |
+| 2026-10-31T12:03:11.165007+00:00 | 3 | 2-0 | 66.7% | +19.0% |
 | 2026-11-01T07:37:30.159727+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
@@ -66,7 +66,7 @@ Whole-fixture 1X2 multiclass Brier (n=214): 0.5697
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | PROVISIONAL | 27 | 18-9 | 66.7% | -10.7% |
-| STRICT | 38 | 30-5 | 78.9% | +19.4% |
+| STRICT | 39 | 31-5 | 79.5% | +19.7% |
 
 ## By policy
 
@@ -77,7 +77,7 @@ Whole-fixture 1X2 multiclass Brier (n=214): 0.5697
 | 48h-top-twelve-profitable-win-probability-v23 | 0 | 0-0 | — | — |
 | 48h-two-per-market-group-probability-ev-corners-cards-v25 | 12 | 9-3 | 75.0% | +3.8% |
 | 48h-two-per-market-group-probability-ev-v24 | 3 | 2-1 | 66.7% | +20.7% |
-| 48h-zero-tolerance-ev05-no-loss75-corners-v26 | 5 | 2-0 | 40.0% | +11.8% |
+| 48h-zero-tolerance-ev05-no-loss75-corners-v26 | 6 | 3-0 | 50.0% | +15.2% |
 | 48h-zero-tolerance-ev1-common-no-loss75-v22 | 7 | 7-0 | 100.0% | +33.9% |
 | 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
 | 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
@@ -98,7 +98,7 @@ Whole-fixture 1X2 multiclass Brier (n=214): 0.5697
 | Asian Handicap Away +1.25 | 1 | 1-0 | 100.0% | +16.0% |
 | Asian Handicap Away +1.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away +1.75 | 0 | 0-0 | — | — |
-| Asian Handicap Away +2.00 | 5 | 3-0 | 60.0% | +23.4% |
+| Asian Handicap Away +2.00 | 6 | 4-0 | 66.7% | +24.8% |
 | Asian Handicap Away +2.25 | 0 | 0-0 | — | — |
 | Asian Handicap Away +2.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away +2.75 | 0 | 0-0 | — | — |
@@ -172,7 +172,7 @@ Whole-fixture 1X2 multiclass Brier (n=214): 0.5697
 | Ligue 1 | 5 | 3-2 | 60.0% | -18.4% |
 | Premier League | 12 | 7-4 | 58.3% | -5.5% |
 | Primeira Liga | 1 | 1-0 | 100.0% | +109.0% |
-| Serie A | 14 | 9-4 | 64.3% | -4.4% |
+| Serie A | 15 | 10-4 | 66.7% | -1.9% |
 | Super Lig | 0 | 0-0 | — | — |
 | UEFA Champions League | 12 | 10-2 | 83.3% | +16.8% |
 
@@ -183,7 +183,7 @@ Whole-fixture 1X2 multiclass Brier (n=214): 0.5697
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
 | 2026-W42 | 22 | 19-3 | 86.4% | +19.5% |
 | 2026-W43 | 34 | 25-9 | 73.5% | +3.1% |
-| 2026-W44 | 5 | 2-0 | 40.0% | +11.8% |
+| 2026-W44 | 6 | 3-0 | 50.0% | +15.2% |
 
 ## Confidence calibration of shortlisted markets
 
@@ -193,7 +193,7 @@ Whole-fixture 1X2 multiclass Brier (n=214): 0.5697
 | 50%–60% | 2 | 56.7% | 50.0% | 0.2721 |
 | 60%–70% | 9 | 64.4% | 55.6% | 0.2389 |
 | 70%–80% | 22 | 76.2% | 81.8% | 0.1507 |
-| 80%–90% | 23 | 84.2% | 91.3% | 0.0839 |
+| 80%–90% | 24 | 84.1% | 91.7% | 0.0819 |
 | 90%–100% | 4 | 92.8% | 100.0% | 0.0053 |
 
 Calibration bins report observed outcomes against the originally
