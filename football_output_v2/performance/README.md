@@ -201,7 +201,7 @@ recorded reliability-adjusted chance; small buckets are unstable.
 
 ## Result-source problems
 
-No provider errors detected.
+- UCL: football-data.org rate limited results requests (HTTP 429)
 
 Accuracy is not calibration or profit. Simulated ROI assumes
 one unit staked separately on each settled selection with recorded
@@ -232,7 +232,6 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 | Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
 |---|---|---|---|---|
-| 93aabf61cc3a | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 0117b0e0fe09 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 10a7df008090 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 2b085cc83b2c | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
@@ -252,6 +251,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 | f82ff3e276c6 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | 796c7451f410 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 | dc55908798d7 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| cbf58accd4fa | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
 
 Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 

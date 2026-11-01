@@ -1,181 +1,361 @@
 ﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,1,1-1,10.42%,0.10423181868103372
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,2,2-1,9.16%,0.09161848025417954
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,3,1-0,8.32%,0.08322625456940953
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,4,1-2,7.46%,0.07461797283515402
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,5,0-1,6.85%,0.0684517566993536
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,6,2-2,6.47%,0.06472054245619395
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,7,2-0,6.39%,0.06389131833573997
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,8,3-1,5.03%,0.050251152243702156
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,9,0-2,4.53%,0.04534811618282345
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,10,0-0,4.10%,0.04101393575453343
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,11,3-2,3.60%,0.036029419328901344
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,12,1-3,3.57%,0.03566674079713622
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,13,3-0,3.50%,0.03504328336196827
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,14,2-3,2.93%,0.0293438859200864
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,15,0-3,2.17%,0.021676004373696732
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,16,4-1,2.07%,0.020671416084512072
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,17,3-3,1.70%,0.01696778173194519
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,18,4-2,1.48%,0.0148211351377405
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,19,4-0,1.44%,0.014415476242805788
-2026-11-03,UEFA Champions League,Galatasaray,VfB Stuttgart,20,1-4,1.28%,0.012786293476845654
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,1,0-1,13.14%,0.13135118643040442
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,2,1-1,12.10%,0.12104379040752408
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,3,1-2,9.31%,0.09308245501879882
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,4,1-0,8.99%,0.0899236894598133
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,5,0-2,8.59%,0.08591297624979238
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,6,0-0,7.89%,0.07890852811269825
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,7,2-1,6.28%,0.06284375201834154
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,8,2-2,4.76%,0.047592052569200946
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,9,2-0,4.56%,0.04557174447687969
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,10,1-3,4.28%,0.04278711723392241
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,11,0-3,3.95%,0.03949153023491553
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,12,2-3,2.32%,0.023178861268470376
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,13,3-1,2.27%,0.022696031014189443
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,14,3-0,1.65%,0.016458242749670778
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,15,3-2,1.56%,0.015648992168600526
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,16,1-4,1.48%,0.014750932929463072
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,17,0-4,1.36%,0.013614773591600043
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,18,2-4,0.80%,0.007990952652483525
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,19,3-3,0.79%,0.007900734058926367
-2026-11-03,UEFA Champions League,Shakhtar Donetsk,Sporting Lisbon,20,4-1,0.61%,0.006147506401830239
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,1,1-1,8.55%,0.08554629193239191
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,2,2-2,8.48%,0.08481483075960243
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,3,1-2,7.54%,0.07541387618584412
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,4,2-1,6.86%,0.06857344806876026
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,5,1-3,5.11%,0.05110245306765042
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,6,2-3,4.74%,0.04735373290170444
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,7,0-1,4.37%,0.043743528127368696
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,8,3-2,4.31%,0.04305850472391583
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,9,3-1,4.24%,0.0423620726477749
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,10,0-2,4.07%,0.04069197750931675
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,11,1-0,4.01%,0.04010264791488034
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,12,3-3,3.55%,0.0355045078794785
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,13,2-0,3.37%,0.033732167517463475
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,14,0-3,2.76%,0.02757396882471981
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,15,1-4,2.60%,0.025971288457868794
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,16,2-4,2.41%,0.024066113912750053
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,17,3-0,2.08%,0.020838452362915212
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,18,4-2,1.99%,0.01994993204283017
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,19,4-1,1.96%,0.019627260071740062
-2026-11-03,UEFA Champions League,Atlético Madrid,Bayern Munich,20,0-0,1.94%,0.01939896562743508
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,1,2-1,12.96%,0.1295520643134461
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,2,3-1,8.18%,0.08181127655735311
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,3,1-0,7.93%,0.07931718449758288
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,4,3-2,7.72%,0.07718919209550905
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,5,2-0,6.87%,0.06865481730271916
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,6,1-1,5.64%,0.05637095121974414
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,7,2-2,5.30%,0.053031654294841836
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,8,3-0,4.34%,0.043355065587822914
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,9,4-1,3.87%,0.038747462308377764
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,10,4-2,3.66%,0.03655835035452761
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,11,1-2,3.51%,0.03512861898110762
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,12,4-3,2.30%,0.0229952776435188
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,13,1-3,2.21%,0.022095973665942837
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,14,0-1,2.15%,0.021514552079172296
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,15,3-3,2.11%,0.02106473857801387
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,16,2-3,2.09%,0.02093019306911369
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,17,4-0,2.05%,0.020533829081174834
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,18,0-2,1.85%,0.018542615382581434
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,19,5-1,1.47%,0.014681260564725558
-2026-11-03,UEFA Champions League,Barcelona,Aston Villa,20,5-2,1.39%,0.013851814684010925
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,1,2-2,8.07%,0.08071299601068119
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,2,2-1,6.47%,0.06470119936369256
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,3,3-1,6.09%,0.06089231895617334
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,4,1-1,6.01%,0.060050424264172626
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,5,3-2,5.51%,0.05507722689847853
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,6,3-3,4.58%,0.04580490046197268
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,7,1-2,4.51%,0.045053415394786425
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,8,4-1,4.30%,0.042980747006921526
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,9,4-2,3.89%,0.038876173477152866
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,10,2-3,3.84%,0.03835195029850588
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,11,2-0,3.58%,0.03576619857571081
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,12,3-0,3.37%,0.03366068624601338
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,13,1-0,2.76%,0.027627219631206238
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,14,1-3,2.72%,0.02716727084561665
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,15,5-1,2.43%,0.024270313825329626
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,16,4-0,2.38%,0.023759342137397596
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,17,4-3,2.34%,0.023442385555906355
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,18,5-2,2.20%,0.021952548439107187
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,19,0-1,2.01%,0.02013246514539551
-2026-11-03,UEFA Champions League,Bodø/Glimt,Lille,20,2-4,1.73%,0.01734470869889436
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,1,1-1,10.53%,0.10532790998476182
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,2,1-2,10.34%,0.1033660734617606
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,3,0-1,10.13%,0.10131453946888551
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,4,0-2,7.50%,0.07500837022502806
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,5,2-1,6.34%,0.06335028209796097
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,6,1-0,6.27%,0.06268741216829046
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,7,2-2,6.05%,0.06045530500993585
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,8,1-3,5.45%,0.05453345595816457
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,9,0-0,4.53%,0.04528937587409346
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,10,2-0,4.00%,0.04002600971034862
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,11,0-3,3.96%,0.03957261330695223
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,12,2-3,3.76%,0.03757520125943529
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,13,3-1,2.91%,0.029100174169522795
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,14,3-2,2.30%,0.023028828705131118
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,15,1-4,2.16%,0.021577905490247063
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,16,3-0,1.84%,0.01838608788009873
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,17,0-4,1.57%,0.015658169740692295
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,18,2-4,1.49%,0.014867829799290716
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,19,3-3,1.47%,0.014650972521715924
-2026-11-03,UEFA Champions League,Feyenoord,Inter Milan,20,4-1,1.00%,0.010025450266193264
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,1,2-2,5.31%,0.053128977326348546
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,2,5-1,5.17%,0.0517277223290278
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,3,4-1,4.92%,0.049171146884820945
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,4,5-0,4.73%,0.047290799466332675
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,5,6-1,4.53%,0.04534768570032753
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,6,4-0,4.50%,0.04495351316782712
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,7,6-0,4.15%,0.041458007701859256
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,8,3-1,3.74%,0.037392741487275595
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,9,1-1,3.51%,0.0350901585545869
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,10,3-0,3.42%,0.034185395365433316
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,11,7-1,3.41%,0.034075333122625714
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,12,3-3,3.40%,0.033963987252817164
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,13,7-0,3.12%,0.031152536259001037
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,14,5-2,2.83%,0.028290463341119128
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,15,4-2,2.69%,0.026892243960356787
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,16,6-2,2.48%,0.024801150759150774
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,17,1-2,2.29%,0.022887628223736925
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,18,8-1,2.24%,0.02240439111280458
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,19,2-3,2.19%,0.021947207127569753
-2026-11-03,UEFA Champions League,LASK,ŠK Slovan Bratislava,20,2-1,2.13%,0.021326792303768417
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,1,1-1,8.34%,0.08338660700414068
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,2,2-2,7.91%,0.07907255221446506
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,3,1-2,7.22%,0.07222160507057653
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,4,2-1,6.80%,0.06800777877149844
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,5,3-1,5.65%,0.056490556626481364
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,6,2-0,4.70%,0.04703098323464535
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,7,0-1,4.51%,0.04507970918141014
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,8,2-3,4.34%,0.04337394617650016
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,9,3-2,4.08%,0.04084325920388682
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,10,1-0,4.05%,0.04047550371503682
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,11,3-0,3.91%,0.03906621374214441
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,12,4-1,3.52%,0.035192845351101586
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,13,1-3,3.48%,0.03481131375074852
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,14,3-3,3.17%,0.031658934750777495
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,15,0-2,2.90%,0.028982017724002187
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,16,4-2,2.54%,0.0254447927341458
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,17,4-0,2.43%,0.024337717678566326
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,18,0-0,2.00%,0.019970241954175152
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,19,5-1,1.75%,0.017539729652101987
-2026-11-03,UEFA Champions League,Manchester United,AS Roma,20,2-4,1.57%,0.015679906803677868
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,1,2-2,6.35%,0.06348886678573612
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,2,1-1,6.00%,0.06004010855791625
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,3,1-3,5.83%,0.058317587329788756
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,4,1-4,5.59%,0.055907059649697256
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,5,0-3,5.57%,0.05565278980909052
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,6,0-4,5.34%,0.053352410173175754
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,7,1-2,4.56%,0.0456240367488091
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,8,0-2,4.35%,0.04353926566037333
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,9,1-5,4.29%,0.04287693591985408
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,10,2-1,4.26%,0.042634941359324836
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,11,0-5,4.09%,0.04091769244346971
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,12,2-3,3.06%,0.03055499107622468
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,13,2-4,2.93%,0.029292016129444504
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,14,3-2,2.86%,0.02855315630972825
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,15,3-3,2.83%,0.02834619491998986
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,16,1-6,2.74%,0.027403093118509685
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,17,0-6,2.62%,0.02615092035305019
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,18,1-0,2.53%,0.02528919266666455
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,19,0-1,2.39%,0.023898047326568455
-2026-11-03,UEFA Champions League,Villarreal,Paris Saint Germain,20,2-5,2.25%,0.02246499648550781
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,1,0-1,12.39%,0.1239121469104887
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,2,1-1,12.10%,0.12096832746170558
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,3,1-0,9.87%,0.09870425312095352
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,4,1-2,8.78%,0.08779869044710298
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,5,0-2,8.10%,0.0810486115387224
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,6,0-0,7.89%,0.07887171647844529
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,7,2-1,6.90%,0.06897004892999353
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,8,2-0,5.00%,0.05001388266443286
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,9,2-2,4.76%,0.04755547256070689
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,10,1-3,4.04%,0.04035866079261212
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,11,0-3,3.73%,0.03725583381877671
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,12,3-1,2.49%,0.024904724301303773
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,13,2-3,2.19%,0.021859952308357824
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,14,3-0,1.81%,0.018059751708451824
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,15,3-2,1.72%,0.017172032665146792
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,16,1-4,1.39%,0.013913830827190355
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,17,0-4,1.28%,0.012844117195664409
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,18,3-3,0.79%,0.007893514560673977
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,19,2-4,0.75%,0.007536317418258276
+2026-11-03,UEFA Champions League,FK Shakhtar Donetsk,Sporting Clube de Portugal,20,4-1,0.67%,0.00674472436383418
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,1,1-1,10.31%,0.10306608735783145
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,2,2-1,8.93%,0.08927501526667733
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,3,1-0,8.11%,0.08108051359853573
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,4,1-2,7.78%,0.07778772963615165
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,5,0-1,7.13%,0.07134562999012373
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,6,2-2,6.40%,0.06401015001550785
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,7,2-0,6.23%,0.06225597306782251
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,8,3-1,4.90%,0.04897522309826245
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,9,0-2,4.73%,0.047265401506488065
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,10,0-0,4.05%,0.040545577928775105
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,11,1-3,3.72%,0.037182513894488345
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,12,3-2,3.51%,0.03511521525029497
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,13,3-0,3.42%,0.03415289441383149
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,14,2-3,3.06%,0.03059683453254789
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,15,0-3,2.26%,0.022592849238098782
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,16,4-1,2.02%,0.0201504234165603
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,17,3-3,1.68%,0.016785063467712188
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,18,4-2,1.44%,0.014447845479691199
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,19,4-0,1.41%,0.014051907062454964
+2026-11-03,UEFA Champions League,Galatasaray SK,VfB Stuttgart,20,1-4,1.33%,0.013329923748712485
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,1,1-2,7.86%,0.07859303371777292
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,2,1-1,7.35%,0.07345451568605645
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,3,2-2,7.28%,0.0728298834919201
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,4,2-1,7.17%,0.07165070311289111
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,5,1-3,5.33%,0.05325764428692791
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,6,2-3,4.94%,0.04935231336659739
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,7,0-1,4.56%,0.04558555035183155
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,8,3-2,4.50%,0.04499289295362553
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,9,3-1,4.43%,0.04426441812951636
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,10,0-2,4.24%,0.0424061158195335
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,11,1-0,4.19%,0.0419003544877157
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,12,2-0,3.52%,0.035245307354783977
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,13,3-3,3.05%,0.030488904359752902
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,14,0-3,2.87%,0.0287360052802779
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,15,1-4,2.71%,0.027067061870696667
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,16,2-4,2.51%,0.02508226072033718
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,17,3-0,2.18%,0.021773868979309247
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,18,4-2,2.08%,0.020846804078997923
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,19,4-1,2.05%,0.020509275839808265
+2026-11-03,UEFA Champions League,Club Atlético de Madrid,FC Bayern München,20,0-0,1.67%,0.016655996430832196
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,1,1-1,7.74%,0.07738675089325585
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,2,2-1,7.72%,0.0771772969945394
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,3,1-2,7.69%,0.07685040023711794
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,4,2-2,7.28%,0.0728102781167138
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,5,3-1,4.87%,0.04874665966718519
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,6,1-3,4.83%,0.04833458570976066
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,7,1-0,4.72%,0.04724575410372755
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,8,0-1,4.71%,0.04706288895865303
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,9,3-2,4.60%,0.04598836686233872
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,10,2-3,4.58%,0.04579357579564109
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,11,2-0,4.09%,0.04090312058577377
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,12,0-2,4.06%,0.04055735103180083
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,13,3-3,2.89%,0.028924099977374284
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,14,3-0,2.58%,0.025835194755027845
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,15,0-3,2.55%,0.025508296034359654
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,16,4-1,2.31%,0.023091993253629758
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,17,1-4,2.28%,0.022799804898795663
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,18,4-2,2.18%,0.021785350310791818
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,19,2-4,2.16%,0.02160119050214568
+2026-11-03,UEFA Champions League,FC Barcelona,Aston Villa FC,20,0-0,1.87%,0.018711189504687625
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,1,2-1,7.02%,0.07017139667715704
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,2,3-1,6.60%,0.0660385181844614
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,3,2-2,6.35%,0.06346623534586378
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,4,3-2,5.97%,0.05972827014217749
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,5,1-1,4.72%,0.04722318423293001
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,6,4-1,4.66%,0.04661179010085644
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,7,1-2,4.50%,0.044958755369814925
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,8,4-2,4.22%,0.04215784465632517
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,9,2-0,3.88%,0.03879247669874462
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,10,2-3,3.83%,0.03826785290221434
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,11,3-0,3.65%,0.03650771965786291
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,12,3-3,3.60%,0.03601399458229456
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,13,1-0,3.00%,0.029965577642701267
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,14,1-3,2.71%,0.027108509395316508
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,15,5-1,2.63%,0.026319899793481653
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,16,4-0,2.58%,0.0257681458115094
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,17,4-3,2.54%,0.025419661166144716
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,18,5-2,2.38%,0.02380492670336763
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,19,0-1,2.01%,0.02009193796172077
+2026-11-03,UEFA Champions League,FK Bodø/Glimt,Lille OSC,20,2-4,1.73%,0.017305602235956733
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,1,1-1,10.73%,0.10728761682738704
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,2,1-2,8.94%,0.08937127664424317
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,3,0-1,8.76%,0.08759987170093678
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,4,2-1,7.78%,0.07781374420325755
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,5,1-0,7.70%,0.07700165398024417
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,6,0-2,6.49%,0.06485413126839197
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,7,2-2,6.16%,0.061578383156252296
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,8,2-0,4.92%,0.0491648081402671
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,9,1-3,4.71%,0.047149671502653305
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,10,0-0,4.61%,0.04613348211352093
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,11,3-1,3.57%,0.0357433598749683
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,12,0-3,3.42%,0.03421514271377042
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,13,2-3,3.25%,0.032486953823422156
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,14,3-2,2.83%,0.028285726798126104
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,15,3-0,2.26%,0.02258361229799003
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,16,1-4,1.87%,0.01865609068944062
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,17,3-3,1.49%,0.014922722118587422
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,18,0-4,1.35%,0.013538181392935758
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,19,2-4,1.29%,0.012854374960371184
+2026-11-03,UEFA Champions League,Feyenoord Rotterdam,FC Internazionale Milano,20,4-1,1.23%,0.012313902141255747
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,1,5-1,6.39%,0.06386477384611082
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,2,4-1,6.07%,0.06070907929199905
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,3,5-0,5.84%,0.058379650335592836
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,4,6-1,5.60%,0.05598708608857156
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,5,4-0,5.55%,0.055494987421434584
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,6,6-0,5.12%,0.051178549806429545
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,7,3-1,4.62%,0.04616745146378276
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,8,3-0,4.22%,0.04220228947863445
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,9,7-1,4.21%,0.04206952042015931
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,10,7-0,3.85%,0.038456315492997654
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,11,5-2,3.49%,0.034932629049408484
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,12,4-2,3.32%,0.033206533416193645
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,13,6-2,3.06%,0.030623706812178266
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,14,8-1,2.77%,0.027660199664339056
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,15,2-1,2.63%,0.026331731590042914
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,16,8-0,2.53%,0.025284561227881534
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,17,3-2,2.53%,0.02525258227684315
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,18,2-0,2.41%,0.024070190660371416
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,19,7-2,2.30%,0.023011103972044127
+2026-11-03,UEFA Champions League,LASK Linz,ŠK Slovan Bratislava,20,9-1,1.62%,0.01616555195791226
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,1,2-1,8.75%,0.08749830181737872
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,2,3-1,7.27%,0.07268027763769325
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,3,1-1,6.67%,0.06671369837206811
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,4,2-2,6.33%,0.0632573250593065
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,5,2-0,6.05%,0.06051435793204432
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,6,3-2,5.25%,0.052544562036460574
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,7,1-0,5.21%,0.0520792469907004
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,8,1-2,5.08%,0.05076946777584257
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,9,3-0,5.03%,0.0502661222471196
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,10,4-1,4.53%,0.04527878811165955
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,11,4-2,3.27%,0.03273452122360878
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,12,0-1,3.17%,0.03169203987979925
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,13,4-0,3.13%,0.03131508536287893
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,14,2-3,3.05%,0.030488128268747732
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,15,3-3,2.53%,0.025324898668902793
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,16,1-3,2.45%,0.024469356619723503
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,17,5-1,2.26%,0.022566437217871167
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,18,0-2,2.04%,0.020373441777894984
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,19,5-2,1.63%,0.01631451610913188
+2026-11-03,UEFA Champions League,Manchester United FC,AS Roma,20,0-0,1.60%,0.015978760347195208
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,1,1-3,7.46%,0.07461531125563615
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,2,1-4,7.15%,0.07154080316711714
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,3,0-3,7.12%,0.07119397714099433
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,4,0-4,6.83%,0.06826044439965243
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,5,1-2,5.84%,0.058366461103009436
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,6,0-2,5.57%,0.0556901851328069
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,7,1-5,5.49%,0.05487438362629197
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,8,0-5,5.24%,0.05235822980261688
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,9,2-3,3.91%,0.03910053137465236
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,10,2-4,3.75%,0.03748940226517378
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,11,1-6,3.51%,0.03507553085161987
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,12,0-6,3.35%,0.03346721335923986
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,13,2-2,3.06%,0.03058567477882445
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,14,0-1,3.06%,0.03056362164719852
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,15,1-1,2.89%,0.028915527194473326
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,16,2-5,2.88%,0.028755727511388853
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,17,1-7,1.92%,0.019217286306144506
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,18,2-6,1.84%,0.01838056923528217
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,19,0-7,1.83%,0.018336116528472567
+2026-11-03,UEFA Champions League,Villarreal CF,Paris Saint-Germain FC,20,2-1,1.60%,0.015950056069782944
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,1,0-3,12.03%,0.12030643545555307
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,2,0-2,10.45%,0.10451131479650795
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,3,0-4,10.39%,0.10386654143766041
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,4,0-5,7.17%,0.07173852929393407
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,5,1-3,7.11%,0.0710567749769363
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,6,0-1,6.23%,0.06231407832430958
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,7,1-2,6.17%,0.06172767857279609
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,8,1-4,6.13%,0.06134685509234579
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,9,1-5,4.24%,0.04237103787435119
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,10,0-6,4.13%,0.041290298380522124
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,11,1-1,3.40%,0.03396149054106875
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,12,1-6,2.44%,0.024387352427537107
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,13,2-3,2.10%,0.020984186136860174
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,14,0-7,2.04%,0.020370269928854465
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,15,2-2,1.82%,0.018229156859261634
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,16,2-4,1.81%,0.01811669368032268
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,17,0-0,1.57%,0.01573923491630518
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,18,2-5,1.25%,0.012512835628353947
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,19,1-0,1.21%,0.012139257886406043
+2026-11-04,UEFA Champions League,Fenerbahçe SK,Liverpool FC,20,1-7,1.20%,0.012031323852902443
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,1,0-3,9.99%,0.09987318575818742
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,2,0-2,9.56%,0.09558866804747287
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,3,1-3,8.04%,0.0803984126826766
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,4,0-4,7.83%,0.078262309517711
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,5,1-2,7.69%,0.07694935455523998
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,6,0-1,6.34%,0.06344691155011825
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,7,1-4,6.30%,0.06300154951839493
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,8,0-5,4.91%,0.049062130497175116
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,9,1-1,4.66%,0.04664389772922865
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,10,1-5,3.95%,0.0394952597622516
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,11,2-3,3.24%,0.0323605616103223
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,12,2-2,3.10%,0.030972307112425417
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,13,0-6,2.56%,0.02563060754441773
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,14,2-4,2.54%,0.02535828080067409
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,15,1-6,2.06%,0.020632766913564606
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,16,2-1,1.98%,0.019762405432840364
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,17,1-0,1.81%,0.018119115358551353
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,18,0-0,1.70%,0.017003537912168833
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,19,2-5,1.59%,0.015896940551506877
+2026-11-04,UEFA Champions League,PAE AEK,Real Madrid CF,20,0-7,1.15%,0.011476900291334894
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,1,2-1,9.21%,0.0921045017181865
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,2,1-1,9.16%,0.09157425599011881
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,3,1-0,7.17%,0.07167183060116458
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,4,1-2,6.95%,0.06949512228980623
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,5,2-2,6.64%,0.06640264629052321
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,6,2-0,6.39%,0.06387726777965864
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,7,3-1,5.87%,0.058670617906610864
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,8,0-1,5.53%,0.05526128377086528
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,9,3-2,4.23%,0.04229852195953911
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,10,3-0,4.07%,0.040689854468629216
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,11,0-2,3.64%,0.03636580988764287
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,12,1-3,3.34%,0.033401624880733866
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,13,2-3,3.19%,0.03191527994202044
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,14,0-0,3.02%,0.030163073425367677
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,15,4-1,2.80%,0.028029911741522175
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,16,3-3,2.03%,0.020330050756803244
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,17,4-2,2.02%,0.020208136195359983
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,18,4-0,1.94%,0.019439594642526273
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,19,0-3,1.75%,0.017478595624103282
+2026-11-04,UEFA Champions League,Borussia Dortmund,Real Betis Balompié,20,1-4,1.20%,0.01204043364389736
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,1,1-0,12.57%,0.12567061609814295
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,2,1-1,11.11%,0.111056015625072
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,3,2-0,9.84%,0.09838284052028354
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,4,2-1,9.60%,0.09598168355781694
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,5,0-1,7.70%,0.07703499014424989
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,6,0-0,6.71%,0.06712582941071323
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,7,1-2,5.70%,0.057023975728775614
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,8,3-0,5.39%,0.053851521579919556
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,9,3-1,5.25%,0.052537207464803254
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,10,2-2,4.68%,0.04681956492551958
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,11,0-2,3.47%,0.03472622837363866
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,12,3-2,2.56%,0.0256274854193628
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,13,4-0,2.21%,0.02210740989843639
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,14,4-1,2.16%,0.021567850754595757
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,15,1-3,1.85%,0.01854407796001632
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,16,2-3,1.52%,0.015225624852297942
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,17,0-3,1.13%,0.011292897031259188
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,18,4-2,1.05%,0.010520730115141564
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,19,3-3,0.83%,0.008334004801703595
+2026-11-04,UEFA Champions League,FC Porto,SSC Napoli,20,5-0,0.73%,0.007260520157331665
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,1,2-1,7.43%,0.07425088917386352
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,2,2-2,7.05%,0.07047200829640114
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,3,3-1,5.95%,0.05951828594678172
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,4,1-1,5.87%,0.05866583389892465
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,5,1-2,5.86%,0.05861066275278168
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,6,3-2,5.65%,0.05648919747220489
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,7,2-3,4.46%,0.04459029836620624
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,8,2-0,3.91%,0.039116201427956965
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,9,1-3,3.71%,0.03708517754447321
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,10,4-1,3.58%,0.035781655965237386
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,11,3-3,3.57%,0.03574284642434112
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,12,1-0,3.56%,0.03562011700772304
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,13,4-2,3.40%,0.03396060551055046
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,14,3-0,3.14%,0.03135490076475153
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,15,0-1,2.88%,0.028767475142185885
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,16,0-2,2.44%,0.024372867123865823
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,17,4-3,2.15%,0.021488156347742475
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,18,2-4,2.12%,0.021160473035172815
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,19,4-0,1.89%,0.018850177792278357
+2026-11-04,UEFA Champions League,PSV,Club Brugge KV,20,1-4,1.76%,0.017598893216403205
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,1,1-1,10.33%,0.10328224488136614
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,2,1-2,9.52%,0.09520926646872685
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,3,0-1,9.20%,0.09202665955454105
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,4,0-2,7.58%,0.07583132884498783
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,5,2-1,6.82%,0.06824999449210076
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,6,1-0,6.75%,0.06750778950645799
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,7,2-2,5.98%,0.059769521117340844
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,8,1-3,5.56%,0.05558596065457296
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,9,0-3,4.43%,0.044272552640094325
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,10,0-0,4.40%,0.04400248699249102
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,11,2-0,3.90%,0.03896686522740389
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,12,2-3,3.49%,0.03489519846539789
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,13,3-1,2.86%,0.0285635326500768
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,14,3-2,2.50%,0.025014341475327363
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,15,1-4,2.43%,0.024339534925205766
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,16,0-4,1.94%,0.01938571050175664
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,17,3-0,1.63%,0.016308152630296776
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,18,2-4,1.53%,0.01527962981603459
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,19,3-3,1.46%,0.014604105804179425
+2026-11-04,UEFA Champions League,RB Leipzig,Manchester City FC,20,4-1,0.90%,0.008965664431809212
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,1,1-3,7.80%,0.07795913365039088
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,2,1-2,7.08%,0.07078884202972074
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,3,1-4,6.44%,0.06439178490482805
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,4,0-3,5.93%,0.05927305833043425
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,5,0-2,5.38%,0.053821418559985436
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,6,2-3,5.13%,0.05126803551824572
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,7,0-4,4.90%,0.048957676207392185
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,8,2-2,4.66%,0.046552657752078695
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,9,1-5,4.25%,0.042548466295931994
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,10,2-4,4.23%,0.04234577991064439
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,11,1-1,4.07%,0.040709424072205985
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,12,0-1,3.47%,0.034723396852707915
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,13,0-5,3.23%,0.03234999680652105
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,14,2-1,2.82%,0.028180651249528354
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,15,2-5,2.80%,0.027981022609732207
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,16,1-6,2.34%,0.023429127214646708
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,17,3-3,2.25%,0.022476831495565036
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,18,3-2,2.04%,0.020409524831350244
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,19,3-4,1.86%,0.018565153705979283
+2026-11-04,UEFA Champions League,Racing Club de Lens,Como 1907,20,0-6,1.78%,0.017813384513130182
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,1,0-3,16.31%,0.16313891134327277
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,2,0-2,16.24%,0.16244389294110145
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,3,0-4,12.29%,0.12287767754333782
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,4,0-1,10.95%,0.10954483055740145
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,5,0-5,7.40%,0.07404204681333805
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,6,1-3,5.17%,0.051748191348979185
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,7,1-2,5.15%,0.051527729259521295
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,8,1-4,3.90%,0.038977197516360744
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,9,0-6,3.72%,0.03717941835811345
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,10,0-0,3.41%,0.03408144344293068
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,11,1-1,3.25%,0.03249519738767525
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,12,1-5,2.35%,0.023486377191180696
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,13,0-7,1.60%,0.016002210430503802
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,14,1-0,1.31%,0.013063522163119299
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,15,1-6,1.18%,0.011793431987486051
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,16,2-3,0.82%,0.008207346996008344
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,17,2-2,0.82%,0.008172381351403616
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,18,2-4,0.62%,0.006181846681198797
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,19,0-8,0.60%,0.006026503539436438
+2026-11-04,UEFA Champions League,SK Slavia Praha,Arsenal FC,20,2-1,0.54%,0.005425043113627498
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,1,3-0,8.17%,0.08173099735902085
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,2,4-0,7.87%,0.07867415657944594
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,3,3-1,7.41%,0.07410506124381934
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,4,4-1,7.13%,0.07133343994342173
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,5,2-0,6.37%,0.06367995749552252
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,6,5-0,6.06%,0.060585316352354694
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,7,2-1,5.77%,0.057738279266069184
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,8,5-1,5.49%,0.05493238457675419
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,9,6-0,3.89%,0.03887956686480129
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,10,6-1,3.53%,0.035251896792511936
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,11,1-0,3.46%,0.03457664519037859
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,12,3-2,3.36%,0.03359533273420955
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,13,4-2,3.23%,0.032338825577515905
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,14,1-1,2.85%,0.028491292360865648
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,15,2-2,2.62%,0.02617549558541238
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,16,5-2,2.49%,0.024903450678863556
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,17,7-0,2.14%,0.02138595588036836
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,18,7-1,1.94%,0.01939053261898555
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,19,6-2,1.60%,0.015981353802001327
+2026-11-04,UEFA Champions League,Viking FK,Sabah FK,20,1-2,1.36%,0.013596264984436562

@@ -4,7 +4,7 @@
 **Candidates:** 0 of target 12 distinct matches.
 **Strictly qualified:** 0. **Provisional watchlist:** 0.
 **Pipeline status:** NO BET.
-**Generated (UTC):** 2026-11-01T09:36:12.166126+00:00.
+**Generated (UTC):** 2026-11-01T12:23:24.469126+00:00.
 **UNPROVEN EDGE (Corners):** validated on probability accuracy only; no historical corner or card odds exist, so profitability is untested. 0 of 0 selections.
 **Kickoffs within next 48 hours of run:** Not available.
 
