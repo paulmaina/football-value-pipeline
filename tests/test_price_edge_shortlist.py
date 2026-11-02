@@ -300,17 +300,19 @@ class SelectionTests(OfflineQuotePolicyTestCase):
                               'market': ['m'] * 4, 'bookmaker': ['b'] * 4})
         self.assertEqual(v27._rank(frame).index.tolist(), [2, 1, 0, 3])
 
-    def test_production_constant_dispatch_and_v26_still_replayable(self):
-        self.assertEqual(PRODUCTION_POLICY, v27.POLICY)
+    def test_v27_dispatch_and_v26_still_replayable(self):
+        # v28 replaced v27 as production after its holdout gate; v27 stays replayable.
+        self.assertNotEqual(PRODUCTION_POLICY, v27.POLICY)
+        self.assertIn(v27.POLICY, POLICIES)
         self.assertIn('48h-zero-tolerance-ev05-no-loss75-corners-v26', POLICIES)
         frame = pd.DataFrame([row(offers=[*ah_pair(-0.75, 1.95, 1.95), offer('home', -0.75, 2.10)])])
         selected, _, summary = build_conservative_shortlist(frame, as_of=NOW, execution_policy=POLICY,
-                                                            selection_policy_version=PRODUCTION_POLICY)
+                                                            selection_policy_version=v27.POLICY)
         self.assertEqual(summary['selection_policy_version'], v27.POLICY)
         self.assertEqual(len(selected), 1)
         with self.assertRaises(ValueError):
             build_conservative_shortlist(frame, as_of=NOW, execution_policy=POLICY, adjusted_ev_floor=0.02,
-                                         selection_policy_version=PRODUCTION_POLICY)
+                                         selection_policy_version=v27.POLICY)
 
     def test_naive_clock_rejected(self):
         with self.assertRaises(ValueError):

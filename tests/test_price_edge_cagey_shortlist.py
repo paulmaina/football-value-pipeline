@@ -92,6 +92,56 @@ class ValueTierTests(OfflineQuotePolicyTestCase):
             self.assertEqual(a_sum[key], b_sum[key])
 
 
+class SwitchTests(OfflineQuotePolicyTestCase):
+    def test_config_switches_on_after_gate_pass_and_v28_is_production(self):
+        from asian_handicap import PRODUCTION_POLICY, POLICIES
+        settings = v28.load_settings()
+        self.assertEqual(settings, {'cagey_correction_enabled': True, 'cagey_tier_enabled': True,
+                                    'model_version': nm.PRODUCTION_VERSION})
+        self.assertEqual(PRODUCTION_POLICY, v28.POLICY)
+        self.assertIn(v27.POLICY, POLICIES)
+
+    def test_switches_must_be_booleans_and_need_a_passed_gate(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'config.json'
+            path.write_text(json.dumps({'cagey_correction_enabled': 'yes', 'cagey_tier_enabled': False,
+                                        'model_version': 'x'}), encoding='utf-8')
+            with self.assertRaises(ValueError):
+                v28.load_settings(path)
+            path.write_text(json.dumps({'cagey_correction_enabled': False, 'cagey_tier_enabled': True,
+                                        'model_version': 'x'}), encoding='utf-8')
+            failed = {'gate': {'gate_result': 'FAIL'}, 'production': {'version': 'x'}}
+            with patch.object(nm, 'versions', return_value=failed):
+                with self.assertRaises(ValueError):
+                    v28.load_settings(path)
+                path.write_text(json.dumps({'cagey_correction_enabled': False, 'cagey_tier_enabled': False,
+                                            'model_version': 'x'}), encoding='utf-8')
+                self.assertFalse(v28.load_settings(path)['cagey_tier_enabled'])
+
+    def test_raw_check_replays_with_the_runs_recorded_settings(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        from workflow_checks import raw_check
+        fair, _ = tier_fair(cagey_row(), 'away', 2.0)
+        predictions = pd.DataFrame([cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 1.005, 4))]),
+                                    row(home='Other', offers=[*ah_pair(-0.75, 1.95, 1.95), offer('home', -0.75, 2.10)])])
+        predictions['p_home'], predictions['p_draw'], predictions['p_away'] = 0.45, 0.27, 0.28
+        selected, decisions, summary = run(*predictions.to_dict('records'))
+        self.assertEqual(summary['cagey_model_version'], nm.PRODUCTION_VERSION)
+        with tempfile.TemporaryDirectory() as tmp:
+            raw = Path(tmp) / 'raw'
+            raw.mkdir()
+            predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
+            selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+            (raw / 'conservative_bet_summary.json').write_text(json.dumps(summary, default=str), encoding='utf-8')
+            with patch.object(v28, 'load_settings', return_value=OFF):
+                self.assertEqual(raw_check(Path(tmp), raw_dir=raw)['selections'], len(selected))
+
+
 def cagey_row(home='Cagey FC', offers=(), lambdas=(0.95, 0.75, -0.08), main_line=-0.25):
     """A low-scoring, cagey fixture: Pinnacle prices drawn from a known matrix (3% margin)."""
     matrix = mi.dixon_coles_matrix(*lambdas)
