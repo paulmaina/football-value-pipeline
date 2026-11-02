@@ -33,7 +33,7 @@
       "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
       "observations": 363,
       "rejected_files": [],
-      "reviewed_at_utc": "2026-11-02T14:19:50.603754+00:00",
+      "reviewed_at_utc": "2026-11-02T17:19:30.785167+00:00",
       "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
       "version": "local-closing-quotes-v4"
     },
@@ -705,7 +705,7 @@
           "minimum_paired_fixtures": 300,
           "minimum_verified_coverage": 0.8
         },
-        "reviewed_at_utc": "2026-11-02T14:19:50.603754+00:00",
+        "reviewed_at_utc": "2026-11-02T17:19:30.785167+00:00",
         "secondary_comparison": {
           "btts_yes": {
             "baseline": {
@@ -2614,14 +2614,14 @@
           "minimum_paired_fixtures": 300,
           "minimum_verified_coverage": 0.8
         },
-        "reviewed_at_utc": "2026-11-02T14:19:50.603754+00:00",
+        "reviewed_at_utc": "2026-11-02T17:19:30.785167+00:00",
         "status": "COLLECT_MORE_DATA",
         "verified_coverage": 0.0962962962962963,
         "version": "pinnacle-totals-anchor-v1"
       }
     },
     "forecast_freshness": {
-      "age_hours": 25.94059295222222,
+      "age_hours": 28.935087789166666,
       "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
       "status": "OLDER_THAN_24_HOURS",
       "upcoming_fixture_count": 22
@@ -2665,10 +2665,10 @@
         }
       ],
       "note": "Only the live forward trials are queued. Notifications invite review, including negative findings; they never approve changes.",
-      "reviewed_at_utc": "2026-11-02T14:19:50.603754+00:00",
+      "reviewed_at_utc": "2026-11-02T17:19:30.785167+00:00",
       "version": "experiment-review-queue-v1"
     },
-    "reviewed_at_utc": "2026-11-02T14:19:50.603754+00:00",
+    "reviewed_at_utc": "2026-11-02T17:19:30.785167+00:00",
     "selection_policy_groups": {
       "48h-top-ten-probability-ev-no-under35-v14": {
         "brier": 0.178674,
@@ -28794,7 +28794,7 @@
           "completed_matches": 54,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 7.783936149444445,
+          "download_age_hours": 10.778430986388889,
           "download_status": "VERIFIED_LIVE",
           "latest_completed_date": "2026-10-21",
           "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -28805,7 +28805,7 @@
           "season_start": 2026,
           "sha256": "16b4642aa2a481a739dd7530e6fe1669cecfee0bf05fe73083f185e56a205db9",
           "source_schedule_matches": 144,
-          "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+          "status": "REFRESH_OVERDUE",
           "training_end": "2026-10-21"
         },
         "days_since_latest_result": 12,
@@ -28867,7 +28867,7 @@
             }
           },
           "status": "VERIFIED_WITHIN_24_HOURS",
-          "verified_at_utc": "2026-11-02T14:19:50.603754+00:00"
+          "verified_at_utc": "2026-11-02T17:19:30.785167+00:00"
         },
         "days_since_latest_result": 11,
         "diagnostics_sha256": "2c4be2e7e938a5b4e399c855747e3a3bfa2981e6ef79fb2e24dd75125ad4fc37",
@@ -28949,7 +28949,7 @@
       }
     }
   },
-  "reviewed_at_utc": "2026-11-02T14:19:50Z",
+  "reviewed_at_utc": "2026-11-02T17:19:30Z",
   "snapshots": 64,
   "shortlist": {
     "brier": 0.145744,
@@ -29783,7 +29783,7 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-11-02T14:19:50.603754+00:00",
+      "reviewed_at_utc": "2026-11-02T17:19:30.785167+00:00",
       "secondary_comparison": {
         "btts_yes": {
           "baseline": {
@@ -31692,13 +31692,14 @@
         "minimum_paired_fixtures": 300,
         "minimum_verified_coverage": 0.8
       },
-      "reviewed_at_utc": "2026-11-02T14:19:50.603754+00:00",
+      "reviewed_at_utc": "2026-11-02T17:19:30.785167+00:00",
       "status": "COLLECT_MORE_DATA",
       "verified_coverage": 0.0962962962962963,
       "version": "pinnacle-totals-anchor-v1"
     }
   },
   "warnings": [
+    "UCL training/source health: REFRESH_OVERDUE",
     "UEL: live UEFA denied access; using reviewed factual attestations for covered matches only",
     "EPL: all configured Odds API credentials confirmed exhausted during forecast generation",
     "Eredivisie: all configured Odds API credentials confirmed exhausted during forecast generation",
