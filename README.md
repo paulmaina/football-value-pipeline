@@ -282,7 +282,9 @@ See [Workflow checks and evidence](docs/workflow-assurance.md) for controls, art
 
 See [daily data health and forward evidence](docs/daily-evidence.md) for UCL
 automatic refresh, production quote eligibility and costs, and the new
-performance report health history. Existing forecasting commands remain valid.
+performance report health history. Forecasting commands must drop the retired experiment flags
+(`--goal-blend-experiment`, `--market-led-experiment`, `--recency-experiment`, `--reliability-experiment`),
+which are now rejected; see [What the scheduled run does](#what-the-scheduled-run-does).
 
 The [recency-weighting](docs/recency-experiment.md) and [EV sensitivity](docs/filter-sensitivity-experiment.md) experiments are retired; see [What the scheduled run does](#what-the-scheduled-run-does).
 

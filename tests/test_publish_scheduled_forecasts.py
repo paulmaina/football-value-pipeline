@@ -119,3 +119,29 @@ class ScheduledPublisherTests(OfflineQuotePolicyTestCase):
                 if cmd[1]=='football_value_pipeline_v2_standalone.py':(Path(cwd)/'football_output_v2/raw').mkdir(parents=True)
             publish(source,runner=empty)
             self.assertEqual(git(source,'rev-parse','HEAD').stdout,old)
+
+
+class DocumentedCommandTests(OfflineQuotePolicyTestCase):
+    def test_every_documented_prediction_command_parses(self):
+        """Documented commands must not use retired flags; ARCHIVED docs are exempt."""
+        import shlex
+        from football_value_pipeline_v2_standalone import build_parser
+        repo = Path(__file__).resolve().parents[1]
+        sources = [repo/'Commands.txt', repo/'README.md', *sorted((repo/'docs').glob('*.md'))]
+        commands = []
+        for path in sources:
+            text = path.read_text(encoding='utf-8-sig')
+            if '**ARCHIVED' in text[:600]:
+                continue
+            for number, line in enumerate(text.splitlines(), 1):
+                for prefix in ('py football_value_pipeline_v2_standalone.py',
+                               'python football_value_pipeline_v2_standalone.py'):
+                    if line.strip().startswith(prefix+' ') or line.strip() == prefix:
+                        commands.append((f'{path.name}:{number}', shlex.split(line.strip()[len(prefix):])))
+        self.assertIn('Commands.txt:12', [where for where, _ in commands])
+        for where, arguments in commands:
+            with self.subTest(where=where):
+                try:
+                    build_parser().parse_args(arguments)
+                except SystemExit:
+                    self.fail(f'{where}: documented command is rejected by the parser')

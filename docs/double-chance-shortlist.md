@@ -43,7 +43,7 @@ behavior; those callers enforce their own capture-time freshness rules.
 
 ```powershell
 git pull --rebase origin main
-py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life --goal-blend-experiment
+py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL --tune-half-life
 py format_football_output.py
 ```
 
