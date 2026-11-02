@@ -1,5 +1,7 @@
 # Stronger regularisation and fixed-half-life forward trials
 
+> **ARCHIVED 2026-11-02.** No longer generated, captured or reviewed by the scheduled run; the code is kept for replay in `archive/model_reliability_experiment.py` and the last report in `football_output_v2/performance/model_reliability_experiment/` is frozen. Commands below no longer work.
+
 Add `--reliability-experiment` to the normal forecasting command:
 
 ```powershell

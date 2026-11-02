@@ -162,6 +162,38 @@ closing analysis now uses the latest-selection ROI cohort, with a separate
 first-entry reference. Existing experimental first-entry baselines are preserved.
 See [run integrity and recovery](docs/prediction-run-integrity.md).
 
+## What the scheduled run does
+
+`publish_scheduled_forecasts.py` (the Scheduled forecasts workflow) runs, on
+fresh `main`:
+
+1. **Generate**: `football_value_pipeline_v2_standalone.py --leagues <all
+   registry leagues> --additional-odds-coverage all`. This writes production
+   probabilities (`dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2`),
+   the v26 shortlist and two forward-trial sidecars: `benchmark_forward_experiment.json`
+   and `totals_anchor_experiment.json`, plus `bet365_vs_pinnacle.csv`.
+   The legacy companion (`legacy_*` columns and its half-life tuning) still
+   runs, only because both trials are frozen against it. It is never used for
+   selection or staking.
+2. **Check and format**: `workflow_checks.py raw` (including a deterministic
+   shortlist replay), then `format_football_output.py`.
+3. **Capture**: `performance_tracking.py capture` archives the forecast, the
+   shortlist and the live sidecars.
+4. **Review**: `performance_tracking.py review` grades results and refreshes
+   performance tracking, the BBS forward assessment, the benchmark-forward and
+   totals-anchor trials, the closing-odds review, the CLV report, the
+   experiment review queue (the two live trials) and pipeline health.
+
+Separate workflows collect closing odds and refresh training data. Offline only,
+never scheduled: `ah_close_backtest.py` and `historical_benchmark.py`.
+
+**Retired (2026-11-02).** These experiments are no longer generated, captured or
+reviewed: goal blend, market-led, recency, model reliability, shortlist weight,
+shortlist policy, filter sensitivity and the legacy model comparison. Their code
+is in `archive/`, importable for replay; their last reports under
+`football_output_v2/performance/` are frozen and marked ARCHIVED. Archived
+snapshots still load and verify.
+
 ## Output formats
 
 The project writes both machine-readable and narrative outputs.
@@ -245,20 +277,14 @@ This repository is maintained under the GitHub user `paulmaina` and is described
 
 Pipeline CI now tests Python 3.12/3.14 on Linux and Windows, enforces application and critical-module coverage floors, and exercises the six-league prediction/experiment/format/capture/review path offline. Forward review validates immutable archives and independently reconciles generated reports before publishing, retains failure diagnostics, and reports provider health, training dates and policy groups. Windows LF/CRLF conversion no longer silently excludes experimental sidecars.
 
-See [Workflow checks and evidence](docs/workflow-assurance.md) for controls, artifacts, local commands and limitations. Rerun with both experiment flags and push before kickoff to capture future experiment evidence; historical snapshots are preserved.
+See [Workflow checks and evidence](docs/workflow-assurance.md) for controls, artifacts, local commands and limitations. Historical snapshots, including retired experiments' sidecars, are preserved.
 # Daily evidence and execution checks
 
 See [daily data health and forward evidence](docs/daily-evidence.md) for UCL
 automatic refresh, production quote eligibility and costs, and the new
 performance report health history. Existing forecasting commands remain valid.
 
-The optional [recency-weighting experiment](docs/recency-experiment.md) extends
-the existing goal sidecar with Over 1.5/BTTS half-life comparisons. Add
-`--recency-experiment` alongside `--tune-half-life`; production selections stay
-independent while forward results are captured and reviewed automatically.
-
-
-Conservative EV sensitivity is recorded automatically on current-fixture runs: [experiment guide](docs/filter-sensitivity-experiment.md). It compares 1.5%, 3%, and 5% floors without changing the live shortlist.
+The [recency-weighting](docs/recency-experiment.md) and [EV sensitivity](docs/filter-sensitivity-experiment.md) experiments are retired; see [What the scheduled run does](#what-the-scheduled-run-does).
 
 A separate [historical benchmark](docs/historical-benchmark.md) compares regularisation, recency, market weighting and totals anchoring on pinned data. Run `py historical_benchmark.py --materialize-pinned-data`; production commands and settings are unchanged. Future trial gates are recorded in `benchmark_promotion_rules.json`.
 

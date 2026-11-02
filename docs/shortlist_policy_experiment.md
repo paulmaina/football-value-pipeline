@@ -1,5 +1,7 @@
 # Final shortlist policy comparison
 
+> **ARCHIVED 2026-11-02.** No longer generated, captured or reviewed by the scheduled run; the code is kept for replay in `archive/shortlist_policy_experiment.py` and the last report in `football_output_v2/performance/shortlist_policy_experiment/` is frozen. Commands below no longer work.
+
 This passive sidecar runs automatically with full current-fixture pipeline
 runs. Keep your existing command and experiment flags. No extra odds requests
 or model fits are made. Production forecasts, shortlist thresholds, ranking

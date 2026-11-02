@@ -1,5 +1,7 @@
 # Market-led double-chance experiment
 
+> **ARCHIVED 2026-11-02.** No longer generated, captured or reviewed by the scheduled run; the code is kept for replay in `archive/market_led_experiment.py` and the last report in `football_output_v2/performance/market_led_experiment/` is frozen. Commands below no longer work.
+
 Enable with `--market-led-experiment`. This is a paper experiment, off by default.
 It never changes baseline probabilities, the conservative shortlist, training,
 goal-blend experiments or staking. Failures are isolated after baseline output
