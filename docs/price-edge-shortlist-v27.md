@@ -93,3 +93,25 @@ alternate O/U 2.5 from the per-event request. No extra request is made. Runs
 captured before this column existed fall back to fields that are Pinnacle by
 construction. Those runs have no 1xBet 1X2 or double-chance prices, because the
 old allowlist did not include 1xBet for those markets.
+
+## Tracking
+
+`price_edge_tracking.py` runs in every review (`performance_tracking.py review`)
+and writes `football_output_v2/performance/price_edge_v27/`: `summary.json`,
+`report.md`, `picks.csv` and `tagged_candidates.csv`.
+
+- **Picks:** every frozen v27 pick (latest pre-kickoff entry per fixture) is graded
+  by CLV:
+  - CLV = entry odds × Pinnacle's near-kickoff fair win-share on the same AH line − 1;
+  - the closing-odds workflow collects the Pinnacle close;
+  - margin removal is proportional, as in the rule.
+  - CLV is split by bookmaker, odds band, reference type, favourite/underdog
+    side and each tag (balanced, low_total, high_draw, any tag, no tag).
+  - Flat-stake results are recorded too.
+- **STOP REVIEW:** the report shows this flag when at least 100 graded picks have mean CLV below zero.
+- **Tagged candidates:** each run writes `price_edge_tagged_candidates.csv`. It
+  holds every tagged candidate, picked, rejected or probe, with the offered price
+  against fair at capture. It is captured into the snapshot like the bet365 list.
+  The review adds the final result and the return at the capture fair price, so
+  the narrow-margin hypothesis is measured even when no pick is made.
+- **History:** v26 and older history is unchanged.

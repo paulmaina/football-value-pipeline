@@ -37,6 +37,8 @@ def _refresh(root, as_of=None, *, raw_dir=None):
     decisions.to_csv(raw / 'conservative_bet_rejections.csv', index=False)
     from asian_handicap import best_per_match
     best_per_match(decisions).to_csv(raw/'asian_handicap_best_per_match.csv',index=False)
+    from price_edge_tracking import write_list as write_tagged_list
+    write_tagged_list(decisions, raw, summary['generated_at_utc'])
     (raw / 'conservative_bet_summary.json').write_text(
         json.dumps(summary, indent=2), encoding='utf-8')
     return summary

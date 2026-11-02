@@ -199,6 +199,12 @@ def capture(commit_sha: str, *, root: Path = ROOT,
     except Exception as exc:
         warnings.warn(f"bet365 vs Pinnacle capture skipped ({type(exc).__name__})")
     try:
+        from price_edge_tracking import capture_file as capture_tagged, FILE as TAGGED_FILE
+        tagged = capture_tagged(raw, summary.get("generated_at_utc"))
+        if tagged is not None: files[TAGGED_FILE] = tagged
+    except Exception as exc:
+        warnings.warn(f"v27 tagged-candidate capture skipped ({type(exc).__name__})")
+    try:
         from totals_anchor_experiment import capture_file as capture_totals
         experiment = capture_totals(raw, summary.get("generated_at_utc"))
         if experiment is not None: files["totals_anchor_experiment.json"] = experiment
@@ -264,7 +270,7 @@ def load_snapshot(directory: Path) -> tuple[dict, list[dict], list[dict]] | None
         'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json',
         'totals_anchor_experiment.json', 'model_reliability_experiment.json',
         'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json',
-        'bet365_vs_pinnacle.csv'}
+        'bet365_vs_pinnacle.csv', 'price_edge_tagged_candidates.csv'}
     digests = meta.get('sha256')
     if not isinstance(digests, dict) or not required.issubset(digests) or set(digests)-required-optional:
         warnings.warn(f'Missing required or invalid snapshot manifest ignored: {directory}')
@@ -1021,6 +1027,11 @@ def review(*, root: Path = ROOT, token: str = "",
         review_closing(root, archived, clock)
     except Exception as exc:
         warnings.warn(f'Closing quote review failed ({type(exc).__name__}); production report complete')
+    try:
+        from price_edge_tracking import review as review_price_edge
+        review_price_edge(root, archived, records, clock)
+    except Exception as exc:
+        warnings.warn(f'v27 price-edge review failed ({type(exc).__name__}); production report complete')
     try:
         from clv_report import build_report as build_clv_report
         build_clv_report(root, clock=clock)
