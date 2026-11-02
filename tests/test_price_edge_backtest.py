@@ -1,7 +1,9 @@
 """Offline tests for the read-only pre-registered AH price-edge backtest."""
 
 from offline_test_case import OfflineQuotePolicyTestCase
+import json
 import math
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -9,8 +11,8 @@ from pathlib import Path
 import pandas as pd
 
 from price_edge_backtest import (
-    EDGE_THRESHOLD, build_candidates, candidate, drop_reason, evaluate, longest_losing_run,
-    max_drawdown, net_odds, rule_metrics, select_bets, verdict, write_report)
+    BET_COLUMNS, EDGE_THRESHOLD, build_candidates, candidate, drop_reason, evaluate, export_bets,
+    longest_losing_run, main, max_drawdown, net_odds, rule_metrics, select_bets, verdict, write_report)
 
 
 def row(**overrides):
@@ -177,6 +179,32 @@ class RecordTests(OfflineQuotePolicyTestCase):
             text = path.read_text(encoding='utf-8')
         self.assertIn('SENSITIVITY ONLY', text)
         self.assertIn('Live tracking', text)
+
+    def test_no_usable_prices_still_writes_every_output(self):
+        # 2026/27 CSVs carry no Pinnacle AH columns, so no source has a single candidate.
+        source = Path(__file__).resolve().parents[1] / '.football_cache' / '2627_E0.csv'
+        with tempfile.TemporaryDirectory() as tmp:
+            cache, out = Path(tmp) / 'cache', Path(tmp) / 'out'
+            cache.mkdir()
+            shutil.copy(source, cache / source.name)
+            self.assertEqual(main(['--cache-dir', str(cache), '--output-dir', str(out),
+                                   '--divisions', 'E0', '--bootstrap', '10']), 0)
+            bets = pd.read_csv(out / 'bets.csv')
+            summary = json.loads((out / 'summary.json').read_text(encoding='utf-8'))
+            report = (out / 'report.md').read_text(encoding='utf-8')
+        self.assertTrue(bets.empty)
+        self.assertEqual(list(bets.columns), list(BET_COLUMNS))
+        matches = summary['coverage']['max']['matches']
+        self.assertGreater(matches, 0)
+        for source_name, coverage in summary['coverage'].items():
+            self.assertEqual(coverage, {'matches': matches, 'dropped': {'no_pinnacle_open': matches}, 'usable': 0})
+        self.assertIn('No, for none of the offered-price sources.', report)
+
+    def test_export_columns_match_bet_columns(self):
+        candidates = {s: build_candidates(pd.DataFrame([row()]), s)[0] for s in ('max', 'b365', 'bfe', 'avg')}
+        bets = export_bets(candidates)
+        self.assertEqual(list(bets.columns), list(BET_COLUMNS))
+        self.assertEqual(list(bets['source']), ['max', 'bfe'])  # bfe 2.10 is 2.25% net of commission
 
     def test_verdict_does_not_call_tiny_samples(self):
         tiny = {'bets': 2, 'same_line_bets': 2, 'mean_clv': 0.03, 'clv_low95': 0.02, 'clv_high95': 0.04}
