@@ -32,7 +32,8 @@ PER_MARKET_POLICIES = (PER_MARKET_POLICY, CORNERS_CARDS_POLICY)
 WIN_FIRST_POLICIES = (WIN_FIRST_POLICY, *PER_MARKET_POLICIES)
 POLICIES = (*POLICIES, *WIN_FIRST_POLICIES)
 from price_edge_shortlist import POLICY as PRICE_EDGE_POLICY
-POLICIES = (*POLICIES, PRICE_EDGE_POLICY)
+from price_edge_cagey_shortlist import POLICY as CAGEY_POLICY
+POLICIES = (*POLICIES, PRICE_EDGE_POLICY, CAGEY_POLICY)
 # New shortlists only; replays dispatch on each capture's recorded version.
 # v26 (NO_LOSS_CORNERS_POLICY) stays replayable for its archived captures.
 PRODUCTION_POLICY = PRICE_EDGE_POLICY
@@ -267,7 +268,7 @@ def _rank_risk_band(pool, tolerance):
 
 def ordinary_markets(policy_version):
     """Versioned eligibility keeps frozen forecasts replayable."""
-    if policy_version == PRICE_EDGE_POLICY:
+    if policy_version in (PRICE_EDGE_POLICY, CAGEY_POLICY):
         # Markets that settle exactly as an AH line; the draw is never a pick.
         return ['Home win', 'Away win', 'Double Chance 1X', 'Double Chance X2']
     if policy_version in (*ALTERNATIVE_POLICIES, *WIN_FIRST_POLICIES):
@@ -322,6 +323,11 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     if _required_ev is not None and (policy_version != POLICY or
             not math.isfinite(_required_ev) or not 0 <= _required_ev <= 1):
         raise ValueError("Internal EV floor requires the common no-loss evaluator")
+    if policy_version == CAGEY_POLICY:
+        if adjusted_ev_floor is not None:
+            raise ValueError('The price-edge policy does not accept an EV floor')
+        from price_edge_cagey_shortlist import build_shortlist as build_v28
+        return build_v28(predictions, as_of, market_reliability, execution_policy)
     if policy_version == PRICE_EDGE_POLICY:
         if adjusted_ev_floor is not None:
             raise ValueError('The price-edge policy does not accept an EV floor')

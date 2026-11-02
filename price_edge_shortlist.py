@@ -447,7 +447,9 @@ def evaluate_candidate(candidate: Mapping, pin: Mapping, fit: mi.Fit, fit_info: 
     return item
 
 
-def evaluate_fixture(row: Mapping, policy: Mapping, now: pd.Timestamp) -> List[Dict[str, object]]:
+def evaluate_fixture(row: Mapping, policy: Mapping, now: pd.Timestamp, transform=None) -> List[Dict[str, object]]:
+    """Every candidate of one fixture. `transform(row, items, pin, fit, fit_info, now)` lets a later
+    policy (v28) post-process the rows with the same Pinnacle quotes and fits; v27 passes none."""
     pin = pinnacle_quotes(row)
     fit, fit_info = market_fit(pin, now)
     tag = tags(pin['h2h'], pin['ou25'])
@@ -467,7 +469,8 @@ def evaluate_fixture(row: Mapping, policy: Mapping, now: pd.Timestamp) -> List[D
                 **tag)
     # Tracking only: never read by any decision.
     base['cagey_score'], base['cagey_fit'] = mi.cagey_score(fit, fit_info['fit_a'])
-    return [{**base, **evaluate_candidate(c, pin, fit, fit_info, context, now, kickoff)} for c in candidates]
+    items = [{**base, **evaluate_candidate(c, pin, fit, fit_info, context, now, kickoff)} for c in candidates]
+    return transform(row, items, pin, fit, fit_info, now) if transform is not None else items
 
 
 def _rank(frame: pd.DataFrame) -> pd.DataFrame:
@@ -477,8 +480,12 @@ def _rank(frame: pd.DataFrame) -> pd.DataFrame:
         ascending=[False, False, False, True, True, True], kind='stable').drop(columns='_safe')
 
 
-def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, execution_policy=None):
-    """One pick per fixture; no cap. Returns (shortlist, decisions, summary)."""
+def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, execution_policy=None, *,
+                    transform=None, extra_columns=()):
+    """One pick per fixture; no cap. Returns (shortlist, decisions, summary).
+
+    `transform` and `extra_columns` are for v28, which reuses this selection; v27 uses neither.
+    """
     from quote_policy import load_policy, validate_policy
     from performance_tracking import fixture_key
     now = pd.Timestamp(as_of)
@@ -487,8 +494,8 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     now = now.tz_convert('UTC')
     policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
     rows = predictions.astype(object).where(predictions.notna(), None).to_dict('records') if len(predictions) else []
-    evaluated = [item for row in rows for item in evaluate_fixture(row, policy, now)]
-    decisions = pd.DataFrame(evaluated).reindex(columns=DECISION_COLUMNS)
+    evaluated = [item for row in rows for item in evaluate_fixture(row, policy, now, transform)]
+    decisions = pd.DataFrame(evaluated).reindex(columns=[*DECISION_COLUMNS, *extra_columns])
     for column in ('selection_tier', 'other_value_lines', 'rejection_reasons', 'decision'):
         decisions[column] = decisions[column].astype(object)
     eligible =decisions.loc[decisions.decision == 'ELIGIBLE'].copy()
