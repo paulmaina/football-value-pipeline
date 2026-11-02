@@ -84,3 +84,23 @@ that run's summary.
 `even_odds` means both Pinnacle 1X2 win odds are at least 2.50 (raw quoted
 odds). It sits alongside `balanced`, `low_total` and `high_draw`: tracking only,
 and tagged fixtures always have their +1 to +2.25 lines evaluated.
+
+## Tracking
+
+`price_edge_tracking.py` grades both tiers in every review and writes the results to `football_output_v2/performance/price_edge_v27/`, including `cagey_tier_picks.csv`. The cagey-tier list is captured into each snapshot (`cagey_tier_shortlist.csv`) like the tagged-candidate list.
+
+Both tiers are graded by CLV against the Pinnacle close and by realised profit. The splits are:
+
+- tier and policy;
+- bookmaker;
+- reference type (a, b, c, c-cagey);
+- `corrected_cagey_score` quintile;
+- each tag (balanced, low_total, high_draw, even_odds);
+- "qualified only because of correction".
+
+Two flags can appear in the report:
+
+- **CAGEY REVIEW:** at least 50 graded correction-only value picks with mean CLV below 0. It recommends `cagey_correction_enabled = false`.
+- **CAGEY TIER REVIEW:** at least 50 graded cagey-tier picks whose realised ROI 95% interval is entirely below 0. It recommends `cagey_tier_enabled = false`.
+
+Neither flag switches anything off by itself.
