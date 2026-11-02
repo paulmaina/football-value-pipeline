@@ -4493,6 +4493,9 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         out_dir / "conservative_strict_qualifiers.csv", index=False
     )
     decisions.to_csv(out_dir / "conservative_bet_rejections.csv", index=False)
+    # v28 cagey tier: a separate list, never merged into the shortlist above (empty for other policies).
+    from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE
+    cagey_tier_list(decisions).to_csv(out_dir / TIER_FILE, index=False)
     try:
         from staking import write_stake_recommendations
         write_stake_recommendations(

@@ -92,5 +92,108 @@ class ValueTierTests(OfflineQuotePolicyTestCase):
             self.assertEqual(a_sum[key], b_sum[key])
 
 
+def cagey_row(home='Cagey FC', offers=(), lambdas=(0.95, 0.75, -0.08), main_line=-0.25):
+    """A low-scoring, cagey fixture: Pinnacle prices drawn from a known matrix (3% margin)."""
+    matrix = mi.dixon_coles_matrix(*lambdas)
+    inputs = mi.model_inputs(matrix, main_line)
+    h2h = {k: round(1 / (inputs[k] * 1.03), 4) for k in ('home', 'draw', 'away')}
+    ou = {'over': round(1 / (inputs['over_2_5'] * 1.03), 4), 'under': round(1 / ((1 - inputs['over_2_5']) * 1.03), 4)}
+    pair = ah_pair(main_line, round(1 / (inputs['ah_main'] * 1.03), 4), round(1 / ((1 - inputs['ah_main']) * 1.03), 4),
+                   key='spreads')
+    data = row(home=home, quotes=[quote('h2h', h2h), quote('totals', ou, key='totals', point=2.5)], offers=offers)
+    data['asian_handicap_offers'] = json.dumps(pair + list(offers))
+    return data
+
+
+def tier_fair(data, side, line):
+    pin = v27.pinnacle_quotes(data)
+    fit, info = v27.market_fit(pin, NOW)
+    context = v28.corrected_context(pin, fit, info, nm.production_model())
+    return v28.corrected_price(context, side, line), context
+
+
+class CageyTierTests(OfflineQuotePolicyTestCase):
+    def test_qualify_rule_boundaries(self):
+        item = {'handicap_line': 1.5, 'offered_decimal_odds': 1.4, 'rejection_reasons': 'edge below 3%'}
+        context = {'score': 0.25}
+        cases = [((0.0, 0.85), 'ELIGIBLE', ''),
+                 ((-0.0001, 0.85), 'REJECTED', 'expected profit below 0 under the corrected matrix'),
+                 ((0.01, 0.8499), 'REJECTED', 'corrected no-loss probability below 85%')]
+        for (profit, no_loss), expected, reasons in cases:
+            out = {'corrected_expected_profit': profit, 'corrected_no_loss_probability': no_loss}
+            self.assertEqual(v28.tier_candidate(item, out, context),
+                             {'cagey_tier_decision': expected, 'cagey_tier_reasons': reasons})
+        guarded = {**item, 'rejection_reasons': 'offered odds above 3.00; edge below 3%'}
+        good = {'corrected_expected_profit': 0.1, 'corrected_no_loss_probability': 0.9}
+        self.assertEqual(v28.tier_candidate(guarded, good, context)['cagey_tier_reasons'], 'offered odds above 3.00')
+        self.assertIsNone(v28.tier_candidate({**item, 'handicap_line': 0.75}, {}, context)['cagey_tier_decision'])
+        self.assertIsNone(v28.tier_candidate({**item, 'handicap_line': -1.5}, {}, context)['cagey_tier_decision'])
+        self.assertEqual(v28.tier_candidate(item, {}, None)['cagey_tier_reasons'], 'no corrected price')
+
+    def decisions(self, scores):
+        kick = (NOW + pd.Timedelta(hours=10)).isoformat()
+        return pd.DataFrame([{'league': 'Premier League', 'home_team': f'T{i}', 'away_team': 'A', 'fixture_id': f'f{i}',
+                              'kickoff_utc': kick, 'corrected_cagey_score': s, 'cagey_tier_decision': 'ELIGIBLE',
+                              'cagey_tier_reasons': '', 'pinnacle_fair_odds': None, 'in_value_tier': None,
+                              'corrected_no_loss_probability': 0.9, 'corrected_expected_profit': 0.01,
+                              'offered_decimal_odds': 1.3, 'market': 'm', 'bookmaker': '1xBet', 'even_odds': False}
+                             for i, s in enumerate(scores)])
+
+    def test_cutoff_never_above_the_training_20th_percentile(self):
+        scores = [0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70]
+        frame = self.decisions(scores)
+        tier = v28.apply_cagey_tier(frame, pd.DataFrame(), NOW, {'training_cagey_p20': 0.20})
+        self.assertAlmostEqual(tier['cutoff_run_p20'], float(pd.Series(scores).quantile(0.2)))
+        self.assertEqual((tier['cutoff_used'], tier['cutoff_training_p20']), (0.20, 0.20))
+        self.assertEqual(tier['n_shortlisted'], 0)
+        self.assertTrue(frame.cagey_tier_reasons.str.contains('not among the cagiest 20%').all())
+        frame = self.decisions(scores)
+        tier = v28.apply_cagey_tier(frame, pd.DataFrame(), NOW, {'training_cagey_p20': 0.90})
+        self.assertAlmostEqual(tier['cutoff_used'], tier['cutoff_run_p20'])
+        self.assertEqual(frame.loc[frame.cagey_tier_decision == 'SHORTLISTED', 'home_team'].tolist(), ['T0', 'T1'])
+
+    def test_one_safest_pick_per_fixture_separate_from_the_value_tier(self):
+        data = cagey_row()
+        plus2, context = tier_fair(data, 'away', 2.0)
+        plus15, _ = tier_fair(data, 'away', 1.5)
+        self.assertLess(context['score'], nm.production_model()['training_cagey_p20'])
+        offers = [offer('away', 1.5, round(plus15['corrected_fair_odds'] * 1.01, 4)),
+                  offer('away', 2.0, round(plus2['corrected_fair_odds'] * 1.005, 4))]
+        data = cagey_row(offers=offers)
+        selected, decisions, summary = run(data)
+        tier = v28.cagey_tier_list(decisions)
+        self.assertEqual(len(tier), 1)
+        self.assertEqual(tier.iloc[0].market_to_bet, label('away', 2.0))  # higher corrected no-loss
+        self.assertGreaterEqual(tier.iloc[0].corrected_no_loss_probability, 0.85)
+        self.assertGreaterEqual(tier.iloc[0].corrected_expected_profit, 0)
+        self.assertEqual(summary['cagey_tier']['n_shortlisted'], 1)
+        self.assertEqual(set(v28.TIER_OUTPUT_COLUMNS) - set(tier.columns), set())
+        # The tier never changes the value tier.
+        value_only, _, _ = run(data, settings=VALUE_ONLY)
+        self.assertTrue(selected.drop(columns=v28.TIER_COLUMNS).equals(value_only.drop(columns=v28.TIER_COLUMNS)))
+        self.assertEqual(bool(tier.iloc[0].in_value_tier), len(selected) > 0)
+
+    def test_formatter_renders_the_tier_separately(self):
+        import tempfile
+        from pathlib import Path
+        from format_football_output import process_conservative_shortlist
+        fair, _ = tier_fair(cagey_row(), 'away', 2.0)
+        data = cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 1.005, 4))])
+        selected, decisions, summary = run(data)
+        with tempfile.TemporaryDirectory() as tmp:
+            raw, out = Path(tmp) / 'raw', Path(tmp) / 'readable'
+            raw.mkdir()
+            out.mkdir()
+            selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+            v28.cagey_tier_list(decisions).to_csv(raw / v28.TIER_FILE, index=False)
+            (raw / 'conservative_bet_summary.json').write_text(json.dumps(summary, default=str), encoding='utf-8')
+            process_conservative_shortlist(raw, out)
+            report = (out / 'conservative_bet_shortlist_report.md').read_text(encoding='utf-8')
+            tier = pd.read_csv(out / 'cagey_tier_shortlist_readable.csv')
+        self.assertIn('price edge vs Pinnacle (v28)', report)
+        self.assertIn('## Cagey tier (separate list', report)
+        self.assertEqual(len(tier), 1)
+
+
 if __name__ == '__main__':
     unittest.main()
