@@ -176,6 +176,22 @@ def fit(targets: Dict[str, float], *, include_ah: bool, stale: Iterable[str] = (
     return Fit(kind, not reasons, reasons, lam_home, lam_away, rho, errors, matrix)
 
 
+def margin_at_least(result: Fit, goals: int) -> float:
+    """Probability that either side wins by `goals` or more."""
+    if result.matrix is None:
+        raise ValueError('Market-implied fit has no matrix')
+    margins, probs = margin_distribution(result.matrix)
+    return float(probs[np.abs(margins) >= goals].sum())
+
+
+def cagey_score(fit_b: Fit, fit_a: Optional[Fit] = None) -> Tuple[Optional[float], Optional[str]]:
+    """P(2+ goal margin, either side) from fit B, else fit A; lower = cagier. Tracking only."""
+    for result in (fit_b, fit_a):
+        if result is not None and result.usable:
+            return margin_at_least(result, 2), result.kind
+    return None, None
+
+
 def price(result: Fit, side: str, line: float) -> Dict[str, float]:
     """Fair win-share, fair odds and settlement probabilities for `side` getting `line`."""
     if not result.usable or result.matrix is None:

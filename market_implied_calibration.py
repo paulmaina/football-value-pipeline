@@ -72,7 +72,11 @@ def match_rows(row) -> List[Dict[str, object]]:
             'p_home': targets['home'], 'p_draw': targets['draw'], 'p_away': targets['away'],
             'p_over_2_5': targets['over_2_5'], 'both_usable': usable,
             **{f'{k}_max_residual': f.max_residual for k, f in fits.items()},
-            **{f'{k}_usable': f.usable for k, f in fits.items()}}
+            **{f'{k}_usable': f.usable for k, f in fits.items()},
+            # Cagey-score calibration: market-implied P(2+ / 3+ goal margin) vs what happened.
+            'abs_margin': abs(margin),
+            **{f'{k}_cagey': mi.margin_at_least(f, 2) for k, f in fits.items() if f.usable},
+            **{f'{k}_p3': mi.margin_at_least(f, 3) for k, f in fits.items() if f.usable}}
     rows = []
     if not usable:
         return [dict(base, fit=None)]
@@ -147,6 +151,61 @@ def evaluate(frame: pd.DataFrame, n_boot: int) -> pd.DataFrame:
                                 'tested': len(group) >= MIN_ROWS,
                                 'excludes_zero': len(group) >= MIN_ROWS and (low > 0 or high < 0)})
     return pd.DataFrame(records)
+
+
+CAGEY_QUINTILES = ('Q1 cagiest', 'Q2', 'Q3', 'Q4', 'Q5 most open')
+
+
+def cagey_calibration(matches: pd.DataFrame, n_boot: int) -> List[Dict[str, object]]:
+    """Actual vs predicted 2+ and 3+ goal-margin rates by cagey-score quintile, per fit and season half.
+
+    Quintiles are cut on each fit's own score over all usable matches. Intervals
+    resample whole gameweeks; `gap` is actual minus predicted per match.
+    """
+    records = []
+    usable = matches[matches.both_usable.astype(bool)].copy()
+    for kind in ('A', 'B'):
+        if f'{kind}_cagey' not in usable or usable.empty:
+            continue
+        scores = usable[f'{kind}_cagey'].astype(float)
+        quintile = pd.qcut(scores.rank(method='first'), len(CAGEY_QUINTILES), labels=CAGEY_QUINTILES)
+        for label in CAGEY_QUINTILES:
+            for period in PERIODS:
+                part = usable[(quintile == label) & ((usable.period == period) if period != 'all' else True)]
+                if part.empty:
+                    continue
+                record = {'fit': kind, 'quintile': label, 'period': period, 'matches': int(len(part)),
+                          'score_low': float(part[f'{kind}_cagey'].min()), 'score_high': float(part[f'{kind}_cagey'].max())}
+                for goals, predicted in ((2, f'{kind}_cagey'), (3, f'{kind}_p3')):
+                    actual = (part.abs_margin >= goals).astype(float)
+                    rate, low, high = block_bootstrap(actual, part.week, n_boot)
+                    gap, gap_low, gap_high = block_bootstrap(actual - part[predicted].astype(float), part.week, n_boot)
+                    record.update({f'actual_{goals}plus': rate, f'actual_{goals}plus_low95': low,
+                                   f'actual_{goals}plus_high95': high,
+                                   f'predicted_{goals}plus': float(part[predicted].mean()), f'gap_{goals}plus': gap,
+                                   f'gap_{goals}plus_low95': gap_low, f'gap_{goals}plus_high95': gap_high})
+                records.append(record)
+    return records
+
+
+def cagey_section(records: List[Dict[str, object]]) -> List[str]:
+    lines = ['## Cagey score: actual vs predicted big margins', '',
+             'cagey_score = market-implied P(2+ goal margin, either side); lower = cagier. Quintiles are cut on each '
+             "fit's score over all usable matches."
+             ' gap = actual - predicted rate, gameweek-block 95% interval; '
+             '`*` = interval excludes zero. Tracking only: the score never changes a v27 decision.', '']
+    rows = []
+    for r in records:
+        cells = [r['fit'], r['quintile'], r['period'], r['matches'], f"{r['score_low']:.3f}-{r['score_high']:.3f}"]
+        for goals in (2, 3):
+            star = ' *' if r[f'gap_{goals}plus_low95'] > 0 or r[f'gap_{goals}plus_high95'] < 0 else ''
+            cells += [f"{r[f'actual_{goals}plus']:.3f} [{r[f'actual_{goals}plus_low95']:.3f}, {r[f'actual_{goals}plus_high95']:.3f}]",
+                      f"{r[f'predicted_{goals}plus']:.3f}",
+                      f"{r[f'gap_{goals}plus']:+.3f} [{r[f'gap_{goals}plus_low95']:+.3f}, {r[f'gap_{goals}plus_high95']:+.3f}]{star}"]
+        rows.append(cells)
+    lines.append(_table(['fit', 'quintile', 'period', 'matches', 'score range', 'actual 2+ [95%]', 'predicted 2+',
+                         'gap 2+ [95%]', 'actual 3+ [95%]', 'predicted 3+', 'gap 3+ [95%]'], rows))
+    return lines + ['']
 
 
 # ---------------------------------------------------------------------------
@@ -234,6 +293,7 @@ def write_report(summary: Dict[str, object], results: pd.DataFrame, path: Path) 
               f"Season split: before vs from {SPLIT_DATE.date()}.", '',
               f"Fit B residuals (pp, usable fits): median {summary['fit_b_residual_pp']['median']:.2f}, "
               f"95th percentile {summary['fit_b_residual_pp']['p95']:.2f}.", '']
+    parts += cagey_section(summary.get('cagey_calibration', []))
     for name in results.slice.unique():
         part = results[results.slice == name]
         parts += [f'## {name}', '',
@@ -277,6 +337,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                'fit_b_residual_pp': {'median': float(usable_b.B_max_residual.median() * 100),
                                      'p95': float(usable_b.B_max_residual.quantile(0.95) * 100)},
                'headline': headline(results),
+               'cagey_calibration': cagey_calibration(matches, args.bootstrap),
                'results': results.to_dict('records')}
     (out_dir / 'summary.json').write_text(json.dumps(summary, indent=2, default=_json_default), encoding='utf-8')
     write_report(summary, results, out_dir / 'report.md')
