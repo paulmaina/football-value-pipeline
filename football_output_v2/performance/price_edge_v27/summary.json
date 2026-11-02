@@ -1,0 +1,75 @@
+{
+  "clv": {
+    "mean": null,
+    "n": 0,
+    "positive_share": null,
+    "standard_error": null
+  },
+  "clv_by": {
+    "balanced": {},
+    "bookmaker": {},
+    "cagey_quintile": {},
+    "high_draw": {},
+    "low_total": {},
+    "odds_band": {},
+    "reference_type": {},
+    "side_role": {},
+    "tagged": {}
+  },
+  "frozen_picks": 0,
+  "note": "CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.",
+  "policy": "48h-ah-price-edge-pinnacle-ref-v27",
+  "profit": {
+    "mean": null,
+    "n": 0,
+    "positive_share": null,
+    "standard_error": null
+  },
+  "rejected_observation_files": [],
+  "reviewed_at_utc": "2026-11-02T17:45:46.798393+00:00",
+  "stop_review": false,
+  "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
+  "tagged_candidates": {
+    "by_tag": {
+      "balanced": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      },
+      "high_draw": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      },
+      "low_total": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "edge_at_capture_1xbet": {
+      "mean": null,
+      "n": 0,
+      "positive_share": null,
+      "standard_error": null
+    },
+    "frozen": 0,
+    "return_at_capture_fair": {
+      "mean": null,
+      "n": 0,
+      "positive_share": null,
+      "standard_error": null
+    },
+    "return_at_capture_fair_plus_lines": {
+      "mean": null,
+      "n": 0,
+      "positive_share": null,
+      "standard_error": null
+    },
+    "with_offered_price": 0
+  },
+  "version": "price-edge-v27-tracking-v1"
+}
