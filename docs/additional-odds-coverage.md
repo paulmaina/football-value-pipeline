@@ -2,8 +2,12 @@
 
 The default `--additional-odds-coverage all` requests additional markets for
 **every The Odds API-linked fixture in the conservative shortlist window**
-(20 minutes to 72 hours before kickoff). Each event request includes double
-chance, alternate totals and BTTS. Existing caches still apply.
+(20 minutes to 72 hours before kickoff). Each event request includes
+alternate totals, alternate spreads, draw no bet and double chance
+(`EXTRA_EVENT_MARKETS`). BTTS and corner/card totals are no longer requested
+(2 November 2026): no production policy uses them, and each market costs a
+credit. On the 2 November all-league replay this is about 95 credits per run
+instead of 117. Existing caches still apply.
 
 Previously, 24 event requests were split equally across the six leagues.
 When UCL had all 18 in-window fixtures, it received only four requests;

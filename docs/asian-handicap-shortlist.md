@@ -1,5 +1,7 @@
 # Asian handicap shortlist — policy v22
 
+> **Superseded 2026-11-02** by [v27, the AH price edge vs Pinnacle](price-edge-shortlist-v27.md). This policy stays replayable for its archived captures.
+
 New prediction runs compare Home win, Away win, Over 1.5, Double Chance
 1X/X2/12, and supported home/away Asian handicap lines. Draw, BTTS and
 Under 3.5 are excluded from this production shortlist. Their general probability outputs and old archives remain

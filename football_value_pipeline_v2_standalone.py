@@ -94,6 +94,8 @@ LEAGUES: Dict[str, LeagueConfig] = dict(_REGISTERED_LEAGUES)
 HISTORICAL_URL = "https://www.football-data.co.uk/mmz4281/{season}/{division}.csv"
 FIXTURES_URL = "https://www.football-data.co.uk/fixtures.csv"
 THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
+# Per-event extra request; the main odds request stays h2h,totals,spreads.
+EXTRA_EVENT_MARKETS = ("alternate_totals", "alternate_spreads", "draw_no_bet", "double_chance")
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
@@ -966,6 +968,7 @@ class TheOddsAPI:
         from quote_freshness import quote_clock, quote_is_fresh, quote_utc
         from asian_handicap import parse_quotes as parse_handicap_quotes
         from bet365_pinnacle import compare_event as compare_bet365
+        from price_edge_shortlist import capture_quotes as capture_price_edge
         clock = quote_clock(as_of) if as_of is not None else None
         event_id = str(event.get("id") or "")
         home = str(event.get("home_team") or "")
@@ -1157,6 +1160,8 @@ class TheOddsAPI:
             "pinnacle_totals_lines": pinnacle_lines,
             "_main_over_1_5_offers": main_over15,
             "asian_handicap_offers": json.dumps(parse_handicap_quotes(event, clock), sort_keys=True),
+            # Per-book 1X2 and O/U 2.5 for the v27 price-edge policy (Pinnacle reference, 1xBet offers).
+            "price_edge_quotes": json.dumps(capture_price_edge(event, clock, ("h2h", "totals")), sort_keys=True),
             # Same response, same capture instant; no extra request (live only).
             "bet365_pinnacle_quotes": "[]" if clock is None else json.dumps(
                 compare_bet365(event, clock), sort_keys=True, allow_nan=False),
@@ -1228,7 +1233,7 @@ class TheOddsAPI:
     def extra_markets_for_event(
         self, league: LeagueConfig, event_id: str, *, main_over_1_5_offers=None
     ) -> Dict[str, object]:
-        """Per-event real-price request for alternate totals and BTTS.
+        """Per-event real-price request: alternate totals and spreads, double chance, draw no bet.
 
         Additional markets are bookmaker/competition dependent. All
         returned prices must be verified complementary outcome pairs
@@ -1243,20 +1248,17 @@ class TheOddsAPI:
             f"/events/{safe_id}/odds"
         )
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
-        import count_markets
-        # Corner/card totals only where Pinnacle quotes them; each adds request cost.
-        count_keys = [count_markets.ODDS_MARKETS[kind] for kind in count_markets.LEAGUES
-                      if league.key in count_markets.LEAGUES[kind]]
+        # BTTS and corner/card totals are no longer requested: no production
+        # policy uses them, and each returned market costs a credit.
         payload = self._get_json(
             url,
-            f"oddsapi_additional_ah_dc_v2_{'counts_' if count_keys else ''}{league.key}_{region_tag}_{safe_id}.json",
+            f"oddsapi_additional_ah_dc_v3_{league.key}_{region_tag}_{safe_id}.json",
             ttl=timedelta(minutes=5),
             force_refresh=self.force_refresh,
             params={
                 "apiKey": self.api_key,
                 "regions": self.regions,
-                "markets": ",".join(["alternate_totals", "btts", "alternate_spreads", "draw_no_bet", "double_chance",
-                                     *count_keys]),
+                "markets": ",".join(EXTRA_EVENT_MARKETS),
                 "oddsFormat": "decimal",
                 "dateFormat": "iso",
             },
@@ -1334,10 +1336,11 @@ class TheOddsAPI:
         asian_offers = parse_handicaps(payload, clock)
         if asian_offers:
             result['asian_handicap_offers'] = json.dumps(asian_offers, sort_keys=True, allow_nan=False)
-        count_offers = count_markets.parse_quotes(payload, clock) if count_keys else []
-        if count_offers:
-            result['count_market_offers'] = json.dumps(count_offers, sort_keys=True, allow_nan=False)
-        if asian_offers or count_offers:
+        from price_edge_shortlist import capture_quotes as capture_price_edge
+        edge_quotes = capture_price_edge(payload, clock, ("double_chance", "alternate_totals"))
+        if edge_quotes:
+            result['price_edge_quotes'] = json.dumps(edge_quotes, sort_keys=True, allow_nan=False)
+        if asian_offers or edge_quotes:
             result['_asian_handicap_identity'] = {k:payload.get(k) for k in ('home_team','away_team','commence_time')}
         for market, available in offers.items():
             result.update(self._goal_quote_fields(market, available, as_of=clock))
@@ -3268,6 +3271,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         quotes = row.get("bet365_pinnacle_quotes")
         pred["bet365_pinnacle_quotes"] = quotes if isinstance(quotes, str) else "[]"
         pred['asian_handicap_offers'] = row.get('asian_handicap_offers', '[]')
+        edge_quotes = row.get('price_edge_quotes')
+        pred['price_edge_quotes'] = edge_quotes if isinstance(edge_quotes, str) else '[]'
         add_value_metrics(pred, snapshot)
         primary = row.get("_main_over_1_5_offers")
         if isinstance(primary, (list, tuple)):
@@ -3473,6 +3478,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     merged = json.loads(pred.get('asian_handicap_offers') or '[]')+json.loads(extra['asian_handicap_offers'])
                     unique = {(x['side'], x['line'], x['bookmaker']):x for x in sorted(merged,key=lambda x:(x['last_update_utc'],x['price']))}
                     extra['asian_handicap_offers'] = json.dumps(list(unique.values()),sort_keys=True)
+                if 'price_edge_quotes' in extra:
+                    from price_edge_shortlist import merge_quotes as merge_price_edge
+                    extra['price_edge_quotes'] = merge_price_edge(
+                        pred.get('price_edge_quotes'), [] if identity_rejected else extra['price_edge_quotes'])
                 if identity_rejected:
                     bet365_extra = []
                 from bet365_pinnacle import merge as merge_bet365
@@ -4511,6 +4520,9 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
             out_dir, selection_summary['generated_at_utc'])
         print(f"bet365 vs Pinnacle list: {len(bet365_rows)} entries at >= 2% EV "
               f"(see {out_dir / 'bet365_vs_pinnacle.csv'})", file=sys.stderr)
+        # v27 narrow-margin hypothesis: every tagged candidate, picked or rejected.
+        from price_edge_tracking import write_list as write_tagged_list
+        write_tagged_list(decisions, out_dir, selection_summary['generated_at_utc'])
 
     # Retain a timestamped historical audit even though the current raw
     # shortlist is overwritten each run. No picks are ever added by force.
