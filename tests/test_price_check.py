@@ -163,10 +163,28 @@ class MainTests(OfflineQuotePolicyTestCase):
             self.assertEqual(price_check.main(['--api-key-source', 'environment']), 0)
         self.assertIn('No Odds API key', buffer.getvalue())
 
+    def test_odds_cache_is_temporary_and_outside_the_repository(self):
+        seen = {}
+
+        class Recorder:
+            KEY_ENV_NAMES = ('THE_ODDS_API_KEY',)
+
+            def __init__(self, key, cache_dir=None):
+                seen['cache'] = Path(cache_dir)
+                seen['existed'] = Path(cache_dir).is_dir()
+
+        buffer = io.StringIO()
+        with patch.dict(os.environ, {'THE_ODDS_API_KEY': 'offline-fake-key'}, clear=True),                 patch('football_value_pipeline_v2_standalone.TheOddsAPI', Recorder),                 patch.object(price_check, 'check', return_value={'status': 'NO_FIXTURES_IN_WINDOW'}),                 redirect_stdout(buffer):
+            self.assertEqual(price_check.main(['--api-key-source', 'environment']), 0)
+        self.assertTrue(seen['existed'])
+        self.assertFalse(seen['cache'].exists())
+        self.assertNotIn(ROOT.resolve(), seen['cache'].resolve().parents)
+
     def test_workflow_is_off_by_default(self):
         text = (ROOT / '.github' / 'workflows' / 'price-checks.yml').read_text(encoding='utf-8')
         self.assertIn("if: vars.PRICE_CHECKS_ENABLED == 'true'", text)
         self.assertIn('price_check.py --api-key-source environment --interval-hours', text)
+        self.assertLess(text.index('git diff --quiet'), text.index('git pull --rebase'))
         self.assertNotIn('per-event', price_check.MAIN_MARKETS)
         self.assertEqual(price_check.MAIN_MARKETS, ('h2h', 'totals', 'spreads'))
 
