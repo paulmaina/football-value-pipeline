@@ -1371,13 +1371,16 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
         "fair_odds": "Fair odds", "reference_type": "Reference", "edge": "Edge",
         "minimum_odds": "Minimum odds still worth taking", "pinnacle_no_loss_probability": "Pinnacle no-loss probability",
         "offered_quote_age_minutes": "Offered quote age (min)", "pinnacle_quote_age_minutes": "Pinnacle quote age (min)",
-        "model_vs_pinnacle_gap": "Model vs Pinnacle gap (info only)", "other_value_lines": "Other value lines"}
+        "model_vs_pinnacle_gap": "Model vs Pinnacle gap (info only)",
+        "cagey_score": "Cagey score: P(2+ goal margin) (info only)", "cagey_fit": "Cagey fit",
+        "other_value_lines": "Other value lines"}
     readable = raw.reindex(columns=OUTPUT_COLUMNS).rename(columns=headers)
     if not readable.empty:
         for column in ("Pinnacle draw probability", "Pinnacle P(over 2.5)", "Pinnacle no-loss probability"):
             readable[column] = readable[column].map(pct)
         readable["Edge"] = readable["Edge"].map(signed_pct)
         readable["Model vs Pinnacle gap (info only)"] = readable["Model vs Pinnacle gap (info only)"].map(signed_pct)
+        readable["Cagey score: P(2+ goal margin) (info only)"] = readable["Cagey score: P(2+ goal margin) (info only)"].map(pct)
         for column in ("Price", "Fair odds", "Minimum odds still worth taking"):
             readable[column] = readable[column].map(decimal)
         for column in ("Offered quote age (min)", "Pinnacle quote age (min)"):

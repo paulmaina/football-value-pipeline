@@ -34,10 +34,23 @@ MIN_LEAD_MINUTES = 20
 COLUMNS = ['list_version', 'generated_at_utc', 'league', 'home_team', 'away_team', 'kickoff_utc', 'fixture_id',
            'market', 'market_to_bet', 'handicap_side', 'handicap_line', 'side_role', 'bookmaker',
            'offered_decimal_odds', 'fair_probability', 'fair_odds', 'reference_type', 'edge', 'decision',
-           'rejection_reasons', 'tagged_probe', *TAGS, 'pinnacle_draw_probability', 'pinnacle_over_2_5_probability']
+           'rejection_reasons', 'tagged_probe', *TAGS, 'pinnacle_draw_probability', 'pinnacle_over_2_5_probability',
+           'cagey_score', 'cagey_fit']
 EQUIVALENT = {'Home win': ('home', -0.5), 'Away win': ('away', -0.5),
               'Double Chance 1X': ('home', 0.5), 'Double Chance X2': ('away', 0.5)}
-SPLITS = ('bookmaker', 'odds_band', 'reference_type', 'side_role', 'balanced', 'low_total', 'high_draw', 'tagged')
+SPLITS = ('bookmaker', 'odds_band', 'reference_type', 'side_role', 'balanced', 'low_total', 'high_draw', 'tagged',
+          'cagey_quintile')
+QUINTILES = ('Q1 cagiest', 'Q2', 'Q3', 'Q4', 'Q5 most open')
+
+
+def cagey_quintiles(scores) -> pd.Series:
+    """Quintile of the cagey score within the graded set (Q1 = lowest P(2+ margin)); n/a when unavailable."""
+    values = pd.to_numeric(pd.Series(scores), errors='coerce')
+    out = pd.Series('n/a', index=values.index, dtype=object)
+    known = values.dropna()
+    if known.nunique() >= len(QUINTILES):
+        out[known.index] = pd.qcut(known.rank(method='first'), len(QUINTILES), labels=QUINTILES).astype(str)
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -186,7 +199,10 @@ def grade(rows: List[dict], observations: List[dict], records: List[dict], clock
         fair_result = settle(row, final, side, line, fair if pd.notna(fair) and fair > 1 else None)
         item['return_at_capture_fair'] = fair_result['unit_profit']
         graded.append(item)
-    return pd.DataFrame(graded)
+    frame = pd.DataFrame(graded)
+    if len(frame):
+        frame['cagey_quintile'] = cagey_quintiles(frame.get('cagey_score', pd.Series(index=frame.index, dtype=float)))
+    return frame
 
 
 def summarize(values) -> Dict[str, object]:

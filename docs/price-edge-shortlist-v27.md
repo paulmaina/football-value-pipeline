@@ -141,3 +141,38 @@ Estimated Odds API credits per month for the price checks alone, from
 | 6 hours | ~1,900 |
 
 For comparison, the daily full run uses about 95 credits, or about 2,850 a month.
+
+## Cagey score (tracking only)
+
+`cagey_score` is the market-implied probability of a 2+ goal margin, either
+side. It comes from the fit-B matrix, or from fit A when fit B is unusable,
+and `cagey_fit` records which fit was used. Lower means cagier. The score is on
+every candidate row, the readable shortlist and the tagged-candidate records,
+and CLV tracking splits picks by its quintile. It is never read by any
+decision. The calibration report compares the actual and predicted rates of
+2+ and 3+ goal margins by quintile of the score, for fits A and B and each
+season half.
+
+## What CLV can be graded today
+
+The closing-odds collector targets every frozen pick:
+
+- **AH pick (including draw no bet):** it requests `spreads`, `alternate_spreads`
+  and `draw_no_bet` from Pinnacle near kickoff and keeps every complete line pair.
+  Pinnacle's close on the **same alternate line** is captured whenever Pinnacle
+  still quotes that line, and CLV against it is graded.
+- **1X2 and double-chance picks** (the ±0.5 equivalents): Pinnacle's 1X2 close is
+  captured and CLV is graded from it.
+
+Not gradeable today:
+
+- **1xBet's own close** on an AH pick, because AH collection requests Pinnacle only.
+  There is no same-book price CLV for 1xBet AH picks.
+- **Tagged candidates that were not picked.** They are not collection targets.
+  Their Pinnacle close exists only incidentally, when the same fixture has an AH
+  pick and Pinnacle quotes that line. Their final result and the return at the
+  capture fair price are always recorded.
+- **Any pick whose line Pinnacle withdrew near kickoff.** The same applies if the
+  collector found no quote within 6 minutes of kickoff that was at most 120
+  seconds old, or if the 100 requests a day cap was hit. These stay missing,
+  never estimated.

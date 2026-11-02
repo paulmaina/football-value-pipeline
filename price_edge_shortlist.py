@@ -17,7 +17,8 @@ Edge = offered odds x fair win-share - 1 (refunds excluded). Qualify at
 with the highest Pinnacle no-loss probability. No model EV, no no-loss floor.
 The production model's gap to Pinnacle is recorded for information only.
 
-Narrow-margin tags (balanced, low_total, high_draw) are tracking only: they
+Narrow-margin tags (balanced, low_total, high_draw) and the cagey score
+(market-implied P(2+ goal margin), fit B else fit A) are tracking only: they
 never change a decision. Tagged fixtures always get their +1 to +2.25 lines
 evaluated so rejections are recorded too. v26 and older stay replayable.
 """
@@ -59,7 +60,7 @@ OUTPUT_COLUMNS = [
     'pinnacle_draw_probability', 'pinnacle_over_2_5_probability', 'handicap_line', 'handicap_side', 'side_role',
     'market_to_bet', 'bookmaker', 'offered_decimal_odds', 'fair_odds', 'reference_type', 'edge',
     'minimum_odds', 'pinnacle_no_loss_probability', 'offered_quote_age_minutes', 'pinnacle_quote_age_minutes',
-    'model_vs_pinnacle_gap', 'other_value_lines']
+    'model_vs_pinnacle_gap', 'cagey_score', 'cagey_fit', 'other_value_lines']
 DECISION_COLUMNS = [
     'evaluated_at_utc', 'date', 'league', 'home_team', 'away_team', 'fixture_id', 'kickoff_utc',
     'market', 'market_to_bet', 'ah_equivalent', 'handicap_side', 'handicap_line', 'side_role', 'source_market',
@@ -68,7 +69,7 @@ DECISION_COLUMNS = [
     'quote_skew_minutes', 'pinnacle_overround', 'fair_probability', 'fair_probability_shin', 'fair_odds',
     'edge', 'edge_shin', 'min_edge', 'minimum_odds', 'pinnacle_no_loss_probability', 'p_no_loss',
     'predicted_probability', 'rank_probability', 'probability_basis', 'model_win_share', 'model_vs_pinnacle_gap',
-    'balanced', 'low_total', 'high_draw', 'any_tag', 'tagged_probe', 'pinnacle_home_odds', 'pinnacle_away_odds',
+    'balanced', 'low_total', 'high_draw', 'any_tag', 'tagged_probe', 'cagey_score', 'cagey_fit', 'pinnacle_home_odds', 'pinnacle_away_odds',
     'pinnacle_draw_probability', 'pinnacle_over_2_5_probability', 'fit_usable', 'fit_reasons', 'fit_max_residual',
     'per_stake_cost', 'decision', 'rejection_reasons', 'selection_tier', 'other_value_lines', 'selection_policy_version']
 
@@ -311,7 +312,12 @@ def market_fit(pin: Mapping, now: pd.Timestamp) -> Tuple[mi.Fit, Dict[str, objec
     if bad:
         result.usable = False
         result.reasons.append('Pinnacle overround outside range: ' + ', '.join(bad))
-    return result, {'stamps': [s for s in stamps.values() if s], 'overrounds': {k: _overround(*g) for k, g in groups.items() if g}}
+    # Fit A (1X2 + O/U only) is a fallback for the cagey score; it never prices a candidate.
+    fit_a = mi.fit(targets, include_ah=False, stale=[k for k in stale if k != 'ah_main'])
+    if any(k != 'ah_main' for k in bad):
+        fit_a.usable = False
+    return result, {'stamps': [s for s in stamps.values() if s], 'fit_a': fit_a,
+                    'overrounds': {k: _overround(*g) for k, g in groups.items() if g}}
 
 
 def reference(side: str, line: float, pin: Mapping, fit: mi.Fit, fit_info: Mapping) -> Optional[Dict[str, object]]:
@@ -455,6 +461,8 @@ def evaluate_fixture(row: Mapping, policy: Mapping, now: pd.Timestamp) -> List[D
     base.update(evaluated_at_utc=now.isoformat(), selection_policy_version=POLICY, per_stake_cost=0.0,
                 fit_usable=fit.usable, fit_reasons='; '.join(fit.reasons), fit_max_residual=fit.max_residual,
                 **tag)
+    # Tracking only: never read by any decision.
+    base['cagey_score'], base['cagey_fit'] = mi.cagey_score(fit, fit_info['fit_a'])
     return [{**base, **evaluate_candidate(c, pin, fit, fit_info, context, now, kickoff)} for c in candidates]
 
 
