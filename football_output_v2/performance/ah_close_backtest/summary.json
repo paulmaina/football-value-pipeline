@@ -1,0 +1,1252 @@
+{
+  "n_matches": 9465,
+  "n_half_line": 2323,
+  "variants": {
+    "dc": "Dixon-Coles hl480 + gated CSV shots (no odds inputs)",
+    "blend70": "dc + 0.70 Pinnacle opening 1X2 blend",
+    "prod": "blend70 + Pinnacle opening O/U 2.5 anchor (production replica)"
+  },
+  "primary": {
+    "dc": {
+      "n": 2323,
+      "weeks": 137,
+      "model_log_loss": 0.7106770612007265,
+      "pinnacle_log_loss": 0.6918615344043278,
+      "pinnacle_shin_log_loss": 0.6918595036329577,
+      "model_brier": 0.2581105933824227,
+      "pinnacle_brier": 0.24935803081763785,
+      "log_loss_gain": -0.018815526796398738,
+      "gain_low95": -0.026420528125738044,
+      "gain_high95": -0.01118649642877654
+    },
+    "blend70": {
+      "n": 2323,
+      "weeks": 137,
+      "model_log_loss": 0.6977255567111584,
+      "pinnacle_log_loss": 0.6918615344043278,
+      "pinnacle_shin_log_loss": 0.6918595036329577,
+      "model_brier": 0.2522104782428315,
+      "pinnacle_brier": 0.24935803081763785,
+      "log_loss_gain": -0.005864022306830652,
+      "gain_low95": -0.009890471638138297,
+      "gain_high95": -0.0017169548816264569
+    },
+    "prod": {
+      "n": 2323,
+      "weeks": 137,
+      "model_log_loss": 0.6967054693414243,
+      "pinnacle_log_loss": 0.6918615344043278,
+      "pinnacle_shin_log_loss": 0.6918595036329577,
+      "model_brier": 0.25174733722282466,
+      "pinnacle_brier": 0.24935803081763785,
+      "log_loss_gain": -0.004843934937096493,
+      "gain_low95": -0.00864468033923031,
+      "gain_high95": -0.0011344613115448119
+    }
+  },
+  "secondary": {
+    "dc": {
+      "all_lines": {
+        "n": 9465,
+        "return_mse_skill": -0.04012386274031593,
+        "skill_low95": -0.04682407219230233,
+        "skill_high95": -0.03341699878008531,
+        "model_side_return_at_fair_close": -0.011394433555978689,
+        "return_low95": -0.030159066143187134,
+        "return_high95": 0.00794149455921688
+      },
+      "half": {
+        "n": 2323,
+        "return_mse_skill": -0.03428170346783859,
+        "skill_low95": -0.048704875451842565,
+        "skill_high95": -0.019983621367320258,
+        "model_side_return_at_fair_close": -0.004225701591667642,
+        "return_low95": -0.04517753349718263,
+        "return_high95": 0.037098670568683316
+      },
+      "quarter": {
+        "n": 4933,
+        "return_mse_skill": -0.04612540479610333,
+        "skill_low95": -0.05531008821027197,
+        "skill_high95": -0.036556840262506975,
+        "model_side_return_at_fair_close": -0.02519168967105533,
+        "return_low95": -0.048731154651662445,
+        "return_high95": -0.0014620765491268363
+      },
+      "whole": {
+        "n": 2209,
+        "return_mse_skill": -0.032865252069770715,
+        "skill_low95": -0.046299431043092504,
+        "skill_high95": -0.0202348945778582,
+        "model_side_return_at_fair_close": 0.011878042705940058,
+        "return_low95": -0.02376950329810548,
+        "return_high95": 0.04981229811253665
+      }
+    },
+    "blend70": {
+      "all_lines": {
+        "n": 9465,
+        "return_mse_skill": -0.014178205350769317,
+        "skill_low95": -0.01807787588727456,
+        "skill_high95": -0.010255705058836793,
+        "model_side_return_at_fair_close": -0.0019761297902730316,
+        "return_low95": -0.019741404102706472,
+        "return_high95": 0.015203868555024792
+      },
+      "half": {
+        "n": 2323,
+        "return_mse_skill": -0.011415366719257131,
+        "skill_low95": -0.019373100611252716,
+        "skill_high95": -0.003395931845463514,
+        "model_side_return_at_fair_close": 0.0020803944783164383,
+        "return_low95": -0.03736658713070383,
+        "return_high95": 0.04315778925708968
+      },
+      "quarter": {
+        "n": 4933,
+        "return_mse_skill": -0.015931355399431937,
+        "skill_low95": -0.0214296947005663,
+        "skill_high95": -0.010532444444201716,
+        "model_side_return_at_fair_close": -0.00822295510022611,
+        "return_low95": -0.03436317955553716,
+        "return_high95": 0.01715045358665638
+      },
+      "whole": {
+        "n": 2209,
+        "return_mse_skill": -0.013168601435400417,
+        "skill_low95": -0.020926364739360458,
+        "skill_high95": -0.0057520150660809784,
+        "model_side_return_at_fair_close": 0.007708018411657807,
+        "return_low95": -0.026909804152116457,
+        "return_high95": 0.04164910536213702
+      }
+    },
+    "prod": {
+      "all_lines": {
+        "n": 9465,
+        "return_mse_skill": -0.011915178307171957,
+        "skill_low95": -0.015464596256523909,
+        "skill_high95": -0.008423556044988718,
+        "model_side_return_at_fair_close": -0.0010360012072870724,
+        "return_low95": -0.019360783444675723,
+        "return_high95": 0.016420556047803275
+      },
+      "half": {
+        "n": 2323,
+        "return_mse_skill": -0.009424649171069718,
+        "skill_low95": -0.016891117205153162,
+        "skill_high95": -0.0022185372671604956,
+        "model_side_return_at_fair_close": 0.00907852016136711,
+        "return_low95": -0.032174991974548296,
+        "return_high95": 0.051065594115173654
+      },
+      "quarter": {
+        "n": 4933,
+        "return_mse_skill": -0.013606293900244103,
+        "skill_low95": -0.018681651371426033,
+        "skill_high95": -0.008912449641347969,
+        "model_side_return_at_fair_close": -0.002863410613970931,
+        "return_low95": -0.02911273694494495,
+        "return_high95": 0.02230430212700114
+      },
+      "whole": {
+        "n": 2209,
+        "return_mse_skill": -0.010757743251735384,
+        "skill_low95": -0.01763380980057489,
+        "skill_high95": -0.004425261922248349,
+        "model_side_return_at_fair_close": -0.007591647443689144,
+        "return_low95": -0.0414934654904045,
+        "return_high95": 0.02642991510671238
+      }
+    }
+  },
+  "simulated_clv": {
+    "dc": {
+      "label": "SIMULATED - assumes every Pinnacle opening price was available; not achievable execution",
+      "min_model_ev": 0.02,
+      "bets": 7176,
+      "mean_model_ev": 0.1285251101098932,
+      "roi_at_opening": -0.039313684503901915,
+      "roi_low95": -0.05957176428117417,
+      "roi_high95": -0.019389466940061554,
+      "same_line_bets": 4441,
+      "mean_clv_vs_fair_close": -0.024954970094590596,
+      "clv_low95": -0.026352576696023363,
+      "clv_high95": -0.02344445656124536,
+      "mean_clv_shin": -0.025035354248131005,
+      "share_clv_positive": 0.2961044809727539,
+      "line_moved_bets": 2735,
+      "share_line_moved_favourable": 0.48007312614259595,
+      "by_side": {
+        "favourite": {
+          "bets": 2498,
+          "roi_at_opening": -0.023610888710968784,
+          "mean_clv": -0.023083828939971567
+        },
+        "level": {
+          "bets": 813,
+          "roi_at_opening": -0.06720787207872078,
+          "mean_clv": -0.029841629475769717
+        },
+        "underdog": {
+          "bets": 3865,
+          "roi_at_opening": -0.04359508408796896,
+          "mean_clv": -0.02517452706866733
+        }
+      }
+    },
+    "blend70": {
+      "label": "SIMULATED - assumes every Pinnacle opening price was available; not achievable execution",
+      "min_model_ev": 0.02,
+      "bets": 3860,
+      "mean_model_ev": 0.06639169010440775,
+      "roi_at_opening": -0.048468911917098456,
+      "roi_low95": -0.07398126658976559,
+      "roi_high95": -0.02317687777401122,
+      "same_line_bets": 2306,
+      "mean_clv_vs_fair_close": -0.024753848949300748,
+      "clv_low95": -0.02671338784612912,
+      "clv_high95": -0.022658150093728378,
+      "mean_clv_shin": -0.024866703583517755,
+      "share_clv_positive": 0.29444926279271466,
+      "line_moved_bets": 1554,
+      "share_line_moved_favourable": 0.46396396396396394,
+      "by_side": {
+        "favourite": {
+          "bets": 1531,
+          "roi_at_opening": -0.04269105160026128,
+          "mean_clv": -0.02311473961464587
+        },
+        "level": {
+          "bets": 359,
+          "roi_at_opening": -0.0863231197771588,
+          "mean_clv": -0.031869095344974195
+        },
+        "underdog": {
+          "bets": 1970,
+          "roi_at_opening": -0.04606091370558377,
+          "mean_clv": -0.024700563280207824
+        }
+      }
+    },
+    "prod": {
+      "label": "SIMULATED - assumes every Pinnacle opening price was available; not achievable execution",
+      "min_model_ev": 0.02,
+      "bets": 3551,
+      "mean_model_ev": 0.058175707345483677,
+      "roi_at_opening": -0.04086032103632782,
+      "roi_low95": -0.068013469651076,
+      "roi_high95": -0.012599802828213744,
+      "same_line_bets": 2139,
+      "mean_clv_vs_fair_close": -0.024691194000436796,
+      "clv_low95": -0.026754849871231647,
+      "clv_high95": -0.022507246034750846,
+      "mean_clv_shin": -0.024827532689121825,
+      "share_clv_positive": 0.2959326788218794,
+      "line_moved_bets": 1412,
+      "share_line_moved_favourable": 0.4461756373937677,
+      "by_side": {
+        "favourite": {
+          "bets": 1517,
+          "roi_at_opening": -0.030566908371786432,
+          "mean_clv": -0.023936418512051603
+        },
+        "level": {
+          "bets": 359,
+          "roi_at_opening": -0.0863231197771588,
+          "mean_clv": -0.031869095344974195
+        },
+        "underdog": {
+          "bets": 1675,
+          "roi_at_opening": -0.04043880597014927,
+          "mean_clv": -0.023807116698414562
+        }
+      }
+    }
+  },
+  "breakdowns": {
+    "dc": {
+      "league": {
+        "D1": {
+          "n": 250,
+          "weeks": 104,
+          "model_log_loss": 0.690087858073432,
+          "pinnacle_log_loss": 0.6922555705546374,
+          "pinnacle_shin_log_loss": 0.6922535369208249,
+          "model_brier": 0.24856326097647338,
+          "pinnacle_brier": 0.24955347236995876,
+          "log_loss_gain": 0.002167712481205381,
+          "gain_low95": -0.01854291135001571,
+          "gain_high95": 0.023523262768197672
+        },
+        "E0": {
+          "n": 325,
+          "weeks": 115,
+          "model_log_loss": 0.7128624977250204,
+          "pinnacle_log_loss": 0.6937995710271643,
+          "pinnacle_shin_log_loss": 0.6938472490360076,
+          "model_brier": 0.25932622311443715,
+          "pinnacle_brier": 0.25032667287837695,
+          "log_loss_gain": -0.019062926697856,
+          "gain_low95": -0.03833343084386448,
+          "gain_high95": -0.000429189772362709
+        },
+        "F1": {
+          "n": 305,
+          "weeks": 107,
+          "model_log_loss": 0.7124870523117692,
+          "pinnacle_log_loss": 0.6917214401290663,
+          "pinnacle_shin_log_loss": 0.6916740199983507,
+          "model_brier": 0.25868358355589777,
+          "pinnacle_brier": 0.2492987548655111,
+          "log_loss_gain": -0.020765612182702963,
+          "gain_low95": -0.04666236036767131,
+          "gain_high95": 0.003019007031784295
+        },
+        "I1": {
+          "n": 307,
+          "weeks": 114,
+          "model_log_loss": 0.7161936864404402,
+          "pinnacle_log_loss": 0.6901793584944733,
+          "pinnacle_shin_log_loss": 0.6901525171054593,
+          "model_brier": 0.26108187133150484,
+          "pinnacle_brier": 0.2485164971037704,
+          "log_loss_gain": -0.026014327945966968,
+          "gain_low95": -0.044790770362391416,
+          "gain_high95": -0.007864974548805071
+        },
+        "N1": {
+          "n": 263,
+          "weeks": 105,
+          "model_log_loss": 0.7066066807801672,
+          "pinnacle_log_loss": 0.6951796806304039,
+          "pinnacle_shin_log_loss": 0.6952615230098677,
+          "model_brier": 0.256249526687971,
+          "pinnacle_brier": 0.251013668956878,
+          "log_loss_gain": -0.011427000149763377,
+          "gain_low95": -0.03545516531903716,
+          "gain_high95": 0.012058413704083785
+        },
+        "P1": {
+          "n": 265,
+          "weeks": 111,
+          "model_log_loss": 0.6984566093463045,
+          "pinnacle_log_loss": 0.6919907380558168,
+          "pinnacle_shin_log_loss": 0.6919807300412175,
+          "model_brier": 0.2523230448927389,
+          "pinnacle_brier": 0.24942378384068095,
+          "log_loss_gain": -0.0064658712904877,
+          "gain_low95": -0.03170805566757294,
+          "gain_high95": 0.017875902431725463
+        },
+        "SP1": {
+          "n": 323,
+          "weeks": 118,
+          "model_log_loss": 0.7107351362717866,
+          "pinnacle_log_loss": 0.6903904784522269,
+          "pinnacle_shin_log_loss": 0.6903707717297555,
+          "model_brier": 0.2581984560762689,
+          "pinnacle_brier": 0.2486233371873607,
+          "log_loss_gain": -0.020344657819559714,
+          "gain_low95": -0.0388590132844807,
+          "gain_high95": -0.002931054478699345
+        },
+        "T1": {
+          "n": 285,
+          "weeks": 115,
+          "model_log_loss": 0.733419356702637,
+          "pinnacle_log_loss": 0.6897528518278603,
+          "pinnacle_shin_log_loss": 0.689719489966141,
+          "model_brier": 0.26828459459505133,
+          "pinnacle_brier": 0.24829560842672016,
+          "log_loss_gain": -0.04366650487477666,
+          "gain_low95": -0.06864107967597026,
+          "gain_high95": -0.016859961820961864
+        }
+      },
+      "season": {
+        "2223": {
+          "n": 663,
+          "weeks": 38,
+          "model_log_loss": 0.71528241902961,
+          "pinnacle_log_loss": 0.6900151131913089,
+          "pinnacle_shin_log_loss": 0.6899760184199422,
+          "model_brier": 0.25998278357951426,
+          "pinnacle_brier": 0.2484361538007321,
+          "log_loss_gain": -0.025267305838301106,
+          "gain_low95": -0.041637112949821954,
+          "gain_high95": -0.00947862773933826
+        },
+        "2324": {
+          "n": 640,
+          "weeks": 39,
+          "model_log_loss": 0.7130354910450805,
+          "pinnacle_log_loss": 0.69289023203442,
+          "pinnacle_shin_log_loss": 0.692916000069477,
+          "model_brier": 0.2592087275625823,
+          "pinnacle_brier": 0.24986953067436865,
+          "log_loss_gain": -0.0201452590106605,
+          "gain_low95": -0.03252146298636525,
+          "gain_high95": -0.0075311807021256
+        },
+        "2425": {
+          "n": 663,
+          "weeks": 39,
+          "model_log_loss": 0.7107675850765102,
+          "pinnacle_log_loss": 0.6920238480559274,
+          "pinnacle_shin_log_loss": 0.6919982724386956,
+          "model_brier": 0.2583454069241023,
+          "pinnacle_brier": 0.249442674423993,
+          "log_loss_gain": -0.018743737020582733,
+          "gain_low95": -0.03387585886399725,
+          "gain_high95": -0.0027353277072713813
+        },
+        "2526": {
+          "n": 357,
+          "weeks": 21,
+          "model_log_loss": 0.6977281405548419,
+          "pinnacle_log_loss": 0.6931449989140251,
+          "pinnacle_shin_log_loss": 0.693205692032545,
+          "model_brier": 0.2522289425305812,
+          "pinnacle_brier": 0.24999591833272852,
+          "log_loss_gain": -0.004583141640816681,
+          "gain_low95": -0.01908636238592132,
+          "gain_high95": 0.011802687672239446
+        }
+      },
+      "line_bucket": {
+        "+0.25 to +1": {
+          "n": 566,
+          "weeks": 130,
+          "model_log_loss": 0.7184199954829246,
+          "pinnacle_log_loss": 0.695013282684525,
+          "pinnacle_shin_log_loss": 0.6950784756308271,
+          "model_brier": 0.26218984676993,
+          "pinnacle_brier": 0.250936214272619,
+          "log_loss_gain": -0.023406712798399527,
+          "gain_low95": -0.03852306178237908,
+          "gain_high95": -0.00920715069827303
+        },
+        "-1 to -0.25": {
+          "n": 1150,
+          "weeks": 136,
+          "model_log_loss": 0.70396087988434,
+          "pinnacle_log_loss": 0.6905438697046881,
+          "pinnacle_shin_log_loss": 0.6905179910522785,
+          "model_brier": 0.2547776347321989,
+          "pinnacle_brier": 0.2486988553283218,
+          "log_loss_gain": -0.01341701017965203,
+          "gain_low95": -0.02448793548594521,
+          "gain_high95": -0.002655046202873794
+        },
+        "<= -1.25": {
+          "n": 443,
+          "weeks": 128,
+          "model_log_loss": 0.7095752173420804,
+          "pinnacle_log_loss": 0.6908145543453095,
+          "pinnacle_shin_log_loss": 0.6907848047328077,
+          "model_brier": 0.2576046432464641,
+          "pinnacle_brier": 0.2488324192034082,
+          "log_loss_gain": -0.018760662996770806,
+          "gain_low95": -0.03881107805157726,
+          "gain_high95": 0.0014396476197328077
+        },
+        ">= +1.25": {
+          "n": 164,
+          "weeks": 91,
+          "model_log_loss": 0.7340259913196336,
+          "pinnacle_log_loss": 0.6930520041856651,
+          "pinnacle_shin_log_loss": 0.6930600702777959,
+          "model_brier": 0.26877023326448307,
+          "pinnacle_brier": 0.24995343278286897,
+          "log_loss_gain": -0.04097398713396846,
+          "gain_low95": -0.07858138397729558,
+          "gain_high95": -0.006787897553848749
+        }
+      },
+      "home_role": {
+        "away favourite": {
+          "n": 730,
+          "weeks": 134,
+          "model_log_loss": 0.721926000027062,
+          "pinnacle_log_loss": 0.6945726666930003,
+          "pinnacle_shin_log_loss": 0.6946250256611051,
+          "model_brier": 0.2636681801741858,
+          "pinnacle_brier": 0.25071542500642857,
+          "log_loss_gain": -0.027353333334061584,
+          "gain_low95": -0.04094465534574982,
+          "gain_high95": -0.013491725216041707
+        },
+        "home favourite": {
+          "n": 1593,
+          "weeks": 136,
+          "model_log_loss": 0.7055221802570826,
+          "pinnacle_log_loss": 0.6906191448432915,
+          "pinnacle_shin_log_loss": 0.6905921897091989,
+          "model_brier": 0.2555638021972456,
+          "pinnacle_brier": 0.2487359983268549,
+          "log_loss_gain": -0.014903035413791154,
+          "gain_low95": -0.02440186895997686,
+          "gain_high95": -0.005684782209632281
+        }
+      },
+      "gap_bucket": {
+        "2-5pp": {
+          "n": 617,
+          "weeks": 134,
+          "model_log_loss": 0.6900421915024029,
+          "pinnacle_log_loss": 0.6888912437499172,
+          "pinnacle_shin_log_loss": 0.6888112403024896,
+          "model_brier": 0.2484498508583343,
+          "pinnacle_brier": 0.24787443143412785,
+          "log_loss_gain": -0.0011509477524856515,
+          "gain_low95": -0.007633622355443039,
+          "gain_high95": 0.005175091532203567
+        },
+        "5-10pp": {
+          "n": 726,
+          "weeks": 131,
+          "model_log_loss": 0.7036817159529435,
+          "pinnacle_log_loss": 0.69421137742578,
+          "pinnacle_shin_log_loss": 0.6942732276410029,
+          "model_brier": 0.2551761276892149,
+          "pinnacle_brier": 0.2505274801845126,
+          "log_loss_gain": -0.00947033852716366,
+          "gain_low95": -0.020379860309917775,
+          "gain_high95": 0.0018288444716175218
+        },
+        "<2pp": {
+          "n": 439,
+          "weeks": 124,
+          "model_log_loss": 0.6938318454340662,
+          "pinnacle_log_loss": 0.6924416572225222,
+          "pinnacle_shin_log_loss": 0.6924602397995475,
+          "model_brier": 0.25034388151882864,
+          "pinnacle_brier": 0.24964747292372627,
+          "log_loss_gain": -0.00139018821154398,
+          "gain_low95": -0.0036468679146220233,
+          "gain_high95": 0.0007062576667667694
+        },
+        ">=10pp": {
+          "n": 541,
+          "weeks": 133,
+          "model_log_loss": 0.7572674215987305,
+          "pinnacle_log_loss": 0.691624952857211,
+          "pinnacle_shin_log_loss": 0.6916093958102684,
+          "model_brier": 0.27936879437826223,
+          "pinnacle_brier": 0.24924582285960054,
+          "log_loss_gain": -0.0656424687415194,
+          "gain_low95": -0.09510735254635345,
+          "gain_high95": -0.03550022446497642
+        }
+      }
+    },
+    "blend70": {
+      "league": {
+        "D1": {
+          "n": 250,
+          "weeks": 104,
+          "model_log_loss": 0.6890196539717524,
+          "pinnacle_log_loss": 0.6922555705546374,
+          "pinnacle_shin_log_loss": 0.6922535369208249,
+          "model_brier": 0.2479543576421898,
+          "pinnacle_brier": 0.24955347236995876,
+          "log_loss_gain": 0.003235916582885107,
+          "gain_low95": -0.008081542607776084,
+          "gain_high95": 0.014565001650312426
+        },
+        "E0": {
+          "n": 325,
+          "weeks": 115,
+          "model_log_loss": 0.6981460066025952,
+          "pinnacle_log_loss": 0.6937995710271643,
+          "pinnacle_shin_log_loss": 0.6938472490360076,
+          "model_brier": 0.2524706766950612,
+          "pinnacle_brier": 0.25032667287837695,
+          "log_loss_gain": -0.004346435575430761,
+          "gain_low95": -0.014848447401219409,
+          "gain_high95": 0.0059617918791671125
+        },
+        "F1": {
+          "n": 305,
+          "weeks": 107,
+          "model_log_loss": 0.6949728663804648,
+          "pinnacle_log_loss": 0.6917214401290663,
+          "pinnacle_shin_log_loss": 0.6916740199983507,
+          "model_brier": 0.2508745893680803,
+          "pinnacle_brier": 0.2492987548655111,
+          "log_loss_gain": -0.0032514262513985157,
+          "gain_low95": -0.016240864632740225,
+          "gain_high95": 0.009624225823730289
+        },
+        "I1": {
+          "n": 307,
+          "weeks": 114,
+          "model_log_loss": 0.7007897839909714,
+          "pinnacle_log_loss": 0.6901793584944733,
+          "pinnacle_shin_log_loss": 0.6901525171054593,
+          "model_brier": 0.2537856115033384,
+          "pinnacle_brier": 0.2485164971037704,
+          "log_loss_gain": -0.010610425496498014,
+          "gain_low95": -0.020365826462915345,
+          "gain_high95": -0.0003639267599520625
+        },
+        "N1": {
+          "n": 263,
+          "weeks": 105,
+          "model_log_loss": 0.6956289840768057,
+          "pinnacle_log_loss": 0.6951796806304039,
+          "pinnacle_shin_log_loss": 0.6952615230098677,
+          "model_brier": 0.2511054551179441,
+          "pinnacle_brier": 0.251013668956878,
+          "log_loss_gain": -0.00044930344640182107,
+          "gain_low95": -0.014580974005243264,
+          "gain_high95": 0.013252211905316339
+        },
+        "P1": {
+          "n": 265,
+          "weeks": 111,
+          "model_log_loss": 0.6958060465102652,
+          "pinnacle_log_loss": 0.6919907380558168,
+          "pinnacle_shin_log_loss": 0.6919807300412175,
+          "model_brier": 0.2512307497840442,
+          "pinnacle_brier": 0.24942378384068095,
+          "log_loss_gain": -0.0038153084544484328,
+          "gain_low95": -0.019428118530887266,
+          "gain_high95": 0.010799682420604275
+        },
+        "SP1": {
+          "n": 323,
+          "weeks": 118,
+          "model_log_loss": 0.7013959500766713,
+          "pinnacle_log_loss": 0.6903904784522269,
+          "pinnacle_shin_log_loss": 0.6903707717297555,
+          "model_brier": 0.2540080429323199,
+          "pinnacle_brier": 0.2486233371873607,
+          "log_loss_gain": -0.011005471624444357,
+          "gain_low95": -0.021013189420214854,
+          "gain_high95": -0.0017342175015748185
+        },
+        "T1": {
+          "n": 285,
+          "weeks": 115,
+          "model_log_loss": 0.7040877110799458,
+          "pinnacle_log_loss": 0.6897528518278603,
+          "pinnacle_shin_log_loss": 0.689719489966141,
+          "model_brier": 0.2552735714980193,
+          "pinnacle_brier": 0.24829560842672016,
+          "log_loss_gain": -0.014334859252085642,
+          "gain_low95": -0.02740431044673999,
+          "gain_high95": 0.0003110376639863433
+        }
+      },
+      "season": {
+        "2223": {
+          "n": 663,
+          "weeks": 38,
+          "model_log_loss": 0.6975556595871615,
+          "pinnacle_log_loss": 0.6900151131913089,
+          "pinnacle_shin_log_loss": 0.6899760184199422,
+          "model_brier": 0.2520828233987652,
+          "pinnacle_brier": 0.2484361538007321,
+          "log_loss_gain": -0.007540546395852613,
+          "gain_low95": -0.01648722145109416,
+          "gain_high95": 0.0009881147096994832
+        },
+        "2324": {
+          "n": 640,
+          "weeks": 39,
+          "model_log_loss": 0.6985229986075716,
+          "pinnacle_log_loss": 0.69289023203442,
+          "pinnacle_shin_log_loss": 0.692916000069477,
+          "model_brier": 0.25260317224741397,
+          "pinnacle_brier": 0.24986953067436865,
+          "log_loss_gain": -0.0056327665731514725,
+          "gain_low95": -0.012247946958915642,
+          "gain_high95": 0.0009012720828929495
+        },
+        "2425": {
+          "n": 663,
+          "weeks": 39,
+          "model_log_loss": 0.6968946431677995,
+          "pinnacle_log_loss": 0.6920238480559274,
+          "pinnacle_shin_log_loss": 0.6919982724386956,
+          "model_brier": 0.2518314291356251,
+          "pinnacle_brier": 0.249442674423993,
+          "log_loss_gain": -0.004870795111872001,
+          "gain_low95": -0.01357984030831805,
+          "gain_high95": 0.004305355154386111
+        },
+        "2526": {
+          "n": 357,
+          "weeks": 21,
+          "model_log_loss": 0.6981546173799335,
+          "pinnacle_log_loss": 0.6931449989140251,
+          "pinnacle_shin_log_loss": 0.693205692032545,
+          "model_brier": 0.25244751061471116,
+          "pinnacle_brier": 0.24999591833272852,
+          "log_loss_gain": -0.005009618465908255,
+          "gain_low95": -0.01466576200238084,
+          "gain_high95": 0.004504320793805048
+        }
+      },
+      "line_bucket": {
+        "+0.25 to +1": {
+          "n": 566,
+          "weeks": 130,
+          "model_log_loss": 0.7000794248742412,
+          "pinnacle_log_loss": 0.695013282684525,
+          "pinnacle_shin_log_loss": 0.6950784756308271,
+          "model_brier": 0.25342766160849356,
+          "pinnacle_brier": 0.250936214272619,
+          "log_loss_gain": -0.005066142189716259,
+          "gain_low95": -0.013256830286113786,
+          "gain_high95": 0.002549480677621155
+        },
+        "-1 to -0.25": {
+          "n": 1150,
+          "weeks": 136,
+          "model_log_loss": 0.6943156347691319,
+          "pinnacle_log_loss": 0.6905438697046881,
+          "pinnacle_shin_log_loss": 0.6905179910522785,
+          "model_brier": 0.2505558630753569,
+          "pinnacle_brier": 0.2486988553283218,
+          "log_loss_gain": -0.0037717650644440016,
+          "gain_low95": -0.009073099881664604,
+          "gain_high95": 0.0014519053060015926
+        },
+        "<= -1.25": {
+          "n": 443,
+          "weeks": 128,
+          "model_log_loss": 0.6992575603241704,
+          "pinnacle_log_loss": 0.6908145543453095,
+          "pinnacle_shin_log_loss": 0.6907848047328077,
+          "model_brier": 0.2528233230622306,
+          "pinnacle_brier": 0.2488324192034082,
+          "log_loss_gain": -0.00844300597886089,
+          "gain_low95": -0.022589445128231342,
+          "gain_high95": 0.006106520767892888
+        },
+        ">= +1.25": {
+          "n": 164,
+          "weeks": 91,
+          "model_log_loss": 0.7093746009334835,
+          "pinnacle_log_loss": 0.6930520041856651,
+          "pinnacle_shin_log_loss": 0.6930600702777959,
+          "model_brier": 0.25795676728330275,
+          "pinnacle_brier": 0.24995343278286897,
+          "log_loss_gain": -0.01632259674781847,
+          "gain_low95": -0.03850631429004567,
+          "gain_high95": 0.005282332403803485
+        }
+      },
+      "home_role": {
+        "away favourite": {
+          "n": 730,
+          "weeks": 134,
+          "model_log_loss": 0.7021676562080985,
+          "pinnacle_log_loss": 0.6945726666930003,
+          "pinnacle_shin_log_loss": 0.6946250256611051,
+          "model_brier": 0.2544451593217384,
+          "pinnacle_brier": 0.25071542500642857,
+          "log_loss_gain": -0.007594989515098125,
+          "gain_low95": -0.01542646427544935,
+          "gain_high95": 0.000419560421276078
+        },
+        "home favourite": {
+          "n": 1593,
+          "weeks": 136,
+          "model_log_loss": 0.6956899430057183,
+          "pinnacle_log_loss": 0.6906191448432915,
+          "pinnacle_shin_log_loss": 0.6905921897091989,
+          "model_brier": 0.25118642476662184,
+          "pinnacle_brier": 0.2487359983268549,
+          "log_loss_gain": -0.005070798162426852,
+          "gain_low95": -0.010356043838695322,
+          "gain_high95": 8.812824967332233e-06
+        }
+      },
+      "gap_bucket": {
+        "2-5pp": {
+          "n": 846,
+          "weeks": 134,
+          "model_log_loss": 0.6948807044173289,
+          "pinnacle_log_loss": 0.6927442891374633,
+          "pinnacle_shin_log_loss": 0.6927593288741428,
+          "model_brier": 0.2508619814420069,
+          "pinnacle_brier": 0.24979803607427264,
+          "log_loss_gain": -0.002136415279865498,
+          "gain_low95": -0.006682040241948636,
+          "gain_high95": 0.002496151264877507
+        },
+        "5-10pp": {
+          "n": 504,
+          "weeks": 132,
+          "model_log_loss": 0.7060973912426076,
+          "pinnacle_log_loss": 0.6936436164005664,
+          "pinnacle_shin_log_loss": 0.6936934395041563,
+          "model_brier": 0.25636264639914436,
+          "pinnacle_brier": 0.2502472057948463,
+          "log_loss_gain": -0.012453774842041278,
+          "gain_low95": -0.024941583723851014,
+          "gain_high95": -7.607006920781413e-05
+        },
+        "<2pp": {
+          "n": 834,
+          "weeks": 134,
+          "model_log_loss": 0.6912352415630073,
+          "pinnacle_log_loss": 0.6906738171764916,
+          "pinnacle_shin_log_loss": 0.6906567396913369,
+          "model_brier": 0.2490422007417687,
+          "pinnacle_brier": 0.24876166582680867,
+          "log_loss_gain": -0.0005614243865156662,
+          "gain_low95": -0.0021877807904535688,
+          "gain_high95": 0.0010564829440362388
+        },
+        ">=10pp": {
+          "n": 139,
+          "weeks": 81,
+          "model_log_loss": 0.7236267313175447,
+          "pinnacle_log_loss": 0.6871534505027354,
+          "pinnacle_shin_log_loss": 0.6869497863249355,
+          "model_brier": 0.2643721975133517,
+          "pinnacle_brier": 0.24703414424731726,
+          "log_loss_gain": -0.036473280814809536,
+          "gain_low95": -0.0878629273138578,
+          "gain_high95": 0.011845713782283059
+        }
+      }
+    },
+    "prod": {
+      "league": {
+        "D1": {
+          "n": 250,
+          "weeks": 104,
+          "model_log_loss": 0.6921704425522566,
+          "pinnacle_log_loss": 0.6922555705546374,
+          "pinnacle_shin_log_loss": 0.6922535369208249,
+          "model_brier": 0.24948693635860503,
+          "pinnacle_brier": 0.24955347236995876,
+          "log_loss_gain": 8.51280023809251e-05,
+          "gain_low95": -0.011353779197358794,
+          "gain_high95": 0.010993488844367795
+        },
+        "E0": {
+          "n": 325,
+          "weeks": 115,
+          "model_log_loss": 0.6973251880032134,
+          "pinnacle_log_loss": 0.6937995710271643,
+          "pinnacle_shin_log_loss": 0.6938472490360076,
+          "model_brier": 0.25209529589193796,
+          "pinnacle_brier": 0.25032667287837695,
+          "log_loss_gain": -0.003525616976049055,
+          "gain_low95": -0.013610677116938322,
+          "gain_high95": 0.0061298247783839604
+        },
+        "F1": {
+          "n": 305,
+          "weeks": 107,
+          "model_log_loss": 0.6941750363401191,
+          "pinnacle_log_loss": 0.6917214401290663,
+          "pinnacle_shin_log_loss": 0.6916740199983507,
+          "model_brier": 0.2504734014696016,
+          "pinnacle_brier": 0.2492987548655111,
+          "log_loss_gain": -0.0024535962110528308,
+          "gain_low95": -0.014041500313512218,
+          "gain_high95": 0.00941244403477934
+        },
+        "I1": {
+          "n": 307,
+          "weeks": 114,
+          "model_log_loss": 0.7011837908050645,
+          "pinnacle_log_loss": 0.6901793584944733,
+          "pinnacle_shin_log_loss": 0.6901525171054593,
+          "model_brier": 0.25397187320612136,
+          "pinnacle_brier": 0.2485164971037704,
+          "log_loss_gain": -0.011004432310591169,
+          "gain_low95": -0.01979866499574906,
+          "gain_high95": -0.0021047264017530643
+        },
+        "N1": {
+          "n": 263,
+          "weeks": 105,
+          "model_log_loss": 0.6944717941312265,
+          "pinnacle_log_loss": 0.6951796806304039,
+          "pinnacle_shin_log_loss": 0.6952615230098677,
+          "model_brier": 0.25062007109940404,
+          "pinnacle_brier": 0.251013668956878,
+          "log_loss_gain": 0.0007078864991774235,
+          "gain_low95": -0.01148955976904213,
+          "gain_high95": 0.01357199890907908
+        },
+        "P1": {
+          "n": 265,
+          "weeks": 111,
+          "model_log_loss": 0.6926849751390484,
+          "pinnacle_log_loss": 0.6919907380558168,
+          "pinnacle_shin_log_loss": 0.6919807300412175,
+          "model_brier": 0.24991188110861742,
+          "pinnacle_brier": 0.24942378384068095,
+          "log_loss_gain": -0.0006942370832315626,
+          "gain_low95": -0.014020421653604027,
+          "gain_high95": 0.012111869642366976
+        },
+        "SP1": {
+          "n": 323,
+          "weeks": 118,
+          "model_log_loss": 0.698098825496127,
+          "pinnacle_log_loss": 0.6903904784522269,
+          "pinnacle_shin_log_loss": 0.6903707717297555,
+          "model_brier": 0.25241317715399586,
+          "pinnacle_brier": 0.2486233371873607,
+          "log_loss_gain": -0.007708347043900099,
+          "gain_low95": -0.017514367124478306,
+          "gain_high95": 0.0010348837587383455
+        },
+        "T1": {
+          "n": 285,
+          "weeks": 115,
+          "model_log_loss": 0.7020813255316477,
+          "pinnacle_log_loss": 0.6897528518278603,
+          "pinnacle_shin_log_loss": 0.689719489966141,
+          "model_brier": 0.254292712904966,
+          "pinnacle_brier": 0.24829560842672016,
+          "log_loss_gain": -0.012328473703787386,
+          "gain_low95": -0.025160615415835422,
+          "gain_high95": 0.0017919116691835998
+        }
+      },
+      "season": {
+        "2223": {
+          "n": 663,
+          "weeks": 38,
+          "model_log_loss": 0.6955567389942636,
+          "pinnacle_log_loss": 0.6900151131913089,
+          "pinnacle_shin_log_loss": 0.6899760184199422,
+          "model_brier": 0.2512060398324942,
+          "pinnacle_brier": 0.2484361538007321,
+          "log_loss_gain": -0.005541625802954796,
+          "gain_low95": -0.01348181971972512,
+          "gain_high95": 0.0029747087268463803
+        },
+        "2324": {
+          "n": 640,
+          "weeks": 39,
+          "model_log_loss": 0.6989397811297748,
+          "pinnacle_log_loss": 0.69289023203442,
+          "pinnacle_shin_log_loss": 0.692916000069477,
+          "model_brier": 0.25283061141489727,
+          "pinnacle_brier": 0.24986953067436865,
+          "log_loss_gain": -0.0060495490953548356,
+          "gain_low95": -0.012011823407199501,
+          "gain_high95": -0.0002572470670967134
+        },
+        "2425": {
+          "n": 663,
+          "weeks": 39,
+          "model_log_loss": 0.6968678820367941,
+          "pinnacle_log_loss": 0.6920238480559274,
+          "pinnacle_shin_log_loss": 0.6919982724386956,
+          "model_brier": 0.2518094964020867,
+          "pinnacle_brier": 0.249442674423993,
+          "log_loss_gain": -0.00484403398086665,
+          "gain_low95": -0.01261348852803381,
+          "gain_high95": 0.003617142094637735
+        },
+        "2526": {
+          "n": 357,
+          "weeks": 21,
+          "model_log_loss": 0.6945317132030292,
+          "pinnacle_log_loss": 0.6931449989140251,
+          "pinnacle_shin_log_loss": 0.693205692032545,
+          "model_brier": 0.2506951611752388,
+          "pinnacle_brier": 0.24999591833272852,
+          "log_loss_gain": -0.0013867142890040284,
+          "gain_low95": -0.010751471646388401,
+          "gain_high95": 0.007472710809590488
+        }
+      },
+      "line_bucket": {
+        "+0.25 to +1": {
+          "n": 566,
+          "weeks": 130,
+          "model_log_loss": 0.7000794248742412,
+          "pinnacle_log_loss": 0.695013282684525,
+          "pinnacle_shin_log_loss": 0.6950784756308271,
+          "model_brier": 0.2534276616084936,
+          "pinnacle_brier": 0.250936214272619,
+          "log_loss_gain": -0.005066142189716258,
+          "gain_low95": -0.013256830286113781,
+          "gain_high95": 0.0025494806776211513
+        },
+        "-1 to -0.25": {
+          "n": 1150,
+          "weeks": 136,
+          "model_log_loss": 0.6943156347691319,
+          "pinnacle_log_loss": 0.6905438697046881,
+          "pinnacle_shin_log_loss": 0.6905179910522785,
+          "model_brier": 0.2505558630753569,
+          "pinnacle_brier": 0.2486988553283218,
+          "log_loss_gain": -0.0037717650644440008,
+          "gain_low95": -0.009073099881664595,
+          "gain_high95": 0.0014519053060015885
+        },
+        "<= -1.25": {
+          "n": 443,
+          "weeks": 128,
+          "model_log_loss": 0.6954408116610481,
+          "pinnacle_log_loss": 0.6908145543453095,
+          "pinnacle_shin_log_loss": 0.6907848047328077,
+          "model_brier": 0.2511184286626897,
+          "pinnacle_brier": 0.2488324192034082,
+          "log_loss_gain": -0.004626257315738463,
+          "gain_low95": -0.015662274097199193,
+          "gain_high95": 0.00670056599871712
+        },
+        ">= +1.25": {
+          "n": 164,
+          "weeks": 91,
+          "model_log_loss": 0.7052353125058664,
+          "pinnacle_log_loss": 0.6930520041856651,
+          "pinnacle_shin_log_loss": 0.6930600702777959,
+          "model_brier": 0.25600183819501465,
+          "pinnacle_brier": 0.24995343278286897,
+          "log_loss_gain": -0.012183308320201279,
+          "gain_low95": -0.032799594343193364,
+          "gain_high95": 0.008064026323236441
+        }
+      },
+      "home_role": {
+        "away favourite": {
+          "n": 730,
+          "weeks": 134,
+          "model_log_loss": 0.7012377338764146,
+          "pinnacle_log_loss": 0.6945726666930003,
+          "pinnacle_shin_log_loss": 0.6946250256611051,
+          "model_brier": 0.25400596977313666,
+          "pinnacle_brier": 0.25071542500642857,
+          "log_loss_gain": -0.006665067183414263,
+          "gain_low95": -0.014017484294882414,
+          "gain_high95": 0.0005571708240078926
+        },
+        "home favourite": {
+          "n": 1593,
+          "weeks": 136,
+          "model_log_loss": 0.6946285370686414,
+          "pinnacle_log_loss": 0.6906191448432915,
+          "pinnacle_shin_log_loss": 0.6905921897091989,
+          "model_brier": 0.25071230786831883,
+          "pinnacle_brier": 0.2487359983268549,
+          "log_loss_gain": -0.004009392225350119,
+          "gain_low95": -0.008655427805580774,
+          "gain_high95": 0.0006188500848149342
+        }
+      },
+      "gap_bucket": {
+        "2-5pp": {
+          "n": 850,
+          "weeks": 133,
+          "model_log_loss": 0.694083200898644,
+          "pinnacle_log_loss": 0.691552312955384,
+          "pinnacle_shin_log_loss": 0.6915352248214828,
+          "model_brier": 0.250467127033037,
+          "pinnacle_brier": 0.24920333385794502,
+          "log_loss_gain": -0.0025308879432598404,
+          "gain_low95": -0.007590472691752968,
+          "gain_high95": 0.0023511806272024675
+        },
+        "5-10pp": {
+          "n": 500,
+          "weeks": 131,
+          "model_log_loss": 0.7054103567792378,
+          "pinnacle_log_loss": 0.6920688261907743,
+          "pinnacle_shin_log_loss": 0.6920659991801922,
+          "model_brier": 0.2560510324437569,
+          "pinnacle_brier": 0.24946306997791215,
+          "log_loss_gain": -0.013341530588463485,
+          "gain_low95": -0.025587743658050485,
+          "gain_high95": -0.0019822860814607485
+        },
+        "<2pp": {
+          "n": 871,
+          "weeks": 134,
+          "model_log_loss": 0.6922501331352698,
+          "pinnacle_log_loss": 0.6920243435832449,
+          "pinnacle_shin_log_loss": 0.6920463747621354,
+          "model_brier": 0.2495465765664788,
+          "pinnacle_brier": 0.24943461808048684,
+          "log_loss_gain": -0.0002257895520249678,
+          "gain_low95": -0.0016646364315603239,
+          "gain_high95": 0.0012539757331843655
+        },
+        ">=10pp": {
+          "n": 102,
+          "weeks": 65,
+          "model_log_loss": 0.7139317663317892,
+          "pinnacle_log_loss": 0.6920319809096441,
+          "pinnacle_shin_log_loss": 0.6919538611096524,
+          "model_brier": 0.26011198018881204,
+          "pinnacle_brier": 0.24947827914764095,
+          "log_loss_gain": -0.02189978542214508,
+          "gain_low95": -0.0719582808118071,
+          "gain_high95": 0.029337560868918425
+        }
+      }
+    }
+  },
+  "open_vs_close_same_half_line": {
+    "n": 1376,
+    "pinnacle_open_log_loss": 0.6930128952262761,
+    "pinnacle_close_log_loss": 0.6922890321095451,
+    "dc_log_loss": 0.7066328866358031,
+    "blend70_log_loss": 0.6953186363979965,
+    "prod_log_loss": 0.694556945749171
+  },
+  "coverage": {
+    "E0": {
+      "scored_completed": 1520,
+      "scored_eligible": 1350,
+      "missing_pinnacle_ah": 170,
+      "unknown_team": 7
+    },
+    "SP1": {
+      "scored_completed": 1520,
+      "scored_eligible": 1328,
+      "missing_pinnacle_ah": 192,
+      "unknown_team": 6
+    },
+    "D1": {
+      "scored_completed": 1224,
+      "scored_eligible": 1065,
+      "missing_pinnacle_ah": 159,
+      "unknown_team": 7
+    },
+    "I1": {
+      "scored_completed": 1520,
+      "scored_eligible": 1337,
+      "missing_pinnacle_ah": 183,
+      "unknown_team": 7
+    },
+    "F1": {
+      "scored_completed": 1298,
+      "scored_eligible": 1145,
+      "missing_pinnacle_ah": 153,
+      "unknown_team": 5
+    },
+    "N1": {
+      "scored_completed": 1224,
+      "scored_eligible": 1059,
+      "missing_pinnacle_ah": 165,
+      "unknown_team": 6
+    },
+    "P1": {
+      "scored_completed": 1224,
+      "scored_eligible": 1070,
+      "missing_pinnacle_ah": 154,
+      "unknown_team": 6
+    },
+    "T1": {
+      "scored_completed": 1370,
+      "scored_eligible": 1164,
+      "missing_pinnacle_ah": 206,
+      "unknown_team": 9
+    }
+  },
+  "coverage_by_season": {
+    "2223": {
+      "D1": 304,
+      "E0": 377,
+      "F1": 377,
+      "I1": 377,
+      "N1": 303,
+      "P1": 303,
+      "SP1": 377,
+      "T1": 310
+    },
+    "2324": {
+      "D1": 304,
+      "E0": 378,
+      "F1": 305,
+      "I1": 379,
+      "N1": 305,
+      "P1": 304,
+      "SP1": 379,
+      "T1": 377
+    },
+    "2425": {
+      "D1": 302,
+      "E0": 379,
+      "F1": 306,
+      "I1": 377,
+      "N1": 304,
+      "P1": 305,
+      "SP1": 378,
+      "T1": 338
+    },
+    "2526": {
+      "D1": 148,
+      "E0": 209,
+      "F1": 152,
+      "I1": 197,
+      "N1": 141,
+      "P1": 152,
+      "SP1": 188,
+      "T1": 130
+    }
+  },
+  "production_model_versions": [
+    "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2"
+  ],
+  "totals_anchor_status": {
+    "ANCHORED_MAIN": 9390,
+    "NOT_ANCHORED_NO_PINNACLE": 70,
+    "NOT_ANCHORED_SOLVER_FAILED": 5
+  },
+  "shot_features_status": {
+    "BASELINE_RETAINED_AUDIT_NOT_IMPROVED": 7215,
+    "APPLIED": 1722,
+    "INSUFFICIENT_SHOT_HISTORY": 525,
+    "INSUFFICIENT_TEAM_SHOT_HISTORY": 3
+  },
+  "sign_convention_check": [
+    {
+      "division": "E0",
+      "date": "2024-04-13",
+      "home": "Man City",
+      "away": "Luton",
+      "score": "5-1",
+      "AHh": -2.5,
+      "AHCh": -2.75,
+      "PSCH": 1.08,
+      "PSCA": 26.0,
+      "home_favourite_1x2": true,
+      "home_ah_result": "WON"
+    },
+    {
+      "division": "E0",
+      "date": "2023-08-27",
+      "home": "Sheffield United",
+      "away": "Man City",
+      "score": "1-2",
+      "AHh": 2.0,
+      "AHCh": 1.75,
+      "PSCH": 16.0,
+      "PSCA": 1.2,
+      "home_favourite_1x2": false,
+      "home_ah_result": "WON"
+    },
+    {
+      "division": "SP1",
+      "date": "2023-08-19",
+      "home": "Almeria",
+      "away": "Real Madrid",
+      "score": "1-3",
+      "AHh": 1.25,
+      "AHCh": 1.25,
+      "PSCH": 6.87,
+      "PSCA": 1.44,
+      "home_favourite_1x2": false,
+      "home_ah_result": "LOST"
+    }
+  ]
+}
