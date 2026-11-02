@@ -1,3 +1,5 @@
+> **ARCHIVED 2026-11-02.** No longer generated, captured or reviewed. This is the last report, frozen as committed; the code is kept for replay in `archive/model_reliability_experiment.py`.
+
 # Model reliability trials
 
 Two separate one-factor trials against actual production, not a combined configuration. First eligible snapshot freezes missing candidates too. Primary 1X2 week-block intervals use 97.5% per trial (familywise 95%); other markets/calibration are guardrails and descriptive. No automatic promotion or betting-edge claim.

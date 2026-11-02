@@ -194,13 +194,16 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertTrue(any('no remaining future kickoffs' in x for x in result['warnings']))
 
     def test_raw_check_validates_every_present_optional_sidecar(self):
-        from workflow_checks import SIDECARS
+        from workflow_checks import LIVE_SIDECARS, SIDECARS
         raw = self.root/'raw'
         for name in SIDECARS:
             write_json(raw/name, {})
         warnings = raw_check(self.root)['warnings']
-        for name in SIDECARS:
+        for name in LIVE_SIDECARS:
             self.assertTrue(any(name in warning for warning in warnings), name)
+        # Retired experiments' sidecars are no longer imported or captured.
+        for name in set(SIDECARS)-set(LIVE_SIDECARS):
+            self.assertFalse(any(name in warning for warning in warnings), name)
 
     def test_provider_outage_is_visible_while_verified_cache_remains_usable(self):
         self.reviewed({'PL':'temporary provider failure'})
@@ -224,7 +227,7 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         data=json.loads(summary.read_text());data['n_shortlisted']=9;write_json(summary,data)
         with self.assertRaisesRegex(ValueError,'summary'):raw_check(self.root)
         data['n_shortlisted']=1;write_json(summary,data)
-        write_json(raw/'market_led_experiment.json',{})
+        write_json(raw/'benchmark_forward_experiment.json',{})
         self.assertTrue(raw_check(self.root)['warnings'])
 
     def test_snapshot_tampering_or_path_traversal_blocks_publication(self):
@@ -305,7 +308,11 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertFalse(changed_forecasts(repo,before,sha))
         self.assertFalse(capture_event(repo,self.root,'push',sha,before))
         raw=repo/'football_output_v2/raw';raw.mkdir(parents=True)
-        (raw/'goal_blend_experiment.json').write_text('{}');git('add','.');git('commit','-m','sidecar')
+        (raw/'goal_blend_experiment.json').write_text('{}');git('add','.');git('commit','-m','retired sidecar')
+        retired=git('rev-parse','HEAD')
+        self.assertFalse(changed_forecasts(repo,sha,retired))
+        sha=retired
+        (raw/'benchmark_forward_experiment.json').write_text('{}');git('add','.');git('commit','-m','sidecar')
         newest=git('rev-parse','HEAD')
         self.assertTrue(changed_forecasts(repo,sha,newest))
         self.assertTrue(changed_forecasts(repo,'0'*40,newest))
@@ -337,7 +344,11 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertEqual(set(matrix['python']),{'3.12','3.14'})
         self.assertEqual(ci['permissions']['contents'],'read')
         self.assertEqual(review_workflow['permissions']['contents'],'write')
-        self.assertIn('football_output_v2/raw/goal_blend_experiment.json',review_workflow['on']['push']['paths'])
+        paths=review_workflow['on']['push']['paths']
+        self.assertIn('football_output_v2/raw/benchmark_forward_experiment.json',paths)
+        self.assertIn('shortlist_replay.py',paths)
+        # Retired experiments (archive/) no longer trigger the forward review.
+        self.assertNotIn('football_output_v2/raw/goal_blend_experiment.json',paths)
         self.assertEqual(review_workflow['concurrency']['cancel-in-progress'],'false')
         for workflow in (ci,review_workflow):
             steps=next(iter(workflow['jobs'].values()))['steps']

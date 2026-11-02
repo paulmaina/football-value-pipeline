@@ -21,8 +21,8 @@ identity: `dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2+custo
    reweighted score matrix, so they move with it. No fresh reference still means no blend.
 2. **Fixed 480-day half-life.** Production no longer tunes the half-life each run.
    `--tune-half-life` and `dc_decay_validation.py` remain for benchmarks and legacy
-   replays. `--recency-experiment` still runs the tuning, for its own diagnostic sidecar
-   only. `*_decay_tuning.json` records `applied_to_production: false`.
+   replays. Legacy comparison still runs the tuning, only for the legacy companion columns
+   the frozen benchmark-forward and totals-anchor trials use (the recency experiment is retired). `*_decay_tuning.json` records `applied_to_production: false`.
 3. **Pinnacle O/U 2.5 totals anchor.** After the blend, both goal rates are scaled
    by one factor until Over 2.5 equals Pinnacle's margin-removed (power) probability.
    This uses `historical_benchmark.anchor_totals`, the same method as the
@@ -85,6 +85,8 @@ The results are written as `legacy_*` columns in the forecast files
 `legacy_p_btts_yes`, `legacy_p_over_2_5`, `legacy_goal_margin_distribution`,
 `legacy_status`). No selection or staking code reads them. `--no-legacy-comparison`
 skips them.
+
+**Archived 2026-11-02:** this review moved to `archive/model_comparison.py` and no longer runs; its last report is frozen. The legacy companion columns are still generated for the benchmark-forward and totals-anchor trials.
 
 The Forward performance review (`model_comparison.py`) grades both models on the same
 settled matches. It writes `performance/model_comparison/report.md` and `summary.json`

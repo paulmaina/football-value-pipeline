@@ -50,20 +50,12 @@ def clean(value):
     return json.loads(json.dumps(value, allow_nan=False, sort_keys=True))
 
 
-def equivalent(actual, expected):
-    """Allow only CSV/JSON floating-point roundoff, never semantic changes."""
-    if isinstance(expected, dict):
-        return isinstance(actual, dict) and actual.keys() == expected.keys() and all(equivalent(actual[k], v) for k, v in expected.items())
-    if isinstance(expected, list):
-        return isinstance(actual, list) and len(actual) == len(expected) and all(equivalent(a, b) for a, b in zip(actual, expected))
-    if isinstance(expected, (int, float)) and not isinstance(expected, bool):
-        return isinstance(actual, (int, float)) and not isinstance(actual, bool) and math.isfinite(actual) and abs(actual-expected) <= 1e-9
-    return type(actual) is type(expected) and actual == expected
+from shortlist_replay import equivalent  # noqa: E402,F401  (moved to the live module unchanged)
 
 
 def decision_rows(predictions, generated, reliability, execution, baseline_policy=None, variants=None):
     from conservative_bet_filter import build_conservative_shortlist
-    from filter_sensitivity_experiment import clean as clean_frame
+    from archive.filter_sensitivity_experiment import clean as clean_frame
     from performance_tracking import utc
     baseline_policy = BASELINE_POLICY if baseline_policy is None else baseline_policy
     predictions = predictions.copy()
@@ -91,7 +83,7 @@ def decision_rows(predictions, generated, reliability, execution, baseline_polic
 
 
 def write_experiment(predictions, raw, summary, production_decisions, reliability):
-    from filter_sensitivity_experiment import clean as clean_frame
+    from archive.filter_sensitivity_experiment import clean as clean_frame
     from performance_tracking import write_json
     from quote_policy import load_policy
     execution = load_policy()
@@ -210,7 +202,7 @@ def frozen(root, archived):
 
 
 def statistics(rows):
-    from filter_sensitivity_experiment import statistics as selection_stats
+    from archive.filter_sensitivity_experiment import statistics as selection_stats
     result = selection_stats(rows)
     settled = [r for r in rows if r['outcome'] is not None]
     result['log_loss'] = sum(r['log_loss'] for r in settled)/len(settled) if settled else None

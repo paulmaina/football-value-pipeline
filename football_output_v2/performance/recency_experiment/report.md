@@ -1,3 +1,5 @@
+> **ARCHIVED 2026-11-02.** No longer generated, captured or reviewed. This is the last report, frozen as committed; the code is kept for replay in `archive/recency_experiment.py`.
+
 # Goal recency experiment
 
 Same-snapshot raw baseline; paired available variants, not identical cohorts across variants. Historical audit periods overlap across runs and must not be added together. Approximate intervals assume independent fixtures, do not adjust for multiple comparisons and do not prove profitability. No automatic promotion.

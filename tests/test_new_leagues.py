@@ -287,8 +287,8 @@ class NewLeagueShortlistTests(OfflineQuotePolicyTestCase):
                         'per-market approval: market audit NOT_ASSESSED').all())
 
     def test_market_led_experiment_skips_unvalidated_leagues_without_spending_credits(self):
-        from market_led_experiment import write_experiment
-        import market_led_experiment
+        from archive.market_led_experiment import write_experiment
+        import archive.market_led_experiment as market_led_experiment
         kickoff = (datetime.now(timezone.utc)+timedelta(hours=10)).isoformat()
         predictions = pd.DataFrame([{'league': 'Eredivisie', 'home_team': 'Ajax', 'away_team': 'PSV',
                                      'kickoff_utc': kickoff, 'fixture_id': 'f1', 'odds_event_id': 'evt1'}])

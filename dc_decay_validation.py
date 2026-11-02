@@ -126,7 +126,7 @@ def tune_half_life(
                     count += 1
                     if collect_recency_metrics and recency_error is None:
                         try:
-                            from recency_experiment import goal_probabilities
+                            from archive.recency_experiment import goal_probabilities
                             goals = goal_probabilities(matrix)
                             recency_rows.append({**goals, 'y_over_1_5':int(hg+ag >= 2),
                                 'y_btts_yes':int(hg>0 and ag>0),
@@ -136,7 +136,7 @@ def tune_half_life(
                             recency_error = type(exc).__name__
                 if collect_recency_metrics and recency_error is None:
                     try:
-                        from recency_experiment import fold_diagnostic
+                        from archive.recency_experiment import fold_diagnostic
                         recency_folds.append(fold_diagnostic(origin,train,test,recency_rows))
                     except Exception as exc:
                         recency_error = type(exc).__name__

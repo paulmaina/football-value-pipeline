@@ -1,5 +1,7 @@
 # Conservative filter sensitivity experiment
 
+> **ARCHIVED 2026-11-02.** No longer generated, captured or reviewed by the scheduled run; the code is kept for replay in `archive/filter_sensitivity_experiment.py` and the last report in `football_output_v2/performance/filter_sensitivity_experiment/` is frozen. Commands below no longer work.
+
 Every normal current-fixture pipeline run now writes `raw/filter_sensitivity_experiment.json` automatically. No additional flag, fitting, or odds API request is required. Backtests do not generate forward experiment evidence.
 
 Three fixed policies compare reliability-adjusted **net EV floors of 1.5%, 3%, and 5%** across all six conservative markets. The 1.5% control copies the actual production decisions. Higher floors rerun the same conservative evaluator at the same generation time, with the same forecasts, historical reliability report, account allowlist, frozen costs, probability floors, quote/identity checks, ranking, provisional rules, one market per fixture and maximum ten selections per run. A stricter EV policy can select an alternative market for a fixture; it is not merely a subset of the live shortlist. Under 3.5 remains excluded.

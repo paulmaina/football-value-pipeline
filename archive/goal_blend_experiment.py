@@ -75,7 +75,7 @@ def write_experiment(predictions, raw: Path, generated_at, recency_parts=None):
                'calibrated': False, 'selection_policy': 'none; research only',
                'rows': generate(predictions, generated_at)}
     if recency_parts is not None:
-        from recency_experiment import assemble, VERSION as RECENCY_VERSION, MARKETS as RECENCY_MARKETS
+        from archive.recency_experiment import assemble, VERSION as RECENCY_VERSION, MARKETS as RECENCY_MARKETS
         try:
             payload['recency_experiment'] = assemble(recency_parts,generated_at)
         except Exception as exc:

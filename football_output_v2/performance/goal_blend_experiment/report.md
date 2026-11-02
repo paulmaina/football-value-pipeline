@@ -1,3 +1,5 @@
+> **ARCHIVED 2026-11-02.** No longer generated, captured or reviewed. This is the last report, frozen as committed; the code is kept for replay in `archive/goal_blend_experiment.py`.
+
 # Goal-market shadow comparison
 
 Fixed, uncalibrated variants on identical verified fixtures. No model promotion or bet selections.

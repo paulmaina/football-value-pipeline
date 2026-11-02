@@ -15,6 +15,7 @@ from test_conservative_bet_filter import fixture, NOW
 from test_double_chance import event as dc_event
 from test_graded_candidates import sample_report
 from double_chance import parse_quotes
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 def book(name='Book A', stamp=None, home=1.52, away=7.3, over=1.30, btts=1.49):
@@ -184,7 +185,7 @@ class FreshnessTests(OfflineQuotePolicyTestCase):
         self.assertIsNone(current['market_p_over_2_5'])
 
     def test_v10_archive_replays_missing_reference_metadata_without_backfill(self):
-        import shortlist_policy_experiment as trial
+        import archive.shortlist_policy_experiment as trial
         import conservative_bet_filter as engine
         from test_shortlist_policy_experiment import setup
         from performance_tracking import capture, snapshots

@@ -25,10 +25,8 @@ LOCK = '.prediction-run.lock'
 LOCK_OWNER = 'owner.json'
 LOCK_GUARD = '.prediction-run.guard'
 # Experiment files capture() copies verbatim from a bundle into its archive.
-SIDECARS = frozenset({'goal_blend_experiment.json', 'market_led_experiment.json',
-    'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json',
-    'totals_anchor_experiment.json', 'model_reliability_experiment.json',
-    'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json',
+# Retired experiments (archive/) are no longer captured, so they never block pruning.
+SIDECARS = frozenset({'benchmark_forward_experiment.json', 'totals_anchor_experiment.json',
     'bet365_vs_pinnacle.csv'})
 # An ownerless lock younger than this may belong to a writer that has created
 # the directory but not yet recorded itself; older ones are abandoned.

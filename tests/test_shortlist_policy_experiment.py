@@ -12,11 +12,12 @@ from unittest.mock import patch
 import pandas as pd
 
 from conservative_bet_filter import build_conservative_shortlist
-import shortlist_policy_experiment as trial
+import archive.shortlist_policy_experiment as trial
 from performance_tracking import capture, snapshots, write_json
 from test_conservative_bet_filter import fixture, NOW
 from test_filter_sensitivity_experiment import record
 from test_graded_candidates import sample_report
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 def setup(root, row=None, clock=NOW, reliability=None):
@@ -280,7 +281,7 @@ class PolicyExperimentTests(OfflineQuotePolicyTestCase):
             with self.assertWarnsRegex(UserWarning, 'Shortlist policy capture skipped'):
                 self.assertTrue(capture('a'*40, root=root, captured_at=NOW))
             health = json.loads((root/'performance/snapshots'/('a'*16)/'pipeline_health.json').read_text())
-            self.assertEqual(health['experiments'][trial.NAME], 'PRESENT_BUT_REJECTED')
+            self.assertNotIn(trial.NAME, health['experiments'])  # retired: health tracks live trials only
 
     def test_review_queue_and_excel_readiness_integration(self):
         from experiment_review_queue import build_queue
@@ -288,12 +289,12 @@ class PolicyExperimentTests(OfflineQuotePolicyTestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             summary = trial.review_experiment(root, [], [], NOW)
+            self.assertEqual(summary['status'], 'COLLECT_MORE_DATA')
+            # Retired: the archived report is neither queued nor shown as readiness.
             queue = build_queue(root, NOW)
-            item = next(r for r in queue['experiments'] if r['name'] == trial.NAME)
-            self.assertEqual(item['status'], 'COLLECT_MORE_DATA')
-            row = next(r for r in experiment_rows(root, {'review_queue': queue}) if r[0] == 'Probability / calibration policy')
-            self.assertEqual(row[4], '300 paired fixtures')
-            self.assertIn('300 more paired fixtures', row[8])
+            self.assertNotIn(trial.NAME, [r['name'] for r in queue['experiments']])
+            self.assertFalse(any(r[0] == 'Probability / calibration policy'
+                                 for r in experiment_rows(root, {'review_queue': queue})))
 
     def test_control_mismatch_unsupported_policy_and_missing_archive_are_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:

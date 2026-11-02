@@ -262,7 +262,7 @@ class DoubleChanceAdjustedThresholdTests(OfflineQuotePolicyTestCase):
         self.assertEqual(audit.loc[audit.market.eq('Double Chance 12'), 'decision'].iloc[0], 'REJECTED')
 
     def test_market_led_experiment_remains_at_three_percent(self):
-        from market_led_experiment import settings
+        from archive.market_led_experiment import settings
         self.assertEqual(settings()['min_ev'],.03)
         self.assertEqual(settings()['min_probability'],.80)
 

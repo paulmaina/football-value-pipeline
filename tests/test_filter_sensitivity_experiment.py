@@ -10,11 +10,12 @@ import unittest
 import pandas as pd
 from unittest.mock import patch
 from conservative_bet_filter import build_conservative_shortlist
-from filter_sensitivity_experiment import (write_experiment,capture_file,validate,
+from archive.filter_sensitivity_experiment import (write_experiment,capture_file,validate,
     frozen,review_experiment,validate_report,statistics,FLOORS)
 from performance_tracking import capture,snapshots,write_json,verified_record
 from test_conservative_bet_filter import fixture,NOW
 from test_performance_tracking import final
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 def setup(root,row=None):
