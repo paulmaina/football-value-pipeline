@@ -17,16 +17,16 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 67 | 49-15 | 73.1% | +5.7% |
+| All selections | 69 | 51-15 | 73.9% | +6.3% |
 
-Unsettled / unverified entries: **16**.
-Whole-fixture 1X2 multiclass Brier (n=239): 0.5555
+Unsettled / unverified entries: **14**.
+Whole-fixture 1X2 multiclass Brier (n=247): 0.5555
 
 ## First-prediction reference — historical comparison
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Unique fixtures | 67 | 53-11 | 79.1% | +11.5% |
+| Unique fixtures | 69 | 55-11 | 79.7% | +11.9% |
 
 ## Latest selections by prediction run (generation UTC)
 
@@ -58,15 +58,15 @@ Whole-fixture 1X2 multiclass Brier (n=239): 0.5555
 | 2026-10-26T11:45:55.025240+00:00 | 0 | 0-0 | — | — |
 | 2026-10-29T12:08:22.532184+00:00 | 1 | 1-0 | 100.0% | +34.0% |
 | 2026-10-30T12:03:48.308948+00:00 | 1 | 0-0 | 0.0% | +0.0% |
-| 2026-10-31T12:03:11.165007+00:00 | 3 | 2-0 | 66.7% | +19.0% |
-| 2026-11-01T07:37:30.159727+00:00 | 1 | 0-1 | 0.0% | -100.0% |
+| 2026-10-31T12:03:11.165007+00:00 | 4 | 3-0 | 75.0% | +21.5% |
+| 2026-11-01T07:37:30.159727+00:00 | 2 | 1-1 | 50.0% | -38.0% |
 
 ## STRICT versus PROVISIONAL
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | PROVISIONAL | 27 | 18-9 | 66.7% | -10.7% |
-| STRICT | 40 | 31-6 | 77.5% | +16.7% |
+| STRICT | 42 | 33-6 | 78.6% | +17.2% |
 
 ## By policy
 
@@ -77,7 +77,7 @@ Whole-fixture 1X2 multiclass Brier (n=239): 0.5555
 | 48h-top-twelve-profitable-win-probability-v23 | 0 | 0-0 | — | — |
 | 48h-two-per-market-group-probability-ev-corners-cards-v25 | 12 | 9-3 | 75.0% | +3.8% |
 | 48h-two-per-market-group-probability-ev-v24 | 3 | 2-1 | 66.7% | +20.7% |
-| 48h-zero-tolerance-ev05-no-loss75-corners-v26 | 7 | 3-1 | 42.9% | -1.3% |
+| 48h-zero-tolerance-ev05-no-loss75-corners-v26 | 9 | 5-1 | 55.6% | +4.9% |
 | 48h-zero-tolerance-ev1-common-no-loss75-v22 | 7 | 7-0 | 100.0% | +33.9% |
 | 72h-all-markets-ev15-one-book-v6 | 1 | 1-0 | 100.0% | +45.0% |
 | 72h-all-markets-net-ev15-execution-v7 | 4 | 4-0 | 100.0% | +43.5% |
@@ -119,11 +119,11 @@ Whole-fixture 1X2 multiclass Brier (n=239): 0.5555
 | Asian Handicap Home +0.25 | 0 | 0-0 | — | — |
 | Asian Handicap Home +0.50 | 0 | 0-0 | — | — |
 | Asian Handicap Home +0.75 | 0 | 0-0 | — | — |
-| Asian Handicap Home +1.00 | 1 | 1-0 | 100.0% | +25.0% |
+| Asian Handicap Home +1.00 | 2 | 2-0 | 100.0% | +27.0% |
 | Asian Handicap Home +1.25 | 1 | 1-0 | 100.0% | +60.0% |
 | Asian Handicap Home +1.50 | 0 | 0-0 | — | — |
 | Asian Handicap Home +1.75 | 0 | 0-0 | — | — |
-| Asian Handicap Home +2.00 | 2 | 1-0 | 50.0% | +13.0% |
+| Asian Handicap Home +2.00 | 3 | 2-0 | 66.7% | +16.7% |
 | Asian Handicap Home +2.25 | 1 | 1-0 | 100.0% | +35.0% |
 | Asian Handicap Home +2.50 | 0 | 0-0 | — | — |
 | Asian Handicap Home +2.75 | 0 | 0-0 | — | — |
@@ -173,7 +173,7 @@ Whole-fixture 1X2 multiclass Brier (n=239): 0.5555
 | Premier League | 12 | 7-4 | 58.3% | -5.5% |
 | Primeira Liga | 1 | 1-0 | 100.0% | +109.0% |
 | Serie A | 16 | 10-5 | 62.5% | -8.1% |
-| Super Lig | 0 | 0-0 | — | — |
+| Super Lig | 2 | 2-0 | 100.0% | +26.5% |
 | UEFA Champions League | 12 | 10-2 | 83.3% | +16.8% |
 
 ## Gameweeks
@@ -183,7 +183,7 @@ Whole-fixture 1X2 multiclass Brier (n=239): 0.5555
 | 2026-W41 | 4 | 2-2 | 50.0% | -37.0% |
 | 2026-W42 | 22 | 19-3 | 86.4% | +19.5% |
 | 2026-W43 | 34 | 25-9 | 73.5% | +3.1% |
-| 2026-W44 | 7 | 3-1 | 42.9% | -1.3% |
+| 2026-W44 | 9 | 5-1 | 55.6% | +4.9% |
 
 ## Confidence calibration of shortlisted markets
 
@@ -193,7 +193,7 @@ Whole-fixture 1X2 multiclass Brier (n=239): 0.5555
 | 50%–60% | 2 | 56.7% | 50.0% | 0.2721 |
 | 60%–70% | 9 | 64.4% | 55.6% | 0.2389 |
 | 70%–80% | 22 | 76.2% | 81.8% | 0.1507 |
-| 80%–90% | 25 | 84.0% | 88.0% | 0.1048 |
+| 80%–90% | 27 | 84.1% | 88.9% | 0.0985 |
 | 90%–100% | 4 | 92.8% | 100.0% | 0.0053 |
 
 Calibration bins report observed outcomes against the originally
@@ -230,30 +230,30 @@ Latest shortlist audit: {"selected_quotes": 0, "exchange_quotes": 0, "missing_qu
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
-| Snapshot | Goal blend | Market led | Recency | Filter sensitivity |
-|---|---|---|---|---|
-| 0117b0e0fe09 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| 10a7df008090 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| 2b085cc83b2c | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| 089cdbb10f80 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| 007f589ff289 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| ac2ae4201750 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| b5f46a88705f | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| 61fd07517a6d | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| be93fe1f5e1c | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| 026e1ab4c40e | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| d414de1a572b | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| 04e55dde9bbe | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| fd052ff5e9f0 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| c75d4ab52706 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| 02d8d3b21fd6 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| 2f2bbe3e322e | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| f82ff3e276c6 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| 796c7451f410 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| dc55908798d7 | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
-| cbf58accd4fa | CAPTURED | CAPTURED | CAPTURED | NOT_GENERATED |
+| Snapshot | Benchmark forward | Totals anchor |
+|---|---|---|
+| 0117b0e0fe09 | CAPTURED | CAPTURED |
+| 10a7df008090 | CAPTURED | CAPTURED |
+| 2b085cc83b2c | CAPTURED | CAPTURED |
+| 089cdbb10f80 | CAPTURED | CAPTURED |
+| 007f589ff289 | CAPTURED | CAPTURED |
+| ac2ae4201750 | CAPTURED | CAPTURED |
+| b5f46a88705f | CAPTURED | CAPTURED |
+| 61fd07517a6d | CAPTURED | CAPTURED |
+| be93fe1f5e1c | CAPTURED | CAPTURED |
+| 026e1ab4c40e | CAPTURED | CAPTURED |
+| d414de1a572b | CAPTURED | CAPTURED |
+| 04e55dde9bbe | CAPTURED | CAPTURED |
+| fd052ff5e9f0 | CAPTURED | CAPTURED |
+| c75d4ab52706 | CAPTURED | CAPTURED |
+| 02d8d3b21fd6 | CAPTURED | CAPTURED |
+| 2f2bbe3e322e | CAPTURED | CAPTURED |
+| f82ff3e276c6 | CAPTURED | CAPTURED |
+| 796c7451f410 | CAPTURED | CAPTURED |
+| dc55908798d7 | CAPTURED | CAPTURED |
+| cbf58accd4fa | CAPTURED | CAPTURED |
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.0", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 

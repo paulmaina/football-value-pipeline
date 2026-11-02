@@ -17677,13 +17677,13 @@
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 363,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-11-02T06:33:08.911993+00:00",
+        "reviewed_at_utc": "2026-11-02T14:19:50.603754+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
       "dependencies": {
-        "PyYAML": "NOT_INSTALLED",
-        "coverage": "NOT_INSTALLED",
+        "PyYAML": "6.0.3",
+        "coverage": "7.17.0",
         "numpy": "2.5.4",
         "pandas": "3.1.0",
         "python": "3.12.15",
@@ -17694,9 +17694,9 @@
       },
       "evidence": {
         "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
-        "graded_selections": 67,
+        "graded_selections": 69,
         "model_improvement_established": false,
-        "prediction_fixtures_graded": 239
+        "prediction_fixtures_graded": 247
       },
       "execution_policy": {
         "account_availability": "USER_ALLOWLIST",
@@ -17713,31 +17713,13 @@
         "benchmark_forward_experiment:CAPTURED": 43,
         "benchmark_forward_experiment:LEGACY_NOT_RECORDED": 20,
         "benchmark_forward_experiment:PRESENT_BUT_REJECTED": 1,
-        "filter_sensitivity_experiment:CAPTURED": 23,
-        "filter_sensitivity_experiment:LEGACY_NOT_RECORDED": 19,
-        "filter_sensitivity_experiment:NOT_GENERATED": 22,
-        "goal_blend_experiment:CAPTURED": 50,
-        "goal_blend_experiment:LEGACY_NOT_RECORDED": 14,
-        "market_led_experiment:CAPTURED": 50,
-        "market_led_experiment:LEGACY_NOT_RECORDED": 14,
-        "model_reliability_experiment:CAPTURED": 41,
-        "model_reliability_experiment:LEGACY_NOT_RECORDED": 23,
-        "recency_experiment:CAPTURED": 46,
-        "recency_experiment:LEGACY_NOT_RECORDED": 18,
-        "shortlist_policy_experiment:CAPTURED": 15,
-        "shortlist_policy_experiment:LEGACY_NOT_RECORDED": 26,
-        "shortlist_policy_experiment:NOT_GENERATED": 22,
-        "shortlist_policy_experiment:PRESENT_BUT_REJECTED": 1,
-        "shortlist_weight_experiment:CAPTURED": 7,
-        "shortlist_weight_experiment:LEGACY_NOT_RECORDED": 35,
-        "shortlist_weight_experiment:NOT_GENERATED": 22,
         "totals_anchor_experiment:CAPTURED": 43,
         "totals_anchor_experiment:LEGACY_NOT_RECORDED": 21
       },
       "forecast_freshness": {
-        "age_hours": 18.162345240833332,
+        "age_hours": 25.94059295222222,
         "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
-        "status": "WITHIN_24_HOURS",
+        "status": "OLDER_THAN_24_HOURS",
         "upcoming_fixture_count": 22
       },
       "quote_audit": {
@@ -17755,67 +17737,6 @@
       "review_queue": {
         "automatic_promotion": false,
         "experiments": [
-          {
-            "collection_days": 19,
-            "key": "goal_blend_experiment",
-            "name": "goal_blend_experiment",
-            "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
-            "report": "goal_blend_experiment/report.md",
-            "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-            "settled_evidence": 112,
-            "status": "COLLECT_MORE_DATA"
-          },
-          {
-            "collection_days": 19,
-            "graded_paper_bets": 0,
-            "key": "market_led_experiment",
-            "name": "market_led_experiment",
-            "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
-            "report": "market_led_experiment/report.md",
-            "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-            "settled_evidence": 68,
-            "status": "COLLECT_MORE_DATA"
-          },
-          {
-            "collection_days": 19,
-            "key": "recency_experiment",
-            "name": "recency_experiment",
-            "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
-            "report": "recency_experiment/report.md",
-            "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-            "settled_evidence": 404,
-            "status": "COLLECT_MORE_DATA"
-          },
-          {
-            "collection_days": 19,
-            "key": "filter_sensitivity_experiment",
-            "name": "filter_sensitivity_experiment",
-            "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
-            "report": "filter_sensitivity_experiment/report.md",
-            "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-            "settled_evidence": 8,
-            "status": "COLLECT_MORE_DATA"
-          },
-          {
-            "automatic_production_change": false,
-            "gameweeks": 2,
-            "key": "shortlist_policy_experiment:shortlist-probability-calibration-v1",
-            "name": "shortlist_policy_experiment",
-            "report": "shortlist_policy_experiment/report.md",
-            "scope": "POLICY_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 50,
-            "status": "COLLECT_MORE_DATA"
-          },
-          {
-            "automatic_production_change": false,
-            "gameweeks": 0,
-            "key": "shortlist_weight_experiment:shortlist-probability-ev-weights-v2",
-            "name": "shortlist_weight_experiment",
-            "report": "shortlist_weight_experiment/report.md",
-            "scope": "POLICY_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 0,
-            "status": "COLLECT_MORE_DATA"
-          },
           {
             "automatic_production_change": false,
             "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
@@ -17837,37 +17758,13 @@
             "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
             "settled_evidence": 13,
             "status": "COLLECT_MORE_DATA"
-          },
-          {
-            "automatic_production_change": false,
-            "candidate_id": "stronger_l2",
-            "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-            "gameweeks": 3,
-            "key": "model_reliability:24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb:stronger_l2",
-            "name": "model_reliability_experiment",
-            "report": "model_reliability_experiment/report.md",
-            "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 115,
-            "status": "COLLECT_MORE_DATA"
-          },
-          {
-            "automatic_production_change": false,
-            "candidate_id": "fixed_half_life",
-            "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-            "gameweeks": 3,
-            "key": "model_reliability:24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb:fixed_half_life",
-            "name": "model_reliability_experiment",
-            "report": "model_reliability_experiment/report.md",
-            "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 83,
-            "status": "COLLECT_MORE_DATA"
           }
         ],
-        "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-11-02T06:33:08.911993+00:00",
+        "note": "Only the live forward trials are queued. Notifications invite review, including negative findings; they never approve changes.",
+        "reviewed_at_utc": "2026-11-02T14:19:50.603754+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-11-02T06:33:08.911993+00:00",
+      "reviewed_at_utc": "2026-11-02T14:19:50.603754+00:00",
       "selection_policy_groups": {
         "48h-top-ten-probability-ev-no-under35-v14": {
           "brier": 0.178674,
@@ -17934,20 +17831,20 @@
           "wins": 2
         },
         "48h-zero-tolerance-ev05-no-loss75-corners-v26": {
-          "brier": 0.118375,
-          "flat_stake_roi": -0.012857,
-          "graded": 7,
+          "brier": 0.096327,
+          "flat_stake_roi": 0.048889,
+          "graded": 9,
           "half_losses": 0,
           "half_wins": 0,
           "losses": 1,
-          "no_loss_rate": 0.857143,
-          "pending": 5,
-          "profit_per_unit_staked": -0.09,
+          "no_loss_rate": 0.888889,
+          "pending": 3,
+          "profit_per_unit_staked": 0.44,
           "refunds": 3,
-          "settled_with_odds": 7,
+          "settled_with_odds": 9,
           "total": 12,
-          "win_rate": 0.428571,
-          "wins": 3
+          "win_rate": 0.555556,
+          "wins": 5
         },
         "48h-zero-tolerance-ev1-common-no-loss75-v22": {
           "brier": 0.029218,
@@ -18039,20 +17936,20 @@
         }
       },
       "shortlist_performance": {
-        "brier": 0.149523,
-        "flat_stake_roi": 0.056567,
-        "graded": 67,
+        "brier": 0.145744,
+        "flat_stake_roi": 0.062609,
+        "graded": 69,
         "half_losses": 0,
         "half_wins": 1,
         "losses": 15,
-        "no_loss_rate": 0.776119,
-        "pending": 16,
-        "profit_per_unit_staked": 3.79,
+        "no_loss_rate": 0.782609,
+        "pending": 14,
+        "profit_per_unit_staked": 4.32,
         "refunds": 3,
-        "settled_with_odds": 67,
+        "settled_with_odds": 69,
         "total": 83,
-        "win_rate": 0.731343,
-        "wins": 49
+        "win_rate": 0.73913,
+        "wins": 51
       },
       "training": {
         "Bundesliga": {
@@ -18781,7 +18678,7 @@
             "completed_matches": 54,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.0056884380555555555,
+            "download_age_hours": 7.783936149444445,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-21",
             "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -18854,7 +18751,7 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-11-02T06:33:08.911993+00:00"
+            "verified_at_utc": "2026-11-02T14:19:50.603754+00:00"
           },
           "days_since_latest_result": 11,
           "diagnostics_sha256": "2c4be2e7e938a5b4e399c855747e3a3bfa2981e6ef79fb2e24dd75125ad4fc37",
@@ -18919,20 +18816,20 @@
           "wins": 25
         },
         "2026-W44": {
-          "brier": 0.118375,
-          "flat_stake_roi": -0.012857,
-          "graded": 7,
+          "brier": 0.096327,
+          "flat_stake_roi": 0.048889,
+          "graded": 9,
           "half_losses": 0,
           "half_wins": 0,
           "losses": 1,
-          "no_loss_rate": 0.857143,
-          "pending": 6,
-          "profit_per_unit_staked": -0.09,
+          "no_loss_rate": 0.888889,
+          "pending": 4,
+          "profit_per_unit_staked": 0.44,
           "refunds": 3,
-          "settled_with_odds": 7,
+          "settled_with_odds": 9,
           "total": 13,
-          "win_rate": 0.428571,
-          "wins": 3
+          "win_rate": 0.555556,
+          "wins": 5
         }
       }
     }
