@@ -118,5 +118,18 @@ class LogisticTests(OfflineQuotePolicyTestCase):
         self.assertEqual(len(model['training_fingerprint']), 64)
 
 
+class ProductionModelTests(OfflineQuotePolicyTestCase):
+    def test_both_versions_recorded_and_production_ends_with_2024_25(self):
+        index = nm.versions()
+        self.assertEqual(index['gate']['version'], nm.GATE_VERSION)
+        self.assertEqual(index['gate']['gate_result'], 'PASS')
+        self.assertEqual(index['production']['version'], nm.PRODUCTION_VERSION)
+        model = nm.production_model()
+        self.assertEqual(model['version'], nm.PRODUCTION_VERSION)
+        self.assertLess(pd.Timestamp(model['training_last_date']), nm.PRODUCTION_UNTIL)
+        self.assertGreater(model['training_matches'], nm.load(nm.GATE_VERSION)['training_matches'])
+        self.assertEqual(model['features'], nm.load(nm.GATE_VERSION)['features'])
+
+
 if __name__ == '__main__':
     unittest.main()

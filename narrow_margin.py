@@ -39,6 +39,10 @@ from price_edge_backtest import available_seasons, week_block
 MODEL_DIR = Path(__file__).with_name('narrow_margin_models')
 GATE_CUTOFF = pd.Timestamp('2024-01-01')
 GATE_VERSION = 'cagey-correction-pre2024-v1'
+# Production fit after the gate passed: same specification, every season through
+# the latest completed one (2024/25). Refits only by a future PR.
+PRODUCTION_VERSION = 'cagey-correction-through-2425-v1'
+PRODUCTION_UNTIL = pd.Timestamp('2025-07-01')
 TARGETS = (2, 3)
 FEATURES = ('logit_matrix_p', 'p_over_2_5', 'abs_home_minus_away', 'p_draw')
 EPS = 1e-6
@@ -199,6 +203,15 @@ def save(model: Mapping, directory: Path = MODEL_DIR) -> Path:
 
 def load(version: str, directory: Path = MODEL_DIR) -> Dict[str, object]:
     return json.loads((Path(directory) / f'{version}.json').read_text(encoding='utf-8'))
+
+
+def versions(directory: Path = MODEL_DIR) -> Dict[str, object]:
+    """The recorded gate and production versions."""
+    return json.loads((Path(directory) / 'index.json').read_text(encoding='utf-8'))
+
+
+def production_model(directory: Path = MODEL_DIR) -> Dict[str, object]:
+    return load(versions(directory)['production']['version'], directory)
 
 
 # ---------------------------------------------------------------------------
