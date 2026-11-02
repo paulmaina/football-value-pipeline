@@ -13,8 +13,8 @@ import football_value_pipeline_v2_standalone as fvp
 from football_value_pipeline_v2_standalone import (DixonColesModel, FootballValuePipelineV2,
     LEGACY_MODEL_VERSION, MODEL_VERSION, SHOT_EXPERIMENT_MODEL_VERSION, build_parser, model_version_for)
 import historical_benchmark as hb
-import model_comparison as mc
-import model_reliability_experiment as mre
+import archive.model_comparison as mc
+import archive.model_reliability_experiment as mre
 from performance_tracking import verified_record
 
 START = datetime(2026, 11, 2, 12, tzinfo=timezone.utc)

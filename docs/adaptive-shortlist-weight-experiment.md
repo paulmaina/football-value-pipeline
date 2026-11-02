@@ -1,5 +1,7 @@
 # Adaptive shortlist weighting: forward experiment v2
 
+> **ARCHIVED 2026-11-02.** No longer generated, captured or reviewed by the scheduled run; the code is kept for replay in `archive/shortlist_weight_experiment.py` and the last report in `football_output_v2/performance/shortlist_weight_experiment/` is frozen. Commands below no longer work.
+
 The existing automatic shortlist-weight experiment now compares its four fixed
 policies (100/0, 75/25, 50/50 control and 25/75 probability/EV) with
 `adaptive_evidence`. Production remains 50/50. The normal prediction command

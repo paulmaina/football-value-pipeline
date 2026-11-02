@@ -7,9 +7,10 @@ import pandas as pd
 import unittest
 import tempfile
 from pathlib import Path
-from goal_blend_experiment import generate, write_experiment, capture_file, review_experiment
+from archive.goal_blend_experiment import generate, write_experiment, capture_file, review_experiment
 from performance_tracking import capture, snapshots, frozen_rows, verified_record
 from test_performance_tracking import fixture, pick, final, T0, KICK, SHA
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 def frame():
@@ -101,27 +102,13 @@ def test_no_sidecar_preserves_capture(tmp_path):
     assert 'goal_blend_experiment.json' not in meta['sha256']
 
 
-def test_cli_flag_preserves_baseline_files(tmp_path):
-    from football_value_pipeline_v2_standalone import main
-    from conservative_bet_filter import build_conservative_shortlist
-    from functools import partial
-    data=frame()
-    for enabled in (False,True):
-        out=tmp_path/str(enabled)
-        with patch('conservative_bet_filter.build_conservative_shortlist',
-                   side_effect=partial(build_conservative_shortlist, as_of=T0)), patch(
-                   'football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league',
-                   return_value=(data, {'training_end':'2026-09-20','training_matches':1000}, {})), patch(
-                   'football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league',
-                   return_value=(pd.DataFrame(),pd.DataFrame(),{},pd.DataFrame())):
-            args=['--leagues','EPL','--no-legacy-comparison','--out-dir',str(out)]
-            if enabled: args.append('--goal-blend-experiment')
-            assert main(args)==0
-    for name in ('all_leagues_predictions.csv','EPL_predictions.csv','conservative_bet_shortlist.csv',
-                 'conservative_strict_qualifiers.csv','conservative_bet_rejections.csv'):
-        assert (tmp_path/'False'/name).read_bytes()==(tmp_path/'True'/name).read_bytes()
-    assert not (tmp_path/'False'/'goal_blend_experiment.json').exists()
-    assert (tmp_path/'True'/'goal_blend_experiment.json').exists()
+def test_retired_cli_flag_is_rejected():
+    from football_value_pipeline_v2_standalone import build_parser
+    try:
+        build_parser().parse_args(['--goal-blend-experiment'])
+    except SystemExit:
+        return
+    raise AssertionError('retired --goal-blend-experiment flag was accepted')
 
 
 class ShadowTests(OfflineQuotePolicyTestCase):

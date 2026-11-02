@@ -1,5 +1,7 @@
 # Optional goal-market recency experiment
 
+> **ARCHIVED 2026-11-02.** No longer generated, captured or reviewed by the scheduled run; the code is kept for replay in `archive/recency_experiment.py` and the last report in `football_output_v2/performance/recency_experiment/` is frozen. Commands below no longer work.
+
 Add `--recency-experiment` to the normal full-league command. It requires
 `--tune-half-life` and automatically writes the existing goal-blend sidecar,
 even when `--goal-blend-experiment` is omitted. It does not create an additional

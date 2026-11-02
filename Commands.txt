@@ -8,8 +8,8 @@ Local commands read .env exclusively. If deliberately using PowerShell API-key
 variables instead, append --api-key-source environment to each relevant command.
 Never commit .env.
 
-Full prediction/experiment command:
-py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL UEL  Eredivisie PrimeiraLiga SuperLig --additional-odds-coverage all --goal-blend-experiment --additional-odds-coverage all --market-led-experiment --recency-experiment --reliability-experiment      
+Full prediction command (same as the scheduled run; retired experiment flags are rejected):
+py football_value_pipeline_v2_standalone.py --leagues EPL LaLiga Bundesliga SerieA Ligue1 UCL UEL Eredivisie PrimeiraLiga SuperLig --additional-odds-coverage all
 
 After the WHOLE prediction command succeeds:
 py workflow_checks.py raw
@@ -61,7 +61,7 @@ API USAGE
 For the capped alternative append --additional-odds-coverage ranked (24 logical
 event-market attempts shared across leagues). This reduces market coverage.
 Neither cap is a guarantee of provider credits: retries, markets, regions,
-failover and the optional market-led experiment can add usage.
+and failover can add usage.
 BBS model fitting reads the shared cache and makes no additional BBS requests.
 GitHub owns routine BBS collection and its persisted 500/day allowance.
 

@@ -11,12 +11,13 @@ import numpy as np
 import pandas as pd
 
 from dc_decay_validation import tune_half_life
-from recency_experiment import (VERSION,goal_probabilities,binary_metrics,historical_audit,
+from archive.recency_experiment import (VERSION,goal_probabilities,binary_metrics,historical_audit,
     generate_league,assemble,valid_extension,review_experiment,paired_comparison,validate_report)
-from goal_blend_experiment import write_experiment,capture_file
+from archive.goal_blend_experiment import write_experiment,capture_file
 from performance_tracking import capture,snapshots,verified_record,review,write_json
 from test_goal_blend_experiment import frame
 from test_performance_tracking import pick,final,T0,KICK,SHA
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 def history():
@@ -88,7 +89,7 @@ class RecencyTests(OfflineQuotePolicyTestCase):
         self.assertEqual(data['selected_half_life_days'],120)
         self.assertTrue(all(c['valid'] and c['recency_diagnostics_error']=='ValueError' for c in data['candidates']))
         self.assertEqual(historical_audit(data)['status'],'INSUFFICIENT_HISTORY')
-        with patch('recency_experiment.fold_diagnostic',side_effect=ValueError('auxiliary diagnostic failure')):
+        with patch('archive.recency_experiment.fold_diagnostic',side_effect=ValueError('auxiliary diagnostic failure')):
             broken=tuning()
         self.assertEqual(broken['selected_half_life_days'],120)
         self.assertTrue(all(c['valid'] and c['recency_diagnostics_error']=='ValueError' for c in broken['candidates']))
@@ -183,7 +184,7 @@ class RecencyTests(OfflineQuotePolicyTestCase):
     def test_recency_failure_retains_existing_goal_blend_sidecar(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);raw=setup(root)
-            with patch('recency_experiment.assemble',side_effect=ValueError('future history')),self.assertWarnsRegex(UserWarning,'blend sidecar retained'):
+            with patch('archive.recency_experiment.assemble',side_effect=ValueError('future history')),self.assertWarnsRegex(UserWarning,'blend sidecar retained'):
                 write_experiment(predictions(),raw,T0.isoformat(),recency_parts=[])
             parent=json.loads((raw/'goal_blend_experiment.json').read_text())
             self.assertEqual(len(parent['rows']),3)
@@ -213,8 +214,9 @@ class RecencyTests(OfflineQuotePolicyTestCase):
             self.assertIsNone(comparison['paired_brier_gain_approx95'])
             self.assertEqual(parent.read_bytes(),frozen)
             health=json.loads((root/'performance/pipeline_health.json').read_text())
-            self.assertEqual(health['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
-            self.assertIn('recency_experiment',health['experimental_reports'])
+            # Retired: production health no longer tracks the archived recency extension.
+            self.assertNotIn('recency_experiment:CAPTURED',health['experiment_capture_counts'])
+            self.assertNotIn('recency_experiment',health['experimental_reports'])
             self.assertIn('Goal recency', (root/'performance/recency_experiment/report.md').read_text())
             parent.write_text('{}')
             (root/'performance/recency_experiment/summary.json').unlink()
@@ -286,39 +288,9 @@ class RecencyTests(OfflineQuotePolicyTestCase):
         for matrix in (np.array([1]),np.array([[.5]]),np.array([[float('nan')]]),np.array([[-1,2]])):
             with self.assertRaises(ValueError):goal_probabilities(matrix)
 
-    def test_cli_diagnostic_tuning_preserves_prediction_and_shortlist_bytes(self):
-        from football_value_pipeline_v2_standalone import main
-        from conservative_bet_filter import build_conservative_shortlist
-        from functools import partial
-        def run(self,key,*args,**kwargs):
-            self._recency_history=history()
-            return predictions(),{'training_end':'2025-06-22','training_matches':130},{}
-        with tempfile.TemporaryDirectory() as tmp:
-            root=Path(tmp)
-            # Never stage in (or lock) the real football_output_v2/raw directory.
-            with self.assertRaises(SystemExit):main(['--recency-experiment','--backtest','--out-dir',str(root/'rejected')])
-            with patch('conservative_bet_filter.build_conservative_shortlist',side_effect=partial(build_conservative_shortlist,as_of=T0)),patch(
-                'football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league',new=run),patch(
-                'football_value_pipeline_v2_standalone.FootballValuePipelineV2._history_for_league',return_value=history()),patch(
-                'football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league',return_value=(pd.DataFrame(),pd.DataFrame(),{},pd.DataFrame())),patch(
-                'dc_decay_validation.tune_half_life',side_effect=lambda *args,**kwargs:tuning()),patch(
-                'football_value_pipeline_v2_standalone.DixonColesModel',ToyModel):
-                for enabled in (False,True):
-                    # Production shape: fixed half-life; recency tuning is diagnostic only.
-                    args=['--leagues','EPL','--goal-blend-experiment','--out-dir',str(root/str(enabled))]
-                    if enabled:args.append('--recency-experiment')
-                    self.assertEqual(main(args),0)
-            for name in ('all_leagues_predictions.csv','EPL_predictions.csv','conservative_bet_shortlist.csv','conservative_bet_rejections.csv'):
-                self.assertEqual((root/'False'/name).read_bytes(),(root/'True'/name).read_bytes())
-            old=json.loads((root/'False/goal_blend_experiment.json').read_text());new=json.loads((root/'True/goal_blend_experiment.json').read_text())
-            self.assertEqual(old['rows'],new['rows'])
-            self.assertNotIn('recency_experiment',old)
-            self.assertEqual(new['recency_experiment']['version'],VERSION)
-            self.assertTrue(new['recency_experiment']['rows'][0]['variants'])
-            tuned=json.loads((root/'True/EPL_decay_tuning.json').read_text())
-            self.assertFalse(tuned['applied_to_production'])
-            # Legacy comparison tunes every live run, never for production.
-            self.assertFalse(json.loads((root/'False/EPL_decay_tuning.json').read_text())['applied_to_production'])
+    def test_retired_cli_flag_is_rejected(self):
+        from football_value_pipeline_v2_standalone import build_parser
+        with self.assertRaises(SystemExit):build_parser().parse_args(['--recency-experiment'])
 
 
 if __name__=='__main__':unittest.main()
