@@ -3780,6 +3780,41 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Napoli",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.5366478238601146,
+      "home_goals": 2,
+      "over_1_5": 0.7349519835333262,
+      "over_2_5": 0.47446285994344256,
+      "p_away": 0.30683954653173456,
+      "p_draw": 0.2902204673973495,
+      "p_home": 0.4029399860709159,
+      "under_3_5": 0.7370653954833962,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.536027508377766,
+      "home_goals": 2,
+      "over_1_5": 0.7345558769832664,
+      "over_2_5": 0.4744628599434419,
+      "p_away": 0.3071666422231048,
+      "p_draw": 0.28910133382415226,
+      "p_home": 0.403732023952743,
+      "under_3_5": 0.7372261118846778,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Juventus",
+    "kickoff_utc": "2026-11-01T19:45:00+00:00",
+    "league": "Serie A",
+    "log_loss_gain": 0.001963717908904261,
+    "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
+    "source_match_id": 558547,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "Auxerre",
     "baseline": {
       "away_goals": 1,
@@ -3850,6 +3885,41 @@
     "week": "2026-W44"
   },
   {
+    "away_team": "Toulouse",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.5984196446580873,
+      "home_goals": 2,
+      "over_1_5": 0.8221332988073023,
+      "over_2_5": 0.6020459601024731,
+      "p_away": 0.2489760269807848,
+      "p_draw": 0.2305834945897543,
+      "p_home": 0.5204404784294608,
+      "under_3_5": 0.6225702821314018,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.5967967233737662,
+      "home_goals": 2,
+      "over_1_5": 0.8199642175451524,
+      "over_2_5": 0.5988867258703041,
+      "p_away": 0.25011227051203694,
+      "p_draw": 0.23109812798993573,
+      "p_home": 0.5187896014980271,
+      "under_3_5": 0.6260417499940876,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Marseille",
+    "kickoff_utc": "2026-11-01T19:45:00+00:00",
+    "league": "Ligue 1",
+    "log_loss_gain": -0.003177118045355698,
+    "snapshot_commit": "02d8d3b21fd68fd99d234a92294d150a10a0848b",
+    "source_match_id": 559645,
+    "week": "2026-W44"
+  },
+  {
     "away_team": "AJ Auxerre",
     "baseline": {
       "away_goals": 1,
@@ -3917,6 +3987,41 @@
     "log_loss_gain": -0.025595714053900542,
     "snapshot_commit": "cbf58accd4fa069150a051de865af2a35e146288",
     "source_match_id": 559640,
+    "week": "2026-W44"
+  },
+  {
+    "away_team": "Toulouse FC",
+    "baseline": {
+      "away_goals": 0,
+      "btts_yes": 0.5942711889057848,
+      "home_goals": 2,
+      "over_1_5": 0.8231061237350052,
+      "over_2_5": 0.6026987790462045,
+      "p_away": 0.21574545209543125,
+      "p_draw": 0.22874056371952398,
+      "p_home": 0.5555139841850448,
+      "under_3_5": 0.6208377802426197,
+      "y": 0
+    },
+    "candidate": {
+      "away_goals": 0,
+      "btts_yes": 0.5932067536280611,
+      "home_goals": 2,
+      "over_1_5": 0.8204970236499358,
+      "over_2_5": 0.5987105334679134,
+      "p_away": 0.21993903638732756,
+      "p_draw": 0.23059998646826424,
+      "p_home": 0.5494609771444083,
+      "under_3_5": 0.6249704629793864,
+      "y": 0
+    },
+    "candidate_id": "stronger_l2",
+    "home_team": "Olympique de Marseille",
+    "kickoff_utc": "2026-11-01T19:45:00+00:00",
+    "league": "Ligue 1",
+    "log_loss_gain": -0.010956026697140686,
+    "snapshot_commit": "cbf58accd4fa069150a051de865af2a35e146288",
+    "source_match_id": 559645,
     "week": "2026-W44"
   },
   {

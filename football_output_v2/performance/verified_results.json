@@ -2126,6 +2126,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "FL1:559645": {
+    "away_goals": 0,
+    "away_short_name": "Toulouse",
+    "away_team": "Toulouse FC",
+    "first_verified_at_utc": "2026-11-02T06:33:08Z",
+    "home_goals": 2,
+    "home_short_name": "Marseille",
+    "home_team": "Olympique de Marseille",
+    "kickoff_utc": "2026-11-01T19:45:00Z",
+    "league_code": "FL1",
+    "match_id": 559645,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559646": {
     "away_goals": 2,
     "away_short_name": "Stade Rennais",
@@ -3026,6 +3041,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564729": {
+    "away_goals": 1,
+    "away_short_name": "Real Sociedad",
+    "away_team": "Real Sociedad de Fútbol",
+    "first_verified_at_utc": "2026-11-02T06:33:08Z",
+    "home_goals": 2,
+    "home_short_name": "Athletic",
+    "home_team": "Athletic Club",
+    "kickoff_utc": "2026-11-01T20:00:00Z",
+    "league_code": "PD",
+    "match_id": 564729,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564730": {
     "away_goals": 2,
     "away_short_name": "Atleti",
@@ -3866,6 +3896,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PPL:567339": {
+    "away_goals": 0,
+    "away_short_name": "Famalicão",
+    "away_team": "FC Famalicão",
+    "first_verified_at_utc": "2026-11-02T06:33:08Z",
+    "home_goals": 3,
+    "home_short_name": "Braga",
+    "home_team": "Sporting Clube de Braga",
+    "kickoff_utc": "2026-11-01T20:30:00Z",
+    "league_code": "PPL",
+    "match_id": 567339,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PPL:567340": {
     "away_goals": 2,
     "away_short_name": "Santa Clara",
@@ -4027,6 +4072,21 @@
     "kickoff_utc": "2026-11-01T14:00:00Z",
     "league_code": "SA",
     "match_id": 558546,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558547": {
+    "away_goals": 0,
+    "away_short_name": "Napoli",
+    "away_team": "SSC Napoli",
+    "first_verified_at_utc": "2026-11-02T06:33:08Z",
+    "home_goals": 2,
+    "home_short_name": "Juventus",
+    "home_team": "Juventus FC",
+    "kickoff_utc": "2026-11-01T19:45:00Z",
+    "league_code": "SA",
+    "match_id": 558547,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"

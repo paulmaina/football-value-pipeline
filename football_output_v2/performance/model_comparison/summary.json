@@ -2,7 +2,7 @@
   "automatic_production_change": false,
   "excluded_fixtures": {
     "first_forecast_without_legacy_model": 239,
-    "pending_or_unverified_result": 53
+    "pending_or_unverified_result": 49
   },
   "gates": {
     "minimum_paired_matches": 300,
@@ -24,41 +24,41 @@
     "ah_home_+2.5"
   ],
   "note": "First eligible pre-kickoff forecast per fixture only, with no backfill. Both models come from the same run and odds snapshot. 1X2 distance to the Pinnacle close is total variation; binary markets use absolute difference. Asian handicap is the home side and integer lines exclude refunds. Legacy probabilities are never used for selection or staking.",
-  "paired_matches": 28,
+  "paired_matches": 32,
   "production_model_version": "dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2",
-  "reviewed_at_utc": "2026-11-01T20:40:39.000835+00:00",
+  "reviewed_at_utc": "2026-11-02T06:33:08.911993+00:00",
   "status": "COLLECT_MORE_DATA",
   "tables": [
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.4912091780043415,
-        "log_loss": 0.8378287823433387,
-        "mean_abs_distance_to_pinnacle_close": 0.03155669059518162,
-        "pinnacle_close_matches": 3
+        "brier": 0.47576808033208534,
+        "log_loss": 0.8185255010061783,
+        "mean_abs_distance_to_pinnacle_close": 0.037569763126075004,
+        "pinnacle_close_matches": 4
       },
       "market": "1x2",
-      "matches": 28,
+      "matches": 32,
       "production": {
-        "brier": 0.48983643010596617,
-        "log_loss": 0.8369456432890109,
-        "mean_abs_distance_to_pinnacle_close": 0.021240676811885833,
-        "pinnacle_close_matches": 3
+        "brier": 0.475872089268474,
+        "log_loss": 0.8194728407349807,
+        "mean_abs_distance_to_pinnacle_close": 0.02678704064389678,
+        "pinnacle_close_matches": 4
       }
     },
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.17292963130023922,
-        "log_loss": 0.5235589377281937,
+        "brier": 0.16122874303175563,
+        "log_loss": 0.4989547899527935,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "over_1_5",
-      "matches": 28,
+      "matches": 32,
       "production": {
-        "brier": 0.17172459177882596,
-        "log_loss": 0.5210286520716162,
+        "brier": 0.15871857043512622,
+        "log_loss": 0.4930847603493193,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -66,16 +66,16 @@
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.2005559321676904,
-        "log_loss": 0.5838929936835585,
+        "brier": 0.18426722915442434,
+        "log_loss": 0.5487561966914918,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "under_3_5",
-      "matches": 28,
+      "matches": 32,
       "production": {
-        "brier": 0.20341811687697806,
-        "log_loss": 0.5904338274372949,
+        "brier": 0.1883827736534888,
+        "log_loss": 0.5585892637541863,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -83,16 +83,16 @@
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.2789271212837078,
-        "log_loss": 0.756925146452151,
+        "brier": 0.27485731466375113,
+        "log_loss": 0.748053139421238,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "btts_yes",
-      "matches": 28,
+      "matches": 32,
       "production": {
-        "brier": 0.27456526078042404,
-        "log_loss": 0.7465644007606546,
+        "brier": 0.2748459122640998,
+        "log_loss": 0.7466746780480014,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -100,33 +100,33 @@
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.2357740625369447,
-        "log_loss": 0.6566944837485863,
-        "mean_abs_distance_to_pinnacle_close": 0.005195044413062844,
-        "pinnacle_close_matches": 1
+        "brier": 0.23842802557931136,
+        "log_loss": 0.6629183832503447,
+        "mean_abs_distance_to_pinnacle_close": 0.07303032141096386,
+        "pinnacle_close_matches": 2
       },
       "market": "over_2_5",
-      "matches": 28,
+      "matches": 32,
       "production": {
-        "brier": 0.2355322086523261,
-        "log_loss": 0.6578209817884808,
-        "mean_abs_distance_to_pinnacle_close": 0.0033081006929536194,
-        "pinnacle_close_matches": 1
+        "brier": 0.24300280110797898,
+        "log_loss": 0.6736822626657665,
+        "mean_abs_distance_to_pinnacle_close": 0.026284105385616013,
+        "pinnacle_close_matches": 2
       }
     },
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.1354647682818433,
-        "log_loss": 0.44653566483506524,
+        "brier": 0.16756390558673673,
+        "log_loss": 0.5291497776860646,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_-2.5",
-      "matches": 28,
+      "matches": 32,
       "production": {
-        "brier": 0.1371212286132029,
-        "log_loss": 0.45463388498312657,
+        "brier": 0.1705356352255552,
+        "log_loss": 0.5439177221284383,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -134,16 +134,16 @@
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.24289226213977327,
-        "log_loss": 0.6872437038788277,
+        "brier": 0.2800790582815681,
+        "log_loss": 0.7704500221969635,
         "mean_abs_distance_to_pinnacle_close": 0.011340186271854236,
         "pinnacle_close_matches": 1
       },
       "market": "ah_home_-1.5",
-      "matches": 28,
+      "matches": 32,
       "production": {
-        "brier": 0.24229543688898977,
-        "log_loss": 0.6879920699116691,
+        "brier": 0.2804741595106551,
+        "log_loss": 0.7722658996715153,
         "mean_abs_distance_to_pinnacle_close": 0.0007977828844223933,
         "pinnacle_close_matches": 1
       }
@@ -151,50 +151,50 @@
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.2907669306620634,
-        "log_loss": 0.7726152419772507,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
+        "brier": 0.3130828133104985,
+        "log_loss": 0.8230124457359901,
+        "mean_abs_distance_to_pinnacle_close": 0.06805627097168943,
+        "pinnacle_close_matches": 1
       },
       "market": "ah_home_-1.0",
-      "matches": 20,
+      "matches": 24,
       "production": {
-        "brier": 0.2909745378607255,
-        "log_loss": 0.7756582111055502,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
+        "brier": 0.3148030721695288,
+        "log_loss": 0.8276327003384184,
+        "mean_abs_distance_to_pinnacle_close": 0.043676587314744775,
+        "pinnacle_close_matches": 1
       }
     },
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.18325321820357865,
-        "log_loss": 0.5395168330716376,
-        "mean_abs_distance_to_pinnacle_close": 0.02820587398419583,
-        "pinnacle_close_matches": 1
+        "brier": 0.17338069712312298,
+        "log_loss": 0.5201265401194789,
+        "mean_abs_distance_to_pinnacle_close": 0.048959326536439085,
+        "pinnacle_close_matches": 2
       },
       "market": "ah_home_+0.0",
-      "matches": 27,
+      "matches": 31,
       "production": {
-        "brier": 0.1821088946041047,
-        "log_loss": 0.5375367467851114,
-        "mean_abs_distance_to_pinnacle_close": 0.02044788032373701,
-        "pinnacle_close_matches": 1
+        "brier": 0.1728871091917641,
+        "log_loss": 0.5197867375378445,
+        "mean_abs_distance_to_pinnacle_close": 0.03772870382177801,
+        "pinnacle_close_matches": 2
       }
     },
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.10398691950374497,
-        "log_loss": 0.33627565847779856,
+        "brier": 0.091209062569971,
+        "log_loss": 0.3047654093297661,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_+1.0",
-      "matches": 25,
+      "matches": 29,
       "production": {
-        "brier": 0.10014118284823204,
-        "log_loss": 0.3271314382227255,
+        "brier": 0.08813514727406023,
+        "log_loss": 0.29815823860569374,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -202,16 +202,16 @@
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.1060736977648707,
-        "log_loss": 0.3363773020180515,
+        "brier": 0.09380458250354244,
+        "log_loss": 0.30557354498318723,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_+1.5",
-      "matches": 28,
+      "matches": 32,
       "production": {
-        "brier": 0.10364117757398957,
-        "log_loss": 0.32879554757207535,
+        "brier": 0.09185029815048433,
+        "log_loss": 0.29996647211608635,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -219,16 +219,16 @@
     {
       "league": "ALL",
       "legacy": {
-        "brier": 0.05972226670754544,
-        "log_loss": 0.19826364977186992,
+        "brier": 0.052338634825023676,
+        "log_loss": 0.17653808011091374,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_+2.5",
-      "matches": 28,
+      "matches": 32,
       "production": {
-        "brier": 0.0578187554057249,
-        "log_loss": 0.19230315680270382,
+        "brier": 0.050706306691159914,
+        "log_loss": 0.1718639312203511,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -848,16 +848,16 @@
     {
       "league": "Ligue 1",
       "legacy": {
-        "brier": 0.3535645062009172,
-        "log_loss": 0.6611614366821496,
+        "brier": 0.3356768674533255,
+        "log_loss": 0.6377674326205156,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "1x2",
-      "matches": 3,
+      "matches": 4,
       "production": {
-        "brier": 0.34267001936333624,
-        "log_loss": 0.6454233278254885,
+        "brier": 0.33111155548391225,
+        "log_loss": 0.6310328699113233,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -865,16 +865,16 @@
     {
       "league": "Ligue 1",
       "legacy": {
-        "brier": 0.19041159161107246,
-        "log_loss": 0.5534575360169219,
+        "brier": 0.15290736319974016,
+        "log_loss": 0.47118681450505795,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "over_1_5",
-      "matches": 3,
+      "matches": 4,
       "production": {
-        "brier": 0.19093726511714573,
-        "log_loss": 0.5550269725869855,
+        "brier": 0.15102580970287313,
+        "log_loss": 0.4649377642372222,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -882,16 +882,16 @@
     {
       "league": "Ligue 1",
       "legacy": {
-        "brier": 0.2146854460761077,
-        "log_loss": 0.6143137294052918,
+        "brier": 0.19004357377721115,
+        "log_loss": 0.5649025250423044,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "under_3_5",
-      "matches": 3,
+      "matches": 4,
       "production": {
-        "brier": 0.19210606565694147,
-        "log_loss": 0.5626988024809364,
+        "brier": 0.1800205464655421,
+        "log_loss": 0.5411954655145225,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -899,16 +899,16 @@
     {
       "league": "Ligue 1",
       "legacy": {
-        "brier": 0.23352854561157432,
-        "log_loss": 0.6601511479484574,
+        "brier": 0.25297782445856654,
+        "log_loss": 0.6992052793811325,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "btts_yes",
-      "matches": 3,
+      "matches": 4,
       "production": {
-        "brier": 0.21102261222265625,
-        "log_loss": 0.6148613384491022,
+        "brier": 0.24655652065786593,
+        "log_loss": 0.6866635777193993,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -916,16 +916,16 @@
     {
       "league": "Ligue 1",
       "legacy": {
-        "brier": 0.2399994187981652,
-        "log_loss": 0.6730232920924202,
+        "brier": 0.2597194211697982,
+        "log_loss": 0.7126940391000264,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "over_2_5",
-      "matches": 3,
+      "matches": 4,
       "production": {
-        "brier": 0.21598962686874945,
-        "log_loss": 0.6245745013219616,
+        "brier": 0.25280367471750853,
+        "log_loss": 0.6991960117510219,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -933,16 +933,16 @@
     {
       "league": "Ligue 1",
       "legacy": {
-        "brier": 0.26666258977583546,
-        "log_loss": 0.7687998300211629,
+        "brier": 0.20637068997350186,
+        "log_loss": 0.6200904730297722,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_-2.5",
-      "matches": 3,
+      "matches": 4,
       "production": {
-        "brier": 0.26462878551531105,
-        "log_loss": 0.7621715687786553,
+        "brier": 0.20484569982853482,
+        "log_loss": 0.6151206299659079,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -950,16 +950,16 @@
     {
       "league": "Ligue 1",
       "legacy": {
-        "brier": 0.27888059194763803,
-        "log_loss": 0.7394921079825716,
+        "brier": 0.3196290757561117,
+        "log_loss": 0.8278286543429504,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_-1.5",
-      "matches": 3,
+      "matches": 4,
       "production": {
-        "brier": 0.2802915563419974,
-        "log_loss": 0.7442490169924191,
+        "brier": 0.3222825831533796,
+        "log_loss": 0.8349882745531519,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -967,271 +967,84 @@
     {
       "league": "Ligue 1",
       "legacy": {
-        "brier": 0.2764028303140954,
-        "log_loss": 0.747347594680438,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "ah_home_-1.0",
-      "matches": 2,
-      "production": {
-        "brier": 0.27557131613245245,
-        "log_loss": 0.7457296750906497,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Ligue 1",
-      "legacy": {
-        "brier": 0.10533601971112762,
-        "log_loss": 0.37384352942868265,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "ah_home_+0.0",
-      "matches": 3,
-      "production": {
-        "brier": 0.09982328374440431,
-        "log_loss": 0.36159908900436216,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Ligue 1",
-      "legacy": {
-        "brier": 0.012443671958260237,
-        "log_loss": 0.10687348356759345,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "ah_home_+1.0",
-      "matches": 3,
-      "production": {
-        "brier": 0.011582956349285183,
-        "log_loss": 0.10331830816037572,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Ligue 1",
-      "legacy": {
-        "brier": 0.008543969273871885,
-        "log_loss": 0.0888295008633313,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "ah_home_+1.5",
-      "matches": 3,
-      "production": {
-        "brier": 0.008063004703311826,
-        "log_loss": 0.08627412846910087,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Ligue 1",
-      "legacy": {
-        "brier": 0.0007606589930934932,
-        "log_loss": 0.024624702297399412,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "ah_home_+2.5",
-      "matches": 3,
-      "production": {
-        "brier": 0.0007106625297290042,
-        "log_loss": 0.023932403452579912,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Primeira Liga",
-      "legacy": {
-        "brier": 0.3478397337303234,
-        "log_loss": 0.6489084187320161,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "1x2",
-      "matches": 5,
-      "production": {
-        "brier": 0.3496471349667877,
-        "log_loss": 0.6532709707182088,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Primeira Liga",
-      "legacy": {
-        "brier": 0.1694878099202949,
-        "log_loss": 0.5184446802747233,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "over_1_5",
-      "matches": 5,
-      "production": {
-        "brier": 0.16941944024344455,
-        "log_loss": 0.5204530896461621,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Primeira Liga",
-      "legacy": {
-        "brier": 0.07992387476464577,
-        "log_loss": 0.3232763122296386,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "under_3_5",
-      "matches": 5,
-      "production": {
-        "brier": 0.07831570531961936,
-        "log_loss": 0.32219748974696244,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Primeira Liga",
-      "legacy": {
-        "brier": 0.22816681526873017,
-        "log_loss": 0.6493413421577034,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "btts_yes",
-      "matches": 5,
-      "production": {
-        "brier": 0.22984502366585452,
-        "log_loss": 0.6527618840956481,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Primeira Liga",
-      "legacy": {
-        "brier": 0.22914779390431783,
-        "log_loss": 0.6514503273667834,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "over_2_5",
-      "matches": 5,
-      "production": {
-        "brier": 0.23356876427072434,
-        "log_loss": 0.6601995496154821,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Primeira Liga",
-      "legacy": {
-        "brier": 0.010168917058391463,
-        "log_loss": 0.07851422663331811,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "ah_home_-2.5",
-      "matches": 5,
-      "production": {
-        "brier": 0.007211548177484946,
-        "log_loss": 0.06782779852641493,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Primeira Liga",
-      "legacy": {
-        "brier": 0.045235978946899603,
-        "log_loss": 0.20162803985098368,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      },
-      "market": "ah_home_-1.5",
-      "matches": 5,
-      "production": {
-        "brier": 0.037015598661980655,
-        "log_loss": 0.18209329034297672,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Primeira Liga",
-      "legacy": {
-        "brier": 0.012600818698377259,
-        "log_loss": 0.1056295037606846,
+        "brier": 0.29017638273220764,
+        "log_loss": 0.774683618438651,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_-1.0",
       "matches": 3,
       "production": {
-        "brier": 0.010354439188619568,
-        "log_loss": 0.09696279549697522,
+        "brier": 0.29336922334983295,
+        "log_loss": 0.7812435378025229,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
     },
     {
-      "league": "Primeira Liga",
+      "league": "Ligue 1",
       "legacy": {
-        "brier": 0.10856663354928979,
-        "log_loss": 0.380445545036714,
+        "brier": 0.0958359690598141,
+        "log_loss": 0.35548717475972114,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_+0.0",
-      "matches": 5,
+      "matches": 4,
       "production": {
-        "brier": 0.10501958073762041,
-        "log_loss": 0.37783278849423996,
+        "brier": 0.09442987144454444,
+        "log_loss": 0.35323207359803654,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
     },
     {
-      "league": "Primeira Liga",
+      "league": "Ligue 1",
       "legacy": {
-        "brier": 0.2526924349978682,
-        "log_loss": 0.6802128950870728,
+        "brier": 0.011120607315512324,
+        "log_loss": 0.10224437310445783,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_+1.0",
-      "matches": 5,
+      "matches": 4,
       "production": {
-        "brier": 0.24262181622958448,
-        "log_loss": 0.6551171831415833,
+        "brier": 0.011093095797569216,
+        "log_loss": 0.10330150314441011,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
     },
     {
-      "league": "Primeira Liga",
+      "league": "Ligue 1",
       "legacy": {
-        "brier": 0.3112938307827048,
-        "log_loss": 0.8331947640920901,
+        "brier": 0.007777974354951556,
+        "log_loss": 0.08584966325110067,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_+1.5",
-      "matches": 5,
+      "matches": 4,
       "production": {
-        "brier": 0.30586720730596634,
-        "log_loss": 0.8105010494045768,
+        "brier": 0.007866412047913903,
+        "log_loss": 0.08699625207564207,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "Ligue 1",
+      "legacy": {
+        "brier": 0.0006792033098818829,
+        "log_loss": 0.0237368308719818,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_+2.5",
+      "matches": 4,
+      "production": {
+        "brier": 0.000701638381692195,
+        "log_loss": 0.0245282141927789,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -1239,118 +1052,203 @@
     {
       "league": "Primeira Liga",
       "legacy": {
-        "brier": 0.0227710414593729,
-        "log_loss": 0.11227964231434132,
+        "brier": 0.33869831883368473,
+        "log_loss": 0.6386996794422716,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
-      },
-      "market": "ah_home_+2.5",
-      "matches": 5,
-      "production": {
-        "brier": 0.019553786329614443,
-        "log_loss": 0.1089275423968794,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
-      }
-    },
-    {
-      "league": "Serie A",
-      "legacy": {
-        "brier": 0.4307356165739384,
-        "log_loss": 0.7677641576877626,
-        "mean_abs_distance_to_pinnacle_close": 0.03155669059518162,
-        "pinnacle_close_matches": 3
       },
       "market": "1x2",
-      "matches": 6,
+      "matches": 7,
       "production": {
-        "brier": 0.4210529871487787,
-        "log_loss": 0.7547590124376694,
-        "mean_abs_distance_to_pinnacle_close": 0.021240676811885833,
-        "pinnacle_close_matches": 3
+        "brier": 0.3470610339096113,
+        "log_loss": 0.6511683718266125,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
       }
     },
     {
-      "league": "Serie A",
+      "league": "Primeira Liga",
       "legacy": {
-        "brier": 0.07238551185327914,
-        "log_loss": 0.30316228400922296,
+        "brier": 0.14348127401151625,
+        "log_loss": 0.4642217947235956,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "over_1_5",
-      "matches": 6,
+      "matches": 7,
       "production": {
-        "brier": 0.06773940759258733,
-        "log_loss": 0.2893879797718583,
+        "brier": 0.1451801415487374,
+        "log_loss": 0.46993646739806516,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
     },
     {
-      "league": "Serie A",
+      "league": "Primeira Liga",
       "legacy": {
-        "brier": 0.2156491489557986,
-        "log_loss": 0.6140325747730525,
+        "brier": 0.07582136502995764,
+        "log_loss": 0.31542320560082887,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "under_3_5",
-      "matches": 6,
+      "matches": 7,
       "production": {
-        "brier": 0.2219217038780604,
-        "log_loss": 0.6271671571086843,
+        "brier": 0.0730316308301008,
+        "log_loss": 0.31027608675416607,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
     },
     {
-      "league": "Serie A",
+      "league": "Primeira Liga",
       "legacy": {
-        "brier": 0.28700034892832343,
-        "log_loss": 0.7688730676172183,
+        "brier": 0.23022807012148733,
+        "log_loss": 0.6535010920412091,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "btts_yes",
-      "matches": 6,
+      "matches": 7,
       "production": {
-        "brier": 0.29012420615777684,
-        "log_loss": 0.7763017980480198,
+        "brier": 0.2307596965873287,
+        "log_loss": 0.6546082466801498,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
     },
     {
-      "league": "Serie A",
+      "league": "Primeira Liga",
       "legacy": {
-        "brier": 0.29695193000735515,
-        "log_loss": 0.7923953674768122,
-        "mean_abs_distance_to_pinnacle_close": 0.005195044413062844,
-        "pinnacle_close_matches": 1
+        "brier": 0.24404326310601424,
+        "log_loss": 0.6812618511847627,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
       },
       "market": "over_2_5",
-      "matches": 6,
+      "matches": 7,
       "production": {
-        "brier": 0.29861959437666036,
-        "log_loss": 0.7967027200604507,
-        "mean_abs_distance_to_pinnacle_close": 0.0033081006929536194,
-        "pinnacle_close_matches": 1
+        "brier": 0.25152439868776033,
+        "log_loss": 0.6962068149654941,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
       }
     },
     {
-      "league": "Serie A",
+      "league": "Primeira Liga",
       "legacy": {
-        "brier": 0.01105076232285863,
-        "log_loss": 0.09057201103683898,
+        "brier": 0.22739981666515363,
+        "log_loss": 0.656607081555504,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_-2.5",
-      "matches": 6,
+      "matches": 7,
       "production": {
-        "brier": 0.012350778531222134,
-        "log_loss": 0.09573865566397484,
+        "brier": 0.2320217065020284,
+        "log_loss": 0.6820223686442876,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "legacy": {
+        "brier": 0.17761874405306807,
+        "log_loss": 0.500814356392236,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_-1.5",
+      "matches": 7,
+      "production": {
+        "brier": 0.1799534954699881,
+        "log_loss": 0.5074069815062737,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "legacy": {
+        "brier": 0.15888811237882,
+        "log_loss": 0.44526286055094316,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_-1.0",
+      "matches": 5,
+      "production": {
+        "brier": 0.17030505062056872,
+        "log_loss": 0.4674637813634231,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "legacy": {
+        "brier": 0.10037826098664668,
+        "log_loss": 0.36662428321208834,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_+0.0",
+      "matches": 7,
+      "production": {
+        "brier": 0.10036042152159196,
+        "log_loss": 0.3706804063046669,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "legacy": {
+        "brier": 0.1824546523797998,
+        "log_loss": 0.5105314101747034,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_+1.0",
+      "matches": 7,
+      "production": {
+        "brier": 0.1755863923162968,
+        "log_loss": 0.49456702323528623,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "legacy": {
+        "brier": 0.22379148170851557,
+        "log_loss": 0.6161456963442247,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_+1.5",
+      "matches": 7,
+      "production": {
+        "brier": 0.2201326914608137,
+        "log_loss": 0.6014679603540982,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "Primeira Liga",
+      "legacy": {
+        "brier": 0.01636329860513446,
+        "log_loss": 0.08554205516137436,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_+2.5",
+      "matches": 7,
+      "production": {
+        "brier": 0.014086595287312596,
+        "log_loss": 0.08369059701132708,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -1358,16 +1256,118 @@
     {
       "league": "Serie A",
       "legacy": {
-        "brier": 0.26990043942688996,
-        "log_loss": 0.7723398438421646,
+        "brier": 0.4487759673648673,
+        "log_loss": 0.7923219985484805,
+        "mean_abs_distance_to_pinnacle_close": 0.037569763126075004,
+        "pinnacle_close_matches": 4
+      },
+      "market": "1x2",
+      "matches": 7,
+      "production": {
+        "brier": 0.43731100144825813,
+        "log_loss": 0.7767888172412887,
+        "mean_abs_distance_to_pinnacle_close": 0.02678704064389678,
+        "pinnacle_close_matches": 4
+      }
+    },
+    {
+      "league": "Serie A",
+      "legacy": {
+        "brier": 0.07918266075489641,
+        "log_loss": 0.320596130642041,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "over_1_5",
+      "matches": 7,
+      "production": {
+        "brier": 0.06809812808406315,
+        "log_loss": 0.292039712722934,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "Serie A",
+      "legacy": {
+        "brier": 0.1896617125305776,
+        "log_loss": 0.5553057328022086,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "under_3_5",
+      "matches": 7,
+      "production": {
+        "brier": 0.2000949756458093,
+        "log_loss": 0.581154514483168,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "Serie A",
+      "legacy": {
+        "brier": 0.27505552733712213,
+        "log_loss": 0.7446951656205129,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "btts_yes",
+      "matches": 7,
+      "production": {
+        "brier": 0.2898194462572082,
+        "log_loss": 0.775296951816105,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "Serie A",
+      "legacy": {
+        "brier": 0.27547019243463367,
+        "log_loss": 0.7481467603327452,
+        "mean_abs_distance_to_pinnacle_close": 0.07303032141096386,
+        "pinnacle_close_matches": 2
+      },
+      "market": "over_2_5",
+      "matches": 7,
+      "production": {
+        "brier": 0.2881189388179533,
+        "log_loss": 0.7747929622672168,
+        "mean_abs_distance_to_pinnacle_close": 0.026284105385616013,
+        "pinnacle_close_matches": 2
+      }
+    },
+    {
+      "league": "Serie A",
+      "legacy": {
+        "brier": 0.009840988412927907,
+        "log_loss": 0.08508364243081953,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      },
+      "market": "ah_home_-2.5",
+      "matches": 7,
+      "production": {
+        "brier": 0.011179992834348274,
+        "log_loss": 0.09158069445153252,
+        "mean_abs_distance_to_pinnacle_close": null,
+        "pinnacle_close_matches": 0
+      }
+    },
+    {
+      "league": "Serie A",
+      "legacy": {
+        "brier": 0.3317033315484794,
+        "log_loss": 0.9221739251191172,
         "mean_abs_distance_to_pinnacle_close": 0.011340186271854236,
         "pinnacle_close_matches": 1
       },
       "market": "ah_home_-1.5",
-      "matches": 6,
+      "matches": 7,
       "production": {
-        "brier": 0.2647347067295896,
-        "log_loss": 0.7592323720867679,
+        "brier": 0.3223509961798924,
+        "log_loss": 0.8936480854882826,
         "mean_abs_distance_to_pinnacle_close": 0.0007977828844223933,
         "pinnacle_close_matches": 1
       }
@@ -1375,50 +1375,50 @@
     {
       "league": "Serie A",
       "legacy": {
-        "brier": 0.3134930951486216,
-        "log_loss": 0.852889909522861,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
+        "brier": 0.37565193868755625,
+        "log_loss": 0.9945544077564902,
+        "mean_abs_distance_to_pinnacle_close": 0.06805627097168943,
+        "pinnacle_close_matches": 1
       },
       "market": "ah_home_-1.0",
-      "matches": 4,
+      "matches": 5,
       "production": {
-        "brier": 0.3047143441908532,
-        "log_loss": 0.8340973210712447,
-        "mean_abs_distance_to_pinnacle_close": null,
-        "pinnacle_close_matches": 0
+        "brier": 0.36104267565920295,
+        "log_loss": 0.9575416173487117,
+        "mean_abs_distance_to_pinnacle_close": 0.043676587314744775,
+        "pinnacle_close_matches": 1
       }
     },
     {
       "league": "Serie A",
       "legacy": {
-        "brier": 0.15351491931828035,
-        "log_loss": 0.4818407070284572,
-        "mean_abs_distance_to_pinnacle_close": 0.02820587398419583,
-        "pinnacle_close_matches": 1
+        "brier": 0.16012910842341715,
+        "log_loss": 0.4976360178409274,
+        "mean_abs_distance_to_pinnacle_close": 0.048959326536439085,
+        "pinnacle_close_matches": 2
       },
       "market": "ah_home_+0.0",
-      "matches": 6,
+      "matches": 7,
       "production": {
-        "brier": 0.15065776818542564,
-        "log_loss": 0.47447316398077755,
-        "mean_abs_distance_to_pinnacle_close": 0.02044788032373701,
-        "pinnacle_close_matches": 1
+        "brier": 0.15583316546262965,
+        "log_loss": 0.4875722507599014,
+        "mean_abs_distance_to_pinnacle_close": 0.03772870382177801,
+        "pinnacle_close_matches": 2
       }
     },
     {
       "league": "Serie A",
       "legacy": {
-        "brier": 0.09306592123605772,
-        "log_loss": 0.31091353148620177,
+        "brier": 0.08164127134321623,
+        "log_loss": 0.28747677142444167,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_+1.0",
-      "matches": 5,
+      "matches": 6,
       "production": {
-        "brier": 0.08634373798746842,
-        "log_loss": 0.29685879439886603,
+        "brier": 0.07641486841178527,
+        "log_loss": 0.2771604334926184,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -1426,16 +1426,16 @@
     {
       "league": "Serie A",
       "legacy": {
-        "brier": 0.0964500692642614,
-        "log_loss": 0.31307348370831606,
+        "brier": 0.08497604437689592,
+        "log_loss": 0.2877533829775593,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_+1.5",
-      "matches": 6,
+      "matches": 7,
       "production": {
-        "brier": 0.09174680673161578,
-        "log_loss": 0.30266095362985224,
+        "brier": 0.081266853050843,
+        "log_loss": 0.28024062844638503,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
@@ -1443,16 +1443,16 @@
     {
       "league": "Serie A",
       "legacy": {
-        "brier": 0.12581409374378916,
-        "log_loss": 0.36769674544126163,
+        "brier": 0.10805352712184234,
+        "log_loss": 0.3207924930615441,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       },
       "market": "ah_home_+2.5",
-      "matches": 6,
+      "matches": 7,
       "production": {
-        "brier": 0.12154255061582343,
-        "log_loss": 0.35126681157873735,
+        "brier": 0.10448859502158046,
+        "log_loss": 0.30789230921995486,
         "mean_abs_distance_to_pinnacle_close": null,
         "pinnacle_close_matches": 0
       }
