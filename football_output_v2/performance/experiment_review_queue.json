@@ -2,67 +2,6 @@
   "automatic_promotion": false,
   "experiments": [
     {
-      "collection_days": 19,
-      "key": "goal_blend_experiment",
-      "name": "goal_blend_experiment",
-      "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
-      "report": "goal_blend_experiment/report.md",
-      "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 112,
-      "status": "COLLECT_MORE_DATA"
-    },
-    {
-      "collection_days": 19,
-      "graded_paper_bets": 0,
-      "key": "market_led_experiment",
-      "name": "market_led_experiment",
-      "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
-      "report": "market_led_experiment/report.md",
-      "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 68,
-      "status": "COLLECT_MORE_DATA"
-    },
-    {
-      "collection_days": 19,
-      "key": "recency_experiment",
-      "name": "recency_experiment",
-      "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
-      "report": "recency_experiment/report.md",
-      "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 404,
-      "status": "COLLECT_MORE_DATA"
-    },
-    {
-      "collection_days": 19,
-      "key": "filter_sensitivity_experiment",
-      "name": "filter_sensitivity_experiment",
-      "note": "28 days and 30 settled observations permit an initial review, not approval or demonstrated edge.",
-      "report": "filter_sensitivity_experiment/report.md",
-      "scope": "FIRST_LOOK_ONLY_NO_PROMOTION",
-      "settled_evidence": 8,
-      "status": "COLLECT_MORE_DATA"
-    },
-    {
-      "automatic_production_change": false,
-      "gameweeks": 2,
-      "key": "shortlist_policy_experiment:shortlist-probability-calibration-v1",
-      "name": "shortlist_policy_experiment",
-      "report": "shortlist_policy_experiment/report.md",
-      "scope": "POLICY_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 50,
-      "status": "COLLECT_MORE_DATA"
-    },
-    {
-      "automatic_production_change": false,
-      "gameweeks": 0,
-      "key": "shortlist_weight_experiment:shortlist-probability-ev-weights-v2",
-      "name": "shortlist_weight_experiment",
-      "report": "shortlist_weight_experiment/report.md",
-      "scope": "POLICY_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 0,
-      "status": "COLLECT_MORE_DATA"
-    },
-    {
       "automatic_production_change": false,
       "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
       "gameweeks": 3,
@@ -83,33 +22,9 @@
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
       "settled_evidence": 13,
       "status": "COLLECT_MORE_DATA"
-    },
-    {
-      "automatic_production_change": false,
-      "candidate_id": "stronger_l2",
-      "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-      "gameweeks": 3,
-      "key": "model_reliability:24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb:stronger_l2",
-      "name": "model_reliability_experiment",
-      "report": "model_reliability_experiment/report.md",
-      "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 115,
-      "status": "COLLECT_MORE_DATA"
-    },
-    {
-      "automatic_production_change": false,
-      "candidate_id": "fixed_half_life",
-      "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-      "gameweeks": 3,
-      "key": "model_reliability:24470a2d8b6204c421b3a9b72185283dd9b4d502f30ac1f46e61dc06ca5c28bb:fixed_half_life",
-      "name": "model_reliability_experiment",
-      "report": "model_reliability_experiment/report.md",
-      "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 83,
-      "status": "COLLECT_MORE_DATA"
     }
   ],
-  "note": "Existing sidecar first-look thresholds differ from the new benchmark candidate promotion gates. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-11-02T06:33:08.911993+00:00",
+  "note": "Only the live forward trials are queued. Notifications invite review, including negative findings; they never approve changes.",
+  "reviewed_at_utc": "2026-11-02T14:19:50.603754+00:00",
   "version": "experiment-review-queue-v1"
 }
