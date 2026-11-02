@@ -94,6 +94,8 @@ LEAGUES: Dict[str, LeagueConfig] = dict(_REGISTERED_LEAGUES)
 HISTORICAL_URL = "https://www.football-data.co.uk/mmz4281/{season}/{division}.csv"
 FIXTURES_URL = "https://www.football-data.co.uk/fixtures.csv"
 THE_ODDS_API_BASE = "https://api.the-odds-api.com/v4"
+# Per-event extra request; the main odds request stays h2h,totals,spreads.
+EXTRA_EVENT_MARKETS = ("alternate_totals", "alternate_spreads", "draw_no_bet", "double_chance")
 FOOTBALL_DATA_ORG_BASE = "https://api.football-data.org/v4"
 
 DEFAULT_TOTAL_LINES = (0.5, 1.5, 2.5, 3.5, 4.5)
@@ -1228,7 +1230,7 @@ class TheOddsAPI:
     def extra_markets_for_event(
         self, league: LeagueConfig, event_id: str, *, main_over_1_5_offers=None
     ) -> Dict[str, object]:
-        """Per-event real-price request for alternate totals and BTTS.
+        """Per-event real-price request: alternate totals and spreads, double chance, draw no bet.
 
         Additional markets are bookmaker/competition dependent. All
         returned prices must be verified complementary outcome pairs
@@ -1243,20 +1245,17 @@ class TheOddsAPI:
             f"/events/{safe_id}/odds"
         )
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
-        import count_markets
-        # Corner/card totals only where Pinnacle quotes them; each adds request cost.
-        count_keys = [count_markets.ODDS_MARKETS[kind] for kind in count_markets.LEAGUES
-                      if league.key in count_markets.LEAGUES[kind]]
+        # BTTS and corner/card totals are no longer requested: no production
+        # policy uses them, and each returned market costs a credit.
         payload = self._get_json(
             url,
-            f"oddsapi_additional_ah_dc_v2_{'counts_' if count_keys else ''}{league.key}_{region_tag}_{safe_id}.json",
+            f"oddsapi_additional_ah_dc_v3_{league.key}_{region_tag}_{safe_id}.json",
             ttl=timedelta(minutes=5),
             force_refresh=self.force_refresh,
             params={
                 "apiKey": self.api_key,
                 "regions": self.regions,
-                "markets": ",".join(["alternate_totals", "btts", "alternate_spreads", "draw_no_bet", "double_chance",
-                                     *count_keys]),
+                "markets": ",".join(EXTRA_EVENT_MARKETS),
                 "oddsFormat": "decimal",
                 "dateFormat": "iso",
             },
@@ -1334,10 +1333,7 @@ class TheOddsAPI:
         asian_offers = parse_handicaps(payload, clock)
         if asian_offers:
             result['asian_handicap_offers'] = json.dumps(asian_offers, sort_keys=True, allow_nan=False)
-        count_offers = count_markets.parse_quotes(payload, clock) if count_keys else []
-        if count_offers:
-            result['count_market_offers'] = json.dumps(count_offers, sort_keys=True, allow_nan=False)
-        if asian_offers or count_offers:
+        if asian_offers:
             result['_asian_handicap_identity'] = {k:payload.get(k) for k in ('home_team','away_team','commence_time')}
         for market, available in offers.items():
             result.update(self._goal_quote_fields(market, available, as_of=clock))
