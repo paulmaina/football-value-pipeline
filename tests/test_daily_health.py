@@ -233,14 +233,15 @@ class DailyHealthTests(OfflineQuotePolicyTestCase):
             # Older days are kept as written; only new observations are slimmed.
             self.assertEqual(history['days'][legacy_day], legacy)
             health = json.loads((root/'performance/pipeline_health.json').read_text())
-            self.assertIn('filter_sensitivity_experiment', health['experimental_reports'])
+            self.assertEqual(sorted(health['experimental_reports']),
+                             ['benchmark_forward_experiment', 'totals_anchor_experiment'])
             with ZipFile(root/'readable'/REPORT_NAME) as z: parts = {n: z.read(n) for n in z.namelist()}
             contents = [text(c) for c in get_sheet(parts, 'Pipeline Health').root.iter(q('c'))]
             start = contents.index('Daily review observations')
             for day in history['days']:
                 self.assertIn(day, contents[start:])
-            # The EV sensitivity table is still read from the current health report.
-            self.assertIn('STRICT', contents[contents.index('EV sensitivity results'):start])
+            # Retired: the EV sensitivity table left the workbook with its experiment.
+            self.assertNotIn('EV sensitivity results', contents)
             # Workflow verification compares today's history entry with the review.
             report_check(root)
             history['days'][today]['shortlist_performance']['graded'] += 1

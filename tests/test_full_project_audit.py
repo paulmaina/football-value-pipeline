@@ -78,8 +78,8 @@ class TrainingAuditTests(OfflineQuotePolicyTestCase):
 
     def test_shadow_comparisons_share_production_clock_and_league(self):
         from tests.test_model_reliability_experiment import inputs, ToyModel
-        from model_reliability_experiment import generate_league
-        from recency_experiment import generate_league as recency_generate
+        from archive.model_reliability_experiment import generate_league
+        from archive.recency_experiment import generate_league as recency_generate
         from tests.test_recency_experiment import predictions, history as recency_history, tuning, ToyModel as RecencyModel
         origins = []
         class ClockModel(ToyModel):

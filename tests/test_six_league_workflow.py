@@ -1,4 +1,4 @@
-"""One offline six-league run through both experiments, capture and verified review."""
+"""One offline six-league run through the live trials, capture and verified review."""
 from offline_test_case import OfflineQuotePolicyTestCase
 import copy
 from datetime import timedelta
@@ -40,16 +40,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 record.update(source='Cornerflick + Fixture Download', match_id='e'+str(i).zfill(19))
             records.append(record)
         def run_league(self,key,*args,**kwargs):
-            self._recency_history=history()
             return frames[key],{'training_end':'2026-10-08','training_matches':1000},{}
-        def payload(api,league,event_id):
-            row=frames[league.key].iloc[0]
-            return {'id':event_id,'home_team':row.home_team,'away_team':row.away_team,
-                'commence_time':row.kickoff_utc,'bookmakers':[
-                    {'key':'pinnacle','title':'Pinnacle','markets':[{'key':'h2h','last_update':NOW.isoformat(),
-                        'outcomes':[{'name':row.home_team,'price':1.45},{'name':'Draw','price':5.0},{'name':row.away_team,'price':7.0}]}]},
-                    *[{'key':'book_'+str(i),'title':'Book '+str(i),'markets':[{'key':'double_chance','last_update':NOW.isoformat(),
-                        'outcomes':[{'name':'1X','price':1.25},{'name':'X2','price':2.6},{'name':'12','price':1.16}]}]} for i in (1,2)]]}
         reliability=sample_report()
         for market in reliability['markets'].values():
             for group in market['high_confidence'].values():group['status']='PASSED'
@@ -64,14 +55,12 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2._history_for_league',return_value=history()),patch(
                 'dc_decay_validation.tune_half_life',side_effect=lambda *args,**kwargs:tuning()),patch(
                 'football_value_pipeline_v2_standalone.DixonColesModel',ToyModel),patch(
-                'market_led_experiment.fetch_event',side_effect=payload),patch(
                 'europa_training.load',return_value=history(),
-                side_effect=ValueError('coverage incomplete') if getattr(self, '_uel_unavailable', False) else None),patch('market_led_experiment.datetime') as dt:
-                dt.now.return_value=NOW
+                side_effect=ValueError('coverage incomplete') if getattr(self, '_uel_unavailable', False) else None):
                 requested_keys = list(keys)
                 if getattr(self, '_uel_unavailable', False):
                     keys.remove('UEL')
-                self.assertEqual(main(['--leagues',*requested_keys,'--out-dir',str(raw),'--goal-blend-experiment','--market-led-experiment','--tune-half-life','--recency-experiment']),0)
+                self.assertEqual(main(['--leagues',*requested_keys,'--out-dir',str(raw),'--tune-half-life']),0)
                 self.assertEqual(raw_check(root)['forecasts'],len(keys))
                 picks = pd.read_csv(raw/'conservative_bet_shortlist.csv')
                 self.assertNotIn('Under 3.5', picks.market.tolist())
@@ -99,18 +88,13 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             settled = [k for k in keys if LEAGUES[k].football_data_org_code]
             self.assertEqual(data['shortlist']['graded'],len(settled))
             self.assertEqual(len(data['training_end_dates']),len(keys))
-            self.assertEqual(data['experiments']['goal_blend_experiment']['graded_fixture_markets'],3*len(settled))
-            # The market-led paper experiment stays limited to league-approved leagues.
-            from league_registry import ARCHIVED_LEAGUE_APPROVAL
-            self.assertEqual(data['experiments']['market_led_experiment']['graded_selections'],
-                             len(set(keys) & set(ARCHIVED_LEAGUE_APPROVAL)))
-            self.assertEqual(data['experiments']['recency_experiment']['graded_fixture_markets'],2*len(settled))
-            self.assertEqual(data['pipeline_health']['experiment_capture_counts']['recency_experiment:CAPTURED'],1)
-            for name in ('filter_sensitivity_experiment','shortlist_weight_experiment','shortlist_policy_experiment'):
-                self.assertEqual(data['experiments'][name]['total_fixtures'],0)
-                self.assertEqual(data['pipeline_health']['experiment_capture_counts'][name+':NOT_GENERATED'],1)
+            # Retired experiments (archive/) are no longer generated, captured or reviewed.
+            for name in ('goal_blend_experiment','market_led_experiment','recency_experiment','filter_sensitivity_experiment',
+                         'shortlist_weight_experiment','shortlist_policy_experiment','model_reliability_experiment'):
+                self.assertNotIn(name,data['experiments'])
+                self.assertEqual([p for p in root.rglob(name+'.json')],[])
             self.assertEqual(data['experiments']['benchmark_forward_experiment']['paired_fixtures'],0)
-            self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),8)
+            self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),2)
             self.assertEqual(data['pipeline_health']['experiment_capture_counts']['benchmark_forward_experiment:CAPTURED'],1)
             self.assertTrue((root/'readable/football_performance_report.xlsx').exists())
 

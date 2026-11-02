@@ -18,9 +18,7 @@ PROBABILITY_FLOORS = (0.0, *FLOORS)  # zero labels the control with no EV gate
 SELECTED = {'SHORTLISTED', 'SHORTLISTED_PROVISIONAL'}
 
 
-def clean(table):
-    # pandas serializes missing/nonfinite values as JSON null.
-    return json.loads(table.to_json(orient='records', double_precision=15))
+from shortlist_replay import clean  # noqa: E402,F401  (moved to the live module unchanged)
 
 
 def write_experiment(predictions, raw, summary, production_decisions, reliability):

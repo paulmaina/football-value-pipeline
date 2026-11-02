@@ -5,12 +5,13 @@ from pathlib import Path
 import tempfile
 from zipfile import ZipFile
 
-import shortlist_weight_experiment as trial
+import archive.shortlist_weight_experiment as trial
 from offline_test_case import OfflineQuotePolicyTestCase
 from performance_tracking import capture, snapshots, write_json
 from test_shortlist_weight_experiment import setup
 from test_conservative_bet_filter import NOW, fixture
 from test_filter_sensitivity_experiment import record
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 class AdaptiveWeightTests(OfflineQuotePolicyTestCase):
@@ -105,9 +106,9 @@ class AdaptiveWeightTests(OfflineQuotePolicyTestCase):
             workbook = write_workbook(root, [], [], {})
             with ZipFile(workbook) as z: parts = {n:z.read(n) for n in z.namelist()}
             displayed = ' '.join(str(text(c) or '') for c in get_sheet(parts, 'Experiments').root.iter(q('c')))
-            self.assertIn('Legacy v1 fixed weights', displayed)
-            self.assertIn('Adaptive evidence', displayed)
-            self.assertIn('Brier', displayed)
+            # Retired: the archived comparison stays in its own report, not the workbook.
+            self.assertNotIn('Legacy v1 fixed weights', displayed)
+            self.assertNotIn('Adaptive evidence', displayed)
 
     def test_hard_quote_identity_and_time_failures_are_never_rescued(self):
         for bad in (dict(fixture(), home_name_match_score=0), fixture(kickoff=NOW+timedelta(hours=49))):
@@ -116,7 +117,7 @@ class AdaptiveWeightTests(OfflineQuotePolicyTestCase):
                 self.assertFalse(any(r['decision'] in trial.SELECTED for r in data['rows'] if r['variant_id'] == trial.ADAPTIVE_ID))
 
     def test_weights_can_change_the_selected_market_without_changing_its_probability(self):
-        from shortlist_policy_experiment import decision_rows as fixed
+        from archive.shortlist_policy_experiment import decision_rows as fixed
         with tempfile.TemporaryDirectory() as tmp:
             _, data, frame, _, _, summary = setup(Path(tmp))
             controls = [r for r in data['rows'] if r['variant_id'] == 'control']

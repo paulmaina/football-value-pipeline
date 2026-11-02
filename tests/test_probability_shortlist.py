@@ -11,6 +11,7 @@ from offline_test_case import OfflineQuotePolicyTestCase
 from conservative_bet_filter import build_conservative_shortlist, PROBABILITY_SELECTION_POLICY_VERSION, BALANCED_SELECTION_POLICY_VERSION
 from test_conservative_bet_filter import fixture, NOW
 from test_graded_candidates import only_over_goal, sample_report
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 def select(rows, reliability=None, selection_policy_version=None, **kwargs):
@@ -96,8 +97,8 @@ class ProbabilityShortlistTests(OfflineQuotePolicyTestCase):
         self.assertTrue(select([])[0].empty)
 
     def test_new_experiments_capture_replay_and_reporting_include_control_without_ev_gate(self):
-        import filter_sensitivity_experiment as ev
-        import shortlist_policy_experiment as policy
+        import archive.filter_sensitivity_experiment as ev
+        import archive.shortlist_policy_experiment as policy
         from performance_tracking import write_json, capture, snapshots
         from format_football_output import process_conservative_shortlist
         from workflow_checks import raw_check, archive_check
@@ -188,7 +189,7 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
 
     def test_twelve_cap_preserves_top_ten_and_frozen_v14_weighting_replay(self):
         from conservative_bet_filter import TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION
-        import shortlist_weight_experiment as trial
+        import archive.shortlist_weight_experiment as trial
         rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]
         reports = {'Premier League': sample_report()}
         current, _, summary = self.select(rows)
@@ -212,7 +213,7 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
 
     def test_archived_v15_weighting_keeps_twelve_match_cap_and_original_pool(self):
         from conservative_bet_filter import PREVIOUS_TWELVE_MATCH_BALANCED_SELECTION_POLICY_VERSION as old_policy
-        import shortlist_weight_experiment as trial
+        import archive.shortlist_weight_experiment as trial
         rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]
         reports = {'Premier League': sample_report()}
         picks, decisions, summary = select(rows, reports, selection_policy_version=old_policy)
@@ -295,7 +296,7 @@ class BalancedShortlistTests(OfflineQuotePolicyTestCase):
                 raw_check(root)
 
     def test_ev_sensitivity_captures_twelve_and_keeps_archived_ten_cap(self):
-        import filter_sensitivity_experiment as ev
+        import archive.filter_sensitivity_experiment as ev
         from conservative_bet_filter import TEN_MATCH_BALANCED_SELECTION_POLICY_VERSION
         from performance_tracking import capture, snapshots, write_json
         rows = [dict(only_over_goal(i), kickoff_utc=(NOW+timedelta(hours=24)).isoformat()) for i in range(15)]

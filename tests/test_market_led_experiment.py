@@ -9,9 +9,10 @@ import unittest
 from unittest.mock import Mock, patch
 
 import pandas as pd
-from market_led_experiment import evaluate, settings, write_experiment, capture_file, review_experiment, FILE
+from archive.market_led_experiment import evaluate, settings, write_experiment, capture_file, review_experiment, FILE
 from performance_tracking import capture, snapshots, frozen_rows, verified_record
 from test_performance_tracking import fixture, pick, final, T0, KICK, SHA
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 def source():
@@ -94,7 +95,7 @@ class MarketLedTests(OfflineQuotePolicyTestCase):
 
     def write(self,raw,frame,response=None):
         api=Mock()
-        with patch('market_led_experiment.fetch_event',return_value=response or payload()), patch('market_led_experiment.datetime') as dt:
+        with patch('archive.market_led_experiment.fetch_event',return_value=response or payload()), patch('archive.market_led_experiment.datetime') as dt:
             dt.now.return_value=T0
             return write_experiment(frame,raw,T0.isoformat(),api,settings())
 
@@ -126,45 +127,20 @@ class MarketLedTests(OfflineQuotePolicyTestCase):
     def test_no_api_and_failures_are_reported_without_exposing_credentials(self):
         with tempfile.TemporaryDirectory() as tmp:
             raw,frame=self.setup(Path(tmp))
-            with patch('market_led_experiment.datetime') as dt:
+            with patch('archive.market_led_experiment.datetime') as dt:
                 dt.now.return_value=T0
                 data=write_experiment(frame,raw,T0.isoformat(),None,settings())
             self.assertIn('api_unavailable',data['rows'][0]['reasons'])
-            with patch('market_led_experiment.datetime') as dt, patch('market_led_experiment.fetch_event',side_effect=RuntimeError('apiKey=SECRET')):
+            with patch('archive.market_led_experiment.datetime') as dt, patch('archive.market_led_experiment.fetch_event',side_effect=RuntimeError('apiKey=SECRET')):
                 dt.now.return_value=T0
                 data=write_experiment(frame,raw,T0.isoformat(),Mock(),settings())
             self.assertIn('request_failed_RuntimeError',data['rows'][0]['reasons'])
             self.assertNotIn('SECRET',(raw/FILE).read_text())
 
-    def test_cli_opt_in_preserves_baseline_files_and_failure_is_isolated(self):
-        from football_value_pipeline_v2_standalone import main
-        from conservative_bet_filter import build_conservative_shortlist
-        with tempfile.TemporaryDirectory() as tmp:
-            root=Path(tmp);frame=pd.DataFrame([source()])
-            for mode in ('off','on','failure'):
-                with patch('conservative_bet_filter.build_conservative_shortlist',side_effect=partial(build_conservative_shortlist,as_of=T0)), patch(
-                    'football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league',return_value=(frame,{'training_end':'2026-09-20','training_matches':1000},{})), patch(
-                    'football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league',return_value=(pd.DataFrame(),pd.DataFrame(),{},pd.DataFrame())), patch(
-                    'market_led_experiment.datetime') as dt, patch('market_led_experiment.fetch_event',return_value=payload()), patch(
-                    'market_led_experiment.write_experiment',wraps=write_experiment) as write:
-                    dt.now.return_value=T0
-                    if mode=='failure':write.side_effect=RuntimeError('research unavailable')
-                    args=['--leagues','EPL','--no-legacy-comparison','--out-dir',str(root/mode)]
-                    if mode!='off':args+=['--market-led-experiment']
-                    if mode=='failure':
-                        with self.assertWarns(UserWarning):self.assertEqual(main(args),0)
-                    else:self.assertEqual(main(args),0)
-                    self.assertEqual(write.call_count,0 if mode=='off' else 1)
-            for name in ('all_leagues_predictions.csv','EPL_predictions.csv','conservative_bet_shortlist.csv',
-                         'conservative_strict_qualifiers.csv','conservative_bet_rejections.csv'):
-                self.assertEqual((root/'off'/name).read_bytes(),(root/'on'/name).read_bytes())
-                self.assertEqual((root/'off'/name).read_bytes(),(root/'failure'/name).read_bytes())
-            self.assertFalse((root/'off'/FILE).exists())
-            self.assertTrue((root/'on'/FILE).exists())
-
-    def test_cli_rejects_leaking_historical_mode_before_requests(self):
-        from football_value_pipeline_v2_standalone import main
-        with self.assertRaises(SystemExit): main(['--market-led-experiment','--backtest'])
+    def test_retired_cli_flags_are_rejected(self):
+        from football_value_pipeline_v2_standalone import build_parser
+        for flag in ('--market-led-experiment', '--market-led-max-age-minutes=10'):
+            with self.assertRaises(SystemExit): build_parser().parse_args([flag])
 
     def test_later_quotes_evaluate_value_without_replacing_first_selection(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -175,7 +151,7 @@ class MarketLedTests(OfflineQuotePolicyTestCase):
             p=payload()
             for book in p['bookmakers']:
                 for market in book['markets']: market['last_update']=late.isoformat()
-            with patch('market_led_experiment.datetime') as dt, patch('market_led_experiment.fetch_event',return_value=p):
+            with patch('archive.market_led_experiment.datetime') as dt, patch('archive.market_led_experiment.fetch_event',return_value=p):
                 dt.now.return_value=late
                 write_experiment(frame,raw,T0.isoformat(),Mock(),settings())
             capture('c'*40,root=root,captured_at=late+timedelta(minutes=1))

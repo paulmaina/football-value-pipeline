@@ -3,7 +3,7 @@ from datetime import timedelta
 import hashlib
 import math
 import pandas as pd
-from shortlist_policy_experiment import clean, equivalent, statistics, block_interval
+from archive.shortlist_policy_experiment import clean, equivalent, statistics, block_interval
 
 NAME = 'shortlist_weight_experiment'
 LEGACY_VERSION = 'shortlist-probability-ev-weights-v1'
@@ -108,7 +108,7 @@ def adaptive_rows(controls, baseline_policy):
 
 
 def decision_rows(predictions, generated, reliability, execution, baseline_policy=None, *, version=VERSION):
-    from shortlist_policy_experiment import decision_rows as shared_decisions
+    from archive.shortlist_policy_experiment import decision_rows as shared_decisions
     grid = variants_for(version)
     baseline_policy = baseline_policy or BASELINE_POLICY
     rows = shared_decisions(predictions, generated, reliability, execution,
@@ -119,7 +119,7 @@ def decision_rows(predictions, generated, reliability, execution, baseline_polic
 
 
 def write_experiment(predictions, raw, summary, production_decisions, reliability):
-    from filter_sensitivity_experiment import clean as clean_frame
+    from archive.filter_sensitivity_experiment import clean as clean_frame
     from performance_tracking import write_json
     from quote_policy import load_policy
     if summary['selection_policy_version'] != BASELINE_POLICY:

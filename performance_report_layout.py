@@ -22,17 +22,10 @@ CT = 'http://schemas.openxmlformats.org/package/2006/content-types'
 C = 'http://schemas.openxmlformats.org/drawingml/2006/chart'
 A = 'http://schemas.openxmlformats.org/drawingml/2006/main'
 XDR = 'http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing'
+# Live forward trials only; retired experiments (archive/) keep their frozen reports.
 NAMES = {
-    'goal_blend_experiment': 'Goal-market blend',
-    'market_led_experiment': 'Market-led forecasts',
-    'recency_experiment': 'Recency comparison',
-    'filter_sensitivity_experiment': 'EV filter sensitivity',
     'benchmark_forward_experiment': '85% market weight',
     'totals_anchor_experiment': 'Pinnacle totals anchor',
-    'reliability:stronger_l2': 'Stronger regularisation (L2=3)',
-    'reliability:fixed_half_life': 'Fixed half-life (480 days)',
-    'shortlist_policy_experiment': 'Probability / calibration policy',
-    'shortlist_weight_experiment': 'Shortlist probability / EV weights',
 }
 
 
@@ -292,17 +285,10 @@ def experiment_rows(root, health):
     for name, display in NAMES.items():
         item = by_name.get(name, {})
         summary = load(root, name + '/summary.json')
-        if name.startswith('reliability:'):
-            candidate_id = name.split(':', 1)[1]
-            name = 'model_reliability_experiment'
-            item = next((i for i in queue.get('experiments', []) if i['name'] == name and i.get('candidate_id') == candidate_id), {})
-            parent = load(root, name + '/summary.json')
-            summary = {**next((c for c in parent.get('comparisons', []) if c['candidate_id'] == candidate_id), {}),
-                       'review_gates': parent.get('registry', {}), 'rejected_snapshot_commits': parent.get('rejected_snapshot_commits', [])}
         state = item.get('status', 'REPORT_UNAVAILABLE_OR_STALE')
         n = item.get('settled_evidence')
         requirements = []
-        if name in ('benchmark_forward_experiment', 'totals_anchor_experiment', 'model_reliability_experiment', 'shortlist_policy_experiment', 'shortlist_weight_experiment'):
+        if name in ('benchmark_forward_experiment', 'totals_anchor_experiment'):
             gates = summary.get('review_gates', {})
             minimum = gates.get('minimum_paired_fixtures'); weeks = gates.get('minimum_gameweeks')
             coverage_min = gates.get('minimum_verified_coverage'); coverage = summary.get('verified_coverage')
@@ -314,10 +300,6 @@ def experiment_rows(root, health):
                 if progress is None or progress < weeks: requirements.append(f'{max(0, weeks-(progress or 0))} more ISO weeks')
                 if coverage is None: requirements.append('Verified coverage unavailable')
                 elif coverage < coverage_min: requirements.append(f'Coverage below {coverage_min:.0%}')
-            if name == 'shortlist_weight_experiment':
-                needed = gates.get('minimum_settled_per_weighting', 100)
-                have = summary.get('minimum_settled_per_weighting', 0)
-                if have < needed: requirements.append(f'{needed-have} more settled picks in the least-sampled weighting')
             if summary.get('rejected_snapshot_commits'): requirements.append('Rejected snapshots need review')
             scope = 'Approval review'
             threshold = f'{minimum} paired fixtures' if minimum is not None else 'Unavailable'
@@ -334,7 +316,7 @@ def experiment_rows(root, health):
             next_action = 'Review the paired results; approval is separate'
         else:
             next_action = '; '.join(requirements) or 'Continue collection; see detailed report'
-        unit = 'Paired fixtures' if name in ('benchmark_forward_experiment','totals_anchor_experiment','model_reliability_experiment','shortlist_policy_experiment', 'shortlist_weight_experiment') else 'Settled observations'
+        unit = 'Paired fixtures' if name in ('benchmark_forward_experiment','totals_anchor_experiment') else 'Settled observations'
         result.append([display, label(state), n if n is not None else 'Unavailable', unit, threshold, period,
             coverage_text if coverage_text is not None else 'Unavailable' if scope=='Approval review' else 'Not applicable',
             scope, next_action, label(item.get('evidence')) if 'evidence' in item else 'Initial review only'])
@@ -355,62 +337,9 @@ def add_experiments(parts, root, health, st):
     ET.SubElement(sheet.root, q('autoFilter'), {'ref': f'A5:J{end}'})
     status_rules(sheet,f'B6:B{end}',st,[('ready',['Ready for review','First look ready']),
         ('error',['Report unavailable or stale','Data quality blocked']),('warning',['Collect more data'])])
-    sheet.put(f'A{end+2}', 'The original four sidecars count observations, not necessarily independent fixtures. Do not add their sample counts together.', st['note']); sheet.merge(f'A{end+2}:J{end+2}')
+    sheet.put(f'A{end+2}', 'Retired experiments are archived; their last committed reports are frozen and no longer listed here.', st['note']); sheet.merge(f'A{end+2}:J{end+2}')
     sheet.put(f'A{end+3}', 'Coverage and time gates must also pass. Reaching a sample count alone does not make a candidate ready.', st['note']); sheet.merge(f'A{end+3}:J{end+3}')
     link(sheet, f'A{end+5}', 'Dashboard', 'Back to dashboard', st)
-    policy = load(root, 'shortlist_policy_experiment/summary.json')
-    if policy.get('comparisons'):
-        nr = end+8
-        sheet.put(f'A{nr}', 'Probability and calibration policies — fixed comparisons', st['section']); sheet.merge(f'A{nr}:J{nr}')
-        nr += 1
-        sheet.put(f'A{nr}', 'STRICT is primary. ROI is simulated; different selected cohorts are not paired forecast tests. See the detailed report before drawing conclusions.', st['note']); sheet.merge(f'A{nr}:J{nr}')
-        sheet.data.find(f"{q('row')}[@r='{nr}']").set('ht', '44')
-        nr += 1
-        sheet.row(nr, ['Variant', 'Tier', 'Selected', 'Settled', 'Net ROI', 'Brier', 'Log loss', 'Calibration gap', 'Drawdown (units)', 'Strict profit delta / fixture 95% interval'], st, True)
-        paired = {r['variant_id']: r for r in policy.get('paired_strict_returns', [])}
-        for item in policy['comparisons']:
-            nr += 1
-            interval = paired.get(item['variant_id'], {}).get('weekly_block_bootstrap95') if item['tier'] == 'STRICT' else None
-            interval_text = f'{interval[0]:+.4f} to {interval[1]:+.4f}' if interval else 'Collect more data' if item['tier'] == 'STRICT' else 'Not applicable'
-            values = [item['variant_id'], item['tier'], item['selected'], item['graded'], item['flat_stake_roi'], item['brier'], item['log_loss'], item['calibration_gap'], item['max_drawdown_units'], interval_text]
-            sheet.row(nr, [v if v is not None else 'Unavailable' for v in values], st)
-            for col in ('E', 'H'): sheet.cell(f'{col}{nr}').set('s', str(st['percent']))
-    weights = load(root, 'shortlist_weight_experiment/summary.json')
-    if weights.get('comparisons'):
-        nr = (nr+3) if policy.get('comparisons') else end+8
-        sheet.put(f'A{nr}', 'Shortlist probability / EV weights — ALL selections primary', st['section']); sheet.merge(f'A{nr}:J{nr}')
-        nr += 1
-        sheet.row(nr, ['Probability / EV', 'Tier', 'Selected', 'Settled', 'Win rate', 'Win rate 95% interval', 'Net ROI', 'Profit (units)', 'Drawdown (units)', 'Profit delta / fixture 95% vs 50/50'], st, True)
-        from shortlist_weight_experiment import weight_label
-        for cohort in [weights, *weights.get('legacy_cohorts', [])]:
-            if cohort is not weights:
-                nr += 2
-                sheet.put(f'A{nr}', 'Legacy v1 fixed weights — separate cohort', st['section']); sheet.merge(f'A{nr}:J{nr}')
-                nr += 1
-                sheet.row(nr, ['Probability / EV', 'Tier', 'Selected', 'Settled', 'Win rate', 'Win rate 95% interval', 'Net ROI', 'Profit (units)', 'Drawdown (units)', 'Profit delta / fixture 95% vs 50/50'], st, True)
-            paired = {r['variant_id']: r for r in cohort.get('paired_all_returns', [])}
-            for item in cohort['comparisons']:
-                nr += 1
-                interval = paired.get(item['variant_id'], {}).get('weekly_block_bootstrap95') if item['tier'] == 'ALL' else None
-                win = item.get('win_rate_wilson95')
-                row = [weight_label(item), item['tier'], item['selected'], item['graded'], item['observed_rate'],
-                    f'{win[0]:.1%} to {win[1]:.1%}' if win else 'Collect more data', item['flat_stake_roi'], item['profit_units'], item['max_drawdown_units'],
-                    f'{interval[0]:+.4f} to {interval[1]:+.4f}' if interval else 'Control' if item['variant_id'] == 'control' and item['tier'] == 'ALL' else 'Collect more data' if item['tier'] == 'ALL' else 'Not applicable']
-                sheet.row(nr, [v if v is not None else 'Unavailable' for v in row], st)
-                for col in ('E', 'G'): sheet.cell(f'{col}{nr}').set('s', str(st['percent']))
-            nr += 2
-            sheet.row(nr, ['Weighting', 'Tier', 'Mean probability', 'Win rate', 'Calibration gap', 'Brier', 'Log loss', 'Mean probability weight', 'Min probability weight', 'Max probability weight'], st, True)
-            for item in cohort['comparisons']:
-                if item['tier'] != 'ALL':
-                    continue
-                nr += 1
-                row = [weight_label(item), 'ALL', item.get('mean_probability'), item.get('observed_rate'),
-                    item.get('calibration_gap'), item.get('brier'), item.get('log_loss'),
-                    item.get('mean_probability_weight', item.get('probability_weight')),
-                    item.get('minimum_probability_weight', item.get('probability_weight')),
-                    item.get('maximum_probability_weight', item.get('probability_weight'))]
-                sheet.row(nr, [v if v is not None else 'Unavailable' for v in row], st)
-                for col in ('C', 'D', 'E', 'H', 'I', 'J'): sheet.cell(f'{col}{nr}').set('s', str(st['percent']))
     put_sheet(parts, 'Experiments', sheet)
 
 
@@ -565,9 +494,6 @@ def add_health(parts, data, history, st):
             state=snap.get('experiments',{}).get(name,'LEGACY_NOT_RECORDED');states[state]=states.get(state,0)+1
         counts.extend([[display,label(state),count] for state,count in sorted(states.items())])
     section('Forecast capture coverage',['Experiment','Capture state','Snapshot count'],counts)
-    comparisons=data.get('experimental_reports',{}).get('filter_sensitivity_experiment',{}).get('comparisons',[])
-    section('EV sensitivity results',['EV floor','Tier','Selected','Settled','Simulated ROI','Drawdown (units)'],
-        [[r.get(k) for k in ('ev_floor','tier','selected','graded','flat_stake_roi','max_drawdown_units')] for r in comparisons],{1:'percent',5:'percent',6:'units'})
     section('Daily review observations',['Review date','Graded','Win rate','Simulated ROI','Brier'],
         [[day]+[v['shortlist_performance'].get(k) for k in ('graded','win_rate','flat_stake_roi','brier')] for day,v in sorted((history or {}).get('days',{}).items())],{3:'percent',4:'percent',5:'decimal'})
     section('Dependency versions',['Dependency','Version'],[[k,v] for k,v in data.get('dependencies',{}).items()])

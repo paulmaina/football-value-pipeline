@@ -9,12 +9,13 @@ import tempfile
 from unittest.mock import patch
 import pandas as pd
 
-import shortlist_weight_experiment as trial
+import archive.shortlist_weight_experiment as trial
 from conservative_bet_filter import build_conservative_shortlist, BALANCED_SELECTION_POLICY_VERSION
 from performance_tracking import capture, snapshots, write_json
 from test_conservative_bet_filter import fixture, NOW
 from test_filter_sensitivity_experiment import record
 from test_graded_candidates import only_over_goal, sample_report
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 def setup(root, rows=None):
@@ -137,7 +138,7 @@ class WeightTrialTests(OfflineQuotePolicyTestCase):
             with self.assertWarnsRegex(UserWarning,'Shortlist weight capture skipped'):
                 self.assertTrue(capture('b'*40,root=root,captured_at=NOW))
             health = json.loads((root/'performance/snapshots'/('b'*16)/'pipeline_health.json').read_text())
-            self.assertEqual(health['experiments'][trial.NAME], 'PRESENT_BUT_REJECTED')
+            self.assertNotIn(trial.NAME, health['experiments'])  # retired: health tracks live trials only
             (raw/(trial.NAME+'.json')).unlink(); self.assertIsNone(trial.capture_file(raw,summary['generated_at_utc']))
 
     def test_late_outside_window_invalid_only_and_absent_sidecars_supply_no_evidence(self):
@@ -190,22 +191,15 @@ class WeightTrialTests(OfflineQuotePolicyTestCase):
             (raw/'all_leagues_predictions.csv').write_text('changed')
             with self.assertRaises(ValueError): trial.capture_file(raw,summary['generated_at_utc'])
             trial.review_experiment(root,[],[],NOW)
+            # Retired: the archived report is neither queued nor rendered in the workbook.
             queue=write_queue(root,NOW)
-            item=next(r for r in queue['experiments'] if r['name']==trial.NAME)
-            self.assertEqual(item['status'],'COLLECT_MORE_DATA')
-            self.assertFalse(item['automatic_production_change'])
-            ready=next(r for r in experiment_rows(root,{'review_queue':queue}) if r[0]=='Shortlist probability / EV weights')
-            self.assertEqual(ready[4],'300 paired fixtures')
-            self.assertIn('100 more settled picks',ready[8])
+            self.assertNotIn(trial.NAME,[r['name'] for r in queue['experiments']])
+            self.assertFalse(any(r[0]=='Shortlist probability / EV weights' for r in experiment_rows(root,{'review_queue':queue})))
             workbook=write_workbook(root,[],[],{})
             with ZipFile(workbook) as z: parts={n:z.read(n) for n in z.namelist()}
             sheet=get_sheet(parts,'Experiments')
             displayed=' '.join(str(text(c) or '') for c in sheet.root.iter(q('c')))
-            self.assertIn('ALL selections primary',displayed)
-            self.assertIn('75% / 25%',displayed)
-            self.assertIn('Adaptive evidence',displayed)
-            self.assertIn('Calibration gap',displayed)
-            self.assertIn('Mean probability weight',displayed)
-            self.assertIn('Win rate 95% interval',displayed)
+            self.assertNotIn('ALL selections primary',displayed)
+            self.assertIn('Retired experiments are archived',displayed)
             report=root/'performance'/trial.NAME/'report.md'
             self.assertIn('No automatic production change',report.read_text())

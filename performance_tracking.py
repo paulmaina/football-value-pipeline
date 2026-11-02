@@ -182,42 +182,9 @@ def capture(commit_sha: str, *, root: Path = ROOT,
     if not eligible:
         print("No verifiable pre-kickoff fixtures; snapshot skipped.")
         return False
-    # Optional sidecar; stale/broken experiments must not block baseline capture.
-    try:
-        from shortlist_weight_experiment import capture_file as capture_weights
-        experiment = capture_weights(raw, summary.get('generated_at_utc'))
-        if experiment is not None:
-            files['shortlist_weight_experiment.json'] = experiment
-    except Exception as exc:
-        warnings.warn(f'Shortlist weight capture skipped ({type(exc).__name__})')
-    try:
-        from shortlist_policy_experiment import capture_file as capture_policy
-        experiment = capture_policy(raw, summary.get('generated_at_utc'))
-        if experiment is not None:
-            files['shortlist_policy_experiment.json'] = experiment
-    except Exception as exc:
-        warnings.warn(f'Shortlist policy capture skipped ({type(exc).__name__})')
-    try:
-        from goal_blend_experiment import capture_file
-        experiment = capture_file(raw, summary.get("generated_at_utc"))
-        if experiment is not None:
-            files["goal_blend_experiment.json"] = experiment
-    except Exception as exc:
-        warnings.warn(f"Shadow capture skipped: {exc}")
-    try:
-        from market_led_experiment import capture_file as capture_market_led
-        experiment = capture_market_led(raw, summary.get("generated_at_utc"))
-        if experiment is not None:
-            files["market_led_experiment.json"] = experiment
-    except Exception as exc:
-        warnings.warn(f"Market-led capture skipped ({type(exc).__name__})")
-    try:
-        from filter_sensitivity_experiment import capture_file as capture_filter
-        experiment = capture_filter(raw, summary.get("generated_at_utc"))
-        if experiment is not None:
-            files["filter_sensitivity_experiment.json"] = experiment
-    except Exception as exc:
-        warnings.warn(f"Filter sensitivity capture skipped ({type(exc).__name__})")
+    # Optional sidecars; stale/broken experiments must not block baseline capture.
+    # Retired experiments (archive/) are no longer captured; their archived
+    # snapshot files still load and verify through load_snapshot below.
     try:
         from benchmark_forward_experiment import capture_file as capture_benchmark
         experiment = capture_benchmark(raw, summary.get("generated_at_utc"))
@@ -225,12 +192,6 @@ def capture(commit_sha: str, *, root: Path = ROOT,
             files["benchmark_forward_experiment.json"] = experiment
     except Exception as exc:
         warnings.warn(f"Benchmark forward capture skipped ({type(exc).__name__})")
-    try:
-        from model_reliability_experiment import capture_file as capture_reliability
-        experiment = capture_reliability(raw, summary.get("generated_at_utc"))
-        if experiment is not None: files["model_reliability_experiment.json"] = experiment
-    except Exception as exc:
-        warnings.warn(f'Reliability capture skipped ({type(exc).__name__})')
     try:
         from bet365_pinnacle import capture_file as capture_bet365
         bet365 = capture_bet365(raw, summary.get("generated_at_utc"))
@@ -1046,45 +1007,10 @@ def review(*, root: Path = ROOT, token: str = "",
     except Exception as exc:
         warnings.warn(f'BBS forward comparison failed ({type(exc).__name__}); production report complete')
     try:
-        from goal_blend_experiment import review_experiment
-        review_experiment(root, archived, records, clock)
-    except Exception as exc:
-        warnings.warn(f"Shadow report failed; baseline report complete: {exc}")
-    try:
-        from market_led_experiment import review_experiment as review_market_led
-        review_market_led(root, archived, records, clock)
-    except Exception as exc:
-        warnings.warn(f"Market-led report failed ({type(exc).__name__}); baseline report complete")
-    try:
-        from recency_experiment import review_experiment as review_recency
-        review_recency(root, archived, records, clock)
-    except Exception as exc:
-        warnings.warn(f'Recency report failed ({type(exc).__name__}); baseline report complete')
-    try:
-        from shortlist_weight_experiment import review_experiment as review_weights
-        review_weights(root, archived, records, clock)
-    except Exception as exc:
-        warnings.warn(f'Shortlist weight report failed ({type(exc).__name__}); baseline report complete')
-    try:
-        from shortlist_policy_experiment import review_experiment as review_policy
-        review_policy(root, archived, records, clock)
-    except Exception as exc:
-        warnings.warn(f'Shortlist policy report failed ({type(exc).__name__}); baseline report complete')
-    try:
-        from filter_sensitivity_experiment import review_experiment as review_filter
-        review_filter(root, archived, records, clock)
-    except Exception as exc:
-        warnings.warn(f'Filter sensitivity report failed ({type(exc).__name__}); baseline report complete')
-    try:
         from benchmark_forward_experiment import review_experiment as review_benchmark
         review_benchmark(root, archived, records, clock)
     except Exception as exc:
         warnings.warn(f'Benchmark forward review failed ({type(exc).__name__}); production report complete')
-    try:
-        from model_reliability_experiment import review_experiment as review_reliability
-        review_reliability(root, archived, records, clock)
-    except Exception as exc:
-        warnings.warn(f'Reliability review failed ({type(exc).__name__}); production report complete')
     try:
         from totals_anchor_experiment import review_experiment as review_totals
         review_totals(root, archived, records, clock)
@@ -1095,11 +1021,6 @@ def review(*, root: Path = ROOT, token: str = "",
         review_closing(root, archived, clock)
     except Exception as exc:
         warnings.warn(f'Closing quote review failed ({type(exc).__name__}); production report complete')
-    try:
-        from model_comparison import review as review_model_comparison
-        review_model_comparison(root, archived, records, clock)
-    except Exception as exc:
-        warnings.warn(f'Model comparison review failed ({type(exc).__name__}); production report complete')
     try:
         from clv_report import build_report as build_clv_report
         build_clv_report(root, clock=clock)
