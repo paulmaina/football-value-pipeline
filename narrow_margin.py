@@ -273,11 +273,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument('--until', default=GATE_CUTOFF.date().isoformat(), help='train on matches before this date')
     parser.add_argument('--version', default=GATE_VERSION)
     parser.add_argument('--workers', type=int, default=len(DIVISIONS))
+    parser.add_argument('--divisions', nargs='+', default=list(DIVISIONS))
+    parser.add_argument('--model-dir', default=str(MODEL_DIR))
     args = parser.parse_args(argv)
-    frame = build_dataset(Path(args.cache_dir), workers=args.workers)
+    frame = build_dataset(Path(args.cache_dir), args.divisions, workers=args.workers)
     until = pd.Timestamp(args.until)
     model = finalise(train(frame, version=args.version, until=until), frame, until)
-    print(f"Saved {save(model)}: {model['training_matches']} matches "
+    print(f"Saved {save(model, Path(args.model_dir))}: {model['training_matches']} matches "
           f"{model['training_first_date']}..{model['training_last_date']}")
     return 0
 

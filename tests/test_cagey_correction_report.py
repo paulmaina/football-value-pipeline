@@ -99,6 +99,35 @@ class IntegrityTests(OfflineQuotePolicyTestCase):
         self.assertEqual((none['eligible_matches'], none['bets']), (0, 0))
 
 
+class EndToEndTests(OfflineQuotePolicyTestCase):
+    def test_fit_then_gate_on_one_real_season(self):
+        """2023/24 EPL: fit on Aug-Dec 2023 with narrow_margin's CLI, then gate on Jan-May 2024."""
+        import io
+        import json
+        import shutil
+        import tempfile
+        from contextlib import redirect_stdout
+        from pathlib import Path
+        source = Path(__file__).resolve().parents[1] / '.football_cache' / '2324_E0.csv'
+        with tempfile.TemporaryDirectory() as tmp:
+            cache, models, out = Path(tmp) / 'cache', Path(tmp) / 'models', Path(tmp) / 'out'
+            cache.mkdir()
+            shutil.copy(source, cache / source.name)
+            common = ['--cache-dir', str(cache), '--workers', '1', '--divisions', 'E0']
+            with redirect_stdout(io.StringIO()):
+                self.assertEqual(nm.main([*common, '--model-dir', str(models)]), 0)
+                self.assertEqual(report.main([*common, '--model-dir', str(models), '--output-dir', str(out),
+                                              '--bootstrap', '20']), 0)
+            model = nm.load(nm.GATE_VERSION, models)
+            summary = json.loads((out / 'summary.json').read_text(encoding='utf-8'))
+            text = (out / 'report.md').read_text(encoding='utf-8')
+        self.assertLess(pd.Timestamp(model['training_last_date']), nm.GATE_CUTOFF)
+        self.assertGreater(model['training_matches'], 100)
+        self.assertGreaterEqual(pd.Timestamp(summary['test_dates'][0]), nm.GATE_CUTOFF)
+        self.assertIn(summary['gate']['pass'], (True, False))
+        self.assertRegex(text, r'\*\*GATE: (PASS|FAIL)\*\*')
+
+
 class TagTests(OfflineQuotePolicyTestCase):
     def test_even_odds_from_close_uses_raw_odds_boundaries(self):
         frame = pd.DataFrame({'home_odds': [2.50, 2.49, 3.00, 4.0], 'away_odds': [2.50, 3.00, 2.49, 2.6],
