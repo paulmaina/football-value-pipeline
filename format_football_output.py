@@ -1364,7 +1364,7 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
     from price_edge_shortlist import OUTPUT_COLUMNS, REFERENCES
     headers = {
         "kickoff_utc": "Kickoff (UTC)", "league": "League", "home_team": "Home", "away_team": "Away",
-        "balanced": "Balanced", "low_total": "Low total", "high_draw": "High draw",
+        "balanced": "Balanced", "low_total": "Low total", "high_draw": "High draw", "even_odds": "Even odds",
         "pinnacle_draw_probability": "Pinnacle draw probability", "pinnacle_over_2_5_probability": "Pinnacle P(over 2.5)",
         "handicap_line": "AH line", "handicap_side": "Side", "side_role": "Favourite/underdog",
         "market_to_bet": "Market to bet", "bookmaker": "Bookmaker", "offered_decimal_odds": "Price",

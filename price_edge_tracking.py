@@ -5,7 +5,7 @@
    collects it): clv = entry odds x Pinnacle fair close win-share - 1, with
    the two-way margin removed proportionally, as in the selection rule.
    Splits: bookmaker, odds band, reference type, favourite/underdog side and
-   each narrow-margin tag (balanced, low_total, high_draw, any tag, no tag).
+   each narrow-margin tag (balanced, low_total, high_draw, even_odds, any tag, no tag).
 2. Records every TAGGED candidate, picked or rejected, with the offered price
    vs fair at capture and the final result, so the narrow-margin hypothesis
    is measured forward even when no pick is made.
@@ -38,7 +38,7 @@ COLUMNS = ['list_version', 'generated_at_utc', 'league', 'home_team', 'away_team
            'cagey_score', 'cagey_fit']
 EQUIVALENT = {'Home win': ('home', -0.5), 'Away win': ('away', -0.5),
               'Double Chance 1X': ('home', 0.5), 'Double Chance X2': ('away', 0.5)}
-SPLITS = ('bookmaker', 'odds_band', 'reference_type', 'side_role', 'balanced', 'low_total', 'high_draw', 'tagged',
+SPLITS = ('bookmaker', 'odds_band', 'reference_type', 'side_role', 'balanced', 'low_total', 'high_draw', 'even_odds', 'tagged',
           'cagey_quintile')
 QUINTILES = ('Q1 cagiest', 'Q2', 'Q3', 'Q4', 'Q5 most open')
 
