@@ -115,3 +115,29 @@ and writes `football_output_v2/performance/price_edge_v27/`: `summary.json`,
   The review adds the final result and the return at the capture fair price, so
   the narrow-margin hypothesis is measured even when no pick is made.
 - **History:** v26 and older history is unchanged.
+
+## More frequent price checks (off by default)
+
+`price_check.py` refreshes only the main odds request (`h2h`, `spreads`,
+`totals`), and only for leagues with a stored fixture inside 48 hours. It merges
+the fresh quotes into the stored forecast and re-runs v27 selection, then
+publishes and captures a new run. Nothing is refit, and no per-event request is
+made. The `Price checks` workflow fires hourly but does nothing unless both of these are set:
+
+- the repository variable `PRICE_CHECKS_ENABLED` is `true`;
+- the hour matches `PRICE_CHECK_INTERVAL_HOURS` (3, 4 or 6; default 4).
+
+Estimated Odds API credits per month for the price checks alone, from
+`python price_check.py --estimate`:
+
+- **Method:** 3 credits per league with a fixture in the next 48 hours, one region.
+- **Data:** 2024/25 kickoff dates for the 8 domestic leagues. UCL and UEL are
+  approximated by their midweek rounds.
+
+| Interval | Credits per month |
+|---|---:|
+| 3 hours | ~3,800 |
+| 4 hours | ~2,850 |
+| 6 hours | ~1,900 |
+
+For comparison, the daily full run uses about 95 credits, or about 2,850 a month.
