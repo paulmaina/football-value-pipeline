@@ -164,11 +164,20 @@ def raw_check(root, *, raw_dir=None):
                 require(report['league'] not in reliability, 'Duplicate shortlist reliability evidence')
                 reliability[report['league']] = report
             require(bool(reliability), 'Missing current shortlist reliability evidence')
-        expected, _, replay = build_conservative_shortlist(
-            pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False),
-            as_of=utc(summary['generated_at_utc']), market_reliability=reliability,
-            execution_policy=summary.get('quote_execution_policy'),
-            selection_policy_version=policy_version)
+        if policy_version == price_edge_cagey_shortlist.POLICY:
+            # Replay with the switches and model recorded for this run, not today's config.
+            import narrow_margin
+            expected, _, replay = price_edge_cagey_shortlist.build_shortlist(
+                pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), utc(summary['generated_at_utc']),
+                reliability, summary.get('quote_execution_policy'),
+                settings={k: summary.get(k) for k in price_edge_cagey_shortlist.SWITCHES},
+                model=narrow_margin.load(summary['cagey_model_version']) if summary.get('cagey_model_version') else None)
+        else:
+            expected, _, replay = build_conservative_shortlist(
+                pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False),
+                as_of=utc(summary['generated_at_utc']), market_reliability=reliability,
+                execution_policy=summary.get('quote_execution_policy'),
+                selection_policy_version=policy_version)
         actual = pd.read_csv(raw/'conservative_bet_shortlist.csv', low_memory=False)
         require(set(expected.columns).issubset(actual.columns), 'Missing current shortlist replay columns')
         # CSV blank strings deserialize as null, including empty strict-rule

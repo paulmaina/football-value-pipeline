@@ -25,6 +25,8 @@ import numpy as np
 import pandas as pd
 
 from price_edge_shortlist import POLICY, TAGS
+from price_edge_cagey_shortlist import POLICY as CAGEY_POLICY
+POLICIES = (POLICY, CAGEY_POLICY)  # v27 and v28 value-tier picks are graded together, split by policy.
 
 VERSION = 'price-edge-v27-tracking-v1'
 FILE = 'price_edge_tagged_candidates.csv'
@@ -230,7 +232,7 @@ def review(root: Path, archive, records: List[dict], clock) -> dict:
     from closing_odds import load_observations
     root = Path(root)
     observations, rejected = load_observations(root, clock)
-    picks = [r for r in frozen_rows(archive, 'shortlist', latest=True) if r.get('selection_policy_version') == POLICY]
+    picks = [r for r in frozen_rows(archive, 'shortlist', latest=True) if r.get('selection_policy_version') in POLICIES]
     graded = grade(picks, observations, records, clock)
     tagged = grade(frozen_candidates(root, archive), observations, records, clock)
     clv = graded['clv'] if len(graded) else pd.Series(dtype=float)

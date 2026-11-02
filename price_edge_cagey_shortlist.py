@@ -27,6 +27,8 @@ both off, v28 returns exactly v27's picks and decisions.
 """
 from __future__ import annotations
 
+import json
+from pathlib import Path
 from typing import Dict, List, Mapping, Optional
 
 import pandas as pd
@@ -53,6 +55,18 @@ REASON_ORDER = ('kickoff outside 20-minute to 48-hour window', v27.NO_OFFER, 'of
                 'offered odds above 3.00', 'edge below 2%', 'edge below 3%')
 PRICE_REASONS = ('offered price above 1.15 x fair odds', 'edge below 3%')
 DEFAULT_SETTINGS = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True}
+CONFIG = Path(__file__).with_name('cagey_correction_config.json')
+SWITCHES = ('cagey_correction_enabled', 'cagey_tier_enabled')
+
+
+def load_settings(path: Optional[Path] = None) -> Dict[str, object]:
+    """Switches and model version. A switch may be on only when the recorded holdout gate passed."""
+    data = json.loads(Path(path or CONFIG).read_text(encoding='utf-8-sig'))
+    if any(not isinstance(data.get(name), bool) for name in SWITCHES):
+        raise ValueError('cagey_correction_enabled and cagey_tier_enabled must be true or false')
+    if any(data[name] for name in SWITCHES) and nm.versions()['gate'].get('gate_result') != 'PASS':
+        raise ValueError('The cagey correction may only be switched on after GATE: PASS')
+    return {name: data[name] for name in (*SWITCHES, 'model_version')}
 TIER_LINES = (1.0, 1.25, 1.5, 1.75, 2.0, 2.25)
 TIER_MIN_NO_LOSS = 0.85
 TIER_QUANTILE = 0.20
@@ -210,13 +224,16 @@ def cagey_tier_list(decisions: pd.DataFrame) -> pd.DataFrame:
 
 def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, execution_policy=None, *,
                     settings: Optional[Mapping] = None, model: Optional[Mapping] = None):
-    """Value tier (and, in later changes, the cagey tier). Returns (shortlist, decisions, summary)."""
-    settings = {**DEFAULT_SETTINGS, **(settings or {})}
+    """Value tier and cagey tier. Returns (shortlist, decisions, summary); the tier is in `decisions`.
+
+    `settings` defaults to cagey_correction_config.json; replays pass the run's recorded settings.
+    """
+    settings = {**DEFAULT_SETTINGS, **(settings if settings is not None else load_settings())}
     switched_on = settings['cagey_correction_enabled'] or settings['cagey_tier_enabled']
     if not switched_on:
         selected, decisions, summary = v27.build_shortlist(predictions, as_of, market_reliability, execution_policy)
     else:
-        model = model or nm.production_model()
+        model = model or (nm.load(settings['model_version']) if settings.get('model_version') else nm.production_model())
         selected, decisions, summary = v27.build_shortlist(
             predictions, as_of, market_reliability, execution_policy,
             transform=make_transform(model, settings), extra_columns=[*VALUE_COLUMNS, *TIER_COLUMNS])

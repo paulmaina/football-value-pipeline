@@ -35,8 +35,9 @@ from price_edge_shortlist import POLICY as PRICE_EDGE_POLICY
 from price_edge_cagey_shortlist import POLICY as CAGEY_POLICY
 POLICIES = (*POLICIES, PRICE_EDGE_POLICY, CAGEY_POLICY)
 # New shortlists only; replays dispatch on each capture's recorded version.
-# v26 (NO_LOSS_CORNERS_POLICY) stays replayable for its archived captures.
-PRODUCTION_POLICY = PRICE_EDGE_POLICY
+# v26 (NO_LOSS_CORNERS_POLICY) and v27 (PRICE_EDGE_POLICY) stay replayable for
+# their archived captures. v28 became production after its holdout GATE: PASS.
+PRODUCTION_POLICY = CAGEY_POLICY
 MIN_ADJUSTED_EV = .01
 DEFAULT_RISK_TOLERANCE = .01  # Frozen v19-v21 default.
 MIN_ADJUSTED_NO_LOSS = .75
