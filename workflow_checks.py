@@ -30,7 +30,7 @@ LIVE_SIDECARS = ('benchmark_forward_experiment.json', 'totals_anchor_experiment.
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'collect_api_football_data.py', 'publish_api_football_data.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
-             'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'league_registry.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py', 'clv_report.py', 'market_implied_calibration.py', 'price_check.py')
+             'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'league_registry.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py', 'clv_report.py', 'market_implied_calibration.py', 'price_check.py', 'narrow_margin.py', 'cagey_correction_report.py')
 COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_football_integration.py':85,
     'win_first_shortlist.py':85, 'per_market_shortlist.py':85, 'corners_cards_shortlist.py':85, 'count_markets.py':85,
     'no_loss_corners_shortlist.py':85,
@@ -42,7 +42,7 @@ COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_footb
     'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85, 'turkey_results.py':90,
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
     'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'league_registry.py':90, 'recency_experiment.py':85, 'filter_sensitivity_experiment.py':85, 'historical_benchmark.py':85, 'benchmark_forward_experiment.py':85, 'experiment_review_queue.py':85, 'publish_scheduled_forecasts.py':80, 'totals_anchor_experiment.py':90, 'closing_odds.py':90, 'model_reliability_experiment.py':90, 'model_comparison.py':90,
-    'shortlist_replay.py':95, 'market_implied.py':95, 'market_implied_calibration.py':85, 'price_edge_shortlist.py':90, 'price_edge_tracking.py':90, 'price_check.py':90, 'staking.py':95, 'elo_ratings.py':95, 'match_simulation.py':95, 'pipeline_service.py':90, 'clv_report.py':90}
+    'shortlist_replay.py':95, 'market_implied.py':95, 'market_implied_calibration.py':85, 'price_edge_shortlist.py':90, 'price_edge_tracking.py':90, 'price_check.py':90, 'narrow_margin.py':90, 'cagey_correction_report.py':90, 'price_edge_cagey_shortlist.py':95, 'staking.py':95, 'elo_ratings.py':95, 'match_simulation.py':95, 'pipeline_service.py':90, 'clv_report.py':90}
 
 
 def require(condition, message):
