@@ -76,7 +76,7 @@ class MonitoringLayoutTests(OfflineQuotePolicyTestCase):
 
     def test_missing_reports_do_not_look_healthy(self):
         r=experiment_rows(self.root,None)
-        self.assertEqual(len(r),10)
+        self.assertEqual(len(r),2)  # live trials only; retired experiments are archived
         self.assertTrue(all(x[1]=='Report unavailable or stale' and x[2]=='Unavailable' for x in r))
         self.assertTrue(all('Regenerate' in x[8] for x in r))
 
@@ -85,11 +85,11 @@ class MonitoringLayoutTests(OfflineQuotePolicyTestCase):
         summary={'review_gates':{'minimum_paired_fixtures':450,'minimum_gameweeks':8,'minimum_verified_coverage':.9},'verified_coverage':.85,'rejected_snapshot_commits':['x']}
         (directory/'summary.json').write_text(json.dumps(summary))
         health={'review_queue':{'experiments':[{'name':'benchmark_forward_experiment','status':'DATA_QUALITY_BLOCKED','settled_evidence':450,'gameweeks':8,'evidence':'NO_CLEAR_PROMOTION_EVIDENCE'}]}}
-        values=experiment_rows(self.root,health)[4]
+        values=experiment_rows(self.root,health)[0]
         self.assertEqual(values[4],'450 paired fixtures');self.assertEqual(values[5],'8 / 8 ISO weeks');self.assertEqual(values[6],.85)
         self.assertIn('Coverage below 90%',values[8]);self.assertIn('Rejected snapshots',values[8])
         health['review_queue']['experiments'][0]['status']='READY_FOR_REVIEW'
-        self.assertIn('approval is separate',experiment_rows(self.root,health)[4][8])
+        self.assertIn('approval is separate',experiment_rows(self.root,health)[0][8])
 
     def test_health_sections_capture_states_formats_and_freeze_panes(self):
         path=write_workbook(self.root,[row('a')],[],{})
@@ -101,7 +101,7 @@ class MonitoringLayoutTests(OfflineQuotePolicyTestCase):
         contents=[text(c) for c in s.root.iter(q('c'))]
         self.assertIn('Near-close quote coverage',contents);self.assertIn('Training data freshness',contents)
         self.assertIn('Source completeness unverified',contents);self.assertIn('Capture failed',contents)
-        details=get_sheet(data,'Capture Details');self.assertEqual(text(details.cell('G6')),'CAPTURE_FAILED');self.assertEqual(text(details.cell('H6')),'CAPTURED')
+        details=get_sheet(data,'Capture Details');self.assertEqual(text(details.cell('C6')),'CAPTURE_FAILED');self.assertEqual(text(details.cell('D6')),'CAPTURED')
         select=get_sheet(data,'Selections');pane=select.root.find('.//'+q('pane'));self.assertEqual(pane.get('topLeftCell'),'E6')
         self.assertEqual(health,original)
         self.assertIsNotNone(get_sheet(data,'Experiments').root.find(q('conditionalFormatting')))

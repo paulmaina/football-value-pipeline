@@ -12,11 +12,12 @@ from functools import partial
 import numpy as np
 import pandas as pd
 
-import model_reliability_experiment as m
+import archive.model_reliability_experiment as m
 from football_value_pipeline_v2_standalone import DixonColesModel, build_parser, main
 from performance_tracking import capture, snapshots, write_json, verified_record
 from test_benchmark_forward_experiment import NOW
 from test_performance_tracking import final
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 
 
 class ToyModel:
@@ -109,33 +110,9 @@ class ReliabilityTests(OfflineQuotePolicyTestCase):
             self.assertTrue(all(c['status'] == 'DATA_QUALITY_BLOCKED' for c in summary['comparisons']))
             self.assertTrue(all(c['evidence'] == 'NO_CLEAR_PROMOTION_EVIDENCE' for c in summary['comparisons']))
 
-    def test_cli_flag_preserves_production_and_freezes_fit_failures(self):
-        from conservative_bet_filter import build_conservative_shortlist
-        data, history = inputs()
-        def run(pipe, key):
-            pipe._recency_history = history.copy(deep=True)
-            return data.copy(deep=True), {'training_end': '2026-10-02', 'training_matches': 2}, {}
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            with patch('conservative_bet_filter.build_conservative_shortlist', side_effect=partial(build_conservative_shortlist, as_of=NOW)), patch(
-                    'football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league', new=run), patch(
-                    'football_value_pipeline_v2_standalone.FootballValuePipelineV2._history_for_league', return_value=history), patch(
-                    'goal_market_validation.evaluate_market_history', return_value={'league': data.iloc[0]['league'], 'markets': {}}), patch(
-                    'football_value_pipeline_v2_standalone.DixonColesModel', ToyModel):
-                for enabled in (False, True):
-                    args = ['--leagues', 'EPL', '--out-dir', str(root/str(enabled))]
-                    if enabled: args.append('--reliability-experiment')
-                    self.assertEqual(main(args), 0)
-            for name in ('all_leagues_predictions.csv', 'EPL_predictions.csv', 'conservative_bet_shortlist.csv', 'conservative_bet_rejections.csv'):
-                self.assertEqual((root/'False'/name).read_bytes(), (root/'True'/name).read_bytes())
-            self.assertFalse((root/'False'/m.FILE).exists())
-            sidecar = json.loads((root/'True'/m.FILE).read_text())
-            self.assertEqual(sidecar['registry_sha256'], m.digest(m.REGISTRY))
-            candidates = sidecar['rows'][0]['candidates']
-            self.assertEqual(candidates['stronger_l2']['status'], 'available')
-            # Production now runs the fixed 480-day half-life, so that trial factor no longer differs.
-            self.assertEqual(candidates['fixed_half_life']['status'], 'unavailable')
-            self.assertEqual(candidates['fixed_half_life']['reason'], 'candidate_equals_production_half_life')
+    def test_retired_cli_flag_is_rejected(self):
+        with self.assertRaises(SystemExit):
+            build_parser().parse_args(['--reliability-experiment'])
 
     def test_separate_one_factor_fits_and_production_unchanged(self):
         data, history = inputs()
@@ -152,9 +129,6 @@ class ReliabilityTests(OfflineQuotePolicyTestCase):
             pd.testing.assert_frame_equal(trained, history_original)
         self.assertTrue(all(c['status'] == 'available' for c in rows[0]['candidates'].values()))
         self.assertEqual(rows[0]['baseline'], m.baseline(data.iloc[0]))
-        self.assertFalse(build_parser().parse_args([]).reliability_experiment)
-        with self.assertRaises(SystemExit):
-            main(['--reliability-experiment', '--backtest'])
 
     def test_matrix_and_blend_validation(self):
         data, _ = inputs()
@@ -245,7 +219,8 @@ class ReliabilityTests(OfflineQuotePolicyTestCase):
             with self.assertRaises(ValueError): m.validate_report(root)
             from experiment_review_queue import build_queue
             queue = build_queue(root, clock)
-            self.assertEqual(len([r for r in queue['experiments'] if r['name'] == 'model_reliability_experiment']), 2)
+            # Retired: archived trials no longer enter the review queue.
+            self.assertEqual([r for r in queue['experiments'] if r['name'] == 'model_reliability_experiment'], [])
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             raw, data, result = setup(root, rows=[])

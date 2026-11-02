@@ -3307,8 +3307,6 @@ class FootballValuePipelineV2(FootballValuePipeline):
 
         # Bind validation to the same immutable input frame used for this fit.
         self._validation_history = history.copy(deep=True)
-        if getattr(self, 'recency_experiment_enabled', False):
-            self._recency_history = history.copy(deep=True)
         model = DixonColesModel(
             half_life_days=self.half_life_days,
             l2=self.l2,
@@ -3979,14 +3977,6 @@ def build_parser() -> argparse.ArgumentParser:
                    help="Maximum additional event calls in ranked coverage mode (default: 24).")
     p.add_argument("--additional-odds-coverage", choices=["all", "ranked"], default="all",
                    help="all: request every linked fixture in the 48h window (more API credits); ranked: capped legacy mode")
-    p.add_argument("--market-led-experiment", action="store_true",
-                   help="Write a separate Pinnacle-reference double-chance paper experiment.")
-    p.add_argument("--market-led-max-age-minutes", type=float, default=10.0)
-    p.add_argument("--market-led-max-skew-minutes", type=float, default=5.0)
-    p.add_argument("--market-led-cost-bps", type=float, default=0.0,
-                   help="Experiment cost per unit staked in basis points; 100 bps = 1%%.")
-    p.add_argument("--goal-blend-experiment", action="store_true",
-                   help="Write separate uncalibrated goal-market shadow variants; no baseline changes.")
     p.add_argument("--seasons-back", type=int, choices=range(1, 11), default=None,
                    help="Explicit shared history override; otherwise domestic uses six seasons and UCL four; UEL always uses all verified cached history.")
     p.add_argument("--domestic-seasons-back", type=int, choices=range(1, 11), default=None,
@@ -4018,15 +4008,9 @@ def build_parser() -> argparse.ArgumentParser:
         help="Half-life candidates in days; 1e9 approximates no time decay.",
     )
     p.add_argument("--tune-validation-days", type=int, default=365)
-    p.add_argument("--recency-experiment", action="store_true",
-                   help=("Extend the goal sidecar with raw Over 1.5/BTTS half-life comparisons. Without "
-                         "--tune-half-life the tuning runs for this diagnostic only and never "
-                         "changes the production half-life."))
     p.add_argument("--tune-step-days", type=int, default=56)
     p.add_argument("--tune-min-train", type=int, default=250)
     p.add_argument("--tune-min-validation-matches", type=int, default=25)
-    p.add_argument("--reliability-experiment", action="store_true",
-                   help="Compare stronger L2 and fixed half-life fits prospectively; no production changes or extra odds requests.")
     p.add_argument("--l2", type=float, default=0.08)
     p.add_argument("--asian-handicap-quotes", type=Path, help="Optional fresh Pinnacle/bet365/1xBet event-odds JSON; exact event/team/kickoff binding required")
     p.add_argument("--max-goals", type=int, default=10,
@@ -4145,26 +4129,11 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     from api_key_config import load_api_keys
     load_api_keys(args.api_key_source)
 
-    market_led_settings = None
-    if args.market_led_experiment:
-        if args.backtest:
-            raise SystemExit("--market-led-experiment requires live pre-match quotes; cannot use --backtest")
-        from market_led_experiment import settings
-        try:
-            market_led_settings = settings(args.market_led_max_age_minutes,
-                args.market_led_max_skew_minutes, args.market_led_cost_bps)
-        except ValueError as exc:
-            raise SystemExit(str(exc)) from exc
-
     if args.tune_half_life and args.backtest:
         raise SystemExit(
             "--tune-half-life and --backtest cannot be combined because "
             "tuning on the same historical results would bias the backtest."
         )
-    if args.reliability_experiment and args.backtest:
-        raise SystemExit("--reliability-experiment requires live forecasts, not --backtest")
-    if args.recency_experiment and args.backtest:
-        raise SystemExit("--recency-experiment requires live forecasts, not --backtest")
     if args.auto_market_weight and args.backtest:
         raise SystemExit(
             "--auto-market-weight and --backtest cannot be combined: "
@@ -4173,7 +4142,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     if args.auto_market_weight:
         from market_blend_validation import select_market_weight
     legacy_comparison = not args.backtest and not args.no_legacy_comparison
-    if args.tune_half_life or args.recency_experiment or legacy_comparison:
+    if args.tune_half_life or legacy_comparison:
         # Lazy import preserves standalone operation without tuning enabled.
         from dc_decay_validation import tune_half_life
 
@@ -4242,11 +4211,8 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     }
     market_reliability = {}
     combined = []
-    recency_parts = []
-    reliability_rows = []
     benchmark_matrices = {}
     totals_shadow_inputs = {}
-    pipe.recency_experiment_enabled = args.recency_experiment or args.reliability_experiment
 
     for league_key in args.leagues:
         # Reset both per-competition settings before tuning; never carry a
@@ -4256,9 +4222,9 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         tuning = None
         market_selection = None
         pipe._legacy_half_life, pipe._legacy_status = None, None
-        if args.tune_half_life or args.recency_experiment or legacy_comparison:
+        if args.tune_half_life or legacy_comparison:
             purpose = ("production" if args.tune_half_life else
-                       "legacy comparison/recency diagnostic only; production stays fixed")
+                       "legacy comparison only; production stays fixed")
             print(f"[{league_key}] tuning Dixon-Coles half-life ({purpose})...", file=sys.stderr)
             try:
                 training = pipe._history_for_league(
@@ -4275,10 +4241,9 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                     step_days=args.tune_step_days,
                     min_train=args.tune_min_train,
                     min_validation_matches=args.tune_min_validation_matches,
-                    **({'collect_recency_metrics': True} if args.recency_experiment else {}),
                 )
             except (ValueError, RuntimeError) as exc:
-                if args.tune_half_life or args.recency_experiment:
+                if args.tune_half_life:
                     raise
                 # Legacy comparison only: production continues on its fixed half-life.
                 pipe._legacy_status = 'UNAVAILABLE_HALF_LIFE_TUNING_' + type(exc).__name__
@@ -4363,31 +4328,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                 benchmark_matrices[benchmark_fixture_key(source)] = matrix.copy()
                 totals_shadow_inputs[benchmark_fixture_key(source)] = pipe._totals_shadow_inputs.get((source["home_team"], source["away_team"], str(source.get("kickoff_utc"))))
         pipe._benchmark_trial_enabled = False
-        if args.reliability_experiment and not predictions.empty:
-            try:
-                from model_reliability_experiment import generate_league as reliability_generate
-                reliability_rows.extend(reliability_generate(predictions, pipe._recency_history,
-                    DixonColesModel, half_life=pipe.half_life_days, l2=pipe.l2, max_goals=pipe.max_goals,
-                    as_of=diagnostics.get('training_as_of_utc'), shot_features=pipe.shot_features))
-            except Exception as exc:
-                warnings.warn(f'{league_key}: reliability trial unavailable ({type(exc).__name__}); production outputs complete')
-        if args.recency_experiment and not predictions.empty:
-            try:
-                from recency_experiment import generate_league
-                recency_parts.append(generate_league(predictions,pipe._recency_history,
-                    DixonColesModel,tuning,league=LEAGUES[league_key].name,
-                    production_half_life=pipe.half_life_days,l2=pipe.l2,max_goals=pipe.max_goals,
-                    as_of=diagnostics.get('training_as_of_utc')))
-            except Exception as exc:
-                # Freeze failure coverage, not a fabricated replacement prediction.
-                recency_parts.append({'league':LEAGUES[league_key].name,
-                    'training_end':diagnostics['training_end'],'training_matches':diagnostics['training_matches'],
-                    'historical_audit':{'status':'GENERATION_FAILED','error':type(exc).__name__},
-                    'rows':[{**{k:r.get(k) for k in ('league','home_team','away_team','kickoff_utc')},
-                        'market':key,'status':'unavailable','reasons':['recency_generation_failed'],
-                        'variants':{},'half_lives':{},'candidate_errors':{}}
-                        for r in predictions.to_dict('records') for key in ('over_1_5','btts_yes')]})
-                warnings.warn(f'{league_key}: recency experiment unavailable ({type(exc).__name__}); baseline outputs complete')
         if market_selection is not None:
             diagnostics["market_weight_selection"] = {
                 "status": market_selection["status"],
@@ -4588,29 +4528,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         file=sys.stderr,
     )
 
-    if combined and not args.backtest and selection_summary['selection_policy_version'] != CURRENT_SELECTION_POLICY:
-        try:
-            from shortlist_weight_experiment import write_experiment as write_weights
-            write_weights(all_predictions, out_dir, selection_summary, decisions, market_reliability)
-        except Exception as exc:
-            warnings.warn(f"Shortlist weight comparison failed ({type(exc).__name__}); baseline outputs complete")
-
-    if combined and not args.backtest and selection_summary['selection_policy_version'] != CURRENT_SELECTION_POLICY:
-        try:
-            from shortlist_policy_experiment import write_experiment as write_policy_comparison
-            write_policy_comparison(all_predictions, out_dir, selection_summary,
-                                    decisions, market_reliability)
-        except Exception as exc:
-            warnings.warn(f"Shortlist policy comparison failed ({type(exc).__name__}); baseline outputs complete")
-
-    if combined and not args.backtest and selection_summary['selection_policy_version'] != CURRENT_SELECTION_POLICY:
-        try:
-            from filter_sensitivity_experiment import write_experiment as write_filter_sensitivity
-            write_filter_sensitivity(all_predictions, out_dir, selection_summary,
-                                     decisions, market_reliability)
-        except Exception as exc:
-            warnings.warn(f"Filter sensitivity experiment failed ({type(exc).__name__}); baseline outputs complete")
-
     if combined and not args.backtest:
         try:
             from benchmark_forward_experiment import write_experiment as write_benchmark_forward
@@ -4622,32 +4539,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
             write_totals_shadow(all_predictions, out_dir, selection_summary["generated_at_utc"], benchmark_matrices, totals_shadow_inputs)
         except Exception as exc:
             warnings.warn(f"Totals anchoring trial unavailable ({type(exc).__name__}); production outputs complete")
-
-    if args.reliability_experiment and combined and not args.backtest:
-        try:
-            from model_reliability_experiment import write_experiment as write_reliability
-            write_reliability(all_predictions, out_dir, selection_summary["generated_at_utc"], reliability_rows)
-        except Exception as exc:
-            warnings.warn(f'Reliability trial unavailable ({type(exc).__name__}); production outputs complete')
-
-    if (args.goal_blend_experiment or args.recency_experiment) and combined and not args.backtest:
-        try:
-            from goal_blend_experiment import write_experiment
-            write_experiment(all_predictions, out_dir, selection_summary["generated_at_utc"],
-                **({'recency_parts':recency_parts} if args.recency_experiment else {}))
-        except Exception as exc:
-            warnings.warn(f"Shadow experiment failed; baseline outputs complete: {exc}")
-
-    if args.market_led_experiment and combined:
-        try:
-            from market_led_experiment import write_experiment as write_market_led
-            experiment = write_market_led(all_predictions, out_dir,
-                selection_summary["generated_at_utc"], pipe.odds_api, market_led_settings)
-            print(f"Market-led paper experiment: {sum(r['selected'] for r in experiment['rows'])} selections; "
-                  f"see {out_dir / 'market_led_report.md'}", file=sys.stderr)
-        except Exception as exc:
-            # Optional research failure must not invalidate completed baseline output.
-            warnings.warn(f"Market-led experiment failed ({type(exc).__name__}); baseline outputs complete")
 
     return 0
 

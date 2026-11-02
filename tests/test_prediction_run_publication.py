@@ -332,23 +332,20 @@ class PruneCapturedRunsTests(OfflineQuotePolicyTestCase):
             self.assertEqual(len(runs.prune_captured_runs(root)),1)
 
 
-SIDECARS=('goal_blend_experiment.json','market_led_experiment.json')
+SIDECARS=('benchmark_forward_experiment.json','totals_anchor_experiment.json')
 
 
 def publish_with_sidecars(root, clock=T0, *, market='over_1_5', **kwargs):
-    """A run whose experiment sidecars are bound to its own generation, as the pipeline writes them."""
-    import hashlib
-    from goal_blend_experiment import VERSION as GOAL_VERSION
-    from market_led_experiment import VERSION as MARKET_VERSION
+    """A run whose live trial sidecars are bound to its own generation, as the pipeline writes them."""
+    import pandas as pd
+    from benchmark_forward_experiment import write_experiment as write_benchmark
+    from totals_anchor_experiment import write_experiment as write_totals
     with runs.stage_run(root/'raw') as staging:
         populate(staging, clock, **kwargs)
         generated=json.loads((staging/'conservative_bet_summary.json').read_text())['generated_at_utc']
-        forecast=hashlib.sha256((staging/'all_leagues_predictions.csv').read_bytes()).hexdigest()
-        row={k:fixture()[k] for k in ('league','home_team','away_team','kickoff_utc')}
-        write_json(staging/'goal_blend_experiment.json',{'version':GOAL_VERSION,'generated_at_utc':generated,
-            'predictions_sha256':forecast,'rows':[{**row,'market':market,'status':'available','variants':{'raw':.6}}]})
-        write_json(staging/'market_led_experiment.json',{'version':MARKET_VERSION,
-            'baseline_generated_at_utc':generated,'predictions_sha256':forecast,'rows':[]})
+        predictions=pd.read_csv(staging/'all_leagues_predictions.csv',low_memory=False)
+        write_benchmark(predictions, staging, generated, {})
+        write_totals(predictions, staging, generated, {}, {})
         raw_check(staging.parent)
         return runs.publish_run(staging, root/'raw')
 
@@ -439,7 +436,7 @@ class PruneSidecarTests(OfflineQuotePolicyTestCase):
         self.assertEqual(runs.resolve_raw(self.root/'raw'),current)
 
     def test_pruned_archive_still_loads_for_reporting_and_experiments(self):
-        from goal_blend_experiment import review_experiment
+        from benchmark_forward_experiment import review_experiment
         self.assertEqual(runs.prune_captured_runs(self.root),[self.old.name])
         self.assertFalse(self.old.exists())
         archived={m['prediction_run_id']:m for m,_,_ in snapshots(self.root)}
@@ -447,10 +444,10 @@ class PruneSidecarTests(OfflineQuotePolicyTestCase):
         for name in SIDECARS:
             self.assertEqual(archived[self.old.name]['sha256'][name],self.metadata['sha256'][name])
         self.assertEqual(len(archive_check(self.root)['snapshots']),2)
-        review_experiment(self.root,snapshots(self.root),[],T0+timedelta(hours=3))
-        summary=json.loads((self.root/'performance/goal_blend_experiment/summary.json').read_text())
-        # One fixture-market from each run's sidecar, including the pruned run's.
-        self.assertEqual(summary['total_fixture_markets'],2)
+        summary=review_experiment(self.root,snapshots(self.root),[],T0+timedelta(hours=3))
+        # Both runs' archived sidecars, including the pruned run's, are accepted.
+        self.assertEqual(summary['rejected_snapshot_commits'],[])
+        self.assertEqual(json.loads((self.root/'performance/benchmark_forward_experiment/summary.json').read_text()),summary)
         self.assertEqual(runs.capture_runs(self.root,'b'*40,captured_at=T0+timedelta(hours=3)),0)
 
 

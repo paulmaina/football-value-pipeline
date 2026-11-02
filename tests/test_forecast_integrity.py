@@ -5,8 +5,8 @@ from pathlib import Path
 import tempfile
 import unittest
 from forecast_integrity import forecast_digest_variants, snapshot_generated_at
-from goal_blend_experiment import capture_file as goal_capture, VERSION as GOAL_VERSION
-from market_led_experiment import capture_file as market_capture, VERSION as MARKET_VERSION
+from archive.goal_blend_experiment import capture_file as goal_capture, VERSION as GOAL_VERSION
+from archive.market_led_experiment import capture_file as market_capture, VERSION as MARKET_VERSION
 
 
 class ForecastLineEndingTests(OfflineQuotePolicyTestCase):
