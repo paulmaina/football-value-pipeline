@@ -1,5 +1,7 @@
 # Optional goal-market shadow experiment
 
+> **ARCHIVED 2026-11-02.** No longer generated, captured or reviewed by the scheduled run; the code is kept for replay in `archive/goal_blend_experiment.py` and the last report in `football_output_v2/performance/goal_blend_experiment/` is frozen. Commands below no longer work.
+
 This experiment is disabled by default. It never modifies model fitting, baseline probabilities, qualification rules, shortlist selection, or the Excel workbook. It makes no additional API requests. There is no automatic promotion, experimental betting policy, or claim of improved profitability.
 
 Enable it on a normal forecast run:

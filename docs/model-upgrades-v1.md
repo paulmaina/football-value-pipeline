@@ -86,6 +86,8 @@ The results are written as `legacy_*` columns in the forecast files
 `legacy_status`). No selection or staking code reads them. `--no-legacy-comparison`
 skips them.
 
+**Archived 2026-11-02:** this review moved to `archive/model_comparison.py` and no longer runs; its last report is frozen. The legacy companion columns are still generated for the benchmark-forward and totals-anchor trials.
+
 The Forward performance review (`model_comparison.py`) grades both models on the same
 settled matches. It writes `performance/model_comparison/report.md` and `summary.json`
 with log loss, Brier, match counts and mean distance to the Pinnacle closing fair

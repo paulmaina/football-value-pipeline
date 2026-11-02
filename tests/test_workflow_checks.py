@@ -344,7 +344,11 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertEqual(set(matrix['python']),{'3.12','3.14'})
         self.assertEqual(ci['permissions']['contents'],'read')
         self.assertEqual(review_workflow['permissions']['contents'],'write')
-        self.assertIn('football_output_v2/raw/goal_blend_experiment.json',review_workflow['on']['push']['paths'])
+        paths=review_workflow['on']['push']['paths']
+        self.assertIn('football_output_v2/raw/benchmark_forward_experiment.json',paths)
+        self.assertIn('shortlist_replay.py',paths)
+        # Retired experiments (archive/) no longer trigger the forward review.
+        self.assertNotIn('football_output_v2/raw/goal_blend_experiment.json',paths)
         self.assertEqual(review_workflow['concurrency']['cancel-in-progress'],'false')
         for workflow in (ci,review_workflow):
             steps=next(iter(workflow['jobs'].values()))['steps']
