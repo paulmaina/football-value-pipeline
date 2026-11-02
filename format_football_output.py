@@ -1359,6 +1359,55 @@ def process_bet365_list(input_dir: Path, output_dir: Path) -> Optional[int]:
     return len(readable)
 
 
+def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: Path) -> int:
+    """Readable v27 price-edge shortlist: safest first, one row per fixture."""
+    from price_edge_shortlist import OUTPUT_COLUMNS, REFERENCES
+    headers = {
+        "kickoff_utc": "Kickoff (UTC)", "league": "League", "home_team": "Home", "away_team": "Away",
+        "balanced": "Balanced", "low_total": "Low total", "high_draw": "High draw",
+        "pinnacle_draw_probability": "Pinnacle draw probability", "pinnacle_over_2_5_probability": "Pinnacle P(over 2.5)",
+        "handicap_line": "AH line", "handicap_side": "Side", "side_role": "Favourite/underdog",
+        "market_to_bet": "Market to bet", "bookmaker": "Bookmaker", "offered_decimal_odds": "Price",
+        "fair_odds": "Fair odds", "reference_type": "Reference", "edge": "Edge",
+        "minimum_odds": "Minimum odds still worth taking", "pinnacle_no_loss_probability": "Pinnacle no-loss probability",
+        "offered_quote_age_minutes": "Offered quote age (min)", "pinnacle_quote_age_minutes": "Pinnacle quote age (min)",
+        "model_vs_pinnacle_gap": "Model vs Pinnacle gap (info only)", "other_value_lines": "Other value lines"}
+    readable = raw.reindex(columns=OUTPUT_COLUMNS).rename(columns=headers)
+    if not readable.empty:
+        for column in ("Pinnacle draw probability", "Pinnacle P(over 2.5)", "Pinnacle no-loss probability"):
+            readable[column] = readable[column].map(pct)
+        readable["Edge"] = readable["Edge"].map(signed_pct)
+        readable["Model vs Pinnacle gap (info only)"] = readable["Model vs Pinnacle gap (info only)"].map(signed_pct)
+        for column in ("Price", "Fair odds", "Minimum odds still worth taking"):
+            readable[column] = readable[column].map(decimal)
+        for column in ("Offered quote age (min)", "Pinnacle quote age (min)"):
+            readable[column] = readable[column].map(lambda v: decimal(v, 0))
+        readable["AH line"] = raw["handicap_line"].map(lambda v: f"{float(v):+.2f}")
+        readable["Reference"] = raw["reference_type"].map(lambda v: f"{v}: {REFERENCES.get(v, v)}")
+    readable.to_csv(output_dir / "conservative_bet_shortlist_readable.csv", index=False, encoding="utf-8-sig")
+    rejected = summary.get("rejection_counts") or {}
+    lines = [
+        "# Asian handicap price edge vs Pinnacle (v27)", "",
+        f"**Generated (UTC):** {summary.get('generated_at_utc') or 'not recorded'}. **Picks:** {len(readable)} "
+        f"(one per match, no cap, safest first). **Status:** {summary.get('status')}.",
+        f"**Rule:** edge = price x Pinnacle fair win-share - 1, at least {pct(summary.get('min_edge'))} against Pinnacle "
+        f"(a: same AH line, b: equivalent market) or {pct(summary.get('min_edge_derived'))} against the derived "
+        "market-implied price (c: plus lines only). Odds above 3.00, prices above 1.15 x fair, quotes more than "
+        "10 minutes apart and Pinnacle overrounds outside [1.00, 1.10] are rejected.",
+        "**Tags** (balanced, low total, high draw) are tracked hypotheses only; they never change a pick.",
+        "**Model vs Pinnacle gap** is information only; the model does not select picks.", "",
+        "> A price edge is not a guaranteed profit. Grade it by closing line value against the Pinnacle close.", "",
+        "## Picks", "",
+        markdown_table(list(readable.columns), readable.astype(str).values.tolist()) if not readable.empty
+        else "No pick this run: no candidate cleared the price-edge rule.", "",
+        "## Rejections by reason", "",
+        markdown_table(["Reason", "Candidates"], [[k, v] for k, v in rejected.items()]) if rejected else "None.", "",
+        f"Tagged candidates: {summary.get('tagged_candidates')}.",
+    ]
+    (output_dir / "conservative_bet_shortlist_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return len(readable)
+
+
 def process_conservative_shortlist(
     input_dir: Path,
     output_dir: Path,
@@ -1385,6 +1434,9 @@ def process_conservative_shortlist(
         raw = pd.DataFrame()
 
     summary = load_json_file(input_dir / "conservative_bet_summary.json")
+    from price_edge_shortlist import OBJECTIVE as PRICE_EDGE_OBJECTIVE
+    if summary.get('selection_objective') == PRICE_EDGE_OBJECTIVE:
+        return process_price_edge_shortlist(raw, summary, output_dir)
     balanced = summary.get('selection_objective') == 'BALANCED_PROBABILITY_EV'
     per_market = summary.get('selection_objective') == 'PER_MARKET_PROBABILITY_WEIGHTED'
     win_first = per_market or summary.get('selection_objective') == 'MAXIMIZE_PROFITABLE_WIN_PROBABILITY'

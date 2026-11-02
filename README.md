@@ -170,7 +170,7 @@ fresh `main`:
 1. **Generate**: `football_value_pipeline_v2_standalone.py --leagues <all
    registry leagues> --additional-odds-coverage all`. This writes production
    probabilities (`dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2`),
-   the v26 shortlist and two forward-trial sidecars: `benchmark_forward_experiment.json`
+   the v27 price-edge shortlist ([rules](docs/price-edge-shortlist-v27.md)) and two forward-trial sidecars: `benchmark_forward_experiment.json`
    and `totals_anchor_experiment.json`, plus `bet365_vs_pinnacle.csv`.
    The legacy companion (`legacy_*` columns and its half-life tuning) still
    runs, only because both trials are frozen against it. It is never used for
@@ -185,7 +185,8 @@ fresh `main`:
    experiment review queue (the two live trials) and pipeline health.
 
 Separate workflows collect closing odds and refresh training data. Offline only,
-never scheduled: `ah_close_backtest.py` and `historical_benchmark.py`.
+never scheduled: `ah_close_backtest.py`, `price_edge_backtest.py`,
+`market_implied_calibration.py` and `historical_benchmark.py`.
 
 **Retired (2026-11-02).** These experiments are no longer generated, captured or
 reviewed: goal blend, market-led, recency, model reliability, shortlist weight,
