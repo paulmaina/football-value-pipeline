@@ -4,6 +4,8 @@ import math
 from pathlib import Path
 
 CONFIG = Path(__file__).with_name('shortlist_quote_policy.json')
+# Exact bookmaker titles The Odds API returns (EU region), by provider key.
+ODDS_API_TITLES = {'pinnacle': 'Pinnacle', 'onexbet': '1xBet'}
 
 
 def is_exchange(name):
