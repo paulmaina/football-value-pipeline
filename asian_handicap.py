@@ -31,8 +31,11 @@ from corners_cards_shortlist import POLICY as CORNERS_CARDS_POLICY
 PER_MARKET_POLICIES = (PER_MARKET_POLICY, CORNERS_CARDS_POLICY)
 WIN_FIRST_POLICIES = (WIN_FIRST_POLICY, *PER_MARKET_POLICIES)
 POLICIES = (*POLICIES, *WIN_FIRST_POLICIES)
+from price_edge_shortlist import POLICY as PRICE_EDGE_POLICY
+POLICIES = (*POLICIES, PRICE_EDGE_POLICY)
 # New shortlists only; replays dispatch on each capture's recorded version.
-PRODUCTION_POLICY = NO_LOSS_CORNERS_POLICY
+# v26 (NO_LOSS_CORNERS_POLICY) stays replayable for its archived captures.
+PRODUCTION_POLICY = PRICE_EDGE_POLICY
 MIN_ADJUSTED_EV = .01
 DEFAULT_RISK_TOLERANCE = .01  # Frozen v19-v21 default.
 MIN_ADJUSTED_NO_LOSS = .75
@@ -264,6 +267,9 @@ def _rank_risk_band(pool, tolerance):
 
 def ordinary_markets(policy_version):
     """Versioned eligibility keeps frozen forecasts replayable."""
+    if policy_version == PRICE_EDGE_POLICY:
+        # Markets that settle exactly as an AH line; the draw is never a pick.
+        return ['Home win', 'Away win', 'Double Chance 1X', 'Double Chance X2']
     if policy_version in (*ALTERNATIVE_POLICIES, *WIN_FIRST_POLICIES):
         return ['Home win', 'Away win', 'Over 1.5',
                 'Double Chance 1X', 'Double Chance X2', 'Double Chance 12']
@@ -316,6 +322,11 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
     if _required_ev is not None and (policy_version != POLICY or
             not math.isfinite(_required_ev) or not 0 <= _required_ev <= 1):
         raise ValueError("Internal EV floor requires the common no-loss evaluator")
+    if policy_version == PRICE_EDGE_POLICY:
+        if adjusted_ev_floor is not None:
+            raise ValueError('The price-edge policy does not accept an EV floor')
+        from price_edge_shortlist import build_shortlist as build_v27
+        return build_v27(predictions, as_of, market_reliability, execution_policy)
     if policy_version == NO_LOSS_CORNERS_POLICY:
         if adjusted_ev_floor is not None:
             raise ValueError('This Asian handicap policy does not accept a custom EV floor')
@@ -572,6 +583,9 @@ def best_per_match(decisions):
     subset = decisions.loc[decisions.market.map(lambda x: parse_label(x) is not None) &
                            decisions.rejection_reasons.fillna('').eq('')].copy()
     subset['_fixture'] = subset.apply(fixture_key,axis=1) if len(subset) else pd.Series(dtype=str)
+    if 'reference_type' in decisions:
+        from price_edge_shortlist import _rank
+        return _rank(subset).drop_duplicates('_fixture').drop(columns='_fixture').reset_index(drop=True)
     if 'probability_basis' in decisions and decisions.probability_basis.eq('net_profit').any():
         from win_first_shortlist import rank_candidates
         return rank_candidates(subset).drop(columns='_fixture').reset_index(drop=True)

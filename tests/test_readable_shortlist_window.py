@@ -102,7 +102,11 @@ class FormatterIntegrationTests(OfflineQuotePolicyTestCase):
             for key, league in [('EPL', 'Premier League'), ('UCL', 'UEFA Champions League')]:
                 report = dict(sample_report(), league=league)
                 (raw / f'{key}_goal_market_validation.json').write_text(json.dumps(report))
-            summary = refresh(root, as_of=NOW)
+            # Refresh mechanics under the archived v26 rules this fixture set was built for.
+            import refresh_conservative_shortlist, no_loss_corners_shortlist
+            from unittest.mock import patch
+            with patch.object(refresh_conservative_shortlist, 'CURRENT_SELECTION_POLICY', no_loss_corners_shortlist.POLICY):
+                summary = refresh(root, as_of=NOW)
             picks = pd.read_csv(raw / 'conservative_bet_shortlist.csv')
             self.assertEqual(picks.fixture_id.tolist(), [rows[1]['fixture_id']])
             self.assertNotIn('Under 3.5', picks.market.tolist())

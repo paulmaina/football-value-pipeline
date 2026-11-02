@@ -20,6 +20,18 @@ def probabilities(pred):
     return out
 
 
+def outcome_labels(home, away):
+    """Casefolded provider outcome names for each double chance key."""
+    labels={}
+    for key,left,right,short in [('home_draw',home,'Draw','1X'),
+                                ('draw_away',away,'Draw','X2'),
+                                ('home_away',home,away,'12')]:
+        for name in (f'{left} or {right}',f'{right} or {left}',
+                     f'{left}/{right}',f'{right}/{left}',short):
+            labels[name.casefold()] = key
+    return labels
+
+
 def parse_quotes(payload, *, as_of=None):
     """Normalize a complete overlapping DC book to total probability two.
 
@@ -36,13 +48,7 @@ def parse_quotes(payload, *, as_of=None):
     home,away = payload.get('home_team'),payload.get('away_team')
     if not isinstance(home,str) or not isinstance(away,str) or home==away:
         return {}
-    labels={}
-    for key,left,right,short in [('home_draw',home,'Draw','1X'),
-                                ('draw_away',away,'Draw','X2'),
-                                ('home_away',home,away,'12')]:
-        for name in (f'{left} or {right}',f'{right} or {left}',
-                     f'{left}/{right}',f'{right}/{left}',short):
-            labels[name.casefold()] = key
+    labels=outcome_labels(home,away)
     offers=[]
     books=payload.get('bookmakers')
     if not isinstance(books,list): return {}

@@ -29,6 +29,13 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             row.update(p_under_3_5=.99, raw_p_under_3_5=.98, league=cfg.name,odds_event_id='event'+str(i),fixture_id='event'+str(i),
                        home_training_matches=12, away_training_matches=12, market_best_over_1_5_last_update_utc=NOW.isoformat())
             row.update(best_home_bookmaker='Pinnacle',best_away_bookmaker='Pinnacle',best_over_1_5_bookmaker='Pinnacle')
+            # v27: Pinnacle 1X2 is the fair reference; 1xBet's home price is 3.8% above it.
+            stamp=(NOW-timedelta(minutes=1)).isoformat()
+            row['price_edge_quotes']=json.dumps([
+                {'bookmaker':'Pinnacle','market':'h2h','market_key':'h2h','point':None,'last_update_utc':stamp,
+                 'prices':{'home':2.0,'draw':3.5,'away':4.0}},
+                {'bookmaker':'1xBet','market':'h2h','market_key':'h2h','point':None,'last_update_utc':stamp,
+                 'prices':{'home':2.15,'draw':3.4,'away':3.9}}])
             frames[key]=pd.DataFrame([row])
             match={'id':i+1,'status':'FINISHED','utcDate':row['kickoff_utc'],
                 'homeTeam':{'name':row['home_team']},'awayTeam':{'name':row['away_team']},
@@ -67,9 +74,12 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertNotIn('Both Teams to Score - Yes', picks.market.tolist())
                 self.assertTrue(pd.read_csv(raw/'all_leagues_predictions.csv').p_under_3_5.eq(.99).all())
                 summary = json.loads((raw/'conservative_bet_summary.json').read_text())
-                self.assertEqual(summary['selection_policy_version'], '48h-zero-tolerance-ev05-no-loss75-corners-v26')
-                self.assertTrue({'Home win','Away win','Over 1.5','Double Chance 1X','Double Chance X2','Double Chance 12'}.issubset(summary['eligible_markets']))
-                self.assertNotIn('Draw',summary['eligible_markets'])
+                self.assertEqual(summary['selection_policy_version'], '48h-ah-price-edge-pinnacle-ref-v27')
+                self.assertTrue({'Home win','Away win','Double Chance 1X','Double Chance X2'}.issubset(summary['eligible_markets']))
+                for excluded in ('Draw','Over 1.5','Double Chance 12'):
+                    self.assertNotIn(excluded,summary['eligible_markets'])
+                self.assertEqual(set(picks.market),{'Home win'})
+                self.assertEqual(set(picks.bookmaker),{'1xBet'})
                 self.assertIn('Asian Handicap Home +0.00', summary['eligible_markets'])
                 self.assertEqual(format_main(['--root-dir',str(root)]),0)
                 readable = pd.read_csv(root/'readable/conservative_bet_shortlist_readable.csv')
@@ -81,7 +91,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 data=report_check(root)
             self.assertEqual(data['status'],'VERIFIED_WITH_WARNINGS')
             self.assertIn('UCL training/source health: DOWNLOAD_NOT_VERIFIED',data['warnings'])
-            # v26 has no market quotas: every qualifying toy fixture gets one pick.
+            # v27 has no cap: every toy fixture with a qualifying price gets one pick.
             self.assertEqual(len(picks),len(keys))
             self.assertEqual(picks.selection_tier.unique().tolist(),['STRICT'])
             # Leagues without a verified-results source (Super Lig) stay ungraded.

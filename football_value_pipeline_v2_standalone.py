@@ -968,6 +968,7 @@ class TheOddsAPI:
         from quote_freshness import quote_clock, quote_is_fresh, quote_utc
         from asian_handicap import parse_quotes as parse_handicap_quotes
         from bet365_pinnacle import compare_event as compare_bet365
+        from price_edge_shortlist import capture_quotes as capture_price_edge
         clock = quote_clock(as_of) if as_of is not None else None
         event_id = str(event.get("id") or "")
         home = str(event.get("home_team") or "")
@@ -1159,6 +1160,8 @@ class TheOddsAPI:
             "pinnacle_totals_lines": pinnacle_lines,
             "_main_over_1_5_offers": main_over15,
             "asian_handicap_offers": json.dumps(parse_handicap_quotes(event, clock), sort_keys=True),
+            # Per-book 1X2 and O/U 2.5 for the v27 price-edge policy (Pinnacle reference, 1xBet offers).
+            "price_edge_quotes": json.dumps(capture_price_edge(event, clock, ("h2h", "totals")), sort_keys=True),
             # Same response, same capture instant; no extra request (live only).
             "bet365_pinnacle_quotes": "[]" if clock is None else json.dumps(
                 compare_bet365(event, clock), sort_keys=True, allow_nan=False),
@@ -1333,7 +1336,11 @@ class TheOddsAPI:
         asian_offers = parse_handicaps(payload, clock)
         if asian_offers:
             result['asian_handicap_offers'] = json.dumps(asian_offers, sort_keys=True, allow_nan=False)
-        if asian_offers:
+        from price_edge_shortlist import capture_quotes as capture_price_edge
+        edge_quotes = capture_price_edge(payload, clock, ("double_chance", "alternate_totals"))
+        if edge_quotes:
+            result['price_edge_quotes'] = json.dumps(edge_quotes, sort_keys=True, allow_nan=False)
+        if asian_offers or edge_quotes:
             result['_asian_handicap_identity'] = {k:payload.get(k) for k in ('home_team','away_team','commence_time')}
         for market, available in offers.items():
             result.update(self._goal_quote_fields(market, available, as_of=clock))
@@ -3264,6 +3271,8 @@ class FootballValuePipelineV2(FootballValuePipeline):
         quotes = row.get("bet365_pinnacle_quotes")
         pred["bet365_pinnacle_quotes"] = quotes if isinstance(quotes, str) else "[]"
         pred['asian_handicap_offers'] = row.get('asian_handicap_offers', '[]')
+        edge_quotes = row.get('price_edge_quotes')
+        pred['price_edge_quotes'] = edge_quotes if isinstance(edge_quotes, str) else '[]'
         add_value_metrics(pred, snapshot)
         primary = row.get("_main_over_1_5_offers")
         if isinstance(primary, (list, tuple)):
@@ -3469,6 +3478,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
                     merged = json.loads(pred.get('asian_handicap_offers') or '[]')+json.loads(extra['asian_handicap_offers'])
                     unique = {(x['side'], x['line'], x['bookmaker']):x for x in sorted(merged,key=lambda x:(x['last_update_utc'],x['price']))}
                     extra['asian_handicap_offers'] = json.dumps(list(unique.values()),sort_keys=True)
+                if 'price_edge_quotes' in extra:
+                    from price_edge_shortlist import merge_quotes as merge_price_edge
+                    extra['price_edge_quotes'] = merge_price_edge(
+                        pred.get('price_edge_quotes'), [] if identity_rejected else extra['price_edge_quotes'])
                 if identity_rejected:
                     bet365_extra = []
                 from bet365_pinnacle import merge as merge_bet365

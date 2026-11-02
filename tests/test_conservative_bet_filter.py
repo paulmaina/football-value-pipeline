@@ -354,11 +354,11 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
             self.assertTrue((raw / "conservative_bet_rejections.csv").exists())
             self.assertTrue((raw / "conservative_bet_summary.json").exists())
             self.assertEqual(len(list((raw / "shortlist_history").glob("*.csv"))), 1)
-            self.assertEqual(
-                json.loads((raw / "conservative_bet_summary.json").read_text())[
-                    "target_distinct_matches"
-                ], 12
-            )
+            summary = json.loads((raw / "conservative_bet_summary.json").read_text())
+            # Production v27 picks one line per fixture with no cap.
+            from asian_handicap import PRODUCTION_POLICY
+            self.assertEqual(summary["selection_policy_version"], PRODUCTION_POLICY)
+            self.assertIsNone(summary["target_distinct_matches"])
 
 
 if __name__ == "__main__":
