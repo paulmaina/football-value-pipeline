@@ -54,6 +54,9 @@ RECENT_SEASON = '2526'
 MIN_READABLE_BETS = 30  # same-line bets below which an interval is reported but not called.
 WEEK_START = 1  # Tuesday, as the close backtest's gameweek blocks.
 OUTPUT_DIR = Path('football_output_v2') / 'performance' / 'price_edge_backtest'
+BET_COLUMNS = ('date', 'week', 'league', 'season', 'home_team', 'away_team', 'home_goals', 'away_goals',
+               'line', 'close_line', 'same_line', 'line_type', 'side', 'side_line', 'quoted_odds', 'odds',
+               'fair_open_p', 'edge', 'clv', 'profit', 'odds_band', 'side_role', 'source')
 
 
 # ---------------------------------------------------------------------------
@@ -326,6 +329,14 @@ def write_report(summary: Dict[str, object], path: Path) -> None:
     path.write_text('\n'.join(parts) + '\n', encoding='utf-8')
 
 
+def export_bets(candidates: Dict[str, pd.DataFrame]) -> pd.DataFrame:
+    """Every 2% bet across sources; headers only when no source has a usable match."""
+    frames = [select_bets(f).assign(source=s) for s, f in candidates.items() if len(f)]
+    if not frames:
+        return pd.DataFrame(columns=list(BET_COLUMNS))
+    return pd.concat(frames, ignore_index=True)[list(BET_COLUMNS)]
+
+
 def available_seasons(cache_dir: Path, division: str) -> List[str]:
     return sorted(p.name.split('_')[0] for p in Path(cache_dir).glob(f'[0-9][0-9][0-9][0-9]_{division}.csv'))
 
@@ -357,8 +368,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     summary['seasons'] = sorted(history['Season'].unique())
     summary['usable_by_source_season'] = {s: f.groupby('season').size().to_dict() if len(f) else {}
                                           for s, f in candidates.items()}
-    bets = pd.concat([select_bets(f).assign(source=s) for s, f in candidates.items() if len(f)], ignore_index=True)
-    bets.to_csv(out_dir / 'bets.csv', index=False)
+    export_bets(candidates).to_csv(out_dir / 'bets.csv', index=False)
     (out_dir / 'summary.json').write_text(json.dumps(summary, indent=2, default=_json_default), encoding='utf-8')
     write_report(summary, out_dir / 'report.md')
     print('\n'.join(verdict(summary)))
