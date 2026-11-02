@@ -66,15 +66,20 @@ class ScheduleTests(OfflineQuotePolicyTestCase):
         self.assertGreater(estimate['4h'], estimate['6h'])
 
 
+def event(data, **fields):
+    """A flattened odds event for `data`'s fixture, as TheOddsAPI.odds returns it."""
+    return {'fixture_id': data['fixture_id'], '_odds_home_team': data['home_team'],
+            '_odds_away_team': data['away_team'], '_odds_commence_time': data['kickoff_utc'], **fields}
+
+
 class MergeTests(OfflineQuotePolicyTestCase):
     def test_newest_quote_wins_and_unmatched_rows_are_untouched(self):
         old = forecast(offers=[offer('home', -0.75, 1.90, stamp='2026-11-07T08:00:00+00:00')])
         other = forecast(home='Other')
-        fresh = pd.DataFrame([{'fixture_id': old['fixture_id'],
-                               'asian_handicap_offers': json.dumps([offer('home', -0.75, 2.10)]),
-                               'price_edge_quotes': json.dumps([{'bookmaker': '1xBet', 'market': 'h2h', 'market_key': 'h2h',
-                                                                 'point': None, 'prices': {'home': 2.2, 'draw': 3.3, 'away': 3.6},
-                                                                 'last_update_utc': FRESH}])}])
+        fresh = pd.DataFrame([event(old, asian_handicap_offers=json.dumps([offer('home', -0.75, 2.10)]),
+                                    price_edge_quotes=json.dumps([{'bookmaker': '1xBet', 'market': 'h2h', 'market_key': 'h2h',
+                                                                   'point': None, 'prices': {'home': 2.2, 'draw': 3.3, 'away': 3.6},
+                                                                   'last_update_utc': FRESH}]))])
         merged = price_check.merge_odds(pd.DataFrame([old, other]), fresh)
         offers = json.loads(merged.iloc[0].asian_handicap_offers)
         mine = [o for o in offers if o['bookmaker'] == '1xBet']
@@ -82,6 +87,24 @@ class MergeTests(OfflineQuotePolicyTestCase):
         self.assertTrue(any(q['bookmaker'] == '1xBet' for q in json.loads(merged.iloc[0].price_edge_quotes)))
         self.assertEqual(merged.iloc[1].asian_handicap_offers, other['asian_handicap_offers'])
         self.assertTrue(price_check.merge_odds(pd.DataFrame([old]), pd.DataFrame()).equals(pd.DataFrame([old])))
+
+    def test_event_with_other_teams_or_moved_kickoff_is_not_merged(self):
+        stored = forecast(offers=[offer('home', -0.75, 1.90, stamp='2026-11-07T08:00:00+00:00')])
+        prices = json.dumps([offer('home', -0.75, 2.10)])
+        later = (NOW + pd.Timedelta(days=8)).isoformat()
+        for changed in ({'_odds_home_team': 'Different FC', '_odds_away_team': 'Other United'},
+                        {'_odds_away_team': 'Other United'},
+                        {'_odds_commence_time': later},
+                        {'_odds_commence_time': (pd.Timestamp(stored['kickoff_utc']) + pd.Timedelta(minutes=6)).isoformat()},
+                        {'_odds_commence_time': None}):
+            merged = price_check.merge_odds(pd.DataFrame([stored]),
+                                            pd.DataFrame([event(stored, asian_handicap_offers=prices, price_edge_quotes='[]', **changed)]))
+            self.assertEqual(merged.iloc[0].asian_handicap_offers, stored['asian_handicap_offers'], changed)
+            self.assertEqual(merged.iloc[0].home_team, stored['home_team'])
+        within = (pd.Timestamp(stored['kickoff_utc']) + pd.Timedelta(minutes=4)).isoformat()
+        merged = price_check.merge_odds(pd.DataFrame([stored]), pd.DataFrame(
+            [event(stored, asian_handicap_offers=prices, price_edge_quotes='[]', _odds_commence_time=within)]))
+        self.assertIn(2.10, [o['price'] for o in json.loads(merged.iloc[0].asian_handicap_offers)])
 
 
 class CheckTests(OfflineQuotePolicyTestCase):
@@ -107,9 +130,8 @@ class CheckTests(OfflineQuotePolicyTestCase):
     def test_check_refreshes_quotes_reranks_and_publishes_without_refit(self):
         base = forecast(offers=[*ah_pair(-0.75, 1.95, 1.95)])
         self.write([base])
-        fresh = pd.DataFrame([{'fixture_id': base['fixture_id'],
-                               'asian_handicap_offers': json.dumps([offer('home', -0.75, 2.10)]),
-                               'price_edge_quotes': '[]'}])
+        fresh = pd.DataFrame([event(base, asian_handicap_offers=json.dumps([offer('home', -0.75, 2.10)]),
+                                    price_edge_quotes='[]')])
         api = FakeApi({'EPL': fresh})
         result = price_check.check(self.root, api, NOW.to_pydatetime())
         self.assertEqual(result, {'status': 'CHECKED', 'leagues': ['EPL'], 'requests': 1, 'credits': 3, 'picks': 1})

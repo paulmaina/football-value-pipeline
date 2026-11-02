@@ -46,8 +46,26 @@ def leagues_in_window(predictions: pd.DataFrame, clock: datetime) -> list:
     return sorted(key for key, league in LEAGUES.items() if league.name in names or key in names)
 
 
+MAX_KICKOFF_SKEW_SECONDS = 300  # Same tolerance as the full pipeline's odds join.
+
+
+def same_fixture(row, event) -> bool:
+    """An event ID alone is not a safe join: teams and kickoff must still match the forecast."""
+    from football_value_pipeline_v2_standalone import canonical_team_key
+    if any(canonical_team_key(str(row.get(side) or '')) != canonical_team_key(str(event.get(provider) or ''))
+           for side, provider in (('home_team', '_odds_home_team'), ('away_team', '_odds_away_team'))):
+        return False
+    kick = pd.to_datetime(row.get('kickoff_utc'), utc=True, errors='coerce')
+    quoted = pd.to_datetime(event.get('_odds_commence_time'), utc=True, errors='coerce')
+    return not (pd.isna(kick) or pd.isna(quoted)) and abs((quoted - kick).total_seconds()) <= MAX_KICKOFF_SKEW_SECONDS
+
+
 def merge_odds(predictions: pd.DataFrame, odds: pd.DataFrame) -> pd.DataFrame:
-    """Merge fresh main-market quotes into rows by provider event id; newest quote wins."""
+    """Merge fresh main-market quotes into rows by provider event id; newest quote wins.
+
+    A refreshed event whose teams or kickoff no longer match the stored forecast
+    (renamed, rescheduled or reused ID) is skipped, keeping the stored quotes.
+    """
     from price_edge_shortlist import merge_quotes
     result = predictions.copy()
     if odds.empty:
@@ -59,7 +77,7 @@ def merge_odds(predictions: pd.DataFrame, odds: pd.DataFrame) -> pd.DataFrame:
     fresh = {str(r['fixture_id']): r for r in odds.to_dict('records')}
     for idx, row in result.iterrows():
         event = fresh.get(str(row.get('odds_event_id') or ''))
-        if event is None:
+        if event is None or not same_fixture(row, event):
             continue
         old = json.loads(row.get('asian_handicap_offers') or '[]') if isinstance(row.get('asian_handicap_offers'), str) else []
         new = json.loads(event.get('asian_handicap_offers') or '[]')
