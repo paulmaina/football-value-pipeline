@@ -53,6 +53,8 @@ jobs:
           python performance_tracking.py capture --commit-sha "$(git rev-parse HEAD)"
           git add football_output_v2/performance
           git diff --cached --quiet || git $bot commit -m 'Capture price-check shortlist'
+          # Odds use a temporary cache, so no tracked file may remain modified here.
+          if ! git diff --quiet; then echo 'Unexpected tracked changes:'; git diff --stat; exit 1; fi
           for attempt in 1 2 3; do
             git pull --rebase origin main && git push origin HEAD:main && exit 0
             sleep 10

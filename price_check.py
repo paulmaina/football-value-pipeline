@@ -184,8 +184,12 @@ def main(argv=None) -> int:
     if key is None:
         print('No Odds API key configured; price check skipped.')
         return 0
-    api = TheOddsAPI(key)
-    print(json.dumps(check(args.root, api, clock), indent=2))
+    # Odds responses go to a throwaway cache: the tracked .football_cache must
+    # stay untouched so the workflow can rebase and publish cleanly.
+    import tempfile
+    with tempfile.TemporaryDirectory(prefix='price-check-cache-') as cache:
+        api = TheOddsAPI(key, cache_dir=cache)
+        print(json.dumps(check(args.root, api, clock), indent=2))
     return 0
 
 
