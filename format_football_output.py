@@ -1361,7 +1361,11 @@ def process_bet365_list(input_dir: Path, output_dir: Path) -> Optional[int]:
 
 def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: Path) -> int:
     """Readable v27 price-edge shortlist: safest first, one row per fixture."""
-    from price_edge_shortlist import OUTPUT_COLUMNS, REFERENCES
+    from price_edge_shortlist import OUTPUT_COLUMNS
+    import price_edge_cagey_shortlist as v28
+    from price_edge_cagey_shortlist import REFERENCES  # superset of v27's (adds c-cagey)
+    if summary.get('selection_policy_version') == v28.POLICY:
+        OUTPUT_COLUMNS = v28.OUTPUT_COLUMNS
     headers = {
         "kickoff_utc": "Kickoff (UTC)", "league": "League", "home_team": "Home", "away_team": "Away",
         "balanced": "Balanced", "low_total": "Low total", "high_draw": "High draw", "even_odds": "Even odds",
@@ -1373,15 +1377,23 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
         "offered_quote_age_minutes": "Offered quote age (min)", "pinnacle_quote_age_minutes": "Pinnacle quote age (min)",
         "model_vs_pinnacle_gap": "Model vs Pinnacle gap (info only)",
         "cagey_score": "Cagey score: P(2+ goal margin) (info only)", "cagey_fit": "Cagey fit",
+        "fair_odds_uncorrected": "Fair (uncorrected)",
+        "qualified_only_by_correction": "Qualified only because of correction",
+        "corrected_cagey_score": "Corrected cagey score",
         "other_value_lines": "Other value lines"}
     readable = raw.reindex(columns=OUTPUT_COLUMNS).rename(columns=headers)
     if not readable.empty:
-        for column in ("Pinnacle draw probability", "Pinnacle P(over 2.5)", "Pinnacle no-loss probability"):
+        for column in ("Pinnacle draw probability", "Pinnacle P(over 2.5)", "Pinnacle no-loss probability",
+                       "Corrected cagey score"):
+            if column not in readable:
+                continue
             readable[column] = readable[column].map(pct)
         readable["Edge"] = readable["Edge"].map(signed_pct)
         readable["Model vs Pinnacle gap (info only)"] = readable["Model vs Pinnacle gap (info only)"].map(signed_pct)
         readable["Cagey score: P(2+ goal margin) (info only)"] = readable["Cagey score: P(2+ goal margin) (info only)"].map(pct)
-        for column in ("Price", "Fair odds", "Minimum odds still worth taking"):
+        for column in ("Price", "Fair odds", "Minimum odds still worth taking", "Fair (uncorrected)"):
+            if column not in readable:
+                continue
             readable[column] = readable[column].map(decimal)
         for column in ("Offered quote age (min)", "Pinnacle quote age (min)"):
             readable[column] = readable[column].map(lambda v: decimal(v, 0))

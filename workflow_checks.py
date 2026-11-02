@@ -91,11 +91,12 @@ def raw_check(root, *, raw_dir=None):
     asian = policy_version in AH_POLICIES
     from asian_handicap import WIN_FIRST_POLICIES
     from asian_handicap import PER_MARKET_POLICIES
-    import corners_cards_shortlist, no_loss_corners_shortlist, per_market_shortlist, price_edge_shortlist
+    import corners_cards_shortlist, no_loss_corners_shortlist, per_market_shortlist, price_edge_shortlist, price_edge_cagey_shortlist
     from per_market_shortlist import PER_GROUP_CAP
     MAX_SELECTIONS = {per_market_shortlist.POLICY: per_market_shortlist.MAX_SELECTIONS,
                       corners_cards_shortlist.POLICY: corners_cards_shortlist.MAX_SELECTIONS,
-                      price_edge_shortlist.POLICY: float('inf')}.get(policy_version, 12)  # v27: one per fixture, no cap
+                      price_edge_shortlist.POLICY: float('inf'),
+                      price_edge_cagey_shortlist.POLICY: float('inf')}.get(policy_version, 12)  # v27/v28: one per fixture, no cap
     count_markets_allowed = {corners_cards_shortlist.POLICY: corners_cards_shortlist.COUNT_MARKETS,
                              no_loss_corners_shortlist.POLICY: no_loss_corners_shortlist.COUNT_MARKETS}.get(policy_version, ())
     win_first = policy_version in WIN_FIRST_POLICIES
@@ -185,7 +186,9 @@ def raw_check(root, *, raw_dir=None):
                       *(['unproven_edge_markets','negative_adjusted_ev_selections']
                         if policy_version == no_loss_corners_shortlist.POLICY else []),
                       *(['min_edge','min_edge_derived','rejection_counts','tagged_candidates','reference_type_counts']
-                        if policy_version == price_edge_shortlist.POLICY else []),
+                        if policy_version in (price_edge_shortlist.POLICY, price_edge_cagey_shortlist.POLICY) else []),
+                      *(['cagey_correction_enabled','cagey_tier_enabled','cagey_model_version','correction_only_value_picks']
+                        if policy_version == price_edge_cagey_shortlist.POLICY else []),
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')
