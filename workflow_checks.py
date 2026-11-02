@@ -24,7 +24,7 @@ FORECAST_PATHS = (
     'football_output_v2/raw/totals_anchor_experiment.json',
 )
 # Every sidecar an archived snapshot may hold, including retired experiments.
-SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv')
+SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv')
 # Sidecars still generated, captured and reviewed.
 LIVE_SIDECARS = ('benchmark_forward_experiment.json', 'totals_anchor_experiment.json')
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',

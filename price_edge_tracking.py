@@ -13,6 +13,15 @@
 A STOP REVIEW flag is raised when at least 100 graded picks have mean CLV
 below zero. v26 and older history is untouched. Evidence only: nothing here
 changes forecasts, selection or stakes.
+
+v28 adds the cagey tier (its own frozen list, cagey_tier_shortlist.csv) and
+the cagey correction. Both tiers are graded by CLV and realised profit, split
+by tier, policy, bookmaker, reference type (a, b, c, c-cagey), corrected
+cagey-score quintile, each tag and "qualified only because of correction".
+  * CAGEY REVIEW: >= 50 graded correction-only value picks with mean CLV < 0;
+  * CAGEY TIER REVIEW: >= 50 graded cagey-tier picks whose realised ROI 95%
+    interval is entirely below 0.
+Each flag recommends switching its feature off; it never switches anything off.
 """
 from __future__ import annotations
 
@@ -27,6 +36,9 @@ import pandas as pd
 from price_edge_shortlist import POLICY, TAGS
 from price_edge_cagey_shortlist import POLICY as CAGEY_POLICY
 POLICIES = (POLICY, CAGEY_POLICY)  # v27 and v28 value-tier picks are graded together, split by policy.
+from price_edge_cagey_shortlist import TIER_FILE
+CAGEY_REVIEW_MIN_PICKS = 50
+CAGEY_TIER_REVIEW_MIN_PICKS = 50
 
 VERSION = 'price-edge-v27-tracking-v1'
 FILE = 'price_edge_tagged_candidates.csv'
@@ -42,6 +54,8 @@ EQUIVALENT = {'Home win': ('home', -0.5), 'Away win': ('away', -0.5),
               'Double Chance 1X': ('home', 0.5), 'Double Chance X2': ('away', 0.5)}
 SPLITS = ('bookmaker', 'odds_band', 'reference_type', 'side_role', 'balanced', 'low_total', 'high_draw', 'even_odds', 'tagged',
           'cagey_quintile')
+TIER_SPLITS = ('tier', 'policy', 'bookmaker', 'reference_type', 'corrected_cagey_quintile', 'balanced', 'low_total',
+               'high_draw', 'even_odds', 'qualified_only_by_correction')
 QUINTILES = ('Q1 cagiest', 'Q2', 'Q3', 'Q4', 'Q5 most open')
 
 
@@ -81,6 +95,71 @@ def capture_file(raw: Path, generated) -> Optional[Path]:
     if any(r.get('list_version') != VERSION or utc(r.get('generated_at_utc')) != utc(generated) for r in rows):
         return None
     return path
+
+
+def capture_tier_file(raw: Path, generated) -> Optional[Path]:
+    """Archive the cagey-tier list only when it belongs to this exact v28 generation."""
+    from performance_tracking import read_csv, utc
+    path = Path(raw) / TIER_FILE
+    if not path.exists():
+        return None
+    rows = read_csv(path)
+    if any(r.get('selection_policy_version') != CAGEY_POLICY or utc(r.get('evaluated_at_utc')) != utc(generated)
+           for r in rows):
+        return None
+    return path
+
+
+def frozen_tier_picks(root: Path, archive) -> List[dict]:
+    """Latest pre-kickoff archived cagey-tier pick per fixture."""
+    from performance_tracking import fixture_key, read_csv, utc
+    frozen = {}
+    for meta, _, _ in sorted(archive, key=lambda item: item[0]['captured_at_utc']):
+        path = Path(root) / 'performance' / 'snapshots' / meta['git_commit_sha'][:16] / TIER_FILE
+        if TIER_FILE not in meta.get('sha256', {}) or not path.exists():
+            continue
+        captured, generated = utc(meta['captured_at_utc']), utc(meta['generated_at_utc'])
+        for row in read_csv(path):
+            kick = utc(row.get('kickoff_utc'))
+            if kick is None or max(captured, generated) > kick - timedelta(minutes=MIN_LEAD_MINUTES):
+                continue
+            frozen[fixture_key(row)] = {**row, 'snapshot_commit': meta['git_commit_sha'],
+                                        'snapshot_captured_utc': meta['captured_at_utc']}
+    return list(frozen.values())
+
+
+def tier_frame(value: pd.DataFrame, tier: pd.DataFrame) -> pd.DataFrame:
+    """Both tiers in one frame with the v28 tracking splits."""
+    parts = [f.assign(tier=name) for name, f in (('value', value), ('cagey', tier)) if len(f)]
+    if not parts:
+        return pd.DataFrame(columns=[*TIER_SPLITS, 'clv', 'unit_profit'])
+    frame = pd.concat(parts, ignore_index=True, sort=False)
+    versions = frame.get('selection_policy_version', pd.Series(index=frame.index, dtype=object))
+    frame['policy'] = versions.map({POLICY: 'v27', CAGEY_POLICY: 'v28'}).fillna('other')
+    frame['corrected_cagey_quintile'] = cagey_quintiles(frame.get('corrected_cagey_score',
+                                                                  pd.Series(index=frame.index, dtype=float)))
+    flag = frame.get('qualified_only_by_correction', pd.Series(index=frame.index, dtype=object))
+    frame['qualified_only_by_correction'] = flag.map(lambda v: 'yes' if _flag(v) else 'no')
+    return frame
+
+
+def cagey_flags(frame: pd.DataFrame) -> Dict[str, object]:
+    """Review flags; each recommends switching its feature off and never does so itself."""
+    if frame.empty:
+        value_only, tier = pd.Series(dtype=float), pd.Series(dtype=float)
+    else:
+        value_only = frame.loc[(frame.tier == 'value') & (frame.qualified_only_by_correction == 'yes'), 'clv']
+        tier = frame.loc[frame.tier == 'cagey', 'unit_profit']
+    only, roi = summarize(value_only), summarize(tier)
+    cagey_review = only['n'] >= CAGEY_REVIEW_MIN_PICKS and only['mean'] < 0
+    tier_review = (roi['n'] >= CAGEY_TIER_REVIEW_MIN_PICKS and roi['standard_error'] is not None
+                   and roi['mean'] + 1.96 * roi['standard_error'] < 0)
+    return {'correction_only_clv': only, 'cagey_tier_roi': roi,
+            'cagey_review': bool(cagey_review), 'cagey_tier_review': bool(tier_review),
+            'cagey_review_rule': f'>= {CAGEY_REVIEW_MIN_PICKS} graded correction-only value picks with mean CLV < 0; '
+                                 'recommends cagey_correction_enabled = false',
+            'cagey_tier_review_rule': f'>= {CAGEY_TIER_REVIEW_MIN_PICKS} graded cagey-tier picks with realised ROI 95% '
+                                      'interval entirely below 0; recommends cagey_tier_enabled = false'}
 
 
 def frozen_candidates(root: Path, archive) -> List[dict]:
@@ -216,9 +295,9 @@ def summarize(values) -> Dict[str, object]:
             'standard_error': se}
 
 
-def split_table(frame: pd.DataFrame, value: str) -> Dict[str, Dict[str, dict]]:
+def split_table(frame: pd.DataFrame, value: str, columns=SPLITS) -> Dict[str, Dict[str, dict]]:
     out = {}
-    for column in SPLITS:
+    for column in columns:
         if frame.empty or column not in frame:
             out[column] = {}
             continue
@@ -235,6 +314,9 @@ def review(root: Path, archive, records: List[dict], clock) -> dict:
     picks = [r for r in frozen_rows(archive, 'shortlist', latest=True) if r.get('selection_policy_version') in POLICIES]
     graded = grade(picks, observations, records, clock)
     tagged = grade(frozen_candidates(root, archive), observations, records, clock)
+    tier = grade(frozen_tier_picks(root, archive), observations, records, clock)
+    both = tier_frame(graded, tier)
+    flags = cagey_flags(both)
     clv = graded['clv'] if len(graded) else pd.Series(dtype=float)
     overall = summarize(clv)
     stop = overall['n'] >= STOP_REVIEW_MIN_PICKS and overall['mean'] is not None and overall['mean'] < 0
@@ -245,6 +327,12 @@ def review(root: Path, archive, records: List[dict], clock) -> dict:
         'stop_review': bool(stop),
         'stop_review_rule': f'>= {STOP_REVIEW_MIN_PICKS} graded picks with mean CLV < 0',
         'clv_by': split_table(graded, 'clv'),
+        'cagey_tier_picks': int(len(tier)),
+        'cagey_tier': {'clv': summarize(tier['clv'] if len(tier) else []),
+                       'profit': summarize(tier['unit_profit'] if len(tier) else [])},
+        'both_tiers_clv_by': split_table(both, 'clv', TIER_SPLITS),
+        'both_tiers_profit_by': split_table(both, 'unit_profit', TIER_SPLITS),
+        **flags,
         'tagged_candidates': {
             'frozen': int(len(tagged)),
             'with_offered_price': int(tagged['offered_decimal_odds'].notna().sum()) if len(tagged) else 0,
@@ -264,6 +352,7 @@ def review(root: Path, archive, records: List[dict], clock) -> dict:
     write_json(dest / 'summary.json', summary)
     graded.to_csv(dest / 'picks.csv', index=False)
     tagged.to_csv(dest / 'tagged_candidates.csv', index=False)
+    tier.to_csv(dest / 'cagey_tier_picks.csv', index=False)
     (dest / 'report.md').write_text(report(summary), encoding='utf-8')
     return summary
 
@@ -276,7 +365,15 @@ def _fmt(m: dict) -> str:
 
 
 def report(summary: dict) -> str:
-    lines = ['# v27 price-edge tracking', '']
+    lines = ['# v27/v28 price-edge tracking', '']
+    if summary.get('cagey_review'):
+        lines += [f"> **CAGEY REVIEW**: {summary['correction_only_clv']['n']} graded correction-only value picks with "
+                  f"mean CLV {summary['correction_only_clv']['mean']:+.2%}. Recommendation: set "
+                  'cagey_correction_enabled to false (this report does not change it).', '']
+    if summary.get('cagey_tier_review'):
+        roi = summary['cagey_tier_roi']
+        lines += [f"> **CAGEY TIER REVIEW**: {roi['n']} graded cagey-tier picks with realised ROI {_fmt(roi)}, interval "
+                  'entirely below 0. Recommendation: set cagey_tier_enabled to false (this report does not change it).', '']
     if summary['stop_review']:
         lines += [f"> **STOP REVIEW**: {summary['clv']['n']} graded picks with mean CLV {summary['clv']['mean']:+.2%} "
                   '(below zero). Review the policy before relying on further picks.', '']
@@ -287,6 +384,17 @@ def report(summary: dict) -> str:
         lines += [f'## CLV by {column}', '', '| group | mean CLV (n) |', '|---|---|']
         lines += [f'| {k} | {_fmt(v)} |' for k, v in groups.items()] or ['| none | n/a |']
         lines.append('')
+    if 'both_tiers_clv_by' in summary:
+        lines += ['## Both tiers (value and cagey)', '',
+                  f"Cagey-tier picks frozen: {summary['cagey_tier_picks']}; CLV {_fmt(summary['cagey_tier']['clv'])}; "
+                  f"realised profit per bet {_fmt(summary['cagey_tier']['profit'])}. Correction-only value picks: "
+                  f"CLV {_fmt(summary['correction_only_clv'])}.",
+                  f"Flags: {summary['cagey_review_rule']}; {summary['cagey_tier_review_rule']}.", '']
+        for column, groups in summary['both_tiers_clv_by'].items():
+            profit = summary['both_tiers_profit_by'].get(column, {})
+            lines += [f'### By {column}', '', '| group | mean CLV (n) | realised profit per bet (n) |', '|---|---|---|']
+            lines += [f'| {k} | {_fmt(v)} | {_fmt(profit.get(k, {}))} |' for k, v in groups.items()] or ['| none | n/a | n/a |']
+            lines.append('')
     t = summary['tagged_candidates']
     lines += ['## Tagged candidates (narrow-margin hypothesis)', '',
               f"Frozen tagged candidates: {t['frozen']} ({t['with_offered_price']} with an offered price).",
