@@ -1,5 +1,7 @@
 # No-loss shortlist with Corners (v26)
 
+> **Superseded 2026-11-02** by [v27, the AH price edge vs Pinnacle](price-edge-shortlist-v27.md). This policy stays replayable for its archived captures.
+
 Policy `48h-zero-tolerance-ev05-no-loss75-corners-v26` uses v22's common no-loss rules plus Corners totals, with an adjusted EV floor of +0.5% instead of +1.0%. It replaces v25 for new prediction runs and shortlist refreshes.
 
 ## Selection
