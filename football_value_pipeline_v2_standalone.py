@@ -4520,6 +4520,9 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
             out_dir, selection_summary['generated_at_utc'])
         print(f"bet365 vs Pinnacle list: {len(bet365_rows)} entries at >= 2% EV "
               f"(see {out_dir / 'bet365_vs_pinnacle.csv'})", file=sys.stderr)
+        # v27 narrow-margin hypothesis: every tagged candidate, picked or rejected.
+        from price_edge_tracking import write_list as write_tagged_list
+        write_tagged_list(decisions, out_dir, selection_summary['generated_at_utc'])
 
     # Retain a timestamped historical audit even though the current raw
     # shortlist is overwritten each run. No picks are ever added by force.

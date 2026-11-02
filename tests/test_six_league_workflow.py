@@ -89,11 +89,19 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 with patch('performance_tracking.collect_results',return_value=(records,{})):
                     review(root=root,clock=NOW+timedelta(days=2))
                 data=report_check(root)
+                # v27 tracking: tagged candidates captured; picks graded (no closing quotes offline).
+                tracking=json.loads((root/'performance/price_edge_v27/summary.json').read_text())
+                snapshot=next((root/'performance/snapshots').glob('*/price_edge_tagged_candidates.csv'))
+                tagged_rows=pd.read_csv(snapshot)
             self.assertEqual(data['status'],'VERIFIED_WITH_WARNINGS')
             self.assertIn('UCL training/source health: DOWNLOAD_NOT_VERIFIED',data['warnings'])
             # v27 has no cap: every toy fixture with a qualifying price gets one pick.
             self.assertEqual(len(picks),len(keys))
             self.assertEqual(picks.selection_tier.unique().tolist(),['STRICT'])
+            self.assertEqual(tracking['frozen_picks'],len(keys))
+            self.assertFalse(tracking['stop_review'])
+            self.assertTrue(tagged_rows.high_draw.all())  # Pinnacle draw 27.6%
+            self.assertGreater(tracking['tagged_candidates']['frozen'],0)
             # Leagues without a verified-results source (Super Lig) stay ungraded.
             settled = [k for k in keys if LEAGUES[k].football_data_org_code]
             self.assertEqual(data['shortlist']['graded'],len(settled))
