@@ -67,6 +67,7 @@ These tags never change a decision:
 - `balanced`: Pinnacle 1X2 home and away odds both in [2.00, 3.50].
 - `low_total`: Pinnacle margin-free P(over 2.5) < 0.45.
 - `high_draw`: Pinnacle margin-free draw probability ≥ 0.27.
+- `even_odds` (added in PR D): Pinnacle 1X2 home and away raw odds both ≥ 2.50.
 
 For a fixture with any tag, AH +1, +1.5, +1.75, +2 and +2.25 are always
 evaluated on both sides. A line nobody quotes is logged as `no offered quote

@@ -188,7 +188,27 @@ class TagTests(OfflineQuotePolicyTestCase):
         self.assertFalse(v27.tag_flags(over_probability=0.45)['low_total'])
         self.assertTrue(v27.tag_flags(draw_probability=0.27)['high_draw'])
         self.assertFalse(v27.tag_flags(draw_probability=0.2699)['high_draw'])
-        self.assertEqual(v27.tag_flags(), {'balanced': False, 'low_total': False, 'high_draw': False})
+        self.assertEqual(v27.tag_flags(), {'balanced': False, 'low_total': False, 'high_draw': False, 'even_odds': False})
+
+    def test_even_odds_boundaries(self):
+        self.assertTrue(v27.tag_flags(2.50, 2.50)['even_odds'])
+        self.assertTrue(v27.tag_flags(4.00, 2.50)['even_odds'])
+        self.assertFalse(v27.tag_flags(2.49, 2.50)['even_odds'])
+        self.assertFalse(v27.tag_flags(2.50, 2.49)['even_odds'])
+        self.assertFalse(v27.tag_flags(None, 3.00)['even_odds'])
+        # Independent of balanced: 3.60 / 2.60 is even_odds but not balanced.
+        self.assertEqual((v27.tag_flags(3.60, 2.60)['even_odds'], v27.tag_flags(3.60, 2.60)['balanced']), (True, False))
+
+    def test_even_odds_fixture_gets_plus_line_probes_and_no_decision_change(self):
+        even = [quote('h2h', {'home': 3.60, 'draw': 3.40, 'away': 2.60}),
+                quote('totals', {'over': 1.80, 'under': 2.10}, key='totals', point=2.5)]
+        _, decisions, summary = evaluate(row(quotes=even))
+        self.assertTrue(decisions.even_odds.all())
+        self.assertFalse(decisions.balanced.any())
+        probes = decisions[decisions.tagged_probe.astype(bool)]
+        self.assertEqual(len(probes), 2 * len(v27.TAGGED_LINES))
+        self.assertEqual(summary['tagged_candidates']['even_odds'], len(decisions))
+        self.assertIn('even_odds', v27.OUTPUT_COLUMNS)
 
     def test_tags_never_change_a_decision(self):
         offers = [*ah_pair(-0.75, 1.95, 1.95), offer('home', -0.75, 2.05), offer('home', -0.75, 1.90),
