@@ -82,6 +82,21 @@ class NarrowMarginReportTests(OfflineQuotePolicyTestCase):
         self.assertIn('## Not scored (1)', text)
         self.assertIn('missing input: over_2_5', text)
 
+    def test_for_fixtures_aligns_rows_and_tolerates_missing_data(self):
+        _, readable = self.run_report()
+        raw = readable.parent / 'raw'
+        fixtures = pd.DataFrame([{'league': 'Serie A', 'home_team': 'C', 'away_team': 'D'},
+                                 {'league': 'Serie A', 'home_team': 'X', 'away_team': 'Y'},
+                                 {'league': 'Premier League', 'home_team': 'E', 'away_team': 'F'}], index=[7, 8, 9])
+        got = report.for_fixtures(fixtures, raw)
+        self.assertEqual(list(got.index), [7, 8, 9])
+        self.assertEqual(list(got.columns), list(report.SHORTLIST_COLUMNS))
+        self.assertAlmostEqual(got.loc[7, 'p_narrow'], 0.70)
+        self.assertTrue(got.loc[[8, 9], 'p_narrow'].isna().all())  # unknown, and unscored
+        missing = report.for_fixtures(fixtures, readable.parent / 'nowhere')
+        self.assertTrue(missing.isna().all().all())
+        self.assertTrue(report.for_fixtures(fixtures.iloc[0:0], raw).empty)
+
     def test_empty_monitoring_writes_empty_report(self):
         empty = monitoring_rows().iloc[0:0]
         frame, readable = self.run_report(empty)
