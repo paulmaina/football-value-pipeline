@@ -283,21 +283,161 @@
     }
   },
   "correction_monitoring": {
-    "by_quintile": {},
+    "by_quintile": {
+      "Q1 cagiest": {
+        "2plus_actual": null,
+        "2plus_actual_interval": {
+          "high95": null,
+          "low95": null,
+          "mean": null,
+          "n": 0
+        },
+        "2plus_corrected": null,
+        "2plus_uncorrected": null,
+        "3plus_actual": null,
+        "3plus_actual_interval": {
+          "high95": null,
+          "low95": null,
+          "mean": null,
+          "n": 0
+        },
+        "3plus_corrected": null,
+        "3plus_uncorrected": null,
+        "n": 0
+      },
+      "Q2": {
+        "2plus_actual": null,
+        "2plus_actual_interval": {
+          "high95": null,
+          "low95": null,
+          "mean": null,
+          "n": 0
+        },
+        "2plus_corrected": null,
+        "2plus_uncorrected": null,
+        "3plus_actual": null,
+        "3plus_actual_interval": {
+          "high95": null,
+          "low95": null,
+          "mean": null,
+          "n": 0
+        },
+        "3plus_corrected": null,
+        "3plus_uncorrected": null,
+        "n": 0
+      },
+      "Q3": {
+        "2plus_actual": 0.0,
+        "2plus_actual_interval": {
+          "high95": 0.0,
+          "low95": 0.0,
+          "mean": 0.0,
+          "n": 1
+        },
+        "2plus_corrected": 0.35874948377208116,
+        "2plus_uncorrected": 0.3734170619778765,
+        "3plus_actual": 0.0,
+        "3plus_actual_interval": {
+          "high95": 0.0,
+          "low95": 0.0,
+          "mean": 0.0,
+          "n": 1
+        },
+        "3plus_corrected": 0.14611925097602457,
+        "3plus_uncorrected": 0.1490126058224591,
+        "n": 1
+      },
+      "Q4": {
+        "2plus_actual": null,
+        "2plus_actual_interval": {
+          "high95": null,
+          "low95": null,
+          "mean": null,
+          "n": 0
+        },
+        "2plus_corrected": null,
+        "2plus_uncorrected": null,
+        "3plus_actual": null,
+        "3plus_actual_interval": {
+          "high95": null,
+          "low95": null,
+          "mean": null,
+          "n": 0
+        },
+        "3plus_corrected": null,
+        "3plus_uncorrected": null,
+        "n": 0
+      },
+      "Q5 most open": {
+        "2plus_actual": null,
+        "2plus_actual_interval": {
+          "high95": null,
+          "low95": null,
+          "mean": null,
+          "n": 0
+        },
+        "2plus_corrected": null,
+        "2plus_uncorrected": null,
+        "3plus_actual": null,
+        "3plus_actual_interval": {
+          "high95": null,
+          "low95": null,
+          "mean": null,
+          "n": 0
+        },
+        "3plus_corrected": null,
+        "3plus_uncorrected": null,
+        "n": 0
+      }
+    },
     "correction_review": false,
     "excluded_by_reason": {
       "no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)": 7,
       "no usable market-implied fit (missing input: over_2_5)": 15,
       "no usable market-implied fit (missing input: over_2_5; Pinnacle overround outside range: h2h)": 2
     },
-    "fair_price_returns": {},
+    "fair_price_returns": {
+      "corrected": {
+        "high95": 0.1445048276954559,
+        "low95": 0.1445048276954559,
+        "mean": 0.14450482769545586,
+        "n": 10
+      },
+      "uncorrected": {
+        "high95": 0.15127967432517458,
+        "low95": 0.15127967432517458,
+        "mean": 0.15127967432517458,
+        "n": 10
+      }
+    },
     "fixtures": {
       "eligible": 19,
       "excluded": 24,
-      "graded": 0,
-      "pending": 19
+      "graded": 1,
+      "pending": 18
     },
-    "log_loss": {},
+    "log_loss": {
+      "2plus": {
+        "corrected": 0.4443350774636902,
+        "paired_gain": {
+          "high95": 0.02313905282827583,
+          "low95": 0.02313905282827583,
+          "mean": 0.02313905282827583,
+          "n": 1
+        },
+        "uncorrected": 0.46747413029196605
+      },
+      "3plus": {
+        "corrected": 0.15796373308910844,
+        "paired_gain": {
+          "high95": 0.0033942303817282304,
+          "low95": 0.0033942303817282304,
+          "mean": 0.0033942303817282304,
+          "n": 1
+        },
+        "uncorrected": 0.16135796347083667
+      }
+    },
     "model_versions": [
       "cagey-correction-through-2425-v1"
     ],
@@ -320,16 +460,16 @@
     "standard_error": null
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-03T17:23:11.759812+00:00",
+  "reviewed_at_utc": "2026-11-03T19:45:58.126703+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
     "by_tag": {
       "balanced": {
-        "mean": null,
-        "n": 0,
-        "positive_share": null,
-        "standard_error": null
+        "mean": -0.11479906963438201,
+        "n": 26,
+        "positive_share": 0.4230769230769231,
+        "standard_error": 0.14951275954109494
       },
       "even_odds": {
         "mean": null,
@@ -358,16 +498,16 @@
     },
     "frozen": 322,
     "return_at_capture_fair": {
-      "mean": null,
-      "n": 0,
-      "positive_share": null,
-      "standard_error": null
+      "mean": -0.11479906963438201,
+      "n": 26,
+      "positive_share": 0.4230769230769231,
+      "standard_error": 0.14951275954109494
     },
     "return_at_capture_fair_plus_lines": {
-      "mean": null,
-      "n": 0,
-      "positive_share": null,
-      "standard_error": null
+      "mean": -0.1436298224334747,
+      "n": 11,
+      "positive_share": 0.45454545454545453,
+      "standard_error": 0.1861399189344873
     },
     "with_offered_price": 322
   },

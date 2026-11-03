@@ -20,7 +20,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 | All selections | 69 | 51-15 | 73.9% | +6.3% |
 
 Unsettled / unverified entries: **17**.
-Whole-fixture 1X2 multiclass Brier (n=256): 0.5582
+Whole-fixture 1X2 multiclass Brier (n=260): 0.5566
 
 ## First-prediction reference — historical comparison
 
@@ -227,7 +227,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | PrimeiraLiga | 2026-11-02 | 1620 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SerieA | 2026-11-02 | 2000 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SuperLig | 2026-11-02 | 1840 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-10-21 | 557 | 13 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UCL | 2026-10-21 | 557 | 13 | MODEL_BEHIND_VERIFIED_SOURCE |
 | UEL | 2026-10-22 | 714 | 12 | VERIFIED_WITHIN_24_HOURS |
 
 Latest shortlist audit: {"selected_quotes": 2, "exchange_quotes": 0, "missing_quote_age": 2, "quote_age_over_24h": 0, "costs_recorded": 2, "bookmakers": {"1xBet": 2}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 2, "unknown_kickoff_count": 0}.
@@ -236,7 +236,7 @@ Source refresh does not retrain stored forecasts. Days since the last match do n
 
 No forward model trials are generated or captured. The benchmark-forward and totals-anchor trials are archived (archive/); their frozen reports stay readable.
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.1", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.16", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 

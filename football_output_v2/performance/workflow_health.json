@@ -31,18 +31,18 @@
       },
       "frozen_selections": 86,
       "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-      "observations": 363,
+      "observations": 365,
       "rejected_files": [],
-      "reviewed_at_utc": "2026-11-03T17:23:11.759812+00:00",
+      "reviewed_at_utc": "2026-11-03T19:45:58.126703+00:00",
       "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
       "version": "local-closing-quotes-v4"
     },
     "dependencies": {
-      "PyYAML": "6.0.3",
-      "coverage": "7.17.1",
+      "PyYAML": "NOT_INSTALLED",
+      "coverage": "NOT_INSTALLED",
       "numpy": "2.5.4",
       "pandas": "3.1.0",
-      "python": "3.12.15",
+      "python": "3.12.16",
       "python-dotenv": "1.2.4",
       "rapidfuzz": "3.14.6",
       "requests": "2.34.2",
@@ -52,7 +52,7 @@
       "assessment": "Forward evidence collection; improvements are not assumed from software or data changes.",
       "graded_selections": 69,
       "model_improvement_established": false,
-      "prediction_fixtures_graded": 256
+      "prediction_fixtures_graded": 260
     },
     "execution_policy": {
       "account_availability": "USER_ALLOWLIST",
@@ -68,10 +68,10 @@
     "experiment_capture_counts": {},
     "experimental_reports": {},
     "forecast_freshness": {
-      "age_hours": 3.4193295872222222,
+      "age_hours": 5.798875945833333,
       "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
       "status": "WITHIN_24_HOURS",
-      "upcoming_fixture_count": 43
+      "upcoming_fixture_count": 41
     },
     "quote_audit": {
       "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -91,10 +91,10 @@
       "automatic_promotion": false,
       "experiments": [],
       "note": "Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.",
-      "reviewed_at_utc": "2026-11-03T17:23:11.759812+00:00",
+      "reviewed_at_utc": "2026-11-03T19:45:58.126703+00:00",
       "version": "experiment-review-queue-v1"
     },
-    "reviewed_at_utc": "2026-11-03T17:23:11.759812+00:00",
+    "reviewed_at_utc": "2026-11-03T19:45:58.126703+00:00",
     "selection_policy_groups": {
       "48h-ah-price-edge-cagey-v28": {
         "brier": null,
@@ -27660,24 +27660,24 @@
         },
         "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261103T135737532944Z_1310e5e7908f1350cd19fd70a506043451326682bd05fd7b347cb2b6db2f11cb.json",
         "current_source_health": {
-          "added_matches": 0,
+          "added_matches": 1,
           "cache_hash_verified": true,
-          "checked_at_utc": "2026-11-03T13:57:37.532944+00:00",
-          "completed_matches": 54,
+          "checked_at_utc": "2026-11-03T19:45:31.242242+00:00",
+          "completed_matches": 55,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 3.4261741299999997,
+          "download_age_hours": 0.007467905833333334,
           "download_status": "VERIFIED_LIVE",
-          "latest_completed_date": "2026-10-21",
-          "latest_completed_utc": "2026-10-21T19:00:00+00:00",
-          "next_fixture_utc": "2026-11-03T17:45:00+00:00",
+          "latest_completed_date": "2026-11-03",
+          "latest_completed_utc": "2026-11-03T17:45:00+00:00",
+          "next_fixture_utc": "2026-11-03T20:00:00+00:00",
           "note": "Provider schedule comparison is not independent proof of complete coverage.",
           "overdue_unfinished_match_ids": [],
           "provider": "football-data.org",
           "season_start": 2026,
-          "sha256": "1d99ce3362b1915aff584e4ae4678057ee29bc6190f9a1d419b1135011f76902",
+          "sha256": "322aca042a96f9a4852b485be1c62ae29fbd8d44ba629323ac3f05e4cca272bb",
           "source_schedule_matches": 144,
-          "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+          "status": "MODEL_BEHIND_VERIFIED_SOURCE",
           "training_end": "2026-10-21"
         },
         "days_since_latest_result": 13,
@@ -27728,7 +27728,7 @@
             }
           },
           "status": "VERIFIED_WITHIN_24_HOURS",
-          "verified_at_utc": "2026-11-03T17:23:11.759812+00:00"
+          "verified_at_utc": "2026-11-03T19:45:58.126703+00:00"
         },
         "days_since_latest_result": 12,
         "diagnostics_sha256": "34a874b6173b86691c28eac851736fa093c95b24feb7dd23c4e60709e30a6237",
@@ -27826,7 +27826,7 @@
       }
     }
   },
-  "reviewed_at_utc": "2026-11-03T17:23:11Z",
+  "reviewed_at_utc": "2026-11-03T19:45:58Z",
   "snapshots": 66,
   "shortlist": {
     "brier": 0.145744,
@@ -28045,6 +28045,7 @@
   },
   "experiments": {},
   "warnings": [
+    "UCL training/source health: MODEL_BEHIND_VERIFIED_SOURCE",
     "UEL: live UEFA denied access; using reviewed factual attestations for covered matches only"
   ]
 }

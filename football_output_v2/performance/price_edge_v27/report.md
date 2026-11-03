@@ -1,6 +1,6 @@
 # v27/v28 price-edge tracking
 
-Reviewed 2026-11-03T17:23:11.759812+00:00. Frozen v27 picks: 3.
+Reviewed 2026-11-03T19:45:58.126703+00:00. Frozen v27 picks: 3.
 
 **Mean CLV vs Pinnacle close:** n/a (0). **Flat-stake profit per bet:** n/a (0).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -135,9 +135,9 @@ Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends ca
 
 Frozen tagged candidates: 322 (322 with an offered price).
 1xBet edge vs fair at capture: -3.33% ± 0.50% (n=77).
-Return at the capture fair price, all tagged lines: n/a (0); plus lines only: n/a (0).
+Return at the capture fair price, all tagged lines: -11.48% ± 29.30% (n=26); plus lines only: -14.36% ± 36.48% (n=11).
 
-- balanced: n/a (0)
+- balanced: -11.48% ± 29.30% (n=26)
 - low_total: n/a (0)
 - high_draw: n/a (0)
 - even_odds: n/a (0)
@@ -146,7 +146,7 @@ Return at the capture fair price, all tagged lines: n/a (0); plus lines only: n/
 
 Forward monitoring of cagey-correction-monitoring-v1 started 2026-11-03T13:58:25Z (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
 
-Fixtures: eligible 19, pending 19, graded 0, excluded 24.
+Fixtures: eligible 19, pending 18, graded 1, excluded 24.
 
 | excluded because | fixtures |
 |---|---:|
@@ -154,7 +154,24 @@ Fixtures: eligible 19, pending 19, graded 0, excluded 24.
 | no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 7 |
 | no usable market-implied fit (missing input: over_2_5; Pinnacle overround outside range: h2h) | 2 |
 
-No graded fixtures yet.
+| quintile | n | 2+ actual | 2+ corrected | 2+ uncorrected | 3+ actual | 3+ corrected | 3+ uncorrected |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Q1 cagiest | 0 | n/a | n/a | n/a | n/a | n/a | n/a |
+| Q2 | 0 | n/a | n/a | n/a | n/a | n/a | n/a |
+| Q3 | 1 | 0.0% [0.0%, 0.0%] | 35.9% | 37.3% | 0.0% [0.0%, 0.0%] | 14.6% | 14.9% |
+| Q4 | 0 | n/a | n/a | n/a | n/a | n/a | n/a |
+| Q5 most open | 0 | n/a | n/a | n/a | n/a | n/a | n/a |
+
+| log loss | corrected | uncorrected | paired gain x 1e-3 [95%] |
+|---|---:|---:|---|
+| 2+ margin | 0.4443 | 0.4675 | +23.139 [+23.139, +23.139] (n=1) |
+| 3+ margin | 0.1580 | 0.1614 | +3.394 [+3.394, +3.394] (n=1) |
+
+Calibration diagnostic, NOT achievable bookmaker ROI: return per bet when every AH +1 to +2 line on both sides is settled at its own fair price (no margin). A calibrated price returns about 0.
+- at the corrected fair price: +14.450% [+14.450, +14.450] (n=10)
+- at the uncorrected fair price: +15.128% [+15.128, +15.128] (n=10)
+
+Actual rates show their 95% interval in brackets. Intervals: gameweek-block bootstrap (2000 resamples); every line of a fixture stays in its gameweek block. CORRECTION REVIEW: >= 200 graded fixtures with the 2+ paired log-loss gain interval entirely below 0; it recommends review only.
 
 
 CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.
