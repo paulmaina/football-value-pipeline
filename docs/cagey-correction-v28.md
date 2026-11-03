@@ -65,7 +65,9 @@ corrected. Each row records `fair_odds_uncorrected` and
    run's fixtures in the 48 h window. The cutoff is that run's 20th percentile,
    but never above the training-data 20th percentile. Both cutoffs are recorded.
 2. **Candidates:** AH +1 to +2.25 on either side, at Pinnacle or 1xBet, with
-   v27's freshness, sync, overround and odds guards.
+   v27's freshness, sync, overround and odds guards. The suspicious-price
+   guard (offered at most 1.15 × fair odds) applies against both v27's fair
+   odds and the corrected fair odds.
 3. **Qualify:** expected profit ≥ 0 under the corrected matrix, and corrected
    no-loss probability ≥ 0.85.
 4. **Selection:** one row per fixture with no cap, sorted safest first. A fixture
