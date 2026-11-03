@@ -168,23 +168,42 @@ See [run integrity and recovery](docs/prediction-run-integrity.md).
 fresh `main`:
 
 1. **Generate**: `football_value_pipeline_v2_standalone.py --leagues <all
-   registry leagues> --additional-odds-coverage all`. This writes production
-   probabilities (`dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2`),
-   the v28 price-edge shortlist with the cagey correction and a separate cagey tier ([rules](docs/cagey-correction-v28.md); v27 base rules in [docs/price-edge-shortlist-v27.md](docs/price-edge-shortlist-v27.md)), plus `bet365_vs_pinnacle.csv`.
-   It passes `--no-legacy-comparison`, so the legacy companion (`legacy_*`
-   columns and its per-league half-life tuning) no longer runs: its only
-   readers were the two archived forward trials. A manual run without the flag
-   still produces it for offline replay.
-2. **Check and format**: `workflow_checks.py raw` (including a deterministic
-   shortlist replay), then `format_football_output.py`.
-3. **Capture**: `performance_tracking.py capture` archives the forecast, the
-   shortlist and the live sidecars.
-4. **Review**: `performance_tracking.py review` grades results and refreshes
-   performance tracking, the BBS forward assessment, the closing-odds review,
-   the CLV report, the experiment review queue (no live trials) and pipeline
-   health.
+   registry leagues> --additional-odds-coverage all --api-key-source environment
+   --no-legacy-comparison`. Per league it fits the production model
+   (`dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2`) and writes
+   its probabilities. Across leagues it writes:
+   - the v28 value-tier shortlist (`conservative_bet_shortlist.csv`) and the
+     separate cagey tier (`cagey_tier_shortlist.csv`) ([rules](docs/cagey-correction-v28.md);
+     v27 base rules in [docs/price-edge-shortlist-v27.md](docs/price-edge-shortlist-v27.md));
+   - `cagey_correction_monitoring.csv`: one correction record per fixture, from
+     the correction the shortlist already computed;
+   - `price_edge_tagged_candidates.csv` and `bet365_vs_pinnacle.csv`.
 
-Separate workflows collect closing odds and refresh training data. Offline only,
+   It no longer runs goal-market walk-forward or count-market validation,
+   because v28 selection does not read them (`--goal-market-validation` runs
+   them on request; a policy that needs them still runs them and fails closed
+   without them). It no longer runs the legacy companion or its half-life
+   tuning, because their only readers were archived trials. A manual run without
+   `--no-legacy-comparison` still produces them for offline replay.
+2. **Check and format**: `workflow_checks.py raw` replays the shortlist, the
+   cagey tier and the monitoring records deterministically, then
+   `format_football_output.py` writes the readable outputs.
+3. **Capture**: `performance_tracking.py capture` archives the forecast, the
+   shortlist and these sidecars, each only when bound to the same generation:
+   `bet365_vs_pinnacle.csv`, `price_edge_tagged_candidates.csv`,
+   `cagey_tier_shortlist.csv` and `cagey_correction_monitoring.csv`.
+4. **Review**: `performance_tracking.py review` grades results and refreshes:
+   - performance tracking and the BBS forward assessment;
+   - the closing-odds review and the CLV report;
+   - v27/v28 price-edge tracking, including both tiers and the Correction
+     monitoring section;
+   - the experiment review queue (no live trials) and pipeline health.
+
+The provider requests are unchanged: the removed steps use only committed
+history, and monitoring reuses the run's own quotes.
+
+Separate workflows collect closing odds (value-tier and cagey-tier picks, exact
+AH lines) and refresh training data. Offline only,
 never scheduled: `ah_close_backtest.py`, `price_edge_backtest.py`,
 `market_implied_calibration.py` and `historical_benchmark.py`.
 
