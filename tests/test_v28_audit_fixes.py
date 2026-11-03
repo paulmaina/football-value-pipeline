@@ -53,9 +53,9 @@ class ExecutionTests(OfflineQuotePolicyTestCase):
         tier = v28.cagey_tier_list(decisions)
         self.assertEqual(len(tier), 1)
         self.assertEqual(tier.iloc[0].corrected_input_timing_status, 'SYNCHRONIZED')
-        plan = staking.stake_recommendations(tier.assign(selection_tier='STRICT'))
+        plan = staking.stake_recommendations(tier, tier='cagey')
         self.assertNotEqual(plan.iloc[0].staking_status, 'NO_STAKE_INVALID_INPUT')
-        self.assertEqual(plan.iloc[0].probability_basis, 'cagey_corrected_margin_distribution')
+        self.assertEqual(plan.iloc[0].probability_basis, 'corrected_matrix')
 
     def test_fit_a_timing_ignores_the_unused_bad_main_ah_quote(self):
         data = tier_fixture()
@@ -155,16 +155,17 @@ class SizingTests(OfflineQuotePolicyTestCase):
         item = {'selection_policy_version': v28.POLICY, 'selection_tier': 'STRICT',
                 'offered_decimal_odds': 1.53, 'handicap_side': 'home', 'handicap_line': 0,
                 'predicted_probability': 0.99, 'rank_probability': 0.999, 'per_stake_cost': 0.01,
-                'corrected_p_win': 0.495, 'corrected_p_half_win': 0.0, 'corrected_p_push': 0.257,
-                'corrected_p_half_loss': 0.0, 'corrected_p_loss': 0.248}
+                'reference_type': 'a', 'uncorrected_fit': 'B',
+                'uncorrected_p_win': 0.495, 'uncorrected_p_half_win': 0.0, 'uncorrected_p_push': 0.257,
+                'uncorrected_p_half_loss': 0.0, 'uncorrected_p_loss': 0.248}
         probabilities = staking.conservative_settlement(item)
         self.assertEqual(probabilities['full_win'], 0.495)
         self.assertEqual(probabilities['refund'], 0.257)
         plan = staking.stake_recommendations(pd.DataFrame([item]))
         self.assertAlmostEqual(plan.iloc[0].conservative_ev, 0.495 * 0.53 - 0.248 - 0.01)
         self.assertGreater(plan.iloc[0].stake_fraction, 0)
-        for changes in ({'corrected_p_push': None}, {'corrected_p_win': 1.1},
-                        {'corrected_p_push': 0.0}, {'corrected_input_timing_status': 'UNAVAILABLE_OR_UNSYNCHRONIZED'}):
+        for changes in ({'uncorrected_p_push': None}, {'uncorrected_p_win': 1.1},
+                        {'uncorrected_p_push': 0.0}, {'uncorrected_input_timing_status': 'UNAVAILABLE_OR_UNSYNCHRONIZED'}):
             with self.subTest(changes=changes), self.assertRaises(ValueError):
                 staking.conservative_settlement({**item, **changes})
 

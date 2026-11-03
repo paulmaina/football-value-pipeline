@@ -23,17 +23,35 @@ Configured `per_stake_cost_bps` is frozen as `per_stake_cost`. Corrected expecte
 profit deducts that cost on every settlement outcome, including refunds.
 No-loss/profit probabilities also use net returns: a charged refund is a loss,
 and a half-win must cover the charge to count as profitable. A
-nonzero cost also requires nonnegative corrected net expected profit for value
+nonzero cost also requires nonnegative net expected profit for value
 selection; without synchronised settlement evidence it fails closed. The gross
 Pinnacle price-edge statistic and its existing thresholds remain separately
-reported. With both correction switches off, nonzero-cost sizing/qualification
-has no corrected distribution and fails closed rather than assuming zero cost.
+reported. Sizing and the value-tier net-cost check use the **same** matrix source:
 
-v28 advisory sizing uses the complete corrected settlement distribution and
-labels its basis `cagey_corrected_margin_distribution`. It does not combine a
-direct Pinnacle win-share with unrelated push/half-settlement probabilities,
-or treat no-loss ranking as a calibration penalty. Missing probabilities produce
-an explicit unavailable-input result, not an invented distribution. Headline and
+| Pick/list | Required matrix | Stake probability basis |
+|---|---|---|
+| c-cagey value pick | Corrected matrix | `corrected_matrix` |
+| Every other value pick, including minus and Pinnacle-quoted plus lines | Uncorrected market-implied fit B, from this fixture's inputs | `uncorrected_matrix` |
+| Cagey-tier pick, including a fixture also in the value list | Corrected matrix | `corrected_matrix` |
+
+`value_probability_basis` and `value_expected_profit` expose the value cost-check
+source and net result. `uncorrected_fit` must be B; fit A cannot substitute for a
+missing uncorrected fit B. Corrected fair prices and settlement columns on other
+value rows remain informational and never supply their stakes or net-cost gate.
+With both correction switches off, fit B can still supply uncorrected sizing and
+cost qualification. The required distribution never falls back to another source.
+Missing or unsynchronised inputs produce `NO_STAKE_UNAVAILABLE_DISTRIBUTION`.
+
+Advisory plans are written to `stake_recommendations.csv` (value list) and
+`cagey_tier_stake_recommendations.csv` (cagey list). The latter also sizes picks
+that are absent from the value list. Each row labels its list and matrix basis.
+These are separate alternative plans; exposure caps apply to each list rather
+than a combined portfolio. Full generation and stored-forecast/price refreshes
+regenerate both plans, preserving recorded bankroll/Kelly settings on refresh.
+Older runs without recorded settings use the existing sizing defaults.
+
+Sizing does not combine a direct Pinnacle win-share with unrelated settlement
+probabilities or treat no-loss ranking as a calibration penalty. Headline and
 tier realised returns deduct the frozen cost; fair-price calibration diagnostics
 remain gross and do not represent executable ROI.
 

@@ -19,6 +19,8 @@ def _refresh(root, as_of=None, *, raw_dir=None):
     root = Path(root)
     raw = raw_dir if raw_dir is not None else root / 'raw'
     predictions = pd.read_csv(raw / 'all_leagues_predictions.csv')
+    previous_summary = raw / 'conservative_bet_summary.json'
+    staking_settings = json.loads(previous_summary.read_text(encoding='utf-8')).get('staking_settings', {}) if previous_summary.exists() else {}
     # Read only when the policy uses it; a required but absent report fails closed in raw_check.
     reliability = None
     if requires_goal_market_validation(CURRENT_SELECTION_POLICY):
@@ -40,7 +42,11 @@ def _refresh(root, as_of=None, *, raw_dir=None):
         raw / 'conservative_strict_qualifiers.csv', index=False)
     decisions.to_csv(raw / 'conservative_bet_rejections.csv', index=False)
     from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE, record_monitoring
-    cagey_tier_list(decisions).to_csv(raw / TIER_FILE, index=False)
+    cagey_picks = cagey_tier_list(decisions)
+    cagey_picks.to_csv(raw / TIER_FILE, index=False)
+    from staking import write_shortlist_stakes
+    write_shortlist_stakes(picks, cagey_picks, raw, **staking_settings)
+    summary['staking_settings'] = staking_settings
     record_monitoring(summary, monitoring, raw)
     from asian_handicap import best_per_match
     best_per_match(decisions).to_csv(raw/'asian_handicap_best_per_match.csv',index=False)
