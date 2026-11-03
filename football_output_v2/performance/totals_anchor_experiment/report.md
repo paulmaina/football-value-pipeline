@@ -1,3 +1,5 @@
+> **ARCHIVED 2026-11-03.** No longer generated, captured or reviewed. This is the last report, frozen as committed; the code is kept for replay in `archive/totals_anchor_experiment.py`.
+
 # Pinnacle totals anchoring trial
 
 Separate proportional intensity scaling to fresh Pinnacle O/U 2.5, fitted rho and production HDA preserved. Primary Under 3.5 log loss; other markets are guardrails. No bets, automatic promotion or backfill.

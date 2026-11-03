@@ -332,14 +332,16 @@ class PruneCapturedRunsTests(OfflineQuotePolicyTestCase):
             self.assertEqual(len(runs.prune_captured_runs(root)),1)
 
 
+# Archived trial sidecars: no experiment sidecar is live since PR E, so these tests re-attach
+# the archived trials' capture (archived_hooks) to keep exercising sidecar-safe pruning.
 SIDECARS=('benchmark_forward_experiment.json','totals_anchor_experiment.json')
 
 
 def publish_with_sidecars(root, clock=T0, *, market='over_1_5', **kwargs):
-    """A run whose live trial sidecars are bound to its own generation, as the pipeline writes them."""
+    """A run whose trial sidecars are bound to its own generation, as the pipeline used to write them."""
     import pandas as pd
-    from benchmark_forward_experiment import write_experiment as write_benchmark
-    from totals_anchor_experiment import write_experiment as write_totals
+    from archive.benchmark_forward_experiment import write_experiment as write_benchmark
+    from archive.totals_anchor_experiment import write_experiment as write_totals
     with runs.stage_run(root/'raw') as staging:
         populate(staging, clock, **kwargs)
         generated=json.loads((staging/'conservative_bet_summary.json').read_text())['generated_at_utc']
@@ -354,6 +356,9 @@ class PruneSidecarTests(OfflineQuotePolicyTestCase):
     """Pruning requires the archive to hold every core file and sidecar of the run."""
 
     def setUp(self):
+        from archived_hooks import archived_hooks
+        self.enterContext(archived_hooks())
+        self.enterContext(patch.object(runs, 'SIDECARS', runs.SIDECARS | set(SIDECARS)))
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
         self.root=root=Path(self.temp.name)
         self.old=publish_with_sidecars(root)
@@ -436,7 +441,7 @@ class PruneSidecarTests(OfflineQuotePolicyTestCase):
         self.assertEqual(runs.resolve_raw(self.root/'raw'),current)
 
     def test_pruned_archive_still_loads_for_reporting_and_experiments(self):
-        from benchmark_forward_experiment import review_experiment
+        from archive.benchmark_forward_experiment import review_experiment
         self.assertEqual(runs.prune_captured_runs(self.root),[self.old.name])
         self.assertFalse(self.old.exists())
         archived={m['prediction_run_id']:m for m,_,_ in snapshots(self.root)}

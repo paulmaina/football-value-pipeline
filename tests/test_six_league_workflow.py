@@ -108,13 +108,15 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             self.assertEqual(data['shortlist']['graded'],len(settled))
             self.assertEqual(len(data['training_end_dates']),len(keys))
             # Retired experiments (archive/) are no longer generated, captured or reviewed.
+            # The benchmark-forward and totals-anchor trials joined them in PR E.
             for name in ('goal_blend_experiment','market_led_experiment','recency_experiment','filter_sensitivity_experiment',
-                         'shortlist_weight_experiment','shortlist_policy_experiment','model_reliability_experiment'):
+                         'shortlist_weight_experiment','shortlist_policy_experiment','model_reliability_experiment',
+                         'benchmark_forward_experiment','totals_anchor_experiment'):
                 self.assertNotIn(name,data['experiments'])
                 self.assertEqual([p for p in root.rglob(name+'.json')],[])
-            self.assertEqual(data['experiments']['benchmark_forward_experiment']['paired_fixtures'],0)
-            self.assertEqual(len(data['pipeline_health']['review_queue']['experiments']),2)
-            self.assertEqual(data['pipeline_health']['experiment_capture_counts']['benchmark_forward_experiment:CAPTURED'],1)
+                self.assertFalse((root/'performance'/name).exists())
+            self.assertEqual(data['pipeline_health']['review_queue']['experiments'],[])
+            self.assertEqual(data['pipeline_health']['experiment_capture_counts'],{})
             self.assertTrue((root/'readable/football_performance_report.xlsx').exists())
 
 

@@ -10,8 +10,8 @@ from unittest.mock import patch
 import numpy as np
 import pandas as pd
 
-import benchmark_forward_experiment as bf
-import totals_anchor_experiment as ta
+import archive.benchmark_forward_experiment as bf
+import archive.totals_anchor_experiment as ta
 from forward_trial_basis import legacy_basis, bound_inputs
 from football_value_pipeline_v2_standalone import (FootballValuePipelineV2, MODEL_VERSION,
     LEGACY_MODEL_VERSION, NO_SHOTS_MODEL_VERSION, build_parser)

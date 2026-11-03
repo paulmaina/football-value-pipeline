@@ -242,7 +242,7 @@ class ReliabilityLikeForLikeTests(OfflineQuotePolicyTestCase):
 
 class ForwardTrialExclusionTests(OfflineQuotePolicyTestCase):
     def test_frozen_basis_trials_name_the_new_model_when_excluding(self):
-        import benchmark_forward_experiment as bfe
+        import archive.benchmark_forward_experiment as bfe
         reason = f'production_model_{MODEL_VERSION}_outside_frozen_trial_basis'
         self.assertEqual(bfe.production_version_reasons({'model_version': MODEL_VERSION}), [reason])
         for old in ({}, {'model_version': None}, {'model_version': ''}, {'model_version': LEGACY_MODEL_VERSION},
@@ -261,7 +261,7 @@ class ForwardTrialExclusionTests(OfflineQuotePolicyTestCase):
         return {**pred, 'kickoff_utc': live_row()['kickoff_utc'], 'home_team': 'A', 'away_team': 'B'}
 
     def test_totals_trial_records_that_production_adopted_its_candidate(self):
-        import totals_anchor_experiment as tae
+        import archive.totals_anchor_experiment as tae
         r, _ = tae.registry()
         result = tae.decision({**self.prod(), 'league': r['leagues'][0]}, None, None, datetime.now(timezone.utc), r)
         self.assertIn('candidate_adopted_in_production', result['reasons'])

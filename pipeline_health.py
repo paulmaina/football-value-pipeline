@@ -8,8 +8,8 @@ import math
 from pathlib import Path
 import platform
 
-# Experiments still generated and captured; retired ones live in archive/.
-LIVE_EXPERIMENTS = ('benchmark_forward_experiment', 'totals_anchor_experiment')
+# Experiments still generated and captured; retired ones live in archive/. None remain live.
+LIVE_EXPERIMENTS = ()
 
 
 def read(path, default=None):
@@ -199,13 +199,11 @@ def write_report(root, metrics, clock):
     quote = data['quote_audit']
     lines += ['', 'Latest shortlist audit: '+json.dumps(quote, ensure_ascii=False)+'.', '',
         'Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.', '',
-        '| Snapshot | Benchmark forward | Totals anchor |', '|---|---|---|']
-    for row in capture_rows[-20:]:
-        lines.append(f"| {row['commit'][:12]} | {row['experiments']['benchmark_forward_experiment']} | {row['experiments']['totals_anchor_experiment']} |")
+        'No forward model trials are generated or captured. The benchmark-forward and totals-anchor trials are archived '
+        '(archive/); their frozen reports stay readable.']
     lines += ['', 'Dependency versions at review: '+json.dumps(data['dependencies'])+'. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.', '',
         'Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.', '',
-        'Totals anchoring: [report](totals_anchor_experiment/report.md). Separate Pinnacle trial, no production probability changes.', '',
-        'Experiment review queue: [report](experiment_review_queue.md). Benchmark candidate capture and readiness are evaluated automatically; no production promotion.', '',
+        'Experiment review queue: [report](experiment_review_queue.md). No live trials are queued; no production promotion.', '',
         'Filter sensitivity: [report](filter_sensitivity_experiment/report.md). Frozen 1.5%, 3% and 5% adjusted EV policies; production unchanged.', '',
         'Shortlist probability/EV weights: [report](shortlist_weight_experiment/report.md). Four frozen weightings; production stays 50/50.', '',
         'Probability/calibration policies: [report](shortlist_policy_experiment/report.md). Fixed one-factor cutoffs and development-only penalty strengths; production unchanged.', '',

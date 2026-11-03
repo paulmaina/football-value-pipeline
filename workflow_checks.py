@@ -20,13 +20,11 @@ FORECAST_PATHS = (
     'football_output_v2/raw/all_leagues_predictions.csv',
     'football_output_v2/raw/conservative_bet_shortlist.csv',
     'football_output_v2/raw/conservative_bet_summary.json',
-    'football_output_v2/raw/benchmark_forward_experiment.json',
-    'football_output_v2/raw/totals_anchor_experiment.json',
 )
 # Every sidecar an archived snapshot may hold, including retired experiments.
 SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv')
-# Sidecars still generated, captured and reviewed.
-LIVE_SIDECARS = ('benchmark_forward_experiment.json', 'totals_anchor_experiment.json')
+# Experiment sidecars still generated, captured and reviewed (none since the trials were archived).
+LIVE_SIDECARS = ()
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'collect_api_football_data.py', 'publish_api_football_data.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
@@ -518,22 +516,8 @@ def report_check(root):
     warnings=audit['warnings']
     if metrics.get('provider_errors'):warnings.append('Result provider has errors; cached verified results used where available')
     experiments={}
-    # Retired experiments' committed reports are frozen (archive/); only live trials must match this review.
-    for name in ('benchmark_forward_experiment', 'totals_anchor_experiment'):
-        path=performance/name/'summary.json'
-        if path.exists():
-            data=read_json(path);experiments[name]=data
-            experimental_time=utc(data.get('reviewed_at_utc'))
-            if experimental_time is None or abs((experimental_time-utc(metrics['reviewed_at_utc'])).total_seconds()) > 1:
-                warnings.append(f'{name}: report timestamp differs from current baseline review')
-            elif name=='totals_anchor_experiment':
-                from totals_anchor_experiment import validate_report
-                validate_report(root)
-            elif name=='benchmark_forward_experiment':
-                from benchmark_forward_experiment import validate_report
-                validate_report(root)
-            if data.get('rejected_snapshot_commits'):
-                warnings.append(f'{name}: invalid archived data excluded; see rejected_snapshot_commits')
+    # Retired experiments' committed reports are frozen (archive/), now including the
+    # benchmark-forward and totals-anchor trials; no live trial must match this review.
     closing_path=performance/"closing_odds/summary.json"
     if closing_path.exists():
         from closing_odds import validate_report as validate_closing

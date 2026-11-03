@@ -7,7 +7,8 @@ from pathlib import Path
 import numpy as np
 
 VERSION='benchmark-forward-shadow-v1'
-REGISTRY=Path(__file__).with_name('benchmark_forward_registry.json')
+# The frozen registry stays at the repository root; its content is bound into archived sidecars.
+REGISTRY=Path(__file__).resolve().parents[1]/'benchmark_forward_registry.json'
 FILE='benchmark_forward_experiment.json'
 
 

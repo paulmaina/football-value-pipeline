@@ -170,19 +170,18 @@ fresh `main`:
 1. **Generate**: `football_value_pipeline_v2_standalone.py --leagues <all
    registry leagues> --additional-odds-coverage all`. This writes production
    probabilities (`dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2`),
-   the v28 price-edge shortlist with the cagey correction and a separate cagey tier ([rules](docs/cagey-correction-v28.md); v27 base rules in [docs/price-edge-shortlist-v27.md](docs/price-edge-shortlist-v27.md)) and two forward-trial sidecars: `benchmark_forward_experiment.json`
-   and `totals_anchor_experiment.json`, plus `bet365_vs_pinnacle.csv`.
+   the v28 price-edge shortlist with the cagey correction and a separate cagey tier ([rules](docs/cagey-correction-v28.md); v27 base rules in [docs/price-edge-shortlist-v27.md](docs/price-edge-shortlist-v27.md)), plus `bet365_vs_pinnacle.csv`.
    The legacy companion (`legacy_*` columns and its half-life tuning) still
-   runs, only because both trials are frozen against it. It is never used for
-   selection or staking.
+   runs. Its only readers were the two archived forward trials; it is never
+   used for selection or staking.
 2. **Check and format**: `workflow_checks.py raw` (including a deterministic
    shortlist replay), then `format_football_output.py`.
 3. **Capture**: `performance_tracking.py capture` archives the forecast, the
    shortlist and the live sidecars.
 4. **Review**: `performance_tracking.py review` grades results and refreshes
-   performance tracking, the BBS forward assessment, the benchmark-forward and
-   totals-anchor trials, the closing-odds review, the CLV report, the
-   experiment review queue (the two live trials) and pipeline health.
+   performance tracking, the BBS forward assessment, the closing-odds review,
+   the CLV report, the experiment review queue (no live trials) and pipeline
+   health.
 
 Separate workflows collect closing odds and refresh training data. Offline only,
 never scheduled: `ah_close_backtest.py`, `price_edge_backtest.py`,
@@ -190,7 +189,8 @@ never scheduled: `ah_close_backtest.py`, `price_edge_backtest.py`,
 
 **Retired (2026-11-02).** These experiments are no longer generated, captured or
 reviewed: goal blend, market-led, recency, model reliability, shortlist weight,
-shortlist policy, filter sensitivity and the legacy model comparison. Their code
+shortlist policy, filter sensitivity and the legacy model comparison. The
+benchmark-forward and totals-anchor trials followed on 2026-11-03. Their code
 is in `archive/`, importable for replay; their last reports under
 `football_output_v2/performance/` are frozen and marked ARCHIVED. Archived
 snapshots still load and verify.
@@ -291,7 +291,7 @@ The [recency-weighting](docs/recency-experiment.md) and [EV sensitivity](docs/fi
 
 A separate [historical benchmark](docs/historical-benchmark.md) compares regularisation, recency, market weighting and totals anchoring on pinned data. Run `py historical_benchmark.py --materialize-pinned-data`; production commands and settings are unchanged. Future trial gates are recorded in `benchmark_promotion_rules.json`.
 
-The [benchmark forward bridge](docs/benchmark-forward-automation.md) automatically captures a frozen 85% market-weight candidate and reports review readiness. Daily scheduled forecast collection requires Odds API keys in GitHub Secrets; local `.env` files are not available to Actions. GitHub issues request review once evidence gates are reached; production changes require approval.
+The [benchmark forward bridge](docs/benchmark-forward-automation.md) (archived 2026-11-03) captured a frozen 85% market-weight candidate and reported review readiness. Daily scheduled forecast collection requires Odds API keys in GitHub Secrets; local `.env` files are not available to Actions. GitHub issues request review once evidence gates are reached; production changes require approval.
 
 GitHub Actions closing quote collection and the separate Pinnacle totals trial: [setup, Windows-task migration and evidence limits](docs/closing-odds-and-totals-trial.md). Normal forecasts generate the totals sidecar automatically; closing collection reuses the existing Odds API repository secrets and publishes observations back to the repository.
 

@@ -1,4 +1,5 @@
 from offline_test_case import OfflineQuotePolicyTestCase
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 import base64
 import copy
 from datetime import datetime,timedelta,timezone
@@ -12,7 +13,7 @@ from unittest.mock import patch
 import numpy as np
 import pandas as pd
 
-import benchmark_forward_experiment as bf
+import archive.benchmark_forward_experiment as bf
 import experiment_review_queue as eq
 from performance_tracking import capture,snapshots,write_json,verified_record
 from test_conservative_bet_filter import fixture
@@ -169,7 +170,8 @@ class ForwardBridgeTests(OfflineQuotePolicyTestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);setup(root)
             bf.review_experiment(root,[],[],NOW)
-            q=eq.write_queue(root,NOW);self.assertEqual([x['name'] for x in q['experiments']],['benchmark_forward_experiment','totals_anchor_experiment'])
+            # Archived: the trial no longer enters the queue; notification still handles a queued item.
+            q=eq.write_queue(root,NOW);self.assertEqual(q['experiments'],[])
             self.assertTrue(all(x['status']!='READY_FOR_REVIEW' for x in q['experiments']))
             q['experiments']=[{'name':'benchmark_forward_experiment','key':'trial-1','status':'READY_FOR_REVIEW','settled_evidence':300,'scope':'REVIEW_ONLY'}]
             payload=json.dumps({'content':base64.b64encode(json.dumps(q).encode()).decode()})

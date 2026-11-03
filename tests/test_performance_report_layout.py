@@ -10,7 +10,19 @@ from zipfile import ZipFile
 from unittest.mock import patch
 
 from performance_excel import write_workbook, add_health_sheet
+import performance_report_layout
 from performance_report_layout import format_report, get_sheet, text, experiment_rows, NS, q
+
+# The rendering is generic over live trials; none is live since the PR E archive, so
+# these tests register the two archived trials to keep exercising it.
+TRIALS = {'benchmark_forward_experiment': '85% market weight', 'totals_anchor_experiment': 'Pinnacle totals anchor'}
+
+
+def with_trials(test):
+    def run(self):
+        with patch.dict(performance_report_layout.NAMES, TRIALS):
+            return test(self)
+    return run
 
 
 def parts(path):
@@ -74,12 +86,18 @@ class MonitoringLayoutTests(OfflineQuotePolicyTestCase):
         s=get_sheet(parts(path),'Weekly Trends');self.assertAlmostEqual(text(s.cell('E7')),-.74)
         self.assertIn('SUM($D$6:D7)',s.cell('E7').find(q('f')).text)
 
+    def test_no_live_trials_after_the_archive(self):
+        self.assertEqual(performance_report_layout.NAMES, {})
+        self.assertEqual(experiment_rows(self.root,None), [])
+
+    @with_trials
     def test_missing_reports_do_not_look_healthy(self):
         r=experiment_rows(self.root,None)
-        self.assertEqual(len(r),2)  # live trials only; retired experiments are archived
+        self.assertEqual(len(r),2)
         self.assertTrue(all(x[1]=='Report unavailable or stale' and x[2]=='Unavailable' for x in r))
         self.assertTrue(all('Regenerate' in x[8] for x in r))
 
+    @with_trials
     def test_thresholds_coverage_blockers_and_readiness_come_from_registered_reports(self):
         directory=self.root/'performance/benchmark_forward_experiment';directory.mkdir(parents=True)
         summary={'review_gates':{'minimum_paired_fixtures':450,'minimum_gameweeks':8,'minimum_verified_coverage':.9},'verified_coverage':.85,'rejected_snapshot_commits':['x']}
@@ -91,6 +109,7 @@ class MonitoringLayoutTests(OfflineQuotePolicyTestCase):
         health['review_queue']['experiments'][0]['status']='READY_FOR_REVIEW'
         self.assertIn('approval is separate',experiment_rows(self.root,health)[0][8])
 
+    @with_trials
     def test_health_sections_capture_states_formats_and_freeze_panes(self):
         path=write_workbook(self.root,[row('a')],[],{})
         health={'reviewed_at_utc':'2026-10-14T12:00:00Z','training':{'EPL':{'training_end':'2026-10-12','training_matches':20,'days_since_latest_result':2,'forecast_training_health':{'status':'RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED'}}},

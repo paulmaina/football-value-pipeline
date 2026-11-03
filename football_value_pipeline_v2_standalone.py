@@ -4225,8 +4225,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     }
     market_reliability = {}
     combined = []
-    benchmark_matrices = {}
-    totals_shadow_inputs = {}
 
     for league_key in args.leagues:
         # Reset both per-competition settings before tuning; never carry a
@@ -4320,9 +4318,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                 )
 
         print(f"[{league_key}] current-fixture model...", file=sys.stderr)
-        pipe._benchmark_trial_enabled = not args.backtest
-        pipe._benchmark_score_matrices = {}
-        pipe._totals_shadow_inputs = {}
         predictions, diagnostics, scorelines = pipe.run_league(league_key)
         assessment = diagnostics.get('bbs_statistics_model', {})
         print(f"[{league_key}] BBS statistics: {assessment.get('status', 'NOT_RECORDED')}; "
@@ -4335,13 +4330,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
               f"failed gates={shots.get('failed_gates', [])}; "
               f"applied fixtures={diagnostics.get('shot_features_applied_fixtures', 0)}; "
               f"features used={diagnostics.get('goal_rate_features_used', {})}", file=sys.stderr)
-        from performance_tracking import fixture_key as benchmark_fixture_key
-        for source in predictions.to_dict('records'):
-            matrix = getattr(pipe, '_benchmark_score_matrices', {}).get((source['home_team'], source['away_team'], str(source.get('kickoff_utc'))))
-            if matrix is not None:
-                benchmark_matrices[benchmark_fixture_key(source)] = matrix.copy()
-                totals_shadow_inputs[benchmark_fixture_key(source)] = pipe._totals_shadow_inputs.get((source["home_team"], source["away_team"], str(source.get("kickoff_utc"))))
-        pipe._benchmark_trial_enabled = False
         if market_selection is not None:
             diagnostics["market_weight_selection"] = {
                 "status": market_selection["status"],
@@ -4548,18 +4536,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         f"see {out_dir / 'conservative_bet_shortlist.csv'})",
         file=sys.stderr,
     )
-
-    if combined and not args.backtest:
-        try:
-            from benchmark_forward_experiment import write_experiment as write_benchmark_forward
-            write_benchmark_forward(all_predictions, out_dir, selection_summary["generated_at_utc"], benchmark_matrices)
-        except Exception as exc:
-            warnings.warn(f"Benchmark forward trial unavailable ({type(exc).__name__}); production outputs complete")
-        try:
-            from totals_anchor_experiment import write_experiment as write_totals_shadow
-            write_totals_shadow(all_predictions, out_dir, selection_summary["generated_at_utc"], benchmark_matrices, totals_shadow_inputs)
-        except Exception as exc:
-            warnings.warn(f"Totals anchoring trial unavailable ({type(exc).__name__}); production outputs complete")
 
     return 0
 
