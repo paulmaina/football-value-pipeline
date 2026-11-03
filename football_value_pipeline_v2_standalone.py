@@ -4490,10 +4490,10 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     )
     decisions.to_csv(out_dir / "conservative_bet_rejections.csv", index=False)
     # v28 cagey tier: a separate list, never merged into the shortlist above (empty for other policies).
-    from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE, write_monitoring
+    from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE, record_monitoring
     cagey_tier_list(decisions).to_csv(out_dir / TIER_FILE, index=False)
     # Correction monitoring: one record per fixture from the correction just computed (evidence only).
-    write_monitoring(monitoring, out_dir)
+    record_monitoring(selection_summary, monitoring, out_dir)
     try:
         from staking import write_stake_recommendations
         write_stake_recommendations(

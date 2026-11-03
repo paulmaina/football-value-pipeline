@@ -241,6 +241,17 @@ def write_monitoring(records: List[Mapping], raw: Path) -> List[Mapping]:
     return list(records)
 
 
+def record_monitoring(summary: Dict[str, object], records: List[Mapping], raw: Path) -> None:
+    """Write a v28 run's monitoring records and bind their version into its immutable summary.
+
+    Runs generated before monitoring existed carry no version, so their replay never requires the file.
+    """
+    if summary.get('selection_policy_version') != POLICY:
+        return
+    write_monitoring(records, raw)
+    summary['correction_monitoring_version'] = MONITOR_VERSION
+
+
 def make_transform(model: Mapping, settings: Mapping, monitor: Optional[list] = None):
     quintiles = nm.load_quintiles(model) if monitor is not None else None
 

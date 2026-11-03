@@ -39,9 +39,9 @@ def _refresh(root, as_of=None, *, raw_dir=None):
     picks.loc[picks.selection_tier.eq('STRICT')].to_csv(
         raw / 'conservative_strict_qualifiers.csv', index=False)
     decisions.to_csv(raw / 'conservative_bet_rejections.csv', index=False)
-    from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE, write_monitoring
+    from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE, record_monitoring
     cagey_tier_list(decisions).to_csv(raw / TIER_FILE, index=False)
-    write_monitoring(monitoring, raw)
+    record_monitoring(summary, monitoring, raw)
     from asian_handicap import best_per_match
     best_per_match(decisions).to_csv(raw/'asian_handicap_best_per_match.csv',index=False)
     from price_edge_tracking import write_list as write_tagged_list

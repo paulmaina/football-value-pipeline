@@ -140,7 +140,7 @@ class SwitchTests(OfflineQuotePolicyTestCase):
             predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
             selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
             v28.cagey_tier_list(decisions).to_csv(raw / v28.TIER_FILE, index=False)
-            v28.write_monitoring(monitoring, raw)
+            v28.record_monitoring(summary, monitoring, raw)
             (raw / 'conservative_bet_summary.json').write_text(json.dumps(summary, default=str), encoding='utf-8')
             with patch.object(v28, 'load_settings', return_value=OFF):
                 self.assertEqual(raw_check(Path(tmp), raw_dir=raw)['selections'], len(selected))
@@ -161,7 +161,7 @@ class SwitchTests(OfflineQuotePolicyTestCase):
             raw.mkdir()
             predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
             selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
-            v28.write_monitoring(monitoring, raw)
+            v28.record_monitoring(summary, monitoring, raw)
 
             def write(tier_rows, tier_summary):
                 (raw / 'conservative_bet_summary.json').write_text(
@@ -197,7 +197,17 @@ class SwitchTests(OfflineQuotePolicyTestCase):
             path.unlink()
             with self.assertRaisesRegex(Exception, 'Missing current correction-monitoring records'):
                 raw_check(Path(tmp), raw_dir=raw)
+            # A v28 run generated before monitoring existed: no version in its summary, no file.
+            earlier = {k: v for k, v in summary.items() if k != 'correction_monitoring_version'}
+            (raw / 'conservative_bet_summary.json').write_text(json.dumps(earlier, default=str), encoding='utf-8')
+            raw_check(Path(tmp), raw_dir=raw)
+            (raw / 'conservative_bet_summary.json').write_text(
+                json.dumps({**summary, 'correction_monitoring_version': 'cagey-correction-monitoring-v0'}, default=str),
+                encoding='utf-8')
+            with self.assertRaisesRegex(Exception, 'Unknown correction-monitoring version'):
+                raw_check(Path(tmp), raw_dir=raw)
             path.write_bytes(original)
+            write(tier, summary['cagey_tier'])
             raw_check(Path(tmp), raw_dir=raw)
 
 
