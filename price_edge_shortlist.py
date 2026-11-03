@@ -322,7 +322,7 @@ def market_fit(pin: Mapping, now: pd.Timestamp) -> Tuple[mi.Fit, Dict[str, objec
     fit_a = mi.fit(targets, include_ah=False, stale=[k for k in stale if k != 'ah_main'])
     if any(k != 'ah_main' for k in bad):
         fit_a.usable = False
-    return result, {'stamps': [s for s in stamps.values() if s], 'fit_a': fit_a,
+    return result, {'stamps': [s for s in stamps.values() if s], 'input_stamps': stamps, 'fit_a': fit_a,
                     'overrounds': {k: _overround(*g) for k, g in groups.items() if g}}
 
 

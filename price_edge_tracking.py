@@ -133,14 +133,20 @@ def archived_tier_rows(root: Path, archive) -> List[dict]:
             if kick is None or max(captured, generated) > kick - timedelta(minutes=MIN_LEAD_MINUTES):
                 continue
             rows.append({**row, 'snapshot_commit': meta['git_commit_sha'],
-                         'snapshot_captured_utc': meta['captured_at_utc']})
+                         'snapshot_captured_utc': meta['captured_at_utc'],
+                         'snapshot_generated_utc': meta['generated_at_utc']})
     return rows
 
 
 def frozen_tier_picks(root: Path, archive) -> List[dict]:
     """Latest pre-kickoff archived cagey-tier pick per fixture."""
-    from performance_tracking import fixture_key
-    return list({fixture_key(row): row for row in archived_tier_rows(root, archive)}.values())
+    from performance_tracking import fixture_key, utc
+    frozen = {}
+    for row in archived_tier_rows(root, archive):
+        key = fixture_key(row)
+        if key not in frozen or utc(row['snapshot_generated_utc']) > utc(frozen[key]['snapshot_generated_utc']):
+            frozen[key] = row
+    return list(frozen.values())
 
 
 # ---------------------------------------------------------------------------
@@ -412,7 +418,10 @@ def frozen_candidates(root: Path, archive) -> List[dict]:
             if kick is None or max(captured, generated) > kick - timedelta(minutes=MIN_LEAD_MINUTES):
                 continue
             key = (fixture_key(row), row.get('handicap_side'), row.get('handicap_line'), row.get('bookmaker') or '')
-            frozen[key] = {**row, 'snapshot_commit': meta['git_commit_sha'], 'snapshot_captured_utc': meta['captured_at_utc']}
+            if key not in frozen or generated > utc(frozen[key]['snapshot_generated_utc']):
+                frozen[key] = {**row, 'snapshot_commit': meta['git_commit_sha'],
+                               'snapshot_captured_utc': meta['captured_at_utc'],
+                               'snapshot_generated_utc': meta['generated_at_utc']}
     return list(frozen.values())
 
 
@@ -483,7 +492,9 @@ def settle(row: dict, final: Optional[dict], side: str, line: float, price) -> D
     if not final:
         return {'result_status': None, 'unit_profit': None}
     try:
-        status, gain = profit(int(final['home_goals']), int(final['away_goals']), side, line, float(price))
+        from quote_policy import stake_cost
+        status, gain = profit(int(final['home_goals']), int(final['away_goals']), side, line, float(price),
+                              stake_cost(row.get('per_stake_cost') or 0))
     except (TypeError, ValueError, KeyError):
         return {'result_status': None, 'unit_profit': None}
     return {'result_status': status, 'unit_profit': gain}
@@ -513,7 +524,8 @@ def grade(rows: List[dict], observations: List[dict], records: List[dict], clock
                 'clv': float(price) * close[1] - 1 if close and pd.notna(price) else None,
                 'final_score': f"{final['home_goals']}-{final['away_goals']}" if final else None,
                 **settle(row, final, side, line, price if pd.notna(price) else None)}
-        fair_result = settle(row, final, side, line, fair if pd.notna(fair) and fair > 1 else None)
+        fair_result = settle({**row, 'per_stake_cost': 0}, final, side, line,
+                             fair if pd.notna(fair) and fair > 1 else None)
         item['return_at_capture_fair'] = fair_result['unit_profit']
         graded.append(item)
     frame = pd.DataFrame(graded)
