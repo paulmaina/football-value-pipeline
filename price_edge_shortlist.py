@@ -38,6 +38,8 @@ from quote_freshness import quote_is_fresh, quote_utc
 
 POLICY = '48h-ah-price-edge-pinnacle-ref-v27'
 OBJECTIVE = 'AH_PRICE_EDGE_VS_PINNACLE'
+# Selection never reads the model's goal-market walk-forward or count-market validation.
+VALIDATION_REQUIRED = False
 MIN_EDGE = 0.02
 MIN_EDGE_DERIVED = 0.03
 EDGE_TOLERANCE = 1e-9
@@ -528,7 +530,7 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
         'shortlist_window_end_utc': (now + pd.Timedelta(hours=MAX_HOURS)).isoformat(),
         'eligible_markets': ['Home win', 'Away win', 'Double Chance 1X', 'Double Chance X2'] + [
             _ah_market(s, p) for s in ('home', 'away') for p in __import__('asian_handicap').LINES],
-        'quote_execution_policy': policy, 'validation_required': False,
+        'quote_execution_policy': policy, 'validation_required': VALIDATION_REQUIRED,
         # Information only: v27 does not use the model's market audits to select.
         'validation_market_statuses': {league: {key: state.get('status', 'INSUFFICIENT_HISTORY')
                                                 for key, state in report.get('markets', {}).items()}

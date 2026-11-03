@@ -4004,6 +4004,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--no-totals-anchor", action="store_true",
                    help="Do not anchor goal totals to fresh Pinnacle O/U 2.5 (tags forecasts custom).")
+    p.add_argument("--goal-market-validation", action="store_true",
+                   help=("Run goal-market walk-forward and count-market validation even when the "
+                         "selection policy does not use it (the production policy declares whether it does)."))
     p.add_argument("--no-legacy-comparison", action="store_true",
                    help=(f"Skip the side-by-side {LEGACY_MODEL_VERSION} columns (legacy_*), which are "
                          "graded in the forward review and never used for selection or staking."))
@@ -4151,6 +4154,8 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     if args.auto_market_weight:
         from market_blend_validation import select_market_weight
     legacy_comparison = not args.backtest and not args.no_legacy_comparison
+    run_validation = goal_market_validation_enabled(args)
+    from asian_handicap import PRODUCTION_POLICY as CURRENT_SELECTION_POLICY
     if args.tune_half_life or legacy_comparison:
         # Lazy import preserves standalone operation without tuning enabled.
         from dc_decay_validation import tune_half_life
@@ -4353,7 +4358,9 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                 "applied_to_production": tuning["applied_to_production"],
             }
 
-        if not args.backtest:
+        if not args.backtest and not run_validation:
+            diagnostics["goal_market_validation"] = f"SKIPPED: not required by {CURRENT_SELECTION_POLICY}"
+        if run_validation:
             # Reuse validated snapshots only when the historical model,
             # training cutoff and validation code version match.
             validation_path = out_dir / f"{league_key}_goal_market_validation.json"
@@ -4470,7 +4477,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     # One conservative shortlist across all requested leagues, not an
     # independent quota of two picks per league. Do not alter predictions.
     from conservative_bet_filter import build_conservative_shortlist
-    from asian_handicap import PRODUCTION_POLICY as CURRENT_SELECTION_POLICY
 
     all_predictions = (
         pd.concat(combined, ignore_index=True, sort=False)
@@ -4482,7 +4488,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         )
 
     shortlist, decisions, selection_summary = build_conservative_shortlist(
-        all_predictions, market_reliability=market_reliability,
+        all_predictions, market_reliability=market_reliability if run_validation or args.backtest else None,
         selection_policy_version=CURRENT_SELECTION_POLICY,
     )
     shortlist.to_csv(out_dir / "conservative_bet_shortlist.csv", index=False)
@@ -4558,6 +4564,13 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     return 0
 
 
+def goal_market_validation_enabled(args) -> bool:
+    """Historical validation runs only when the production policy uses it, or on explicit request."""
+    from asian_handicap import PRODUCTION_POLICY, requires_goal_market_validation
+    return not args.backtest and (args.goal_market_validation
+                                  or requires_goal_market_validation(PRODUCTION_POLICY))
+
+
 def main(argv: Optional[Sequence[str]] = None) -> int:
     arguments = list(sys.argv[1:] if argv is None else argv)
     args = build_parser().parse_args(arguments)
@@ -4566,7 +4579,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     from prediction_runs import stage_run, publish_run
     from workflow_checks import raw_check
     raw = Path(args.out_dir)
-    with stage_run(raw) as staging:
+    # Unused validation caches are not carried into new bundles.
+    with stage_run(raw, validation_cache=goal_market_validation_enabled(args)) as staging:
         # Last argparse occurrence wins, including --out-dir=... syntax.
         result = _generate_main([*arguments, '--out-dir', str(staging)])
         if result:

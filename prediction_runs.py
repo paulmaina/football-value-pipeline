@@ -330,8 +330,13 @@ def _release_lock(lock):
 
 
 @contextmanager
-def stage_run(raw, *, seed=False):
-    """Serialize writers; failed fits never modify the published generation."""
+def stage_run(raw, *, seed=False, validation_cache=True):
+    """Serialize writers; failed fits never modify the published generation.
+
+    validation_cache=False: the run's policy does not use goal-market validation,
+    so its cached reports are not carried into the new bundle. Earlier bundles
+    keep theirs.
+    """
     raw = Path(raw)
     raw.mkdir(parents=True, exist_ok=True)
     lock = acquire_lock(raw)
@@ -344,7 +349,8 @@ def stage_run(raw, *, seed=False):
             # behavior; forecast readers still use the verified immutable bundle.
             sources = previous if seed else raw
             for source in sources.iterdir():
-                if source.is_file() and (seed or source.name.endswith('_goal_market_validation.json')):
+                validation = source.name.endswith('_goal_market_validation.json')
+                if source.is_file() and (seed or validation) and (validation_cache or not validation):
                     if source.name not in (POINTER, MANIFEST, LOCK_GUARD):
                         shutil.copyfile(source, staging/source.name)
             yield staging

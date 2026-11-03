@@ -89,6 +89,11 @@ def raw_check(root, *, raw_dir=None):
     policy_version = summary.get('selection_policy_version')
     from asian_handicap import POLICIES as AH_POLICIES, RISK_BAND_POLICIES, ONE_PERCENT_POLICIES, SAFEST_POLICIES, parse_label as parse_handicap, ordinary_markets
     asian = policy_version in AH_POLICIES
+    if asian or policy_version in TWELVE_MATCH_BALANCED_SELECTION_POLICIES:
+        # The policy, not the summary alone, decides whether validation evidence is required.
+        from asian_handicap import requires_goal_market_validation
+        require(bool(summary.get('validation_required')) or not requires_goal_market_validation(policy_version),
+                'Policy requires goal-market validation evidence but the run recorded none')
     from asian_handicap import WIN_FIRST_POLICIES
     from asian_handicap import PER_MARKET_POLICIES
     import corners_cards_shortlist, no_loss_corners_shortlist, per_market_shortlist, price_edge_shortlist, price_edge_cagey_shortlist
