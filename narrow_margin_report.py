@@ -68,6 +68,29 @@ def build(raw: Path) -> pd.DataFrame:
     return frame.reindex(columns=COLUMNS).reset_index(drop=True)
 
 
+# Columns another readable file (the cagey tier shortlist) can carry, keyed by raw name.
+SHORTLIST_COLUMNS = {'p_narrow': 'P(narrow: draw or 1-goal win)', 'p_draw': 'P(draw)',
+                     'p_one_goal': 'P(1-goal win)', 'p_three_plus': 'P(margin 3+)',
+                     'out_of_domain': 'Out of training domain'}
+
+
+def for_fixtures(fixtures: pd.DataFrame, raw: Path) -> pd.DataFrame:
+    """Narrow-margin columns aligned row for row with `fixtures` (matched on league, home, away).
+
+    Rows with no match, or a run whose inputs are missing, get empty values; never raises for missing files.
+    """
+    empty = pd.DataFrame(index=fixtures.index, columns=list(SHORTLIST_COLUMNS), dtype=object)
+    if fixtures.empty or not set(KEYS) <= set(fixtures.columns):
+        return empty
+    try:
+        frame = build(Path(raw))
+    except (FileNotFoundError, pd.errors.EmptyDataError):
+        return empty
+    lookup = frame[frame['status'].eq('USABLE')].drop_duplicates(KEYS).set_index(KEYS)[list(SHORTLIST_COLUMNS)]
+    keys = pd.MultiIndex.from_frame(fixtures[KEYS].astype(object))
+    return lookup.reindex(keys).set_axis(fixtures.index)
+
+
 def _pct(value) -> str:
     return '' if pd.isna(value) else f'{value:.0%}'
 

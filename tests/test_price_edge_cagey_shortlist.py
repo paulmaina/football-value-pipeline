@@ -348,6 +348,48 @@ class CageyTierTests(OfflineQuotePolicyTestCase):
                        'Uncorrected fair odds', 'Corrected fair odds'):
             self.assertIn(column, tier.columns)
             self.assertIn(column, report)
+        # Narrow-margin columns follow the corrected cagey score; no monitoring file -> shown as missing.
+        import narrow_margin_report as nmr
+        names = list(nmr.SHORTLIST_COLUMNS.values())
+        start = list(tier.columns).index('Corrected cagey score') + 1
+        self.assertEqual(list(tier.columns[start:start + len(names)]), names)
+        self.assertEqual(set(tier.iloc[0][names]), {'—'})
+
+    def test_formatter_adds_narrow_margin_columns_from_the_same_run(self):
+        import tempfile
+        from pathlib import Path
+        from format_football_output import process_conservative_shortlist
+        import narrow_margin_report as nmr
+        fair, _ = tier_fair(cagey_row(), 'away', 2.0)
+        data = cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 1.005, 4))])
+        selected, decisions, summary = run(data)
+        tier_raw = v28.cagey_tier_list(decisions)
+        pick = tier_raw.iloc[0]
+        p2 = float(pick.corrected_cagey_score)
+        with tempfile.TemporaryDirectory() as tmp:
+            raw, out = Path(tmp) / 'raw', Path(tmp) / 'readable'
+            raw.mkdir()
+            out.mkdir()
+            selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+            tier_raw.to_csv(raw / v28.TIER_FILE, index=False)
+            (raw / 'conservative_bet_summary.json').write_text(json.dumps(summary, default=str), encoding='utf-8')
+            keys = {'league': pick.league, 'home_team': pick.home_team, 'away_team': pick.away_team}
+            pd.DataFrame([{**keys, 'status': 'USABLE', 'exclusion_reason': None, 'kickoff_utc': pick.kickoff_utc,
+                           'generated_at_utc': '2026-11-03T12:00:00+00:00', 'model_version': 'test',
+                           'latest_input_quote_utc': '2026-11-03T12:00:00+00:00', 'corrected_p2': p2,
+                           'corrected_p3': p2 / 3, 'uncorrected_p2': p2 + 0.02,
+                           'corrected_cagey_quintile': 'Q1 cagiest'}]).to_csv(raw / nmr.MONITORING, index=False)
+            pd.DataFrame([{**keys, 'market_reference_home_odds': 3.0, 'market_reference_draw_odds': 3.0,
+                           'market_reference_away_odds': 3.0, 'market_reference_over_2_5_odds': 2.2,
+                           'market_reference_under_2_5_odds': 1.7}]).to_csv(raw / nmr.PREDICTIONS, index=False)
+            process_conservative_shortlist(raw, out)
+            tier = pd.read_csv(out / 'cagey_tier_shortlist_readable.csv')
+        row = tier.iloc[0]
+        self.assertEqual(row['P(narrow: draw or 1-goal win)'], f'{100 * (1 - p2):.1f}%')
+        self.assertEqual(row['P(margin 3+)'], f'{100 * p2 / 3:.1f}%')
+        self.assertEqual(row['Out of training domain'], 'no' if pick.league in nmr.TRAINED_LEAGUES else 'yes')
+        # Information only: the tier's own decision columns are unchanged.
+        self.assertEqual(row['Corrected cagey score'], f'{100 * p2:.1f}%')
 
     def test_switching_the_tier_off_clears_the_readable_list(self):
         import tempfile
