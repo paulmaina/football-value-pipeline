@@ -1,6 +1,6 @@
 # v27/v28 price-edge tracking
 
-Reviewed 2026-11-03T15:26:59.139050+00:00. Frozen v27 picks: 3.
+Reviewed 2026-11-03T17:23:11.759812+00:00. Frozen v27 picks: 3.
 
 **Mean CLV vs Pinnacle close:** n/a (0). **Flat-stake profit per bet:** n/a (0).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
