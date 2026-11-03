@@ -230,36 +230,13 @@ Latest shortlist audit: {"selected_quotes": 0, "exchange_quotes": 0, "missing_qu
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
-| Snapshot | Benchmark forward | Totals anchor |
-|---|---|---|
-| 0117b0e0fe09 | CAPTURED | CAPTURED |
-| 10a7df008090 | CAPTURED | CAPTURED |
-| 2b085cc83b2c | CAPTURED | CAPTURED |
-| 089cdbb10f80 | CAPTURED | CAPTURED |
-| 007f589ff289 | CAPTURED | CAPTURED |
-| ac2ae4201750 | CAPTURED | CAPTURED |
-| b5f46a88705f | CAPTURED | CAPTURED |
-| 61fd07517a6d | CAPTURED | CAPTURED |
-| be93fe1f5e1c | CAPTURED | CAPTURED |
-| 026e1ab4c40e | CAPTURED | CAPTURED |
-| d414de1a572b | CAPTURED | CAPTURED |
-| 04e55dde9bbe | CAPTURED | CAPTURED |
-| fd052ff5e9f0 | CAPTURED | CAPTURED |
-| c75d4ab52706 | CAPTURED | CAPTURED |
-| 02d8d3b21fd6 | CAPTURED | CAPTURED |
-| 2f2bbe3e322e | CAPTURED | CAPTURED |
-| f82ff3e276c6 | CAPTURED | CAPTURED |
-| 796c7451f410 | CAPTURED | CAPTURED |
-| dc55908798d7 | CAPTURED | CAPTURED |
-| cbf58accd4fa | CAPTURED | CAPTURED |
+No forward model trials are generated or captured. The benchmark-forward and totals-anchor trials are archived (archive/); their frozen reports stay readable.
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.0", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.1", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 
-Totals anchoring: [report](totals_anchor_experiment/report.md). Separate Pinnacle trial, no production probability changes.
-
-Experiment review queue: [report](experiment_review_queue.md). Benchmark candidate capture and readiness are evaluated automatically; no production promotion.
+Experiment review queue: [report](experiment_review_queue.md). No live trials are queued; no production promotion.
 
 Filter sensitivity: [report](filter_sensitivity_experiment/report.md). Frozen 1.5%, 3% and 5% adjusted EV policies; production unchanged.
 
