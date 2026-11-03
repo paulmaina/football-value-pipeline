@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
+  "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28",
   "selection_objective": "AH_PRICE_EDGE_VS_PINNACLE",
   "status": "BELOW_TARGET",
   "n_fixtures": 43,
-  "n_markets_evaluated": 937,
+  "n_markets_evaluated": 892,
   "n_shortlisted": 2,
   "n_strict_qualified": 2,
   "n_provisional_watchlist": 0,
@@ -14,8 +14,8 @@
   "usable_distinct_fixtures": 43,
   "shortlist_lookahead_hours": 48.0,
   "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-11-03T13:23:43.479885+00:00",
-  "shortlist_window_end_utc": "2026-11-05T13:23:43.479885+00:00",
+  "shortlist_window_start_utc": "2026-11-03T13:58:02.173298+00:00",
+  "shortlist_window_end_utc": "2026-11-05T13:58:02.173298+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -109,26 +109,25 @@
     "use": "tracking only; never changes a decision"
   },
   "tagged_candidates": {
-    "balanced": 333,
+    "balanced": 340,
     "low_total": 0,
     "high_draw": 0,
     "even_odds": 0
   },
   "tagged_fixtures": 10,
   "rejection_counts": {
-    "edge below 2%": 712,
+    "edge below 2%": 695,
     "kickoff outside 20-minute to 48-hour window": 176,
-    "offered odds above 3.00": 158,
-    "no Pinnacle reference": 137,
-    "no offered quote at an allowed bookmaker": 75,
-    "edge below 3%": 49,
-    "offered and Pinnacle quotes more than 10 minutes apart": 36,
+    "offered odds above 3.00": 155,
+    "no Pinnacle reference": 125,
+    "no offered quote at an allowed bookmaker": 72,
+    "edge below 3%": 38,
+    "offered and Pinnacle quotes more than 10 minutes apart": 9,
     "Pinnacle overround outside [1.00, 1.10]": 8,
-    "offered price above 1.15 x fair odds": 1
+    "offered price above 1.15 x fair odds": 2
   },
   "reference_type_counts": {
-    "b": 1,
-    "a": 1
+    "a": 2
   },
   "selection_method": "Per fixture: qualifying candidate with the highest Pinnacle no-loss probability, then edge, then odds; shortlist sorted safest first; no cap",
   "ranking_metric": "pinnacle_no_loss_probability descending; edge descending; odds descending",
@@ -146,7 +145,7 @@
     "enabled": true,
     "n_shortlisted": 0,
     "fixtures_in_window": 17,
-    "cutoff_run_p20": 0.38446110689793633,
+    "cutoff_run_p20": 0.3845850486140776,
     "cutoff_training_p20": 0.29433008766541074,
     "cutoff_used": 0.29433008766541074,
     "in_both_tiers": 0,

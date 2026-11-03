@@ -9,7 +9,7 @@
     "2026"
   ],
   "training_sha256": "f4d768cacebcc149dd9b123db36bf00d03ede4db9280d27315ff432c3b29a900",
-  "training_as_of_utc": "2026-11-03T13:22:17.761945+00:00",
+  "training_as_of_utc": "2026-11-03T13:57:37.532944+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 54,
     "bbs_added_results": 0,
@@ -33,7 +33,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-03T13:22:17.761945+00:00",
+    "cutoff_utc": "2026-11-03T13:57:37.532944+00:00",
     "observations": 374,
     "observations_sha256": "4ab292c318d16afacb99c2ad5969866fad1f388eaf1d9178bac3caf4e828ecf9",
     "eligible_training_matches": 14,
@@ -107,9 +107,9 @@
   },
   "training_end": "2026-10-21",
   "fit_success": true,
-  "objective": 809.7395953630622,
-  "base": 0.2128097088635832,
-  "home_adv": 0.2999285935408635,
+  "objective": 809.7109685931275,
+  "base": 0.21277639193140832,
+  "home_adv": 0.3000434296325385,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -135,7 +135,7 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-11-03T13:22:17.761945+00:00",
+    "checked_at_utc": "2026-11-03T13:57:37.532944+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
@@ -162,8 +162,8 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261103T132217761945Z_06dc4d82820cf037264df643206a1c8df28bd24d65b3bdbaa39eb4b47a061d8d.json",
-  "over_1_5_in_window_quote_fixtures": 15,
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261103T135737532944Z_1310e5e7908f1350cd19fd70a506043451326682bd05fd7b347cb2b6db2f11cb.json",
+  "over_1_5_in_window_quote_fixtures": 12,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -176,7 +176,7 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 36,
+      "asian_handicap_quotes": 34,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -196,15 +196,15 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 32,
+      "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "61b42fd619617a7a2a3770c2444e8a40",
@@ -256,15 +256,15 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 30,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "f6f3cf01c2b20b7f746b5a06097a0569",
@@ -276,21 +276,41 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 34,
+      "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "adf608a0e9be02eb1d8b0a6f464a12b1",
       "event_id": "adf608a0e9be02eb1d8b0a6f464a12b1",
       "home_team": "LASK",
       "away_team": "\u0160K Slovan Bratislava",
+      "kickoff_utc": "2026-11-03T20:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 22,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "bc0b6614c9714816038d5a0ff8963144",
+      "event_id": "bc0b6614c9714816038d5a0ff8963144",
+      "home_team": "Manchester United",
+      "away_team": "AS Roma",
       "kickoff_utc": "2026-11-03T20:00:00+00:00",
       "status": "RECEIVED_VALID_DC_QUOTES",
       "home_draw_quote": true,
@@ -307,10 +327,10 @@
       "over_1_5_bookmakers": 1
     },
     {
-      "fixture_id": "bc0b6614c9714816038d5a0ff8963144",
-      "event_id": "bc0b6614c9714816038d5a0ff8963144",
-      "home_team": "Manchester United",
-      "away_team": "AS Roma",
+      "fixture_id": "a341241606cb5b1b59e425d00be64883",
+      "event_id": "a341241606cb5b1b59e425d00be64883",
+      "home_team": "Villarreal",
+      "away_team": "Paris Saint Germain",
       "kickoff_utc": "2026-11-03T20:00:00+00:00",
       "status": "RECEIVED_VALID_DC_QUOTES",
       "home_draw_quote": true,
@@ -325,26 +345,6 @@
       "dc_bookmakers": 2,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "a341241606cb5b1b59e425d00be64883",
-      "event_id": "a341241606cb5b1b59e425d00be64883",
-      "home_team": "Villarreal",
-      "away_team": "Paris Saint Germain",
-      "kickoff_utc": "2026-11-03T20:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 34,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "f43ef699c987e112e115f7035114854e",
@@ -436,15 +436,15 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 32,
+      "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "df7d2d81b9e2f3f11c6aeddaee6b7085",
