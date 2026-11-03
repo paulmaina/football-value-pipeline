@@ -1,17 +1,17 @@
 {
   "dependencies": {
     "PyYAML": "6.0.3",
-    "coverage": "7.17.0",
-    "numpy": "2.5.3",
-    "pandas": "3.0.6",
-    "python": "3.14.8",
+    "coverage": "7.17.1",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "python": "3.12.15",
     "python-dotenv": "1.2.4",
     "rapidfuzz": "3.14.6",
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-11-03T13:23:43.479885+00:00",
-  "model_code_sha256": "76637bf3db003304bad6abf18ae98d03961c29031b994de52673a3823d87bba0",
+  "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+  "model_code_sha256": "5af72978ba322e4d1c66850b058fda1e24547a0fe8d36d95cf31e8aaa9f4ae4a",
   "model_component_sha256": {
     "api_football_data.py": "c5ae292a50d10b4e1a0d9901a0989c8eebc99082aa19d75d3d0e87cc59b00de5",
     "api_football_integration.py": "3a95ec1edc5eaf6b79a8075450905df9b4d5a3050a91cfe8df2b5a2ffb2ddeac",
@@ -57,6 +57,6 @@
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47",
     "win_first_shortlist.py": "13a189d481338e75ee2f386a6de316df0ca9b73d8a96e8d5b9cdc3de91c59bb8"
   },
-  "predictions_sha256": "310818e65c3495aef2a8fc02b4ed7a35262c9311f668dc2a4df8f5f0f5f49bb7",
+  "predictions_sha256": "75a55b7db4a15948e66299d6e6c7b2f8930e2c07f66f3aa1c9691b9a25235b15",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28"
 }
