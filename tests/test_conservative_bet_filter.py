@@ -324,7 +324,8 @@ class TenMarketTests(OfflineQuotePolicyTestCase):
             ):
                 # This test isolates the competition-specific validation report;
                 # the optional legacy companion has its own offline coverage.
-                self.assertEqual(main(["--leagues", "UCL", "--no-legacy-comparison", "--out-dir", str(raw)]), 0)
+                self.assertEqual(main(["--leagues", "UCL", "--no-legacy-comparison", "--goal-market-validation",
+                                       "--out-dir", str(raw)]), 0)
             self.assertEqual(backtest.call_count, 1)
             self.assertEqual(backtest.call_args.args[0], "UCL")
             self.assertEqual(backtest.call_args.kwargs["min_train"], 250)

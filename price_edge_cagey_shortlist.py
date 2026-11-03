@@ -44,6 +44,7 @@ POLICY = '48h-ah-price-edge-cagey-v28'
 SETTLEMENT_COLUMNS = ['corrected_p_win', 'corrected_p_half_win', 'corrected_p_push', 'corrected_p_half_loss',
                       'corrected_p_loss', 'corrected_p_profit']
 OBJECTIVE = v27.OBJECTIVE
+VALIDATION_REQUIRED = v27.VALIDATION_REQUIRED
 CORRECTED_MIN_LINE = 1.0
 TOLERANCE = v27.EDGE_TOLERANCE
 REFERENCES = {**v27.REFERENCES, 'c-cagey': 'market-implied, cagey-corrected (derived)'}

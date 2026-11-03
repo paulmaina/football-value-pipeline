@@ -31,7 +31,7 @@ jobs:
         run: >-
           python football_value_pipeline_v2_standalone.py --leagues UEL
           --api-key-source environment --additional-odds-coverage ranked
-          --max-extra-event-odds-requests 1 --out-dir football_output_v2/raw
+          --max-extra-event-odds-requests 1 --goal-market-validation --out-dir football_output_v2/raw
       - run: python workflow_checks.py raw
       - run: python format_football_output.py
       - name: Record verified aggregate outcomes
