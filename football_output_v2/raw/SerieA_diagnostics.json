@@ -1,6 +1,6 @@
 {
   "league": "Serie A",
-  "training_matches": 1993,
+  "training_matches": 2000,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,13 +10,13 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "71c0ae37863b4e71b6b60154dde64d489d5f7de7fad3333b42885316eb91834a",
-  "training_as_of_utc": "2026-11-01T12:16:31.916142+00:00",
+  "training_sha256": "2c1e31ba3ab872f975373aba7d6e633a80818474aa6b5c50a381b0615bc8ddaf",
+  "training_as_of_utc": "2026-11-03T13:20:44.190507+00:00",
   "training_data_provenance": {
-    "bbs_confirmed_rows": 93,
-    "bbs_added_results": 3,
+    "bbs_confirmed_rows": 100,
+    "bbs_added_results": 2,
     "bbs_result_conflicts": 0,
-    "bbs_rows_with_statistics": 93,
+    "bbs_rows_with_statistics": 100,
     "bbs_statistics_used_as_predictor_features": false,
     "note": "Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.",
     "api_football": {
@@ -27,7 +27,7 @@
       "unmapped": 223,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 175,
+      "statistics_observations": 183,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -35,10 +35,10 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-01T12:16:31.916142+00:00",
-    "observations": 599,
-    "observations_sha256": "eb72233e67330fc8a7ff7c5bfb306b51389ab6095ce6c93322bab4bc0944d21c",
-    "eligible_training_matches": 228,
+    "cutoff_utc": "2026-11-03T13:20:44.190507+00:00",
+    "observations": 660,
+    "observations_sha256": "471508faed1b3aed1039c7c802d11aec044c71d1d74caba0daa0a4c055b9856b",
+    "eligible_training_matches": 244,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -63,22 +63,22 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 218,
+    "usable_current_matches": 229,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
-    "strict_eligible_training_matches": 29,
-    "retrospective_eligible_training_matches": 228,
+    "strict_eligible_training_matches": 36,
+    "retrospective_eligible_training_matches": 244,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:28.568690+00:00",
-    "retrospective_inputs_sha256": "ece7f5689314abcc0c5bb9b95bda381b17f362538a57fea52028e829c8abdece",
+    "retrospective_inputs_sha256": "d7d7f455a37651e8da3d5c95ba167841f01f79bdd8d0979af1f31c53f7c92a4a",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
-    "training_matches": 167,
-    "tuning_matches": 21,
-    "audit_matches": 40,
-    "tuning_origin_utc": "2025-09-28T00:00:00+00:00",
-    "audit_origin_utc": "2026-09-13T00:00:00+00:00",
+    "training_matches": 183,
+    "tuning_matches": 20,
+    "audit_matches": 41,
+    "tuning_origin_utc": "2025-10-05T00:00:00+00:00",
+    "audit_origin_utc": "2026-10-11T00:00:00+00:00",
     "supported_feature_columns": [
       "own_shots_on_target",
       "own_shots_off_target",
@@ -112,7 +112,7 @@
       "opponent_conceded_pass_percentage",
       "is_home"
     ],
-    "paired_audit_matches": 14,
+    "paired_audit_matches": 24,
     "input_providers": [
       "api-football",
       "bigballsdata"
@@ -123,7 +123,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-01",
+    "cutoff_date": "2026-11-03",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -144,31 +144,31 @@
       "max_goal_rate_ratio": 1.25
     },
     "bbs_shot_source_enabled": false,
-    "shot_matches": 1989,
-    "tune_start_date": "2025-11-02",
-    "audit_start_date": "2026-05-03",
-    "training_shot_matches": 1613,
-    "tuning_matches": 251,
-    "audit_matches": 125,
-    "audit_matchdays": 41,
+    "shot_matches": 1999,
+    "tune_start_date": "2025-11-04",
+    "audit_start_date": "2026-05-05",
+    "training_shot_matches": 1620,
+    "tuning_matches": 250,
+    "audit_matches": 129,
+    "audit_matchdays": 42,
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
-    "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8353047928962414,
-    "audit_candidate_poisson_score": 0.8347395375100344,
-    "audit_gain": 0.0005652553862069976,
-    "audit_gain_lower95": -0.005927141611416931,
+    "proposed_weight": 0.2,
+    "audit_baseline_poisson_score": 0.8311514367503103,
+    "audit_candidate_poisson_score": 0.8301708744924453,
+    "audit_gain": 0.0009805622578650253,
+    "audit_gain_lower95": -0.0035201156780696103,
     "audit_baseline_briers": [
-      0.5552504034154037,
-      0.15608918649531095,
-      0.2093700750648523,
-      0.24137580563174532
+      0.5470547241723688,
+      0.15450142412135237,
+      0.2091007693639026,
+      0.23872318950353152
     ],
     "audit_candidate_briers": [
-      0.5585892595543517,
-      0.15467810502858745,
-      0.2090156485036732,
-      0.241640830689182
+      0.5497549838349205,
+      0.15368446678114295,
+      0.20921597636229383,
+      0.23948275169098132
     ],
     "audit_brier_order": [
       "1x2",
@@ -182,12 +182,12 @@
       "market_brier_worse"
     ]
   },
-  "training_end": "2026-10-31",
+  "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1814.6179667373249,
-  "base": 0.15190931853620424,
-  "home_adv": 0.1099772831194777,
-  "rho": -0.02431010920760278,
+  "objective": 1830.85916451816,
+  "base": 0.15306527438038225,
+  "home_adv": 0.10553130124292737,
+  "rho": -0.022246924697878107,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -196,119 +196,63 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 27,
-    "matches": 1993,
+    "matches": 2000,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-10-31"
+    "last_match_date": "2026-11-02"
   },
   "training_data_health": {
-    "training_end": "2026-10-31",
+    "training_end": "2026-11-02",
     "days_since_latest_result": 1,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
-  "fixture_sources": [],
+  "fixture_sources": [
+    "football-data.org"
+  ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 0,
-  "excluded_started_fixtures": [
-    {
-      "home_team": "Cagliari Calcio",
-      "away_team": "Bologna FC 1909",
-      "kickoff_utc": "2026-10-24T13:00:00+00:00",
-      "fixture_source": "football-data.org"
-    },
-    {
-      "home_team": "Como 1907",
-      "away_team": "US Sassuolo Calcio",
-      "kickoff_utc": "2026-10-24T13:00:00+00:00",
-      "fixture_source": "football-data.org"
-    },
-    {
-      "home_team": "SSC Napoli",
-      "away_team": "AS Roma",
-      "kickoff_utc": "2026-10-24T16:00:00+00:00",
-      "fixture_source": "football-data.org"
-    },
-    {
-      "home_team": "SS Lazio",
-      "away_team": "Parma Calcio 1913",
-      "kickoff_utc": "2026-10-24T18:45:00+00:00",
-      "fixture_source": "football-data.org"
-    },
-    {
-      "home_team": "FC Internazionale Milano",
-      "away_team": "ACF Fiorentina",
-      "kickoff_utc": "2026-10-25T11:30:00+00:00",
-      "fixture_source": "football-data.org"
-    },
-    {
-      "home_team": "Atalanta BC",
-      "away_team": "Frosinone Calcio",
-      "kickoff_utc": "2026-10-25T14:00:00+00:00",
-      "fixture_source": "football-data.org"
-    },
-    {
-      "home_team": "Genoa CFC",
-      "away_team": "Venezia FC",
-      "kickoff_utc": "2026-10-25T14:00:00+00:00",
-      "fixture_source": "football-data.org"
-    },
-    {
-      "home_team": "US Lecce",
-      "away_team": "Juventus FC",
-      "kickoff_utc": "2026-10-25T17:00:00+00:00",
-      "fixture_source": "football-data.org"
-    },
-    {
-      "home_team": "Udinese Calcio",
-      "away_team": "AC Milan",
-      "kickoff_utc": "2026-10-25T19:45:00+00:00",
-      "fixture_source": "football-data.org"
-    },
-    {
-      "home_team": "US Sassuolo Calcio",
-      "away_team": "SS Lazio",
-      "kickoff_utc": "2026-10-27T17:30:00+00:00",
-      "fixture_source": "football-data.org"
-    },
-    {
-      "home_team": "AS Roma",
-      "away_team": "Cagliari Calcio",
-      "kickoff_utc": "2026-10-27T19:45:00+00:00",
-      "fixture_source": "football-data.org"
-    },
-    {
-      "home_team": "Torino FC",
-      "away_team": "Como 1907",
-      "kickoff_utc": "2026-10-27T19:45:00+00:00",
-      "fixture_source": "football-data.org"
-    }
-  ],
+  "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261101T121631916142Z_f9f0bfbdd067b3752ae3c6473c9ca248596ca1b6968927e06a4f7d1d70ff5678.json",
-  "decay_tuning": {
-    "selected_half_life_days": 730.0,
-    "selected_xi_per_day": 0.0009495166856985552,
-    "selection_metric": "walk_forward_1x2_log_loss",
-    "validation_days": 365,
-    "applied_to_production": false
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261103T132044190507Z_19779910a0153828a74d4863cc995e6cd82fbb30eb7adde5c01e4652ca434df2.json",
+  "over_1_5_in_window_quote_fixtures": 0,
+  "additional_odds_coverage_mode": "all",
+  "additional_odds_coverage": [
+    {
+      "fixture_id": "fdorg:558537",
+      "event_id": null,
+      "home_team": "Venezia FC",
+      "away_team": "Udinese Calcio",
+      "kickoff_utc": "2026-11-06T19:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    }
+  ],
+  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_unrequested_linked_fixtures": 0,
+  "additional_event_odds_hard_cap_applies": false,
+  "additional_event_odds_calls_this_league": 0,
+  "totals_anchor_fixtures": {
+    "NOT_ANCHORED_NO_PINNACLE": 1
   },
-  "goal_market_reliability": {
-    "home_draw": "RELIABLE_FOR_RANKING",
-    "draw_away": "RELIABLE_FOR_RANKING",
-    "home_away": "RELIABLE_FOR_RANKING",
-    "home": "RELIABLE_FOR_RANKING",
-    "draw": "RELIABLE_FOR_RANKING",
-    "away": "RELIABLE_FOR_RANKING",
-    "over_1_5": "RELIABLE_FOR_RANKING",
-    "under_3_5": "RELIABLE_FOR_RANKING",
-    "btts_yes": "RELIABLE_FOR_RANKING"
-  }
+  "shot_features_applied_fixtures": 0,
+  "goal_rate_features_used": {
+    "none": 1
+  },
+  "legacy_comparison_status": {
+    "None": 1
+  },
+  "bbs_statistics_applied_fixtures": 0,
+  "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

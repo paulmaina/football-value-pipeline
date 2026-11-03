@@ -1,41 +1,21 @@
 ﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-11-01,Premier League,Liverpool,Arsenal,1,1-1,13.20%,0.13197470281721646
-2026-11-01,Premier League,Liverpool,Arsenal,2,0-1,9.50%,0.09504680648304285
-2026-11-01,Premier League,Liverpool,Arsenal,3,1-2,8.89%,0.0889014359646526
-2026-11-01,Premier League,Liverpool,Arsenal,4,0-0,8.04%,0.08041850836240666
-2026-11-01,Premier League,Liverpool,Arsenal,5,1-0,7.72%,0.07722362890781449
-2026-11-01,Premier League,Liverpool,Arsenal,6,0-2,7.46%,0.07456617040452178
-2026-11-01,Premier League,Liverpool,Arsenal,7,2-1,7.36%,0.07360054333339305
-2026-11-01,Premier League,Liverpool,Arsenal,8,2-2,5.30%,0.05299632040710212
-2026-11-01,Premier League,Liverpool,Arsenal,9,2-0,5.11%,0.051107698962480456
-2026-11-01,Premier League,Liverpool,Arsenal,10,1-3,4.27%,0.04267585329900307
-2026-11-01,Premier League,Liverpool,Arsenal,11,0-3,3.58%,0.03579441563257849
-2026-11-01,Premier League,Liverpool,Arsenal,12,3-1,2.93%,0.029250056044720297
-2026-11-01,Premier League,Liverpool,Arsenal,13,2-3,2.54%,0.02544011995463938
-2026-11-01,Premier League,Liverpool,Arsenal,14,3-2,2.11%,0.02106160188315322
-2026-11-01,Premier League,Liverpool,Arsenal,15,3-0,2.03%,0.020311032925364278
-2026-11-01,Premier League,Liverpool,Arsenal,16,1-4,1.54%,0.015364446325047174
-2026-11-01,Premier League,Liverpool,Arsenal,17,0-4,1.29%,0.012886945080393486
-2026-11-01,Premier League,Liverpool,Arsenal,18,3-3,1.01%,0.010110318494347235
-2026-11-01,Premier League,Liverpool,Arsenal,19,2-4,0.92%,0.009159122251339946
-2026-11-01,Premier League,Liverpool,Arsenal,20,4-1,0.87%,0.008718336915772836
-2026-11-02,Premier League,Newcastle United,Everton,1,1-1,12.69%,0.12694811441354625
-2026-11-02,Premier League,Newcastle United,Everton,2,1-0,10.69%,0.10691672694794464
-2026-11-02,Premier League,Newcastle United,Everton,3,2-1,9.50%,0.09503180883767473
-2026-11-02,Premier League,Newcastle United,Everton,4,2-0,9.21%,0.0921028762403796
-2026-11-02,Premier League,Newcastle United,Everton,5,0-0,8.01%,0.08010798210865785
-2026-11-02,Premier League,Newcastle United,Everton,6,0-1,6.60%,0.06602410452782756
-2026-11-02,Premier League,Newcastle United,Everton,7,1-2,6.13%,0.06126965689173763
-2026-11-02,Premier League,Newcastle United,Everton,8,3-1,5.07%,0.050695229249237826
-2026-11-02,Premier League,Newcastle United,Everton,9,3-0,4.91%,0.04913277441131015
-2026-11-02,Premier League,Newcastle United,Everton,10,2-2,4.90%,0.049026941717814555
-2026-11-02,Premier League,Newcastle United,Everton,11,0-2,3.83%,0.038284774902318644
-2026-11-02,Premier League,Newcastle United,Everton,12,3-2,2.62%,0.02615368559404183
-2026-11-02,Premier League,Newcastle United,Everton,13,1-3,2.11%,0.02107269088278052
-2026-11-02,Premier League,Newcastle United,Everton,14,4-1,2.03%,0.020282731908923077
-2026-11-02,Premier League,Newcastle United,Everton,15,4-0,1.97%,0.01965760695995239
-2026-11-02,Premier League,Newcastle United,Everton,16,2-3,1.69%,0.016862010335281036
-2026-11-02,Premier League,Newcastle United,Everton,17,0-3,1.32%,0.013167418718517235
-2026-11-02,Premier League,Newcastle United,Everton,18,4-2,1.05%,0.010463868123097388
-2026-11-02,Premier League,Newcastle United,Everton,19,3-3,0.90%,0.008995130051772734
-2026-11-02,Premier League,Newcastle United,Everton,20,5-1,0.65%,0.006491959417588496
+2026-11-06,Premier League,Everton FC,Coventry City FC,1,1-1,13.24%,0.13240922181351134
+2026-11-06,Premier League,Everton FC,Coventry City FC,2,1-0,13.18%,0.13179406200577484
+2026-11-06,Premier League,Everton FC,Coventry City FC,3,0-0,10.45%,0.10446539156879399
+2026-11-06,Premier League,Everton FC,Coventry City FC,4,2-0,10.03%,0.10032507112962259
+2026-11-06,Premier League,Everton FC,Coventry City FC,5,2-1,8.98%,0.08981280957815507
+2026-11-06,Premier League,Everton FC,Coventry City FC,6,0-1,7.91%,0.07909449381820804
+2026-11-06,Premier League,Everton FC,Coventry City FC,7,1-2,5.59%,0.05586073622367456
+2026-11-06,Premier League,Everton FC,Coventry City FC,8,3-0,4.81%,0.048133634401231536
+2026-11-06,Premier League,Everton FC,Coventry City FC,9,3-1,4.31%,0.04309009594617572
+2026-11-06,Premier League,Everton FC,Coventry City FC,10,2-2,4.02%,0.040201021905581426
+2026-11-06,Premier League,Everton FC,Coventry City FC,11,0-2,3.88%,0.03881023048095346
+2026-11-06,Premier League,Everton FC,Coventry City FC,12,3-2,1.93%,0.019287514767460854
+2026-11-06,Premier League,Everton FC,Coventry City FC,13,4-0,1.73%,0.017320048228607724
+2026-11-06,Premier League,Everton FC,Coventry City FC,14,1-3,1.67%,0.01666917886314554
+2026-11-06,Premier League,Everton FC,Coventry City FC,15,4-1,1.55%,0.015505218944032255
+2026-11-06,Premier League,Everton FC,Coventry City FC,16,2-3,1.20%,0.011996226149653991
+2026-11-06,Premier League,Everton FC,Coventry City FC,17,0-3,1.16%,0.011581205643557847
+2026-11-06,Premier League,Everton FC,Coventry City FC,18,4-2,0.69%,0.006940275550309546
+2026-11-06,Premier League,Everton FC,Coventry City FC,19,3-3,0.58%,0.005755510135007972
+2026-11-06,Premier League,Everton FC,Coventry City FC,20,5-0,0.50%,0.004985853644720791

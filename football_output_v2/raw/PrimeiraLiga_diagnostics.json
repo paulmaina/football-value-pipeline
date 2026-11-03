@@ -1,6 +1,6 @@
 {
   "league": "Primeira Liga",
-  "training_matches": 1611,
+  "training_matches": 1620,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "84c0a9d8af08458f9d90e4a3ffe4465c5e09f0dc593fdcb0fb4ebd37c58b23a7",
-  "training_as_of_utc": "2026-11-01T12:23:17.299957+00:00",
+  "training_sha256": "b3df8a6ba2e5ca811847821ea9d38323a7d64bb77cbc57ee92f21ada8c933425",
+  "training_as_of_utc": "2026-11-03T13:23:12.480252+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-01",
+    "cutoff_date": "2026-11-03",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -49,31 +49,31 @@
       "max_goal_rate_ratio": 1.25
     },
     "bbs_shot_source_enabled": false,
-    "shot_matches": 1611,
-    "tune_start_date": "2025-11-02",
-    "audit_start_date": "2026-05-03",
-    "training_shot_matches": 1310,
+    "shot_matches": 1620,
+    "tune_start_date": "2025-11-04",
+    "audit_start_date": "2026-05-05",
+    "training_shot_matches": 1314,
     "tuning_matches": 198,
-    "audit_matches": 100,
-    "audit_matchdays": 40,
+    "audit_matches": 105,
+    "audit_matchdays": 42,
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8767945865086,
-    "audit_candidate_poisson_score": 0.8692694227708739,
-    "audit_gain": 0.007525163737726048,
-    "audit_gain_lower95": -0.0029114938118432574,
+    "audit_baseline_poisson_score": 0.8711330440902035,
+    "audit_candidate_poisson_score": 0.8646849775407015,
+    "audit_gain": 0.0064480665495020295,
+    "audit_gain_lower95": -0.0029257011662571727,
     "audit_baseline_briers": [
-      0.5874602781316232,
-      0.18463746867523598,
-      0.22936715245786268,
-      0.24667944034048392
+      0.5561664600668006,
+      0.18693035285576223,
+      0.22413622227432772,
+      0.24642852647745872
     ],
     "audit_candidate_briers": [
-      0.5856380790768368,
-      0.1848068073576367,
-      0.2277893728550634,
-      0.2468880466667111
+      0.557380406254777,
+      0.1868314725076006,
+      0.2222667712393881,
+      0.2465799474586657
     ],
     "audit_brier_order": [
       "1x2",
@@ -87,11 +87,11 @@
       "market_brier_worse"
     ]
   },
-  "training_end": "2026-10-26",
+  "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1456.4933697801544,
-  "base": 0.09426421720588146,
-  "home_adv": 0.17011560136256862,
+  "objective": 1473.5279820148342,
+  "base": 0.08736016851865487,
+  "home_adv": 0.17402467255214066,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -101,16 +101,16 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 27,
-    "matches": 1611,
+    "matches": 1620,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-10-26"
+    "last_match_date": "2026-11-02"
   },
   "training_data_health": {
-    "training_end": "2026-10-26",
-    "days_since_latest_result": 6,
+    "training_end": "2026-11-02",
+    "days_since_latest_result": 1,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -123,97 +123,18 @@
   "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 0,
+  "additional_event_odds_calls_used_before_this_league": 19,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
-  "odds_provider_health": {
-    "state": "CREDITS_EXHAUSTED",
-    "attempts": [
-      {
-        "credential": "THE_ODDS_API_KEY",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 1,
-        "x-requests-used": 499,
-        "x-requests-last": 0
-      }
-    ],
-    "blocked_utc_day": "2026-11-01"
-  },
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:567341",
+      "fixture_id": "fdorg:567353",
       "event_id": null,
-      "home_team": "FC Arouca",
-      "away_team": "CD Nacional",
-      "kickoff_utc": "2026-11-01T15:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "fdorg:567345",
-      "event_id": null,
-      "home_team": "Acad\u00e9mico de Viseu FC",
-      "away_team": "Rio Ave FC",
-      "kickoff_utc": "2026-11-01T18:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "fdorg:567340",
-      "event_id": null,
-      "home_team": "CS Mar\u00edtimo",
-      "away_team": "CD Santa Clara",
-      "kickoff_utc": "2026-11-01T18:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "fdorg:567339",
-      "event_id": null,
-      "home_team": "Sporting Clube de Braga",
-      "away_team": "FC Famalic\u00e3o",
-      "kickoff_utc": "2026-11-01T20:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "fdorg:567346",
-      "event_id": null,
-      "home_team": "Gil Vicente FC",
-      "away_team": "Vit\u00f3ria SC",
-      "kickoff_utc": "2026-11-02T20:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "fdorg:567342",
-      "event_id": null,
-      "home_team": "Sport Lisboa e Benfica",
-      "away_team": "FC Alverca",
-      "kickoff_utc": "2026-11-02T20:15:00+00:00",
+      "home_team": "FC Famalic\u00e3o",
+      "away_team": "FC Arouca",
+      "kickoff_utc": "2026-11-06T20:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
@@ -227,32 +148,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 6
+    "NOT_ANCHORED_NO_PINNACLE": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 6
+    "none": 1
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 6
+    "None": 1
   },
   "bbs_statistics_applied_fixtures": 0,
-  "decay_tuning": {
-    "selected_half_life_days": 730.0,
-    "selected_xi_per_day": 0.0009495166856985552,
-    "selection_metric": "walk_forward_1x2_log_loss",
-    "validation_days": 365,
-    "applied_to_production": false
-  },
-  "goal_market_reliability": {
-    "home_draw": "RELIABLE_FOR_RANKING",
-    "draw_away": "RELIABLE_FOR_RANKING",
-    "home_away": "RELIABLE_FOR_RANKING",
-    "home": "RELIABLE_FOR_RANKING",
-    "draw": "RELIABLE_FOR_RANKING",
-    "away": "RELIABLE_FOR_RANKING",
-    "over_1_5": "RELIABLE_FOR_RANKING",
-    "under_3_5": "RELIABLE_FOR_RANKING",
-    "btts_yes": "RELIABLE_FOR_RANKING"
-  }
+  "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }
