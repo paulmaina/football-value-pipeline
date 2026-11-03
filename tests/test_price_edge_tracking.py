@@ -144,5 +144,95 @@ class ReviewTests(OfflineQuotePolicyTestCase):
         self.assertEqual(summary['clv']['n'], 0)
 
 
+class CageyTrackingTests(OfflineQuotePolicyTestCase):
+    def tier_pick(self, home='Cagey FC', **extra):
+        return {**pick(home=home, market='Asian Handicap Away +2.00', price=1.30), 'selection_policy_version': tracking.CAGEY_POLICY,
+                'evaluated_at_utc': CAPTURED, 'corrected_cagey_score': 0.25, 'cagey_tier_decision': 'SHORTLISTED',
+                'reference_type': 'c-cagey', 'even_odds': False, **extra}
+
+    def test_tier_sidecar_binds_to_its_v28_generation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            raw = Path(tmp)
+            self.assertIsNone(tracking.capture_tier_file(raw, CAPTURED))
+            pd.DataFrame([self.tier_pick()]).to_csv(raw / tracking.TIER_FILE, index=False)
+            self.assertEqual(tracking.capture_tier_file(raw, CAPTURED), raw / tracking.TIER_FILE)
+            self.assertIsNone(tracking.capture_tier_file(raw, KICK.isoformat()))
+            pd.DataFrame([self.tier_pick(selection_policy_version=POLICY)]).to_csv(raw / tracking.TIER_FILE, index=False)
+            self.assertIsNone(tracking.capture_tier_file(raw, CAPTURED))
+            pd.DataFrame(columns=['selection_policy_version', 'evaluated_at_utc']).to_csv(raw / tracking.TIER_FILE, index=False)
+            self.assertEqual(tracking.capture_tier_file(raw, CAPTURED), raw / tracking.TIER_FILE)
+
+    def test_frozen_tier_picks_keep_latest_pre_kickoff_entry_per_fixture(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root, archive = Path(tmp), []
+            for sha, price, captured in (('a' * 40, 1.25, CAPTURED), ('b' * 40, 1.31, (KICK - pd.Timedelta(hours=3)).isoformat()),
+                                         ('c' * 40, 1.50, (KICK - pd.Timedelta(minutes=5)).isoformat())):
+                directory = root / 'performance' / 'snapshots' / sha[:16]
+                directory.mkdir(parents=True)
+                pd.DataFrame([self.tier_pick(offered_decimal_odds=price)]).to_csv(directory / tracking.TIER_FILE, index=False)
+                archive.append(({**meta(sha, [tracking.TIER_FILE]), 'captured_at_utc': captured, 'generated_at_utc': captured}, [], []))
+            rows = tracking.frozen_tier_picks(root, archive)
+        self.assertEqual([float(r['offered_decimal_odds']) for r in rows], [1.31])
+
+    def frame(self, value_rows=(), tier_rows=()):
+        return tracking.tier_frame(pd.DataFrame(list(value_rows)), pd.DataFrame(list(tier_rows)))
+
+    def test_cagey_review_needs_50_correction_only_picks_with_negative_clv(self):
+        only = [{'clv': -0.01, 'unit_profit': 0.0, 'qualified_only_by_correction': True,
+                 'selection_policy_version': tracking.CAGEY_POLICY, 'corrected_cagey_score': 0.3 + i / 1000} for i in range(50)]
+        flags = tracking.cagey_flags(self.frame(only))
+        self.assertTrue(flags['cagey_review'])
+        self.assertIn('cagey_correction_enabled = false', flags['cagey_review_rule'])
+        self.assertFalse(tracking.cagey_flags(self.frame(only[:49]))['cagey_review'])
+        plain = [{**r, 'qualified_only_by_correction': False} for r in only]
+        self.assertFalse(tracking.cagey_flags(self.frame(plain))['cagey_review'])
+
+    def test_cagey_tier_review_needs_an_roi_interval_below_zero(self):
+        losing = [{'clv': 0.0, 'unit_profit': -1.0 if i % 4 else 0.25, 'corrected_cagey_score': 0.25} for i in range(50)]
+        self.assertTrue(tracking.cagey_flags(self.frame(tier_rows=losing))['cagey_tier_review'])
+        self.assertFalse(tracking.cagey_flags(self.frame(tier_rows=losing[:49]))['cagey_tier_review'])
+        mixed = [{'clv': 0.0, 'unit_profit': 1.0 if i % 2 else -1.0, 'corrected_cagey_score': 0.25} for i in range(60)]
+        self.assertFalse(tracking.cagey_flags(self.frame(tier_rows=mixed))['cagey_tier_review'])
+        self.assertFalse(tracking.cagey_flags(self.frame())['cagey_tier_review'])
+
+    def test_splits_cover_tier_policy_reference_quintile_tags_and_correction(self):
+        value = [{'clv': 0.02, 'unit_profit': 0.9, 'reference_type': 'c-cagey', 'qualified_only_by_correction': 'True',
+                  'selection_policy_version': tracking.CAGEY_POLICY, 'bookmaker': '1xBet', 'even_odds': 'yes',
+                  'corrected_cagey_score': s} for s in (0.2, 0.3, 0.4, 0.5, 0.6)]
+        tier = [{'clv': 0.01, 'unit_profit': 0.2, 'reference_type': 'c-cagey', 'bookmaker': 'Pinnacle',
+                 'selection_policy_version': tracking.CAGEY_POLICY, 'corrected_cagey_score': 0.21}]
+        frame = self.frame(value, tier)
+        table = tracking.split_table(frame, 'clv', tracking.TIER_SPLITS)
+        self.assertEqual(set(table), set(tracking.TIER_SPLITS))
+        self.assertEqual(set(table['tier']), {'value', 'cagey'})
+        self.assertEqual(set(table['policy']), {'v28'})
+        self.assertEqual(table['qualified_only_by_correction']['yes']['n'], 5)
+        self.assertIn('Q1 cagiest', table['corrected_cagey_quintile'])
+
+    def test_review_grades_both_tiers_and_reports_flags(self):
+        value = [pick(home=f'V{i}', price=1.70, selection_policy_version=tracking.CAGEY_POLICY,
+                      qualified_only_by_correction=True, corrected_cagey_score=0.3) for i in range(50)]
+        archive = [(meta(files=[tracking.TIER_FILE]), [], value)]
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp) / 'performance' / 'snapshots' / ('a' * 16)
+            directory.mkdir(parents=True)
+            pd.DataFrame([self.tier_pick()]).to_csv(directory / tracking.TIER_FILE, index=False)
+            closes = [observation(home=f'V{i}') for i in range(50)] + [observation(home='Cagey FC', quotes=[
+                {'bookmaker': 'pinnacle', 'selection': 'Asian Handicap Away +2.00', 'decimal_odds': 1.22},
+                {'bookmaker': 'pinnacle', 'selection': 'Asian Handicap Home -2.00', 'decimal_odds': 4.60}])]
+            with patch('closing_odds.load_observations', return_value=(closes, [])), \
+                    patch('performance_tracking.fixture_match', return_value=({'home_goals': 1, 'away_goals': 1}, 'VERIFIED_FINISHED')):
+                summary = tracking.review(Path(tmp), archive, [], CLOCK)
+            report = (Path(tmp) / tracking.OUTPUT_DIR / 'report.md').read_text(encoding='utf-8')
+            tier_csv = pd.read_csv(Path(tmp) / tracking.OUTPUT_DIR / 'cagey_tier_picks.csv')
+        self.assertEqual(summary['cagey_tier_picks'], 1)
+        self.assertEqual(len(tier_csv), 1)
+        self.assertGreater(summary['cagey_tier']['clv']['mean'], 0)
+        self.assertAlmostEqual(summary['cagey_tier']['profit']['mean'], 0.30)
+        self.assertTrue(summary['cagey_review'])  # 50 correction-only picks at 1.70 vs a 1.80 close
+        self.assertIn('CAGEY REVIEW', report)
+        self.assertIn('### By tier', report)
+
+
 if __name__ == '__main__':
     unittest.main()

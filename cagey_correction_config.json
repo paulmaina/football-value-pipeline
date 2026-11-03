@@ -1,0 +1,6 @@
+{
+  "cagey_correction_enabled": true,
+  "cagey_tier_enabled": true,
+  "model_version": "cagey-correction-through-2425-v1",
+  "gate_report": "football_output_v2/performance/cagey_correction/report.md"
+}

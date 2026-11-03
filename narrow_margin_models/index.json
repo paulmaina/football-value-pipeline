@@ -1,0 +1,13 @@
+{
+  "gate": {
+    "version": "cagey-correction-pre2024-v1",
+    "training_until_exclusive": "2024-01-01",
+    "gate_report": "football_output_v2/performance/cagey_correction/report.md",
+    "gate_result": "PASS"
+  },
+  "production": {
+    "version": "cagey-correction-through-2425-v1",
+    "training_until_exclusive": "2025-07-01",
+    "note": "Same specification as the gate model, refit after GATE: PASS; refits only by a future PR."
+  }
+}

@@ -74,7 +74,8 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertNotIn('Both Teams to Score - Yes', picks.market.tolist())
                 self.assertTrue(pd.read_csv(raw/'all_leagues_predictions.csv').p_under_3_5.eq(.99).all())
                 summary = json.loads((raw/'conservative_bet_summary.json').read_text())
-                self.assertEqual(summary['selection_policy_version'], '48h-ah-price-edge-pinnacle-ref-v27')
+                self.assertEqual(summary['selection_policy_version'], '48h-ah-price-edge-cagey-v28')
+                self.assertTrue(summary['cagey_correction_enabled'] and summary['cagey_tier_enabled'])
                 self.assertTrue({'Home win','Away win','Double Chance 1X','Double Chance X2'}.issubset(summary['eligible_markets']))
                 for excluded in ('Draw','Over 1.5','Double Chance 12'):
                     self.assertNotIn(excluded,summary['eligible_markets'])

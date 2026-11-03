@@ -1359,12 +1359,17 @@ def process_bet365_list(input_dir: Path, output_dir: Path) -> Optional[int]:
     return len(readable)
 
 
-def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: Path) -> int:
+def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: Path,
+                                 input_dir: Optional[Path] = None) -> int:
     """Readable v27 price-edge shortlist: safest first, one row per fixture."""
-    from price_edge_shortlist import OUTPUT_COLUMNS, REFERENCES
+    from price_edge_shortlist import OUTPUT_COLUMNS
+    import price_edge_cagey_shortlist as v28
+    from price_edge_cagey_shortlist import REFERENCES  # superset of v27's (adds c-cagey)
+    if summary.get('selection_policy_version') == v28.POLICY:
+        OUTPUT_COLUMNS = v28.OUTPUT_COLUMNS
     headers = {
         "kickoff_utc": "Kickoff (UTC)", "league": "League", "home_team": "Home", "away_team": "Away",
-        "balanced": "Balanced", "low_total": "Low total", "high_draw": "High draw",
+        "balanced": "Balanced", "low_total": "Low total", "high_draw": "High draw", "even_odds": "Even odds",
         "pinnacle_draw_probability": "Pinnacle draw probability", "pinnacle_over_2_5_probability": "Pinnacle P(over 2.5)",
         "handicap_line": "AH line", "handicap_side": "Side", "side_role": "Favourite/underdog",
         "market_to_bet": "Market to bet", "bookmaker": "Bookmaker", "offered_decimal_odds": "Price",
@@ -1373,15 +1378,23 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
         "offered_quote_age_minutes": "Offered quote age (min)", "pinnacle_quote_age_minutes": "Pinnacle quote age (min)",
         "model_vs_pinnacle_gap": "Model vs Pinnacle gap (info only)",
         "cagey_score": "Cagey score: P(2+ goal margin) (info only)", "cagey_fit": "Cagey fit",
+        "fair_odds_uncorrected": "Fair (uncorrected)",
+        "qualified_only_by_correction": "Qualified only because of correction",
+        "corrected_cagey_score": "Corrected cagey score",
         "other_value_lines": "Other value lines"}
     readable = raw.reindex(columns=OUTPUT_COLUMNS).rename(columns=headers)
     if not readable.empty:
-        for column in ("Pinnacle draw probability", "Pinnacle P(over 2.5)", "Pinnacle no-loss probability"):
+        for column in ("Pinnacle draw probability", "Pinnacle P(over 2.5)", "Pinnacle no-loss probability",
+                       "Corrected cagey score"):
+            if column not in readable:
+                continue
             readable[column] = readable[column].map(pct)
         readable["Edge"] = readable["Edge"].map(signed_pct)
         readable["Model vs Pinnacle gap (info only)"] = readable["Model vs Pinnacle gap (info only)"].map(signed_pct)
         readable["Cagey score: P(2+ goal margin) (info only)"] = readable["Cagey score: P(2+ goal margin) (info only)"].map(pct)
-        for column in ("Price", "Fair odds", "Minimum odds still worth taking"):
+        for column in ("Price", "Fair odds", "Minimum odds still worth taking", "Fair (uncorrected)"):
+            if column not in readable:
+                continue
             readable[column] = readable[column].map(decimal)
         for column in ("Offered quote age (min)", "Pinnacle quote age (min)"):
             readable[column] = readable[column].map(lambda v: decimal(v, 0))
@@ -1390,14 +1403,14 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
     readable.to_csv(output_dir / "conservative_bet_shortlist_readable.csv", index=False, encoding="utf-8-sig")
     rejected = summary.get("rejection_counts") or {}
     lines = [
-        "# Asian handicap price edge vs Pinnacle (v27)", "",
+        "# Asian handicap price edge vs Pinnacle (" + ("v28" if summary.get('selection_policy_version') == v28.POLICY else "v27") + ")", "",
         f"**Generated (UTC):** {summary.get('generated_at_utc') or 'not recorded'}. **Picks:** {len(readable)} "
         f"(one per match, no cap, safest first). **Status:** {summary.get('status')}.",
         f"**Rule:** edge = price x Pinnacle fair win-share - 1, at least {pct(summary.get('min_edge'))} against Pinnacle "
         f"(a: same AH line, b: equivalent market) or {pct(summary.get('min_edge_derived'))} against the derived "
         "market-implied price (c: plus lines only). Odds above 3.00, prices above 1.15 x fair, quotes more than "
         "10 minutes apart and Pinnacle overrounds outside [1.00, 1.10] are rejected.",
-        "**Tags** (balanced, low total, high draw) are tracked hypotheses only; they never change a pick.",
+        "**Tags** (balanced, low total, high draw, even odds) are tracked hypotheses only; they never change a pick.",
         "**Model vs Pinnacle gap** is information only; the model does not select picks.", "",
         "> A price edge is not a guaranteed profit. Grade it by closing line value against the Pinnacle close.", "",
         "## Picks", "",
@@ -1407,6 +1420,40 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
         markdown_table(["Reason", "Candidates"], [[k, v] for k, v in rejected.items()]) if rejected else "None.", "",
         f"Tagged candidates: {summary.get('tagged_candidates')}.",
     ]
+    if summary.get('cagey_correction_enabled'):
+        lines[5:5] = [f"**Cagey correction (v28):** derived plus lines (+1 or more) are priced from the cagey-corrected "
+                      f"matrix (c-cagey). Picks that qualified only because of the correction: "
+                      f"{summary.get('correction_only_value_picks', 0)}."]
+    tier = summary.get('cagey_tier') or {}
+    tier_path = Path(input_dir) / v28.TIER_FILE if input_dir is not None else None
+    if tier.get('enabled') and tier_path is not None and tier_path.exists():
+        try:
+            tier_raw = pd.read_csv(tier_path, low_memory=False)
+        except pd.errors.EmptyDataError:
+            tier_raw = pd.DataFrame()
+        tier_headers = {**headers, "corrected_no_loss_probability": "Corrected no-loss probability",
+                        "corrected_fair_odds": "Corrected fair odds", "corrected_expected_profit": "Expected profit",
+                        "pinnacle_fair_odds": "Pinnacle fair odds (if quoted)", "in_value_tier": "Also in value tier",
+                        "corrected_p_win": "Full win", "corrected_p_half_win": "Half win", "corrected_p_push": "Push",
+                        "corrected_p_half_loss": "Half loss", "corrected_p_loss": "Full loss",
+                        "corrected_p_profit": "Profit probability",
+                        "uncorrected_matrix_fair_odds": "Uncorrected fair odds"}
+        tier_readable = tier_raw.reindex(columns=v28.TIER_OUTPUT_COLUMNS).rename(columns=tier_headers)
+        if not tier_readable.empty:
+            for column in ("Corrected no-loss probability", "Corrected cagey score", "Full win", "Half win", "Push",
+                           "Half loss", "Full loss", "Profit probability"):
+                tier_readable[column] = tier_readable[column].map(pct)
+            tier_readable["Expected profit"] = tier_readable["Expected profit"].map(signed_pct)
+            for column in ("Price", "Corrected fair odds", "Uncorrected fair odds", "Pinnacle fair odds (if quoted)"):
+                tier_readable[column] = tier_readable[column].map(decimal)
+        tier_readable.to_csv(output_dir / "cagey_tier_shortlist_readable.csv", index=False, encoding="utf-8-sig")
+        lines += ["", "## Cagey tier (separate list, never merged with the picks above)", "",
+                  f"Cagiest 20% of this run's fixtures by corrected cagey score (cutoff {tier.get('cutoff_used')}, run "
+                  f"20th percentile {tier.get('cutoff_run_p20')}, training cap {tier.get('cutoff_training_p20')}); "
+                  "AH +1 to +2.25 at Pinnacle or 1xBet with expected profit >= 0 and no-loss >= 85% under the corrected "
+                  "matrix; one per match, safest first.", "",
+                  markdown_table(list(tier_readable.columns), tier_readable.astype(str).values.tolist())
+                  if not tier_readable.empty else "No cagey-tier pick this run."]
     (output_dir / "conservative_bet_shortlist_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return len(readable)
 
@@ -1420,6 +1467,8 @@ def process_conservative_shortlist(
     Only the pipeline may select markets. This function reads but never
     mutates the shortlist or its summary file.
     """
+    # Only a run with the cagey tier enabled rewrites this; never leave an old tier's picks behind.
+    (output_dir / "cagey_tier_shortlist_readable.csv").unlink(missing_ok=True)
     source = input_dir / "conservative_bet_shortlist.csv"
     if not source.exists():
         # Prevent an obsolete report from appearing current when input
@@ -1439,7 +1488,7 @@ def process_conservative_shortlist(
     summary = load_json_file(input_dir / "conservative_bet_summary.json")
     from price_edge_shortlist import OBJECTIVE as PRICE_EDGE_OBJECTIVE
     if summary.get('selection_objective') == PRICE_EDGE_OBJECTIVE:
-        return process_price_edge_shortlist(raw, summary, output_dir)
+        return process_price_edge_shortlist(raw, summary, output_dir, input_dir)
     balanced = summary.get('selection_objective') == 'BALANCED_PROBABILITY_EV'
     per_market = summary.get('selection_objective') == 'PER_MARKET_PROBABILITY_WEIGHTED'
     win_first = per_market or summary.get('selection_objective') == 'MAXIMIZE_PROFITABLE_WIN_PROBABILITY'

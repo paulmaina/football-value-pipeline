@@ -170,7 +170,7 @@ fresh `main`:
 1. **Generate**: `football_value_pipeline_v2_standalone.py --leagues <all
    registry leagues> --additional-odds-coverage all`. This writes production
    probabilities (`dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2`),
-   the v27 price-edge shortlist ([rules](docs/price-edge-shortlist-v27.md)) and two forward-trial sidecars: `benchmark_forward_experiment.json`
+   the v28 price-edge shortlist with the cagey correction and a separate cagey tier ([rules](docs/cagey-correction-v28.md); v27 base rules in [docs/price-edge-shortlist-v27.md](docs/price-edge-shortlist-v27.md)) and two forward-trial sidecars: `benchmark_forward_experiment.json`
    and `totals_anchor_experiment.json`, plus `bet365_vs_pinnacle.csv`.
    The legacy companion (`legacy_*` columns and its half-life tuning) still
    runs, only because both trials are frozen against it. It is never used for
