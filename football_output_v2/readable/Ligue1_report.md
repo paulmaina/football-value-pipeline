@@ -25,13 +25,13 @@ Fixtures in this report: **1**.
 | Training seasons requested | 6 |
 | Training seasons loaded | ['2122', '2223', '2324', '2425', '2526', '2627'] |
 | Training sha256 | 0289f2ce25122532fc732e568cf66b1052a794d39ed246f5dd00e21f6fea90df |
-| Training as of utc | 2026-11-03T13:21:37.802513+00:00 |
+| Training as of utc | 2026-11-03T13:56:52.546156+00:00 |
 | Training data provenance | {'bbs_confirmed_rows': 81, 'bbs_added_results': 1, 'bbs_result_conflicts': 0, 'bbs_rows_with_statistics': 81, 'bbs_statistics_used_as_predictor_features': False, 'note': 'Confirmed rows retain primary results; BBS-only verified additions extend score history. Statistics affect probabilities only after per-model validation and per-fixture coverage gates pass.', 'api_football': {'status': 'AVAILABLE', 'matched_results': 752, 'added_results': 2, 'conflicts': 0, 'unmapped': 242, 'ambiguous': 0, 'excluded_phase': 0, 'statistics_observations': 139, 'source': 'api-football', 'usage': 'supplementary_cached_observations'}} |
-| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_CHRONOLOGICAL_PARTITIONS', 'cutoff_utc': '2026-11-03T13:21:37.802513+00:00', 'observations': 491, 'observations_sha256': 'b862ec2dad5ade42c0ad1b70fdad82779605ab803c2fd0323165bc9913e20045', 'eligible_training_matches': 183, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 180, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 23, 'retrospective_eligible_training_matches': 183, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:29.253586+00:00', 'retrospective_inputs_sha256': '4257569b28b533a7e39a605448fedde66feaf29561140fd4db3e54e616eb044d', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.', 'training_matches': 123, 'tuning_matches': 17, 'audit_matches': 43, 'tuning_origin_utc': '2025-09-13T00:00:00+00:00', 'audit_origin_utc': '2025-10-05T00:00:00+00:00', 'input_providers': ['api-football', 'bigballsdata']} |
+| Bbs statistics model | {'version': 'bbs-lagged-poisson-v2', 'status': 'INSUFFICIENT_CHRONOLOGICAL_PARTITIONS', 'cutoff_utc': '2026-11-03T13:56:52.546156+00:00', 'observations': 491, 'observations_sha256': 'b862ec2dad5ade42c0ad1b70fdad82779605ab803c2fd0323165bc9913e20045', 'eligible_training_matches': 183, 'required_training_matches': 120, 'feature_fields': ['shots_on_target', 'shots_off_target', 'total_shots', 'blocked_shots', 'shots_inside_box', 'shots_outside_box', 'fouls', 'corner_kicks', 'offsides', 'ball_possession', 'yellow_cards', 'red_cards', 'goalkeeper_saves', 'total_passes', 'accurate_passes', 'pass_percentage'], 'minimum_team_matches': 3, 'max_form_matches': 8, 'max_form_age_days': 180, 'max_goal_rate_ratio': 1.25, 'selected_weight': 0.0, 'usable_current_matches': 180, 'validation_policy': 'auto', 'validation_mode': 'retrospective_backfill', 'strict_eligible_training_matches': 23, 'retrospective_eligible_training_matches': 183, 'retrospective_publication_delay_hours': 24, 'forward_accuracy_improvement_established': False, 'first_observed_at_utc': '2026-10-16T20:39:29.253586+00:00', 'retrospective_inputs_sha256': '4257569b28b533a7e39a605448fedde66feaf29561140fd4db3e54e616eb044d', 'historical_corrections_may_be_present': True, 'evaluation_note': 'Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.', 'training_matches': 123, 'tuning_matches': 17, 'audit_matches': 43, 'tuning_origin_utc': '2025-09-13T00:00:00+00:00', 'audit_origin_utc': '2025-10-05T00:00:00+00:00', 'input_providers': ['api-football', 'bigballsdata']} |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Totals anchor enabled | 1 |
-| Shot features model | {'version': 'football-data-lagged-shot-strength-v1', 'status': 'BASELINE_RETAINED_AUDIT_NOT_IMPROVED', 'cutoff_date': '2026-11-03', 'selected_weight': 0.0, 'feature_source': 'football-data.co.uk HST/AST (+HS/AS candidate)', 'lag_rule': 'matches dated strictly before the origin date', 'gates': {'min_form': 3, 'min_train': 60, 'min_tune': 20, 'min_audit': 40, 'min_audit_matchdays': 8, 'min_audit_gain': 0.01, 'bootstrap_lower95': '>0', 'market_brier_safety': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'max_goal_rate_ratio': 1.25}, 'bbs_shot_source_enabled': False, 'shot_matches': 1759, 'tune_start_date': '2025-11-04', 'audit_start_date': '2026-05-05', 'training_shot_matches': 1471, 'tuning_matches': 187, 'audit_matches': 96, 'audit_matchdays': 34, 'selected_shrinkage': 5.0, 'selected_component': 'shots_on_target_and_total_shots', 'proposed_weight': 0.3, 'audit_baseline_poisson_score': 0.8547663953061937, 'audit_candidate_poisson_score': 0.853030002969473, 'audit_gain': 0.001736392336720738, 'audit_gain_lower95': -0.004922191592297361, 'audit_baseline_briers': [0.5824577082919972, 0.17370317503684327, 0.21287476509120928, 0.2466053914205321], 'audit_candidate_briers': [0.581621616233085, 0.1732611984790755, 0.21186763973915182, 0.24573253012018595], 'audit_brier_order': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'failed_gates': ['audit_gain_below_minimum', 'bootstrap_lower95_not_positive']} |
-| Optimizer objective | 1601.922 |
+| Shot features model | {'version': 'football-data-lagged-shot-strength-v1', 'status': 'BASELINE_RETAINED_AUDIT_NOT_IMPROVED', 'cutoff_date': '2026-11-03', 'selected_weight': 0.0, 'feature_source': 'football-data.co.uk HST/AST (+HS/AS candidate)', 'lag_rule': 'matches dated strictly before the origin date', 'gates': {'min_form': 3, 'min_train': 60, 'min_tune': 20, 'min_audit': 40, 'min_audit_matchdays': 8, 'min_audit_gain': 0.01, 'bootstrap_lower95': '>0', 'market_brier_safety': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'max_goal_rate_ratio': 1.25}, 'bbs_shot_source_enabled': False, 'shot_matches': 1759, 'tune_start_date': '2025-11-04', 'audit_start_date': '2026-05-05', 'training_shot_matches': 1471, 'tuning_matches': 187, 'audit_matches': 96, 'audit_matchdays': 34, 'selected_shrinkage': 5.0, 'selected_component': 'shots_on_target_and_total_shots', 'proposed_weight': 0.3, 'audit_baseline_poisson_score': 0.8547663953059391, 'audit_candidate_poisson_score': 0.8530300029694592, 'audit_gain': 0.0017363923364799305, 'audit_gain_lower95': -0.004922191591010585, 'audit_baseline_briers': [0.5824577082897852, 0.1737031750379289, 0.21287476509076586, 0.24660539141992113], 'audit_candidate_briers': [0.5816216162315216, 0.17326119847984742, 0.21186763973884037, 0.24573253011986307], 'audit_brier_order': ['1x2', 'over_1_5', 'under_3_5', 'btts_yes'], 'failed_gates': ['audit_gain_below_minimum', 'bootstrap_lower95_not_positive']} |
+| Optimizer objective | 1601.866 |
 | Base scoring parameter | 0.200 |
 | Home-advantage parameter | 0.202 |
 | Dixon-Coles low-score adjustment | -0.054 |
@@ -47,7 +47,7 @@ Fixtures in this report: **1**.
 | Excluded started fixtures | [] |
 | Excluded unresolved team fixtures | [] |
 | Additional event odds calls used before this league | 0.00 |
-| Bbs statistics model artifact | bbs/feature_models/Ligue1/20261103T132137802513Z_856cf98deb7c1c986aa974878f535ddaa2b8a2e35e6327776f0dac5018f37a3d.json |
+| Bbs statistics model artifact | bbs/feature_models/Ligue1/20261103T135652546156Z_f821a7dcb340cc7cd2cc874509cf34e446f89a5033bbab13248dec11aa1ab79a.json |
 | Over 1 5 in window quote fixtures | 0 |
 | Additional odds coverage mode | — |
 | Additional odds coverage | — |
@@ -131,15 +131,15 @@ _No bookmaker prices were available in this run. This commonly occurs when the s
 | Matched away-team name | Strasbourg |
 | Home-name matching confidence | 100/100 |
 | Away-name matching confidence | 90/100 |
-| Dc lambda home | 1.5045 |
-| Dc lambda away | 1.3887 |
+| Dc lambda home | 1.5044 |
+| Dc lambda away | 1.3886 |
 | Bbs statistics applied | 0 |
 | Bbs statistics status | INSUFFICIENT_CHRONOLOGICAL_PARTITIONS |
 | Shot features applied | 0 |
 | Shot features status | BASELINE_RETAINED_AUDIT_NOT_IMPROVED |
 | Bbs statistics version | bbs-lagged-poisson-v2 |
 | Bbs statistics validation mode | retrospective_backfill |
-| Bbs statistics cutoff utc | 2026-11-03T13:21:37.802513+00:00 |
+| Bbs statistics cutoff utc | 2026-11-03T13:56:52.546156+00:00 |
 | Bbs statistics weight | 0 |
 | Shot features version | football-data-lagged-shot-strength-v1 |
 | Shot features weight | 0 |
@@ -152,15 +152,15 @@ _No bookmaker prices were available in this run. This commonly occurs when the s
 | Fair Over 0.5 odds | 1.07 |
 | Fair Under 0.5 odds | 16.22 |
 | Fair Over 1.5 odds | 1.26 |
-| Fair Under 1.5 odds | 4.78 |
+| Fair Under 1.5 odds | 4.77 |
 | Fair Over 2.5 odds | 1.81 |
 | Fair Under 2.5 odds | 2.23 |
 | Fair Over 3.5 odds | 3.04 |
 | Fair Under 3.5 odds | 1.49 |
 | Fair Over 4.5 odds | 5.98 |
 | Fair Under 4.5 odds | 1.20 |
-| Goal margin distribution | {"-1": 0.18444673515649582, "-10": 4.917311387004162e-07, "-11": 6.112488794330425e-08, "-12": 6.981228364474246e-09, "-13": 7.371004899902046e-10, "-14": 7.183359201024837e-11, "-15": 5.837376179979485e-12, "-2": 0.10181590073448475, "-3": 0.04068033687067777, "-4": 0.012863359413233941, "-5": 0.0033500963611573166, "-6": 0.0007398745459097185, "-7": 0.00014164393956703455, "-8": 2.3909633668647543e-05, "-9": 3.607112243303374e-06, "0": 0.26014338626756744, "1": 0.20034569318646492, "10": 1.0952021629823978e-06, "11": 1.4748957232964086e-07, "12": 1.824953248029883e-08, "13": 2.087484486704065e-09, "14": 2.203945234977363e-10, "15": 1.940294062973527e-11, "2": 0.11950028034032455, "3": 0.051726669340889, "4": 0.01771989063799846, "5": 0.004999661368708178, "6": 0.0011962392161246995, "7": 0.0002481044791413926, "8": 4.53718186797827e-05, "9": 7.415656086846285e-06} |
-| Raw goal margin distribution | {"-1": 0.18444673515649582, "-10": 4.917311387004162e-07, "-11": 6.112488794330425e-08, "-12": 6.981228364474246e-09, "-13": 7.371004899902046e-10, "-14": 7.183359201024837e-11, "-15": 5.837376179979485e-12, "-2": 0.10181590073448475, "-3": 0.04068033687067777, "-4": 0.012863359413233941, "-5": 0.0033500963611573166, "-6": 0.0007398745459097185, "-7": 0.00014164393956703455, "-8": 2.3909633668647543e-05, "-9": 3.607112243303374e-06, "0": 0.26014338626756744, "1": 0.20034569318646492, "10": 1.0952021629823978e-06, "11": 1.4748957232964086e-07, "12": 1.824953248029883e-08, "13": 2.087484486704065e-09, "14": 2.203945234977363e-10, "15": 1.940294062973527e-11, "2": 0.11950028034032455, "3": 0.051726669340889, "4": 0.01771989063799846, "5": 0.004999661368708178, "6": 0.0011962392161246995, "7": 0.0002481044791413926, "8": 4.53718186797827e-05, "9": 7.415656086846285e-06} |
+| Goal margin distribution | {"-1": 0.184454860778956, "-10": 4.915534546842781e-07, "-11": 6.109973943019217e-08, "-12": 6.978004535021628e-09, "-13": 7.36722922088281e-10, "-14": 7.17932814995007e-11, "-15": 5.833886194636075e-12, "-2": 0.10181619178081804, "-3": 0.040678975107572464, "-4": 0.012862394791608655, "-5": 0.00334969587316812, "-6": 0.0007397517183049083, "-7": 0.00014161366358183408, "-8": 2.3903360618777473e-05, "-9": 3.605988200758519e-06, "0": 0.26014763721174944, "1": 0.20034996017575774, "10": 1.0945770333664532e-06, "11": 1.4739491287839588e-07, "12": 1.8236518932343818e-08, "13": 2.085846931662551e-09, "14": 2.2020623652103055e-10, "15": 1.9385246192381763e-11, "2": 0.11949561393791505, "3": 0.05172168632634972, "4": 0.017717076767234555, "5": 0.004998539950975297, "6": 0.001195890263022003, "7": 0.00024801506596658303, "8": 4.5352311457444534e-05, "9": 7.411947290175068e-06} |
+| Raw goal margin distribution | {"-1": 0.184454860778956, "-10": 4.915534546842781e-07, "-11": 6.109973943019217e-08, "-12": 6.978004535021628e-09, "-13": 7.36722922088281e-10, "-14": 7.17932814995007e-11, "-15": 5.833886194636075e-12, "-2": 0.10181619178081804, "-3": 0.040678975107572464, "-4": 0.012862394791608655, "-5": 0.00334969587316812, "-6": 0.0007397517183049083, "-7": 0.00014161366358183408, "-8": 2.3903360618777473e-05, "-9": 3.605988200758519e-06, "0": 0.26014763721174944, "1": 0.20034996017575774, "10": 1.0945770333664532e-06, "11": 1.4739491287839588e-07, "12": 1.8236518932343818e-08, "13": 2.085846931662551e-09, "14": 2.2020623652103055e-10, "15": 1.9385246192381763e-11, "2": 0.11949561393791505, "3": 0.05172168632634972, "4": 0.017717076767234555, "5": 0.004998539950975297, "6": 0.001195890263022003, "7": 0.00024801506596658303, "8": 4.5352311457444534e-05, "9": 7.411947290175068e-06} |
 | Unadjusted home-win probability | 39.6% |
 | Unadjusted draw probability | 26.0% |
 | Unadjusted away-win probability | 34.4% |
@@ -177,12 +177,12 @@ _No bookmaker prices were available in this run. This commonly occurs when the s
 | Market blend applied | No |
 | Totals anchor applied | 0 |
 | Totals anchor status | NOT_ANCHORED_NO_PINNACLE |
-| Unanchored p over 2 5 | 0.5525 |
+| Unanchored p over 2 5 | 0.5524 |
 | Model version | dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2 |
 | Bet365 pinnacle quotes | [] |
 | Asian handicap offers | [] |
 | Price edge quotes | [] |
-| Count model | {"corners": {"alpha": 0.015425808281886944, "mu": 9.118380611678907, "version": "count-markets-nb2-v1"}} |
+| Count model | {"corners": {"alpha": 0.015413236227799179, "mu": 9.118241731788824, "version": "count-markets-nb2-v1"}} |
 | Elo home rating | 1,453.8748 |
 | Elo away rating | 1,507.0944 |
 | Elo rating diff | 6.7804 |

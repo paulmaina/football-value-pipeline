@@ -19,7 +19,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 69 | 51-15 | 73.9% | +6.3% |
 
-Unsettled / unverified entries: **14**.
+Unsettled / unverified entries: **17**.
 Whole-fixture 1X2 multiclass Brier (n=256): 0.5582
 
 ## First-prediction reference — historical comparison
@@ -60,6 +60,8 @@ Whole-fixture 1X2 multiclass Brier (n=256): 0.5582
 | 2026-10-30T12:03:48.308948+00:00 | 1 | 0-0 | 0.0% | +0.0% |
 | 2026-10-31T12:03:11.165007+00:00 | 4 | 3-0 | 75.0% | +21.5% |
 | 2026-11-01T07:37:30.159727+00:00 | 2 | 1-1 | 50.0% | -38.0% |
+| 2026-11-03T13:23:43.479885+00:00 | 0 | 0-0 | — | — |
+| 2026-11-03T13:58:02.173298+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -72,6 +74,7 @@ Whole-fixture 1X2 multiclass Brier (n=256): 0.5582
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
+| 48h-ah-price-edge-cagey-v28 | 0 | 0-0 | — | — |
 | 48h-top-ten-probability-ev-no-under35-v14 | 8 | 6-2 | 75.0% | +0.6% |
 | 48h-top-twelve-probability-ev-no-under35-v15 | 11 | 7-4 | 63.6% | -12.5% |
 | 48h-top-twelve-profitable-win-probability-v23 | 0 | 0-0 | — | — |
@@ -184,6 +187,7 @@ Whole-fixture 1X2 multiclass Brier (n=256): 0.5582
 | 2026-W42 | 22 | 19-3 | 86.4% | +19.5% |
 | 2026-W43 | 34 | 25-9 | 73.5% | +3.1% |
 | 2026-W44 | 9 | 5-1 | 55.6% | +4.9% |
+| 2026-W45 | 0 | 0-0 | — | — |
 
 ## Confidence calibration of shortlisted markets
 
@@ -215,18 +219,18 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-10-31 | 1602 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-10-31 | 1988 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Eredivisie | 2026-10-25 | 1620 | 9 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-10-31 | 2004 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-10-31 | 1756 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| PrimeiraLiga | 2026-10-26 | 1611 | 8 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-10-31 | 1993 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SuperLig | 2026-10-26 | 1831 | 8 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Bundesliga | 2026-11-01 | 1604 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-11-02 | 1990 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Eredivisie | 2026-11-01 | 1629 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-11-02 | 2009 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-11-02 | 1761 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| PrimeiraLiga | 2026-11-02 | 1620 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-11-02 | 2000 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SuperLig | 2026-11-02 | 1840 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-10-21 | 557 | 13 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-10-22 | 714 | 12 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 0, "exchange_quotes": 0, "missing_quote_age": 0, "quote_age_over_24h": 0, "costs_recorded": 0, "bookmakers": {}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 0, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 2, "exchange_quotes": 0, "missing_quote_age": 2, "quote_age_over_24h": 0, "costs_recorded": 2, "bookmakers": {"1xBet": 2}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 2, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
