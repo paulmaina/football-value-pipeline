@@ -4,6 +4,49 @@ Policy `48h-ah-price-edge-cagey-v28` (`price_edge_cagey_shortlist.py`) became
 production after its pre-registered holdout gate passed. v27 and every older
 policy stay replayable.
 
+## Execution revision 2
+
+New runs record `price_edge_execution_version: 2` in their immutable summary.
+Replay treats an absent marker as revision 1 and rejects unknown revisions;
+historical bundles and their picks are not rewritten.
+
+Revision 2 checks the span of the offered quote and **every input actually used**
+by the corrected distribution against the existing 10-minute synchronisation
+limit. A fresh direct AH quote alone cannot satisfy this check. Fit A excludes
+the unused main AH timestamp. Candidate rows expose
+`corrected_input_timing_status` and `corrected_input_quote_skew_minutes`;
+unsynchronised distributions cannot select a cagey-tier pick or size a stake.
+New monitoring records also exclude distributions whose used inputs exceed that
+span, with an explicit reason; historical revision-1 records remain replayable.
+
+Configured `per_stake_cost_bps` is frozen as `per_stake_cost`. Corrected expected
+profit deducts that cost on every settlement outcome, including refunds.
+No-loss/profit probabilities also use net returns: a charged refund is a loss,
+and a half-win must cover the charge to count as profitable. A
+nonzero cost also requires nonnegative corrected net expected profit for value
+selection; without synchronised settlement evidence it fails closed. The gross
+Pinnacle price-edge statistic and its existing thresholds remain separately
+reported. With both correction switches off, nonzero-cost sizing/qualification
+has no corrected distribution and fails closed rather than assuming zero cost.
+
+v28 advisory sizing uses the complete corrected settlement distribution and
+labels its basis `cagey_corrected_margin_distribution`. It does not combine a
+direct Pinnacle win-share with unrelated push/half-settlement probabilities,
+or treat no-loss ranking as a calibration penalty. Missing probabilities produce
+an explicit unavailable-input result, not an invented distribution. Headline and
+tier realised returns deduct the frozen cost; fair-price calibration diagnostics
+remain gross and do not represent executable ROI.
+
+Cagey and tagged tracking choose the newest eligible **generation**, not the
+last upload. Equal generations retain the first eligible capture. Correction
+monitoring separately retains its first-eligible-capture contract.
+
+Monitoring replay allows `max(1e-7, 1e-8 * abs(expected))` numerical drift only for
+recomputed probabilities and corrected/uncorrected fair odds. This is far below
+quoted decimal-price resolution and the 3-percentage-point fit residual limit.
+Fixture identity, quote prices, timestamps, versions, quintile labels and
+selection membership retain the strict comparison. Larger changes still fail.
+
 ## The correction (`narrow_margin.py`)
 
 The market-implied matrix from `market_implied.py` comes from fit B (Pinnacle

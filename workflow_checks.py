@@ -156,7 +156,7 @@ def raw_check(root, *, raw_dir=None):
         # not bind the selected market, price, EV or top-twelve membership.
         import pandas as pd
         from conservative_bet_filter import build_conservative_shortlist
-        from shortlist_replay import clean as clean_frame, equivalent
+        from shortlist_replay import clean as clean_frame, equivalent, monitoring_equivalent
         reliability = None
         if summary.get('validation_required'):
             reliability = {}
@@ -174,7 +174,8 @@ def raw_check(root, *, raw_dir=None):
             expected, decisions, replay = price_edge_cagey_shortlist.build_shortlist(
                 pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), utc(summary['generated_at_utc']),
                 reliability, summary.get('quote_execution_policy'),
-                settings={k: summary.get(k) for k in price_edge_cagey_shortlist.SWITCHES},
+                settings={**{k: summary.get(k) for k in price_edge_cagey_shortlist.SWITCHES},
+                          'price_edge_execution_version': summary.get('price_edge_execution_version', 1)},
                 model=narrow_margin.load(summary['cagey_model_version']) if summary.get('cagey_model_version') else None,
                 monitor=monitoring)
         else:
@@ -222,7 +223,7 @@ def raw_check(root, *, raw_dir=None):
                     monitor_actual = pd.DataFrame(columns=price_edge_cagey_shortlist.MONITOR_COLUMNS)
                 require(list(monitor_actual.columns) == price_edge_cagey_shortlist.MONITOR_COLUMNS,
                         'Correction-monitoring columns differ')
-                require(equivalent(clean_frame(monitor_actual.astype(object).replace('', None)),
+                require(monitoring_equivalent(clean_frame(monitor_actual.astype(object).replace('', None)),
                                    clean_frame(monitor_expected.astype(object).replace('', None))),
                         'Current correction-monitoring records differ from deterministic replay')
         for field in ('target_distinct_matches', 'shortfall', 'usable_distinct_fixtures',
@@ -240,6 +241,7 @@ def raw_check(root, *, raw_dir=None):
                       *(['cagey_correction_enabled','cagey_tier_enabled','cagey_model_version','correction_only_value_picks',
                          'cagey_tier']
                         if policy_version == price_edge_cagey_shortlist.POLICY else []),
+                      *(['price_edge_execution_version'] if 'price_edge_execution_version' in summary else []),
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')

@@ -115,6 +115,18 @@ def settlement_kelly(probabilities: Mapping[str, float], odds: float, cost: floa
 
 def conservative_settlement(row: Mapping) -> dict:
     """Calibration-penalised settlement distribution for one shortlist row."""
+    from price_edge_cagey_shortlist import POLICY as CAGEY_POLICY
+    if row.get('selection_policy_version') == CAGEY_POLICY:
+        # v28 ranks by no-loss probability, not a calibration penalty. Use one
+        # complete corrected distribution, never a mixture with direct win-share.
+        mapping = {'full_win': 'win', 'half_win': 'half_win', 'refund': 'push',
+                   'half_loss': 'half_loss', 'full_loss': 'loss'}
+        probs = {key: _number(row.get('corrected_p_' + suffix)) for key, suffix in mapping.items()}
+        if any(v is None or not 0 <= v <= 1 for v in probs.values()) or abs(sum(probs.values()) - 1) > 1e-6:
+            raise ValueError('Unavailable complete v28 corrected settlement distribution')
+        if row.get('corrected_input_timing_status') not in (None, 'SYNCHRONIZED'):
+            raise ValueError('Unsynchronised v28 corrected settlement inputs')
+        return probs
     rank = _number(row.get('rank_probability'))
     predicted = _number(row.get('predicted_probability'))
     basis = rank if rank is not None else predicted
@@ -159,6 +171,9 @@ def stake_recommendations(
         out.update(staking_version=VERSION, probability_basis='rank_probability',
                    kelly_multiplier=multiplier, max_stake_fraction=max_fraction,
                    conservative_ev=None, full_kelly_fraction=None, stake_fraction=0.0)
+        if record.get('selection_policy_version') == '48h-ah-price-edge-cagey-v28':
+            out['staking_version'] = 'fractional-kelly-v28-corrected-v2'
+            out['probability_basis'] = 'cagey_corrected_margin_distribution'
         try:
             odds = _number(record.get('offered_decimal_odds'))
             cost = _number(record.get('per_stake_cost')) or 0.0
@@ -198,3 +213,4 @@ def write_stake_recommendations(shortlist: pd.DataFrame, out_dir: Path, **settin
     path = Path(out_dir) / OUTPUT_FILE
     stake_recommendations(shortlist, **settings).to_csv(path, index=False)
     return path
+

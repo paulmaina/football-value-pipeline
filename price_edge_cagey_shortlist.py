@@ -63,6 +63,10 @@ PRICE_REASONS = ('offered price above 1.15 x fair odds', 'edge below 3%')
 DEFAULT_SETTINGS = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True}
 CONFIG = Path(__file__).with_name('cagey_correction_config.json')
 SWITCHES = ('cagey_correction_enabled', 'cagey_tier_enabled')
+# Missing in old immutable summaries: replay the original v28 execution rules.
+EXECUTION_VERSION = 2
+EXECUTION_COLUMNS = ['price_edge_execution_version', 'corrected_input_timing_status',
+                     'corrected_input_quote_skew_minutes']
 
 
 def load_settings(path: Optional[Path] = None) -> Dict[str, object]:
@@ -97,22 +101,31 @@ def corrected_context(pin: Mapping, fit: mi.Fit, fit_info: Mapping, model: Mappi
     inputs = {'p_over_2_5': devig_proportional(*pin['ou25'][:2])[0], 'p_home': p_home, 'p_away': p_away, 'p_draw': p_draw}
     p2, p3 = nm.corrected_tails(model, nm.margin_tail(margins, probs, 2), nm.margin_tail(margins, probs, 3), inputs)
     return {'fit': source.kind, 'fit_b': fit.usable, 'margins': margins, 'uncorrected_probs': probs,
-            'probs': nm.correct_distribution(margins, probs, p2, p3), 'score': p2}
+            'probs': nm.correct_distribution(margins, probs, p2, p3), 'score': p2,
+            'input_stamps': [stamp for key, stamp in fit_info.get('input_stamps', {}).items()
+                             if source.kind == 'B' or key != 'ah_main']}
 
 
-def corrected_price(context: Mapping, side: str, line: float, price=None) -> Dict[str, object]:
+def corrected_price(context: Mapping, side: str, line: float, price=None, cost=0.0) -> Dict[str, object]:
     priced = nm.price_distribution(context['margins'], context['probs'], side, line)
     expected = None
+    no_loss = priced['p_no_loss']
+    profit_probability = priced['p_win'] + priced['p_half_win']
     if price is not None:
         expected = ((priced['p_win'] + priced['p_half_win'] / 2) * (price - 1)
-                    - priced['p_loss'] - priced['p_half_loss'] / 2)
+                    - priced['p_loss'] - priced['p_half_loss'] / 2 - cost)
+        if cost:
+            returns = {'p_win': price - 1 - cost, 'p_half_win': (price - 1) / 2 - cost,
+                       'p_push': -cost, 'p_half_loss': -0.5 - cost, 'p_loss': -1 - cost}
+            no_loss = sum(priced[key] for key, gain in returns.items() if gain >= -TOLERANCE)
+            profit_probability = sum(priced[key] for key, gain in returns.items() if gain > TOLERANCE)
     uncorrected = (nm.price_distribution(context['margins'], context['uncorrected_probs'], side, line)['fair_odds']
                    if 'uncorrected_probs' in context else None)
     return {'corrected_fair_probability': priced['win_share'], 'corrected_fair_odds': priced['fair_odds'],
-            'corrected_no_loss_probability': priced['p_no_loss'], 'corrected_expected_profit': expected,
+            'corrected_no_loss_probability': no_loss, 'corrected_expected_profit': expected,
             'corrected_p_win': priced['p_win'], 'corrected_p_half_win': priced['p_half_win'],
             'corrected_p_push': priced['p_push'], 'corrected_p_half_loss': priced['p_half_loss'],
-            'corrected_p_loss': priced['p_loss'], 'corrected_p_profit': priced['p_win'] + priced['p_half_win'],
+            'corrected_p_loss': priced['p_loss'], 'corrected_p_profit': profit_probability,
             'uncorrected_matrix_fair_odds': uncorrected}
 
 
@@ -151,7 +164,7 @@ def value_tier_item(item: Dict[str, object], context: Optional[Mapping], correct
     if context is not None:
         out.update(corrected_cagey_score=context['score'], corrected_fit=context['fit'])
         out.update(corrected_price(context, item['handicap_side'], float(item['handicap_line']),
-                                   item.get('offered_decimal_odds')))
+                                   item.get('offered_decimal_odds'), item.get('per_stake_cost', 0.0)))
     if tier:
         out.update(tier_candidate(item, out, context))
     if context is None:
@@ -212,15 +225,21 @@ MONITOR_COLUMNS = ['monitoring_version', 'generated_at_utc', 'league', 'home_tea
 
 
 def monitoring_record(row: Mapping, items: List[Mapping], fit: mi.Fit, fit_info: Mapping, now: pd.Timestamp,
-                      context: Optional[Mapping], model: Mapping, quintiles: Mapping) -> Dict[str, object]:
+                      context: Optional[Mapping], model: Mapping, quintiles: Mapping,
+                      *, used_inputs_only=False) -> Dict[str, object]:
     """One fixture's pre-match evidence, from the distribution and correction this run already computed."""
     from quote_freshness import quote_utc
-    stamps = [t for t in (quote_utc(s) for s in fit_info['stamps']) if t is not None]
+    inputs = context['input_stamps'] if used_inputs_only and context is not None else fit_info['stamps']
+    stamps = [t for t in (quote_utc(s) for s in inputs) if t is not None]
     record = {c: None for c in MONITOR_COLUMNS}
     record.update({k: row.get(k) for k in ('league', 'home_team', 'away_team', 'fixture_id', 'kickoff_utc')},
                   monitoring_version=MONITOR_VERSION, generated_at_utc=now.isoformat(), model_version=model['version'],
                   quintile_model_sha256=quintiles['model_sha256'],
                   latest_input_quote_utc=max(stamps).isoformat() if stamps else None)
+    if used_inputs_only and context is not None and (
+            not stamps or (max(stamps) - min(stamps)).total_seconds() / 60 > v27.MAX_QUOTE_SKEW_MINUTES):
+        record.update(status='UNUSABLE', exclusion_reason='corrected distribution inputs unavailable or more than 10 minutes apart')
+        return record
     if context is None:
         reasons = '; '.join(dict.fromkeys(fit.reasons + fit_info['fit_a'].reasons))
         record.update(status='UNUSABLE', exclusion_reason=f'no usable market-implied fit ({reasons or "missing quotes"})')
@@ -265,16 +284,53 @@ def record_monitoring(summary: Dict[str, object], records: List[Mapping], raw: P
     summary['correction_monitoring_version'] = MONITOR_VERSION
 
 
-def make_transform(model: Mapping, settings: Mapping, monitor: Optional[list] = None):
+def make_transform(model: Mapping, settings: Mapping, monitor: Optional[list] = None, cost=0.0):
     quintiles = nm.load_quintiles(model) if monitor is not None else None
 
     def transform(row, items, pin, fit, fit_info, now) -> List[Dict[str, object]]:
         context = corrected_context(pin, fit, fit_info, model)
         if monitor is not None:
-            monitor.append(monitoring_record(row, items, fit, fit_info, now, context, model, quintiles))
-        return [value_tier_item(item, context, settings['cagey_correction_enabled'], settings['cagey_tier_enabled'])
-                for item in items]
+            monitor.append(monitoring_record(row, items, fit, fit_info, now, context, model, quintiles,
+                           used_inputs_only=settings['price_edge_execution_version'] >= EXECUTION_VERSION))
+        out = []
+        for item in items:
+            if settings['price_edge_execution_version'] >= EXECUTION_VERSION:
+                item = {**item, 'per_stake_cost': cost}
+            decision = value_tier_item(item, context, settings['cagey_correction_enabled'], settings['cagey_tier_enabled'])
+            if settings['price_edge_execution_version'] >= EXECUTION_VERSION:
+                apply_execution_checks(decision, context)
+            out.append(decision)
+        return out
     return transform
+
+
+def apply_execution_checks(item: Dict[str, object], context: Optional[Mapping]) -> None:
+    """v28 execution v2: synchronise every used correction input with the offer.
+
+    Cost qualification/sizing use the complete corrected settlement distribution;
+    direct Pinnacle price edge remains separately reported as a gross statistic.
+    """
+    from quote_freshness import quote_utc
+    offer = quote_utc(item.get('offered_last_update_utc'))
+    stamps = [quote_utc(s) for s in context['input_stamps']] if context else []
+    times = [offer, *stamps]
+    skew = (max(times) - min(times)).total_seconds() / 60 if times and all(t is not None for t in times) else None
+    synchronized = bool(stamps) and skew is not None and skew <= v27.MAX_QUOTE_SKEW_MINUTES
+    item.update(price_edge_execution_version=EXECUTION_VERSION,
+                corrected_input_timing_status='SYNCHRONIZED' if synchronized else 'UNAVAILABLE_OR_UNSYNCHRONIZED',
+                corrected_input_quote_skew_minutes=skew)
+    if item.get('cagey_tier_decision') and not synchronized:
+        item['cagey_tier_reasons'] = '; '.join(filter(None, [item['cagey_tier_reasons'],
+                                            'corrected distribution inputs and offer more than 10 minutes apart or unavailable']))
+        item['cagey_tier_decision'] = 'REJECTED'
+    if item.get('per_stake_cost', 0) > 0:
+        expected = item.get('corrected_expected_profit')
+        reason = ('net profit unavailable without synchronized settlement inputs' if not synchronized
+                  else 'expected profit after stake cost below 0' if expected is None or expected + TOLERANCE < 0 else None)
+        if reason:
+            item['rejection_reasons'] = '; '.join(filter(None, [item.get('rejection_reasons'), reason]))
+            item['decision'] = 'REJECTED'
+            item['qualified_only_by_correction'] = False
 
 
 def _tier_rank(frame: pd.DataFrame) -> pd.DataFrame:
@@ -338,15 +394,35 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     `settings` defaults to cagey_correction_config.json; replays pass the run's recorded settings.
     `monitor`, when a list, receives one correction-monitoring record per fixture (evidence only).
     """
-    settings = {**DEFAULT_SETTINGS, **(settings if settings is not None else load_settings())}
+    settings = {**DEFAULT_SETTINGS, 'price_edge_execution_version': EXECUTION_VERSION,
+                **(settings if settings is not None else load_settings())}
+    execution_version = settings['price_edge_execution_version']
+    if type(execution_version) is not int or execution_version not in (1, EXECUTION_VERSION):
+        raise ValueError('Unknown v28 price-edge execution version')
+    from quote_policy import load_policy, validate_policy
+    policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
+    cost = policy['per_stake_cost_bps'] / 10000 if execution_version == EXECUTION_VERSION else 0.0
     switched_on = settings['cagey_correction_enabled'] or settings['cagey_tier_enabled']
     if not switched_on:
-        selected, decisions, summary = v27.build_shortlist(predictions, as_of, market_reliability, execution_policy)
+        transform = None
+        if cost:
+            # No correction distribution is calculated with both switches off.
+            # Fail closed rather than silently treating a nonzero cost as zero.
+            def cost_only(row, items, pin, fit, info, now):
+                for item in items:
+                    item['per_stake_cost'] = cost
+                    apply_execution_checks(item, None)
+                return items
+            transform = cost_only
+        selected, decisions, summary = v27.build_shortlist(
+            predictions, as_of, market_reliability, policy,
+            transform=transform, extra_columns=EXECUTION_COLUMNS if cost else ())
     else:
         model = model or (nm.load(settings['model_version']) if settings.get('model_version') else nm.production_model())
         selected, decisions, summary = v27.build_shortlist(
-            predictions, as_of, market_reliability, execution_policy,
-            transform=make_transform(model, settings, monitor), extra_columns=[*VALUE_COLUMNS, *TIER_COLUMNS])
+            predictions, as_of, market_reliability, policy,
+            transform=make_transform(model, settings, monitor, cost), extra_columns=[*VALUE_COLUMNS, *TIER_COLUMNS,
+                *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])])
     for frame in (selected, decisions):
         if 'selection_policy_version' in frame:
             frame['selection_policy_version'] = POLICY
@@ -363,4 +439,6 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
                    correction_rule='Derived plus lines (>= +1.0) are priced from the cagey-corrected matrix (c-cagey, '
                                    '3% threshold); Pinnacle-quoted lines keep Pinnacle as the fair price; minus lines '
                                    'are never corrected.')
+    if execution_version == EXECUTION_VERSION:
+        summary['price_edge_execution_version'] = EXECUTION_VERSION
     return selected, decisions, summary
