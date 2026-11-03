@@ -26,7 +26,7 @@
     "standard_error": null
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-02T18:38:04.877626+00:00",
+  "reviewed_at_utc": "2026-11-03T02:29:58.061156+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {

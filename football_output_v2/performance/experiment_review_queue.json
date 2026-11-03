@@ -4,27 +4,27 @@
     {
       "automatic_production_change": false,
       "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-      "gameweeks": 3,
+      "gameweeks": 4,
       "key": "benchmark_forward:761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
       "name": "benchmark_forward_experiment",
       "report": "benchmark_forward_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 130,
+      "settled_evidence": 135,
       "status": "COLLECT_MORE_DATA"
     },
     {
       "automatic_production_change": false,
       "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-      "gameweeks": 3,
+      "gameweeks": 4,
       "key": "totals_anchor:05c7b4af8e00fc30b8385f253389892160d83d04840f013bff7e7e6ee144ccc2",
       "name": "totals_anchor_experiment",
       "report": "totals_anchor_experiment/report.md",
       "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-      "settled_evidence": 13,
+      "settled_evidence": 14,
       "status": "COLLECT_MORE_DATA"
     }
   ],
   "note": "Only the live forward trials are queued. Notifications invite review, including negative findings; they never approve changes.",
-  "reviewed_at_utc": "2026-11-02T18:38:04.877626+00:00",
+  "reviewed_at_utc": "2026-11-03T02:29:58.061156+00:00",
   "version": "experiment-review-queue-v1"
 }
