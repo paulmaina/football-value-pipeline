@@ -171,9 +171,10 @@ fresh `main`:
    registry leagues> --additional-odds-coverage all`. This writes production
    probabilities (`dc-blend70-hl480-pinnacle-ou25-anchor-gated-shots-production-v2`),
    the v28 price-edge shortlist with the cagey correction and a separate cagey tier ([rules](docs/cagey-correction-v28.md); v27 base rules in [docs/price-edge-shortlist-v27.md](docs/price-edge-shortlist-v27.md)), plus `bet365_vs_pinnacle.csv`.
-   The legacy companion (`legacy_*` columns and its half-life tuning) still
-   runs. Its only readers were the two archived forward trials; it is never
-   used for selection or staking.
+   It passes `--no-legacy-comparison`, so the legacy companion (`legacy_*`
+   columns and its per-league half-life tuning) no longer runs: its only
+   readers were the two archived forward trials. A manual run without the flag
+   still produces it for offline replay.
 2. **Check and format**: `workflow_checks.py raw` (including a deterministic
    shortlist replay), then `format_football_output.py`.
 3. **Capture**: `performance_tracking.py capture` archives the forecast, the

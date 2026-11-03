@@ -29,8 +29,10 @@ def publish(repo,attempts=3,runner=None):
             git(repo,'fetch','origin','main');base=git(repo,'rev-parse','FETCH_HEAD').stdout.strip()
             work=Path(directory)/str(attempt);git(repo,'worktree','add','--detach',str(work),base)
             try:
+                # No legacy companion: its only readers were the archived forward trials.
                 runner([sys.executable,'football_value_pipeline_v2_standalone.py','--leagues',*league_registry.keys(),
-                    '--additional-odds-coverage','all','--api-key-source','environment'],cwd=work,check=True)
+                    '--additional-odds-coverage','all','--api-key-source','environment',
+                    '--no-legacy-comparison'],cwd=work,check=True)
                 runner([sys.executable,'workflow_checks.py','raw'],cwd=work,check=True)
                 runner([sys.executable,'format_football_output.py'],cwd=work,check=True)
                 git(work,'add','football_output_v2/raw')
