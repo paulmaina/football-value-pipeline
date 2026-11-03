@@ -277,6 +277,16 @@ class CageyTierTests(OfflineQuotePolicyTestCase):
         self.assertGreaterEqual(tier.iloc[0].corrected_expected_profit, 0)
         self.assertEqual(summary['cagey_tier']['n_shortlisted'], 1)
         self.assertEqual(set(v28.TIER_OUTPUT_COLUMNS) - set(tier.columns), set())
+        # Display-only settlement split: the five outcomes sum to 1 and match the no-loss and profit figures.
+        pick = tier.iloc[0]
+        outcomes = [pick[c] for c in v28.SETTLEMENT_COLUMNS[:5]]
+        self.assertAlmostEqual(sum(outcomes), 1.0, places=9)
+        self.assertAlmostEqual(pick.corrected_p_win + pick.corrected_p_half_win + pick.corrected_p_push,
+                               pick.corrected_no_loss_probability, places=9)
+        self.assertAlmostEqual(pick.corrected_p_profit, pick.corrected_p_win + pick.corrected_p_half_win, places=9)
+        self.assertGreater(pick.corrected_p_push, 0)  # +2: losing by exactly two is a refund
+        # The correction lowers the plus-line fair price in a cagey match.
+        self.assertGreater(pick.uncorrected_matrix_fair_odds, pick.corrected_fair_odds)
         # The tier never changes the value tier.
         value_only, _, _ = run(data, settings=VALUE_ONLY)
         self.assertTrue(selected.drop(columns=v28.TIER_COLUMNS).equals(value_only.drop(columns=v28.TIER_COLUMNS)))
@@ -302,6 +312,10 @@ class CageyTierTests(OfflineQuotePolicyTestCase):
         self.assertIn('price edge vs Pinnacle (v28)', report)
         self.assertIn('## Cagey tier (separate list', report)
         self.assertEqual(len(tier), 1)
+        for column in ('Full win', 'Half win', 'Push', 'Half loss', 'Full loss', 'Profit probability',
+                       'Uncorrected fair odds', 'Corrected fair odds'):
+            self.assertIn(column, tier.columns)
+            self.assertIn(column, report)
 
     def test_switching_the_tier_off_clears_the_readable_list(self):
         import tempfile

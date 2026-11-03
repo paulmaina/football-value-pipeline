@@ -40,13 +40,17 @@ import price_edge_shortlist as v27
 from ah_close_backtest import devig_proportional
 
 POLICY = '48h-ah-price-edge-cagey-v28'
+# Display only: how a bet settles under the corrected matrix (never used for selection).
+SETTLEMENT_COLUMNS = ['corrected_p_win', 'corrected_p_half_win', 'corrected_p_push', 'corrected_p_half_loss',
+                      'corrected_p_loss', 'corrected_p_profit']
 OBJECTIVE = v27.OBJECTIVE
 CORRECTED_MIN_LINE = 1.0
 TOLERANCE = v27.EDGE_TOLERANCE
 REFERENCES = {**v27.REFERENCES, 'c-cagey': 'market-implied, cagey-corrected (derived)'}
 VALUE_COLUMNS = ['fair_odds_uncorrected', 'qualified_only_by_correction', 'corrected_fair_probability',
                  'corrected_fair_odds', 'corrected_no_loss_probability', 'corrected_expected_profit',
-                 'corrected_vs_pinnacle_gap', 'corrected_cagey_score', 'corrected_fit']
+                 'corrected_vs_pinnacle_gap', 'corrected_cagey_score', 'corrected_fit', *SETTLEMENT_COLUMNS,
+                 'uncorrected_matrix_fair_odds']
 OUTPUT_COLUMNS = [*v27.OUTPUT_COLUMNS[:-1], 'fair_odds_uncorrected', 'qualified_only_by_correction',
                   'corrected_cagey_score', v27.OUTPUT_COLUMNS[-1]]
 # v27's guard order, so corrected rows list their reasons the same way.
@@ -77,8 +81,9 @@ TIER_GUARDS = ('kickoff outside 20-minute to 48-hour window', 'offered quote sta
                'offered odds above 3.00')
 TIER_FILE = 'cagey_tier_shortlist.csv'
 TIER_COLUMNS = ['cagey_tier_decision', 'cagey_tier_reasons', 'pinnacle_fair_odds', 'in_value_tier']
-TIER_OUTPUT_COLUMNS = [*OUTPUT_COLUMNS[:-1], 'corrected_no_loss_probability', 'corrected_fair_odds',
-                       'corrected_expected_profit', 'pinnacle_fair_odds', 'in_value_tier']
+TIER_OUTPUT_COLUMNS = [*OUTPUT_COLUMNS[:-1], 'corrected_no_loss_probability', *SETTLEMENT_COLUMNS,
+                       'corrected_fair_odds', 'uncorrected_matrix_fair_odds', 'corrected_expected_profit',
+                       'pinnacle_fair_odds', 'in_value_tier']
 
 
 def corrected_context(pin: Mapping, fit: mi.Fit, fit_info: Mapping, model: Mapping) -> Optional[Dict[str, object]]:
@@ -90,7 +95,7 @@ def corrected_context(pin: Mapping, fit: mi.Fit, fit_info: Mapping, model: Mappi
     p_home, p_draw, p_away = mi.devig_three_way(*pin['h2h'][:3])
     inputs = {'p_over_2_5': devig_proportional(*pin['ou25'][:2])[0], 'p_home': p_home, 'p_away': p_away, 'p_draw': p_draw}
     p2, p3 = nm.corrected_tails(model, nm.margin_tail(margins, probs, 2), nm.margin_tail(margins, probs, 3), inputs)
-    return {'fit': source.kind, 'fit_b': fit.usable, 'margins': margins,
+    return {'fit': source.kind, 'fit_b': fit.usable, 'margins': margins, 'uncorrected_probs': probs,
             'probs': nm.correct_distribution(margins, probs, p2, p3), 'score': p2}
 
 
@@ -100,8 +105,14 @@ def corrected_price(context: Mapping, side: str, line: float, price=None) -> Dic
     if price is not None:
         expected = ((priced['p_win'] + priced['p_half_win'] / 2) * (price - 1)
                     - priced['p_loss'] - priced['p_half_loss'] / 2)
+    uncorrected = (nm.price_distribution(context['margins'], context['uncorrected_probs'], side, line)['fair_odds']
+                   if 'uncorrected_probs' in context else None)
     return {'corrected_fair_probability': priced['win_share'], 'corrected_fair_odds': priced['fair_odds'],
-            'corrected_no_loss_probability': priced['p_no_loss'], 'corrected_expected_profit': expected}
+            'corrected_no_loss_probability': priced['p_no_loss'], 'corrected_expected_profit': expected,
+            'corrected_p_win': priced['p_win'], 'corrected_p_half_win': priced['p_half_win'],
+            'corrected_p_push': priced['p_push'], 'corrected_p_half_loss': priced['p_half_loss'],
+            'corrected_p_loss': priced['p_loss'], 'corrected_p_profit': priced['p_win'] + priced['p_half_win'],
+            'uncorrected_matrix_fair_odds': uncorrected}
 
 
 def _ordered(reasons) -> str:
