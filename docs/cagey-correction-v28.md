@@ -4,6 +4,67 @@ Policy `48h-ah-price-edge-cagey-v28` (`price_edge_cagey_shortlist.py`) became
 production after its pre-registered holdout gate passed. v27 and every older
 policy stay replayable.
 
+## Execution revision 2
+
+New runs record `price_edge_execution_version: 2` in their immutable summary.
+Replay treats an absent marker as revision 1 and rejects unknown revisions;
+historical bundles and their picks are not rewritten.
+
+Revision 2 checks the span of the offered quote and **every input actually used**
+by the corrected distribution against the existing 10-minute synchronisation
+limit. A fresh direct AH quote alone cannot satisfy this check. Fit A excludes
+the unused main AH timestamp. Candidate rows expose
+`corrected_input_timing_status` and `corrected_input_quote_skew_minutes`;
+unsynchronised distributions cannot select a cagey-tier pick or size a stake.
+New monitoring records also exclude distributions whose used inputs exceed that
+span, with an explicit reason; historical revision-1 records remain replayable.
+
+Configured `per_stake_cost_bps` is frozen as `per_stake_cost`. Corrected expected
+profit deducts that cost on every settlement outcome, including refunds.
+No-loss/profit probabilities also use net returns: a charged refund is a loss,
+and a half-win must cover the charge to count as profitable. A
+nonzero cost also requires nonnegative net expected profit for value
+selection; without synchronised settlement evidence it fails closed. The gross
+Pinnacle price-edge statistic and its existing thresholds remain separately
+reported. Sizing and the value-tier net-cost check use the **same** matrix source:
+
+| Pick/list | Required matrix | Stake probability basis |
+|---|---|---|
+| c-cagey value pick | Corrected matrix | `corrected_matrix` |
+| Every other value pick, including minus and Pinnacle-quoted plus lines | Uncorrected market-implied fit B, from this fixture's inputs | `uncorrected_matrix` |
+| Cagey-tier pick, including a fixture also in the value list | Corrected matrix | `corrected_matrix` |
+
+`value_probability_basis` and `value_expected_profit` expose the value cost-check
+source and net result. `uncorrected_fit` must be B; fit A cannot substitute for a
+missing uncorrected fit B. Corrected fair prices and settlement columns on other
+value rows remain informational and never supply their stakes or net-cost gate.
+With both correction switches off, fit B can still supply uncorrected sizing and
+cost qualification. The required distribution never falls back to another source.
+Missing or unsynchronised inputs produce `NO_STAKE_UNAVAILABLE_DISTRIBUTION`.
+
+Advisory plans are written to `stake_recommendations.csv` (value list) and
+`cagey_tier_stake_recommendations.csv` (cagey list). The latter also sizes picks
+that are absent from the value list. Each row labels its list and matrix basis.
+These are separate alternative plans; exposure caps apply to each list rather
+than a combined portfolio. Full generation and stored-forecast/price refreshes
+regenerate both plans, preserving recorded bankroll/Kelly settings on refresh.
+Older runs without recorded settings use the existing sizing defaults.
+
+Sizing does not combine a direct Pinnacle win-share with unrelated settlement
+probabilities or treat no-loss ranking as a calibration penalty. Headline and
+tier realised returns deduct the frozen cost; fair-price calibration diagnostics
+remain gross and do not represent executable ROI.
+
+Cagey and tagged tracking choose the newest eligible **generation**, not the
+last upload. Equal generations retain the first eligible capture. Correction
+monitoring separately retains its first-eligible-capture contract.
+
+Monitoring replay allows `max(1e-7, 1e-8 * abs(expected))` numerical drift only for
+recomputed probabilities and corrected/uncorrected fair odds. This is far below
+quoted decimal-price resolution and the 3-percentage-point fit residual limit.
+Fixture identity, quote prices, timestamps, versions, quintile labels and
+selection membership retain the strict comparison. Larger changes still fail.
+
 ## The correction (`narrow_margin.py`)
 
 The market-implied matrix from `market_implied.py` comes from fit B (Pinnacle

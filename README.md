@@ -230,6 +230,8 @@ Located under `football_output_v2/raw/`:
 - `conservative_bet_summary.json`
 - `stake_recommendations.csv` — advisory quarter-Kelly stakes for STRICT
   selections (2.5% per-bet cap, 10% slate cap; `--stake-*` flags)
+- `cagey_tier_stake_recommendations.csv` — separate cagey-list advisory plan;
+  both plans label the required matrix source ([source rules](docs/cagey-correction-v28.md))
 - `shortlist_history/`
 
 Prediction rows also carry informational venue-aware Elo columns
