@@ -1,4 +1,53 @@
 {
+  "both_tiers_clv_by": {
+    "balanced": {},
+    "bookmaker": {},
+    "corrected_cagey_quintile": {},
+    "even_odds": {},
+    "high_draw": {},
+    "low_total": {},
+    "policy": {},
+    "qualified_only_by_correction": {},
+    "reference_type": {},
+    "tier": {}
+  },
+  "both_tiers_profit_by": {
+    "balanced": {},
+    "bookmaker": {},
+    "corrected_cagey_quintile": {},
+    "even_odds": {},
+    "high_draw": {},
+    "low_total": {},
+    "policy": {},
+    "qualified_only_by_correction": {},
+    "reference_type": {},
+    "tier": {}
+  },
+  "cagey_review": false,
+  "cagey_review_rule": ">= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false",
+  "cagey_tier": {
+    "clv": {
+      "mean": null,
+      "n": 0,
+      "positive_share": null,
+      "standard_error": null
+    },
+    "profit": {
+      "mean": null,
+      "n": 0,
+      "positive_share": null,
+      "standard_error": null
+    }
+  },
+  "cagey_tier_picks": 0,
+  "cagey_tier_review": false,
+  "cagey_tier_review_rule": ">= 50 graded cagey-tier picks with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false",
+  "cagey_tier_roi": {
+    "mean": null,
+    "n": 0,
+    "positive_share": null,
+    "standard_error": null
+  },
   "clv": {
     "mean": null,
     "n": 0,
@@ -9,12 +58,19 @@
     "balanced": {},
     "bookmaker": {},
     "cagey_quintile": {},
+    "even_odds": {},
     "high_draw": {},
     "low_total": {},
     "odds_band": {},
     "reference_type": {},
     "side_role": {},
     "tagged": {}
+  },
+  "correction_only_clv": {
+    "mean": null,
+    "n": 0,
+    "positive_share": null,
+    "standard_error": null
   },
   "frozen_picks": 0,
   "note": "CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.",
@@ -26,12 +82,18 @@
     "standard_error": null
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-03T02:29:58.061156+00:00",
+  "reviewed_at_utc": "2026-11-03T06:59:41.654680+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
     "by_tag": {
       "balanced": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      },
+      "even_odds": {
         "mean": null,
         "n": 0,
         "positive_share": null,
