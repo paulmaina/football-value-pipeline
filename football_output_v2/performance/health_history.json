@@ -18866,7 +18866,7 @@
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 363,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-11-03T13:58:38.853375+00:00",
+        "reviewed_at_utc": "2026-11-03T15:26:59.139050+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
@@ -18900,7 +18900,7 @@
       },
       "experiment_capture_counts": {},
       "forecast_freshness": {
-        "age_hours": 0.010188910277777777,
+        "age_hours": 1.4824904866666666,
         "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
         "status": "WITHIN_24_HOURS",
         "upcoming_fixture_count": 43
@@ -18923,10 +18923,10 @@
         "automatic_promotion": false,
         "experiments": [],
         "note": "Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-11-03T13:58:38.853375+00:00",
+        "reviewed_at_utc": "2026-11-03T15:26:59.139050+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-11-03T13:58:38.853375+00:00",
+      "reviewed_at_utc": "2026-11-03T15:26:59.139050+00:00",
       "selection_policy_groups": {
         "48h-ah-price-edge-cagey-v28": {
           "brier": null,
@@ -19778,7 +19778,7 @@
             "completed_matches": 54,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.017033453055555554,
+            "download_age_hours": 1.4893350294444445,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-21",
             "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -19840,7 +19840,7 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-11-03T13:58:38.853375+00:00"
+            "verified_at_utc": "2026-11-03T15:26:59.139050+00:00"
           },
           "days_since_latest_result": 12,
           "diagnostics_sha256": "34a874b6173b86691c28eac851736fa093c95b24feb7dd23c4e60709e30a6237",
