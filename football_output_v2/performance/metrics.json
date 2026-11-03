@@ -1716,10 +1716,10 @@
   "pending_reason_counts": {
     "UNVERIFIED_FIXTURE_OR_RESULT": 14
   },
-  "prediction_1x2_multiclass_brier": 0.557875,
-  "prediction_fixtures_graded": 255,
+  "prediction_1x2_multiclass_brier": 0.558156,
+  "prediction_fixtures_graded": 256,
   "provider_errors": {},
-  "reviewed_at_utc": "2026-11-03T06:59:41Z",
+  "reviewed_at_utc": "2026-11-03T12:09:23Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,

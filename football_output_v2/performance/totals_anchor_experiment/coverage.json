@@ -79949,7 +79949,7 @@
     "reasons": [
       "outside_registered_leagues"
     ],
-    "result_status": "UNVERIFIED_FIXTURE_OR_RESULT",
+    "result_status": "VERIFIED_FINISHED",
     "scale": null,
     "snapshot_commit": "f82ff3e276c6c573d145eb757208cb5772a45143",
     "status": "unavailable",
