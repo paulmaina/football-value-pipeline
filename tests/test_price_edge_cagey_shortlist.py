@@ -170,15 +170,37 @@ class CageyTierTests(OfflineQuotePolicyTestCase):
                  ((-0.0001, 0.85), 'REJECTED', 'expected profit below 0 under the corrected matrix'),
                  ((0.01, 0.8499), 'REJECTED', 'corrected no-loss probability below 85%')]
         for (profit, no_loss), expected, reasons in cases:
-            out = {'corrected_expected_profit': profit, 'corrected_no_loss_probability': no_loss}
+            out = {'corrected_expected_profit': profit, 'corrected_no_loss_probability': no_loss,
+                   'corrected_fair_odds': 1.3}
             self.assertEqual(v28.tier_candidate(item, out, context),
                              {'cagey_tier_decision': expected, 'cagey_tier_reasons': reasons})
         guarded = {**item, 'rejection_reasons': 'offered odds above 3.00; edge below 3%'}
-        good = {'corrected_expected_profit': 0.1, 'corrected_no_loss_probability': 0.9}
+        good = {'corrected_expected_profit': 0.1, 'corrected_no_loss_probability': 0.9, 'corrected_fair_odds': 1.3}
         self.assertEqual(v28.tier_candidate(guarded, good, context)['cagey_tier_reasons'], 'offered odds above 3.00')
         self.assertIsNone(v28.tier_candidate({**item, 'handicap_line': 0.75}, {}, context)['cagey_tier_decision'])
         self.assertIsNone(v28.tier_candidate({**item, 'handicap_line': -1.5}, {}, context)['cagey_tier_decision'])
         self.assertEqual(v28.tier_candidate(item, {}, None)['cagey_tier_reasons'], 'no corrected price')
+
+    def test_suspicious_price_guard_applies_to_the_tier(self):
+        item = {'handicap_line': 1.25, 'offered_decimal_odds': 2.50, 'rejection_reasons': ''}
+        good = {'corrected_expected_profit': 0.5, 'corrected_no_loss_probability': 0.95, 'corrected_fair_odds': 1.034}
+        self.assertEqual(v28.tier_candidate(item, good, {'score': 0.2}),
+                         {'cagey_tier_decision': 'REJECTED', 'cagey_tier_reasons': 'offered price above 1.15 x fair odds'})
+        boundary = {**item, 'offered_decimal_odds': round(1.15 * 1.034, 6)}
+        self.assertEqual(v28.tier_candidate(boundary, good, {'score': 0.2})['cagey_tier_decision'], 'ELIGIBLE')
+        # v27's own guard (against its fair reference) is kept too, once.
+        flagged = {**item, 'offered_decimal_odds': 1.10, 'rejection_reasons': 'offered price above 1.15 x fair odds'}
+        self.assertEqual(v28.tier_candidate(flagged, good, {'score': 0.2})['cagey_tier_reasons'],
+                         'offered price above 1.15 x fair odds')
+
+    def test_suspicious_price_rejected_end_to_end(self):
+        fair, _ = tier_fair(cagey_row(), 'away', 1.25)
+        price = round(fair['corrected_fair_odds'] * 2.4, 2)
+        selected, decisions, _ = run(cagey_row(offers=[offer('away', 1.25, min(price, 2.95))]))
+        self.assertEqual(len(v28.cagey_tier_list(decisions)), 0)
+        rows = decisions[decisions.cagey_tier_decision.notna() & (decisions.bookmaker == '1xBet')]
+        self.assertEqual(rows.cagey_tier_reasons.tolist(), ['offered price above 1.15 x fair odds'])
+        self.assertEqual(len(selected), 0)
 
     def decisions(self, scores):
         kick = (NOW + pd.Timedelta(hours=10)).isoformat()

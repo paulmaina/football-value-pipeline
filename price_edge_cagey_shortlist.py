@@ -15,7 +15,8 @@ CAGEY TIER (a separate list, never merged into the value tier):
     run's fixtures in the 48h window (cutoff = that 20th percentile, never
     above the training-data 20th percentile; both recorded);
   * candidates: AH +1 .. +2.25, either side, at Pinnacle or 1xBet, with v27's
-    freshness, sync, overround and odds guards;
+    freshness, sync, overround and odds guards, and the suspicious-price guard
+    (offered <= 1.15 x fair) against both v27's fair odds and the corrected fair odds;
   * qualify if expected profit under the corrected matrix >= 0 (1e-9) AND
     corrected no-loss probability >= 0.85;
   * one row per fixture (highest corrected no-loss, then expected profit, then
@@ -72,7 +73,8 @@ TIER_MIN_NO_LOSS = 0.85
 TIER_QUANTILE = 0.20
 TIER_GUARDS = ('kickoff outside 20-minute to 48-hour window', 'offered quote stale', v27.NO_REFERENCE,
                'Pinnacle quote stale', 'Pinnacle overround outside [1.00, 1.10]',
-               'offered and Pinnacle quotes more than 10 minutes apart', 'offered odds above 3.00')
+               'offered and Pinnacle quotes more than 10 minutes apart', 'offered price above 1.15 x fair odds',
+               'offered odds above 3.00')
 TIER_FILE = 'cagey_tier_shortlist.csv'
 TIER_COLUMNS = ['cagey_tier_decision', 'cagey_tier_reasons', 'pinnacle_fair_odds', 'in_value_tier']
 TIER_OUTPUT_COLUMNS = [*OUTPUT_COLUMNS[:-1], 'corrected_no_loss_probability', 'corrected_fair_odds',
@@ -116,6 +118,10 @@ def tier_candidate(item: Mapping, out: Dict[str, object], context: Optional[Mapp
     if context is None:
         reasons.append('no corrected price')
     else:
+        # Data-quality guard: a price far above the corrected fair odds is more likely a bad quote than value.
+        if (item['offered_decimal_odds'] > v27.MAX_FAIR_RATIO * out['corrected_fair_odds']
+                and 'offered price above 1.15 x fair odds' not in reasons):
+            reasons.append('offered price above 1.15 x fair odds')
         if out['corrected_expected_profit'] + TOLERANCE < 0:
             reasons.append('expected profit below 0 under the corrected matrix')
         if out['corrected_no_loss_probability'] + TOLERANCE < TIER_MIN_NO_LOSS:
