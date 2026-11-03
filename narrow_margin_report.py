@@ -8,6 +8,9 @@ The run is resolved ONCE through the current-run pointer
 (prediction_runs.resolve_raw) and every input is read from that bundle, so the
 report can never mix two runs.
 
+Fixtures are matched on fixture_id, else league + teams + kick-off (FixtureIndex);
+ambiguous matches are reported, never guessed.
+
 The forecast roster (all_leagues_predictions.csv) is the base: every forecast
 fixture appears, scored or not, with an explicit reason when it is not.
 
@@ -30,7 +33,7 @@ import argparse
 import json
 import math
 from pathlib import Path
-from typing import Dict, Mapping, Optional, Sequence
+from typing import Dict, List, Mapping, Optional, Sequence, Tuple
 
 import pandas as pd
 
@@ -46,12 +49,14 @@ KEYS = ['league', 'home_team', 'away_team']
 MATCH_TOLERANCE = 1e-9
 QUOTES = ['pinnacle_home_odds', 'pinnacle_draw_odds', 'pinnacle_away_odds', 'pinnacle_over_2_5_odds',
           'pinnacle_under_2_5_odds', 'pinnacle_ah_main_line', 'pinnacle_ah_home_odds', 'pinnacle_ah_away_odds']
-COLUMNS = ['kickoff_utc', 'league', 'home_team', 'away_team', 'status', 'exclusion_reason', 'fit', *QUOTES,
+COLUMNS = ['kickoff_utc', 'fixture_id', 'league', 'home_team', 'away_team', 'status', 'exclusion_reason', 'fit',
+           *QUOTES,
            'p_narrow', 'p_draw', 'p_one_goal', 'p_two_plus', 'p_three_plus', 'p_narrow_uncorrected',
            'corrected_cagey_quintile', 'latest_input_quote_utc', 'quote_age_at_run_min',
            'quote_age_at_kickoff_min', 'out_of_domain', 'generated_at_utc', 'model_version', 'run_directory']
 NOT_MONITORED = 'NOT_MONITORED'
 MISMATCH = 'MISMATCH'
+AMBIGUOUS = 'AMBIGUOUS'
 NO_MONITORING_FILE = 'no cagey monitoring file in this run (monitoring disabled or not written)'
 NO_MONITORING_ROW = 'no cagey monitoring row for this fixture (not evaluated by the cagey correction)'
 
@@ -78,6 +83,80 @@ def _run_generated_at(run: Path, monitoring: Optional[pd.DataFrame]) -> Optional
 def _clean(value):
     """CSV-read cells to the objects the pipeline saw: NaN -> None (pinnacle_quotes treats None as absent)."""
     return None if isinstance(value, float) and math.isnan(value) else value
+
+
+def _fixture_id(value) -> Optional[str]:
+    value = _clean(value)
+    return None if value is None or not str(value).strip() else str(value).strip()
+
+
+def _kickoff(value) -> Optional[str]:
+    """Kick-off normalised to a UTC ISO string, so '...Z' and '...+00:00' compare equal."""
+    value = _clean(value)
+    if value is None or not str(value).strip():
+        return None
+    try:
+        return pd.Timestamp(value).tz_convert('UTC').isoformat() if pd.Timestamp(value).tzinfo else \
+            pd.Timestamp(value).tz_localize('UTC').isoformat()
+    except (ValueError, TypeError):
+        return None
+
+
+def _fallback_key(row: Mapping) -> Optional[tuple]:
+    """League, teams and kick-off; None when any part is missing (then no fallback match is attempted)."""
+    parts = [_clean(row.get(k)) for k in KEYS]
+    kickoff = _kickoff(row.get('kickoff_utc'))
+    return None if kickoff is None or any(p is None for p in parts) else (*parts, kickoff)
+
+
+class FixtureIndex:
+    """Matches fixtures: fixture_id first; else league + teams + kick-off, only against rows with no fixture_id.
+
+    Two rows with different fixture_ids are never matched to each other. A query that hits more than one row
+    is ambiguous and matches nothing; the caller reports it rather than guessing.
+    """
+
+    def __init__(self, rows: Sequence[Mapping]):
+        self.rows = list(rows)
+        self.by_id: Dict[str, List[int]] = {}
+        self.by_fallback: Dict[tuple, List[int]] = {}
+        for i, row in enumerate(self.rows):
+            fixture_id = _fixture_id(row.get('fixture_id'))
+            if fixture_id is not None:
+                self.by_id.setdefault(fixture_id, []).append(i)
+            else:
+                key = _fallback_key(row)
+                if key is not None:
+                    self.by_fallback.setdefault(key, []).append(i)
+
+    def candidates(self, row: Mapping) -> List[int]:
+        fixture_id = _fixture_id(row.get('fixture_id'))
+        hits = self.by_id.get(fixture_id, []) if fixture_id is not None else []
+        if not hits:
+            key = _fallback_key(row)
+            hits = self.by_fallback.get(key, []) if key is not None else []
+        return list(hits)
+
+    def match_all(self, queries: Sequence[Mapping]) -> List[Tuple[Optional[int], Optional[str]]]:
+        """(row index, None) on a unique match; (None, reason) when ambiguous; (None, None) when no row matches.
+
+        A row claimed by several queries matches none of them.
+        """
+        found = [self.candidates(q) for q in queries]
+        claims: Dict[int, int] = {}
+        for hits in found:
+            if len(hits) == 1:
+                claims[hits[0]] = claims.get(hits[0], 0) + 1
+        out: List[Tuple[Optional[int], Optional[str]]] = []
+        for hits in found:
+            if len(hits) > 1:
+                out.append((None, f'{len(hits)} monitoring rows match this fixture; not shown'))
+            elif len(hits) == 1 and claims[hits[0]] > 1:
+                out.append((None, f'its monitoring row also matches {claims[hits[0]] - 1} other forecast '
+                                  'fixture(s); not shown'))
+            else:
+                out.append((hits[0] if hits else None, None))
+        return out
 
 
 def recompute(row: Mapping, evaluated_at: str, model_version: str) -> Optional[Dict[str, object]]:
@@ -114,18 +193,20 @@ def build(raw: Path) -> pd.DataFrame:
     generated = _run_generated_at(run, monitoring)
     if roster is None or roster.empty or not set(KEYS) <= set(roster.columns):
         return pd.DataFrame(columns=COLUMNS)
-    roster = roster.drop_duplicates(KEYS)
-    records = {}
-    if monitoring is not None and not monitoring.empty:
-        for _, m in monitoring.drop_duplicates(KEYS).iterrows():
-            records[tuple(m[k] for k in KEYS)] = m
+    # Every forecast row is kept (no de-duplication by team pairing: the same pairing can recur on another date).
+    rows = [row for _, row in roster.iterrows()]
+    records = ([m for _, m in monitoring.iterrows()] if monitoring is not None and not monitoring.empty else [])
+    matches = FixtureIndex(records).match_all(rows)
     out = []
-    for _, row in roster.iterrows():
-        key = tuple(row[k] for k in KEYS)
+    for row, (index, ambiguity) in zip(rows, matches):
         rec = {c: None for c in COLUMNS}
-        rec.update({k: row.get(k) for k in ('kickoff_utc', *KEYS)}, generated_at_utc=generated,
-                   run_directory=str(run))
-        m = records.get(key)
+        rec.update({k: _clean(row.get(k)) for k in ('kickoff_utc', 'fixture_id', *KEYS)},
+                   generated_at_utc=generated, run_directory=str(run))
+        if ambiguity is not None:
+            rec.update(status=AMBIGUOUS, exclusion_reason=ambiguity)
+            out.append(rec)
+            continue
+        m = records[index] if index is not None else None
         if m is None:
             rec.update(status=NOT_MONITORED, exclusion_reason=NO_MONITORING_FILE if monitoring is None
                        else NO_MONITORING_ROW)
@@ -167,20 +248,25 @@ SHORTLIST_COLUMNS = {'p_narrow': 'P(narrow: draw or 1-goal win)', 'p_draw': 'P(d
 
 
 def for_fixtures(fixtures: pd.DataFrame, raw: Path) -> pd.DataFrame:
-    """Narrow-margin columns aligned row for row with `fixtures` (matched on league, home, away).
+    """Narrow-margin columns aligned row for row with `fixtures`, matched as FixtureIndex does
+    (fixture_id first, else league + teams + kick-off).
 
-    Rows with no scored match, or a run whose inputs are missing, get empty values; never raises for missing files.
+    Rows with no unique scored match, or a run whose inputs are missing, get empty values; never raises for
+    missing files.
     """
     empty = pd.DataFrame(index=fixtures.index, columns=list(SHORTLIST_COLUMNS), dtype=object)
-    if fixtures.empty or not set(KEYS) <= set(fixtures.columns):
+    if fixtures.empty:
         return empty
     frame = build(Path(raw))
-    scored = frame[frame['p_narrow'].notna()]
-    if scored.empty:
+    scored = [r for _, r in frame[frame['p_narrow'].notna()].iterrows()]
+    if not scored:
         return empty
-    lookup = scored.drop_duplicates(KEYS).set_index(KEYS)[list(SHORTLIST_COLUMNS)]
-    keys = pd.MultiIndex.from_frame(fixtures[KEYS].astype(object))
-    return lookup.reindex(keys).set_axis(fixtures.index)
+    queries = [r for _, r in fixtures.iterrows()]
+    out = empty.copy()
+    for label, (index, _) in zip(fixtures.index, FixtureIndex(scored).match_all(queries)):
+        if index is not None:
+            out.loc[label] = [scored[index][c] for c in SHORTLIST_COLUMNS]
+    return out
 
 
 def _pct(value) -> str:

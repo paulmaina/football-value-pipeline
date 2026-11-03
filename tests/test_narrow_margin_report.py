@@ -20,9 +20,9 @@ QUOTED = '2026-11-03T13:57:00Z'
 MODEL = nm.versions()['production']['version']
 
 
-def forecast(home, away, league, h2h, ou, ah_line, ah_prices, kickoff='2026-11-04T20:00:00+00:00'):
+def forecast(home, away, league, h2h, ou, ah_line, ah_prices, kickoff='2026-11-04T20:00:00+00:00', fixture_id=None):
     """A forecast row whose Pinnacle quotes reach the fit the way the pipeline reads them."""
-    return {'league': league, 'home_team': home, 'away_team': away, 'kickoff_utc': kickoff,
+    return {'league': league, 'home_team': home, 'away_team': away, 'kickoff_utc': kickoff, 'fixture_id': fixture_id,
             'market_source_1x2': 'The Odds API / Pinnacle', 'market_reference_home_odds': h2h[0],
             'market_reference_draw_odds': h2h[1], 'market_reference_away_odds': h2h[2],
             'market_reference_1x2_last_update_utc': QUOTED,
@@ -51,6 +51,7 @@ def monitoring(rows=ROSTER[:2], unusable=ROSTER[2:]):
     for row in rows:
         context = expected(row)
         out.append({'league': row['league'], 'home_team': row['home_team'], 'away_team': row['away_team'],
+                    'fixture_id': row.get('fixture_id'),
                     'kickoff_utc': row['kickoff_utc'], 'generated_at_utc': RUN, 'model_version': MODEL,
                     'status': 'USABLE', 'exclusion_reason': '', 'fit': context['fit'], 'latest_input_quote_utc': QUOTED,
                     'corrected_p2': context['score'],
@@ -59,9 +60,10 @@ def monitoring(rows=ROSTER[:2], unusable=ROSTER[2:]):
                     'corrected_cagey_quintile': 'Q3'})
     for row in unusable:
         out.append({'league': row['league'], 'home_team': row['home_team'], 'away_team': row['away_team'],
+                    'fixture_id': row.get('fixture_id'),
                     'kickoff_utc': row['kickoff_utc'], 'generated_at_utc': RUN, 'model_version': MODEL,
                     'status': 'UNUSABLE', 'exclusion_reason': 'no usable market-implied fit (missing input: over_2_5)'})
-    return pd.DataFrame(out, columns=['league', 'home_team', 'away_team', 'kickoff_utc', 'generated_at_utc',
+    return pd.DataFrame(out, columns=['league', 'home_team', 'away_team', 'fixture_id', 'kickoff_utc', 'generated_at_utc',
                                       'model_version', 'status', 'exclusion_reason', 'fit', 'latest_input_quote_utc',
                                       'corrected_p2', 'corrected_p3', 'uncorrected_p2', 'corrected_cagey_quintile'])
 
@@ -178,9 +180,11 @@ class NarrowMarginReportTests(OfflineQuotePolicyTestCase):
 
     def test_for_fixtures_aligns_rows_and_tolerates_missing_data(self):
         raw = self.plain()
-        fixtures = pd.DataFrame([{'league': 'Serie A', 'home_team': 'C', 'away_team': 'D'},
-                                 {'league': 'Serie A', 'home_team': 'X', 'away_team': 'Y'},
-                                 {'league': 'Premier League', 'home_team': 'E', 'away_team': 'F'}], index=[7, 8, 9])
+        kick = {'kickoff_utc': ROSTER[1]['kickoff_utc']}
+        fixtures = pd.DataFrame([{'league': 'Serie A', 'home_team': 'C', 'away_team': 'D', **kick},
+                                 {'league': 'Serie A', 'home_team': 'X', 'away_team': 'Y', **kick},
+                                 {'league': 'Premier League', 'home_team': 'E', 'away_team': 'F',
+                                  'kickoff_utc': ROSTER[2]['kickoff_utc']}], index=[7, 8, 9])
         got = report.for_fixtures(fixtures, raw)
         self.assertEqual(list(got.index), [7, 8, 9])
         self.assertEqual(list(got.columns), list(report.SHORTLIST_COLUMNS))
@@ -190,6 +194,75 @@ class NarrowMarginReportTests(OfflineQuotePolicyTestCase):
         nowhere.mkdir()
         self.assertTrue(report.for_fixtures(fixtures, nowhere).isna().all().all())
         self.assertTrue(report.for_fixtures(fixtures.iloc[0:0], raw).empty)
+        # Names alone (no fixture_id, no kick-off) are not an identity.
+        names_only = fixtures.drop(columns='kickoff_utc')
+        self.assertTrue(report.for_fixtures(names_only, raw).isna().all().all())
+
+    # --- Fixture identity: the same pairing on two dates -------------------------------------------------
+
+    def repeat_pairing(self, with_ids=True):
+        first = forecast('A', 'B', 'UEFA Champions League', (1.93, 3.89, 3.88), (1.75, 2.14), -0.5, (2.04, 1.86),
+                         kickoff='2026-11-04T20:00:00+00:00', fixture_id='fx:1' if with_ids else None)
+        later = forecast('A', 'B', 'UEFA Champions League', (2.40, 3.40, 2.90), (1.95, 1.90), -0.25, (1.98, 1.92),
+                         kickoff='2026-11-25T20:00:00+00:00', fixture_id='fx:2' if with_ids else None)
+        return first, later
+
+    def test_same_teams_on_two_dates_keeps_both_and_scores_only_the_monitored_one(self):
+        for with_ids in (True, False):
+            with self.subTest(fixture_ids=with_ids):
+                first, later = self.repeat_pairing(with_ids)
+                frame = report.build(self.plain(roster=[first, later], monitor=monitoring(rows=[first], unusable=[])))
+                self.assertEqual(len(frame), 2)
+                by_kickoff = frame.set_index('kickoff_utc')
+                scored = by_kickoff.loc[first['kickoff_utc']]
+                self.assertAlmostEqual(scored.p_narrow, 1 - expected(first)['score'], places=12)
+                self.assertEqual(scored.status, 'USABLE')
+                unscored = by_kickoff.loc[later['kickoff_utc']]
+                self.assertEqual(unscored.status, report.NOT_MONITORED)
+                self.assertTrue(pd.isna(unscored.p_narrow))
+
+    def test_fixture_id_wins_over_names_and_different_ids_never_fall_back(self):
+        first, later = self.repeat_pairing()
+        monitor = monitoring(rows=[first], unusable=[])
+        # Same league, teams and kick-off as the forecast, but another fixture's id: must not match.
+        monitor['fixture_id'] = 'fx:other'
+        frame = report.build(self.plain(roster=[first], monitor=monitor))
+        self.assertEqual(frame.iloc[0].status, report.NOT_MONITORED)
+        # Same id with a differently formatted kick-off still matches.
+        monitor['fixture_id'], monitor['kickoff_utc'] = 'fx:1', '2026-11-04T20:00:00Z'
+        frame = report.build(self.plain(roster=[first], monitor=monitor))
+        self.assertEqual(frame.iloc[0].status, 'USABLE')
+
+    def test_fallback_kickoff_formats_compare_equal(self):
+        first, _ = self.repeat_pairing(with_ids=False)
+        monitor = monitoring(rows=[first], unusable=[])
+        monitor['kickoff_utc'] = '2026-11-04T20:00:00Z'
+        self.assertEqual(report.build(self.plain(roster=[first], monitor=monitor)).iloc[0].status, 'USABLE')
+
+    def test_duplicate_monitoring_rows_are_ambiguous_not_guessed(self):
+        first, _ = self.repeat_pairing()
+        monitor = monitoring(rows=[first, first], unusable=[])
+        row = report.build(self.plain(roster=[first], monitor=monitor)).iloc[0]
+        self.assertEqual(row.status, report.AMBIGUOUS)
+        self.assertTrue(pd.isna(row.p_narrow))
+        self.assertIn('2 monitoring rows match', row.exclusion_reason)
+
+    def test_one_monitoring_row_claimed_by_two_forecasts_is_ambiguous(self):
+        first, _ = self.repeat_pairing(with_ids=False)
+        frame = report.build(self.plain(roster=[first, dict(first)], monitor=monitoring(rows=[first], unusable=[])))
+        self.assertEqual(list(frame.status), [report.AMBIGUOUS, report.AMBIGUOUS])
+        self.assertIn('also matches 1 other', frame.iloc[0].exclusion_reason)
+
+    def test_tier_lookup_uses_the_same_identity(self):
+        for with_ids in (True, False):
+            with self.subTest(fixture_ids=with_ids):
+                first, later = self.repeat_pairing(with_ids)
+                raw = self.plain(roster=[first, later], monitor=monitoring(rows=[first], unusable=[]))
+                keys = ('league', 'home_team', 'away_team', 'kickoff_utc', 'fixture_id')
+                tier = pd.DataFrame([{k: later[k] for k in keys}, {k: first[k] for k in keys}], index=[3, 4])
+                got = report.for_fixtures(tier, raw)
+                self.assertTrue(pd.isna(got.loc[3, 'p_narrow']))  # the later match has no score
+                self.assertAlmostEqual(got.loc[4, 'p_narrow'], 1 - expected(first)['score'], places=12)
 
 
 if __name__ == '__main__':
