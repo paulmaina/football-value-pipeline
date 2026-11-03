@@ -57,6 +57,9 @@ class PipelineTests(OfflineQuotePolicyTestCase):
                 self.assertEqual('goal_market_validation' in diagnostics, not validated)
                 summary = json.loads((bundle/'conservative_bet_summary.json').read_text())
                 self.assertFalse(summary['validation_required'])
+                # Bound into the immutable summary, so replay knows this run carries monitoring records.
+                self.assertEqual(summary['correction_monitoring_version'], 'cagey-correction-monitoring-v1')
+                self.assertTrue((bundle/'cagey_correction_monitoring.csv').exists())
                 outputs[validated] = {name: pd.read_csv(bundle/name) for name in
                                       ('all_leagues_predictions.csv', 'conservative_bet_shortlist.csv',
                                        'cagey_tier_shortlist.csv', 'conservative_bet_rejections.csv')}

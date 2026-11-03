@@ -206,9 +206,13 @@ def raw_check(root, *, raw_dir=None):
                     require(equivalent(clean_frame(tier_actual[list(tier_expected.columns)]),
                                        clean_frame(tier_expected.replace('', None))),
                             'Current cagey-tier shortlist differs from deterministic replay')
-            # Correction monitoring is evidence only, but its rows must be this run's own.
+            # Correction monitoring is evidence only, but its rows must be this run's own. The run's
+            # immutable summary says whether it was generated with monitoring; earlier v28 runs were not.
             monitor_path = raw/price_edge_cagey_shortlist.MONITOR_FILE
-            if monitoring:
+            monitored = summary.get('correction_monitoring_version')
+            require(monitored in (None, price_edge_cagey_shortlist.MONITOR_VERSION),
+                    'Unknown correction-monitoring version')
+            if monitored:
                 require(monitor_path.exists(), 'Missing current correction-monitoring records')
             if monitor_path.exists():
                 monitor_expected = pd.DataFrame(monitoring, columns=price_edge_cagey_shortlist.MONITOR_COLUMNS)
