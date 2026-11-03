@@ -1,40 +1,38 @@
-# Conservative shortlisted matches and markets
+# Asian handicap price edge vs Pinnacle (v28)
 
+**Generated (UTC):** 2026-11-03T13:23:43.479885+00:00. **Picks:** 2 (one per match, no cap, safest first). **Status:** BELOW_TARGET.
+**Rule:** edge = price x Pinnacle fair win-share - 1, at least 2.0% against Pinnacle (a: same AH line, b: equivalent market) or 3.0% against the derived market-implied price (c: plus lines only). Odds above 3.00, prices above 1.15 x fair, quotes more than 10 minutes apart and Pinnacle overrounds outside [1.00, 1.10] are rejected.
+**Tags** (balanced, low total, high draw, even odds) are tracked hypotheses only; they never change a pick.
+**Cagey correction (v28):** derived plus lines (+1 or more) are priced from the cagey-corrected matrix (c-cagey). Picks that qualified only because of the correction: 0.
+**Model vs Pinnacle gap** is information only; the model does not select picks.
 
-**Candidates:** 0 of target 12 distinct matches.
-**Strictly qualified:** 0. **Provisional watchlist:** 0.
-**Pipeline status:** NO BET.
-**Generated (UTC):** 2026-11-01T12:23:24.469126+00:00.
-**UNPROVEN EDGE (Corners):** validated on probability accuracy only; no historical corner or card odds exist, so profitability is untested. 0 of 0 selections.
-**Kickoffs within next 48 hours of run:** Not available.
+> A price edge is not a guaranteed profit. Grade it by closing line value against the Pinnacle close.
 
-> WARNING: PROVISIONAL watchlist entries FAILED one or more strict historical/EV rules; they are for research only, NOT qualified bets. Even STRICT candidates are not guaranteed outcomes or proven profitable selections. The shortlist is not an accumulator recommendation.
+## Picks
 
-## Shortlisted market for each match
+| Kickoff (UTC) | League | Home | Away | Balanced | Low total | High draw | Even odds | Pinnacle draw probability | Pinnacle P(over 2.5) | AH line | Side | Favourite/underdog | Market to bet | Bookmaker | Price | Fair odds | Reference | Edge | Minimum odds still worth taking | Pinnacle no-loss probability | Offered quote age (min) | Pinnacle quote age (min) | Model vs Pinnacle gap (info only) | Cagey score: P(2+ goal margin) (info only) | Cagey fit | Fair (uncorrected) | Qualified only because of correction | Corrected cagey score | Other value lines |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2026-11-04T20:00:00+00:00 | UEFA Champions League | Porto | Napoli | False | False | False | False | 24.9% | 55.0% | +0.00 | home | favourite | Asian Handicap Home +0.00 | 1xBet | 1.53 | 1.50 | b: Pinnacle equivalent market | +2.0% | 1.53 | 75.1% | 2 | 1 | +1.4% | 37.7% | B | 1.50 | False | 35.5% | Home win @ 1xBet 2.05 (+3.6%) |
+| 2026-11-03T20:00:00+00:00 | UEFA Champions League | Bodø/Glimt | Lille | False | False | False | False | 22.4% | 64.7% | -0.50 | home | favourite | Home win | 1xBet | 1.79 | 1.74 | a: Pinnacle same AH line | +3.0% | 1.77 | 57.3% | 2 | 1 | +0.8% | 44.0% | B | 1.74 | False | 43.4% | Asian Handicap Home -1.50 @ 1xBet 2.97 (+5.3%) |
 
-**Common safety cutoff:** adjusted probability of avoiding any loss >= 75.0% for every market. Zero risk tolerance: the lowest conservative estimated loss risk wins; EV breaks equal-risk ties. Refunds count as avoiding loss; half-losses do not. This cutoff is a policy setting, not a guarantee.
+## Rejections by reason
 
-**Shortlist policy:** require adjusted estimated EV >= 0.5% and unblended EV >= 0. For each match, admit candidates within 0.0% of its lowest eligible estimated loss risk; rank highest adjusted EV, unblended EV, then full-refund probability. The risk tolerance is a provisional policy setting, not empirically tuned.
-**Probability meaning:** Asian model chance includes refunds. Half-losses lose money. Estimates do not guarantee outcomes. Pinnacle/bet365 take priority, with 1xBet as an exact-line fallback.
+| Reason | Candidates |
+| --- | --- |
+| edge below 2% | 712 |
+| kickoff outside 20-minute to 48-hour window | 176 |
+| offered odds above 3.00 | 158 |
+| no Pinnacle reference | 137 |
+| no offered quote at an allowed bookmaker | 75 |
+| edge below 3% | 49 |
+| offered and Pinnacle quotes more than 10 minutes apart | 36 |
+| Pinnacle overround outside [1.00, 1.10] | 8 |
+| offered price above 1.15 x fair odds | 1 |
 
-_No qualifying matches were shortlisted. No bet is a valid outcome._
+Tagged candidates: {'balanced': 333, 'low_total': 0, 'high_draw': 0, 'even_odds': 0}.
 
-## Qualifying alternatives for comparison
+## Cagey tier (separate list, never merged with the picks above)
 
-Prefer another market type when one qualifies; otherwise show another qualifying line. Alternatives meet the eligibility checks, including adjusted EV >= 1% and unblended EV >= 0. Their risk band is ranked separately; an alternative outside the selected risk band is explicitly marked. Risk increase is measured in percentage points against the selected pick. These are comparisons, not additional selections. Double Chance 1X/X2 and Asian +0.5 cover the same outcomes; different market names do not guarantee diversification.
+Cagiest 20% of this run's fixtures by corrected cagey score (cutoff 0.29433008766541074, run 20th percentile 0.38446110689793633, training cap 0.29433008766541074); AH +1 to +2.25 at Pinnacle or 1xBet with expected profit >= 0 and no-loss >= 85% under the corrected matrix; one per match, safest first.
 
-_No data available._
-
-## Interpretation
-
-**STRICT** means every configured historical, probability, odds and EV rule passed. **PROVISIONAL** means the specified historical or small adjusted-EV checks FAILED, although the essential source, reference-market integrity, team and price rules passed. Never count provisional candidates as verified reliable bets. Model chance describes the selected market, not necessarily the home or away match winner.
-
-Reliability-adjusted chance discounts historical overconfidence using an earlier chronological development sample; a later audit must pass the predefined quality gate. It remains an estimate.
-
-When forecast probability is 75% or higher, the chosen market must separately pass the >=75% historical audit; >=85% forecasts must pass the >=85% audit. The readable CSV includes the group sample size, observed rate and Wilson 95% uncertainty range.
-
-Conservative estimated EV adjusts the blended model's settlement payoff using the market calibration penalty. The loss-risk comparison separately uses the worse blended/unblended loss estimate plus that penalty. Neither measure is assured; bookmaker prices may change before kickoff.
-
-**Selection method:** Require common adjusted no-loss probability floor; zero risk tolerance; lowest conservative loss estimate per fixture, then adjusted EV, unblended EV and refund probability; Corners totals compete under the same floors; cap 12
-
-The readable CSV includes raw Dixon-Coles probabilities, bookmaker-implied probabilities, and unblended EV for audit.
+No cagey-tier pick this run.

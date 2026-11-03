@@ -1,6 +1,6 @@
 {
   "league": "Eredivisie",
-  "training_matches": 1620,
+  "training_matches": 1629,
   "training_seasons_requested": 6,
   "training_seasons_loaded": [
     "2122",
@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "173f00460382fe819ab1795f92939756d58effd9917931edff4bdbeeab528135",
-  "training_as_of_utc": "2026-11-01T12:23:12.296723+00:00",
+  "training_sha256": "615de97a97f0d322c268f8b3f3257e878336d0e9922ced304f9c92ec61ef9060",
+  "training_as_of_utc": "2026-11-03T13:22:54.974525+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-01",
+    "cutoff_date": "2026-11-03",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -49,31 +49,31 @@
       "max_goal_rate_ratio": 1.25
     },
     "bbs_shot_source_enabled": false,
-    "shot_matches": 1620,
-    "tune_start_date": "2025-11-02",
-    "audit_start_date": "2026-05-03",
-    "training_shot_matches": 1319,
-    "tuning_matches": 188,
-    "audit_matches": 106,
-    "audit_matchdays": 35,
+    "shot_matches": 1629,
+    "tune_start_date": "2025-11-04",
+    "audit_start_date": "2026-05-05",
+    "training_shot_matches": 1323,
+    "tuning_matches": 189,
+    "audit_matches": 114,
+    "audit_matchdays": 36,
     "selected_shrinkage": 40.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.6889275615862654,
-    "audit_candidate_poisson_score": 0.6802694333813243,
-    "audit_gain": 0.008658128204941162,
-    "audit_gain_lower95": -0.004724107977391453,
+    "audit_baseline_poisson_score": 0.6640276255247738,
+    "audit_candidate_poisson_score": 0.6541627035388013,
+    "audit_gain": 0.009864921985972441,
+    "audit_gain_lower95": -0.0021659948572718187,
     "audit_baseline_briers": [
-      0.6137514869287697,
-      0.09292906963489717,
-      0.2840351453633093,
-      0.2264232297608972
+      0.6216764809503332,
+      0.0984760918312214,
+      0.2796799781023385,
+      0.2302570571451794
     ],
     "audit_candidate_briers": [
-      0.6123945466989743,
-      0.09164250234443909,
-      0.2804142756392567,
-      0.2197628496918597
+      0.6176748823631296,
+      0.09759280650048496,
+      0.27680113308105514,
+      0.22438463488066576
     ],
     "audit_brier_order": [
       "1x2",
@@ -86,12 +86,12 @@
       "bootstrap_lower95_not_positive"
     ]
   },
-  "training_end": "2026-10-25",
+  "training_end": "2026-11-01",
   "fit_success": true,
-  "objective": 1610.05794105291,
-  "base": 0.2918959163853903,
-  "home_adv": 0.18415679816580943,
-  "rho": -0.09548129991647283,
+  "objective": 1641.3830889319943,
+  "base": 0.290454912399772,
+  "home_adv": 0.18315943965925652,
+  "rho": -0.08083444045032213,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -100,16 +100,16 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 25,
-    "matches": 1620,
+    "matches": 1629,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-10-25"
+    "last_match_date": "2026-11-01"
   },
   "training_data_health": {
-    "training_end": "2026-10-25",
-    "days_since_latest_result": 7,
+    "training_end": "2026-11-01",
+    "days_since_latest_result": 2,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -120,67 +120,20 @@
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
   "live_odds_matched": 0,
-  "excluded_started_fixtures": [
-    {
-      "home_team": "PEC Zwolle",
-      "away_team": "ADO Den Haag",
-      "kickoff_utc": "2026-11-01T11:15:00+00:00",
-      "fixture_source": "football-data.org"
-    }
-  ],
+  "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 0,
+  "additional_event_odds_calls_used_before_this_league": 19,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
-  "odds_provider_health": {
-    "state": "CREDITS_EXHAUSTED",
-    "attempts": [
-      {
-        "credential": "THE_ODDS_API_KEY",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 1,
-        "x-requests-used": 499,
-        "x-requests-last": 0
-      }
-    ],
-    "blocked_utc_day": "2026-11-01"
-  },
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:558847",
+      "fixture_id": "fdorg:558845",
       "event_id": null,
-      "home_team": "SBV Excelsior",
-      "away_team": "FC Twente '65",
-      "kickoff_utc": "2026-11-01T13:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "fdorg:558848",
-      "event_id": null,
-      "home_team": "Telstar 1963",
-      "away_team": "FC Utrecht",
-      "kickoff_utc": "2026-11-01T13:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "fdorg:558846",
-      "event_id": null,
-      "home_team": "FC Groningen",
-      "away_team": "Sparta Rotterdam",
-      "kickoff_utc": "2026-11-01T15:45:00+00:00",
+      "home_team": "Willem II Tilburg",
+      "away_team": "PEC Zwolle",
+      "kickoff_utc": "2026-11-06T19:00:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
@@ -194,32 +147,15 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 3
+    "NOT_ANCHORED_NO_PINNACLE": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 3
+    "none": 1
   },
   "legacy_comparison_status": {
-    "AVAILABLE": 3
+    "None": 1
   },
   "bbs_statistics_applied_fixtures": 0,
-  "decay_tuning": {
-    "selected_half_life_days": 365.0,
-    "selected_xi_per_day": 0.0018990333713971104,
-    "selection_metric": "walk_forward_1x2_log_loss",
-    "validation_days": 365,
-    "applied_to_production": false
-  },
-  "goal_market_reliability": {
-    "home_draw": "RELIABLE_FOR_RANKING",
-    "draw_away": "UNRELIABLE_AUDIT",
-    "home_away": "UNRELIABLE_AUDIT",
-    "home": "UNRELIABLE_AUDIT",
-    "draw": "UNRELIABLE_AUDIT",
-    "away": "RELIABLE_FOR_RANKING",
-    "over_1_5": "UNRELIABLE_AUDIT",
-    "under_3_5": "UNRELIABLE_AUDIT",
-    "btts_yes": "UNRELIABLE_AUDIT"
-  }
+  "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

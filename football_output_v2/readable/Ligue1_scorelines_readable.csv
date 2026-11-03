@@ -1,101 +1,21 @@
 ﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,1,1-1,11.34%,0.11342441752600879
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,2,2-1,9.81%,0.09810707951436347
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,3,1-0,9.07%,0.09068932907945111
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,4,2-0,8.78%,0.08780669361369838
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,5,1-2,6.02%,0.06017329108320251
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,6,3-1,5.96%,0.05957285296858167
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,7,0-0,5.86%,0.058633073744054694
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,8,2-2,5.48%,0.05480788909546229
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,9,0-1,5.34%,0.053414626790267254
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,10,3-0,5.33%,0.05331822406904201
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,11,3-2,3.33%,0.03328059845186076
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,12,0-2,3.30%,0.033031968750677515
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,13,4-1,2.71%,0.02713049477456414
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,14,4-0,2.43%,0.024282029941676372
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,15,1-3,2.24%,0.02241069030914865
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,16,2-3,2.04%,0.020412422304078498
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,17,4-2,1.52%,0.015156552983433066
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,18,3-3,1.24%,0.012394887694882731
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,19,0-3,1.23%,0.012302289082864496
-2026-11-01,Ligue 1,RC Strasbourg Alsace,AJ Auxerre,20,5-1,0.99%,0.009884552577676243
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,1,2-0,12.94%,0.12941583252018354
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,2,1-0,12.13%,0.12130641591393033
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,3,1-1,9.80%,0.09800955507662523
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,4,2-1,9.54%,0.09541189020472289
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,5,3-0,8.84%,0.08844550255853986
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,6,0-0,6.65%,0.06651084925912586
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,7,3-1,6.52%,0.06520649301468462
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,8,4-0,4.53%,0.04533413785526982
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,9,0-1,4.05%,0.040458821893002345
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,10,2-2,3.52%,0.035171232974985256
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,11,1-2,3.43%,0.03430899453748469
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,12,4-1,3.34%,0.033422616841708205
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,13,3-2,2.40%,0.024036760537710197
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,14,5-0,1.86%,0.018589382122355703
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,15,0-2,1.67%,0.01673394712960937
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,16,5-1,1.37%,0.013705031691197635
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,17,4-2,1.23%,0.01232042087260941
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,18,2-3,0.86%,0.00864333663464415
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,19,1-3,0.84%,0.00843144138832317
-2026-11-01,Ligue 1,Olympique Lyonnais,Angers SCO,20,6-0,0.64%,0.006352187410331213
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,1,1-1,11.71%,0.11713643730452275
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,2,2-1,8.47%,0.08469432452048044
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,3,1-2,8.33%,0.08331369285660255
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,4,1-0,6.84%,0.06835842447040673
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,5,0-1,6.71%,0.06714790962218618
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,6,2-2,6.34%,0.06343430751255272
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,7,2-0,5.65%,0.056539819596525084
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,8,0-2,5.47%,0.054711493587525556
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,9,0-0,5.47%,0.0546652112772281
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,10,3-1,4.30%,0.04299033881859133
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,11,1-3,4.16%,0.04160016185731632
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,12,3-2,3.22%,0.032198879772964095
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,13,2-3,3.17%,0.03167399462620077
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,14,3-0,2.87%,0.028699278434045117
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,15,0-3,2.73%,0.02731852245001304
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,16,4-1,1.64%,0.01636623152319695
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,17,3-3,1.61%,0.01607753256700615
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,18,1-4,1.56%,0.015578832907456786
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,19,4-2,1.23%,0.01225797087516839
-2026-11-01,Ligue 1,Paris FC,AS Monaco FC,20,2-4,1.19%,0.01186158533434847
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,1,1-1,10.57%,0.10568707443544756
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,2,2-1,9.84%,0.09844249449553816
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,3,2-0,8.51%,0.08514449409809291
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,4,1-0,8.15%,0.08148266843633534
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,5,3-1,6.44%,0.06437208933732898
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,6,1-2,5.80%,0.058019288762747055
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,7,2-2,5.69%,0.056908698707748395
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,8,3-0,5.57%,0.055676453636722266
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,9,0-0,4.96%,0.04957352608736514
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,10,0-1,4.58%,0.045837681741294295
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,11,3-2,3.72%,0.037212911518128555
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,12,4-1,3.16%,0.03156994781740986
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,13,0-2,2.96%,0.029575776155260223
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,14,4-0,2.73%,0.027305354759558503
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,15,1-3,2.24%,0.022360277373823734
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,16,2-3,2.19%,0.021932262790950653
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,17,4-2,1.83%,0.018250295848016598
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,18,3-3,1.43%,0.014341627434205681
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,19,5-1,1.24%,0.012386257652395621
-2026-11-01,Ligue 1,Olympique de Marseille,Toulouse FC,20,0-3,1.14%,0.01139832239381676
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,1,1-1,12.56%,0.12564754056387165
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,2,2-1,8.87%,0.08866316631773848
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,3,1-0,8.60%,0.08596459103307472
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,4,1-2,7.71%,0.07712871572122665
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,5,0-1,7.40%,0.07395786712897408
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,6,2-0,6.86%,0.06858128412154947
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,7,0-0,6.84%,0.06843092342580859
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,8,2-2,5.73%,0.05731269953734243
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,9,0-2,5.19%,0.05189808573691241
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,10,3-1,4.39%,0.04392246876908626
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,11,3-0,3.40%,0.03397419058076134
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,12,1-3,3.32%,0.03323781523126422
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,13,3-2,2.84%,0.028391894402685212
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,14,2-3,2.47%,0.024698309829407517
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,15,0-3,2.24%,0.02236493851154676
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,16,4-1,1.63%,0.0163189237105899
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,17,4-0,1.26%,0.01262274730346448
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,18,3-3,1.22%,0.0122351906342232
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,19,1-4,1.07%,0.010742617237469637
-2026-11-02,Ligue 1,FC Lorient,Stade Brestois 29,20,4-2,1.05%,0.010548704836979571
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,1,1-1,12.20%,0.12200141316404221
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,2,2-1,8.71%,0.08706813161590377
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,3,1-2,8.04%,0.0803678900889473
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,4,1-0,7.71%,0.07708784315104396
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,5,0-1,7.07%,0.07067407045816149
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,6,2-0,6.27%,0.0626966172451933
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,7,0-0,6.17%,0.0616552402825654
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,8,2-2,6.05%,0.06045668710831075
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,9,0-2,5.34%,0.053418389811680726
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,10,3-1,4.37%,0.04366462596261713
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,11,1-3,3.72%,0.037202868561958015
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,12,3-0,3.14%,0.03144232327402653
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,13,3-2,3.03%,0.030318999391979365
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,14,2-3,2.80%,0.027985830929400313
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,15,0-3,2.47%,0.024727752996326374
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,16,4-1,1.64%,0.016423341626872017
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,17,3-3,1.40%,0.014034880697521467
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,18,1-4,1.29%,0.01291610456340076
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,19,4-0,1.18%,0.01182623245448124
+2026-11-06,Ligue 1,Toulouse FC,RC Strasbourg Alsace,20,4-2,1.14%,0.011403722666162444
