@@ -73,6 +73,11 @@ corrected. Each row records `fair_odds_uncorrected` and
 4. **Selection:** one row per fixture with no cap, sorted safest first. A fixture
    may also be in the value tier; `in_value_tier` marks it.
 
+Each tier row also shows, for display only, how the bet settles under the
+corrected matrix (full win, half win, push, half loss, full loss, and the
+profit probability = full win + half win) and the uncorrected matrix fair
+odds next to the corrected ones. None of these columns changes selection.
+
 ## Switches
 
 `cagey_correction_config.json` holds `cagey_correction_enabled` and

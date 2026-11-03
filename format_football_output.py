@@ -1433,13 +1433,18 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
             tier_raw = pd.DataFrame()
         tier_headers = {**headers, "corrected_no_loss_probability": "Corrected no-loss probability",
                         "corrected_fair_odds": "Corrected fair odds", "corrected_expected_profit": "Expected profit",
-                        "pinnacle_fair_odds": "Pinnacle fair odds (if quoted)", "in_value_tier": "Also in value tier"}
+                        "pinnacle_fair_odds": "Pinnacle fair odds (if quoted)", "in_value_tier": "Also in value tier",
+                        "corrected_p_win": "Full win", "corrected_p_half_win": "Half win", "corrected_p_push": "Push",
+                        "corrected_p_half_loss": "Half loss", "corrected_p_loss": "Full loss",
+                        "corrected_p_profit": "Profit probability",
+                        "uncorrected_matrix_fair_odds": "Uncorrected fair odds"}
         tier_readable = tier_raw.reindex(columns=v28.TIER_OUTPUT_COLUMNS).rename(columns=tier_headers)
         if not tier_readable.empty:
-            for column in ("Corrected no-loss probability", "Corrected cagey score"):
+            for column in ("Corrected no-loss probability", "Corrected cagey score", "Full win", "Half win", "Push",
+                           "Half loss", "Full loss", "Profit probability"):
                 tier_readable[column] = tier_readable[column].map(pct)
             tier_readable["Expected profit"] = tier_readable["Expected profit"].map(signed_pct)
-            for column in ("Price", "Corrected fair odds", "Pinnacle fair odds (if quoted)"):
+            for column in ("Price", "Corrected fair odds", "Uncorrected fair odds", "Pinnacle fair odds (if quoted)"):
                 tier_readable[column] = tier_readable[column].map(decimal)
         tier_readable.to_csv(output_dir / "cagey_tier_shortlist_readable.csv", index=False, encoding="utf-8-sig")
         lines += ["", "## Cagey tier (separate list, never merged with the picks above)", "",
