@@ -129,6 +129,11 @@ def collection_targets(root, predictions, picks):
     from prediction_runs import resolve_raw
     for entry in frozen_entries(root, archive) + read_csv(resolve_raw(root/'raw')/BET365_FILE):
         selected.setdefault(fixture_key(entry), set()).add(BET365_TARGET+str(entry.get('market')))
+    # Cagey-tier picks (a separate list): every archived and current pick's exact AH line.
+    from price_edge_tracking import archived_tier_rows
+    from price_edge_cagey_shortlist import TIER_FILE
+    for pick in archived_tier_rows(root, archive) + read_csv(resolve_raw(root/'raw')/TIER_FILE):
+        selected.setdefault(fixture_key(pick), set()).add(pick.get('market'))
     # Archived predictions outside the frozen shortlist do not expand collection.
     current = {fixture_key(row) for row in predictions}
     keys = current | (set(selected) & set(sources))

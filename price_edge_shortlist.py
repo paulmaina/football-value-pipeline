@@ -17,7 +17,7 @@ Edge = offered odds x fair win-share - 1 (refunds excluded). Qualify at
 with the highest Pinnacle no-loss probability. No model EV, no no-loss floor.
 The production model's gap to Pinnacle is recorded for information only.
 
-Narrow-margin tags (balanced, low_total, high_draw) and the cagey score
+Narrow-margin tags (balanced, low_total, high_draw, even_odds) and the cagey score
 (market-implied P(2+ goal margin), fit B else fit A) are tracking only: they
 never change a decision. Tagged fixtures always get their +1 to +2.25 lines
 evaluated so rejections are recorded too. v26 and older stay replayable.
@@ -48,15 +48,16 @@ PINNACLE_OVERROUND = (1.00, 1.10)
 MAX_FAIR_RATIO = 1.15
 MAX_ODDS = 3.00
 BALANCED_ODDS = (2.00, 3.50)
+EVEN_ODDS_MIN = 2.50  # even_odds: both raw Pinnacle 1X2 win odds at least this.
 LOW_TOTAL = 0.45
 HIGH_DRAW = 0.27
-TAGS = ('balanced', 'low_total', 'high_draw')
+TAGS = ('balanced', 'low_total', 'high_draw', 'even_odds')
 TAGGED_LINES = (1.0, 1.5, 1.75, 2.0, 2.25)
 REFERENCES = {'a': 'Pinnacle same AH line', 'b': 'Pinnacle equivalent market', 'c': 'market-implied (derived)'}
 NO_REFERENCE = 'no Pinnacle reference'
 NO_OFFER = 'no offered quote at an allowed bookmaker'
 OUTPUT_COLUMNS = [
-    'kickoff_utc', 'league', 'home_team', 'away_team', 'balanced', 'low_total', 'high_draw',
+    'kickoff_utc', 'league', 'home_team', 'away_team', 'balanced', 'low_total', 'high_draw', 'even_odds',
     'pinnacle_draw_probability', 'pinnacle_over_2_5_probability', 'handicap_line', 'handicap_side', 'side_role',
     'market_to_bet', 'bookmaker', 'offered_decimal_odds', 'fair_odds', 'reference_type', 'edge',
     'minimum_odds', 'pinnacle_no_loss_probability', 'offered_quote_age_minutes', 'pinnacle_quote_age_minutes',
@@ -69,7 +70,7 @@ DECISION_COLUMNS = [
     'quote_skew_minutes', 'pinnacle_overround', 'fair_probability', 'fair_probability_shin', 'fair_odds',
     'edge', 'edge_shin', 'min_edge', 'minimum_odds', 'pinnacle_no_loss_probability', 'p_no_loss',
     'predicted_probability', 'rank_probability', 'probability_basis', 'model_win_share', 'model_vs_pinnacle_gap',
-    'balanced', 'low_total', 'high_draw', 'any_tag', 'tagged_probe', 'cagey_score', 'cagey_fit', 'pinnacle_home_odds', 'pinnacle_away_odds',
+    'balanced', 'low_total', 'high_draw', 'even_odds', 'any_tag', 'tagged_probe', 'cagey_score', 'cagey_fit', 'pinnacle_home_odds', 'pinnacle_away_odds',
     'pinnacle_draw_probability', 'pinnacle_over_2_5_probability', 'fit_usable', 'fit_reasons', 'fit_max_residual',
     'per_stake_cost', 'decision', 'rejection_reasons', 'selection_tier', 'other_value_lines', 'selection_policy_version']
 
@@ -270,9 +271,12 @@ def offered_candidates(row: Mapping, policy: Mapping) -> List[Dict[str, object]]
 # ---------------------------------------------------------------------------
 
 def tag_flags(home_odds=None, away_odds=None, draw_probability=None, over_probability=None) -> Dict[str, bool]:
-    """balanced: both 1X2 odds in [2.00, 3.50]; low_total: P(over 2.5) < 0.45; high_draw: draw >= 0.27."""
+    """balanced: both 1X2 odds in [2.00, 3.50]; low_total: P(over 2.5) < 0.45; high_draw: draw >= 0.27;
+    even_odds: both raw 1X2 win odds >= 2.50."""
     low, high = BALANCED_ODDS
-    return {'balanced': home_odds is not None and away_odds is not None
+    return {'even_odds': home_odds is not None and away_odds is not None
+                         and home_odds >= EVEN_ODDS_MIN and away_odds >= EVEN_ODDS_MIN,
+            'balanced': home_odds is not None and away_odds is not None
                         and low <= home_odds <= high and low <= away_odds <= high,
             'low_total': over_probability is not None and over_probability < LOW_TOTAL,
             'high_draw': draw_probability is not None and draw_probability >= HIGH_DRAW}
@@ -443,7 +447,9 @@ def evaluate_candidate(candidate: Mapping, pin: Mapping, fit: mi.Fit, fit_info: 
     return item
 
 
-def evaluate_fixture(row: Mapping, policy: Mapping, now: pd.Timestamp) -> List[Dict[str, object]]:
+def evaluate_fixture(row: Mapping, policy: Mapping, now: pd.Timestamp, transform=None) -> List[Dict[str, object]]:
+    """Every candidate of one fixture. `transform(row, items, pin, fit, fit_info, now)` lets a later
+    policy (v28) post-process the rows with the same Pinnacle quotes and fits; v27 passes none."""
     pin = pinnacle_quotes(row)
     fit, fit_info = market_fit(pin, now)
     tag = tags(pin['h2h'], pin['ou25'])
@@ -463,7 +469,8 @@ def evaluate_fixture(row: Mapping, policy: Mapping, now: pd.Timestamp) -> List[D
                 **tag)
     # Tracking only: never read by any decision.
     base['cagey_score'], base['cagey_fit'] = mi.cagey_score(fit, fit_info['fit_a'])
-    return [{**base, **evaluate_candidate(c, pin, fit, fit_info, context, now, kickoff)} for c in candidates]
+    items = [{**base, **evaluate_candidate(c, pin, fit, fit_info, context, now, kickoff)} for c in candidates]
+    return transform(row, items, pin, fit, fit_info, now) if transform is not None else items
 
 
 def _rank(frame: pd.DataFrame) -> pd.DataFrame:
@@ -473,8 +480,12 @@ def _rank(frame: pd.DataFrame) -> pd.DataFrame:
         ascending=[False, False, False, True, True, True], kind='stable').drop(columns='_safe')
 
 
-def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, execution_policy=None):
-    """One pick per fixture; no cap. Returns (shortlist, decisions, summary)."""
+def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, execution_policy=None, *,
+                    transform=None, extra_columns=()):
+    """One pick per fixture; no cap. Returns (shortlist, decisions, summary).
+
+    `transform` and `extra_columns` are for v28, which reuses this selection; v27 uses neither.
+    """
     from quote_policy import load_policy, validate_policy
     from performance_tracking import fixture_key
     now = pd.Timestamp(as_of)
@@ -483,8 +494,8 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     now = now.tz_convert('UTC')
     policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
     rows = predictions.astype(object).where(predictions.notna(), None).to_dict('records') if len(predictions) else []
-    evaluated = [item for row in rows for item in evaluate_fixture(row, policy, now)]
-    decisions = pd.DataFrame(evaluated).reindex(columns=DECISION_COLUMNS)
+    evaluated = [item for row in rows for item in evaluate_fixture(row, policy, now, transform)]
+    decisions = pd.DataFrame(evaluated).reindex(columns=[*DECISION_COLUMNS, *extra_columns])
     for column in ('selection_tier', 'other_value_lines', 'rejection_reasons', 'decision'):
         decisions[column] = decisions[column].astype(object)
     eligible =decisions.loc[decisions.decision == 'ELIGIBLE'].copy()
@@ -529,6 +540,7 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
         'tags': {'balanced': f'Pinnacle 1X2 home and away odds both in [{BALANCED_ODDS[0]:.2f}, {BALANCED_ODDS[1]:.2f}]',
                  'low_total': f'Pinnacle margin-free P(over 2.5) < {LOW_TOTAL}',
                  'high_draw': f'Pinnacle margin-free draw probability >= {HIGH_DRAW}',
+                 'even_odds': f'Pinnacle 1X2 home and away odds both >= {EVEN_ODDS_MIN:.2f} (raw quoted odds)',
                  'use': 'tracking only; never changes a decision'},
         'tagged_candidates': {t: int(tagged[t].fillna(False).astype(bool).sum()) for t in TAGS},
         'tagged_fixtures': int(tagged.apply(fixture_key, axis=1).nunique()) if len(tagged) else 0,

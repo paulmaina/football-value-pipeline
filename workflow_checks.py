@@ -24,13 +24,13 @@ FORECAST_PATHS = (
     'football_output_v2/raw/totals_anchor_experiment.json',
 )
 # Every sidecar an archived snapshot may hold, including retired experiments.
-SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv')
+SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv')
 # Sidecars still generated, captured and reviewed.
 LIVE_SIDECARS = ('benchmark_forward_experiment.json', 'totals_anchor_experiment.json')
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
              'collect_api_football_data.py', 'publish_api_football_data.py',
              'performance_tracking.py', 'performance_excel.py', 'publish_performance.py',
-             'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'league_registry.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py', 'clv_report.py', 'market_implied_calibration.py', 'price_check.py')
+             'collect_bbs_data.py', 'publish_bbs_data.py', 'refresh_conservative_shortlist.py', 'refresh_training_data.py', 'refresh_ucl_training.py', 'league_registry.py', 'historical_benchmark.py', 'experiment_review_queue.py', 'publish_scheduled_forecasts.py', 'closing_odds.py', 'github_closing_odds.py', 'workflow_checks.py', 'clv_report.py', 'market_implied_calibration.py', 'price_check.py', 'narrow_margin.py', 'cagey_correction_report.py')
 COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_football_integration.py':85,
     'win_first_shortlist.py':85, 'per_market_shortlist.py':85, 'corners_cards_shortlist.py':85, 'count_markets.py':85,
     'no_loss_corners_shortlist.py':85,
@@ -42,7 +42,7 @@ COVERAGE_FLOORS = {'asian_handicap.py':85, 'api_football_data.py':85, 'api_footb
     'market_led_experiment.py':90, 'match_scores.py':90, 'performance_tracking.py':85, 'turkey_results.py':90,
     'performance_excel.py':85, 'publish_performance.py':75, 'workflow_checks.py':80,
     'dc_decay_validation.py':85, 'market_blend_validation.py':90, 'refresh_training_data.py':70, 'format_football_output.py':60, 'ucl_training.py':90, 'quote_policy.py':95, 'pipeline_health.py':90, 'refresh_ucl_training.py':75, 'league_registry.py':90, 'recency_experiment.py':85, 'filter_sensitivity_experiment.py':85, 'historical_benchmark.py':85, 'benchmark_forward_experiment.py':85, 'experiment_review_queue.py':85, 'publish_scheduled_forecasts.py':80, 'totals_anchor_experiment.py':90, 'closing_odds.py':90, 'model_reliability_experiment.py':90, 'model_comparison.py':90,
-    'shortlist_replay.py':95, 'market_implied.py':95, 'market_implied_calibration.py':85, 'price_edge_shortlist.py':90, 'price_edge_tracking.py':90, 'price_check.py':90, 'staking.py':95, 'elo_ratings.py':95, 'match_simulation.py':95, 'pipeline_service.py':90, 'clv_report.py':90}
+    'shortlist_replay.py':95, 'market_implied.py':95, 'market_implied_calibration.py':85, 'price_edge_shortlist.py':90, 'price_edge_tracking.py':90, 'price_check.py':90, 'narrow_margin.py':90, 'cagey_correction_report.py':90, 'price_edge_cagey_shortlist.py':95, 'staking.py':95, 'elo_ratings.py':95, 'match_simulation.py':95, 'pipeline_service.py':90, 'clv_report.py':90}
 
 
 def require(condition, message):
@@ -91,11 +91,12 @@ def raw_check(root, *, raw_dir=None):
     asian = policy_version in AH_POLICIES
     from asian_handicap import WIN_FIRST_POLICIES
     from asian_handicap import PER_MARKET_POLICIES
-    import corners_cards_shortlist, no_loss_corners_shortlist, per_market_shortlist, price_edge_shortlist
+    import corners_cards_shortlist, no_loss_corners_shortlist, per_market_shortlist, price_edge_shortlist, price_edge_cagey_shortlist
     from per_market_shortlist import PER_GROUP_CAP
     MAX_SELECTIONS = {per_market_shortlist.POLICY: per_market_shortlist.MAX_SELECTIONS,
                       corners_cards_shortlist.POLICY: corners_cards_shortlist.MAX_SELECTIONS,
-                      price_edge_shortlist.POLICY: float('inf')}.get(policy_version, 12)  # v27: one per fixture, no cap
+                      price_edge_shortlist.POLICY: float('inf'),
+                      price_edge_cagey_shortlist.POLICY: float('inf')}.get(policy_version, 12)  # v27/v28: one per fixture, no cap
     count_markets_allowed = {corners_cards_shortlist.POLICY: corners_cards_shortlist.COUNT_MARKETS,
                              no_loss_corners_shortlist.POLICY: no_loss_corners_shortlist.COUNT_MARKETS}.get(policy_version, ())
     win_first = policy_version in WIN_FIRST_POLICIES
@@ -163,17 +164,43 @@ def raw_check(root, *, raw_dir=None):
                 require(report['league'] not in reliability, 'Duplicate shortlist reliability evidence')
                 reliability[report['league']] = report
             require(bool(reliability), 'Missing current shortlist reliability evidence')
-        expected, _, replay = build_conservative_shortlist(
-            pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False),
-            as_of=utc(summary['generated_at_utc']), market_reliability=reliability,
-            execution_policy=summary.get('quote_execution_policy'),
-            selection_policy_version=policy_version)
+        if policy_version == price_edge_cagey_shortlist.POLICY:
+            # Replay with the switches and model recorded for this run, not today's config.
+            import narrow_margin
+            expected, decisions, replay = price_edge_cagey_shortlist.build_shortlist(
+                pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), utc(summary['generated_at_utc']),
+                reliability, summary.get('quote_execution_policy'),
+                settings={k: summary.get(k) for k in price_edge_cagey_shortlist.SWITCHES},
+                model=narrow_margin.load(summary['cagey_model_version']) if summary.get('cagey_model_version') else None)
+        else:
+            expected, _, replay = build_conservative_shortlist(
+                pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False),
+                as_of=utc(summary['generated_at_utc']), market_reliability=reliability,
+                execution_policy=summary.get('quote_execution_policy'),
+                selection_policy_version=policy_version)
         actual = pd.read_csv(raw/'conservative_bet_shortlist.csv', low_memory=False)
         require(set(expected.columns).issubset(actual.columns), 'Missing current shortlist replay columns')
         # CSV blank strings deserialize as null, including empty strict-rule
         # warnings. Normalize only that representation difference for replay.
         require(equivalent(clean_frame(actual[list(expected.columns)]), clean_frame(expected.replace('', None))),
                 'Current shortlist differs from deterministic ranking replay')
+        if policy_version == price_edge_cagey_shortlist.POLICY:
+            # The cagey tier is a separate list: bind its rows to the same replay.
+            tier_expected = price_edge_cagey_shortlist.cagey_tier_list(decisions)
+            tier_path = raw/price_edge_cagey_shortlist.TIER_FILE
+            if replay['cagey_tier']['enabled']:
+                require(tier_path.exists(), 'Missing current cagey-tier shortlist')
+            if tier_path.exists():
+                try:
+                    tier_actual = pd.read_csv(tier_path, low_memory=False)
+                except pd.errors.EmptyDataError:
+                    tier_actual = pd.DataFrame()
+                if len(tier_expected) or len(tier_actual):
+                    require(set(tier_expected.columns).issubset(tier_actual.columns),
+                            'Missing current cagey-tier replay columns')
+                    require(equivalent(clean_frame(tier_actual[list(tier_expected.columns)]),
+                                       clean_frame(tier_expected.replace('', None))),
+                            'Current cagey-tier shortlist differs from deterministic replay')
         for field in ('target_distinct_matches', 'shortfall', 'usable_distinct_fixtures',
                       *(['loss_risk_tolerance'] if policy_version in RISK_BAND_POLICIES else [] if asian else ['ranking_weights']),
                       *(['min_estimated_ev','min_raw_dc_ev','ev_required_for_selection'] if policy_version in ONE_PERCENT_POLICIES else []),
@@ -185,7 +212,10 @@ def raw_check(root, *, raw_dir=None):
                       *(['unproven_edge_markets','negative_adjusted_ev_selections']
                         if policy_version == no_loss_corners_shortlist.POLICY else []),
                       *(['min_edge','min_edge_derived','rejection_counts','tagged_candidates','reference_type_counts']
-                        if policy_version == price_edge_shortlist.POLICY else []),
+                        if policy_version in (price_edge_shortlist.POLICY, price_edge_cagey_shortlist.POLICY) else []),
+                      *(['cagey_correction_enabled','cagey_tier_enabled','cagey_model_version','correction_only_value_picks',
+                         'cagey_tier']
+                        if policy_version == price_edge_cagey_shortlist.POLICY else []),
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
                     f'Current shortlist summary {field} differs from ranking replay')

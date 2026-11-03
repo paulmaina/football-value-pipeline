@@ -27,9 +27,10 @@ def corner(i, mu=12., price=1.5, opposite=2.6, line=8.5, side='Over'):
 
 class NoLossCornersShortlistTests(OfflineQuotePolicyTestCase):
     def test_production_routing_keeps_archived_policies_replayable(self):
-        # v27 replaced v26 as production on 2 November 2026; v26 stays replayable.
-        import price_edge_shortlist
-        self.assertEqual(ah.PRODUCTION_POLICY, price_edge_shortlist.POLICY)
+        # v27 replaced v26 on 2 November 2026 and v28 replaced v27 after its holdout gate; both stay replayable.
+        import price_edge_cagey_shortlist, price_edge_shortlist
+        self.assertEqual(ah.PRODUCTION_POLICY, price_edge_cagey_shortlist.POLICY)
+        self.assertIn(price_edge_shortlist.POLICY, ah.POLICIES)
         self.assertNotEqual(ah.PRODUCTION_POLICY, v26.POLICY)
         self.assertEqual(ah.CORNERS_CARDS_POLICY, v25.POLICY)
         self.assertIn(v25.POLICY, ah.WIN_FIRST_POLICIES)

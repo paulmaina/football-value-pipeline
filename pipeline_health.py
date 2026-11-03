@@ -134,7 +134,9 @@ def model_component_hashes():
         'league_registry.py',
         'odds_provider_health.py', 'prediction_runs.py',
         'elo_ratings.py', 'staking.py',
-        'bbs_team_aliases.json', 'shortlist_quote_policy.json')
+        'market_implied.py', 'price_edge_shortlist.py', 'price_edge_cagey_shortlist.py', 'narrow_margin.py',
+        'bbs_team_aliases.json', 'shortlist_quote_policy.json', 'cagey_correction_config.json',
+        'narrow_margin_models/index.json', 'narrow_margin_models/cagey-correction-through-2425-v1.json')
     return {name: hashlib.sha256((repo/name).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
             for name in names}
 
