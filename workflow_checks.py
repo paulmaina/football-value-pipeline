@@ -22,7 +22,7 @@ FORECAST_PATHS = (
     'football_output_v2/raw/conservative_bet_summary.json',
 )
 # Every sidecar an archived snapshot may hold, including retired experiments.
-SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv')
+SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv')
 # Experiment sidecars still generated, captured and reviewed (none since the trials were archived).
 LIVE_SIDECARS = ()
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
@@ -170,11 +170,13 @@ def raw_check(root, *, raw_dir=None):
         if policy_version == price_edge_cagey_shortlist.POLICY:
             # Replay with the switches and model recorded for this run, not today's config.
             import narrow_margin
+            monitoring = []
             expected, decisions, replay = price_edge_cagey_shortlist.build_shortlist(
                 pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), utc(summary['generated_at_utc']),
                 reliability, summary.get('quote_execution_policy'),
                 settings={k: summary.get(k) for k in price_edge_cagey_shortlist.SWITCHES},
-                model=narrow_margin.load(summary['cagey_model_version']) if summary.get('cagey_model_version') else None)
+                model=narrow_margin.load(summary['cagey_model_version']) if summary.get('cagey_model_version') else None,
+                monitor=monitoring)
         else:
             expected, _, replay = build_conservative_shortlist(
                 pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False),
@@ -204,6 +206,21 @@ def raw_check(root, *, raw_dir=None):
                     require(equivalent(clean_frame(tier_actual[list(tier_expected.columns)]),
                                        clean_frame(tier_expected.replace('', None))),
                             'Current cagey-tier shortlist differs from deterministic replay')
+            # Correction monitoring is evidence only, but its rows must be this run's own.
+            monitor_path = raw/price_edge_cagey_shortlist.MONITOR_FILE
+            if monitoring:
+                require(monitor_path.exists(), 'Missing current correction-monitoring records')
+            if monitor_path.exists():
+                monitor_expected = pd.DataFrame(monitoring, columns=price_edge_cagey_shortlist.MONITOR_COLUMNS)
+                try:
+                    monitor_actual = pd.read_csv(monitor_path, low_memory=False)
+                except pd.errors.EmptyDataError:
+                    monitor_actual = pd.DataFrame(columns=price_edge_cagey_shortlist.MONITOR_COLUMNS)
+                require(list(monitor_actual.columns) == price_edge_cagey_shortlist.MONITOR_COLUMNS,
+                        'Correction-monitoring columns differ')
+                require(equivalent(clean_frame(monitor_actual.astype(object).replace('', None)),
+                                   clean_frame(monitor_expected.astype(object).replace('', None))),
+                        'Current correction-monitoring records differ from deterministic replay')
         for field in ('target_distinct_matches', 'shortfall', 'usable_distinct_fixtures',
                       *(['loss_risk_tolerance'] if policy_version in RISK_BAND_POLICIES else [] if asian else ['ranking_weights']),
                       *(['min_estimated_ev','min_raw_dc_ev','ev_required_for_selection'] if policy_version in ONE_PERCENT_POLICIES else []),

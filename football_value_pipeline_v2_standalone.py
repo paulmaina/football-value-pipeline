@@ -4476,9 +4476,10 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
             out_dir / "all_leagues_predictions.csv", index=False
         )
 
+    monitoring = []
     shortlist, decisions, selection_summary = build_conservative_shortlist(
         all_predictions, market_reliability=market_reliability if run_validation or args.backtest else None,
-        selection_policy_version=CURRENT_SELECTION_POLICY,
+        selection_policy_version=CURRENT_SELECTION_POLICY, monitor=monitoring,
     )
     shortlist.to_csv(out_dir / "conservative_bet_shortlist.csv", index=False)
     strictly_qualified = shortlist.loc[
@@ -4489,8 +4490,10 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     )
     decisions.to_csv(out_dir / "conservative_bet_rejections.csv", index=False)
     # v28 cagey tier: a separate list, never merged into the shortlist above (empty for other policies).
-    from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE
+    from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE, write_monitoring
     cagey_tier_list(decisions).to_csv(out_dir / TIER_FILE, index=False)
+    # Correction monitoring: one record per fixture from the correction just computed (evidence only).
+    write_monitoring(monitoring, out_dir)
     try:
         from staking import write_stake_recommendations
         write_stake_recommendations(

@@ -27,9 +27,10 @@ def _refresh(root, as_of=None, *, raw_dir=None):
             report = json.loads(path.read_text(encoding='utf-8'))
             reliability[report['league']] = report
     clock = as_of if as_of is not None else datetime.now(timezone.utc)
+    monitoring = []
     picks, decisions, summary = build_conservative_shortlist(
         predictions, market_reliability=reliability, as_of=clock,
-        selection_policy_version=CURRENT_SELECTION_POLICY)
+        selection_policy_version=CURRENT_SELECTION_POLICY, monitor=monitoring)
     summary['refresh_source'] = 'Stored forecasts re-ranked; no new odds or model fitting'
     summary['ucl_forecasts_available'] = bool(
         predictions.get('league', pd.Series(dtype=str)).eq('UEFA Champions League').any())
@@ -38,8 +39,9 @@ def _refresh(root, as_of=None, *, raw_dir=None):
     picks.loc[picks.selection_tier.eq('STRICT')].to_csv(
         raw / 'conservative_strict_qualifiers.csv', index=False)
     decisions.to_csv(raw / 'conservative_bet_rejections.csv', index=False)
-    from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE
+    from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE, write_monitoring
     cagey_tier_list(decisions).to_csv(raw / TIER_FILE, index=False)
+    write_monitoring(monitoring, raw)
     from asian_handicap import best_per_match
     best_per_match(decisions).to_csv(raw/'asian_handicap_best_per_match.csv',index=False)
     from price_edge_tracking import write_list as write_tagged_list
