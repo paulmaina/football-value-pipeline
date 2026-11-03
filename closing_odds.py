@@ -3,6 +3,7 @@ import argparse
 from datetime import datetime,timedelta,timezone
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -88,6 +89,15 @@ def normalize(source,payload,observed,version=VERSION):
     return {'version':version,'observed_at_utc':observed.isoformat(),'fixture':{k:source.get(k) for k in ('league','home_team','away_team','kickoff_utc','odds_event_id')},'payload':payload,'quotes':list(unique.values()),'provenance':'local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price'}
 
 
+def equivalent(a,b):
+    # Moved verbatim from the archived totals-anchor trial, which this check used to import.
+    if isinstance(a,bool) or isinstance(b,bool):return type(a)==type(b) and a==b
+    if isinstance(a,dict) and isinstance(b,dict):return set(a)==set(b) and all(equivalent(a[k],b[k]) for k in a)
+    if isinstance(a,list) and isinstance(b,list):return len(a)==len(b) and all(equivalent(x,y) for x,y in zip(a,b))
+    if isinstance(a,(int,float)) and not isinstance(a,bool) and isinstance(b,(int,float)) and not isinstance(b,bool):return math.isfinite(a) and math.isfinite(b) and abs(a-b)<1e-9
+    return a==b
+
+
 def load_observations(root,clock=None):
     rows=[];rejected=[]
     for path in sorted((root/'closing_odds/observations').glob('*.json')):
@@ -98,7 +108,6 @@ def load_observations(root,clock=None):
             observed=utc(d['observed_at_utc'])
             if not observed or (clock is not None and observed>clock):raise ValueError('Clock')
             expected=normalize(d['fixture'],d['payload'],observed,version=d['version'])
-            from totals_anchor_experiment import equivalent
             if not equivalent(d,expected):raise ValueError('Quote calculation')
             rows.append(d)
         except (ValueError,TypeError,KeyError,OSError):rejected.append(path.name)

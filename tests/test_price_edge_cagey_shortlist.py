@@ -18,8 +18,9 @@ OFF = {'cagey_correction_enabled': False, 'cagey_tier_enabled': False}
 VALUE_ONLY = {'cagey_correction_enabled': True, 'cagey_tier_enabled': False}
 
 
-def run(*rows, settings=None):
-    return v28.build_shortlist(pd.DataFrame(list(rows)), NOW, execution_policy=POLICY, settings=settings)
+def run(*rows, settings=None, monitor=None):
+    return v28.build_shortlist(pd.DataFrame(list(rows)), NOW, execution_policy=POLICY, settings=settings,
+                               monitor=monitor)
 
 
 def corrected(side, line):
@@ -130,7 +131,8 @@ class SwitchTests(OfflineQuotePolicyTestCase):
         predictions = pd.DataFrame([cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 1.005, 4))]),
                                     row(home='Other', offers=[*ah_pair(-0.75, 1.95, 1.95), offer('home', -0.75, 2.10)])])
         predictions['p_home'], predictions['p_draw'], predictions['p_away'] = 0.45, 0.27, 0.28
-        selected, decisions, summary = run(*predictions.to_dict('records'))
+        monitoring = []
+        selected, decisions, summary = run(*predictions.to_dict('records'), monitor=monitoring)
         self.assertEqual(summary['cagey_model_version'], nm.PRODUCTION_VERSION)
         with tempfile.TemporaryDirectory() as tmp:
             raw = Path(tmp) / 'raw'
@@ -138,6 +140,7 @@ class SwitchTests(OfflineQuotePolicyTestCase):
             predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
             selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
             v28.cagey_tier_list(decisions).to_csv(raw / v28.TIER_FILE, index=False)
+            v28.record_monitoring(summary, monitoring, raw)
             (raw / 'conservative_bet_summary.json').write_text(json.dumps(summary, default=str), encoding='utf-8')
             with patch.object(v28, 'load_settings', return_value=OFF):
                 self.assertEqual(raw_check(Path(tmp), raw_dir=raw)['selections'], len(selected))
@@ -149,7 +152,8 @@ class SwitchTests(OfflineQuotePolicyTestCase):
         fair, _ = tier_fair(cagey_row(), 'away', 2.0)
         predictions = pd.DataFrame([cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 1.005, 4))])])
         predictions['p_home'], predictions['p_draw'], predictions['p_away'] = 0.45, 0.27, 0.28
-        selected, decisions, summary = run(*predictions.to_dict('records'))
+        monitoring = []
+        selected, decisions, summary = run(*predictions.to_dict('records'), monitor=monitoring)
         tier = v28.cagey_tier_list(decisions)
         self.assertEqual(len(tier), 1)
         with tempfile.TemporaryDirectory() as tmp:
@@ -157,6 +161,7 @@ class SwitchTests(OfflineQuotePolicyTestCase):
             raw.mkdir()
             predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
             selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+            v28.record_monitoring(summary, monitoring, raw)
 
             def write(tier_rows, tier_summary):
                 (raw / 'conservative_bet_summary.json').write_text(
@@ -177,6 +182,33 @@ class SwitchTests(OfflineQuotePolicyTestCase):
                     write(rows, tier_summary)
                     with self.assertRaisesRegex(Exception, message):
                         raw_check(Path(tmp), raw_dir=raw)
+            # The correction-monitoring records are bound to the same replay.
+            write(tier, summary['cagey_tier'])
+            path = raw / v28.MONITOR_FILE
+            original = path.read_bytes()
+            frame = pd.read_csv(path)
+            for column, value, message in (('corrected_p2', 0.01, 'monitoring records differ'),
+                                           ('home_plus_1_5_pinnacle_odds', 9.9, 'monitoring records differ'),
+                                           ('generated_at_utc', '2020-01-01T00:00:00+00:00', 'monitoring records differ')):
+                with self.subTest(column=column):
+                    frame.assign(**{column: value}).to_csv(path, index=False)
+                    with self.assertRaisesRegex(Exception, message):
+                        raw_check(Path(tmp), raw_dir=raw)
+            path.unlink()
+            with self.assertRaisesRegex(Exception, 'Missing current correction-monitoring records'):
+                raw_check(Path(tmp), raw_dir=raw)
+            # A v28 run generated before monitoring existed: no version in its summary, no file.
+            earlier = {k: v for k, v in summary.items() if k != 'correction_monitoring_version'}
+            (raw / 'conservative_bet_summary.json').write_text(json.dumps(earlier, default=str), encoding='utf-8')
+            raw_check(Path(tmp), raw_dir=raw)
+            (raw / 'conservative_bet_summary.json').write_text(
+                json.dumps({**summary, 'correction_monitoring_version': 'cagey-correction-monitoring-v0'}, default=str),
+                encoding='utf-8')
+            with self.assertRaisesRegex(Exception, 'Unknown correction-monitoring version'):
+                raw_check(Path(tmp), raw_dir=raw)
+            path.write_bytes(original)
+            write(tier, summary['cagey_tier'])
+            raw_check(Path(tmp), raw_dir=raw)
 
 
 def cagey_row(home='Cagey FC', offers=(), lambdas=(0.95, 0.75, -0.08), main_line=-0.25):

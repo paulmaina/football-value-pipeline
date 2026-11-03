@@ -22,11 +22,8 @@ CT = 'http://schemas.openxmlformats.org/package/2006/content-types'
 C = 'http://schemas.openxmlformats.org/drawingml/2006/chart'
 A = 'http://schemas.openxmlformats.org/drawingml/2006/main'
 XDR = 'http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing'
-# Live forward trials only; retired experiments (archive/) keep their frozen reports.
-NAMES = {
-    'benchmark_forward_experiment': '85% market weight',
-    'totals_anchor_experiment': 'Pinnacle totals anchor',
-}
+# Live forward trials only; retired experiments (archive/) keep their frozen reports. None remain live.
+NAMES = {}
 
 
 def q(name):

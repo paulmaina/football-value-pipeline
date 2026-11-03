@@ -227,8 +227,9 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         data=json.loads(summary.read_text());data['n_shortlisted']=9;write_json(summary,data)
         with self.assertRaisesRegex(ValueError,'summary'):raw_check(self.root)
         data['n_shortlisted']=1;write_json(summary,data)
+        # Archived trial sidecars (PR E) are no longer checked or captured, so a stale one is ignored.
         write_json(raw/'benchmark_forward_experiment.json',{})
-        self.assertTrue(raw_check(self.root)['warnings'])
+        self.assertEqual(raw_check(self.root)['warnings'],[])
 
     def test_snapshot_tampering_or_path_traversal_blocks_publication(self):
         capture(SHA,root=self.root,captured_at=T0)
@@ -312,7 +313,12 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         retired=git('rev-parse','HEAD')
         self.assertFalse(changed_forecasts(repo,sha,retired))
         sha=retired
-        (raw/'benchmark_forward_experiment.json').write_text('{}');git('add','.');git('commit','-m','sidecar')
+        # The archived trials' sidecars are retired too (PR E).
+        (raw/'benchmark_forward_experiment.json').write_text('{}');git('add','.');git('commit','-m','archived sidecar')
+        archived=git('rev-parse','HEAD')
+        self.assertFalse(changed_forecasts(repo,sha,archived))
+        sha=archived
+        (raw/'conservative_bet_summary.json').write_text('{}');git('add','.');git('commit','-m','forecast')
         newest=git('rev-parse','HEAD')
         self.assertTrue(changed_forecasts(repo,sha,newest))
         self.assertTrue(changed_forecasts(repo,'0'*40,newest))
@@ -345,10 +351,11 @@ class WorkflowChecksTests(OfflineQuotePolicyTestCase):
         self.assertEqual(ci['permissions']['contents'],'read')
         self.assertEqual(review_workflow['permissions']['contents'],'write')
         paths=review_workflow['on']['push']['paths']
-        self.assertIn('football_output_v2/raw/benchmark_forward_experiment.json',paths)
         self.assertIn('shortlist_replay.py',paths)
         # Retired experiments (archive/) no longer trigger the forward review.
         self.assertNotIn('football_output_v2/raw/goal_blend_experiment.json',paths)
+        self.assertNotIn('football_output_v2/raw/benchmark_forward_experiment.json',paths)
+        self.assertNotIn('football_output_v2/raw/totals_anchor_experiment.json',paths)
         self.assertEqual(review_workflow['concurrency']['cancel-in-progress'],'false')
         for workflow in (ci,review_workflow):
             steps=next(iter(workflow['jobs'].values()))['steps']

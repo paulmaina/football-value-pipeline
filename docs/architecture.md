@@ -27,17 +27,18 @@ how an HTTP API (FastAPI) attaches without changing forecasting.
 main()                                    prediction_runs.stage_run (lock + staging dir)
  └─ _generate_main()
      ├─ per league
-     │   ├─ dc_decay_validation.tune_half_life          (optional)
+     │   ├─ dc_decay_validation.tune_half_life          (--tune-half-life, or legacy companion; not scheduled)
      │   ├─ FootballValuePipelineV2.run_league
      │   │   ├─ _history_for_league  -> bbs/api-football augmentation
      │   │   ├─ DixonColesModel.fit  -> bbs_statistics_model (gated)
      │   │   ├─ elo_ratings.fit_history                  informational columns
      │   │   ├─ _current_fixtures / _attach_live_odds    (The Odds API ...)
      │   │   └─ _predict_row: score_grid -> 50/50 market reweight -> markets
-     │   └─ goal_market_validation (walk-forward, cached by code fingerprint)
-     ├─ conservative_bet_filter.build_conservative_shortlist
-     ├─ staking.write_stake_recommendations              stake_recommendations.csv
-     └─ shadow experiments (failures never block the run)
+     │   └─ goal_market_validation (walk-forward, cached by code fingerprint;
+     │       only when the policy uses it or --goal-market-validation; v28 does not)
+     ├─ conservative_bet_filter.build_conservative_shortlist   (v28: value tier, cagey tier,
+     │                                                          correction-monitoring records)
+     └─ staking.write_stake_recommendations              stake_recommendations.csv
  workflow_checks.raw_check -> prediction_runs.publish_run (manifest + pointer)
 ```
 

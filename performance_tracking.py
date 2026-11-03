@@ -186,13 +186,6 @@ def capture(commit_sha: str, *, root: Path = ROOT,
     # Retired experiments (archive/) are no longer captured; their archived
     # snapshot files still load and verify through load_snapshot below.
     try:
-        from benchmark_forward_experiment import capture_file as capture_benchmark
-        experiment = capture_benchmark(raw, summary.get("generated_at_utc"))
-        if experiment is not None:
-            files["benchmark_forward_experiment.json"] = experiment
-    except Exception as exc:
-        warnings.warn(f"Benchmark forward capture skipped ({type(exc).__name__})")
-    try:
         from bet365_pinnacle import capture_file as capture_bet365
         bet365 = capture_bet365(raw, summary.get("generated_at_utc"))
         if bet365 is not None: files["bet365_vs_pinnacle.csv"] = bet365
@@ -211,11 +204,11 @@ def capture(commit_sha: str, *, root: Path = ROOT,
     except Exception as exc:
         warnings.warn(f"v28 cagey-tier capture skipped ({type(exc).__name__})")
     try:
-        from totals_anchor_experiment import capture_file as capture_totals
-        experiment = capture_totals(raw, summary.get("generated_at_utc"))
-        if experiment is not None: files["totals_anchor_experiment.json"] = experiment
+        from price_edge_tracking import capture_monitoring_file, MONITOR_FILE
+        monitoring = capture_monitoring_file(raw, summary.get("generated_at_utc"))
+        if monitoring is not None: files[MONITOR_FILE] = monitoring
     except Exception as exc:
-        warnings.warn(f"Totals anchoring capture skipped ({type(exc).__name__})")
+        warnings.warn(f"Correction-monitoring capture skipped ({type(exc).__name__})")
     directory.parent.mkdir(parents=True, exist_ok=True)
     # Publish the directory only after every artifact and metadata file exists.
     # A failed health capture or interrupted copy must leave the commit retryable.
@@ -276,7 +269,8 @@ def load_snapshot(directory: Path) -> tuple[dict, list[dict], list[dict]] | None
         'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json',
         'totals_anchor_experiment.json', 'model_reliability_experiment.json',
         'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json',
-        'bet365_vs_pinnacle.csv', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv'}
+        'bet365_vs_pinnacle.csv', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv',
+        'cagey_correction_monitoring.csv'}
     digests = meta.get('sha256')
     if not isinstance(digests, dict) or not required.issubset(digests) or set(digests)-required-optional:
         warnings.warn(f'Missing required or invalid snapshot manifest ignored: {directory}')
@@ -1018,16 +1012,6 @@ def review(*, root: Path = ROOT, token: str = "",
                    forward_assessment(predictions, records, clock))
     except Exception as exc:
         warnings.warn(f'BBS forward comparison failed ({type(exc).__name__}); production report complete')
-    try:
-        from benchmark_forward_experiment import review_experiment as review_benchmark
-        review_benchmark(root, archived, records, clock)
-    except Exception as exc:
-        warnings.warn(f'Benchmark forward review failed ({type(exc).__name__}); production report complete')
-    try:
-        from totals_anchor_experiment import review_experiment as review_totals
-        review_totals(root, archived, records, clock)
-    except Exception as exc:
-        warnings.warn(f'Totals anchoring review failed ({type(exc).__name__}); production report complete')
     try:
         from closing_odds import review as review_closing
         review_closing(root, archived, clock)

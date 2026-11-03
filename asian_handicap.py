@@ -38,6 +38,20 @@ POLICIES = (*POLICIES, PRICE_EDGE_POLICY, CAGEY_POLICY)
 # v26 (NO_LOSS_CORNERS_POLICY) and v27 (PRICE_EDGE_POLICY) stay replayable for
 # their archived captures. v28 became production after its holdout GATE: PASS.
 PRODUCTION_POLICY = CAGEY_POLICY
+
+
+def requires_goal_market_validation(policy_version):
+    """Whether a policy's selection reads goal-market walk-forward/count-market validation.
+
+    Declared by each policy module (VALIDATION_REQUIRED); every policy before v27 used it.
+    """
+    if policy_version == CAGEY_POLICY:
+        from price_edge_cagey_shortlist import VALIDATION_REQUIRED
+        return VALIDATION_REQUIRED
+    if policy_version == PRICE_EDGE_POLICY:
+        from price_edge_shortlist import VALIDATION_REQUIRED
+        return VALIDATION_REQUIRED
+    return True
 MIN_ADJUSTED_EV = .01
 DEFAULT_RISK_TOLERANCE = .01  # Frozen v19-v21 default.
 MIN_ADJUSTED_NO_LOSS = .75
@@ -319,7 +333,7 @@ def qualifying_alternatives(selected, decisions, tolerance):
     return result
 
 
-def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY, *, _required_ev=None):
+def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY, *, _required_ev=None, monitor=None):
     """Risk first, strict gates, one market per fixture. No target-filling bypass."""
     if _required_ev is not None and (policy_version != POLICY or
             not math.isfinite(_required_ev) or not 0 <= _required_ev <= 1):
@@ -328,7 +342,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
         if adjusted_ev_floor is not None:
             raise ValueError('The price-edge policy does not accept an EV floor')
         from price_edge_cagey_shortlist import build_shortlist as build_v28
-        return build_v28(predictions, as_of, market_reliability, execution_policy)
+        return build_v28(predictions, as_of, market_reliability, execution_policy, monitor=monitor)
     if policy_version == PRICE_EDGE_POLICY:
         if adjusted_ev_floor is not None:
             raise ValueError('The price-edge policy does not accept an EV floor')
