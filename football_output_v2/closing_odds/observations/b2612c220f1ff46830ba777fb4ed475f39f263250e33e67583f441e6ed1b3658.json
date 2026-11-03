@@ -1,0 +1,184 @@
+{
+  "fixture": {
+    "away_team": "\u0160K Slovan Bratislava",
+    "home_team": "LASK",
+    "kickoff_utc": "2026-11-03T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "adf608a0e9be02eb1d8b0a6f464a12b1"
+  },
+  "observed_at_utc": "2026-11-03T19:54:20.243072+00:00",
+  "payload": {
+    "away_team": "\u0160K Slovan Bratislava",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-03T19:53:38Z",
+            "outcomes": [
+              {
+                "name": "LASK",
+                "price": 1.33
+              },
+              {
+                "name": "\u0160K Slovan Bratislava",
+                "price": 8.78
+              },
+              {
+                "name": "Draw",
+                "price": 5.68
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-03T19:53:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.91
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-03T19:53:57Z",
+            "outcomes": [
+              {
+                "name": "LASK",
+                "price": 1.33
+              },
+              {
+                "name": "\u0160K Slovan Bratislava",
+                "price": 8.75
+              },
+              {
+                "name": "Draw",
+                "price": 5.9
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-03T19:53:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.97
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.93
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-03T20:00:00Z",
+    "home_team": "LASK",
+    "id": "adf608a0e9be02eb1d8b0a6f464a12b1",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.33,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7398022136573306,
+      "selection": "home",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.68,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15952072250021765,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 8.78,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1006770638424519,
+      "selection": "away",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.95,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.49453701116582316,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5054629888341767,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.33,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7415706962005124,
+      "selection": "home",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.9,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.15553572719483696,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 8.75,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.10289357660465072,
+      "selection": "away",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.97,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.494676541515101,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5053234584848989,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
