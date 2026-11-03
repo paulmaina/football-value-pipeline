@@ -137,9 +137,46 @@ class SwitchTests(OfflineQuotePolicyTestCase):
             raw.mkdir()
             predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
             selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+            v28.cagey_tier_list(decisions).to_csv(raw / v28.TIER_FILE, index=False)
             (raw / 'conservative_bet_summary.json').write_text(json.dumps(summary, default=str), encoding='utf-8')
             with patch.object(v28, 'load_settings', return_value=OFF):
                 self.assertEqual(raw_check(Path(tmp), raw_dir=raw)['selections'], len(selected))
+
+    def test_raw_check_validates_the_cagey_tier(self):
+        import tempfile
+        from pathlib import Path
+        from workflow_checks import raw_check
+        fair, _ = tier_fair(cagey_row(), 'away', 2.0)
+        predictions = pd.DataFrame([cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 1.005, 4))])])
+        predictions['p_home'], predictions['p_draw'], predictions['p_away'] = 0.45, 0.27, 0.28
+        selected, decisions, summary = run(*predictions.to_dict('records'))
+        tier = v28.cagey_tier_list(decisions)
+        self.assertEqual(len(tier), 1)
+        with tempfile.TemporaryDirectory() as tmp:
+            raw = Path(tmp) / 'raw'
+            raw.mkdir()
+            predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
+            selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+
+            def write(tier_rows, tier_summary):
+                (raw / 'conservative_bet_summary.json').write_text(
+                    json.dumps({**summary, 'cagey_tier': tier_summary}, default=str), encoding='utf-8')
+                if tier_rows is None:
+                    (raw / v28.TIER_FILE).unlink(missing_ok=True)
+                else:
+                    tier_rows.to_csv(raw / v28.TIER_FILE, index=False)
+
+            write(tier, summary['cagey_tier'])
+            raw_check(Path(tmp), raw_dir=raw)
+            tampered = [(tier.assign(offered_decimal_odds=999.0), summary['cagey_tier'], 'differs from deterministic'),
+                        (tier, {**summary['cagey_tier'], 'n_shortlisted': 999}, 'summary cagey_tier differs'),
+                        (None, summary['cagey_tier'], 'Missing current cagey-tier shortlist'),
+                        (tier.iloc[0:0], summary['cagey_tier'], 'differs from deterministic')]
+            for rows, tier_summary, message in tampered:
+                with self.subTest(message=message):
+                    write(rows, tier_summary)
+                    with self.assertRaisesRegex(Exception, message):
+                        raw_check(Path(tmp), raw_dir=raw)
 
 
 def cagey_row(home='Cagey FC', offers=(), lambdas=(0.95, 0.75, -0.08), main_line=-0.25):

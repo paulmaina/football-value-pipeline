@@ -167,7 +167,7 @@ def raw_check(root, *, raw_dir=None):
         if policy_version == price_edge_cagey_shortlist.POLICY:
             # Replay with the switches and model recorded for this run, not today's config.
             import narrow_margin
-            expected, _, replay = price_edge_cagey_shortlist.build_shortlist(
+            expected, decisions, replay = price_edge_cagey_shortlist.build_shortlist(
                 pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), utc(summary['generated_at_utc']),
                 reliability, summary.get('quote_execution_policy'),
                 settings={k: summary.get(k) for k in price_edge_cagey_shortlist.SWITCHES},
@@ -184,6 +184,23 @@ def raw_check(root, *, raw_dir=None):
         # warnings. Normalize only that representation difference for replay.
         require(equivalent(clean_frame(actual[list(expected.columns)]), clean_frame(expected.replace('', None))),
                 'Current shortlist differs from deterministic ranking replay')
+        if policy_version == price_edge_cagey_shortlist.POLICY:
+            # The cagey tier is a separate list: bind its rows to the same replay.
+            tier_expected = price_edge_cagey_shortlist.cagey_tier_list(decisions)
+            tier_path = raw/price_edge_cagey_shortlist.TIER_FILE
+            if replay['cagey_tier']['enabled']:
+                require(tier_path.exists(), 'Missing current cagey-tier shortlist')
+            if tier_path.exists():
+                try:
+                    tier_actual = pd.read_csv(tier_path, low_memory=False)
+                except pd.errors.EmptyDataError:
+                    tier_actual = pd.DataFrame()
+                if len(tier_expected) or len(tier_actual):
+                    require(set(tier_expected.columns).issubset(tier_actual.columns),
+                            'Missing current cagey-tier replay columns')
+                    require(equivalent(clean_frame(tier_actual[list(tier_expected.columns)]),
+                                       clean_frame(tier_expected.replace('', None))),
+                            'Current cagey-tier shortlist differs from deterministic replay')
         for field in ('target_distinct_matches', 'shortfall', 'usable_distinct_fixtures',
                       *(['loss_risk_tolerance'] if policy_version in RISK_BAND_POLICIES else [] if asian else ['ranking_weights']),
                       *(['min_estimated_ev','min_raw_dc_ev','ev_required_for_selection'] if policy_version in ONE_PERCENT_POLICIES else []),
@@ -196,7 +213,8 @@ def raw_check(root, *, raw_dir=None):
                         if policy_version == no_loss_corners_shortlist.POLICY else []),
                       *(['min_edge','min_edge_derived','rejection_counts','tagged_candidates','reference_type_counts']
                         if policy_version in (price_edge_shortlist.POLICY, price_edge_cagey_shortlist.POLICY) else []),
-                      *(['cagey_correction_enabled','cagey_tier_enabled','cagey_model_version','correction_only_value_picks']
+                      *(['cagey_correction_enabled','cagey_tier_enabled','cagey_model_version','correction_only_value_picks',
+                         'cagey_tier']
                         if policy_version == price_edge_cagey_shortlist.POLICY else []),
                       'eligible_markets', 'quote_execution_policy'):
             require(equivalent(summary.get(field), replay[field]),
