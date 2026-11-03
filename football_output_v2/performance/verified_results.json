@@ -1079,6 +1079,36 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "CL:575377": {
+    "away_goals": 1,
+    "away_short_name": "Sporting CP",
+    "away_team": "Sporting Clube de Portugal",
+    "first_verified_at_utc": "2026-11-03T19:45:58Z",
+    "home_goals": 0,
+    "home_short_name": "Shaktar",
+    "home_team": "FK Shakhtar Donetsk",
+    "kickoff_utc": "2026-11-03T17:45:00Z",
+    "league_code": "CL",
+    "match_id": 575377,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "CL:575378": {
+    "away_goals": 1,
+    "away_short_name": "Stuttgart",
+    "away_team": "VfB Stuttgart",
+    "first_verified_at_utc": "2026-11-03T19:45:58Z",
+    "home_goals": 2,
+    "home_short_name": "Galatasaray",
+    "home_team": "Galatasaray SK",
+    "kickoff_utc": "2026-11-03T17:45:00Z",
+    "league_code": "CL",
+    "match_id": 575378,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "DED:558846": {
     "away_goals": 3,
     "away_short_name": "Sparta",
