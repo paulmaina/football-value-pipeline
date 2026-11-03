@@ -303,6 +303,31 @@ class CageyTierTests(OfflineQuotePolicyTestCase):
         self.assertIn('## Cagey tier (separate list', report)
         self.assertEqual(len(tier), 1)
 
+    def test_switching_the_tier_off_clears_the_readable_list(self):
+        import tempfile
+        from pathlib import Path
+        from format_football_output import process_conservative_shortlist
+        fair, _ = tier_fair(cagey_row(), 'away', 2.0)
+        data = cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 1.005, 4))])
+        readable_tier = 'cagey_tier_shortlist_readable.csv'
+        with tempfile.TemporaryDirectory() as tmp:
+            raw, out = Path(tmp) / 'raw', Path(tmp) / 'readable'
+            raw.mkdir()
+            out.mkdir()
+            for settings, expected in ((None, True), (VALUE_ONLY, False), (None, True), (OFF, False)):
+                selected, decisions, summary = run(data, settings=settings)
+                selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+                v28.cagey_tier_list(decisions).to_csv(raw / v28.TIER_FILE, index=False)
+                (raw / 'conservative_bet_summary.json').write_text(json.dumps(summary, default=str), encoding='utf-8')
+                process_conservative_shortlist(raw, out)
+                with self.subTest(settings=settings):
+                    self.assertEqual((out / readable_tier).exists(), expected)
+                    if expected:
+                        self.assertEqual(len(pd.read_csv(out / readable_tier)), 1)
+            (raw / 'conservative_bet_shortlist.csv').unlink()
+            process_conservative_shortlist(raw, out)
+            self.assertFalse((out / readable_tier).exists())
+
 
 if __name__ == '__main__':
     unittest.main()
