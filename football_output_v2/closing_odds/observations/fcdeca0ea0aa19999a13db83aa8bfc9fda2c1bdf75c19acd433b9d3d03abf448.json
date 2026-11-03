@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "VfB Stuttgart",
+    "home_team": "Galatasaray",
+    "kickoff_utc": "2026-11-03T17:45:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "9b8076d3ffa027df6f6cb3189de46706"
+  },
+  "observed_at_utc": "2026-11-03T17:39:06.914061+00:00",
+  "payload": {
+    "away_team": "VfB Stuttgart",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-03T17:39:00Z",
+            "outcomes": [
+              {
+                "name": "Galatasaray",
+                "price": 1.91
+              },
+              {
+                "name": "VfB Stuttgart",
+                "price": 3.45
+              },
+              {
+                "name": "Draw",
+                "price": 4.39
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-03T17:39:00Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.6
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.34
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-03T17:39:00Z",
+            "outcomes": [
+              {
+                "name": "Galatasaray",
+                "price": 2.02
+              },
+              {
+                "name": "VfB Stuttgart",
+                "price": 3.32
+              },
+              {
+                "name": "Draw",
+                "price": 4.35
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-03T17:39:00Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 1.9
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 2.01
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-03T17:45:00Z",
+    "home_team": "Galatasaray",
+    "id": "9b8076d3ffa027df6f6cb3189de46706",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.91,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5099380516085007,
+      "selection": "home",
+      "updated_at_utc": "2026-11-03T17:39:00+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.39,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21446759110775543,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-03T17:39:00+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.45,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2755943572837438,
+      "selection": "away",
+      "updated_at_utc": "2026-11-03T17:39:00+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.6,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6013960028458347,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-03T17:39:00+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.34,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.39860399715416533,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-03T17:39:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.02,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.48631767892112304,
+      "selection": "home",
+      "updated_at_utc": "2026-11-03T17:39:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.35,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22148805456763182,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-03T17:39:00+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.32,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2921942665112451,
+      "selection": "away",
+      "updated_at_utc": "2026-11-03T17:39:00+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
