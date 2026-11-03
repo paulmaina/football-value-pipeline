@@ -18866,13 +18866,13 @@
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 363,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-11-03T12:09:23.906002+00:00",
+        "reviewed_at_utc": "2026-11-03T13:20:52.041691+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
       "dependencies": {
-        "PyYAML": "NOT_INSTALLED",
-        "coverage": "NOT_INSTALLED",
+        "PyYAML": "6.0.3",
+        "coverage": "7.17.1",
         "numpy": "2.5.4",
         "pandas": "3.1.0",
         "python": "3.12.15",
@@ -18898,15 +18898,9 @@
         "min_adjusted_no_loss_probability": 0.75,
         "per_stake_cost_bps": 0
       },
-      "experiment_capture_counts": {
-        "benchmark_forward_experiment:CAPTURED": 43,
-        "benchmark_forward_experiment:LEGACY_NOT_RECORDED": 20,
-        "benchmark_forward_experiment:PRESENT_BUT_REJECTED": 1,
-        "totals_anchor_experiment:CAPTURED": 43,
-        "totals_anchor_experiment:LEGACY_NOT_RECORDED": 21
-      },
+      "experiment_capture_counts": {},
       "forecast_freshness": {
-        "age_hours": 47.76651024333333,
+        "age_hours": 48.95765904583334,
         "generated_at_utc": "2026-11-01T12:23:24.469126+00:00",
         "status": "OLDER_THAN_24_HOURS",
         "upcoming_fixture_count": 18
@@ -18925,35 +18919,12 @@
       },
       "review_queue": {
         "automatic_promotion": false,
-        "experiments": [
-          {
-            "automatic_production_change": false,
-            "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-            "gameweeks": 4,
-            "key": "benchmark_forward:761a3a3d316231dfe291f76cb25109c08cfe2e98f2241d5a477238f36ea92616",
-            "name": "benchmark_forward_experiment",
-            "report": "benchmark_forward_experiment/report.md",
-            "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 135,
-            "status": "COLLECT_MORE_DATA"
-          },
-          {
-            "automatic_production_change": false,
-            "evidence": "NO_CLEAR_PROMOTION_EVIDENCE",
-            "gameweeks": 4,
-            "key": "totals_anchor:05c7b4af8e00fc30b8385f253389892160d83d04840f013bff7e7e6ee144ccc2",
-            "name": "totals_anchor_experiment",
-            "report": "totals_anchor_experiment/report.md",
-            "scope": "FORECASTING_REVIEW_APPROVAL_REQUIRED",
-            "settled_evidence": 14,
-            "status": "COLLECT_MORE_DATA"
-          }
-        ],
-        "note": "Only the live forward trials are queued. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-11-03T12:09:23.906002+00:00",
+        "experiments": [],
+        "note": "Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.",
+        "reviewed_at_utc": "2026-11-03T13:20:52.041691+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-11-03T12:09:23.906002+00:00",
+      "reviewed_at_utc": "2026-11-03T13:20:52.041691+00:00",
       "selection_policy_groups": {
         "48h-top-ten-probability-ev-no-under35-v14": {
           "brier": 0.178674,
@@ -19867,7 +19838,7 @@
             "completed_matches": 54,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.004551063888888889,
+            "download_age_hours": 1.195699866388889,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-10-21",
             "latest_completed_utc": "2026-10-21T19:00:00+00:00",
@@ -19940,7 +19911,7 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-11-03T12:09:23.906002+00:00"
+            "verified_at_utc": "2026-11-03T13:20:52.041691+00:00"
           },
           "days_since_latest_result": 12,
           "diagnostics_sha256": "2c4be2e7e938a5b4e399c855747e3a3bfa2981e6ef79fb2e24dd75125ad4fc37",
