@@ -144,7 +144,7 @@ The review grades each fixture's first eligible pre-kickoff capture (at least
 and headline betting ROI are unaffected: ROI still uses the latest eligible
 selection. The "Correction monitoring" section of the price-edge report shows:
 
-- actual vs predicted 2+ and 3+ margin rates by quintile;
+- actual vs predicted 2+ and 3+ margin rates by quintile, with a 95% interval on each actual rate;
 - corrected vs uncorrected log loss, with the paired gain;
 - returns at the corrected and uncorrected fair prices (a calibration
   diagnostic, not achievable bookmaker ROI);
