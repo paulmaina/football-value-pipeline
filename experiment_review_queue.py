@@ -11,25 +11,11 @@ import tempfile
 
 
 def build_queue(root,clock):
-    from performance_tracking import load_json,utc
     # Retired experiments (archive/) left the queue; their committed reports are frozen.
     items=[]
-    trial=load_json(root/'performance/benchmark_forward_experiment/summary.json',{})
-    fresh=utc(trial.get('reviewed_at_utc')) is not None and abs((clock-utc(trial['reviewed_at_utc'])).total_seconds())<1
-    items.append({'name':'benchmark_forward_experiment','key':'benchmark_forward:'+trial.get('registry_sha256','not_generated'),
-        'status':trial.get('status','COLLECT_MORE_DATA') if fresh else 'REPORT_UNAVAILABLE_OR_STALE',
-        'settled_evidence':trial.get('paired_fixtures',0),'gameweeks':trial.get('gameweeks',0),
-        'scope':'FORECASTING_REVIEW_APPROVAL_REQUIRED','evidence':trial.get('evidence','UNAVAILABLE'),
-        'report':'benchmark_forward_experiment/report.md','automatic_production_change':False})
-    totals=load_json(root/'performance/totals_anchor_experiment/summary.json',{})
-    fresh=utc(totals.get('reviewed_at_utc')) is not None and abs((clock-utc(totals['reviewed_at_utc'])).total_seconds())<1
-    items.append({'name':'totals_anchor_experiment','key':'totals_anchor:'+totals.get('registry_sha256','not_generated'),
-        'status':totals.get('status','COLLECT_MORE_DATA') if fresh else 'REPORT_UNAVAILABLE_OR_STALE',
-        'settled_evidence':totals.get('paired_fixtures',0),'gameweeks':totals.get('gameweeks',0),
-        'scope':'FORECASTING_REVIEW_APPROVAL_REQUIRED','evidence':totals.get('evidence','UNAVAILABLE'),
-        'report':'totals_anchor_experiment/report.md','automatic_production_change':False})
+    # The benchmark-forward and totals-anchor trials are archived too, so nothing is queued.
     return {'version':'experiment-review-queue-v1','reviewed_at_utc':clock.isoformat(),'experiments':items,'automatic_promotion':False,
-        'note':'Only the live forward trials are queued. Notifications invite review, including negative findings; they never approve changes.'}
+        'note':'Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.'}
 
 
 def write_queue(root,clock):
@@ -37,7 +23,8 @@ def write_queue(root,clock):
     data=build_queue(root,clock);dest=root/'performance';write_json(dest/'experiment_review_queue.json',data)
     lines=['# Experiment review queue','',data['note'],'', '| Experiment | Status | Settled evidence | Scope |','|---|---|---:|---|']
     for item in data['experiments']:lines.append(f"| [{item['name']}]({item['report']}) | {item['status']} | {item['settled_evidence']} | {item['scope']} |")
-    lines+=['','Benchmark candidates require at least 300 paired fixtures, six gameweeks and valid coverage.','']
+    if not data['experiments']:lines.append('| None live | | | |')
+    lines+=['','The benchmark-forward and totals-anchor trials are archived; their frozen reports stay readable.','']
     (dest/'experiment_review_queue.md').write_text('\n'.join(lines),encoding='utf-8');return data
 
 

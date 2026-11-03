@@ -1,3 +1,5 @@
+> **ARCHIVED 2026-11-03.** No longer generated, captured or reviewed. This is the last report, frozen as committed; the code is kept for replay in `archive/benchmark_forward_experiment.py`.
+
 # Benchmark forward trial
 
 Primary 1X2 log loss; week-block bootstrap, one preregistered candidate. Calibration and subgroup metrics are descriptive. Ready means enough evidence to review, including negative findings; it does not mean approval or profitability. Baseline is the actual production forecast. No closing odds, backfill, bets or automatic promotion.

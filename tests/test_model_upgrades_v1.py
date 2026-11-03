@@ -58,8 +58,9 @@ class ProductionDefaultsTests(OfflineQuotePolicyTestCase):
     def test_scheduled_production_command_does_not_tune_half_life(self):
         text = Path('publish_scheduled_forecasts.py').read_text(encoding='utf-8')
         self.assertNotIn("'--tune-half-life'", text)
-        # Legacy comparison stays on: it alone runs the tuning, for the frozen trials' companion.
-        self.assertNotIn("'--no-legacy-comparison'", text)
+        # Its only readers (the benchmark/totals trials) are archived, so the legacy companion and
+        # its half-life tuning are off too.
+        self.assertIn("'--no-legacy-comparison'", text)
         self.assertNotIn("'--recency-experiment'", text)
 
     def test_model_version_tags_profiles_and_never_relabels_custom_runs(self):

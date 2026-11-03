@@ -4004,9 +4004,13 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--no-totals-anchor", action="store_true",
                    help="Do not anchor goal totals to fresh Pinnacle O/U 2.5 (tags forecasts custom).")
+    p.add_argument("--goal-market-validation", action="store_true",
+                   help=("Run goal-market walk-forward and count-market validation even when the "
+                         "selection policy does not use it (the production policy declares whether it does)."))
     p.add_argument("--no-legacy-comparison", action="store_true",
-                   help=(f"Skip the side-by-side {LEGACY_MODEL_VERSION} columns (legacy_*), which are "
-                         "graded in the forward review and never used for selection or staking."))
+                   help=(f"Skip the side-by-side {LEGACY_MODEL_VERSION} columns (legacy_*) and their "
+                         "half-life tuning. Scheduled runs pass it; the columns were read only by the "
+                         "archived forward trials and are never used for selection or staking."))
     p.add_argument("--no-shot-features", action="store_true",
                    help="Disable gated shot features; the no-shots profile remains replayable.")
     p.add_argument(
@@ -4151,6 +4155,8 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     if args.auto_market_weight:
         from market_blend_validation import select_market_weight
     legacy_comparison = not args.backtest and not args.no_legacy_comparison
+    run_validation = goal_market_validation_enabled(args)
+    from asian_handicap import PRODUCTION_POLICY as CURRENT_SELECTION_POLICY
     if args.tune_half_life or legacy_comparison:
         # Lazy import preserves standalone operation without tuning enabled.
         from dc_decay_validation import tune_half_life
@@ -4220,8 +4226,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     }
     market_reliability = {}
     combined = []
-    benchmark_matrices = {}
-    totals_shadow_inputs = {}
 
     for league_key in args.leagues:
         # Reset both per-competition settings before tuning; never carry a
@@ -4315,9 +4319,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                 )
 
         print(f"[{league_key}] current-fixture model...", file=sys.stderr)
-        pipe._benchmark_trial_enabled = not args.backtest
-        pipe._benchmark_score_matrices = {}
-        pipe._totals_shadow_inputs = {}
         predictions, diagnostics, scorelines = pipe.run_league(league_key)
         assessment = diagnostics.get('bbs_statistics_model', {})
         print(f"[{league_key}] BBS statistics: {assessment.get('status', 'NOT_RECORDED')}; "
@@ -4330,13 +4331,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
               f"failed gates={shots.get('failed_gates', [])}; "
               f"applied fixtures={diagnostics.get('shot_features_applied_fixtures', 0)}; "
               f"features used={diagnostics.get('goal_rate_features_used', {})}", file=sys.stderr)
-        from performance_tracking import fixture_key as benchmark_fixture_key
-        for source in predictions.to_dict('records'):
-            matrix = getattr(pipe, '_benchmark_score_matrices', {}).get((source['home_team'], source['away_team'], str(source.get('kickoff_utc'))))
-            if matrix is not None:
-                benchmark_matrices[benchmark_fixture_key(source)] = matrix.copy()
-                totals_shadow_inputs[benchmark_fixture_key(source)] = pipe._totals_shadow_inputs.get((source["home_team"], source["away_team"], str(source.get("kickoff_utc"))))
-        pipe._benchmark_trial_enabled = False
         if market_selection is not None:
             diagnostics["market_weight_selection"] = {
                 "status": market_selection["status"],
@@ -4353,7 +4347,9 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
                 "applied_to_production": tuning["applied_to_production"],
             }
 
-        if not args.backtest:
+        if not args.backtest and not run_validation:
+            diagnostics["goal_market_validation"] = f"SKIPPED: not required by {CURRENT_SELECTION_POLICY}"
+        if run_validation:
             # Reuse validated snapshots only when the historical model,
             # training cutoff and validation code version match.
             validation_path = out_dir / f"{league_key}_goal_market_validation.json"
@@ -4470,7 +4466,6 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     # One conservative shortlist across all requested leagues, not an
     # independent quota of two picks per league. Do not alter predictions.
     from conservative_bet_filter import build_conservative_shortlist
-    from asian_handicap import PRODUCTION_POLICY as CURRENT_SELECTION_POLICY
 
     all_predictions = (
         pd.concat(combined, ignore_index=True, sort=False)
@@ -4481,9 +4476,10 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
             out_dir / "all_leagues_predictions.csv", index=False
         )
 
+    monitoring = []
     shortlist, decisions, selection_summary = build_conservative_shortlist(
-        all_predictions, market_reliability=market_reliability,
-        selection_policy_version=CURRENT_SELECTION_POLICY,
+        all_predictions, market_reliability=market_reliability if run_validation or args.backtest else None,
+        selection_policy_version=CURRENT_SELECTION_POLICY, monitor=monitoring,
     )
     shortlist.to_csv(out_dir / "conservative_bet_shortlist.csv", index=False)
     strictly_qualified = shortlist.loc[
@@ -4494,8 +4490,10 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     )
     decisions.to_csv(out_dir / "conservative_bet_rejections.csv", index=False)
     # v28 cagey tier: a separate list, never merged into the shortlist above (empty for other policies).
-    from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE
+    from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE, record_monitoring
     cagey_tier_list(decisions).to_csv(out_dir / TIER_FILE, index=False)
+    # Correction monitoring: one record per fixture from the correction just computed (evidence only).
+    record_monitoring(selection_summary, monitoring, out_dir)
     try:
         from staking import write_stake_recommendations
         write_stake_recommendations(
@@ -4543,19 +4541,14 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         file=sys.stderr,
     )
 
-    if combined and not args.backtest:
-        try:
-            from benchmark_forward_experiment import write_experiment as write_benchmark_forward
-            write_benchmark_forward(all_predictions, out_dir, selection_summary["generated_at_utc"], benchmark_matrices)
-        except Exception as exc:
-            warnings.warn(f"Benchmark forward trial unavailable ({type(exc).__name__}); production outputs complete")
-        try:
-            from totals_anchor_experiment import write_experiment as write_totals_shadow
-            write_totals_shadow(all_predictions, out_dir, selection_summary["generated_at_utc"], benchmark_matrices, totals_shadow_inputs)
-        except Exception as exc:
-            warnings.warn(f"Totals anchoring trial unavailable ({type(exc).__name__}); production outputs complete")
-
     return 0
+
+
+def goal_market_validation_enabled(args) -> bool:
+    """Historical validation runs only when the production policy uses it, or on explicit request."""
+    from asian_handicap import PRODUCTION_POLICY, requires_goal_market_validation
+    return not args.backtest and (args.goal_market_validation
+                                  or requires_goal_market_validation(PRODUCTION_POLICY))
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
@@ -4566,7 +4559,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     from prediction_runs import stage_run, publish_run
     from workflow_checks import raw_check
     raw = Path(args.out_dir)
-    with stage_run(raw) as staging:
+    # Unused validation caches are not carried into new bundles.
+    with stage_run(raw, validation_cache=goal_market_validation_enabled(args)) as staging:
         # Last argparse occurrence wins, including --out-dir=... syntax.
         result = _generate_main([*arguments, '--out-dir', str(staging)])
         if result:

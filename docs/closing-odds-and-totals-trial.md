@@ -1,5 +1,7 @@
 # Closing quotes in GitHub Actions and separate Pinnacle totals trial
 
+> **Totals trial ARCHIVED 2026-11-03.** The Pinnacle totals-anchor trial is no longer generated, captured or reviewed by the scheduled run; its code is kept for replay in `archive/totals_anchor_experiment.py` and its last report in `football_output_v2/performance/totals_anchor_experiment/` is frozen. The closing-quote collection described here is unchanged and still runs.
+
 Production probabilities, shortlist filters and bets remain unchanged. These additions collect evidence; neither promotes a candidate nor places bets. The closing collector uses the same Odds API repository secrets as scheduled forecasts.
 
 ## Daily forecast workflow

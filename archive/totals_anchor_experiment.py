@@ -8,11 +8,12 @@ import numpy as np
 
 FILE='totals_anchor_experiment.json'
 VERSION='pinnacle-totals-anchor-v1'
-REGISTRY=Path(__file__).with_name('totals_anchor_registry.json')
+# The frozen registry stays at the repository root; its content is bound into archived sidecars.
+REGISTRY=Path(__file__).resolve().parents[1]/'totals_anchor_registry.json'
 
 
 def registry():
-    from benchmark_forward_experiment import registry_hash
+    from archive.benchmark_forward_experiment import registry_hash
     r=json.loads(REGISTRY.read_text(encoding='utf-8-sig'))
     if r['version']!=VERSION or r['approval_required'] is not True or r['primary_market']!='under_3_5':raise ValueError('Invalid totals registry')
     source=REGISTRY.parent/r['source'];data=json.loads(source.read_text(encoding='utf-8'))
@@ -28,14 +29,14 @@ def decision(row,matrix,inputs,clock,r):
     from performance_tracking import utc,number
     from football_value_pipeline_v2_standalone import canonical_team_key,devig,reweight_matrix_to_1x2
     from historical_benchmark import adjusted_matrix,anchor_totals,goals
-    from benchmark_forward_experiment import secondary,simplex
+    from archive.benchmark_forward_experiment import secondary,simplex
     reasons=[];kick=utc(row.get('kickoff_utc'));inputs=inputs if isinstance(inputs,dict) else {};ref=inputs.get('reference');ref=ref if isinstance(ref,dict) else {}
     if row.get('league') not in r['leagues']:reasons.append('outside_registered_leagues')
     if kick is None or not 1200<=(kick-clock).total_seconds()<=72*3600:reasons.append('outside_forecast_window')
     if row.get('odds_source')!='The Odds API':reasons.append('no_live_odds')
     weight=number(row.get('market_weight'),min_value=0,max_value=1)
     if weight is None or abs(weight-r['baseline_market_weight'])>1e-12 or row.get('market_blend_applied') not in (True,1,'True'):reasons.append('production_basis_changed')
-    from benchmark_forward_experiment import production_version_reasons
+    from archive.benchmark_forward_experiment import production_version_reasons
     reasons+=production_version_reasons(row)
     if row.get('totals_anchor_applied') in (True,1,'True'):reasons.append('candidate_adopted_in_production')
     if any(number(row.get(k),min_value=90,max_value=100) is None for k in ('home_name_match_score','away_name_match_score')) or any(row.get(k) in (None,'','__LEAGUE_AVERAGE__') for k in ('model_home_team','model_away_team')):reasons.append('unreliable_model_identity')
@@ -97,7 +98,7 @@ def equivalent(a,b):
 
 
 def validate(data,generated,predictions,active=True):
-    from benchmark_forward_experiment import registry_hash
+    from archive.benchmark_forward_experiment import registry_hash
     from performance_tracking import utc,fixture_key
     r=data['registry']
     if data.get('version')!=VERSION or data['registry_sha256']!=registry_hash(r) or (active and (r,data['registry_sha256'])!=registry()):raise ValueError('Totals registry binding')
@@ -125,7 +126,7 @@ def evaluate(root,archive,records,clock):
     from performance_tracking import load_json,utc,fixture_key,fixture_match
     from forecast_integrity import forecast_digest_variants, snapshot_generated_at
     from historical_benchmark import metrics,score
-    from benchmark_forward_experiment import block_interval,excluded_reasons
+    from archive.benchmark_forward_experiment import block_interval,excluded_reasons
     r,sha=registry();observations={};rejected=[]
     for meta,predictions,_ in archive:
         directory=root/'performance/snapshots'/meta['git_commit_sha'][:16];path=directory/FILE;digest=meta.get('sha256',{}).get(FILE)
