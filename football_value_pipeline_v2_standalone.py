@@ -4008,8 +4008,9 @@ def build_parser() -> argparse.ArgumentParser:
                    help=("Run goal-market walk-forward and count-market validation even when the "
                          "selection policy does not use it (the production policy declares whether it does)."))
     p.add_argument("--no-legacy-comparison", action="store_true",
-                   help=(f"Skip the side-by-side {LEGACY_MODEL_VERSION} columns (legacy_*), which are "
-                         "graded in the forward review and never used for selection or staking."))
+                   help=(f"Skip the side-by-side {LEGACY_MODEL_VERSION} columns (legacy_*) and their "
+                         "half-life tuning. Scheduled runs pass it; the columns were read only by the "
+                         "archived forward trials and are never used for selection or staking."))
     p.add_argument("--no-shot-features", action="store_true",
                    help="Disable gated shot features; the no-shots profile remains replayable.")
     p.add_argument(

@@ -27,8 +27,8 @@ class ScheduledPublisherTests(OfflineQuotePolicyTestCase):
                     for flag in ('--recency-experiment', '--reliability-experiment',
                                  '--goal-blend-experiment', '--market-led-experiment'):
                         self.assertNotIn(flag, cmd)
-                    # The frozen benchmark/totals trials need the legacy companion.
-                    self.assertNotIn('--no-legacy-comparison', cmd)
+                    # The legacy companion's only readers (benchmark/totals trials) are archived.
+                    self.assertIn('--no-legacy-comparison', cmd)
                     raw=work/'football_output_v2/raw';raw.mkdir(parents=True,exist_ok=True);(raw/'forecast.csv').write_text(str(len(calls)))
                     cache=work/'.football_cache';cache.mkdir(exist_ok=True)
                     (cache/'2627_E0.csv').write_text('validated training revision '+str(len(calls)))
