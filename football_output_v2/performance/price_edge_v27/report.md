@@ -1,6 +1,6 @@
 # v27/v28 price-edge tracking
 
-Reviewed 2026-11-03T12:09:23.906002+00:00. Frozen v27 picks: 0.
+Reviewed 2026-11-03T13:20:52.041691+00:00. Frozen v27 picks: 0.
 
 **Mean CLV vs Pinnacle close:** n/a (0). **Flat-stake profit per bet:** n/a (0).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -140,5 +140,14 @@ Return at the capture fair price, all tagged lines: n/a (0); plus lines only: n/
 - low_total: n/a (0)
 - high_draw: n/a (0)
 - even_odds: n/a (0)
+
+## Correction monitoring
+
+Forward monitoring of cagey-correction-monitoring-v1 started not yet (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
+
+Fixtures: eligible 0, pending 0, graded 0, excluded 0.
+
+No graded fixtures yet.
+
 
 CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.

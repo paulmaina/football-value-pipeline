@@ -1,10 +1,9 @@
 # Experiment review queue
 
-Only the live forward trials are queued. Notifications invite review, including negative findings; they never approve changes.
+Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.
 
 | Experiment | Status | Settled evidence | Scope |
 |---|---|---:|---|
-| [benchmark_forward_experiment](benchmark_forward_experiment/report.md) | COLLECT_MORE_DATA | 135 | FORECASTING_REVIEW_APPROVAL_REQUIRED |
-| [totals_anchor_experiment](totals_anchor_experiment/report.md) | COLLECT_MORE_DATA | 14 | FORECASTING_REVIEW_APPROVAL_REQUIRED |
+| None live | | | |
 
-Benchmark candidates require at least 300 paired fixtures, six gameweeks and valid coverage.
+The benchmark-forward and totals-anchor trials are archived; their frozen reports stay readable.
