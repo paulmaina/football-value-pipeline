@@ -124,7 +124,9 @@ Each record holds:
 - the corrected-score quintile;
 - for AH +1, +1.25, +1.5, +1.75 and +2 on both sides: the corrected and
   uncorrected fair odds, and Pinnacle's and 1xBet's offered odds where the run
-  already had them (blank otherwise);
+  already had them, each with its quote timestamp. A price is kept only when its
+  quote was fresh at generation (the selection freshness rule) and timestamped
+  before kickoff; otherwise it is blank. The review re-checks each price the same way;
 - `UNUSABLE` and the reason when no market-implied fit was available.
 
 The deterministic replay check rebuilds these records, and capture archives
