@@ -88,7 +88,7 @@ def candidate_probabilities(row, matrix, anchor=None):
 
 
 def blended_matrix(row, matrix):
-    from benchmark_forward_experiment import simplex
+    from archive.benchmark_forward_experiment import simplex
     from football_value_pipeline_v2_standalone import reweight_matrix_to_1x2
     raw = probabilities(matrix)
     weight = float(row['market_weight'])
@@ -195,7 +195,7 @@ def write_experiment(predictions, raw, generated, rows):
 
 def validate(data, generated, predictions):
     from performance_tracking import utc, fixture_key
-    from totals_anchor_experiment import equivalent
+    from archive.totals_anchor_experiment import equivalent
     if (data.get('version') != VERSION or data.get('registry') != REGISTRY
             or data.get('registry_sha256') != digest(REGISTRY)
             or utc(generated) is None or utc(data.get('generated_at_utc')) != utc(generated)):
@@ -285,7 +285,7 @@ def frozen(root, archive):
 def evaluate(root, archive, records, clock):
     from performance_tracking import fixture_match, utc, verified_result_source
     from historical_benchmark import metrics, score
-    from benchmark_forward_experiment import block_interval
+    from archive.benchmark_forward_experiment import block_interval
     rows, rejected = frozen(root, archive)
     records = [r for r in records if verified_result_source(r) and r.get('league_code') != 'EL']
     comparisons, ledger = [], []
@@ -318,7 +318,7 @@ def evaluate(root, archive, records, clock):
         scores = {market: {variant: metrics([r[variant] for r in graded], market)
                            for variant in ('baseline', 'candidate')} for market in MARKETS}
         # Calibration is descriptive; expose it for every binary market and 1X2 top label.
-        from benchmark_forward_experiment import metrics as hda_metrics
+        from archive.benchmark_forward_experiment import metrics as hda_metrics
         hda = hda_metrics([{**r, 'baseline': [r['baseline'][k] for k in ('p_home', 'p_draw', 'p_away')],
                            'candidate': [r['candidate'][k] for k in ('p_home', 'p_draw', 'p_away')], 'y': r['baseline']['y']} for r in graded])
         guardrails = bool(graded) and all(s['candidate']['brier'] <= s['baseline']['brier'] and

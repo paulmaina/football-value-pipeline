@@ -6,7 +6,6 @@ on:
     paths:
       - '.github/workflows/scheduled-forecasts.yml'
       - 'publish_scheduled_forecasts.py'
-      - 'benchmark_forward_registry.json'
   schedule:
     - cron: '45 5 * * *'
   workflow_dispatch:

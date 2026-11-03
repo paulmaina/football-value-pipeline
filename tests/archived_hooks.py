@@ -23,6 +23,9 @@ CAPTURED = {
     'market_led_experiment': lambda e: f'Market-led capture skipped ({type(e).__name__})',
     'filter_sensitivity_experiment': lambda e: f'Filter sensitivity capture skipped ({type(e).__name__})',
     'model_reliability_experiment': lambda e: f'Reliability capture skipped ({type(e).__name__})',
+    # Archived 2026-11-03 (PR E).
+    'benchmark_forward_experiment': lambda e: f'Benchmark forward capture skipped ({type(e).__name__})',
+    'totals_anchor_experiment': lambda e: f'Totals anchoring capture skipped ({type(e).__name__})',
 }
 REVIEWED = {
     'goal_blend_experiment': lambda e: f'Shadow report failed; baseline report complete: {e}',
@@ -32,6 +35,9 @@ REVIEWED = {
     'shortlist_policy_experiment': lambda e: f'Shortlist policy report failed ({type(e).__name__}); baseline report complete',
     'filter_sensitivity_experiment': lambda e: f'Filter sensitivity report failed ({type(e).__name__}); baseline report complete',
     'model_reliability_experiment': lambda e: f'Reliability review failed ({type(e).__name__}); production report complete',
+    # Archived 2026-11-03 (PR E).
+    'benchmark_forward_experiment': lambda e: f'Benchmark forward review failed ({type(e).__name__}); production report complete',
+    'totals_anchor_experiment': lambda e: f'Totals anchoring review failed ({type(e).__name__}); production report complete',
 }
 
 

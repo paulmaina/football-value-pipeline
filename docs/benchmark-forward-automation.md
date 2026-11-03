@@ -1,5 +1,7 @@
 # Benchmark candidate forward automation
 
+> **ARCHIVED 2026-11-03.** No longer generated, captured or reviewed by the scheduled run; the code is kept for replay in `archive/benchmark_forward_experiment.py` and the last report in `football_output_v2/performance/benchmark_forward_experiment/` is frozen. Commands below no longer work.
+
 The benchmark-to-forward bridge now nominates one frozen candidate from the benchmark's **development** selection: market weight 0.85 for 1X2. It uses the actual production raw model and the same live reference, changing only the weight from the registered production baseline of 0.5. Production forecasts, shortlist filters and stakes are unchanged.
 
 The registry binds the candidate, primary 1X2 log-loss metric, domestic league scope, parameters, source report hash, start date and review gates before its first eligible forecast. UCL is reported unavailable because it was not included in the historical nomination. L2 and totals anchoring remain offline alternatives; they are not automatically combined with this candidate. Later candidate versions must be separately frozen and cannot be pooled with this trial.

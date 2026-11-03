@@ -1,4 +1,5 @@
 from offline_test_case import OfflineQuotePolicyTestCase
+from archived_hooks import setUpModule, tearDownModule  # noqa: F401  (retired capture/review hooks)
 import copy
 from datetime import timedelta
 import hashlib
@@ -9,8 +10,8 @@ import unittest
 from unittest.mock import patch
 import numpy as np
 import pandas as pd
-import totals_anchor_experiment as t
-from benchmark_forward_experiment import simplex
+import archive.totals_anchor_experiment as t
+from archive.benchmark_forward_experiment import simplex
 from historical_benchmark import adjusted_matrix,goals
 from football_value_pipeline_v2_standalone import reweight_matrix_to_1x2,TheOddsAPI
 from performance_tracking import fixture_key,capture,snapshots,write_json,verified_record
@@ -93,7 +94,7 @@ class TotalsTests(OfflineQuotePolicyTestCase):
 
     def test_readiness_positive_and_negative_results(self):
         row,m,inputs=sample();r,sha=t.registry();observations=[];records=[]
-        from benchmark_forward_experiment import registry_hash
+        from archive.benchmark_forward_experiment import registry_hash
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
             for i in range(300):

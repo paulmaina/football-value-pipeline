@@ -233,8 +233,8 @@ class DailyHealthTests(OfflineQuotePolicyTestCase):
             # Older days are kept as written; only new observations are slimmed.
             self.assertEqual(history['days'][legacy_day], legacy)
             health = json.loads((root/'performance/pipeline_health.json').read_text())
-            self.assertEqual(sorted(health['experimental_reports']),
-                             ['benchmark_forward_experiment', 'totals_anchor_experiment'])
+            # The benchmark-forward and totals-anchor trials are archived: no live experiment reports.
+            self.assertEqual(health['experimental_reports'], {})
             with ZipFile(root/'readable'/REPORT_NAME) as z: parts = {n: z.read(n) for n in z.namelist()}
             contents = [text(c) for c in get_sheet(parts, 'Pipeline Health').root.iter(q('c'))]
             start = contents.index('Daily review observations')

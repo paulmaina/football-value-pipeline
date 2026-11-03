@@ -149,9 +149,9 @@ class ModelCorrectnessTests(OfflineQuotePolicyTestCase):
             self.assertFalse(result.empty)
 
     def test_adaptive_totals_capture_reconstructs_actual_grid_and_preserves_legacy(self):
-        import totals_anchor_experiment as trial
+        import archive.totals_anchor_experiment as trial
         from test_totals_anchor_experiment import sample, NOW
-        from benchmark_forward_experiment import simplex
+        from archive.benchmark_forward_experiment import simplex
         from performance_tracking import capture, snapshots, fixture_key, write_json
         row, legacy, inputs = sample()
         registry, _ = trial.registry()
