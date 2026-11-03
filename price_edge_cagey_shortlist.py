@@ -179,9 +179,75 @@ def value_tier_item(item: Dict[str, object], context: Optional[Mapping], correct
     return out
 
 
-def make_transform(model: Mapping, settings: Mapping):
+# ---------------------------------------------------------------------------
+# Correction monitoring (evidence only; never read by a decision)
+# ---------------------------------------------------------------------------
+
+MONITOR_FILE = 'cagey_correction_monitoring.csv'
+MONITOR_VERSION = 'cagey-correction-monitoring-v1'
+MONITOR_LINES = (1.0, 1.25, 1.5, 1.75, 2.0)
+MONITOR_BOOKS = ('Pinnacle', '1xBet')
+
+
+def _line_key(side: str, line: float) -> str:
+    return f'{side}_plus_{line:g}'.replace('.', '_')
+
+
+MONITOR_PRICE_COLUMNS = [f'{_line_key(side, line)}_{kind}' for side in ('home', 'away') for line in MONITOR_LINES
+                         for kind in ('corrected_fair_odds', 'uncorrected_fair_odds', 'pinnacle_odds', 'onexbet_odds')]
+MONITOR_COLUMNS = ['monitoring_version', 'generated_at_utc', 'league', 'home_team', 'away_team', 'fixture_id',
+                   'kickoff_utc', 'model_version', 'quintile_model_sha256', 'status', 'exclusion_reason', 'fit',
+                   'latest_input_quote_utc', 'corrected_p2', 'corrected_p3', 'uncorrected_p2', 'uncorrected_p3',
+                   'corrected_cagey_quintile', *MONITOR_PRICE_COLUMNS]
+
+
+def monitoring_record(row: Mapping, items: List[Mapping], fit: mi.Fit, fit_info: Mapping, now: pd.Timestamp,
+                      context: Optional[Mapping], model: Mapping, quintiles: Mapping) -> Dict[str, object]:
+    """One fixture's pre-match evidence, from the distribution and correction this run already computed."""
+    from quote_freshness import quote_utc
+    stamps = [t for t in (quote_utc(s) for s in fit_info['stamps']) if t is not None]
+    record = {c: None for c in MONITOR_COLUMNS}
+    record.update({k: row.get(k) for k in ('league', 'home_team', 'away_team', 'fixture_id', 'kickoff_utc')},
+                  monitoring_version=MONITOR_VERSION, generated_at_utc=now.isoformat(), model_version=model['version'],
+                  quintile_model_sha256=quintiles['model_sha256'],
+                  latest_input_quote_utc=max(stamps).isoformat() if stamps else None)
+    if context is None:
+        reasons = '; '.join(dict.fromkeys(fit.reasons + fit_info['fit_a'].reasons))
+        record.update(status='UNUSABLE', exclusion_reason=f'no usable market-implied fit ({reasons or "missing quotes"})')
+        return record
+    margins, corrected, raw = context['margins'], context['probs'], context['uncorrected_probs']
+    record.update(status='USABLE', exclusion_reason='', fit=context['fit'],
+                  corrected_p2=context['score'], corrected_p3=nm.margin_tail(margins, corrected, 3),
+                  uncorrected_p2=nm.margin_tail(margins, raw, 2), uncorrected_p3=nm.margin_tail(margins, raw, 3),
+                  corrected_cagey_quintile=nm.quintile_label(context['score'], quintiles['boundaries']))
+    offered = {}
+    for item in items:
+        book, price = item.get('bookmaker'), item.get('offered_decimal_odds')
+        if book in MONITOR_BOOKS and pd.notna(price) and item.get('handicap_side') in ('home', 'away'):
+            offered.setdefault((item['handicap_side'], float(item['handicap_line']), book), price)
+    for side in ('home', 'away'):
+        for line in MONITOR_LINES:
+            key = _line_key(side, line)
+            record[f'{key}_corrected_fair_odds'] = nm.price_distribution(margins, corrected, side, line)['fair_odds']
+            record[f'{key}_uncorrected_fair_odds'] = nm.price_distribution(margins, raw, side, line)['fair_odds']
+            record[f'{key}_pinnacle_odds'] = offered.get((side, line, 'Pinnacle'))
+            record[f'{key}_onexbet_odds'] = offered.get((side, line, '1xBet'))
+    return record
+
+
+def write_monitoring(records: List[Mapping], raw: Path) -> List[Mapping]:
+    from performance_tracking import write_csv
+    write_csv(Path(raw) / MONITOR_FILE, list(records), MONITOR_COLUMNS)
+    return list(records)
+
+
+def make_transform(model: Mapping, settings: Mapping, monitor: Optional[list] = None):
+    quintiles = nm.load_quintiles(model) if monitor is not None else None
+
     def transform(row, items, pin, fit, fit_info, now) -> List[Dict[str, object]]:
         context = corrected_context(pin, fit, fit_info, model)
+        if monitor is not None:
+            monitor.append(monitoring_record(row, items, fit, fit_info, now, context, model, quintiles))
         return [value_tier_item(item, context, settings['cagey_correction_enabled'], settings['cagey_tier_enabled'])
                 for item in items]
     return transform
@@ -241,10 +307,12 @@ def cagey_tier_list(decisions: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, execution_policy=None, *,
-                    settings: Optional[Mapping] = None, model: Optional[Mapping] = None):
+                    settings: Optional[Mapping] = None, model: Optional[Mapping] = None,
+                    monitor: Optional[list] = None):
     """Value tier and cagey tier. Returns (shortlist, decisions, summary); the tier is in `decisions`.
 
     `settings` defaults to cagey_correction_config.json; replays pass the run's recorded settings.
+    `monitor`, when a list, receives one correction-monitoring record per fixture (evidence only).
     """
     settings = {**DEFAULT_SETTINGS, **(settings if settings is not None else load_settings())}
     switched_on = settings['cagey_correction_enabled'] or settings['cagey_tier_enabled']
@@ -254,7 +322,7 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
         model = model or (nm.load(settings['model_version']) if settings.get('model_version') else nm.production_model())
         selected, decisions, summary = v27.build_shortlist(
             predictions, as_of, market_reliability, execution_policy,
-            transform=make_transform(model, settings), extra_columns=[*VALUE_COLUMNS, *TIER_COLUMNS])
+            transform=make_transform(model, settings, monitor), extra_columns=[*VALUE_COLUMNS, *TIER_COLUMNS])
     for frame in (selected, decisions):
         if 'selection_policy_version' in frame:
             frame['selection_policy_version'] = POLICY

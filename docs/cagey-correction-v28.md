@@ -111,3 +111,46 @@ Two flags can appear in the report:
 - **CAGEY TIER REVIEW:** at least 50 graded cagey-tier picks whose realised ROI 95% interval is entirely below 0. It recommends `cagey_tier_enabled = false`.
 
 Neither flag switches anything off by itself.
+
+## Correction monitoring
+
+Every v28 run writes `cagey_correction_monitoring.csv`: one record per fixture,
+including untagged fixtures, built from the market-implied distribution and
+correction that run already computed (no extra fit, no extra odds request).
+Each record holds:
+
+- fixture identity, generation time and correction model version;
+- corrected and uncorrected P(|margin| ≥ 2) and P(|margin| ≥ 3);
+- the corrected-score quintile;
+- for AH +1, +1.25, +1.5, +1.75 and +2 on both sides: the corrected and
+  uncorrected fair odds, and Pinnacle's and 1xBet's offered odds where the run
+  already had them (blank otherwise);
+- `UNUSABLE` and the reason when no market-implied fit was available.
+
+The deterministic replay check rebuilds these records, and capture archives
+them only when they belong to that exact generation.
+
+The quintile boundaries are fixed once from the production model's own
+training rows (`narrow_margin_models/cagey-correction-through-2425-v1.quintiles.json`,
+bound to the model's content hash and training fingerprint; written by
+`py narrow_margin.py --quintiles --version cagey-correction-through-2425-v1`).
+They are never recomputed from outcomes. Q1 ≤ 0.2943 < Q2 ≤ 0.3315 < Q3 ≤ 0.3704
+< Q4 ≤ 0.4425 < Q5.
+
+The review grades each fixture's first eligible pre-kickoff capture (at least
+20 minutes before kickoff, inputs observed before generation). Later captures
+and headline betting ROI are unaffected: ROI still uses the latest eligible
+selection. The "Correction monitoring" section of the price-edge report shows:
+
+- actual vs predicted 2+ and 3+ margin rates by quintile;
+- corrected vs uncorrected log loss, with the paired gain;
+- returns at the corrected and uncorrected fair prices (a calibration
+  diagnostic, not achievable bookmaker ROI);
+- eligible, pending, graded and excluded fixture counts, with exclusion reasons.
+
+Intervals use a gameweek-block bootstrap, which keeps all of a fixture's lines in
+one block. Monitoring starts with the first run that writes the file; earlier
+forecasts are not backfilled. **CORRECTION REVIEW** appears when at least 200
+graded fixtures have a paired 2+ log-loss gain whose 95% interval is entirely
+below zero. It recommends a review only. It never changes selection, the
+correction or stakes.

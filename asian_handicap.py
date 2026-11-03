@@ -333,7 +333,7 @@ def qualifying_alternatives(selected, decisions, tolerance):
     return result
 
 
-def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY, *, _required_ev=None):
+def build_shortlist(predictions, as_of, market_reliability, execution_policy=None, adjusted_ev_floor=None, policy_version=POLICY, *, _required_ev=None, monitor=None):
     """Risk first, strict gates, one market per fixture. No target-filling bypass."""
     if _required_ev is not None and (policy_version != POLICY or
             not math.isfinite(_required_ev) or not 0 <= _required_ev <= 1):
@@ -342,7 +342,7 @@ def build_shortlist(predictions, as_of, market_reliability, execution_policy=Non
         if adjusted_ev_floor is not None:
             raise ValueError('The price-edge policy does not accept an EV floor')
         from price_edge_cagey_shortlist import build_shortlist as build_v28
-        return build_v28(predictions, as_of, market_reliability, execution_policy)
+        return build_v28(predictions, as_of, market_reliability, execution_policy, monitor=monitor)
     if policy_version == PRICE_EDGE_POLICY:
         if adjusted_ev_floor is not None:
             raise ValueError('The price-edge policy does not accept an EV floor')

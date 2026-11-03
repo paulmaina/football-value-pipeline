@@ -557,8 +557,11 @@ def build_conservative_shortlist(
     research_policy: Optional[Mapping] = None,
     execution_policy: Optional[Mapping] = None,
     selection_policy_version: Optional[str] = None,
+    monitor: Optional[list] = None,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Rank up to twelve fixtures for the current policy; replay legacy caps.
+
+    `monitor` (v28 only) collects correction-monitoring records; it never changes a decision.
 
     Returns shortlist (at most the policy target), all market decisions, and a
     summary with any shortfall. A shortlisted row is a
@@ -568,7 +571,7 @@ def build_conservative_shortlist(
     if selection_policy_version in AH_POLICIES:
         if research_policy is not None:
             raise ValueError('Legacy ranking experiments do not apply to loss-first Asian handicap policy')
-        return build_shortlist(predictions, as_of or datetime.now(timezone.utc), market_reliability, execution_policy, adjusted_ev_floor, selection_policy_version)
+        return build_shortlist(predictions, as_of or datetime.now(timezone.utc), market_reliability, execution_policy, adjusted_ev_floor, selection_policy_version, monitor=monitor)
     now = pd.Timestamp(as_of if as_of is not None else datetime.now(timezone.utc))
     if now.tzinfo is None:
         raise ValueError("as_of must be timezone-aware")

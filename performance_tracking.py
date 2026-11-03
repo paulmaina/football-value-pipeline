@@ -203,6 +203,12 @@ def capture(commit_sha: str, *, root: Path = ROOT,
         if tier is not None: files[TIER_FILE] = tier
     except Exception as exc:
         warnings.warn(f"v28 cagey-tier capture skipped ({type(exc).__name__})")
+    try:
+        from price_edge_tracking import capture_monitoring_file, MONITOR_FILE
+        monitoring = capture_monitoring_file(raw, summary.get("generated_at_utc"))
+        if monitoring is not None: files[MONITOR_FILE] = monitoring
+    except Exception as exc:
+        warnings.warn(f"Correction-monitoring capture skipped ({type(exc).__name__})")
     directory.parent.mkdir(parents=True, exist_ok=True)
     # Publish the directory only after every artifact and metadata file exists.
     # A failed health capture or interrupted copy must leave the commit retryable.
@@ -263,7 +269,8 @@ def load_snapshot(directory: Path) -> tuple[dict, list[dict], list[dict]] | None
         'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json',
         'totals_anchor_experiment.json', 'model_reliability_experiment.json',
         'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'pipeline_health.json',
-        'bet365_vs_pinnacle.csv', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv'}
+        'bet365_vs_pinnacle.csv', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv',
+        'cagey_correction_monitoring.csv'}
     digests = meta.get('sha256')
     if not isinstance(digests, dict) or not required.issubset(digests) or set(digests)-required-optional:
         warnings.warn(f'Missing required or invalid snapshot manifest ignored: {directory}')

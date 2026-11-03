@@ -215,6 +215,68 @@ def production_model(directory: Path = MODEL_DIR) -> Dict[str, object]:
 
 
 # ---------------------------------------------------------------------------
+# Fixed quintile boundaries for correction monitoring
+# ---------------------------------------------------------------------------
+
+QUINTILE_PROBABILITIES = (0.2, 0.4, 0.6, 0.8)
+QUINTILE_LABELS = ('Q1 cagiest', 'Q2', 'Q3', 'Q4', 'Q5 most open')
+
+
+def model_digest(model: Mapping) -> str:
+    """Content hash of a model (independent of file line endings)."""
+    return hashlib.sha256(json.dumps(model, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+
+
+def quintile_boundaries(frame: pd.DataFrame, model: Mapping) -> Dict[str, object]:
+    """corrected_cagey_score quintile cutoffs on the model's own training rows; never refits."""
+    until = pd.Timestamp(model['training_until_exclusive'])
+    data = frame[frame.date < until]
+    if fingerprint(data) != model['training_fingerprint']:
+        raise ValueError("Training rows differ from the model's recorded training data")
+    bounds = [float(b) for b in np.quantile(corrected_frame_p2(data, model), QUINTILE_PROBABILITIES)]
+    if not math.isclose(bounds[0], model['training_cagey_p20'], rel_tol=0, abs_tol=1e-12):
+        raise ValueError('Recomputed 20th percentile differs from the model record')
+    return {'model_version': model['version'], 'model_sha256': model_digest(model),
+            'training_fingerprint': model['training_fingerprint'],
+            'training_until_exclusive': model['training_until_exclusive'],
+            'training_first_date': model['training_first_date'], 'training_last_date': model['training_last_date'],
+            'training_matches': model['training_matches'],
+            'score': 'corrected P(|margin| >= 2) (corrected_cagey_score)',
+            'probabilities': list(QUINTILE_PROBABILITIES), 'boundaries': bounds, 'labels': list(QUINTILE_LABELS),
+            'rule': 'Q1 when score <= boundaries[0]; Qk when boundaries[k-2] < score <= boundaries[k-1]; '
+                    'Q5 when score > boundaries[3]. Fixed once from training data; never recomputed from outcomes.'}
+
+
+def quintile_path(version: str, directory: Path = MODEL_DIR) -> Path:
+    return Path(directory) / f'{version}.quintiles.json'
+
+
+def save_quintiles(data: Mapping, directory: Path = MODEL_DIR) -> Path:
+    """Persist once: an existing file may only be rewritten with identical content."""
+    path = quintile_path(data['model_version'], directory)
+    text = json.dumps(data, indent=2, sort_keys=True) + '\n'
+    if path.exists() and json.loads(path.read_text(encoding='utf-8')) != json.loads(text):
+        raise ValueError(f'{path.name} already exists with different boundaries')
+    path.write_text(text, encoding='utf-8')
+    return path
+
+
+def load_quintiles(model: Mapping, directory: Path = MODEL_DIR) -> Dict[str, object]:
+    """Boundaries bound to exactly this model (version and content hash)."""
+    data = json.loads(quintile_path(model['version'], directory).read_text(encoding='utf-8'))
+    if data.get('model_version') != model['version'] or data.get('model_sha256') != model_digest(model):
+        raise ValueError('Quintile boundaries belong to a different model')
+    bounds = data.get('boundaries')
+    if not isinstance(bounds, list) or len(bounds) != 4 or sorted(bounds) != bounds:
+        raise ValueError('Invalid quintile boundaries')
+    return data
+
+
+def quintile_label(score: float, boundaries: Sequence[float]) -> str:
+    return QUINTILE_LABELS[int(np.searchsorted(np.asarray(boundaries, dtype=float), float(score), side='left'))]
+
+
+# ---------------------------------------------------------------------------
 # Historical dataset (shared with the holdout gate report)
 # ---------------------------------------------------------------------------
 
@@ -275,8 +337,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument('--workers', type=int, default=len(DIVISIONS))
     parser.add_argument('--divisions', nargs='+', default=list(DIVISIONS))
     parser.add_argument('--model-dir', default=str(MODEL_DIR))
+    parser.add_argument('--quintiles', action='store_true',
+                        help='write the fixed monitoring quintile boundaries of the saved --version model (no refit)')
     args = parser.parse_args(argv)
     frame = build_dataset(Path(args.cache_dir), args.divisions, workers=args.workers)
+    if args.quintiles:
+        data = quintile_boundaries(frame, load(args.version, Path(args.model_dir)))
+        print(f"Saved {save_quintiles(data, Path(args.model_dir))}: boundaries {data['boundaries']}")
+        return 0
     until = pd.Timestamp(args.until)
     model = finalise(train(frame, version=args.version, until=until), frame, until)
     print(f"Saved {save(model, Path(args.model_dir))}: {model['training_matches']} matches "
