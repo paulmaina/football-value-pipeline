@@ -263,6 +263,9 @@ class FlagTests(OfflineQuotePolicyTestCase):
                     '3plus_actual': 0.0, '3plus_corrected': 0.1, '3plus_uncorrected': 0.2}
         for key, value in expected.items():
             self.assertAlmostEqual(summary['by_quintile']['Q1 cagiest'][key], value)
+        self.assertEqual(summary['by_quintile']['Q1 cagiest']['2plus_actual_interval'],
+                         {'n': 200, 'mean': 0.0, 'low95': 0.0, 'high95': 0.0})
+        self.assertIsNone(summary['by_quintile']['Q2']['2plus_actual'])
         self.assertAlmostEqual(summary['fair_price_returns']['uncorrected']['mean'], 0.1)
         text = '\n'.join(tracking.monitoring_report(summary))
         self.assertIn('**CORRECTION REVIEW**', text)
@@ -290,6 +293,7 @@ class EndToEndTests(OfflineQuotePolicyTestCase):
             self.assertEqual(monitoring['fixtures']['graded'], 1)
             self.assertEqual(pd.Timestamp(monitoring['monitoring_start_utc']), pd.Timestamp(T0))
             self.assertEqual(monitoring['by_quintile']['Q2']['3plus_actual'], 1.0)
+            self.assertEqual(monitoring['by_quintile']['Q2']['3plus_actual_interval']['n'], 1)
             report = (root / tracking.OUTPUT_DIR / 'report.md').read_text(encoding='utf-8')
             self.assertIn('## Correction monitoring', report)
             graded = pd.read_csv(root / tracking.OUTPUT_DIR / 'correction_monitoring.csv')

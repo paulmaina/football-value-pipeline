@@ -289,7 +289,10 @@ def monitoring_summary(frame: pd.DataFrame) -> Dict[str, object]:
             'n': int(len(part)),
             **{f'{goals}plus_{kind}': (float((part['abs_margin'] >= goals).mean()) if kind == 'actual'
                                        else float(pd.to_numeric(part[f'{kind}_p{goals}']).mean())) if len(part) else None
-               for goals in (2, 3) for kind in ('actual', 'corrected', 'uncorrected')}}
+               for goals in (2, 3) for kind in ('actual', 'corrected', 'uncorrected')},
+            # Gameweek-block bootstrap interval for each actual rate.
+            **{f'{goals}plus_actual_interval': _interval((part['abs_margin'] >= goals).astype(float), part['gameweek'])
+               for goals in (2, 3)}}
     for goals in (2, 3):
         out['log_loss'][f'{goals}plus'] = {
             'corrected': float(graded[f'log_loss_{goals}plus_corrected'].mean()),
@@ -335,9 +338,15 @@ def monitoring_report(m: dict) -> List[str]:
         return lines + ['No graded fixtures yet.', '']
     lines += ['| quintile | n | 2+ actual | 2+ corrected | 2+ uncorrected | 3+ actual | 3+ corrected | 3+ uncorrected |',
               '|---|---:|---:|---:|---:|---:|---:|---:|']
+    def rate(q, goals, kind):
+        value = q.get(f'{goals}plus_{kind}')
+        if value is None:
+            return 'n/a'
+        band = q.get(f'{goals}plus_actual_interval') if kind == 'actual' else None
+        return f'{value:.1%} [{band["low95"]:.1%}, {band["high95"]:.1%}]' if band and band.get('n') else f'{value:.1%}'
     for label, q in m['by_quintile'].items():
-        cells = [q.get(f'{g}plus_{k}') for g in (2, 3) for k in ('actual', 'corrected', 'uncorrected')]
-        lines.append(f"| {label} | {q['n']} | " + ' | '.join('n/a' if c is None else f'{c:.1%}' for c in cells) + ' |')
+        cells = [rate(q, g, k) for g in (2, 3) for k in ('actual', 'corrected', 'uncorrected')]
+        lines.append(f"| {label} | {q['n']} | " + ' | '.join(cells) + ' |')
     lines += ['', '| log loss | corrected | uncorrected | paired gain x 1e-3 [95%] |', '|---|---:|---:|---|']
     for goals in (2, 3):
         ll = m['log_loss'][f'{goals}plus']
@@ -348,6 +357,7 @@ def monitoring_report(m: dict) -> List[str]:
               'on both sides is settled at its own fair price (no margin). A calibrated price returns about 0.',
               f"- at the corrected fair price: {_interval_text(r['corrected'], 100, '%')}",
               f"- at the uncorrected fair price: {_interval_text(r['uncorrected'], 100, '%')}", '',
+              'Actual rates show their 95% interval in brackets. '
               f'Intervals: gameweek-block bootstrap ({BOOTSTRAP_SAMPLES} resamples); every line of a fixture stays in '
               f'its gameweek block. CORRECTION REVIEW: >= {CORRECTION_REVIEW_MIN_FIXTURES} graded fixtures with the '
               '2+ paired log-loss gain interval entirely below 0; it recommends review only.', '']
