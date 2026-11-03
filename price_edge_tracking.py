@@ -110,10 +110,10 @@ def capture_tier_file(raw: Path, generated) -> Optional[Path]:
     return path
 
 
-def frozen_tier_picks(root: Path, archive) -> List[dict]:
-    """Latest pre-kickoff archived cagey-tier pick per fixture."""
-    from performance_tracking import fixture_key, read_csv, utc
-    frozen = {}
+def archived_tier_rows(root: Path, archive) -> List[dict]:
+    """Every pre-kickoff archived cagey-tier pick, oldest capture first."""
+    from performance_tracking import read_csv, utc
+    rows = []
     for meta, _, _ in sorted(archive, key=lambda item: item[0]['captured_at_utc']):
         path = Path(root) / 'performance' / 'snapshots' / meta['git_commit_sha'][:16] / TIER_FILE
         if TIER_FILE not in meta.get('sha256', {}) or not path.exists():
@@ -123,9 +123,15 @@ def frozen_tier_picks(root: Path, archive) -> List[dict]:
             kick = utc(row.get('kickoff_utc'))
             if kick is None or max(captured, generated) > kick - timedelta(minutes=MIN_LEAD_MINUTES):
                 continue
-            frozen[fixture_key(row)] = {**row, 'snapshot_commit': meta['git_commit_sha'],
-                                        'snapshot_captured_utc': meta['captured_at_utc']}
-    return list(frozen.values())
+            rows.append({**row, 'snapshot_commit': meta['git_commit_sha'],
+                         'snapshot_captured_utc': meta['captured_at_utc']})
+    return rows
+
+
+def frozen_tier_picks(root: Path, archive) -> List[dict]:
+    """Latest pre-kickoff archived cagey-tier pick per fixture."""
+    from performance_tracking import fixture_key
+    return list({fixture_key(row): row for row in archived_tier_rows(root, archive)}.values())
 
 
 def tier_frame(value: pd.DataFrame, tier: pd.DataFrame) -> pd.DataFrame:
