@@ -1,27 +1,167 @@
 {
   "both_tiers_clv_by": {
-    "balanced": {},
-    "bookmaker": {},
-    "corrected_cagey_quintile": {},
-    "even_odds": {},
-    "high_draw": {},
-    "low_total": {},
-    "policy": {},
-    "qualified_only_by_correction": {},
-    "reference_type": {},
-    "tier": {}
+    "balanced": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "bookmaker": {
+      "1xBet": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "corrected_cagey_quintile": {
+      "n/a": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "even_odds": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "high_draw": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "low_total": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "policy": {
+      "v28": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "qualified_only_by_correction": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "reference_type": {
+      "a": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "tier": {
+      "value": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    }
   },
   "both_tiers_profit_by": {
-    "balanced": {},
-    "bookmaker": {},
-    "corrected_cagey_quintile": {},
-    "even_odds": {},
-    "high_draw": {},
-    "low_total": {},
-    "policy": {},
-    "qualified_only_by_correction": {},
-    "reference_type": {},
-    "tier": {}
+    "balanced": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "bookmaker": {
+      "1xBet": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "corrected_cagey_quintile": {
+      "n/a": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "even_odds": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "high_draw": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "low_total": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "policy": {
+      "v28": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "qualified_only_by_correction": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "reference_type": {
+      "a": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "tier": {
+      "value": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    }
   },
   "cagey_review": false,
   "cagey_review_rule": ">= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false",
@@ -55,31 +195,113 @@
     "standard_error": null
   },
   "clv_by": {
-    "balanced": {},
-    "bookmaker": {},
-    "cagey_quintile": {},
-    "even_odds": {},
-    "high_draw": {},
-    "low_total": {},
-    "odds_band": {},
-    "reference_type": {},
-    "side_role": {},
-    "tagged": {}
+    "balanced": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "bookmaker": {
+      "1xBet": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "cagey_quintile": {
+      "n/a": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "even_odds": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "high_draw": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "low_total": {
+      "no": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "odds_band": {
+      "1.70-1.90": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      },
+      "<1.70": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "reference_type": {
+      "a": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "side_role": {
+      "favourite": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    },
+    "tagged": {
+      "no tag": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      }
+    }
   },
   "correction_monitoring": {
     "by_quintile": {},
     "correction_review": false,
-    "excluded_by_reason": {},
+    "excluded_by_reason": {
+      "no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)": 7,
+      "no usable market-implied fit (missing input: over_2_5)": 15,
+      "no usable market-implied fit (missing input: over_2_5; Pinnacle overround outside range: h2h)": 2
+    },
     "fair_price_returns": {},
     "fixtures": {
-      "eligible": 0,
-      "excluded": 0,
+      "eligible": 19,
+      "excluded": 24,
       "graded": 0,
-      "pending": 0
+      "pending": 19
     },
     "log_loss": {},
-    "model_versions": [],
-    "monitoring_start_utc": null,
+    "model_versions": [
+      "cagey-correction-through-2425-v1"
+    ],
+    "monitoring_start_utc": "2026-11-03T13:58:25Z",
     "version": "cagey-correction-monitoring-v1"
   },
   "correction_only_clv": {
@@ -88,7 +310,7 @@
     "positive_share": null,
     "standard_error": null
   },
-  "frozen_picks": 0,
+  "frozen_picks": 3,
   "note": "CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.",
   "policy": "48h-ah-price-edge-pinnacle-ref-v27",
   "profit": {
@@ -98,7 +320,7 @@
     "standard_error": null
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-03T13:20:52.041691+00:00",
+  "reviewed_at_utc": "2026-11-03T13:58:38.853375+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
@@ -129,12 +351,12 @@
       }
     },
     "edge_at_capture_1xbet": {
-      "mean": null,
-      "n": 0,
-      "positive_share": null,
-      "standard_error": null
+      "mean": -0.03326612349775313,
+      "n": 77,
+      "positive_share": 0.12987012987012986,
+      "standard_error": 0.0025635734541300066
     },
-    "frozen": 0,
+    "frozen": 322,
     "return_at_capture_fair": {
       "mean": null,
       "n": 0,
@@ -147,7 +369,7 @@
       "positive_share": null,
       "standard_error": null
     },
-    "with_offered_price": 0
+    "with_offered_price": 322
   },
   "version": "price-edge-v27-tracking-v1"
 }

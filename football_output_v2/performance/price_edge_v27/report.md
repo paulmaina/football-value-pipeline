@@ -1,6 +1,6 @@
 # v27/v28 price-edge tracking
 
-Reviewed 2026-11-03T13:20:52.041691+00:00. Frozen v27 picks: 0.
+Reviewed 2026-11-03T13:58:38.853375+00:00. Frozen v27 picks: 3.
 
 **Mean CLV vs Pinnacle close:** n/a (0). **Flat-stake profit per bet:** n/a (0).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -9,61 +9,62 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 
 | group | mean CLV (n) |
 |---|---|
-| none | n/a |
+| 1xBet | n/a (0) |
 
 ## CLV by odds_band
 
 | group | mean CLV (n) |
 |---|---|
-| none | n/a |
+| 1.70-1.90 | n/a (0) |
+| <1.70 | n/a (0) |
 
 ## CLV by reference_type
 
 | group | mean CLV (n) |
 |---|---|
-| none | n/a |
+| a | n/a (0) |
 
 ## CLV by side_role
 
 | group | mean CLV (n) |
 |---|---|
-| none | n/a |
+| favourite | n/a (0) |
 
 ## CLV by balanced
 
 | group | mean CLV (n) |
 |---|---|
-| none | n/a |
+| no | n/a (0) |
 
 ## CLV by low_total
 
 | group | mean CLV (n) |
 |---|---|
-| none | n/a |
+| no | n/a (0) |
 
 ## CLV by high_draw
 
 | group | mean CLV (n) |
 |---|---|
-| none | n/a |
+| no | n/a (0) |
 
 ## CLV by even_odds
 
 | group | mean CLV (n) |
 |---|---|
-| none | n/a |
+| no | n/a (0) |
 
 ## CLV by tagged
 
 | group | mean CLV (n) |
 |---|---|
-| none | n/a |
+| no tag | n/a (0) |
 
 ## CLV by cagey_quintile
 
 | group | mean CLV (n) |
 |---|---|
-| none | n/a |
+| n/a | n/a (0) |
 
 ## Both tiers (value and cagey)
 
@@ -74,66 +75,66 @@ Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends ca
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| none | n/a | n/a |
+| value | n/a (0) | n/a (0) |
 
 ### By policy
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| none | n/a | n/a |
+| v28 | n/a (0) | n/a (0) |
 
 ### By bookmaker
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| none | n/a | n/a |
+| 1xBet | n/a (0) | n/a (0) |
 
 ### By reference_type
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| none | n/a | n/a |
+| a | n/a (0) | n/a (0) |
 
 ### By corrected_cagey_quintile
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| none | n/a | n/a |
+| n/a | n/a (0) | n/a (0) |
 
 ### By balanced
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| none | n/a | n/a |
+| no | n/a (0) | n/a (0) |
 
 ### By low_total
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| none | n/a | n/a |
+| no | n/a (0) | n/a (0) |
 
 ### By high_draw
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| none | n/a | n/a |
+| no | n/a (0) | n/a (0) |
 
 ### By even_odds
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| none | n/a | n/a |
+| no | n/a (0) | n/a (0) |
 
 ### By qualified_only_by_correction
 
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
-| none | n/a | n/a |
+| no | n/a (0) | n/a (0) |
 
 ## Tagged candidates (narrow-margin hypothesis)
 
-Frozen tagged candidates: 0 (0 with an offered price).
-1xBet edge vs fair at capture: n/a (0).
+Frozen tagged candidates: 322 (322 with an offered price).
+1xBet edge vs fair at capture: -3.33% ± 0.50% (n=77).
 Return at the capture fair price, all tagged lines: n/a (0); plus lines only: n/a (0).
 
 - balanced: n/a (0)
@@ -143,9 +144,15 @@ Return at the capture fair price, all tagged lines: n/a (0); plus lines only: n/
 
 ## Correction monitoring
 
-Forward monitoring of cagey-correction-monitoring-v1 started not yet (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
+Forward monitoring of cagey-correction-monitoring-v1 started 2026-11-03T13:58:25Z (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
 
-Fixtures: eligible 0, pending 0, graded 0, excluded 0.
+Fixtures: eligible 19, pending 19, graded 0, excluded 24.
+
+| excluded because | fixtures |
+|---|---:|
+| no usable market-implied fit (missing input: over_2_5) | 15 |
+| no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 7 |
+| no usable market-implied fit (missing input: over_2_5; Pinnacle overround outside range: h2h) | 2 |
 
 No graded fixtures yet.
 

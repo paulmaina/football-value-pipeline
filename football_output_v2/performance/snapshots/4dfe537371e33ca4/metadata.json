@@ -1,0 +1,24 @@
+{
+  "archive_id": "4dfe537371e33ca4b6760ce21dfdf6ee2c1ffd61",
+  "captured_at_utc": "2026-11-03T13:58:25Z",
+  "data_origin": "immutable prediction generation received at actual capture time",
+  "generated_at_utc": "2026-11-03T13:58:02.173298Z",
+  "git_commit_sha": "f072fc8d9ff07c30f5e957907514561db2cfee41",
+  "n_all_forecasts": 43,
+  "n_pre_kickoff_forecasts": 43,
+  "n_shortlist": 2,
+  "prediction_run_id": "84c93e73cb75ab43017da721cd7854788fa666a69d8f60143805216a76a59be9",
+  "schema_version": 1,
+  "selection_policy_version": "48h-ah-price-edge-cagey-v28",
+  "sha256": {
+    "bet365_vs_pinnacle.csv": "4ed3f1d791bf449852c1332608bcf5e2429b412c9d33ee007fd6ea0debe4b768",
+    "cagey_correction_monitoring.csv": "7bf6de56b1319808b5826a2630ef9419c96526bf7c13e9c32a7d453964b575fe",
+    "cagey_tier_shortlist.csv": "e2c4ef9db2c76e68bc0da3acaea1bf01412a51250365c0ab45164a46a02d2a48",
+    "pipeline_health.json": "60180b46847310f2aff2c5f1b9b05a7ea3d5d9670a349388f241fef630dd0182",
+    "predictions.csv": "75a55b7db4a15948e66299d6e6c7b2f8930e2c07f66f3aa1c9691b9a25235b15",
+    "price_edge_tagged_candidates.csv": "09eb644d8c5ea677c1874c770daf5c5aa7346fa7439c7880acca1c5f82ed3c8b",
+    "run_manifest.json": "f9a3efe887878fe0ef9dd2034ac913009fb5b83932892649f19faadd07380fcc",
+    "selection_summary.json": "91ffadc162740e5aa327530dc1f072116bcb718a65a9580d58f658035edcea2f",
+    "shortlist.csv": "41482986e31d58aa7301ed2fc446f21d0bef668301db0f5df1fb7374c1d8ed7d"
+  }
+}
