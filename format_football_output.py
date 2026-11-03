@@ -1462,6 +1462,8 @@ def process_conservative_shortlist(
     Only the pipeline may select markets. This function reads but never
     mutates the shortlist or its summary file.
     """
+    # Only a run with the cagey tier enabled rewrites this; never leave an old tier's picks behind.
+    (output_dir / "cagey_tier_shortlist_readable.csv").unlink(missing_ok=True)
     source = input_dir / "conservative_bet_shortlist.csv"
     if not source.exists():
         # Prevent an obsolete report from appearing current when input
