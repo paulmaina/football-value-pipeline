@@ -106,6 +106,40 @@ class RecordTests(OfflineQuotePolicyTestCase):
         self.assertLessEqual(pd.Timestamp(usable['latest_input_quote_utc']), pd.Timestamp(usable['generated_at_utc']))
 
 
+class PriceProvenanceTests(OfflineQuotePolicyTestCase):
+    def test_only_fresh_pre_kickoff_quotes_are_recorded_with_their_timestamps(self):
+        from test_price_edge_cagey_shortlist import cagey_row, run
+        from test_price_edge_shortlist import FRESH, NOW, offer
+        kickoff = NOW + pd.Timedelta(hours=24)
+        old = (NOW - pd.Timedelta(days=2)).isoformat()
+        after_kickoff = (kickoff + pd.Timedelta(minutes=5)).isoformat()
+        offers = [offer('away', 1.0, 1.30, stamp=old),                 # two days old
+                  offer('away', 1.25, 1.25, stamp=after_kickoff),      # after kickoff
+                  offer('away', 1.5, 1.20, stamp=FRESH),               # usable
+                  offer('away', 1.5, 1.15, book='Pinnacle', stamp=None)]  # no timestamp
+        monitor = []
+        run(cagey_row(offers=offers), monitor=monitor)
+        [record_row] = monitor
+        self.assertIsNone(record_row['away_plus_1_onexbet_odds'])
+        self.assertIsNone(record_row['away_plus_1_onexbet_odds_utc'])
+        self.assertIsNone(record_row['away_plus_1_25_onexbet_odds'])
+        self.assertEqual((record_row['away_plus_1_5_onexbet_odds'], record_row['away_plus_1_5_onexbet_odds_utc']),
+                         (1.20, FRESH))
+        self.assertIsNone(record_row['away_plus_1_5_pinnacle_odds'])
+
+    def test_review_blanks_prices_without_valid_provenance(self):
+        late = (KICK + timedelta(minutes=1)).isoformat()
+        row = record(T0, home_plus_1_onexbet_odds=1.3, home_plus_1_onexbet_odds_utc=(T0 - timedelta(minutes=2)).isoformat(),
+                     home_plus_1_5_onexbet_odds=1.2, home_plus_1_5_onexbet_odds_utc=late,
+                     away_plus_1_pinnacle_odds=1.4, away_plus_1_pinnacle_odds_utc=None,
+                     away_plus_2_pinnacle_odds=1.1, away_plus_2_pinnacle_odds_utc=(T0 - timedelta(days=2)).isoformat())
+        checked = tracking._validated_prices(row)
+        self.assertEqual(checked['home_plus_1_onexbet_odds'], 1.3)
+        self.assertEqual([checked[k] for k in ('home_plus_1_5_onexbet_odds', 'away_plus_1_pinnacle_odds',
+                                               'away_plus_2_pinnacle_odds')], [None, None, None])
+        self.assertEqual(checked['prices_blanked'], 3)
+
+
 def _fit(data):
     import price_edge_shortlist as v27
     from test_price_edge_shortlist import NOW

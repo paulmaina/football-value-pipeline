@@ -41,7 +41,8 @@ import numpy as np
 import pandas as pd
 
 from price_edge_shortlist import POLICY, TAGS
-from price_edge_cagey_shortlist import POLICY as CAGEY_POLICY, MONITOR_FILE, MONITOR_LINES, MONITOR_VERSION
+from price_edge_cagey_shortlist import (POLICY as CAGEY_POLICY, MONITOR_FILE, MONITOR_LINES, MONITOR_VERSION,
+                                        BOOK_COLUMNS, usable_quote)
 import narrow_margin as nm
 POLICIES = (POLICY, CAGEY_POLICY)  # v27 and v28 value-tier picks are graded together, split by policy.
 from price_edge_cagey_shortlist import TIER_FILE
@@ -180,6 +181,20 @@ def _exclusion(row: dict, meta: dict) -> Optional[str]:
     return None
 
 
+def _validated_prices(row: dict) -> dict:
+    """Blank any recorded bookmaker price whose own quote was not fresh at generation or not before kickoff."""
+    out, blanked = dict(row), 0
+    for side in ('home', 'away'):
+        for line in MONITOR_LINES:
+            for column in BOOK_COLUMNS.values():
+                key = f"{side}_plus_{line:g}".replace('.', '_') + '_' + column
+                if out.get(key) not in (None, '') and not usable_quote(out.get(key + '_utc'), out.get('generated_at_utc'),
+                                                                       out.get('kickoff_utc')):
+                    out[key], blanked = None, blanked + 1
+    out['prices_blanked'] = blanked
+    return out
+
+
 def first_monitoring_records(root: Path, archive) -> List[dict]:
     """One record per fixture: its first eligible pre-kickoff capture, else its first record with the reason."""
     from performance_tracking import fixture_key, read_csv
@@ -191,7 +206,7 @@ def first_monitoring_records(root: Path, archive) -> List[dict]:
         for row in read_csv(path):
             key = fixture_key(row)
             reason = _exclusion(row, meta)
-            item = {**row, 'fixture_key': key, 'snapshot_commit': meta['git_commit_sha'],
+            item = {**_validated_prices(row), 'fixture_key': key, 'snapshot_commit': meta['git_commit_sha'],
                     'snapshot_captured_utc': meta['captured_at_utc'], 'exclusion_reason': reason or ''}
             if reason is None:
                 first.setdefault(key, item)

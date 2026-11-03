@@ -194,7 +194,17 @@ def _line_key(side: str, line: float) -> str:
 
 
 MONITOR_PRICE_COLUMNS = [f'{_line_key(side, line)}_{kind}' for side in ('home', 'away') for line in MONITOR_LINES
-                         for kind in ('corrected_fair_odds', 'uncorrected_fair_odds', 'pinnacle_odds', 'onexbet_odds')]
+                         for kind in ('corrected_fair_odds', 'uncorrected_fair_odds', 'pinnacle_odds', 'pinnacle_odds_utc',
+                                      'onexbet_odds', 'onexbet_odds_utc')]
+BOOK_COLUMNS = {'Pinnacle': 'pinnacle_odds', '1xBet': 'onexbet_odds'}
+
+
+def usable_quote(stamp, generated, kickoff) -> bool:
+    """A bookmaker price counts as pre-match evidence only if its quote was fresh at generation
+    (the selection freshness rule) and timestamped before kickoff."""
+    from quote_freshness import quote_is_fresh, quote_utc
+    when, kick = quote_utc(stamp), quote_utc(kickoff)
+    return when is not None and kick is not None and when < kick and quote_is_fresh(stamp, generated)
 MONITOR_COLUMNS = ['monitoring_version', 'generated_at_utc', 'league', 'home_team', 'away_team', 'fixture_id',
                    'kickoff_utc', 'model_version', 'quintile_model_sha256', 'status', 'exclusion_reason', 'fit',
                    'latest_input_quote_utc', 'corrected_p2', 'corrected_p3', 'uncorrected_p2', 'uncorrected_p3',
@@ -220,18 +230,21 @@ def monitoring_record(row: Mapping, items: List[Mapping], fit: mi.Fit, fit_info:
                   corrected_p2=context['score'], corrected_p3=nm.margin_tail(margins, corrected, 3),
                   uncorrected_p2=nm.margin_tail(margins, raw, 2), uncorrected_p3=nm.margin_tail(margins, raw, 3),
                   corrected_cagey_quintile=nm.quintile_label(context['score'], quintiles['boundaries']))
+    # Only prices whose own quote passes the freshness and pre-kickoff checks; each keeps its timestamp.
     offered = {}
     for item in items:
-        book, price = item.get('bookmaker'), item.get('offered_decimal_odds')
-        if book in MONITOR_BOOKS and pd.notna(price) and item.get('handicap_side') in ('home', 'away'):
-            offered.setdefault((item['handicap_side'], float(item['handicap_line']), book), price)
+        book, price, stamp = item.get('bookmaker'), item.get('offered_decimal_odds'), item.get('offered_last_update_utc')
+        if (book in MONITOR_BOOKS and pd.notna(price) and item.get('handicap_side') in ('home', 'away')
+                and usable_quote(stamp, now, row.get('kickoff_utc'))):
+            offered.setdefault((item['handicap_side'], float(item['handicap_line']), book), (price, stamp))
     for side in ('home', 'away'):
         for line in MONITOR_LINES:
             key = _line_key(side, line)
             record[f'{key}_corrected_fair_odds'] = nm.price_distribution(margins, corrected, side, line)['fair_odds']
             record[f'{key}_uncorrected_fair_odds'] = nm.price_distribution(margins, raw, side, line)['fair_odds']
-            record[f'{key}_pinnacle_odds'] = offered.get((side, line, 'Pinnacle'))
-            record[f'{key}_onexbet_odds'] = offered.get((side, line, '1xBet'))
+            for book, column in BOOK_COLUMNS.items():
+                price, stamp = offered.get((side, line, book), (None, None))
+                record[f'{key}_{column}'], record[f'{key}_{column}_utc'] = price, stamp
     return record
 
 
