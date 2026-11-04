@@ -1215,6 +1215,36 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "CL:575386": {
+    "away_goals": 3,
+    "away_short_name": "Real Madrid",
+    "away_team": "Real Madrid CF",
+    "first_verified_at_utc": "2026-11-04T19:57:12Z",
+    "home_goals": 2,
+    "home_short_name": "PAE AEK",
+    "home_team": "PAE AEK",
+    "kickoff_utc": "2026-11-04T17:45:00Z",
+    "league_code": "CL",
+    "match_id": 575386,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "CL:575387": {
+    "away_goals": 2,
+    "away_short_name": "Liverpool",
+    "away_team": "Liverpool FC",
+    "first_verified_at_utc": "2026-11-04T19:57:12Z",
+    "home_goals": 3,
+    "home_short_name": "Fenerbahçe",
+    "home_team": "Fenerbahçe SK",
+    "kickoff_utc": "2026-11-04T17:45:00Z",
+    "league_code": "CL",
+    "match_id": 575387,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "DED:558846": {
     "away_goals": 3,
     "away_short_name": "Sparta",
