@@ -473,6 +473,8 @@ def _captured(snapshots, bundle):
     from performance_tracking import load_snapshot
     run_id = bundle.name
     directory = snapshots/digest(('prediction-run:'+run_id).encode())[:16]
+    if not directory.exists():
+        return False  # A new run has no archive to validate yet.
     try:
         snapshot = load_snapshot(directory)
         # Legacy commit snapshots skip run binding, so require a prediction-run archive.
