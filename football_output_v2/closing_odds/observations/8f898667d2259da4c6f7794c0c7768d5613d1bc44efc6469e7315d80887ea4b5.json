@@ -1,0 +1,152 @@
+{
+  "fixture": {
+    "away_team": "Aston Villa",
+    "home_team": "Barcelona",
+    "kickoff_utc": "2026-11-03T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "bd680c6ad693dae859030f86e1be2769"
+  },
+  "observed_at_utc": "2026-11-03T19:54:20.612181+00:00",
+  "payload": {
+    "away_team": "Aston Villa",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-03T19:53:38Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 9.11
+              },
+              {
+                "name": "Barcelona",
+                "price": 1.26
+              },
+              {
+                "name": "Draw",
+                "price": 7.08
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-03T19:53:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 2.08
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.8
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-03T19:53:57Z",
+            "outcomes": [
+              {
+                "name": "Aston Villa",
+                "price": 8.75
+              },
+              {
+                "name": "Barcelona",
+                "price": 1.29
+              },
+              {
+                "name": "Draw",
+                "price": 7.0
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-03T19:53:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 2.0
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.89
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-03T20:00:00Z",
+    "home_team": "Barcelona",
+    "id": "bd680c6ad693dae859030f86e1be2769",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7814544783181301,
+      "selection": "home",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 7.08,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.12388151824729392,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 9.11,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.09466400343457614,
+      "selection": "away",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.766101340306516,
+      "selection": "home",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 7.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.13054046562764782,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 8.75,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1033581940658362,
+      "selection": "away",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

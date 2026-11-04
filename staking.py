@@ -22,6 +22,10 @@ capped per bet and scaled down when the slate's combined exposure would
 exceed ``max_total_exposure``. Only STRICT selections receive a stake.
 These figures are advisory research outputs; they never change
 probabilities, filters or the shortlist itself.
+
+v28 uses reference-specific matrix settlement probabilities: corrected for
+c-cagey value picks and the cagey list, uncorrected fit B for other value picks.
+An unavailable required distribution is never replaced with another source.
 """
 from __future__ import annotations
 
@@ -34,9 +38,11 @@ import pandas as pd
 from scipy.optimize import minimize_scalar
 
 from asian_handicap import OUTCOMES
+from price_edge_cagey_shortlist import POLICY as CAGEY_POLICY, settlement_basis
 
 VERSION = 'fractional-kelly-conservative-v1'
 OUTPUT_FILE = 'stake_recommendations.csv'
+CAGEY_OUTPUT_FILE = 'cagey_tier_stake_recommendations.csv'
 KELLY_MULTIPLIER = 0.25
 MAX_STAKE_FRACTION = 0.025
 MAX_TOTAL_EXPOSURE = 0.10
@@ -47,6 +53,10 @@ SETTLEMENT = {'full_win': (1., 0.), 'half_win': (.5, 0.), 'refund': (0., 0.),
               'half_loss': (0., .5), 'full_loss': (0., 1.)}
 IDENTITY_COLUMNS = ['league', 'home_team', 'away_team', 'kickoff_utc', 'fixture_id',
                     'market', 'selection_tier', 'bookmaker', 'offered_decimal_odds']
+
+
+class UnavailableDistribution(ValueError):
+    """The required matrix is absent or unusable; another source must never replace it."""
 
 
 def _number(value) -> Optional[float]:
@@ -113,8 +123,21 @@ def settlement_kelly(probabilities: Mapping[str, float], odds: float, cost: floa
     return float(result.x)
 
 
-def conservative_settlement(row: Mapping) -> dict:
+def conservative_settlement(row: Mapping, *, tier='value') -> dict:
     """Calibration-penalised settlement distribution for one shortlist row."""
+    if row.get('selection_policy_version') == CAGEY_POLICY:
+        # The list and fair reference choose the source, never availability.
+        prefix = settlement_basis(row, tier).removesuffix('_matrix')
+        if prefix == 'uncorrected' and row.get('uncorrected_fit') != 'B':
+            raise UnavailableDistribution('Unavailable uncorrected fit B settlement distribution')
+        mapping = {'full_win': 'win', 'half_win': 'half_win', 'refund': 'push',
+                   'half_loss': 'half_loss', 'full_loss': 'loss'}
+        probs = {key: _number(row.get(prefix + '_p_' + suffix)) for key, suffix in mapping.items()}
+        if any(v is None or not 0 <= v <= 1 for v in probs.values()) or abs(sum(probs.values()) - 1) > 1e-6:
+            raise UnavailableDistribution('Unavailable complete v28 ' + prefix + ' settlement distribution')
+        if row.get(prefix + '_input_timing_status') not in (None, 'SYNCHRONIZED'):
+            raise UnavailableDistribution('Unsynchronised v28 ' + prefix + ' settlement inputs')
+        return probs
     rank = _number(row.get('rank_probability'))
     predicted = _number(row.get('predicted_probability'))
     basis = rank if rank is not None else predicted
@@ -140,6 +163,7 @@ def stake_recommendations(
     multiplier: float = KELLY_MULTIPLIER,
     max_fraction: float = MAX_STAKE_FRACTION,
     max_total_exposure: Optional[float] = MAX_TOTAL_EXPOSURE,
+    *, tier: str = 'value',
 ) -> pd.DataFrame:
     """One advisory stake row per shortlisted selection.
 
@@ -154,17 +178,26 @@ def stake_recommendations(
     if max_total_exposure is not None and not 0 < max_total_exposure <= 1:
         raise ValueError('Total exposure cap must be in (0, 1]')
     rows = []
+    if tier not in ('value', 'cagey'):
+        raise ValueError('Unknown shortlist tier')
     for record in shortlist.to_dict('records'):
+        record = dict(record)
+        if tier == 'cagey':
+            record['selection_tier'] = 'STRICT' if record.get('cagey_tier_decision') == 'SHORTLISTED' else None
         out = {k: record.get(k) for k in IDENTITY_COLUMNS}
         out.update(staking_version=VERSION, probability_basis='rank_probability',
                    kelly_multiplier=multiplier, max_stake_fraction=max_fraction,
                    conservative_ev=None, full_kelly_fraction=None, stake_fraction=0.0)
+        out['shortlist_tier'] = tier
+        if record.get('selection_policy_version') == CAGEY_POLICY:
+            out['staking_version'] = 'fractional-kelly-v28-reference-v2'
+            out['probability_basis'] = settlement_basis(record, tier)
         try:
             odds = _number(record.get('offered_decimal_odds'))
             cost = _number(record.get('per_stake_cost')) or 0.0
             if odds is None:
                 raise ValueError('Missing odds')
-            probs = conservative_settlement(record)
+            probs = conservative_settlement(record, tier=tier)
             full = settlement_kelly(probs, odds, cost)
             out.update(conservative_ev=settlement_ev(probs, odds, cost), full_kelly_fraction=full)
             if record.get('selection_tier') not in STAKED_TIERS:
@@ -175,6 +208,9 @@ def stake_recommendations(
                 out['stake_fraction'] = min(multiplier * full, max_fraction)
                 out['staking_status'] = ('STAKE_CAPPED' if multiplier * full > max_fraction
                                          else 'STAKE')
+        except UnavailableDistribution as exc:
+            out['staking_status'] = 'NO_STAKE_UNAVAILABLE_DISTRIBUTION'
+            out['staking_error'] = str(exc)
         except ValueError as exc:
             out['staking_status'] = 'NO_STAKE_INVALID_INPUT'
             out['staking_error'] = str(exc)
@@ -182,7 +218,7 @@ def stake_recommendations(
     frame = pd.DataFrame(rows)
     if frame.empty:
         return pd.DataFrame(columns=[*IDENTITY_COLUMNS, 'staking_version', 'stake_fraction',
-                                     'stake_units', 'staking_status'])
+                                     'stake_units', 'staking_status', 'probability_basis', 'shortlist_tier'])
     total = float(frame['stake_fraction'].sum())
     frame['exposure_scale'] = 1.0
     if max_total_exposure is not None and total > max_total_exposure:
@@ -193,8 +229,15 @@ def stake_recommendations(
     return frame
 
 
-def write_stake_recommendations(shortlist: pd.DataFrame, out_dir: Path, **settings) -> Path:
+def write_stake_recommendations(shortlist: pd.DataFrame, out_dir: Path, *, tier='value', **settings) -> Path:
     """Write :func:`stake_recommendations` beside the shortlist."""
-    path = Path(out_dir) / OUTPUT_FILE
-    stake_recommendations(shortlist, **settings).to_csv(path, index=False)
+    path = Path(out_dir) / (CAGEY_OUTPUT_FILE if tier == 'cagey' else OUTPUT_FILE)
+    stake_recommendations(shortlist, tier=tier, **settings).to_csv(path, index=False)
     return path
+
+
+def write_shortlist_stakes(value: pd.DataFrame, cagey: pd.DataFrame, out_dir: Path, **settings):
+    """Separate advisory plans: exposure caps apply per list, not a combined portfolio."""
+    return (write_stake_recommendations(value, out_dir, **settings),
+            write_stake_recommendations(cagey, out_dir, tier='cagey', **settings))
+

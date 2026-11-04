@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "AS Roma",
+    "home_team": "Manchester United",
+    "kickoff_utc": "2026-11-03T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "bc0b6614c9714816038d5a0ff8963144"
+  },
+  "observed_at_utc": "2026-11-03T19:54:21.104256+00:00",
+  "payload": {
+    "away_team": "AS Roma",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-03T19:53:38Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "price": 2.88
+              },
+              {
+                "name": "Manchester United",
+                "price": 2.17
+              },
+              {
+                "name": "Draw",
+                "price": 4.27
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-03T19:53:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.21
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.67
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-03T19:53:57Z",
+            "outcomes": [
+              {
+                "name": "AS Roma",
+                "price": 3.14
+              },
+              {
+                "name": "Manchester United",
+                "price": 2.1
+              },
+              {
+                "name": "Draw",
+                "price": 4.34
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-03T19:53:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.99
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.92
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-03T20:00:00Z",
+    "home_team": "Manchester United",
+    "id": "bc0b6614c9714816038d5a0ff8963144",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.17,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.44656873840821015,
+      "selection": "home",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.27,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22079657684271228,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.88,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3326346847490775,
+      "selection": "away",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.21,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4249905039595596,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.67,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5750094960404405,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.1,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.46776270870249226,
+      "selection": "home",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.34,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2224166499976686,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.14,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.30982064129983916,
+      "selection": "away",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
