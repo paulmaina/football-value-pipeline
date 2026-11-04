@@ -62,16 +62,16 @@
         "standard_error": null
       },
       "Q4": {
-        "mean": 0.10887256335052853,
-        "n": 1,
-        "positive_share": 1.0,
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
         "standard_error": null
       },
       "Q5 most open": {
-        "mean": 0.03817000541418514,
-        "n": 1,
+        "mean": 0.07352128438235683,
+        "n": 2,
         "positive_share": 1.0,
-        "standard_error": null
+        "standard_error": 0.03535127896817169
       },
       "n/a": {
         "mean": null,
@@ -86,6 +86,12 @@
         "n": 3,
         "positive_share": 0.6666666666666666,
         "standard_error": 0.054706979873086904
+      },
+      "yes": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
       }
     },
     "high_draw": {
@@ -94,6 +100,12 @@
         "n": 3,
         "positive_share": 0.6666666666666666,
         "standard_error": 0.054706979873086904
+      },
+      "yes": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
       }
     },
     "low_total": {
@@ -238,16 +250,16 @@
         "standard_error": null
       },
       "Q4": {
-        "mean": -1.0,
-        "n": 1,
-        "positive_share": 0.0,
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
         "standard_error": null
       },
       "Q5 most open": {
-        "mean": 0.42999999999999994,
-        "n": 1,
-        "positive_share": 1.0,
-        "standard_error": null
+        "mean": -0.28500000000000003,
+        "n": 2,
+        "positive_share": 0.5,
+        "standard_error": 0.7149999999999999
       },
       "n/a": {
         "mean": null,
@@ -262,6 +274,12 @@
         "n": 2,
         "positive_share": 0.5,
         "standard_error": 0.7149999999999999
+      },
+      "yes": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
       }
     },
     "high_draw": {
@@ -270,6 +288,12 @@
         "n": 2,
         "positive_share": 0.5,
         "standard_error": 0.7149999999999999
+      },
+      "yes": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
       }
     },
     "low_total": {
@@ -368,7 +392,7 @@
     }
   },
   "cagey_tier_active_rule": "narrow-63-flagged-v2",
-  "cagey_tier_picks": 7,
+  "cagey_tier_picks": 9,
   "cagey_tier_review": false,
   "cagey_tier_review_rule": ">= 50 graded value-priced cagey-tier picks made under the active rule (narrow-63-flagged-v2) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false",
   "cagey_tier_roi": {
@@ -412,6 +436,12 @@
         "n": 2,
         "positive_share": 1.0,
         "standard_error": 0.03535127896817169
+      },
+      "yes": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
       }
     },
     "bookmaker": {
@@ -423,11 +453,41 @@
       }
     },
     "cagey_quintile": {
-      "n/a": {
-        "mean": 0.07352128438235683,
-        "n": 2,
+      "Q1 cagiest": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      },
+      "Q2": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      },
+      "Q3": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      },
+      "Q4": {
+        "mean": 0.10887256335052853,
+        "n": 1,
         "positive_share": 1.0,
-        "standard_error": 0.03535127896817169
+        "standard_error": null
+      },
+      "Q5 most open": {
+        "mean": 0.03817000541418514,
+        "n": 1,
+        "positive_share": 1.0,
+        "standard_error": null
+      },
+      "n/a": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
       }
     },
     "even_odds": {
@@ -472,6 +532,12 @@
         "n": 1,
         "positive_share": 1.0,
         "standard_error": null
+      },
+      ">=2.40": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
       }
     },
     "reference_type": {
@@ -497,6 +563,12 @@
       }
     },
     "tagged": {
+      "any tag": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      },
       "no tag": {
         "mean": 0.07352128438235683,
         "n": 2,
@@ -504,7 +576,20 @@
         "standard_error": 0.03535127896817169
       }
     },
-    "value_market_group": {}
+    "value_market_group": {
+      "match_winner": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      },
+      "n/a": {
+        "mean": 0.07352128438235683,
+        "n": 2,
+        "positive_share": 1.0,
+        "standard_error": 0.03535127896817169
+      }
+    }
   },
   "correction_monitoring": {
     "by_quintile": {
@@ -616,9 +701,9 @@
     },
     "correction_review": false,
     "excluded_by_reason": {
-      "no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)": 19,
-      "no usable market-implied fit (missing input: over_2_5)": 5,
-      "no usable market-implied fit (missing input: over_2_5; Pinnacle overround outside range: h2h)": 2
+      "no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)": 18,
+      "no usable market-implied fit (missing input: over_2_5)": 22,
+      "no usable market-implied fit (missing input: over_2_5; Pinnacle overround outside range: h2h)": 1
     },
     "fair_price_returns": {
       "corrected": {
@@ -635,10 +720,10 @@
       }
     },
     "fixtures": {
-      "eligible": 34,
-      "excluded": 26,
+      "eligible": 43,
+      "excluded": 41,
       "graded": 7,
-      "pending": 27
+      "pending": 36
     },
     "log_loss": {
       "2plus": {
@@ -674,9 +759,38 @@
     "positive_share": null,
     "standard_error": null
   },
-  "frozen_picks": 5,
+  "frozen_picks": 6,
   "master": {
-    "by_price_flag": {},
+    "by_price_flag": {
+      "below value threshold": {
+        "clv": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        },
+        "profit": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        }
+      },
+      "value": {
+        "clv": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        },
+        "profit": {
+          "mean": null,
+          "n": 0,
+          "positive_share": null,
+          "standard_error": null
+        }
+      }
+    },
     "clv": {
       "mean": null,
       "n": 0,
@@ -690,7 +804,7 @@
       "standard_error": null
     }
   },
-  "master_picks": 0,
+  "master_picks": 10,
   "note": "CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.",
   "policy": "48h-ah-price-edge-pinnacle-ref-v27",
   "profit": {
@@ -700,7 +814,7 @@
     "standard_error": 0.7149999999999999
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-04T19:35:16.855789+00:00",
+  "reviewed_at_utc": "2026-11-04T19:41:17.338659+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
@@ -731,12 +845,12 @@
       }
     },
     "edge_at_capture_1xbet": {
-      "mean": -0.03199579442319522,
-      "n": 109,
-      "positive_share": 0.12844036697247707,
-      "standard_error": 0.002104006102484818
+      "mean": -0.03123367091817489,
+      "n": 149,
+      "positive_share": 0.09395973154362416,
+      "standard_error": 0.0017488856522657472
     },
-    "frozen": 506,
+    "frozen": 803,
     "return_at_capture_fair": {
       "mean": 0.05115301054288437,
       "n": 102,
@@ -749,7 +863,7 @@
       "positive_share": 0.5964912280701754,
       "standard_error": 0.07943934797765384
     },
-    "with_offered_price": 506
+    "with_offered_price": 803
   },
   "version": "price-edge-v27-tracking-v1"
 }
