@@ -1,0 +1,184 @@
+{
+  "fixture": {
+    "away_team": "Real Madrid",
+    "home_team": "AEK Athens",
+    "kickoff_utc": "2026-11-04T17:45:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "f43ef699c987e112e115f7035114854e"
+  },
+  "observed_at_utc": "2026-11-04T17:39:29.747532+00:00",
+  "payload": {
+    "away_team": "Real Madrid",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T17:39:27Z",
+            "outcomes": [
+              {
+                "name": "AEK Athens",
+                "price": 12.9
+              },
+              {
+                "name": "Real Madrid",
+                "price": 1.21
+              },
+              {
+                "name": "Draw",
+                "price": 7.56
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T17:39:27Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.77
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.13
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T17:39:28Z",
+            "outcomes": [
+              {
+                "name": "AEK Athens",
+                "price": 12.0
+              },
+              {
+                "name": "Real Madrid",
+                "price": 1.21
+              },
+              {
+                "name": "Draw",
+                "price": 8.25
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T17:39:28Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.81
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.1
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-04T17:45:00Z",
+    "home_team": "AEK Athens",
+    "id": "f43ef699c987e112e115f7035114854e",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 12.9,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.06628225792688064,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T17:39:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 7.56,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.11686303174177709,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T17:39:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.21,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.8168547103313422,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T17:39:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.77,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5485269383402518,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-04T17:39:27+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.13,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4514730616597482,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-04T17:39:27+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 12.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.0731865064780263,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T17:39:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 8.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.10855776503357921,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T17:39:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.21,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.8182557284883945,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T17:39:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.81,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5386620264703903,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-04T17:39:28+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.1,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4613379735296097,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-04T17:39:28+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
