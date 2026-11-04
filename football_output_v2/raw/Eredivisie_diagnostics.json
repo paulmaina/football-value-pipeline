@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "615de97a97f0d322c268f8b3f3257e878336d0e9922ced304f9c92ec61ef9060",
-  "training_as_of_utc": "2026-11-04T10:20:26.740559+00:00",
+  "training_as_of_utc": "2026-11-04T19:40:44.422094+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-11-01",
   "fit_success": true,
-  "objective": 1639.3147970516263,
-  "base": 0.29047696532889555,
-  "home_adv": 0.18315116350684443,
-  "rho": -0.08092105143470163,
+  "objective": 1638.3941085611411,
+  "base": 0.2904901521833224,
+  "home_adv": 0.18314101497017227,
+  "rho": -0.08088339790824295,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -119,13 +119,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 3,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 27,
+  "additional_event_odds_calls_used_before_this_league": 18,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 0,
+  "over_1_5_in_window_quote_fixtures": 1,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -134,6 +134,39 @@
       "home_team": "Willem II",
       "away_team": "FC Zwolle",
       "kickoff_utc": "2026-11-06T19:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "33c5cad848eb423e163a9bf5631ccefe",
+      "event_id": "33c5cad848eb423e163a9bf5631ccefe",
+      "home_team": "Fortuna Sittard",
+      "away_team": "SC Telstar",
+      "kickoff_utc": "2026-11-07T15:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "da066424422bbd4438e5000312b822fd",
+      "event_id": "da066424422bbd4438e5000312b822fd",
+      "home_team": "ADO Den Haag",
+      "away_team": "Sparta Rotterdam",
+      "kickoff_utc": "2026-11-07T17:45:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
@@ -142,19 +175,20 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 1,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 1,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "ANCHORED_ALTERNATE": 1,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 2
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 1
+    "none": 3
   },
   "legacy_comparison_status": {
-    "None": 1
+    "None": 3
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

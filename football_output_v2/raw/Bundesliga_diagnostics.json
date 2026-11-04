@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "a3462040aa40164fa3fdf4be795c175eef9ab017b46bab8c20d7e0fc71ba5c17",
-  "training_as_of_utc": "2026-11-04T10:18:30.346210+00:00",
+  "training_sha256": "0fa0d9672f664bc52cb0c3e8f12ec99ffd75193f03671d76b5ed2bc935e5edba",
+  "training_as_of_utc": "2026-11-04T19:39:12.830329+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 72,
     "bbs_added_results": 0,
@@ -27,7 +27,7 @@
       "unmapped": 668,
       "ambiguous": 0,
       "excluded_phase": 0,
-      "statistics_observations": 68,
+      "statistics_observations": 70,
       "source": "api-football",
       "usage": "supplementary_cached_observations"
     }
@@ -35,10 +35,10 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-04T10:18:30.346210+00:00",
-    "observations": 397,
-    "observations_sha256": "6a2b183c5aeb285c4dd83b4e2ecc9360e1931c9770747bd94631a91f58b81fac",
-    "eligible_training_matches": 80,
+    "cutoff_utc": "2026-11-04T19:39:12.830329+00:00",
+    "observations": 406,
+    "observations_sha256": "cf7c875429061248016b8133b446dc0d3d07fca94f90ee10e42140b8f4f34a33",
+    "eligible_training_matches": 83,
     "required_training_matches": 120,
     "feature_fields": [
       "shots_on_target",
@@ -63,15 +63,15 @@
     "max_form_age_days": 180,
     "max_goal_rate_ratio": 1.25,
     "selected_weight": 0.0,
-    "usable_current_matches": 114,
+    "usable_current_matches": 115,
     "validation_policy": "auto",
     "validation_mode": "retrospective_backfill",
     "strict_eligible_training_matches": 22,
-    "retrospective_eligible_training_matches": 80,
+    "retrospective_eligible_training_matches": 83,
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
-    "retrospective_inputs_sha256": "d309fbcc186badb6d0155f5242cca2fc20f0c490a6c4512d9f9824984fd0c5b5",
+    "retrospective_inputs_sha256": "3e3b40acf02e0408ddc71402f81e1521b46bfb7aa649d9fdd25d92f2de0010a7",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -145,10 +145,10 @@
   },
   "training_end": "2026-11-01",
   "fit_success": true,
-  "objective": 1589.0604855745357,
-  "base": 0.21809614063674895,
-  "home_adv": 0.2258306212044365,
-  "rho": -0.07863579018011742,
+  "objective": 1588.1674254255772,
+  "base": 0.21808848438645764,
+  "home_adv": 0.22588601143473744,
+  "rho": -0.07862774826639445,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -176,13 +176,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 6,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261104T101830346210Z_c85d4b9bf34444e255b134023066126df4a550e2c411c5d8ae13eead3f8c920f.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261104T193912830329Z_6e0c5a3476086dce1e3b3c79d7071ae5c791ff6565bb23b8ad70657a8952f6ba.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
@@ -192,6 +192,78 @@
       "home_team": "Hamburger SV",
       "away_team": "Borussia Monchengladbach",
       "kickoff_utc": "2026-11-06T19:30:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "3ef62ef56758041178c5280225fe5db7",
+      "event_id": "3ef62ef56758041178c5280225fe5db7",
+      "home_team": "Borussia Dortmund",
+      "away_team": "Elversberg",
+      "kickoff_utc": "2026-11-07T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "fe97f5adf397dd6b0a8a9e0a5272f307",
+      "event_id": "fe97f5adf397dd6b0a8a9e0a5272f307",
+      "home_team": "FSV Mainz 05",
+      "away_team": "Bayern Munich",
+      "kickoff_utc": "2026-11-07T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "cdb5f9dd39e79db69659c76cd96d0bbe",
+      "event_id": "cdb5f9dd39e79db69659c76cd96d0bbe",
+      "home_team": "RB Leipzig",
+      "away_team": "Augsburg",
+      "kickoff_utc": "2026-11-07T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "4ca4c7a2a1c15e9121f9a7eaa7f42ddb",
+      "event_id": "4ca4c7a2a1c15e9121f9a7eaa7f42ddb",
+      "home_team": "SC Paderborn",
+      "away_team": "Eintracht Frankfurt",
+      "kickoff_utc": "2026-11-07T14:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "716d6e3f3e91c47a6efaa2e93d570533",
+      "event_id": "716d6e3f3e91c47a6efaa2e93d570533",
+      "home_team": "VfB Stuttgart",
+      "away_team": "Werder Bremen",
+      "kickoff_utc": "2026-11-07T17:30:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
@@ -200,19 +272,20 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 1,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 1,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "ANCHORED_ALTERNATE": 1,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 1
+    "none": 6
   },
   "legacy_comparison_status": {
-    "None": 1
+    "None": 6
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

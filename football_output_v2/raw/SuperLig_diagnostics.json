@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "428b36b889bc8107b0a0c389334f72426054f163962dc5b037f54c55da735d9c",
-  "training_as_of_utc": "2026-11-04T10:20:31.558511+00:00",
+  "training_as_of_utc": "2026-11-04T19:40:48.254461+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1674.811750604131,
-  "base": 0.13093592496649992,
-  "home_adv": 0.24647112862833356,
-  "rho": -0.09647783456465467,
+  "objective": 1673.8712239180109,
+  "base": 0.13095116512411067,
+  "home_adv": 0.2464634729129512,
+  "rho": -0.09650571981367899,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -119,13 +119,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 5,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 27,
+  "additional_event_odds_calls_used_before_this_league": 19,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 0,
+  "over_1_5_in_window_quote_fixtures": 1,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -134,6 +134,65 @@
       "home_team": "Gazi\u015fehir Gaziantep",
       "away_team": "Kasimpasa SK",
       "kickoff_utc": "2026-11-06T17:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "a3dad1ddaa98a6ff741be7f63250f2ee",
+      "event_id": "a3dad1ddaa98a6ff741be7f63250f2ee",
+      "home_team": "Ey\u00fcpspor",
+      "away_team": "Kocaelispor",
+      "kickoff_utc": "2026-11-07T10:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "605767f0e7114a23442d92831c12c767",
+      "event_id": "605767f0e7114a23442d92831c12c767",
+      "home_team": "Samsunspor",
+      "away_team": "Torku Konyaspor",
+      "kickoff_utc": "2026-11-07T13:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "e300554369b00b495db88afb743c95ab",
+      "event_id": "e300554369b00b495db88afb743c95ab",
+      "home_team": "Galatasaray",
+      "away_team": "Amed SK",
+      "kickoff_utc": "2026-11-07T16:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "c7ad58db2278db2259846b11c28ae1c2",
+      "event_id": "c7ad58db2278db2259846b11c28ae1c2",
+      "home_team": "Goztepe",
+      "away_team": "Basaksehir",
+      "kickoff_utc": "2026-11-07T16:00:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
@@ -142,19 +201,20 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 1,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 1,
   "totals_anchor_fixtures": {
-    "ANCHORED_MAIN": 1
+    "ANCHORED_MAIN": 2,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 1
+    "none": 5
   },
   "legacy_comparison_status": {
-    "None": 1
+    "None": 5
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
