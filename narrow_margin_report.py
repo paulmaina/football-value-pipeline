@@ -110,32 +110,33 @@ def _fallback_key(row: Mapping) -> Optional[tuple]:
 
 
 class FixtureIndex:
-    """Matches fixtures: fixture_id first; else league + teams + kick-off, only against rows with no fixture_id.
+    """Matches fixtures: fixture_id when both sides have one; otherwise league + teams + kick-off.
 
-    Two rows with different fixture_ids are never matched to each other. A query that hits more than one row
-    is ambiguous and matches nothing; the caller reports it rather than guessing.
+    The kick-off fallback applies whenever either side lacks a fixture_id (in either direction). Two rows
+    that both carry fixture_ids match only on equal ids, so conflicting ids are never joined. A query that
+    hits more than one row is ambiguous and matches nothing; the caller reports it rather than guessing.
     """
 
     def __init__(self, rows: Sequence[Mapping]):
         self.rows = list(rows)
+        self.ids = [_fixture_id(row.get('fixture_id')) for row in self.rows]
         self.by_id: Dict[str, List[int]] = {}
         self.by_fallback: Dict[tuple, List[int]] = {}
         for i, row in enumerate(self.rows):
-            fixture_id = _fixture_id(row.get('fixture_id'))
-            if fixture_id is not None:
-                self.by_id.setdefault(fixture_id, []).append(i)
-            else:
-                key = _fallback_key(row)
-                if key is not None:
-                    self.by_fallback.setdefault(key, []).append(i)
+            if self.ids[i] is not None:
+                self.by_id.setdefault(self.ids[i], []).append(i)
+            key = _fallback_key(row)
+            if key is not None:
+                self.by_fallback.setdefault(key, []).append(i)
 
     def candidates(self, row: Mapping) -> List[int]:
         fixture_id = _fixture_id(row.get('fixture_id'))
-        hits = self.by_id.get(fixture_id, []) if fixture_id is not None else []
-        if not hits:
-            key = _fallback_key(row)
-            hits = self.by_fallback.get(key, []) if key is not None else []
-        return list(hits)
+        if fixture_id is not None and fixture_id in self.by_id:
+            return list(self.by_id[fixture_id])
+        key = _fallback_key(row)
+        hits = self.by_fallback.get(key, []) if key is not None else []
+        # A query with an id may fall back only to rows without one; rows with another id conflict.
+        return [i for i in hits if fixture_id is None or self.ids[i] is None]
 
     def match_all(self, queries: Sequence[Mapping]) -> List[Tuple[Optional[int], Optional[str]]]:
         """(row index, None) on a unique match; (None, reason) when ambiguous; (None, None) when no row matches.

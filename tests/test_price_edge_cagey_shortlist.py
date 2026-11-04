@@ -85,8 +85,12 @@ class ValueTierTests(OfflineQuotePolicyTestCase):
         a_sel, a_dec, a_sum = v27.build_shortlist(pd.DataFrame(rows), NOW, execution_policy=POLICY)
         b_sel, b_dec, b_sum = run(*rows, settings=OFF)
         drop = ['selection_policy_version']
-        self.assertTrue(a_dec.drop(columns=drop).equals(b_dec.drop(columns=drop)))
-        self.assertTrue(a_sel.drop(columns=drop).equals(b_sel.drop(columns=drop)))
+        # Revision 2 additionally carries the uncorrected sizing distribution.
+        self.assertTrue(a_dec.drop(columns=drop).equals(b_dec[a_dec.columns].drop(columns=drop)))
+        self.assertTrue(a_sel.drop(columns=drop).equals(b_sel[a_sel.columns].drop(columns=drop)))
+        legacy_sel, legacy_dec, _ = run(*rows, settings={**OFF, 'price_edge_execution_version': 1})
+        self.assertTrue(a_dec.drop(columns=drop).equals(legacy_dec.drop(columns=drop)))
+        self.assertTrue(a_sel.drop(columns=drop).equals(legacy_sel.drop(columns=drop)))
         self.assertEqual(set(b_dec.selection_policy_version), {v28.POLICY})
         self.assertFalse(b_sum['cagey_correction_enabled'] or b_sum['cagey_tier_enabled'])
         for key in ('rejection_counts', 'tagged_candidates', 'n_shortlisted'):
@@ -495,7 +499,11 @@ class NarrowTierTests(OfflineQuotePolicyTestCase):
         candidate = decisions.loc[decisions.cagey_tier_decision.notna()].iloc[0]
         self.assertEqual(candidate.cagey_tier_decision, 'REJECTED')
         reasons = candidate.cagey_tier_reasons.split('; ')
-        self.assertTrue(reasons and set(reasons) <= set(v28.TIER_GUARDS), reasons)
+        # Rejected by data guards (v27's and execution v2's input-timing guard), never by a price rule.
+        self.assertTrue(set(reasons) & set(v28.TIER_GUARDS), reasons)
+        for price_rule in ('expected profit below 0 under the corrected matrix',
+                           'corrected no-loss probability below 85%'):
+            self.assertNotIn(price_rule, reasons)
 
     def test_candidate_rule_flags_instead_of_filtering(self):
         item = {'handicap_line': 1.5, 'offered_decimal_odds': 1.4, 'rejection_reasons': 'edge below 3%'}

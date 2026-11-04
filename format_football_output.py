@@ -1466,8 +1466,8 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
             rule_text = (f"Every match with P(narrow: draw or 1-goal win) >= {pct(tier.get('min_p_narrow'), 0)} in the "
                          "20-minute to 48-hour window, with its safest AH +1 to +2.25 line at Pinnacle or 1xBet after "
                          "the data-quality checks; one per match, safest first. **Price vs fair** says whether the "
-                         "price is at or above the corrected fair odds (value) or below it (below fair: negative "
-                         f"expected profit under the model). This run: {tier.get('n_shortlisted', 0)} matches, "
+                         "price gives expected profit >= 0 after stake cost under the corrected matrix (value) or "
+                         f"not (below fair). This run: {tier.get('n_shortlisted', 0)} matches, "
                          f"{tier.get('value_picks', 0)} value, {tier.get('below_fair_picks', 0)} below fair.")
         else:
             rule_text = (f"Cagiest 20% of this run's fixtures by corrected cagey score (cutoff {tier.get('cutoff_used')}, "
