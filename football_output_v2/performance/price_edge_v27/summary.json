@@ -683,7 +683,7 @@
     "standard_error": 0.7149999999999999
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-04T10:21:07.606192+00:00",
+  "reviewed_at_utc": "2026-11-04T12:22:36.476138+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
