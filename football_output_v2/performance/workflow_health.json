@@ -33,13 +33,13 @@
       "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
       "observations": 372,
       "rejected_files": [],
-      "reviewed_at_utc": "2026-11-04T12:22:36.476138+00:00",
+      "reviewed_at_utc": "2026-11-04T12:34:04.378900+00:00",
       "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
       "version": "local-closing-quotes-v4"
     },
     "dependencies": {
-      "PyYAML": "NOT_INSTALLED",
-      "coverage": "NOT_INSTALLED",
+      "PyYAML": "6.0.3",
+      "coverage": "7.17.1",
       "numpy": "2.5.4",
       "pandas": "3.1.0",
       "python": "3.12.15",
@@ -68,7 +68,7 @@
     "experiment_capture_counts": {},
     "experimental_reports": {},
     "forecast_freshness": {
-      "age_hours": 2.034050101944444,
+      "age_hours": 2.2251342025,
       "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
       "status": "WITHIN_24_HOURS",
       "upcoming_fixture_count": 35
@@ -91,10 +91,10 @@
       "automatic_promotion": false,
       "experiments": [],
       "note": "Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.",
-      "reviewed_at_utc": "2026-11-04T12:22:36.476138+00:00",
+      "reviewed_at_utc": "2026-11-04T12:34:04.378900+00:00",
       "version": "experiment-review-queue-v1"
     },
-    "reviewed_at_utc": "2026-11-04T12:22:36.476138+00:00",
+    "reviewed_at_utc": "2026-11-04T12:34:04.378900+00:00",
     "selection_policy_groups": {
       "48h-ah-price-edge-cagey-v28": {
         "brier": 0.206203,
@@ -29410,7 +29410,7 @@
           "completed_matches": 63,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 0.007523246666666666,
+          "download_age_hours": 0.19860734722222223,
           "download_status": "VERIFIED_LIVE",
           "latest_completed_date": "2026-11-03",
           "latest_completed_utc": "2026-11-03T20:00:00+00:00",
@@ -29472,7 +29472,7 @@
             }
           },
           "status": "VERIFIED_WITHIN_24_HOURS",
-          "verified_at_utc": "2026-11-04T12:22:36.476138+00:00"
+          "verified_at_utc": "2026-11-04T12:34:04.378900+00:00"
         },
         "days_since_latest_result": 13,
         "diagnostics_sha256": "1ed4083e511c85b80e82262330f4caed07b17d0fec66ec1e4cc00de6dfe3b4dd",
@@ -29570,7 +29570,7 @@
       }
     }
   },
-  "reviewed_at_utc": "2026-11-04T12:22:36Z",
+  "reviewed_at_utc": "2026-11-04T12:34:04Z",
   "snapshots": 68,
   "shortlist": {
     "brier": 0.147447,
