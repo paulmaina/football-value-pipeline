@@ -25,6 +25,7 @@ except ImportError:  # pragma: no cover - CI installs only the runtime requireme
 NS = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 LEAD = ["Match date", "League", "Home team", "Away team", "Model lean"]
 UNSIGNED_PCT = re.compile(r"^\d+(\.\d+)?%$")
+SHORTLIST_TABS = ["Master shortlist", "Value shortlist", "Cagey tier"]
 
 
 def league_rows(league, count, start=0):
@@ -78,16 +79,25 @@ class WorkbookCase(OfflineQuotePolicyTestCase):
             self.assertIsNone(archive.testzip())
             return {name: archive.read(name) for name in archive.namelist()}
 
-    def sheet_xmls(self):
+    def sheet_names(self):
+        workbook = ET.fromstring(self.parts()["xl/workbook.xml"])
+        return [s.get("name") for s in workbook.findall("m:sheets/m:sheet", NS)]
+
+    def all_sheet_xmls(self):
         parts = self.parts()
-        return [ET.fromstring(parts[n]) for n in sorted(parts) if n.startswith("xl/worksheets/")]
+        return [ET.fromstring(parts[f"xl/worksheets/sheet{i}.xml"]) for i in range(1, len(self.sheet_names()) + 1)]
+
+    def sheet_xmls(self):
+        """League tabs only (the shortlist tabs come first)."""
+        return [x for name, x in zip(self.sheet_names(), self.all_sheet_xmls()) if name not in SHORTLIST_TABS]
 
 
 class LeaguePredictionsWorkbookTests(WorkbookCase):
     def test_every_fixture_league_gets_a_tab_and_empty_or_stale_leagues_do_not(self):
         workbook = ET.fromstring(self.parts()["xl/workbook.xml"])
         names = [s.get("name") for s in workbook.findall("m:sheets/m:sheet", NS)]
-        self.assertEqual(sorted(names), ["EPL", "LaLiga"])
+        self.assertEqual(names[:3], SHORTLIST_TABS)
+        self.assertEqual(sorted(names[3:]), ["EPL", "LaLiga"])
         self.assertNotIn("UCL", names)
         self.assertNotIn("UEL", names)
 
@@ -113,7 +123,8 @@ class LeaguePredictionsWorkbookTests(WorkbookCase):
             # Schema order: autoFilter follows sheetData.
             tags = [child.tag.split("}")[1] for child in xml]
             self.assertLess(tags.index("sheetData"), tags.index("autoFilter"))
-        sheets = [x.find("m:sheetViews/m:sheetView", NS).get("tabSelected") for x in self.sheet_xmls()]
+        sheets = [x.find("m:sheetViews/m:sheetView", NS).get("tabSelected") for x in self.all_sheet_xmls()]
+        self.assertEqual(sheets.index("1"), 0)
         self.assertEqual(sheets.count("1"), 1)
 
     def test_every_part_is_well_formed_xml(self):
@@ -144,8 +155,9 @@ class LeaguePredictionsWorkbookOpenpyxlTests(WorkbookCase):
 
     def test_reloads_cleanly_with_openpyxl(self):
         workbook = self.load()
-        self.assertEqual(sorted(workbook.sheetnames), ["EPL", "LaLiga"])
-        for sheet in workbook.worksheets:
+        self.assertEqual(workbook.sheetnames[:3], SHORTLIST_TABS)
+        self.assertEqual(sorted(workbook.sheetnames[3:]), ["EPL", "LaLiga"])
+        for sheet in workbook.worksheets[3:]:
             self.assertEqual(sheet.freeze_panes, "F2")
             self.assertEqual([c.value for c in sheet[1][:5]], LEAD)
             self.assertEqual(sheet.auto_filter.ref, f"A1:{sheet.cell(1, sheet.max_column).column_letter}{sheet.max_row}")
@@ -202,6 +214,83 @@ class LeaguePredictionsWorkbookOpenpyxlTests(WorkbookCase):
                 self.assertEqual(cell.number_format, number_format)
                 if number_format == "0.0%":
                     self.assertTrue(0 <= cell.value <= 1)
+
+
+class ShortlistTabTests(OfflineQuotePolicyTestCase):
+    """The three readable shortlists lead the workbook: master, value, cagey tier."""
+
+    MASTER = pd.DataFrame({"Rank": ["1", "2"], "Kickoff (UTC)": ["2026-11-04T20:00:00+00:00"] * 2,
+                           "League": ["UCL", "UCL"], "Home": ["Porto", "PSV"], "Away": ["Napoli", "Brugge"],
+                           "Market to bet": ["Asian Handicap Home +0.00", "Home win"], "Price": ["1.53", "2.13"],
+                           "Fair odds": ["1.50", "2.13"], "Edge": ["+2.2%", "+0.1%"],
+                           "No-loss probability": ["72.7%", ""],
+                           "Price flag (value / below value threshold)": ["value", "below value threshold"]})
+    CAGEY = pd.DataFrame({"Kickoff (UTC)": ["2026-11-04T20:00:00+00:00"], "League": ["UCL"], "Home": ["Porto"],
+                          "Away": ["Napoli"], "AH line": ["1.0"], "Price": ["1.07"], "Fair odds": ["1.1136478360629778"],
+                          "Edge": ["-0.039193571477033284"], "Pinnacle draw probability": ["0.24932458510227712"],
+                          "Offered quote age (min)": ["3.34826285"], "Balanced": ["False"]})
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.out = Path(self.tmp.name)
+        self.MASTER.to_csv(self.out / "master_shortlist_readable.csv", index=False, encoding="utf-8-sig")
+        self.CAGEY.to_csv(self.out / "cagey_tier_shortlist_readable.csv", index=False, encoding="utf-8-sig")
+        self.path = self.out / WORKBOOK_NAME
+        self.league = pd.DataFrame([{h: "x" for h in LEAD}])
+
+    def names(self):
+        with ZipFile(self.path) as archive:
+            root = ET.fromstring(archive.read("xl/workbook.xml"))
+        return [s.get("name") for s in root.findall("m:sheets/m:sheet", NS)]
+
+    def test_tabs_lead_in_order_and_a_missing_list_gets_a_note(self):
+        write_predictions_workbook([("EPL", self.league)], self.path, formatter.read_shortlist_tabs(self.out))
+        self.assertEqual(self.names(), SHORTLIST_TABS + ["EPL"])
+        with ZipFile(self.path) as archive:
+            value_tab = archive.read("xl/worksheets/sheet2.xml").decode()
+        self.assertIn("No value shortlist in this run.", value_tab)
+
+    def test_refresh_rewrites_shortlist_tabs_and_keeps_league_tabs(self):
+        self.league.to_csv(self.out / "EPL_predictions_readable.csv", index=False, encoding="utf-8-sig")
+        write_predictions_workbook([("EPL", self.league)], self.path, formatter.read_shortlist_tabs(self.out))
+        (self.out / "master_shortlist_readable.csv").unlink()
+        formatter.refresh_workbook_shortlists(self.out)
+        self.assertEqual(self.names(), SHORTLIST_TABS + ["EPL"])
+        with ZipFile(self.path) as archive:
+            self.assertIn("No master shortlist in this run.", archive.read("xl/worksheets/sheet1.xml").decode())
+        # No workbook yet: nothing is created by a shortlist-only refresh.
+        self.path.unlink()
+        self.assertIsNone(formatter.refresh_workbook_shortlists(self.out))
+        self.assertFalse(self.path.exists())
+
+    @unittest.skipIf(openpyxl is None, "openpyxl is not installed")
+    def test_values_are_numbers_with_formats(self):
+        write_predictions_workbook([("EPL", self.league)], self.path, formatter.read_shortlist_tabs(self.out))
+        with warnings.catch_warnings():
+            warnings.simplefilter("error")
+            workbook = openpyxl.load_workbook(self.path)
+        master, cagey = workbook["Master shortlist"], workbook["Cagey tier"]
+        self.assertEqual(workbook.active.title, "Master shortlist")
+        self.assertEqual(master.freeze_panes, "F2")
+        self.assertEqual(cagey.freeze_panes, "E2")
+        cell = lambda sheet, header, row=2: sheet.cell(row, [c.value for c in sheet[1]].index(header) + 1)
+        self.assertEqual((cell(master, "Rank").value, cell(master, "Price").value), (1.0, 1.53))
+        self.assertEqual(cell(master, "Price").number_format, "0.00")
+        self.assertAlmostEqual(cell(master, "Edge").value, 0.022)
+        self.assertEqual(cell(master, "Edge").number_format, "+0.0%;-0.0%;0.0%")
+        self.assertAlmostEqual(cell(master, "No-loss probability").value, 0.727)
+        self.assertIsNone(cell(master, "No-loss probability", 3).value)
+        self.assertEqual(cell(master, "Price flag (value / below value threshold)", 3).value, "below value threshold")
+        self.assertEqual(cell(master, "Market to bet").value, "Asian Handicap Home +0.00")
+        # Unformatted fractions in the cagey tier still display as percentages.
+        self.assertAlmostEqual(cell(cagey, "Edge").value, -0.039193571477033284)
+        self.assertEqual(cell(cagey, "Edge").number_format, "+0.0%;-0.0%;0.0%")
+        self.assertEqual(cell(cagey, "Pinnacle draw probability").number_format, "0.0%")
+        self.assertEqual(cell(cagey, "Fair odds").number_format, "0.00")
+        self.assertEqual(cell(cagey, "Balanced").value, "False")
+        self.assertEqual(cell(cagey, "AH line").value, "1.0")
+        self.assertEqual(cagey.auto_filter.ref, "A1:K2")
 
 
 if __name__ == "__main__":

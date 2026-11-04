@@ -12,7 +12,7 @@ import pandas as pd
 
 from conservative_bet_filter import build_conservative_shortlist
 from asian_handicap import PRODUCTION_POLICY as CURRENT_SELECTION_POLICY, requires_goal_market_validation
-from format_football_output import process_conservative_shortlist
+from format_football_output import publish_shortlists
 
 
 def _refresh(root, as_of=None, *, raw_dir=None):
@@ -72,7 +72,7 @@ def refresh(root, as_of=None):
         raw_check(staging.parent)
         bundle = publish_run(staging, root/'raw')
     (root/'readable').mkdir(parents=True, exist_ok=True)
-    process_conservative_shortlist(bundle, root/'readable')
+    publish_shortlists(bundle, root/'readable')
     return summary
 
 
