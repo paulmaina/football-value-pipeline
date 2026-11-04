@@ -1,21 +1,21 @@
 {
-  "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+  "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28",
   "selection_objective": "AH_PRICE_EDGE_VS_PINNACLE",
   "status": "BELOW_TARGET",
-  "n_fixtures": 43,
-  "n_markets_evaluated": 892,
+  "n_fixtures": 34,
+  "n_markets_evaluated": 206,
   "n_shortlisted": 2,
   "n_strict_qualified": 2,
   "n_provisional_watchlist": 0,
   "n_total_candidates": 2,
   "target_distinct_matches": null,
   "shortfall": null,
-  "usable_distinct_fixtures": 43,
+  "usable_distinct_fixtures": 34,
   "shortlist_lookahead_hours": 48.0,
   "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-11-03T13:58:02.173298+00:00",
-  "shortlist_window_end_utc": "2026-11-05T13:58:02.173298+00:00",
+  "shortlist_window_start_utc": "2026-11-04T09:31:03.622249+00:00",
+  "shortlist_window_end_utc": "2026-11-06T09:31:03.622249+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -109,22 +109,18 @@
     "use": "tracking only; never changes a decision"
   },
   "tagged_candidates": {
-    "balanced": 340,
+    "balanced": 54,
     "low_total": 0,
-    "high_draw": 0,
+    "high_draw": 18,
     "even_odds": 0
   },
-  "tagged_fixtures": 10,
+  "tagged_fixtures": 4,
   "rejection_counts": {
-    "edge below 2%": 695,
-    "kickoff outside 20-minute to 48-hour window": 176,
-    "offered odds above 3.00": 155,
-    "no Pinnacle reference": 125,
-    "no offered quote at an allowed bookmaker": 72,
-    "edge below 3%": 38,
-    "offered and Pinnacle quotes more than 10 minutes apart": 9,
-    "Pinnacle overround outside [1.00, 1.10]": 8,
-    "offered price above 1.15 x fair odds": 2
+    "edge below 2%": 143,
+    "kickoff outside 20-minute to 48-hour window": 80,
+    "no Pinnacle reference": 60,
+    "no offered quote at an allowed bookmaker": 40,
+    "offered odds above 3.00": 37
   },
   "reference_type_counts": {
     "a": 2
@@ -144,8 +140,8 @@
   "cagey_tier": {
     "enabled": true,
     "n_shortlisted": 0,
-    "fixtures_in_window": 17,
-    "cutoff_run_p20": 0.3845850486140776,
+    "fixtures_in_window": 1,
+    "cutoff_run_p20": 0.5165822786905347,
     "cutoff_training_p20": 0.29433008766541074,
     "cutoff_used": 0.29433008766541074,
     "in_both_tiers": 0,
@@ -153,7 +149,14 @@
     "rule": "cagiest 20% of this run (never above the training 20th percentile); AH +1..+2.25 at Pinnacle or 1xBet; expected profit >= 0 and no-loss >= 85% under the corrected matrix; one per fixture"
   },
   "correction_rule": "Derived plus lines (>= +1.0) are priced from the cagey-corrected matrix (c-cagey, 3% threshold); Pinnacle-quoted lines keep Pinnacle as the fair price; minus lines are never corrected.",
+  "price_edge_execution_version": 2,
   "correction_monitoring_version": "cagey-correction-monitoring-v1",
+  "staking_settings": {
+    "bankroll": 100.0,
+    "multiplier": 0.25,
+    "max_fraction": 0.025,
+    "max_total_exposure": 0.1
+  },
   "league_availability": {
     "requested_leagues": [
       "EPL",
