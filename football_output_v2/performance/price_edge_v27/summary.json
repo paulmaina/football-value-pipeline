@@ -675,6 +675,22 @@
     "standard_error": null
   },
   "frozen_picks": 5,
+  "master": {
+    "by_price_flag": {},
+    "clv": {
+      "mean": null,
+      "n": 0,
+      "positive_share": null,
+      "standard_error": null
+    },
+    "profit": {
+      "mean": null,
+      "n": 0,
+      "positive_share": null,
+      "standard_error": null
+    }
+  },
+  "master_picks": 0,
   "note": "CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.",
   "policy": "48h-ah-price-edge-pinnacle-ref-v27",
   "profit": {
@@ -684,7 +700,7 @@
     "standard_error": 0.7149999999999999
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-04T12:34:04.378900+00:00",
+  "reviewed_at_utc": "2026-11-04T15:17:27.689614+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
