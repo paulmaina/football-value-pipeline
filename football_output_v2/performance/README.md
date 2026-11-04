@@ -207,7 +207,7 @@ recorded reliability-adjusted chance; small buckets are unstable.
 
 ## Result-source problems
 
-No provider errors detected.
+- UEL: Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {"declared_rows": 135, "eligibility": "CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout 
 
 Accuracy is not calibration or profit. Simulated ROI assumes
 one unit staked separately on each settled selection with recorded
