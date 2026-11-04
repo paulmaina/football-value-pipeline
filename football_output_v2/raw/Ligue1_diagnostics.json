@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "9c5dd7e6cbf57c2158cd2baccd61f898534fd4b01927da37f2f7cfe43aeb3a23",
-  "training_as_of_utc": "2026-11-04T09:30:29.174372+00:00",
+  "training_as_of_utc": "2026-11-04T10:19:42.171114+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 81,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_CHRONOLOGICAL_PARTITIONS",
-    "cutoff_utc": "2026-11-04T09:30:29.174372+00:00",
+    "cutoff_utc": "2026-11-04T10:19:42.171114+00:00",
     "observations": 500,
     "observations_sha256": "81a767a27d6d948c13f8a4f0bdbe50c914e1a76d9292173d115fc833d158bedb",
     "eligible_training_matches": 183,
@@ -149,10 +149,10 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1599.9817588124686,
-  "base": 0.2003235540968441,
-  "home_adv": 0.20223136146286208,
-  "rho": -0.05405291208191138,
+  "objective": 1599.9028065593766,
+  "base": 0.20032102206397293,
+  "home_adv": 0.20223053243299818,
+  "rho": -0.05405559375381903,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -186,7 +186,7 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261104T093029174372Z_57bce40e121bef2466efa890ff33e45ca1e26664808e599cf9609ca9b78d7203.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261104T101942171114Z_aedaa0e4f9af90cb3acfe88362b83bd480dc160e590c67907104abfc91558b46.json",
   "over_1_5_in_window_quote_fixtures": 0,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [

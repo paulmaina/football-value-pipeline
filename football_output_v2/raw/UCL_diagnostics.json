@@ -9,7 +9,7 @@
     "2026"
   ],
   "training_sha256": "9876abe764b24a62196f1fe0dbaa5b950f9ada7b55c2ad2a4bdf889e1ab12f65",
-  "training_as_of_utc": "2026-11-04T09:30:54.245100+00:00",
+  "training_as_of_utc": "2026-11-04T10:20:15.005079+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 54,
     "bbs_added_results": 0,
@@ -33,7 +33,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-04T09:30:54.245100+00:00",
+    "cutoff_utc": "2026-11-04T10:20:15.005079+00:00",
     "observations": 383,
     "observations_sha256": "2bd8823c03640db52bc36f82207c824a76b8bb870871ba41cbb7c737225f9963",
     "eligible_training_matches": 16,
@@ -107,9 +107,9 @@
   },
   "training_end": "2026-11-03",
   "fit_success": true,
-  "objective": 835.967288403591,
-  "base": 0.20588674507578195,
-  "home_adv": 0.2944352648358374,
+  "objective": 835.9259978581722,
+  "base": 0.20588298551744702,
+  "home_adv": 0.294441126063962,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -135,7 +135,7 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-11-04T09:30:54.245100+00:00",
+    "checked_at_utc": "2026-11-04T10:20:15.005079+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
@@ -162,22 +162,8 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261104T093054245100Z_e9cfcde010454c88298529258ed59fba619358bed2d36b20bf302f93e54a4b43.json",
-  "over_1_5_in_window_quote_fixtures": 1,
-  "odds_provider_health": {
-    "state": "CREDITS_EXHAUSTED",
-    "attempts": [
-      {
-        "credential": "THE_ODDS_API_KEY",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 0,
-        "x-requests-used": 500,
-        "x-requests-last": 0
-      }
-    ],
-    "blocked_utc_day": "2026-11-04"
-  },
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261104T102015005079Z_c396d01d66d9aac4f93a45d16fed27f6e92af79267fd7c4679d92ef8cb7be1b1.json",
+  "over_1_5_in_window_quote_fixtures": 9,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -210,15 +196,15 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 22,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "6d386ed81fabf67aa19fbd442c0d8c60",
@@ -226,24 +212,19 @@
       "home_team": "Borussia Dortmund",
       "away_team": "Real Betis",
       "kickoff_utc": "2026-11-04T20:00:00+00:00",
-      "status": "REQUEST_FAILED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "error_type": "OddsProviderError",
-      "provider_category": "CREDITS_EXHAUSTED",
-      "provider_attempts": [
-        {
-          "credential": "THE_ODDS_API_KEY",
-          "http_status": 401,
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "x-requests-remaining": 0,
-          "x-requests-used": 500,
-          "x-requests-last": 0
-        }
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
       ],
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "449d718632202f0e5997d2e4b7273483",
@@ -251,24 +232,19 @@
       "home_team": "PSV Eindhoven",
       "away_team": "Club Brugge",
       "kickoff_utc": "2026-11-04T20:00:00+00:00",
-      "status": "REQUEST_FAILED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "error_type": "OddsProviderError",
-      "provider_category": "CREDITS_EXHAUSTED",
-      "provider_attempts": [
-        {
-          "credential": "THE_ODDS_API_KEY",
-          "http_status": 401,
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "x-requests-remaining": 0,
-          "x-requests-used": 500,
-          "x-requests-last": 0
-        }
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 34,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
       ],
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "ba82ee37f64a66a30d85f8b90082ec2f",
@@ -276,24 +252,19 @@
       "home_team": "Porto",
       "away_team": "Napoli",
       "kickoff_utc": "2026-11-04T20:00:00+00:00",
-      "status": "REQUEST_FAILED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "error_type": "OddsProviderError",
-      "provider_category": "CREDITS_EXHAUSTED",
-      "provider_attempts": [
-        {
-          "credential": "THE_ODDS_API_KEY",
-          "http_status": 401,
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "x-requests-remaining": 0,
-          "x-requests-used": 500,
-          "x-requests-last": 0
-        }
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 30,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
       ],
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "df7d2d81b9e2f3f11c6aeddaee6b7085",
@@ -301,24 +272,19 @@
       "home_team": "RB Leipzig",
       "away_team": "Manchester City",
       "kickoff_utc": "2026-11-04T20:00:00+00:00",
-      "status": "REQUEST_FAILED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "error_type": "OddsProviderError",
-      "provider_category": "CREDITS_EXHAUSTED",
-      "provider_attempts": [
-        {
-          "credential": "THE_ODDS_API_KEY",
-          "http_status": 401,
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "x-requests-remaining": 0,
-          "x-requests-used": 500,
-          "x-requests-last": 0
-        }
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
       ],
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "013cecbf40f5b4530342632a80f35b00",
@@ -326,24 +292,19 @@
       "home_team": "RC Lens",
       "away_team": "Como",
       "kickoff_utc": "2026-11-04T20:00:00+00:00",
-      "status": "REQUEST_FAILED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "error_type": "OddsProviderError",
-      "provider_category": "CREDITS_EXHAUSTED",
-      "provider_attempts": [
-        {
-          "credential": "THE_ODDS_API_KEY",
-          "http_status": 401,
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "x-requests-remaining": 0,
-          "x-requests-used": 500,
-          "x-requests-last": 0
-        }
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
       ],
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "a5910ae3b314876faea7f5c03b8aeaad",
@@ -351,24 +312,19 @@
       "home_team": "Slavia Praha",
       "away_team": "Arsenal",
       "kickoff_utc": "2026-11-04T20:00:00+00:00",
-      "status": "REQUEST_FAILED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "error_type": "OddsProviderError",
-      "provider_category": "CREDITS_EXHAUSTED",
-      "provider_attempts": [
-        {
-          "credential": "THE_ODDS_API_KEY",
-          "http_status": 401,
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "x-requests-remaining": 0,
-          "x-requests-used": 500,
-          "x-requests-last": 0
-        }
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
       ],
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "6277e639c064e641265fcb98a0e200b9",
@@ -376,24 +332,19 @@
       "home_team": "Viking FK",
       "away_team": "Sabah FK",
       "kickoff_utc": "2026-11-04T20:00:00+00:00",
-      "status": "REQUEST_FAILED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "error_type": "OddsProviderError",
-      "provider_category": "CREDITS_EXHAUSTED",
-      "provider_attempts": [
-        {
-          "credential": "THE_ODDS_API_KEY",
-          "http_status": 401,
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "x-requests-remaining": 0,
-          "x-requests-used": 500,
-          "x-requests-last": 0
-        }
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
       ],
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     }
   ],
   "additional_odds_in_window_linked_fixtures": 9,
@@ -401,8 +352,8 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 9,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 8,
-    "ANCHORED_ALTERNATE": 1
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1,
+    "ANCHORED_ALTERNATE": 8
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
