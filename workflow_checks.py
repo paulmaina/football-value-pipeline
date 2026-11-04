@@ -174,7 +174,8 @@ def raw_check(root, *, raw_dir=None):
             expected, decisions, replay = price_edge_cagey_shortlist.build_shortlist(
                 pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), utc(summary['generated_at_utc']),
                 reliability, summary.get('quote_execution_policy'),
-                settings={k: summary.get(k) for k in price_edge_cagey_shortlist.SWITCHES},
+                # A run that records no tier rule used value-v1 (tier_rule() maps None to it).
+                settings={k: summary.get(k) for k in price_edge_cagey_shortlist.REPLAY_SETTINGS},
                 model=narrow_margin.load(summary['cagey_model_version']) if summary.get('cagey_model_version') else None,
                 monitor=monitoring)
         else:

@@ -195,6 +195,23 @@ class CageyTrackingTests(OfflineQuotePolicyTestCase):
         self.assertFalse(tracking.cagey_flags(self.frame(tier_rows=mixed))['cagey_tier_review'])
         self.assertFalse(tracking.cagey_flags(self.frame())['cagey_tier_review'])
 
+    def test_below_fair_tier_picks_never_trigger_the_tier_review_and_are_split_out(self):
+        losing = [{'clv': 0.0, 'unit_profit': -1.0 if i % 4 else 0.25, 'corrected_cagey_score': 0.25} for i in range(50)]
+        below = [{**r, 'price_flag': tracking.PRICE_BELOW_FAIR} for r in losing]
+        frame = self.frame(tier_rows=below)
+        self.assertFalse(tracking.cagey_flags(frame)['cagey_tier_review'])
+        self.assertEqual(tracking.cagey_flags(frame)['cagey_tier_roi']['n'], 0)
+        # Value-flagged v2 picks count, as do v1 picks (no flag: all passed expected profit >= 0).
+        value = [{**r, 'price_flag': tracking.PRICE_VALUE} for r in losing]
+        self.assertTrue(tracking.cagey_flags(self.frame(tier_rows=value))['cagey_tier_review'])
+        mixed = self.frame(tier_rows=[*losing[:10], *below[:20], *value[:5]])
+        self.assertEqual(tracking.cagey_flags(mixed)['cagey_tier_roi']['n'], 15)
+        rules = tracking.split_table(mixed, 'unit_profit', ('cagey_tier_rule', 'price_flag'))
+        self.assertEqual({k: v['n'] for k, v in rules['cagey_tier_rule'].items()},
+                         {tracking.TIER_RULE_VALUE: 10, tracking.TIER_RULE_NARROW: 25})
+        self.assertEqual({k: v['n'] for k, v in rules['price_flag'].items()},
+                         {tracking.PRICE_VALUE: 15, tracking.PRICE_BELOW_FAIR: 20})
+
     def test_splits_cover_tier_policy_reference_quintile_tags_and_correction(self):
         value = [{'clv': 0.02, 'unit_profit': 0.9, 'reference_type': 'c-cagey', 'qualified_only_by_correction': 'True',
                   'selection_policy_version': tracking.CAGEY_POLICY, 'bookmaker': '1xBet', 'even_odds': 'yes',

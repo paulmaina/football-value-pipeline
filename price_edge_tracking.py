@@ -45,7 +45,8 @@ from price_edge_cagey_shortlist import (POLICY as CAGEY_POLICY, MONITOR_FILE, MO
                                         BOOK_COLUMNS, usable_quote)
 import narrow_margin as nm
 POLICIES = (POLICY, CAGEY_POLICY)  # v27 and v28 value-tier picks are graded together, split by policy.
-from price_edge_cagey_shortlist import TIER_FILE
+from price_edge_cagey_shortlist import (TIER_FILE, TIER_RULE_VALUE, TIER_RULE_NARROW, PRICE_VALUE,
+                                        PRICE_BELOW_FAIR)
 CAGEY_REVIEW_MIN_PICKS = 50
 CAGEY_TIER_REVIEW_MIN_PICKS = 50
 
@@ -64,7 +65,7 @@ EQUIVALENT = {'Home win': ('home', -0.5), 'Away win': ('away', -0.5),
 SPLITS = ('bookmaker', 'odds_band', 'reference_type', 'side_role', 'balanced', 'low_total', 'high_draw', 'even_odds', 'tagged',
           'cagey_quintile')
 TIER_SPLITS = ('tier', 'policy', 'bookmaker', 'reference_type', 'corrected_cagey_quintile', 'balanced', 'low_total',
-               'high_draw', 'even_odds', 'qualified_only_by_correction')
+               'high_draw', 'even_odds', 'qualified_only_by_correction', 'cagey_tier_rule', 'price_flag')
 QUINTILES = ('Q1 cagiest', 'Q2', 'Q3', 'Q4', 'Q5 most open')
 
 
@@ -376,6 +377,16 @@ def tier_frame(value: pd.DataFrame, tier: pd.DataFrame) -> pd.DataFrame:
                                                                   pd.Series(index=frame.index, dtype=float)))
     flag = frame.get('qualified_only_by_correction', pd.Series(index=frame.index, dtype=object))
     frame['qualified_only_by_correction'] = flag.map(lambda v: 'yes' if _flag(v) else 'no')
+    # Cagey-tier rule and price: value-v1 picks carry no price_flag and all passed expected profit >= 0.
+    price = frame.get('price_flag', pd.Series(index=frame.index, dtype=object))
+    cagey = frame.tier == 'cagey'
+    flagged = cagey & price.notna() & price.astype(str).str.strip().ne('')
+    frame['cagey_tier_rule'] = None
+    frame.loc[cagey, 'cagey_tier_rule'] = TIER_RULE_VALUE
+    frame.loc[flagged, 'cagey_tier_rule'] = TIER_RULE_NARROW
+    frame['price_flag'] = None
+    frame.loc[cagey, 'price_flag'] = PRICE_VALUE
+    frame.loc[flagged, 'price_flag'] = price[flagged]
     return frame
 
 
@@ -385,7 +396,9 @@ def cagey_flags(frame: pd.DataFrame) -> Dict[str, object]:
         value_only, tier = pd.Series(dtype=float), pd.Series(dtype=float)
     else:
         value_only = frame.loc[(frame.tier == 'value') & (frame.qualified_only_by_correction == 'yes'), 'clv']
-        tier = frame.loc[frame.tier == 'cagey', 'unit_profit']
+        # Only value-priced tier picks: below-fair picks are listed knowing the model expects a loss on them.
+        price = frame['price_flag'] if 'price_flag' in frame else pd.Series(PRICE_VALUE, index=frame.index)
+        tier = frame.loc[(frame.tier == 'cagey') & (price.fillna(PRICE_VALUE) == PRICE_VALUE), 'unit_profit']
     only, roi = summarize(value_only), summarize(tier)
     cagey_review = only['n'] >= CAGEY_REVIEW_MIN_PICKS and only['mean'] < 0
     tier_review = (roi['n'] >= CAGEY_TIER_REVIEW_MIN_PICKS and roi['standard_error'] is not None
@@ -394,8 +407,8 @@ def cagey_flags(frame: pd.DataFrame) -> Dict[str, object]:
             'cagey_review': bool(cagey_review), 'cagey_tier_review': bool(tier_review),
             'cagey_review_rule': f'>= {CAGEY_REVIEW_MIN_PICKS} graded correction-only value picks with mean CLV < 0; '
                                  'recommends cagey_correction_enabled = false',
-            'cagey_tier_review_rule': f'>= {CAGEY_TIER_REVIEW_MIN_PICKS} graded cagey-tier picks with realised ROI 95% '
-                                      'interval entirely below 0; recommends cagey_tier_enabled = false'}
+            'cagey_tier_review_rule': f'>= {CAGEY_TIER_REVIEW_MIN_PICKS} graded value-priced cagey-tier picks with '
+                                      'realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false'}
 
 
 def frozen_candidates(root: Path, archive) -> List[dict]:
