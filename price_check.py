@@ -97,6 +97,7 @@ def check(root: Path, api, clock: Optional[datetime] = None) -> Dict[str, object
     from refresh_conservative_shortlist import _refresh
     from format_football_output import publish_shortlists
     root = Path(root)
+    supplied = clock
     clock = clock or datetime.now(timezone.utc)
     current = pd.read_csv(resolve_raw(root / 'raw') / 'all_leagues_predictions.csv', low_memory=False)
     leagues = leagues_in_window(current, clock)
@@ -108,7 +109,8 @@ def check(root: Path, api, clock: Optional[datetime] = None) -> Dict[str, object
         for key in leagues:
             predictions = merge_odds(predictions, api.odds(LEAGUES[key], LOOKAHEAD_DAYS, clock))
         predictions.to_csv(path, index=False)
-        summary = _refresh(root, clock, raw_dir=staging)
+        # Evaluate at a clock read after the odds were fetched, so every quote was observed by the cutoff.
+        summary = _refresh(root, supplied or datetime.now(timezone.utc), raw_dir=staging)
         summary['refresh_source'] = 'Price check: main odds refreshed (h2h, spreads, totals); no model refit'
         (staging / 'conservative_bet_summary.json').write_text(json.dumps(summary, indent=2), encoding='utf-8')
         write_generation_metadata(staging, summary)
@@ -189,7 +191,7 @@ def main(argv=None) -> int:
     import tempfile
     with tempfile.TemporaryDirectory(prefix='price-check-cache-') as cache:
         api = TheOddsAPI(key, cache_dir=cache)
-        print(json.dumps(check(args.root, api, clock), indent=2))
+        print(json.dumps(check(args.root, api), indent=2))
     return 0
 
 

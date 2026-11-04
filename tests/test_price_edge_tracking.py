@@ -106,6 +106,25 @@ class ClvTests(OfflineQuotePolicyTestCase):
         self.assertTrue(pd.isna(graded.iloc[0].clv))
 
 
+class EventBindingTests(OfflineQuotePolicyTestCase):
+    def test_close_from_a_different_odds_event_is_rejected(self):
+        row = {**pick(), 'snapshot_captured_utc': CAPTURED, 'odds_event_id': 'event-1'}
+        other = {**observation(), 'fixture': {**observation()['fixture'], 'odds_event_id': 'event-2'}}
+        same = {**observation(), 'fixture': {**observation()['fixture'], 'odds_event_id': 'event-1'}}
+        self.assertTrue(pd.isna(tracking.grade([row], [other], [], KICK).iloc[0].clv))
+        self.assertFalse(pd.isna(tracking.grade([row], [same], [], KICK).iloc[0].clv))
+        # Either side without an id keeps the team-and-kickoff match (older observations and picks).
+        self.assertFalse(pd.isna(tracking.grade([row], [observation()], [], KICK).iloc[0].clv))
+
+    def test_picks_take_the_event_id_their_own_snapshot_recorded(self):
+        forecast = {**pick(), 'odds_event_id': 'event-1'}
+        archive = [(meta('a' * 40), [forecast], []), (meta('b' * 40), [{**forecast, 'odds_event_id': 'event-9'}], [])]
+        rows = [{**pick(), 'snapshot_commit': 'a' * 40}, {**pick(), 'snapshot_commit': 'c' * 40},
+                {**pick(), 'snapshot_commit': 'b' * 40, 'odds_event_id': 'own'}]
+        bound = tracking.bind_event_ids(rows, archive)
+        self.assertEqual([r.get('odds_event_id') for r in bound], ['event-1', None, 'own'])
+
+
 class ReviewTests(OfflineQuotePolicyTestCase):
     def run_review(self, picks, observations):
         archive = [(meta(), [], picks)]
@@ -172,6 +191,22 @@ class CageyTrackingTests(OfflineQuotePolicyTestCase):
                 pd.DataFrame([self.tier_pick(offered_decimal_odds=price)]).to_csv(directory / tracking.TIER_FILE, index=False)
                 archive.append(({**meta(sha, [tracking.TIER_FILE]), 'captured_at_utc': captured, 'generated_at_utc': captured}, [], []))
             rows = tracking.frozen_tier_picks(root, archive)
+        self.assertEqual([float(r['offered_decimal_odds']) for r in rows], [1.31])
+
+    def test_master_picks_use_the_newest_generation_not_the_latest_upload(self):
+        from master_shortlist import FILE as MASTER_FILE
+        day = KICK.normalize()
+        with tempfile.TemporaryDirectory() as tmp:
+            root, archive = Path(tmp), []
+            # 11:00 forecast captured at 12:00, then a 09:00 forecast uploaded late at 13:00.
+            for sha, price, generated, captured in (('a' * 40, 1.31, day - pd.Timedelta(hours=13), day - pd.Timedelta(hours=12)),
+                                                     ('b' * 40, 1.20, day - pd.Timedelta(hours=15), day - pd.Timedelta(hours=11))):
+                directory = root / 'performance' / 'snapshots' / sha[:16]
+                directory.mkdir(parents=True)
+                pd.DataFrame([self.tier_pick(offered_decimal_odds=price)]).to_csv(directory / MASTER_FILE, index=False)
+                archive.append(({**meta(sha, [MASTER_FILE]), 'captured_at_utc': captured.isoformat(),
+                                 'generated_at_utc': generated.isoformat()}, [], []))
+            rows = tracking.frozen_master_picks(root, archive)
         self.assertEqual([float(r['offered_decimal_odds']) for r in rows], [1.31])
 
     def frame(self, value_rows=(), tier_rows=()):

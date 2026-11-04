@@ -564,7 +564,11 @@ class FootballDataUK:
         # completed score must not disappear through numeric coercion/dropna.
         df = df.loc[~(df['FTHG'].isna() & df['FTAG'].isna())].copy()
         df = validated_match_history(df)
-        df = df[df["Date"] < pd.Timestamp(now.date()) + pd.Timedelta(days=1)]
+        # Football-Data rows carry a reliable date but no result-availability time, so a result dated
+        # on the as-of day may not have existed yet at that clock: keep only days strictly before it.
+        cutoff_day = pd.Timestamp(pd.Timestamp(now).tz_convert("UTC").date() if pd.Timestamp(now).tzinfo
+                                  else pd.Timestamp(now).date())
+        df = df[df["Date"] < cutoff_day]
         df = df.sort_values("Date").reset_index(drop=True)
         return df
 
@@ -4496,7 +4500,7 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     # Master shortlist: the run's 10 best bets, one per match (v28 only; information for a manual decision).
     # Other policies: no master list, and any copy seeded from an earlier run is removed.
     from master_shortlist import refresh as refresh_master
-    refresh_master(decisions, out_dir, selection_summary)
+    refresh_master(decisions, out_dir, selection_summary, all_predictions)
     # Correction monitoring: one record per fixture from the correction just computed (evidence only).
     record_monitoring(selection_summary, monitoring, out_dir)
     try:
