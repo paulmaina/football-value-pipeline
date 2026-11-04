@@ -250,6 +250,12 @@
         "positive_share": 1.0,
         "standard_error": null
       },
+      "1.90-2.10": {
+        "mean": null,
+        "n": 0,
+        "positive_share": null,
+        "standard_error": null
+      },
       "<1.70": {
         "mean": 0.03817000541418514,
         "n": 1,
@@ -392,8 +398,8 @@
     },
     "correction_review": false,
     "excluded_by_reason": {
-      "no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)": 7,
-      "no usable market-implied fit (missing input: over_2_5)": 15,
+      "no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)": 20,
+      "no usable market-implied fit (missing input: over_2_5)": 17,
       "no usable market-implied fit (missing input: over_2_5; Pinnacle overround outside range: h2h)": 2
     },
     "fair_price_returns": {
@@ -412,7 +418,7 @@
     },
     "fixtures": {
       "eligible": 19,
-      "excluded": 24,
+      "excluded": 39,
       "graded": 7,
       "pending": 12
     },
@@ -450,7 +456,7 @@
     "positive_share": null,
     "standard_error": null
   },
-  "frozen_picks": 3,
+  "frozen_picks": 5,
   "note": "CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.",
   "policy": "48h-ah-price-edge-pinnacle-ref-v27",
   "profit": {
@@ -460,7 +466,7 @@
     "standard_error": 0.7149999999999999
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-04T00:44:20.245752+00:00",
+  "reviewed_at_utc": "2026-11-04T09:31:14.136004+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
@@ -491,12 +497,12 @@
       }
     },
     "edge_at_capture_1xbet": {
-      "mean": -0.03326612349775313,
-      "n": 77,
-      "positive_share": 0.12987012987012986,
-      "standard_error": 0.0025635734541300066
+      "mean": -0.03163067140036857,
+      "n": 87,
+      "positive_share": 0.12643678160919541,
+      "standard_error": 0.0024129487123210496
     },
-    "frozen": 322,
+    "frozen": 392,
     "return_at_capture_fair": {
       "mean": 0.05115301054288437,
       "n": 102,
@@ -509,7 +515,7 @@
       "positive_share": 0.5964912280701754,
       "standard_error": 0.07943934797765384
     },
-    "with_offered_price": 322
+    "with_offered_price": 392
   },
   "version": "price-edge-v27-tracking-v1"
 }

@@ -1,6 +1,6 @@
 # v27/v28 price-edge tracking
 
-Reviewed 2026-11-04T00:44:20.245752+00:00. Frozen v27 picks: 3.
+Reviewed 2026-11-04T09:31:14.136004+00:00. Frozen v27 picks: 5.
 
 **Mean CLV vs Pinnacle close:** +7.35% ± 6.93% (n=2). **Flat-stake profit per bet:** -28.50% ± 140.14% (n=2).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -16,6 +16,7 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 | group | mean CLV (n) |
 |---|---|
 | 1.70-1.90 | +10.89% (n=1) |
+| 1.90-2.10 | n/a (0) |
 | <1.70 | +3.82% (n=1) |
 
 ## CLV by reference_type
@@ -133,8 +134,8 @@ Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends ca
 
 ## Tagged candidates (narrow-margin hypothesis)
 
-Frozen tagged candidates: 322 (322 with an offered price).
-1xBet edge vs fair at capture: -3.33% ± 0.50% (n=77).
+Frozen tagged candidates: 392 (392 with an offered price).
+1xBet edge vs fair at capture: -3.16% ± 0.47% (n=87).
 Return at the capture fair price, all tagged lines: +5.12% ± 19.20% (n=102); plus lines only: -17.38% ± 15.57% (n=57).
 
 - balanced: +5.12% ± 19.20% (n=102)
@@ -146,12 +147,12 @@ Return at the capture fair price, all tagged lines: +5.12% ± 19.20% (n=102); pl
 
 Forward monitoring of cagey-correction-monitoring-v1 started 2026-11-03T13:58:25Z (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
 
-Fixtures: eligible 19, pending 12, graded 7, excluded 24.
+Fixtures: eligible 19, pending 12, graded 7, excluded 39.
 
 | excluded because | fixtures |
 |---|---:|
-| no usable market-implied fit (missing input: over_2_5) | 15 |
-| no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 7 |
+| no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 20 |
+| no usable market-implied fit (missing input: over_2_5) | 17 |
 | no usable market-implied fit (missing input: over_2_5; Pinnacle overround outside range: h2h) | 2 |
 
 | quintile | n | 2+ actual | 2+ corrected | 2+ uncorrected | 3+ actual | 3+ corrected | 3+ uncorrected |
