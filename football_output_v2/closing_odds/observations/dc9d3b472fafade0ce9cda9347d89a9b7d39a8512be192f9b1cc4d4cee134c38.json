@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Real Betis",
+    "home_team": "Borussia Dortmund",
+    "kickoff_utc": "2026-11-04T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "6d386ed81fabf67aa19fbd442c0d8c60"
+  },
+  "observed_at_utc": "2026-11-04T19:54:18.021039+00:00",
+  "payload": {
+    "away_team": "Real Betis",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T19:54:07Z",
+            "outcomes": [
+              {
+                "name": "Borussia Dortmund",
+                "price": 1.62
+              },
+              {
+                "name": "Real Betis",
+                "price": 5.03
+              },
+              {
+                "name": "Draw",
+                "price": 4.4
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T19:54:07Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.27
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.64
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T19:54:06Z",
+            "outcomes": [
+              {
+                "name": "Borussia Dortmund",
+                "price": 1.6
+              },
+              {
+                "name": "Real Betis",
+                "price": 5.54
+              },
+              {
+                "name": "Draw",
+                "price": 4.46
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T19:54:06Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.99
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.92
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-04T20:00:00Z",
+    "home_team": "Borussia Dortmund",
+    "id": "6d386ed81fabf67aa19fbd442c0d8c60",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6155761381159183,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.46,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21363637201105537,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.54,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.17078748987302642,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6035413098698809,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.4,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21208875218653386,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 5.03,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1843699379435853,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.27,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4132860131875165,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.64,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5867139868124834,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
