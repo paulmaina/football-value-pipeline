@@ -44,6 +44,9 @@ def _refresh(root, as_of=None, *, raw_dir=None):
     from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE, record_monitoring
     cagey_picks = cagey_tier_list(decisions)
     cagey_picks.to_csv(raw / TIER_FILE, index=False)
+    # Master shortlist from the refreshed decisions; a seeded copy from the previous run never survives.
+    from master_shortlist import refresh as refresh_master
+    refresh_master(decisions, raw, summary)
     from staking import write_shortlist_stakes
     write_shortlist_stakes(picks, cagey_picks, raw, **staking_settings)
     summary['staking_settings'] = staking_settings
