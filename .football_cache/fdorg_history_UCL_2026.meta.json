@@ -1,17 +1,17 @@
 {
-  "completed_matches": 63,
-  "latest_completed_utc": "2026-11-03T20:00:00+00:00",
-  "latest_completed_date": "2026-11-03",
+  "completed_matches": 65,
+  "latest_completed_utc": "2026-11-04T17:45:00+00:00",
+  "latest_completed_date": "2026-11-04",
   "next_fixture_utc": "2026-11-04T20:00:00+00:00",
   "overdue_unfinished_match_ids": [],
   "source_schedule_matches": 144,
   "provider": "football-data.org",
   "season_start": 2026,
-  "checked_at_utc": "2026-11-04T19:40:38.048372+00:00",
+  "checked_at_utc": "2026-11-04T19:56:45.391985+00:00",
   "download_status": "VERIFIED_LIVE",
-  "added_matches": 0,
+  "added_matches": 2,
   "corrected_scores": 0,
-  "sha256": "d7f64c6b10f6debdfe0256b7fe552e9244d46c68ebb9f8593ebff10aa5f64c64",
+  "sha256": "e2ac291fde933d75d470824c3b2c9033b413b5aca13cc87c2d9c475a90f341cc",
   "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
   "note": "Provider schedule comparison is not independent proof of complete coverage."
 }
