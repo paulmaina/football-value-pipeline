@@ -1,6 +1,6 @@
 # v27/v28 price-edge tracking
 
-Reviewed 2026-11-04T19:41:17.338659+00:00. Frozen v27 picks: 6.
+Reviewed 2026-11-04T19:57:12.295919+00:00. Frozen v27 picks: 6.
 
 **Mean CLV vs Pinnacle close:** +7.35% ± 6.93% (n=2). **Flat-stake profit per bet:** -28.50% ± 140.14% (n=2).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -207,7 +207,7 @@ Return at the capture fair price, all tagged lines: +5.12% ± 19.20% (n=102); pl
 
 Forward monitoring of cagey-correction-monitoring-v1 started 2026-11-03T13:58:25Z (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
 
-Fixtures: eligible 43, pending 36, graded 7, excluded 41.
+Fixtures: eligible 43, pending 35, graded 8, excluded 41.
 
 | excluded because | fixtures |
 |---|---:|
@@ -221,16 +221,16 @@ Fixtures: eligible 43, pending 36, graded 7, excluded 41.
 | Q2 | 0 | n/a | n/a | n/a | n/a | n/a | n/a |
 | Q3 | 1 | 0.0% [0.0%, 0.0%] | 35.9% | 37.3% | 0.0% [0.0%, 0.0%] | 14.6% | 14.9% |
 | Q4 | 4 | 50.0% [50.0%, 50.0%] | 41.0% | 40.8% | 25.0% [25.0%, 25.0%] | 18.6% | 17.8% |
-| Q5 most open | 2 | 100.0% [100.0%, 100.0%] | 49.4% | 49.2% | 100.0% [100.0%, 100.0%] | 27.7% | 25.9% |
+| Q5 most open | 3 | 66.7% [66.7%, 66.7%] | 48.9% | 48.9% | 66.7% [66.7%, 66.7%] | 27.2% | 25.6% |
 
 | log loss | corrected | uncorrected | paired gain x 1e-3 [95%] |
 |---|---:|---:|---|
-| 2+ margin | 0.6733 | 0.6841 | +10.805 [+10.805, +10.805] (n=7) |
-| 3+ margin | 0.7060 | 0.7358 | +29.795 [+29.795, +29.795] (n=7) |
+| 2+ margin | 0.6706 | 0.6812 | +10.663 [+10.663, +10.663] (n=8) |
+| 3+ margin | 0.6557 | 0.6797 | +24.030 [+24.030, +24.030] (n=8) |
 
 Calibration diagnostic, NOT achievable bookmaker ROI: return per bet when every AH +1 to +2 line on both sides is settled at its own fair price (no margin). A calibrated price returns about 0.
-- at the corrected fair price: -14.504% [-14.504, -14.504] (n=70)
-- at the uncorrected fair price: -14.429% [-14.429, -14.429] (n=70)
+- at the corrected fair price: -7.829% [-7.829, -7.829] (n=80)
+- at the uncorrected fair price: -7.754% [-7.754, -7.754] (n=80)
 
 Actual rates show their 95% interval in brackets. Intervals: gameweek-block bootstrap (2000 resamples); every line of a fixture stays in its gameweek block. CORRECTION REVIEW: >= 200 graded fixtures with the 2+ paired log-loss gain interval entirely below 0; it recommends review only.
 
