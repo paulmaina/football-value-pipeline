@@ -10,7 +10,7 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+  "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
   "model_code_sha256": "4aab5d3a711a65ad5297b282173bc2a8b3b0bc1a58809ed112514a157993c2d1",
   "model_component_sha256": {
     "api_football_data.py": "c5ae292a50d10b4e1a0d9901a0989c8eebc99082aa19d75d3d0e87cc59b00de5",
@@ -22,7 +22,7 @@
     "bbs_statistics_model.py": "42f5b8221cf032348df233a7fdc3ab812835278fa4adffa959168303537a21e7",
     "bbs_team_aliases.json": "0eaefff9782e7c695e56dc1a2f96626e145897bafa0086ec1753557d2a0320f8",
     "bet365_pinnacle.py": "29c1e233fdf48673b404693148e9b301561bb984e0acd916f76fda58bb9d5276",
-    "cagey_correction_config.json": "8e63bb183d0777aa414d9eb4e290465af5b8785cc85cde5f1c00e3b70c4fe85f",
+    "cagey_correction_config.json": "bee919ade6fe246b54d25ee9727eabe0036fbcfcc67d97fcf6e049f63ca41ec8",
     "conservative_bet_filter.py": "a8c2a8f98b2bc25754665fa8ed5b2eb2efd90564071a6ea472be9e084514824d",
     "corners_cards_shortlist.py": "0d3ef4717e16a2c0cdf8ba58515beb168c0cdaabdbb562b8323ed24c5393b873",
     "count_markets.py": "d38d266ebcd55778361e6ec8fa2aee6d3742b21ffa767615245bba5e45088af2",
@@ -45,7 +45,7 @@
     "odds_provider_health.py": "8554bc4e6f47957e0e996466308123ba98c9ad65cab2986bc2230832f64675e2",
     "per_market_shortlist.py": "83debc1318f8a87649d225cf64cd6b299524d7dbfe20d2ad423c5a690a227bea",
     "prediction_runs.py": "56a9934c6445fac5c0c2c8175f9acda147e07487409a665e9a6acd4e303d8eb7",
-    "price_edge_cagey_shortlist.py": "e9e784a61ded6235dfe68fec847e595a22589606aa6030a15359056518617056",
+    "price_edge_cagey_shortlist.py": "add489fc84ce11045fa2af380c3386e332bd923c9569cfed0ed64854a2986537",
     "price_edge_shortlist.py": "57065132da822487de626af8f4bbcd78c8ff2566475846b5ba8466fedc93f98a",
     "quote_freshness.py": "b682731ba7c20bb30d885b726a299b62ef3695419ce612a5da1d4b67d75e47c6",
     "quote_policy.py": "669a4d1c2e3d62e1f3720d9c697b8c19620aa9374286312dd31fcf3e52dc3495",
@@ -57,6 +57,6 @@
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47",
     "win_first_shortlist.py": "13a189d481338e75ee2f386a6de316df0ca9b73d8a96e8d5b9cdc3de91c59bb8"
   },
-  "predictions_sha256": "78223001cf386c8ff26ca6c11b8d992efb26f994dd3b37ea4caf609b416156fe",
+  "predictions_sha256": "c2f4ee66f83fc124a8d3b34be0e05191582c2edc795d423e3cdc042f13f2f4ab",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28"
 }
