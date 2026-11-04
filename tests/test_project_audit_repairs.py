@@ -68,6 +68,18 @@ class TrainingInputTests(OfflineQuotePolicyTestCase):
                 provider.history(LEAGUES['EPL'], 1, NOW)
 
 
+class SameDayResultTests(OfflineQuotePolicyTestCase):
+    def test_a_result_dated_on_the_as_of_day_is_not_available_yet(self):
+        # 10:00 UTC as-of; the 20:00 match that day has a final score in the file but not at that clock.
+        clock = datetime(2026, 9, 10, 10, 0, tzinfo=timezone.utc)
+        with tempfile.TemporaryDirectory() as tmp:
+            provider = FootballDataUK(cache_dir=tmp)
+            with patch.object(provider, 'season', return_value=history()):
+                loaded = provider.history(LEAGUES['EPL'], 1, clock)
+        self.assertEqual(loaded.Date.max(), pd.Timestamp('2026-09-09'))
+        self.assertEqual(len(loaded), 9)
+
+
 class QuoteInputTests(OfflineQuotePolicyTestCase):
     def test_duplicate_winner_or_total_outcomes_are_rejected_independently(self):
         self.assertEqual(TheOddsAPI.flatten_odds_event(event())['live_best_home_odds'], 1.6)

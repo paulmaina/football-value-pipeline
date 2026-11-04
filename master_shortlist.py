@@ -24,6 +24,16 @@ Selection (deterministic):
 Value bets always come first; below-threshold bets only fill the list up to 10.
 Fewer than 10 rows only when fewer than 10 matches have a candidate in the pool.
 
+No-loss probability (the safety used to rank), master-10-v2: from the same
+distribution as the candidate's fair price, and labelled in master_probability_basis:
+  a / b    Pinnacle fair price (pinnacle_no_loss_probability)
+  c        market-implied fit B (pinnacle_no_loss_probability, priced from fit B)
+  c-cagey  cagey-corrected fit (corrected_no_loss_probability)
+A candidate without that probability ranks after those with one (basis
+"unavailable"); no other distribution stands in. master-10-v1 runs (recorded
+version) replay with v1's rule: Pinnacle/fit no-loss for every reference, the
+corrected figure only when that is missing, and no basis or event-id column.
+
 The list is recomputed by workflow_checks from the replayed decisions (every
 output column compared, numbers within solver tolerance) and is information for
 a manual decision: it changes no other list or stake.
@@ -33,12 +43,17 @@ from __future__ import annotations
 import io
 import math
 from pathlib import Path
-from typing import Dict, List, Mapping
+from typing import Dict, List, Mapping, Optional
 
 import numpy as np
 import pandas as pd
 
-VERSION = 'master-10-v1'
+VERSION_V1 = 'master-10-v1'
+VERSION = 'master-10-v2'
+VERSIONS = (VERSION_V1, VERSION)
+BASIS = {'a': 'Pinnacle fair price', 'b': 'Pinnacle fair price', 'c': 'market-implied fit B',
+         'c-cagey': 'cagey-corrected fit'}
+BASIS_UNAVAILABLE = 'unavailable'
 FILE = 'master_shortlist.csv'
 SIZE = 10
 MIN_EDGE = 0.01
@@ -53,6 +68,18 @@ COLUMNS = ['master_rank', 'kickoff_utc', 'league', 'home_team', 'away_team', 'fi
            'master_price_flag', 'p_narrow', 'in_value_shortlist', 'in_cagey_tier', 'per_stake_cost',
            'offered_last_update_utc', 'pinnacle_last_update_utc', 'evaluated_at_utc', 'selection_policy_version',
            'master_version']
+COLUMNS_V1 = COLUMNS
+# v2: the event the price belongs to (closing-price lookups bind to it) and the ranking basis.
+COLUMNS_V2 = [*COLUMNS[:COLUMNS.index('fixture_id') + 1], 'odds_event_id',
+              *COLUMNS[COLUMNS.index('fixture_id') + 1:COLUMNS.index('master_no_loss_probability') + 1],
+              'master_probability_basis', *COLUMNS[COLUMNS.index('master_no_loss_probability') + 1:]]
+COLUMNS = COLUMNS_V2  # the current version's output schema
+
+
+def columns(version: str = VERSION) -> List[str]:
+    if version not in VERSIONS:
+        raise ValueError(f'Unknown master shortlist version {version!r}')
+    return COLUMNS_V2 if version == VERSION else COLUMNS_V1
 
 
 def _reasons(text) -> List[str]:
@@ -68,7 +95,7 @@ def _number(series: pd.Series) -> pd.Series:
     return pd.to_numeric(series, errors='coerce')
 
 
-def pool(decisions: pd.DataFrame) -> pd.DataFrame:
+def pool(decisions: pd.DataFrame, version: str = VERSION) -> pd.DataFrame:
     """Candidates that passed the data checks, with their value flag and safety."""
     if decisions is None or decisions.empty:
         return pd.DataFrame()
@@ -82,10 +109,17 @@ def pool(decisions: pd.DataFrame) -> pd.DataFrame:
     reasons = reasons.loc[frame.index]
     value = (_number(frame.edge) + TOLERANCE >= MIN_EDGE) & ~reasons.map(lambda r: COST_REASON in r)
     frame['master_price_flag'] = np.where(value, PRICE_VALUE, PRICE_BELOW_THRESHOLD)
-    safety = _number(frame.get('pinnacle_no_loss_probability'))
-    if 'corrected_no_loss_probability' in frame:
-        safety = safety.fillna(_number(frame['corrected_no_loss_probability']))
+    pinnacle = _number(frame.get('pinnacle_no_loss_probability'))
+    corrected = _number(frame['corrected_no_loss_probability']) if 'corrected_no_loss_probability' in frame \
+        else pd.Series(np.nan, index=frame.index)
+    if version == VERSION_V1:
+        frame['master_no_loss_probability'] = pinnacle.fillna(corrected)
+        return frame
+    cagey = frame.reference_type.eq('c-cagey')
+    safety = corrected.where(cagey, pinnacle)
     frame['master_no_loss_probability'] = safety
+    frame['master_probability_basis'] = np.where(
+        safety.notna(), frame.reference_type.map(lambda r: BASIS.get(r, BASIS_UNAVAILABLE)), BASIS_UNAVAILABLE)
     return frame
 
 
@@ -104,12 +138,28 @@ def _order(frame: pd.DataFrame) -> pd.DataFrame:
                   ascending=[False, False, False, False, True, True, True], kind='stable')
 
 
-def build(decisions: pd.DataFrame) -> pd.DataFrame:
-    """The master shortlist of one run (empty frame with COLUMNS when nothing qualifies)."""
-    from performance_tracking import fixture_key
-    candidates = pool(decisions)
+def _event_ids(predictions: Optional[pd.DataFrame]) -> Dict[tuple, str]:
+    from performance_tracking import fixture_key, utc
+    if predictions is None or not len(predictions) or 'odds_event_id' not in predictions:
+        return {}
+    events = {}
+    for row in predictions.astype(object).where(predictions.notna(), None).to_dict('records'):
+        event = str(row.get('odds_event_id') or '').strip()
+        if event:
+            events[(fixture_key(row), utc(row.get('kickoff_utc')))] = event
+    return events
+
+
+def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, version: str = VERSION) -> pd.DataFrame:
+    """The master shortlist of one run (empty frame with the version's columns when nothing qualifies).
+
+    `predictions` (the run's forecasts) supplies each pick's odds event id under v2.
+    """
+    from performance_tracking import fixture_key, utc
+    wanted = columns(version)
+    candidates = pool(decisions, version)
     if candidates.empty:
-        return pd.DataFrame(columns=COLUMNS)
+        return pd.DataFrame(columns=wanted)
     candidates['_fixture'] = candidates.apply(fixture_key, axis=1)
     best = _order(candidates).drop_duplicates('_fixture')
     top = _order(best).head(SIZE).copy()
@@ -120,20 +170,28 @@ def build(decisions: pd.DataFrame) -> pd.DataFrame:
     top['p_narrow'] = 1 - score
     top['in_value_shortlist'] = top.get('decision', pd.Series(index=top.index, dtype=object)).eq('SHORTLISTED')
     top['in_cagey_tier'] = top.get('cagey_tier_decision', pd.Series(index=top.index, dtype=object)).eq('SHORTLISTED')
-    top['master_version'] = VERSION
-    return top.reindex(columns=COLUMNS).reset_index(drop=True)
+    top['master_version'] = version
+    if version == VERSION:
+        events = _event_ids(predictions)
+        top['odds_event_id'] = [events.get((fixture_key(r), utc(r.get('kickoff_utc'))))
+                                for r in top.to_dict('records')]
+    return top.reindex(columns=wanted).reset_index(drop=True)
 
 
-def summary(frame: pd.DataFrame) -> Dict[str, object]:
+def summary(frame: pd.DataFrame, version: str = VERSION) -> Dict[str, object]:
     flags = frame['master_price_flag'] if len(frame) else pd.Series(dtype=object)
-    return {'version': VERSION, 'size': SIZE, 'n_bets': int(len(frame)),
+    extra = {} if version == VERSION_V1 else {
+        'probability_basis': 'no-loss probability from the distribution behind each fair price: Pinnacle fair '
+                             'price (a/b), market-implied fit B (c), cagey-corrected fit (c-cagey); none -> '
+                             'ranked last'}
+    return {'version': version, 'size': SIZE, 'n_bets': int(len(frame)),
             'value_bets': int((flags == PRICE_VALUE).sum()),
             'below_threshold_bets': int((flags == PRICE_BELOW_THRESHOLD).sum()),
             'min_edge_for_value': MIN_EDGE,
             'rule': 'the run\'s evaluated candidates that passed the data checks (a candidate may fail only on price); '
                     'one per match: value bets (edge >= 1% vs their fair reference) first, safest first; then '
                     'below-value-threshold bets (edge under 1%, possibly still positive) closest to fair price '
-                    'first; first 10 matches; fewer only when fewer matches qualify'}
+                    'first; first 10 matches; fewer only when fewer matches qualify', **extra}
 
 
 def _as_csv(frame: pd.DataFrame) -> pd.DataFrame:
@@ -160,34 +218,36 @@ def _same(got, want) -> bool:
     return type(got) is type(want) and got == want
 
 
-def matches(frame: pd.DataFrame, expected: pd.DataFrame) -> bool:
+def matches(frame: pd.DataFrame, expected: pd.DataFrame, version: str = VERSION) -> bool:
     """The written list carries exactly the replayed one: the full schema, every field.
 
     Text, flags, identities, timestamps and booleans must be identical; numbers
     (prices, fair odds, edge, probabilities, line, stake cost) agree within
     max(1e-7 absolute, 1e-8 relative), the solver tolerance used elsewhere.
     """
-    if list(frame.columns) != COLUMNS:
+    wanted = columns(version)
+    if list(frame.columns) != wanted:
         return False
-    left, right = _as_csv(frame), _as_csv(expected.reindex(columns=COLUMNS))
+    left, right = _as_csv(frame), _as_csv(expected.reindex(columns=wanted))
     if len(left) != len(right) or list(left.columns) != list(right.columns):
         return False
-    for column in COLUMNS:
+    for column in wanted:
         for got, want in zip(left[column].astype(object), right[column].astype(object)):
             if not _same(got, want):
                 return False
     return True
 
 
-def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping) -> pd.DataFrame:
+def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
+          predictions: Optional[pd.DataFrame] = None) -> pd.DataFrame:
     """Write FILE and record the master summary in the run summary (mutates `run_summary`)."""
-    frame = build(decisions)
+    frame = build(decisions, predictions)
     frame.to_csv(Path(out_dir) / FILE, index=False)
     run_summary['master_shortlist'] = summary(frame)
     return frame
 
 
-def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping):
+def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions: Optional[pd.DataFrame] = None):
     """Write the master list for a v28 run; otherwise remove any copy seeded from an earlier run.
 
     Used by both the full forecast and the stored-forecast refresh so neither can
@@ -195,7 +255,7 @@ def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping):
     """
     from price_edge_cagey_shortlist import POLICY
     if run_summary.get('selection_policy_version') == POLICY:
-        return write(decisions, out_dir, run_summary)
+        return write(decisions, out_dir, run_summary, predictions)
     (Path(out_dir) / FILE).unlink(missing_ok=True)
     run_summary.pop('master_shortlist', None)
     return None
