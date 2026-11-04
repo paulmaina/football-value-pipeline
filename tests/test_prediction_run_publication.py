@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import tempfile
 from unittest.mock import patch
+import warnings
 
 from offline_test_case import OfflineQuotePolicyTestCase
 from test_performance_tracking import fixture, pick, T0, KICK, final, MockSession
@@ -66,7 +67,8 @@ class PublicationTests(OfflineQuotePolicyTestCase):
             root = Path(temp)
             older = publish(root)
             latest = publish(root, T0 + timedelta(hours=1))
-            with patch('workflow_checks.raw_check', wraps=raw_check) as replay:
+            with warnings.catch_warnings(), patch('workflow_checks.raw_check', wraps=raw_check) as replay:
+                warnings.filterwarnings('error', message='Invalid snapshot metadata ignored', category=UserWarning)
                 self.assertEqual(runs.capture_runs(root, 'a'*40, captured_at=T0 + timedelta(hours=2)), 2)
                 self.assertEqual({call.kwargs['raw_dir'] for call in replay.call_args_list}, {older, latest})
                 replay.reset_mock()
