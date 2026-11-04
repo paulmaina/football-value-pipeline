@@ -10,8 +10,8 @@
     "requests": "2.34.2",
     "scipy": "1.18.1"
   },
-  "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
-  "model_code_sha256": "5af72978ba322e4d1c66850b058fda1e24547a0fe8d36d95cf31e8aaa9f4ae4a",
+  "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+  "model_code_sha256": "4aab5d3a711a65ad5297b282173bc2a8b3b0bc1a58809ed112514a157993c2d1",
   "model_component_sha256": {
     "api_football_data.py": "c5ae292a50d10b4e1a0d9901a0989c8eebc99082aa19d75d3d0e87cc59b00de5",
     "api_football_integration.py": "3a95ec1edc5eaf6b79a8075450905df9b4d5a3050a91cfe8df2b5a2ffb2ddeac",
@@ -29,7 +29,7 @@
     "dc_decay_validation.py": "fe80750bd83d98a914ed92b76893eb8cef1c548fa90c37b794b19d2ed86ec872",
     "double_chance.py": "0c113db43dff86b4398afeee97898a51a33370695bccb2ba51a91361804ad1e8",
     "elo_ratings.py": "e74edd69c0f90f6e22b0be61a2b88d6e4cea9cca60c88efeb579c7090ff9bc0d",
-    "football_value_pipeline_v2_standalone.py": "5af72978ba322e4d1c66850b058fda1e24547a0fe8d36d95cf31e8aaa9f4ae4a",
+    "football_value_pipeline_v2_standalone.py": "4aab5d3a711a65ad5297b282173bc2a8b3b0bc1a58809ed112514a157993c2d1",
     "forward_trial_basis.py": "99f5091db8075d2fb9933204e2b9c4c3a7f526096bfd4783e42813c005b3bf1d",
     "goal_market_validation.py": "03fd13322278df85fe8cad6105a5bf63d3e3ee62d0d8a904092af33d7f8643c4",
     "historical_benchmark.py": "b3388dcf86b9ee19d125658414be9ffdbbf4ad8240162e5d88321627dcb47e4e",
@@ -45,18 +45,18 @@
     "odds_provider_health.py": "8554bc4e6f47957e0e996466308123ba98c9ad65cab2986bc2230832f64675e2",
     "per_market_shortlist.py": "83debc1318f8a87649d225cf64cd6b299524d7dbfe20d2ad423c5a690a227bea",
     "prediction_runs.py": "56a9934c6445fac5c0c2c8175f9acda147e07487409a665e9a6acd4e303d8eb7",
-    "price_edge_cagey_shortlist.py": "e8c08880a02cd35ac8ee60b760cec32013d3e933d26a199217ea46babccc6047",
-    "price_edge_shortlist.py": "22c9dc79dbf65010cfef806147eaf3057c87c74360687f1aa765956d96f52562",
+    "price_edge_cagey_shortlist.py": "e9e784a61ded6235dfe68fec847e595a22589606aa6030a15359056518617056",
+    "price_edge_shortlist.py": "57065132da822487de626af8f4bbcd78c8ff2566475846b5ba8466fedc93f98a",
     "quote_freshness.py": "b682731ba7c20bb30d885b726a299b62ef3695419ce612a5da1d4b67d75e47c6",
     "quote_policy.py": "669a4d1c2e3d62e1f3720d9c697b8c19620aa9374286312dd31fcf3e52dc3495",
     "refresh_training_data.py": "276568aac115a2d3bea942770be56755783d66771ca67c17e6d236f2e46357c4",
     "score_probability.py": "c49cc8992a0e3d962f63a213aebd32d959e001d894689d3eea8a5816ca9fbc9e",
     "shortlist_quote_policy.json": "9b1e1f6cfc37b7125e1adaa8eb4ee9cd6617fa0f41a82c6a2f5cf9438f4ef2a4",
     "shot_features.py": "f6bcb9d9020e9fc56efaa2e05e9553f5c89df498372177a007540a674dddd5e7",
-    "staking.py": "1c0ec2a00fc760d4003f96aea82bdec6e6c0246bfad0d856d3d33f7c6d75e792",
+    "staking.py": "f3c4bb3ddc67059d3d082817db053b5ce3ca834853d430c77328a0e2d39cf5db",
     "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47",
     "win_first_shortlist.py": "13a189d481338e75ee2f386a6de316df0ca9b73d8a96e8d5b9cdc3de91c59bb8"
   },
-  "predictions_sha256": "75a55b7db4a15948e66299d6e6c7b2f8930e2c07f66f3aa1c9691b9a25235b15",
+  "predictions_sha256": "78223001cf386c8ff26ca6c11b8d992efb26f994dd3b37ea4caf609b416156fe",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28"
 }
