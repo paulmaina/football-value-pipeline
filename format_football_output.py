@@ -1530,6 +1530,9 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
         "Fair odds": raw.fair_odds.map(decimal), "Edge": raw.edge.map(signed_pct),
         "Value price from (1% edge)": raw.minimum_odds_master.map(decimal),
         "No-loss probability": raw.master_no_loss_probability.map(pct),
+        # master-10-v2: which distribution the no-loss probability (the ranking safety) comes from.
+        "No-loss basis": raw.master_probability_basis if "master_probability_basis" in raw
+        else pd.Series("", index=raw.index),
         "Price flag (value / below value threshold)": raw.master_price_flag,
         "Reference": raw.reference_type.map(lambda v: '' if pd.isna(v) else f"{v}: {REFERENCES.get(v, v)}"),
         "P(narrow: draw or 1-goal win)": raw.p_narrow.map(pct),
@@ -2254,9 +2257,12 @@ def refresh_workbook_shortlists(output_dir: Path) -> Optional[Path]:
 
 
 def publish_shortlists(input_dir: Path, output_dir: Path) -> Optional[int]:
-    """Readable shortlists plus the workbook's shortlist tabs, for refreshes that do not reformat leagues."""
+    """Readable shortlists, the workbook's shortlist tabs and the narrow-margin report, for refreshes
+    that do not reformat leagues. `input_dir` is the published run bundle; every output reads it."""
     count = process_conservative_shortlist(input_dir, output_dir)
     refresh_workbook_shortlists(output_dir)
+    import narrow_margin_report
+    narrow_margin_report.write(Path(input_dir), Path(output_dir))
     return count
 
 

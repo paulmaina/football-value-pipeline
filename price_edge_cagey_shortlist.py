@@ -78,12 +78,21 @@ TIER_RULES = (TIER_RULE_VALUE, TIER_RULE_NARROW)
 VALUE_RULE_ONE = 'one-per-fixture-v1'
 VALUE_RULE_PER_MARKET = 'per-market-v2'
 VALUE_RULES = (VALUE_RULE_ONE, VALUE_RULE_PER_MARKET)
+# Quote timing rules. skew-5min-v1 (runs that record none): a quote may be stamped up to 5 minutes after the
+# evaluation clock (the shared freshness allowance for provider clock skew). observed-by-cutoff-v2: every quote a
+# decision uses must be stamped at or before the evaluation clock, which live runs read after fetching the odds;
+# the 5-minute allowance remains for capture and diagnostics only.
+TIMING_RULE_SKEW = 'skew-5min-v1'
+TIMING_RULE_CUTOFF = 'observed-by-cutoff-v2'
+TIMING_RULES = (TIMING_RULE_SKEW, TIMING_RULE_CUTOFF)
+FUTURE_REASON = 'quote timestamped after evaluation'
+FUTURE_TIER_REASON = 'corrected distribution input timestamped after evaluation'
 DEFAULT_SETTINGS = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True, 'cagey_tier_rule': TIER_RULE_VALUE,
-                    'value_rule': VALUE_RULE_ONE}
+                    'value_rule': VALUE_RULE_ONE, 'quote_timing_rule': TIMING_RULE_SKEW}
 CONFIG = Path(__file__).with_name('cagey_correction_config.json')
 SWITCHES = ('cagey_correction_enabled', 'cagey_tier_enabled')
 # Everything a replay needs from a run's summary to reproduce its selection.
-REPLAY_SETTINGS = (*SWITCHES, 'cagey_tier_rule', 'value_rule')
+REPLAY_SETTINGS = (*SWITCHES, 'cagey_tier_rule', 'value_rule', 'quote_timing_rule')
 
 
 def tier_rule(settings: Mapping) -> str:
@@ -91,6 +100,20 @@ def tier_rule(settings: Mapping) -> str:
     if rule not in TIER_RULES:
         raise ValueError(f'Unknown cagey_tier_rule {rule!r}; expected one of {", ".join(TIER_RULES)}')
     return rule
+
+
+def timing_rule(settings: Mapping) -> str:
+    rule = settings.get('quote_timing_rule') or TIMING_RULE_SKEW
+    if rule not in TIMING_RULES:
+        raise ValueError(f'Unknown quote_timing_rule {rule!r}; expected one of {", ".join(TIMING_RULES)}')
+    return rule
+
+
+def after(stamp, now) -> bool:
+    """True when a quote's timestamp is later than the evaluation clock (not observable at the cutoff)."""
+    from quote_freshness import quote_utc
+    when = quote_utc(stamp)
+    return when is not None and when > now
 
 
 def value_rule(settings: Mapping) -> str:
@@ -147,7 +170,7 @@ def load_settings(path: Optional[Path] = None) -> Dict[str, object]:
     if any(data[name] for name in SWITCHES) and nm.versions()['gate'].get('gate_result') != 'PASS':
         raise ValueError('The cagey correction may only be switched on after GATE: PASS')
     return {**{name: data[name] for name in (*SWITCHES, 'model_version')}, 'cagey_tier_rule': tier_rule(data),
-            'value_rule': value_rule(data)}
+            'value_rule': value_rule(data), 'quote_timing_rule': timing_rule(data)}
 TIER_LINES = (1.0, 1.25, 1.5, 1.75, 2.0, 2.25)
 TIER_MIN_NO_LOSS = 0.85
 TIER_QUANTILE = 0.20
@@ -317,12 +340,14 @@ MONITOR_PRICE_COLUMNS = [f'{_line_key(side, line)}_{kind}' for side in ('home', 
 BOOK_COLUMNS = {'Pinnacle': 'pinnacle_odds', '1xBet': 'onexbet_odds'}
 
 
-def usable_quote(stamp, generated, kickoff) -> bool:
+def usable_quote(stamp, generated, kickoff, strict=False) -> bool:
     """A bookmaker price counts as pre-match evidence only if its quote was fresh at generation
-    (the selection freshness rule) and timestamped before kickoff."""
+    (the selection freshness rule) and timestamped before kickoff; `strict` (observed-by-cutoff-v2)
+    also requires it to be stamped at or before generation."""
     from quote_freshness import quote_is_fresh, quote_utc
     when, kick = quote_utc(stamp), quote_utc(kickoff)
-    return when is not None and kick is not None and when < kick and quote_is_fresh(stamp, generated)
+    return (when is not None and kick is not None and when < kick and quote_is_fresh(stamp, generated)
+            and not (strict and when > quote_utc(generated)))
 MONITOR_COLUMNS = ['monitoring_version', 'generated_at_utc', 'league', 'home_team', 'away_team', 'fixture_id',
                    'kickoff_utc', 'model_version', 'quintile_model_sha256', 'status', 'exclusion_reason', 'fit',
                    'latest_input_quote_utc', 'corrected_p2', 'corrected_p3', 'uncorrected_p2', 'uncorrected_p3',
@@ -331,7 +356,7 @@ MONITOR_COLUMNS = ['monitoring_version', 'generated_at_utc', 'league', 'home_tea
 
 def monitoring_record(row: Mapping, items: List[Mapping], fit: mi.Fit, fit_info: Mapping, now: pd.Timestamp,
                       context: Optional[Mapping], model: Mapping, quintiles: Mapping,
-                      *, used_inputs_only=False) -> Dict[str, object]:
+                      *, used_inputs_only=False, strict=False) -> Dict[str, object]:
     """One fixture's pre-match evidence, from the distribution and correction this run already computed."""
     from quote_freshness import quote_utc
     inputs = context['input_stamps'] if used_inputs_only and context is not None else fit_info['stamps']
@@ -344,6 +369,9 @@ def monitoring_record(row: Mapping, items: List[Mapping], fit: mi.Fit, fit_info:
     if used_inputs_only and context is not None and (
             not stamps or (max(stamps) - min(stamps)).total_seconds() / 60 > v27.MAX_QUOTE_SKEW_MINUTES):
         record.update(status='UNUSABLE', exclusion_reason='corrected distribution inputs unavailable or more than 10 minutes apart')
+        return record
+    if strict and stamps and max(stamps) > now:
+        record.update(status='UNUSABLE', exclusion_reason='distribution inputs timestamped after evaluation')
         return record
     if context is None:
         reasons = '; '.join(dict.fromkeys(fit.reasons + fit_info['fit_a'].reasons))
@@ -359,7 +387,7 @@ def monitoring_record(row: Mapping, items: List[Mapping], fit: mi.Fit, fit_info:
     for item in items:
         book, price, stamp = item.get('bookmaker'), item.get('offered_decimal_odds'), item.get('offered_last_update_utc')
         if (book in MONITOR_BOOKS and pd.notna(price) and item.get('handicap_side') in ('home', 'away')
-                and usable_quote(stamp, now, row.get('kickoff_utc'))):
+                and usable_quote(stamp, now, row.get('kickoff_utc'), strict)):
             offered.setdefault((item['handicap_side'], float(item['handicap_line']), book), (price, stamp))
     for side in ('home', 'away'):
         for line in MONITOR_LINES:
@@ -393,6 +421,7 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
                    policy: Optional[Mapping] = None):
     quintiles = nm.load_quintiles(model) if monitor is not None and model is not None else None
     per_market = value_rule(settings) == VALUE_RULE_PER_MARKET
+    strict = timing_rule(settings) == TIMING_RULE_CUTOFF
 
     def transform(row, items, pin, fit, fit_info, now) -> List[Dict[str, object]]:
         context = corrected_context(pin, fit, fit_info, model) if model is not None else None
@@ -402,7 +431,8 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
             raw_context = {'margins': margins, 'probs': probs, 'input_stamps': list(fit_info['input_stamps'].values())}
         if monitor is not None and model is not None:
             monitor.append(monitoring_record(row, items, fit, fit_info, now, context, model, quintiles,
-                           used_inputs_only=settings['price_edge_execution_version'] >= EXECUTION_VERSION))
+                           used_inputs_only=settings['price_edge_execution_version'] >= EXECUTION_VERSION,
+                           strict=strict))
         tier = tier_rule(settings) if settings['cagey_tier_enabled'] else False
         out = []
         for item in items:
@@ -429,8 +459,32 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
                 if execution:
                     apply_execution_checks(decision, context, raw_context)
                 out.append(decision)
+        if strict:
+            for decision in out:
+                apply_cutoff_timing(decision, fit_info, context, now)
         return out
     return transform
+
+
+def apply_cutoff_timing(item: Dict[str, object], fit_info: Mapping, context: Optional[Mapping], now) -> None:
+    """observed-by-cutoff-v2: reject a decision that uses any quote stamped after the evaluation clock.
+
+    Value decision: the offer, its Pinnacle reference and, for fit-priced lines (c, c-cagey), the fit's
+    inputs. Cagey tier: the offer, its Pinnacle reference and the corrected distribution's inputs.
+    """
+    own = [item.get('offered_last_update_utc'), item.get('pinnacle_last_update_utc')]
+    fit_inputs = list((fit_info.get('input_stamps') or {}).values())
+    used = own + (fit_inputs if item.get('reference_type') in ('c', 'c-cagey') else [])
+    if any(after(s, now) for s in used):
+        item['rejection_reasons'] = _ordered([*str(item.get('rejection_reasons') or '').split('; '), FUTURE_REASON])
+        item['decision'] = 'REJECTED'
+        item['qualified_only_by_correction'] = False
+    if item.get('cagey_tier_decision'):
+        tier_inputs = own + (list(context['input_stamps']) if context is not None else [])
+        if any(after(s, now) for s in tier_inputs):
+            reason = FUTURE_REASON if any(after(s, now) for s in own) else FUTURE_TIER_REASON
+            item['cagey_tier_reasons'] = '; '.join(filter(None, [item.get('cagey_tier_reasons'), reason]))
+            item['cagey_tier_decision'] = 'REJECTED'
 
 
 def apply_group_threshold(item: Dict[str, object]) -> None:
@@ -703,20 +757,21 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     group = dict(group_column='value_market_group') if per_market else {}
     groups = VALUE_GROUP_COLUMNS if per_market else []
     if not switched_on:
-        uses_transform = execution_version == EXECUTION_VERSION or per_market
+        uses_transform = execution_version == EXECUTION_VERSION or per_market or timing_rule(settings) != TIMING_RULE_SKEW
         selected, decisions, summary = v27.build_shortlist(
             predictions, as_of, market_reliability, policy,
             transform=make_transform(None, settings, cost=cost, policy=policy) if uses_transform else None,
             extra_columns=[*VALUE_COLUMNS, *TIER_COLUMNS, *groups,
                            *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])]
-            if uses_transform else (), **group)
+            if uses_transform else (), cutoff=timing_rule(settings) == TIMING_RULE_CUTOFF, **group)
     else:
         model = model or (nm.load(settings['model_version']) if settings.get('model_version') else nm.production_model())
         selected, decisions, summary = v27.build_shortlist(
             predictions, as_of, market_reliability, policy,
             transform=make_transform(model, settings, monitor, cost, policy=policy),
             extra_columns=[*VALUE_COLUMNS, *tier_columns(tier_rule(settings)), *groups,
-                           *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])], **group)
+                           *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])],
+            cutoff=timing_rule(settings) == TIMING_RULE_CUTOFF, **group)
     for frame in (selected, decisions):
         if 'selection_policy_version' in frame:
             frame['selection_policy_version'] = POLICY
@@ -755,4 +810,7 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
                                    'are never corrected.')
     if execution_version == EXECUTION_VERSION:
         summary['price_edge_execution_version'] = EXECUTION_VERSION
+    if timing_rule(settings) != TIMING_RULE_SKEW:
+        # Recorded so replays reproduce it; skew-5min-v1 runs record nothing, exactly as before.
+        summary['quote_timing_rule'] = timing_rule(settings)
     return selected, decisions, summary

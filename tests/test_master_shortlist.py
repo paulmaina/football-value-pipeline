@@ -128,6 +128,14 @@ class PipelineTests(OfflineQuotePolicyTestCase):
             (raw / ms.FILE).unlink()
             with self.assertRaisesRegex(Exception, 'Missing current master shortlist'):
                 raw_check(Path(tmp), raw_dir=raw)
+            # A master-10-v1 run replays with v1's rule and schema.
+            old = ms.build(decisions, version=ms.VERSION_V1)
+            old.to_csv(raw / ms.FILE, index=False)
+            path.write_text(json.dumps({**summary, 'master_shortlist': ms.summary(old, ms.VERSION_V1)}, default=str),
+                            encoding='utf-8')
+            with patch.object(v28, 'load_settings', return_value={'cagey_correction_enabled': False,
+                                                                  'cagey_tier_enabled': False, 'model_version': None}):
+                raw_check(Path(tmp), raw_dir=raw)
             # A run recorded before the master shortlist existed carries no entry and needs no file.
             path.write_text(json.dumps({k: v for k, v in summary.items() if k != 'master_shortlist'}, default=str),
                             encoding='utf-8')
@@ -158,6 +166,52 @@ class PipelineTests(OfflineQuotePolicyTestCase):
         self.assertIn('3 bets, 1 value, 2 below value threshold', report)
 
 
+class ProbabilityBasisTests(OfflineQuotePolicyTestCase):
+    def test_cagey_priced_bets_rank_on_the_corrected_no_loss_and_say_so(self):
+        # Slavia-style: fair price from the corrected fit, uncorrected fit no-loss 84.71%, corrected 87.15%.
+        rows = pd.DataFrame([
+            cand('Slavia', market='Asian Handicap Home +1.00', reference_type='c-cagey', safe=0.8471,
+                 corrected_no_loss_probability=0.8715),
+            cand('Pinnacle FC', safe=0.86, corrected_no_loss_probability=0.99)])
+        frame = ms.build(rows)
+        self.assertEqual(list(frame.home_team), ['Slavia', 'Pinnacle FC'])
+        self.assertEqual(list(frame.master_no_loss_probability), [0.8715, 0.86])
+        self.assertEqual(list(frame.master_probability_basis), ['cagey-corrected fit', 'Pinnacle fair price'])
+        # master-10-v1 (recorded runs) keeps its rule: the uncorrected figure for every reference.
+        old = ms.build(rows, version=ms.VERSION_V1)
+        self.assertEqual(list(old.home_team), ['Pinnacle FC', 'Slavia'])
+        self.assertEqual(list(old.columns), ms.COLUMNS_V1)
+
+    def test_direct_references_are_labelled_by_the_distribution_actually_used(self):
+        rows = pd.DataFrame([
+            cand('Fitted', market='Home win', reference_type='b', fit_usable=True, safe=0.62),
+            cand('Direct', market='Home win', reference_type='b', fit_usable=False, safe=0.55),
+            cand('Over', market='Over 1.5', reference_type='a', fit_usable=True, safe=0.75)])
+        labels = dict(zip(*ms.build(rows)[['home_team', 'master_probability_basis']].T.values))
+        self.assertEqual(labels, {'Fitted': 'market-implied fit B', 'Direct': 'Pinnacle fair price',
+                                  'Over': 'Pinnacle fair price'})
+
+    def test_no_stand_in_distribution_and_missing_safety_ranks_last(self):
+        rows = pd.DataFrame([cand('Missing', safe=None, corrected_no_loss_probability=0.95, edge=0.05),
+                             cand('Known', safe=0.40, edge=0.011),
+                             cand('Fit', reference_type='c', safe=0.70, edge=0.03)])
+        frame = ms.build(rows)
+        self.assertEqual(list(frame.home_team), ['Fit', 'Known', 'Missing'])
+        self.assertEqual(list(frame.master_probability_basis), ['market-implied fit B', 'Pinnacle fair price', 'unavailable'])
+        self.assertTrue(pd.isna(frame.master_no_loss_probability.iloc[2]))
+
+    def test_event_id_comes_from_the_runs_forecast(self):
+        rows = pd.DataFrame([cand('A'), cand('B')])
+        forecasts = pd.DataFrame([{'league': 'Premier League', 'home_team': 'A', 'away_team': 'Away FC',
+                                   'kickoff_utc': KICK, 'odds_event_id': 'evt-a'}])
+        frame = ms.build(rows, forecasts)
+        self.assertEqual(frame.odds_event_id.iloc[0], 'evt-a')
+        self.assertTrue(pd.isna(frame.odds_event_id.iloc[1]))
+        self.assertEqual(ms.summary(frame)['version'], ms.VERSION)
+        self.assertIn('probability_basis', ms.summary(frame))
+        self.assertNotIn('probability_basis', ms.summary(frame, ms.VERSION_V1))
+
+
 class ReplayComparisonTests(OfflineQuotePolicyTestCase):
     def setUp(self):
         super().setUp()
@@ -179,7 +233,8 @@ class ReplayComparisonTests(OfflineQuotePolicyTestCase):
         changes = {'handicap_line': -1.0, 'fixture_id': 'f-other', 'fair_odds': 1.5, 'per_stake_cost': 0.01,
                    'edge': 0.2, 'minimum_odds_master': 9.0, 'master_no_loss_probability': 0.1, 'kickoff_utc':
                    (NOW + pd.Timedelta(hours=30)).isoformat(), 'handicap_side': 'away', 'in_cagey_tier': True,
-                   'reference_type': 'c', 'value_market_group': 'match_winner', 'master_version': 'other'}
+                   'reference_type': 'c', 'value_market_group': 'match_winner', 'master_version': 'other',
+                   'odds_event_id': 'other-event', 'master_probability_basis': 'cagey-corrected fit'}
         for column, value in changes.items():
             tampered = self.written.copy()
             tampered[column] = tampered[column].astype(object)
@@ -197,7 +252,8 @@ class ReplayComparisonTests(OfflineQuotePolicyTestCase):
 class RefreshTests(OfflineQuotePolicyTestCase):
     def test_refresh_rebuilds_the_master_list_and_replaces_a_seeded_copy(self):
         from refresh_conservative_shortlist import _refresh
-        from format_football_output import process_conservative_shortlist, MASTER_READABLE
+        from format_football_output import publish_shortlists, MASTER_READABLE
+        import narrow_margin_report as narrow
         predictions = pd.DataFrame([
             fixture(h2h_1xbet(home=price_at('home', 0.015)), home='Value FC'),
             fixture(over_1xbet(price_at('over_1_5', 0.005)), home='Fill FC')])
@@ -214,8 +270,17 @@ class RefreshTests(OfflineQuotePolicyTestCase):
             written = pd.read_csv(raw / ms.FILE)
             decisions = pd.read_csv(raw / 'conservative_bet_rejections.csv', low_memory=False)
             stored = json.loads((raw / 'conservative_bet_summary.json').read_text(encoding='utf-8'))
-            process_conservative_shortlist(raw, out)
+            # A narrow report left over from the previous run.
+            pd.DataFrame([{'home_team': 'Old FC'}]).to_csv(out / narrow.CSV_NAME, index=False)
+            (out / narrow.MD_NAME).write_text('previous run', encoding='utf-8')
+            publish_shortlists(raw, out)
             readable = pd.read_csv(out / MASTER_READABLE)
+            report = pd.read_csv(out / narrow.CSV_NAME)
+            expected_report = narrow.build(raw)
+            report_md = (out / narrow.MD_NAME).read_text(encoding='utf-8')
+        self.assertEqual(sorted(report.home_team), ['Fill FC', 'Value FC'])
+        self.assertEqual(list(report.home_team), list(expected_report.home_team))
+        self.assertNotEqual(report_md, 'previous run')
         self.assertNotIn('Old FC', set(written.home_team))
         self.assertEqual(set(written.evaluated_at_utc), {summary['generated_at_utc']})
         self.assertEqual(stored['master_shortlist'], ms.summary(written))
