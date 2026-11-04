@@ -81,6 +81,11 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 for excluded in ('Draw','Double Chance 12'):
                     self.assertNotIn(excluded,summary['eligible_markets'])
                 self.assertEqual(summary.get('value_rule'), 'per-market-v2')
+                # The pipeline writes the master shortlist beside the other lists and records it in the summary.
+                master = pd.read_csv(raw/'master_shortlist.csv')
+                self.assertEqual(summary['master_shortlist']['n_bets'], len(master))
+                self.assertGreaterEqual(len(master), len(picks))
+                self.assertTrue(set(picks.market).issubset(set(master.market)))
                 self.assertIn('Over 1.5', summary['eligible_markets'])
                 self.assertEqual(set(picks.market),{'Home win'})
                 self.assertEqual(set(picks.bookmaker),{'1xBet'})
