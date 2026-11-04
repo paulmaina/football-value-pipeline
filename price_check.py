@@ -95,7 +95,7 @@ def check(root: Path, api, clock: Optional[datetime] = None) -> Dict[str, object
     from pipeline_health import write_generation_metadata
     from workflow_checks import raw_check
     from refresh_conservative_shortlist import _refresh
-    from format_football_output import process_conservative_shortlist
+    from format_football_output import publish_shortlists
     root = Path(root)
     clock = clock or datetime.now(timezone.utc)
     current = pd.read_csv(resolve_raw(root / 'raw') / 'all_leagues_predictions.csv', low_memory=False)
@@ -115,7 +115,7 @@ def check(root: Path, api, clock: Optional[datetime] = None) -> Dict[str, object
         raw_check(staging.parent)
         bundle = publish_run(staging, root / 'raw')
     (root / 'readable').mkdir(parents=True, exist_ok=True)
-    process_conservative_shortlist(bundle, root / 'readable')
+    publish_shortlists(bundle, root / 'readable')
     return {'status': 'CHECKED', 'leagues': leagues, 'requests': len(leagues),
             'credits': len(leagues) * len(MAIN_MARKETS), 'picks': summary['n_shortlisted']}
 
