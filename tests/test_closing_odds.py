@@ -174,6 +174,25 @@ class ClosingTests(OfflineQuotePolicyTestCase):
             summary,ledger=c.evaluate(root,snapshots(root),observed+timedelta(minutes=2))
             self.assertEqual(summary['by_bookmaker']['1xbet']['covered_selections'],1)
 
+    def test_master_only_pick_collects_its_exact_line(self):
+        import master_shortlist as ms
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);row,_,_=sample();raw=root/'raw';raw.mkdir()
+            pd.DataFrame([row]).to_csv(raw/'all_leagues_predictions.csv',index=False)
+            (raw/'conservative_bet_shortlist.csv').write_text('market'+chr(10))
+            write_json(raw/'conservative_bet_summary.json',{'generated_at_utc':NOW.isoformat()})
+            pick={**row,'market':'Asian Handicap Home -0.25','market_to_bet':'Asian Handicap Home -0.25',
+                  'bookmaker':'1xBet','offered_decimal_odds':1.9,'master_rank':1,'master_price_flag':'below value threshold',
+                  'selection_policy_version':'48h-ah-price-edge-cagey-v28','evaluated_at_utc':NOW.isoformat()}
+            pd.DataFrame([pick]).reindex(columns=ms.COLUMNS).to_csv(raw/ms.FILE,index=False)
+            targets=c.collection_targets(root,[row],[])
+            self.assertEqual([t[1] for t in targets],[{'Asian Handicap Home -0.25'}])
+            self.assertEqual(c.required_quotes(row,targets[0][1],[]),{('pinnacle','Asian Handicap Home -0.25')})
+            # The archived (captured) master pick survives the current list being cleared.
+            capture('f'*40,root=root,captured_at=NOW)
+            (raw/ms.FILE).write_text(','.join(ms.COLUMNS)+chr(10))
+            self.assertEqual([t[1] for t in c.collection_targets(root,[],[])],[{'Asian Handicap Home -0.25'}])
+
     def test_cagey_tier_only_pick_collects_its_exact_line(self):
         from price_edge_cagey_shortlist import TIER_FILE
         with tempfile.TemporaryDirectory() as tmp:

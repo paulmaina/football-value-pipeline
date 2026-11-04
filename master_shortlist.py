@@ -12,22 +12,27 @@ unsynchronised quotes, no Pinnacle reference, Pinnacle overround, odds above
 
 Value: edge >= 1% against the candidate's fair reference (Pinnacle a/b, the
 market-implied fit c, or the cagey-corrected fit c-cagey, all treated alike)
-and no stake-cost rejection. Everything else in the pool is "below fair".
+and no stake-cost rejection. Everything else in the pool is "below value threshold"
+(its edge may still be slightly positive, under 1%, or negative; the edge column says which).
 
 Selection (deterministic):
   1. per match, the best candidate: value before below fair; among value bets
      the highest no-loss probability (safest), then the higher edge; among
-     below-fair bets the price closest to fair (highest edge), then safest;
+     below-threshold bets the price closest to fair (highest edge), then safest;
      then the higher odds;
   2. matches ordered the same way; the first 10 are the master shortlist.
-Value bets always come first; below-fair bets only fill the list up to 10.
+Value bets always come first; below-threshold bets only fill the list up to 10.
 Fewer than 10 rows only when fewer than 10 matches have a candidate in the pool.
 
-The list is recomputed by workflow_checks from the replayed decisions and is
-information for a manual decision: it changes no other list or stake.
+The list is recomputed by workflow_checks from the replayed decisions (every
+output column compared, numbers within solver tolerance) and is information for
+a manual decision: it changes no other list or stake.
 """
 from __future__ import annotations
 
+import io
+import math
+from pathlib import Path
 from typing import Dict, List, Mapping
 
 import numpy as np
@@ -39,7 +44,7 @@ SIZE = 10
 MIN_EDGE = 0.01
 TOLERANCE = 1e-9
 PRICE_VALUE = 'value'
-PRICE_BELOW_FAIR = 'below fair'
+PRICE_BELOW_THRESHOLD = 'below value threshold'
 COST_REASON = 'expected profit after stake cost below 0'
 NOT_SELECTED_PREFIX = 'other qualifying line chosen for this fixture'
 COLUMNS = ['master_rank', 'kickoff_utc', 'league', 'home_team', 'away_team', 'fixture_id', 'market_to_bet',
@@ -76,7 +81,7 @@ def pool(decisions: pd.DataFrame) -> pd.DataFrame:
         return frame
     reasons = reasons.loc[frame.index]
     value = (_number(frame.edge) + TOLERANCE >= MIN_EDGE) & ~reasons.map(lambda r: COST_REASON in r)
-    frame['master_price_flag'] = np.where(value, PRICE_VALUE, PRICE_BELOW_FAIR)
+    frame['master_price_flag'] = np.where(value, PRICE_VALUE, PRICE_BELOW_THRESHOLD)
     safety = _number(frame.get('pinnacle_no_loss_probability'))
     if 'corrected_no_loss_probability' in frame:
         safety = safety.fillna(_number(frame['corrected_no_loss_probability']))
@@ -85,7 +90,7 @@ def pool(decisions: pd.DataFrame) -> pd.DataFrame:
 
 
 def _order(frame: pd.DataFrame) -> pd.DataFrame:
-    """Value bets first, safest first (then edge); fill bets next, closest to fair first (then safest).
+    """Value bets first, safest first (then edge); below-threshold fill next, closest to fair first (then safest).
 
     Odds descending and stable keys break any remaining ties deterministically.
     """
@@ -122,32 +127,75 @@ def build(decisions: pd.DataFrame) -> pd.DataFrame:
 def summary(frame: pd.DataFrame) -> Dict[str, object]:
     flags = frame['master_price_flag'] if len(frame) else pd.Series(dtype=object)
     return {'version': VERSION, 'size': SIZE, 'n_bets': int(len(frame)),
-            'value_bets': int((flags == PRICE_VALUE).sum()), 'below_fair_bets': int((flags == PRICE_BELOW_FAIR).sum()),
+            'value_bets': int((flags == PRICE_VALUE).sum()),
+            'below_threshold_bets': int((flags == PRICE_BELOW_THRESHOLD).sum()),
             'min_edge_for_value': MIN_EDGE,
             'rule': 'the run\'s evaluated candidates that passed the data checks (a candidate may fail only on price); '
                     'one per match: value bets (edge >= 1% vs their fair reference) first, safest first; then '
-                    'below-fair bets closest to fair price first; first 10 matches; fewer only when fewer matches '
-                    'qualify'}
+                    'below-value-threshold bets (edge under 1%, possibly still positive) closest to fair price '
+                    'first; first 10 matches; fewer only when fewer matches qualify'}
+
+
+def _as_csv(frame: pd.DataFrame) -> pd.DataFrame:
+    """The frame as the CSV file holds it, so written and replayed lists compare like for like."""
+    buffer = io.StringIO()
+    frame.to_csv(buffer, index=False)
+    buffer.seek(0)
+    try:
+        return pd.read_csv(buffer, low_memory=False)
+    except pd.errors.EmptyDataError:
+        return pd.DataFrame(columns=list(frame.columns))
+
+
+def _same(got, want) -> bool:
+    numeric = (int, float, np.integer, np.floating)
+    if isinstance(want, numeric) and not isinstance(want, (bool, np.bool_)):
+        if not isinstance(got, numeric) or isinstance(got, (bool, np.bool_)):
+            return False
+        if math.isnan(want) or math.isnan(got):
+            return math.isnan(want) and math.isnan(got)
+        return math.isclose(float(got), float(want), abs_tol=1e-7, rel_tol=1e-8)
+    if isinstance(want, float) and math.isnan(want):
+        return isinstance(got, float) and math.isnan(got)
+    return type(got) is type(want) and got == want
 
 
 def matches(frame: pd.DataFrame, expected: pd.DataFrame) -> bool:
-    """Same picks in the same order (prices and flags), for the replay check."""
-    keys = ['master_rank', 'league', 'home_team', 'away_team', 'market_to_bet', 'bookmaker', 'master_price_flag']
-    if len(frame) != len(expected):
+    """The written list carries exactly the replayed one: the full schema, every field.
+
+    Text, flags, identities, timestamps and booleans must be identical; numbers
+    (prices, fair odds, edge, probabilities, line, stake cost) agree within
+    max(1e-7 absolute, 1e-8 relative), the solver tolerance used elsewhere.
+    """
+    if list(frame.columns) != COLUMNS:
         return False
-    if not len(frame):
-        return True
-    left, right = frame.reindex(columns=keys).astype(str), expected.reindex(columns=keys).astype(str)
-    if not left.reset_index(drop=True).equals(right.reset_index(drop=True)):
+    left, right = _as_csv(frame), _as_csv(expected.reindex(columns=COLUMNS))
+    if len(left) != len(right) or list(left.columns) != list(right.columns):
         return False
-    return bool(np.allclose(_number(frame.offered_decimal_odds).to_numpy(float),
-                            _number(expected.offered_decimal_odds).to_numpy(float), rtol=0, atol=1e-9))
+    for column in COLUMNS:
+        for got, want in zip(left[column].astype(object), right[column].astype(object)):
+            if not _same(got, want):
+                return False
+    return True
 
 
 def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping) -> pd.DataFrame:
     """Write FILE and record the master summary in the run summary (mutates `run_summary`)."""
-    from pathlib import Path
     frame = build(decisions)
     frame.to_csv(Path(out_dir) / FILE, index=False)
     run_summary['master_shortlist'] = summary(frame)
     return frame
+
+
+def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping):
+    """Write the master list for a v28 run; otherwise remove any copy seeded from an earlier run.
+
+    Used by both the full forecast and the stored-forecast refresh so neither can
+    publish a master list that is missing or belongs to a previous run.
+    """
+    from price_edge_cagey_shortlist import POLICY
+    if run_summary.get('selection_policy_version') == POLICY:
+        return write(decisions, out_dir, run_summary)
+    (Path(out_dir) / FILE).unlink(missing_ok=True)
+    run_summary.pop('master_shortlist', None)
+    return None

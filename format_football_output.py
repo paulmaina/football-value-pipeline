@@ -1526,7 +1526,7 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
         "Fair odds": raw.fair_odds.map(decimal), "Edge": raw.edge.map(signed_pct),
         "Value price from (1% edge)": raw.minimum_odds_master.map(decimal),
         "No-loss probability": raw.master_no_loss_probability.map(pct),
-        "Price vs fair (value / below fair)": raw.master_price_flag,
+        "Price flag (value / below value threshold)": raw.master_price_flag,
         "Reference": raw.reference_type.map(lambda v: '' if pd.isna(v) else f"{v}: {REFERENCES.get(v, v)}"),
         "P(narrow: draw or 1-goal win)": raw.p_narrow.map(pct),
         "On value shortlist": raw.in_value_shortlist.map(lambda v: 'yes' if str(v) == 'True' else 'no'),
@@ -1535,10 +1535,11 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
     readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
     return ["", "## Master shortlist (the 10 best bets this run)", "",
             f"One bet per match from every evaluated bet that passed the data checks. Value bets (edge >= "
-            f"{pct(info.get('min_edge_for_value'), 0)} against fair) come first, safest first; below-fair bets fill "
-            f"the list up to {info.get('size')}, closest to fair price first. Fewer than {info.get('size')} only when "
+            f"{pct(info.get('min_edge_for_value'), 0)} against fair) come first, safest first; bets below the value threshold (edge under "
+            f"{pct(info.get('min_edge_for_value'), 0)}, which may still be slightly above fair) fill the list up to "
+            f"{info.get('size')}, closest to fair price first. Fewer than {info.get('size')} only when "
             f"fewer matches qualify. This run: {info.get('n_bets')} bets, {info.get('value_bets')} value, "
-            f"{info.get('below_fair_bets')} below fair. Information for your own decision, not a recommendation to bet.",
+            f"{info.get('below_threshold_bets')} below value threshold. Information for your own decision, not a recommendation to bet.",
             "", markdown_table(list(readable.columns), readable.astype(str).values.tolist())
             if not readable.empty else "No bet passed the data checks this run."]
 

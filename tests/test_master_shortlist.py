@@ -40,11 +40,11 @@ class PoolTests(OfflineQuotePolicyTestCase):
             {**cand('G'), 'reference_type': None},
             {**cand('H'), 'offered_decimal_odds': None}])
         flags = dict(zip(*ms.pool(rows)[['home_team', 'master_price_flag']].T.values))
-        self.assertEqual(flags, {'A': 'value', 'B': 'below fair', 'C': 'below fair', 'F': 'value'})
+        self.assertEqual(flags, {'A': 'value', 'B': 'below value threshold', 'C': 'below value threshold', 'F': 'value'})
 
     def test_stake_cost_rejection_is_never_value(self):
         rows = pd.DataFrame([cand('A', edge=0.03, reasons='expected profit after stake cost below 0')])
-        self.assertEqual(ms.pool(rows).iloc[0].master_price_flag, 'below fair')
+        self.assertEqual(ms.pool(rows).iloc[0].master_price_flag, 'below value threshold')
 
 
 class SelectionTests(OfflineQuotePolicyTestCase):
@@ -57,7 +57,7 @@ class SelectionTests(OfflineQuotePolicyTestCase):
         frame = ms.build(rows)
         self.assertEqual(list(frame.home_team), ['V2', 'V1', 'F3', 'F1', 'F2'])
         self.assertEqual(list(frame.master_rank), [1, 2, 3, 4, 5])
-        self.assertEqual(list(frame.master_price_flag), ['value'] * 2 + ['below fair'] * 3)
+        self.assertEqual(list(frame.master_price_flag), ['value'] * 2 + ['below value threshold'] * 3)
 
     def test_one_bet_per_match_value_before_fill_safest_within(self):
         rows = pd.DataFrame([
@@ -82,7 +82,7 @@ class SelectionTests(OfflineQuotePolicyTestCase):
     def test_summary_counts(self):
         frame = ms.build(pd.DataFrame([cand('V'), cand('F', edge=-0.01, reasons='edge below 1%')]))
         info = ms.summary(frame)
-        self.assertEqual((info['n_bets'], info['value_bets'], info['below_fair_bets'], info['size']), (2, 1, 1, 10))
+        self.assertEqual((info['n_bets'], info['value_bets'], info['below_threshold_bets'], info['size']), (2, 1, 1, 10))
 
 
 def run(*rows, settings=None, monitor=None):
@@ -153,9 +153,82 @@ class PipelineTests(OfflineQuotePolicyTestCase):
             process_conservative_shortlist(raw, out)
             self.assertFalse((out / MASTER_READABLE).exists())
         self.assertEqual(list(readable.Rank), [1, 2, 3])
-        self.assertEqual(readable.iloc[0]['Price vs fair (value / below fair)'], 'value')
+        self.assertEqual(readable.iloc[0]['Price flag (value / below value threshold)'], 'value')
         self.assertIn('## Master shortlist (the 10 best bets this run)', report)
-        self.assertIn('3 bets, 1 value, 2 below fair', report)
+        self.assertIn('3 bets, 1 value, 2 below value threshold', report)
+
+
+class ReplayComparisonTests(OfflineQuotePolicyTestCase):
+    def setUp(self):
+        super().setUp()
+        rows = pd.DataFrame([
+            cand('A', market='Asian Handicap Home +1.00', handicap_side='home', handicap_line=1.0, per_stake_cost=0.0),
+            cand('B', edge=-0.004, reasons='edge below 1%', per_stake_cost=0.0)])
+        self.expected = ms.build(rows)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / ms.FILE
+            self.expected.to_csv(path, index=False)
+            self.written = pd.read_csv(path, low_memory=False)
+
+    def test_written_list_matches_its_replay(self):
+        self.assertTrue(ms.matches(self.written, self.expected))
+        # CSV/solver round-off on a fitted number is tolerated.
+        self.assertTrue(ms.matches(self.written.assign(fair_odds=self.written.fair_odds + 1e-10), self.expected))
+
+    def test_every_grading_and_display_field_is_compared(self):
+        changes = {'handicap_line': -1.0, 'fixture_id': 'f-other', 'fair_odds': 1.5, 'per_stake_cost': 0.01,
+                   'edge': 0.2, 'minimum_odds_master': 9.0, 'master_no_loss_probability': 0.1, 'kickoff_utc':
+                   (NOW + pd.Timedelta(hours=30)).isoformat(), 'handicap_side': 'away', 'in_cagey_tier': True,
+                   'reference_type': 'c', 'value_market_group': 'match_winner', 'master_version': 'other'}
+        for column, value in changes.items():
+            tampered = self.written.copy()
+            tampered[column] = tampered[column].astype(object)
+            tampered.loc[0, column] = value
+            with self.subTest(column=column):
+                self.assertFalse(ms.matches(tampered, self.expected))
+
+    def test_full_schema_required(self):
+        self.assertFalse(ms.matches(self.written.drop(columns=['per_stake_cost']), self.expected))
+        self.assertFalse(ms.matches(self.written.assign(extra=1), self.expected))
+        self.assertFalse(ms.matches(self.written[ms.COLUMNS[::-1]], self.expected))
+        self.assertTrue(ms.matches(pd.DataFrame(columns=ms.COLUMNS), ms.build(pd.DataFrame())))
+
+
+class RefreshTests(OfflineQuotePolicyTestCase):
+    def test_refresh_rebuilds_the_master_list_and_replaces_a_seeded_copy(self):
+        from refresh_conservative_shortlist import _refresh
+        from format_football_output import process_conservative_shortlist, MASTER_READABLE
+        predictions = pd.DataFrame([
+            fixture(h2h_1xbet(home=price_at('home', 0.015)), home='Value FC'),
+            fixture(over_1xbet(price_at('over_1_5', 0.005)), home='Fill FC')])
+        predictions['p_home'], predictions['p_draw'], predictions['p_away'] = 0.45, 0.27, 0.28
+        with tempfile.TemporaryDirectory() as tmp:
+            raw, out = Path(tmp) / 'raw', Path(tmp) / 'readable'
+            raw.mkdir()
+            out.mkdir()
+            predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
+            # A master list seeded from the previous run (different match, older evaluation).
+            stale = ms.build(pd.DataFrame([cand('Old FC')]))
+            stale.assign(evaluated_at_utc=(NOW - pd.Timedelta(hours=6)).isoformat()).to_csv(raw / ms.FILE, index=False)
+            summary = _refresh(Path(tmp), as_of=NOW.to_pydatetime(), raw_dir=raw)
+            written = pd.read_csv(raw / ms.FILE)
+            decisions = pd.read_csv(raw / 'conservative_bet_rejections.csv', low_memory=False)
+            stored = json.loads((raw / 'conservative_bet_summary.json').read_text(encoding='utf-8'))
+            process_conservative_shortlist(raw, out)
+            readable = pd.read_csv(out / MASTER_READABLE)
+        self.assertNotIn('Old FC', set(written.home_team))
+        self.assertEqual(set(written.evaluated_at_utc), {summary['generated_at_utc']})
+        self.assertEqual(stored['master_shortlist'], ms.summary(written))
+        self.assertTrue(ms.matches(written, ms.build(decisions)))
+        self.assertEqual(list(readable.Home), list(written.home_team))
+
+    def test_other_policies_remove_a_seeded_copy(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ms.build(pd.DataFrame([cand('Old FC')])).to_csv(Path(tmp) / ms.FILE, index=False)
+            info = {'selection_policy_version': 'some-earlier-policy', 'master_shortlist': {'n_bets': 1}}
+            self.assertIsNone(ms.refresh(pd.DataFrame(), tmp, info))
+            self.assertFalse((Path(tmp) / ms.FILE).exists())
+            self.assertNotIn('master_shortlist', info)
 
 
 class TrackingTests(OfflineQuotePolicyTestCase):
