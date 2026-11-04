@@ -134,11 +134,26 @@ def capture_master_file(raw: Path, generated) -> Optional[Path]:
     return path
 
 
+def latest_per_fixture(rows: List[dict]) -> List[dict]:
+    """The pick of the newest generation per fixture; within one generation the first capture.
+
+    A late upload of an older forecast never replaces a newer one: generation decides which pick
+    counts, capture time (already applied in archived_tier_rows) enforces the pre-kickoff cutoff.
+    `rows` come oldest capture first, so a re-upload of the same generation never moves the pick.
+    """
+    from performance_tracking import fixture_key, utc
+    frozen = {}
+    for row in rows:
+        key = fixture_key(row)
+        if key not in frozen or utc(row['snapshot_generated_utc']) > utc(frozen[key]['snapshot_generated_utc']):
+            frozen[key] = row
+    return list(frozen.values())
+
+
 def frozen_master_picks(root: Path, archive) -> List[dict]:
-    """Latest pre-kickoff archived master-shortlist pick per fixture."""
-    from performance_tracking import fixture_key
+    """Latest-generation pre-kickoff archived master-shortlist pick per fixture."""
     from master_shortlist import FILE as MASTER_FILE
-    return list({fixture_key(row): row for row in archived_tier_rows(root, archive, MASTER_FILE)}.values())
+    return latest_per_fixture(archived_tier_rows(root, archive, MASTER_FILE))
 
 
 def archived_tier_rows(root: Path, archive, name: str = TIER_FILE) -> List[dict]:
@@ -161,14 +176,37 @@ def archived_tier_rows(root: Path, archive, name: str = TIER_FILE) -> List[dict]
 
 
 def frozen_tier_picks(root: Path, archive) -> List[dict]:
-    """Latest pre-kickoff archived cagey-tier pick per fixture."""
+    """Latest-generation pre-kickoff archived cagey-tier pick per fixture."""
+    return latest_per_fixture(archived_tier_rows(root, archive))
+
+
+def bind_event_ids(rows: List[dict], archive) -> List[dict]:
+    """Attach the odds event id the pick's own snapshot recorded for that fixture and kickoff.
+
+    Picks carry no event id of their own (except master v2); the archived forecast of the same
+    snapshot does. A pick whose snapshot has no matching forecast keeps none.
+    """
     from performance_tracking import fixture_key, utc
-    frozen = {}
-    for row in archived_tier_rows(root, archive):
-        key = fixture_key(row)
-        if key not in frozen or utc(row['snapshot_generated_utc']) > utc(frozen[key]['snapshot_generated_utc']):
-            frozen[key] = row
-    return list(frozen.values())
+    events = {}
+    for meta, predictions, _ in archive:
+        for item in predictions:
+            event = str(item.get('odds_event_id') or '').strip()
+            if event and event.lower() != 'nan':
+                events[(meta['git_commit_sha'], fixture_key(item), utc(item.get('kickoff_utc')))] = event
+    out = []
+    for row in rows:
+        own = str(row.get('odds_event_id') or '').strip()
+        if own and own.lower() != 'nan':
+            out.append(row)
+            continue
+        event = events.get((row.get('snapshot_commit'), fixture_key(row), utc(row.get('kickoff_utc'))))
+        out.append({**row, 'odds_event_id': event} if event else row)
+    return out
+
+
+def _event_id(value) -> Optional[str]:
+    text = str(value or '').strip()
+    return text if text and text.lower() != 'nan' else None
 
 
 # ---------------------------------------------------------------------------
@@ -532,8 +570,13 @@ def closing_for(row: dict, observations: List[dict], side: Optional[str], line: 
     """
     from performance_tracking import fixture_key, utc
     best = None
+    event = _event_id(row.get('odds_event_id'))
     for obs in observations:
         if fixture_key(obs['fixture']) != fixture_key(row) or utc(obs['fixture']['kickoff_utc']) != utc(row['kickoff_utc']):
+            continue
+        # Bound to the archived odds event: a different event with the same teams and kickoff never prices it.
+        observed_event = _event_id(obs['fixture'].get('odds_event_id'))
+        if event is not None and observed_event is not None and observed_event != event:
             continue
         if utc(obs['observed_at_utc']) < utc(row['snapshot_captured_utc']):
             continue
@@ -669,10 +712,10 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
     root = Path(root)
     observations, rejected = load_observations(root, clock)
     picks = [r for r in frozen_rows(archive, 'shortlist', latest=True) if r.get('selection_policy_version') in POLICIES]
-    graded = grade(picks, observations, records, clock)
-    tagged = grade(frozen_candidates(root, archive), observations, records, clock)
-    tier = grade(frozen_tier_picks(root, archive), observations, records, clock)
-    master = grade(frozen_master_picks(root, archive), observations, records, clock)
+    graded = grade(bind_event_ids(picks, archive), observations, records, clock)
+    tagged = grade(bind_event_ids(frozen_candidates(root, archive), archive), observations, records, clock)
+    tier = grade(bind_event_ids(frozen_tier_picks(root, archive), archive), observations, records, clock)
+    master = grade(bind_event_ids(frozen_master_picks(root, archive), archive), observations, records, clock)
     monitoring = grade_monitoring(first_monitoring_records(root, archive), records, clock)
     both = tier_frame(graded, tier)
     flags = cagey_flags(both, active_rule if active_rule is not None else active_tier_rule())

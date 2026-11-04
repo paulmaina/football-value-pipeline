@@ -230,14 +230,17 @@ def raw_check(root, *, raw_dir=None):
             master_path = raw/master_shortlist.FILE
             if summary.get('master_shortlist') is not None:
                 require(master_path.exists(), 'Missing current master shortlist')
-                master_expected = master_shortlist.build(decisions)
+                master_version = summary['master_shortlist'].get('version')
+                require(master_version in master_shortlist.VERSIONS, 'Unknown master shortlist version')
+                master_expected = master_shortlist.build(
+                    decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), master_version)
                 try:
                     master_actual = pd.read_csv(master_path, low_memory=False)
                 except pd.errors.EmptyDataError:
-                    master_actual = pd.DataFrame(columns=master_shortlist.COLUMNS)
-                require(master_shortlist.matches(master_actual, master_expected),
+                    master_actual = pd.DataFrame(columns=master_shortlist.columns(master_version))
+                require(master_shortlist.matches(master_actual, master_expected, master_version),
                         'Current master shortlist differs from deterministic replay')
-                require(equivalent(summary['master_shortlist'], master_shortlist.summary(master_expected)),
+                require(equivalent(summary['master_shortlist'], master_shortlist.summary(master_expected, master_version)),
                         'Current master shortlist summary differs from replay')
             # Correction monitoring is evidence only, but its rows must be this run's own. The run's
             # immutable summary says whether it was generated with monitoring; earlier v28 runs were not.
