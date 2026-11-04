@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Paris Saint Germain",
+    "home_team": "Villarreal",
+    "kickoff_utc": "2026-11-03T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "a341241606cb5b1b59e425d00be64883"
+  },
+  "observed_at_utc": "2026-11-03T19:54:21.243563+00:00",
+  "payload": {
+    "away_team": "Paris Saint Germain",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-03T19:53:38Z",
+            "outcomes": [
+              {
+                "name": "Paris Saint Germain",
+                "price": 1.7
+              },
+              {
+                "name": "Villarreal",
+                "price": 4.66
+              },
+              {
+                "name": "Draw",
+                "price": 4.15
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-03T19:53:38Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.08
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.8
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-03T19:53:57Z",
+            "outcomes": [
+              {
+                "name": "Paris Saint Germain",
+                "price": 1.76
+              },
+              {
+                "name": "Villarreal",
+                "price": 4.35
+              },
+              {
+                "name": "Draw",
+                "price": 4.3
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-03T19:53:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 1.91
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 2.0
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-03T20:00:00Z",
+    "home_team": "Villarreal",
+    "id": "a341241606cb5b1b59e425d00be64883",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.66,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.200033892106455,
+      "selection": "home",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.15,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22580794963703205,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.574158158256513,
+      "selection": "away",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.08,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4619585192762564,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.8,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5380414807237437,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-03T19:53:38+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.35,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2195655706181936,
+      "selection": "home",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.3,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.22219889392554515,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.76,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5582355354562613,
+      "selection": "away",
+      "updated_at_utc": "2026-11-03T19:53:57+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

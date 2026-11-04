@@ -85,8 +85,12 @@ class ValueTierTests(OfflineQuotePolicyTestCase):
         a_sel, a_dec, a_sum = v27.build_shortlist(pd.DataFrame(rows), NOW, execution_policy=POLICY)
         b_sel, b_dec, b_sum = run(*rows, settings=OFF)
         drop = ['selection_policy_version']
-        self.assertTrue(a_dec.drop(columns=drop).equals(b_dec.drop(columns=drop)))
-        self.assertTrue(a_sel.drop(columns=drop).equals(b_sel.drop(columns=drop)))
+        # Revision 2 additionally carries the uncorrected sizing distribution.
+        self.assertTrue(a_dec.drop(columns=drop).equals(b_dec[a_dec.columns].drop(columns=drop)))
+        self.assertTrue(a_sel.drop(columns=drop).equals(b_sel[a_sel.columns].drop(columns=drop)))
+        legacy_sel, legacy_dec, _ = run(*rows, settings={**OFF, 'price_edge_execution_version': 1})
+        self.assertTrue(a_dec.drop(columns=drop).equals(legacy_dec.drop(columns=drop)))
+        self.assertTrue(a_sel.drop(columns=drop).equals(legacy_sel.drop(columns=drop)))
         self.assertEqual(set(b_dec.selection_policy_version), {v28.POLICY})
         self.assertFalse(b_sum['cagey_correction_enabled'] or b_sum['cagey_tier_enabled'])
         for key in ('rejection_counts', 'tagged_candidates', 'n_shortlisted'):
