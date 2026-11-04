@@ -80,6 +80,16 @@ def _run_generated_at(run: Path, monitoring: Optional[pd.DataFrame]) -> Optional
     return None
 
 
+def _timing_rule(run: Path) -> Optional[str]:
+    """The run's recorded quote timing rule (None for runs that record none: skew-5min-v1)."""
+    import json
+    path = run / 'conservative_bet_summary.json'
+    try:
+        return json.loads(path.read_text(encoding='utf-8')).get('quote_timing_rule') if path.exists() else None
+    except (OSError, ValueError):
+        return None
+
+
 def _clean(value):
     """CSV-read cells to the objects the pipeline saw: NaN -> None (pinnacle_quotes treats None as absent)."""
     return None if isinstance(value, float) and math.isnan(value) else value
@@ -160,14 +170,16 @@ class FixtureIndex:
         return out
 
 
-def recompute(row: Mapping, evaluated_at: str, model_version: str) -> Optional[Dict[str, object]]:
-    """Rerun the run's own fit and correction on one forecast row; None when no usable fit."""
+def recompute(row: Mapping, evaluated_at: str, model_version: str, cutoff: bool = False) -> Optional[Dict[str, object]]:
+    """Rerun the run's own fit and correction on one forecast row; None when no usable fit.
+
+    `cutoff`: the run used observed-by-cutoff-v2, which excludes fits with inputs stamped after it."""
     import narrow_margin as nm
     import price_edge_cagey_shortlist as v28
     import price_edge_shortlist as v27
     row = {k: _clean(v) for k, v in row.items()}
     pin = v27.pinnacle_quotes(row)
-    fit, fit_info = v27.market_fit(pin, pd.Timestamp(evaluated_at))
+    fit, fit_info = v27.market_fit(pin, pd.Timestamp(evaluated_at), cutoff)
     context = v28.corrected_context(pin, fit, fit_info, nm.load(model_version))
     if context is None:
         return None
@@ -192,6 +204,7 @@ def build(raw: Path) -> pd.DataFrame:
     roster = _read_csv(run / PREDICTIONS)
     monitoring = _read_csv(run / MONITORING)
     generated = _run_generated_at(run, monitoring)
+    cutoff = _timing_rule(run) == 'observed-by-cutoff-v2'
     if roster is None or roster.empty or not set(KEYS) <= set(roster.columns):
         return pd.DataFrame(columns=COLUMNS)
     # Every forecast row is kept (no de-duplication by team pairing: the same pairing can recur on another date).
@@ -219,7 +232,7 @@ def build(raw: Path) -> pd.DataFrame:
                    latest_input_quote_utc=_clean(m.get('latest_input_quote_utc')),
                    generated_at_utc=m.get('generated_at_utc') or generated)
         if m['status'] == 'USABLE':
-            figures = recompute(row.to_dict(), m['generated_at_utc'], m['model_version'])
+            figures = recompute(row.to_dict(), m['generated_at_utc'], m['model_version'], cutoff)
             if figures is None or abs(figures['p_two_plus'] - float(m['corrected_p2'])) > MATCH_TOLERANCE:
                 got = 'no usable fit' if figures is None else f"P(2+) {figures['p_two_plus']:.6f}"
                 rec.update(status=MISMATCH, exclusion_reason=f"recomputed {got} differs from monitoring "

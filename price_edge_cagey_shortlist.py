@@ -763,14 +763,15 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
             transform=make_transform(None, settings, cost=cost, policy=policy) if uses_transform else None,
             extra_columns=[*VALUE_COLUMNS, *TIER_COLUMNS, *groups,
                            *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])]
-            if uses_transform else (), **group)
+            if uses_transform else (), cutoff=timing_rule(settings) == TIMING_RULE_CUTOFF, **group)
     else:
         model = model or (nm.load(settings['model_version']) if settings.get('model_version') else nm.production_model())
         selected, decisions, summary = v27.build_shortlist(
             predictions, as_of, market_reliability, policy,
             transform=make_transform(model, settings, monitor, cost, policy=policy),
             extra_columns=[*VALUE_COLUMNS, *tier_columns(tier_rule(settings)), *groups,
-                           *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])], **group)
+                           *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])],
+            cutoff=timing_rule(settings) == TIMING_RULE_CUTOFF, **group)
     for frame in (selected, decisions):
         if 'selection_policy_version' in frame:
             frame['selection_policy_version'] = POLICY

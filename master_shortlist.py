@@ -26,9 +26,11 @@ Fewer than 10 rows only when fewer than 10 matches have a candidate in the pool.
 
 No-loss probability (the safety used to rank), master-10-v2: from the same
 distribution as the candidate's fair price, and labelled in master_probability_basis:
-  a / b    Pinnacle fair price (pinnacle_no_loss_probability)
-  c        market-implied fit B (pinnacle_no_loss_probability, priced from fit B)
   c-cagey  cagey-corrected fit (corrected_no_loss_probability)
+  other    pinnacle_no_loss_probability, labelled by where v27 took it from: fit B
+           whenever the fixture's fit B was usable ("market-implied fit B"); otherwise
+           the direct Pinnacle win share, which equals no-loss only on half lines and
+           over 1.5 ("Pinnacle fair price"); push and quarter lines then have none
 A candidate without that probability ranks after those with one (basis
 "unavailable"); no other distribution stands in. master-10-v1 runs (recorded
 version) replay with v1's rule: Pinnacle/fit no-loss for every reference, the
@@ -51,9 +53,25 @@ import pandas as pd
 VERSION_V1 = 'master-10-v1'
 VERSION = 'master-10-v2'
 VERSIONS = (VERSION_V1, VERSION)
-BASIS = {'a': 'Pinnacle fair price', 'b': 'Pinnacle fair price', 'c': 'market-implied fit B',
-         'c-cagey': 'cagey-corrected fit'}
+BASIS_PINNACLE = 'Pinnacle fair price'
+BASIS_FIT = 'market-implied fit B'
+BASIS_CORRECTED = 'cagey-corrected fit'
 BASIS_UNAVAILABLE = 'unavailable'
+
+
+def _flag_true(value) -> bool:
+    return value is True or str(value).strip().lower() in ('true', '1')
+
+
+def basis(row: Mapping) -> str:
+    """Where a candidate's ranking no-loss probability came from (see the module docstring)."""
+    if row.get('reference_type') == 'c-cagey':
+        return BASIS_CORRECTED
+    if row.get('reference_type') == 'c':
+        return BASIS_FIT  # priced from fit B, which exists only when usable
+    if row.get('market') != 'Over 1.5' and _flag_true(row.get('fit_usable')):
+        return BASIS_FIT
+    return BASIS_PINNACLE
 FILE = 'master_shortlist.csv'
 SIZE = 10
 MIN_EDGE = 0.01
@@ -118,8 +136,8 @@ def pool(decisions: pd.DataFrame, version: str = VERSION) -> pd.DataFrame:
     cagey = frame.reference_type.eq('c-cagey')
     safety = corrected.where(cagey, pinnacle)
     frame['master_no_loss_probability'] = safety
-    frame['master_probability_basis'] = np.where(
-        safety.notna(), frame.reference_type.map(lambda r: BASIS.get(r, BASIS_UNAVAILABLE)), BASIS_UNAVAILABLE)
+    labels = pd.Series([basis(r) for r in frame.to_dict('records')], index=frame.index, dtype=object)
+    frame['master_probability_basis'] = labels.where(safety.notna(), BASIS_UNAVAILABLE)
     return frame
 
 
@@ -181,9 +199,9 @@ def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, v
 def summary(frame: pd.DataFrame, version: str = VERSION) -> Dict[str, object]:
     flags = frame['master_price_flag'] if len(frame) else pd.Series(dtype=object)
     extra = {} if version == VERSION_V1 else {
-        'probability_basis': 'no-loss probability from the distribution behind each fair price: Pinnacle fair '
-                             'price (a/b), market-implied fit B (c), cagey-corrected fit (c-cagey); none -> '
-                             'ranked last'}
+        'probability_basis': 'no-loss probability labelled by its source: cagey-corrected fit (c-cagey), '
+                             'market-implied fit B (whenever usable), else the Pinnacle fair win share (half '
+                             'lines and over 1.5 only); none -> ranked last'}
     return {'version': version, 'size': SIZE, 'n_bets': int(len(frame)),
             'value_bets': int((flags == PRICE_VALUE).sum()),
             'below_threshold_bets': int((flags == PRICE_BELOW_THRESHOLD).sum()),

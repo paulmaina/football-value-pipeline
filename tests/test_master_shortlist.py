@@ -182,6 +182,15 @@ class ProbabilityBasisTests(OfflineQuotePolicyTestCase):
         self.assertEqual(list(old.home_team), ['Pinnacle FC', 'Slavia'])
         self.assertEqual(list(old.columns), ms.COLUMNS_V1)
 
+    def test_direct_references_are_labelled_by_the_distribution_actually_used(self):
+        rows = pd.DataFrame([
+            cand('Fitted', market='Home win', reference_type='b', fit_usable=True, safe=0.62),
+            cand('Direct', market='Home win', reference_type='b', fit_usable=False, safe=0.55),
+            cand('Over', market='Over 1.5', reference_type='a', fit_usable=True, safe=0.75)])
+        labels = dict(zip(*ms.build(rows)[['home_team', 'master_probability_basis']].T.values))
+        self.assertEqual(labels, {'Fitted': 'market-implied fit B', 'Direct': 'Pinnacle fair price',
+                                  'Over': 'Pinnacle fair price'})
+
     def test_no_stand_in_distribution_and_missing_safety_ranks_last(self):
         rows = pd.DataFrame([cand('Missing', safe=None, corrected_no_loss_probability=0.95, edge=0.05),
                              cand('Known', safe=0.40, edge=0.011),
