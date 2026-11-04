@@ -58,6 +58,8 @@ TAGGED_LINES = (1.0, 1.5, 1.75, 2.0, 2.25)
 REFERENCES = {'a': 'Pinnacle same AH line', 'b': 'Pinnacle equivalent market', 'c': 'market-implied (derived)'}
 NO_REFERENCE = 'no Pinnacle reference'
 NO_OFFER = 'no offered quote at an allowed bookmaker'
+# Totals lines kept from the captured responses: 2.5 feeds the fit; 1.5 is priced by v28's per-market rule.
+CAPTURED_TOTAL_POINTS = (2.5, 1.5)
 OUTPUT_COLUMNS = [
     'kickoff_utc', 'league', 'home_team', 'away_team', 'balanced', 'low_total', 'high_draw', 'even_odds',
     'pinnacle_draw_probability', 'pinnacle_over_2_5_probability', 'handicap_line', 'handicap_side', 'side_role',
@@ -100,7 +102,7 @@ def _json_list(value) -> list:
 def capture_quotes(payload: Mapping, clock, market_keys) -> List[Dict[str, object]]:
     """Per-book quotes v27 needs beyond the AH offers: complete, fresh outcome sets only.
 
-    h2h (home/draw/away), totals and alternate_totals at 2.5 (over/under) and
+    h2h (home/draw/away), totals and alternate_totals at 2.5 and 1.5 (over/under; one quote per point) and
     double_chance (home_draw/draw_away/home_away), for the bookmakers
     asian_handicap.bookmaker recognises. No price is ever synthesised.
     """
@@ -130,28 +132,38 @@ def capture_quotes(payload: Mapping, clock, market_keys) -> List[Dict[str, objec
             stamp = market.get('last_update') or book.get('last_update')
             if clock is not None and not quote_is_fresh(stamp, clock):
                 continue
-            prices, duplicate = {}, False
-            for outcome in market['outcomes']:
-                if not isinstance(outcome, dict):
-                    continue
-                label = str(outcome.get('name') or '').strip()
-                if key in ('totals', 'alternate_totals'):
-                    if outcome.get('point') != 2.5:
-                        continue
-                    side = label.lower()
-                elif key == 'h2h':
-                    side = names['h2h'].get('draw' if label.lower() == 'draw' else canonical_team_key(label))
-                else:
-                    side = names['double_chance'].get(label.casefold())
-                price = _price(outcome.get('price'))
-                if side in wanted[key] and price:
-                    duplicate |= side in prices
-                    prices[side] = price
-            if duplicate or set(prices) != wanted[key]:
-                continue
-            out.append({'bookmaker': name, 'market': 'totals' if 'totals' in key else key, 'market_key': key,
-                        'point': 2.5 if 'totals' in key else None, 'prices': prices, 'last_update_utc': stamp})
+            points = CAPTURED_TOTAL_POINTS if 'totals' in key else (None,)
+            for point in points:
+                quote = _capture_one(market, key, point, names, wanted, name, stamp)
+                if quote is not None:
+                    out.append(quote)
     return out
+
+
+def _capture_one(market, key, point, names, wanted, name, stamp) -> Optional[Dict[str, object]]:
+    """One complete outcome set of one market (one totals point at a time), or None."""
+    from football_value_pipeline_v2_standalone import canonical_team_key
+    prices, duplicate = {}, False
+    for outcome in market['outcomes']:
+        if not isinstance(outcome, dict):
+            continue
+        label = str(outcome.get('name') or '').strip()
+        if key in ('totals', 'alternate_totals'):
+            if outcome.get('point') != point:
+                continue
+            side = label.lower()
+        elif key == 'h2h':
+            side = names['h2h'].get('draw' if label.lower() == 'draw' else canonical_team_key(label))
+        else:
+            side = names['double_chance'].get(label.casefold())
+        price = _price(outcome.get('price'))
+        if side in wanted[key] and price:
+            duplicate |= side in prices
+            prices[side] = price
+    if duplicate or set(prices) != wanted[key]:
+        return None
+    return {'bookmaker': name, 'market': 'totals' if 'totals' in key else key, 'market_key': key,
+            'point': point, 'prices': prices, 'last_update_utc': stamp}
 
 
 def merge_quotes(existing, added) -> str:
@@ -168,12 +180,12 @@ def _ah_market(side: str, line: float) -> str:
 
 
 def pinnacle_quotes(row: Mapping) -> Dict[str, object]:
-    """Pinnacle 1X2, O/U 2.5, AH pairs and draw no bet for one fixture.
+    """Pinnacle 1X2, O/U 2.5 (and O/U 1.5, used only by v28's per-market rule), AH pairs and draw no bet.
 
     Prefers the per-book `price_edge_quotes` capture; runs captured before it
     existed fall back to fields that are Pinnacle by construction.
     """
-    out: Dict[str, object] = {'h2h': None, 'ou25': None, 'ah': {}, 'dnb': None, 'main_line': None}
+    out: Dict[str, object] = {'h2h': None, 'ou25': None, 'ou15': None, 'ah': {}, 'dnb': None, 'main_line': None}
     for quote in _json_list(row.get('price_edge_quotes')):
         if not isinstance(quote, dict) or quote.get('bookmaker') != 'Pinnacle':
             continue
@@ -182,11 +194,12 @@ def pinnacle_quotes(row: Mapping) -> Dict[str, object]:
             triple = tuple(_price(prices.get(k)) for k in ('home', 'draw', 'away'))
             if all(triple):
                 out['h2h'] = (*triple, stamp)
-        elif quote.get('market') == 'totals' and quote.get('point') == 2.5:
+        elif quote.get('market') == 'totals' and quote.get('point') in (2.5, 1.5):
+            key = 'ou25' if quote.get('point') == 2.5 else 'ou15'
             pair = (_price(prices.get('over')), _price(prices.get('under')))
             # Prefer the main line over the alternate one when both exist.
-            if all(pair) and (out['ou25'] is None or quote.get('market_key') == 'totals'):
-                out['ou25'] = (*pair, stamp)
+            if all(pair) and (out[key] is None or quote.get('market_key') == 'totals'):
+                out[key] = (*pair, stamp)
     if out['h2h'] is None and str(row.get('market_source_1x2') or '').endswith('/ Pinnacle'):
         triple = tuple(_price(row.get(f'market_reference_{k}_odds')) for k in ('home', 'draw', 'away'))
         if all(triple):
@@ -465,14 +478,20 @@ def evaluate_fixture(row: Mapping, policy: Mapping, now: pd.Timestamp, transform
         offered = {(c['side'], float(c['line'])) for c in candidates}
         candidates += [{'side': side, 'line': line, 'probe': True} for side in ('home', 'away')
                        for line in TAGGED_LINES if (side, line) not in offered]
+    base = fixture_base(row, pin, fit, fit_info, now)
+    items = [{**base, **evaluate_candidate(c, pin, fit, fit_info, context, now, kickoff)} for c in candidates]
+    return transform(row, items, pin, fit, fit_info, now) if transform is not None else items
+
+
+def fixture_base(row: Mapping, pin: Mapping, fit: mi.Fit, fit_info: Mapping, now: pd.Timestamp) -> Dict[str, object]:
+    """Fields every candidate row of one fixture shares (identity, fit diagnostics, tracking tags)."""
     base = {k: row.get(k) for k in ('date', 'league', 'home_team', 'away_team', 'fixture_id', 'kickoff_utc')}
     base.update(evaluated_at_utc=now.isoformat(), selection_policy_version=POLICY, per_stake_cost=0.0,
                 fit_usable=fit.usable, fit_reasons='; '.join(fit.reasons), fit_max_residual=fit.max_residual,
-                **tag)
+                **tags(pin['h2h'], pin['ou25']))
     # Tracking only: never read by any decision.
     base['cagey_score'], base['cagey_fit'] = mi.cagey_score(fit, fit_info['fit_a'])
-    items = [{**base, **evaluate_candidate(c, pin, fit, fit_info, context, now, kickoff)} for c in candidates]
-    return transform(row, items, pin, fit, fit_info, now) if transform is not None else items
+    return base
 
 
 def _rank(frame: pd.DataFrame) -> pd.DataFrame:
@@ -483,10 +502,11 @@ def _rank(frame: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, execution_policy=None, *,
-                    transform=None, extra_columns=()):
+                    transform=None, extra_columns=(), group_column=None):
     """One pick per fixture; no cap. Returns (shortlist, decisions, summary).
 
-    `transform` and `extra_columns` are for v28, which reuses this selection; v27 uses neither.
+    `transform`, `extra_columns` and `group_column` are for v28, which reuses this selection; v27 uses none.
+    With `group_column`, the pick is one per fixture AND value of that column (one per market group).
     """
     from quote_policy import load_policy, validate_policy
     from performance_tracking import fixture_key
@@ -502,6 +522,8 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
         decisions[column] = decisions[column].astype(object)
     eligible =decisions.loc[decisions.decision == 'ELIGIBLE'].copy()
     eligible['_fixture'] = eligible.apply(fixture_key, axis=1) if len(eligible) else pd.Series(dtype=str)
+    if group_column is not None and len(eligible):
+        eligible['_fixture'] = eligible['_fixture'] + '#' + eligible[group_column].astype(str)
     ranked = _rank(eligible)
     chosen = ranked.drop_duplicates('_fixture').index
     others = {}
@@ -510,7 +532,9 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
         others[idx] = '; '.join(f'{r.market_to_bet} @ {r.bookmaker} {r.offered_decimal_odds:.2f} ({r.edge:+.1%})'
                                 for r in group.itertuples())
     decisions.loc[eligible.index, 'decision'] = 'NOT_SELECTED'
-    decisions.loc[eligible.index, 'rejection_reasons'] = 'other qualifying line chosen for this fixture (safest first)'
+    decisions.loc[eligible.index, 'rejection_reasons'] = (
+        'other qualifying line chosen for this fixture (safest first)' if group_column is None
+        else 'other qualifying line chosen for this fixture and market group (safest first)')
     decisions.loc[chosen, ['decision', 'rejection_reasons', 'selection_tier']] = ['SHORTLISTED', '', 'STRICT']
     for idx, text in others.items():
         decisions.at[idx, 'other_value_lines'] = text

@@ -63,7 +63,7 @@ def close(actual, expected, label):
 
 
 def raw_check(root, *, raw_dir=None):
-    from performance_tracking import read_csv, utc, fixture_key, SUPPORTED_MARKETS, number
+    from performance_tracking import read_csv, utc, fixture_key, SUPPORTED_MARKETS, number, pick_key
     from prediction_runs import resolve_raw
     raw=Path(raw_dir) if raw_dir is not None else resolve_raw(root/'raw')
     summary=read_json(raw/'conservative_bet_summary.json')
@@ -118,9 +118,13 @@ def raw_check(root, *, raw_dir=None):
         require(summary.get('shortlist_lookahead_hours') == 48, 'Balanced shortlist must use 48 hours')
         require(summary.get('target_distinct_matches') == target, 'Balanced shortlist target differs from policy')
         require(len(picks) <= target, f'Balanced shortlist exceeds {target} fixtures')
+    value_per_market = (policy_version == price_edge_cagey_shortlist.POLICY
+                  and summary.get('value_rule') == price_edge_cagey_shortlist.VALUE_RULE_PER_MARKET)
     for row in picks:
         key=fixture_key(row);require(key in keys, 'Selection without matching forecast')
-        require(key not in selected, 'Multiple selected markets for one fixture');selected.add(key)
+        # A per-market value run picks once per fixture AND market group; every other policy once per fixture.
+        identity=pick_key({**row,'fixture_key':key}) if value_per_market else key
+        require(identity not in selected, 'Multiple selected markets for one fixture');selected.add(identity)
         require(row.get('market') in summary.get('eligible_markets',SUPPORTED_MARKETS), 'Unsupported selected market')
         require(not excludes_under or row.get('market') != 'Under 3.5', 'Under 3.5 is excluded from this shortlist policy')
         if policy_version == BALANCED_SELECTION_POLICY_VERSION:
@@ -128,7 +132,11 @@ def raw_check(root, *, raw_dir=None):
         if asian:
             counted = row.get('market') in count_markets_allowed
             require(row.get('market') in ordinary_markets(policy_version) or parse_handicap(row.get('market')) is not None
-                    or counted,'Excluded Asian shortlist market')
+                    or counted or (value_per_market and row.get('market') == price_edge_cagey_shortlist.OVER_1_5),
+                    'Excluded Asian shortlist market')
+            if value_per_market:
+                require(row.get('value_market_group') == price_edge_cagey_shortlist.market_group(row),
+                        'Per-market pick has the wrong market group')
             if counted:
                 require('UNPROVEN EDGE' in str(row.get('selection_warnings') or ''),'Count-market pick missing its unproven-edge flag')
             require(row.get('selection_tier')=='STRICT','Asian shortlist must not bypass strict gates')
@@ -352,7 +360,7 @@ def expected_stats(rows):
 
 
 def report_check(root):
-    from performance_tracking import read_csv,utc,frozen_rows,snapshots,result_for_market,number,fixture_match,tracking_key
+    from performance_tracking import read_csv,utc,frozen_rows,snapshots,result_for_market,number,fixture_match,tracking_key,pick_key
     from performance_tracking import verified_result_source
     from asian_handicap import SETTLED, parse_label as parse_handicap
     from performance_excel import REPORT_NAME
@@ -374,13 +382,13 @@ def report_check(root):
     latest = metrics.get('tracking_basis') == 'LATEST_PREMATCH_PER_FIXTURE'
     history = read_csv(performance/'shortlist_run_history.csv') if latest else []
     history_by_key = {tracking_key(r): r for r in history}
-    frozen={tracking_key(r) if latest else r['fixture_key']:r for r in frozen_rows(archived,'shortlist',latest=latest)}
+    frozen={tracking_key(r) if latest else pick_key(r):r for r in frozen_rows(archived,'shortlist',latest=latest)}
     require(len(selections)==len(frozen), 'Report omitted or added frozen selections')
     cache_path=performance/'verified_results.json'
     records=list(read_json(cache_path).values()) if cache_path.exists() else []
     seen=set()
     for row in selections:
-        key=tracking_key(row) if latest else row['fixture_key'];require(key not in seen,'Duplicate graded fixture/run');seen.add(key)
+        key=tracking_key(row) if latest else pick_key(row);require(key not in seen,'Duplicate graded fixture/run');seen.add(key)
         original=frozen.get(key);require(original is not None,'Graded selection without immutable snapshot')
         if latest:
             history_row=history_by_key.get(key)
@@ -453,7 +461,7 @@ def report_check(root):
         originals = {tracking_key(r):r for r in frozen_rows(archived,'shortlist',all_runs=True)}
         require(len(history)==len(originals) and len({tracking_key(r) for r in history})==len(history),
                 'Prediction history coverage mismatch')
-        require(len({r['fixture_key'] for r in selections})==len(selections), 'Duplicate latest fixture')
+        require(len({pick_key(r) for r in selections})==len(selections), 'Duplicate latest fixture')
         for row in history:
             original=originals.get(tracking_key(row))
             require(original is not None,'History without frozen prediction')
@@ -473,8 +481,8 @@ def report_check(root):
                     require(row.get(field) == str(value), 'History '+field+' differs from frozen replay')
         first = {}
         for original in frozen_rows(archived,'shortlist'):
-            first[original['fixture_key']] = tracking_key(original)
-        first_rows = [r for r in history if tracking_key(r)==first.get(r['fixture_key'])]
+            first[pick_key(original)] = tracking_key(original)
+        first_rows = [r for r in history if tracking_key(r)==first.get(pick_key(r))]
         require(metrics.get('unique_shortlisted_fixtures')==len(first), 'Unique fixture count mismatch')
         history_groups=metrics.get('run_history_groups',{})
         history_runs={tracking_key(r)[0] for r in history}
