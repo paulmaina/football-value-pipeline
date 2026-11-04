@@ -1437,8 +1437,11 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
                         "corrected_p_win": "Full win", "corrected_p_half_win": "Half win", "corrected_p_push": "Push",
                         "corrected_p_half_loss": "Half loss", "corrected_p_loss": "Full loss",
                         "corrected_p_profit": "Profit probability",
-                        "uncorrected_matrix_fair_odds": "Uncorrected fair odds"}
-        tier_readable = tier_raw.reindex(columns=v28.TIER_OUTPUT_COLUMNS).rename(columns=tier_headers)
+                        "uncorrected_matrix_fair_odds": "Uncorrected fair odds",
+                        "price_flag": "Price vs fair (value / below fair)"}
+        narrow_rule = tier.get('rule_version') == v28.TIER_RULE_NARROW
+        tier_columns = v28.tier_output_columns(v28.TIER_RULE_NARROW if narrow_rule else v28.TIER_RULE_VALUE)
+        tier_readable = tier_raw.reindex(columns=tier_columns).rename(columns=tier_headers)
         # Narrow-margin columns (information only; never change a tier decision), after the corrected cagey score.
         import narrow_margin_report
         narrow = narrow_margin_report.for_fixtures(tier_raw, input_dir).rename(
@@ -1459,11 +1462,19 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
             for column in ("Price", "Corrected fair odds", "Uncorrected fair odds", "Pinnacle fair odds (if quoted)"):
                 tier_readable[column] = tier_readable[column].map(decimal)
         tier_readable.to_csv(output_dir / "cagey_tier_shortlist_readable.csv", index=False, encoding="utf-8-sig")
-        lines += ["", "## Cagey tier (separate list, never merged with the picks above)", "",
-                  f"Cagiest 20% of this run's fixtures by corrected cagey score (cutoff {tier.get('cutoff_used')}, run "
-                  f"20th percentile {tier.get('cutoff_run_p20')}, training cap {tier.get('cutoff_training_p20')}); "
-                  "AH +1 to +2.25 at Pinnacle or 1xBet with expected profit >= 0 and no-loss >= 85% under the corrected "
-                  "matrix; one per match, safest first.", "",
+        if narrow_rule:
+            rule_text = (f"Every match with P(narrow: draw or 1-goal win) >= {pct(tier.get('min_p_narrow'), 0)} in the "
+                         "20-minute to 48-hour window, with its safest AH +1 to +2.25 line at Pinnacle or 1xBet after "
+                         "the data-quality checks; one per match, safest first. **Price vs fair** says whether the "
+                         "price gives expected profit >= 0 after stake cost under the corrected matrix (value) or "
+                         f"not (below fair). This run: {tier.get('n_shortlisted', 0)} matches, "
+                         f"{tier.get('value_picks', 0)} value, {tier.get('below_fair_picks', 0)} below fair.")
+        else:
+            rule_text = (f"Cagiest 20% of this run's fixtures by corrected cagey score (cutoff {tier.get('cutoff_used')}, "
+                         f"run 20th percentile {tier.get('cutoff_run_p20')}, training cap "
+                         f"{tier.get('cutoff_training_p20')}); AH +1 to +2.25 at Pinnacle or 1xBet with expected "
+                         "profit >= 0 and no-loss >= 85% under the corrected matrix; one per match, safest first.")
+        lines += ["", "## Cagey tier (separate list, never merged with the picks above)", "", rule_text, "",
                   markdown_table(list(tier_readable.columns), tier_readable.astype(str).values.tolist())
                   if not tier_readable.empty else "No cagey-tier pick this run."]
     (output_dir / "conservative_bet_shortlist_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
