@@ -333,11 +333,22 @@ def snapshots(root: Path = ROOT) -> list[tuple[dict, list[dict], list[dict]]]:
     ))
 
 
+def pick_key(row: dict) -> str:
+    """A pick's identity: its fixture, plus its value market group when the run picked per market group.
+
+    Runs before the per-market value rule carry no group, so their identity stays the fixture key.
+    """
+    key = row.get('fixture_key') or fixture_key(row)
+    group = row.get('value_market_group')
+    group = '' if group is None or (isinstance(group, float) and group != group) else str(group).strip()
+    return f'{key}#{group}' if group else key
+
+
 def tracking_key(row: dict) -> tuple[str, str]:
-    """One fixture per actual forecast generation, not per upload commit."""
+    """One pick per actual forecast generation, not per upload commit."""
     generated = utc(row.get('snapshot_generated_utc'))
     run = generated.isoformat() if generated is not None else str(row.get('snapshot_commit') or '')
-    return run, row.get('fixture_key') or fixture_key(row)
+    return run, pick_key(row)
 
 
 def frozen_rows(archive: list[tuple[dict, list[dict], list[dict]]],
@@ -372,7 +383,7 @@ def frozen_rows(archive: list[tuple[dict, list[dict], list[dict]]],
                 "snapshot_captured_utc": meta["captured_at_utc"],
                 "snapshot_generated_utc": meta["generated_at_utc"], "fixture_key": key,
                 "selection_policy_version": meta.get("selection_policy_version", "legacy/unspecified")}
-            identity = tracking_key(row) if all_runs else key
+            identity = tracking_key(row) if all_runs else pick_key(row)
             if not key.strip("|"):
                 continue
             if identity in frozen and (not latest or generated <= utc(frozen[identity]['snapshot_generated_utc'])):
@@ -532,6 +543,7 @@ def score_shortlist(row: dict, final: dict | None, state: str) -> dict:
         "unit_profit": "",
         "brier": "",
         "week": "",
+        "value_market_group": row.get("value_market_group") or "",
     }
     kickoff = utc(row.get("kickoff_utc"))
     if kickoff:
@@ -711,7 +723,7 @@ SHORTLIST_COLUMNS = [
     "fixture_key", "league", "home_team", "away_team", "kickoff_utc",
     "snapshot_commit", "selection_policy_version", "snapshot_captured_utc", "snapshot_generated_utc", "market", "selection_tier",
     "predicted_probability", "probability_basis", "offered_decimal_odds", "per_stake_cost", "bookmaker", "match_source",
-    "source_match_id", "final_score", "status", "unit_profit", "brier", "week",
+    "source_match_id", "final_score", "status", "unit_profit", "brier", "week", "value_market_group",
 ]
 PREDICTION_COLUMNS = [
     "fixture_key", "league", "home_team", "away_team", "kickoff_utc",

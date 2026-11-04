@@ -2,6 +2,7 @@
   "cagey_correction_enabled": true,
   "cagey_tier_enabled": true,
   "cagey_tier_rule": "narrow-63-flagged-v2",
+  "value_rule": "per-market-v2",
   "model_version": "cagey-correction-through-2425-v1",
   "gate_report": "football_output_v2/performance/cagey_correction/report.md"
 }

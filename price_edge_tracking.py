@@ -46,7 +46,7 @@ from price_edge_cagey_shortlist import (POLICY as CAGEY_POLICY, MONITOR_FILE, MO
 import narrow_margin as nm
 POLICIES = (POLICY, CAGEY_POLICY)  # v27 and v28 value-tier picks are graded together, split by policy.
 from price_edge_cagey_shortlist import (TIER_FILE, TIER_RULE_VALUE, TIER_RULE_NARROW, PRICE_VALUE,
-                                        PRICE_BELOW_FAIR)
+                                        PRICE_BELOW_FAIR, OVER_1_5)
 CAGEY_REVIEW_MIN_PICKS = 50
 CAGEY_TIER_REVIEW_MIN_PICKS = 50
 
@@ -63,7 +63,7 @@ COLUMNS = ['list_version', 'generated_at_utc', 'league', 'home_team', 'away_team
 EQUIVALENT = {'Home win': ('home', -0.5), 'Away win': ('away', -0.5),
               'Double Chance 1X': ('home', 0.5), 'Double Chance X2': ('away', 0.5)}
 SPLITS = ('bookmaker', 'odds_band', 'reference_type', 'side_role', 'balanced', 'low_total', 'high_draw', 'even_odds', 'tagged',
-          'cagey_quintile')
+          'cagey_quintile', 'value_market_group')
 TIER_SPLITS = ('tier', 'policy', 'bookmaker', 'reference_type', 'corrected_cagey_quintile', 'balanced', 'low_total',
                'high_draw', 'even_odds', 'qualified_only_by_correction', 'cagey_tier_rule', 'price_flag')
 QUINTILES = ('Q1 cagiest', 'Q2', 'Q3', 'Q4', 'Q5 most open')
@@ -494,8 +494,21 @@ def close_win_share(quotes: List[dict], side: str, line: float) -> Optional[floa
     return None
 
 
-def closing_for(row: dict, observations: List[dict], side: str, line: float):
-    """Latest near-kickoff observation after capture that prices (side, line) for Pinnacle."""
+def close_over_share(quotes: List[dict], point: float = 1.5) -> Optional[float]:
+    """Pinnacle fair close probability of over `point` goals, proportional margin removal."""
+    from ah_close_backtest import devig_proportional
+    pinnacle = {q['selection']: float(q['decimal_odds']) for q in quotes
+                if q.get('bookmaker') == 'pinnacle' and q.get('decimal_odds')}
+    suffix = str(point).replace('.', '_')
+    over, under = pinnacle.get('over_' + suffix), pinnacle.get('under_' + suffix)
+    return devig_proportional(over, under)[0] if over and under else None
+
+
+def closing_for(row: dict, observations: List[dict], side: Optional[str], line: Optional[float], share=None):
+    """Latest near-kickoff observation after capture that prices the pick for Pinnacle.
+
+    `share(quotes)` overrides the AH win-share lookup (used for over 1.5).
+    """
     from performance_tracking import fixture_key, utc
     best = None
     for obs in observations:
@@ -503,7 +516,8 @@ def closing_for(row: dict, observations: List[dict], side: str, line: float):
             continue
         if utc(obs['observed_at_utc']) < utc(row['snapshot_captured_utc']):
             continue
-        q = close_win_share(obs.get('quotes', []), side, line)
+        quotes = obs.get('quotes', [])
+        q = share(quotes) if share is not None else close_win_share(quotes, side, line)
         if q is not None and (best is None or utc(obs['observed_at_utc']) > best[0]):
             best = (utc(obs['observed_at_utc']), q)
     return best
@@ -534,10 +548,50 @@ def settle(row: dict, final: Optional[dict], side: str, line: float, price) -> D
     return {'result_status': status, 'unit_profit': gain}
 
 
+def settle_over_1_5(row: dict, final: Optional[dict], price) -> Dict[str, object]:
+    """Over 1.5 goals: won on two or more regulation-time goals; no push."""
+    if not final or price is None:
+        return {'result_status': None, 'unit_profit': None}
+    try:
+        from quote_policy import stake_cost
+        won = int(final['home_goals']) + int(final['away_goals']) >= 2
+        cost = stake_cost(row.get('per_stake_cost') or 0)
+    except (TypeError, ValueError, KeyError):
+        return {'result_status': None, 'unit_profit': None}
+    return {'result_status': 'WON' if won else 'LOST', 'unit_profit': (float(price) - 1 if won else -1.0) - float(cost)}
+
+
+def grade_over_1_5(row: dict, observations: List[dict], records: List[dict], clock) -> dict:
+    """One over 1.5 pick (per-market value rule): CLV against Pinnacle's near-kickoff O/U 1.5 and the result."""
+    from performance_tracking import fixture_match, utc
+    price = pd.to_numeric(row.get('offered_decimal_odds'), errors='coerce')
+    fair = pd.to_numeric(row.get('fair_odds'), errors='coerce')
+    close = closing_for(row, observations, None, None, share=close_over_share)
+    final = None
+    kick = utc(row.get('kickoff_utc'))
+    if kick is not None and kick <= clock - timedelta(hours=2):
+        match, state = fixture_match(row, records)
+        final = match if state == 'VERIFIED_FINISHED' else None
+    item = {**row, 'ah_side': None, 'ah_line': None, 'odds_band': odds_band(price),
+            'tagged': 'any tag' if any(_flag(row.get(t)) for t in TAGS) else 'no tag',
+            **{t: 'yes' if _flag(row.get(t)) else 'no' for t in TAGS},
+            'close_observed_at_utc': close[0].isoformat() if close else None,
+            'pinnacle_close_win_share': close[1] if close else None,
+            'clv': float(price) * close[1] - 1 if close and pd.notna(price) else None,
+            'final_score': f"{final['home_goals']}-{final['away_goals']}" if final else None,
+            **settle_over_1_5(row, final, float(price) if pd.notna(price) else None)}
+    fair_result = settle_over_1_5({**row, 'per_stake_cost': 0}, final, float(fair) if pd.notna(fair) and fair > 1 else None)
+    item['return_at_capture_fair'] = fair_result['unit_profit']
+    return item
+
+
 def grade(rows: List[dict], observations: List[dict], records: List[dict], clock) -> pd.DataFrame:
     from performance_tracking import fixture_match, utc
     graded = []
     for row in rows:
+        if row.get('market') == OVER_1_5:
+            graded.append(grade_over_1_5(row, observations, records, clock))
+            continue
         target = ah_line(row.get('market'), row.get('handicap_side'), row.get('handicap_line'))
         if target is None:
             continue
