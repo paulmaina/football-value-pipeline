@@ -1439,7 +1439,19 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
                         "corrected_p_profit": "Profit probability",
                         "uncorrected_matrix_fair_odds": "Uncorrected fair odds"}
         tier_readable = tier_raw.reindex(columns=v28.TIER_OUTPUT_COLUMNS).rename(columns=tier_headers)
+        # Narrow-margin columns (information only; never change a tier decision), after the corrected cagey score.
+        import narrow_margin_report
+        narrow = narrow_margin_report.for_fixtures(tier_raw, input_dir).rename(
+            columns=narrow_margin_report.SHORTLIST_COLUMNS)
+        at = (list(tier_readable.columns).index("Corrected cagey score") + 1
+              if "Corrected cagey score" in tier_readable.columns else len(tier_readable.columns))
+        for offset, column in enumerate(narrow.columns):
+            tier_readable.insert(at + offset, column, narrow[column].to_numpy() if len(narrow) else [])
         if not tier_readable.empty:
+            for column in narrow.columns[:-1]:
+                tier_readable[column] = tier_readable[column].map(pct)
+            tier_readable[narrow.columns[-1]] = tier_readable[narrow.columns[-1]].map(
+                lambda v: '—' if pd.isna(v) else ('yes' if bool(v) else 'no'))
             for column in ("Corrected no-loss probability", "Corrected cagey score", "Full win", "Half win", "Push",
                            "Half loss", "Full loss", "Profit probability"):
                 tier_readable[column] = tier_readable[column].map(pct)
