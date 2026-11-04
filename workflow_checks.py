@@ -214,9 +214,17 @@ def raw_check(root, *, raw_dir=None):
                 if len(tier_expected) or len(tier_actual):
                     require(set(tier_expected.columns).issubset(tier_actual.columns),
                             'Missing current cagey-tier replay columns')
-                    require(equivalent(clean_frame(tier_actual[list(tier_expected.columns)]),
-                                       clean_frame(tier_expected.replace('', None))),
-                            'Current cagey-tier shortlist differs from deterministic replay')
+                    actual_rows = clean_frame(tier_actual[list(tier_expected.columns)])
+                    replay_rows = clean_frame(tier_expected.replace('', None))
+                    if not equivalent(actual_rows, replay_rows):
+                        detail = f'row count {len(actual_rows)} saved, {len(replay_rows)} replayed'
+                        if len(actual_rows) == len(replay_rows):
+                            detail = next(
+                                f'row {i}, {field}: saved={actual[field]!r}, replay={value!r}'
+                                for i, (actual, expected) in enumerate(zip(actual_rows, replay_rows), 1)
+                                for field, value in expected.items() if not equivalent(actual[field], value)
+                            )
+                        raise ValueError(f'Current cagey-tier shortlist differs from deterministic replay ({detail})')
             # Master shortlist: recorded runs must carry exactly the list the replayed decisions give.
             import master_shortlist
             master_path = raw/master_shortlist.FILE

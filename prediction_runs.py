@@ -4,7 +4,7 @@ Local save times are not independent forward-capture evidence. Cloud capture
 still uses its actual receipt time, including for runs uploaded together.
 """
 from contextlib import contextmanager
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import hashlib
 import errno
 import json
@@ -17,6 +17,7 @@ import socket
 import tempfile
 import time
 import uuid
+import warnings
 
 RUNS = 'prediction_runs'
 POINTER = 'current_run.json'
@@ -419,10 +420,14 @@ def publish_run(staging, raw):
 
 def capture_runs(root, source_commit, *, captured_at=None):
     """Capture every uploaded generation at actual receipt time, never saved time."""
-    from performance_tracking import capture, now_utc
+    from performance_tracking import MIN_LEAD_MINUTES, capture, now_utc, read_csv, utc
     from workflow_checks import raw_check
     root = Path(root)
     clock = captured_at or now_utc()
+    if clock.tzinfo is None:
+        raise ValueError('captured_at must have timezone information')
+    current = resolve_raw(root/'raw')
+    snapshots = root/'performance'/'snapshots'
     count = 0
     for directory in sorted((root/'raw'/RUNS).glob('*')):
         if not directory.is_dir() or not re.fullmatch('[0-9a-f]{64}', directory.name):
@@ -430,7 +435,30 @@ def capture_runs(root, source_commit, *, captured_at=None):
         manifest = validate_bundle(directory)
         if manifest['run_id'] != directory.name:
             raise ValueError('Prediction-run directory identity mismatch')
-        raw_check(root, raw_dir=directory)
+        # An existing verified archive is immutable. Replaying it against today's
+        # code cannot improve it and can block capture of a new generation.
+        if _captured(snapshots, directory):
+            continue
+        generated = utc(manifest['generated_at_utc'])
+        if generated is None or generated > clock + timedelta(minutes=5):
+            raise ValueError(f"Prediction run {directory.name}: invalid generation time for capture")
+        cutoff = max(clock, generated) + timedelta(minutes=MIN_LEAD_MINUTES)
+        forecasts = read_csv(directory/'all_leagues_predictions.csv')
+        if not forecasts:
+            raise ValueError(f"Prediction run {directory.name}: cannot capture an empty forecast")
+        if not any((kickoff := utc(row.get('kickoff_utc'))) and kickoff >= cutoff for row in forecasts):
+            print(f"Prediction run {directory.name}: no verifiable pre-kickoff fixtures; snapshot skipped.")
+            continue
+        try:
+            raw_check(root, raw_dir=directory)
+        except ValueError as exc:
+            message = f"Prediction run {directory.name}: {exc}"
+            if directory == current:
+                raise ValueError(message) from exc
+            # Keep the rejected historical bundle for investigation, but never
+            # let its replay failure block a verified new forecast.
+            warnings.warn(f"{message}; historical snapshot skipped", RuntimeWarning)
+            continue
         count += bool(capture(source_commit, root=root, captured_at=clock,
                               raw_dir=directory, prediction_run_id=manifest['run_id']))
     return count
