@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "2f4fd2fcddcb84697ea931176b022e41bf3522fece1debae7653f99b8c0db30f",
-  "training_as_of_utc": "2026-11-04T10:20:21.270738+00:00",
+  "training_as_of_utc": "2026-11-04T19:40:41.614358+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -52,9 +52,9 @@
   },
   "training_end": "2026-10-22",
   "fit_success": true,
-  "objective": 794.1227497717167,
-  "base": 0.10252416514302373,
-  "home_adv": 0.26712114564286255,
+  "objective": 793.6784869293833,
+  "base": 0.10260261948723708,
+  "home_adv": 0.2670727257594863,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -73,7 +73,7 @@
   },
   "training_data_health": {
     "training_end": "2026-10-22",
-    "verified_at_utc": "2026-11-04T00:36:38.177871+00:00",
+    "verified_at_utc": "2026-11-04T12:05:52.166800+00:00",
     "official_source_health": {
       "2025": {
         "status": "REVIEWED_HISTORICAL_FACTS",
@@ -90,35 +90,15 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 18,
+  "live_odds_matched": 17,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 9,
+  "additional_event_odds_calls_used_before_this_league": 1,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 17,
+  "over_1_5_in_window_quote_fixtures": 16,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "29ebc4d234c1c6e86ebea07ab9174818",
-      "event_id": "29ebc4d234c1c6e86ebea07ab9174818",
-      "home_team": "Rennes",
-      "away_team": "Olympiakos Piraeus",
-      "kickoff_utc": "2026-11-04T15:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
     {
       "fixture_id": "cb7170b1b0e68a09be62b7a0fcb8d268",
       "event_id": "cb7170b1b0e68a09be62b7a0fcb8d268",
@@ -329,7 +309,7 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -460,20 +440,20 @@
       "over_1_5_bookmakers": 1
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 18,
+  "additional_odds_in_window_linked_fixtures": 17,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 18,
+  "additional_event_odds_calls_this_league": 17,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 16,
-    "ANCHORED_MAIN": 2
+    "ANCHORED_ALTERNATE": 14,
+    "ANCHORED_MAIN": 3
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 18
+    "none": 17
   },
   "legacy_comparison_status": {
-    "None": 18
+    "None": 17
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

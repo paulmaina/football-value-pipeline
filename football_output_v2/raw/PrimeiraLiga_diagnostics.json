@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "b3df8a6ba2e5ca811847821ea9d38323a7d64bb77cbc57ee92f21ada8c933425",
-  "training_as_of_utc": "2026-11-04T10:20:29.086436+00:00",
+  "training_as_of_utc": "2026-11-04T19:40:46.372187+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -89,9 +89,9 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1471.671724341265,
-  "base": 0.08735732712570542,
-  "home_adv": 0.17402616923291525,
+  "objective": 1470.8452572783865,
+  "base": 0.08733008818928804,
+  "home_adv": 0.17403065830265924,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -120,10 +120,10 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 1,
+  "live_odds_matched": 3,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 27,
+  "additional_event_odds_calls_used_before_this_league": 19,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 0,
@@ -141,6 +141,32 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "406c4abcb4384570eada7fffa729be9d",
+      "event_id": "406c4abcb4384570eada7fffa729be9d",
+      "home_team": "Nacional",
+      "away_team": "Acad\u00e9mico de Viseu",
+      "kickoff_utc": "2026-11-07T15:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "d9d924bf6388e1288f06e04041b3fe33",
+      "event_id": "d9d924bf6388e1288f06e04041b3fe33",
+      "home_team": "Alverca",
+      "away_team": "Casa Pia",
+      "kickoff_utc": "2026-11-07T18:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 0,
@@ -148,14 +174,14 @@
   "additional_event_odds_hard_cap_applies": false,
   "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "ANCHORED_MAIN": 1
+    "ANCHORED_MAIN": 3
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 1
+    "none": 3
   },
   "legacy_comparison_status": {
-    "None": 1
+    "None": 3
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
