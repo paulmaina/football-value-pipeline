@@ -504,10 +504,12 @@ def report_check(root):
                     close(row.get(field),value,'History '+field)
                 else:
                     require(row.get(field) == str(value), 'History '+field+' differs from frozen replay')
+        # History and the latest ledger keep each market-group pick. The
+        # first-prediction reference counts each fixture once, in archive order.
         first = {}
-        for original in frozen_rows(archived,'shortlist'):
-            first[pick_key(original)] = tracking_key(original)
-        first_rows = [r for r in history if tracking_key(r)==first.get(pick_key(r))]
+        for key, original in originals.items():
+            first.setdefault(original['fixture_key'], key)
+        first_rows = [history_by_key[key] for key in first.values()]
         require(metrics.get('unique_shortlisted_fixtures')==len(first), 'Unique fixture count mismatch')
         history_groups=metrics.get('run_history_groups',{})
         history_runs={tracking_key(r)[0] for r in history}
