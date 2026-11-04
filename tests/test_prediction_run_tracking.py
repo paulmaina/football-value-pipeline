@@ -92,6 +92,24 @@ class PredictionRunTrackingTests(OfflineQuotePolicyTestCase):
             self.assertEqual(again['shortlist'],metrics['shortlist'])
             self.assertEqual(again['first_prediction_reference'],metrics['first_prediction_reference'])
 
+    def test_reports_validate_two_market_groups_on_one_fixture(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            winner = dict(pick(market='Home win'), value_market_group='match_winner')
+            totals = dict(pick(market='Over 1.5'), value_market_group='over_1_5')
+            save_run(root, T0, [fixture()], [winner, totals])
+            capture('a'*40, root=root, captured_at=T0)
+            # Different outcomes make it possible to verify which pick the
+            # first-prediction reference grades, not only the fixture count.
+            metrics = review(root=root, token='fake', clock=KICK+timedelta(days=1),
+                             session=MockSession([final(h=1, a=0)]))
+            self.assertEqual(metrics['shortlist']['graded'], 2)
+            self.assertEqual(metrics['shortlist_run_history']['graded'], 2)
+            self.assertEqual(metrics['unique_shortlisted_fixtures'], 1)
+            self.assertEqual(metrics['first_prediction_reference']['graded'], 1)
+            self.assertEqual(metrics['first_prediction_reference']['wins'], 1)
+            self.assertEqual(report_check(root)['shortlist']['graded'], 2)
+
     def test_run_identity_retains_microseconds_and_normalizes_utc(self):
         base={'fixture_key':'match','snapshot_generated_utc':'2026-10-18T12:00:00.000001Z','snapshot_commit':'a'*40}
         same=dict(base,snapshot_generated_utc='2026-10-18T15:00:00.000001+03:00',snapshot_commit='b'*40)
