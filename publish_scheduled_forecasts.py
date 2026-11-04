@@ -35,6 +35,8 @@ def publish(repo,attempts=3,runner=None):
                     '--no-legacy-comparison'],cwd=work,check=True)
                 runner([sys.executable,'workflow_checks.py','raw'],cwd=work,check=True)
                 runner([sys.executable,'format_football_output.py'],cwd=work,check=True)
+                # Narrow-margin report: read-only over raw/, written to readable/ (committed with the review).
+                runner([sys.executable,'narrow_margin_report.py'],cwd=work,check=True)
                 git(work,'add','football_output_v2/raw')
                 # Preserve the exact validated source revision used by this
                 # forecast, including downloads newer than the refresh job.
