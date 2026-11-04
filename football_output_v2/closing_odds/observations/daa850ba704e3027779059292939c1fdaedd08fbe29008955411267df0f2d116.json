@@ -1,0 +1,374 @@
+{
+  "fixture": {
+    "away_team": "Club Brugge",
+    "home_team": "PSV Eindhoven",
+    "kickoff_utc": "2026-11-04T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "449d718632202f0e5997d2e4b7273483"
+  },
+  "observed_at_utc": "2026-11-04T19:57:05.670031+00:00",
+  "payload": {
+    "away_team": "Club Brugge",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T19:56:47Z",
+            "outcomes": [
+              {
+                "name": "Club Brugge",
+                "price": 3.57
+              },
+              {
+                "name": "PSV Eindhoven",
+                "price": 1.93
+              },
+              {
+                "name": "Draw",
+                "price": 4.39
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-04T19:56:47Z",
+            "outcomes": [
+              {
+                "name": "Club Brugge",
+                "point": 0.5,
+                "price": 1.99
+              },
+              {
+                "name": "PSV Eindhoven",
+                "point": -0.5,
+                "price": 1.93
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T19:56:47Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.82
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.11
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-04T19:56:47Z",
+            "outcomes": [
+              {
+                "name": "Club Brugge",
+                "point": 0.5,
+                "price": 1.99
+              },
+              {
+                "name": "Club Brugge",
+                "point": 1.5,
+                "price": 1.4
+              },
+              {
+                "name": "Club Brugge",
+                "point": 1.25,
+                "price": 1.47
+              },
+              {
+                "name": "Club Brugge",
+                "point": 1.0,
+                "price": 1.57
+              },
+              {
+                "name": "Club Brugge",
+                "point": 0.75,
+                "price": 1.78
+              },
+              {
+                "name": "Club Brugge",
+                "point": 0.25,
+                "price": 2.26
+              },
+              {
+                "name": "Club Brugge",
+                "point": -0.0,
+                "price": 2.78
+              },
+              {
+                "name": "Club Brugge",
+                "point": -0.25,
+                "price": 3.14
+              },
+              {
+                "name": "Club Brugge",
+                "point": -0.5,
+                "price": 3.52
+              },
+              {
+                "name": "PSV Eindhoven",
+                "point": -0.5,
+                "price": 1.93
+              },
+              {
+                "name": "PSV Eindhoven",
+                "point": -1.5,
+                "price": 3.14
+              },
+              {
+                "name": "PSV Eindhoven",
+                "point": -1.25,
+                "price": 2.83
+              },
+              {
+                "name": "PSV Eindhoven",
+                "point": -1.0,
+                "price": 2.53
+              },
+              {
+                "name": "PSV Eindhoven",
+                "point": -0.75,
+                "price": 2.15
+              },
+              {
+                "name": "PSV Eindhoven",
+                "point": -0.25,
+                "price": 1.7
+              },
+              {
+                "name": "PSV Eindhoven",
+                "point": 0.0,
+                "price": 1.5
+              },
+              {
+                "name": "PSV Eindhoven",
+                "point": 0.25,
+                "price": 1.4
+              },
+              {
+                "name": "PSV Eindhoven",
+                "point": 0.5,
+                "price": 1.33
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-04T19:56:54Z",
+            "outcomes": [
+              {
+                "name": "Club Brugge",
+                "price": 2.77
+              },
+              {
+                "name": "PSV Eindhoven",
+                "price": 1.49
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-04T20:00:00Z",
+    "home_team": "PSV Eindhoven",
+    "id": "449d718632202f0e5997d2e4b7273483",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5095045373763802,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.39,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.21934288835057544,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.57,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.27115257427304434,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.99,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.82,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5381690022428366,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.11,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4618309977571634,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.52,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.14,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.77,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-04T19:56:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.78,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.57,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.47,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.14,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.83,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.15,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-04T19:56:54+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.33,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-04T19:56:47+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

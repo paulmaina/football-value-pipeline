@@ -1,0 +1,184 @@
+{
+  "fixture": {
+    "away_team": "Arsenal",
+    "home_team": "Slavia Praha",
+    "kickoff_utc": "2026-11-04T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "a5910ae3b314876faea7f5c03b8aeaad"
+  },
+  "observed_at_utc": "2026-11-04T19:54:18.666642+00:00",
+  "payload": {
+    "away_team": "Arsenal",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T19:54:07Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 1.25
+              },
+              {
+                "name": "Slavia Praha",
+                "price": 12.7
+              },
+              {
+                "name": "Draw",
+                "price": 6.05
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T19:54:07Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.86
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.0
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T19:54:06Z",
+            "outcomes": [
+              {
+                "name": "Arsenal",
+                "price": 1.29
+              },
+              {
+                "name": "Slavia Praha",
+                "price": 12.5
+              },
+              {
+                "name": "Draw",
+                "price": 5.8
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T19:54:06Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.83
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.1
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-04T20:00:00Z",
+    "home_team": "Slavia Praha",
+    "id": "a5910ae3b314876faea7f5c03b8aeaad",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 12.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.07221369448168283,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1605541215775705,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7672321839407465,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.83,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5354979662679001,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.1,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.46450203373209986,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 12.7,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.06612026190788091,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 6.05,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.14605502450713068,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.7878247135849883,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.86,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5191557873792018,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.0,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4808442126207982,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

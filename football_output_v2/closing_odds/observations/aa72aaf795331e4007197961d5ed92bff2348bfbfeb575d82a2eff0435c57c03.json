@@ -1,0 +1,184 @@
+{
+  "fixture": {
+    "away_team": "Sabah FK",
+    "home_team": "Viking FK",
+    "kickoff_utc": "2026-11-04T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "6277e639c064e641265fcb98a0e200b9"
+  },
+  "observed_at_utc": "2026-11-04T19:54:18.982609+00:00",
+  "payload": {
+    "away_team": "Sabah FK",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T19:54:07Z",
+            "outcomes": [
+              {
+                "name": "Sabah FK",
+                "price": 4.82
+              },
+              {
+                "name": "Viking FK",
+                "price": 1.59
+              },
+              {
+                "name": "Draw",
+                "price": 4.82
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T19:54:07Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.77
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.13
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T19:54:06Z",
+            "outcomes": [
+              {
+                "name": "Sabah FK",
+                "price": 6.0
+              },
+              {
+                "name": "Viking FK",
+                "price": 1.51
+              },
+              {
+                "name": "Draw",
+                "price": 5.0
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T19:54:06Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 1.9
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 2.01
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-04T20:00:00Z",
+    "home_team": "Viking FK",
+    "id": "6277e639c064e641265fcb98a0e200b9",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.51,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6532877581555744,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.18963389943917314,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 6.0,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1570783424052526,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5145612213121185,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.01,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.48543877868788154,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.59,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.6151333784803644,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.82,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19243331075981784,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 4.82,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.19243331075981784,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.77,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5485269383402518,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.13,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4514730616597482,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

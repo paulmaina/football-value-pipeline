@@ -1,0 +1,168 @@
+{
+  "fixture": {
+    "away_team": "Como",
+    "home_team": "RC Lens",
+    "kickoff_utc": "2026-11-04T20:00:00+00:00",
+    "league": "UEFA Champions League",
+    "odds_event_id": "013cecbf40f5b4530342632a80f35b00"
+  },
+  "observed_at_utc": "2026-11-04T19:54:17.583872+00:00",
+  "payload": {
+    "away_team": "Como",
+    "bookmakers": [
+      {
+        "key": "onexbet",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T19:54:07Z",
+            "outcomes": [
+              {
+                "name": "Como",
+                "price": 1.89
+              },
+              {
+                "name": "RC Lens",
+                "price": 3.87
+              },
+              {
+                "name": "Draw",
+                "price": 3.97
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T19:54:07Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.31
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.62
+              }
+            ]
+          }
+        ],
+        "title": "1xBet"
+      },
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T19:54:06Z",
+            "outcomes": [
+              {
+                "name": "Como",
+                "price": 1.96
+              },
+              {
+                "name": "RC Lens",
+                "price": 3.82
+              },
+              {
+                "name": "Draw",
+                "price": 3.94
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T19:54:06Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.95
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.95
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-04T20:00:00Z",
+    "home_team": "RC Lens",
+    "id": "013cecbf40f5b4530342632a80f35b00",
+    "sport_key": "soccer_uefa_champs_league",
+    "sport_title": "UEFA Champions League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.82,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2531204259811504,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.94,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24522072777576362,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.96,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.501658846243086,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T19:54:06+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.87,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24513322668471385,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 3.97,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2387213031718162,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.89,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.51614547014347,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 2.31,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.40552185891679066,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    },
+    {
+      "bookmaker": "1xbet",
+      "decimal_odds": 1.62,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5944781410832094,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-04T19:54:07+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
