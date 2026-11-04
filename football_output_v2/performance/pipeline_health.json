@@ -29,9 +29,9 @@
     },
     "frozen_selections": 88,
     "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
-    "observations": 372,
+    "observations": 373,
     "rejected_files": [],
-    "reviewed_at_utc": "2026-11-04T15:17:27.689614+00:00",
+    "reviewed_at_utc": "2026-11-04T15:39:48.035579+00:00",
     "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
     "version": "local-closing-quotes-v4"
   },
@@ -66,10 +66,10 @@
   "experiment_capture_counts": {},
   "experimental_reports": {},
   "forecast_freshness": {
-    "age_hours": 4.9482760675,
+    "age_hours": 5.320594391111111,
     "generated_at_utc": "2026-11-04T10:20:33.895771+00:00",
     "status": "WITHIN_24_HOURS",
-    "upcoming_fixture_count": 35
+    "upcoming_fixture_count": 34
   },
   "quote_audit": {
     "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -89,10 +89,10 @@
     "automatic_promotion": false,
     "experiments": [],
     "note": "Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.",
-    "reviewed_at_utc": "2026-11-04T15:17:27.689614+00:00",
+    "reviewed_at_utc": "2026-11-04T15:39:48.035579+00:00",
     "version": "experiment-review-queue-v1"
   },
-  "reviewed_at_utc": "2026-11-04T15:17:27.689614+00:00",
+  "reviewed_at_utc": "2026-11-04T15:39:48.035579+00:00",
   "selection_policy_groups": {
     "48h-ah-price-edge-cagey-v28": {
       "brier": 0.206203,
@@ -29408,7 +29408,7 @@
         "completed_matches": 63,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 2.921749212222222,
+        "download_age_hours": 3.2940675358333333,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-11-03",
         "latest_completed_utc": "2026-11-03T20:00:00+00:00",
@@ -29470,7 +29470,7 @@
           }
         },
         "status": "VERIFIED_WITHIN_24_HOURS",
-        "verified_at_utc": "2026-11-04T15:17:27.689614+00:00"
+        "verified_at_utc": "2026-11-04T15:39:48.035579+00:00"
       },
       "days_since_latest_result": 13,
       "diagnostics_sha256": "1ed4083e511c85b80e82262330f4caed07b17d0fec66ec1e4cc00de6dfe3b4dd",
