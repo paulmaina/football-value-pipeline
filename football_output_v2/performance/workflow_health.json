@@ -9,7 +9,7 @@
           "mean_fair_close_ev": -0.02163180405339964,
           "mean_same_book_offered_price_clv": 0.016453250465006904,
           "missing_selections": 49,
-          "pending_selections": 1,
+          "pending_selections": 3,
           "positive_fair_close_ev": 10
         },
         "bet365": {
@@ -17,7 +17,7 @@
           "mean_fair_close_ev": null,
           "mean_same_book_offered_price_clv": null,
           "missing_selections": 85,
-          "pending_selections": 1,
+          "pending_selections": 3,
           "positive_fair_close_ev": 0
         },
         "pinnacle": {
@@ -25,24 +25,24 @@
           "mean_fair_close_ev": -0.02466590666498559,
           "mean_same_book_offered_price_clv": 0.015574437835711533,
           "missing_selections": 27,
-          "pending_selections": 1,
+          "pending_selections": 3,
           "positive_fair_close_ev": 12
         }
       },
-      "frozen_selections": 86,
+      "frozen_selections": 88,
       "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
       "observations": 372,
       "rejected_files": [],
-      "reviewed_at_utc": "2026-11-04T00:44:20.245752+00:00",
+      "reviewed_at_utc": "2026-11-04T09:31:14.136004+00:00",
       "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
       "version": "local-closing-quotes-v4"
     },
     "dependencies": {
-      "PyYAML": "NOT_INSTALLED",
-      "coverage": "NOT_INSTALLED",
+      "PyYAML": "6.0.3",
+      "coverage": "7.17.1",
       "numpy": "2.5.4",
       "pandas": "3.1.0",
-      "python": "3.12.16",
+      "python": "3.12.15",
       "python-dotenv": "1.2.4",
       "rapidfuzz": "3.14.6",
       "requests": "2.34.2",
@@ -68,8 +68,8 @@
     "experiment_capture_counts": {},
     "experimental_reports": {},
     "forecast_freshness": {
-      "age_hours": 10.771686792777778,
-      "generated_at_utc": "2026-11-03T13:58:02.173298+00:00",
+      "age_hours": 0.0029204875,
+      "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
       "status": "WITHIN_24_HOURS",
       "upcoming_fixture_count": 34
     },
@@ -81,20 +81,20 @@
       "costs_recorded": 2,
       "exchange_quotes": 0,
       "missing_quote_age": 2,
-      "past_kickoff_count": 1,
+      "past_kickoff_count": 0,
       "quote_age_over_24h": 0,
       "selected_quotes": 2,
       "unknown_kickoff_count": 0,
-      "upcoming_kickoff_count": 1
+      "upcoming_kickoff_count": 2
     },
     "review_queue": {
       "automatic_promotion": false,
       "experiments": [],
       "note": "Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.",
-      "reviewed_at_utc": "2026-11-04T00:44:20.245752+00:00",
+      "reviewed_at_utc": "2026-11-04T09:31:14.136004+00:00",
       "version": "experiment-review-queue-v1"
     },
-    "reviewed_at_utc": "2026-11-04T00:44:20.245752+00:00",
+    "reviewed_at_utc": "2026-11-04T09:31:14.136004+00:00",
     "selection_policy_groups": {
       "48h-ah-price-edge-cagey-v28": {
         "brier": 0.206203,
@@ -104,11 +104,11 @@
         "half_wins": 0,
         "losses": 1,
         "no_loss_rate": 0.5,
-        "pending": 1,
+        "pending": 3,
         "profit_per_unit_staked": -0.57,
         "refunds": 0,
         "settled_with_odds": 2,
-        "total": 3,
+        "total": 5,
         "win_rate": 0.5,
         "wins": 1
       },
@@ -27015,6 +27015,900 @@
           }
         },
         "policy": "48h-ah-price-edge-cagey-v28"
+      },
+      {
+        "captured_at_utc": "2026-11-04T09:31:09Z",
+        "commit": "85c451a1e15281f69c0ea6233a4f60aeeaa52fde",
+        "experiments": {},
+        "health": {
+          "captured_at_utc": "2026-11-04T09:31:09.829486+00:00",
+          "dependencies": {
+            "PyYAML": "6.0.3",
+            "coverage": "7.17.1",
+            "numpy": "2.5.4",
+            "pandas": "3.1.0",
+            "python": "3.12.15",
+            "python-dotenv": "1.2.4",
+            "rapidfuzz": "3.14.6",
+            "requests": "2.34.2",
+            "scipy": "1.18.1"
+          },
+          "execution_policy": {
+            "account_availability": "USER_ALLOWLIST",
+            "allowed_bookmakers": [
+              "Pinnacle",
+              "1xBet"
+            ],
+            "asian_handicap_risk_tolerance": 0,
+            "exchange_policy": "EXCLUDED_UNTIL_COMMISSION_AND_LIQUIDITY_ADAPTER",
+            "min_adjusted_no_loss_probability": 0.75,
+            "per_stake_cost_bps": 0
+          },
+          "experiments": {},
+          "forecast_freshness": {
+            "age_hours": 0.0017242325,
+            "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+            "status": "WITHIN_24_HOURS",
+            "upcoming_fixture_count": 34
+          },
+          "forecast_generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+          "forecast_runtime": {
+            "dependencies": {
+              "PyYAML": "6.0.3",
+              "coverage": "7.17.1",
+              "numpy": "2.5.4",
+              "pandas": "3.1.0",
+              "python": "3.12.15",
+              "python-dotenv": "1.2.4",
+              "rapidfuzz": "3.14.6",
+              "requests": "2.34.2",
+              "scipy": "1.18.1"
+            },
+            "generated_at_utc": "2026-11-04T09:31:03.622249+00:00",
+            "model_code_sha256": "4aab5d3a711a65ad5297b282173bc2a8b3b0bc1a58809ed112514a157993c2d1",
+            "model_component_sha256": {
+              "api_football_data.py": "c5ae292a50d10b4e1a0d9901a0989c8eebc99082aa19d75d3d0e87cc59b00de5",
+              "api_football_integration.py": "3a95ec1edc5eaf6b79a8075450905df9b4d5a3050a91cfe8df2b5a2ffb2ddeac",
+              "api_key_config.py": "f4b833b31f9f3311cab770cf80854294e5e6306bbb956b687d708ff1b801908e",
+              "asian_handicap.py": "f6bba68278c9f6fd8fc23d3b6bf5f84fcd940024497a279cb1a8f15abfee3380",
+              "bbs_data.py": "ea3888908b6c27648c2cc6aeb24149c454bb5c90303c7d93ccba437a897299be",
+              "bbs_integration.py": "68912f30219c8c2f4399a93231e7379cd91e7095bbcde1db624b7560af2569ae",
+              "bbs_statistics_model.py": "42f5b8221cf032348df233a7fdc3ab812835278fa4adffa959168303537a21e7",
+              "bbs_team_aliases.json": "0eaefff9782e7c695e56dc1a2f96626e145897bafa0086ec1753557d2a0320f8",
+              "bet365_pinnacle.py": "29c1e233fdf48673b404693148e9b301561bb984e0acd916f76fda58bb9d5276",
+              "cagey_correction_config.json": "8e63bb183d0777aa414d9eb4e290465af5b8785cc85cde5f1c00e3b70c4fe85f",
+              "conservative_bet_filter.py": "a8c2a8f98b2bc25754665fa8ed5b2eb2efd90564071a6ea472be9e084514824d",
+              "corners_cards_shortlist.py": "0d3ef4717e16a2c0cdf8ba58515beb168c0cdaabdbb562b8323ed24c5393b873",
+              "count_markets.py": "d38d266ebcd55778361e6ec8fa2aee6d3742b21ffa767615245bba5e45088af2",
+              "dc_decay_validation.py": "fe80750bd83d98a914ed92b76893eb8cef1c548fa90c37b794b19d2ed86ec872",
+              "double_chance.py": "0c113db43dff86b4398afeee97898a51a33370695bccb2ba51a91361804ad1e8",
+              "elo_ratings.py": "e74edd69c0f90f6e22b0be61a2b88d6e4cea9cca60c88efeb579c7090ff9bc0d",
+              "football_value_pipeline_v2_standalone.py": "4aab5d3a711a65ad5297b282173bc2a8b3b0bc1a58809ed112514a157993c2d1",
+              "forward_trial_basis.py": "99f5091db8075d2fb9933204e2b9c4c3a7f526096bfd4783e42813c005b3bf1d",
+              "goal_market_validation.py": "03fd13322278df85fe8cad6105a5bf63d3e3ee62d0d8a904092af33d7f8643c4",
+              "historical_benchmark.py": "b3388dcf86b9ee19d125658414be9ffdbbf4ad8240162e5d88321627dcb47e4e",
+              "league_registry.py": "09ab1ad80a45dffdd5a397add9481c4d01a107d328602d6b4ab00dcdc095f9b5",
+              "market_blend_validation.py": "1136fba8bdc85eaaed468ef3f8458781a366d1fcc7913e1057783b023692ea04",
+              "market_implied.py": "95b11349be5285869e33212e5efceb85894dc182347d06408c512b3b4660a154",
+              "match_scores.py": "1e39b0fd63354fa734e768d5a34e2ea6782b3590f2af7ba7989123b17a7eec1a",
+              "narrow_margin.py": "9aea2dec2243f1ad1b52f0f8cd820819ebf1469b7da4df4e17c5bc30cdc8952f",
+              "narrow_margin_models/cagey-correction-through-2425-v1.json": "5f242ee6cec7f0f2d4c7233e8c4cc6bf0ac771786bb2f728da4aef3df69fd341",
+              "narrow_margin_models/cagey-correction-through-2425-v1.quintiles.json": "e75a3973eee6299fc126a0dfb893580e15b481e1b72308c2274d138e9bfaa680",
+              "narrow_margin_models/index.json": "6f168da2405d4d7858271601ff26947992d4cf362a120395f3cf2ae4375c4549",
+              "no_loss_corners_shortlist.py": "873b8f0aab9ecb2d9afac068833dc711d587140de38616e1c71dfde9bfeb46fe",
+              "odds_provider_health.py": "8554bc4e6f47957e0e996466308123ba98c9ad65cab2986bc2230832f64675e2",
+              "per_market_shortlist.py": "83debc1318f8a87649d225cf64cd6b299524d7dbfe20d2ad423c5a690a227bea",
+              "prediction_runs.py": "56a9934c6445fac5c0c2c8175f9acda147e07487409a665e9a6acd4e303d8eb7",
+              "price_edge_cagey_shortlist.py": "e9e784a61ded6235dfe68fec847e595a22589606aa6030a15359056518617056",
+              "price_edge_shortlist.py": "57065132da822487de626af8f4bbcd78c8ff2566475846b5ba8466fedc93f98a",
+              "quote_freshness.py": "b682731ba7c20bb30d885b726a299b62ef3695419ce612a5da1d4b67d75e47c6",
+              "quote_policy.py": "669a4d1c2e3d62e1f3720d9c697b8c19620aa9374286312dd31fcf3e52dc3495",
+              "refresh_training_data.py": "276568aac115a2d3bea942770be56755783d66771ca67c17e6d236f2e46357c4",
+              "score_probability.py": "c49cc8992a0e3d962f63a213aebd32d959e001d894689d3eea8a5816ca9fbc9e",
+              "shortlist_quote_policy.json": "9b1e1f6cfc37b7125e1adaa8eb4ee9cd6617fa0f41a82c6a2f5cf9438f4ef2a4",
+              "shot_features.py": "f6bcb9d9020e9fc56efaa2e05e9553f5c89df498372177a007540a674dddd5e7",
+              "staking.py": "f3c4bb3ddc67059d3d082817db053b5ce3ca834853d430c77328a0e2d39cf5db",
+              "ucl_training.py": "1acf2d45aa2b85afda071d0871e24b2ca3f9b0f951959d6c60ca5ed97f379d47",
+              "win_first_shortlist.py": "13a189d481338e75ee2f386a6de316df0ca9b73d8a96e8d5b9cdc3de91c59bb8"
+            },
+            "predictions_sha256": "78223001cf386c8ff26ca6c11b8d992efb26f994dd3b37ea4caf609b416156fe",
+            "selection_policy_version": "48h-ah-price-edge-cagey-v28"
+          },
+          "pre_kickoff_forecasts": 34,
+          "quote_audit": {
+            "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
+            "bookmakers": {
+              "1xBet": 2
+            },
+            "costs_recorded": 2,
+            "exchange_quotes": 0,
+            "missing_quote_age": 2,
+            "past_kickoff_count": 0,
+            "quote_age_over_24h": 0,
+            "selected_quotes": 2,
+            "unknown_kickoff_count": 0,
+            "upcoming_kickoff_count": 2
+          },
+          "training": {
+            "Bundesliga": {
+              "api_football": {
+                "added_results": 2,
+                "ambiguous": 0,
+                "conflicts": 0,
+                "excluded_phase": 0,
+                "matched_results": 254,
+                "source": "api-football",
+                "statistics_observations": 68,
+                "status": "AVAILABLE",
+                "unmapped": 668,
+                "usage": "supplementary_cached_observations"
+              },
+              "bbs_statistics_model": {
+                "cutoff_utc": "2026-11-04T09:29:36.036580+00:00",
+                "eligible_training_matches": 80,
+                "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+                "feature_fields": [
+                  "shots_on_target",
+                  "shots_off_target",
+                  "total_shots",
+                  "blocked_shots",
+                  "shots_inside_box",
+                  "shots_outside_box",
+                  "fouls",
+                  "corner_kicks",
+                  "offsides",
+                  "ball_possession",
+                  "yellow_cards",
+                  "red_cards",
+                  "goalkeeper_saves",
+                  "total_passes",
+                  "accurate_passes",
+                  "pass_percentage"
+                ],
+                "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
+                "forward_accuracy_improvement_established": false,
+                "historical_corrections_may_be_present": true,
+                "input_providers": [
+                  "api-football",
+                  "bigballsdata"
+                ],
+                "max_form_age_days": 180,
+                "max_form_matches": 8,
+                "max_goal_rate_ratio": 1.25,
+                "minimum_team_matches": 3,
+                "observations": 397,
+                "observations_sha256": "6a2b183c5aeb285c4dd83b4e2ecc9360e1931c9770747bd94631a91f58b81fac",
+                "required_training_matches": 120,
+                "retrospective_eligible_training_matches": 80,
+                "retrospective_inputs_sha256": "d309fbcc186badb6d0155f5242cca2fc20f0c490a6c4512d9f9824984fd0c5b5",
+                "retrospective_publication_delay_hours": 24,
+                "selected_weight": 0.0,
+                "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
+                "strict_eligible_training_matches": 22,
+                "usable_current_matches": 114,
+                "validation_mode": "retrospective_backfill",
+                "validation_policy": "auto",
+                "version": "bbs-lagged-poisson-v2"
+              },
+              "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261104T092936036580Z_44c8452386312fd34e76b45cedf0af7e657fb0c1db4a870d420f534ce3f741fc.json",
+              "days_since_latest_result": 3,
+              "diagnostics_sha256": "71d1598d4ce4b22c783f198f999105efcf008dd4e6d861606a2ee7c10c8c4186",
+              "forecast_training_health": {
+                "days_since_latest_result": 3,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-11-01"
+              },
+              "odds_provider_health": {
+                "state": "NOT_RECORDED"
+              },
+              "training_end": "2026-11-01",
+              "training_matches": 1604
+            },
+            "EPL": {
+              "api_football": {
+                "added_results": 0,
+                "ambiguous": 0,
+                "conflicts": 0,
+                "excluded_phase": 0,
+                "matched_results": 1102,
+                "source": "api-football",
+                "statistics_observations": 226,
+                "status": "AVAILABLE",
+                "unmapped": 38,
+                "usage": "supplementary_cached_observations"
+              },
+              "bbs_statistics_model": {
+                "audit_matches": 40,
+                "audit_origin_utc": "2025-11-02T00:00:00+00:00",
+                "cutoff_utc": "2026-11-04T09:28:30.390798+00:00",
+                "eligible_training_matches": 291,
+                "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+                "feature_fields": [
+                  "shots_on_target",
+                  "shots_off_target",
+                  "total_shots",
+                  "blocked_shots",
+                  "shots_inside_box",
+                  "shots_outside_box",
+                  "fouls",
+                  "corner_kicks",
+                  "offsides",
+                  "ball_possession",
+                  "yellow_cards",
+                  "red_cards",
+                  "goalkeeper_saves",
+                  "total_passes",
+                  "accurate_passes",
+                  "pass_percentage"
+                ],
+                "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
+                "forward_accuracy_improvement_established": false,
+                "historical_corrections_may_be_present": true,
+                "input_providers": [
+                  "api-football",
+                  "bigballsdata"
+                ],
+                "max_form_age_days": 180,
+                "max_form_matches": 8,
+                "max_goal_rate_ratio": 1.25,
+                "minimum_team_matches": 3,
+                "observations": 625,
+                "observations_sha256": "054a32550f4580794084213895724217cfacef1961ad8831e61e7aee0b6caeb6",
+                "paired_audit_matches": 12,
+                "required_training_matches": 120,
+                "retrospective_eligible_training_matches": 291,
+                "retrospective_inputs_sha256": "9d600f2cca3142254a349d46ce12c988d0df0096fbc8edcb2fb67ee6492ca223",
+                "retrospective_publication_delay_hours": 24,
+                "selected_weight": 0.0,
+                "status": "INSUFFICIENT_PAIRED_AUDIT",
+                "strict_eligible_training_matches": 28,
+                "supported_feature_columns": [
+                  "own_shots_on_target",
+                  "own_shots_off_target",
+                  "own_total_shots",
+                  "own_blocked_shots",
+                  "own_shots_inside_box",
+                  "own_shots_outside_box",
+                  "own_fouls",
+                  "own_corner_kicks",
+                  "own_offsides",
+                  "own_ball_possession",
+                  "own_yellow_cards",
+                  "own_goalkeeper_saves",
+                  "own_total_passes",
+                  "own_accurate_passes",
+                  "own_pass_percentage",
+                  "opponent_conceded_shots_on_target",
+                  "opponent_conceded_shots_off_target",
+                  "opponent_conceded_total_shots",
+                  "opponent_conceded_blocked_shots",
+                  "opponent_conceded_shots_inside_box",
+                  "opponent_conceded_shots_outside_box",
+                  "opponent_conceded_fouls",
+                  "opponent_conceded_corner_kicks",
+                  "opponent_conceded_offsides",
+                  "opponent_conceded_ball_possession",
+                  "opponent_conceded_yellow_cards",
+                  "opponent_conceded_goalkeeper_saves",
+                  "opponent_conceded_total_passes",
+                  "opponent_conceded_accurate_passes",
+                  "opponent_conceded_pass_percentage",
+                  "is_home"
+                ],
+                "training_matches": 230,
+                "tuning_matches": 21,
+                "tuning_origin_utc": "2025-10-04T00:00:00+00:00",
+                "usable_current_matches": 262,
+                "validation_mode": "retrospective_backfill",
+                "validation_policy": "auto",
+                "version": "bbs-lagged-poisson-v2"
+              },
+              "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261104T092830390798Z_416cff278d39690b14d089603b8e43f7b6e488f250fd741a3c2f8107c1f4a280.json",
+              "days_since_latest_result": 2,
+              "diagnostics_sha256": "a8b1e5f5ca29d94028604c5101e08774676c370e155dbd349de70f568876180a",
+              "forecast_training_health": {
+                "days_since_latest_result": 2,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-11-02"
+              },
+              "odds_provider_health": {
+                "state": "NOT_RECORDED"
+              },
+              "training_end": "2026-11-02",
+              "training_matches": 1990
+            },
+            "Eredivisie": {
+              "api_football": {
+                "status": "NOT_COLLECTED"
+              },
+              "bbs_statistics_model": {
+                "status": "NO_OBSERVATIONS"
+              },
+              "bbs_statistics_model_artifact": null,
+              "days_since_latest_result": 3,
+              "diagnostics_sha256": "0dc3190077c318b8c774b1448dc8fa91ce11fa13303d390df3ac2b6ec90b6a3a",
+              "forecast_training_health": {
+                "days_since_latest_result": 3,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-11-01"
+              },
+              "odds_provider_health": {
+                "attempts": [
+                  {
+                    "credential": "THE_ODDS_API_KEY",
+                    "error_code": "OUT_OF_USAGE_CREDITS",
+                    "http_status": 401,
+                    "x-requests-last": 0,
+                    "x-requests-remaining": 0,
+                    "x-requests-used": 500
+                  }
+                ],
+                "blocked_utc_day": "2026-11-04",
+                "state": "CREDITS_EXHAUSTED"
+              },
+              "training_end": "2026-11-01",
+              "training_matches": 1629
+            },
+            "LaLiga": {
+              "api_football": {
+                "added_results": 0,
+                "ambiguous": 0,
+                "conflicts": 0,
+                "excluded_phase": 0,
+                "matched_results": 574,
+                "source": "api-football",
+                "statistics_observations": 104,
+                "status": "AVAILABLE",
+                "unmapped": 566,
+                "usage": "supplementary_cached_observations"
+              },
+              "bbs_statistics_model": {
+                "audit_baseline_briers": [
+                  0.5199253099261665,
+                  0.2034007044543571,
+                  0.2297020942314571,
+                  0.28429820925673943
+                ],
+                "audit_baseline_poisson_score": 0.8357146014428597,
+                "audit_brier_order": [
+                  "1x2",
+                  "over_1_5",
+                  "under_3_5",
+                  "btts_yes"
+                ],
+                "audit_candidate_briers": [
+                  0.519427815870912,
+                  0.21275508464569426,
+                  0.23114009972363703,
+                  0.2883278648890615
+                ],
+                "audit_candidate_poisson_score": 0.8416171764343858,
+                "audit_gain": -0.005902574991526133,
+                "audit_gain_lower95": -0.0343784083572261,
+                "audit_matchdays": 17,
+                "audit_matches": 40,
+                "audit_origin_utc": "2026-10-09T00:00:00+00:00",
+                "cutoff_utc": "2026-11-04T09:29:03.970965+00:00",
+                "eligible_training_matches": 173,
+                "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+                "feature_fields": [
+                  "shots_on_target",
+                  "shots_off_target",
+                  "total_shots",
+                  "blocked_shots",
+                  "shots_inside_box",
+                  "shots_outside_box",
+                  "fouls",
+                  "corner_kicks",
+                  "offsides",
+                  "ball_possession",
+                  "yellow_cards",
+                  "red_cards",
+                  "goalkeeper_saves",
+                  "total_passes",
+                  "accurate_passes",
+                  "pass_percentage"
+                ],
+                "first_observed_at_utc": "2026-10-16T20:39:27.155286+00:00",
+                "forward_accuracy_improvement_established": false,
+                "historical_corrections_may_be_present": true,
+                "input_providers": [
+                  "api-football",
+                  "bigballsdata"
+                ],
+                "max_form_age_days": 180,
+                "max_form_matches": 8,
+                "max_goal_rate_ratio": 1.25,
+                "minimum_team_matches": 3,
+                "observations": 569,
+                "observations_sha256": "5b6f8ce97645814a67dad074ccb298f96775c919a8571faa8e75eabe0d3efec6",
+                "paired_audit_matches": 40,
+                "proposed_weight": 0.3,
+                "required_training_matches": 120,
+                "retrospective_eligible_training_matches": 173,
+                "retrospective_inputs_sha256": "f217222c6421a59fedbf170b2d1007aac61c6dce82cd8d18940880f28c50a545",
+                "retrospective_publication_delay_hours": 24,
+                "selected_ridge": 1.0,
+                "selected_weight": 0.0,
+                "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
+                "strict_eligible_training_matches": 30,
+                "supported_feature_columns": [
+                  "own_shots_on_target",
+                  "own_shots_off_target",
+                  "own_total_shots",
+                  "own_blocked_shots",
+                  "own_shots_inside_box",
+                  "own_shots_outside_box",
+                  "own_fouls",
+                  "own_corner_kicks",
+                  "own_offsides",
+                  "own_ball_possession",
+                  "own_yellow_cards",
+                  "own_goalkeeper_saves",
+                  "own_total_passes",
+                  "own_accurate_passes",
+                  "own_pass_percentage",
+                  "opponent_conceded_shots_on_target",
+                  "opponent_conceded_shots_off_target",
+                  "opponent_conceded_total_shots",
+                  "opponent_conceded_blocked_shots",
+                  "opponent_conceded_shots_inside_box",
+                  "opponent_conceded_shots_outside_box",
+                  "opponent_conceded_fouls",
+                  "opponent_conceded_corner_kicks",
+                  "opponent_conceded_offsides",
+                  "opponent_conceded_ball_possession",
+                  "opponent_conceded_yellow_cards",
+                  "opponent_conceded_goalkeeper_saves",
+                  "opponent_conceded_total_passes",
+                  "opponent_conceded_accurate_passes",
+                  "opponent_conceded_pass_percentage",
+                  "is_home"
+                ],
+                "training_matches": 111,
+                "tuning_matches": 22,
+                "tuning_origin_utc": "2026-09-13T00:00:00+00:00",
+                "usable_current_matches": 180,
+                "validation_mode": "retrospective_backfill",
+                "validation_policy": "auto",
+                "version": "bbs-lagged-poisson-v2"
+              },
+              "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261104T092903970965Z_d9386d477b6d0966ed84305cdb4139946b03a55d65db76f4464b63e5c23dc46a.json",
+              "days_since_latest_result": 2,
+              "diagnostics_sha256": "3205bf21e817575a6596f5c45ee55ff74ed7e90aa45aacfd6ded472bae584ddc",
+              "forecast_training_health": {
+                "days_since_latest_result": 2,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-11-02"
+              },
+              "odds_provider_health": {
+                "state": "NOT_RECORDED"
+              },
+              "training_end": "2026-11-02",
+              "training_matches": 2009
+            },
+            "Ligue1": {
+              "api_football": {
+                "added_results": 2,
+                "ambiguous": 0,
+                "conflicts": 0,
+                "excluded_phase": 0,
+                "matched_results": 752,
+                "source": "api-football",
+                "statistics_observations": 139,
+                "status": "AVAILABLE",
+                "unmapped": 242,
+                "usage": "supplementary_cached_observations"
+              },
+              "bbs_statistics_model": {
+                "audit_matches": 43,
+                "audit_origin_utc": "2025-10-05T00:00:00+00:00",
+                "cutoff_utc": "2026-11-04T09:30:29.174372+00:00",
+                "eligible_training_matches": 183,
+                "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+                "feature_fields": [
+                  "shots_on_target",
+                  "shots_off_target",
+                  "total_shots",
+                  "blocked_shots",
+                  "shots_inside_box",
+                  "shots_outside_box",
+                  "fouls",
+                  "corner_kicks",
+                  "offsides",
+                  "ball_possession",
+                  "yellow_cards",
+                  "red_cards",
+                  "goalkeeper_saves",
+                  "total_passes",
+                  "accurate_passes",
+                  "pass_percentage"
+                ],
+                "first_observed_at_utc": "2026-10-16T20:39:29.253586+00:00",
+                "forward_accuracy_improvement_established": false,
+                "historical_corrections_may_be_present": true,
+                "input_providers": [
+                  "api-football",
+                  "bigballsdata"
+                ],
+                "max_form_age_days": 180,
+                "max_form_matches": 8,
+                "max_goal_rate_ratio": 1.25,
+                "minimum_team_matches": 3,
+                "observations": 500,
+                "observations_sha256": "81a767a27d6d948c13f8a4f0bdbe50c914e1a76d9292173d115fc833d158bedb",
+                "required_training_matches": 120,
+                "retrospective_eligible_training_matches": 183,
+                "retrospective_inputs_sha256": "ac890ef39cf8deef9c097c9abe7011823f93510b6f7a80d7ba7ae5d8609967ef",
+                "retrospective_publication_delay_hours": 24,
+                "selected_weight": 0.0,
+                "status": "INSUFFICIENT_CHRONOLOGICAL_PARTITIONS",
+                "strict_eligible_training_matches": 23,
+                "training_matches": 123,
+                "tuning_matches": 17,
+                "tuning_origin_utc": "2025-09-13T00:00:00+00:00",
+                "usable_current_matches": 180,
+                "validation_mode": "retrospective_backfill",
+                "validation_policy": "auto",
+                "version": "bbs-lagged-poisson-v2"
+              },
+              "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261104T093029174372Z_57bce40e121bef2466efa890ff33e45ca1e26664808e599cf9609ca9b78d7203.json",
+              "days_since_latest_result": 2,
+              "diagnostics_sha256": "c45ac0f4d84be9fccae471f939018ff77d7fa74562478b489847bebfbd287825",
+              "forecast_training_health": {
+                "days_since_latest_result": 2,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-11-02"
+              },
+              "odds_provider_health": {
+                "state": "NOT_RECORDED"
+              },
+              "training_end": "2026-11-02",
+              "training_matches": 1761
+            },
+            "PrimeiraLiga": {
+              "api_football": {
+                "status": "NOT_COLLECTED"
+              },
+              "bbs_statistics_model": {
+                "status": "NO_OBSERVATIONS"
+              },
+              "bbs_statistics_model_artifact": null,
+              "days_since_latest_result": 2,
+              "diagnostics_sha256": "517e6d9c58429eb91bcf357cb86fc5560ca6cf22ea689983040d94cd01f3fb71",
+              "forecast_training_health": {
+                "days_since_latest_result": 2,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-11-02"
+              },
+              "odds_provider_health": {
+                "attempts": [
+                  {
+                    "credential": "THE_ODDS_API_KEY",
+                    "error_code": "OUT_OF_USAGE_CREDITS",
+                    "http_status": 401,
+                    "x-requests-last": 0,
+                    "x-requests-remaining": 0,
+                    "x-requests-used": 500
+                  }
+                ],
+                "blocked_utc_day": "2026-11-04",
+                "state": "CREDITS_EXHAUSTED"
+              },
+              "training_end": "2026-11-02",
+              "training_matches": 1620
+            },
+            "SerieA": {
+              "api_football": {
+                "added_results": 0,
+                "ambiguous": 0,
+                "conflicts": 0,
+                "excluded_phase": 0,
+                "matched_results": 918,
+                "source": "api-football",
+                "statistics_observations": 183,
+                "status": "AVAILABLE",
+                "unmapped": 223,
+                "usage": "supplementary_cached_observations"
+              },
+              "bbs_statistics_model": {
+                "audit_matches": 41,
+                "audit_origin_utc": "2026-10-11T00:00:00+00:00",
+                "cutoff_utc": "2026-11-04T09:29:55.583731+00:00",
+                "eligible_training_matches": 244,
+                "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+                "feature_fields": [
+                  "shots_on_target",
+                  "shots_off_target",
+                  "total_shots",
+                  "blocked_shots",
+                  "shots_inside_box",
+                  "shots_outside_box",
+                  "fouls",
+                  "corner_kicks",
+                  "offsides",
+                  "ball_possession",
+                  "yellow_cards",
+                  "red_cards",
+                  "goalkeeper_saves",
+                  "total_passes",
+                  "accurate_passes",
+                  "pass_percentage"
+                ],
+                "first_observed_at_utc": "2026-10-16T20:39:28.568690+00:00",
+                "forward_accuracy_improvement_established": false,
+                "historical_corrections_may_be_present": true,
+                "input_providers": [
+                  "api-football",
+                  "bigballsdata"
+                ],
+                "max_form_age_days": 180,
+                "max_form_matches": 8,
+                "max_goal_rate_ratio": 1.25,
+                "minimum_team_matches": 3,
+                "observations": 670,
+                "observations_sha256": "50787672292b34ded76318a77db6d7ebf08549a911580814c77134ddaaa6b8ba",
+                "paired_audit_matches": 24,
+                "required_training_matches": 120,
+                "retrospective_eligible_training_matches": 244,
+                "retrospective_inputs_sha256": "5d36838f30e963448de275d062494eeefd74e5c870e5ff4c7ebeaadbe152540b",
+                "retrospective_publication_delay_hours": 24,
+                "selected_weight": 0.0,
+                "status": "INSUFFICIENT_PAIRED_AUDIT",
+                "strict_eligible_training_matches": 36,
+                "supported_feature_columns": [
+                  "own_shots_on_target",
+                  "own_shots_off_target",
+                  "own_total_shots",
+                  "own_blocked_shots",
+                  "own_shots_inside_box",
+                  "own_shots_outside_box",
+                  "own_fouls",
+                  "own_corner_kicks",
+                  "own_offsides",
+                  "own_ball_possession",
+                  "own_yellow_cards",
+                  "own_goalkeeper_saves",
+                  "own_total_passes",
+                  "own_accurate_passes",
+                  "own_pass_percentage",
+                  "opponent_conceded_shots_on_target",
+                  "opponent_conceded_shots_off_target",
+                  "opponent_conceded_total_shots",
+                  "opponent_conceded_blocked_shots",
+                  "opponent_conceded_shots_inside_box",
+                  "opponent_conceded_shots_outside_box",
+                  "opponent_conceded_fouls",
+                  "opponent_conceded_corner_kicks",
+                  "opponent_conceded_offsides",
+                  "opponent_conceded_ball_possession",
+                  "opponent_conceded_yellow_cards",
+                  "opponent_conceded_goalkeeper_saves",
+                  "opponent_conceded_total_passes",
+                  "opponent_conceded_accurate_passes",
+                  "opponent_conceded_pass_percentage",
+                  "is_home"
+                ],
+                "training_matches": 183,
+                "tuning_matches": 20,
+                "tuning_origin_utc": "2025-10-05T00:00:00+00:00",
+                "usable_current_matches": 229,
+                "validation_mode": "retrospective_backfill",
+                "validation_policy": "auto",
+                "version": "bbs-lagged-poisson-v2"
+              },
+              "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261104T092955583731Z_29bbe0231867e652a574717a69d2e7fb1f884340a400c6f9284d052e286c95f2.json",
+              "days_since_latest_result": 2,
+              "diagnostics_sha256": "96aa0a57b4e3259c9e646a9e5d99003015637a4d82c3feaf776850a1c549ace8",
+              "forecast_training_health": {
+                "days_since_latest_result": 2,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-11-02"
+              },
+              "odds_provider_health": {
+                "state": "NOT_RECORDED"
+              },
+              "training_end": "2026-11-02",
+              "training_matches": 2000
+            },
+            "SuperLig": {
+              "api_football": {
+                "status": "NOT_COLLECTED"
+              },
+              "bbs_statistics_model": {
+                "status": "NO_OBSERVATIONS"
+              },
+              "bbs_statistics_model_artifact": null,
+              "days_since_latest_result": 2,
+              "diagnostics_sha256": "045cb8319c45f3b18b76aabd66351a7beec7692f1b1f6236fc404b308940b149",
+              "forecast_training_health": {
+                "days_since_latest_result": 2,
+                "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
+                "training_end": "2026-11-02"
+              },
+              "odds_provider_health": {
+                "state": "NOT_RECORDED"
+              },
+              "training_end": "2026-11-02",
+              "training_matches": 1840
+            },
+            "UCL": {
+              "api_football": {
+                "added_results": 0,
+                "ambiguous": 0,
+                "conflicts": 1,
+                "excluded_phase": 460,
+                "matched_results": 139,
+                "source": "api-football",
+                "statistics_observations": 52,
+                "status": "AVAILABLE",
+                "unmapped": 78,
+                "usage": "supplementary_cached_observations"
+              },
+              "bbs_statistics_model": {
+                "cutoff_utc": "2026-11-04T09:30:54.245100+00:00",
+                "eligible_training_matches": 16,
+                "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
+                "feature_fields": [
+                  "shots_on_target",
+                  "shots_off_target",
+                  "total_shots",
+                  "blocked_shots",
+                  "shots_inside_box",
+                  "shots_outside_box",
+                  "fouls",
+                  "corner_kicks",
+                  "offsides",
+                  "ball_possession",
+                  "yellow_cards",
+                  "red_cards",
+                  "goalkeeper_saves",
+                  "total_passes",
+                  "accurate_passes",
+                  "pass_percentage"
+                ],
+                "first_observed_at_utc": "2026-10-16T20:39:29.957146+00:00",
+                "forward_accuracy_improvement_established": false,
+                "historical_corrections_may_be_present": true,
+                "input_providers": [
+                  "api-football",
+                  "bigballsdata"
+                ],
+                "max_form_age_days": 180,
+                "max_form_matches": 8,
+                "max_goal_rate_ratio": 1.25,
+                "minimum_team_matches": 3,
+                "observations": 383,
+                "observations_sha256": "2bd8823c03640db52bc36f82207c824a76b8bb870871ba41cbb7c737225f9963",
+                "required_training_matches": 120,
+                "retrospective_eligible_training_matches": 16,
+                "retrospective_inputs_sha256": "1e3081e2153ab9f63d20d21a823216ae0eba79f5107f3b5f54e1f527881fa21e",
+                "retrospective_publication_delay_hours": 24,
+                "selected_weight": 0.0,
+                "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
+                "strict_eligible_training_matches": 2,
+                "usable_current_matches": 94,
+                "validation_mode": "retrospective_backfill",
+                "validation_policy": "auto",
+                "version": "bbs-lagged-poisson-v2"
+              },
+              "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261104T093054245100Z_e9cfcde010454c88298529258ed59fba619358bed2d36b20bf302f93e54a4b43.json",
+              "current_source_health": {
+                "added_matches": 0,
+                "cache_hash_verified": true,
+                "checked_at_utc": "2026-11-04T09:30:54.245100+00:00",
+                "completed_matches": 63,
+                "corrected_scores": 0,
+                "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+                "download_age_hours": 0.0043289961111111115,
+                "download_status": "VERIFIED_LIVE",
+                "latest_completed_date": "2026-11-03",
+                "latest_completed_utc": "2026-11-03T20:00:00+00:00",
+                "next_fixture_utc": "2026-11-04T17:45:00+00:00",
+                "note": "Provider schedule comparison is not independent proof of complete coverage.",
+                "overdue_unfinished_match_ids": [],
+                "provider": "football-data.org",
+                "season_start": 2026,
+                "sha256": "936f6e47aadb3f3787783bc63a150534d5c0b8033d4d07c0cc14b54e0fe12b75",
+                "source_schedule_matches": 144,
+                "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+                "training_end": "2026-11-03"
+              },
+              "days_since_latest_result": 1,
+              "diagnostics_sha256": "7da6166d477af6ebfe7c6c01676c999dca0f4b0562fce6b38ac307479aef35dc",
+              "forecast_training_health": {
+                "added_matches": 0,
+                "cache_hash_verified": true,
+                "checked_at_utc": "2026-11-04T09:30:54.245100+00:00",
+                "completed_matches": 63,
+                "corrected_scores": 0,
+                "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+                "download_age_hours": 0.0,
+                "download_status": "VERIFIED_LIVE",
+                "last_refresh_error": null,
+                "last_refresh_error_reason": null,
+                "latest_completed_date": "2026-11-03",
+                "latest_completed_utc": "2026-11-03T20:00:00+00:00",
+                "next_fixture_utc": "2026-11-04T17:45:00+00:00",
+                "note": "Provider schedule comparison is not independent proof of complete coverage.",
+                "overdue_unfinished_match_ids": [],
+                "provider": "football-data.org",
+                "season_start": 2026,
+                "sha256": "936f6e47aadb3f3787783bc63a150534d5c0b8033d4d07c0cc14b54e0fe12b75",
+                "source_schedule_matches": 144,
+                "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+                "training_end": "2026-11-03"
+              },
+              "odds_provider_health": {
+                "attempts": [
+                  {
+                    "credential": "THE_ODDS_API_KEY",
+                    "error_code": "OUT_OF_USAGE_CREDITS",
+                    "http_status": 401,
+                    "x-requests-last": 0,
+                    "x-requests-remaining": 0,
+                    "x-requests-used": 500
+                  }
+                ],
+                "blocked_utc_day": "2026-11-04",
+                "state": "CREDITS_EXHAUSTED"
+              },
+              "training_end": "2026-11-03",
+              "training_matches": 566
+            },
+            "UEL": {
+              "api_football": {
+                "status": "NOT_COLLECTED"
+              },
+              "bbs_statistics_model": {
+                "status": "NO_OBSERVATIONS"
+              },
+              "bbs_statistics_model_artifact": null,
+              "current_source_health": {
+                "official_source_health": {
+                  "2025": {
+                    "original_source_sha256": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b",
+                    "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00",
+                    "status": "REVIEWED_HISTORICAL_FACTS"
+                  }
+                },
+                "status": "VERIFIED_WITHIN_24_HOURS",
+                "verified_at_utc": "2026-11-04T00:36:38.177871+00:00"
+              },
+              "days_since_latest_result": 13,
+              "diagnostics_sha256": "1a17a16c9130e8d0b99496da1f861f7a612b394c25809c34c5e1f97f9be9e5d0",
+              "forecast_training_health": {
+                "official_source_health": {
+                  "2025": {
+                    "original_source_sha256": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b",
+                    "recorded_at_utc": "2026-10-22T08:05:26.556956+00:00",
+                    "status": "REVIEWED_HISTORICAL_FACTS"
+                  }
+                },
+                "status": "VERIFIED_WITHIN_24_HOURS",
+                "training_end": "2026-10-22",
+                "verified_at_utc": "2026-11-04T00:36:38.177871+00:00"
+              },
+              "odds_provider_health": {
+                "attempts": [
+                  {
+                    "credential": "THE_ODDS_API_KEY",
+                    "error_code": "OUT_OF_USAGE_CREDITS",
+                    "http_status": 401,
+                    "x-requests-last": 0,
+                    "x-requests-remaining": 0,
+                    "x-requests-used": 500
+                  }
+                ],
+                "blocked_utc_day": "2026-11-04",
+                "state": "CREDITS_EXHAUSTED"
+              },
+              "training_end": "2026-10-22",
+              "training_matches": 714
+            }
+          }
+        },
+        "policy": "48h-ah-price-edge-cagey-v28"
       }
     ],
     "training": {
@@ -27032,7 +27926,7 @@
           "usage": "supplementary_cached_observations"
         },
         "bbs_statistics_model": {
-          "cutoff_utc": "2026-11-03T13:55:15.120720+00:00",
+          "cutoff_utc": "2026-11-04T09:29:36.036580+00:00",
           "eligible_training_matches": 80,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
@@ -27064,11 +27958,11 @@
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 394,
-          "observations_sha256": "af136d54960a56407d900f6dc336e08cd4129b531bb81434d27c4669e55a861b",
+          "observations": 397,
+          "observations_sha256": "6a2b183c5aeb285c4dd83b4e2ecc9360e1931c9770747bd94631a91f58b81fac",
           "required_training_matches": 120,
           "retrospective_eligible_training_matches": 80,
-          "retrospective_inputs_sha256": "19da5aa489681546100a0eb15e2f9f5c656f72167be568725d32ede7cc24da6e",
+          "retrospective_inputs_sha256": "d309fbcc186badb6d0155f5242cca2fc20f0c490a6c4512d9f9824984fd0c5b5",
           "retrospective_publication_delay_hours": 24,
           "selected_weight": 0.0,
           "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
@@ -27078,11 +27972,11 @@
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261103T135515120720Z_99bd7c0aed8486b64a357a0c50fd4c5ac87a7069e291f3ad5557fd8e913d2d01.json",
+        "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261104T092936036580Z_44c8452386312fd34e76b45cedf0af7e657fb0c1db4a870d420f534ce3f741fc.json",
         "days_since_latest_result": 3,
-        "diagnostics_sha256": "754baa7e25193ef40a60b7475e28c8c43aa0bb8d0ea64fb4d3db5afd4fff7e08",
+        "diagnostics_sha256": "71d1598d4ce4b22c783f198f999105efcf008dd4e6d861606a2ee7c10c8c4186",
         "forecast_training_health": {
-          "days_since_latest_result": 2,
+          "days_since_latest_result": 3,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
           "training_end": "2026-11-01"
         },
@@ -27108,7 +28002,7 @@
         "bbs_statistics_model": {
           "audit_matches": 40,
           "audit_origin_utc": "2025-11-02T00:00:00+00:00",
-          "cutoff_utc": "2026-11-03T13:53:18.299329+00:00",
+          "cutoff_utc": "2026-11-04T09:28:30.390798+00:00",
           "eligible_training_matches": 291,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
@@ -27140,12 +28034,12 @@
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 620,
-          "observations_sha256": "2d3e942920cb3793ec4dd4894c56c7fca9f020cb7d8750615ae91daf2e8ba533",
+          "observations": 625,
+          "observations_sha256": "054a32550f4580794084213895724217cfacef1961ad8831e61e7aee0b6caeb6",
           "paired_audit_matches": 12,
           "required_training_matches": 120,
           "retrospective_eligible_training_matches": 291,
-          "retrospective_inputs_sha256": "f2a93b4213fd40bb54660c3ef491d189391672e40d64982e3f4ce2b5d0a80a78",
+          "retrospective_inputs_sha256": "9d600f2cca3142254a349d46ce12c988d0df0096fbc8edcb2fb67ee6492ca223",
           "retrospective_publication_delay_hours": 24,
           "selected_weight": 0.0,
           "status": "INSUFFICIENT_PAIRED_AUDIT",
@@ -27191,11 +28085,11 @@
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261103T135318299329Z_8ad48ca6bd6002d08b1c277c447a211e0bf8d4d214cc6ef7a8fc2b10edb040b9.json",
+        "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261104T092830390798Z_416cff278d39690b14d089603b8e43f7b6e488f250fd741a3c2f8107c1f4a280.json",
         "days_since_latest_result": 2,
-        "diagnostics_sha256": "497b390a202d18e1dc1035eb6864b2054c5a79a9976b1ddfaa0d04280852b2aa",
+        "diagnostics_sha256": "a8b1e5f5ca29d94028604c5101e08774676c370e155dbd349de70f568876180a",
         "forecast_training_health": {
-          "days_since_latest_result": 1,
+          "days_since_latest_result": 2,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
           "training_end": "2026-11-02"
         },
@@ -27214,14 +28108,25 @@
         },
         "bbs_statistics_model_artifact": null,
         "days_since_latest_result": 3,
-        "diagnostics_sha256": "11e3af4407b59b500221b6ba2e96299ed76c62181660a526292fed3bc5d0cdb6",
+        "diagnostics_sha256": "0dc3190077c318b8c774b1448dc8fa91ce11fa13303d390df3ac2b6ec90b6a3a",
         "forecast_training_health": {
-          "days_since_latest_result": 2,
+          "days_since_latest_result": 3,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
           "training_end": "2026-11-01"
         },
         "odds_provider_health": {
-          "state": "NOT_RECORDED"
+          "attempts": [
+            {
+              "credential": "THE_ODDS_API_KEY",
+              "error_code": "OUT_OF_USAGE_CREDITS",
+              "http_status": 401,
+              "x-requests-last": 0,
+              "x-requests-remaining": 0,
+              "x-requests-used": 500
+            }
+          ],
+          "blocked_utc_day": "2026-11-04",
+          "state": "CREDITS_EXHAUSTED"
         },
         "training_end": "2026-11-01",
         "training_matches": 1629
@@ -27241,12 +28146,12 @@
         },
         "bbs_statistics_model": {
           "audit_baseline_briers": [
-            0.5199253099278909,
-            0.20340070445316755,
-            0.22970209423243637,
-            0.28429820925953975
+            0.5199253099261665,
+            0.2034007044543571,
+            0.2297020942314571,
+            0.28429820925673943
           ],
-          "audit_baseline_poisson_score": 0.8357146014438204,
+          "audit_baseline_poisson_score": 0.8357146014428597,
           "audit_brier_order": [
             "1x2",
             "over_1_5",
@@ -27254,18 +28159,18 @@
             "btts_yes"
           ],
           "audit_candidate_briers": [
-            0.5194276011008528,
-            0.21275443836559557,
-            0.23114059283543514,
-            0.2883280409411213
+            0.519427815870912,
+            0.21275508464569426,
+            0.23114009972363703,
+            0.2883278648890615
           ],
-          "audit_candidate_poisson_score": 0.841617559215144,
-          "audit_gain": -0.005902957771323658,
-          "audit_gain_lower95": -0.034372513775192494,
+          "audit_candidate_poisson_score": 0.8416171764343858,
+          "audit_gain": -0.005902574991526133,
+          "audit_gain_lower95": -0.0343784083572261,
           "audit_matchdays": 17,
           "audit_matches": 40,
           "audit_origin_utc": "2026-10-09T00:00:00+00:00",
-          "cutoff_utc": "2026-11-03T13:54:18.739128+00:00",
+          "cutoff_utc": "2026-11-04T09:29:03.970965+00:00",
           "eligible_training_matches": 173,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
@@ -27297,13 +28202,13 @@
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 560,
-          "observations_sha256": "bf055c762d52b8f94b2c3c643af5e3b882921f66a3a127d9db591a60039aff21",
+          "observations": 569,
+          "observations_sha256": "5b6f8ce97645814a67dad074ccb298f96775c919a8571faa8e75eabe0d3efec6",
           "paired_audit_matches": 40,
           "proposed_weight": 0.3,
           "required_training_matches": 120,
           "retrospective_eligible_training_matches": 173,
-          "retrospective_inputs_sha256": "3022e4a7c64dc9e365379041e969485771ef74e9a77bfd095c88cdb21e8cbc93",
+          "retrospective_inputs_sha256": "f217222c6421a59fedbf170b2d1007aac61c6dce82cd8d18940880f28c50a545",
           "retrospective_publication_delay_hours": 24,
           "selected_ridge": 1.0,
           "selected_weight": 0.0,
@@ -27350,11 +28255,11 @@
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261103T135418739128Z_4cf4e4c7eb043426d4f83d2a28d5ae93737b4417a3c0c65d5a8a25a0fdb411ad.json",
+        "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261104T092903970965Z_d9386d477b6d0966ed84305cdb4139946b03a55d65db76f4464b63e5c23dc46a.json",
         "days_since_latest_result": 2,
-        "diagnostics_sha256": "9956681f6009a5400da57de54489f6bc0beb282eb5f61a3fb996408080fbb6c8",
+        "diagnostics_sha256": "3205bf21e817575a6596f5c45ee55ff74ed7e90aa45aacfd6ded472bae584ddc",
         "forecast_training_health": {
-          "days_since_latest_result": 1,
+          "days_since_latest_result": 2,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
           "training_end": "2026-11-02"
         },
@@ -27380,7 +28285,7 @@
         "bbs_statistics_model": {
           "audit_matches": 43,
           "audit_origin_utc": "2025-10-05T00:00:00+00:00",
-          "cutoff_utc": "2026-11-03T13:56:52.546156+00:00",
+          "cutoff_utc": "2026-11-04T09:30:29.174372+00:00",
           "eligible_training_matches": 183,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
@@ -27412,11 +28317,11 @@
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 491,
-          "observations_sha256": "b862ec2dad5ade42c0ad1b70fdad82779605ab803c2fd0323165bc9913e20045",
+          "observations": 500,
+          "observations_sha256": "81a767a27d6d948c13f8a4f0bdbe50c914e1a76d9292173d115fc833d158bedb",
           "required_training_matches": 120,
           "retrospective_eligible_training_matches": 183,
-          "retrospective_inputs_sha256": "4257569b28b533a7e39a605448fedde66feaf29561140fd4db3e54e616eb044d",
+          "retrospective_inputs_sha256": "ac890ef39cf8deef9c097c9abe7011823f93510b6f7a80d7ba7ae5d8609967ef",
           "retrospective_publication_delay_hours": 24,
           "selected_weight": 0.0,
           "status": "INSUFFICIENT_CHRONOLOGICAL_PARTITIONS",
@@ -27429,11 +28334,11 @@
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261103T135652546156Z_f821a7dcb340cc7cd2cc874509cf34e446f89a5033bbab13248dec11aa1ab79a.json",
+        "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261104T093029174372Z_57bce40e121bef2466efa890ff33e45ca1e26664808e599cf9609ca9b78d7203.json",
         "days_since_latest_result": 2,
-        "diagnostics_sha256": "fc73ad09ad8adf0f4fb4b2bdaf5811e755a793b153ea29d858ba504cef6e5eae",
+        "diagnostics_sha256": "c45ac0f4d84be9fccae471f939018ff77d7fa74562478b489847bebfbd287825",
         "forecast_training_health": {
-          "days_since_latest_result": 1,
+          "days_since_latest_result": 2,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
           "training_end": "2026-11-02"
         },
@@ -27452,14 +28357,25 @@
         },
         "bbs_statistics_model_artifact": null,
         "days_since_latest_result": 2,
-        "diagnostics_sha256": "525cab5e07c45f6da35ef9cb4835b3384c9c1af12c8273702314099ecbeff4b0",
+        "diagnostics_sha256": "517e6d9c58429eb91bcf357cb86fc5560ca6cf22ea689983040d94cd01f3fb71",
         "forecast_training_health": {
-          "days_since_latest_result": 1,
+          "days_since_latest_result": 2,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
           "training_end": "2026-11-02"
         },
         "odds_provider_health": {
-          "state": "NOT_RECORDED"
+          "attempts": [
+            {
+              "credential": "THE_ODDS_API_KEY",
+              "error_code": "OUT_OF_USAGE_CREDITS",
+              "http_status": 401,
+              "x-requests-last": 0,
+              "x-requests-remaining": 0,
+              "x-requests-used": 500
+            }
+          ],
+          "blocked_utc_day": "2026-11-04",
+          "state": "CREDITS_EXHAUSTED"
         },
         "training_end": "2026-11-02",
         "training_matches": 1620
@@ -27480,7 +28396,7 @@
         "bbs_statistics_model": {
           "audit_matches": 41,
           "audit_origin_utc": "2026-10-11T00:00:00+00:00",
-          "cutoff_utc": "2026-11-03T13:55:50.541698+00:00",
+          "cutoff_utc": "2026-11-04T09:29:55.583731+00:00",
           "eligible_training_matches": 244,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
@@ -27512,12 +28428,12 @@
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 660,
-          "observations_sha256": "471508faed1b3aed1039c7c802d11aec044c71d1d74caba0daa0a4c055b9856b",
+          "observations": 670,
+          "observations_sha256": "50787672292b34ded76318a77db6d7ebf08549a911580814c77134ddaaa6b8ba",
           "paired_audit_matches": 24,
           "required_training_matches": 120,
           "retrospective_eligible_training_matches": 244,
-          "retrospective_inputs_sha256": "d7d7f455a37651e8da3d5c95ba167841f01f79bdd8d0979af1f31c53f7c92a4a",
+          "retrospective_inputs_sha256": "5d36838f30e963448de275d062494eeefd74e5c870e5ff4c7ebeaadbe152540b",
           "retrospective_publication_delay_hours": 24,
           "selected_weight": 0.0,
           "status": "INSUFFICIENT_PAIRED_AUDIT",
@@ -27563,11 +28479,11 @@
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261103T135550541698Z_b69e6218052063a73f098f6029c3c543a745a517949956c851fa832a14e553b2.json",
+        "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261104T092955583731Z_29bbe0231867e652a574717a69d2e7fb1f884340a400c6f9284d052e286c95f2.json",
         "days_since_latest_result": 2,
-        "diagnostics_sha256": "b6823509e3ad6ba6199a13a1d68ac429a07dc9f255625ba2f42e1bfff04a59ce",
+        "diagnostics_sha256": "96aa0a57b4e3259c9e646a9e5d99003015637a4d82c3feaf776850a1c549ace8",
         "forecast_training_health": {
-          "days_since_latest_result": 1,
+          "days_since_latest_result": 2,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
           "training_end": "2026-11-02"
         },
@@ -27586,9 +28502,9 @@
         },
         "bbs_statistics_model_artifact": null,
         "days_since_latest_result": 2,
-        "diagnostics_sha256": "80377ffe3d63b669766b40b2cee9e08a452553716908802844f370f538ee839b",
+        "diagnostics_sha256": "045cb8319c45f3b18b76aabd66351a7beec7692f1b1f6236fc404b308940b149",
         "forecast_training_health": {
-          "days_since_latest_result": 1,
+          "days_since_latest_result": 2,
           "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
           "training_end": "2026-11-02"
         },
@@ -27612,8 +28528,8 @@
           "usage": "supplementary_cached_observations"
         },
         "bbs_statistics_model": {
-          "cutoff_utc": "2026-11-03T13:57:37.532944+00:00",
-          "eligible_training_matches": 14,
+          "cutoff_utc": "2026-11-04T09:30:54.245100+00:00",
+          "eligible_training_matches": 16,
           "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
           "feature_fields": [
             "shots_on_target",
@@ -27644,29 +28560,29 @@
           "max_form_matches": 8,
           "max_goal_rate_ratio": 1.25,
           "minimum_team_matches": 3,
-          "observations": 374,
-          "observations_sha256": "4ab292c318d16afacb99c2ad5969866fad1f388eaf1d9178bac3caf4e828ecf9",
+          "observations": 383,
+          "observations_sha256": "2bd8823c03640db52bc36f82207c824a76b8bb870871ba41cbb7c737225f9963",
           "required_training_matches": 120,
-          "retrospective_eligible_training_matches": 14,
-          "retrospective_inputs_sha256": "496d0fec6c65cf75a381038f7e09e49fa52bf8862cd08e37d45ab19b62b2f869",
+          "retrospective_eligible_training_matches": 16,
+          "retrospective_inputs_sha256": "1e3081e2153ab9f63d20d21a823216ae0eba79f5107f3b5f54e1f527881fa21e",
           "retrospective_publication_delay_hours": 24,
           "selected_weight": 0.0,
           "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-          "strict_eligible_training_matches": 0,
+          "strict_eligible_training_matches": 2,
           "usable_current_matches": 94,
           "validation_mode": "retrospective_backfill",
           "validation_policy": "auto",
           "version": "bbs-lagged-poisson-v2"
         },
-        "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261103T135737532944Z_1310e5e7908f1350cd19fd70a506043451326682bd05fd7b347cb2b6db2f11cb.json",
+        "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261104T093054245100Z_e9cfcde010454c88298529258ed59fba619358bed2d36b20bf302f93e54a4b43.json",
         "current_source_health": {
-          "added_matches": 8,
+          "added_matches": 0,
           "cache_hash_verified": true,
-          "checked_at_utc": "2026-11-04T00:44:02.414633+00:00",
+          "checked_at_utc": "2026-11-04T09:30:54.245100+00:00",
           "completed_matches": 63,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "download_age_hours": 0.004953088611111112,
+          "download_age_hours": 0.005525251111111111,
           "download_status": "VERIFIED_LIVE",
           "latest_completed_date": "2026-11-03",
           "latest_completed_utc": "2026-11-03T20:00:00+00:00",
@@ -27675,41 +28591,52 @@
           "overdue_unfinished_match_ids": [],
           "provider": "football-data.org",
           "season_start": 2026,
-          "sha256": "6ded48a7c26f14ca39dcc98936ab619e3d09c2e92169d76fb08a8ea62c0ea786",
+          "sha256": "936f6e47aadb3f3787783bc63a150534d5c0b8033d4d07c0cc14b54e0fe12b75",
           "source_schedule_matches": 144,
-          "status": "MODEL_BEHIND_VERIFIED_SOURCE",
-          "training_end": "2026-10-21"
+          "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
+          "training_end": "2026-11-03"
         },
-        "days_since_latest_result": 14,
-        "diagnostics_sha256": "a49da8b2a905044f393348976bca7aefe3623cf1b93b19c9b7568b67d2b2d954",
+        "days_since_latest_result": 1,
+        "diagnostics_sha256": "7da6166d477af6ebfe7c6c01676c999dca0f4b0562fce6b38ac307479aef35dc",
         "forecast_training_health": {
           "added_matches": 0,
           "cache_hash_verified": true,
-          "checked_at_utc": "2026-11-03T13:57:37.532944+00:00",
-          "completed_matches": 54,
+          "checked_at_utc": "2026-11-04T09:30:54.245100+00:00",
+          "completed_matches": 63,
           "corrected_scores": 0,
           "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
           "download_age_hours": 0.0,
           "download_status": "VERIFIED_LIVE",
           "last_refresh_error": null,
           "last_refresh_error_reason": null,
-          "latest_completed_date": "2026-10-21",
-          "latest_completed_utc": "2026-10-21T19:00:00+00:00",
-          "next_fixture_utc": "2026-11-03T17:45:00+00:00",
+          "latest_completed_date": "2026-11-03",
+          "latest_completed_utc": "2026-11-03T20:00:00+00:00",
+          "next_fixture_utc": "2026-11-04T17:45:00+00:00",
           "note": "Provider schedule comparison is not independent proof of complete coverage.",
           "overdue_unfinished_match_ids": [],
           "provider": "football-data.org",
           "season_start": 2026,
-          "sha256": "1d99ce3362b1915aff584e4ae4678057ee29bc6190f9a1d419b1135011f76902",
+          "sha256": "936f6e47aadb3f3787783bc63a150534d5c0b8033d4d07c0cc14b54e0fe12b75",
           "source_schedule_matches": 144,
           "status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-          "training_end": "2026-10-21"
+          "training_end": "2026-11-03"
         },
         "odds_provider_health": {
-          "state": "NOT_RECORDED"
+          "attempts": [
+            {
+              "credential": "THE_ODDS_API_KEY",
+              "error_code": "OUT_OF_USAGE_CREDITS",
+              "http_status": 401,
+              "x-requests-last": 0,
+              "x-requests-remaining": 0,
+              "x-requests-used": 500
+            }
+          ],
+          "blocked_utc_day": "2026-11-04",
+          "state": "CREDITS_EXHAUSTED"
         },
-        "training_end": "2026-10-21",
-        "training_matches": 557
+        "training_end": "2026-11-03",
+        "training_matches": 566
       },
       "UEL": {
         "api_football": {
@@ -27728,10 +28655,10 @@
             }
           },
           "status": "VERIFIED_WITHIN_24_HOURS",
-          "verified_at_utc": "2026-11-04T00:44:20.245752+00:00"
+          "verified_at_utc": "2026-11-04T09:31:14.136004+00:00"
         },
         "days_since_latest_result": 13,
-        "diagnostics_sha256": "34a874b6173b86691c28eac851736fa093c95b24feb7dd23c4e60709e30a6237",
+        "diagnostics_sha256": "1a17a16c9130e8d0b99496da1f861f7a612b394c25809c34c5e1f97f9be9e5d0",
         "forecast_training_health": {
           "official_source_health": {
             "2025": {
@@ -27742,10 +28669,21 @@
           },
           "status": "VERIFIED_WITHIN_24_HOURS",
           "training_end": "2026-10-22",
-          "verified_at_utc": "2026-11-03T11:55:13.839686+00:00"
+          "verified_at_utc": "2026-11-04T00:36:38.177871+00:00"
         },
         "odds_provider_health": {
-          "state": "NOT_RECORDED"
+          "attempts": [
+            {
+              "credential": "THE_ODDS_API_KEY",
+              "error_code": "OUT_OF_USAGE_CREDITS",
+              "http_status": 401,
+              "x-requests-last": 0,
+              "x-requests-remaining": 0,
+              "x-requests-used": 500
+            }
+          ],
+          "blocked_utc_day": "2026-11-04",
+          "state": "CREDITS_EXHAUSTED"
         },
         "training_end": "2026-10-22",
         "training_matches": 714
@@ -27816,18 +28754,18 @@
         "half_wins": 0,
         "losses": 1,
         "no_loss_rate": 0.5,
-        "pending": 1,
+        "pending": 3,
         "profit_per_unit_staked": -0.57,
         "refunds": 0,
         "settled_with_odds": 2,
-        "total": 3,
+        "total": 5,
         "win_rate": 0.5,
         "wins": 1
       }
     }
   },
-  "reviewed_at_utc": "2026-11-04T00:44:20Z",
-  "snapshots": 66,
+  "reviewed_at_utc": "2026-11-04T09:31:14Z",
+  "snapshots": 67,
   "shortlist": {
     "brier": 0.147447,
     "flat_stake_roi": 0.052817,
@@ -27836,11 +28774,11 @@
     "half_wins": 1,
     "losses": 16,
     "no_loss_rate": 0.774648,
-    "pending": 15,
+    "pending": 17,
     "profit_per_unit_staked": 3.75,
     "refunds": 3,
     "settled_with_odds": 71,
-    "total": 86,
+    "total": 88,
     "win_rate": 0.732394,
     "wins": 52
   },
@@ -27853,11 +28791,11 @@
       "half_wins": 0,
       "losses": 1,
       "no_loss_rate": 0.5,
-      "pending": 1,
+      "pending": 3,
       "profit_per_unit_staked": -0.57,
       "refunds": 0,
       "settled_with_odds": 2,
-      "total": 3,
+      "total": 5,
       "win_rate": 0.5,
       "wins": 1
     },
@@ -28040,12 +28978,15 @@
     "PrimeiraLiga": "2026-11-02",
     "SerieA": "2026-11-02",
     "SuperLig": "2026-11-02",
-    "UCL": "2026-10-21",
+    "UCL": "2026-11-03",
     "UEL": "2026-10-22"
   },
   "experiments": {},
   "warnings": [
-    "UCL training/source health: MODEL_BEHIND_VERIFIED_SOURCE",
-    "UEL: live UEFA denied access; using reviewed factual attestations for covered matches only"
+    "UEL: live UEFA denied access; using reviewed factual attestations for covered matches only",
+    "Eredivisie: all configured Odds API credentials confirmed exhausted during forecast generation",
+    "PrimeiraLiga: all configured Odds API credentials confirmed exhausted during forecast generation",
+    "UCL: all configured Odds API credentials confirmed exhausted during forecast generation",
+    "UEL: all configured Odds API credentials confirmed exhausted during forecast generation"
   ]
 }
