@@ -1,6 +1,6 @@
 # v27/v28 price-edge tracking
 
-Reviewed 2026-11-04T09:31:14.136004+00:00. Frozen v27 picks: 5.
+Reviewed 2026-11-04T10:07:44.433878+00:00. Frozen v27 picks: 5.
 
 **Mean CLV vs Pinnacle close:** +7.35% ± 6.93% (n=2). **Flat-stake profit per bet:** -28.50% ± 140.14% (n=2).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -70,7 +70,7 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 ## Both tiers (value and cagey)
 
 Cagey-tier picks frozen: 0; CLV n/a (0); realised profit per bet n/a (0). Correction-only value picks: CLV n/a (0).
-Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false; >= 50 graded cagey-tier picks with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false.
+Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false; >= 50 graded value-priced cagey-tier picks made under the active rule (narrow-63-flagged-v2) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false.
 
 ### By tier
 
@@ -131,6 +131,18 @@ Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends ca
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
 | no | +7.35% ± 6.93% (n=2) | -28.50% ± 140.14% (n=2) |
+
+### By cagey_tier_rule
+
+| group | mean CLV (n) | realised profit per bet (n) |
+|---|---|---|
+| n/a | +7.35% ± 6.93% (n=2) | -28.50% ± 140.14% (n=2) |
+
+### By price_flag
+
+| group | mean CLV (n) | realised profit per bet (n) |
+|---|---|---|
+| n/a | +7.35% ± 6.93% (n=2) | -28.50% ± 140.14% (n=2) |
 
 ## Tagged candidates (narrow-margin hypothesis)
 
