@@ -27,6 +27,7 @@ LOCK_GUARD = '.prediction-run.guard'
 # Experiment files capture() copies verbatim from a bundle into its archive.
 # Retired experiments (archive/) are no longer captured, so they never block pruning.
 SIDECARS = frozenset({'bet365_vs_pinnacle.csv', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv',
+                      'master_shortlist.csv',
                       'cagey_correction_monitoring.csv'})
 # An ownerless lock younger than this may belong to a writer that has created
 # the directory but not yet recorded itself; older ones are abandoned.

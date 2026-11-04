@@ -1496,8 +1496,51 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
         lines += ["", "## Cagey tier (separate list, never merged with the picks above)", "", rule_text, "",
                   markdown_table(list(tier_readable.columns), tier_readable.astype(str).values.tolist())
                   if not tier_readable.empty else "No cagey-tier pick this run."]
+    lines += master_section(summary, input_dir, output_dir)
     (output_dir / "conservative_bet_shortlist_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     return len(readable)
+
+
+MASTER_READABLE = "master_shortlist_readable.csv"
+
+
+def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -> list:
+    """master_shortlist_readable.csv and its report section, when the run recorded a master shortlist."""
+    import master_shortlist
+    info = summary.get('master_shortlist')
+    path = Path(input_dir) / master_shortlist.FILE if input_dir is not None else None
+    if info is None or path is None or not path.exists():
+        return []
+    try:
+        raw = pd.read_csv(path, low_memory=False)
+    except pd.errors.EmptyDataError:
+        raw = pd.DataFrame(columns=master_shortlist.COLUMNS)
+    from price_edge_cagey_shortlist import REFERENCES
+    groups = {'asian_handicap': 'Asian handicap', 'match_winner': 'Match winner', 'double_chance': 'Double chance',
+              'over_1_5': 'Over 1.5'}
+    readable = pd.DataFrame({
+        "Rank": raw.master_rank, "Kickoff (UTC)": raw.kickoff_utc, "League": raw.league, "Home": raw.home_team,
+        "Away": raw.away_team, "Market to bet": raw.market_to_bet,
+        "Market group": raw.value_market_group.map(lambda v: groups.get(v, '' if pd.isna(v) else v)),
+        "Bookmaker": raw.bookmaker, "Price": raw.offered_decimal_odds.map(decimal),
+        "Fair odds": raw.fair_odds.map(decimal), "Edge": raw.edge.map(signed_pct),
+        "Value price from (1% edge)": raw.minimum_odds_master.map(decimal),
+        "No-loss probability": raw.master_no_loss_probability.map(pct),
+        "Price vs fair (value / below fair)": raw.master_price_flag,
+        "Reference": raw.reference_type.map(lambda v: '' if pd.isna(v) else f"{v}: {REFERENCES.get(v, v)}"),
+        "P(narrow: draw or 1-goal win)": raw.p_narrow.map(pct),
+        "On value shortlist": raw.in_value_shortlist.map(lambda v: 'yes' if str(v) == 'True' else 'no'),
+        "On cagey tier": raw.in_cagey_tier.map(lambda v: 'yes' if str(v) == 'True' else 'no'),
+    })
+    readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
+    return ["", "## Master shortlist (the 10 best bets this run)", "",
+            f"One bet per match from every evaluated bet that passed the data checks. Value bets (edge >= "
+            f"{pct(info.get('min_edge_for_value'), 0)} against fair) come first, safest first; below-fair bets fill "
+            f"the list up to {info.get('size')}, closest to fair price first. Fewer than {info.get('size')} only when "
+            f"fewer matches qualify. This run: {info.get('n_bets')} bets, {info.get('value_bets')} value, "
+            f"{info.get('below_fair_bets')} below fair. Information for your own decision, not a recommendation to bet.",
+            "", markdown_table(list(readable.columns), readable.astype(str).values.tolist())
+            if not readable.empty else "No bet passed the data checks this run."]
 
 
 def process_conservative_shortlist(
@@ -1511,6 +1554,7 @@ def process_conservative_shortlist(
     """
     # Only a run with the cagey tier enabled rewrites this; never leave an old tier's picks behind.
     (output_dir / "cagey_tier_shortlist_readable.csv").unlink(missing_ok=True)
+    (output_dir / MASTER_READABLE).unlink(missing_ok=True)
     source = input_dir / "conservative_bet_shortlist.csv"
     if not source.exists():
         # Prevent an obsolete report from appearing current when input

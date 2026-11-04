@@ -22,7 +22,7 @@ FORECAST_PATHS = (
     'football_output_v2/raw/conservative_bet_summary.json',
 )
 # Every sidecar an archived snapshot may hold, including retired experiments.
-SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv')
+SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv', 'master_shortlist.csv')
 # Experiment sidecars still generated, captured and reviewed (none since the trials were archived).
 LIVE_SIDECARS = ()
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
@@ -217,6 +217,20 @@ def raw_check(root, *, raw_dir=None):
                     require(equivalent(clean_frame(tier_actual[list(tier_expected.columns)]),
                                        clean_frame(tier_expected.replace('', None))),
                             'Current cagey-tier shortlist differs from deterministic replay')
+            # Master shortlist: recorded runs must carry exactly the list the replayed decisions give.
+            import master_shortlist
+            master_path = raw/master_shortlist.FILE
+            if summary.get('master_shortlist') is not None:
+                require(master_path.exists(), 'Missing current master shortlist')
+                master_expected = master_shortlist.build(decisions)
+                try:
+                    master_actual = pd.read_csv(master_path, low_memory=False)
+                except pd.errors.EmptyDataError:
+                    master_actual = pd.DataFrame(columns=master_shortlist.COLUMNS)
+                require(master_shortlist.matches(master_actual, master_expected),
+                        'Current master shortlist differs from deterministic replay')
+                require(equivalent(summary['master_shortlist'], master_shortlist.summary(master_expected)),
+                        'Current master shortlist summary differs from replay')
             # Correction monitoring is evidence only, but its rows must be this run's own. The run's
             # immutable summary says whether it was generated with monitoring; earlier v28 runs were not.
             monitor_path = raw/price_edge_cagey_shortlist.MONITOR_FILE
