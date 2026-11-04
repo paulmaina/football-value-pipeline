@@ -4493,6 +4493,11 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE, record_monitoring
     cagey_picks = cagey_tier_list(decisions)
     cagey_picks.to_csv(out_dir / TIER_FILE, index=False)
+    # Master shortlist: the run's 10 best bets, one per match (v28 only; information for a manual decision).
+    from price_edge_cagey_shortlist import POLICY as CAGEY_POLICY
+    if selection_summary.get('selection_policy_version') == CAGEY_POLICY:
+        from master_shortlist import write as write_master
+        write_master(decisions, out_dir, selection_summary)
     # Correction monitoring: one record per fixture from the correction just computed (evidence only).
     record_monitoring(selection_summary, monitoring, out_dir)
     try:

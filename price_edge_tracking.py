@@ -120,13 +120,34 @@ def capture_tier_file(raw: Path, generated) -> Optional[Path]:
     return path
 
 
-def archived_tier_rows(root: Path, archive) -> List[dict]:
-    """Every pre-kickoff archived cagey-tier pick, oldest capture first."""
+def capture_master_file(raw: Path, generated) -> Optional[Path]:
+    """Archive the master shortlist only when it belongs to this exact v28 generation."""
+    from performance_tracking import read_csv, utc
+    from master_shortlist import FILE as MASTER_FILE
+    path = Path(raw) / MASTER_FILE
+    if not path.exists():
+        return None
+    rows = read_csv(path)
+    if any(r.get('selection_policy_version') != CAGEY_POLICY or utc(r.get('evaluated_at_utc')) != utc(generated)
+           for r in rows):
+        return None
+    return path
+
+
+def frozen_master_picks(root: Path, archive) -> List[dict]:
+    """Latest pre-kickoff archived master-shortlist pick per fixture."""
+    from performance_tracking import fixture_key
+    from master_shortlist import FILE as MASTER_FILE
+    return list({fixture_key(row): row for row in archived_tier_rows(root, archive, MASTER_FILE)}.values())
+
+
+def archived_tier_rows(root: Path, archive, name: str = TIER_FILE) -> List[dict]:
+    """Every pre-kickoff archived pick of one archived list (the cagey tier by default), oldest capture first."""
     from performance_tracking import read_csv, utc
     rows = []
     for meta, _, _ in sorted(archive, key=lambda item: item[0]['captured_at_utc']):
-        path = Path(root) / 'performance' / 'snapshots' / meta['git_commit_sha'][:16] / TIER_FILE
-        if TIER_FILE not in meta.get('sha256', {}) or not path.exists():
+        path = Path(root) / 'performance' / 'snapshots' / meta['git_commit_sha'][:16] / name
+        if name not in meta.get('sha256', {}) or not path.exists():
             continue
         captured, generated = utc(meta['captured_at_utc']), utc(meta['generated_at_utc'])
         for row in read_csv(path):
@@ -651,6 +672,7 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
     graded = grade(picks, observations, records, clock)
     tagged = grade(frozen_candidates(root, archive), observations, records, clock)
     tier = grade(frozen_tier_picks(root, archive), observations, records, clock)
+    master = grade(frozen_master_picks(root, archive), observations, records, clock)
     monitoring = grade_monitoring(first_monitoring_records(root, archive), records, clock)
     both = tier_frame(graded, tier)
     flags = cagey_flags(both, active_rule if active_rule is not None else active_tier_rule())
@@ -664,6 +686,12 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
         'stop_review': bool(stop),
         'stop_review_rule': f'>= {STOP_REVIEW_MIN_PICKS} graded picks with mean CLV < 0',
         'clv_by': split_table(graded, 'clv'),
+        'master_picks': int(len(master)),
+        'master': {'clv': summarize(master['clv'] if len(master) else []),
+                   'profit': summarize(master['unit_profit'] if len(master) else []),
+                   'by_price_flag': {flag: {'clv': summarize(g['clv']), 'profit': summarize(g['unit_profit'])}
+                                     for flag, g in (master.groupby(master['master_price_flag'].fillna('n/a'))
+                                                     if len(master) and 'master_price_flag' in master else [])}},
         'cagey_tier_picks': int(len(tier)),
         'cagey_tier': {'clv': summarize(tier['clv'] if len(tier) else []),
                        'profit': summarize(tier['unit_profit'] if len(tier) else [])},
@@ -691,6 +719,7 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
     graded.to_csv(dest / 'picks.csv', index=False)
     tagged.to_csv(dest / 'tagged_candidates.csv', index=False)
     tier.to_csv(dest / 'cagey_tier_picks.csv', index=False)
+    master.to_csv(dest / 'master_shortlist_picks.csv', index=False)
     monitoring.to_csv(dest / 'correction_monitoring.csv', index=False)
     (dest / 'report.md').write_text(report(summary), encoding='utf-8')
     return summary
@@ -722,6 +751,13 @@ def report(summary: dict) -> str:
     for column, groups in summary['clv_by'].items():
         lines += [f'## CLV by {column}', '', '| group | mean CLV (n) |', '|---|---|']
         lines += [f'| {k} | {_fmt(v)} |' for k, v in groups.items()] or ['| none | n/a |']
+        lines.append('')
+    if summary.get('master_picks'):
+        m = summary['master']
+        lines += ['## Master shortlist (10 best bets per run)', '',
+                  f"Frozen picks: {summary['master_picks']}; CLV {_fmt(m['clv'])}; realised profit per bet {_fmt(m['profit'])}.",
+                  '', '| price flag | mean CLV (n) | realised profit per bet (n) |', '|---|---|---|']
+        lines += [f"| {flag} | {_fmt(v['clv'])} | {_fmt(v['profit'])} |" for flag, v in m['by_price_flag'].items()]
         lines.append('')
     if 'both_tiers_clv_by' in summary:
         lines += ['## Both tiers (value and cagey)', '',
