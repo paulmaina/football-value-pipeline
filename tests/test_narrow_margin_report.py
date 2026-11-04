@@ -233,6 +233,45 @@ class NarrowMarginReportTests(OfflineQuotePolicyTestCase):
         frame = report.build(self.plain(roster=[first], monitor=monitor))
         self.assertEqual(frame.iloc[0].status, 'USABLE')
 
+    def test_kickoff_fallback_works_when_either_side_lacks_an_id(self):
+        first, later = self.repeat_pairing()
+        bare_first = {**first, 'fixture_id': None}
+        cases = {'forecast has id, monitoring has none': ([first, later], monitoring(rows=[bare_first], unusable=[])),
+                 'monitoring has id, forecast has none': ([bare_first, {**later, 'fixture_id': None}],
+                                                          monitoring(rows=[first], unusable=[]))}
+        for name, (roster, monitor) in cases.items():
+            with self.subTest(name):
+                frame = report.build(self.plain(roster=roster, monitor=monitor)).set_index('kickoff_utc')
+                self.assertEqual(frame.loc[first['kickoff_utc']].status, 'USABLE')
+                self.assertAlmostEqual(frame.loc[first['kickoff_utc']].p_narrow, 1 - expected(first)['score'],
+                                       places=12)
+                self.assertEqual(frame.loc[later['kickoff_utc']].status, report.NOT_MONITORED)
+                # The tier lookup takes the same path in both directions.
+                keys = ('league', 'home_team', 'away_team', 'kickoff_utc', 'fixture_id')
+                tier = pd.DataFrame([{k: roster[0][k] for k in keys}])
+                got = report.for_fixtures(tier, self.plain(roster=roster, monitor=monitor))
+                self.assertAlmostEqual(got.iloc[0].p_narrow, 1 - expected(first)['score'], places=12)
+
+    def test_conflicting_ids_never_fall_back_in_either_direction(self):
+        first, _ = self.repeat_pairing()
+        for forecast_id, monitor_id in (('fx:1', 'fx:other'), ('fx:other', 'fx:1')):
+            with self.subTest(forecast=forecast_id, monitoring=monitor_id):
+                monitor = monitoring(rows=[first], unusable=[])
+                monitor['fixture_id'] = monitor_id
+                frame = report.build(self.plain(roster=[{**first, 'fixture_id': forecast_id}], monitor=monitor))
+                self.assertEqual(frame.iloc[0].status, report.NOT_MONITORED)
+
+    def test_id_match_and_bare_twin_on_the_same_kickoff_is_ambiguous_for_the_bare_query(self):
+        first, _ = self.repeat_pairing()
+        # Monitoring holds the same fixture twice: once with its id, once without.
+        monitor = monitoring(rows=[first, {**first, 'fixture_id': None}], unusable=[])
+        # A forecast with the id matches its id row only.
+        frame = report.build(self.plain(roster=[first], monitor=monitor))
+        self.assertEqual(frame.iloc[0].status, 'USABLE')
+        # A forecast without an id sees both rows: reported, not guessed.
+        frame = report.build(self.plain(roster=[{**first, 'fixture_id': None}], monitor=monitor))
+        self.assertEqual(frame.iloc[0].status, report.AMBIGUOUS)
+
     def test_fallback_kickoff_formats_compare_equal(self):
         first, _ = self.repeat_pairing(with_ids=False)
         monitor = monitoring(rows=[first], unusable=[])
