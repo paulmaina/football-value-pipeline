@@ -503,7 +503,8 @@
         "positive_share": 1.0,
         "standard_error": 0.03535127896817169
       }
-    }
+    },
+    "value_market_group": {}
   },
   "correction_monitoring": {
     "by_quintile": {
@@ -683,7 +684,7 @@
     "standard_error": 0.7149999999999999
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-04T12:22:36.476138+00:00",
+  "reviewed_at_utc": "2026-11-04T12:34:04.378900+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
