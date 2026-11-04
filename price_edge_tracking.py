@@ -45,7 +45,8 @@ from price_edge_cagey_shortlist import (POLICY as CAGEY_POLICY, MONITOR_FILE, MO
                                         BOOK_COLUMNS, usable_quote)
 import narrow_margin as nm
 POLICIES = (POLICY, CAGEY_POLICY)  # v27 and v28 value-tier picks are graded together, split by policy.
-from price_edge_cagey_shortlist import TIER_FILE
+from price_edge_cagey_shortlist import (TIER_FILE, TIER_RULE_VALUE, TIER_RULE_NARROW, PRICE_VALUE,
+                                        PRICE_BELOW_FAIR)
 CAGEY_REVIEW_MIN_PICKS = 50
 CAGEY_TIER_REVIEW_MIN_PICKS = 50
 
@@ -64,7 +65,7 @@ EQUIVALENT = {'Home win': ('home', -0.5), 'Away win': ('away', -0.5),
 SPLITS = ('bookmaker', 'odds_band', 'reference_type', 'side_role', 'balanced', 'low_total', 'high_draw', 'even_odds', 'tagged',
           'cagey_quintile')
 TIER_SPLITS = ('tier', 'policy', 'bookmaker', 'reference_type', 'corrected_cagey_quintile', 'balanced', 'low_total',
-               'high_draw', 'even_odds', 'qualified_only_by_correction')
+               'high_draw', 'even_odds', 'qualified_only_by_correction', 'cagey_tier_rule', 'price_flag')
 QUINTILES = ('Q1 cagiest', 'Q2', 'Q3', 'Q4', 'Q5 most open')
 
 
@@ -382,26 +383,59 @@ def tier_frame(value: pd.DataFrame, tier: pd.DataFrame) -> pd.DataFrame:
                                                                   pd.Series(index=frame.index, dtype=float)))
     flag = frame.get('qualified_only_by_correction', pd.Series(index=frame.index, dtype=object))
     frame['qualified_only_by_correction'] = flag.map(lambda v: 'yes' if _flag(v) else 'no')
+    # Cagey-tier rule and price: value-v1 picks carry no price_flag and all passed expected profit >= 0.
+    price = frame.get('price_flag', pd.Series(index=frame.index, dtype=object))
+    cagey = frame.tier == 'cagey'
+    flagged = cagey & price.notna() & price.astype(str).str.strip().ne('')
+    frame['cagey_tier_rule'] = None
+    frame.loc[cagey, 'cagey_tier_rule'] = TIER_RULE_VALUE
+    frame.loc[flagged, 'cagey_tier_rule'] = TIER_RULE_NARROW
+    frame['price_flag'] = None
+    frame.loc[cagey, 'price_flag'] = PRICE_VALUE
+    frame.loc[flagged, 'price_flag'] = price[flagged]
     return frame
 
 
-def cagey_flags(frame: pd.DataFrame) -> Dict[str, object]:
-    """Review flags; each recommends switching its feature off and never does so itself."""
+def active_tier_rule() -> str:
+    """The cagey-tier rule in force today (cagey_correction_config.json)."""
+    from price_edge_cagey_shortlist import load_settings, tier_rule
+    return tier_rule(load_settings())
+
+
+def cagey_flags(frame: pd.DataFrame, active_rule: str = TIER_RULE_VALUE) -> Dict[str, object]:
+    """Review flags; each recommends switching its feature off and never does so itself.
+
+    The tier review counts only the ACTIVE rule's own value-priced picks: picks made under another rule never
+    trigger it (they stay visible in cagey_tier_roi_by_rule), and below-fair picks are listed knowing the
+    model expects a small loss on them.
+    """
     if frame.empty:
         value_only, tier = pd.Series(dtype=float), pd.Series(dtype=float)
+        by_rule = {}
     else:
         value_only = frame.loc[(frame.tier == 'value') & (frame.qualified_only_by_correction == 'yes'), 'clv']
-        tier = frame.loc[frame.tier == 'cagey', 'unit_profit']
+        cagey = frame.loc[frame.tier == 'cagey']
+        rules = cagey['cagey_tier_rule'] if 'cagey_tier_rule' in cagey else pd.Series(TIER_RULE_VALUE, index=cagey.index)
+        price = cagey['price_flag'] if 'price_flag' in cagey else pd.Series(PRICE_VALUE, index=cagey.index)
+        rules, price = rules.fillna(TIER_RULE_VALUE), price.fillna(PRICE_VALUE)
+        tier = cagey.loc[(rules == active_rule) & (price == PRICE_VALUE), 'unit_profit']
+        by_rule = {rule: {'all': summarize(cagey.loc[rules == rule, 'unit_profit']),
+                          PRICE_VALUE: summarize(cagey.loc[(rules == rule) & (price == PRICE_VALUE), 'unit_profit']),
+                          PRICE_BELOW_FAIR: summarize(cagey.loc[(rules == rule) & (price == PRICE_BELOW_FAIR),
+                                                                'unit_profit'])}
+                   for rule in sorted(set(rules))}
     only, roi = summarize(value_only), summarize(tier)
     cagey_review = only['n'] >= CAGEY_REVIEW_MIN_PICKS and only['mean'] < 0
     tier_review = (roi['n'] >= CAGEY_TIER_REVIEW_MIN_PICKS and roi['standard_error'] is not None
                    and roi['mean'] + 1.96 * roi['standard_error'] < 0)
-    return {'correction_only_clv': only, 'cagey_tier_roi': roi,
+    return {'correction_only_clv': only, 'cagey_tier_roi': roi, 'cagey_tier_active_rule': active_rule,
+            'cagey_tier_roi_by_rule': by_rule,
             'cagey_review': bool(cagey_review), 'cagey_tier_review': bool(tier_review),
             'cagey_review_rule': f'>= {CAGEY_REVIEW_MIN_PICKS} graded correction-only value picks with mean CLV < 0; '
                                  'recommends cagey_correction_enabled = false',
-            'cagey_tier_review_rule': f'>= {CAGEY_TIER_REVIEW_MIN_PICKS} graded cagey-tier picks with realised ROI 95% '
-                                      'interval entirely below 0; recommends cagey_tier_enabled = false'}
+            'cagey_tier_review_rule': f'>= {CAGEY_TIER_REVIEW_MIN_PICKS} graded value-priced cagey-tier picks made '
+                                      f'under the active rule ({active_rule}) with realised ROI 95% interval entirely '
+                                      'below 0; recommends cagey_tier_enabled = false'}
 
 
 def frozen_candidates(root: Path, archive) -> List[dict]:
@@ -553,7 +587,7 @@ def split_table(frame: pd.DataFrame, value: str, columns=SPLITS) -> Dict[str, Di
     return out
 
 
-def review(root: Path, archive, records: List[dict], clock) -> dict:
+def review(root: Path, archive, records: List[dict], clock, active_rule: Optional[str] = None) -> dict:
     """Write performance/price_edge_v27/{summary.json, picks.csv, tagged_candidates.csv, report.md}."""
     from performance_tracking import frozen_rows, write_json
     from closing_odds import load_observations
@@ -565,7 +599,7 @@ def review(root: Path, archive, records: List[dict], clock) -> dict:
     tier = grade(frozen_tier_picks(root, archive), observations, records, clock)
     monitoring = grade_monitoring(first_monitoring_records(root, archive), records, clock)
     both = tier_frame(graded, tier)
-    flags = cagey_flags(both)
+    flags = cagey_flags(both, active_rule if active_rule is not None else active_tier_rule())
     clv = graded['clv'] if len(graded) else pd.Series(dtype=float)
     overall = summarize(clv)
     stop = overall['n'] >= STOP_REVIEW_MIN_PICKS and overall['mean'] is not None and overall['mean'] < 0
@@ -641,6 +675,14 @@ def report(summary: dict) -> str:
                   f"realised profit per bet {_fmt(summary['cagey_tier']['profit'])}. Correction-only value picks: "
                   f"CLV {_fmt(summary['correction_only_clv'])}.",
                   f"Flags: {summary['cagey_review_rule']}; {summary['cagey_tier_review_rule']}.", '']
+        by_rule = summary.get('cagey_tier_roi_by_rule') or {}
+        if by_rule:
+            active = summary.get('cagey_tier_active_rule')
+            lines += ['### Cagey-tier realised profit per bet by rule', '',
+                      '| rule | all picks | value-priced | below fair |', '|---|---|---|---|']
+            lines += [f"| {rule}{' (active)' if rule == active else ''} | {_fmt(r['all'])} | "
+                      f"{_fmt(r[PRICE_VALUE])} | {_fmt(r[PRICE_BELOW_FAIR])} |" for rule, r in by_rule.items()]
+            lines += ['', 'Only the active rule\'s value-priced picks count toward CAGEY TIER REVIEW.', '']
         for column, groups in summary['both_tiers_clv_by'].items():
             profit = summary['both_tiers_profit_by'].get(column, {})
             lines += [f'### By {column}', '', '| group | mean CLV (n) | realised profit per bet (n) |', '|---|---|---|']

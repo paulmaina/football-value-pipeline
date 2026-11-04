@@ -195,6 +195,53 @@ class CageyTrackingTests(OfflineQuotePolicyTestCase):
         self.assertFalse(tracking.cagey_flags(self.frame(tier_rows=mixed))['cagey_tier_review'])
         self.assertFalse(tracking.cagey_flags(self.frame())['cagey_tier_review'])
 
+    def test_below_fair_tier_picks_never_trigger_the_tier_review_and_are_split_out(self):
+        narrow = tracking.TIER_RULE_NARROW
+        losing = [{'clv': 0.0, 'unit_profit': -1.0 if i % 4 else 0.25, 'corrected_cagey_score': 0.25} for i in range(50)]
+        below = [{**r, 'price_flag': tracking.PRICE_BELOW_FAIR} for r in losing]
+        frame = self.frame(tier_rows=below)
+        self.assertFalse(tracking.cagey_flags(frame, narrow)['cagey_tier_review'])
+        self.assertEqual(tracking.cagey_flags(frame, narrow)['cagey_tier_roi']['n'], 0)
+        value = [{**r, 'price_flag': tracking.PRICE_VALUE} for r in losing]
+        self.assertTrue(tracking.cagey_flags(self.frame(tier_rows=value), narrow)['cagey_tier_review'])
+        mixed = self.frame(tier_rows=[*losing[:10], *below[:20], *value[:5]])
+        rules = tracking.split_table(mixed, 'unit_profit', ('cagey_tier_rule', 'price_flag'))
+        self.assertEqual({k: v['n'] for k, v in rules['cagey_tier_rule'].items()},
+                         {tracking.TIER_RULE_VALUE: 10, narrow: 25})
+        self.assertEqual({k: v['n'] for k, v in rules['price_flag'].items()},
+                         {tracking.PRICE_VALUE: 15, tracking.PRICE_BELOW_FAIR: 20})
+
+    def test_tier_review_counts_only_the_active_rules_own_picks(self):
+        losing = [{'clv': 0.0, 'unit_profit': -1.0 if i % 4 else 0.25, 'corrected_cagey_score': 0.25} for i in range(50)]
+        old = self.frame(tier_rows=losing)  # value-v1 picks: no price_flag
+        # 50 losing value-v1 picks trigger the review only while value-v1 is the active rule.
+        self.assertTrue(tracking.cagey_flags(old, tracking.TIER_RULE_VALUE)['cagey_tier_review'])
+        flags = tracking.cagey_flags(old, tracking.TIER_RULE_NARROW)
+        self.assertFalse(flags['cagey_tier_review'])
+        self.assertEqual(flags['cagey_tier_roi']['n'], 0)
+        # Their results stay visible by rule.
+        history = flags['cagey_tier_roi_by_rule'][tracking.TIER_RULE_VALUE]
+        self.assertEqual((history['all']['n'], history[tracking.PRICE_VALUE]['n']), (50, 50))
+        self.assertIn(tracking.TIER_RULE_NARROW, flags['cagey_tier_review_rule'])
+        # The new rule needs 50 of its own value-priced picks.
+        new = [{**r, 'price_flag': tracking.PRICE_VALUE} for r in losing]
+        mixed = self.frame(tier_rows=[*losing, *new[:49]])
+        self.assertFalse(tracking.cagey_flags(mixed, tracking.TIER_RULE_NARROW)['cagey_tier_review'])
+        mixed = self.frame(tier_rows=[*losing, *new])
+        self.assertTrue(tracking.cagey_flags(mixed, tracking.TIER_RULE_NARROW)['cagey_tier_review'])
+
+    def test_report_shows_tier_results_by_rule_and_marks_the_active_one(self):
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch('closing_odds.load_observations', return_value=([], [])):
+            summary = tracking.review(Path(tmp), [], [], CLOCK, active_rule=tracking.TIER_RULE_NARROW)
+        old = [{'clv': 0.0, 'unit_profit': -1.0, 'corrected_cagey_score': 0.25} for _ in range(3)]
+        new = [{**r, 'unit_profit': 0.5, 'price_flag': tracking.PRICE_BELOW_FAIR} for r in old[:2]]
+        summary.update(tracking.cagey_flags(self.frame(tier_rows=[*old, *new]), tracking.TIER_RULE_NARROW))
+        text = tracking.report(summary)
+        self.assertIn('| narrow-63-flagged-v2 (active) | +50.00% (n=2) | n/a (0) | +50.00% (n=2) |', text)
+        self.assertIn('| value-v1 | -100.00% (n=3) | -100.00% (n=3) | n/a (0) |', text)
+        self.assertIn("Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.", text)
+
     def test_splits_cover_tier_policy_reference_quintile_tags_and_correction(self):
         value = [{'clv': 0.02, 'unit_profit': 0.9, 'reference_type': 'c-cagey', 'qualified_only_by_correction': 'True',
                   'selection_policy_version': tracking.CAGEY_POLICY, 'bookmaker': '1xBet', 'even_odds': 'yes',
