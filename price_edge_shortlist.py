@@ -315,8 +315,15 @@ def _overround(*prices) -> float:
     return sum(1 / p for p in prices)
 
 
-def market_fit(pin: Mapping, now: pd.Timestamp) -> Tuple[mi.Fit, Dict[str, object]]:
-    """Fit B on Pinnacle's current 1X2, O/U 2.5 and main AH line."""
+FUTURE_INPUT_REASON = 'input timestamped after evaluation'
+
+
+def market_fit(pin: Mapping, now: pd.Timestamp, cutoff: bool = False) -> Tuple[mi.Fit, Dict[str, object]]:
+    """Fit B on Pinnacle's current 1X2, O/U 2.5 and main AH line.
+
+    `cutoff` (v28 observed-by-cutoff-v2): a fit with any input stamped after `now` is unusable, so no
+    ranking, settlement, staking, correction or monitoring figure can depend on a future quote.
+    """
     h2h, ou, line = pin['h2h'], pin['ou25'], pin['main_line']
     ah = (line, *pin['ah'][line][:2]) if line is not None else None
     targets = mi.targets_from_prices(h2h[:3] if h2h else None, ou[:2] if ou else None, ah)
@@ -328,6 +335,11 @@ def market_fit(pin: Mapping, now: pd.Timestamp) -> Tuple[mi.Fit, Dict[str, objec
     low, high = PINNACLE_OVERROUND
     bad = [k for k, g in groups.items() if g is not None and not low <= _overround(*g) <= high]
     result = mi.fit(targets, include_ah=True, stale=stale)
+    future = [k for k, v in stamps.items() if cutoff and groups[k] is not None
+              and quote_utc(v) is not None and quote_utc(v) > now]
+    if future:
+        result.usable = False
+        result.reasons.append(FUTURE_INPUT_REASON + ': ' + ', '.join(future))
     if bad:
         result.usable = False
         result.reasons.append('Pinnacle overround outside range: ' + ', '.join(bad))
@@ -335,6 +347,9 @@ def market_fit(pin: Mapping, now: pd.Timestamp) -> Tuple[mi.Fit, Dict[str, objec
     fit_a = mi.fit(targets, include_ah=False, stale=[k for k in stale if k != 'ah_main'])
     if any(k != 'ah_main' for k in bad):
         fit_a.usable = False
+    if any(k != 'ah_main' for k in future):
+        fit_a.usable = False
+        fit_a.reasons.append(FUTURE_INPUT_REASON + ': ' + ', '.join(k for k in future if k != 'ah_main'))
     return result, {'stamps': [s for s in stamps.values() if s], 'input_stamps': stamps, 'fit_a': fit_a,
                     'overrounds': {k: _overround(*g) for k, g in groups.items() if g}}
 
@@ -462,11 +477,12 @@ def evaluate_candidate(candidate: Mapping, pin: Mapping, fit: mi.Fit, fit_info: 
     return item
 
 
-def evaluate_fixture(row: Mapping, policy: Mapping, now: pd.Timestamp, transform=None) -> List[Dict[str, object]]:
+def evaluate_fixture(row: Mapping, policy: Mapping, now: pd.Timestamp, transform=None,
+                     cutoff: bool = False) -> List[Dict[str, object]]:
     """Every candidate of one fixture. `transform(row, items, pin, fit, fit_info, now)` lets a later
     policy (v28) post-process the rows with the same Pinnacle quotes and fits; v27 passes none."""
     pin = pinnacle_quotes(row)
-    fit, fit_info = market_fit(pin, now)
+    fit, fit_info = market_fit(pin, now, cutoff)
     tag = tags(pin['h2h'], pin['ou25'])
     favourite = None
     if pin['h2h'] is not None:
@@ -502,7 +518,7 @@ def _rank(frame: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, execution_policy=None, *,
-                    transform=None, extra_columns=(), group_column=None):
+                    transform=None, extra_columns=(), group_column=None, cutoff=False):
     """One pick per fixture; no cap. Returns (shortlist, decisions, summary).
 
     `transform`, `extra_columns` and `group_column` are for v28, which reuses this selection; v27 uses none.
@@ -516,7 +532,7 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     now = now.tz_convert('UTC')
     policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
     rows = predictions.astype(object).where(predictions.notna(), None).to_dict('records') if len(predictions) else []
-    evaluated = [item for row in rows for item in evaluate_fixture(row, policy, now, transform)]
+    evaluated = [item for row in rows for item in evaluate_fixture(row, policy, now, transform, cutoff)]
     decisions = pd.DataFrame(evaluated).reindex(columns=[*DECISION_COLUMNS, *extra_columns])
     for column in ('selection_tier', 'other_value_lines', 'rejection_reasons', 'decision'):
         decisions[column] = decisions[column].astype(object)
