@@ -19,7 +19,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 71 | 52-16 | 73.2% | +5.3% |
 
-Unsettled / unverified entries: **17**.
+Unsettled / unverified entries: **18**.
 Whole-fixture 1X2 multiclass Brier (n=269): 0.5528
 
 ## First-prediction reference — historical comparison
@@ -64,6 +64,7 @@ Whole-fixture 1X2 multiclass Brier (n=269): 0.5528
 | 2026-11-03T13:58:02.173298+00:00 | 1 | 1-0 | 100.0% | +43.0% |
 | 2026-11-04T09:31:03.622249+00:00 | 0 | 0-0 | — | — |
 | 2026-11-04T10:20:33.895771+00:00 | 0 | 0-0 | — | — |
+| 2026-11-04T19:40:50.340029+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
