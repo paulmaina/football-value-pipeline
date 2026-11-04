@@ -4491,15 +4491,17 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     decisions.to_csv(out_dir / "conservative_bet_rejections.csv", index=False)
     # v28 cagey tier: a separate list, never merged into the shortlist above (empty for other policies).
     from price_edge_cagey_shortlist import cagey_tier_list, TIER_FILE, record_monitoring
-    cagey_tier_list(decisions).to_csv(out_dir / TIER_FILE, index=False)
+    cagey_picks = cagey_tier_list(decisions)
+    cagey_picks.to_csv(out_dir / TIER_FILE, index=False)
     # Correction monitoring: one record per fixture from the correction just computed (evidence only).
     record_monitoring(selection_summary, monitoring, out_dir)
     try:
-        from staking import write_stake_recommendations
-        write_stake_recommendations(
-            shortlist, out_dir, bankroll=args.stake_bankroll,
+        from staking import write_shortlist_stakes
+        staking_settings = dict(bankroll=args.stake_bankroll,
             multiplier=args.stake_kelly_fraction, max_fraction=args.stake_cap,
             max_total_exposure=args.stake_max_exposure)
+        write_shortlist_stakes(shortlist, cagey_picks, out_dir, **staking_settings)
+        selection_summary['staking_settings'] = staking_settings
     except Exception as exc:
         # Advisory sizing must not invalidate a completed forecast run.
         warnings.warn(f"Stake recommendations unavailable ({type(exc).__name__}: {exc}); shortlist complete")
