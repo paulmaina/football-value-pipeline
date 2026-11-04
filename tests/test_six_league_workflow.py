@@ -77,8 +77,11 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertEqual(summary['selection_policy_version'], '48h-ah-price-edge-cagey-v28')
                 self.assertTrue(summary['cagey_correction_enabled'] and summary['cagey_tier_enabled'])
                 self.assertTrue({'Home win','Away win','Double Chance 1X','Double Chance X2'}.issubset(summary['eligible_markets']))
-                for excluded in ('Draw','Over 1.5','Double Chance 12'):
+                # The draw and 12 are never picks; over 1.5 is eligible under the per-market value rule only.
+                for excluded in ('Draw','Double Chance 12'):
                     self.assertNotIn(excluded,summary['eligible_markets'])
+                self.assertEqual(summary.get('value_rule'), 'per-market-v2')
+                self.assertIn('Over 1.5', summary['eligible_markets'])
                 self.assertEqual(set(picks.market),{'Home win'})
                 self.assertEqual(set(picks.bookmaker),{'1xBet'})
                 self.assertIn('Asian Handicap Home +0.00', summary['eligible_markets'])

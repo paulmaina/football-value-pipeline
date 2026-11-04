@@ -1361,7 +1361,7 @@ def process_bet365_list(input_dir: Path, output_dir: Path) -> Optional[int]:
 
 def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: Path,
                                  input_dir: Optional[Path] = None) -> int:
-    """Readable v27 price-edge shortlist: safest first, one row per fixture."""
+    """Readable v27/v28 price-edge shortlist: safest first, one row per fixture (per market group under per-market-v2)."""
     from price_edge_shortlist import OUTPUT_COLUMNS
     import price_edge_cagey_shortlist as v28
     from price_edge_cagey_shortlist import REFERENCES  # superset of v27's (adds c-cagey)
@@ -1381,7 +1381,14 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
         "fair_odds_uncorrected": "Fair (uncorrected)",
         "qualified_only_by_correction": "Qualified only because of correction",
         "corrected_cagey_score": "Corrected cagey score",
-        "other_value_lines": "Other value lines"}
+        "other_value_lines": "Other value lines", "value_market_group": "Market group"}
+    per_market = summary.get('value_rule') == v28.VALUE_RULE_PER_MARKET
+    GROUP_NAMES = {v28.GROUP_AH: 'Asian handicap', v28.GROUP_WIN: 'Match winner', v28.GROUP_DC: 'Double chance',
+                   v28.GROUP_OVER_1_5: 'Over 1.5'}
+    if per_market:
+        # One pick per match AND market group: show the group beside the market.
+        at = OUTPUT_COLUMNS.index('market_to_bet')
+        OUTPUT_COLUMNS = [*OUTPUT_COLUMNS[:at], 'value_market_group', *OUTPUT_COLUMNS[at:]]
     readable = raw.reindex(columns=OUTPUT_COLUMNS).rename(columns=headers)
     if not readable.empty:
         for column in ("Pinnacle draw probability", "Pinnacle P(over 2.5)", "Pinnacle no-loss probability",
@@ -1398,18 +1405,30 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
             readable[column] = readable[column].map(decimal)
         for column in ("Offered quote age (min)", "Pinnacle quote age (min)"):
             readable[column] = readable[column].map(lambda v: decimal(v, 0))
-        readable["AH line"] = raw["handicap_line"].map(lambda v: f"{float(v):+.2f}")
+        # Over 1.5 is not a handicap: no AH line.
+        readable["AH line"] = raw["handicap_line"].map(lambda v: "" if pd.isna(v) else f"{float(v):+.2f}")
+        if per_market:
+            readable["Market group"] = raw["value_market_group"].map(lambda v: GROUP_NAMES.get(v, v))
         readable["Reference"] = raw["reference_type"].map(lambda v: f"{v}: {REFERENCES.get(v, v)}")
     readable.to_csv(output_dir / "conservative_bet_shortlist_readable.csv", index=False, encoding="utf-8-sig")
     rejected = summary.get("rejection_counts") or {}
     lines = [
-        "# Asian handicap price edge vs Pinnacle (" + ("v28" if summary.get('selection_policy_version') == v28.POLICY else "v27") + ")", "",
+        ("# Asian handicap and over 1.5 price edge vs Pinnacle (v28), per market group" if per_market else
+         "# Asian handicap price edge vs Pinnacle (" + ("v28" if summary.get('selection_policy_version') == v28.POLICY else "v27") + ")"), "",
         f"**Generated (UTC):** {summary.get('generated_at_utc') or 'not recorded'}. **Picks:** {len(readable)} "
-        f"(one per match, no cap, safest first). **Status:** {summary.get('status')}.",
+        f"({'one per match and market group' if per_market else 'one per match'}, no cap, safest first). "
+        f"**Status:** {summary.get('status')}.",
         f"**Rule:** edge = price x Pinnacle fair win-share - 1, at least {pct(summary.get('min_edge'))} against Pinnacle "
         f"(a: same AH line, b: equivalent market) or {pct(summary.get('min_edge_derived'))} against the derived "
         "market-implied price (c: plus lines only). Odds above 3.00, prices above 1.15 x fair, quotes more than "
         "10 minutes apart and Pinnacle overrounds outside [1.00, 1.10] are rejected.",
+        *([f"**Market groups (per-market rule):** each match can list one Asian handicap pick (AH lines and draw no "
+           f"bet), one match-winner pick (home or away win = AH -0.5), one double-chance pick (1X / X2 = AH +0.5) and "
+           f"one over 1.5 pick. Every group qualifies at a {pct(v28.GROUP_MIN_EDGE, 0)} edge, whether fair comes from "
+           f"Pinnacle or the market-implied fit; over 1.5 is priced only against Pinnacle's own over/under 1.5 (no "
+           f"Pinnacle quote, no pick). Picks this run: "
+           + ', '.join(f"{GROUP_NAMES.get(k, k)} {v}" for k, v in (summary.get('value_market_group_counts') or {}).items())
+           + "."] if per_market else []),
         "**Tags** (balanced, low total, high draw, even odds) are tracked hypotheses only; they never change a pick.",
         "**Model vs Pinnacle gap** is information only; the model does not select picks.", "",
         "> A price edge is not a guaranteed profit. Grade it by closing line value against the Pinnacle close.", "",

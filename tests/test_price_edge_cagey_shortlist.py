@@ -102,7 +102,8 @@ class SwitchTests(OfflineQuotePolicyTestCase):
         from asian_handicap import PRODUCTION_POLICY, POLICIES
         settings = v28.load_settings()
         self.assertEqual(settings, {'cagey_correction_enabled': True, 'cagey_tier_enabled': True,
-                                    'model_version': nm.PRODUCTION_VERSION, 'cagey_tier_rule': v28.TIER_RULE_NARROW})
+                                    'model_version': nm.PRODUCTION_VERSION, 'cagey_tier_rule': v28.TIER_RULE_NARROW,
+                                    'value_rule': v28.VALUE_RULE_PER_MARKET})
         self.assertEqual(PRODUCTION_POLICY, v28.POLICY)
         self.assertIn(v27.POLICY, POLICIES)
 
@@ -336,7 +337,7 @@ class CageyTierTests(OfflineQuotePolicyTestCase):
         # The correction lowers the plus-line fair price in a cagey match.
         self.assertGreater(pick.uncorrected_matrix_fair_odds, pick.corrected_fair_odds)
         # The tier never changes the value tier.
-        value_only, _, _ = run(data, settings=VALUE_ONLY)
+        value_only, _, _ = run(data, settings={**VALUE_ONLY, 'value_rule': v28.load_settings()['value_rule']})
         tier_only = v28.tier_columns(v28.TIER_RULE_NARROW)
         self.assertTrue(selected.drop(columns=tier_only, errors='ignore')
                         .equals(value_only.drop(columns=tier_only, errors='ignore')))
