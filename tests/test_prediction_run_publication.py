@@ -61,10 +61,50 @@ class PublicationTests(OfflineQuotePolicyTestCase):
             self.assertEqual(result['shortlist']['losses'],1)
             self.assertEqual(report_check(root)['shortlist']['graded'],1)
 
+    def test_capture_replays_only_eligible_unarchived_runs(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            older = publish(root)
+            latest = publish(root, T0 + timedelta(hours=1))
+            with patch('workflow_checks.raw_check', wraps=raw_check) as replay:
+                self.assertEqual(runs.capture_runs(root, 'a'*40, captured_at=T0 + timedelta(hours=2)), 2)
+                self.assertEqual({call.kwargs['raw_dir'] for call in replay.call_args_list}, {older, latest})
+                replay.reset_mock()
+                self.assertEqual(runs.capture_runs(root, 'b'*40, captured_at=T0 + timedelta(hours=3)), 0)
+                replay.assert_not_called()
+
+    def test_historical_replay_failure_does_not_block_the_current_run(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            older = publish(root)
+            latest = publish(root, T0 + timedelta(hours=1))
+
+            def check(root, *, raw_dir):
+                if raw_dir == older:
+                    raise ValueError('cagey-tier shortlist differs')
+                return raw_check(root, raw_dir=raw_dir)
+
+            with patch('workflow_checks.raw_check', side_effect=check):
+                with self.assertWarnsRegex(RuntimeWarning, older.name + '.*historical snapshot skipped'):
+                    self.assertEqual(runs.capture_runs(root, 'a'*40, captured_at=T0 + timedelta(hours=2)), 1)
+            self.assertEqual([meta['prediction_run_id'] for meta, _, _ in snapshots(root)], [latest.name])
+            self.assertTrue(older.exists())
+
+    def test_current_replay_failure_still_blocks_capture(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            latest = publish(root)
+            with patch('workflow_checks.raw_check', side_effect=ValueError('cagey-tier shortlist differs')):
+                with self.assertRaisesRegex(ValueError, latest.name + '.*cagey-tier shortlist differs'):
+                    runs.capture_runs(root, 'a'*40, captured_at=T0)
+            self.assertEqual(snapshots(root), [])
+
     def test_local_saved_time_cannot_backdate_late_cloud_capture(self):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp);publish(root)
-            self.assertEqual(runs.capture_runs(root,'a'*40,captured_at=KICK-timedelta(minutes=19)),0)
+            with patch('workflow_checks.raw_check') as replay:
+                self.assertEqual(runs.capture_runs(root,'a'*40,captured_at=KICK-timedelta(minutes=19)),0)
+                replay.assert_not_called()
             self.assertEqual(snapshots(root),[])
 
     def test_same_generation_is_reused_and_archived_content_cannot_be_relabelled(self):
