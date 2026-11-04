@@ -1,0 +1,358 @@
+{
+  "fixture": {
+    "away_team": "Olympiakos Piraeus",
+    "home_team": "Rennes",
+    "kickoff_utc": "2026-11-04T15:30:00+00:00",
+    "league": "UEFA Europa League",
+    "odds_event_id": "29ebc4d234c1c6e86ebea07ab9174818"
+  },
+  "observed_at_utc": "2026-11-04T15:24:04.747788+00:00",
+  "payload": {
+    "away_team": "Olympiakos Piraeus",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-04T15:23:41Z",
+            "outcomes": [
+              {
+                "name": "Olympiakos Piraeus",
+                "price": 3.42
+              },
+              {
+                "name": "Rennes",
+                "price": 2.12
+              },
+              {
+                "name": "Draw",
+                "price": 3.74
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-04T15:23:41Z",
+            "outcomes": [
+              {
+                "name": "Olympiakos Piraeus",
+                "point": 0.25,
+                "price": 2.06
+              },
+              {
+                "name": "Rennes",
+                "point": -0.25,
+                "price": 1.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-04T15:23:41Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.92
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.97
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-04T15:23:41Z",
+            "outcomes": [
+              {
+                "name": "Olympiakos Piraeus",
+                "point": 0.25,
+                "price": 2.06
+              },
+              {
+                "name": "Olympiakos Piraeus",
+                "point": 1.25,
+                "price": 1.33
+              },
+              {
+                "name": "Olympiakos Piraeus",
+                "point": 1.0,
+                "price": 1.4
+              },
+              {
+                "name": "Olympiakos Piraeus",
+                "point": 0.75,
+                "price": 1.6
+              },
+              {
+                "name": "Olympiakos Piraeus",
+                "point": 0.5,
+                "price": 1.79
+              },
+              {
+                "name": "Olympiakos Piraeus",
+                "point": -0.0,
+                "price": 2.53
+              },
+              {
+                "name": "Olympiakos Piraeus",
+                "point": -0.25,
+                "price": 2.96
+              },
+              {
+                "name": "Olympiakos Piraeus",
+                "point": -0.5,
+                "price": 3.37
+              },
+              {
+                "name": "Olympiakos Piraeus",
+                "point": -0.75,
+                "price": 4.31
+              },
+              {
+                "name": "Rennes",
+                "point": -0.25,
+                "price": 1.85
+              },
+              {
+                "name": "Rennes",
+                "point": -1.25,
+                "price": 3.49
+              },
+              {
+                "name": "Rennes",
+                "point": -1.0,
+                "price": 3.08
+              },
+              {
+                "name": "Rennes",
+                "point": -0.75,
+                "price": 2.46
+              },
+              {
+                "name": "Rennes",
+                "point": -0.5,
+                "price": 2.11
+              },
+              {
+                "name": "Rennes",
+                "point": 0.0,
+                "price": 1.56
+              },
+              {
+                "name": "Rennes",
+                "point": 0.25,
+                "price": 1.43
+              },
+              {
+                "name": "Rennes",
+                "point": 0.5,
+                "price": 1.35
+              },
+              {
+                "name": "Rennes",
+                "point": 0.75,
+                "price": 1.24
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-04T15:23:37Z",
+            "outcomes": [
+              {
+                "name": "Olympiakos Piraeus",
+                "price": 2.56
+              },
+              {
+                "name": "Rennes",
+                "price": 1.54
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-04T15:30:00Z",
+    "home_team": "Rennes",
+    "id": "29ebc4d234c1c6e86ebea07ab9174818",
+    "sport_key": "soccer_uefa_europa_league",
+    "sport_title": "UEFA Europa League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.12,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.46118479898397635,
+      "selection": "home",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.74,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25700635743609973,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.42,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2818088435799239,
+      "selection": "away",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.06,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.85,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.96,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.79,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.33,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.08,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.46,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.11,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.43,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.35,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.24,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-04T15:23:41+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
