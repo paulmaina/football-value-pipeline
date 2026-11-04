@@ -140,10 +140,12 @@ def probability(value):
 def prepared_rows(rows):
     seen = set()
     result = []
-    for row in sorted(rows, key=lambda r:(r.get('kickoff_utc',''), r.get('fixture_key',''))):
-        if row['fixture_key'] in seen:
-            raise ValueError('Duplicate frozen fixture in report: '+row['fixture_key'])
-        seen.add(row['fixture_key'])
+    from performance_tracking import pick_key
+    for row in sorted(rows, key=lambda r:(r.get('kickoff_utc',''), r.get('fixture_key',''), pick_key(r))):
+        # One row per pick: per-market runs may hold several market groups for one fixture.
+        if pick_key(row) in seen:
+            raise ValueError('Duplicate frozen fixture in report: '+pick_key(row))
+        seen.add(pick_key(row))
         r = dict(row)
         r['p'] = probability(r.get('predicted_probability'))
         from asian_handicap import SETTLED, parse_label

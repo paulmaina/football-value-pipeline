@@ -41,6 +41,7 @@ import json
 from pathlib import Path
 from typing import Dict, List, Mapping, Optional
 
+import numpy as np
 import pandas as pd
 
 import market_implied as mi
@@ -73,11 +74,16 @@ PRICE_REASONS = ('offered price above 1.15 x fair odds', 'edge below 3%')
 TIER_RULE_VALUE = 'value-v1'
 TIER_RULE_NARROW = 'narrow-63-flagged-v2'
 TIER_RULES = (TIER_RULE_VALUE, TIER_RULE_NARROW)
-DEFAULT_SETTINGS = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True, 'cagey_tier_rule': TIER_RULE_VALUE}
+# Value-tier selection rules. A run records the rule it used; runs that record none used VALUE_RULE_ONE.
+VALUE_RULE_ONE = 'one-per-fixture-v1'
+VALUE_RULE_PER_MARKET = 'per-market-v2'
+VALUE_RULES = (VALUE_RULE_ONE, VALUE_RULE_PER_MARKET)
+DEFAULT_SETTINGS = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True, 'cagey_tier_rule': TIER_RULE_VALUE,
+                    'value_rule': VALUE_RULE_ONE}
 CONFIG = Path(__file__).with_name('cagey_correction_config.json')
 SWITCHES = ('cagey_correction_enabled', 'cagey_tier_enabled')
 # Everything a replay needs from a run's summary to reproduce its selection.
-REPLAY_SETTINGS = (*SWITCHES, 'cagey_tier_rule')
+REPLAY_SETTINGS = (*SWITCHES, 'cagey_tier_rule', 'value_rule')
 
 
 def tier_rule(settings: Mapping) -> str:
@@ -85,6 +91,36 @@ def tier_rule(settings: Mapping) -> str:
     if rule not in TIER_RULES:
         raise ValueError(f'Unknown cagey_tier_rule {rule!r}; expected one of {", ".join(TIER_RULES)}')
     return rule
+
+
+def value_rule(settings: Mapping) -> str:
+    rule = settings.get('value_rule') or VALUE_RULE_ONE
+    if rule not in VALUE_RULES:
+        raise ValueError(f'Unknown value_rule {rule!r}; expected one of {", ".join(VALUE_RULES)}')
+    return rule
+
+
+# per-market-v2: one value pick per fixture AND market group. Home/away win (AH -0.5 equivalents),
+# double chance (AH +0.5) and over 1.5 qualify at a 1% edge against Pinnacle (reference a or b);
+# the Asian handicap group keeps v27's 2% (a/b) and 3% (derived) thresholds.
+GROUP_AH = 'asian_handicap'
+GROUP_WIN = 'match_winner'
+GROUP_DC = 'double_chance'
+GROUP_OVER_1_5 = 'over_1_5'
+MARKET_GROUPS = (GROUP_AH, GROUP_WIN, GROUP_DC, GROUP_OVER_1_5)
+GROUP_MIN_EDGE = 0.01
+OVER_1_5 = 'Over 1.5'
+VALUE_GROUP_COLUMNS = ['value_market_group']
+
+
+def market_group(item: Mapping) -> str:
+    if item.get('market') == OVER_1_5:
+        return GROUP_OVER_1_5
+    try:
+        line = float(item.get('handicap_line'))
+    except (TypeError, ValueError):
+        return GROUP_AH
+    return GROUP_WIN if line == -0.5 else GROUP_DC if line == 0.5 else GROUP_AH
 
 
 # Missing in old immutable summaries: replay the original v28 execution rules.
@@ -104,13 +140,14 @@ def settlement_basis(row: Mapping, tier='value') -> str:
 
 
 def load_settings(path: Optional[Path] = None) -> Dict[str, object]:
-    """Switches, tier rule and model version. A switch may be on only when the recorded holdout gate passed."""
+    """Switches, tier and value rules, model version. A switch may be on only when the recorded holdout gate passed."""
     data = json.loads(Path(path or CONFIG).read_text(encoding='utf-8-sig'))
     if any(not isinstance(data.get(name), bool) for name in SWITCHES):
         raise ValueError('cagey_correction_enabled and cagey_tier_enabled must be true or false')
     if any(data[name] for name in SWITCHES) and nm.versions()['gate'].get('gate_result') != 'PASS':
         raise ValueError('The cagey correction may only be switched on after GATE: PASS')
-    return {**{name: data[name] for name in (*SWITCHES, 'model_version')}, 'cagey_tier_rule': tier_rule(data)}
+    return {**{name: data[name] for name in (*SWITCHES, 'model_version')}, 'cagey_tier_rule': tier_rule(data),
+            'value_rule': value_rule(data)}
 TIER_LINES = (1.0, 1.25, 1.5, 1.75, 2.0, 2.25)
 TIER_MIN_NO_LOSS = 0.85
 TIER_QUANTILE = 0.20
@@ -352,8 +389,10 @@ def record_monitoring(summary: Dict[str, object], records: List[Mapping], raw: P
     summary['correction_monitoring_version'] = MONITOR_VERSION
 
 
-def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optional[list] = None, cost=0.0):
+def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optional[list] = None, cost=0.0,
+                   policy: Optional[Mapping] = None):
     quintiles = nm.load_quintiles(model) if monitor is not None and model is not None else None
+    per_market = value_rule(settings) == VALUE_RULE_PER_MARKET
 
     def transform(row, items, pin, fit, fit_info, now) -> List[Dict[str, object]]:
         context = corrected_context(pin, fit, fit_info, model) if model is not None else None
@@ -370,6 +409,8 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
             if settings['price_edge_execution_version'] >= EXECUTION_VERSION:
                 item = {**item, 'per_stake_cost': cost}
             decision = value_tier_item(item, context, settings['cagey_correction_enabled'], tier)
+            if per_market:
+                apply_group_threshold(decision)
             if settings['price_edge_execution_version'] >= EXECUTION_VERSION:
                 if raw_context is not None:
                     priced = nm.price_distribution(raw_context['margins'], raw_context['probs'],
@@ -382,8 +423,124 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
                         - priced['p_loss'] - priced['p_half_loss'] / 2 - cost)
                 apply_execution_checks(decision, context, raw_context)
             out.append(decision)
+        if per_market:
+            execution = settings['price_edge_execution_version'] >= EXECUTION_VERSION
+            for decision in over_1_5_items(row, pin, fit, fit_info, now, policy, cost if execution else 0.0, execution):
+                if execution:
+                    apply_execution_checks(decision, context, raw_context)
+                out.append(decision)
         return out
     return transform
+
+
+def apply_group_threshold(item: Dict[str, object]) -> None:
+    """per-market-v2: tag the market group; win and double chance qualify at 1% against Pinnacle (a/b)."""
+    group = market_group(item)
+    item['value_market_group'] = group
+    if group not in (GROUP_WIN, GROUP_DC) or item.get('reference_type') not in ('a', 'b'):
+        return
+    reasons = [r for r in str(item.get('rejection_reasons') or '').split('; ') if r and not r.startswith('edge below ')]
+    edge, fair = item.get('edge'), item.get('fair_odds')
+    if edge is not None and edge + TOLERANCE < GROUP_MIN_EDGE:
+        reasons.append(f'edge below {GROUP_MIN_EDGE:.0%}')
+    item.update(min_edge=GROUP_MIN_EDGE, minimum_odds=fair * (1 + GROUP_MIN_EDGE) if fair else None,
+                rejection_reasons=_ordered(reasons), decision='REJECTED' if reasons else 'ELIGIBLE')
+
+
+def over_1_5_offers(row: Mapping, policy: Mapping) -> List[tuple]:
+    """Allowed-book over 1.5 prices: (bookmaker, price, stamp), newest per book (main market on ties)."""
+    from asian_handicap import bookmaker
+    from quote_freshness import quote_utc
+    from quote_policy import usable_bookmaker
+    best = {}
+    for quote in v27._json_list(row.get('price_edge_quotes')):
+        if not isinstance(quote, dict) or quote.get('market') != 'totals' or quote.get('point') != 1.5:
+            continue
+        name = bookmaker(quote.get('bookmaker'))
+        price = v27._price((quote.get('prices') or {}).get('over'))
+        if name is None or price is None or not usable_bookmaker(name, policy):
+            continue
+        when = quote_utc(quote.get('last_update_utc'))
+        rank = (when or pd.Timestamp.min.tz_localize('UTC'), quote.get('market_key') == 'totals')
+        if name not in best or rank > best[name][0]:
+            best[name] = (rank, (name, price, quote.get('last_update_utc')))
+    return [offer for _, offer in sorted(best.values(), key=lambda v: v[1][0])]
+
+
+def over_1_5_items(row: Mapping, pin: Mapping, fit: mi.Fit, fit_info: Mapping, now: pd.Timestamp, policy: Mapping,
+                   cost: float, settlement: bool) -> List[Dict[str, object]]:
+    """per-market-v2 over 1.5 candidates priced against Pinnacle's own over/under 1.5 (fail closed).
+
+    Guards are v27's: kick-off window, fresh offer, fresh Pinnacle pair, Pinnacle overround [1.00, 1.10],
+    quotes at most 10 minutes apart, offered <= 1.15 x fair, odds <= 3.00; then edge >= 1%.
+    """
+    from ah_close_backtest import devig_shin
+    from quote_freshness import quote_is_fresh, quote_utc
+    base = {**v27.fixture_base(row, pin, fit, fit_info, now), 'selection_policy_version': POLICY,
+            **{c: None for c in VALUE_COLUMNS}, 'qualified_only_by_correction': False,
+            'cagey_tier_decision': None, 'cagey_tier_reasons': None, 'in_value_tier': None, 'pinnacle_fair_odds': None}
+    kickoff = quote_utc(row.get('kickoff_utc'))
+    in_window = kickoff is not None and (now + pd.Timedelta(minutes=v27.MIN_MINUTES) <= kickoff
+                                         <= now + pd.Timedelta(hours=v27.MAX_HOURS))
+    ref = pin.get('ou15')
+    p_over_fit = None
+    if settlement and fit.usable:
+        goals = np.arange(fit.matrix.shape[0])
+        p_over_fit = float(fit.matrix[(goals[:, None] + goals[None, :]) >= 2].sum() / fit.matrix.sum())
+    model_p = v27._price(row.get('p_over_1_5'))
+    model_p = None if model_p is None else float(row.get('p_over_1_5'))
+    items = []
+    for name, price, stamp in over_1_5_offers(row, policy):
+        reasons = [] if in_window else ['kickoff outside 20-minute to 48-hour window']
+        item = {**base, 'market': OVER_1_5, 'market_to_bet': OVER_1_5, 'ah_equivalent': None, 'handicap_side': None,
+                'handicap_line': None, 'side_role': None, 'source_market': 'totals', 'bookmaker': name,
+                'offered_decimal_odds': price, 'offered_last_update_utc': stamp,
+                'offered_quote_age_minutes': v27._age_minutes(stamp, now), 'tagged_probe': False,
+                'value_market_group': GROUP_OVER_1_5, 'per_stake_cost': cost}
+        if not quote_is_fresh(stamp, now):
+            reasons.append('offered quote stale')
+        if ref is None:
+            reasons.append(v27.NO_REFERENCE)
+            item.update(fair_probability=None, fair_odds=None, edge=None, reference_type=None)
+        else:
+            over, under, ref_stamp = ref
+            q = devig_proportional(over, under)[0]
+            fair = 1 / q
+            overround = 1 / over + 1 / under
+            item.update(reference_type='a', reference_market='Pinnacle O/U 1.5', fair_probability=q,
+                        fair_probability_shin=devig_shin(over, under)[0], fair_odds=fair, min_edge=GROUP_MIN_EDGE,
+                        minimum_odds=fair * (1 + GROUP_MIN_EDGE), pinnacle_overround=overround,
+                        pinnacle_last_update_utc=ref_stamp, pinnacle_quote_age_minutes=v27._age_minutes(ref_stamp, now),
+                        edge=price * q - 1, edge_shin=price * devig_shin(over, under)[0] - 1)
+            if not quote_is_fresh(ref_stamp, now):
+                reasons.append('Pinnacle quote stale')
+            low, high = v27.PINNACLE_OVERROUND
+            if not low <= overround <= high:
+                reasons.append('Pinnacle overround outside [1.00, 1.10]')
+            offered, pinned = quote_utc(stamp), quote_utc(ref_stamp)
+            skew = abs((offered - pinned).total_seconds()) / 60 if offered is not None and pinned is not None else None
+            item['quote_skew_minutes'] = skew
+            if skew is None or skew > v27.MAX_QUOTE_SKEW_MINUTES:
+                reasons.append('offered and Pinnacle quotes more than 10 minutes apart')
+            if price > v27.MAX_FAIR_RATIO * fair:
+                reasons.append('offered price above 1.15 x fair odds')
+            if price > v27.MAX_ODDS:
+                reasons.append('offered odds above 3.00')
+            if item['edge'] + TOLERANCE < GROUP_MIN_EDGE:
+                reasons.append(f'edge below {GROUP_MIN_EDGE:.0%}')
+        q = item.get('fair_probability')
+        item.update(pinnacle_no_loss_probability=q, p_no_loss=q, rank_probability=q, predicted_probability=q,
+                    probability_basis='pinnacle_fair_win_share', model_win_share=model_p,
+                    model_vs_pinnacle_gap=None if model_p is None or q is None else model_p - q,
+                    rejection_reasons=_ordered(reasons), decision='REJECTED' if reasons else 'ELIGIBLE')
+        if settlement:
+            # Execution v2 settlement fields from fit B, as for every other uncorrected value pick (staking).
+            if p_over_fit is not None:
+                item.update(uncorrected_fit='B', uncorrected_p_win=p_over_fit, uncorrected_p_half_win=0.0,
+                            uncorrected_p_push=0.0, uncorrected_p_half_loss=0.0, uncorrected_p_loss=1 - p_over_fit,
+                            uncorrected_expected_profit=p_over_fit * (price - 1) - (1 - p_over_fit) - cost)
+        items.append(item)
+    return items
 
 
 def apply_execution_checks(item: Dict[str, object], context: Optional[Mapping], raw_context: Optional[Mapping] = None) -> None:
@@ -533,17 +690,24 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
     cost = policy['per_stake_cost_bps'] / 10000 if execution_version == EXECUTION_VERSION else 0.0
     switched_on = settings['cagey_correction_enabled'] or settings['cagey_tier_enabled']
+    per_market = value_rule(settings) == VALUE_RULE_PER_MARKET
+    group = dict(group_column='value_market_group') if per_market else {}
+    groups = VALUE_GROUP_COLUMNS if per_market else []
     if not switched_on:
+        uses_transform = execution_version == EXECUTION_VERSION or per_market
         selected, decisions, summary = v27.build_shortlist(
             predictions, as_of, market_reliability, policy,
-            transform=make_transform(None, settings, cost=cost) if execution_version == EXECUTION_VERSION else None,
-            extra_columns=[*VALUE_COLUMNS, *TIER_COLUMNS, *EXECUTION_COLUMNS] if execution_version == EXECUTION_VERSION else ())
+            transform=make_transform(None, settings, cost=cost, policy=policy) if uses_transform else None,
+            extra_columns=[*VALUE_COLUMNS, *TIER_COLUMNS, *groups,
+                           *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])]
+            if uses_transform else (), **group)
     else:
         model = model or (nm.load(settings['model_version']) if settings.get('model_version') else nm.production_model())
         selected, decisions, summary = v27.build_shortlist(
             predictions, as_of, market_reliability, policy,
-            transform=make_transform(model, settings, monitor, cost), extra_columns=[*VALUE_COLUMNS, *tier_columns(tier_rule(settings)),
-                *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])])
+            transform=make_transform(model, settings, monitor, cost, policy=policy),
+            extra_columns=[*VALUE_COLUMNS, *tier_columns(tier_rule(settings)), *groups,
+                           *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])], **group)
     for frame in (selected, decisions):
         if 'selection_policy_version' in frame:
             frame['selection_policy_version'] = POLICY
@@ -555,6 +719,21 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     if settings['cagey_tier_enabled'] and tier_rule(settings) != TIER_RULE_VALUE:
         # Recorded so replays reproduce it; value-v1 runs record nothing, exactly as before.
         summary['cagey_tier_rule'] = tier_rule(settings)
+    if per_market:
+        # Recorded so replays reproduce it; one-per-fixture-v1 runs record nothing, exactly as before.
+        counts = selected['value_market_group'].value_counts() if len(selected) else pd.Series(dtype=int)
+        summary.update(
+            value_rule=VALUE_RULE_PER_MARKET,
+            eligible_markets=[*summary['eligible_markets'], OVER_1_5],
+            value_market_groups=list(MARKET_GROUPS),
+            min_edge_by_market_group={GROUP_AH: f"{v27.MIN_EDGE:.0%} vs Pinnacle (a/b); {v27.MIN_EDGE_DERIVED:.0%} derived (c)",
+                                      GROUP_WIN: f'{GROUP_MIN_EDGE:.0%} vs Pinnacle 1X2 or AH -0.5 (a/b)',
+                                      GROUP_DC: f'{GROUP_MIN_EDGE:.0%} vs Pinnacle 1X2 or AH +0.5 (a/b)',
+                                      GROUP_OVER_1_5: f'{GROUP_MIN_EDGE:.0%} vs Pinnacle O/U 1.5 (a); no Pinnacle quote, no pick'},
+            value_market_group_counts={k: int(counts.get(k, 0)) for k in MARKET_GROUPS},
+            selection_method='Per fixture and market group (asian_handicap, match_winner, double_chance, over_1_5): '
+                             'qualifying candidate with the highest Pinnacle no-loss probability, then edge, then odds; '
+                             'shortlist sorted safest first; no cap')
     summary.update(selection_policy_version=POLICY, cagey_correction_enabled=bool(settings['cagey_correction_enabled']),
                    cagey_tier_enabled=bool(settings['cagey_tier_enabled']),
                    cagey_model_version=model['version'] if switched_on else None, reference_order=REFERENCES,
