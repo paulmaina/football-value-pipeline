@@ -21,6 +21,15 @@ CAGEY TIER (a separate list, never merged into the value tier):
     corrected no-loss probability >= 0.85;
   * one row per fixture (highest corrected no-loss, then expected profit, then
     odds), no cap, safest first; a fixture may also be in the value tier.
+  The rule above is "value-v1". cagey_correction_config.json may select
+  "narrow-63-flagged-v2" instead (cagey_tier_rule):
+  * eligible fixtures: P(narrow) = 1 - corrected_cagey_score >= 63%, in the
+    48h window (a fixed cutoff, not a share of the run);
+  * the same candidates and data guards, but expected profit >= 0 and
+    no-loss >= 85% are NOT required: price_flag records "value" or
+    "below fair" instead; same one-per-fixture safest-first ranking.
+  A run records the rule in its summary (cagey_tier_rule); a run with none
+  used value-v1, so earlier runs replay unchanged.
 
 v27 stays registered and replayable. The switches in
 cagey_correction_config.json turn the correction and the cagey tier on; with
@@ -60,19 +69,32 @@ REASON_ORDER = ('kickoff outside 20-minute to 48-hour window', v27.NO_OFFER, 'of
                 'offered and Pinnacle quotes more than 10 minutes apart', 'offered price above 1.15 x fair odds',
                 'offered odds above 3.00', 'edge below 2%', 'edge below 3%')
 PRICE_REASONS = ('offered price above 1.15 x fair odds', 'edge below 3%')
-DEFAULT_SETTINGS = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True}
+# Cagey-tier selection rules. A run records the rule it used; runs that record none used TIER_RULE_VALUE.
+TIER_RULE_VALUE = 'value-v1'
+TIER_RULE_NARROW = 'narrow-63-flagged-v2'
+TIER_RULES = (TIER_RULE_VALUE, TIER_RULE_NARROW)
+DEFAULT_SETTINGS = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True, 'cagey_tier_rule': TIER_RULE_VALUE}
 CONFIG = Path(__file__).with_name('cagey_correction_config.json')
 SWITCHES = ('cagey_correction_enabled', 'cagey_tier_enabled')
+# Everything a replay needs from a run's summary to reproduce its selection.
+REPLAY_SETTINGS = (*SWITCHES, 'cagey_tier_rule')
+
+
+def tier_rule(settings: Mapping) -> str:
+    rule = settings.get('cagey_tier_rule') or TIER_RULE_VALUE
+    if rule not in TIER_RULES:
+        raise ValueError(f'Unknown cagey_tier_rule {rule!r}; expected one of {", ".join(TIER_RULES)}')
+    return rule
 
 
 def load_settings(path: Optional[Path] = None) -> Dict[str, object]:
-    """Switches and model version. A switch may be on only when the recorded holdout gate passed."""
+    """Switches, tier rule and model version. A switch may be on only when the recorded holdout gate passed."""
     data = json.loads(Path(path or CONFIG).read_text(encoding='utf-8-sig'))
     if any(not isinstance(data.get(name), bool) for name in SWITCHES):
         raise ValueError('cagey_correction_enabled and cagey_tier_enabled must be true or false')
     if any(data[name] for name in SWITCHES) and nm.versions()['gate'].get('gate_result') != 'PASS':
         raise ValueError('The cagey correction may only be switched on after GATE: PASS')
-    return {name: data[name] for name in (*SWITCHES, 'model_version')}
+    return {**{name: data[name] for name in (*SWITCHES, 'model_version')}, 'cagey_tier_rule': tier_rule(data)}
 TIER_LINES = (1.0, 1.25, 1.5, 1.75, 2.0, 2.25)
 TIER_MIN_NO_LOSS = 0.85
 TIER_QUANTILE = 0.20
@@ -85,6 +107,24 @@ TIER_COLUMNS = ['cagey_tier_decision', 'cagey_tier_reasons', 'pinnacle_fair_odds
 TIER_OUTPUT_COLUMNS = [*OUTPUT_COLUMNS[:-1], 'corrected_no_loss_probability', *SETTLEMENT_COLUMNS,
                        'corrected_fair_odds', 'uncorrected_matrix_fair_odds', 'corrected_expected_profit',
                        'pinnacle_fair_odds', 'in_value_tier']
+# narrow-63-flagged-v2: every fixture with P(narrow) >= 63% (corrected cagey score <= 0.37) is listed with its
+# safest AH +1..+2.25 line; the price is flagged, not filtered. Data-quality guards still reject.
+TIER_MIN_NARROW = 0.63
+PRICE_VALUE = 'value'
+PRICE_BELOW_FAIR = 'below fair'
+NARROW_COLUMNS = ['price_flag']
+
+
+def tier_columns(rule: str) -> List[str]:
+    """Decision columns a tier rule adds; value-v1 adds none, so its runs replay unchanged."""
+    return [*TIER_COLUMNS, *(NARROW_COLUMNS if rule == TIER_RULE_NARROW else [])]
+
+
+def tier_output_columns(rule: str) -> List[str]:
+    if rule != TIER_RULE_NARROW:
+        return list(TIER_OUTPUT_COLUMNS)
+    at = TIER_OUTPUT_COLUMNS.index('corrected_expected_profit') + 1
+    return [*TIER_OUTPUT_COLUMNS[:at], 'price_flag', *TIER_OUTPUT_COLUMNS[at:]]
 
 
 def corrected_context(pin: Mapping, fit: mi.Fit, fit_info: Mapping, model: Mapping) -> Optional[Dict[str, object]]:
@@ -121,12 +161,20 @@ def _ordered(reasons) -> str:
     return '; '.join(sorted(unique, key=lambda r: REASON_ORDER.index(r) if r in REASON_ORDER else len(REASON_ORDER)))
 
 
-def tier_candidate(item: Mapping, out: Dict[str, object], context: Optional[Mapping]) -> Dict[str, object]:
-    """Per-candidate cagey-tier checks; the run-level cagiest-20% cutoff is applied afterwards."""
+def tier_candidate(item: Mapping, out: Dict[str, object], context: Optional[Mapping],
+                   rule: str = TIER_RULE_VALUE) -> Dict[str, object]:
+    """Per-candidate cagey-tier checks; the run-level fixture cutoff is applied afterwards.
+
+    value-v1: expected profit >= 0 and no-loss >= 85% are requirements.
+    narrow-63-flagged-v2: they are not; the price is recorded in price_flag instead.
+    """
     line = float(item['handicap_line'])
+    empty = {'cagey_tier_decision': None, 'cagey_tier_reasons': None,
+             **({'price_flag': None} if rule == TIER_RULE_NARROW else {})}
     if line not in TIER_LINES or item.get('offered_decimal_odds') is None:
-        return {'cagey_tier_decision': None, 'cagey_tier_reasons': None}
+        return empty
     reasons = [r for r in str(item.get('rejection_reasons') or '').split('; ') if r in TIER_GUARDS]
+    flag = None
     if context is None:
         reasons.append('no corrected price')
     else:
@@ -134,15 +182,23 @@ def tier_candidate(item: Mapping, out: Dict[str, object], context: Optional[Mapp
         if (item['offered_decimal_odds'] > v27.MAX_FAIR_RATIO * out['corrected_fair_odds']
                 and 'offered price above 1.15 x fair odds' not in reasons):
             reasons.append('offered price above 1.15 x fair odds')
-        if out['corrected_expected_profit'] + TOLERANCE < 0:
-            reasons.append('expected profit below 0 under the corrected matrix')
-        if out['corrected_no_loss_probability'] + TOLERANCE < TIER_MIN_NO_LOSS:
-            reasons.append('corrected no-loss probability below 85%')
-    return {'cagey_tier_decision': 'REJECTED' if reasons else 'ELIGIBLE', 'cagey_tier_reasons': '; '.join(reasons)}
+        below_fair = out['corrected_expected_profit'] + TOLERANCE < 0
+        if rule == TIER_RULE_NARROW:
+            flag = PRICE_BELOW_FAIR if below_fair else PRICE_VALUE
+        else:
+            if below_fair:
+                reasons.append('expected profit below 0 under the corrected matrix')
+            if out['corrected_no_loss_probability'] + TOLERANCE < TIER_MIN_NO_LOSS:
+                reasons.append('corrected no-loss probability below 85%')
+    result = {'cagey_tier_decision': 'REJECTED' if reasons else 'ELIGIBLE', 'cagey_tier_reasons': '; '.join(reasons)}
+    if rule == TIER_RULE_NARROW:
+        result['price_flag'] = flag
+    return result
 
 
 def value_tier_item(item: Dict[str, object], context: Optional[Mapping], correction: bool,
-                    tier: bool = False) -> Dict[str, object]:
+                    tier=False) -> Dict[str, object]:
+    """`tier`: False (no cagey tier), True (value-v1) or a tier rule name."""
     """Annotate one v27 row; re-price derived plus lines (>= +1.0) from the corrected matrix."""
     out = {**item, **{c: None for c in VALUE_COLUMNS}, 'qualified_only_by_correction': False,
            'fair_odds_uncorrected': item.get('fair_odds'), 'selection_policy_version': POLICY,
@@ -153,7 +209,7 @@ def value_tier_item(item: Dict[str, object], context: Optional[Mapping], correct
         out.update(corrected_price(context, item['handicap_side'], float(item['handicap_line']),
                                    item.get('offered_decimal_odds')))
     if tier:
-        out.update(tier_candidate(item, out, context))
+        out.update(tier_candidate(item, out, context, TIER_RULE_VALUE if tier is True else tier))
     if context is None:
         return out
     line, price = float(item['handicap_line']), item.get('offered_decimal_odds')
@@ -272,8 +328,8 @@ def make_transform(model: Mapping, settings: Mapping, monitor: Optional[list] = 
         context = corrected_context(pin, fit, fit_info, model)
         if monitor is not None:
             monitor.append(monitoring_record(row, items, fit, fit_info, now, context, model, quintiles))
-        return [value_tier_item(item, context, settings['cagey_correction_enabled'], settings['cagey_tier_enabled'])
-                for item in items]
+        tier = tier_rule(settings) if settings['cagey_tier_enabled'] else False
+        return [value_tier_item(item, context, settings['cagey_correction_enabled'], tier) for item in items]
     return transform
 
 
@@ -285,8 +341,10 @@ def _tier_rank(frame: pd.DataFrame) -> pd.DataFrame:
 
 
 def apply_cagey_tier(decisions: pd.DataFrame, selected: pd.DataFrame, now: pd.Timestamp,
-                     model: Mapping) -> Dict[str, object]:
+                     model: Mapping, rule: str = TIER_RULE_VALUE) -> Dict[str, object]:
     """Run-level cutoff and one-per-fixture selection for the cagey tier (updates `decisions`)."""
+    if rule == TIER_RULE_NARROW:
+        return _apply_narrow_tier(decisions, selected, now)
     from performance_tracking import fixture_key
     for column in TIER_COLUMNS:
         decisions[column] = decisions[column].astype(object)
@@ -322,12 +380,54 @@ def apply_cagey_tier(decisions: pd.DataFrame, selected: pd.DataFrame, now: pd.Ti
                     'or 1xBet; expected profit >= 0 and no-loss >= 85% under the corrected matrix; one per fixture'}
 
 
+def _apply_narrow_tier(decisions: pd.DataFrame, selected: pd.DataFrame, now: pd.Timestamp) -> Dict[str, object]:
+    """narrow-63-flagged-v2: every in-window fixture with P(narrow) >= 63%, its safest guarded line, price flagged."""
+    from performance_tracking import fixture_key
+    for column in tier_columns(TIER_RULE_NARROW):
+        decisions[column] = decisions[column].astype(object)
+    keys = decisions.apply(fixture_key, axis=1) if len(decisions) else pd.Series(dtype=str)
+    kick = pd.to_datetime(decisions.kickoff_utc, utc=True, errors='coerce')
+    in_window = (kick >= now + pd.Timedelta(minutes=v27.MIN_MINUTES)) & (kick <= now + pd.Timedelta(hours=v27.MAX_HOURS))
+    score = pd.to_numeric(decisions.corrected_cagey_score, errors='coerce')
+    scored = in_window & score.notna()
+    fixtures = pd.DataFrame({'_fixture': keys[scored], 'score': score[scored]}).drop_duplicates('_fixture')
+    cutoff = 1 - TIER_MIN_NARROW
+    candidates = decisions.cagey_tier_decision.notna()
+    picked = set(selected.apply(fixture_key, axis=1)) if len(selected) else set()
+    decisions.loc[candidates, 'in_value_tier'] = keys[candidates].isin(picked)
+    narrow = score <= cutoff + TOLERANCE
+    for idx in decisions.index[candidates & ~narrow]:
+        prior = decisions.at[idx, 'cagey_tier_reasons']
+        decisions.at[idx, 'cagey_tier_reasons'] = '; '.join(
+            filter(None, [prior, f'P(narrow) below {TIER_MIN_NARROW:.0%}']))
+        decisions.at[idx, 'cagey_tier_decision'] = 'REJECTED'
+    eligible = decisions.loc[decisions.cagey_tier_decision == 'ELIGIBLE'].copy()
+    eligible['_fixture'] = keys.reindex(eligible.index)
+    chosen = _tier_rank(eligible).drop_duplicates('_fixture').index
+    decisions.loc[eligible.index, 'cagey_tier_decision'] = 'NOT_SELECTED'
+    decisions.loc[chosen, 'cagey_tier_decision'] = 'SHORTLISTED'
+    flags = decisions.loc[chosen, 'price_flag']
+    return {'enabled': True, 'n_shortlisted': int(len(chosen)), 'fixtures_in_window': int(len(fixtures)),
+            'fixtures_at_or_above_cutoff': int((fixtures.score <= cutoff + TOLERANCE).sum()),
+            'min_p_narrow': TIER_MIN_NARROW, 'cutoff_used': cutoff,
+            'value_picks': int((flags == PRICE_VALUE).sum()), 'below_fair_picks': int((flags == PRICE_BELOW_FAIR).sum()),
+            'in_both_tiers': int(decisions.loc[chosen, 'in_value_tier'].fillna(False).astype(bool).sum()),
+            'even_odds_picks': int(decisions.loc[chosen, 'even_odds'].fillna(False).astype(bool).sum()),
+            'rule': f'every fixture with P(narrow) >= {TIER_MIN_NARROW:.0%} (corrected cagey score <= {cutoff:.2f}) in '
+                    'the 20-minute to 48-hour window; its safest AH +1..+2.25 line at Pinnacle or 1xBet after the data '
+                    'guards; price_flag says whether expected profit under the corrected matrix is >= 0 (value) or '
+                    'not (below fair); one per fixture',
+            'rule_version': TIER_RULE_NARROW}
+
+
 def cagey_tier_list(decisions: pd.DataFrame) -> pd.DataFrame:
     """The cagey-tier shortlist (separate from the value tier), safest first."""
+    rule = TIER_RULE_NARROW if 'price_flag' in decisions else TIER_RULE_VALUE
     if 'cagey_tier_decision' not in decisions:
-        return pd.DataFrame(columns=TIER_OUTPUT_COLUMNS)
+        return pd.DataFrame(columns=tier_output_columns(rule))
     picks = _tier_rank(decisions.loc[decisions.cagey_tier_decision == 'SHORTLISTED'])
-    return picks.reindex(columns=list(dict.fromkeys([*TIER_OUTPUT_COLUMNS, *picks.columns]))).reset_index(drop=True)
+    columns = tier_output_columns(rule)
+    return picks.reindex(columns=list(dict.fromkeys([*columns, *picks.columns]))).reset_index(drop=True)
 
 
 def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, execution_policy=None, *,
@@ -346,14 +446,19 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
         model = model or (nm.load(settings['model_version']) if settings.get('model_version') else nm.production_model())
         selected, decisions, summary = v27.build_shortlist(
             predictions, as_of, market_reliability, execution_policy,
-            transform=make_transform(model, settings, monitor), extra_columns=[*VALUE_COLUMNS, *TIER_COLUMNS])
+            transform=make_transform(model, settings, monitor),
+            extra_columns=[*VALUE_COLUMNS, *tier_columns(tier_rule(settings))])
     for frame in (selected, decisions):
         if 'selection_policy_version' in frame:
             frame['selection_policy_version'] = POLICY
     tier = {'enabled': False, 'n_shortlisted': 0}
     if settings['cagey_tier_enabled']:
-        tier = apply_cagey_tier(decisions, selected, pd.Timestamp(summary['generated_at_utc']), model)
+        tier = apply_cagey_tier(decisions, selected, pd.Timestamp(summary['generated_at_utc']), model,
+                                tier_rule(settings))
     only = selected.get('qualified_only_by_correction', pd.Series(dtype=bool)).fillna(False).astype(bool)
+    if settings['cagey_tier_enabled'] and tier_rule(settings) != TIER_RULE_VALUE:
+        # Recorded so replays reproduce it; value-v1 runs record nothing, exactly as before.
+        summary['cagey_tier_rule'] = tier_rule(settings)
     summary.update(selection_policy_version=POLICY, cagey_correction_enabled=bool(settings['cagey_correction_enabled']),
                    cagey_tier_enabled=bool(settings['cagey_tier_enabled']),
                    cagey_model_version=model['version'] if switched_on else None, reference_order=REFERENCES,

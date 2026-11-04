@@ -98,9 +98,21 @@ class SwitchTests(OfflineQuotePolicyTestCase):
         from asian_handicap import PRODUCTION_POLICY, POLICIES
         settings = v28.load_settings()
         self.assertEqual(settings, {'cagey_correction_enabled': True, 'cagey_tier_enabled': True,
-                                    'model_version': nm.PRODUCTION_VERSION})
+                                    'model_version': nm.PRODUCTION_VERSION, 'cagey_tier_rule': v28.TIER_RULE_NARROW})
         self.assertEqual(PRODUCTION_POLICY, v28.POLICY)
         self.assertIn(v27.POLICY, POLICIES)
+
+    def test_tier_rule_defaults_to_value_v1_and_rejects_unknown_rules(self):
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'config.json'
+            base = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True, 'model_version': 'x'}
+            path.write_text(json.dumps(base), encoding='utf-8')
+            self.assertEqual(v28.load_settings(path)['cagey_tier_rule'], v28.TIER_RULE_VALUE)
+            path.write_text(json.dumps({**base, 'cagey_tier_rule': 'narrow-50-v9'}), encoding='utf-8')
+            with self.assertRaises(ValueError):
+                v28.load_settings(path)
 
     def test_switches_must_be_booleans_and_need_a_passed_gate(self):
         import tempfile
@@ -321,7 +333,9 @@ class CageyTierTests(OfflineQuotePolicyTestCase):
         self.assertGreater(pick.uncorrected_matrix_fair_odds, pick.corrected_fair_odds)
         # The tier never changes the value tier.
         value_only, _, _ = run(data, settings=VALUE_ONLY)
-        self.assertTrue(selected.drop(columns=v28.TIER_COLUMNS).equals(value_only.drop(columns=v28.TIER_COLUMNS)))
+        tier_only = v28.tier_columns(v28.TIER_RULE_NARROW)
+        self.assertTrue(selected.drop(columns=tier_only, errors='ignore')
+                        .equals(value_only.drop(columns=tier_only, errors='ignore')))
         self.assertEqual(bool(tier.iloc[0].in_value_tier), len(selected) > 0)
 
     def test_formatter_renders_the_tier_separately(self):
@@ -413,6 +427,139 @@ class CageyTierTests(OfflineQuotePolicyTestCase):
             (raw / 'conservative_bet_shortlist.csv').unlink()
             process_conservative_shortlist(raw, out)
             self.assertFalse((out / readable_tier).exists())
+
+
+NARROW = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True, 'cagey_tier_rule': v28.TIER_RULE_NARROW}
+VALUE_V1 = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True, 'cagey_tier_rule': v28.TIER_RULE_VALUE}
+
+
+def open_row(offers=()):
+    """A lopsided, high-scoring fixture: P(narrow) about 49%, below the 63% cutoff."""
+    return cagey_row(home='Open FC', offers=offers, lambdas=(2.4, 0.7, -0.02), main_line=-1.5)
+
+
+class NarrowTierTests(OfflineQuotePolicyTestCase):
+    """narrow-63-flagged-v2: every fixture with P(narrow) >= 63% is listed; the price is flagged, not filtered."""
+
+    def test_fixtures_are_where_the_cutoff_expects(self):
+        self.assertGreaterEqual(1 - tier_fair(cagey_row(), 'away', 2.0)[1]['score'], 0.63)
+        self.assertLess(1 - tier_fair(open_row(), 'away', 1.5)[1]['score'], 0.63)
+
+    def test_below_fair_line_is_listed_and_flagged_but_not_under_value_v1(self):
+        fair, _ = tier_fair(cagey_row(), 'away', 2.0)
+        data = cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 0.97, 4))])
+        _, decisions, summary = run(data, settings=NARROW)
+        tier = v28.cagey_tier_list(decisions)
+        self.assertEqual(len(tier), 1)
+        self.assertEqual(tier.iloc[0].price_flag, v28.PRICE_BELOW_FAIR)
+        self.assertLess(tier.iloc[0].corrected_expected_profit, 0)
+        self.assertEqual((summary['cagey_tier']['value_picks'], summary['cagey_tier']['below_fair_picks']), (0, 1))
+        self.assertEqual(summary['cagey_tier_rule'], v28.TIER_RULE_NARROW)
+        _, old, old_summary = run(data, settings=VALUE_V1)
+        self.assertTrue(v28.cagey_tier_list(old).empty)
+        self.assertNotIn('cagey_tier_rule', old_summary)
+        self.assertNotIn('price_flag', old.columns)
+
+    def test_value_line_is_flagged_value(self):
+        fair, _ = tier_fair(cagey_row(), 'away', 2.0)
+        data = cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 1.005, 4))])
+        tier = v28.cagey_tier_list(run(data, settings=NARROW)[1])
+        self.assertEqual(list(tier.price_flag), [v28.PRICE_VALUE])
+
+    def test_safest_line_is_chosen_even_when_a_riskier_line_is_value(self):
+        plus1, _ = tier_fair(cagey_row(), 'away', 1.0)
+        plus2, _ = tier_fair(cagey_row(), 'away', 2.0)
+        self.assertGreater(plus2['corrected_no_loss_probability'], plus1['corrected_no_loss_probability'])
+        data = cagey_row(offers=[offer('away', 1.0, round(plus1['corrected_fair_odds'] * 1.01, 4)),
+                                 offer('away', 2.0, round(plus2['corrected_fair_odds'] * 0.98, 4))])
+        tier = v28.cagey_tier_list(run(data, settings=NARROW)[1])
+        self.assertEqual(len(tier), 1)
+        self.assertEqual(tier.iloc[0].market_to_bet, label('away', 2.0))
+        self.assertEqual(tier.iloc[0].price_flag, v28.PRICE_BELOW_FAIR)
+
+    def test_fixture_below_the_cutoff_is_rejected_even_at_value(self):
+        fair, _ = tier_fair(open_row(), 'away', 1.5)
+        data = open_row(offers=[offer('away', 1.5, round(fair['corrected_fair_odds'] * 1.01, 4))])
+        _, decisions, summary = run(data, settings=NARROW)
+        self.assertTrue(v28.cagey_tier_list(decisions).empty)
+        reasons = decisions.loc[decisions.cagey_tier_decision.notna(), 'cagey_tier_reasons']
+        self.assertTrue(reasons.str.contains('P\\(narrow\\) below 63%').all())
+        self.assertEqual(summary['cagey_tier']['fixtures_at_or_above_cutoff'], 0)
+
+    def test_data_guards_still_reject(self):
+        fair, _ = tier_fair(cagey_row(), 'away', 2.0)
+        stale = (NOW - pd.Timedelta(hours=3)).isoformat()
+        data = cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 0.97, 4), stamp=stale)])
+        _, decisions, _ = run(data, settings=NARROW)
+        self.assertTrue(v28.cagey_tier_list(decisions).empty)
+        candidate = decisions.loc[decisions.cagey_tier_decision.notna()].iloc[0]
+        self.assertEqual(candidate.cagey_tier_decision, 'REJECTED')
+        reasons = candidate.cagey_tier_reasons.split('; ')
+        self.assertTrue(reasons and set(reasons) <= set(v28.TIER_GUARDS), reasons)
+
+    def test_candidate_rule_flags_instead_of_filtering(self):
+        item = {'handicap_line': 1.5, 'offered_decimal_odds': 1.4, 'rejection_reasons': 'edge below 3%'}
+        weak = {'corrected_expected_profit': -0.05, 'corrected_no_loss_probability': 0.70, 'corrected_fair_odds': 1.5}
+        self.assertEqual(v28.tier_candidate(item, weak, {'score': 0.3}, v28.TIER_RULE_NARROW),
+                         {'cagey_tier_decision': 'ELIGIBLE', 'cagey_tier_reasons': '', 'price_flag': 'below fair'})
+        self.assertEqual(v28.tier_candidate(item, weak, {'score': 0.3})['cagey_tier_decision'], 'REJECTED')
+
+    def test_readable_tier_shows_the_price_flag_and_the_rule(self):
+        import tempfile
+        from pathlib import Path
+        from format_football_output import process_conservative_shortlist
+        fair, _ = tier_fair(cagey_row(), 'away', 2.0)
+        data = cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 0.97, 4))])
+        selected, decisions, summary = run(data, settings=NARROW)
+        with tempfile.TemporaryDirectory() as tmp:
+            raw, out = Path(tmp) / 'raw', Path(tmp) / 'readable'
+            raw.mkdir()
+            out.mkdir()
+            selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+            v28.cagey_tier_list(decisions).to_csv(raw / v28.TIER_FILE, index=False)
+            (raw / 'conservative_bet_summary.json').write_text(json.dumps(summary, default=str), encoding='utf-8')
+            process_conservative_shortlist(raw, out)
+            tier = pd.read_csv(out / 'cagey_tier_shortlist_readable.csv')
+            report = (out / 'conservative_bet_shortlist_report.md').read_text(encoding='utf-8')
+        self.assertEqual(len(tier), 1)
+        self.assertEqual(tier.iloc[0]['Price vs fair (value / below fair)'], v28.PRICE_BELOW_FAIR)
+        self.assertIn('P(narrow: draw or 1-goal win) >= 63%', report)
+        self.assertIn('1 matches, 0 value, 1 below fair', report)
+        self.assertNotIn('Cagiest 20%', report)
+
+    def test_raw_check_replays_a_narrow_run_with_its_recorded_rule(self):
+        import tempfile
+        from pathlib import Path
+        from unittest.mock import patch
+        from workflow_checks import raw_check
+        fair, _ = tier_fair(cagey_row(), 'away', 2.0)
+        predictions = pd.DataFrame([cagey_row(offers=[offer('away', 2.0, round(fair['corrected_fair_odds'] * 0.97, 4))])])
+        predictions['p_home'], predictions['p_draw'], predictions['p_away'] = 0.45, 0.27, 0.28
+        monitoring = []
+        selected, decisions, summary = run(*predictions.to_dict('records'), settings=NARROW, monitor=monitoring)
+        tier = v28.cagey_tier_list(decisions)
+        self.assertEqual(len(tier), 1)
+        with tempfile.TemporaryDirectory() as tmp:
+            raw = Path(tmp) / 'raw'
+            raw.mkdir()
+            predictions.to_csv(raw / 'all_leagues_predictions.csv', index=False)
+            selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
+            v28.record_monitoring(summary, monitoring, raw)
+            tier.to_csv(raw / v28.TIER_FILE, index=False)
+            path = raw / 'conservative_bet_summary.json'
+            path.write_text(json.dumps(summary, default=str), encoding='utf-8')
+            # Today's config is irrelevant: the run's recorded rule is replayed.
+            with patch.object(v28, 'load_settings', return_value={**VALUE_V1, 'model_version': None}):
+                raw_check(Path(tmp), raw_dir=raw)
+            tier.assign(price_flag=v28.PRICE_VALUE).to_csv(raw / v28.TIER_FILE, index=False)
+            with self.assertRaisesRegex(Exception, 'differs from deterministic'):
+                raw_check(Path(tmp), raw_dir=raw)
+            # The same files claimed as a value-v1 run do not replay.
+            tier.to_csv(raw / v28.TIER_FILE, index=False)
+            path.write_text(json.dumps({k: v for k, v in summary.items() if k != 'cagey_tier_rule'}, default=str),
+                            encoding='utf-8')
+            with self.assertRaises(Exception):
+                raw_check(Path(tmp), raw_dir=raw)
 
 
 if __name__ == '__main__':
