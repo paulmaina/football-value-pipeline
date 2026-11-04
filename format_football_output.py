@@ -1423,10 +1423,10 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
         "market-implied price (c: plus lines only). Odds above 3.00, prices above 1.15 x fair, quotes more than "
         "10 minutes apart and Pinnacle overrounds outside [1.00, 1.10] are rejected.",
         *([f"**Market groups (per-market rule):** each match can list one Asian handicap pick (AH lines and draw no "
-           f"bet, thresholds above), one match-winner pick (home or away win = AH -0.5), one double-chance pick "
-           f"(1X / X2 = AH +0.5) and one over 1.5 pick. Match winner, double chance and over 1.5 qualify at "
-           f"{pct(v28.GROUP_MIN_EDGE, 0)} against Pinnacle; over 1.5 is priced only against Pinnacle's own over/under "
-           f"1.5 (no Pinnacle quote, no pick). Picks this run: "
+           f"bet), one match-winner pick (home or away win = AH -0.5), one double-chance pick (1X / X2 = AH +0.5) and "
+           f"one over 1.5 pick. Every group qualifies at a {pct(v28.GROUP_MIN_EDGE, 0)} edge, whether fair comes from "
+           f"Pinnacle or the market-implied fit; over 1.5 is priced only against Pinnacle's own over/under 1.5 (no "
+           f"Pinnacle quote, no pick). Picks this run: "
            + ', '.join(f"{GROUP_NAMES.get(k, k)} {v}" for k, v in (summary.get('value_market_group_counts') or {}).items())
            + "."] if per_market else []),
         "**Tags** (balanced, low total, high draw, even odds) are tracked hypotheses only; they never change a pick.",

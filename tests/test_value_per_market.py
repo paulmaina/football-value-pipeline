@@ -1,4 +1,4 @@
-"""per-market-v2 value rule: one pick per fixture and market group, 1% edge for win / DC / over 1.5."""
+"""per-market-v2 value rule: one pick per fixture and market group, 1% minimum edge in every group."""
 
 from offline_test_case import OfflineQuotePolicyTestCase
 import json
@@ -52,6 +52,10 @@ def h2h_1xbet(home=None, away=None):
 
 def over_1xbet(price, stamp=FRESH):
     return quote('totals', {'over': price, 'under': 3.0}, book='1xBet', key='alternate_totals', point=1.5, stamp=stamp)
+
+
+def decision_row(decisions, label, book='1xBet'):
+    return decisions[(decisions.market_to_bet == label) & (decisions.bookmaker == book)].iloc[0]
 
 
 def picked(selected):
@@ -114,14 +118,37 @@ class SelectionTests(OfflineQuotePolicyTestCase):
         self.assertIn('edge below 1%', home.rejection_reasons)
         self.assertNotIn('edge below 2%', home.rejection_reasons)
 
-    def test_asian_handicap_group_keeps_2_percent(self):
+    def test_asian_handicap_group_qualifies_at_1_percent_against_pinnacle(self):
         target = v27.reference('home', -0.25, v27.pinnacle_quotes(fixture()), *v27.market_fit(
             v27.pinnacle_quotes(fixture()), NOW))
-        data = fixture(offers=[offer('home', -0.25, round((1.015) / target['q'], 4))])
-        selected, decisions, _ = run(data)
-        self.assertNotIn(v28.GROUP_AH, set(selected.get('value_market_group', [])))
-        ah = decisions[(decisions.market_to_bet == 'Asian Handicap Home -0.25') & (decisions.bookmaker == '1xBet')].iloc[0]
-        self.assertIn('edge below 2%', ah.rejection_reasons)
+        label = 'Asian Handicap Home -0.25'
+        for edge, expected in ((0.015, 'SHORTLISTED'), (0.005, 'REJECTED')):
+            with self.subTest(edge=edge):
+                data = fixture(offers=[offer('home', -0.25, round((1 + edge) / target['q'], 4))])
+                _, decisions, summary = run(data)
+                ah = decisions[(decisions.market_to_bet == label) & (decisions.bookmaker == '1xBet')].iloc[0]
+                self.assertEqual(ah.decision, expected)
+                self.assertAlmostEqual(ah.min_edge, 0.01)
+                self.assertNotIn('edge below 2%', str(ah.rejection_reasons))
+                self.assertEqual((summary['min_edge'], summary['min_edge_derived']), (0.01, 0.01))
+                _, old, _ = run(data, settings=V1)
+                self.assertIn('edge below 2%', decision_row(old, label).rejection_reasons)
+
+    def test_derived_plus_line_qualifies_at_1_percent(self):
+        probe = fixture(offers=[offer('away', 1.5, 1.20)])
+        line = decision_row(run(probe)[1], 'Asian Handicap Away +1.50')
+        self.assertIn(line.reference_type, ('c', 'c-cagey'))
+        for edge, expected in ((0.015, 'SHORTLISTED'), (0.005, 'REJECTED')):
+            with self.subTest(edge=edge):
+                data = fixture(offers=[offer('away', 1.5, round(line.fair_odds * (1 + edge), 4))])
+                row_ = decision_row(run(data)[1], 'Asian Handicap Away +1.50')
+                self.assertEqual(row_.decision, expected)
+                self.assertNotIn('edge below 3%', str(row_.rejection_reasons))
+                if expected == 'REJECTED':
+                    self.assertIn('edge below 1%', row_.rejection_reasons)
+                # Under the old rule a 1.5% derived edge never qualified.
+                self.assertIn('edge below 3%', decision_row(run(data, settings=V1)[1],
+                                                           'Asian Handicap Away +1.50').rejection_reasons)
 
     def test_one_pick_per_group_so_a_safer_line_no_longer_hides_a_win_pick(self):
         target = v27.reference('home', -0.25, v27.pinnacle_quotes(fixture()), *v27.market_fit(

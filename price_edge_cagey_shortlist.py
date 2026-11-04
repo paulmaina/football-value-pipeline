@@ -100,9 +100,9 @@ def value_rule(settings: Mapping) -> str:
     return rule
 
 
-# per-market-v2: one value pick per fixture AND market group. Home/away win (AH -0.5 equivalents),
-# double chance (AH +0.5) and over 1.5 qualify at a 1% edge against Pinnacle (reference a or b);
-# the Asian handicap group keeps v27's 2% (a/b) and 3% (derived) thresholds.
+# per-market-v2: one value pick per fixture AND market group (Asian handicap, home/away win = AH -0.5,
+# double chance = AH +0.5, over 1.5). Every group qualifies at a 1% edge, whatever the fair reference;
+# over 1.5 is priced only against Pinnacle's own over/under 1.5.
 GROUP_AH = 'asian_handicap'
 GROUP_WIN = 'match_winner'
 GROUP_DC = 'double_chance'
@@ -434,17 +434,26 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
 
 
 def apply_group_threshold(item: Dict[str, object]) -> None:
-    """per-market-v2: tag the market group; win and double chance qualify at 1% against Pinnacle (a/b)."""
-    group = market_group(item)
-    item['value_market_group'] = group
-    if group not in (GROUP_WIN, GROUP_DC) or item.get('reference_type') not in ('a', 'b'):
+    """per-market-v2: tag the market group; every priced candidate qualifies at a 1% edge.
+
+    That covers every group and every fair reference: Pinnacle (a/b), the market-implied fit (c) and the
+    cagey-corrected fit (c-cagey). The data guards and their reasons are untouched.
+    """
+    item['value_market_group'] = market_group(item)
+    edge, fair = item.get('edge'), item.get('fair_odds')
+    if item.get('reference_type') is None or edge is None:
         return
     reasons = [r for r in str(item.get('rejection_reasons') or '').split('; ') if r and not r.startswith('edge below ')]
-    edge, fair = item.get('edge'), item.get('fair_odds')
-    if edge is not None and edge + TOLERANCE < GROUP_MIN_EDGE:
+    if edge + TOLERANCE < GROUP_MIN_EDGE:
         reasons.append(f'edge below {GROUP_MIN_EDGE:.0%}')
     item.update(min_edge=GROUP_MIN_EDGE, minimum_odds=fair * (1 + GROUP_MIN_EDGE) if fair else None,
                 rejection_reasons=_ordered(reasons), decision='REJECTED' if reasons else 'ELIGIBLE')
+    if item.get('reference_type') == 'c-cagey':
+        # Qualified only because of the correction: the uncorrected fair price would not give 1%.
+        price, uncorrected = item.get('offered_decimal_odds'), item.get('fair_odds_uncorrected')
+        plain = price / uncorrected - 1 if price and uncorrected else None
+        item['qualified_only_by_correction'] = bool(
+            item['decision'] == 'ELIGIBLE' and (plain is None or plain + TOLERANCE < GROUP_MIN_EDGE))
 
 
 def over_1_5_offers(row: Mapping, policy: Mapping) -> List[tuple]:
@@ -726,7 +735,8 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
             value_rule=VALUE_RULE_PER_MARKET,
             eligible_markets=[*summary['eligible_markets'], OVER_1_5],
             value_market_groups=list(MARKET_GROUPS),
-            min_edge_by_market_group={GROUP_AH: f"{v27.MIN_EDGE:.0%} vs Pinnacle (a/b); {v27.MIN_EDGE_DERIVED:.0%} derived (c)",
+            min_edge=GROUP_MIN_EDGE, min_edge_derived=GROUP_MIN_EDGE,
+            min_edge_by_market_group={GROUP_AH: f'{GROUP_MIN_EDGE:.0%} vs Pinnacle (a/b) or the market-implied fit (c/c-cagey)',
                                       GROUP_WIN: f'{GROUP_MIN_EDGE:.0%} vs Pinnacle 1X2 or AH -0.5 (a/b)',
                                       GROUP_DC: f'{GROUP_MIN_EDGE:.0%} vs Pinnacle 1X2 or AH +0.5 (a/b)',
                                       GROUP_OVER_1_5: f'{GROUP_MIN_EDGE:.0%} vs Pinnacle O/U 1.5 (a); no Pinnacle quote, no pick'},
