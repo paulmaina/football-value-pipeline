@@ -32,5 +32,21 @@
     "Positive closing-line value alone is supporting evidence, not proof of profitability"
   ],
   "four_week_review": "Initial evidence and coverage review only; passing a calendar date never satisfies sample-size or promotion gates",
-  "future_status": "The new parameter/total-anchor candidates currently exist only in this offline benchmark. Forward candidate generation, true closing collection and execution recording require a later explicit implementation."
+  "future_status": "The new parameter/total-anchor candidates currently exist only in this offline benchmark. Forward candidate generation, true closing collection and execution recording require a later explicit implementation.",
+  "research_shortlist_comparison": {
+    "version": "research-comparison-v1",
+    "status": "SHADOW_ONLY_NO_AUTOMATIC_PROMOTION",
+    "candidates": {
+      "A": "published full grid; explicitly labelled production CSV proxy in historical mode",
+      "B": "uncorrected Pinnacle fit B; unavailable if required input missing or unusable",
+      "C": "PR 126 frozen team-form Poisson v1"
+    },
+    "primary_metric": "Predeclare target markets and fixture weighting; five-way AH settlement log loss plus positive-return probability accuracy at real timestamped offers",
+    "historical_usage": "Existing development/audit periods were already examined. They are diagnostics, never an untouched promotion test. No historical ROI.",
+    "intervals": "Paired fixture comparisons with calendar-week cluster bootstrap; descriptive only until multiple comparisons and a fixed forward review window are specified",
+    "calibration": "Inspect reliability, slope AND intercept with uncertainty; sparse European data is insufficient evidence, not proof of non-degradation",
+    "forward_gate": "Apply existing minimum 300 distinct paired fixtures and six gameweeks; separately assess adequately powered league/market cohorts. Unproven Europe changes remain shadow-only.",
+    "model_integrity": "One coherent score/settlement distribution; calibration fitting data separate from model fitting and final testing; minus lines never receive cagey correction",
+    "live_changes": "No changes to BASIS, probabilities, shortlist, staking or schedules in this diagnostic phase"
+  }
 }

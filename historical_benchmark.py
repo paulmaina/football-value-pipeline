@@ -230,13 +230,19 @@ def fit_upgrade_models(train,origin,cfg,model_class,fold,errors):
     return models
 
 
+def fold_windows(cfg):
+    """Shared chronological origins; the audit boundary always starts a new fold."""
+    start,audit,end=(pd.Timestamp(cfg[k]) for k in ('test_start','audit_start','test_end_exclusive'))
+    boundaries=sorted(set([*pd.date_range(start,end,freq=f"{cfg['step_days']}D"),audit,end]))
+    return list(zip(boundaries,boundaries[1:]))
+
+
 def evaluate_league(data, league, cfg, model_class=None):
     from football_value_pipeline_v2_standalone import DixonColesModel,reweight_matrix_to_1x2
     model_class=model_class or DixonColesModel
     start,audit,end=(pd.Timestamp(cfg[k]) for k in ('test_start','audit_start','test_end_exclusive'))
-    boundaries=sorted(set([*pd.date_range(start,end,freq=f"{cfg['step_days']}D"),audit,end]))
     records=[];folds=[];coverage=Counter();errors=[]
-    for origin,stop in zip(boundaries,boundaries[1:]):
+    for origin,stop in fold_windows(cfg):
         train=data.loc[data.Date<origin].copy();test=data.loc[(data.Date>=origin)&(data.Date<stop)]
         if test.empty:continue
         if len(train)<cfg['min_train']:
@@ -648,3 +654,4 @@ def main(argv=None):
 
 
 if __name__=='__main__':raise SystemExit(main())
+

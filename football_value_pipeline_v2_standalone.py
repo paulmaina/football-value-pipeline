@@ -3253,6 +3253,10 @@ class FootballValuePipelineV2(FootballValuePipeline):
             if hasattr(self, '_totals_shadow_inputs'):
                 self._totals_shadow_inputs[(home, away, str(row.get('kickoff_utc')))] = {'lambda_home': meta['lambda_home'], 'lambda_away': meta['lambda_away'], 'rho': float(model.rho), 'max_goals': matrix.shape[0]-1, 'score_engine_version': meta.get('score_engine_version'), 'reference': row.get('shadow_pinnacle_totals')}
         pred = prediction_from_matrix(model, matrix, meta)
+        # Archive the complete final grid, after blending and totals anchoring.
+        # Diagnostic consumers must never reconstruct it from raw lambdas/top scores.
+        pred['score_matrix_json'] = json.dumps(matrix.tolist(), separators=(',', ':'), allow_nan=False)
+        pred['score_matrix_version'] = 'published-score-matrix-v1'
         pred['goal_margin_distribution'] = margins(matrix)
         pred['raw_goal_margin_distribution'] = raw_margins
         from team_research import form_history
