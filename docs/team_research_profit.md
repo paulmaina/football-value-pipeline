@@ -58,3 +58,11 @@ pre-cutoff offered quote remain necessary to calculate a bet's probability.
 Historical value rules remain selectable from their recorded summaries. The
 cagey tier keeps its existing qualification. The master keeps its original
 price-edge pool while displaying overlap with the new main shortlist.
+
+## Accuracy comparison foundation
+
+The full published score grid is now archived for offline comparison.
+`research_backtest.py` compares published, Pinnacle-fit and frozen research
+probabilities without changing live selection or staking. See
+[the phased accuracy plan](research_accuracy_plan.md) for commands, evidence
+limitations and corrections required before later probability changes.
