@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "f8b024bf6ab7032e18682f611b3a23123c4ab1981b3b3d264c1209a7de3a7885",
-  "training_as_of_utc": "2026-11-05T16:17:17.717916+00:00",
+  "training_as_of_utc": "2026-11-05T16:27:00.046205+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -52,9 +52,9 @@
   },
   "training_end": "2026-11-04",
   "fit_success": true,
-  "objective": 794.6142620173309,
-  "base": 0.10323847593615612,
-  "home_adv": 0.2667379015329521,
+  "objective": 794.6065626561536,
+  "base": 0.1032118370133302,
+  "home_adv": 0.26677754104165646,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
