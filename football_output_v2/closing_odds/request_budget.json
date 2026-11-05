@@ -1,31 +1,13 @@
 {
   "daily_request_cap": 100,
-  "date": "2026-11-04",
-  "requests": 28,
+  "date": "2026-11-05",
+  "requests": 24,
   "reservations": {
-    "actions-41836943043-1-1": {
-      "allowance": 10,
-      "reserved_at_utc": "2026-11-04T15:12:27.997811+00:00",
-      "status": "complete",
-      "used": 1
-    },
-    "actions-41836943043-1-2": {
-      "allowance": 10,
-      "reserved_at_utc": "2026-11-04T17:27:22.253491+00:00",
-      "status": "complete",
-      "used": 2
-    },
-    "actions-41846989980-1-1": {
-      "allowance": 21,
-      "reserved_at_utc": "2026-11-04T19:42:17.469653+00:00",
-      "status": "complete",
-      "used": 21
-    },
-    "actions-41846989980-1-2": {
-      "allowance": 21,
-      "reserved_at_utc": "2026-11-04T19:59:12.528823+00:00",
-      "status": "complete",
-      "used": 4
+    "actions-42036484784-1-1": {
+      "allowance": 24,
+      "reserved_at_utc": "2026-11-05T17:27:26.446983+00:00",
+      "status": "reserved",
+      "used": 0
     }
   }
 }
