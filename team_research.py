@@ -11,7 +11,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlparse
 import xml.etree.ElementTree as ET
 
 import numpy as np
@@ -115,8 +115,9 @@ class FreeSources:
         self.remaining = limit
         self.online = online
         self.memo = {}
+        self.source_requests = {}
 
-    def get(self, url, xml=False):
+    def get(self, url, xml=False, max_age_minutes=None):
         if url in self.memo:
             return self.memo[url]
         key = hashlib.sha256(url.encode()).hexdigest()
@@ -125,16 +126,24 @@ class FreeSources:
         saved = decode(path.read_text(encoding='utf-8')) if path.exists() else {}
         stamp = utc(saved.get('observed_at_utc'))
         ttl = pd.Timedelta(hours=TTL_HOURS) if saved.get('status') == 'available' else pd.Timedelta(minutes=10)
+        if max_age_minutes is not None:
+            ttl = min(ttl, pd.Timedelta(minutes=max_age_minutes))
+        host = (urlparse(url).hostname or '').removeprefix('www.')
+        recent = [t for t in self.source_requests.get(host, []) if now-t < pd.Timedelta(minutes=1)]
+        self.source_requests[host] = recent
         if saved.get('url') == url and pd.notna(stamp) and pd.Timedelta(0) <= now-stamp < ttl:
             self.memo[url] = saved
             return saved
         result = {'url': url, 'observed_at_utc': now.isoformat(), 'status': 'unavailable'}
         if not self.online:
             result['reason'] = 'no cached observation; online research disabled'
+        elif host == 'thesportsdb.com' and len(recent) >= 30:
+            result['reason'] = 'TheSportsDB free source limit: 30 requests per minute'
         elif self.remaining <= 0:
             result['reason'] = 'free research request budget reached'
         else:
             self.remaining -= 1
+            recent.append(now)
             try:
                 response = self.session.get(url, timeout=(5, 15), headers={'User-Agent': 'football-value-pipeline/1.0'})
                 response.raise_for_status()
@@ -231,6 +240,9 @@ def collect_fixture(row, client):
     kick = utc(row.get('kickoff_utc'))
     if pd.isna(kick):
         return evidence
+    if utc(client.clock()) >= kick:
+        evidence['errors'].append('pre-match research deadline passed; no post-kickoff context collected')
+        return evidence
     url = ESPN + league + '/scoreboard?' + urlencode({'dates': kick.strftime('%Y%m%d')})
     board = client.get(url)
     evidence['sources'].append({k: board.get(k) for k in ('url', 'observed_at_utc', 'status', 'reason')})
@@ -239,14 +251,13 @@ def collect_fixture(row, client):
         evidence['errors'].append('free-source fixture identity missing or ambiguous')
     else:
         match = matches[0]
-        summary = client.get(ESPN + league + '/summary?' + urlencode({'event': match['id']}))
+        summary = client.get(ESPN + league + '/summary?' + urlencode({'event': match['id']}),
+                             max_age_minutes=5 if kick-utc(client.clock()) <= pd.Timedelta(hours=2) else 180)
         evidence['sources'].append({k: summary.get(k) for k in ('url', 'observed_at_utc', 'status', 'reason')})
         data = summary.get('data', {})
-        # Roster/absence data are source reports. Empty lists do not prove a full-strength squad.
-        for key, category in [('injuries', 'availability'), ('rosters', 'lineups')]:
-            if data.get(key):
-                evidence[category] = data[key]
-                evidence['coverage'][category] = 'reported; confirmation status unverified'
+        from match_context import compact_squads
+        compact_squads(data, evidence, {str(c.get('team', {}).get('id')): c.get('team', {}).get('displayName')
+                                       for c in competitors(match)})
         venue = data.get('gameInfo', {}).get('venue') or (match.get('competitions') or [{}])[0].get('venue', {})
         evidence['venue'] = venue
         evidence['recent'] = {}
@@ -262,45 +273,23 @@ def collect_fixture(row, client):
             evidence.setdefault('schedules', {})[side['homeAway']] = [
                 {'date': e.get('date'), 'name': e.get('name'),
                  'venue': (e.get('competitions') or [{}])[0].get('venue'),
+                 'completed': bool((e.get('status') or (e.get('competitions') or [{}])[0].get('status', {})).get('type', {}).get('completed')),
                  'home_away': next((c.get('homeAway') for c in competitors(e)
                                     if str(c.get('team', {}).get('id')) == team_id), None)}
                 for e in events(schedule.get('data', {}))
-                if pd.notna(utc(e.get('date'))) and abs((utc(e['date'])-kick).total_seconds()) <= 7*86400]
+                if pd.notna(utc(e.get('date'))) and kick-pd.Timedelta(days=14) <= utc(e['date']) <= kick+pd.Timedelta(days=7)]
         standings = client.get('https://site.api.espn.com/apis/v2/sports/soccer/' + league + '/standings')
         evidence['sources'].append({k: standings.get(k) for k in ('url', 'observed_at_utc', 'status', 'reason')})
         if standings.get('status') == 'available':
             evidence['standings'] = standings.get('data')
             evidence['coverage']['motivation'] = 'standings context; urgency not inferred'
-        coords = venue.get('coordinates', {})
-        lat, lon = number(coords.get('latitude')), number(coords.get('longitude'))
-        if lat is None or lon is None:
-            address = venue.get('address', {})
-            city, country = address.get('city'), address.get('country')
-            country = {'England': 'United Kingdom', 'Scotland': 'United Kingdom'}.get(country, country)
-            if city and country:
-                location = client.get('https://geocoding-api.open-meteo.com/v1/search?' + urlencode(
-                    {'name': city, 'count': 10, 'language': 'en', 'format': 'json'}))
-                evidence['sources'].append({k: location.get(k) for k in ('url', 'observed_at_utc', 'status', 'reason')})
-                locations = [r for r in location.get('data', {}).get('results', [])
-                             if str(r.get('country', '')).casefold() == str(country).casefold()
-                             and str(r.get('name', '')).casefold() == str(city).casefold()]
-                if len(locations) == 1:
-                    lat, lon = number(locations[0].get('latitude')), number(locations[0].get('longitude'))
-                    evidence['weather_location_precision'] = 'venue city centre, not stadium coordinates'
-        if lat is not None and lon is not None and -90 <= lat <= 90 and -180 <= lon <= 180:
-            weather = client.get('https://api.open-meteo.com/v1/forecast?' + urlencode({
-                'latitude': lat, 'longitude': lon, 'hourly': 'temperature_2m,precipitation,wind_speed_10m',
-                'timezone': 'UTC', 'forecast_days': 7}))
-            evidence['sources'].append({k: weather.get(k) for k in ('url', 'observed_at_utc', 'status', 'reason')})
-            hourly = weather.get('data', {}).get('hourly', {})
-            indices = [i for i, t in enumerate(hourly.get('time', [])) if utc(t) == kick.floor('h')]
-            if indices:
-                i = indices[0]
-                evidence['weather'] = {k: v[i] for k, v in hourly.items() if isinstance(v, list) and len(v) > i}
-                evidence['coverage']['weather'] = 'kickoff-hour forecast; Open-Meteo'
+    from match_context import espn_news
+    structured_news = espn_news(row, client, evidence, league)
     query = f'"{row.get("home_team")}" "{row.get("away_team")}" injury suspension lineup preview'
-    news = client.get('https://www.bing.com/news/search?' + urlencode({'q': query, 'format': 'rss'}), xml=True)
-    evidence['sources'].append({k: news.get(k) for k in ('url', 'observed_at_utc', 'status', 'reason')})
+    news = None
+    if not structured_news:
+        news = client.get('https://www.bing.com/news/search?' + urlencode({'q': query, 'format': 'rss'}), xml=True)
+        evidence['sources'].append({k: news.get(k) for k in ('url', 'observed_at_utc', 'status', 'reason')})
     # Public xG for supported domestic leagues. Keep unavailable coverage explicit
     # when a site rejects collection or its schema changes.
     slug = UNDERSTAT.get(row.get('league'))
@@ -314,13 +303,16 @@ def collect_fixture(row, client):
                 for side in ('home', 'away'):
                     if name(row.get(side + '_team')) in (name(past['home']), name(past['away'])):
                         evidence.setdefault('recent', {}).setdefault(side, []).append(past)
-    evidence['news'] = news_items(news.get('data'), utc(client.clock()))
+    evidence['news'] = structured_news or news_items((news or {}).get('data'), utc(client.clock()))
     if not evidence['news']:
         for url in ('https://feeds.bbci.co.uk/sport/football/rss.xml', 'https://www.theguardian.com/football/rss'):
             feed = client.get(url, xml=True)
             evidence['sources'].append({k: feed.get(k) for k in ('url', 'observed_at_utc', 'status', 'reason')})
             evidence['news'] += [n for n in news_items(feed.get('data'), utc(client.clock()))
                                  if any(name(row.get(s + '_team')) in name(n['headline']) for s in ('home', 'away'))]
+    from match_context import collect_weather, add_review_links
+    collect_weather(row, client, evidence)
+    add_review_links(row, evidence)
     return evidence
 
 
@@ -369,12 +361,14 @@ def prepare(row, cutoff, evidence=None):
         coverage['rotation'] = 'schedule congestion only; rotation unconfirmed'
         evidence['rest_and_travel'] = {}
         for side, fixtures in evidence['schedules'].items():
-            previous = [e for e in fixtures if pd.notna(utc(e.get('date'))) and utc(e['date']) < cutoff]
+            previous = [e for e in fixtures if e.get('completed') is True
+                        and pd.notna(utc(e.get('date'))) and utc(e['date']) < cutoff]
             if previous:
                 last = max(previous, key=lambda e: utc(e['date']))
                 evidence['rest_and_travel'][side] = {
                     'previous_fixture': last,
                     'days_between_kickoffs': (utc(row.get('kickoff_utc'))-utc(last['date'])).total_seconds()/86400,
+                    'completed_matches_last_14_days': sum(utc(row.get('kickoff_utc'))-pd.Timedelta(days=14) <= utc(e['date']) for e in previous),
                     'note': 'schedule-derived travel context; actual itinerary and fatigue unverified'}
         if any(v['previous_fixture'].get('venue') for v in evidence['rest_and_travel'].values()):
             coverage['travel'] = 'previous fixture venue; itinerary and fatigue unverified'

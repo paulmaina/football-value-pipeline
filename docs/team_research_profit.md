@@ -76,8 +76,11 @@ rule. Every pick carries that warning until forward evidence supports it.
 Scheduled forecasts pass `--research-free-sources`. Collection first reuses
 cached responses, then attempts public ESPN fixture/summary/all-competition team
 schedule/standings feeds, Understat public xG pages for covered leagues, dated
-Bing news RSS with BBC and Guardian football RSS fallbacks, and Open-Meteo weather
-with verified venue coordinates or an unambiguous venue city/country lookup.
+ESPN news metadata with Bing/BBC/Guardian RSS fallbacks, and Open-Meteo match-window
+weather with verified stadium coordinates, exact-fixture TheSportsDB venue fallback,
+or an unambiguous venue city/country lookup. Named availability and lineup records
+retain confirmation status. See [source access, cadence and coverage](context_sources.md)
+for limits and the distinction between collected context and numerical inputs.
 
 These are source adapters, not an exhaustive search of the internet. Public
 endpoints can fail or change. Responses have three-hour successful cache TTLs,

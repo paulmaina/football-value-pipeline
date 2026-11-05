@@ -1442,12 +1442,36 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
             data = decode(value)
             parts = [n['headline'] + ' (' + n['url'] + ')' for n in data.get('news', [])]
             if data.get('weather'):
-                parts.append('Kickoff weather: ' + str(data['weather']))
+                weather = data['weather']
+                if weather.get('hours'):
+                    units = weather.get('units', {})
+                    fields = [('temperature_2m', 'temperature'), ('wind_speed_10m', 'wind'),
+                              ('wind_gusts_10m', 'gusts'), ('precipitation', 'precipitation')]
+                    values = [label + ' ' + str(weather[key]) + ' ' + str(units.get(key, 'unit unknown'))
+                              for key, label in fields if weather.get(key) is not None]
+                    parts.append('Weather ' + str(weather.get('time')) + ': ' + ', '.join(values)
+                                 + '; ' + str(weather.get('location_precision'))
+                                 + ('; incomplete match window' if not weather.get('complete_match_window') else '')
+                                 + '; roof/pitch exposure unverified; context only')
+                else:
+                    parts.append('Kickoff weather: ' + str(weather))
             for side, rest in data.get('rest_and_travel', {}).items():
                 parts.append(f"{side}: {rest['days_between_kickoffs']:.1f} days between scheduled kickoffs")
             for category in ('availability', 'lineups'):
                 if data.get(category):
-                    parts.append(category + ': provider report available; confirmation status unverified (see source)')
+                    groups = data[category]
+                    if isinstance(groups, list) and all(isinstance(g, dict) and 'players' in g for g in groups):
+                        for group in groups:
+                            people = [p['player'] for p in group['players']
+                                      if category == 'availability' or p.get('starter')]
+                            parts.append(category + ' ' + str(group.get('team')) + ': '
+                                         + (', '.join(people) if people else 'starters unavailable')
+                                         + '; ' + str(group.get('status') or 'provider report; not independently confirmed')
+                                         + ('; formation ' + str(group['formation']) if group.get('formation') else ''))
+                    else:
+                        parts.append(category + ': provider report available; confirmation status unverified (see source)')
+            for link in data.get('review_links', []):
+                parts.append(str(link.get('label')) + ': ' + str(link.get('url')) + ' [reference only]')
             return '; '.join(parts) or 'No additional verified context'
     if profit_rule:
         readable = pd.DataFrame({
