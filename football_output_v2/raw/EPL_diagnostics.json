@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "360bea142f79da4d57d8363e05c1e1dd30c82d5fbca24beefafe296e82c9d2a4",
-  "training_as_of_utc": "2026-11-05T12:25:21.757952+00:00",
+  "training_as_of_utc": "2026-11-05T13:30:52.436797+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 90,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-05T12:25:21.757952+00:00",
+    "cutoff_utc": "2026-11-05T13:30:52.436797+00:00",
     "observations": 642,
     "observations_sha256": "a74496bfcfd3037993920b5bf282167ffb16f3b640390b628049004d45ef0edb",
     "eligible_training_matches": 297,
@@ -183,10 +183,10 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1878.0325402629599,
-  "base": 0.2137447465617777,
-  "home_adv": 0.1783128409739207,
-  "rho": -0.06104264643826524,
+  "objective": 1877.9092036354632,
+  "base": 0.21375457999631753,
+  "home_adv": 0.1783203003669081,
+  "rho": -0.06104987994216708,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -220,8 +220,8 @@
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261105T122521757952Z_ff1dbef3d42cd3ab88cc4653ab9be39dc8156bc6a7284ea14569622bdc311429.json",
-  "over_1_5_in_window_quote_fixtures": 1,
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261105T133052436797Z_694117c5a1070177ef3ed63c463bbdaf309e3ff7e28c990a254cab03a9670b54.json",
+  "over_1_5_in_window_quote_fixtures": 2,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -250,12 +250,19 @@
       "home_team": "Leeds United",
       "away_team": "Tottenham Hotspur",
       "kickoff_utc": "2026-11-07T12:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 28,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 2
     },
     {
       "fixture_id": "842fcc5b9feb8c63054a661ad1fc8926",
@@ -297,10 +304,10 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 1,
+  "additional_odds_in_window_linked_fixtures": 2,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 1,
+  "additional_event_odds_calls_this_league": 2,
   "totals_anchor_fixtures": {
     "ANCHORED_ALTERNATE": 1,
     "ANCHORED_MAIN": 1,
