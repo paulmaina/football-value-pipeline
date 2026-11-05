@@ -62,16 +62,16 @@
         "standard_error": 0.04168358468677485
       },
       "Q4": {
-        "mean": null,
-        "n": 0,
-        "positive_share": null,
-        "standard_error": null
+        "mean": 0.06756712279675958,
+        "n": 2,
+        "positive_share": 1.0,
+        "standard_error": 0.04130544055376894
       },
       "Q5 most open": {
-        "mean": 0.05776808366923477,
-        "n": 3,
+        "mean": 0.03817000541418514,
+        "n": 1,
         "positive_share": 1.0,
-        "standard_error": 0.025782441847177234
+        "standard_error": null
       },
       "n/a": {
         "mean": 0.029568545029146964,
@@ -256,22 +256,22 @@
         "standard_error": null
       },
       "Q3": {
-        "mean": 0.43500000000000005,
-        "n": 2,
+        "mean": 0.3133333333333334,
+        "n": 3,
         "positive_share": 1.0,
-        "standard_error": 0.09499999999999997
+        "standard_error": 0.1334582747944507
       },
       "Q4": {
-        "mean": 0.07000000000000006,
+        "mean": -1.0,
+        "n": 2,
+        "positive_share": 0.0,
+        "standard_error": 0.0
+      },
+      "Q5 most open": {
+        "mean": 0.42999999999999994,
         "n": 1,
         "positive_share": 1.0,
         "standard_error": null
-      },
-      "Q5 most open": {
-        "mean": -0.5233333333333333,
-        "n": 3,
-        "positive_share": 0.3333333333333333,
-        "standard_error": 0.4766666666666666
       },
       "n/a": {
         "mean": null,
@@ -416,7 +416,7 @@
     }
   },
   "cagey_tier_active_rule": "narrow-63-flagged-v2",
-  "cagey_tier_picks": 13,
+  "cagey_tier_picks": 16,
   "cagey_tier_review": false,
   "cagey_tier_review_rule": ">= 50 graded value-priced cagey-tier picks made under the active rule (narrow-63-flagged-v2) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false",
   "cagey_tier_roi": {
@@ -496,22 +496,22 @@
         "standard_error": null
       },
       "Q3": {
-        "mean": null,
-        "n": 0,
-        "positive_share": null,
-        "standard_error": null
-      },
-      "Q4": {
         "mean": 0.004617169373549945,
         "n": 1,
         "positive_share": 1.0,
         "standard_error": null
       },
-      "Q5 most open": {
-        "mean": 0.05776808366923477,
-        "n": 3,
+      "Q4": {
+        "mean": 0.06756712279675958,
+        "n": 2,
         "positive_share": 1.0,
-        "standard_error": 0.025782441847177234
+        "standard_error": 0.04130544055376894
+      },
+      "Q5 most open": {
+        "mean": 0.03817000541418514,
+        "n": 1,
+        "positive_share": 1.0,
+        "standard_error": null
       },
       "n/a": {
         "mean": 0.029568545029146964,
@@ -798,8 +798,7 @@
     "correction_review": false,
     "excluded_by_reason": {
       "no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line)": 16,
-      "no usable market-implied fit (missing input: over_2_5)": 26,
-      "no usable market-implied fit (missing input: over_2_5; Pinnacle overround outside range: h2h)": 1
+      "no usable market-implied fit (missing input: over_2_5)": 28
     },
     "fair_price_returns": {
       "corrected": {
@@ -816,10 +815,10 @@
       }
     },
     "fixtures": {
-      "eligible": 49,
-      "excluded": 43,
+      "eligible": 51,
+      "excluded": 44,
       "graded": 15,
-      "pending": 34
+      "pending": 36
     },
     "log_loss": {
       "2plus": {
@@ -855,7 +854,7 @@
     "positive_share": null,
     "standard_error": null
   },
-  "frozen_picks": 43,
+  "frozen_picks": 120,
   "master": {
     "by_price_flag": {
       "below value threshold": {
@@ -900,7 +899,7 @@
       "standard_error": null
     }
   },
-  "master_picks": 18,
+  "master_picks": 23,
   "note": "CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.",
   "policy": "48h-ah-price-edge-pinnacle-ref-v27",
   "profit": {
@@ -910,7 +909,7 @@
     "standard_error": 0.42772654815898437
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-05T12:36:33.917858+00:00",
+  "reviewed_at_utc": "2026-11-05T13:39:02.472609+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
@@ -941,12 +940,12 @@
       }
     },
     "edge_at_capture_1xbet": {
-      "mean": -0.03373501489560387,
-      "n": 201,
-      "positive_share": 0.08955223880597014,
-      "standard_error": 0.0015831351473869224
+      "mean": -0.034309835900274,
+      "n": 248,
+      "positive_share": 0.0846774193548387,
+      "standard_error": 0.001399148315751816
     },
-    "frozen": 977,
+    "frozen": 1160,
     "return_at_capture_fair": {
       "mean": 0.039924275119104506,
       "n": 172,
@@ -959,7 +958,7 @@
       "positive_share": 0.7142857142857143,
       "standard_error": 0.05824089987529887
     },
-    "with_offered_price": 977
+    "with_offered_price": 1160
   },
   "version": "price-edge-v27-tracking-v1"
 }

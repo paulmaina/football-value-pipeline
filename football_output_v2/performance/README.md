@@ -19,7 +19,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 73 | 53-17 | 72.6% | +4.5% |
 
-Unsettled / unverified entries: **53**.
+Unsettled / unverified entries: **130**.
 Whole-fixture 1X2 multiclass Brier (n=284): 0.5525
 
 ## First-prediction reference — historical comparison
@@ -64,7 +64,7 @@ Whole-fixture 1X2 multiclass Brier (n=284): 0.5525
 | 2026-11-03T13:58:02.173298+00:00 | 2 | 2-0 | 100.0% | +48.0% |
 | 2026-11-04T09:31:03.622249+00:00 | 0 | 0-0 | — | — |
 | 2026-11-04T10:20:33.895771+00:00 | 1 | 0-1 | 0.0% | -100.0% |
-| 2026-11-05T12:32:00.598966+00:00 | 0 | 0-0 | — | — |
+| 2026-11-05T13:37:38.336530+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -181,6 +181,7 @@ Whole-fixture 1X2 multiclass Brier (n=284): 0.5525
 | Serie A | 16 | 10-5 | 62.5% | -8.1% |
 | Super Lig | 2 | 2-0 | 100.0% | +26.5% |
 | UEFA Champions League | 16 | 12-4 | 75.0% | +6.1% |
+| UEFA Europa League | 0 | 0-0 | — | — |
 
 ## Gameweeks
 
@@ -231,14 +232,15 @@ A missing, ambiguous or unverified result is **never called a win**.
 | SerieA | 2026-11-02 | 2000 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SuperLig | 2026-11-02 | 1840 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-11-04 | 575 | 1 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
+| UEL | 2026-11-04 | 715 | 1 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 38, "exchange_quotes": 0, "missing_quote_age": 38, "quote_age_over_24h": 0, "costs_recorded": 38, "bookmakers": {"1xBet": 21, "Pinnacle": 17}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 38, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 115, "exchange_quotes": 0, "missing_quote_age": 115, "quote_age_over_24h": 0, "costs_recorded": 115, "bookmakers": {"Pinnacle": 66, "1xBet": 49}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 115, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 No forward model trials are generated or captured. The benchmark-forward and totals-anchor trials are archived (archive/); their frozen reports stay readable.
 
-Dependency versions at review: {"python": "3.12.16", "numpy": "2.5.4", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.16", "numpy": "2.5.4", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 
