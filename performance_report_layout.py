@@ -6,6 +6,7 @@ formula caches, native tables and editable simulation inputs are preserved.
 from __future__ import annotations
 
 import copy
+from csv_utils import dict_reader
 import json
 import math
 from pathlib import Path
@@ -353,7 +354,6 @@ def clv_reading(n, t):
 
 def add_clv(parts, root, st):
     """Candidate CLV sheet from clv_report outputs; never recomputes evidence."""
-    import csv
     folder = Path(root) / 'performance' / 'clv_report'
     summary = load(root, 'clv_report/summary.json')
     sheet = Sheet()
@@ -414,7 +414,7 @@ def add_clv(parts, root, st):
         if not path.exists():
             continue
         with path.open(encoding='utf-8', newline='') as handle:
-            records = list(csv.DictReader(handle))
+            records = list(dict_reader(handle))
         # Largest samples first so small-sample extremes do not lead the table.
         records.sort(key=lambda r: -float(r['pinnacle_fair_n'] or 0))
         section(name, ['Market' if len(keys) == 2 else 'Group', 'Entry bookmaker' if len(keys) == 2 else '',
