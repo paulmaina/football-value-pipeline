@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import argparse
 import copy
-import csv
+from csv_utils import dict_reader
 from datetime import datetime, timezone
 import json
 import math
@@ -421,7 +421,7 @@ def export_existing(root=Path('football_output_v2'), destination=None):
     required=[p/'metrics.json',p/'shortlist_grades.csv',p/'prediction_grades.csv']
     if not all(x.exists() for x in required):return None
     def read(path):
-        with path.open(encoding='utf-8-sig',newline='') as f:return list(csv.DictReader(f))
+        with path.open(encoding='utf-8-sig',newline='') as f:return list(dict_reader(f))
     return write_workbook(root,read(required[1]),read(required[2]),json.loads(required[0].read_text()),destination)
 
 
