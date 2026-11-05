@@ -11,12 +11,7 @@
     "PrimeiraLiga",
     "SuperLig"
   ],
-  "excluded_leagues": {
-    "UEL": {
-      "status": "TRAINING_UNVERIFIED",
-      "reason": "Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {\"declared_rows\": 135, \"eligibility\": \"CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout semantics unverified\", \"fixture_download_completed_rows\": 54, \"last_updated_at\": \"2026-11-05T12:00:16+00:00\", \"latest_result\": \"2026-11-04\", \"league_phase_rows\": 55, \"missing_against_fixture_download\": 0, \"production_eligible\": false, \"score_conflicts\": [], \"total_rows\": 135, \"unclassified_rows_quarantined\": 80, \"unverified_identities\": [[\"2026-11-04\", \"rennes\", \"olympiacos\"]], \"upstream\": \"api-football\", \"verification_sources\": [\"Cornerflick\", \"Fixture Download\"], \"verified_for_research\": false}"
-    }
-  },
+  "excluded_leagues": {},
   "forecast_leagues": [
     "EPL",
     "LaLiga",
@@ -24,6 +19,7 @@
     "SerieA",
     "Ligue1",
     "UCL",
+    "UEL",
     "Eredivisie",
     "PrimeiraLiga",
     "SuperLig"

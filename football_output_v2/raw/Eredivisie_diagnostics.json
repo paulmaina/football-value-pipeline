@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "615de97a97f0d322c268f8b3f3257e878336d0e9922ced304f9c92ec61ef9060",
-  "training_as_of_utc": "2026-11-05T12:31:14.696351+00:00",
+  "training_as_of_utc": "2026-11-05T13:37:00.829646+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-11-01",
   "fit_success": true,
-  "objective": 1636.7349294081698,
-  "base": 0.2904870095470408,
-  "home_adv": 0.1831243062757665,
-  "rho": -0.08090489714555693,
+  "objective": 1636.6269999341782,
+  "base": 0.29048748434291255,
+  "home_adv": 0.18312299706827906,
+  "rho": -0.08090018412862895,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -119,10 +119,10 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 5,
+  "live_odds_matched": 6,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 5,
+  "additional_event_odds_calls_used_before_this_league": 24,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 1,
@@ -199,6 +199,19 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "b71f32fbba046e08d4cc26e2a8e1d5a6",
+      "event_id": "b71f32fbba046e08d4cc26e2a8e1d5a6",
+      "home_team": "FC Twente Enschede",
+      "away_team": "Ajax",
+      "kickoff_utc": "2026-11-08T13:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
   "additional_odds_in_window_linked_fixtures": 1,
@@ -207,14 +220,14 @@
   "additional_event_odds_calls_this_league": 1,
   "totals_anchor_fixtures": {
     "ANCHORED_ALTERNATE": 1,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 5
+    "none": 6
   },
   "legacy_comparison_status": {
-    "None": 5
+    "None": 6
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

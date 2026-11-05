@@ -1,21 +1,21 @@
 {
-  "generated_at_utc": "2026-11-05T12:32:00.598966+00:00",
+  "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28",
   "selection_objective": "TEAM_RESEARCH_PROFIT_PROBABILITY",
   "status": "QUALIFIED",
-  "n_fixtures": 40,
-  "n_markets_evaluated": 727,
-  "n_shortlisted": 38,
-  "n_strict_qualified": 38,
+  "n_fixtures": 60,
+  "n_markets_evaluated": 1398,
+  "n_shortlisted": 115,
+  "n_strict_qualified": 115,
   "n_provisional_watchlist": 0,
-  "n_total_candidates": 38,
+  "n_total_candidates": 115,
   "target_distinct_matches": null,
   "shortfall": null,
-  "usable_distinct_fixtures": 40,
+  "usable_distinct_fixtures": 60,
   "shortlist_lookahead_hours": 48.0,
   "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-11-05T12:32:00.598966+00:00",
-  "shortlist_window_end_utc": "2026-11-07T12:32:00.598966+00:00",
+  "shortlist_window_start_utc": "2026-11-05T13:37:38.336530+00:00",
+  "shortlist_window_end_utc": "2026-11-07T13:37:38.336530+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -110,22 +110,22 @@
     "use": "tracking only; never changes a decision"
   },
   "tagged_candidates": {
-    "balanced": 430,
-    "low_total": 72,
-    "high_draw": 241,
-    "even_odds": 71
+    "balanced": 725,
+    "low_total": 148,
+    "high_draw": 433,
+    "even_odds": 97
   },
-  "tagged_fixtures": 21,
+  "tagged_fixtures": 29,
   "rejection_counts": {
-    "kickoff outside 20-minute to 48-hour window": 348,
-    "no offered quote at an allowed bookmaker": 181,
-    "offered quote stale or unavailable": 181,
-    "offered odds above 3.00": 129
+    "kickoff outside 20-minute to 48-hour window": 356,
+    "offered odds above 3.00": 263,
+    "no offered quote at an allowed bookmaker": 241,
+    "offered quote stale or unavailable": 241
   },
   "reference_type_counts": {
-    "a": 27,
-    "c-cagey": 5,
-    "b": 2
+    "a": 86,
+    "b": 16,
+    "c-cagey": 8
   },
   "selection_method": "Highest positive-return probability per fixture and market group; expected return then odds break ties; no cap",
   "ranking_metric": "probability of positive net return descending",
@@ -145,10 +145,10 @@
   ],
   "min_edge_by_market_group": {},
   "value_market_group_counts": {
-    "asian_handicap": 10,
-    "match_winner": 10,
-    "double_chance": 9,
-    "over_1_5": 9
+    "asian_handicap": 29,
+    "match_winner": 29,
+    "double_chance": 29,
+    "over_1_5": 28
   },
   "cagey_correction_enabled": true,
   "cagey_tier_enabled": true,
@@ -156,15 +156,15 @@
   "correction_only_value_picks": 0,
   "cagey_tier": {
     "enabled": true,
-    "n_shortlisted": 6,
-    "fixtures_in_window": 10,
-    "fixtures_at_or_above_cutoff": 7,
+    "n_shortlisted": 14,
+    "fixtures_in_window": 29,
+    "fixtures_at_or_above_cutoff": 14,
     "min_p_narrow": 0.63,
     "cutoff_used": 0.37,
-    "value_picks": 2,
-    "below_fair_picks": 4,
-    "in_both_tiers": 6,
-    "even_odds_picks": 1,
+    "value_picks": 4,
+    "below_fair_picks": 10,
+    "in_both_tiers": 14,
+    "even_odds_picks": 2,
     "rule": "every fixture with P(narrow) >= 63% (corrected cagey score <= 0.37) in the 20-minute to 48-hour window; its safest AH +1..+2.25 line at Pinnacle or 1xBet after the data guards; price_flag says whether expected profit after stake cost under the corrected matrix is >= 0 (value) or not (below fair); one per fixture",
     "rule_version": "narrow-63-flagged-v2"
   },
@@ -178,8 +178,8 @@
     "version": "master-10-v2",
     "size": 10,
     "n_bets": 10,
-    "value_bets": 2,
-    "below_threshold_bets": 8,
+    "value_bets": 5,
+    "below_threshold_bets": 5,
     "min_edge_for_value": 0.01,
     "rule": "the run's evaluated candidates that passed the data checks (a candidate may fail only on price); one per match: value bets (edge >= 1% vs their fair reference) first, safest first; then below-value-threshold bets (edge under 1%, possibly still positive) closest to fair price first; first 10 matches; fewer only when fewer matches qualify",
     "probability_basis": "no-loss probability labelled by its source: cagey-corrected fit (c-cagey), market-implied fit B (whenever usable), else the Pinnacle fair win share (half lines and over 1.5 only); none -> ranked last"
@@ -204,12 +204,7 @@
       "PrimeiraLiga",
       "SuperLig"
     ],
-    "excluded_leagues": {
-      "UEL": {
-        "status": "TRAINING_UNVERIFIED",
-        "reason": "Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {\"declared_rows\": 135, \"eligibility\": \"CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout semantics unverified\", \"fixture_download_completed_rows\": 54, \"last_updated_at\": \"2026-11-05T12:00:16+00:00\", \"latest_result\": \"2026-11-04\", \"league_phase_rows\": 55, \"missing_against_fixture_download\": 0, \"production_eligible\": false, \"score_conflicts\": [], \"total_rows\": 135, \"unclassified_rows_quarantined\": 80, \"unverified_identities\": [[\"2026-11-04\", \"rennes\", \"olympiacos\"]], \"upstream\": \"api-football\", \"verification_sources\": [\"Cornerflick\", \"Fixture Download\"], \"verified_for_research\": false}"
-      }
-    },
+    "excluded_leagues": {},
     "forecast_leagues": [
       "EPL",
       "LaLiga",
@@ -217,6 +212,7 @@
       "SerieA",
       "Ligue1",
       "UCL",
+      "UEL",
       "Eredivisie",
       "PrimeiraLiga",
       "SuperLig"
