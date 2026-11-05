@@ -77,7 +77,8 @@ TIER_RULES = (TIER_RULE_VALUE, TIER_RULE_NARROW)
 # Value-tier selection rules. A run records the rule it used; runs that record none used VALUE_RULE_ONE.
 VALUE_RULE_ONE = 'one-per-fixture-v1'
 VALUE_RULE_PER_MARKET = 'per-market-v2'
-VALUE_RULES = (VALUE_RULE_ONE, VALUE_RULE_PER_MARKET)
+VALUE_RULE_PROFIT = 'team-research-profit-v1'
+VALUE_RULES = (VALUE_RULE_ONE, VALUE_RULE_PER_MARKET, VALUE_RULE_PROFIT)
 # Quote timing rules. skew-5min-v1 (runs that record none): a quote may be stamped up to 5 minutes after the
 # evaluation clock (the shared freshness allowance for provider clock skew). observed-by-cutoff-v2: every quote a
 # decision uses must be stamped at or before the evaluation clock, which live runs read after fetching the odds;
@@ -420,7 +421,7 @@ def record_monitoring(summary: Dict[str, object], records: List[Mapping], raw: P
 def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optional[list] = None, cost=0.0,
                    policy: Optional[Mapping] = None):
     quintiles = nm.load_quintiles(model) if monitor is not None and model is not None else None
-    per_market = value_rule(settings) == VALUE_RULE_PER_MARKET
+    per_market = value_rule(settings) in (VALUE_RULE_PER_MARKET, VALUE_RULE_PROFIT)
     strict = timing_rule(settings) == TIMING_RULE_CUTOFF
 
     def transform(row, items, pin, fit, fit_info, now) -> List[Dict[str, object]]:
@@ -753,7 +754,7 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     policy = load_policy() if execution_policy is None else validate_policy(dict(execution_policy))
     cost = policy['per_stake_cost_bps'] / 10000 if execution_version == EXECUTION_VERSION else 0.0
     switched_on = settings['cagey_correction_enabled'] or settings['cagey_tier_enabled']
-    per_market = value_rule(settings) == VALUE_RULE_PER_MARKET
+    per_market = value_rule(settings) in (VALUE_RULE_PER_MARKET, VALUE_RULE_PROFIT)
     group = dict(group_column='value_market_group') if per_market else {}
     groups = VALUE_GROUP_COLUMNS if per_market else []
     if not switched_on:
@@ -772,6 +773,14 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
             extra_columns=[*VALUE_COLUMNS, *tier_columns(tier_rule(settings)), *groups,
                            *(EXECUTION_COLUMNS if execution_version == EXECUTION_VERSION else [])],
             cutoff=timing_rule(settings) == TIMING_RULE_CUTOFF, **group)
+    if value_rule(settings) == VALUE_RULE_PROFIT:
+        from profit_shortlist import COLUMNS as PROFIT_COLUMNS, annotate, select
+        from performance_tracking import fixture_key
+        roster = {fixture_key(r): r for r in predictions.astype(object).where(predictions.notna(), None).to_dict('records')}
+        records = [annotate(roster[fixture_key(item)], item, pd.Timestamp(summary['generated_at_utc']), cost)
+                   for item in decisions.to_dict('records')]
+        decisions = pd.DataFrame(records, columns=list(dict.fromkeys([*decisions.columns, *PROFIT_COLUMNS])))
+        selected, decisions = select(decisions)
     for frame in (selected, decisions):
         if 'selection_policy_version' in frame:
             frame['selection_policy_version'] = POLICY
@@ -813,4 +822,19 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     if timing_rule(settings) != TIMING_RULE_SKEW:
         # Recorded so replays reproduce it; skew-5min-v1 runs record nothing, exactly as before.
         summary['quote_timing_rule'] = timing_rule(settings)
+    if value_rule(settings) == VALUE_RULE_PROFIT:
+        from profit_shortlist import BASIS
+        rejected = decisions.loc[decisions.decision.eq('REJECTED'), 'rejection_reasons']
+        reasons = pd.Series([r for text in rejected for r in str(text).split('; ') if r]).value_counts()
+        summary.update(value_rule=VALUE_RULE_PROFIT, selection_objective='TEAM_RESEARCH_PROFIT_PROBABILITY',
+            probability_basis=BASIS, min_edge=None, min_edge_derived=None,
+            min_edge_by_market_group={}, n_shortlisted=len(selected), n_strict_qualified=len(selected),
+            n_total_candidates=len(selected), n_markets_evaluated=len(decisions),
+            status='QUALIFIED' if len(selected) else 'NO BET',
+            ev_required_for_selection=False, ranking_metric='probability of positive net return descending',
+            selection_method='Highest positive-return probability per fixture and market group; expected return then odds break ties; no cap',
+            value_market_group_counts={k: int(selected.value_market_group.eq(k).sum()) for k in MARKET_GROUPS},
+            rejection_counts={str(k): int(v) for k, v in reasons.items()},
+            research_missing_policy='eligible with visible coverage warnings',
+            research_rule='ten recent games weighted newest first; venue splits; verified xG if supplied; Poisson goal rates; context evidence shown separately')
     return selected, decisions, summary

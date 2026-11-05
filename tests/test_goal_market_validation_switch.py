@@ -40,6 +40,11 @@ class PipelineTests(OfflineQuotePolicyTestCase):
         from test_conservative_bet_filter import fixture
         frame = pd.DataFrame([fixture()])
         outputs = {}
+        import team_research
+        from functools import partial
+        fixed = partial(team_research.enrich, clock=lambda: T0)
+        self.addCleanup(patch.stopall)
+        patch('team_research.enrich', side_effect=fixed).start()
         for flag in ([], ['--goal-market-validation']):
             with tempfile.TemporaryDirectory() as path:
                 raw = Path(path)/'raw'

@@ -125,6 +125,13 @@ def settlement_kelly(probabilities: Mapping[str, float], odds: float, cost: floa
 
 def conservative_settlement(row: Mapping, *, tier='value') -> dict:
     """Calibration-penalised settlement distribution for one shortlist row."""
+    if tier == 'value' and row.get('value_probability_basis') == 'team_form_poisson_v1':
+        mapping = {'full_win': 'win', 'half_win': 'half_win', 'refund': 'push',
+                   'half_loss': 'half_loss', 'full_loss': 'loss'}
+        probs = {key: _number(row.get('research_p_' + suffix)) for key, suffix in mapping.items()}
+        if any(v is None or not 0 <= v <= 1 for v in probs.values()) or abs(sum(probs.values())-1) > 1e-6:
+            raise UnavailableDistribution('Unavailable team research settlement distribution')
+        return probs
     if row.get('selection_policy_version') == CAGEY_POLICY:
         # The list and fair reference choose the source, never availability.
         prefix = settlement_basis(row, tier).removesuffix('_matrix')
@@ -191,7 +198,7 @@ def stake_recommendations(
         out['shortlist_tier'] = tier
         if record.get('selection_policy_version') == CAGEY_POLICY:
             out['staking_version'] = 'fractional-kelly-v28-reference-v2'
-            out['probability_basis'] = settlement_basis(record, tier)
+            out['probability_basis'] = ('team_form_poisson_v1' if tier == 'value' and record.get('value_probability_basis') == 'team_form_poisson_v1' else settlement_basis(record, tier))
         try:
             odds = _number(record.get('offered_decimal_odds'))
             cost = _number(record.get('per_stake_cost')) or 0.0
