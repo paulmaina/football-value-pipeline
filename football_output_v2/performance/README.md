@@ -210,7 +210,7 @@ recorded reliability-adjusted chance; small buckets are unstable.
 
 ## Result-source problems
 
-No provider errors detected.
+- UEL: Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {"declared_rows": 152, "eligibility": "CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout 
 
 Accuracy is not calibration or profit. Simulated ROI assumes
 one unit staked separately on each settled selection with recorded
@@ -235,13 +235,13 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-11-04 | 575 | 1 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-04 | 715 | 1 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 89, "exchange_quotes": 0, "missing_quote_age": 89, "quote_age_over_24h": 0, "costs_recorded": 89, "bookmakers": {"Pinnacle": 49, "1xBet": 40}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 89, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 89, "exchange_quotes": 0, "missing_quote_age": 89, "quote_age_over_24h": 0, "costs_recorded": 89, "bookmakers": {"Pinnacle": 49, "1xBet": 40}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 20, "upcoming_kickoff_count": 69, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 No forward model trials are generated or captured. The benchmark-forward and totals-anchor trials are archived (archive/); their frozen reports stay readable.
 
-Dependency versions at review: {"python": "3.12.15", "numpy": "2.5.4", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.16", "numpy": "2.5.4", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 

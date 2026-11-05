@@ -6,24 +6,24 @@
         "covered_selections": 37,
         "mean_fair_close_ev": -0.019197941154740654,
         "mean_same_book_offered_price_clv": 0.019371207678824987,
-        "missing_selections": 51,
-        "pending_selections": 150,
+        "missing_selections": 118,
+        "pending_selections": 83,
         "positive_fair_close_ev": 11
       },
       "bet365": {
         "covered_selections": 0,
         "mean_fair_close_ev": null,
         "mean_same_book_offered_price_clv": null,
-        "missing_selections": 88,
-        "pending_selections": 150,
+        "missing_selections": 155,
+        "pending_selections": 83,
         "positive_fair_close_ev": 0
       },
       "pinnacle": {
         "covered_selections": 61,
         "mean_fair_close_ev": -0.02316353241764813,
         "mean_same_book_offered_price_clv": 0.015574437835711533,
-        "missing_selections": 27,
-        "pending_selections": 150,
+        "missing_selections": 94,
+        "pending_selections": 83,
         "positive_fair_close_ev": 13
       }
     },
@@ -31,16 +31,16 @@
     "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
     "observations": 400,
     "rejected_files": [],
-    "reviewed_at_utc": "2026-11-05T16:51:14.646283+00:00",
+    "reviewed_at_utc": "2026-11-05T22:09:51.197641+00:00",
     "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
     "version": "local-closing-quotes-v4"
   },
   "dependencies": {
-    "PyYAML": "6.0.3",
-    "coverage": "7.17.2",
+    "PyYAML": "NOT_INSTALLED",
+    "coverage": "NOT_INSTALLED",
     "numpy": "2.5.4",
     "pandas": "3.1.1",
-    "python": "3.12.15",
+    "python": "3.12.16",
     "python-dotenv": "1.2.4",
     "rapidfuzz": "3.14.6",
     "requests": "2.34.2",
@@ -66,10 +66,10 @@
   "experiment_capture_counts": {},
   "experimental_reports": {},
   "forecast_freshness": {
-    "age_hours": 0.014440656666666668,
+    "age_hours": 5.324593811666667,
     "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
     "status": "WITHIN_24_HOURS",
-    "upcoming_fixture_count": 80
+    "upcoming_fixture_count": 63
   },
   "quote_audit": {
     "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
@@ -80,20 +80,20 @@
     "costs_recorded": 89,
     "exchange_quotes": 0,
     "missing_quote_age": 89,
-    "past_kickoff_count": 0,
+    "past_kickoff_count": 20,
     "quote_age_over_24h": 0,
     "selected_quotes": 89,
     "unknown_kickoff_count": 0,
-    "upcoming_kickoff_count": 89
+    "upcoming_kickoff_count": 69
   },
   "review_queue": {
     "automatic_promotion": false,
     "experiments": [],
     "note": "Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.",
-    "reviewed_at_utc": "2026-11-05T16:51:14.646283+00:00",
+    "reviewed_at_utc": "2026-11-05T22:09:51.197641+00:00",
     "version": "experiment-review-queue-v1"
   },
-  "reviewed_at_utc": "2026-11-05T16:51:14.646283+00:00",
+  "reviewed_at_utc": "2026-11-05T22:09:51.197641+00:00",
   "selection_policy_groups": {
     "48h-ah-price-edge-cagey-v28": {
       "brier": 0.250846,
@@ -34900,11 +34900,11 @@
       "current_source_health": {
         "added_matches": 0,
         "cache_hash_verified": true,
-        "checked_at_utc": "2026-11-05T16:49:06.611629+00:00",
+        "checked_at_utc": "2026-11-05T22:09:30.730474+00:00",
         "completed_matches": 72,
         "corrected_scores": 0,
         "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-        "download_age_hours": 0.03556518166666666,
+        "download_age_hours": 0.005685324166666667,
         "download_status": "VERIFIED_LIVE",
         "latest_completed_date": "2026-11-04",
         "latest_completed_utc": "2026-11-04T20:00:00+00:00",
@@ -34966,7 +34966,7 @@
           }
         },
         "status": "VERIFIED_WITHIN_24_HOURS",
-        "verified_at_utc": "2026-11-05T16:51:14.646283+00:00"
+        "verified_at_utc": "2026-11-05T15:54:25.582981+00:00"
       },
       "days_since_latest_result": 1,
       "diagnostics_sha256": "c8f7828ff33bc9a8f8ed3b0a1d6f9bcd01dc5481a52050bf4146ebb57f0ff0b5",
