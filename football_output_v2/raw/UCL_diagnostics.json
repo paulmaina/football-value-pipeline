@@ -8,8 +8,8 @@
     "2025",
     "2026"
   ],
-  "training_sha256": "6b2acbf3a64e2dd0b9fea7efbabbbc2aacd2e0341bed5f1549ca6041768eeb15",
-  "training_as_of_utc": "2026-11-05T13:36:45.705645+00:00",
+  "training_sha256": "1b12f3d6ddfa81d709e03cb88061a3af4dd94c4fb5fe0669ab61585137433bb8",
+  "training_as_of_utc": "2026-11-05T16:17:11.758614+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 72,
     "bbs_added_results": 0,
@@ -33,9 +33,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-05T13:36:45.705645+00:00",
-    "observations": 430,
-    "observations_sha256": "1b7c96a4a7437da22bce50070e8b2e46d4eef976adf93e658c1ade04f6bf2c93",
+    "cutoff_utc": "2026-11-05T16:17:11.758614+00:00",
+    "observations": 448,
+    "observations_sha256": "61ae6af2820a12fb521a00c3f44a993bfe7b8b8f741ef912692f0e0157b7ef9a",
     "eligible_training_matches": 26,
     "required_training_matches": 120,
     "feature_fields": [
@@ -69,7 +69,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:29.957146+00:00",
-    "retrospective_inputs_sha256": "80a030f679c505ca3d51fe301da25d4f9b7f5ca8ae77236e21fd075f67c69da6",
+    "retrospective_inputs_sha256": "ce4b7d2cd4750a1a553058f5691ed812eb821136a824b439f8e0e437957911ec",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -107,9 +107,9 @@
   },
   "training_end": "2026-11-04",
   "fit_success": true,
-  "objective": 864.4696730979286,
-  "base": 0.22447313268644253,
-  "home_adv": 0.29205738170639545,
+  "objective": 864.3308485039083,
+  "base": 0.22442289099937218,
+  "home_adv": 0.2920774950358542,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -135,7 +135,7 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-11-05T13:36:45.705645+00:00",
+    "checked_at_utc": "2026-11-05T16:17:11.758614+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
@@ -157,9 +157,9 @@
   "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 7,
+  "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261105T133645705645Z_2bd0c31c27523ed0889259fbd6e435e55f9985d3f1cef96df4c423e39dc7c19f.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261105T161711758614Z_ea3dda2fec1597c36c5532e1baabfe2895b8afdb10186622fcf1e5828108ae33.json",
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }
