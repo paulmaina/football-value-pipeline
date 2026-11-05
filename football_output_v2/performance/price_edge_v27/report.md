@@ -1,6 +1,6 @@
 # v27/v28 price-edge tracking
 
-Reviewed 2026-11-05T15:58:05.722870+00:00. Frozen v27 picks: 120.
+Reviewed 2026-11-05T16:17:57.826456+00:00. Frozen v27 picks: 120.
 
 **Mean CLV vs Pinnacle close:** +4.15% ± 3.47% (n=5). **Flat-stake profit per bet:** -26.00% ± 83.83% (n=4).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -221,12 +221,12 @@ Return at the capture fair price, all tagged lines: +3.99% ± 13.78% (n=172); pl
 
 Forward monitoring of cagey-correction-monitoring-v1 started 2026-11-03T13:58:25Z (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
 
-Fixtures: eligible 51, pending 36, graded 15, excluded 44.
+Fixtures: eligible 51, pending 36, graded 15, excluded 48.
 
 | excluded because | fixtures |
 |---|---:|
 | no usable market-implied fit (missing input: over_2_5) | 28 |
-| no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 16 |
+| no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 20 |
 
 | quintile | n | 2+ actual | 2+ corrected | 2+ uncorrected | 3+ actual | 3+ corrected | 3+ uncorrected |
 |---|---:|---:|---:|---:|---:|---:|---:|
