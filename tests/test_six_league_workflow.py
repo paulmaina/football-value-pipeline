@@ -23,10 +23,14 @@ from workflow_checks import raw_check,report_check
 
 class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
     def test_all_leagues_both_experiments_readable_outputs_and_forward_grading(self):
+        import team_research
+        fixed = partial(team_research.enrich, clock=lambda: NOW)
+        self.addCleanup(patch.stopall)
+        patch('team_research.enrich', side_effect=fixed).start()
         keys=list(LEAGUES);frames={};records=[]
         for i,key in enumerate(keys):
             cfg=LEAGUES[key];row=fixture(i,kickoff=NOW+timedelta(days=1))
-            row.update(p_under_3_5=.99, raw_p_under_3_5=.98, league=cfg.name,odds_event_id='event'+str(i),fixture_id='event'+str(i),
+            row.update(lambda_home=1.8, lambda_away=.5, p_under_3_5=.99, raw_p_under_3_5=.98, league=cfg.name,odds_event_id='event'+str(i),fixture_id='event'+str(i),
                        home_training_matches=12, away_training_matches=12, market_best_over_1_5_last_update_utc=NOW.isoformat())
             row.update(best_home_bookmaker='Pinnacle',best_away_bookmaker='Pinnacle',best_over_1_5_bookmaker='Pinnacle')
             # v27: Pinnacle 1X2 is the fair reference; 1xBet's home price is 3.8% above it.
@@ -80,7 +84,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 # The draw and 12 are never picks; over 1.5 is eligible under the per-market value rule only.
                 for excluded in ('Draw','Double Chance 12'):
                     self.assertNotIn(excluded,summary['eligible_markets'])
-                self.assertEqual(summary.get('value_rule'), 'per-market-v2')
+                self.assertEqual(summary.get('value_rule'), 'team-research-profit-v1')
                 # The pipeline writes the master shortlist beside the other lists and records it in the summary.
                 master = pd.read_csv(raw/'master_shortlist.csv')
                 self.assertEqual(summary['master_shortlist']['n_bets'], len(master))

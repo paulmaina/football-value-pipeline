@@ -128,6 +128,10 @@ class CheckTests(OfflineQuotePolicyTestCase):
         self.assertEqual(api.calls, [])
 
     def test_check_refreshes_quotes_reranks_and_publishes_without_refit(self):
+        import price_edge_cagey_shortlist as v28
+        historical = {**v28.load_settings(), 'value_rule': v28.VALUE_RULE_PER_MARKET}
+        self.addCleanup(patch.stopall)
+        patch.object(v28, 'load_settings', return_value=historical).start()
         base = forecast(offers=[*ah_pair(-0.75, 1.95, 1.95)])
         self.write([base])
         fresh = pd.DataFrame([event(base, asian_handicap_offers=json.dumps([offer('home', -0.75, 2.10)]),
