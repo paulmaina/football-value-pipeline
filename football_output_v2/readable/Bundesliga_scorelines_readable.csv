@@ -1,21 +1,161 @@
 ﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,1,1-1,12.71%,0.12713836093451414
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,2,2-1,8.50%,0.08497430968687611
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,3,1-2,8.22%,0.0822461957793074
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,4,1-0,7.52%,0.07518824446371306
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,5,0-1,7.25%,0.07247668191605647
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,6,0-0,6.78%,0.06784689542751338
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,7,2-0,6.09%,0.06088875918194849
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,8,2-2,5.93%,0.0592936479883286
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,9,0-2,5.70%,0.057041832891608205
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,10,3-1,4.08%,0.04084028251101588
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,11,1-3,3.83%,0.03826001057564807
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,12,3-0,2.93%,0.029264305128212764
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,13,3-2,2.85%,0.02849766410430832
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,14,2-3,2.76%,0.027582742005350776
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,15,0-3,2.65%,0.02653522280280789
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,16,4-1,1.47%,0.014721467126880286
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,17,1-4,1.33%,0.013348596813917845
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,18,3-3,1.33%,0.013256794672154553
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,19,4-0,1.05%,0.01054873961314481
-2026-11-06,Bundesliga,Hamburger SV,Borussia Mönchengladbach,20,4-2,1.03%,0.010272392831545468
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,1,1-1,12.14%,0.12142515112848232
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,2,2-1,8.68%,0.0867711037415496
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,3,1-2,8.02%,0.0801959740125309
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,4,1-0,6.67%,0.06668347884018043
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,5,2-2,6.47%,0.0646556745779693
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,6,0-1,6.14%,0.06135697819775182
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,7,2-0,5.82%,0.05819661226030566
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,8,0-0,5.79%,0.05785274130259428
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,9,0-2,5.20%,0.05204743951979542
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,10,3-1,4.46%,0.044566349756419835
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,11,1-3,3.99%,0.03985737835031033
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,12,3-2,3.32%,0.03322419646009288
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,13,2-3,3.07%,0.030706614080154668
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,14,3-0,2.99%,0.029890256834310663
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,15,0-3,2.59%,0.025867563984960602
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,16,4-1,1.72%,0.017167231759498355
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,17,3-3,1.65%,0.01650421044035246
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,18,1-4,1.49%,0.014856830051514437
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,19,4-2,1.28%,0.012798164619065694
+2026-11-06,Bundesliga,Hamburger SV,Borussia Monchengladbach,20,4-0,1.15%,0.01151391059016727
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,1,2-1,10.35%,0.10347596000929223
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,2,2-0,9.19%,0.0919473126383213
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,3,3-1,8.64%,0.08641003232702928
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,4,3-0,7.68%,0.07678276439036978
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,5,1-0,6.69%,0.0669090511682608
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,6,1-1,6.41%,0.06411676624473935
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,7,4-1,5.41%,0.05411904624577336
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,8,3-2,4.86%,0.048622198914309515
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,9,4-0,4.81%,0.04808943898081286
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,10,2-2,4.19%,0.041897235892167255
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,11,1-2,3.26%,0.032641421141300614
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,12,4-2,3.05%,0.03045233245204566
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,13,5-1,2.71%,0.027116028893195972
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,14,0-0,2.58%,0.025757984327983322
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,15,5-0,2.41%,0.024094929739511935
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,16,0-1,1.86%,0.018594119441544377
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,17,2-3,1.53%,0.01533783954684299
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,18,5-2,1.53%,0.01525796154804501
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,19,3-3,1.31%,0.013124695741411936
+2026-11-07,Bundesliga,Borussia Dortmund,Elversberg,20,0-2,1.30%,0.013029360510211526
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,1,1-2,9.31%,0.09307800434812846
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,2,1-3,8.37%,0.08374500288121726
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,3,0-2,7.85%,0.07853525320913808
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,4,0-3,7.07%,0.0706604643313739
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,5,1-1,5.98%,0.059798471891390675
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,6,1-4,5.65%,0.056510871365572826
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,7,0-1,5.28%,0.052768836814554715
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,8,2-3,4.96%,0.049626234231107
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,9,0-4,4.77%,0.04768146484066223
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,10,2-2,4.43%,0.04433768096699762
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,11,2-1,3.72%,0.037189510453627186
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,12,2-4,3.35%,0.03348763081386035
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,13,1-5,3.05%,0.03050669028718912
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,14,0-5,2.57%,0.02574024511007175
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,15,0-0,2.17%,0.021689342871506177
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,16,3-2,1.98%,0.019828265223748486
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,17,1-0,1.83%,0.018315971564568895
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,18,2-5,1.81%,0.01807788053879733
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,19,3-3,1.58%,0.015759628398726418
+2026-11-07,Bundesliga,FSV Mainz 05,Bayern Munich,20,3-1,1.47%,0.014692023748407165
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,1,2-1,9.87%,0.0987201128541018
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,2,2-0,9.66%,0.09655987655216372
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,3,1-1,8.08%,0.0808059823746819
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,4,1-0,7.66%,0.0766402918871794
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,5,3-1,7.63%,0.07625316621992688
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,6,3-0,7.46%,0.07458456138304372
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,7,1-2,4.64%,0.04640986810585641
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,8,2-2,4.44%,0.044370398421455876
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,9,4-1,4.42%,0.044174473598584924
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,10,4-0,4.32%,0.04320782861887647
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,11,3-2,3.90%,0.03897955053125574
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,12,0-0,3.75%,0.03751255554048973
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,13,0-1,3.20%,0.03204067144514775
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,14,4-2,2.26%,0.022581372173601462
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,15,5-1,2.05%,0.020472688172280838
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,16,0-2,2.00%,0.020027965805992736
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,17,5-0,2.00%,0.02002469593534548
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,18,2-3,1.83%,0.018324895977932208
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,19,1-3,1.58%,0.015816049690435884
+2026-11-07,Bundesliga,RB Leipzig,Augsburg,20,3-3,1.17%,0.011679742100222067
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,1,1-1,11.48%,0.11478362266570324
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,2,1-2,8.49%,0.08492289603482307
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,3,2-2,7.89%,0.07893194736131541
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,4,2-1,6.96%,0.06960822492053025
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,5,0-2,5.37%,0.05367372834843309
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,6,1-3,5.31%,0.053081846230912215
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,7,0-1,5.01%,0.050124537605379785
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,8,0-0,4.42%,0.044235088747983924
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,9,2-3,4.20%,0.04199320829308313
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,10,1-0,4.00%,0.040004330897728146
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,11,2-0,3.71%,0.037120864399853945
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,12,3-1,3.67%,0.03671151747164056
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,13,3-2,3.44%,0.03442031330162109
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,14,0-3,3.35%,0.03354926324772285
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,15,3-3,2.60%,0.026020510849930036
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,16,1-4,2.49%,0.024884476367776034
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,17,2-4,1.97%,0.01968618413968767
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,18,3-0,1.96%,0.01957761835664488
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,19,0-4,1.57%,0.015727709334233328
+2026-11-07,Bundesliga,SC Paderborn,Eintracht Frankfurt,20,4-1,1.45%,0.014521295974102648
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,1,2-1,9.54%,0.09540718718108039
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,2,1-1,8.72%,0.0871902780428853
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,3,2-0,8.06%,0.08058760690133847
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,4,3-1,7.26%,0.0726108073187516
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,5,1-0,6.40%,0.0640207896456076
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,6,3-0,6.13%,0.06133218439703424
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,7,2-2,5.46%,0.05462478029802429
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,8,1-2,5.39%,0.053907102711990826
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,9,3-2,4.30%,0.04298175086468807
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,10,4-1,4.14%,0.041446007595901495
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,11,0-0,3.63%,0.036260842855170124
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,12,4-0,3.50%,0.035008207101097095
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,13,0-1,3.27%,0.03272545048413589
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,14,4-2,2.45%,0.024533840603132347
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,15,2-3,2.43%,0.024285609156533397
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,16,0-2,2.36%,0.023610466213635908
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,17,1-3,2.13%,0.021273432465156603
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,18,5-1,1.89%,0.018925794757783
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,19,3-3,1.64%,0.016405952683290745
+2026-11-07,Bundesliga,VfB Stuttgart,Werder Bremen,20,5-0,1.60%,0.015986054649539845
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,1,1-1,10.18%,0.10181290088490774
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,2,1-2,9.68%,0.09676885136114516
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,3,0-2,8.07%,0.08066829367961399
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,4,0-1,7.23%,0.07234899013000909
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,5,1-3,6.51%,0.06514596466616096
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,6,2-1,6.13%,0.061318398975019
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,7,2-2,5.72%,0.0571710403051226
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,8,0-3,5.43%,0.05430687391461291
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,9,0-0,4.64%,0.04638246702155113
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,10,1-0,4.26%,0.04258059706251318
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,11,2-3,3.91%,0.039074212952835016
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,12,1-4,3.29%,0.03289279028780084
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,13,2-0,3.04%,0.03036110814908326
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,14,0-4,2.74%,0.027420034748326813
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,15,3-2,2.48%,0.024759704654702844
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,16,3-1,2.45%,0.024518972553965318
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,17,2-4,1.97%,0.019728925634991498
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,18,3-3,1.54%,0.015390030794657412
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,19,1-5,1.33%,0.01328629527199851
+2026-11-08,Bundesliga,1. FC Köln,Bayer Leverkusen,20,3-0,1.21%,0.012140290514085699
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,1,1-0,11.49%,0.11493490829852238
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,2,2-1,11.19%,0.11185998373056351
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,3,2-0,11.13%,0.11130783968346063
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,4,1-1,10.20%,0.1019674111155029
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,5,3-1,6.65%,0.06651311896126316
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,6,3-0,6.62%,0.06618480832269587
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,7,0-0,6.02%,0.06016667370838955
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,8,1-2,4.45%,0.04449694889670152
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,9,0-1,4.27%,0.0426798516263015
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,10,2-2,4.24%,0.042367377956242826
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,11,3-2,3.34%,0.03342152909460102
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,12,4-1,2.97%,0.029662048346604426
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,13,4-0,2.95%,0.02951563563605992
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,14,0-2,2.49%,0.024944592672730585
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,15,1-3,1.49%,0.014905892204896654
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,16,4-2,1.49%,0.014904593669691822
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,17,2-3,1.33%,0.013294799646620633
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,18,5-1,1.06%,0.010582418937577836
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,19,5-0,1.05%,0.010530183818051927
+2026-11-08,Bundesliga,SC Freiburg,Union Berlin,20,3-3,0.84%,0.008439017587303286
