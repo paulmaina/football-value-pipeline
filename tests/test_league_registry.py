@@ -198,6 +198,9 @@ class ScheduledForecastTests(OfflineQuotePolicyTestCase):
                     path.write_text(league.key)
                     expected.add(path)
             (cache/'oddsapi_events_EPL.json').write_text('temporary odds response')
+            research = cache/'match_research'/'response.json'
+            research.parent.mkdir()
+            research.write_text('raw HTTP cache')
             found = set(scheduled.training_files(work))
             self.assertEqual(found, expected)
             self.assertIn(cache/'europa/training.json', found)
@@ -218,3 +221,4 @@ class ScheduledForecastTests(OfflineQuotePolicyTestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

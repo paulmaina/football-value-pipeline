@@ -52,7 +52,7 @@ class PipelineTests(OfflineQuotePolicyTestCase):
                            return_value=(frame, {'training_end': '2026-09-20', 'training_matches': 1000,
                                                  'training_sha256': 'a'*64}, {})),                      patch('football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league',
                            return_value=(pd.DataFrame(), pd.DataFrame(), {}, pd.DataFrame())) as backtest,                      patch('count_markets.validate_league', return_value={}) as counts:
-                    self.assertEqual(pipeline.main(['--leagues', 'EPL', '--no-legacy-comparison', *flag,
+                    self.assertEqual(pipeline.main(['--no-research-free-sources', '--leagues', 'EPL', '--no-legacy-comparison', *flag,
                                                     '--out-dir', str(raw)]), 0)
                 bundle = runs.resolve_raw(raw)
                 validated = bool(flag)
