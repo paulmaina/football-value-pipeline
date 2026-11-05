@@ -1,1 +1,11 @@
 ﻿Rank,Kickoff (UTC),League,Home,Away,Market to bet,Market group,Bookmaker,Price,Fair odds,Edge,Value price from (1% edge),No-loss probability,No-loss basis,Price flag (value / below value threshold),Reference,P(narrow: draw or 1-goal win),On value shortlist,On cagey tier
+1,2026-11-06T20:00:00+00:00,La Liga,Sevilla,Alavés,Asian Handicap Home +0.00,Asian handicap,1xBet,1.47,1.45,+1.1%,1.47,77.3%,market-implied fit B,value,b: Pinnacle equivalent market,70.9%,no,no
+2,2026-11-07T14:30:00+00:00,Bundesliga,SC Paderborn,Eintracht Frankfurt,Asian Handicap Away +0.00,Asian handicap,1xBet,1.72,1.69,+1.7%,1.71,69.2%,market-implied fit B,value,b: Pinnacle equivalent market,59.4%,no,no
+3,2026-11-05T17:45:00+00:00,UEFA Europa League,Real Sociedad,Lyon,Asian Handicap Away +1.50,Asian handicap,1xBet,1.57,1.53,+2.7%,1.54,63.6%,market-implied fit B,value,a: Pinnacle same AH line,57.3%,no,no
+4,2026-11-07T15:15:00+00:00,La Liga,Espanyol,Deportivo La Coruña,Asian Handicap Away +0.00,Asian handicap,1xBet,2.42,2.40,+1.0%,2.42,58.6%,market-implied fit B,value,a: Pinnacle same AH line,70.5%,no,no
+5,2026-11-05T17:45:00+00:00,UEFA Europa League,Crystal Palace,TSG Hoffenheim,Home win,Match winner,1xBet,1.87,1.84,+1.7%,1.86,54.2%,market-implied fit B,value,a: Pinnacle same AH line,58.3%,no,no
+6,2026-11-06T19:00:00+00:00,Eredivisie,Willem II,FC Zwolle,Away win,Match winner,1xBet,2.42,2.39,+1.4%,2.41,41.7%,market-implied fit B,value,a: Pinnacle same AH line,62.3%,no,no
+7,2026-11-05T17:45:00+00:00,UEFA Europa League,Sparta Prague,Bournemouth,Asian Handicap Home +1.50,Asian handicap,1xBet,1.64,1.63,+0.9%,1.64,59.3%,market-implied fit B,below value threshold,a: Pinnacle same AH line,56.7%,no,no
+8,2026-11-07T15:00:00+00:00,Premier League,Fulham,Newcastle United,Asian Handicap Home +0.00,Asian handicap,1xBet,1.62,1.61,+0.8%,1.62,72.0%,market-implied fit B,below value threshold,b: Pinnacle equivalent market,63.3%,no,no
+9,2026-11-05T17:45:00+00:00,UEFA Europa League,NEC Nijmegen,Omonoia FC,Home win,Match winner,1xBet,1.79,1.78,+0.7%,1.80,55.8%,market-implied fit B,below value threshold,a: Pinnacle same AH line,60.4%,no,no
+10,2026-11-07T14:00:00+00:00,Serie A,Torino,Lecce,Home win,Match winner,1xBet,1.87,1.86,+0.4%,1.88,53.4%,market-implied fit B,below value threshold,a: Pinnacle same AH line,66.0%,yes,no
