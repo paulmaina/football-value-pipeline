@@ -19,8 +19,8 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 73 | 53-17 | 72.6% | +4.5% |
 
-Unsettled / unverified entries: **16**.
-Whole-fixture 1X2 multiclass Brier (n=282): 0.5503
+Unsettled / unverified entries: **53**.
+Whole-fixture 1X2 multiclass Brier (n=284): 0.5525
 
 ## First-prediction reference — historical comparison
 
@@ -64,7 +64,7 @@ Whole-fixture 1X2 multiclass Brier (n=282): 0.5503
 | 2026-11-03T13:58:02.173298+00:00 | 2 | 2-0 | 100.0% | +48.0% |
 | 2026-11-04T09:31:03.622249+00:00 | 0 | 0-0 | — | — |
 | 2026-11-04T10:20:33.895771+00:00 | 1 | 0-1 | 0.0% | -100.0% |
-| 2026-11-04T19:40:50.340029+00:00 | 0 | 0-0 | — | — |
+| 2026-11-05T12:32:00.598966+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -208,7 +208,7 @@ recorded reliability-adjusted chance; small buckets are unstable.
 
 ## Result-source problems
 
-- UEL: Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {"declared_rows": 135, "eligibility": "CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout 
+No provider errors detected.
 
 Accuracy is not calibration or profit. Simulated ROI assumes
 one unit staked separately on each settled selection with recorded
@@ -230,10 +230,9 @@ A missing, ambiguous or unverified result is **never called a win**.
 | PrimeiraLiga | 2026-11-02 | 1620 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SerieA | 2026-11-02 | 2000 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SuperLig | 2026-11-02 | 1840 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-11-03 | 566 | 2 | REFRESH_OVERDUE |
-| UEL | 2026-10-22 | 714 | 14 | STALE |
+| UCL | 2026-11-04 | 575 | 1 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 
-Latest shortlist audit: {"selected_quotes": 1, "exchange_quotes": 0, "missing_quote_age": 1, "quote_age_over_24h": 0, "costs_recorded": 1, "bookmakers": {"1xBet": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 1, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 38, "exchange_quotes": 0, "missing_quote_age": 38, "quote_age_over_24h": 0, "costs_recorded": 38, "bookmakers": {"1xBet": 21, "Pinnacle": 17}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 38, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 

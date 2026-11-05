@@ -2192,6 +2192,19 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "EL:dbd674d47c85cd4db5a0": {
+    "away_goals": 0,
+    "away_team": "olympiacos",
+    "first_verified_at_utc": "2026-11-05T12:32:42Z",
+    "home_goals": 0,
+    "home_team": "rennes",
+    "kickoff_utc": "2026-11-04T15:30:00+00:00",
+    "league_code": "EL",
+    "match_id": "dbd674d47c85cd4db5a0",
+    "source": "Cornerflick + Fixture Download",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "EL:ddc3c638be7e60bb85e5": {
     "away_goals": 4,
     "away_team": "leverkusen",
