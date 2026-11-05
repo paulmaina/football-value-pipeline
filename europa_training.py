@@ -3,7 +3,7 @@
 Raw provider extracts stay local. A single atomic snapshot binds records,
 provenance and refresh time; failed reconciliation never replaces that snapshot.
 """
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import hashlib
 import json
 from pathlib import Path
@@ -20,6 +20,7 @@ from scripts.europa_research import (audit_cornerflick, identity, reconcile,
                                     require_unique, team_resolver)
 
 ROOT = Path(__file__).resolve().parent
+MAX_FALLBACK_AGE = timedelta(days=10)
 
 
 def resolver():
@@ -130,7 +131,7 @@ def load(cache_dir, now=None, *, refresh_if_stale=True, force_refresh=False):
         try:
             payload = refresh(cache_dir, now)
         except (ValueError, OSError, requests.RequestException) as exc:
-            if cached is None:
+            if cached is None or now-stamp > MAX_FALLBACK_AGE:
                 raise
             refresh_error = type(exc).__name__ + (': ' + str(exc).splitlines()[0][:200] if isinstance(exc, ValueError) else '')
             warnings.warn('Europa live refresh failed; using last verified local training snapshot: ' + refresh_error,

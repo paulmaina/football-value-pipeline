@@ -157,6 +157,30 @@ class CachedTrainingResearchTests(OfflineQuotePolicyTestCase):
             with patch.object(et, 'load', side_effect=AssertionError('preflight must be reused')):
                 self.assertEqual(len(pipe._history_for_league(LEAGUES['UEL'], EURO_NOW)), 30)
 
+    def test_europa_fallback_age_boundary_and_expired_snapshot_exclusion(self):
+        for age in (et.MAX_FALLBACK_AGE, et.MAX_FALLBACK_AGE+timedelta(seconds=1)):
+            with self.subTest(age=age), tempfile.TemporaryDirectory() as tmp:
+                old = snapshot()
+                old['verified_at_utc'] = (EURO_NOW-age).isoformat()
+                path = Path(tmp)/'europa/training.json'; path.parent.mkdir()
+                encoded = json.dumps(old); path.write_text(encoded)
+                failure = ValueError('refresh sources disagree')
+                with patch.object(et, 'refresh', side_effect=failure):
+                    if age <= et.MAX_FALLBACK_AGE:
+                        with self.assertWarns(RuntimeWarning):
+                            keys, status = et.forecast_availability(['EPL', 'UEL'], tmp, EURO_NOW)
+                        self.assertEqual(keys, ['EPL', 'UEL'])
+                        self.assertEqual(status['training_warnings']['UEL']['verified_at_utc'], old['verified_at_utc'])
+                    else:
+                        keys, status = et.forecast_availability(['EPL', 'UEL'], tmp, EURO_NOW)
+                        self.assertEqual(keys, ['EPL'])
+                        self.assertEqual(status['excluded_leagues']['UEL']['status'], 'TRAINING_UNVERIFIED')
+                        self.assertEqual(status['excluded_leagues']['UEL']['reason'], str(failure))
+                        with self.assertRaises(ValueError) as raised:
+                            et.load(tmp, EURO_NOW)
+                        self.assertIs(raised.exception, failure)
+                self.assertEqual(path.read_text(), encoded)
+
     def test_corrupt_or_future_verified_cache_does_not_bypass_exclusion(self):
         for issue in ('future', 'score', 'duplicate', 'self_match', 'missing_team'):
             with self.subTest(issue=issue), tempfile.TemporaryDirectory() as tmp:
