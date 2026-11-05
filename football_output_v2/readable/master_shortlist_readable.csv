@@ -1,11 +1,1 @@
 ﻿Rank,Kickoff (UTC),League,Home,Away,Market to bet,Market group,Bookmaker,Price,Fair odds,Edge,Value price from (1% edge),No-loss probability,No-loss basis,Price flag (value / below value threshold),Reference,P(narrow: draw or 1-goal win),On value shortlist,On cagey tier
-1,2026-11-05T20:00:00+00:00,UEFA Europa League,AZ Alkmaar,Juventus,Asian Handicap Away +0.00,Asian handicap,1xBet,1.49,1.46,+2.2%,1.47,76.6%,market-implied fit B,value,a: Pinnacle same AH line,65.3%,no,no
-2,2026-11-05T17:45:00+00:00,UEFA Europa League,Real Sociedad,Lyon,Home win,Match winner,1xBet,1.67,1.64,+1.6%,1.66,60.6%,market-implied fit B,value,a: Pinnacle same AH line,55.9%,yes,no
-3,2026-11-06T20:00:00+00:00,La Liga,Sevilla,Alavés,Home win,Match winner,1xBet,2.05,2.01,+2.0%,2.03,49.7%,market-implied fit B,value,a: Pinnacle same AH line,70.9%,yes,no
-4,2026-11-05T20:00:00+00:00,UEFA Europa League,Sunderland,Dinamo Zagreb,Asian Handicap Home -1.50,Asian handicap,1xBet,2.27,2.25,+1.0%,2.27,44.3%,market-implied fit B,value,a: Pinnacle same AH line,55.1%,no,no
-5,2026-11-06T19:00:00+00:00,Eredivisie,Willem II,FC Zwolle,Away win,Match winner,1xBet,2.42,2.39,+1.4%,2.41,41.7%,market-implied fit B,value,a: Pinnacle same AH line,62.3%,yes,no
-6,2026-11-05T17:45:00+00:00,UEFA Europa League,Crystal Palace,TSG Hoffenheim,Home win,Match winner,1xBet,1.90,1.88,+0.9%,1.90,52.9%,market-implied fit B,below value threshold,a: Pinnacle same AH line,57.7%,yes,no
-7,2026-11-07T12:30:00+00:00,Premier League,Leeds United,Tottenham Hotspur,Asian Handicap Away +0.00,Asian handicap,1xBet,2.00,1.99,+0.3%,2.01,64.3%,market-implied fit B,below value threshold,b: Pinnacle equivalent market,69.2%,no,no
-8,2026-11-05T17:45:00+00:00,UEFA Europa League,Sparta Prague,Bournemouth,Asian Handicap Away -1.50,Asian handicap,1xBet,2.19,2.20,-0.3%,2.22,45.5%,market-implied fit B,below value threshold,a: Pinnacle same AH line,53.1%,no,no
-9,2026-11-05T17:45:00+00:00,UEFA Europa League,NEC Nijmegen,Omonoia FC,Home win,Match winner,1xBet,1.79,1.80,-0.7%,1.82,55.3%,market-implied fit B,below value threshold,a: Pinnacle same AH line,60.8%,yes,no
-10,2026-11-05T20:00:00+00:00,UEFA Europa League,Hapoel Be'er Sheva,OFI Crete,Asian Handicap Away +0.00,Asian handicap,1xBet,2.51,2.53,-0.7%,2.55,55.9%,market-implied fit B,below value threshold,b: Pinnacle equivalent market,65.9%,no,no

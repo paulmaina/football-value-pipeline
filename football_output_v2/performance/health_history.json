@@ -21076,7 +21076,7 @@
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 400,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-11-05T15:58:05.722870+00:00",
+        "reviewed_at_utc": "2026-11-05T16:17:57.826456+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
@@ -21110,34 +21110,31 @@
       },
       "experiment_capture_counts": {},
       "forecast_freshness": {
-        "age_hours": 2.34094065,
-        "generated_at_utc": "2026-11-05T13:37:38.336530+00:00",
+        "age_hours": 0.0027226855555555554,
+        "generated_at_utc": "2026-11-05T16:17:48.024788+00:00",
         "status": "WITHIN_24_HOURS",
-        "upcoming_fixture_count": 60
+        "upcoming_fixture_count": 32
       },
       "quote_audit": {
         "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
-        "bookmakers": {
-          "1xBet": 49,
-          "Pinnacle": 66
-        },
-        "costs_recorded": 115,
+        "bookmakers": {},
+        "costs_recorded": 0,
         "exchange_quotes": 0,
-        "missing_quote_age": 115,
+        "missing_quote_age": 0,
         "past_kickoff_count": 0,
         "quote_age_over_24h": 0,
-        "selected_quotes": 115,
+        "selected_quotes": 0,
         "unknown_kickoff_count": 0,
-        "upcoming_kickoff_count": 115
+        "upcoming_kickoff_count": 0
       },
       "review_queue": {
         "automatic_promotion": false,
         "experiments": [],
         "note": "Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-11-05T15:58:05.722870+00:00",
+        "reviewed_at_utc": "2026-11-05T16:17:57.826456+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-11-05T15:58:05.722870+00:00",
+      "reviewed_at_utc": "2026-11-05T16:17:57.826456+00:00",
       "selection_policy_groups": {
         "48h-ah-price-edge-cagey-v28": {
           "brier": 0.250846,
@@ -21355,7 +21352,7 @@
             "usage": "supplementary_cached_observations"
           },
           "bbs_statistics_model": {
-            "cutoff_utc": "2026-11-05T13:33:35.017473+00:00",
+            "cutoff_utc": "2026-11-05T16:14:48.615892+00:00",
             "eligible_training_matches": 84,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -21387,11 +21384,11 @@
             "max_form_matches": 8,
             "max_goal_rate_ratio": 1.25,
             "minimum_team_matches": 3,
-            "observations": 409,
-            "observations_sha256": "8854068cc055d5834e5fc899e9c0017f55af39edc70799b735d70a84a86c9420",
+            "observations": 416,
+            "observations_sha256": "91f23680ed1446cd230e90bc5e605decba7de0db10fe0c7ca8f00f6c389f8a69",
             "required_training_matches": 120,
             "retrospective_eligible_training_matches": 84,
-            "retrospective_inputs_sha256": "e16127c25c5c339405940fbf757bda96bd6dc7da54933740f733b123431bd62f",
+            "retrospective_inputs_sha256": "8027abac6d7b568c9fa4f84916d00ce57861bd11f0fd5faea914c7bc7430cc4f",
             "retrospective_publication_delay_hours": 24,
             "selected_weight": 0.0,
             "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
@@ -21401,16 +21398,43 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261105T133335017473Z_fa8fcbae1c6e0ddf92a1747d9737c56d4d27e7764edf4b055035148335a9642f.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261105T161448615892Z_4dfacd623268671b4c6cdd0d075ca3858190f0687b4e4d9bc8f93a655ddc48d5.json",
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "150a0adb6affa9bc9579b3a3d0ba7f040fcccfc331bc0a377e32a5132294b087",
+          "diagnostics_sha256": "25769b82a20c0d662f0895db82aa9f8d318a656c91b4e599c540f93c44b1842e",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-01"
           },
           "odds_provider_health": {
-            "state": "NOT_RECORDED"
+            "attempts": [
+              {
+                "credential": "THE_ODDS_API_KEY",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 1,
+                "x-requests-used": 499
+              }
+            ],
+            "blocked_utc_day": "2026-11-05",
+            "state": "CREDITS_EXHAUSTED"
           },
           "training_end": "2026-11-01",
           "training_matches": 1604
@@ -21431,7 +21455,7 @@
           "bbs_statistics_model": {
             "audit_matches": 40,
             "audit_origin_utc": "2025-11-02T00:00:00+00:00",
-            "cutoff_utc": "2026-11-05T13:30:52.436797+00:00",
+            "cutoff_utc": "2026-11-05T16:12:23.986829+00:00",
             "eligible_training_matches": 297,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -21463,12 +21487,12 @@
             "max_form_matches": 8,
             "max_goal_rate_ratio": 1.25,
             "minimum_team_matches": 3,
-            "observations": 642,
-            "observations_sha256": "a74496bfcfd3037993920b5bf282167ffb16f3b640390b628049004d45ef0edb",
+            "observations": 650,
+            "observations_sha256": "3dc591f411d36f8cce1b2362e77cb4a29f185e94186b10ae47840f84884fd01e",
             "paired_audit_matches": 12,
             "required_training_matches": 120,
             "retrospective_eligible_training_matches": 297,
-            "retrospective_inputs_sha256": "bb420e73fb62ceaa6d23f7532df48dcd3a7b8d7256ad31a4600ea2866a27ccd5",
+            "retrospective_inputs_sha256": "66fb519fa7ba1665d75fa25be5af8e06aae001911c821c926b48ca2f135f5a24",
             "retrospective_publication_delay_hours": 24,
             "selected_weight": 0.0,
             "status": "INSUFFICIENT_PAIRED_AUDIT",
@@ -21514,16 +21538,43 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261105T133052436797Z_694117c5a1070177ef3ed63c463bbdaf309e3ff7e28c990a254cab03a9670b54.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261105T161223986829Z_702fd656130a82e0a8d3fc42e95ac6d82d5c71715e4b38d9daa4a986c973a815.json",
           "days_since_latest_result": 3,
-          "diagnostics_sha256": "319192e4bcc1d6b0805a5d732b3787190a3a449079d4514c6de37d62926de3e2",
+          "diagnostics_sha256": "9eef6ece747e02a0f858032bbaaee0107b3888d3f919c5cc43a8476adc1a3f6b",
           "forecast_training_health": {
             "days_since_latest_result": 3,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-02"
           },
           "odds_provider_health": {
-            "state": "NOT_RECORDED"
+            "attempts": [
+              {
+                "credential": "THE_ODDS_API_KEY",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 1,
+                "x-requests-used": 499
+              }
+            ],
+            "blocked_utc_day": "2026-11-05",
+            "state": "CREDITS_EXHAUSTED"
           },
           "training_end": "2026-11-02",
           "training_matches": 1990
@@ -21537,14 +21588,41 @@
           },
           "bbs_statistics_model_artifact": null,
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "fe2110581f1eaaf9606177db82d7f2ce458bfbb56a7b82886348587f526902d2",
+          "diagnostics_sha256": "d1d8414fd989bb1448c85354ee6525b95d37097467704d612ac596429ae9d32b",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-01"
           },
           "odds_provider_health": {
-            "state": "NOT_RECORDED"
+            "attempts": [
+              {
+                "credential": "THE_ODDS_API_KEY",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 1,
+                "x-requests-used": 499
+              }
+            ],
+            "blocked_utc_day": "2026-11-05",
+            "state": "CREDITS_EXHAUSTED"
           },
           "training_end": "2026-11-01",
           "training_matches": 1629
@@ -21588,7 +21666,7 @@
             "audit_matchdays": 17,
             "audit_matches": 40,
             "audit_origin_utc": "2026-10-09T00:00:00+00:00",
-            "cutoff_utc": "2026-11-05T13:32:13.282064+00:00",
+            "cutoff_utc": "2026-11-05T16:13:52.263713+00:00",
             "eligible_training_matches": 176,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -21620,13 +21698,13 @@
             "max_form_matches": 8,
             "max_goal_rate_ratio": 1.25,
             "minimum_team_matches": 3,
-            "observations": 583,
-            "observations_sha256": "bd1b3a519db09934def0ee8a93db1e19ca3c6d977ffd04005cb961e04e46a3dd",
+            "observations": 590,
+            "observations_sha256": "209e30dc9bdbb139d2b3e3cee2eb73bb0d03c884ff52a341ec8bfd00f495a18e",
             "paired_audit_matches": 40,
             "proposed_weight": 0.3,
             "required_training_matches": 120,
             "retrospective_eligible_training_matches": 176,
-            "retrospective_inputs_sha256": "835e29ace60a9700f5989f01a4aa8ff703a7a15ee1bb5e477446b1fa6f2cfecf",
+            "retrospective_inputs_sha256": "7c6f1b4c5cbd9ff2f2094c518add55ffe33c55f8eccd0e8f6bdec59fd3143743",
             "retrospective_publication_delay_hours": 24,
             "selected_ridge": 1.0,
             "selected_weight": 0.0,
@@ -21673,16 +21751,43 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261105T133213282064Z_dbf96f819426472aa72326fa3b02d2159fafd4f7915d3cd939461fb77a1fa37f.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261105T161352263713Z_7a8d2bfee8190b63dc02b681b1b2d5504d65e86bb3984c5008dffcc8f70b386b.json",
           "days_since_latest_result": 3,
-          "diagnostics_sha256": "420a995a76e0e332971d3bed2668834c5900c44d80ed551c9bd84f536969dd2e",
+          "diagnostics_sha256": "5e3981b9e1bd56a71da2d75073b036c8e9e988081a77d77a33d92c17b92b4f65",
           "forecast_training_health": {
             "days_since_latest_result": 3,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-02"
           },
           "odds_provider_health": {
-            "state": "NOT_RECORDED"
+            "attempts": [
+              {
+                "credential": "THE_ODDS_API_KEY",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 1,
+                "x-requests-used": 499
+              }
+            ],
+            "blocked_utc_day": "2026-11-05",
+            "state": "CREDITS_EXHAUSTED"
           },
           "training_end": "2026-11-02",
           "training_matches": 2009
@@ -21703,7 +21808,7 @@
           "bbs_statistics_model": {
             "audit_matches": 43,
             "audit_origin_utc": "2025-10-05T00:00:00+00:00",
-            "cutoff_utc": "2026-11-05T13:35:50.710885+00:00",
+            "cutoff_utc": "2026-11-05T16:16:26.417824+00:00",
             "eligible_training_matches": 186,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -21735,11 +21840,11 @@
             "max_form_matches": 8,
             "max_goal_rate_ratio": 1.25,
             "minimum_team_matches": 3,
-            "observations": 514,
-            "observations_sha256": "cd8a9ee495a2993a68a29a1ab182f0496a0ed8ce5889bf97708c3da8db9d5940",
+            "observations": 519,
+            "observations_sha256": "09b43855723986c152174c7192f211cb1392e9bbac8dd5825656ed47f8834ff7",
             "required_training_matches": 120,
             "retrospective_eligible_training_matches": 186,
-            "retrospective_inputs_sha256": "608386dfd0aa877d2c75d41b6593ca8164fbfef0decec13dec5d64515dfb66b9",
+            "retrospective_inputs_sha256": "06a1f681686c8f3d51c6b57bb667afee75b8eb0993b69eaa4c9987b68b43cf8a",
             "retrospective_publication_delay_hours": 24,
             "selected_weight": 0.0,
             "status": "INSUFFICIENT_CHRONOLOGICAL_PARTITIONS",
@@ -21752,16 +21857,43 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261105T133550710885Z_61c697e43bb5f73e854f069f0b2d66b236c01b604c97f2b6400d3eb9f794d0d8.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261105T161626417824Z_05b57736df1208ef3f5a8929cb8b01f5a1d393f7471b86e76dc7fef7490205c8.json",
           "days_since_latest_result": 3,
-          "diagnostics_sha256": "5c3094556b74575a464e4869a5be6d24e50656fd936dd58524a855fc8f5bbfef",
+          "diagnostics_sha256": "02e3d05c4763f56756bd9244b5a5b747f2eedbe29f4c2c90723d2854c393b91b",
           "forecast_training_health": {
             "days_since_latest_result": 3,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-02"
           },
           "odds_provider_health": {
-            "state": "NOT_RECORDED"
+            "attempts": [
+              {
+                "credential": "THE_ODDS_API_KEY",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 1,
+                "x-requests-used": 499
+              }
+            ],
+            "blocked_utc_day": "2026-11-05",
+            "state": "CREDITS_EXHAUSTED"
           },
           "training_end": "2026-11-02",
           "training_matches": 1761
@@ -21775,14 +21907,41 @@
           },
           "bbs_statistics_model_artifact": null,
           "days_since_latest_result": 3,
-          "diagnostics_sha256": "2d31db781e7d8633b25f1a067aae59ef34f547fbcb8198df053225bedbd593c0",
+          "diagnostics_sha256": "c3de63c410d35174aaa9758baa9bad3dabba73a7b12c1a1eef876a1156310eeb",
           "forecast_training_health": {
             "days_since_latest_result": 3,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-02"
           },
           "odds_provider_health": {
-            "state": "NOT_RECORDED"
+            "attempts": [
+              {
+                "credential": "THE_ODDS_API_KEY",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 1,
+                "x-requests-used": 499
+              }
+            ],
+            "blocked_utc_day": "2026-11-05",
+            "state": "CREDITS_EXHAUSTED"
           },
           "training_end": "2026-11-02",
           "training_matches": 1620
@@ -21803,7 +21962,7 @@
           "bbs_statistics_model": {
             "audit_matches": 41,
             "audit_origin_utc": "2026-10-11T00:00:00+00:00",
-            "cutoff_utc": "2026-11-05T13:34:25.291682+00:00",
+            "cutoff_utc": "2026-11-05T16:15:24.543573+00:00",
             "eligible_training_matches": 251,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -21835,12 +21994,12 @@
             "max_form_matches": 8,
             "max_goal_rate_ratio": 1.25,
             "minimum_team_matches": 3,
-            "observations": 695,
-            "observations_sha256": "13377d2c377d012ea62a498d6a4cdfd527fc649cf2fabe7d3a6866654d8a9903",
+            "observations": 703,
+            "observations_sha256": "2b9193dd56cb6f4de9850978e2014818fa0dba99f740f2f5a3e62ecb80f4e362",
             "paired_audit_matches": 24,
             "required_training_matches": 120,
             "retrospective_eligible_training_matches": 251,
-            "retrospective_inputs_sha256": "3cfe277da88929df0bcfc8e0be5de15bf2b494e5848ae22e0064e69194622fea",
+            "retrospective_inputs_sha256": "2fa41f0735261bb518b6f6f9cf54ad244735806f99644b34b814bf61fc50baf6",
             "retrospective_publication_delay_hours": 24,
             "selected_weight": 0.0,
             "status": "INSUFFICIENT_PAIRED_AUDIT",
@@ -21886,16 +22045,43 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261105T133425291682Z_eedac8a9c6a3ab36497966dfd5eb3cbfc4e928e851e1260ea9bb24af2d1b058e.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261105T161524543573Z_5a4c901cb93e4ccf917d1235be59e199ac3673322bf733dad75902bf92fc7686.json",
           "days_since_latest_result": 3,
-          "diagnostics_sha256": "d1ea57d1e1fe799cf0464aeb25181ddd0ffdae6fb7f7e84625b9b74e54d300a4",
+          "diagnostics_sha256": "fd69f0048e990ce347e24cd751ac00cce20a855aee26d33c2a8ea53e32d54bbb",
           "forecast_training_health": {
             "days_since_latest_result": 3,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-02"
           },
           "odds_provider_health": {
-            "state": "NOT_RECORDED"
+            "attempts": [
+              {
+                "credential": "THE_ODDS_API_KEY",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 1,
+                "x-requests-used": 499
+              }
+            ],
+            "blocked_utc_day": "2026-11-05",
+            "state": "CREDITS_EXHAUSTED"
           },
           "training_end": "2026-11-02",
           "training_matches": 2000
@@ -21909,7 +22095,7 @@
           },
           "bbs_statistics_model_artifact": null,
           "days_since_latest_result": 3,
-          "diagnostics_sha256": "e6982054a7061e7f647b819f0b020c075b1ca637c77fd2786558508dcc7f1292",
+          "diagnostics_sha256": "1426b2bbe401afbfe3f15e9167c41d0bb190f0b9b31fa6b784a384b4faaaf27e",
           "forecast_training_health": {
             "days_since_latest_result": 3,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -21935,7 +22121,7 @@
             "usage": "supplementary_cached_observations"
           },
           "bbs_statistics_model": {
-            "cutoff_utc": "2026-11-05T13:36:45.705645+00:00",
+            "cutoff_utc": "2026-11-05T16:17:11.758614+00:00",
             "eligible_training_matches": 26,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -21967,11 +22153,11 @@
             "max_form_matches": 8,
             "max_goal_rate_ratio": 1.25,
             "minimum_team_matches": 3,
-            "observations": 430,
-            "observations_sha256": "1b7c96a4a7437da22bce50070e8b2e46d4eef976adf93e658c1ade04f6bf2c93",
+            "observations": 448,
+            "observations_sha256": "61ae6af2820a12fb521a00c3f44a993bfe7b8b8f741ef912692f0e0157b7ef9a",
             "required_training_matches": 120,
             "retrospective_eligible_training_matches": 26,
-            "retrospective_inputs_sha256": "80a030f679c505ca3d51fe301da25d4f9b7f5ca8ae77236e21fd075f67c69da6",
+            "retrospective_inputs_sha256": "ce4b7d2cd4750a1a553058f5691ed812eb821136a824b439f8e0e437957911ec",
             "retrospective_publication_delay_hours": 24,
             "selected_weight": 0.0,
             "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
@@ -21981,15 +22167,15 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261105T133645705645Z_2bd0c31c27523ed0889259fbd6e435e55f9985d3f1cef96df4c423e39dc7c19f.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261105T161711758614Z_ea3dda2fec1597c36c5532e1baabfe2895b8afdb10186622fcf1e5828108ae33.json",
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-05T13:36:45.705645+00:00",
+            "checked_at_utc": "2026-11-05T16:17:11.758614+00:00",
             "completed_matches": 72,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 2.3555603402777776,
+            "download_age_hours": 0.012796622777777777,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-11-04",
             "latest_completed_utc": "2026-11-04T20:00:00+00:00",
@@ -22004,11 +22190,11 @@
             "training_end": "2026-11-04"
           },
           "days_since_latest_result": 1,
-          "diagnostics_sha256": "b21bb4be63cf4b274fd5864a9a3a53de7a5112f5ae7a6daafdfb585dd275e927",
+          "diagnostics_sha256": "cffa3af479dfeb5f1ad69d64d7a921ebe9cd8d383b2e2d3ce09d7d732efd18ac",
           "forecast_training_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-05T13:36:45.705645+00:00",
+            "checked_at_utc": "2026-11-05T16:17:11.758614+00:00",
             "completed_matches": 72,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
@@ -22051,10 +22237,10 @@
               }
             },
             "status": "VERIFIED_WITHIN_24_HOURS",
-            "verified_at_utc": "2026-11-05T15:58:05.722870+00:00"
+            "verified_at_utc": "2026-11-05T16:17:57.826456+00:00"
           },
           "days_since_latest_result": 1,
-          "diagnostics_sha256": "f87f4f42ae4623b15960ff74cce9922fc774cd4507e21cb5b0746fc4995f134b",
+          "diagnostics_sha256": "a83974ca6b371416fc7e60211f151674f1edee1d1c9e102d265366dc0be9af26",
           "forecast_training_health": {
             "official_source_health": {
               "2025": {
@@ -22063,12 +22249,40 @@
                 "status": "REVIEWED_HISTORICAL_FACTS"
               }
             },
+            "refresh_warning": null,
             "status": "VERIFIED_WITHIN_24_HOURS",
             "training_end": "2026-11-04",
-            "verified_at_utc": "2026-11-05T13:30:51.153971+00:00"
+            "verified_at_utc": "2026-11-05T15:54:25.582981+00:00"
           },
           "odds_provider_health": {
-            "state": "NOT_RECORDED"
+            "attempts": [
+              {
+                "credential": "THE_ODDS_API_KEY",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 0,
+                "x-requests-used": 500
+              },
+              {
+                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
+                "error_code": "OUT_OF_USAGE_CREDITS",
+                "http_status": 401,
+                "x-requests-last": 0,
+                "x-requests-remaining": 1,
+                "x-requests-used": 499
+              }
+            ],
+            "blocked_utc_day": "2026-11-05",
+            "state": "CREDITS_EXHAUSTED"
           },
           "training_end": "2026-11-04",
           "training_matches": 715
