@@ -1,7 +1,10 @@
 # Current rule: local training plus free research
 
 `local-research-profit-115-200-dc12-v2` is the current main-shortlist rule.
-It replaces `team-research-profit-v1` for new generations. Old summaries retain
+It replaces `per-market-v2` in the live configuration and supersedes
+`team-research-profit-v1` for new generations. Its probability basis
+`team_form_poisson_v1` is unvalidated; `research_backtest.py` results are still
+pending. Passing software tests does not demonstrate prediction accuracy. Old summaries retain
 and replay their recorded rules, prices and selection behavior.
 
 - Offered decimal odds must be strictly greater than 1.15 and at most 2.00.
@@ -24,6 +27,8 @@ observations. UCL can now use validated local season JSON without a live API key
 with a key, current-season refresh is still attempted and failure retains cache.
 UEL preflight retains a structurally valid, previously verified local snapshot
 when live reconciliation fails, without moving its verification timestamp.
+Failed-refresh fallback requires verification no more than ten days before the
+evaluation time. Older snapshots are excluded as `TRAINING_UNVERIFIED`.
 Corrupt, future-verified, duplicate or invalid-score caches are not fallbacks.
 Unknown teams and Europa teams below six prior appearances still cannot qualify.
 Result grading continues to require corroborated results; fallback training does
