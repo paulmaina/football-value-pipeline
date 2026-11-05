@@ -103,7 +103,7 @@ class SwitchTests(OfflineQuotePolicyTestCase):
         settings = v28.load_settings()
         self.assertEqual(settings, {'cagey_correction_enabled': True, 'cagey_tier_enabled': True,
                                     'model_version': nm.PRODUCTION_VERSION, 'cagey_tier_rule': v28.TIER_RULE_NARROW,
-                                    'value_rule': v28.VALUE_RULE_PER_MARKET,
+                                    'value_rule': v28.VALUE_RULE_PROFIT,
                                     'quote_timing_rule': v28.TIMING_RULE_CUTOFF})
         self.assertEqual(PRODUCTION_POLICY, v28.POLICY)
         self.assertIn(v27.POLICY, POLICIES)
@@ -361,7 +361,7 @@ class CageyTierTests(OfflineQuotePolicyTestCase):
             process_conservative_shortlist(raw, out)
             report = (out / 'conservative_bet_shortlist_report.md').read_text(encoding='utf-8')
             tier = pd.read_csv(out / 'cagey_tier_shortlist_readable.csv')
-        self.assertIn('price edge vs Pinnacle (v28)', report)
+        self.assertIn('## Cagey tier', report)
         self.assertIn('## Cagey tier (separate list', report)
         self.assertEqual(len(tier), 1)
         for column in ('Full win', 'Half win', 'Push', 'Half loss', 'Full loss', 'Profit probability',

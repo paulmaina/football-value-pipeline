@@ -119,7 +119,7 @@ def raw_check(root, *, raw_dir=None):
         require(summary.get('target_distinct_matches') == target, 'Balanced shortlist target differs from policy')
         require(len(picks) <= target, f'Balanced shortlist exceeds {target} fixtures')
     value_per_market = (policy_version == price_edge_cagey_shortlist.POLICY
-                  and summary.get('value_rule') == price_edge_cagey_shortlist.VALUE_RULE_PER_MARKET)
+                  and summary.get('value_rule') in (price_edge_cagey_shortlist.VALUE_RULE_PER_MARKET, price_edge_cagey_shortlist.VALUE_RULE_PROFIT))
     for row in picks:
         key=fixture_key(row);require(key in keys, 'Selection without matching forecast')
         # A per-market value run picks once per fixture AND market group; every other policy once per fixture.

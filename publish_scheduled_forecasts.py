@@ -17,6 +17,7 @@ def training_files(work):
     training = [p for league in league_registry.REGISTRY for pattern in league.cache_globs()
                 for p in sorted(cache.glob(pattern)) if p.is_file()]
     training += list((cache/'bbs/feature_models').glob('*/*.json'))
+    training += list((cache/'match_research').glob('*.json'))
     status = work/'docs/ucl_training_refresh_status.json'
     if status.exists(): training.append(status)
     return training
@@ -32,7 +33,7 @@ def publish(repo,attempts=3,runner=None):
                 # No legacy companion: its only readers were the archived forward trials.
                 runner([sys.executable,'football_value_pipeline_v2_standalone.py','--leagues',*league_registry.keys(),
                     '--additional-odds-coverage','all','--api-key-source','environment',
-                    '--no-legacy-comparison'],cwd=work,check=True)
+                    '--no-legacy-comparison','--research-free-sources'],cwd=work,check=True)
                 runner([sys.executable,'workflow_checks.py','raw'],cwd=work,check=True)
                 runner([sys.executable,'format_football_output.py'],cwd=work,check=True)
                 # Narrow-margin report: read-only over raw/, written to readable/ (committed with the review).

@@ -1414,6 +1414,48 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
         if per_market:
             readable["Market group"] = raw["value_market_group"].map(lambda v: GROUP_NAMES.get(v, v))
         readable["Reference"] = raw["reference_type"].map(lambda v: f"{v}: {REFERENCES.get(v, v)}")
+    profit_rule = summary.get('value_rule') == v28.VALUE_RULE_PROFIT
+    if profit_rule:
+        from team_research import decode
+        def form_text(value):
+            parts = []
+            for side, forms in decode(value).items():
+                for venue, data in forms.items():
+                    if data.get('matches'):
+                        parts.append(f"{side} {venue}: {data['matches']} matches {data.get('results', '')}; "
+                                     f"GF {data['goals_for']:.2f}, GA {data['goals_against']:.2f}"
+                                     + (f"; xG {data['xg_for']:.2f}, xGA {data['xg_against']:.2f}"
+                                        if 'xg_for' in data else ''))
+            return '; '.join(parts) or 'Recent form unavailable'
+        def details_text(value):
+            data = decode(value)
+            parts = [n['headline'] + ' (' + n['url'] + ')' for n in data.get('news', [])]
+            if data.get('weather'):
+                parts.append('Kickoff weather: ' + str(data['weather']))
+            for side, rest in data.get('rest_and_travel', {}).items():
+                parts.append(f"{side}: {rest['days_between_kickoffs']:.1f} days between scheduled kickoffs")
+            for category in ('availability', 'lineups'):
+                if data.get(category):
+                    parts.append(category + ': provider report available; confirmation status unverified (see source)')
+            return '; '.join(parts) or 'No additional verified context'
+    if profit_rule:
+        readable = pd.DataFrame({
+            'Kickoff (UTC)': raw.kickoff_utc, 'League': raw.league, 'Home': raw.home_team, 'Away': raw.away_team,
+            'Market to bet': raw.market_to_bet, 'Market group': raw.value_market_group.map(GROUP_NAMES),
+            'Bookmaker': raw.bookmaker, 'Price': raw.offered_decimal_odds.map(decimal),
+            'Chance of positive return': raw.profit_probability.map(pct),
+            'Expected return after cost': raw.profit_expected_return.map(signed_pct),
+            'Price assessment': raw.profit_price_flag, 'Model fair odds after cost': raw.profit_model_fair_odds.map(decimal),
+            'Model price edge': raw.profit_model_edge.map(signed_pct),
+            'Probability basis': raw.research_probability_basis,
+            'Coverage': raw.research_coverage.map(lambda v: '; '.join(decode(v))), 'Coverage warnings': raw.research_warnings,
+            'Recent form and venue splits': raw.research_summary.map(form_text),
+            'Research details': raw.research_details.map(details_text),
+            'Research sources': raw.research_sources.map(lambda v: '; '.join(
+                f"{r.get('url')} [{r.get('status')}, {r.get('observed_at_utc')}]"
+                for r in (json.loads(v) if isinstance(v, str) and v else []))),
+            'Offered quote age (min)': raw.offered_quote_age_minutes.map(lambda v: decimal(v, 0)),
+        })
     readable.to_csv(output_dir / "conservative_bet_shortlist_readable.csv", index=False, encoding="utf-8-sig")
     rejected = summary.get("rejection_counts") or {}
     lines = [
@@ -1443,7 +1485,20 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
         markdown_table(["Reason", "Candidates"], [[k, v] for k, v in rejected.items()]) if rejected else "None.", "",
         f"Tagged candidates: {summary.get('tagged_candidates')}.",
     ]
-    if summary.get('cagey_correction_enabled'):
+    if profit_rule:
+        lines = ['# Main shortlist: team research and chance of positive return', '',
+                 f"Generated (UTC): {summary.get('generated_at_utc')}. Picks: {len(readable)}.", '',
+                 'One pick per fixture and market group. Highest probability of a positive net return first; '
+                 'expected return then offered odds break ties. Pushes are not wins. No minimum edge or forced quota.', '',
+                 'Recent ten-match form is weighted newest first, with home/away splits and supplied xG. '
+                 'Form is shrunk toward the fitted team goal rates with a ten-match prior. '
+                 'Qualitative news is evidence for review, without unvalidated probability adjustments. '
+                 'Missing research stays visible and does not exclude a match. Model probabilities are unvalidated estimates.', '',
+                 markdown_table(list(readable.columns), readable.astype(str).values.tolist()) if len(readable)
+                 else 'No candidate had a usable offered quote and team goal distribution.', '',
+                 '## Rejections by reason', '',
+                 markdown_table(['Reason', 'Candidates'], [[k, v] for k, v in rejected.items()]) if rejected else 'None.']
+    if summary.get('cagey_correction_enabled') and not profit_rule:
         lines[5:5] = [f"**Cagey correction (v28):** derived plus lines (+1 or more) are priced from the cagey-corrected "
                       f"matrix (c-cagey). Picks that qualified only because of the correction: "
                       f"{summary.get('correction_only_value_picks', 0)}."]
@@ -1581,7 +1636,7 @@ def process_conservative_shortlist(
 
     summary = load_json_file(input_dir / "conservative_bet_summary.json")
     from price_edge_shortlist import OBJECTIVE as PRICE_EDGE_OBJECTIVE
-    if summary.get('selection_objective') == PRICE_EDGE_OBJECTIVE:
+    if summary.get('selection_objective') in (PRICE_EDGE_OBJECTIVE, 'TEAM_RESEARCH_PROFIT_PROBABILITY'):
         return process_price_edge_shortlist(raw, summary, output_dir, input_dir)
     balanced = summary.get('selection_objective') == 'BALANCED_PROBABILITY_EV'
     per_market = summary.get('selection_objective') == 'PER_MARKET_PROBABILITY_WEIGHTED'

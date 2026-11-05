@@ -118,6 +118,10 @@ def pool(decisions: pd.DataFrame, version: str = VERSION) -> pd.DataFrame:
     if decisions is None or decisions.empty:
         return pd.DataFrame()
     frame = decisions.copy()
+    # Master keeps its existing price-edge pool while the main shortlist can
+    # independently qualify by team-research profit probability.
+    if 'price_edge_rejection_reasons' in frame:
+        frame['rejection_reasons'] = frame['price_edge_rejection_reasons']
     price, edge = _number(frame.get('offered_decimal_odds')), _number(frame.get('edge'))
     reasons = frame.get('rejection_reasons', pd.Series('', index=frame.index)).map(_reasons)
     usable = price.notna() & edge.notna() & frame.get('reference_type').notna() & reasons.map(price_only)

@@ -3253,8 +3253,16 @@ class FootballValuePipelineV2(FootballValuePipeline):
             if hasattr(self, '_totals_shadow_inputs'):
                 self._totals_shadow_inputs[(home, away, str(row.get('kickoff_utc')))] = {'lambda_home': meta['lambda_home'], 'lambda_away': meta['lambda_away'], 'rho': float(model.rho), 'max_goals': matrix.shape[0]-1, 'score_engine_version': meta.get('score_engine_version'), 'reference': row.get('shadow_pinnacle_totals')}
         pred = prediction_from_matrix(model, matrix, meta)
+        # Archive the complete final grid, after blending and totals anchoring.
+        # Diagnostic consumers must never reconstruct it from raw lambdas/top scores.
+        pred['score_matrix_json'] = json.dumps(matrix.tolist(), separators=(',', ':'), allow_nan=False)
+        pred['score_matrix_version'] = 'published-score-matrix-v1'
         pred['goal_margin_distribution'] = margins(matrix)
         pred['raw_goal_margin_distribution'] = raw_margins
+        from team_research import form_history
+        pred['research_history_json'] = json.dumps(form_history(
+            getattr(self, '_validation_history', None), home, away,
+            model.training_as_of or pd.Timestamp.now(tz='UTC')), sort_keys=True)
         pred["raw_p_home"] = raw_x12["home"]
         pred["raw_p_draw"] = raw_x12["draw"]
         pred["raw_p_away"] = raw_x12["away"]
@@ -4011,6 +4019,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--goal-market-validation", action="store_true",
                    help=("Run goal-market walk-forward and count-market validation even when the "
                          "selection policy does not use it (the production policy declares whether it does)."))
+    p.add_argument('--research-free-sources', action='store_true',
+                   help='Fetch missing pre-match context from cached, timestamped free public sources')
     p.add_argument("--no-legacy-comparison", action="store_true",
                    help=(f"Skip the side-by-side {LEGACY_MODEL_VERSION} columns (legacy_*) and their "
                          "half-life tuning. Scheduled runs pass it; the columns were read only by the "
@@ -4479,6 +4489,12 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         all_predictions.to_csv(
             out_dir / "all_leagues_predictions.csv", index=False
         )
+
+    from team_research import enrich
+    all_predictions = enrich(all_predictions, args.cache_dir,
+                             fetch=getattr(args, 'research_free_sources', False))
+    if combined:
+        all_predictions.to_csv(out_dir / 'all_leagues_predictions.csv', index=False)
 
     monitoring = []
     shortlist, decisions, selection_summary = build_conservative_shortlist(
