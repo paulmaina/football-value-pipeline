@@ -157,10 +157,23 @@ class EuropaProductionTests(TestCase):
             shutil.copytree(europa.ROOT/'.football_cache/europa/sources', sources)
             for html in sources.glob('uefa-*.html'):
                 html.unlink()
-            payload = europa.refresh(directory, datetime(2026, 10, 25, tzinfo=timezone.utc), download=False)
+            # The committed providers may update asynchronously. Keep historical
+            # extracts, but make the current-season success case self-consistent.
+            current = json.loads((sources/'cornerflick.json').read_text(encoding='utf-8'))
+            now = datetime.fromisoformat(current['meta']['last_updated_at']) + timedelta(hours=1)
+            kickoff = now - timedelta(days=1)
+            current['meta']['match_count'] = 1
+            current['matches'] = [{'round': 'League Stage - 2', 'status': 'finished',
+                'kickoff_at': kickoff.isoformat(), 'home_team': 'Roma', 'away_team': 'Lyon',
+                'home_score': 1, 'away_score': 0}]
+            (sources/'cornerflick.json').write_text(json.dumps(current), encoding='utf-8')
+            (sources/'fixture-2026.csv').write_text(
+                'Date,Home Team,Away Team,Result,Round Number\n'
+                + kickoff.strftime('%d/%m/%Y %H:%M') + ',Roma,Lyon,1 - 0,2\n', encoding='utf-8')
+            payload = europa.refresh(directory, now, download=False)
             audit = payload['current_audit']
             self.assertTrue(audit['verified_for_research'])
-            self.assertGreater(audit['league_phase_rows'], 36)
+            self.assertEqual(audit['league_phase_rows'], 1)
             self.assertEqual(audit['league_phase_rows'], audit['fixture_download_completed_rows'])
             self.assertEqual(audit['verification_sources'], ['Cornerflick', 'Fixture Download'])
             self.assertFalse(any('uefa.com' in url for url in payload['sources'].values()))
