@@ -425,6 +425,17 @@ def enrich(predictions, cache, fetch=False, client=None, clock=None):
             evidence = {'errors': ['free-source schema unavailable: ' + type(exc).__name__]}
         clock = utc(client.clock()) if client else utc(datetime.now(timezone.utc))
         context = prepare(row, clock, evidence)
+        training_status = row.get('training_data_status')
+        if training_status:
+            context['coverage']['training_cache'] = str(training_status)
+        if row.get('training_refresh_warning'):
+            context['warnings'].append('training refresh unavailable; using verified local history through '
+                + str(row.get('training_cutoff')) + ': ' + str(row['training_refresh_warning']))
+        values = context.get('margin_distribution', {})
+        for key, predicate in [('home', lambda d: d > 0), ('draw', lambda d: d == 0), ('away', lambda d: d < 0)]:
+            row['research_p_' + key] = sum(p for d, p in values.items() if predicate(int(d))) if values else None
+        row['research_p_over_1_5'] = context.get('p_over_1_5')
+        row['research_probability_basis'] = 'team_form_poisson_v1'
         row['team_research_json'] = json.dumps(context, sort_keys=True, allow_nan=False)
         rows.append(row)
     return pd.DataFrame(rows)

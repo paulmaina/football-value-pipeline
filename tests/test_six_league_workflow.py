@@ -33,13 +33,13 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
             row.update(lambda_home=1.8, lambda_away=.5, p_under_3_5=.99, raw_p_under_3_5=.98, league=cfg.name,odds_event_id='event'+str(i),fixture_id='event'+str(i),
                        home_training_matches=12, away_training_matches=12, market_best_over_1_5_last_update_utc=NOW.isoformat())
             row.update(best_home_bookmaker='Pinnacle',best_away_bookmaker='Pinnacle',best_over_1_5_bookmaker='Pinnacle')
-            # v27: Pinnacle 1X2 is the fair reference; 1xBet's home price is 3.8% above it.
+            # Current researched shortlist allows below-fair prices; actual offers stay within the new upper bound.
             stamp=(NOW-timedelta(minutes=1)).isoformat()
             row['price_edge_quotes']=json.dumps([
                 {'bookmaker':'Pinnacle','market':'h2h','market_key':'h2h','point':None,'last_update_utc':stamp,
-                 'prices':{'home':2.0,'draw':3.5,'away':4.0}},
+                 'prices':{'home':1.9,'draw':3.5,'away':4.4}},
                 {'bookmaker':'1xBet','market':'h2h','market_key':'h2h','point':None,'last_update_utc':stamp,
-                 'prices':{'home':2.15,'draw':3.4,'away':3.9}}])
+                 'prices':{'home':1.95,'draw':3.4,'away':3.9}}])
             frames[key]=pd.DataFrame([row])
             match={'id':i+1,'status':'FINISHED','utcDate':row['kickoff_utc'],
                 'homeTeam':{'name':row['home_team']},'awayTeam':{'name':row['away_team']},
@@ -71,7 +71,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 requested_keys = list(keys)
                 if getattr(self, '_uel_unavailable', False):
                     keys.remove('UEL')
-                self.assertEqual(main(['--leagues',*requested_keys,'--out-dir',str(raw),'--tune-half-life']),0)
+                self.assertEqual(main(['--no-research-free-sources', '--leagues',*requested_keys,'--out-dir',str(raw),'--tune-half-life']),0)
                 self.assertEqual(raw_check(root)['forecasts'],len(keys))
                 picks = pd.read_csv(raw/'conservative_bet_shortlist.csv')
                 self.assertNotIn('Under 3.5', picks.market.tolist())
@@ -81,10 +81,11 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertEqual(summary['selection_policy_version'], '48h-ah-price-edge-cagey-v28')
                 self.assertTrue(summary['cagey_correction_enabled'] and summary['cagey_tier_enabled'])
                 self.assertTrue({'Home win','Away win','Double Chance 1X','Double Chance X2'}.issubset(summary['eligible_markets']))
-                # The draw and 12 are never picks; over 1.5 is eligible under the per-market value rule only.
-                for excluded in ('Draw','Double Chance 12'):
+                # Draw remains excluded; the researched v2 rule includes all three double chances.
+                self.assertIn('Double Chance 12', summary['eligible_markets'])
+                for excluded in ('Draw',):
                     self.assertNotIn(excluded,summary['eligible_markets'])
-                self.assertEqual(summary.get('value_rule'), 'team-research-profit-v1')
+                self.assertEqual(summary.get('value_rule'), 'local-research-profit-115-200-dc12-v2')
                 # The pipeline writes the master shortlist beside the other lists and records it in the summary.
                 master = pd.read_csv(raw/'master_shortlist.csv')
                 self.assertEqual(summary['master_shortlist']['n_bets'], len(master))

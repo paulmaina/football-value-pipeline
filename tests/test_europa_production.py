@@ -52,7 +52,10 @@ class EuropaProductionTests(TestCase):
             old = snapshot(); old['verified_at_utc'] = (NOW-timedelta(days=2)).isoformat()
             text = json.dumps(old); path.write_text(text)
             with patch('europa_training.refresh', side_effect=ValueError('sources disagree')):
-                with self.assertRaisesRegex(ValueError, 'sources disagree'): europa.load(directory, NOW)
+                with self.assertWarnsRegex(RuntimeWarning, 'last verified local'):
+                    history = europa.load(directory, NOW)
+                self.assertEqual(len(history), 30)
+                self.assertEqual(history.attrs['training_cache_status'], 'LIVE_REFRESH_FAILED_USING_VERIFIED_CACHE')
             self.assertEqual(path.read_text(), text)
 
     def test_refreshed_snapshot_used_and_future_refresh_stamp_not_trusted(self):
@@ -207,3 +210,4 @@ class EuropaForecastAvailabilityTests(TestCase):
             load.assert_not_called()
             with self.assertRaises(AssertionError):
                 europa.forecast_availability(['UEL', 'EPL'], 'cache', NOW)
+

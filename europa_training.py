@@ -11,6 +11,7 @@ import os
 import math
 import re
 import tempfile
+import warnings
 
 import pandas as pd
 import requests
@@ -85,15 +86,21 @@ def refresh(cache_dir, now=None, *, download=True, session=None):
 
 
 def frame(payload, now):
-    if payload.get('schema_version') != 1 or payload.get('score_basis') != 'REGULATION_90_MINUTES':
+    if not isinstance(payload, dict) or payload.get('schema_version') != 1 or payload.get('score_basis') != 'REGULATION_90_MINUTES':
         raise ValueError('Unrecognized Europa score basis/schema')
     rows = payload['matches']
+    if not isinstance(rows, list) or any(not isinstance(row, dict) or
+            not {'date', 'home', 'away', 'regulation', 'season'} <= row.keys() for row in rows):
+        raise ValueError('Invalid Europa training rows')
     require_unique(rows)
     result = []
     for row in rows:
+        if (any(not isinstance(row[k], str) or not row[k].strip() for k in ('home', 'away'))
+                or row['home'].strip().casefold() == row['away'].strip().casefold()):
+            raise ValueError('Invalid Europa team identities')
         stamp = pd.Timestamp(row['date'])
         score = row['regulation']
-        if stamp.tzinfo is not None or stamp.date() > now.date():
+        if pd.isna(stamp) or stamp.tzinfo is not None or stamp.date() > now.date():
             raise ValueError('Invalid or future Europa training date')
         if len(score) != 2 or any(type(g) is not int or not 0 <= g <= 30 for g in score):
             raise ValueError('Invalid Europa regulation score')
@@ -103,16 +110,41 @@ def frame(payload, now):
     return pd.DataFrame(result).sort_values('Date').reset_index(drop=True)
 
 
-def load(cache_dir, now=None, *, refresh_if_stale=True):
+def load(cache_dir, now=None, *, refresh_if_stale=True, force_refresh=False):
     now = now or datetime.now(timezone.utc)
     path = Path(cache_dir)/'europa/training.json'
-    payload = json.loads(path.read_text(encoding='utf-8')) if path.exists() else None
-    if refresh_if_stale and (payload is None or not fresh(payload, now)):
-        # Fail closed: never label an unrefreshed snapshot as current.
-        payload = refresh(cache_dir, now)
+    payload = None
+    cached = None
+    if path.exists():
+        try:
+            payload = json.loads(path.read_text(encoding='utf-8'))
+            stamp = datetime.fromisoformat(payload['verified_at_utc'])
+            if stamp.tzinfo is None or stamp > now:
+                raise ValueError('Europa verification time missing or after evaluation')
+            cached = frame(payload, now)
+        except (ValueError, KeyError, TypeError):
+            # Invalid cache is never a fallback. A successful refresh may repair it.
+            payload = None
+    refresh_error = None
+    if force_refresh or (refresh_if_stale and (payload is None or not fresh(payload, now))):
+        try:
+            payload = refresh(cache_dir, now)
+        except (ValueError, OSError, requests.RequestException) as exc:
+            if cached is None:
+                raise
+            refresh_error = type(exc).__name__ + (': ' + str(exc).splitlines()[0][:200] if isinstance(exc, ValueError) else '')
+            warnings.warn('Europa live refresh failed; using last verified local training snapshot: ' + refresh_error,
+                          RuntimeWarning)
     if payload is None: raise ValueError('Europa cache missing: run refresh_europa_training.py')
+    verified = datetime.fromisoformat(payload['verified_at_utc'])
+    if verified.tzinfo is None or verified > now:
+        raise ValueError('Europa verification time missing or after evaluation')
     result = frame(payload, now)
     result.attrs['training_seasons_requested'] = len({r['season'] for r in payload['matches']})
+    result.attrs['training_cache_status'] = ('LIVE_REFRESH_FAILED_USING_VERIFIED_CACHE' if refresh_error else
+        'VERIFIED_WITHIN_24_HOURS' if fresh(payload, now) else 'VERIFIED_CACHED_HISTORY')
+    result.attrs['training_verified_at_utc'] = payload['verified_at_utc']
+    result.attrs['training_refresh_warning'] = refresh_error
     return result
 
 
@@ -182,14 +214,21 @@ def results(cache_dir, now):
     return out
 
 
-def forecast_availability(league_keys, cache_dir, now=None):
+def forecast_availability(league_keys, cache_dir, now=None, *, histories=None):
     """Preflight Europa before spending odds credits; other model errors still fail."""
     requested = list(league_keys)
     status = {'requested_leagues': requested, 'excluded_leagues': {}}
     if 'UEL' not in requested:
         return requested, status
     try:
-        load(cache_dir, now)
+        history = load(cache_dir, now)
+        if histories is not None:
+            histories['UEL'] = history
+        if history.attrs.get('training_refresh_warning'):
+            status['training_warnings'] = {'UEL': {
+                'status': history.attrs['training_cache_status'],
+                'verified_at_utc': history.attrs['training_verified_at_utc'],
+                'reason': history.attrs['training_refresh_warning']}}
     except (ValueError, OSError, requests.RequestException) as exc:
         status['excluded_leagues']['UEL'] = {
             'status': 'TRAINING_UNVERIFIED',

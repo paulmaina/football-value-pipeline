@@ -710,6 +710,17 @@ def readable_predictions_frame(
             ),
             **safest_asian_handicap(row),
         }
+        if 'research_probability_basis' in row:
+            out.update({
+                'Research home win': pct(row.get('research_p_home')),
+                'Research draw': pct(row.get('research_p_draw')),
+                'Research away win': pct(row.get('research_p_away')),
+                'Research Over 1.5': pct(row.get('research_p_over_1_5')),
+                'Research basis': row.get('research_probability_basis'),
+                'Training status': row.get('training_data_status'),
+                'Training cutoff': row.get('training_cutoff'),
+                'Training refresh warning': row.get('training_refresh_warning'),
+            })
         rows.append(out)
 
     return pd.DataFrame(rows)
@@ -1414,7 +1425,7 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
         if per_market:
             readable["Market group"] = raw["value_market_group"].map(lambda v: GROUP_NAMES.get(v, v))
         readable["Reference"] = raw["reference_type"].map(lambda v: f"{v}: {REFERENCES.get(v, v)}")
-    profit_rule = summary.get('value_rule') == v28.VALUE_RULE_PROFIT
+    profit_rule = summary.get('value_rule') in v28.PROFIT_RULES
     if profit_rule:
         from team_research import decode
         def form_text(value):

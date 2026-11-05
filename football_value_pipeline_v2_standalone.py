@@ -1363,10 +1363,12 @@ class FootballDataOrg:
         api_key: str,
         cache_dir: str | Path = ".football_cache",
         force_refresh: bool = False,
+        cache_only: bool = False,
     ):
-        if not api_key:
+        if not api_key and not cache_only:
             raise ValueError("football-data.org API key is required")
         self.api_key = api_key
+        self.cache_only = cache_only
         self.http = CachedHttpClient(cache_dir=cache_dir)
         self.force_refresh = force_refresh
 
@@ -1376,6 +1378,8 @@ class FootballDataOrg:
         lookahead_days: int,
         now: datetime,
     ) -> pd.DataFrame:
+        if self.cache_only:
+            raise RuntimeError("Live fixtures unavailable without a football-data.org key")
         start_date = now.astimezone(timezone.utc).date()
         end_date = start_date + timedelta(days=lookahead_days)
         url = (
@@ -1458,7 +1462,10 @@ class FootballDataOrg:
 
         # One validated current-season refresh per provider instance. Filesystem
         # mtimes after git pull do not establish a successful provider download.
-        if league.key == "UCL" and getattr(self, "_ucl_refresh_year", None) != current_start:
+        if self.cache_only:
+            self.ucl_refresh_error = "API_KEY_UNAVAILABLE"
+            self.ucl_refresh_error_reason = "Using validated local history without live refresh"
+        if not self.cache_only and league.key == "UCL" and getattr(self, "_ucl_refresh_year", None) != current_start:
             from ucl_training import fetch_payload, apply_payload
             self._ucl_refresh_year = current_start
             self.ucl_refresh_error = None
@@ -1486,12 +1493,14 @@ class FootballDataOrg:
             )
             try:
                 current_path = self.http.cache_dir / f"fdorg_history_{league.key}_{start_year}.json"
-                if league.key == "UCL" and start_year == current_start:
+                if league.key == "UCL" and (start_year == current_start or current_path.exists()):
                     if not current_path.exists():
                         raise RuntimeError("No validated current-season UCL cache available")
                     payload = json.loads(current_path.read_text(encoding="utf-8-sig"))
                     from ucl_training import inspect_payload
-                    inspect_payload(payload, current_start, now)
+                    inspect_payload(payload, start_year, now)
+                elif self.cache_only:
+                    raise RuntimeError("Verified local training season unavailable")
                 else:
                     payload = self.http.get_json(
                         url,
@@ -2249,7 +2258,9 @@ class FootballValuePipeline:
             payload = json.loads((self.source.http.cache_dir/"europa/training.json").read_text())
             return {"training_end": end, "verified_at_utc": payload["verified_at_utc"],
                     "official_source_health": payload.get("official_source_health", {}),
-                    "status": "VERIFIED_WITHIN_24_HOURS" if europa_training.fresh(payload, now) else "STALE"}
+                    "status": getattr(self, '_validation_history', pd.DataFrame()).attrs.get('training_cache_status',
+                        "VERIFIED_WITHIN_24_HOURS" if europa_training.fresh(payload, now) else "STALE"),
+                    "refresh_warning": getattr(self, '_validation_history', pd.DataFrame()).attrs.get('training_refresh_warning')}
         if league.key == "UCL":
             from ucl_training import health
             data = health(self.source.http.cache_dir.resolve().parent, end, now, cache_dir=self.source.http.cache_dir)
@@ -2851,20 +2862,17 @@ class FootballValuePipelineV2(FootballValuePipeline):
         league model cannot validly estimate cross-country matchups on its own.
         """
         if league.key == "UEL":
-            from europa_training import load, refresh
-            if self.source.force_refresh and not getattr(self, "_europa_force_refreshed", False):
-                refresh(self.source.http.cache_dir, now)
-                self._europa_force_refreshed = True
-            return load(self.source.http.cache_dir, now)
+            from europa_training import load
+            cached = getattr(self, '_europa_preflight_history', None)
+            if cached is not None:
+                return cached.copy(deep=True)
+            return load(self.source.http.cache_dir, now, force_refresh=self.source.force_refresh)
         seasons_back = (self.seasons_back if league.key == "UCL" else
                         self.domestic_seasons_back or self.seasons_back)
         if league.key == "UCL":
             if self.football_data_org is None:
-                raise RuntimeError(
-                    "UCL predictions require FOOTBALL_DATA_API_KEY for "
-                    "Champions League training results. Create a football-data.org "
-                    "API token and put FOOTBALL_DATA_API_KEY in the project .env before running UCL."
-                )
+                self.football_data_org = FootballDataOrg(
+                    "", cache_dir=self.source.http.cache_dir, cache_only=True)
             history = self.football_data_org.history(
                 league,
                 seasons_back=seasons_back,
@@ -3582,6 +3590,11 @@ class FootballValuePipelineV2(FootballValuePipeline):
                 "best_over_2_5_bookmaker": row.get("live_best_over_2_5_bookmaker"),
                 "best_under_2_5_bookmaker": row.get("live_best_under_2_5_bookmaker"),
                 **pred,
+                "training_data_status": diagnostics['training_data_health']['status'],
+                "training_cutoff": diagnostics['training_end'],
+                "training_refresh_warning": diagnostics['training_data_health'].get('refresh_warning')
+                    or diagnostics['training_data_health'].get('last_refresh_error_reason')
+                    or diagnostics['training_data_health'].get('last_refresh_error'),
                 # Informational ratings on the resolved training names.
                 **fixture_features(elo, pred.get("model_home_team"), pred.get("model_away_team")),
             })
@@ -4019,8 +4032,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--goal-market-validation", action="store_true",
                    help=("Run goal-market walk-forward and count-market validation even when the "
                          "selection policy does not use it (the production policy declares whether it does)."))
-    p.add_argument('--research-free-sources', action='store_true',
-                   help='Fetch missing pre-match context from cached, timestamped free public sources')
+    p.add_argument('--research-free-sources', action='store_true', default=True,
+                   help='Fetch missing pre-match context from cached, timestamped free public sources (default)')
+    p.add_argument('--no-research-free-sources', dest='research_free_sources', action='store_false',
+                   help='Use cached research only; never fetch new context for this generation')
     p.add_argument("--no-legacy-comparison", action="store_true",
                    help=(f"Skip the side-by-side {LEGACY_MODEL_VERSION} columns (legacy_*) and their "
                          "half-life tuning. Scheduled runs pass it; the columns were read only by the "
@@ -4215,10 +4230,12 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
         pipe.model_version = CUSTOM_MODEL_VERSION + "-auto-market-weight"
 
     # Verify Europa before tuning/modeling or consuming odds credits. Exclude
-    # unavailable Europa only; never use its stale or disputed training rows.
+    # unavailable Europa only; retain validated cached history with a refresh warning.
     from europa_training import forecast_availability
     if not args.backtest:
-        args.leagues, availability = forecast_availability(args.leagues, args.cache_dir)
+        preflight_histories = {}
+        args.leagues, availability = forecast_availability(args.leagues, args.cache_dir, histories=preflight_histories)
+        pipe._europa_preflight_history = preflight_histories.get('UEL')
         (out_dir / 'league_availability.json').write_text(
             json.dumps(availability, indent=2), encoding='utf-8')
         if availability['excluded_leagues']:
@@ -4493,6 +4510,11 @@ def _generate_main(argv: Optional[Sequence[str]] = None) -> int:
     from team_research import enrich
     all_predictions = enrich(all_predictions, args.cache_dir,
                              fetch=getattr(args, 'research_free_sources', False))
+    # Keep every league's raw/readable prediction view on the same frozen research.
+    for key in args.leagues:
+        if not all_predictions.empty:
+            all_predictions.loc[all_predictions.league.eq(LEAGUES[key].name)].to_csv(
+                out_dir / f'{key}_predictions.csv', index=False)
     if combined:
         all_predictions.to_csv(out_dir / 'all_leagues_predictions.csv', index=False)
 
