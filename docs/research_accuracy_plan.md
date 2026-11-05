@@ -1,10 +1,14 @@
 # Research shortlist: accuracy safeguards and implementation stages
 
-This update implements the comparison foundation and complete published-grid
-export. It does not change `profit_shortlist.BASIS`, numerical research form,
-qualification, staking, cagey correction, schedules or live probabilities.
-The existing PR 126 research model remains unvalidated. Software tests cannot
-establish predictive improvement or non-degradation.
+The comparison foundation and complete published-grid export are implemented.
+PR #128 also changes main-shortlist qualification to
+`local-research-profit-115-200-dc12-v2`: offered odds strictly above 1.15 and
+at most 2.00, including Double Chance 12. Its probability basis is the
+unvalidated `team_form_poisson_v1` research model introduced in PR #126.
+`research_backtest.py` results are still pending; software tests cannot establish
+predictive improvement or non-degradation. No newly fitted calibration/blend
+coefficients are promoted. Staking, cagey correction and the published forecast
+probabilities retain their existing behavior.
 
 ## Phase 1: implemented diagnostic foundation
 
