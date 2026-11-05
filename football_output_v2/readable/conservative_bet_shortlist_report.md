@@ -1,6 +1,6 @@
 # Main shortlist: team research and chance of positive return
 
-Generated (UTC): 2026-11-05T16:17:48.024788+00:00. Picks: 0.
+Generated (UTC): 2026-11-05T16:27:43.343008+00:00. Picks: 0.
 
 One pick per fixture and market group. Highest probability of a positive net return first; expected return then offered odds break ties. Pushes are not wins. No minimum edge or forced quota.
 

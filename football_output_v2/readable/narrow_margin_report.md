@@ -1,6 +1,6 @@
 # Narrow-margin report
 
-Run 2026-11-05T16:17:48.024788+00:00. Narrow = draw or one-goal win. P(narrow) = 1 - corrected P(margin 2+); draw and one-goal split from the corrected scoreline matrix. Quotes are the Pinnacle prices that fed the fit. Uncertain probabilities, not predictions or betting advice.
+Run 2026-11-05T16:27:43.343008+00:00. Narrow = draw or one-goal win. P(narrow) = 1 - corrected P(margin 2+); draw and one-goal split from the corrected scoreline matrix. Quotes are the Pinnacle prices that fed the fit. Uncertain probabilities, not predictions or betting advice.
 
 Out of domain = competition not in the training data (eight domestic leagues); treat those figures as less certain.
 
