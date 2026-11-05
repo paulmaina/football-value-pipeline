@@ -30,6 +30,12 @@ def run(data, cost=0, settings=None):
 
 
 class ReferenceSizingTests(OfflineQuotePolicyTestCase):
+    def setUp(self):
+        super().setUp()
+        historical = {**v28.load_settings(), 'value_rule': v28.VALUE_RULE_PER_MARKET}
+        self.addCleanup(patch.stopall)
+        patch.object(v28, 'load_settings', return_value=historical).start()
+
     def test_four_pick_types_use_their_own_distribution(self):
         for name, data in cases().items():
             with self.subTest(case=name):
