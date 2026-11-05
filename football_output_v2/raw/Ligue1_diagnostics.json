@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "d64703b08d0b253f68ae6aa61e0d2f2d7176bb4a80991112dca66465573aba1b",
-  "training_as_of_utc": "2026-11-05T16:26:08.120854+00:00",
+  "training_as_of_utc": "2026-11-05T16:48:26.739006+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 81,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_CHRONOLOGICAL_PARTITIONS",
-    "cutoff_utc": "2026-11-05T16:26:08.120854+00:00",
+    "cutoff_utc": "2026-11-05T16:48:26.739006+00:00",
     "observations": 519,
     "observations_sha256": "09b43855723986c152174c7192f211cb1392e9bbac8dd5825656ed47f8834ff7",
     "eligible_training_matches": 186,
@@ -120,21 +120,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8547734904983413,
-    "audit_candidate_poisson_score": 0.8530374480014693,
-    "audit_gain": 0.0017360424968719812,
-    "audit_gain_lower95": -0.004922765199428151,
+    "audit_baseline_poisson_score": 0.8547722360350972,
+    "audit_candidate_poisson_score": 0.8530366363744983,
+    "audit_gain": 0.0017355996605988855,
+    "audit_gain_lower95": -0.004923682875132315,
     "audit_baseline_briers": [
-      0.5824614078047651,
-      0.17370432402916056,
-      0.21287468772376236,
-      0.2466063615696182
+      0.5824618624932494,
+      0.1737043281377707,
+      0.2128742875121852,
+      0.246606189818797
     ],
     "audit_candidate_briers": [
-      0.5816260245758471,
-      0.17326240897441395,
-      0.21186772195909942,
-      0.24573349270218828
+      0.5816265992330153,
+      0.1732624023965219,
+      0.2118673513078845,
+      0.24573330807480873
     ],
     "audit_brier_order": [
       "1x2",
@@ -149,10 +149,10 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1597.007663679351,
-  "base": 0.20030957645268638,
-  "home_adv": 0.20222010179618183,
-  "rho": -0.05404453909298809,
+  "objective": 1596.9719429981642,
+  "base": 0.20033374978245438,
+  "home_adv": 0.20224009539263246,
+  "rho": -0.05404529806659499,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -176,56 +176,124 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "football-data.org"
+    "The Odds API"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 8,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 0,
+  "additional_event_odds_calls_used_before_this_league": 15,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261105T162608120854Z_5e9f6461fe81811891a12ebd0f9ce558ee4cf711751f404aaacc0d68336bc853.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261105T164826739006Z_b62dcf57fbde1ec0b426179acebca161b00619acbe35e38aa37eca45b33347f1.json",
   "over_1_5_in_window_quote_fixtures": 0,
-  "odds_provider_health": {
-    "state": "CREDITS_EXHAUSTED",
-    "attempts": [
-      {
-        "credential": "THE_ODDS_API_KEY",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 0,
-        "x-requests-used": 500,
-        "x-requests-last": 0
-      },
-      {
-        "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 0,
-        "x-requests-used": 500,
-        "x-requests-last": 0
-      },
-      {
-        "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 1,
-        "x-requests-used": 499,
-        "x-requests-last": 0
-      }
-    ],
-    "blocked_utc_day": "2026-11-05"
-  },
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:559638",
-      "event_id": null,
-      "home_team": "Toulouse FC",
-      "away_team": "RC Strasbourg Alsace",
+      "fixture_id": "5e7d141f719835de18877ed95bedcb32",
+      "event_id": "5e7d141f719835de18877ed95bedcb32",
+      "home_team": "Toulouse",
+      "away_team": "Strasbourg",
       "kickoff_utc": "2026-11-06T19:45:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "8553a80cf1ae5cbe3e7a69b76ce8167f",
+      "event_id": "8553a80cf1ae5cbe3e7a69b76ce8167f",
+      "home_team": "Auxerre",
+      "away_team": "Paris FC",
+      "kickoff_utc": "2026-11-07T18:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "f7b240389fa5ec055c58a48ab153dcdd",
+      "event_id": "f7b240389fa5ec055c58a48ab153dcdd",
+      "home_team": "Paris Saint Germain",
+      "away_team": "Troyes",
+      "kickoff_utc": "2026-11-07T20:05:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "4288fbe018e6e6fb223e389bcf3e57dd",
+      "event_id": "4288fbe018e6e6fb223e389bcf3e57dd",
+      "home_team": "Rennes",
+      "away_team": "Lille",
+      "kickoff_utc": "2026-11-08T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "54fae64b1421d836e07a17cad0536c73",
+      "event_id": "54fae64b1421d836e07a17cad0536c73",
+      "home_team": "Angers",
+      "away_team": "Nice",
+      "kickoff_utc": "2026-11-08T16:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "cc9731ee7796fe0d532f11ca2aa522c9",
+      "event_id": "cc9731ee7796fe0d532f11ca2aa522c9",
+      "home_team": "Brest",
+      "away_team": "Lyon",
+      "kickoff_utc": "2026-11-08T16:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "3e9954446f26494c04c4967db523d375",
+      "event_id": "3e9954446f26494c04c4967db523d375",
+      "home_team": "Le Havre",
+      "away_team": "Lorient",
+      "kickoff_utc": "2026-11-08T16:15:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "a529e5762f18d97981194ec3668dc3d3",
+      "event_id": "a529e5762f18d97981194ec3668dc3d3",
+      "home_team": "Le Mans FC",
+      "away_team": "AS Monaco",
+      "kickoff_utc": "2026-11-08T16:15:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
@@ -234,19 +302,20 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 1,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 1,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 1
+    "ANCHORED_ALTERNATE": 1,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 7
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 1
+    "none": 8
   },
   "legacy_comparison_status": {
-    "None": 1
+    "None": 8
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

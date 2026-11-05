@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "8d9199da511c8214542688715362dcc75f0fdb5c41bb83dd42ee11698c46de14",
-  "training_as_of_utc": "2026-11-05T16:25:05.288573+00:00",
+  "training_as_of_utc": "2026-11-05T16:47:31.501368+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 100,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-05T16:25:05.288573+00:00",
+    "cutoff_utc": "2026-11-05T16:47:31.501368+00:00",
     "observations": 703,
     "observations_sha256": "2b9193dd56cb6f4de9850978e2014818fa0dba99f740f2f5a3e62ecb80f4e362",
     "eligible_training_matches": 251,
@@ -154,21 +154,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.8311477877010042,
-    "audit_candidate_poisson_score": 0.8301690994125219,
-    "audit_gain": 0.0009786882884822434,
-    "audit_gain_lower95": -0.0035260819529456993,
+    "audit_baseline_poisson_score": 0.8311445179911883,
+    "audit_candidate_poisson_score": 0.83016667364192,
+    "audit_gain": 0.0009778443492682865,
+    "audit_gain_lower95": -0.0035260975438339425,
     "audit_baseline_briers": [
-      0.5470516271063433,
-      0.1544999061324679,
-      0.2090980014289932,
-      0.23872219104127412
+      0.5470514924789279,
+      0.15449886252338838,
+      0.2090966926845053,
+      0.23872134038350845
     ],
     "audit_candidate_briers": [
-      0.5497540597359728,
-      0.15368329188971547,
-      0.2092140547665856,
-      0.23948201814979928
+      0.5497540390823514,
+      0.1536824570870469,
+      0.20921296304211237,
+      0.23948137952499476
     ],
     "audit_brier_order": [
       "1x2",
@@ -184,10 +184,10 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1825.2425401834296,
-  "base": 0.1530673929000032,
-  "home_adv": 0.10553108510573703,
-  "rho": -0.022246769342103945,
+  "objective": 1825.2014794289191,
+  "base": 0.15306741197067525,
+  "home_adv": 0.10553106705519993,
+  "rho": -0.022246771511438484,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -211,56 +211,138 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "football-data.org"
+    "The Odds API"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 8,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 0,
+  "additional_event_odds_calls_used_before_this_league": 12,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261105T162505288573Z_bd5b291dd0d76b7da7759ab0da6ce83069d0235ee601182bc78054141fd9f91d.json",
-  "over_1_5_in_window_quote_fixtures": 0,
-  "odds_provider_health": {
-    "state": "CREDITS_EXHAUSTED",
-    "attempts": [
-      {
-        "credential": "THE_ODDS_API_KEY",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 0,
-        "x-requests-used": 500,
-        "x-requests-last": 0
-      },
-      {
-        "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 0,
-        "x-requests-used": 500,
-        "x-requests-last": 0
-      },
-      {
-        "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 1,
-        "x-requests-used": 499,
-        "x-requests-last": 0
-      }
-    ],
-    "blocked_utc_day": "2026-11-05"
-  },
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261105T164731501368Z_813262d46230ce45b5c2ee7ba289008e9e5559cc4ab362289c90cbc6c50404e2.json",
+  "over_1_5_in_window_quote_fixtures": 2,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "fdorg:558537",
-      "event_id": null,
-      "home_team": "Venezia FC",
-      "away_team": "Udinese Calcio",
+      "fixture_id": "fa069801a5c9b49143447a1a1d173fd1",
+      "event_id": "fa069801a5c9b49143447a1a1d173fd1",
+      "home_team": "Venezia",
+      "away_team": "Udinese",
       "kickoff_utc": "2026-11-06T19:45:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "52b256088d29b4abb82e0c63ea9852fe",
+      "event_id": "52b256088d29b4abb82e0c63ea9852fe",
+      "home_team": "Cagliari",
+      "away_team": "Frosinone",
+      "kickoff_utc": "2026-11-07T14:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 34,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
+    },
+    {
+      "fixture_id": "0d53a5dbd9d4f4716e923b97e92dfb0d",
+      "event_id": "0d53a5dbd9d4f4716e923b97e92dfb0d",
+      "home_team": "Torino",
+      "away_team": "Lecce",
+      "kickoff_utc": "2026-11-07T14:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 30,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 2
+    },
+    {
+      "fixture_id": "813cc4970b2dcab8457490a332fb5a6c",
+      "event_id": "813cc4970b2dcab8457490a332fb5a6c",
+      "home_team": "Parma",
+      "away_team": "Bologna",
+      "kickoff_utc": "2026-11-07T17:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "f110107bca066ac1a598c89661c88fa3",
+      "event_id": "f110107bca066ac1a598c89661c88fa3",
+      "home_team": "AS Roma",
+      "away_team": "Sassuolo",
+      "kickoff_utc": "2026-11-07T19:45:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "23bf8ea47358ef82f65aa7398a2b3921",
+      "event_id": "23bf8ea47358ef82f65aa7398a2b3921",
+      "home_team": "Napoli",
+      "away_team": "Lazio",
+      "kickoff_utc": "2026-11-08T11:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "7a68b099b47ed7724062b661cd9af464",
+      "event_id": "7a68b099b47ed7724062b661cd9af464",
+      "home_team": "Genoa",
+      "away_team": "AC Milan",
+      "kickoff_utc": "2026-11-08T14:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "5ea6b7050b00fcc1832f7938794dd755",
+      "event_id": "5ea6b7050b00fcc1832f7938794dd755",
+      "home_team": "Monza",
+      "away_team": "Atalanta BC",
+      "kickoff_utc": "2026-11-08T14:00:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
@@ -269,19 +351,21 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 3,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 3,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 1
+    "ANCHORED_ALTERNATE": 2,
+    "ANCHORED_MAIN": 1,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 1
+    "none": 8
   },
   "legacy_comparison_status": {
-    "None": 1
+    "None": 8
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
