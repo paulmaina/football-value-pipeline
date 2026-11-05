@@ -17,16 +17,16 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 71 | 52-16 | 73.2% | +5.3% |
+| All selections | 73 | 53-17 | 72.6% | +4.5% |
 
-Unsettled / unverified entries: **18**.
-Whole-fixture 1X2 multiclass Brier (n=272): 0.5581
+Unsettled / unverified entries: **16**.
+Whole-fixture 1X2 multiclass Brier (n=282): 0.5503
 
 ## First-prediction reference — historical comparison
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Unique fixtures | 71 | 56-12 | 78.9% | +10.7% |
+| Unique fixtures | 73 | 57-13 | 78.1% | +9.8% |
 
 ## Latest selections by prediction run (generation UTC)
 
@@ -61,9 +61,9 @@ Whole-fixture 1X2 multiclass Brier (n=272): 0.5581
 | 2026-10-31T12:03:11.165007+00:00 | 4 | 3-0 | 75.0% | +21.5% |
 | 2026-11-01T07:37:30.159727+00:00 | 2 | 1-1 | 50.0% | -38.0% |
 | 2026-11-03T13:23:43.479885+00:00 | 1 | 0-1 | 0.0% | -100.0% |
-| 2026-11-03T13:58:02.173298+00:00 | 1 | 1-0 | 100.0% | +43.0% |
+| 2026-11-03T13:58:02.173298+00:00 | 2 | 2-0 | 100.0% | +48.0% |
 | 2026-11-04T09:31:03.622249+00:00 | 0 | 0-0 | — | — |
-| 2026-11-04T10:20:33.895771+00:00 | 0 | 0-0 | — | — |
+| 2026-11-04T10:20:33.895771+00:00 | 1 | 0-1 | 0.0% | -100.0% |
 | 2026-11-04T19:40:50.340029+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
@@ -71,13 +71,13 @@ Whole-fixture 1X2 multiclass Brier (n=272): 0.5581
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | PROVISIONAL | 27 | 18-9 | 66.7% | -10.7% |
-| STRICT | 44 | 34-7 | 77.3% | +15.1% |
+| STRICT | 46 | 35-8 | 76.1% | +13.4% |
 
 ## By policy
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| 48h-ah-price-edge-cagey-v28 | 2 | 1-1 | 50.0% | -28.5% |
+| 48h-ah-price-edge-cagey-v28 | 4 | 2-2 | 50.0% | -26.0% |
 | 48h-top-ten-probability-ev-no-under35-v14 | 8 | 6-2 | 75.0% | +0.6% |
 | 48h-top-twelve-probability-ev-no-under35-v15 | 11 | 7-4 | 63.6% | -12.5% |
 | 48h-top-twelve-profitable-win-probability-v23 | 0 | 0-0 | — | — |
@@ -121,7 +121,7 @@ Whole-fixture 1X2 multiclass Brier (n=272): 0.5581
 | Asian Handicap Away -2.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away -2.75 | 0 | 0-0 | — | — |
 | Asian Handicap Away -3.00 | 0 | 0-0 | — | — |
-| Asian Handicap Home +0.00 | 0 | 0-0 | — | — |
+| Asian Handicap Home +0.00 | 2 | 1-1 | 50.0% | -23.5% |
 | Asian Handicap Home +0.25 | 0 | 0-0 | — | — |
 | Asian Handicap Home +0.50 | 0 | 0-0 | — | — |
 | Asian Handicap Home +0.75 | 0 | 0-0 | — | — |
@@ -180,7 +180,7 @@ Whole-fixture 1X2 multiclass Brier (n=272): 0.5581
 | Primeira Liga | 1 | 1-0 | 100.0% | +109.0% |
 | Serie A | 16 | 10-5 | 62.5% | -8.1% |
 | Super Lig | 2 | 2-0 | 100.0% | +26.5% |
-| UEFA Champions League | 14 | 11-3 | 78.6% | +10.3% |
+| UEFA Champions League | 16 | 12-4 | 75.0% | +6.1% |
 
 ## Gameweeks
 
@@ -190,7 +190,7 @@ Whole-fixture 1X2 multiclass Brier (n=272): 0.5581
 | 2026-W42 | 22 | 19-3 | 86.4% | +19.5% |
 | 2026-W43 | 34 | 25-9 | 73.5% | +3.1% |
 | 2026-W44 | 9 | 5-1 | 55.6% | +4.9% |
-| 2026-W45 | 2 | 1-1 | 50.0% | -28.5% |
+| 2026-W45 | 4 | 2-2 | 50.0% | -26.0% |
 
 ## Confidence calibration of shortlisted markets
 
@@ -199,7 +199,7 @@ Whole-fixture 1X2 multiclass Brier (n=272): 0.5581
 | 0%–50% | 5 | 44.7% | 40.0% | 0.2733 |
 | 50%–60% | 3 | 56.9% | 33.3% | 0.2908 |
 | 60%–70% | 9 | 64.4% | 55.6% | 0.2389 |
-| 70%–80% | 23 | 75.9% | 82.6% | 0.1478 |
+| 70%–80% | 25 | 75.8% | 80.0% | 0.1596 |
 | 80%–90% | 27 | 84.1% | 88.9% | 0.0985 |
 | 90%–100% | 4 | 92.8% | 100.0% | 0.0053 |
 
@@ -222,16 +222,16 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-11-01 | 1604 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-11-02 | 1990 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Eredivisie | 2026-11-01 | 1629 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-11-02 | 2009 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-11-02 | 1761 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| PrimeiraLiga | 2026-11-02 | 1620 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-11-02 | 2000 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SuperLig | 2026-11-02 | 1840 | 2 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| UCL | 2026-11-03 | 566 | 1 | MODEL_BEHIND_VERIFIED_SOURCE |
-| UEL | 2026-10-22 | 714 | 13 | VERIFIED_WITHIN_24_HOURS |
+| Bundesliga | 2026-11-01 | 1604 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-11-02 | 1990 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Eredivisie | 2026-11-01 | 1629 | 4 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-11-02 | 2009 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-11-02 | 1761 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| PrimeiraLiga | 2026-11-02 | 1620 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-11-02 | 2000 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SuperLig | 2026-11-02 | 1840 | 3 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| UCL | 2026-11-03 | 566 | 2 | MODEL_BEHIND_VERIFIED_SOURCE |
+| UEL | 2026-10-22 | 714 | 14 | VERIFIED_WITHIN_24_HOURS |
 
 Latest shortlist audit: {"selected_quotes": 1, "exchange_quotes": 0, "missing_quote_age": 1, "quote_age_over_24h": 0, "costs_recorded": 1, "bookmakers": {"1xBet": 1}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 1, "unknown_kickoff_count": 0}.
 
