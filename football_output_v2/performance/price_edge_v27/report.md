@@ -1,6 +1,6 @@
 # v27/v28 price-edge tracking
 
-Reviewed 2026-11-05T12:36:33.917858+00:00. Frozen v27 picks: 43.
+Reviewed 2026-11-05T13:39:02.472609+00:00. Frozen v27 picks: 120.
 
 **Mean CLV vs Pinnacle close:** +4.15% ± 3.47% (n=5). **Flat-stake profit per bet:** -26.00% ± 83.83% (n=4).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -80,9 +80,9 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 |---|---|
 | Q1 cagiest | n/a (0) |
 | Q2 | n/a (0) |
-| Q3 | n/a (0) |
-| Q4 | +0.46% (n=1) |
-| Q5 most open | +5.78% ± 5.05% (n=3) |
+| Q3 | +0.46% (n=1) |
+| Q4 | +6.76% ± 8.10% (n=2) |
+| Q5 most open | +3.82% (n=1) |
 | n/a | +2.96% (n=1) |
 
 ## CLV by value_market_group
@@ -97,7 +97,7 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 
 ## Master shortlist (10 best bets per run)
 
-Frozen picks: 18; CLV n/a (0); realised profit per bet n/a (0).
+Frozen picks: 23; CLV n/a (0); realised profit per bet n/a (0).
 
 | price flag | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
@@ -106,7 +106,7 @@ Frozen picks: 18; CLV n/a (0); realised profit per bet n/a (0).
 
 ## Both tiers (value and cagey)
 
-Cagey-tier picks frozen: 13; CLV -7.87% (n=1); realised profit per bet +20.50% ± 26.46% (n=2). Correction-only value picks: CLV n/a (0).
+Cagey-tier picks frozen: 16; CLV -7.87% (n=1); realised profit per bet +20.50% ± 26.46% (n=2). Correction-only value picks: CLV n/a (0).
 Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false; >= 50 graded value-priced cagey-tier picks made under the active rule (narrow-63-flagged-v2) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false.
 
 ### Cagey-tier realised profit per bet by rule
@@ -152,9 +152,9 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 |---|---|---|
 | Q1 cagiest | n/a (0) | n/a (0) |
 | Q2 | n/a (0) | n/a (0) |
-| Q3 | -3.71% ± 8.17% (n=2) | +43.50% ± 18.62% (n=2) |
-| Q4 | n/a (0) | +7.00% (n=1) |
-| Q5 most open | +5.78% ± 5.05% (n=3) | -52.33% ± 93.43% (n=3) |
+| Q3 | -3.71% ± 8.17% (n=2) | +31.33% ± 26.16% (n=3) |
+| Q4 | +6.76% ± 8.10% (n=2) | -100.00% (n=2) |
+| Q5 most open | +3.82% (n=1) | +43.00% (n=1) |
 | n/a | +2.96% (n=1) | n/a (0) |
 
 ### By balanced
@@ -208,8 +208,8 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 
 ## Tagged candidates (narrow-margin hypothesis)
 
-Frozen tagged candidates: 977 (977 with an offered price).
-1xBet edge vs fair at capture: -3.37% ± 0.31% (n=201).
+Frozen tagged candidates: 1160 (1160 with an offered price).
+1xBet edge vs fair at capture: -3.43% ± 0.27% (n=248).
 Return at the capture fair price, all tagged lines: +3.99% ± 13.78% (n=172); plus lines only: -0.68% ± 11.42% (n=98).
 
 - balanced: +3.99% ± 13.78% (n=172)
@@ -221,13 +221,12 @@ Return at the capture fair price, all tagged lines: +3.99% ± 13.78% (n=172); pl
 
 Forward monitoring of cagey-correction-monitoring-v1 started 2026-11-03T13:58:25Z (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
 
-Fixtures: eligible 49, pending 34, graded 15, excluded 43.
+Fixtures: eligible 51, pending 36, graded 15, excluded 44.
 
 | excluded because | fixtures |
 |---|---:|
-| no usable market-implied fit (missing input: over_2_5) | 26 |
+| no usable market-implied fit (missing input: over_2_5) | 28 |
 | no usable market-implied fit (missing input: home; missing input: draw; missing input: away; missing input: over_2_5; missing input: ah_main; missing input: ah_line) | 16 |
-| no usable market-implied fit (missing input: over_2_5; Pinnacle overround outside range: h2h) | 1 |
 
 | quintile | n | 2+ actual | 2+ corrected | 2+ uncorrected | 3+ actual | 3+ corrected | 3+ uncorrected |
 |---|---:|---:|---:|---:|---:|---:|---:|
