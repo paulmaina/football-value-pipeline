@@ -17,7 +17,6 @@ def training_files(work):
     training = [p for league in league_registry.REGISTRY for pattern in league.cache_globs()
                 for p in sorted(cache.glob(pattern)) if p.is_file()]
     training += list((cache/'bbs/feature_models').glob('*/*.json'))
-    training += list((cache/'match_research').glob('*.json'))
     status = work/'docs/ucl_training_refresh_status.json'
     if status.exists(): training.append(status)
     return training

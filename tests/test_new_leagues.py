@@ -244,8 +244,13 @@ class NewLeagueShortlistTests(OfflineQuotePolicyTestCase):
         report = self._evidence(reliability, failed, lines)
         allowed = {'Home win', 'Away win', 'Double Chance 1X', 'Double Chance X2'}
         keys = {'Home win': 'home', 'Away win': 'away', 'Double Chance 1X': 'home_draw', 'Double Chance X2': 'draw_away'}
+        from asian_handicap import requires_goal_market_validation
         for version in (LEGACY_SELECTION_POLICY_VERSION, PREVIOUS_SELECTION_POLICY_VERSION, SELECTION_POLICY_VERSION,
                         PROBABILITY_SELECTION_POLICY_VERSION, *BALANCED_SELECTION_POLICIES, *POLICIES):
+            # Price-edge/researched policies explicitly do not use these audit gates.
+            # Their qualification and real-price guards have their own regression tests.
+            if not requires_goal_market_validation(version):
+                continue
             with self.subTest(policy=version):
                 picks, decisions, _ = build_conservative_shortlist(
                     predictions.assign(league=name), as_of=as_of, market_reliability={name: report},
@@ -312,3 +317,4 @@ class NewLeagueShortlistTests(OfflineQuotePolicyTestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

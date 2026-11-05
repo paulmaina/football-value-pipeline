@@ -55,6 +55,8 @@ class ShotsReleaseTests(OfflineQuotePolicyTestCase):
             return pd.DataFrame([row]),{'training_end':'2026-09-20','training_matches':1000},{}
         with tempfile.TemporaryDirectory() as tmp, patch.dict(os.environ,{},clear=True), patch(
                 'api_key_config.load_api_keys',return_value={}), patch(
+                'football_value_pipeline_v2_standalone.FootballValuePipelineV2._history_for_league',
+                side_effect=RuntimeError('optional history unavailable')), patch(
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2.run_league',new=forecast), patch(
                 'football_value_pipeline_v2_standalone.FootballValuePipelineV2.backtest_league',
                 return_value=(pd.DataFrame(),pd.DataFrame(),{},pd.DataFrame())), patch(
