@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+from csv_utils import dict_reader
 from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 import hashlib
@@ -82,7 +83,7 @@ def read_csv(path: Path) -> list[dict[str, str]]:
     if not path.exists():
         return []
     with path.open(encoding="utf-8-sig", newline="") as handle:
-        return list(csv.DictReader(handle))
+        return list(dict_reader(handle))
 
 
 def write_csv(path: Path, rows: list[dict[str, Any]], columns: list[str]) -> None:
