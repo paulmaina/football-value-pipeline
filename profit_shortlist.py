@@ -12,6 +12,8 @@ import numpy as np
 import pandas as pd
 
 RULE = 'team-research-profit-v1'
+RULE_V2 = 'local-research-profit-115-200-dc12-v2'
+RULES = (RULE, RULE_V2)
 BASIS = 'team_form_poisson_v1'
 COLUMNS = ['profit_model_fair_odds', 'profit_model_edge', 'profit_probability', 'profit_expected_return', 'profit_price_flag', 'research_probability_basis',
            'research_coverage', 'research_warnings', 'research_summary', 'research_details', 'research_sources',
@@ -49,19 +51,25 @@ def probabilities(row, item, evidence):
     margins, mass = np.array(list(values), float), np.array(list(values.values()), float)
     if not np.isfinite(mass).all() or (mass < 0).any() or abs(mass.sum()-1) > 1e-6:
         return None
+    if item.get('market') == 'Double Chance 12':
+        p = float(mass[margins != 0].sum())
+        return {'p_win': p, 'p_half_win': 0., 'p_push': 0., 'p_half_loss': 0., 'p_loss': 1-p}
     if item.get('handicap_side') not in ('home', 'away'):
         return None
     return price_distribution(margins, mass, item['handicap_side'], float(item['handicap_line']))
 
 
-def annotate(row, item, now, cost):
+def annotate(row, item, now, cost, rule=RULE):
     """Leave the cagey decision and original Pinnacle fields available for their own lists."""
     from quote_freshness import quote_is_fresh, quote_utc
     from team_research import number
     from price_edge_shortlist import MAX_ODDS, MIN_MINUTES, MAX_HOURS
+    if rule not in RULES:
+        raise ValueError('Unknown researched shortlist rule')
+    maximum = 2.0 if rule == RULE_V2 else MAX_ODDS
     item.update(price_edge_decision=item.get('decision'), price_edge_rejection_reasons=item.get('rejection_reasons'))
     evidence, warnings = context(row, now)
-    item.update(value_market_group=__import__('price_edge_cagey_shortlist').market_group(item),
+    item.update(value_market_group=__import__('price_edge_cagey_shortlist').market_group(item, rule=rule),
                 research_probability_basis=BASIS, research_coverage=json.dumps(evidence.get('coverage', {}), sort_keys=True),
                 research_warnings='; '.join(warnings), research_summary=json.dumps(evidence.get('form', {}), sort_keys=True),
                 research_details=json.dumps({k: v for k, v in evidence.get('evidence', {}).items()
@@ -69,14 +77,19 @@ def annotate(row, item, now, cost):
                 research_sources=json.dumps(evidence.get('evidence', {}).get('sources', []), sort_keys=True),
                 probability_basis='net_profit', value_probability_basis=BASIS, per_stake_cost=cost)
     reasons = []
+    if rule == RULE_V2:
+        from europa_training import eligibility
+        reasons.extend(eligibility(row))
     price = number(item.get('offered_decimal_odds'))
     kickoff, offered = quote_utc(row.get('kickoff_utc')), quote_utc(item.get('offered_last_update_utc'))
     if kickoff is None or not now+pd.Timedelta(minutes=MIN_MINUTES) <= kickoff <= now+pd.Timedelta(hours=MAX_HOURS):
         reasons.append('kickoff outside 20-minute to 48-hour window')
     if price is None or price <= 1:
         reasons.append('no offered quote at an allowed bookmaker')
-    elif price > MAX_ODDS:
-        reasons.append('offered odds above 3.00')
+    elif rule == RULE_V2 and price <= 1.15:
+        reasons.append('offered odds must be greater than 1.15')
+    elif price > maximum:
+        reasons.append(f'offered odds above {maximum:.2f}')
     if offered is None or not quote_is_fresh(offered, now):
         reasons.append('offered quote stale or unavailable')
     elif offered > now or (kickoff is not None and offered >= kickoff):
@@ -105,6 +118,34 @@ def annotate(row, item, now, cost):
     item.update(rejection_reasons='; '.join(reasons), decision='REJECTED' if reasons else 'ELIGIBLE',
                 qualified_only_by_correction=False)
     return item
+
+
+def dc12_candidates(row, pin, fit, fit_info, now, policy):
+    """Real quoted 12 prices only. It has no equivalent Asian handicap line.
+
+    Kept out of the legacy price-edge/master pool; the researched rule prices
+    it directly as P(home goals != away goals). No synthetic 12 odds.
+    """
+    import price_edge_shortlist as v27
+    from quote_policy import usable_bookmaker
+    base = v27.fixture_base(row, pin, fit, fit_info, now)
+    offers = []
+    for quote in v27._json_list(row.get('price_edge_quotes')):
+        if quote.get('market') == 'double_chance':
+            price = v27._price((quote.get('prices') or {}).get('home_away'))
+            if price and usable_bookmaker(quote.get('bookmaker'), policy):
+                offers.append((quote['bookmaker'], price, quote.get('last_update_utc')))
+    if not offers:
+        price = v27._price(row.get('market_home_away_odds'))
+        book = row.get('best_home_away_bookmaker')
+        if price and usable_bookmaker(book, policy):
+            offers.append((book, price, row.get('market_best_home_away_last_update_utc')))
+    return [{**base, 'market': 'Double Chance 12', 'market_to_bet': 'Double Chance 12',
+             'source_market': 'double_chance', 'handicap_side': None, 'handicap_line': None,
+             'bookmaker': book, 'offered_decimal_odds': price, 'offered_last_update_utc': stamp,
+             'offered_quote_age_minutes': v27._age_minutes(stamp, now), 'tagged_probe': False,
+             'decision': 'REJECTED', 'rejection_reasons': 'research-only market outside legacy price-edge pool',
+             'value_market_group': 'double_chance'} for book, price, stamp in offers]
 
 
 def rank(frame):

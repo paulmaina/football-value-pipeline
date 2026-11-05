@@ -510,7 +510,8 @@ def frozen_candidates(root: Path, archive) -> List[dict]:
             kick = utc(row.get('kickoff_utc'))
             if kick is None or max(captured, generated) > kick - timedelta(minutes=MIN_LEAD_MINUTES):
                 continue
-            key = (fixture_key(row), row.get('handicap_side'), row.get('handicap_line'), row.get('bookmaker') or '')
+            key = (fixture_key(row), row.get('handicap_side'), row.get('handicap_line'), row.get('bookmaker') or '',
+                   'DC12' if row.get('market') == 'Double Chance 12' else '')
             if key not in frozen or generated > utc(frozen[key]['snapshot_generated_utc']):
                 frozen[key] = {**row, 'snapshot_commit': meta['git_commit_sha'],
                                'snapshot_captured_utc': meta['captured_at_utc'],
@@ -625,12 +626,41 @@ def settle_over_1_5(row: dict, final: Optional[dict], price) -> Dict[str, object
     return {'result_status': 'WON' if won else 'LOST', 'unit_profit': (float(price) - 1 if won else -1.0) - float(cost)}
 
 
-def grade_over_1_5(row: dict, observations: List[dict], records: List[dict], clock) -> dict:
-    """One over 1.5 pick (per-market value rule): CLV against Pinnacle's near-kickoff O/U 1.5 and the result."""
+def close_dc12_share(quotes: List[dict]) -> Optional[float]:
+    """P(non-draw) from a normalized Pinnacle DC quote or complete 1X2 book."""
+    pin = {q.get('selection'): q for q in quotes if q.get('bookmaker') == 'pinnacle'}
+    direct = _number(pin.get('home_away', {}).get('fair_probability'))
+    if direct is not None and 0 < direct < 1:
+        return direct
+    if not all(k in pin for k in ('home', 'draw', 'away')):
+        return None
+    probs = [_number(pin[k].get('fair_probability')) for k in ('home', 'draw', 'away')]
+    if all(p is not None and 0 <= p <= 1 for p in probs) and abs(sum(probs)-1) <= 1e-6:
+        return probs[0]+probs[2]
+    return None
+
+
+def settle_dc12(row: dict, final: Optional[dict], price) -> Dict[str, object]:
+    if not final or price is None:
+        return {'result_status': None, 'unit_profit': None}
+    try:
+        from quote_policy import stake_cost
+        won = int(final['home_goals']) != int(final['away_goals'])
+        cost = stake_cost(row.get('per_stake_cost') or 0)
+        gain = (float(price)-1 if won else -1.)-cost
+    except (ValueError, TypeError, KeyError):
+        return {'result_status': None, 'unit_profit': None}
+    return {'result_status': 'WON' if won else 'LOST', 'unit_profit': gain}
+
+
+def grade_over_1_5(row: dict, observations: List[dict], records: List[dict], clock, *, share=None, settlement=None) -> dict:
+    """Binary non-AH pick; defaults to Over 1.5 and accepts DC 12 settlement/close adapters."""
     from performance_tracking import fixture_match, utc
     price = pd.to_numeric(row.get('offered_decimal_odds'), errors='coerce')
     fair = pd.to_numeric(row.get('fair_odds'), errors='coerce')
-    close = closing_for(row, observations, None, None, share=close_over_share)
+    share = share or close_over_share
+    settlement = settlement or settle_over_1_5
+    close = closing_for(row, observations, None, None, share=share)
     final = None
     kick = utc(row.get('kickoff_utc'))
     if kick is not None and kick <= clock - timedelta(hours=2):
@@ -643,8 +673,8 @@ def grade_over_1_5(row: dict, observations: List[dict], records: List[dict], clo
             'pinnacle_close_win_share': close[1] if close else None,
             'clv': float(price) * close[1] - 1 if close and pd.notna(price) else None,
             'final_score': f"{final['home_goals']}-{final['away_goals']}" if final else None,
-            **settle_over_1_5(row, final, float(price) if pd.notna(price) else None)}
-    fair_result = settle_over_1_5({**row, 'per_stake_cost': 0}, final, float(fair) if pd.notna(fair) and fair > 1 else None)
+            **settlement(row, final, float(price) if pd.notna(price) else None)}
+    fair_result = settlement({**row, 'per_stake_cost': 0}, final, float(fair) if pd.notna(fair) and fair > 1 else None)
     item['return_at_capture_fair'] = fair_result['unit_profit']
     return item
 
@@ -653,6 +683,10 @@ def grade(rows: List[dict], observations: List[dict], records: List[dict], clock
     from performance_tracking import fixture_match, utc
     graded = []
     for row in rows:
+        if row.get('market') == 'Double Chance 12':
+            graded.append(grade_over_1_5(row, observations, records, clock,
+                          share=close_dc12_share, settlement=settle_dc12))
+            continue
         if row.get('market') == OVER_1_5:
             graded.append(grade_over_1_5(row, observations, records, clock))
             continue

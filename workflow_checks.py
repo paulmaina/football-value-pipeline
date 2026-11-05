@@ -119,7 +119,7 @@ def raw_check(root, *, raw_dir=None):
         require(summary.get('target_distinct_matches') == target, 'Balanced shortlist target differs from policy')
         require(len(picks) <= target, f'Balanced shortlist exceeds {target} fixtures')
     value_per_market = (policy_version == price_edge_cagey_shortlist.POLICY
-                  and summary.get('value_rule') in (price_edge_cagey_shortlist.VALUE_RULE_PER_MARKET, price_edge_cagey_shortlist.VALUE_RULE_PROFIT))
+                  and summary.get('value_rule') in (price_edge_cagey_shortlist.VALUE_RULE_PER_MARKET, *price_edge_cagey_shortlist.PROFIT_RULES))
     for row in picks:
         key=fixture_key(row);require(key in keys, 'Selection without matching forecast')
         # A per-market value run picks once per fixture AND market group; every other policy once per fixture.
@@ -132,10 +132,11 @@ def raw_check(root, *, raw_dir=None):
         if asian:
             counted = row.get('market') in count_markets_allowed
             require(row.get('market') in ordinary_markets(policy_version) or parse_handicap(row.get('market')) is not None
-                    or counted or (value_per_market and row.get('market') == price_edge_cagey_shortlist.OVER_1_5),
+                    or counted or (value_per_market and row.get('market') == price_edge_cagey_shortlist.OVER_1_5)
+                    or (summary.get('value_rule') == price_edge_cagey_shortlist.VALUE_RULE_LOCAL_RESEARCH and row.get('market') == 'Double Chance 12'),
                     'Excluded Asian shortlist market')
             if value_per_market:
-                require(row.get('value_market_group') == price_edge_cagey_shortlist.market_group(row),
+                require(row.get('value_market_group') == price_edge_cagey_shortlist.market_group(row, rule=summary.get('value_rule')),
                         'Per-market pick has the wrong market group')
             if counted:
                 require('UNPROVEN EDGE' in str(row.get('selection_warnings') or ''),'Count-market pick missing its unproven-edge flag')
@@ -144,6 +145,8 @@ def raw_check(root, *, raw_dir=None):
         require(number(row.get('offered_decimal_odds'),min_value=1.000001) is not None, 'Missing real selection price')
         require(number(row.get('rank_probability') or row.get('predicted_probability'),min_value=0,max_value=1) is not None,
                 'Missing selection probability')
+        if summary.get('value_rule') == price_edge_cagey_shortlist.VALUE_RULE_LOCAL_RESEARCH:
+            require(1.15 < float(row['offered_decimal_odds']) <= 2.0, 'Researched shortlist price outside (1.15, 2.00]')
         if balanced:
             from datetime import timedelta
             generated, kickoff = utc(summary['generated_at_utc']), utc(row['kickoff_utc'])

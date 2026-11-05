@@ -103,7 +103,7 @@ class SwitchTests(OfflineQuotePolicyTestCase):
         settings = v28.load_settings()
         self.assertEqual(settings, {'cagey_correction_enabled': True, 'cagey_tier_enabled': True,
                                     'model_version': nm.PRODUCTION_VERSION, 'cagey_tier_rule': v28.TIER_RULE_NARROW,
-                                    'value_rule': v28.VALUE_RULE_PROFIT,
+                                    'value_rule': v28.VALUE_RULE_LOCAL_RESEARCH,
                                     'quote_timing_rule': v28.TIMING_RULE_CUTOFF})
         self.assertEqual(PRODUCTION_POLICY, v28.POLICY)
         self.assertIn(v27.POLICY, POLICIES)
