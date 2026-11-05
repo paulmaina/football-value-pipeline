@@ -4,7 +4,7 @@ The plan command uses only the standard library. Collection never replays API
 calls when publication races with another main-branch update.
 """
 import argparse
-import csv
+from csv_utils import dict_reader
 from datetime import datetime, timedelta, timezone
 import json
 import os
@@ -58,7 +58,7 @@ def plan(repo, clock=None, minutes=18, *, horizon_hours=None):
         if not file.exists():
             continue
         with file.open(encoding='utf-8-sig',newline='') as handle:
-            for row in csv.DictReader(handle):
+            for row in dict_reader(handle):
                 try:
                     kick = utc(row.get('kickoff_utc'))
                     event = str(row.get('odds_event_id',''))
