@@ -1,1 +1,11 @@
 ﻿Rank,Kickoff (UTC),League,Home,Away,Market to bet,Market group,Bookmaker,Price,Fair odds,Edge,Value price from (1% edge),No-loss probability,No-loss basis,Price flag (value / below value threshold),Reference,P(narrow: draw or 1-goal win),On value shortlist,On cagey tier
+1,2026-11-07T17:30:00+00:00,La Liga,CA Osasuna,Athletic Bilbao,Asian Handicap Away +0.00,Asian handicap,1xBet,1.58,1.56,+1.6%,1.57,73.9%,market-implied fit B,value,a: Pinnacle same AH line,71.1%,no,no
+2,2026-11-08T13:00:00+00:00,La Liga,Elche CF,Real Betis,Asian Handicap Away +0.00,Asian handicap,1xBet,1.63,1.61,+1.4%,1.62,71.5%,market-implied fit B,value,a: Pinnacle same AH line,63.8%,no,no
+3,2026-11-07T17:30:00+00:00,Premier League,Nottingham Forest,Manchester City,Asian Handicap Home +1.50,Asian handicap,1xBet,1.50,1.46,+2.5%,1.48,67.2%,market-implied fit B,value,a: Pinnacle same AH line,61.3%,no,no
+4,2026-11-06T20:00:00+00:00,Premier League,Everton,Coventry City,Home win,Match winner,1xBet,1.74,1.72,+1.1%,1.74,57.8%,market-implied fit B,value,a: Pinnacle same AH line,62.2%,yes,yes
+5,2026-11-07T20:00:00+00:00,La Liga,Valencia,Real Madrid,Asian Handicap Away -1.50,Asian handicap,1xBet,1.87,1.81,+3.2%,1.83,54.3%,market-implied fit B,value,a: Pinnacle same AH line,44.6%,no,no
+6,2026-11-08T11:30:00+00:00,Serie A,Napoli,Lazio,Asian Handicap Away +0.00,Asian handicap,1xBet,2.30,2.28,+1.0%,2.30,58.8%,market-implied fit B,below value threshold,a: Pinnacle same AH line,65.7%,no,no
+7,2026-11-07T18:00:00+00:00,Ligue 1,Auxerre,Paris FC,Away win,Match winner,1xBet,1.87,1.85,+0.9%,1.87,53.7%,market-implied fit B,below value threshold,a: Pinnacle same AH line,63.5%,yes,yes
+8,2026-11-07T15:00:00+00:00,Premier League,Fulham,Newcastle United,Asian Handicap Home +0.00,Asian handicap,1xBet,1.57,1.56,+0.8%,1.57,73.4%,market-implied fit B,below value threshold,a: Pinnacle same AH line,63.8%,no,no
+9,2026-11-07T15:15:00+00:00,La Liga,Espanyol,Deportivo La Coruña,Asian Handicap Home +0.00,Asian handicap,1xBet,1.73,1.72,+0.8%,1.73,70.3%,market-implied fit B,below value threshold,a: Pinnacle same AH line,70.5%,no,no
+10,2026-11-07T20:05:00+00:00,Ligue 1,Paris Saint Germain,Troyes,Asian Handicap Away +2.50,Asian handicap,1xBet,1.96,1.95,+0.8%,1.96,51.4%,Pinnacle fair price,below value threshold,a: Pinnacle same AH line,—,no,no
