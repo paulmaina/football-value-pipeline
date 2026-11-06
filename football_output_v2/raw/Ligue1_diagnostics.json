@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "4f5eea8a5a410962b010a7a9715c3ab16ba95cf31b5c2570543cdf6f6ee2cff1",
-  "training_as_of_utc": "2026-11-06T11:23:59.189126+00:00",
+  "training_as_of_utc": "2026-11-06T12:15:08.260491+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 81,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_CHRONOLOGICAL_PARTITIONS",
-    "cutoff_utc": "2026-11-06T11:23:59.189126+00:00",
+    "cutoff_utc": "2026-11-06T12:15:08.260491+00:00",
     "observations": 529,
     "observations_sha256": "7ba539a93a71dfeaf9b3ecc1720c69284839169ac0cc438b0e51a35ba54c9763",
     "eligible_training_matches": 189,
@@ -120,21 +120,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8547733788932398,
-    "audit_candidate_poisson_score": 0.853038543005327,
-    "audit_gain": 0.001734835887912789,
-    "audit_gain_lower95": -0.004925036806688198,
+    "audit_baseline_poisson_score": 0.854773326569409,
+    "audit_candidate_poisson_score": 0.8530385069933368,
+    "audit_gain": 0.001734819576072133,
+    "audit_gain_lower95": -0.004925053562342102,
     "audit_baseline_briers": [
-      0.5824571422188126,
-      0.17370983848306465,
-      0.21287163559241132,
-      0.24660422992547493
+      0.5824571335925569,
+      0.17370983065026072,
+      0.21287159606111464,
+      0.24660419333722203
     ],
     "audit_candidate_briers": [
-      0.5816244234988946,
-      0.17326621544947748,
-      0.21186550367767298,
-      0.2457319459509452
+      0.5816244167759926,
+      0.17326621061602687,
+      0.21186547581971693,
+      0.2457319220107492
     ],
     "audit_brier_order": [
       "1x2",
@@ -149,10 +149,10 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1595.1867369124593,
-  "base": 0.20033771035527476,
-  "home_adv": 0.20223583266596015,
-  "rho": -0.054027405978209785,
+  "objective": 1595.1049244431777,
+  "base": 0.2003242284471848,
+  "home_adv": 0.20223250218148706,
+  "rho": -0.054055186809662606,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -183,11 +183,11 @@
   "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 21,
+  "additional_event_odds_calls_used_before_this_league": 22,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261106T112359189126Z_85bc0fe2ceb031b73bf91be5d93b1deddb2bbfa7cbfdbf9a826fe2c11bf928e2.json",
-  "over_1_5_in_window_quote_fixtures": 1,
+  "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261106T121508260491Z_e181ad9b5a277b76ac00b39de5f80c87f3eeaba99b3ade4c3129971ec7771778.json",
+  "over_1_5_in_window_quote_fixtures": 3,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -200,15 +200,15 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "8553a80cf1ae5cbe3e7a69b76ce8167f",
@@ -220,15 +220,15 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "f7b240389fa5ec055c58a48ab153dcdd",
