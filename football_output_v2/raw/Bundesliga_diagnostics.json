@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "41513a19c037d196c0471de355bef57470d3db9823799f63c3ec917eec59ff81",
-  "training_as_of_utc": "2026-11-05T16:46:57.111085+00:00",
+  "training_sha256": "0553d43788cf11198caa2b4132e71b88a246c7dc762d83855649a0387f0a145d",
+  "training_as_of_utc": "2026-11-06T11:21:37.014739+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 72,
     "bbs_added_results": 0,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-05T16:46:57.111085+00:00",
-    "observations": 416,
-    "observations_sha256": "91f23680ed1446cd230e90bc5e605decba7de0db10fe0c7ca8f00f6c389f8a69",
+    "cutoff_utc": "2026-11-06T11:21:37.014739+00:00",
+    "observations": 420,
+    "observations_sha256": "00933fcfb924f085b453d0e96687f1a3345bb248107f4f29aaf4916330896265",
     "eligible_training_matches": 84,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.947476+00:00",
-    "retrospective_inputs_sha256": "8027abac6d7b568c9fa4f84916d00ce57861bd11f0fd5faea914c7bc7430cc4f",
+    "retrospective_inputs_sha256": "af0abbc63753fb14110ba2de2ff53217b3fda55e74d7baf3010d2bd9f2db8fdf",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "input_providers": [
@@ -84,7 +84,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-05",
+    "cutoff_date": "2026-11-06",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -106,8 +106,8 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1601,
-    "tune_start_date": "2025-11-06",
-    "audit_start_date": "2026-05-07",
+    "tune_start_date": "2025-11-07",
+    "audit_start_date": "2026-05-08",
     "training_shot_matches": 1304,
     "tuning_matches": 207,
     "audit_matches": 82,
@@ -115,21 +115,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.6694704709017013,
-    "audit_candidate_poisson_score": 0.6673755558339102,
-    "audit_gain": 0.0020949150677911366,
-    "audit_gain_lower95": -0.006071878734254059,
+    "audit_baseline_poisson_score": 0.6694553775176635,
+    "audit_candidate_poisson_score": 0.667364645532158,
+    "audit_gain": 0.0020907319855054673,
+    "audit_gain_lower95": -0.006073846084093117,
     "audit_baseline_briers": [
-      0.5838932999806175,
-      0.1363131061700881,
-      0.27437483842573507,
-      0.23546276634255456
+      0.5838826206274401,
+      0.13631129890888113,
+      0.2743708200572835,
+      0.23545673002098277
     ],
     "audit_candidate_briers": [
-      0.5818430986954694,
-      0.13598567201954728,
-      0.2734996308148366,
-      0.23626238582179712
+      0.5818345102804464,
+      0.13598374382195363,
+      0.273496647298881,
+      0.23625813917692848
     ],
     "audit_brier_order": [
       "1x2",
@@ -145,10 +145,10 @@
   },
   "training_end": "2026-11-01",
   "fit_success": true,
-  "objective": 1586.1501237358536,
-  "base": 0.21793976820679503,
-  "home_adv": 0.2258760733278119,
-  "rho": -0.07863033208242703,
+  "objective": 1584.3785131321652,
+  "base": 0.21807131834058902,
+  "home_adv": 0.22587809884639937,
+  "rho": -0.07864128503754968,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -166,7 +166,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-01",
-    "days_since_latest_result": 4,
+    "days_since_latest_result": 5,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -176,14 +176,14 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 8,
+  "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 7,
+  "additional_event_odds_calls_used_before_this_league": 10,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261105T164657111085Z_6a27004cd844f400b32c63effdc1da0bd56337cb56e1038870c8113bd98be57c.json",
-  "over_1_5_in_window_quote_fixtures": 4,
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261106T112137014739Z_9412b049339afb6a272c818f419780c9b1f8cdf6e13cf521a20d6a5809cc832a.json",
+  "over_1_5_in_window_quote_fixtures": 3,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -196,13 +196,12 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 18,
       "asian_handicap_bookmakers": [
-        "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     },
@@ -236,15 +235,14 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 32,
+      "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
-        "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "cdb5f9dd39e79db69659c76cd96d0bbe",
@@ -276,7 +274,26 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 34,
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 2,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "716d6e3f3e91c47a6efaa2e93d570533",
+      "event_id": "716d6e3f3e91c47a6efaa2e93d570533",
+      "home_team": "VfB Stuttgart",
+      "away_team": "Werder Bremen",
+      "kickoff_utc": "2026-11-07T17:30:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -285,19 +302,6 @@
       "dc_bookmakers": 2,
       "over_1_5_quote": true,
       "over_1_5_bookmakers": 1
-    },
-    {
-      "fixture_id": "716d6e3f3e91c47a6efaa2e93d570533",
-      "event_id": "716d6e3f3e91c47a6efaa2e93d570533",
-      "home_team": "VfB Stuttgart",
-      "away_team": "Werder Bremen",
-      "kickoff_utc": "2026-11-07T17:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "c70f9f21f48464daa93973147502e183",
@@ -324,22 +328,35 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "8963081c3457212ee238b498bbc33a03",
+      "event_id": "8963081c3457212ee238b498bbc33a03",
+      "home_team": "TSG Hoffenheim",
+      "away_team": "FC Schalke 04",
+      "kickoff_utc": "2026-11-08T18:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 5,
+  "additional_odds_in_window_linked_fixtures": 6,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 5,
+  "additional_event_odds_calls_this_league": 6,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 3,
+    "ANCHORED_ALTERNATE": 4,
     "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 5
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 8
+    "none": 9
   },
   "legacy_comparison_status": {
-    "None": 8
+    "None": 9
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
