@@ -1,8 +1,8 @@
 """Master shortlist and immutable legacy replay.
 
-Live research runs use master-market-value-protection-v3: the union of the
-value/cagey shortlists, fresh independent market settlement, provisional net
-EV >=2%, one market per fixture, up to ten with no filler. See master_selection.
+Live research runs use master-consensus-protection-v4: the union of the
+value/cagey shortlists, fresh independent market settlement, conservative scenario ranking,
+no EV floor, one market per fixture and ten nominations when ten fixtures pass execution checks. See master_selection.
 The historical v1/v2 rules below remain unchanged for archived-run replay.
 """
 from __future__ import annotations
@@ -17,7 +17,7 @@ import pandas as pd
 
 VERSION_V1 = 'master-10-v1'
 VERSION = 'master-10-v2'
-VERSION_MARKET = 'master-market-value-protection-v3'
+VERSION_MARKET = 'master-consensus-protection-v4'
 VERSIONS = (VERSION_V1, VERSION, VERSION_MARKET)
 BASIS_PINNACLE = 'Pinnacle fair price'
 BASIS_FIT = 'market-implied fit B'

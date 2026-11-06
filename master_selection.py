@@ -2,14 +2,16 @@
 
 Inputs are the union of the two current SHORTLISTED decisions, not every
 candidate evaluated by the model. References are reconstructed offline from
-this generation's frozen fixture quotes. A 2% net-EV buffer is a provisional
-policy, not a confidence bound or a validated profitability claim.
+this generation's frozen fixture quotes. Nominate ten distinct fixtures whenever ten pass execution checks. Price value
+is labelled, not a quota-blocking gate. Model minima are sensitivity scenarios,
+not confidence bounds or a calibrated combined probability.
 """
 import math
+import json
 import numpy as np
 import pandas as pd
 
-VERSION = 'master-market-value-protection-v3'
+VERSION = 'master-consensus-protection-v4'
 MIN_EV = .02
 MAX_AGE_MINUTES = 6
 SIZE = 10
@@ -20,7 +22,9 @@ EXTRA_COLUMNS = ['master_profit_probability', 'master_expected_return', 'master_
     *['master_p_'+k for k in KINDS], 'master_research_profit_probability',
     'master_corrected_profit_probability', 'master_model_gap', 'master_coverage_warning',
     'master_validation_status', 'master_suggested_stake', 'master_reference_utc',
-    'master_decision', 'master_rejection_reasons']
+    'master_decision', 'master_rejection_reasons', 'master_consensus_no_loss',
+    'master_consensus_profit', 'master_consensus_ev', 'master_consensus_sources',
+    'master_evidence_count', 'master_nomination_reason']
 
 
 def number(value):
@@ -127,8 +131,6 @@ def evaluate(decisions, predictions, now=None):
                 raise ValueError('missing, mixed or outdated evaluation generation')
             if any(not str(r.get(k) or '').strip() for k in ('league', 'home_team', 'away_team')):
                 raise ValueError('fixture identity unavailable')
-            if 'identity missing or ambiguous' in str(r.get('research_warnings') or ''):
-                raise ValueError('research fixture identity ambiguous')
             kick = quote_utc(r.get('kickoff_utc'))
             if kick is None or not clock+pd.Timedelta(minutes=20) <= kick <= clock+pd.Timedelta(hours=48):
                 raise ValueError('kickoff outside 20-minute to 48-hour window')
@@ -152,28 +154,52 @@ def evaluate(decisions, predictions, now=None):
                      minimum_odds_master=metrics['minimum'], edge=odds/metrics['fair']-1,
                      master_push_probability=mass[2], master_half_loss_probability=mass[3],
                      master_full_loss_probability=mass[4], **{'master_p_'+k:p for k,p in zip(KINDS,mass)})
+            scenarios = [('market', metrics)]
+            try:
+                form = json.loads(r.get('research_summary') or '{}')
+                research_usable = (all((number(form.get(side, {}).get('all', {}).get('matches')) or 0) > 0
+                                       for side in ('home', 'away'))
+                                   and 'identity missing or ambiguous' not in str(r.get('research_warnings') or ''))
+            except (ValueError, TypeError, AttributeError):
+                research_usable = False
             for prefix, dest in [('research', 'master_research_profit_probability'), ('corrected', 'master_corrected_profit_probability')]:
                 other = [number(r.get(prefix+'_p_'+k)) for k in KINDS]
                 if all(p is not None for p in other):
                     try:
-                        r[dest] = settlement(other, odds, cost)['profit']
+                        scenario = settlement(other, odds, cost)
+                        r[dest] = scenario['profit']
+                        if ((prefix == 'research' and research_usable)
+                                or (prefix == 'corrected' and r.get('market') != 'Over 1.5'
+                                    and r.get('corrected_input_timing_status') == 'SYNCHRONIZED')):
+                            scenarios.append((prefix, scenario))
                     except ValueError:
                         warnings.append(prefix+' distribution invalid')
                 else:
                     warnings.append(prefix+' distribution unavailable')
+            if not research_usable:
+                warnings.append('research form/identity coverage insufficient: excluded from consensus ranking')
+            r.update(master_consensus_no_loss=min(m['no_loss'] for _, m in scenarios),
+                     master_consensus_profit=min(m['profit'] for _, m in scenarios),
+                     master_consensus_ev=min(m['ev'] for _, m in scenarios),
+                     master_consensus_sources=' + '.join(name for name, _ in scenarios),
+                     master_evidence_count=len(scenarios))
             gaps = [abs(r[k]-metrics['profit']) for k in ('master_research_profit_probability','master_corrected_profit_probability') if number(r.get(k)) is not None]
             r['master_model_gap'] = max(gaps) if gaps else None
             if gaps and max(gaps) > .10:
                 warnings.append('model disagreement exceeds ten percentage points; review only, no automatic probability adjustment')
             if odds > 1.15*metrics['fair']:
                 raise ValueError('suspected price error: above 1.15 x independent market fair')
-            r.update(master_price_flag='value' if metrics['ev']+1e-9 >= MIN_EV else 'watchlist: insufficient net EV',
-                     master_decision='ELIGIBLE' if metrics['ev']+1e-9 >= MIN_EV else 'WATCHLIST',
-                     master_rejection_reasons='' if metrics['ev']+1e-9 >= MIN_EV else 'net expected return below provisional 2% buffer')
+            flag = ('value: market net EV >=2%' if metrics['ev']+1e-9 >= MIN_EV else
+                    'nonnegative market EV below 2%' if metrics['ev'] >= 0 else 'negative market EV nomination')
+            if metrics['ev'] < 0:
+                warnings.append('negative market expected return at this price; nomination is not evidence of profitable value')
+            r.update(master_price_flag=flag, master_decision='ELIGIBLE', master_rejection_reasons='',
+                     master_nomination_reason='Ranked by the lowest usable no-loss scenario, then lowest profit scenario, '
+                     'lowest EV scenario and market EV; overlapping sources are not independent confirmations')
             r['odds_event_id'] = forecast.get('odds_event_id')
         except (ValueError, TypeError, KeyError) as exc:
             r['master_rejection_reasons'] = str(exc)
-        warnings.append('2% net-EV buffer and model probabilities are not a validated confidence guarantee; confirm lineups and refresh prices before betting')
+        warnings.append('scenario minima are sensitivity estimates, not confidence bounds or validated combined probabilities; confirm lineups and refresh prices before betting')
         r['master_coverage_warning'] = '; '.join(w for w in warnings if w)
         output.append(r)
     return pd.DataFrame(output).reindex(columns=COLUMNS_V3)
@@ -187,11 +213,11 @@ def select(audit):
         result.attrs['master_version'] = VERSION
         return result
     eligible['_fixture'] = [identity(r) for r in eligible.to_dict('records')]
-    # Never reward overlap or combine the unvalidated probability sources.
-    ordered = eligible.sort_values(['master_no_loss_probability', 'master_profit_probability',
+    # Compare conservative scenarios; no blend, artificial probability boost or overlap bonus.
+    ordered = eligible.sort_values(['master_consensus_no_loss', 'master_consensus_profit', 'master_consensus_ev',
         'master_expected_return', 'offered_decimal_odds', 'kickoff_utc', 'league', 'home_team',
         'away_team', 'market', 'bookmaker', 'offered_last_update_utc'],
-        ascending=[False, False, False, False, True, True, True, True, True, True, False], kind='stable')
+        ascending=[False, False, False, False, False, True, True, True, True, True, True, False], kind='stable')
     top = ordered.drop_duplicates('_fixture').head(SIZE).copy()
     top['master_rank'] = range(1, len(top)+1)
     top['master_decision'] = 'SHORTLISTED'
@@ -199,10 +225,19 @@ def select(audit):
 
 
 def summary(frame):
-    return dict(version=VERSION, size=SIZE, n_bets=len(frame), value_bets=len(frame), below_threshold_bets=0,
-        min_edge_for_value=None, min_net_expected_return=MIN_EV, max_quote_age_minutes=MAX_AGE_MINUTES,
-        probability_basis='independent margin-free Pinnacle binary reference or uncorrected fit B settlement distribution; no fallback',
+    ev = pd.to_numeric(frame.master_expected_return, errors='coerce')
+    return dict(version=VERSION, size=SIZE, target_size=SIZE, n_bets=len(frame),
+        shortfall=max(0, SIZE-len(frame)),
+        value_bets=int((ev+1e-9 >= MIN_EV).sum()),
+        below_threshold_bets=int((ev+1e-9 < MIN_EV).sum()),
+        negative_ev_bets=int((ev < 0).sum()), min_edge_for_value=None,
+        min_net_expected_return=None, value_label_threshold=MIN_EV,
+        max_quote_age_minutes=MAX_AGE_MINUTES,
+        probability_basis='Independent margin-free Pinnacle binary reference or uncorrected fit B; '
+            'valid research/corrected distributions provide conservative ranking scenarios, not a probability blend',
         validation_status='UNVALIDATED_SELECTION_RULE', automatic_staking=False,
         rule='Union of value and cagey SHORTLISTED offers only; odds (1.15,2.00]; kickoff 20 minutes–48 hours; '
-             'fresh synchronized market references; provisional net EV >=2%; one market per match; '
-             'no-loss then positive-return probability then net EV then odds; at most ten; no below-value filler')
+             'fresh synchronized market references; no EV or probability eligibility floor; nominate ten when '
+             'ten executable distinct fixtures exist, otherwise explicit shortfall; one market per match; '
+             'lowest usable no-loss scenario then profit scenario then EV scenario then market EV then odds; '
+             'negative EV flagged; no automatic stakes')
