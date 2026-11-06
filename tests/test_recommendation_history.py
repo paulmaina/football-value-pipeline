@@ -77,7 +77,8 @@ class HistoryTests(OfflineQuotePolicyTestCase):
         with patch.object(performance,'fixture_match',side_effect=[(final(),'VERIFIED_FINISHED'),(None,'UNVERIFIED')]) as verify:
             result=tracking.grade(mixed,[],[final()],CLOCK)
         self.assertEqual(verify.call_count,2)
-        self.assertIsNone(result.iloc[1].final_score)
+        self.assertTrue(pd.isna(result.iloc[1].final_score))
+        self.assertTrue(pd.isna(result.iloc[1].result_status))
 
     def test_review_exports_all_history_separately_from_latest(self):
         with tempfile.TemporaryDirectory() as tmp:
