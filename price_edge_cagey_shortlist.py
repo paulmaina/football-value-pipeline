@@ -1,8 +1,8 @@
 """Versioned shortlist v28: v27 price edge with the cagey-match correction.
 
-Current cagey rule corrected-no-loss-per-market-v4 ranks corrected no-loss
+Current cagey rule no-loss-market-reference-v5 ranks market-source no-loss
 across win/DC/AH/Over 1.5 at odds (1.15, 2.00], with no P(narrow) gate, one per
-fixture/market group. See cagey_tier_v3.py and docs/cagey-tier-v3.md. The rules
+fixture/market group. Over 1.5 uses the uncorrected grid; see docs/cagey-market-basis-v5.md. The rules
 below describe historical runs, which remain replayable; v3 retains its 67% gate.
 
 VALUE TIER (identical to v27 except):
@@ -78,7 +78,7 @@ PRICE_REASONS = ('offered price above 1.15 x fair odds', 'edge below 3%')
 # Cagey-tier selection rules. A run records the rule it used; runs that record none used TIER_RULE_VALUE.
 TIER_RULE_VALUE = 'value-v1'
 TIER_RULE_NARROW = 'narrow-63-flagged-v2'
-from cagey_tier_v3 import RULE as TIER_RULE_EXPANDED, RULE_NO_GATE as TIER_RULE_NO_GATE, EXPANDED_RULES
+from cagey_tier_v3 import RULE as TIER_RULE_EXPANDED, RULE_NO_GATE as TIER_RULE_NO_GATE, RULE_MARKET_BASIS as TIER_RULE_MARKET_BASIS, EXPANDED_RULES
 TIER_RULES = (TIER_RULE_VALUE, TIER_RULE_NARROW, *EXPANDED_RULES)
 # Value-tier selection rules. A run records the rule it used; runs that record none used VALUE_RULE_ONE.
 VALUE_RULE_ONE = 'one-per-fixture-v1'
@@ -178,6 +178,8 @@ def settlement_basis(row: Mapping, tier='value') -> str:
     """Choose a single distribution; overlap between lists never changes a value pick's source."""
     if tier not in ('value', 'cagey'):
         raise ValueError('Unknown shortlist tier')
+    if tier == 'cagey' and row.get('cagey_tier_rule') == TIER_RULE_MARKET_BASIS:
+        return 'uncorrected_matrix' if row.get('market') == 'Over 1.5' else 'corrected_matrix'
     return 'corrected_matrix' if tier == 'cagey' or row.get('reference_type') == 'c-cagey' else 'uncorrected_matrix'
 
 
@@ -462,6 +464,8 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
             from cagey_tier_v3 import corrected_grid
             source = fit if fit.usable else fit_info['fit_a']
             context = {**context, 'matrix': corrected_grid(context, source.matrix)}
+            if tier_rule(settings) == TIER_RULE_MARKET_BASIS:
+                context['uncorrected_matrix'] = source.matrix
         tier = tier_rule(settings) if settings['cagey_tier_enabled'] and not expanded else False
         out = []
         for item in items:
@@ -497,7 +501,7 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
         if expanded:
             from cagey_tier_v3 import annotate
             for decision in out:
-                annotate(decision, context, row, now, policy, cost, rule=tier_rule(settings))
+                annotate(decision, context, row, now, policy, cost, rule=tier_rule(settings), pin=pin)
         return out
     return transform
 
@@ -677,6 +681,9 @@ def apply_execution_checks(item: Dict[str, object], context: Optional[Mapping], 
 
 def _tier_rank(frame: pd.DataFrame) -> pd.DataFrame:
     """Safest first: corrected no-loss probability, then expected profit, then odds."""
+    if 'cagey_no_loss_probability' in frame:
+        return frame.sort_values(['cagey_no_loss_probability','cagey_expected_return','offered_decimal_odds',
+                                  'kickoff_utc','market','bookmaker'],ascending=[False,False,False,True,True,True],kind='stable')
     return frame.sort_values(['corrected_no_loss_probability', 'corrected_expected_profit', 'offered_decimal_odds',
                               'kickoff_utc', 'market', 'bookmaker'],
                              ascending=[False, False, False, True, True, True], kind='stable')

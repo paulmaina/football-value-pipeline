@@ -4,7 +4,8 @@ import pandas as pd
 
 RULE = 'narrow-67-per-market-v3'
 RULE_NO_GATE = 'corrected-no-loss-per-market-v4'
-EXPANDED_RULES = (RULE, RULE_NO_GATE)
+RULE_MARKET_BASIS = 'no-loss-market-reference-v5'
+EXPANDED_RULES = (RULE, RULE_NO_GATE, RULE_MARKET_BASIS)
 BASIS = 'pinnacle_cagey_corrected_matrix_v1'
 MIN_NARROW = .67
 COLUMNS = ['cagey_tier_rule', 'cagey_market_group', 'cagey_probability_basis']
@@ -35,13 +36,17 @@ def corrected_grid(context, matrix):
 
 
 def columns(rule):
-    if rule == RULE_NO_GATE:
+    if rule in (RULE_NO_GATE,RULE_MARKET_BASIS):
         from narrow_support import COLUMNS as support_columns
-        return [*COLUMNS, *support_columns]
+        from cagey_market_basis import COLUMNS as basis_columns
+        return [*COLUMNS, *support_columns, *(basis_columns if rule == RULE_MARKET_BASIS else [])]
     return list(COLUMNS)
 
 
-def annotate(item, context, row, now, policy, cost, rule=RULE):
+def annotate(item, context, row, now, policy, cost, rule=RULE, pin=None):
+    if rule == RULE_MARKET_BASIS:
+        from cagey_market_basis import annotate as market_annotate
+        return market_annotate(item,context,row,now,policy,cost,pin)
     import price_edge_cagey_shortlist as v28
     from quote_freshness import quote_is_fresh, quote_utc
     from quote_policy import usable_bookmaker
@@ -128,8 +133,13 @@ def select(decisions, selected, rule=RULE):
                 probability_basis=BASIS, selection_objective='NO_LOSS_PROBABILITY',
                 rule='P(narrow) >= 67%; real quoted win/DC/AH/Over 1.5; odds (1.15, 2.00]; one per fixture/market group; no-loss then expected return then odds; no EV or no-loss floor; no cap')
 
-    if rule == RULE_NO_GATE:
+    if rule in (RULE_NO_GATE,RULE_MARKET_BASIS):
         result.update(narrow_general_gate=False, narrow_supplement_threshold=MIN_NARROW,
                       narrow_supplement_version='corrected-narrow-support-v1',
                       rule='No P(narrow) eligibility gate; corrected no-loss then expected return then odds; real quoted win/DC/AH/Over 1.5; odds (1.15, 2.00]; one per fixture/market group; no EV or no-loss floor; no cap; 67% narrow is market-specific supporting information only')
+    if rule == RULE_MARKET_BASIS:
+        from cagey_market_basis import UNCORRECTED
+        result.update(probability_basis='market_specific_pinnacle_v1',
+                      probability_basis_by_market={'Over 1.5':UNCORRECTED,'other_markets':BASIS},
+                      rule='No narrow gate; per-market-source no-loss then expected return then odds; Over 1.5 uses uncorrected Pinnacle grid; binary price guard uses independent Pinnacle prices; narrow support is informational')
     return result

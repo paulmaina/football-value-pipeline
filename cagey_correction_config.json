@@ -1,7 +1,7 @@
 {
   "cagey_correction_enabled": true,
   "cagey_tier_enabled": true,
-  "cagey_tier_rule": "corrected-no-loss-per-market-v4",
+  "cagey_tier_rule": "no-loss-market-reference-v5",
   "value_rule": "local-research-profit-115-200-dc12-v2",
   "model_version": "cagey-correction-through-2425-v1",
   "gate_report": "football_output_v2/performance/cagey_correction/report.md",
