@@ -1,6 +1,6 @@
 # v27/v28 price-edge tracking
 
-Reviewed 2026-11-05T22:09:51.197641+00:00. Frozen v27 picks: 155.
+Reviewed 2026-11-06T07:07:09.335377+00:00. Frozen v27 picks: 155.
 
 **Mean CLV vs Pinnacle close:** +4.15% ± 3.47% (n=5). **Flat-stake profit per bet:** -26.00% ± 83.83% (n=4).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
