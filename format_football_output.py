@@ -2138,11 +2138,30 @@ def workbook_sheet_name(key: str, used: set) -> str:
     return name
 
 
+def workbook_market_headers(headers: Sequence[str]) -> List[str]:
+    """Keep the offered price and outcome measures beside the market, display only.
+
+    Master/older readable files use Fair odds and No-loss probability for the
+    same display roles; preserve their labels and values rather than inventing
+    or renaming columns. League tabs without a market keep their existing order.
+    """
+    headers = list(headers)
+    if "Market to bet" not in headers:
+        return headers
+    groups = [("Price",), ("Model fair odds after cost", "Fair odds"),
+              ("Chance of positive return",), ("Chance of no loss", "No-loss probability")]
+    adjacent = [next((h for h in aliases if h in headers), None) for aliases in groups]
+    adjacent = [h for h in adjacent if h is not None]
+    ordered = [h for h in headers if h not in adjacent]
+    position = ordered.index("Market to bet") + 1
+    return ordered[:position] + adjacent + ordered[position:]
+
+
 def workbook_headers(frame: pd.DataFrame) -> List[str]:
-    return WORKBOOK_LEAD_COLUMNS + [
+    return workbook_market_headers(WORKBOOK_LEAD_COLUMNS + [
         c for c in frame.columns
         if c not in WORKBOOK_LEAD_COLUMNS and c not in WORKBOOK_HIDDEN_COLUMNS
-    ]
+    ])
 
 
 def workbook_sheet_xml(frame: pd.DataFrame, selected: bool) -> str:
@@ -2197,7 +2216,7 @@ def shortlist_sheet(frame: Optional[pd.DataFrame], message: str, selected: bool)
     if frame is None:
         rows: List[List[Any]] = [[message]]
         return _sheet_xml(["Note"], [_TEXT], rows, selected, 0), 1
-    headers = list(frame.columns)
+    headers = workbook_market_headers(frame.columns)
     styles = [shortlist_column_style(h, frame[h].tolist()) for h in headers]
     rows = [[shortlist_cell_value(row.get(h, ""), s) for h, s in zip(headers, styles)]
             for row in frame.to_dict("records")]
