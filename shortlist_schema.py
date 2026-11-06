@@ -11,12 +11,12 @@ def harmonize(frame, tier):
     from cagey_tier_v3 import BASIS, RULE
     out = frame.copy()
     cagey = tier == 'cagey'
-    prefix = 'corrected' if cagey else 'research'
+    prefix = 'cagey' if cagey and 'cagey_p_win' in out else 'corrected' if cagey else 'research'
     out['shortlist_schema_version'] = SCHEMA
     out['shortlist_source'] = tier
     out['selection_rule'] = out.cagey_tier_rule if cagey else 'local-research-profit-115-200-dc12-v2'
     out['selection_objective'] = 'NO_LOSS_PROBABILITY' if cagey else 'POSITIVE_RETURN_PROBABILITY'
-    out['source_probability_basis'] = BASIS if cagey else 'team_form_poisson_v1'
+    out['source_probability_basis'] = out.cagey_probability_basis if cagey else 'team_form_poisson_v1'
     out['fixture_key'] = out.apply(fixture_key, axis=1) if len(out) else pd.Series(dtype=str)
     if cagey:
         out['value_market_group'] = out.cagey_market_group
@@ -68,4 +68,13 @@ def readable(frame, pct, decimal, signed_pct, group_names):
                            ('Corrected-grid profit lower bound', 'corrected_narrow_profit_lower_bound'),
                            ('Corrected-grid profit upper bound', 'corrected_narrow_profit_upper_bound')]:
             out[label] = frame[key].map(pct)
+    if 'price_guard_status' in frame:
+        out['Price check status'] = frame.price_guard_status
+        out['Price check basis'] = frame.price_guard_basis
+        out['Pinnacle fair odds for price check'] = frame.price_guard_fair_odds.map(decimal)
+        out['Price check warning'] = frame.price_guard_warning
+        out['Corrected Over 1.5 (comparison only)'] = frame.corrected_over_1_5_probability.map(pct)
+        out['Uncorrected Over 1.5'] = frame.uncorrected_over_1_5_probability.map(pct)
+        out['Totals correction delta'] = frame.totals_correction_delta.map(signed_pct)
+        out['Draw correction delta vs Pinnacle'] = frame.corrected_draw_delta_vs_pinnacle.map(signed_pct)
     return out

@@ -1,5 +1,8 @@
 # Corrected no-loss selection with narrow-margin support (v4)
 
+Historical v4 rule retained for replay. Current selection uses
+[market-specific sources and independent binary price checks (v5)](cagey-market-basis-v5.md).
+
 Current rule: `corrected-no-loss-per-market-v4`. There is **no general P(narrow)
 qualification gate**. A fixture below 67% can qualify in any supported market.
 Rank actual quoted bets by corrected net no-loss probability, then expected

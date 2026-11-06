@@ -1,6 +1,6 @@
 # Production shortlist v28: price edge with the cagey-match correction
 
-Current runs use `corrected-no-loss-per-market-v4` without a general narrow-margin gate and the research-based value rule. See [current no-loss selection and narrow support](cagey-no-loss-v4.md). The historical qualification rules below remain documented for replay; they are not the current cagey selection defaults.
+Current runs use `no-loss-market-reference-v5` without a general narrow-margin gate and the research-based value rule. See [current no-loss selection and narrow support](cagey-market-basis-v5.md). The historical qualification rules below remain documented for replay; they are not the current cagey selection defaults.
 
 Policy `48h-ah-price-edge-cagey-v28` (`price_edge_cagey_shortlist.py`) became
 production after its pre-registered holdout gate passed. v27 and every older

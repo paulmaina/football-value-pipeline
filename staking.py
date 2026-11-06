@@ -125,6 +125,19 @@ def settlement_kelly(probabilities: Mapping[str, float], odds: float, cost: floa
 
 def conservative_settlement(row: Mapping, *, tier='value') -> dict:
     """Calibration-penalised settlement distribution for one shortlist row."""
+    from cagey_tier_v3 import RULE_MARKET_BASIS
+    if tier == 'cagey' and row.get('cagey_tier_rule') == RULE_MARKET_BASIS:
+        mapping = {'full_win':'win','half_win':'half_win','refund':'push','half_loss':'half_loss','full_loss':'loss'}
+        probs = {k:_number(row.get('cagey_p_'+suffix)) for k,suffix in mapping.items()}
+        from cagey_market_basis import UNCORRECTED
+        from cagey_tier_v3 import BASIS
+        expected_basis = UNCORRECTED if row.get('market') == 'Over 1.5' else BASIS
+        if (row.get('cagey_probability_basis') != expected_basis or
+                row.get('cagey_settlement_fit') not in ('A','B') or
+                row.get('cagey_input_timing_status') != 'SYNCHRONIZED' or
+                any(v is None or not 0 <= v <= 1 for v in probs.values()) or abs(sum(probs.values())-1) > 1e-6):
+            raise UnavailableDistribution('Unavailable market-specific cagey settlement; no fallback')
+        return probs
     if tier == 'value' and row.get('value_probability_basis') == 'team_form_poisson_v1':
         mapping = {'full_win': 'win', 'half_win': 'half_win', 'refund': 'push',
                    'half_loss': 'half_loss', 'full_loss': 'loss'}
@@ -199,6 +212,9 @@ def stake_recommendations(
         if record.get('selection_policy_version') == CAGEY_POLICY:
             out['staking_version'] = 'fractional-kelly-v28-reference-v2'
             out['probability_basis'] = ('team_form_poisson_v1' if tier == 'value' and record.get('value_probability_basis') == 'team_form_poisson_v1' else settlement_basis(record, tier))
+        from cagey_tier_v3 import RULE_MARKET_BASIS
+        if tier == 'cagey' and record.get('cagey_tier_rule') == RULE_MARKET_BASIS:
+            out['probability_basis'] = record.get('cagey_probability_basis')
         try:
             odds = _number(record.get('offered_decimal_odds'))
             cost = _number(record.get('per_stake_cost')) or 0.0
