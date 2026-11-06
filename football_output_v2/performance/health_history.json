@@ -22159,7 +22159,7 @@
             "mean_fair_close_ev": -0.019197941154740654,
             "mean_same_book_offered_price_clv": 0.019371207678824987,
             "missing_selections": 118,
-            "pending_selections": 126,
+            "pending_selections": 135,
             "positive_fair_close_ev": 11
           },
           "bet365": {
@@ -22167,7 +22167,7 @@
             "mean_fair_close_ev": null,
             "mean_same_book_offered_price_clv": null,
             "missing_selections": 155,
-            "pending_selections": 126,
+            "pending_selections": 135,
             "positive_fair_close_ev": 0
           },
           "pinnacle": {
@@ -22175,15 +22175,15 @@
             "mean_fair_close_ev": -0.02316353241764813,
             "mean_same_book_offered_price_clv": 0.015574437835711533,
             "missing_selections": 94,
-            "pending_selections": 126,
+            "pending_selections": 135,
             "positive_fair_close_ev": 13
           }
         },
-        "frozen_selections": 281,
+        "frozen_selections": 290,
         "note": "Last observed live quote within 6 minutes of scheduled kickoff, market age <=120 seconds. Local timestamps are not independently attested and actual kickoff delays are unknown. Offered quote CLV is not realized execution CLV or guaranteed official closing odds. Missing quotes stay missing.",
         "observations": 400,
         "rejected_files": [],
-        "reviewed_at_utc": "2026-11-06T13:21:54.345590+00:00",
+        "reviewed_at_utc": "2026-11-06T13:42:41.477329+00:00",
         "tracking_basis": "LATEST_PREMATCH_PER_FIXTURE",
         "version": "local-closing-quotes-v4"
       },
@@ -22217,31 +22217,34 @@
       },
       "experiment_capture_counts": {},
       "forecast_freshness": {
-        "age_hours": 0.0030737372222222224,
-        "generated_at_utc": "2026-11-06T13:21:43.280136+00:00",
+        "age_hours": 0.03946475055555556,
+        "generated_at_utc": "2026-11-06T13:40:19.404227+00:00",
         "status": "WITHIN_24_HOURS",
-        "upcoming_fixture_count": 16
+        "upcoming_fixture_count": 75
       },
       "quote_audit": {
         "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS",
-        "bookmakers": {},
-        "costs_recorded": 0,
+        "bookmakers": {
+          "1xBet": 60,
+          "Pinnacle": 62
+        },
+        "costs_recorded": 122,
         "exchange_quotes": 0,
-        "missing_quote_age": 0,
+        "missing_quote_age": 122,
         "past_kickoff_count": 0,
         "quote_age_over_24h": 0,
-        "selected_quotes": 0,
+        "selected_quotes": 122,
         "unknown_kickoff_count": 0,
-        "upcoming_kickoff_count": 0
+        "upcoming_kickoff_count": 122
       },
       "review_queue": {
         "automatic_promotion": false,
         "experiments": [],
         "note": "Only live forward trials are queued, and none is live. Notifications invite review, including negative findings; they never approve changes.",
-        "reviewed_at_utc": "2026-11-06T13:21:54.345590+00:00",
+        "reviewed_at_utc": "2026-11-06T13:42:41.477329+00:00",
         "version": "experiment-review-queue-v1"
       },
-      "reviewed_at_utc": "2026-11-06T13:21:54.345590+00:00",
+      "reviewed_at_utc": "2026-11-06T13:42:41.477329+00:00",
       "selection_policy_groups": {
         "48h-ah-price-edge-cagey-v28": {
           "brier": 0.250846,
@@ -22251,11 +22254,11 @@
           "half_wins": 0,
           "losses": 2,
           "no_loss_rate": 0.5,
-          "pending": 194,
+          "pending": 203,
           "profit_per_unit_staked": -1.04,
           "refunds": 0,
           "settled_with_odds": 4,
-          "total": 198,
+          "total": 207,
           "win_rate": 0.5,
           "wins": 2
         },
@@ -22436,11 +22439,11 @@
         "half_wins": 1,
         "losses": 17,
         "no_loss_rate": 0.767123,
-        "pending": 208,
+        "pending": 217,
         "profit_per_unit_staked": 3.28,
         "refunds": 3,
         "settled_with_odds": 73,
-        "total": 281,
+        "total": 290,
         "win_rate": 0.726027,
         "wins": 53
       },
@@ -22459,7 +22462,7 @@
             "usage": "supplementary_cached_observations"
           },
           "bbs_statistics_model": {
-            "cutoff_utc": "2026-11-06T13:18:36.199690+00:00",
+            "cutoff_utc": "2026-11-06T13:34:32.197616+00:00",
             "eligible_training_matches": 84,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -22505,43 +22508,16 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261106T131836199690Z_bf5bc22d8b6eef86b33cc26c7c194881c501f6fea59c2a2166eb25069ddc47d8.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261106T133432197616Z_81673c47c0028e5b0b86fad6263bf695a81cd74446c4a23f3846a002987d894e.json",
           "days_since_latest_result": 5,
-          "diagnostics_sha256": "ce9af638029baefde75188f3cc03ad2eded752e4d73ea53742342d8bf46f4d46",
+          "diagnostics_sha256": "dab01d93263b5eaa094adba92b34089f8c2bb846a04565a52046532d612eb3b4",
           "forecast_training_health": {
             "days_since_latest_result": 5,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-01"
           },
           "odds_provider_health": {
-            "attempts": [
-              {
-                "credential": "THE_ODDS_API_KEY",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 1,
-                "x-requests-used": 499
-              }
-            ],
-            "blocked_utc_day": "2026-11-06",
-            "state": "CREDITS_EXHAUSTED"
+            "state": "NOT_RECORDED"
           },
           "training_end": "2026-11-01",
           "training_matches": 1604
@@ -22562,7 +22538,7 @@
           "bbs_statistics_model": {
             "audit_matches": 40,
             "audit_origin_utc": "2025-11-02T00:00:00+00:00",
-            "cutoff_utc": "2026-11-06T13:15:56.740124+00:00",
+            "cutoff_utc": "2026-11-06T13:30:42.691121+00:00",
             "eligible_training_matches": 301,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -22645,43 +22621,16 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261106T131556740124Z_595f9b325234a2f4408d4b56fde018cedf27928634b7e10f684bfc88d89492ce.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261106T133042691121Z_ac98583cbd04067566fa1e44ca714efe7c6f1fca39e6c90185349b35bf0fea32.json",
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "2223aef83259a54d7ddf8f90895c86b8340a81b10d1d2b8fc455e1dea672ecd1",
+          "diagnostics_sha256": "2f578e59d5cbb7b6df8807c5e5c4a62e5c9514dcec7e915e88c4e34af40f2d69",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-02"
           },
           "odds_provider_health": {
-            "attempts": [
-              {
-                "credential": "THE_ODDS_API_KEY",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 1,
-                "x-requests-used": 499
-              }
-            ],
-            "blocked_utc_day": "2026-11-06",
-            "state": "CREDITS_EXHAUSTED"
+            "state": "NOT_RECORDED"
           },
           "training_end": "2026-11-02",
           "training_matches": 1990
@@ -22695,41 +22644,14 @@
           },
           "bbs_statistics_model_artifact": null,
           "days_since_latest_result": 5,
-          "diagnostics_sha256": "af44d49523987dcf566beba5d39d444e7cc87e3b44ec28ee25760ecda0ee8400",
+          "diagnostics_sha256": "2065172b296994e32c4b5812f6b0a401f55517833d11015234b848738bfe3dff",
           "forecast_training_health": {
             "days_since_latest_result": 5,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-01"
           },
           "odds_provider_health": {
-            "attempts": [
-              {
-                "credential": "THE_ODDS_API_KEY",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 1,
-                "x-requests-used": 499
-              }
-            ],
-            "blocked_utc_day": "2026-11-06",
-            "state": "CREDITS_EXHAUSTED"
+            "state": "NOT_RECORDED"
           },
           "training_end": "2026-11-01",
           "training_matches": 1629
@@ -22773,7 +22695,7 @@
             "audit_matchdays": 17,
             "audit_matches": 40,
             "audit_origin_utc": "2026-10-09T00:00:00+00:00",
-            "cutoff_utc": "2026-11-06T13:17:34.983687+00:00",
+            "cutoff_utc": "2026-11-06T13:32:39.085755+00:00",
             "eligible_training_matches": 177,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -22858,43 +22780,16 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261106T131734983687Z_ff29b5fb03379c437db8618b48d9262a07b2ec8da49fa13d3fe01899dfd88088.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261106T133239085755Z_c1af61729744d8fc72999a8b49f2f4a0e71a2311da15e72cf5ca0af1196b6e5b.json",
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "d27b633f6759a9a5a650a32d993cf5a62effa0523cab1021515dc04e9d773996",
+          "diagnostics_sha256": "c3068d278bc1636e20e1b01321bd47fb1309abc207964c161332503b92494a81",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-02"
           },
           "odds_provider_health": {
-            "attempts": [
-              {
-                "credential": "THE_ODDS_API_KEY",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 1,
-                "x-requests-used": 499
-              }
-            ],
-            "blocked_utc_day": "2026-11-06",
-            "state": "CREDITS_EXHAUSTED"
+            "state": "NOT_RECORDED"
           },
           "training_end": "2026-11-02",
           "training_matches": 2009
@@ -22915,7 +22810,7 @@
           "bbs_statistics_model": {
             "audit_matches": 43,
             "audit_origin_utc": "2025-10-05T00:00:00+00:00",
-            "cutoff_utc": "2026-11-06T13:20:21.553316+00:00",
+            "cutoff_utc": "2026-11-06T13:37:44.131902+00:00",
             "eligible_training_matches": 189,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -22964,43 +22859,16 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261106T132021553316Z_e6e5de40d51cb8fe3acd04d249d69fffdee9909d68b5442db3e6a4d77999f56c.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/Ligue1/20261106T133744131902Z_516bd2742e0914160849bc06b4e541d43a903baaf188bc6db12a8a0b220132c5.json",
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "41021483fd5cfe8ce82cd8358b0bc448dcb8c98e55e3a7e8f524710a0e32f5fb",
+          "diagnostics_sha256": "f223872348cf43046fa3c076bfef150960880821c13416f820fb355f1e47a475",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-02"
           },
           "odds_provider_health": {
-            "attempts": [
-              {
-                "credential": "THE_ODDS_API_KEY",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 1,
-                "x-requests-used": 499
-              }
-            ],
-            "blocked_utc_day": "2026-11-06",
-            "state": "CREDITS_EXHAUSTED"
+            "state": "NOT_RECORDED"
           },
           "training_end": "2026-11-02",
           "training_matches": 1761
@@ -23014,41 +22882,14 @@
           },
           "bbs_statistics_model_artifact": null,
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "94b25851b688d1c17633a3ba7b71d4fada419cfc81ef7318ced2f3bdd746175f",
+          "diagnostics_sha256": "1a4cc8d1f8ebca43cc6d97e7c1210f3a2f551b0807bd59290336720a8ca74a0b",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-02"
           },
           "odds_provider_health": {
-            "attempts": [
-              {
-                "credential": "THE_ODDS_API_KEY",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 1,
-                "x-requests-used": 499
-              }
-            ],
-            "blocked_utc_day": "2026-11-06",
-            "state": "CREDITS_EXHAUSTED"
+            "state": "NOT_RECORDED"
           },
           "training_end": "2026-11-02",
           "training_matches": 1620
@@ -23069,7 +22910,7 @@
           "bbs_statistics_model": {
             "audit_matches": 41,
             "audit_origin_utc": "2026-10-11T00:00:00+00:00",
-            "cutoff_utc": "2026-11-06T13:19:14.055488+00:00",
+            "cutoff_utc": "2026-11-06T13:35:41.078938+00:00",
             "eligible_training_matches": 253,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -23152,43 +22993,16 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261106T131914055488Z_e58772ca21136fe283a1fa5d152f50f30aa4a50de819e3555ab7a8765cc0681d.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261106T133541078938Z_16dbdc1ced6e8c145c6e910169c731def4f86d55f78d850f6dd85cdfe8dc4d87.json",
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "a57c7bee750fb2e28bb68eba5d78ef118d5244a6a72313445a573b1adf35f9bc",
+          "diagnostics_sha256": "2290a4e21b29fde3bf0721b54f1dfb3d9802bcd4d271dd9381f30f312342e7c4",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
             "training_end": "2026-11-02"
           },
           "odds_provider_health": {
-            "attempts": [
-              {
-                "credential": "THE_ODDS_API_KEY",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 0,
-                "x-requests-used": 500
-              },
-              {
-                "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-                "error_code": "OUT_OF_USAGE_CREDITS",
-                "http_status": 401,
-                "x-requests-last": 0,
-                "x-requests-remaining": 1,
-                "x-requests-used": 499
-              }
-            ],
-            "blocked_utc_day": "2026-11-06",
-            "state": "CREDITS_EXHAUSTED"
+            "state": "NOT_RECORDED"
           },
           "training_end": "2026-11-02",
           "training_matches": 2000
@@ -23202,7 +23016,7 @@
           },
           "bbs_statistics_model_artifact": null,
           "days_since_latest_result": 4,
-          "diagnostics_sha256": "50b7c42d06cea9c57f737d74f403dc8145517bfa12c376027c7980f415843434",
+          "diagnostics_sha256": "a801752ab6c58e9ddd2ebe5b46e0056a1e05db40e112ec8ab2f326b18cd2afdd",
           "forecast_training_health": {
             "days_since_latest_result": 4,
             "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED",
@@ -23228,7 +23042,7 @@
             "usage": "supplementary_cached_observations"
           },
           "bbs_statistics_model": {
-            "cutoff_utc": "2026-11-06T13:21:09.848083+00:00",
+            "cutoff_utc": "2026-11-06T13:39:02.999807+00:00",
             "eligible_training_matches": 26,
             "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
             "feature_fields": [
@@ -23274,15 +23088,15 @@
             "validation_policy": "auto",
             "version": "bbs-lagged-poisson-v2"
           },
-          "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261106T132109848083Z_f872d36fa83c82f7bd3756bafc24633e10d14e2295f63dc4bcc83808ed21befd.json",
+          "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261106T133902999807Z_f6aab140e78e6bf065830e58e89a6758ab926992e67e53128f96bb9742760c5b.json",
           "current_source_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-06T13:21:09.848083+00:00",
+            "checked_at_utc": "2026-11-06T13:39:02.999807+00:00",
             "completed_matches": 72,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
-            "download_age_hours": 0.012360418611111111,
+            "download_age_hours": 0.06068820055555555,
             "download_status": "VERIFIED_LIVE",
             "latest_completed_date": "2026-11-04",
             "latest_completed_utc": "2026-11-04T20:00:00+00:00",
@@ -23297,11 +23111,11 @@
             "training_end": "2026-11-04"
           },
           "days_since_latest_result": 2,
-          "diagnostics_sha256": "246f9d7a3a68ff4b4378cd215c0838e9a2c4816c17b37cf622991efb7da1eebd",
+          "diagnostics_sha256": "7630a1590b6a05ca51eeed02c997aca5ddc397943bb77bd613661b95458c3833",
           "forecast_training_health": {
             "added_matches": 0,
             "cache_hash_verified": true,
-            "checked_at_utc": "2026-11-06T13:21:09.848083+00:00",
+            "checked_at_utc": "2026-11-06T13:39:02.999807+00:00",
             "completed_matches": 72,
             "corrected_scores": 0,
             "coverage_status": "CURRENT_WITHIN_PROVIDER_SCHEDULE",
@@ -23347,7 +23161,7 @@
             "verified_at_utc": "2026-11-05T15:54:25.582981+00:00"
           },
           "days_since_latest_result": 2,
-          "diagnostics_sha256": "917d23b2963414003233c2983cbf50a2888f1ffe0b3d798618501712804aaac6",
+          "diagnostics_sha256": "05bedddfa69fb6ff2d05d8d4e3d6c78e76fcae538d108e8cd3bde2ef6c77e82d",
           "forecast_training_health": {
             "official_source_health": {
               "2025": {
@@ -23433,11 +23247,11 @@
           "half_wins": 0,
           "losses": 2,
           "no_loss_rate": 0.5,
-          "pending": 194,
+          "pending": 203,
           "profit_per_unit_staked": -1.04,
           "refunds": 0,
           "settled_with_odds": 4,
-          "total": 198,
+          "total": 207,
           "win_rate": 0.5,
           "wins": 2
         }
