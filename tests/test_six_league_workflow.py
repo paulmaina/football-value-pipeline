@@ -89,13 +89,15 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 # The pipeline writes the master shortlist beside the other lists and records it in the summary.
                 master = pd.read_csv(raw/'master_shortlist.csv')
                 self.assertEqual(summary['master_shortlist']['n_bets'], len(master))
-                # These toy offers are below fair and free-source identity is
-                # unverified: neither condition may be bypassed to fill ten.
-                self.assertTrue(master.empty)
-                self.assertEqual(summary['master_shortlist']['version'], 'master-market-value-protection-v3')
+                # A negative edge and missing optional research do not block nominations.
+                self.assertEqual(len(master), min(10, len(keys)))
+                self.assertEqual(summary['master_shortlist']['version'], 'master-consensus-protection-v4')
+                self.assertEqual(summary['master_shortlist']['shortfall'], max(0, 10-len(keys)))
+                self.assertTrue(master.master_suggested_stake.eq(0).all())
+                self.assertEqual(len(master[['league','home_team','away_team','kickoff_utc']].drop_duplicates()),len(master))
                 audit = pd.read_csv(raw/'master_shortlist_audit.csv')
-                self.assertEqual(set(audit.master_decision), {'EXCLUDED'})
-                self.assertTrue(audit.master_rejection_reasons.str.contains('identity ambiguous').all())
+                self.assertEqual(set(audit.master_decision), {'ELIGIBLE'})
+                self.assertTrue(audit.master_coverage_warning.str.contains('research').all())
                 self.assertIn('Over 1.5', summary['eligible_markets'])
                 self.assertEqual(set(picks.market),{'Home win'})
                 self.assertEqual(set(picks.bookmaker),{'1xBet'})

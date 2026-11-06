@@ -1,4 +1,4 @@
-"""Market-first master selection never fills ten with unsupported/negative-EV picks."""
+"""Consensus master nominates ten executable fixtures, flags negative EV and never invents evidence."""
 import json
 import tempfile
 from pathlib import Path
@@ -19,6 +19,8 @@ def candidate(home='Home FC', market='Over 1.5', price=1.4, **kw):
         offered_decimal_odds=price, offered_last_update_utc=(NOW-pd.Timedelta(minutes=1)).isoformat(),
         per_stake_cost=0., decision='SHORTLISTED', cagey_tier_decision='SHORTLISTED',
         research_probability_basis='team_form_poisson_v1', value_market_group='over_1_5',
+        research_summary=json.dumps({'home':{'all':{'matches':10}},'away':{'all':{'matches':10}}}),
+        corrected_input_timing_status='SYNCHRONIZED',
         selection_policy_version='48h-ah-price-edge-cagey-v28', **kw)
 
 
@@ -59,13 +61,17 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
         self.assertTrue(top.iloc[0].in_cagey_tier)
         self.assertEqual(top.iloc[0].master_suggested_stake,0)
 
-    def test_watchlist_never_fills_the_master_and_ten_is_maximum(self):
-        rows=[candidate(str(i)) for i in range(15)]
+    def test_ten_nominations_even_with_negative_ev_and_explicit_shortfall(self):
+        rows=[candidate(str(i),price=1.3) for i in range(15)]
         top=selection.select(evaluate(*rows))
         self.assertEqual(len(top),10)
         watch=evaluate(candidate(price=1.3))
-        self.assertEqual(watch.iloc[0].master_decision,'WATCHLIST')
-        self.assertTrue(selection.select(watch).empty)
+        self.assertEqual(watch.iloc[0].master_decision,'ELIGIBLE')
+        self.assertIn('negative',watch.iloc[0].master_price_flag)
+        self.assertEqual(len(selection.select(watch)),1)
+        self.assertEqual(selection.summary(top)['negative_ev_bets'],10)
+        self.assertEqual(selection.summary(top)['shortfall'],0)
+        self.assertEqual(selection.summary(selection.select(watch))['shortfall'],9)
         self.assertEqual(len(selection.select(evaluate(candidate()))),1)
 
     def test_reject_missing_future_stale_and_out_of_window_inputs(self):
@@ -76,7 +82,7 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
             {'offered_last_update_utc':(NOW-pd.Timedelta(minutes=7)).isoformat()},
             {'kickoff_utc':(NOW+pd.Timedelta(minutes=19)).isoformat()},
             {'kickoff_utc':(NOW+pd.Timedelta(hours=49)).isoformat()},
-            {'home_team':''},{'research_warnings':'free-source fixture identity missing or ambiguous'}]
+            {'home_team':''}]
         for changes in bad:
             r=candidate();r.update(changes)
             with self.subTest(changes=changes):
@@ -116,6 +122,47 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
         self.assertIn('disagreement',out.iloc[0].master_coverage_warning)
         r['corrected_p_loss']=.5
         self.assertIn('invalid',evaluate(r).iloc[0].master_coverage_warning)
+
+    def test_models_exchange_notes_without_inventing_a_combined_probability(self):
+        a=candidate('Optimistic',price=1.3);b=candidate('Agreement',price=1.3)
+        for row,prob in [(a,.65),(b,.79)]:
+            row.update({'research_p_'+k:p for k,p in zip(selection.KINDS,[prob,0,0,0,1-prob])})
+        first=evaluate(a,mass=(.85,0,0,0,.15))
+        second=evaluate(b,mass=(.8,0,0,0,.2))
+        top=selection.select(pd.concat([first,second]))
+        self.assertEqual(top.home_team.tolist(),['Agreement','Optimistic'])
+        self.assertAlmostEqual(first.iloc[0].master_no_loss_probability,.85)
+        self.assertAlmostEqual(first.iloc[0].master_consensus_no_loss,.65)
+        self.assertEqual(first.iloc[0].master_evidence_count,2)
+        self.assertEqual(first.iloc[0].master_consensus_sources,'market + research')
+        self.assertIn('not confidence bounds',first.iloc[0].master_coverage_warning)
+
+    def test_unvalidated_totals_correction_and_ambiguous_research_do_not_drive_rank(self):
+        r=candidate()
+        for prefix,prob in [('research',.73),('corrected',.4)]:
+            r.update({prefix+'_p_'+k:p for k,p in zip(selection.KINDS,[prob,0,0,0,1-prob])})
+        row=evaluate(r).iloc[0]
+        self.assertAlmostEqual(row.master_corrected_profit_probability,.4)
+        self.assertAlmostEqual(row.master_consensus_profit,.73)
+        self.assertNotIn('corrected',row.master_consensus_sources)
+        r['research_warnings']='free-source fixture identity missing or ambiguous'
+        row=evaluate(r).iloc[0]
+        self.assertEqual(row.master_decision,'ELIGIBLE')
+        self.assertAlmostEqual(row.master_consensus_profit,.75)
+        self.assertEqual(row.master_evidence_count,1)
+        self.assertIn('coverage insufficient',row.master_coverage_warning)
+        r['market']=r['market_to_bet']='Home win'
+        r['corrected_input_timing_status']='UNAVAILABLE_OR_UNSYNCHRONIZED'
+        self.assertEqual(evaluate(r).iloc[0].master_evidence_count,1)
+
+    def test_insufficient_distinct_fixtures_reports_shortfall_without_reusing_match(self):
+        top=selection.select(evaluate(*[candidate(price=1.3) for _ in range(20)]))
+        self.assertEqual(len(top),1)
+        self.assertEqual(selection.summary(top)['shortfall'],9)
+        unsafe=evaluate(candidate())
+        unsafe['master_decision']='EXCLUDED'
+        empty=selection.select(unsafe)
+        self.assertEqual(selection.summary(empty)['shortfall'],10)
 
     def test_binary_reference_uses_fresh_independent_pair(self):
         r=candidate()
@@ -224,7 +271,7 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
             readable=pd.read_csv(root/'master_shortlist_readable.csv')
             self.assertIn('Chance of positive return',readable)
             self.assertIn('Suggested stake',readable)
-            self.assertIn('up to 10',' '.join(lines))
+            self.assertIn('10 consensus nominations',' '.join(lines))
             self.assertEqual(summary['master_shortlist']['version'],ms.VERSION_MARKET)
             self.assertTrue(ms.summary(written)['automatic_staking'] is False)
         self.assertIn(ms.VERSION,ms.VERSIONS)
