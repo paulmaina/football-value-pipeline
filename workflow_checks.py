@@ -235,6 +235,9 @@ def raw_check(root, *, raw_dir=None):
                 require(master_path.exists(), 'Missing current master shortlist')
                 master_version = summary['master_shortlist'].get('version')
                 require(master_version in master_shortlist.VERSIONS, 'Unknown master shortlist version')
+                if master_version == master_shortlist.VERSION_MARKET:
+                    from master_selection import require_generation_clock
+                    require_generation_clock(decisions, summary.get('generated_at_utc'))
                 master_expected = master_shortlist.build(
                     decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), master_version)
                 try:

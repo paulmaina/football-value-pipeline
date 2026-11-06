@@ -79,7 +79,7 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
             {'per_stake_cost':None},{'per_stake_cost':-1},{'kickoff_utc':None},
             {'offered_last_update_utc':None},
             {'offered_last_update_utc':(NOW+pd.Timedelta(seconds=1)).isoformat()},
-            {'offered_last_update_utc':(NOW-pd.Timedelta(minutes=7)).isoformat()},
+            {'offered_last_update_utc':(NOW-pd.Timedelta(minutes=16)).isoformat()},
             {'kickoff_utc':(NOW+pd.Timedelta(minutes=19)).isoformat()},
             {'kickoff_utc':(NOW+pd.Timedelta(hours=49)).isoformat()},
             {'home_team':''}]
@@ -106,9 +106,10 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
         a=evaluate(candidate('A',price=1.25),mass=(.65,0,.25,0,.1))
         b=evaluate(candidate('B',price=1.25),mass=(.85,0,0,0,.15))
         top=selection.select(pd.concat([a,b]))
-        self.assertEqual(list(top.home_team),['A','B'])
-        self.assertAlmostEqual(top.iloc[0].master_profit_probability,.65)
-        self.assertAlmostEqual(top.iloc[0].master_no_loss_probability,.9)
+        self.assertEqual(list(top.home_team),['B','A'])
+        refund_heavy=top.loc[top.home_team.eq('A')].iloc[0]
+        self.assertAlmostEqual(refund_heavy.master_profit_probability,.65)
+        self.assertAlmostEqual(refund_heavy.master_no_loss_probability,.9)
         low=candidate(price=1.4);high=candidate(price=1.45);high['bookmaker']='Pinnacle'
         self.assertEqual(selection.select(evaluate(low,high)).iloc[0].bookmaker,'Pinnacle')
 
@@ -123,14 +124,14 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
         r['corrected_p_loss']=.5
         self.assertIn('invalid',evaluate(r).iloc[0].master_coverage_warning)
 
-    def test_models_exchange_notes_without_inventing_a_combined_probability(self):
+    def test_model_disagreement_is_a_diagnostic_not_a_missing_evidence_ranking_advantage(self):
         a=candidate('Optimistic',price=1.3);b=candidate('Agreement',price=1.3)
         for row,prob in [(a,.65),(b,.79)]:
             row.update({'research_p_'+k:p for k,p in zip(selection.KINDS,[prob,0,0,0,1-prob])})
         first=evaluate(a,mass=(.85,0,0,0,.15))
         second=evaluate(b,mass=(.8,0,0,0,.2))
         top=selection.select(pd.concat([first,second]))
-        self.assertEqual(top.home_team.tolist(),['Agreement','Optimistic'])
+        self.assertEqual(top.home_team.tolist(),['Optimistic','Agreement'])
         self.assertAlmostEqual(first.iloc[0].master_no_loss_probability,.85)
         self.assertAlmostEqual(first.iloc[0].master_consensus_no_loss,.65)
         self.assertEqual(first.iloc[0].master_evidence_count,2)
@@ -191,7 +192,7 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
         self.assertAlmostEqual(out.iloc[0].master_no_loss_probability,.9)
         for kind,stale in [('A',False),('B',True)]:
             fit.kind=kind
-            info['input_stamps']['h2h']=(NOW-pd.Timedelta(minutes=7) if stale else NOW).isoformat()
+            info['input_stamps']['h2h']=(NOW-pd.Timedelta(minutes=16) if stale else NOW).isoformat()
             with patch('price_edge_shortlist.market_fit',return_value=(fit,info)):
                 bad=selection.evaluate(pd.DataFrame([r]),forecasts(r))
             self.assertEqual(bad.iloc[0].master_decision,'EXCLUDED')
@@ -255,6 +256,72 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
         self.assertEqual(out.iloc[0].master_decision,'EXCLUDED')
         self.assertIn('independent',out.iloc[0].master_rejection_reasons)
 
+    def test_fifteen_minute_quotes_are_allowed_and_require_price_recheck(self):
+        from test_price_edge_shortlist import FRESH
+        for age in (6.5,8,15):
+            r=candidate()
+            stamp=(NOW-pd.Timedelta(minutes=age)).isoformat()
+            r['offered_last_update_utc']=stamp
+            pred=fixture(over_1xbet(1.4,stamp=stamp))
+            quotes=json.loads(pred['price_edge_quotes'])
+            for q in quotes:
+                q['last_update_utc']=stamp
+            pred['price_edge_quotes']=json.dumps(quotes)
+            out=selection.evaluate(pd.DataFrame([r]),pd.DataFrame([pred])).iloc[0]
+            self.assertEqual(out.master_decision,'ELIGIBLE')
+            self.assertAlmostEqual(out.master_offer_age_minutes,age)
+            self.assertAlmostEqual(out.master_reference_age_minutes,age)
+            self.assertTrue(out.master_price_recheck_required)
+            self.assertEqual(out.master_freshness_status,'RECHECK_PRICE')
+        r=candidate();r['offered_last_update_utc']=(NOW-pd.Timedelta(minutes=15,seconds=1)).isoformat()
+        self.assertEqual(evaluate(r).iloc[0].master_decision,'EXCLUDED')
+
+    def test_missing_models_cannot_improve_rank_and_refunds_are_never_profit(self):
+        a,b=candidate('A'),candidate('B')
+        for k,p in zip(selection.KINDS,[.5,0,0,0,.5]):
+            a['research_p_'+k]=p
+        complete=selection.select(evaluate(a,b))
+        without=selection.select(evaluate(candidate('A'),b))
+        self.assertEqual(complete.home_team.tolist(),without.home_team.tolist())
+        self.assertEqual(complete.master_profit_probability.tolist(),without.master_profit_probability.tolist())
+        self.assertAlmostEqual(complete.iloc[0].master_model_gap,.25)
+        self.assertTrue(without.master_price_recheck_required.all())
+
+    def test_clock_mismatch_fails_loudly_before_any_file_is_written(self):
+        r=candidate();d=pd.DataFrame([r]);p=forecasts(r)
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            for stamp in (None,(NOW+pd.Timedelta(seconds=1)).isoformat()):
+                with self.subTest(stamp=stamp),self.assertRaisesRegex(ValueError,'clock'):
+                    ms.write(d,root,{'generated_at_utc':stamp},p)
+                self.assertFalse((root/ms.FILE).exists())
+                self.assertFalse((root/selection.AUDIT_FILE).exists())
+            clock=selection.require_generation_clock(d,NOW.isoformat())
+            self.assertEqual(clock,NOW)
+            with patch.object(selection,'_reference',return_value=([.75,0,0,0,.25],'test',NOW.isoformat())):
+                live=ms.write(d,root,{'generated_at_utc':NOW.isoformat()},p)
+                replay=ms.build(d,p,ms.VERSION_MARKET)
+            self.assertTrue(ms.matches(live,replay,ms.VERSION_MARKET))
+
+    def test_live_config_is_explicit_and_replay_ignores_it(self):
+        r=candidate();r.update(edge=.05,fair_odds=1.3333333333333333,reference_type='a',pinnacle_no_loss_probability=.75)
+        d=pd.DataFrame([r]);p=forecasts(r)
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);config=root/'master.json'
+            config.write_text(json.dumps({'version':ms.VERSION}),encoding='utf-8')
+            with patch.object(ms,'CONFIG',config):
+                self.assertEqual(ms.configured_version(),ms.VERSION)
+                # Presence of a research column never chooses the live rule.
+                with patch.object(ms,'build',wraps=ms.build) as builder:
+                    ms.write(d,root,{'generated_at_utc':NOW.isoformat()},p)
+                    self.assertEqual(builder.call_args.args[2],ms.VERSION)
+                with patch.object(selection,'_reference',return_value=([.75,0,0,0,.25],'test',NOW.isoformat())):
+                    replay=ms.build(d,p,ms.VERSION_MARKET)
+                self.assertEqual(replay.master_version.iloc[0],ms.VERSION_MARKET)
+                config.write_text(json.dumps({'version':'unknown'}),encoding='utf-8')
+                with self.assertRaisesRegex(ValueError,'configured'):
+                    ms.write(d,root,{'generated_at_utc':NOW.isoformat()},p)
+
     def test_versions_replay_and_readable_bind_new_fields(self):
         from format_football_output import master_section
         r=candidate();decisions=pd.DataFrame([r]);pred=forecasts(r)
@@ -271,7 +338,7 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
             readable=pd.read_csv(root/'master_shortlist_readable.csv')
             self.assertIn('Chance of positive return',readable)
             self.assertIn('Suggested stake',readable)
-            self.assertIn('10 consensus nominations',' '.join(lines))
+            self.assertIn('10 profit-first nominations',' '.join(lines))
             self.assertEqual(summary['master_shortlist']['version'],ms.VERSION_MARKET)
             self.assertTrue(ms.summary(written)['automatic_staking'] is False)
         self.assertIn(ms.VERSION,ms.VERSIONS)

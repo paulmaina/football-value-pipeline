@@ -3,17 +3,17 @@
 Inputs are the union of the two current SHORTLISTED decisions, not every
 candidate evaluated by the model. References are reconstructed offline from
 this generation's frozen fixture quotes. Nominate ten distinct fixtures whenever ten pass execution checks. Price value
-is labelled, not a quota-blocking gate. Model minima are sensitivity scenarios,
-not confidence bounds or a calibrated combined probability.
+is labelled, not a quota-blocking gate. Rank on the common market profit basis;
+model comparison scenarios are diagnostics only, never a missing-data advantage.
 """
 import math
 import json
 import numpy as np
 import pandas as pd
 
-VERSION = 'master-consensus-protection-v4'
+VERSION = 'master-profit-market-v5'
 MIN_EV = .02
-MAX_AGE_MINUTES = 6
+MAX_AGE_MINUTES = 15
 SIZE = 10
 AUDIT_FILE = 'master_shortlist_audit.csv'
 KINDS = ('win', 'half_win', 'push', 'half_loss', 'loss')
@@ -24,7 +24,8 @@ EXTRA_COLUMNS = ['master_profit_probability', 'master_expected_return', 'master_
     'master_validation_status', 'master_suggested_stake', 'master_reference_utc',
     'master_decision', 'master_rejection_reasons', 'master_consensus_no_loss',
     'master_consensus_profit', 'master_consensus_ev', 'master_consensus_sources',
-    'master_evidence_count', 'master_nomination_reason']
+    'master_evidence_count', 'master_nomination_reason', 'master_offer_age_minutes',
+    'master_reference_age_minutes', 'master_price_recheck_required', 'master_freshness_status']
 
 
 def number(value):
@@ -94,7 +95,20 @@ def _reference(row, forecast, now, fits):
         raise ValueError('Pinnacle inputs unsynchronized')
     margins, probs = margin_distribution(fit.matrix)
     priced = price_distribution(margins, probs, side, line)
-    return [priced['p_'+k] for k in KINDS], 'uncorrected Pinnacle fit B', min(clocks).isoformat()
+    return [priced['p_'+k] for k in KINDS], 'uncorrected Pinnacle fit B', min(quote_utc(t) for t in stamps).isoformat()
+
+
+def require_generation_clock(decisions, generated):
+    """Writer and replay must use the same clock; fail loudly before writing."""
+    from quote_freshness import quote_utc
+    clock = quote_utc(generated)
+    if clock is None:
+        raise ValueError('Missing or invalid master generation clock')
+    if decisions is not None and len(decisions):
+        clocks = {quote_utc(value) for value in decisions.get('evaluated_at_utc', pd.Series([None]))}
+        if clocks != {clock}:
+            raise ValueError('Master generation clock differs from evaluated decision rows')
+    return clock
 
 
 def evaluate(decisions, predictions, now=None):
@@ -142,12 +156,19 @@ def evaluate(decisions, predictions, now=None):
             if not usable_bookmaker(r.get('bookmaker')):
                 raise ValueError('bookmaker unavailable')
             if not _fresh(r.get('offered_last_update_utc'), clock):
-                raise ValueError('offered quote missing, future or older than six minutes')
+                raise ValueError('offered quote missing, future or older than fifteen minutes')
             forecast = forecasts.get(identity(r))
             if forecast is None:
                 raise ValueError('unique same-generation fixture forecast unavailable')
             mass, label, stamp = _reference(r, forecast, clock, fits)
             metrics = settlement(mass, odds, cost)
+            offer_age = (clock-quote_utc(r['offered_last_update_utc'])).total_seconds()/60
+            reference_age = (clock-quote_utc(stamp)).total_seconds()/60
+            r.update(master_offer_age_minutes=offer_age, master_reference_age_minutes=reference_age,
+                     master_price_recheck_required=True,
+                     master_freshness_status='RECHECK_PRICE' if max(offer_age, reference_age) > 6 else 'RECENT_SNAPSHOT')
+            if max(offer_age, reference_age) > 6:
+                warnings.append('offer or market reference is 6–15 minutes old: re-check exact line and price before betting')
             r.update(master_probability_basis=label, master_reference_utc=stamp,
                      master_no_loss_probability=metrics['no_loss'], master_profit_probability=metrics['profit'],
                      master_expected_return=metrics['ev'], fair_odds=metrics['fair'],
@@ -177,7 +198,7 @@ def evaluate(decisions, predictions, now=None):
                 else:
                     warnings.append(prefix+' distribution unavailable')
             if not research_usable:
-                warnings.append('research form/identity coverage insufficient: excluded from consensus ranking')
+                warnings.append('research form/identity coverage insufficient: unavailable for model comparison; market ranking unchanged')
             r.update(master_consensus_no_loss=min(m['no_loss'] for _, m in scenarios),
                      master_consensus_profit=min(m['profit'] for _, m in scenarios),
                      master_consensus_ev=min(m['ev'] for _, m in scenarios),
@@ -194,8 +215,8 @@ def evaluate(decisions, predictions, now=None):
             if metrics['ev'] < 0:
                 warnings.append('negative market expected return at this price; nomination is not evidence of profitable value')
             r.update(master_price_flag=flag, master_decision='ELIGIBLE', master_rejection_reasons='',
-                     master_nomination_reason='Ranked by the lowest usable no-loss scenario, then lowest profit scenario, '
-                     'lowest EV scenario and market EV; overlapping sources are not independent confirmations')
+                     master_nomination_reason='Ranked by market-referenced net profit probability, then market net EV, '
+                     'no-loss probability and odds; refunds are not wins; model comparisons do not change rank')
             r['odds_event_id'] = forecast.get('odds_event_id')
         except (ValueError, TypeError, KeyError) as exc:
             r['master_rejection_reasons'] = str(exc)
@@ -213,11 +234,11 @@ def select(audit):
         result.attrs['master_version'] = VERSION
         return result
     eligible['_fixture'] = [identity(r) for r in eligible.to_dict('records')]
-    # Compare conservative scenarios; no blend, artificial probability boost or overlap bonus.
-    ordered = eligible.sort_values(['master_consensus_no_loss', 'master_consensus_profit', 'master_consensus_ev',
-        'master_expected_return', 'offered_decimal_odds', 'kickoff_utc', 'league', 'home_team',
+    # A common market basis avoids refund-heavy ranking and missing-model advantage.
+    ordered = eligible.sort_values(['master_profit_probability', 'master_expected_return',
+        'master_no_loss_probability', 'offered_decimal_odds', 'kickoff_utc', 'league', 'home_team',
         'away_team', 'market', 'bookmaker', 'offered_last_update_utc'],
-        ascending=[False, False, False, False, False, True, True, True, True, True, True, False], kind='stable')
+        ascending=[False, False, False, False, True, True, True, True, True, True, False], kind='stable')
     top = ordered.drop_duplicates('_fixture').head(SIZE).copy()
     top['master_rank'] = range(1, len(top)+1)
     top['master_decision'] = 'SHORTLISTED'
@@ -234,10 +255,10 @@ def summary(frame):
         min_net_expected_return=None, value_label_threshold=MIN_EV,
         max_quote_age_minutes=MAX_AGE_MINUTES,
         probability_basis='Independent margin-free Pinnacle binary reference or uncorrected fit B; '
-            'valid research/corrected distributions provide conservative ranking scenarios, not a probability blend',
+            'valid research/corrected distributions are diagnostics only; no blend or missing-evidence ranking bonus',
         validation_status='UNVALIDATED_SELECTION_RULE', automatic_staking=False,
         rule='Union of value and cagey SHORTLISTED offers only; odds (1.15,2.00]; kickoff 20 minutes–48 hours; '
              'fresh synchronized market references; no EV or probability eligibility floor; nominate ten when '
              'ten executable distinct fixtures exist, otherwise explicit shortfall; one market per match; '
-             'lowest usable no-loss scenario then profit scenario then EV scenario then market EV then odds; '
+             'market profit probability then market net EV then no-loss probability then odds; '
              'negative EV flagged; no automatic stakes')

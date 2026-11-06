@@ -1659,11 +1659,15 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
     if info.get('version') == master_shortlist.VERSION_MARKET:
         readable = readable.drop(columns=['Value price from (1% edge)', 'Price flag (value / below value threshold)'])
         readable['Nomination price assessment'] = raw.master_price_flag
-        readable['Lowest usable no-loss scenario (not a confidence bound)'] = raw.master_consensus_no_loss.map(pct)
-        readable['Lowest usable profit scenario (not a confidence bound)'] = raw.master_consensus_profit.map(pct)
-        readable['Lowest usable EV scenario'] = raw.master_consensus_ev.map(signed_pct)
-        readable['Ranking scenarios'] = raw.master_consensus_sources
+        readable['Lowest comparison no-loss (diagnostic only)'] = raw.master_consensus_no_loss.map(pct)
+        readable['Lowest comparison profit (diagnostic only)'] = raw.master_consensus_profit.map(pct)
+        readable['Lowest comparison EV (diagnostic only)'] = raw.master_consensus_ev.map(signed_pct)
+        readable['Available comparison scenarios'] = raw.master_consensus_sources
         readable['Nomination reason'] = raw.master_nomination_reason
+        readable['Offered quote age (minutes)'] = raw.master_offer_age_minutes.map(decimal)
+        readable['Market reference age (minutes)'] = raw.master_reference_age_minutes.map(decimal)
+        readable['Re-check price before betting'] = raw.master_price_recheck_required
+        readable['Quote freshness status'] = raw.master_freshness_status
         readable['Minimum price for 2% net EV'] = raw.minimum_odds_master.map(decimal)
         readable['Chance of positive return'] = raw.master_profit_probability.map(pct)
         readable['Expected return after cost'] = raw.master_expected_return.map(signed_pct)
@@ -1678,12 +1682,12 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
         readable['Suggested stake'] = raw.master_suggested_stake
         readable['Pinnacle reference time (UTC)'] = raw.master_reference_utc
         readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
-        return ["", "## Master shortlist (10 consensus nominations when available)", "",
+        return ["", "## Master shortlist (10 profit-first nominations when available)", "",
                 "One market per match from the union of the value and cagey shortlists. "
                 "Fresh market references and valid execution evidence are required. There is no minimum EV or probability gate. "
-                "Ranked by the lowest usable no-loss, profit and EV scenarios, then market EV and odds. "
+                "Ranked by Pinnacle-referenced profit probability, market net EV, no-loss probability and odds. Refunds are not wins. "
                 "Negative-EV nominations remain visible and flagged; they are not proven value bets. This selection rule is unvalidated; suggested stakes are zero. "
-                "Scenario minima are not confidence bounds; overlapping sources are correlated. Pushes are refunds, not wins. "
+                "Model comparisons do not affect ranking or reward missing data. Quotes up to 15 minutes old are allowed with ages and re-check warnings; all prices must be re-checked before betting. "
                 f"This run: {len(raw)} nominations; target shortfall {info.get('shortfall', 0)}; "
                 f"{info.get('negative_ev_bets', 0)} negative market EV. Review master_shortlist_audit.csv for exclusions.", "",
                 markdown_table(list(readable.columns), readable.astype(str).values.tolist())
