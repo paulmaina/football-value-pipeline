@@ -598,7 +598,8 @@ def closing_for(row: dict, observations: List[dict], side: Optional[str], line: 
         observed_event = _event_id(obs['fixture'].get('odds_event_id'))
         if event is not None and observed_event is not None and observed_event != event:
             continue
-        if utc(obs['observed_at_utc']) < utc(row['snapshot_captured_utc']):
+        entered = utc(row.get('placed_at_utc') if row.get('evaluation_view') == 'user_recorded_placed_bets' else row.get('snapshot_captured_utc'))
+        if entered is None or utc(obs['observed_at_utc']) < entered:
             continue
         quotes = obs.get('quotes', [])
         q = share(quotes) if share is not None else close_win_share(quotes, side, line)
@@ -672,7 +673,22 @@ def settle_dc12(row: dict, final: Optional[dict], price) -> Dict[str, object]:
     return {'result_status': 'WON' if won else 'LOST', 'unit_profit': gain}
 
 
-def grade_over_1_5(row: dict, observations: List[dict], records: List[dict], clock, *, share=None, settlement=None) -> dict:
+def verified_final(row, records, clock, cache=None):
+    from performance_tracking import fixture_match, utc
+    kick=utc(row.get('kickoff_utc'))
+    if kick is None or kick > clock-timedelta(hours=2):
+        return None
+    # Raw identity strings are part of the key: caching must not relax alias verification.
+    key=(row.get('league'),row.get('home_team'),row.get('away_team'),kick)
+    if cache is not None and key in cache:
+        return cache[key]
+    match,state=fixture_match(row,records)
+    result=match if state=='VERIFIED_FINISHED' else None
+    if cache is not None: cache[key]=result
+    return result
+
+
+def grade_over_1_5(row: dict, observations: List[dict], records: List[dict], clock, *, share=None, settlement=None, final_cache=None) -> dict:
     """Binary non-AH pick; defaults to Over 1.5 and accepts DC 12 settlement/close adapters."""
     from performance_tracking import fixture_match, utc
     price = pd.to_numeric(row.get('offered_decimal_odds'), errors='coerce')
@@ -680,11 +696,7 @@ def grade_over_1_5(row: dict, observations: List[dict], records: List[dict], clo
     share = share or close_over_share
     settlement = settlement or settle_over_1_5
     close = closing_for(row, observations, None, None, share=share)
-    final = None
-    kick = utc(row.get('kickoff_utc'))
-    if kick is not None and kick <= clock - timedelta(hours=2):
-        match, state = fixture_match(row, records)
-        final = match if state == 'VERIFIED_FINISHED' else None
+    final = verified_final(row,records,clock,final_cache)
     item = {**row, 'ah_side': None, 'ah_line': None, 'odds_band': odds_band(price),
             'tagged': 'any tag' if any(_flag(row.get(t)) for t in TAGS) else 'no tag',
             **{t: 'yes' if _flag(row.get(t)) else 'no' for t in TAGS},
@@ -700,14 +712,21 @@ def grade_over_1_5(row: dict, observations: List[dict], records: List[dict], clo
 
 def grade(rows: List[dict], observations: List[dict], records: List[dict], clock) -> pd.DataFrame:
     from performance_tracking import fixture_match, utc
+    from performance_tracking import fixture_key
+    grouped_observations={}
+    for obs in observations:
+        key=(fixture_key(obs['fixture']),utc(obs['fixture']['kickoff_utc']))
+        grouped_observations.setdefault(key,[]).append(obs)
+    final_cache={}
     graded = []
     for row in rows:
+        own_observations=grouped_observations.get((fixture_key(row),utc(row.get('kickoff_utc'))),[])
         if row.get('market') == 'Double Chance 12':
-            graded.append(grade_over_1_5(row, observations, records, clock,
-                          share=close_dc12_share, settlement=settle_dc12))
+            graded.append(grade_over_1_5(row, own_observations, records, clock,
+                          share=close_dc12_share, settlement=settle_dc12, final_cache=final_cache))
             continue
         if row.get('market') == OVER_1_5:
-            graded.append(grade_over_1_5(row, observations, records, clock))
+            graded.append(grade_over_1_5(row, own_observations, records, clock, final_cache=final_cache))
             continue
         target = ah_line(row.get('market'), row.get('handicap_side'), row.get('handicap_line'))
         if target is None:
@@ -715,12 +734,8 @@ def grade(rows: List[dict], observations: List[dict], records: List[dict], clock
         side, line = target
         price = pd.to_numeric(row.get('offered_decimal_odds'), errors='coerce')
         fair = pd.to_numeric(row.get('fair_odds'), errors='coerce')
-        close = closing_for(row, observations, side, line)
-        final = None
-        kick = utc(row.get('kickoff_utc'))
-        if kick is not None and kick <= clock - timedelta(hours=2):
-            match, state = fixture_match(row, records)
-            final = match if state == 'VERIFIED_FINISHED' else None
+        close = closing_for(row, own_observations, side, line)
+        final = verified_final(row,records,clock,final_cache)
         item = {**row, 'ah_side': side, 'ah_line': line, 'odds_band': odds_band(price),
                 'tagged': 'any tag' if any(_flag(row.get(t)) for t in TAGS) else 'no tag',
                 **{t: 'yes' if _flag(row.get(t)) else 'no' for t in TAGS},
@@ -769,6 +784,10 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
     tagged = grade(bind_event_ids(frozen_candidates(root, archive), archive), observations, records, clock)
     tier = grade(bind_event_ids(frozen_tier_picks(root, archive), archive), observations, records, clock)
     master = grade(bind_event_ids(frozen_master_picks(root, archive), archive), observations, records, clock)
+    from recommendation_history import rows as history_rows, summarize as history_summary
+    history = grade(bind_event_ids(history_rows(root,archive),archive),observations,records,clock)
+    from bet_ledger import review_private
+    actual_bets = review_private(root,observations,records,clock)
     monitoring = grade_monitoring(first_monitoring_records(root, archive), records, clock)
     both = tier_frame(graded, tier)
     flags = cagey_flags(both, active_rule if active_rule is not None else active_tier_rule())
@@ -777,6 +796,7 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
     stop = overall['n'] >= STOP_REVIEW_MIN_PICKS and overall['mean'] is not None and overall['mean'] < 0
     summary = {
         'version': VERSION, 'policy': POLICY, 'reviewed_at_utc': clock.isoformat(),
+        'recommendation_history': history_summary(history), 'actual_bets': actual_bets,
         'frozen_picks': int(len(graded)), 'clv': overall,
         'profit': summarize(graded['unit_profit'] if len(graded) else []),
         'stop_review': bool(stop),
@@ -815,6 +835,7 @@ def review(root: Path, archive, records: List[dict], clock, active_rule: Optiona
     graded.to_csv(dest / 'picks.csv', index=False)
     tagged.to_csv(dest / 'tagged_candidates.csv', index=False)
     tier.to_csv(dest / 'cagey_tier_picks.csv', index=False)
+    history.to_csv(dest / 'all_recommendation_generations.csv', index=False)
     master.to_csv(dest / 'master_shortlist_picks.csv', index=False)
     monitoring.to_csv(dest / 'correction_monitoring.csv', index=False)
     (dest / 'report.md').write_text(report(summary), encoding='utf-8')
@@ -830,6 +851,15 @@ def _fmt(m: dict) -> str:
 
 def report(summary: dict) -> str:
     lines = ['# v27/v28 price-edge tracking', '']
+    if 'recommendation_history' in summary:
+        info=summary['recommendation_history']
+        lines += ['## Recommendation history and placed bets', '', info['note'], '',
+                  'Latest-view tables below are simulated recommendations, not executed-bet ROI.']
+        for source in ('value','cagey'):
+            part=info[source]
+            lines += [f"{source}: {part['recommendations']} captured recommendations; {part['graded']} graded; "
+                      f"{part['distinct_fixtures']} distinct fixtures."]
+        lines += ['Actual placed bets: '+summary.get('actual_bets',{}).get('status','NOT_RECORDED'), '']
     if summary.get('cagey_review'):
         lines += [f"> **CAGEY REVIEW**: {summary['correction_only_clv']['n']} graded correction-only value picks with "
                   f"mean CLV {summary['correction_only_clv']['mean']:+.2%}. Recommendation: set "
