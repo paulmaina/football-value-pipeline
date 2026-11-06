@@ -1,21 +1,21 @@
 {
-  "generated_at_utc": "2026-11-05T16:50:22.659919+00:00",
+  "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28",
   "selection_objective": "TEAM_RESEARCH_PROFIT_PROBABILITY",
   "status": "QUALIFIED",
-  "n_fixtures": 80,
-  "n_markets_evaluated": 1998,
-  "n_shortlisted": 89,
-  "n_strict_qualified": 89,
+  "n_fixtures": 75,
+  "n_markets_evaluated": 1812,
+  "n_shortlisted": 108,
+  "n_strict_qualified": 108,
   "n_provisional_watchlist": 0,
-  "n_total_candidates": 89,
+  "n_total_candidates": 108,
   "target_distinct_matches": null,
   "shortfall": null,
-  "usable_distinct_fixtures": 80,
+  "usable_distinct_fixtures": 75,
   "shortlist_lookahead_hours": 48.0,
   "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-11-05T16:50:22.659919+00:00",
-  "shortlist_window_end_utc": "2026-11-07T16:50:22.659919+00:00",
+  "shortlist_window_start_utc": "2026-11-06T11:26:29.717902+00:00",
+  "shortlist_window_end_utc": "2026-11-08T11:26:29.717902+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -111,24 +111,23 @@
     "use": "tracking only; never changes a decision"
   },
   "tagged_candidates": {
-    "balanced": 1003,
-    "low_total": 144,
-    "high_draw": 481,
-    "even_odds": 137
+    "balanced": 832,
+    "low_total": 193,
+    "high_draw": 485,
+    "even_odds": 164
   },
-  "tagged_fixtures": 37,
+  "tagged_fixtures": 35,
   "rejection_counts": {
-    "offered odds above 2.00": 777,
-    "kickoff outside 20-minute to 48-hour window": 418,
-    "Europa team has fewer than six verified prior appearances": 332,
-    "no offered quote at an allowed bookmaker": 315,
-    "offered quote stale or unavailable": 315,
-    "offered odds must be greater than 1.15": 73
+    "offered odds above 2.00": 704,
+    "kickoff outside 20-minute to 48-hour window": 376,
+    "no offered quote at an allowed bookmaker": 295,
+    "offered quote stale or unavailable": 295,
+    "offered odds must be greater than 1.15": 87
   },
   "reference_type_counts": {
-    "a": 56,
+    "a": 71,
     "b": 6,
-    "c-cagey": 2
+    "c-cagey": 3
   },
   "selection_method": "Highest positive-return probability per fixture and market group; expected return then odds break ties; no cap",
   "ranking_metric": "probability of positive net return descending",
@@ -138,7 +137,7 @@
   "model_role": "Researched settlement probabilities select and rank the main shortlist",
   "shortfall_reason": null,
   "warning": "Research probabilities are model estimates and have not passed a forward calibration gate. Negative expected return remains eligible and flagged.",
-  "cagey_tier_rule": "narrow-63-flagged-v2",
+  "cagey_tier_rule": "no-loss-market-reference-v5",
   "value_rule": "local-research-profit-115-200-dc12-v2",
   "value_market_groups": [
     "asian_handicap",
@@ -148,10 +147,10 @@
   ],
   "min_edge_by_market_group": {},
   "value_market_group_counts": {
-    "asian_handicap": 32,
-    "match_winner": 13,
-    "double_chance": 26,
-    "over_1_5": 18
+    "asian_handicap": 39,
+    "match_winner": 19,
+    "double_chance": 30,
+    "over_1_5": 20
   },
   "cagey_correction_enabled": true,
   "cagey_tier_enabled": true,
@@ -159,17 +158,21 @@
   "correction_only_value_picks": 0,
   "cagey_tier": {
     "enabled": true,
-    "n_shortlisted": 19,
-    "fixtures_in_window": 40,
-    "fixtures_at_or_above_cutoff": 19,
-    "min_p_narrow": 0.63,
-    "cutoff_used": 0.37,
-    "value_picks": 5,
-    "below_fair_picks": 14,
-    "in_both_tiers": 16,
-    "even_odds_picks": 2,
-    "rule": "every fixture with P(narrow) >= 63% (corrected cagey score <= 0.37) in the 20-minute to 48-hour window; its safest AH +1..+2.25 line at Pinnacle or 1xBet after the data guards; price_flag says whether expected profit after stake cost under the corrected matrix is >= 0 (value) or not (below fair); one per fixture",
-    "rule_version": "narrow-63-flagged-v2"
+    "rule_version": "no-loss-market-reference-v5",
+    "min_p_narrow": null,
+    "n_shortlisted": 102,
+    "value_picks": 4,
+    "below_fair_picks": 98,
+    "probability_basis": "market_specific_pinnacle_v1",
+    "selection_objective": "NO_LOSS_PROBABILITY",
+    "rule": "No narrow gate; per-market-source no-loss then expected return then odds; Over 1.5 uses uncorrected Pinnacle grid; binary price guard uses independent Pinnacle prices; narrow support is informational",
+    "narrow_general_gate": false,
+    "narrow_supplement_threshold": 0.67,
+    "narrow_supplement_version": "corrected-narrow-support-v1",
+    "probability_basis_by_market": {
+      "Over 1.5": "pinnacle_uncorrected_matrix_v1",
+      "other_markets": "pinnacle_cagey_corrected_matrix_v1"
+    }
   },
   "correction_rule": "Derived plus lines (>= +1.0) are priced from the cagey-corrected matrix (c-cagey, 3% threshold); Pinnacle-quoted lines keep Pinnacle as the fair price; minus lines are never corrected.",
   "price_edge_execution_version": 2,
@@ -180,12 +183,13 @@
   "min_offered_odds_exclusive": 1.15,
   "asian_handicap_selection": "Highest positive-net-return probability among available quoted AH lines within (1.15, 2.00]; one per fixture/group",
   "training_rule": "Verified local competition history plus pre-cutoff free-source research; refresh failure retains valid cache with a warning",
+  "shortlist_schema_version": "comparable-shortlist-v1",
   "master_shortlist": {
     "version": "master-10-v2",
     "size": 10,
     "n_bets": 10,
-    "value_bets": 6,
-    "below_threshold_bets": 4,
+    "value_bets": 5,
+    "below_threshold_bets": 5,
     "min_edge_for_value": 0.01,
     "rule": "the run's evaluated candidates that passed the data checks (a candidate may fail only on price); one per match: value bets (edge >= 1% vs their fair reference) first, safest first; then below-value-threshold bets (edge under 1%, possibly still positive) closest to fair price first; first 10 matches; fewer only when fewer matches qualify",
     "probability_basis": "no-loss probability labelled by its source: cagey-corrected fit (c-cagey), market-implied fit B (whenever usable), else the Pinnacle fair win share (half lines and over 1.5 only); none -> ranked last"

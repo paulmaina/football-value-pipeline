@@ -1,11 +1,27 @@
 {
-  "checked_at_utc": "2026-11-04T19:59:51.761619+00:00",
-  "incident_started_at_utc": "2026-10-31T17:27:09.700420+00:00",
+  "checked_at_utc": "2026-11-05T17:41:10.224990+00:00",
+  "incident_started_at_utc": "2026-11-05T17:39:25.185313+00:00",
   "last_failure": {
-    "at_utc": "2026-11-01T13:24:24.488482+00:00",
+    "at_utc": "2026-11-05T17:41:10.224990+00:00",
     "attempts": [
       {
         "credential": "THE_ODDS_API_KEY",
+        "error_code": "OUT_OF_USAGE_CREDITS",
+        "http_status": 401,
+        "x-requests-last": 0,
+        "x-requests-remaining": 0,
+        "x-requests-used": 500
+      },
+      {
+        "credential": "THE_ODDS_API_KEY_FALLBACK_1",
+        "error_code": "OUT_OF_USAGE_CREDITS",
+        "http_status": 401,
+        "x-requests-last": 0,
+        "x-requests-remaining": 0,
+        "x-requests-used": 500
+      },
+      {
+        "credential": "THE_ODDS_API_KEY_FALLBACK_2",
         "error_code": "OUT_OF_USAGE_CREDITS",
         "http_status": 401,
         "x-requests-last": 0,
@@ -17,5 +33,5 @@
     "error": "OddsProviderError"
   },
   "recovered_at_utc": "2026-11-01T13:26:24.839501+00:00",
-  "state": "AVAILABLE"
+  "state": "CREDITS_EXHAUSTED"
 }

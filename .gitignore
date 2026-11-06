@@ -48,3 +48,6 @@ football_output_v2/.prediction-prune-*/
 
 # Raw research HTTP responses are local; replay uses frozen prediction evidence.
 .football_cache/match_research/
+
+# Private, user-recorded financial data and actual-bet ROI reports.
+.football_bets/

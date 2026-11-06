@@ -32,7 +32,8 @@ def run(data, cost=0, settings=None):
 class ReferenceSizingTests(OfflineQuotePolicyTestCase):
     def setUp(self):
         super().setUp()
-        historical = {**v28.load_settings(), 'value_rule': v28.VALUE_RULE_PER_MARKET}
+        historical = {**v28.load_settings(), 'value_rule': v28.VALUE_RULE_PER_MARKET,
+                      'cagey_tier_rule': v28.TIER_RULE_NARROW}
         self.addCleanup(patch.stopall)
         patch.object(v28, 'load_settings', return_value=historical).start()
 
