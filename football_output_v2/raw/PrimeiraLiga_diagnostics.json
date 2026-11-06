@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "b3df8a6ba2e5ca811847821ea9d38323a7d64bb77cbc57ee92f21ada8c933425",
-  "training_as_of_utc": "2026-11-06T12:16:33.661378+00:00",
+  "training_as_of_utc": "2026-11-06T13:39:18.622132+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -89,9 +89,9 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1467.257702075959,
-  "base": 0.08733117175230903,
-  "home_adv": 0.17405241118837494,
+  "objective": 1467.1359744416534,
+  "base": 0.08728727019892554,
+  "home_adv": 0.1740306142624901,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -123,7 +123,7 @@
   "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 30,
+  "additional_event_odds_calls_used_before_this_league": 32,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "over_1_5_in_window_quote_fixtures": 4,
@@ -196,7 +196,7 @@
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "asian_handicap_quotes": 18,
+      "asian_handicap_quotes": 16,
       "asian_handicap_bookmakers": [
         "Pinnacle"
       ],

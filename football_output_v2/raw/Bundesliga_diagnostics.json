@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "0553d43788cf11198caa2b4132e71b88a246c7dc762d83855649a0387f0a145d",
-  "training_as_of_utc": "2026-11-06T12:12:15.844600+00:00",
+  "training_as_of_utc": "2026-11-06T13:34:32.197616+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 72,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-06T12:12:15.844600+00:00",
+    "cutoff_utc": "2026-11-06T13:34:32.197616+00:00",
     "observations": 420,
     "observations_sha256": "00933fcfb924f085b453d0e96687f1a3345bb248107f4f29aaf4916330896265",
     "eligible_training_matches": 84,
@@ -145,10 +145,10 @@
   },
   "training_end": "2026-11-01",
   "fit_success": true,
-  "objective": 1584.2980457915412,
-  "base": 0.21806041610000806,
-  "home_adv": 0.22588265301904223,
-  "rho": -0.07862465281760743,
+  "objective": 1584.167382277,
+  "base": 0.21809463773443044,
+  "home_adv": 0.2258807759065219,
+  "rho": -0.07864787971966186,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -179,11 +179,11 @@
   "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 10,
+  "additional_event_odds_calls_used_before_this_league": 11,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261106T121215844600Z_49bb56793f296145f1f9129436c074d920cc7978c25f47351d6004ae23dfaff2.json",
-  "over_1_5_in_window_quote_fixtures": 5,
+  "bbs_statistics_model_artifact": "bbs/feature_models/Bundesliga/20261106T133432197616Z_81673c47c0028e5b0b86fad6263bf695a81cd74446c4a23f3846a002987d894e.json",
+  "over_1_5_in_window_quote_fixtures": 4,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -276,15 +276,15 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 32,
+      "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "716d6e3f3e91c47a6efaa2e93d570533",

@@ -19,7 +19,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 73 | 53-17 | 72.6% | +4.5% |
 
-Unsettled / unverified entries: **208**.
+Unsettled / unverified entries: **217**.
 Whole-fixture 1X2 multiclass Brier (n=284): 0.5525
 
 ## First-prediction reference — historical comparison
@@ -66,8 +66,8 @@ Whole-fixture 1X2 multiclass Brier (n=284): 0.5525
 | 2026-11-04T10:20:33.895771+00:00 | 1 | 0-1 | 0.0% | -100.0% |
 | 2026-11-05T13:37:38.336530+00:00 | 0 | 0-0 | — | — |
 | 2026-11-05T16:50:22.659919+00:00 | 0 | 0-0 | — | — |
-| 2026-11-06T11:26:29.717902+00:00 | 0 | 0-0 | — | — |
 | 2026-11-06T12:17:20.125743+00:00 | 0 | 0-0 | — | — |
+| 2026-11-06T13:40:19.404227+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -237,7 +237,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-11-04 | 575 | 2 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-04 | 715 | 2 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 94, "exchange_quotes": 0, "missing_quote_age": 94, "quote_age_over_24h": 0, "costs_recorded": 94, "bookmakers": {"Pinnacle": 47, "1xBet": 47}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 94, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 122, "exchange_quotes": 0, "missing_quote_age": 122, "quote_age_over_24h": 0, "costs_recorded": 122, "bookmakers": {"Pinnacle": 62, "1xBet": 60}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 122, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 

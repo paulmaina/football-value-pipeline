@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "428b36b889bc8107b0a0c389334f72426054f163962dc5b037f54c55da735d9c",
-  "training_as_of_utc": "2026-11-06T12:16:40.043755+00:00",
+  "training_as_of_utc": "2026-11-06T13:39:26.376264+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1669.7882493612894,
-  "base": 0.13095772508864997,
-  "home_adv": 0.24649678170943914,
-  "rho": -0.09647681423442342,
+  "objective": 1669.64969057941,
+  "base": 0.13095034595137453,
+  "home_adv": 0.24646266908567646,
+  "rho": -0.0964667964842212,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -119,139 +119,158 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 0,
+  "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 34,
+  "additional_event_odds_calls_used_before_this_league": 36,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 0,
-  "odds_provider_health": {
-    "state": "CREDITS_EXHAUSTED",
-    "attempts": [
-      {
-        "credential": "THE_ODDS_API_KEY",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 0,
-        "x-requests-used": 500,
-        "x-requests-last": 0
-      },
-      {
-        "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 0,
-        "x-requests-used": 500,
-        "x-requests-last": 0
-      },
-      {
-        "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 1,
-        "x-requests-used": 499,
-        "x-requests-last": 0
-      }
-    ],
-    "blocked_utc_day": "2026-11-06"
-  },
+  "over_1_5_in_window_quote_fixtures": 7,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
       "fixture_id": "51baab3ec98943f452377895491bfd6a",
-      "event_id": null,
+      "event_id": "51baab3ec98943f452377895491bfd6a",
       "home_team": "Gazi\u015fehir Gaziantep",
       "away_team": "Kasimpasa SK",
       "kickoff_utc": "2026-11-06T17:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "a3dad1ddaa98a6ff741be7f63250f2ee",
-      "event_id": null,
+      "event_id": "a3dad1ddaa98a6ff741be7f63250f2ee",
       "home_team": "Ey\u00fcpspor",
       "away_team": "Kocaelispor",
       "kickoff_utc": "2026-11-07T10:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "605767f0e7114a23442d92831c12c767",
-      "event_id": null,
+      "event_id": "605767f0e7114a23442d92831c12c767",
       "home_team": "Samsunspor",
       "away_team": "Torku Konyaspor",
       "kickoff_utc": "2026-11-07T13:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "e300554369b00b495db88afb743c95ab",
-      "event_id": null,
+      "event_id": "e300554369b00b495db88afb743c95ab",
       "home_team": "Galatasaray",
       "away_team": "Amed SK",
       "kickoff_utc": "2026-11-07T16:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "c7ad58db2278db2259846b11c28ae1c2",
-      "event_id": null,
+      "event_id": "c7ad58db2278db2259846b11c28ae1c2",
       "home_team": "Goztepe",
       "away_team": "Basaksehir",
       "kickoff_utc": "2026-11-07T16:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "cf2febfddf729564889172cf83e8fbab",
-      "event_id": null,
+      "event_id": "cf2febfddf729564889172cf83e8fbab",
       "home_team": "\u00c7aykur Rizespor",
       "away_team": "Erzurum BB",
       "kickoff_utc": "2026-11-08T10:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "6692a3ca274d09ffbfabd943320d62f5",
-      "event_id": null,
+      "event_id": "6692a3ca274d09ffbfabd943320d62f5",
       "home_team": "\u00c7orum FK",
       "away_team": "Fenerbahce",
       "kickoff_utc": "2026-11-08T13:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "a85eafd97e49ac329956fa1022be891d",
-      "event_id": null,
+      "event_id": "a85eafd97e49ac329956fa1022be891d",
       "home_team": "Alanyaspor",
       "away_team": "Trabzonspor",
       "kickoff_utc": "2026-11-08T15:30:00+00:00",
@@ -264,7 +283,7 @@
     },
     {
       "fixture_id": "1fa78d1150755a8ec1d24cc1e19eeb0a",
-      "event_id": null,
+      "event_id": "1fa78d1150755a8ec1d24cc1e19eeb0a",
       "home_team": "Besiktas JK",
       "away_team": "Genclerbirligi SK",
       "kickoff_utc": "2026-11-08T18:00:00+00:00",
@@ -276,12 +295,14 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 0,
+  "additional_odds_in_window_linked_fixtures": 7,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 0,
+  "additional_event_odds_calls_this_league": 7,
   "totals_anchor_fixtures": {
-    "NOT_ANCHORED_NO_PINNACLE": 9
+    "ANCHORED_ALTERNATE": 5,
+    "ANCHORED_MAIN": 2,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 2
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {

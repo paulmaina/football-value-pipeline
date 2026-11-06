@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "7a4cd4875e9206bf09cf5769f53e593d4323c04875a0ce4cc2eacb69807c4af9",
-  "training_as_of_utc": "2026-11-06T12:13:18.538962+00:00",
+  "training_as_of_utc": "2026-11-06T13:35:41.078938+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 100,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-06T12:13:18.538962+00:00",
+    "cutoff_utc": "2026-11-06T13:35:41.078938+00:00",
     "observations": 711,
     "observations_sha256": "656189237051ed02352f8d976bd5848392cfe59b32315cb7c1f123f41e8e0dac",
     "eligible_training_matches": 253,
@@ -184,10 +184,10 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1823.0692998099476,
-  "base": 0.15306822188879718,
-  "home_adv": 0.10553097463461729,
-  "rho": -0.0222467171576947,
+  "objective": 1822.9187317609233,
+  "base": 0.15306827595885206,
+  "home_adv": 0.1055309829516908,
+  "rho": -0.022246710181899478,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -218,11 +218,11 @@
   "live_odds_matched": 10,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 16,
+  "additional_event_odds_calls_used_before_this_league": 17,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261106T121318538962Z_1c9b8fe4d4e53ca6984e494a44ccead33a2e9683be93f2e3c917f7865c9b920d.json",
-  "over_1_5_in_window_quote_fixtures": 4,
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261106T133541078938Z_16dbdc1ced6e8c145c6e910169c731def4f86d55f78d850f6dd85cdfe8dc4d87.json",
+  "over_1_5_in_window_quote_fixtures": 5,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -235,15 +235,15 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "52b256088d29b4abb82e0c63ea9852fe",
@@ -295,7 +295,7 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 30,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -303,7 +303,7 @@
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
       "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_bookmakers": 2
     },
     {
       "fixture_id": "f110107bca066ac1a598c89661c88fa3",
