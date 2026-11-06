@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "615de97a97f0d322c268f8b3f3257e878336d0e9922ced304f9c92ec61ef9060",
-  "training_as_of_utc": "2026-11-06T12:16:26.682761+00:00",
+  "training_as_of_utc": "2026-11-06T13:39:10.245106+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -88,10 +88,10 @@
   },
   "training_end": "2026-11-01",
   "fit_success": true,
-  "objective": 1634.3977058353555,
-  "base": 0.2904680797789213,
-  "home_adv": 0.18317657124469214,
-  "rho": -0.08093844108276617,
+  "objective": 1634.2621454381076,
+  "base": 0.2904704962903688,
+  "home_adv": 0.1831578192524083,
+  "rho": -0.08087855292127007,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -122,10 +122,10 @@
   "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 25,
+  "additional_event_odds_calls_used_before_this_league": 26,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 5,
+  "over_1_5_in_window_quote_fixtures": 6,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -178,7 +178,7 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -186,7 +186,7 @@
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 1,
       "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_bookmakers": 2
     },
     {
       "fixture_id": "5d4dbfdacb0b931ba7b8d771bfed5e0e",
@@ -194,6 +194,26 @@
       "home_team": "Excelsior",
       "away_team": "Go Ahead Eagles",
       "kickoff_utc": "2026-11-07T20:00:00+00:00",
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 32,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 2
+    },
+    {
+      "fixture_id": "019e9d824f3f2251e5b777623d34a9df",
+      "event_id": "019e9d824f3f2251e5b777623d34a9df",
+      "home_team": "Heerenveen",
+      "away_team": "Feyenoord",
+      "kickoff_utc": "2026-11-08T11:15:00+00:00",
       "status": "RECEIVED_VALID_DC_QUOTES",
       "home_draw_quote": true,
       "draw_away_quote": true,
@@ -209,11 +229,11 @@
       "over_1_5_bookmakers": 1
     },
     {
-      "fixture_id": "019e9d824f3f2251e5b777623d34a9df",
-      "event_id": "019e9d824f3f2251e5b777623d34a9df",
-      "home_team": "Heerenveen",
-      "away_team": "Feyenoord",
-      "kickoff_utc": "2026-11-08T11:15:00+00:00",
+      "fixture_id": "b71f32fbba046e08d4cc26e2a8e1d5a6",
+      "event_id": "b71f32fbba046e08d4cc26e2a8e1d5a6",
+      "home_team": "FC Twente Enschede",
+      "away_team": "Ajax",
+      "kickoff_utc": "2026-11-08T13:30:00+00:00",
       "status": "RECEIVED_VALID_DC_QUOTES",
       "home_draw_quote": true,
       "draw_away_quote": true,
@@ -227,19 +247,6 @@
       "dc_bookmakers": 1,
       "over_1_5_quote": true,
       "over_1_5_bookmakers": 2
-    },
-    {
-      "fixture_id": "b71f32fbba046e08d4cc26e2a8e1d5a6",
-      "event_id": "b71f32fbba046e08d4cc26e2a8e1d5a6",
-      "home_team": "FC Twente Enschede",
-      "away_team": "Ajax",
-      "kickoff_utc": "2026-11-08T13:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "c22d673775e6a4dc0810cc88b0ed75ec",
@@ -281,13 +288,13 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 5,
+  "additional_odds_in_window_linked_fixtures": 6,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 5,
+  "additional_event_odds_calls_this_league": 6,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 5,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 4
+    "ANCHORED_ALTERNATE": 6,
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
