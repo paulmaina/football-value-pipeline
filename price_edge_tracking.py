@@ -177,7 +177,23 @@ def archived_tier_rows(root: Path, archive, name: str = TIER_FILE) -> List[dict]
 
 def frozen_tier_picks(root: Path, archive) -> List[dict]:
     """Latest-generation pre-kickoff archived cagey-tier pick per fixture."""
-    return latest_per_fixture(archived_tier_rows(root, archive))
+    from performance_tracking import fixture_key, utc
+    rows = archived_tier_rows(root, archive)
+    newest = {}
+    for row in rows:
+        key = fixture_key(row)
+        stamp = utc(row['snapshot_generated_utc'])
+        newest[key] = max(newest.get(key, stamp), stamp)
+    chosen = {}
+    from cagey_tier_v3 import RULE
+    for row in rows:
+        fixture = fixture_key(row)
+        if utc(row['snapshot_generated_utc']) != newest[fixture]:
+            continue
+        group = row.get('cagey_market_group') or row.get('value_market_group')
+        key = (fixture, group if row.get('cagey_tier_rule') == RULE else None)
+        chosen.setdefault(key, row)  # Same generation: preserve first capture.
+    return list(chosen.values())
 
 
 def bind_event_ids(rows: List[dict], archive) -> List[dict]:
@@ -446,9 +462,12 @@ def tier_frame(value: pd.DataFrame, tier: pd.DataFrame) -> pd.DataFrame:
     price = frame.get('price_flag', pd.Series(index=frame.index, dtype=object))
     cagey = frame.tier == 'cagey'
     flagged = cagey & price.notna() & price.astype(str).str.strip().ne('')
+    recorded_rules = frame.get('cagey_tier_rule', pd.Series(index=frame.index, dtype=object)).copy()
     frame['cagey_tier_rule'] = None
     frame.loc[cagey, 'cagey_tier_rule'] = TIER_RULE_VALUE
     frame.loc[flagged, 'cagey_tier_rule'] = TIER_RULE_NARROW
+    from cagey_tier_v3 import RULE as expanded
+    frame.loc[cagey & recorded_rules.eq(expanded), 'cagey_tier_rule'] = expanded
     frame['price_flag'] = None
     frame.loc[cagey, 'price_flag'] = PRICE_VALUE
     frame.loc[flagged, 'price_flag'] = price[flagged]

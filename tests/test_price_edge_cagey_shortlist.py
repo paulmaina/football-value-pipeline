@@ -19,6 +19,9 @@ VALUE_ONLY = {'cagey_correction_enabled': True, 'cagey_tier_enabled': False}
 
 
 def run(*rows, settings=None, monitor=None):
+    # These are legacy narrow-63/value-v1 replay regressions, independent of the live default.
+    if settings is None:
+        settings = {**v28.load_settings(), 'cagey_tier_rule': v28.TIER_RULE_NARROW}
     return v28.build_shortlist(pd.DataFrame(list(rows)), NOW, execution_policy=POLICY, settings=settings,
                                monitor=monitor)
 
@@ -102,7 +105,7 @@ class SwitchTests(OfflineQuotePolicyTestCase):
         from asian_handicap import PRODUCTION_POLICY, POLICIES
         settings = v28.load_settings()
         self.assertEqual(settings, {'cagey_correction_enabled': True, 'cagey_tier_enabled': True,
-                                    'model_version': nm.PRODUCTION_VERSION, 'cagey_tier_rule': v28.TIER_RULE_NARROW,
+                                    'model_version': nm.PRODUCTION_VERSION, 'cagey_tier_rule': v28.TIER_RULE_EXPANDED,
                                     'value_rule': v28.VALUE_RULE_LOCAL_RESEARCH,
                                     'quote_timing_rule': v28.TIMING_RULE_CUTOFF})
         self.assertEqual(PRODUCTION_POLICY, v28.POLICY)

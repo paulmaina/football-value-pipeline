@@ -1,5 +1,7 @@
 # Production shortlist v28: price edge with the cagey-match correction
 
+Current runs use the expanded `narrow-67-per-market-v3` cagey tier and the research-based value rule. See [current cagey selection and shared columns](cagey-tier-v3.md). The historical qualification rules below remain documented for replay; they are not the current cagey selection defaults.
+
 Policy `48h-ah-price-edge-cagey-v28` (`price_edge_cagey_shortlist.py`) became
 production after its pre-registered holdout gate passed. v27 and every older
 policy stay replayable.
