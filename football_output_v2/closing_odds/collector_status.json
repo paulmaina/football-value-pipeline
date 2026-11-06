@@ -1,6 +1,6 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-11-06T19:55:28.830429+00:00",
+  "checked_at_utc": "2026-11-06T19:56:51.163595+00:00",
   "coverage_checks": [
     {
       "event_id": "9dd0014685fd62d9b2890d7c33a8c9ab",
@@ -34,58 +34,50 @@
       "returned_bookmakers": [
         "pinnacle"
       ]
-    },
-    {
-      "event_id": "586bec023ee8ac2f0645d963bd2c9d25",
-      "missing_required_quotes": [
-        {
-          "bookmaker": "1xbet",
-          "selection": "home"
-        },
-        {
-          "bookmaker": "1xbet",
-          "selection": "home_draw"
-        },
-        {
-          "bookmaker": "1xbet",
-          "selection": "over_1_5"
-        },
-        {
-          "bookmaker": "pinnacle",
-          "selection": "Asian Handicap Away +2.00"
-        },
-        {
-          "bookmaker": "pinnacle",
-          "selection": "Asian Handicap Away +2.50"
-        },
-        {
-          "bookmaker": "pinnacle",
-          "selection": "over_1_5"
-        }
-      ],
-      "requested_markets": [
-        "alternate_spreads",
-        "alternate_totals",
-        "double_chance",
-        "draw_no_bet",
-        "h2h",
-        "spreads",
-        "totals"
-      ],
-      "returned_bookmakers": [
-        "pinnacle"
-      ]
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 50,
+  "daily_requests": 60,
   "eligible_fixtures": 2,
-  "errors": [],
+  "errors": [
+    {
+      "at_utc": "2026-11-06T19:56:54.973766+00:00",
+      "attempts": [
+        {
+          "credential": "THE_ODDS_API_KEY",
+          "error_code": "OUT_OF_USAGE_CREDITS",
+          "http_status": 401,
+          "x-requests-last": 0,
+          "x-requests-remaining": 5,
+          "x-requests-used": 495
+        },
+        {
+          "credential": "THE_ODDS_API_KEY_FALLBACK_1",
+          "error_code": "OUT_OF_USAGE_CREDITS",
+          "http_status": 401,
+          "x-requests-last": 0,
+          "x-requests-remaining": 0,
+          "x-requests-used": 500
+        },
+        {
+          "credential": "THE_ODDS_API_KEY_FALLBACK_2",
+          "error_code": "OUT_OF_USAGE_CREDITS",
+          "http_status": 401,
+          "x-requests-last": 0,
+          "x-requests-remaining": 1,
+          "x-requests-used": 499
+        }
+      ],
+      "category": "CREDITS_EXHAUSTED",
+      "error": "OddsProviderError",
+      "event_id": "586bec023ee8ac2f0645d963bd2c9d25"
+    }
+  ],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
-  "request_limit": 2,
+  "request_limit": 10,
   "requests": 2,
-  "reservation_allowance": 12,
-  "reservation_id": "actions-42231491170-1-5",
-  "reservation_used": 12,
-  "written": 2
+  "reservation_allowance": 10,
+  "reservation_id": "actions-42231491170-1-6",
+  "reservation_used": 2,
+  "written": 1
 }
