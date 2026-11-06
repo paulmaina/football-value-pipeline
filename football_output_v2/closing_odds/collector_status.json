@@ -1,47 +1,13 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-11-06T19:56:51.163595+00:00",
-  "coverage_checks": [
-    {
-      "event_id": "9dd0014685fd62d9b2890d7c33a8c9ab",
-      "missing_required_quotes": [
-        {
-          "bookmaker": "1xbet",
-          "selection": "home"
-        },
-        {
-          "bookmaker": "1xbet",
-          "selection": "home_away"
-        },
-        {
-          "bookmaker": "1xbet",
-          "selection": "home_draw"
-        },
-        {
-          "bookmaker": "1xbet",
-          "selection": "over_1_5"
-        }
-      ],
-      "requested_markets": [
-        "alternate_spreads",
-        "alternate_totals",
-        "double_chance",
-        "draw_no_bet",
-        "h2h",
-        "spreads",
-        "totals"
-      ],
-      "returned_bookmakers": [
-        "pinnacle"
-      ]
-    }
-  ],
+  "checked_at_utc": "2026-11-06T20:39:22.686184+00:00",
+  "coverage_checks": [],
   "daily_request_cap": 100,
-  "daily_requests": 60,
-  "eligible_fixtures": 2,
+  "daily_requests": 62,
+  "eligible_fixtures": 1,
   "errors": [
     {
-      "at_utc": "2026-11-06T19:56:54.973766+00:00",
+      "at_utc": "2026-11-06T20:39:25.098911+00:00",
       "attempts": [
         {
           "credential": "THE_ODDS_API_KEY",
@@ -70,14 +36,14 @@
       ],
       "category": "CREDITS_EXHAUSTED",
       "error": "OddsProviderError",
-      "event_id": "586bec023ee8ac2f0645d963bd2c9d25"
+      "event_id": "d98d64a216d4db8db11c9b5017f76ca6"
     }
   ],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
   "request_limit": 10,
-  "requests": 2,
+  "requests": 1,
   "reservation_allowance": 10,
-  "reservation_id": "actions-42231491170-1-6",
-  "reservation_used": 2,
-  "written": 1
+  "reservation_id": "actions-42285452758-1-1",
+  "reservation_used": 1,
+  "written": 0
 }
