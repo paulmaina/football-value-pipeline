@@ -30,8 +30,8 @@
     "actions-42231491170-1-4": {
       "allowance": 10,
       "reserved_at_utc": "2026-11-06T19:30:51.212583+00:00",
-      "status": "reserved",
-      "used": 0
+      "status": "complete",
+      "used": 10
     }
   }
 }
