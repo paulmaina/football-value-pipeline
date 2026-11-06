@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "494f7cfecd2da025b582016e9ec2d381e9a1d07ba38552b72e03a86637a9546f",
-  "training_as_of_utc": "2026-11-06T12:10:38.735083+00:00",
+  "training_as_of_utc": "2026-11-06T13:17:34.983687+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 109,
     "bbs_added_results": 0,
@@ -35,7 +35,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_utc": "2026-11-06T12:10:38.735083+00:00",
+    "cutoff_utc": "2026-11-06T13:17:34.983687+00:00",
     "observations": 597,
     "observations_sha256": "cf89ea84106d8c64affc2ad9a61e7f05a9547cb8b3c6a0da3fcbd25f525dadfb",
     "eligible_training_matches": 177,
@@ -209,10 +209,10 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1844.4951671912838,
-  "base": 0.08901315612613521,
-  "home_adv": 0.28902590488865404,
-  "rho": -0.020496297935312942,
+  "objective": 1844.3713787685958,
+  "base": 0.08899101765534903,
+  "home_adv": 0.28904821025290295,
+  "rho": -0.020502483776941843,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -236,178 +236,56 @@
   "training_source": "Football-Data.co.uk",
   "fixture_provider_mode": "auto",
   "fixture_sources": [
-    "The Odds API"
+    "football-data.org"
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 10,
+  "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 5,
+  "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261106T121038735083Z_0ebb4c84d0d5b16dbc04e4c0c8664c0493946f26ee1d2a81ae07e0e2389bc4b8.json",
-  "over_1_5_in_window_quote_fixtures": 4,
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261106T131734983687Z_ff29b5fb03379c437db8618b48d9262a07b2ec8da49fa13d3fe01899dfd88088.json",
+  "over_1_5_in_window_quote_fixtures": 0,
+  "odds_provider_health": {
+    "state": "CREDITS_EXHAUSTED",
+    "attempts": [
+      {
+        "credential": "THE_ODDS_API_KEY",
+        "http_status": 401,
+        "error_code": "OUT_OF_USAGE_CREDITS",
+        "x-requests-remaining": 0,
+        "x-requests-used": 500,
+        "x-requests-last": 0
+      },
+      {
+        "credential": "THE_ODDS_API_KEY_FALLBACK_1",
+        "http_status": 401,
+        "error_code": "OUT_OF_USAGE_CREDITS",
+        "x-requests-remaining": 0,
+        "x-requests-used": 500,
+        "x-requests-last": 0
+      },
+      {
+        "credential": "THE_ODDS_API_KEY_FALLBACK_2",
+        "http_status": 401,
+        "error_code": "OUT_OF_USAGE_CREDITS",
+        "x-requests-remaining": 1,
+        "x-requests-used": 499,
+        "x-requests-last": 0
+      }
+    ],
+    "blocked_utc_day": "2026-11-06"
+  },
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
-      "fixture_id": "9dd0014685fd62d9b2890d7c33a8c9ab",
-      "event_id": "9dd0014685fd62d9b2890d7c33a8c9ab",
-      "home_team": "Sevilla",
-      "away_team": "Alav\u00e9s",
+      "fixture_id": "fdorg:564740",
+      "event_id": null,
+      "home_team": "Sevilla FC",
+      "away_team": "Deportivo Alav\u00e9s",
       "kickoff_utc": "2026-11-06T20:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
-    {
-      "fixture_id": "de935794b7d93f3607ac9ad54d18f4c7",
-      "event_id": "de935794b7d93f3607ac9ad54d18f4c7",
-      "home_team": "M\u00e1laga",
-      "away_team": "Real Racing Club de Santander",
-      "kickoff_utc": "2026-11-07T13:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 32,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
-    {
-      "fixture_id": "262c2c99c38456b8a70cb9daa32f2f6d",
-      "event_id": "262c2c99c38456b8a70cb9daa32f2f6d",
-      "home_team": "Espanyol",
-      "away_team": "Deportivo La Coru\u00f1a",
-      "kickoff_utc": "2026-11-07T15:15:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
-    {
-      "fixture_id": "71ca5141a1c532e390c6fa14e080d8bd",
-      "event_id": "71ca5141a1c532e390c6fa14e080d8bd",
-      "home_team": "CA Osasuna",
-      "away_team": "Athletic Bilbao",
-      "kickoff_utc": "2026-11-07T17:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 30,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 2
-    },
-    {
-      "fixture_id": "5b386dfdf6f76705116fbb4120ee8493",
-      "event_id": "5b386dfdf6f76705116fbb4120ee8493",
-      "home_team": "Valencia",
-      "away_team": "Real Madrid",
-      "kickoff_utc": "2026-11-07T20:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 22,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "c35673eb1e889309d6985c091a43a3f5",
-      "event_id": "c35673eb1e889309d6985c091a43a3f5",
-      "home_team": "Elche CF",
-      "away_team": "Real Betis",
-      "kickoff_utc": "2026-11-08T13:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "339a6465fa5153fd8f31e487cf557cf0",
-      "event_id": "339a6465fa5153fd8f31e487cf557cf0",
-      "home_team": "Real Sociedad",
-      "away_team": "Rayo Vallecano",
-      "kickoff_utc": "2026-11-08T15:15:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "0d2e199bfba0db42871696c10037bad3",
-      "event_id": "0d2e199bfba0db42871696c10037bad3",
-      "home_team": "Celta Vigo",
-      "away_team": "Levante",
-      "kickoff_utc": "2026-11-08T17:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "81ad04996f63fb60b494d243b13ac586",
-      "event_id": "81ad04996f63fb60b494d243b13ac586",
-      "home_team": "Villarreal",
-      "away_team": "Getafe",
-      "kickoff_utc": "2026-11-08T17:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
-    {
-      "fixture_id": "dd247b356d8fc53e4b4f9bfcfe09c924",
-      "event_id": "dd247b356d8fc53e4b4f9bfcfe09c924",
-      "home_team": "Atl\u00e9tico Madrid",
-      "away_team": "Barcelona",
-      "kickoff_utc": "2026-11-08T20:00:00+00:00",
       "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
       "home_draw_quote": false,
       "draw_away_quote": false,
@@ -416,21 +294,19 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 5,
+  "additional_odds_in_window_linked_fixtures": 0,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 5,
+  "additional_event_odds_calls_this_league": 0,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 4,
-    "ANCHORED_MAIN": 3,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 3
+    "NOT_ANCHORED_NO_PINNACLE": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 10
+    "none": 1
   },
   "legacy_comparison_status": {
-    "None": 10
+    "None": 1
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
