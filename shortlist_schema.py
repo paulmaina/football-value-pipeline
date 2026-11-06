@@ -14,7 +14,7 @@ def harmonize(frame, tier):
     prefix = 'corrected' if cagey else 'research'
     out['shortlist_schema_version'] = SCHEMA
     out['shortlist_source'] = tier
-    out['selection_rule'] = RULE if cagey else 'local-research-profit-115-200-dc12-v2'
+    out['selection_rule'] = out.cagey_tier_rule if cagey else 'local-research-profit-115-200-dc12-v2'
     out['selection_objective'] = 'NO_LOSS_PROBABILITY' if cagey else 'POSITIVE_RETURN_PROBABILITY'
     out['source_probability_basis'] = BASIS if cagey else 'team_form_poisson_v1'
     out['fixture_key'] = out.apply(fixture_key, axis=1) if len(out) else pd.Series(dtype=str)
@@ -54,4 +54,18 @@ def readable(frame, pct, decimal, signed_pct, group_names):
     out['Expected return after cost'] = frame.expected_return_after_cost.map(signed_pct)
     out['Model price edge'] = frame.model_price_edge.map(signed_pct)
     out['Price assessment'] = frame.price_assessment
+    if 'narrow_support_version' in frame:
+        out['Corrected P(narrow) >=67%'] = frame.narrow_high_67.map(
+            lambda v: 'unavailable' if pd.isna(v) else 'yes' if str(v).lower() == 'true' else 'no')
+        out['Corrected narrow support'] = frame.narrow_support_note
+        for label, key in [('Corrected draw probability', 'corrected_p_draw'),
+                           ('Corrected home win by one', 'corrected_p_home_by_one'),
+                           ('Corrected away win by one', 'corrected_p_away_by_one'),
+                           ('Corrected-grid narrow no-loss contribution', 'corrected_narrow_no_loss_contribution'),
+                           ('Corrected-grid narrow profit contribution', 'corrected_narrow_profit_contribution'),
+                           ('Corrected-grid no-loss lower bound', 'corrected_narrow_no_loss_lower_bound'),
+                           ('Corrected-grid no-loss upper bound', 'corrected_narrow_no_loss_upper_bound'),
+                           ('Corrected-grid profit lower bound', 'corrected_narrow_profit_lower_bound'),
+                           ('Corrected-grid profit upper bound', 'corrected_narrow_profit_upper_bound')]:
+            out[label] = frame[key].map(pct)
     return out

@@ -185,13 +185,13 @@ def frozen_tier_picks(root: Path, archive) -> List[dict]:
         stamp = utc(row['snapshot_generated_utc'])
         newest[key] = max(newest.get(key, stamp), stamp)
     chosen = {}
-    from cagey_tier_v3 import RULE
+    from cagey_tier_v3 import EXPANDED_RULES
     for row in rows:
         fixture = fixture_key(row)
         if utc(row['snapshot_generated_utc']) != newest[fixture]:
             continue
         group = row.get('cagey_market_group') or row.get('value_market_group')
-        key = (fixture, group if row.get('cagey_tier_rule') == RULE else None)
+        key = (fixture, group if row.get('cagey_tier_rule') in EXPANDED_RULES else None)
         chosen.setdefault(key, row)  # Same generation: preserve first capture.
     return list(chosen.values())
 
@@ -466,8 +466,8 @@ def tier_frame(value: pd.DataFrame, tier: pd.DataFrame) -> pd.DataFrame:
     frame['cagey_tier_rule'] = None
     frame.loc[cagey, 'cagey_tier_rule'] = TIER_RULE_VALUE
     frame.loc[flagged, 'cagey_tier_rule'] = TIER_RULE_NARROW
-    from cagey_tier_v3 import RULE as expanded
-    frame.loc[cagey & recorded_rules.eq(expanded), 'cagey_tier_rule'] = expanded
+    from cagey_tier_v3 import EXPANDED_RULES
+    frame.loc[cagey & recorded_rules.isin(EXPANDED_RULES), 'cagey_tier_rule'] = recorded_rules[cagey & recorded_rules.isin(EXPANDED_RULES)]
     frame['price_flag'] = None
     frame.loc[cagey, 'price_flag'] = PRICE_VALUE
     frame.loc[flagged, 'price_flag'] = price[flagged]
