@@ -539,6 +539,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "BL1:565852": {
+    "away_goals": 1,
+    "away_short_name": "M'gladbach",
+    "away_team": "Borussia Mönchengladbach",
+    "first_verified_at_utc": "2026-11-06T21:41:32Z",
+    "home_goals": 3,
+    "home_short_name": "HSV",
+    "home_team": "Hamburger SV",
+    "kickoff_utc": "2026-11-06T19:30:00Z",
+    "league_code": "BL1",
+    "match_id": 565852,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "CL:575341": {
     "away_goals": 2,
     "away_short_name": "Sporting CP",
@@ -1346,6 +1361,21 @@
     "kickoff_utc": "2026-11-04T20:00:00Z",
     "league_code": "CL",
     "match_id": 575394,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "DED:558845": {
+    "away_goals": 1,
+    "away_short_name": "Zwolle",
+    "away_team": "PEC Zwolle",
+    "first_verified_at_utc": "2026-11-06T21:41:32Z",
+    "home_goals": 1,
+    "home_short_name": "Willem II",
+    "home_team": "Willem II Tilburg",
+    "kickoff_utc": "2026-11-06T19:00:00Z",
+    "league_code": "DED",
+    "match_id": 558845,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
