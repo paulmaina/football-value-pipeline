@@ -1656,6 +1656,31 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
         "On value shortlist": raw.in_value_shortlist.map(lambda v: 'yes' if str(v) == 'True' else 'no'),
         "On cagey tier": raw.in_cagey_tier.map(lambda v: 'yes' if str(v) == 'True' else 'no'),
     })
+    if info.get('version') == master_shortlist.VERSION_MARKET:
+        readable = readable.drop(columns=['Value price from (1% edge)', 'Price flag (value / below value threshold)'])
+        readable['Minimum price for 2% net EV'] = raw.minimum_odds_master.map(decimal)
+        readable['Chance of positive return'] = raw.master_profit_probability.map(pct)
+        readable['Expected return after cost'] = raw.master_expected_return.map(signed_pct)
+        readable['Push probability (before costs)'] = raw.master_push_probability.map(pct)
+        readable['Half-loss probability'] = raw.master_half_loss_probability.map(pct)
+        readable['Full-loss probability'] = raw.master_full_loss_probability.map(pct)
+        readable['Research profit probability (unvalidated)'] = raw.master_research_profit_probability.map(pct)
+        readable['Corrected profit probability (unvalidated)'] = raw.master_corrected_profit_probability.map(pct)
+        readable['Model disagreement'] = raw.master_model_gap.map(pct)
+        readable['Coverage and uncertainty'] = raw.master_coverage_warning
+        readable['Validation status'] = raw.master_validation_status
+        readable['Suggested stake'] = raw.master_suggested_stake
+        readable['Pinnacle reference time (UTC)'] = raw.master_reference_utc
+        readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
+        return ["", "## Master shortlist (up to 10 market-referenced selections)", "",
+                "One market per match from the union of the value and cagey shortlists. "
+                "Fresh market references and a provisional 2% net expected-return buffer are required. "
+                "Ranked by no-loss probability, positive-return probability, expected return, then odds. "
+                "No below-value filler. This selection rule is unvalidated; suggested stakes are zero. "
+                "Pushes are refunds, not wins; missing news and model disagreement remain visible. "
+                f"This run: {len(raw)} selections. Review master_shortlist_audit.csv for watchlist/exclusions.", "",
+                markdown_table(list(readable.columns), readable.astype(str).values.tolist())
+                if not readable.empty else "No selection met the market-reference and net-EV checks."]
     readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
     return ["", "## Master shortlist (the 10 best bets this run)", "",
             f"One bet per match from every evaluated bet that passed the data checks. Value bets (edge >= "

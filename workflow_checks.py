@@ -22,7 +22,7 @@ FORECAST_PATHS = (
     'football_output_v2/raw/conservative_bet_summary.json',
 )
 # Every sidecar an archived snapshot may hold, including retired experiments.
-SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv', 'master_shortlist.csv')
+SIDECARS = ('goal_blend_experiment.json', 'market_led_experiment.json', 'filter_sensitivity_experiment.json', 'benchmark_forward_experiment.json', 'totals_anchor_experiment.json', 'model_reliability_experiment.json', 'shortlist_policy_experiment.json', 'shortlist_weight_experiment.json', 'price_edge_tagged_candidates.csv', 'cagey_tier_shortlist.csv', 'cagey_correction_monitoring.csv', 'master_shortlist.csv', 'master_shortlist_audit.csv')
 # Experiment sidecars still generated, captured and reviewed (none since the trials were archived).
 LIVE_SIDECARS = ()
 CLI_FILES = ('football_value_pipeline_v2_standalone.py', 'format_football_output.py',
@@ -245,6 +245,14 @@ def raw_check(root, *, raw_dir=None):
                         'Current master shortlist differs from deterministic replay')
                 require(equivalent(summary['master_shortlist'], master_shortlist.summary(master_expected, master_version)),
                         'Current master shortlist summary differs from replay')
+                if master_version == master_shortlist.VERSION_MARKET:
+                    from master_selection import evaluate as master_evaluate, AUDIT_FILE
+                    audit_path = raw/AUDIT_FILE
+                    require(audit_path.exists(), 'Missing current master selection audit')
+                    audit_expected = master_evaluate(decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False))
+                    audit_actual = pd.read_csv(audit_path, low_memory=False)
+                    require(master_shortlist.matches(audit_actual, audit_expected, master_version),
+                            'Current master selection audit differs from deterministic replay')
             # Correction monitoring is evidence only, but its rows must be this run's own. The run's
             # immutable summary says whether it was generated with monitoring; earlier v28 runs were not.
             monitor_path = raw/price_edge_cagey_shortlist.MONITOR_FILE
