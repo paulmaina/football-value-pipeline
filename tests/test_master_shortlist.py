@@ -113,7 +113,7 @@ class PipelineTests(OfflineQuotePolicyTestCase):
             selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
             v28.cagey_tier_list(decisions).to_csv(raw / v28.TIER_FILE, index=False)
             v28.record_monitoring(summary, monitoring, raw)
-            master = ms.write(decisions, raw, summary)
+            master = ms.write(decisions, raw, summary, version=ms.VERSION)
             self.assertEqual(len(master), 3)  # one per match, three matches
             self.assertEqual(master.iloc[0].home_team, 'Value FC')
             self.assertEqual(master.iloc[0].master_price_flag, 'value')
@@ -150,7 +150,7 @@ class PipelineTests(OfflineQuotePolicyTestCase):
             out.mkdir()
             selected.to_csv(raw / 'conservative_bet_shortlist.csv', index=False)
             v28.cagey_tier_list(decisions).to_csv(raw / v28.TIER_FILE, index=False)
-            ms.write(decisions, raw, summary)
+            ms.write(decisions, raw, summary, version=ms.VERSION)
             (raw / 'conservative_bet_summary.json').write_text(json.dumps(summary, default=str), encoding='utf-8')
             process_conservative_shortlist(raw, out)
             readable = pd.read_csv(out / MASTER_READABLE)
@@ -284,7 +284,7 @@ class RefreshTests(OfflineQuotePolicyTestCase):
         self.assertNotIn('Old FC', set(written.home_team))
         self.assertEqual(set(written.evaluated_at_utc), {summary['generated_at_utc']})
         self.assertEqual(stored['master_shortlist'], ms.summary(written))
-        self.assertTrue(ms.matches(written, ms.build(decisions, predictions)))
+        self.assertTrue(ms.matches(written, ms.build(decisions, predictions, stored['master_shortlist']['version'])))
         self.assertEqual(list(readable.Home), list(written.home_team))
 
     def test_other_policies_remove_a_seeded_copy(self):

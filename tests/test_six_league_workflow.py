@@ -91,7 +91,7 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 self.assertEqual(summary['master_shortlist']['n_bets'], len(master))
                 # A negative edge and missing optional research do not block nominations.
                 self.assertEqual(len(master), min(10, len(keys)))
-                self.assertEqual(summary['master_shortlist']['version'], 'master-consensus-protection-v4')
+                self.assertEqual(summary['master_shortlist']['version'], 'master-profit-market-v5')
                 self.assertEqual(summary['master_shortlist']['shortfall'], max(0, 10-len(keys)))
                 self.assertTrue(master.master_suggested_stake.eq(0).all())
                 self.assertEqual(len(master[['league','home_team','away_team','kickoff_utc']].drop_duplicates()),len(master))

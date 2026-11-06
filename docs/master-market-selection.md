@@ -1,101 +1,108 @@
-# Master shortlist: ten cautious consensus nominations (v4)
+# Master shortlist: ten profit-first nominations (v5)
 
-The live research rule writes master_shortlist.csv, its readable counterpart,
-and master_shortlist_audit.csv. It nominates exactly ten when the union of the
-two source lists contains ten executable, distinct fixtures. One market per
-match. If fewer distinct fixtures pass the execution checks, return all of them
-and record the numerical shortfall; never invent a match, reuse a match, accept
-future/stale prices or expand the user's odds/window to manufacture ten.
+The live rule writes master_shortlist.csv, its readable counterpart and
+master_shortlist_audit.csv. Nominate ten when the two source shortlists contain
+ten executable distinct fixtures. One market per exact fixture. If fewer pass,
+record the numerical shortfall; never invent/repeat matches or accept invalid
+inputs to fill ten. No minimum EV or probability gate is added. Negative EV is
+labelled and all suggested stakes remain zero while the rule is unvalidated.
 
-This changes master nomination only. The value/cagey probabilities, qualification
-and stakes are unchanged. Archived master-10-v1/v2 replay is unchanged. The
-unreleased v3 proposal's 2% EV eligibility gate is replaced by this v4 nomination
-rule. The new rule is unvalidated and suggested stakes are zero.
+## Explicit version and one generation clock
 
-## Pool and execution
+master_shortlist_config.json explicitly selects the live version. A missing or
+invalid config is an error; presence/absence of research columns never selects
+a version. Archived replay uses the immutable recorded version and ignores live
+config. Archived master-10-v1/v2 behavior is unchanged. The unmerged PR's v3/v4
+proposals are superseded by v5; no production runs used those proposals.
 
-The pool is exactly the union of rows marked SHORTLISTED by either source
-selector in this generation, corresponding to conservative_bet_shortlist.csv
-and cagey_tier_shortlist.csv. Membership in both is a label, not an independent
-confirmation or a probability bonus. Compare valid shortlisted offers before
-choosing one market per fixture. A quote outside both lists is not introduced.
+Before any master/audit file is written, generated_at_utc must equal every
+nonempty decision row's evaluated_at_utc. Invalid, mixed or mismatched clocks
+raise an error rather than silently publishing an empty shortlist. Workflow
+replay checks the same invariant and derives evaluation from those same rows.
+Replay uses frozen inputs without network calls or future information. A new
+refresh must use its new generation time, not reset ages to the fetch time.
 
-Require odds strictly above 1.15 and at most 2.00, kickoff 20 minutes–48 hours,
-allowed bookmaker, finite cost and a unique matching frozen fixture. Identity
-includes competition, canonical teams and kickoff. Offer and reference timestamps
-must be observed by evaluation, at most six minutes old and synchronized within
-ten minutes. Recompute ages from timestamps; do not trust stored age columns.
-Replay deliberately uses the recorded clock and frozen quotes, without network
-requests. A new refresh must use its new evaluation clock and new quotes.
+## Candidate pool and integrity
 
-Missing/ambiguous optional research does not invalidate an independently matched
-market fixture. It is warned about and omitted from ranking scenarios. Missing
-or ambiguous essential fixture identity or market references still exclude an
-offer. These integrity checks are not relaxed to reach ten.
+Take only offers marked SHORTLISTED by value or cagey selectors in this run,
+corresponding to conservative_bet_shortlist.csv and cagey_tier_shortlist.csv.
+Membership in both is a label, not independent confirmation or a probability
+bonus. Never introduce an unshortlisted line. Compare valid offered prices and
+choose one market per fixture, then the first ten fixtures.
 
-## Probability sources and comparison
+Require odds strictly above 1.15 and at most 2.00; kickoff 20 minutes–48 hours;
+allowed bookmaker; finite cost; and unique matching frozen fixture identity
+(competition, canonical teams and kickoff). Essential market/fixture information
+is mandatory. Missing optional research produces visible coverage warnings.
 
-The primary source for win, DC 1X/X2/12, Over 1.5 and equivalent AH half lines is
-a fresh complete margin-free Pinnacle binary reference. Other AH lines require
-the uncorrected Pinnacle fit B and all its fresh inputs. No corrected-grid,
-research, raw goal-rate or fit-A fallback substitutes for this source.
+Offered quotes and every input to the market reference must be observed by the
+generation clock and no more than 15 minutes old, inclusive. Future timestamps,
+missing timestamps and quotes over 15 minutes old remain excluded. Reference
+and offered/input quotes must still be synchronized within ten minutes.
+The 15-minute allowance prevents collection runtime from discarding otherwise
+usable snapshots; it does not establish that a price remains executable now.
 
-For the same pick and offered price, compute five-way settlement and per-unit
-returns: full win odds-1, half win (odds-1)/2, push 0, half loss -0.5, loss -1,
-minus the recorded stake cost. Net return >0 is profit, >=0 is no loss (within
-numerical tolerance). A push with nonzero cost is a net loss. Compute EV, fair
-odds and the indicative minimum price for 2% net EV from these same outcomes.
-Price edge and net EV are different for push/quarter markets. The independent
-1.15-times-fair suspected-price check still applies.
+Expose offered/reference ages in minutes, freshness status, and a mandatory
+re-check-price indicator for every nomination. Snapshots over six minutes old
+receive an additional RECHECK_PRICE warning. Re-check the exact line and price
+before placing any bet. Capture/evaluation times are never relabelled to make
+old information appear fresh.
 
-The two lists exchange notes through additional settlement scenarios:
+## Probability and settlement
 
-- Research: use its valid five-way mass only when both teams have form evidence
-  and its fixture identity is not flagged missing/ambiguous.
-- Corrected: use valid mass only when its recorded input timing is synchronized.
-  The unvalidated totals correction is never used to rank Over 1.5; its corrected
-  probability is displayed only for comparison.
-- Market: always required. Missing optional scenarios produce visible warnings.
+Win, DC 1X/X2/12, Over 1.5 and equivalent AH half lines use a fresh complete
+margin-free Pinnacle binary reference. Other AH lines require the uncorrected
+Pinnacle fit B and all its fresh inputs. No corrected-grid, research, raw-rate
+or fit-A fallback replaces a missing primary reference.
 
-## Ranking and nomination
+Calculate five-way outcomes at the quoted price: full win returns odds-1,
+half win (odds-1)/2, push 0, half loss -0.5, full loss -1, less recorded cost.
+Positive net return is profit; zero is a refund; negative is loss. A cost-bearing
+push is a net loss. No-loss probability remains visible but refunds never count
+as profitable outcomes. EV, fair odds and the indicative price for 2% net EV use
+this same settlement distribution. Price edge and net EV differ on AH lines.
+The independent 1.15-times-fair suspected-price-error check is retained.
 
-For each offer, retain the primary market probabilities unchanged. Separately
-record the lowest no-loss probability, lowest profit probability and lowest EV
-across usable scenarios, together with the exact scenario names/count. These
-minima can come from different models. They are conservative sensitivity
-summaries, NOT a coherent new distribution, posterior, confidence interval,
-validated probability or guarantee. The models share inputs and are correlated.
-No averaging weight or overlap boost is invented.
+## Common-basis ranking
 
-Order by lowest no-loss scenario, lowest profit scenario, lowest EV scenario,
-primary market EV, then odds. Stable fixture/market/bookmaker/time keys break ties.
-Choose the first offer per exact fixture, then the first ten fixtures. There is
-no EV or probability eligibility floor. This prioritizes protection and cautious
-agreement while allowing weak-price nominations to complete the ten.
+Rank every candidate by:
 
-Label every selected offer: market net EV >=2%, nonnegative market EV below 2%,
-or negative market EV nomination. The 2% threshold is only an indicative price
-label, not an evidence-backed universal threshold or an eligibility gate.
-Negative EV remains visible; nomination does not make it a profitable value bet.
-All suggested stakes are zero pending validation. No binary Kelly for AH, flat
-stake on negative EV or automatic bookmaker execution is introduced.
+1. Pinnacle-referenced probability of a positive net return, descending.
+2. Market net expected return, descending.
+3. Market no-loss probability, descending.
+4. Offered odds, descending; stable fixture/market/bookmaker/time keys break ties.
 
-The audit contains ELIGIBLE and EXCLUDED offers with reasons. ELIGIBLE does not
-mean ultimately selected. The summary records target ten, actual count, shortfall,
-value-label count, below-threshold count and negative-EV count. Readable output
-shows scenario estimates separately from the primary probabilities, source labels,
-coverage warnings, model disagreement, price assessment and nomination reason.
+Apply this order to choose one market per fixture and then ten fixtures. A
+refund-heavy whole-line AH cannot outrank a higher profit-probability bet merely
+because it has more pushes. Changing optional model availability or estimates
+does not change this order. Thus missing evidence cannot gain an advantage from
+having fewer scenarios over which a minimum is taken.
 
-## Validation
+Research/corrected settlement estimates, model gaps, available scenario sources
+and minima remain DIAGNOSTICS ONLY. They are neither blended nor used as ranking
+penalties/bonuses. No unsupported missing-data penalty is invented. Research
+comparisons require both teams' form and unambiguous research identity;
+corrected comparisons require synchronized input timing. Corrected Over 1.5 is
+displayed for comparison, never used to price/rank totals. Missing or disagreeing
+models generate warnings for human review, not calibrated confidence claims.
 
-Replay checks both master and audit fields against the frozen generation. Tests
-cover ten negative-EV nominations, duplicate memberships/matches, real fit B,
-partial settlement and costs, missing/future/stale quotes, optional coverage,
-conservative model comparison, no unvalidated totals penalty, shortfall, formatting,
-audit tampering and archived v1/v2 replay. No general narrow/weather gate is added.
+## Reporting, stakes and validation
 
-Before stakes are enabled, freeze the rule and assess forward settlement calibration,
-ROI with uncertainty/costs, drawdown and margin-free same-line closing value.
-Historical research must have been available before prediction. Treat repeated
-fixtures and shared model inputs as correlated. Ten nominations do not guarantee
-that any will win or that the set has positive expected return.
+Label market EV >=2%, nonnegative EV below 2%, or negative market EV nomination.
+The 2% figure is an indicative price label, not an eligibility threshold. Ten
+nominations do not establish positive portfolio EV or guaranteed wins. Suggested
+stakes stay zero; no automatic betting or binary Kelly for AH is introduced.
+Value/cagey model probabilities, qualification and their staking are unchanged.
+
+The audit records ELIGIBLE/EXCLUDED offers and reasons; eligibility does not mean
+ultimately selected. The summary records target, actual count, shortfall and
+negative-EV count. Workflow replay compares every selected/audit field. Tests
+cover profit vs push ranking, identical ranking with/without optional models,
+15-minute boundaries and future rejection, explicit config and config-independent
+replay, clock mismatch before writing, ten nominations, shortfall, exact partial
+settlement/costs, missing references, formatting and audit integrity.
+
+Before enabling stakes, freeze the rule and assess forward profit calibration,
+ROI with uncertainty/costs, drawdown and same-line margin-free closing value.
+Historical research must have been available before prediction; repeated fixtures
+and shared model inputs are correlated. No new narrow/weather gate is added.

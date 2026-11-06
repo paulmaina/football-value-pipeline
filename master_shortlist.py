@@ -1,13 +1,14 @@
 """Master shortlist and immutable legacy replay.
 
-Live research runs use master-consensus-protection-v4: the union of the
-value/cagey shortlists, fresh independent market settlement, conservative scenario ranking,
+Live research runs use master-profit-market-v5: the union of the
+value/cagey shortlists, fresh independent market settlement, market profit-first ranking,
 no EV floor, one market per fixture and ten nominations when ten fixtures pass execution checks. See master_selection.
 The historical v1/v2 rules below remain unchanged for archived-run replay.
 """
 from __future__ import annotations
 
 import io
+import json
 import math
 from pathlib import Path
 from typing import Dict, List, Mapping, Optional
@@ -17,7 +18,7 @@ import pandas as pd
 
 VERSION_V1 = 'master-10-v1'
 VERSION = 'master-10-v2'
-VERSION_MARKET = 'master-consensus-protection-v4'
+VERSION_MARKET = 'master-profit-market-v5'
 VERSIONS = (VERSION_V1, VERSION, VERSION_MARKET)
 BASIS_PINNACLE = 'Pinnacle fair price'
 BASIS_FIT = 'market-implied fit B'
@@ -60,6 +61,17 @@ COLUMNS_V2 = [*COLUMNS[:COLUMNS.index('fixture_id') + 1], 'odds_event_id',
 from master_selection import EXTRA_COLUMNS
 COLUMNS_V3 = [*COLUMNS_V2, *EXTRA_COLUMNS]
 COLUMNS = COLUMNS_V2  # legacy schema; columns(version) supplies each recorded version
+
+
+CONFIG = Path(__file__).with_name('master_shortlist_config.json')
+
+
+def configured_version():
+    """Live generation is explicit; archived replay never reads this config."""
+    config = json.loads(CONFIG.read_text(encoding='utf-8'))
+    if not isinstance(config, dict) or config.get('version') not in VERSIONS:
+        raise ValueError('Unknown configured master shortlist version')
+    return config['version']
 
 
 def columns(version: str = VERSION) -> List[str]:
@@ -149,7 +161,7 @@ def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, v
     """
     from performance_tracking import fixture_key, utc
     if version is None:
-        version = VERSION_MARKET if decisions is not None and 'research_probability_basis' in decisions else VERSION
+        version = VERSION  # historical API default; live writes use the explicit config
     if version == VERSION_MARKET:
         from master_selection import evaluate, select
         return select(evaluate(decisions, predictions))
@@ -243,12 +255,15 @@ def matches(frame: pd.DataFrame, expected: pd.DataFrame, version: str = None) ->
 
 
 def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
-          predictions: Optional[pd.DataFrame] = None) -> pd.DataFrame:
+          predictions: Optional[pd.DataFrame] = None, *, version: Optional[str] = None) -> pd.DataFrame:
     """Write FILE and record the master summary in the run summary (mutates `run_summary`)."""
-    version = VERSION_MARKET if 'research_probability_basis' in decisions else VERSION
+    if version is None:
+        version = configured_version()
+    columns(version)  # reject unknown versions before writing any output
     if version == VERSION_MARKET:
-        from master_selection import evaluate, select, AUDIT_FILE
-        audit = evaluate(decisions, predictions, run_summary.get('generated_at_utc'))
+        from master_selection import evaluate, select, require_generation_clock, AUDIT_FILE
+        clock = require_generation_clock(decisions, run_summary.get('generated_at_utc'))
+        audit = evaluate(decisions, predictions, clock)
         frame = select(audit)
         audit.to_csv(Path(out_dir)/AUDIT_FILE, index=False)
     else:
