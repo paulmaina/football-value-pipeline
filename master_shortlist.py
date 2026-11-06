@@ -1,44 +1,9 @@
-"""Master shortlist: the 10 best bets of one v28 run, one per match (value safest first, then fill).
+"""Master shortlist and immutable legacy replay.
 
-Pool: every candidate the run evaluated (value tier and cagey tier share the same
-candidate rows: every AH line, home/away win, double chance and, under the
-per-market rule, over 1.5) at the allowed bookmakers (Pinnacle, 1xBet) that
-passed the data checks. A candidate may fail only on price:
-  * "edge below N%" (v27/v28 thresholds), or
-  * "expected profit after stake cost below 0" (execution v2).
-Any other reason (kick-off outside the 20-minute to 48-hour window, stale or
-unsynchronised quotes, no Pinnacle reference, Pinnacle overround, odds above
-3.00, price above 1.15 x fair, unavailable settlement inputs, ...) excludes it.
-
-Value: edge >= 1% against the candidate's fair reference (Pinnacle a/b, the
-market-implied fit c, or the cagey-corrected fit c-cagey, all treated alike)
-and no stake-cost rejection. Everything else in the pool is "below value threshold"
-(its edge may still be slightly positive, under 1%, or negative; the edge column says which).
-
-Selection (deterministic):
-  1. per match, the best candidate: value before below fair; among value bets
-     the highest no-loss probability (safest), then the higher edge; among
-     below-threshold bets the price closest to fair (highest edge), then safest;
-     then the higher odds;
-  2. matches ordered the same way; the first 10 are the master shortlist.
-Value bets always come first; below-threshold bets only fill the list up to 10.
-Fewer than 10 rows only when fewer than 10 matches have a candidate in the pool.
-
-No-loss probability (the safety used to rank), master-10-v2: from the same
-distribution as the candidate's fair price, and labelled in master_probability_basis:
-  c-cagey  cagey-corrected fit (corrected_no_loss_probability)
-  other    pinnacle_no_loss_probability, labelled by where v27 took it from: fit B
-           whenever the fixture's fit B was usable ("market-implied fit B"); otherwise
-           the direct Pinnacle win share, which equals no-loss only on half lines and
-           over 1.5 ("Pinnacle fair price"); push and quarter lines then have none
-A candidate without that probability ranks after those with one (basis
-"unavailable"); no other distribution stands in. master-10-v1 runs (recorded
-version) replay with v1's rule: Pinnacle/fit no-loss for every reference, the
-corrected figure only when that is missing, and no basis or event-id column.
-
-The list is recomputed by workflow_checks from the replayed decisions (every
-output column compared, numbers within solver tolerance) and is information for
-a manual decision: it changes no other list or stake.
+Live research runs use master-market-value-protection-v3: the union of the
+value/cagey shortlists, fresh independent market settlement, provisional net
+EV >=2%, one market per fixture, up to ten with no filler. See master_selection.
+The historical v1/v2 rules below remain unchanged for archived-run replay.
 """
 from __future__ import annotations
 
@@ -52,7 +17,8 @@ import pandas as pd
 
 VERSION_V1 = 'master-10-v1'
 VERSION = 'master-10-v2'
-VERSIONS = (VERSION_V1, VERSION)
+VERSION_MARKET = 'master-market-value-protection-v3'
+VERSIONS = (VERSION_V1, VERSION, VERSION_MARKET)
 BASIS_PINNACLE = 'Pinnacle fair price'
 BASIS_FIT = 'market-implied fit B'
 BASIS_CORRECTED = 'cagey-corrected fit'
@@ -91,12 +57,16 @@ COLUMNS_V1 = COLUMNS
 COLUMNS_V2 = [*COLUMNS[:COLUMNS.index('fixture_id') + 1], 'odds_event_id',
               *COLUMNS[COLUMNS.index('fixture_id') + 1:COLUMNS.index('master_no_loss_probability') + 1],
               'master_probability_basis', *COLUMNS[COLUMNS.index('master_no_loss_probability') + 1:]]
-COLUMNS = COLUMNS_V2  # the current version's output schema
+from master_selection import EXTRA_COLUMNS
+COLUMNS_V3 = [*COLUMNS_V2, *EXTRA_COLUMNS]
+COLUMNS = COLUMNS_V2  # legacy schema; columns(version) supplies each recorded version
 
 
 def columns(version: str = VERSION) -> List[str]:
     if version not in VERSIONS:
         raise ValueError(f'Unknown master shortlist version {version!r}')
+    if version == VERSION_MARKET:
+        return COLUMNS_V3
     return COLUMNS_V2 if version == VERSION else COLUMNS_V1
 
 
@@ -172,12 +142,17 @@ def _event_ids(predictions: Optional[pd.DataFrame]) -> Dict[tuple, str]:
     return events
 
 
-def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, version: str = VERSION) -> pd.DataFrame:
+def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, version: str = None) -> pd.DataFrame:
     """The master shortlist of one run (empty frame with the version's columns when nothing qualifies).
 
     `predictions` (the run's forecasts) supplies each pick's odds event id under v2.
     """
     from performance_tracking import fixture_key, utc
+    if version is None:
+        version = VERSION_MARKET if decisions is not None and 'research_probability_basis' in decisions else VERSION
+    if version == VERSION_MARKET:
+        from master_selection import evaluate, select
+        return select(evaluate(decisions, predictions))
     wanted = columns(version)
     candidates = pool(decisions, version)
     if candidates.empty:
@@ -200,7 +175,12 @@ def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, v
     return top.reindex(columns=wanted).reset_index(drop=True)
 
 
-def summary(frame: pd.DataFrame, version: str = VERSION) -> Dict[str, object]:
+def summary(frame: pd.DataFrame, version: str = None) -> Dict[str, object]:
+    if version is None:
+        version = str(frame.master_version.iloc[0]) if len(frame) else frame.attrs.get('master_version', VERSION)
+    if version == VERSION_MARKET:
+        from master_selection import summary as market_summary
+        return market_summary(frame)
     flags = frame['master_price_flag'] if len(frame) else pd.Series(dtype=object)
     extra = {} if version == VERSION_V1 else {
         'probability_basis': 'no-loss probability labelled by its source: cagey-corrected fit (c-cagey), '
@@ -240,13 +220,15 @@ def _same(got, want) -> bool:
     return type(got) is type(want) and got == want
 
 
-def matches(frame: pd.DataFrame, expected: pd.DataFrame, version: str = VERSION) -> bool:
+def matches(frame: pd.DataFrame, expected: pd.DataFrame, version: str = None) -> bool:
     """The written list carries exactly the replayed one: the full schema, every field.
 
     Text, flags, identities, timestamps and booleans must be identical; numbers
     (prices, fair odds, edge, probabilities, line, stake cost) agree within
     max(1e-7 absolute, 1e-8 relative), the solver tolerance used elsewhere.
     """
+    if version is None:
+        version = VERSION_MARKET if 'master_profit_probability' in expected else VERSION
     wanted = columns(version)
     if list(frame.columns) != wanted:
         return False
@@ -263,9 +245,18 @@ def matches(frame: pd.DataFrame, expected: pd.DataFrame, version: str = VERSION)
 def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
           predictions: Optional[pd.DataFrame] = None) -> pd.DataFrame:
     """Write FILE and record the master summary in the run summary (mutates `run_summary`)."""
-    frame = build(decisions, predictions)
+    version = VERSION_MARKET if 'research_probability_basis' in decisions else VERSION
+    if version == VERSION_MARKET:
+        from master_selection import evaluate, select, AUDIT_FILE
+        audit = evaluate(decisions, predictions, run_summary.get('generated_at_utc'))
+        frame = select(audit)
+        audit.to_csv(Path(out_dir)/AUDIT_FILE, index=False)
+    else:
+        from master_selection import AUDIT_FILE
+        frame = build(decisions, predictions, version)
+        (Path(out_dir)/AUDIT_FILE).unlink(missing_ok=True)
     frame.to_csv(Path(out_dir) / FILE, index=False)
-    run_summary['master_shortlist'] = summary(frame)
+    run_summary['master_shortlist'] = summary(frame, version)
     return frame
 
 
@@ -278,6 +269,8 @@ def refresh(decisions: pd.DataFrame, out_dir, run_summary: Mapping, predictions:
     from price_edge_cagey_shortlist import POLICY
     if run_summary.get('selection_policy_version') == POLICY:
         return write(decisions, out_dir, run_summary, predictions)
+    from master_selection import AUDIT_FILE
+    (Path(out_dir) / AUDIT_FILE).unlink(missing_ok=True)
     (Path(out_dir) / FILE).unlink(missing_ok=True)
     run_summary.pop('master_shortlist', None)
     return None
