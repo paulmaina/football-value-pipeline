@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "b3df8a6ba2e5ca811847821ea9d38323a7d64bb77cbc57ee92f21ada8c933425",
-  "training_as_of_utc": "2026-11-05T16:49:22.844676+00:00",
+  "training_as_of_utc": "2026-11-06T11:25:13.612862+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-05",
+    "cutoff_date": "2026-11-06",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -50,8 +50,8 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1620,
-    "tune_start_date": "2025-11-06",
-    "audit_start_date": "2026-05-07",
+    "tune_start_date": "2025-11-07",
+    "audit_start_date": "2026-05-08",
     "training_shot_matches": 1314,
     "tuning_matches": 198,
     "audit_matches": 105,
@@ -59,21 +59,21 @@
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target_and_total_shots",
     "proposed_weight": 0.3,
-    "audit_baseline_poisson_score": 0.8711311490649736,
-    "audit_candidate_poisson_score": 0.864686593204381,
-    "audit_gain": 0.00644455586059256,
-    "audit_gain_lower95": -0.0029289421498967876,
+    "audit_baseline_poisson_score": 0.8711307065688706,
+    "audit_candidate_poisson_score": 0.8646870750697726,
+    "audit_gain": 0.00644363149909799,
+    "audit_gain_lower95": -0.0029318451429699004,
     "audit_baseline_briers": [
-      0.5561732722331245,
-      0.18693068045547456,
-      0.2241322810942478,
-      0.24642823314838475
+      0.5561730451123537,
+      0.18692978014350087,
+      0.22413333341122282,
+      0.2464244391106944
     ],
     "audit_candidate_briers": [
-      0.5573866098793224,
-      0.18683238764085344,
-      0.22226394985720094,
-      0.24657985484456124
+      0.5573865705911827,
+      0.18683207454224962,
+      0.22226446573860228,
+      0.24657748449911443
     ],
     "audit_brier_order": [
       "1x2",
@@ -89,9 +89,9 @@
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1468.9756943948694,
-  "base": 0.08726115594068384,
-  "home_adv": 0.17405348214048355,
+  "objective": 1467.3332216103522,
+  "base": 0.08738125037111412,
+  "home_adv": 0.17402216828023928,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -110,7 +110,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-02",
-    "days_since_latest_result": 3,
+    "days_since_latest_result": 4,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -120,13 +120,13 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 6,
+  "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 35,
+  "additional_event_odds_calls_used_before_this_league": 29,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 2,
+  "over_1_5_in_window_quote_fixtures": 4,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -173,12 +173,18 @@
       "home_team": "Alverca",
       "away_team": "Casa Pia",
       "kickoff_utc": "2026-11-07T18:00:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "ba0a2d492dfcc89ab465eddd7a9e98c2",
@@ -186,12 +192,18 @@
       "home_team": "Sporting Lisbon",
       "away_team": "Moreirense FC",
       "kickoff_utc": "2026-11-07T20:30:00+00:00",
-      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "status": "RESPONSE_WITHOUT_VALID_DC_QUOTES",
       "home_draw_quote": false,
       "draw_away_quote": false,
       "home_away_quote": false,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "asian_handicap_quotes": 18,
+      "asian_handicap_bookmakers": [
+        "Pinnacle"
+      ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 0,
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "88fe8a3db780908444b4b21229766ad5",
@@ -218,23 +230,62 @@
       "home_away_quote": false,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "c468a7bc1110c030b62f381e3a480145",
+      "event_id": "c468a7bc1110c030b62f381e3a480145",
+      "home_team": "Vit\u00f3ria SC",
+      "away_team": "FC Porto",
+      "kickoff_utc": "2026-11-08T18:00:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "c02a3d0a40d536e48bb60dffe0e3cd1e",
+      "event_id": "c02a3d0a40d536e48bb60dffe0e3cd1e",
+      "home_team": "CF Estrela",
+      "away_team": "Benfica",
+      "kickoff_utc": "2026-11-08T20:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
+    },
+    {
+      "fixture_id": "3642cddab8c2e0da43a419cdd01d1db0",
+      "event_id": "3642cddab8c2e0da43a419cdd01d1db0",
+      "home_team": "Rio Ave FC",
+      "away_team": "Braga",
+      "kickoff_utc": "2026-11-08T20:30:00+00:00",
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 2,
+  "additional_odds_in_window_linked_fixtures": 4,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 2,
+  "additional_event_odds_calls_this_league": 4,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 2,
-    "ANCHORED_MAIN": 2,
+    "ANCHORED_ALTERNATE": 3,
+    "ANCHORED_MAIN": 4,
     "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 2
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 6
+    "none": 9
   },
   "legacy_comparison_status": {
-    "None": 6
+    "None": 9
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
