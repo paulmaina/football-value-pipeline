@@ -1,6 +1,15 @@
 # v27/v28 price-edge tracking
 
-Reviewed 2026-11-06T07:07:09.335377+00:00. Frozen v27 picks: 155.
+## Recommendation history and placed bets
+
+Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.
+
+Latest-view tables below are simulated recommendations, not executed-bet ROI.
+value: 250 captured recommendations; 6 graded; 47 distinct fixtures.
+cagey: 53 captured recommendations; 2 graded; 21 distinct fixtures.
+Actual placed bets: NOT_RECORDED
+
+Reviewed 2026-11-06T11:14:22.803801+00:00. Frozen v27 picks: 155.
 
 **Mean CLV vs Pinnacle close:** +4.15% ± 3.47% (n=5). **Flat-stake profit per bet:** -26.00% ± 83.83% (n=4).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -107,13 +116,13 @@ Frozen picks: 27; CLV n/a (0); realised profit per bet n/a (0).
 ## Both tiers (value and cagey)
 
 Cagey-tier picks frozen: 21; CLV -7.87% (n=1); realised profit per bet +20.50% ± 26.46% (n=2). Correction-only value picks: CLV n/a (0).
-Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false; >= 50 graded value-priced cagey-tier picks made under the active rule (narrow-63-flagged-v2) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false.
+Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false; >= 50 graded value-priced cagey-tier picks made under the active rule (no-loss-market-reference-v5) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false.
 
 ### Cagey-tier realised profit per bet by rule
 
 | rule | all picks | value-priced | below fair |
 |---|---|---|---|
-| narrow-63-flagged-v2 (active) | +20.50% ± 26.46% (n=2) | n/a (0) | +20.50% ± 26.46% (n=2) |
+| narrow-63-flagged-v2 | +20.50% ± 26.46% (n=2) | n/a (0) | +20.50% ± 26.46% (n=2) |
 
 Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 

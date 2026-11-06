@@ -1,4 +1,8 @@
 {
+  "actual_bets": {
+    "note": "Recommendations are not executed bets",
+    "status": "NOT_RECORDED"
+  },
   "both_tiers_clv_by": {
     "balanced": {
       "no": {
@@ -415,10 +419,10 @@
       "standard_error": 0.135
     }
   },
-  "cagey_tier_active_rule": "narrow-63-flagged-v2",
+  "cagey_tier_active_rule": "no-loss-market-reference-v5",
   "cagey_tier_picks": 21,
   "cagey_tier_review": false,
-  "cagey_tier_review_rule": ">= 50 graded value-priced cagey-tier picks made under the active rule (narrow-63-flagged-v2) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false",
+  "cagey_tier_review_rule": ">= 50 graded value-priced cagey-tier picks made under the active rule (no-loss-market-reference-v5) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false",
   "cagey_tier_roi": {
     "mean": null,
     "n": 0,
@@ -908,8 +912,27 @@
     "positive_share": 0.5,
     "standard_error": 0.42772654815898437
   },
+  "recommendation_history": {
+    "cagey": {
+      "distinct_fixtures": 21,
+      "graded": 2,
+      "no_loss_share": 1.0,
+      "positive_return_share": 1.0,
+      "recommendations": 53,
+      "simulated_mean_unit_return": 0.20500000000000007
+    },
+    "note": "Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.",
+    "value": {
+      "distinct_fixtures": 47,
+      "graded": 6,
+      "no_loss_share": 0.5,
+      "positive_return_share": 0.5,
+      "recommendations": 250,
+      "simulated_mean_unit_return": -0.25166666666666665
+    }
+  },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-06T07:07:09.335377+00:00",
+  "reviewed_at_utc": "2026-11-06T11:14:22.803801+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
