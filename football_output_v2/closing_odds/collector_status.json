@@ -1,16 +1,70 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-11-06T17:00:09.301015+00:00",
-  "coverage_checks": [],
+  "checked_at_utc": "2026-11-06T18:59:41.736871+00:00",
+  "coverage_checks": [
+    {
+      "event_id": "926c11a6b5d1773d9024296a215d0f71",
+      "missing_required_quotes": [
+        {
+          "bookmaker": "1xbet",
+          "selection": "away"
+        },
+        {
+          "bookmaker": "1xbet",
+          "selection": "draw_away"
+        },
+        {
+          "bookmaker": "1xbet",
+          "selection": "home_away"
+        },
+        {
+          "bookmaker": "1xbet",
+          "selection": "over_1_5"
+        },
+        {
+          "bookmaker": "pinnacle",
+          "selection": "Asian Handicap Home +1.25"
+        },
+        {
+          "bookmaker": "pinnacle",
+          "selection": "Asian Handicap Home +1.50"
+        },
+        {
+          "bookmaker": "pinnacle",
+          "selection": "Asian Handicap Home +2.50"
+        },
+        {
+          "bookmaker": "pinnacle",
+          "selection": "draw_away"
+        },
+        {
+          "bookmaker": "pinnacle",
+          "selection": "home_away"
+        }
+      ],
+      "requested_markets": [
+        "alternate_spreads",
+        "alternate_totals",
+        "double_chance",
+        "draw_no_bet",
+        "h2h",
+        "spreads",
+        "totals"
+      ],
+      "returned_bookmakers": [
+        "pinnacle"
+      ]
+    }
+  ],
   "daily_request_cap": 100,
-  "daily_requests": 11,
-  "eligible_fixtures": 0,
+  "daily_requests": 18,
+  "eligible_fixtures": 1,
   "errors": [],
-  "reason": "NO_FIXTURES_IN_PRE_KICKOFF_WINDOW",
-  "request_limit": 3,
-  "requests": 0,
+  "reason": "CHECKED_ELIGIBLE_FIXTURES",
+  "request_limit": 1,
+  "requests": 1,
   "reservation_allowance": 10,
-  "reservation_id": "actions-42231491170-1-1",
-  "reservation_used": 7,
-  "written": 0
+  "reservation_id": "actions-42231491170-1-2",
+  "reservation_used": 10,
+  "written": 1
 }
