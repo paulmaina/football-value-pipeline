@@ -1578,14 +1578,20 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
             tier_readable["Expected profit"] = tier_readable["Expected profit"].map(signed_pct)
             for column in ("Price", "Corrected fair odds", "Uncorrected fair odds", "Pinnacle fair odds (if quoted)"):
                 tier_readable[column] = tier_readable[column].map(decimal)
-        expanded_rule = tier.get('rule_version') == v28.TIER_RULE_EXPANDED
+        expanded_rule = tier.get('rule_version') in v28.EXPANDED_RULES
         if expanded_rule:
             from shortlist_schema import readable as common_readable
             tier_readable = common_readable(tier_raw, pct, decimal, signed_pct, GROUP_NAMES)
             tier_readable['Also in value tier'] = tier_raw.in_value_tier.map(
                 lambda v: 'yes' if str(v) == 'True' else 'no')
         tier_readable.to_csv(output_dir / "cagey_tier_shortlist_readable.csv", index=False, encoding="utf-8-sig")
-        if expanded_rule:
+        if tier.get('rule_version') == v28.TIER_RULE_NO_GATE:
+            rule_text = ('No general P(narrow) gate. Corrected chance of no loss selects each market; 67% narrow '
+                         'is market-specific supporting information, not a probability boost or ranking bonus. '
+                         '20 minutes–48 hours; odds >1.15 and <=2.00; one per fixture/market group; '
+                         'no EV/no-loss floor or cap. Corrected-grid bounds include execution costs and do not '
+                         'apply to the value list’s research probabilities. Weather does not affect selection.')
+        elif expanded_rule:
             rule_text = ('P(narrow: draw or 1-goal win) >= 67%; 20 minutes–48 hours; real quoted home/away win, '
                          'DC 1X/X2/12, AH and Over 1.5; odds >1.15 and <=2.00. One pick per fixture/market group, '
                          'ranked by corrected chance of no loss, then expected return, then odds. Negative EV is flagged; '

@@ -1,5 +1,9 @@
 # Cagey tier: narrow-67-per-market-v3
 
+Historical v3 rule, retained for replay. Current production selection is
+[corrected no-loss v4 with market-specific narrow support](cagey-no-loss-v4.md),
+which removes the general 67% gate.
+
 The current cagey list uses a corrected Pinnacle-implied distribution and ranks
 by the probability of avoiding a net loss (including pushes when execution cost
 is zero). It is independent of the research-probability value shortlist.
