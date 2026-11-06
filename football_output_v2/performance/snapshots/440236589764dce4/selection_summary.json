@@ -1,21 +1,21 @@
 {
-  "generated_at_utc": "2026-11-06T11:26:29.717902+00:00",
+  "generated_at_utc": "2026-11-06T12:17:20.125743+00:00",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28",
   "selection_objective": "TEAM_RESEARCH_PROFIT_PROBABILITY",
   "status": "QUALIFIED",
   "n_fixtures": 75,
-  "n_markets_evaluated": 1812,
-  "n_shortlisted": 108,
-  "n_strict_qualified": 108,
+  "n_markets_evaluated": 1733,
+  "n_shortlisted": 94,
+  "n_strict_qualified": 94,
   "n_provisional_watchlist": 0,
-  "n_total_candidates": 108,
+  "n_total_candidates": 94,
   "target_distinct_matches": null,
   "shortfall": null,
   "usable_distinct_fixtures": 75,
   "shortlist_lookahead_hours": 48.0,
   "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-11-06T11:26:29.717902+00:00",
-  "shortlist_window_end_utc": "2026-11-08T11:26:29.717902+00:00",
+  "shortlist_window_start_utc": "2026-11-06T12:17:20.125743+00:00",
+  "shortlist_window_end_utc": "2026-11-08T12:17:20.125743+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -111,22 +111,22 @@
     "use": "tracking only; never changes a decision"
   },
   "tagged_candidates": {
-    "balanced": 832,
-    "low_total": 193,
-    "high_draw": 485,
-    "even_odds": 164
+    "balanced": 806,
+    "low_total": 155,
+    "high_draw": 436,
+    "even_odds": 119
   },
-  "tagged_fixtures": 35,
+  "tagged_fixtures": 31,
   "rejection_counts": {
-    "offered odds above 2.00": 704,
-    "kickoff outside 20-minute to 48-hour window": 376,
-    "no offered quote at an allowed bookmaker": 295,
-    "offered quote stale or unavailable": 295,
-    "offered odds must be greater than 1.15": 87
+    "offered odds above 2.00": 687,
+    "kickoff outside 20-minute to 48-hour window": 366,
+    "no offered quote at an allowed bookmaker": 259,
+    "offered quote stale or unavailable": 259,
+    "offered odds must be greater than 1.15": 96
   },
   "reference_type_counts": {
-    "a": 71,
-    "b": 6,
+    "a": 56,
+    "b": 7,
     "c-cagey": 3
   },
   "selection_method": "Highest positive-return probability per fixture and market group; expected return then odds break ties; no cap",
@@ -147,10 +147,10 @@
   ],
   "min_edge_by_market_group": {},
   "value_market_group_counts": {
-    "asian_handicap": 39,
-    "match_winner": 19,
-    "double_chance": 30,
-    "over_1_5": 20
+    "asian_handicap": 34,
+    "match_winner": 16,
+    "double_chance": 25,
+    "over_1_5": 19
   },
   "cagey_correction_enabled": true,
   "cagey_tier_enabled": true,
@@ -160,9 +160,9 @@
     "enabled": true,
     "rule_version": "no-loss-market-reference-v5",
     "min_p_narrow": null,
-    "n_shortlisted": 102,
-    "value_picks": 4,
-    "below_fair_picks": 98,
+    "n_shortlisted": 88,
+    "value_picks": 3,
+    "below_fair_picks": 85,
     "probability_basis": "market_specific_pinnacle_v1",
     "selection_objective": "NO_LOSS_PROBABILITY",
     "rule": "No narrow gate; per-market-source no-loss then expected return then odds; Over 1.5 uses uncorrected Pinnacle grid; binary price guard uses independent Pinnacle prices; narrow support is informational",
