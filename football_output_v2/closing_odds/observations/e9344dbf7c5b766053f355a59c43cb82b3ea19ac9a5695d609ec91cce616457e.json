@@ -1,0 +1,528 @@
+{
+  "fixture": {
+    "away_team": "Strasbourg",
+    "home_team": "Toulouse",
+    "kickoff_utc": "2026-11-06T19:45:00+00:00",
+    "league": "Ligue 1",
+    "odds_event_id": "5e7d141f719835de18877ed95bedcb32"
+  },
+  "observed_at_utc": "2026-11-06T19:43:53.859038+00:00",
+  "payload": {
+    "away_team": "Strasbourg",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-06T19:43:46Z",
+            "outcomes": [
+              {
+                "name": "Strasbourg",
+                "price": 3.25
+              },
+              {
+                "name": "Toulouse",
+                "price": 2.26
+              },
+              {
+                "name": "Draw",
+                "price": 3.63
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-06T19:43:46Z",
+            "outcomes": [
+              {
+                "name": "Strasbourg",
+                "point": 0.25,
+                "price": 1.96
+              },
+              {
+                "name": "Toulouse",
+                "point": -0.25,
+                "price": 1.96
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-06T19:43:46Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.0
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.91
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-06T19:43:46Z",
+            "outcomes": [
+              {
+                "name": "Strasbourg",
+                "point": 0.25,
+                "price": 1.96
+              },
+              {
+                "name": "Strasbourg",
+                "point": 1.25,
+                "price": 1.29
+              },
+              {
+                "name": "Strasbourg",
+                "point": 1.0,
+                "price": 1.35
+              },
+              {
+                "name": "Strasbourg",
+                "point": 0.75,
+                "price": 1.53
+              },
+              {
+                "name": "Strasbourg",
+                "point": 0.5,
+                "price": 1.72
+              },
+              {
+                "name": "Strasbourg",
+                "point": -0.0,
+                "price": 2.39
+              },
+              {
+                "name": "Strasbourg",
+                "point": -0.25,
+                "price": 2.81
+              },
+              {
+                "name": "Strasbourg",
+                "point": -0.5,
+                "price": 3.22
+              },
+              {
+                "name": "Strasbourg",
+                "point": -0.75,
+                "price": 4.08
+              },
+              {
+                "name": "Toulouse",
+                "point": -0.25,
+                "price": 1.96
+              },
+              {
+                "name": "Toulouse",
+                "point": -1.25,
+                "price": 3.9
+              },
+              {
+                "name": "Toulouse",
+                "point": -1.0,
+                "price": 3.45
+              },
+              {
+                "name": "Toulouse",
+                "point": -0.75,
+                "price": 2.66
+              },
+              {
+                "name": "Toulouse",
+                "point": -0.5,
+                "price": 2.26
+              },
+              {
+                "name": "Toulouse",
+                "point": 0.0,
+                "price": 1.65
+              },
+              {
+                "name": "Toulouse",
+                "point": 0.25,
+                "price": 1.49
+              },
+              {
+                "name": "Toulouse",
+                "point": 0.5,
+                "price": 1.39
+              },
+              {
+                "name": "Toulouse",
+                "point": 0.75,
+                "price": 1.27
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-11-06T19:43:46Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.0
+              },
+              {
+                "name": "Over",
+                "point": 1.75,
+                "price": 1.29
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.36
+              },
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.57
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.79
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.33
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.63
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.93
+              },
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 3.54
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.91
+              },
+              {
+                "name": "Under",
+                "point": 1.75,
+                "price": 3.81
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 3.32
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.52
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.13
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.67
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.53
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.44
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 1.33
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-11-06T19:43:10Z",
+            "outcomes": [
+              {
+                "name": "Strasbourg or Draw",
+                "price": 1.71
+              },
+              {
+                "name": "Toulouse or Draw",
+                "price": 1.38
+              },
+              {
+                "name": "Strasbourg or Toulouse",
+                "price": 1.32
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-06T19:43:10Z",
+            "outcomes": [
+              {
+                "name": "Strasbourg",
+                "price": 2.38
+              },
+              {
+                "name": "Toulouse",
+                "price": 1.63
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-06T19:45:00Z",
+    "home_team": "Toulouse",
+    "id": "5e7d141f719835de18877ed95bedcb32",
+    "sport_key": "soccer_france_ligue_one",
+    "sport_title": "Ligue 1 - France"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.38,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7011462119094214,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-11-06T19:43:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.71,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.5658372938216383,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-11-06T19:43:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.32,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7330164942689403,
+      "selection": "home_away",
+      "updated_at_utc": "2026-11-06T19:43:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.39,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.65,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.43386881870071375,
+      "selection": "home",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.63,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.26705519798612204,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.25,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2990759833131642,
+      "selection": "away",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.96,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.96,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.08,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.22,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.72,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.35,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.9,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.45,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.66,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.39,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.27,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.79,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5451772412187613,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.13,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4548227587812386,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.93,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.32033040440476757,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6796695955952324,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-06T19:43:46+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

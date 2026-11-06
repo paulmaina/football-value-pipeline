@@ -1,24 +1,24 @@
 {
   "already_complete_fixtures": 0,
-  "checked_at_utc": "2026-11-06T19:41:54.398921+00:00",
+  "checked_at_utc": "2026-11-06T19:55:28.830429+00:00",
   "coverage_checks": [
     {
-      "event_id": "5e7d141f719835de18877ed95bedcb32",
+      "event_id": "9dd0014685fd62d9b2890d7c33a8c9ab",
       "missing_required_quotes": [
+        {
+          "bookmaker": "1xbet",
+          "selection": "home"
+        },
         {
           "bookmaker": "1xbet",
           "selection": "home_away"
         },
         {
           "bookmaker": "1xbet",
-          "selection": "over_1_5"
+          "selection": "home_draw"
         },
         {
-          "bookmaker": "pinnacle",
-          "selection": "Asian Handicap Away +2.50"
-        },
-        {
-          "bookmaker": "pinnacle",
+          "bookmaker": "1xbet",
           "selection": "over_1_5"
         }
       ],
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "event_id": "fa069801a5c9b49143447a1a1d173fd1",
+      "event_id": "586bec023ee8ac2f0645d963bd2c9d25",
       "missing_required_quotes": [
         {
           "bookmaker": "1xbet",
@@ -44,7 +44,7 @@
         },
         {
           "bookmaker": "1xbet",
-          "selection": "home_away"
+          "selection": "home_draw"
         },
         {
           "bookmaker": "1xbet",
@@ -57,6 +57,10 @@
         {
           "bookmaker": "pinnacle",
           "selection": "Asian Handicap Away +2.50"
+        },
+        {
+          "bookmaker": "pinnacle",
+          "selection": "over_1_5"
         }
       ],
       "requested_markets": [
@@ -74,14 +78,14 @@
     }
   ],
   "daily_request_cap": 100,
-  "daily_requests": 38,
+  "daily_requests": 50,
   "eligible_fixtures": 2,
   "errors": [],
   "reason": "CHECKED_ELIGIBLE_FIXTURES",
   "request_limit": 2,
   "requests": 2,
-  "reservation_allowance": 10,
-  "reservation_id": "actions-42231491170-1-4",
-  "reservation_used": 10,
+  "reservation_allowance": 12,
+  "reservation_id": "actions-42231491170-1-5",
+  "reservation_used": 12,
   "written": 2
 }
