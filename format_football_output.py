@@ -1491,6 +1491,10 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
                 for r in (json.loads(v) if isinstance(v, str) and v else []))),
             'Offered quote age (min)': raw.offered_quote_age_minutes.map(lambda v: decimal(v, 0)),
         })
+    if 'shortlist_schema_version' in raw:
+        from shortlist_schema import readable as common_readable
+        common = common_readable(raw, pct, decimal, signed_pct, GROUP_NAMES)
+        readable = pd.concat([common, readable[[c for c in readable if c not in common]]], axis=1)
     readable.to_csv(output_dir / "conservative_bet_shortlist_readable.csv", index=False, encoding="utf-8-sig")
     rejected = summary.get("rejection_counts") or {}
     lines = [
@@ -1574,8 +1578,20 @@ def process_price_edge_shortlist(raw: pd.DataFrame, summary: dict, output_dir: P
             tier_readable["Expected profit"] = tier_readable["Expected profit"].map(signed_pct)
             for column in ("Price", "Corrected fair odds", "Uncorrected fair odds", "Pinnacle fair odds (if quoted)"):
                 tier_readable[column] = tier_readable[column].map(decimal)
+        expanded_rule = tier.get('rule_version') == v28.TIER_RULE_EXPANDED
+        if expanded_rule:
+            from shortlist_schema import readable as common_readable
+            tier_readable = common_readable(tier_raw, pct, decimal, signed_pct, GROUP_NAMES)
+            tier_readable['Also in value tier'] = tier_raw.in_value_tier.map(
+                lambda v: 'yes' if str(v) == 'True' else 'no')
         tier_readable.to_csv(output_dir / "cagey_tier_shortlist_readable.csv", index=False, encoding="utf-8-sig")
-        if narrow_rule:
+        if expanded_rule:
+            rule_text = ('P(narrow: draw or 1-goal win) >= 67%; 20 minutes–48 hours; real quoted home/away win, '
+                         'DC 1X/X2/12, AH and Over 1.5; odds >1.15 and <=2.00. One pick per fixture/market group, '
+                         'ranked by corrected chance of no loss, then expected return, then odds. Negative EV is flagged; '
+                         'no minimum no-loss probability or list cap. All probabilities use the Pinnacle grid with corrected '
+                         'margin masses; weather does not change selection.')
+        elif narrow_rule:
             rule_text = (f"Every match with P(narrow: draw or 1-goal win) >= {pct(tier.get('min_p_narrow'), 0)} in the "
                          "20-minute to 48-hour window, with its safest AH +1 to +2.25 line at Pinnacle or 1xBet after "
                          "the data-quality checks; one per match, safest first. **Price vs fair** says whether the "

@@ -1,5 +1,10 @@
 """Versioned shortlist v28: v27 price edge with the cagey-match correction.
 
+Current cagey rule narrow-67-per-market-v3 ranks corrected no-loss probability
+across win/DC/AH/Over 1.5 at odds (1.15, 2.00], P(narrow) >= 67%, one per
+fixture/market group. See cagey_tier_v3.py and docs/cagey-tier-v3.md. The rules
+below describe historical v1/v2 runs, which remain replayable.
+
 VALUE TIER (identical to v27 except):
   * a plus line (line >= +1.0) whose fair reference is the derived matrix
     (type c) is priced from the CORRECTED matrix (narrow_margin) instead:
@@ -73,7 +78,8 @@ PRICE_REASONS = ('offered price above 1.15 x fair odds', 'edge below 3%')
 # Cagey-tier selection rules. A run records the rule it used; runs that record none used TIER_RULE_VALUE.
 TIER_RULE_VALUE = 'value-v1'
 TIER_RULE_NARROW = 'narrow-63-flagged-v2'
-TIER_RULES = (TIER_RULE_VALUE, TIER_RULE_NARROW)
+from cagey_tier_v3 import RULE as TIER_RULE_EXPANDED
+TIER_RULES = (TIER_RULE_VALUE, TIER_RULE_NARROW, TIER_RULE_EXPANDED)
 # Value-tier selection rules. A run records the rule it used; runs that record none used VALUE_RULE_ONE.
 VALUE_RULE_ONE = 'one-per-fixture-v1'
 VALUE_RULE_PER_MARKET = 'per-market-v2'
@@ -206,10 +212,15 @@ NARROW_COLUMNS = ['price_flag']
 
 def tier_columns(rule: str) -> List[str]:
     """Decision columns a tier rule adds; value-v1 adds none, so its runs replay unchanged."""
+    if rule == TIER_RULE_EXPANDED:
+        from cagey_tier_v3 import COLUMNS
+        return [*TIER_COLUMNS, *NARROW_COLUMNS, *COLUMNS]
     return [*TIER_COLUMNS, *(NARROW_COLUMNS if rule == TIER_RULE_NARROW else [])]
 
 
 def tier_output_columns(rule: str) -> List[str]:
+    if rule == TIER_RULE_EXPANDED:
+        return list(dict.fromkeys([*TIER_OUTPUT_COLUMNS, *tier_columns(rule)]))
     if rule != TIER_RULE_NARROW:
         return list(TIER_OUTPUT_COLUMNS)
     at = TIER_OUTPUT_COLUMNS.index('corrected_expected_profit') + 1
@@ -446,7 +457,12 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
             monitor.append(monitoring_record(row, items, fit, fit_info, now, context, model, quintiles,
                            used_inputs_only=settings['price_edge_execution_version'] >= EXECUTION_VERSION,
                            strict=strict))
-        tier = tier_rule(settings) if settings['cagey_tier_enabled'] else False
+        expanded = settings['cagey_tier_enabled'] and tier_rule(settings) == TIER_RULE_EXPANDED
+        if expanded and context is not None:
+            from cagey_tier_v3 import corrected_grid
+            source = fit if fit.usable else fit_info['fit_a']
+            context = {**context, 'matrix': corrected_grid(context, source.matrix)}
+        tier = tier_rule(settings) if settings['cagey_tier_enabled'] and not expanded else False
         out = []
         for item in items:
             if settings['price_edge_execution_version'] >= EXECUTION_VERSION:
@@ -478,6 +494,10 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
         if strict:
             for decision in out:
                 apply_cutoff_timing(decision, fit_info, context, now)
+        if expanded:
+            from cagey_tier_v3 import annotate
+            for decision in out:
+                annotate(decision, context, row, now, policy, cost)
         return out
     return transform
 
@@ -665,6 +685,9 @@ def _tier_rank(frame: pd.DataFrame) -> pd.DataFrame:
 def apply_cagey_tier(decisions: pd.DataFrame, selected: pd.DataFrame, now: pd.Timestamp,
                      model: Mapping, rule: str = TIER_RULE_VALUE) -> Dict[str, object]:
     """Run-level cutoff and one-per-fixture selection for the cagey tier (updates `decisions`)."""
+    if rule == TIER_RULE_EXPANDED:
+        from cagey_tier_v3 import select
+        return select(decisions, selected)
     if rule == TIER_RULE_NARROW:
         return _apply_narrow_tier(decisions, selected, now)
     from performance_tracking import fixture_key
@@ -744,12 +767,17 @@ def _apply_narrow_tier(decisions: pd.DataFrame, selected: pd.DataFrame, now: pd.
 
 def cagey_tier_list(decisions: pd.DataFrame) -> pd.DataFrame:
     """The cagey-tier shortlist (separate from the value tier), safest first."""
-    rule = TIER_RULE_NARROW if 'price_flag' in decisions else TIER_RULE_VALUE
+    expanded = 'cagey_tier_rule' in decisions and (decisions.empty or decisions.cagey_tier_rule.eq(TIER_RULE_EXPANDED).any())
+    rule = TIER_RULE_EXPANDED if expanded else TIER_RULE_NARROW if 'price_flag' in decisions else TIER_RULE_VALUE
     if 'cagey_tier_decision' not in decisions:
         return pd.DataFrame(columns=tier_output_columns(rule))
     picks = _tier_rank(decisions.loc[decisions.cagey_tier_decision == 'SHORTLISTED'])
     columns = tier_output_columns(rule)
-    return picks.reindex(columns=list(dict.fromkeys([*columns, *picks.columns]))).reset_index(drop=True)
+    result = picks.reindex(columns=list(dict.fromkeys([*columns, *picks.columns]))).reset_index(drop=True)
+    if expanded:
+        from shortlist_schema import harmonize
+        result = harmonize(result, 'cagey')
+    return result
 
 
 def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, execution_policy=None, *,
@@ -859,4 +887,8 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
             training_rule='Verified local competition history plus pre-cutoff free-source research; refresh failure retains valid cache with a warning',
             model_role='Researched settlement probabilities select and rank the main shortlist',
             warning='Research probabilities are model estimates and have not passed a forward calibration gate. Negative expected return remains eligible and flagged.')
+    if settings['cagey_tier_enabled'] and tier_rule(settings) == TIER_RULE_EXPANDED:
+        from shortlist_schema import harmonize
+        selected = harmonize(selected, 'value')
+        summary['shortlist_schema_version'] = 'comparable-shortlist-v1'
     return selected, decisions, summary
