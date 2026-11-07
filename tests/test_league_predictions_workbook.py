@@ -244,6 +244,44 @@ class ShortlistTabTests(OfflineQuotePolicyTestCase):
             root = ET.fromstring(archive.read("xl/workbook.xml"))
         return [s.get("name") for s in root.findall("m:sheets/m:sheet", NS)]
 
+    def test_market_measures_are_adjacent_on_all_three_shortlist_tabs(self):
+        metrics = {"Model fair odds after cost": ["1.50"],
+                   "Chance of positive return": ["75.0%"], "Chance of no loss": ["82.0%"]}
+        frames = []
+        for _,name,_ in formatter.WORKBOOK_SHORTLISTS:
+            frame = pd.DataFrame({"Home": ["Home FC"], "Away": ["Away FC"],
+                "Market to bet": ["Asian Handicap Home +1.00"], "Bookmaker": ["Pinnacle"],
+                "Price": ["1.53"], "Research coverage": ["partial"], **metrics})
+            frames.append((name,frame,"unused"))
+        write_predictions_workbook([("EPL",self.league)],self.path,frames)
+        with ZipFile(self.path) as archive:
+            for i in range(1,4):
+                xml=ET.fromstring(archive.read(f"xl/worksheets/sheet{i}.xml"))
+                headers=[c.find("m:is/m:t",NS).text for c in xml.findall("m:sheetData/m:row",NS)[0]]
+                start=headers.index("Market to bet")
+                self.assertEqual(headers[start:start+5],["Market to bet","Price","Model fair odds after cost",
+                    "Chance of positive return","Chance of no loss"])
+                data=xml.findall("m:sheetData/m:row",NS)[1]
+                values={headers[j]:float(c.find("m:v",NS).text) for j,c in enumerate(data)
+                        if c.find("m:v",NS) is not None}
+                self.assertAlmostEqual(values['Price'],1.53)
+                self.assertAlmostEqual(values['Model fair odds after cost'],1.50)
+                self.assertAlmostEqual(values['Chance of positive return'],.75)
+                self.assertAlmostEqual(values['Chance of no loss'],.82)
+        self.assertEqual(list(frames[0][1].columns)[3],"Bookmaker") # input frame untouched
+
+    def test_master_aliases_missing_columns_and_league_order_are_preserved(self):
+        original=["Home","Away","Market to bet","Bookmaker","No-loss probability","Price",
+                  "Chance of positive return","Fair odds","Notes"]
+        ordered=formatter.workbook_market_headers(original)
+        self.assertEqual(ordered[2:7],["Market to bet","Price","Fair odds","Chance of positive return","No-loss probability"])
+        self.assertEqual(original[3],"Bookmaker")
+        self.assertEqual(formatter.workbook_market_headers(["Home","Market to bet","Price"]),
+                         ["Home","Market to bet","Price"])
+        self.assertEqual(formatter.workbook_market_headers(LEAD),LEAD)
+        league=pd.DataFrame(columns=LEAD+["Market to bet","Other","Price","Chance of no loss"])
+        self.assertEqual(formatter.workbook_headers(league),LEAD+["Market to bet","Price","Chance of no loss","Other"])
+
     def test_tabs_lead_in_order_and_a_missing_list_gets_a_note(self):
         write_predictions_workbook([("EPL", self.league)], self.path, formatter.read_shortlist_tabs(self.out))
         self.assertEqual(self.names(), SHORTLIST_TABS + ["EPL"])

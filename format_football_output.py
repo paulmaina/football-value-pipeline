@@ -1656,6 +1656,42 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
         "On value shortlist": raw.in_value_shortlist.map(lambda v: 'yes' if str(v) == 'True' else 'no'),
         "On cagey tier": raw.in_cagey_tier.map(lambda v: 'yes' if str(v) == 'True' else 'no'),
     })
+    if info.get('version') == master_shortlist.VERSION_MARKET:
+        readable = readable.drop(columns=['Value price from (1% edge)', 'Price flag (value / below value threshold)'])
+        readable['Nomination price assessment'] = raw.master_price_flag
+        readable['Lowest comparison no-loss (diagnostic only)'] = raw.master_consensus_no_loss.map(pct)
+        readable['Lowest comparison profit (diagnostic only)'] = raw.master_consensus_profit.map(pct)
+        readable['Lowest comparison EV (diagnostic only)'] = raw.master_consensus_ev.map(signed_pct)
+        readable['Available comparison scenarios'] = raw.master_consensus_sources
+        readable['Nomination reason'] = raw.master_nomination_reason
+        readable['Offered quote age (minutes)'] = raw.master_offer_age_minutes.map(decimal)
+        readable['Market reference age (minutes)'] = raw.master_reference_age_minutes.map(decimal)
+        readable['Re-check price before betting'] = raw.master_price_recheck_required
+        readable['Quote freshness status'] = raw.master_freshness_status
+        readable['Minimum price for 2% net EV'] = raw.minimum_odds_master.map(decimal)
+        readable['Chance of positive return'] = raw.master_profit_probability.map(pct)
+        readable['Expected return after cost'] = raw.master_expected_return.map(signed_pct)
+        readable['Push probability (before costs)'] = raw.master_push_probability.map(pct)
+        readable['Half-loss probability'] = raw.master_half_loss_probability.map(pct)
+        readable['Full-loss probability'] = raw.master_full_loss_probability.map(pct)
+        readable['Research profit probability (unvalidated)'] = raw.master_research_profit_probability.map(pct)
+        readable['Corrected profit probability (unvalidated)'] = raw.master_corrected_profit_probability.map(pct)
+        readable['Model disagreement'] = raw.master_model_gap.map(pct)
+        readable['Coverage and uncertainty'] = raw.master_coverage_warning
+        readable['Validation status'] = raw.master_validation_status
+        readable['Suggested stake'] = raw.master_suggested_stake
+        readable['Pinnacle reference time (UTC)'] = raw.master_reference_utc
+        readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
+        return ["", "## Master shortlist (10 profit-first nominations when available)", "",
+                "One market per match from the union of the value and cagey shortlists. "
+                "Fresh market references and valid execution evidence are required. There is no minimum EV or probability gate. "
+                "Ranked by Pinnacle-referenced profit probability, market net EV, no-loss probability and odds. Refunds are not wins. "
+                "Negative-EV nominations remain visible and flagged; they are not proven value bets. This selection rule is unvalidated; suggested stakes are zero. "
+                "Model comparisons do not affect ranking or reward missing data. Quotes up to 15 minutes old are allowed with ages and re-check warnings; all prices must be re-checked before betting. "
+                f"This run: {len(raw)} nominations; target shortfall {info.get('shortfall', 0)}; "
+                f"{info.get('negative_ev_bets', 0)} negative market EV. Review master_shortlist_audit.csv for exclusions.", "",
+                markdown_table(list(readable.columns), readable.astype(str).values.tolist())
+                if not readable.empty else "No shortlisted offer passed the market-reference and execution checks."]
     readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
     return ["", "## Master shortlist (the 10 best bets this run)", "",
             f"One bet per match from every evaluated bet that passed the data checks. Value bets (edge >= "
@@ -2102,11 +2138,30 @@ def workbook_sheet_name(key: str, used: set) -> str:
     return name
 
 
+def workbook_market_headers(headers: Sequence[str]) -> List[str]:
+    """Keep the offered price and outcome measures beside the market, display only.
+
+    Master/older readable files use Fair odds and No-loss probability for the
+    same display roles; preserve their labels and values rather than inventing
+    or renaming columns. League tabs without a market keep their existing order.
+    """
+    headers = list(headers)
+    if "Market to bet" not in headers:
+        return headers
+    groups = [("Price",), ("Model fair odds after cost", "Fair odds"),
+              ("Chance of positive return",), ("Chance of no loss", "No-loss probability")]
+    adjacent = [next((h for h in aliases if h in headers), None) for aliases in groups]
+    adjacent = [h for h in adjacent if h is not None]
+    ordered = [h for h in headers if h not in adjacent]
+    position = ordered.index("Market to bet") + 1
+    return ordered[:position] + adjacent + ordered[position:]
+
+
 def workbook_headers(frame: pd.DataFrame) -> List[str]:
-    return WORKBOOK_LEAD_COLUMNS + [
+    return workbook_market_headers(WORKBOOK_LEAD_COLUMNS + [
         c for c in frame.columns
         if c not in WORKBOOK_LEAD_COLUMNS and c not in WORKBOOK_HIDDEN_COLUMNS
-    ]
+    ])
 
 
 def workbook_sheet_xml(frame: pd.DataFrame, selected: bool) -> str:
@@ -2161,7 +2216,7 @@ def shortlist_sheet(frame: Optional[pd.DataFrame], message: str, selected: bool)
     if frame is None:
         rows: List[List[Any]] = [[message]]
         return _sheet_xml(["Note"], [_TEXT], rows, selected, 0), 1
-    headers = list(frame.columns)
+    headers = workbook_market_headers(frame.columns)
     styles = [shortlist_column_style(h, frame[h].tolist()) for h in headers]
     rows = [[shortlist_cell_value(row.get(h, ""), s) for h, s in zip(headers, styles)]
             for row in frame.to_dict("records")]
