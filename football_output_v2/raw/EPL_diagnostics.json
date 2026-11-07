@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "255bce51e2135b533dfa57151bcf9f1cd55393435aa99f8f36fe26a98ad5034d",
-  "training_as_of_utc": "2026-11-07T11:39:05.036431+00:00",
+  "training_sha256": "a3027a92f712ab3dcd9d44b84129354f3ad52afaeeac1290ba7c100c2bb185aa",
+  "training_as_of_utc": "2026-11-07T13:45:39.685469+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 91,
     "bbs_added_results": 1,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-07T11:39:05.036431+00:00",
-    "observations": 741,
-    "observations_sha256": "06ab08efd5d40e75d7fed4cb813d93df000a96838c260384f17889913589a657",
+    "cutoff_utc": "2026-11-07T13:45:39.685469+00:00",
+    "observations": 747,
+    "observations_sha256": "21f2bc93785c851c52c94baa99f93a68bae5abdfc58b28269d7602d1c1e6bb39",
     "eligible_training_matches": 317,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:26.478110+00:00",
-    "retrospective_inputs_sha256": "e1f9d2fc25e78de7b7f841068e18069140426348983c91659efb2e4c58231745",
+    "retrospective_inputs_sha256": "8b44244c0271b06113199a504b33183d990929ece1c49e34ee2cc636912b1019",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 257,
@@ -182,10 +182,10 @@
   },
   "training_end": "2026-11-06",
   "fit_success": true,
-  "objective": 1875.754278025242,
-  "base": 0.21620244923756785,
-  "home_adv": 0.1795791022115695,
-  "rho": -0.06044402921406452,
+  "objective": 1875.5162457792474,
+  "base": 0.2163767831386982,
+  "home_adv": 0.17960008210416356,
+  "rho": -0.06041731502467407,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -213,36 +213,16 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 9,
+  "live_odds_matched": 8,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
   "additional_event_odds_calls_used_before_this_league": 0,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261107T113905036431Z_4a033719dd61eca2bee66583236b97dae5e0dedd4298740959c8e9d8a1616bb3.json",
-  "over_1_5_in_window_quote_fixtures": 8,
+  "bbs_statistics_model_artifact": "bbs/feature_models/EPL/20261107T134539685469Z_cb5518abea5ab223146b1d974ed1032afcf46fe30f780178a08272ab0c983e26.json",
+  "over_1_5_in_window_quote_fixtures": 7,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "5c87852253fd11eea5d34ad723356607",
-      "event_id": "5c87852253fd11eea5d34ad723356607",
-      "home_team": "Leeds United",
-      "away_team": "Tottenham Hotspur",
-      "kickoff_utc": "2026-11-07T12:30:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 30,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 2
-    },
     {
       "fixture_id": "842fcc5b9feb8c63054a661ad1fc8926",
       "event_id": "842fcc5b9feb8c63054a661ad1fc8926",
@@ -404,20 +384,20 @@
       "over_1_5_bookmakers": 1
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 9,
+  "additional_odds_in_window_linked_fixtures": 8,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 9,
+  "additional_event_odds_calls_this_league": 8,
   "totals_anchor_fixtures": {
-    "ANCHORED_MAIN": 2,
-    "ANCHORED_ALTERNATE": 7
+    "ANCHORED_ALTERNATE": 7,
+    "ANCHORED_MAIN": 1
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 9
+    "none": 8
   },
   "legacy_comparison_status": {
-    "None": 9
+    "None": 8
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"

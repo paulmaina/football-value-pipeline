@@ -8,8 +8,8 @@
     "2025",
     "2026"
   ],
-  "training_sha256": "5325bca9624c587080acf199c1306177b3da22d4ea28f66bbfe0e415a14d6e68",
-  "training_as_of_utc": "2026-11-07T11:47:02.153739+00:00",
+  "training_sha256": "9fd643f7e64a5c8f4ab1545c80b1d4dc4bac2f6433864a0b5087447fdc30dd8d",
+  "training_as_of_utc": "2026-11-07T13:53:15.500957+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 72,
     "bbs_added_results": 0,
@@ -33,7 +33,7 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_RETROSPECTIVE_EXAMPLES",
-    "cutoff_utc": "2026-11-07T11:47:02.153739+00:00",
+    "cutoff_utc": "2026-11-07T13:53:15.500957+00:00",
     "observations": 493,
     "observations_sha256": "a2c85eaafd590d40d4b57908b5106292540b4f4415cb4a64e1c22e5a633deb8d",
     "eligible_training_matches": 26,
@@ -107,9 +107,9 @@
   },
   "training_end": "2026-11-04",
   "fit_success": true,
-  "objective": 862.0758425486035,
-  "base": 0.2244528016116162,
-  "home_adv": 0.29207794427081746,
+  "objective": 861.9669325621211,
+  "base": 0.2243774541794962,
+  "home_adv": 0.2920721863273916,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -135,7 +135,7 @@
     "source_schedule_matches": 144,
     "provider": "football-data.org",
     "season_start": 2026,
-    "checked_at_utc": "2026-11-07T11:47:02.153739+00:00",
+    "checked_at_utc": "2026-11-07T13:53:15.500957+00:00",
     "download_status": "VERIFIED_LIVE",
     "added_matches": 0,
     "corrected_scores": 0,
@@ -157,9 +157,9 @@
   "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 43,
+  "additional_event_odds_calls_used_before_this_league": 39,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261107T114702153739Z_68ffa7f9223d6be00018fd3b0bd020f2403da42d15894d824017a18369bf4968.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/UCL/20261107T135315500957Z_ce45f87f07ed657eab6f771d90f1dcdcc757e9212695c928518670427f687bc4.json",
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
 }

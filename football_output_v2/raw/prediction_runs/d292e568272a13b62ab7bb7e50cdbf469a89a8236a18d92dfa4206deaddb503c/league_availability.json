@@ -1,0 +1,34 @@
+{
+  "requested_leagues": [
+    "EPL",
+    "LaLiga",
+    "Bundesliga",
+    "SerieA",
+    "Ligue1",
+    "UCL",
+    "UEL",
+    "Eredivisie",
+    "PrimeiraLiga",
+    "SuperLig"
+  ],
+  "excluded_leagues": {},
+  "training_warnings": {
+    "UEL": {
+      "status": "LIVE_REFRESH_FAILED_USING_VERIFIED_CACHE",
+      "verified_at_utc": "2026-11-05T15:54:25.582981+00:00",
+      "reason": "ValueError: Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {\"declared_rows\": 152, \"eligibility\": \"CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout semantics unverified"
+    }
+  },
+  "forecast_leagues": [
+    "EPL",
+    "LaLiga",
+    "Bundesliga",
+    "SerieA",
+    "Ligue1",
+    "UCL",
+    "UEL",
+    "Eredivisie",
+    "PrimeiraLiga",
+    "SuperLig"
+  ]
+}
