@@ -1978,7 +1978,7 @@
   "provider_errors": {
     "UEL": "Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {\"declared_rows\": 152, \"eligibility\": \"CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout "
   },
-  "reviewed_at_utc": "2026-11-07T13:56:38Z",
+  "reviewed_at_utc": "2026-11-07T14:18:51Z",
   "run_history_groups": {
     "2026-10-11T06:32:27.587243+00:00": {
       "brier": 0.232708,
