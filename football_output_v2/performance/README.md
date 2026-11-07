@@ -19,7 +19,7 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 |---|---:|---:|---:|---:|
 | All selections | 101 | 72-26 | 71.3% | +3.6% |
 
-Unsettled / unverified entries: **189**.
+Unsettled / unverified entries: **288**.
 Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
 
 ## First-prediction reference — historical comparison
@@ -68,6 +68,7 @@ Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
 | 2026-11-05T16:50:22.659919+00:00 | 0 | 0-0 | — | — |
 | 2026-11-06T12:17:20.125743+00:00 | 0 | 0-0 | — | — |
 | 2026-11-06T13:40:19.404227+00:00 | 21 | 13-8 | 61.9% | -19.8% |
+| 2026-11-07T11:48:25.259368+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -226,24 +227,24 @@ A missing, ambiguous or unverified result is **never called a win**.
 
 | League | Model training end | Matches | Days since result | Source check |
 |---|---|---:|---:|---|
-| Bundesliga | 2026-11-01 | 1604 | 6 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| EPL | 2026-11-02 | 1990 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Bundesliga | 2026-11-06 | 1605 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| EPL | 2026-11-06 | 1991 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | Eredivisie | 2026-11-01 | 1629 | 6 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| LaLiga | 2026-11-02 | 2009 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| Ligue1 | 2026-11-02 | 1761 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| LaLiga | 2026-11-06 | 2010 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| Ligue1 | 2026-11-06 | 1762 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | PrimeiraLiga | 2026-11-02 | 1620 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
-| SerieA | 2026-11-02 | 2000 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
+| SerieA | 2026-11-06 | 2001 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SuperLig | 2026-11-02 | 1840 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-11-04 | 575 | 3 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-04 | 715 | 3 | STALE |
 
-Latest shortlist audit: {"selected_quotes": 122, "exchange_quotes": 0, "missing_quote_age": 122, "quote_age_over_24h": 0, "costs_recorded": 122, "bookmakers": {"Pinnacle": 62, "1xBet": 60}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 24, "upcoming_kickoff_count": 98, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 190, "exchange_quotes": 0, "missing_quote_age": 190, "quote_age_over_24h": 0, "costs_recorded": 190, "bookmakers": {"Pinnacle": 98, "1xBet": 92}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 190, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 No forward model trials are generated or captured. The benchmark-forward and totals-anchor trials are archived (archive/); their frozen reports stay readable.
 
-Dependency versions at review: {"python": "3.12.16", "numpy": "2.5.4", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.16", "numpy": "2.5.4", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 
