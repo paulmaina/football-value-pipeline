@@ -1,8 +1,8 @@
 {
-  "checked_at_utc": "2026-11-07T12:54:12.797985+00:00",
+  "checked_at_utc": "2026-11-07T17:54:30.654607+00:00",
   "incident_started_at_utc": "2026-11-06T19:56:54.973766+00:00",
   "last_failure": {
-    "at_utc": "2026-11-07T12:54:12.797985+00:00",
+    "at_utc": "2026-11-07T17:54:30.654607+00:00",
     "attempts": [
       {
         "credential": "THE_ODDS_API_KEY",
