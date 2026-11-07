@@ -238,7 +238,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-11-04 | 575 | 3 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-04 | 715 | 3 | STALE |
 
-Latest shortlist audit: {"selected_quotes": 190, "exchange_quotes": 0, "missing_quote_age": 190, "quote_age_over_24h": 0, "costs_recorded": 190, "bookmakers": {"Pinnacle": 98, "1xBet": 92}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 190, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 190, "exchange_quotes": 0, "missing_quote_age": 190, "quote_age_over_24h": 0, "costs_recorded": 190, "bookmakers": {"Pinnacle": 98, "1xBet": 92}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 8, "upcoming_kickoff_count": 182, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
