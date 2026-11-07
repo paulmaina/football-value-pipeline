@@ -101,7 +101,30 @@ DEFAULT_SETTINGS = {'cagey_correction_enabled': True, 'cagey_tier_enabled': True
 CONFIG = Path(__file__).with_name('cagey_correction_config.json')
 SWITCHES = ('cagey_correction_enabled', 'cagey_tier_enabled')
 # Everything a replay needs from a run's summary to reproduce its selection.
-REPLAY_SETTINGS = (*SWITCHES, 'cagey_tier_rule', 'value_rule', 'quote_timing_rule')
+REPLAY_SETTINGS = (*SWITCHES, 'cagey_tier_rule', 'value_rule', 'quote_timing_rule', 'excluded_markets')
+
+
+def excluded_markets(settings: Mapping) -> list:
+    """Missing in historical summaries means no exclusions, never today's config."""
+    markets = settings.get('excluded_markets')
+    if markets is None:
+        return []
+    if not isinstance(markets, list) or any(not isinstance(m, str) or not m.strip() for m in markets):
+        raise ValueError('excluded_markets must be a list of nonempty market labels')
+    return sorted(set(markets))
+
+
+def apply_market_exclusions(item: dict, settings: Mapping) -> None:
+    if item.get('market') not in excluded_markets(settings):
+        return
+    reason = 'market excluded by shortlist configuration'
+    item['decision'] = 'REJECTED'
+    item['rejection_reasons'] = '; '.join(dict.fromkeys(filter(None, [
+        *str(item.get('rejection_reasons') or '').split('; '), reason])))
+    item['qualified_only_by_correction'] = False
+    if item.get('cagey_tier_decision'):
+        item['cagey_tier_decision'] = 'REJECTED'
+        item['cagey_tier_reasons'] = '; '.join(filter(None, [item.get('cagey_tier_reasons'), reason]))
 
 
 def tier_rule(settings: Mapping) -> str:
@@ -191,7 +214,8 @@ def load_settings(path: Optional[Path] = None) -> Dict[str, object]:
     if any(data[name] for name in SWITCHES) and nm.versions()['gate'].get('gate_result') != 'PASS':
         raise ValueError('The cagey correction may only be switched on after GATE: PASS')
     return {**{name: data[name] for name in (*SWITCHES, 'model_version')}, 'cagey_tier_rule': tier_rule(data),
-            'value_rule': value_rule(data), 'quote_timing_rule': timing_rule(data)}
+            'value_rule': value_rule(data), 'quote_timing_rule': timing_rule(data),
+            'excluded_markets': excluded_markets(data)}
 TIER_LINES = (1.0, 1.25, 1.5, 1.75, 2.0, 2.25)
 TIER_MIN_NO_LOSS = 0.85
 TIER_QUANTILE = 0.20
@@ -502,6 +526,8 @@ def make_transform(model: Optional[Mapping], settings: Mapping, monitor: Optiona
             from cagey_tier_v3 import annotate
             for decision in out:
                 annotate(decision, context, row, now, policy, cost, rule=tier_rule(settings), pin=pin)
+        for decision in out:
+            apply_market_exclusions(decision, settings)
         return out
     return transform
 
@@ -798,6 +824,7 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     """
     settings = {**DEFAULT_SETTINGS, 'price_edge_execution_version': EXECUTION_VERSION,
                 **(settings if settings is not None else load_settings())}
+    exclusions = excluded_markets(settings)
     execution_version = settings['price_edge_execution_version']
     if type(execution_version) is not int or execution_version not in (1, EXECUTION_VERSION):
         raise ValueError('Unknown v28 price-edge execution version')
@@ -809,7 +836,7 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
     group = dict(group_column='value_market_group') if per_market else {}
     groups = VALUE_GROUP_COLUMNS if per_market else []
     if not switched_on:
-        uses_transform = execution_version == EXECUTION_VERSION or per_market or timing_rule(settings) != TIMING_RULE_SKEW
+        uses_transform = bool(exclusions) or execution_version == EXECUTION_VERSION or per_market or timing_rule(settings) != TIMING_RULE_SKEW
         selected, decisions, summary = v27.build_shortlist(
             predictions, as_of, market_reliability, policy,
             transform=make_transform(None, settings, cost=cost, policy=policy) if uses_transform else None,
@@ -830,6 +857,8 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
         roster = {fixture_key(r): r for r in predictions.astype(object).where(predictions.notna(), None).to_dict('records')}
         records = [annotate(roster[fixture_key(item)], item, pd.Timestamp(summary['generated_at_utc']), cost, rule=value_rule(settings))
                    for item in decisions.to_dict('records')]
+        for item in records:
+            apply_market_exclusions(item, settings)
         decisions = pd.DataFrame(records, columns=list(dict.fromkeys([*decisions.columns, *PROFIT_COLUMNS])))
         selected, decisions = select(decisions)
     for frame in (selected, decisions):
@@ -895,6 +924,19 @@ def build_shortlist(predictions: pd.DataFrame, as_of, market_reliability=None, e
             training_rule='Verified local competition history plus pre-cutoff free-source research; refresh failure retains valid cache with a warning',
             model_role='Researched settlement probabilities select and rank the main shortlist',
             warning='Research probabilities are model estimates and have not passed a forward calibration gate. Negative expected return remains eligible and flagged.')
+    if exclusions:
+        summary['excluded_markets'] = exclusions
+        summary['eligible_markets'] = [m for m in summary['eligible_markets'] if m not in exclusions]
+        if OVER_1_5 in exclusions:
+            summary['value_market_groups'] = [g for g in summary.get('value_market_groups', []) if g != GROUP_OVER_1_5]
+            for key in ('value_market_group_counts', 'min_edge_by_market_group'):
+                summary.get(key, {}).pop(GROUP_OVER_1_5, None)
+        summary['selection_method'] += '; configured excluded markets are rejected before selection'
+        tier['excluded_markets'] = exclusions
+        if tier.get('rule'):
+            tier['rule'] += '; configured excluded markets are rejected before selection'
+        for market in exclusions:
+            tier.get('probability_basis_by_market', {}).pop(market, None)
     if settings['cagey_tier_enabled'] and tier_rule(settings) in EXPANDED_RULES:
         from shortlist_schema import harmonize
         selected = harmonize(selected, 'value')
