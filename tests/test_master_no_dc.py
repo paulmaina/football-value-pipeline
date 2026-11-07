@@ -165,7 +165,7 @@ class NoDoubleChanceMasterTests(OfflineQuotePolicyTestCase):
         info={'generated_at_utc':NOW.isoformat()}
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
-            frame=master.write(d,root,info,pred)
+            frame=master.write(d,root,info,pred,version=master.VERSION_AH)
             self.assertEqual(info['master_shortlist']['version'],v6.VERSION)
             self.assertEqual(info['master_shortlist']['converted_bets'],1)
             self.assertTrue(master.matches(frame,master.build(d,pred,master.VERSION_AH),master.VERSION_AH))
