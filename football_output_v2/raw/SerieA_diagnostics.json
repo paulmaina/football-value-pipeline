@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "b9bfa812e6b1a0954755648b1152ec11edf4b1ae5a55fb1b5924cee66ad52916",
-  "training_as_of_utc": "2026-11-07T11:43:42.821307+00:00",
+  "training_sha256": "5f412c9e90b80a2464c90296aebe1209733eeb38e7edc5d2eaa88ac0ff72aef9",
+  "training_as_of_utc": "2026-11-07T13:50:04.707318+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 101,
     "bbs_added_results": 1,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "INSUFFICIENT_PAIRED_AUDIT",
-    "cutoff_utc": "2026-11-07T11:43:42.821307+00:00",
-    "observations": 779,
-    "observations_sha256": "a2bdc979426856dff1f1a3a7987890476a4e7ada13c56d0595a7c41a040b2adc",
+    "cutoff_utc": "2026-11-07T13:50:04.707318+00:00",
+    "observations": 785,
+    "observations_sha256": "bd1530d71624b95367186da6bcbf0e661f938a6988d5e8e67f8c4ad81214b834",
     "eligible_training_matches": 257,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:28.568690+00:00",
-    "retrospective_inputs_sha256": "94ea0b1eeb961b06ba9f76f98184a02369db836dbba99ab7090bd1c3fd4e335d",
+    "retrospective_inputs_sha256": "7d4e623523db51d51e7d9708232c97572e0b1386be6280aea115c4a76b5d0a86",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 195,
@@ -184,10 +184,10 @@
   },
   "training_end": "2026-11-06",
   "fit_success": true,
-  "objective": 1823.2465959718038,
-  "base": 0.1536147511957323,
-  "home_adv": 0.10702010285142256,
-  "rho": -0.022099203712962794,
+  "objective": 1823.01560597647,
+  "base": 0.153614782694944,
+  "home_adv": 0.10702016188619222,
+  "rho": -0.022099055960198115,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -218,11 +218,11 @@
   "live_odds_matched": 9,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 26,
+  "additional_event_odds_calls_used_before_this_league": 24,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261107T114342821307Z_203b0e68f9d8d4a32b94728f48d6a41a460a8e57495a5cf4f3490e1474bec996.json",
-  "over_1_5_in_window_quote_fixtures": 6,
+  "bbs_statistics_model_artifact": "bbs/feature_models/SerieA/20261107T135004707318Z_1bfe7152c88031c6f4134366d42cbc68b1832f27b55265a4ea666f86ebedfc73.json",
+  "over_1_5_in_window_quote_fixtures": 4,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
     {
@@ -231,19 +231,12 @@
       "home_team": "Cagliari",
       "away_team": "Frosinone",
       "kickoff_utc": "2026-11-07T14:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 32,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "0d53a5dbd9d4f4716e923b97e92dfb0d",
@@ -251,19 +244,12 @@
       "home_team": "Torino",
       "away_team": "Lecce",
       "kickoff_utc": "2026-11-07T14:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 32,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 2
+      "status": "NOT_REQUESTED_OUTSIDE_WINDOW_OR_UNLINKED",
+      "home_draw_quote": false,
+      "draw_away_quote": false,
+      "home_away_quote": false,
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "813cc4970b2dcab8457490a332fb5a6c",
@@ -406,13 +392,14 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 9,
+  "additional_odds_in_window_linked_fixtures": 7,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 9,
+  "additional_event_odds_calls_this_league": 7,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 7,
-    "ANCHORED_MAIN": 2
+    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1,
+    "ANCHORED_MAIN": 1,
+    "ANCHORED_ALTERNATE": 7
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
