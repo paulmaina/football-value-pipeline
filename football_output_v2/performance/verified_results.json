@@ -1455,6 +1455,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "DED:558843": {
+    "away_goals": 1,
+    "away_short_name": "Go Ahead",
+    "away_team": "Go Ahead Eagles",
+    "first_verified_at_utc": "2026-11-07T23:45:25Z",
+    "home_goals": 0,
+    "home_short_name": "Excelsior",
+    "home_team": "SBV Excelsior",
+    "kickoff_utc": "2026-11-07T20:00:00Z",
+    "league_code": "DED",
+    "match_id": 558843,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "DED:558844": {
     "away_goals": 2,
     "away_short_name": "Telstar",
@@ -3891,6 +3906,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564741": {
+    "away_goals": 3,
+    "away_short_name": "Real Madrid",
+    "away_team": "Real Madrid CF",
+    "first_verified_at_utc": "2026-11-07T23:45:25Z",
+    "home_goals": 0,
+    "home_short_name": "Valencia",
+    "home_team": "Valencia CF",
+    "kickoff_utc": "2026-11-07T20:00:00Z",
+    "league_code": "PD",
+    "match_id": 564741,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564744": {
     "away_goals": 2,
     "away_short_name": "Santander",
@@ -4881,6 +4911,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PPL:567350": {
+    "away_goals": 0,
+    "away_short_name": "Moreirense",
+    "away_team": "Moreirense FC",
+    "first_verified_at_utc": "2026-11-07T23:45:25Z",
+    "home_goals": 1,
+    "home_short_name": "Sporting CP",
+    "home_team": "Sporting Clube de Portugal",
+    "kickoff_utc": "2026-11-07T20:30:00Z",
+    "league_code": "PPL",
+    "match_id": 567350,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PPL:567353": {
     "away_goals": 0,
     "away_short_name": "Arouca",
@@ -4892,6 +4937,21 @@
     "kickoff_utc": "2026-11-06T20:45:00Z",
     "league_code": "PPL",
     "match_id": 567353,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558531": {
+    "away_goals": 0,
+    "away_short_name": "Sassuolo",
+    "away_team": "US Sassuolo Calcio",
+    "first_verified_at_utc": "2026-11-07T23:45:25Z",
+    "home_goals": 3,
+    "home_short_name": "Roma",
+    "home_team": "AS Roma",
+    "kickoff_utc": "2026-11-07T19:45:00Z",
+    "league_code": "SA",
+    "match_id": 558531,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
