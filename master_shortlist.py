@@ -1,6 +1,6 @@
 """Master shortlist and immutable legacy replay.
 
-Live research runs use master-profit-no-dc-v6: the union of the
+Live research runs use master-profit-no-dc-no-over15-v7: Over 1.5 is excluded from the union of the
 value/cagey shortlists, fresh independent market settlement, market profit-first ranking,
 no EV floor, one market per fixture and ten nominations when ten fixtures pass execution checks. See master_selection.
 Archived v1/v2/v5 rules remain unchanged; v6 uses native Pinnacle AH replacements for DC nominations.
@@ -20,7 +20,8 @@ VERSION_V1 = 'master-10-v1'
 VERSION = 'master-10-v2'
 VERSION_MARKET = 'master-profit-market-v5'
 VERSION_AH = 'master-profit-no-dc-v6'
-VERSIONS = (VERSION_V1, VERSION, VERSION_MARKET, VERSION_AH)
+VERSION_NO_TOTALS = 'master-profit-no-dc-no-over15-v7'
+VERSIONS = (VERSION_V1, VERSION, VERSION_MARKET, VERSION_AH, VERSION_NO_TOTALS)
 BASIS_PINNACLE = 'Pinnacle fair price'
 BASIS_FIT = 'market-implied fit B'
 BASIS_CORRECTED = 'cagey-corrected fit'
@@ -70,6 +71,9 @@ CONFIG = Path(__file__).with_name('master_shortlist_config.json')
 
 
 def selection_module(version):
+    if version == VERSION_NO_TOTALS:
+        import master_selection_no_totals
+        return master_selection_no_totals
     if version == VERSION_AH:
         import master_selection_ah
         return master_selection_ah
@@ -90,7 +94,7 @@ def configured_version():
 def columns(version: str = VERSION) -> List[str]:
     if version not in VERSIONS:
         raise ValueError(f'Unknown master shortlist version {version!r}')
-    if version == VERSION_AH:
+    if version in (VERSION_AH, VERSION_NO_TOTALS):
         return COLUMNS_AH
     if version == VERSION_MARKET:
         return COLUMNS_V3
@@ -177,7 +181,7 @@ def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, v
     from performance_tracking import fixture_key, utc
     if version is None:
         version = VERSION  # historical API default; live writes use the explicit config
-    if version in (VERSION_MARKET, VERSION_AH):
+    if version in (VERSION_MARKET, VERSION_AH, VERSION_NO_TOTALS):
         module = selection_module(version)
         return module.select(module.evaluate(decisions, predictions))
     wanted = columns(version)
@@ -205,7 +209,7 @@ def build(decisions: pd.DataFrame, predictions: Optional[pd.DataFrame] = None, v
 def summary(frame: pd.DataFrame, version: str = None) -> Dict[str, object]:
     if version is None:
         version = str(frame.master_version.iloc[0]) if len(frame) else frame.attrs.get('master_version', VERSION)
-    if version in (VERSION_MARKET, VERSION_AH):
+    if version in (VERSION_MARKET, VERSION_AH, VERSION_NO_TOTALS):
         return selection_module(version).summary(frame)
     flags = frame['master_price_flag'] if len(frame) else pd.Series(dtype=object)
     extra = {} if version == VERSION_V1 else {
@@ -254,7 +258,9 @@ def matches(frame: pd.DataFrame, expected: pd.DataFrame, version: str = None) ->
     max(1e-7 absolute, 1e-8 relative), the solver tolerance used elsewhere.
     """
     if version is None:
-        version = VERSION_AH if 'master_replacement_status' in expected else VERSION_MARKET if 'master_profit_probability' in expected else VERSION
+        recorded = expected.get('master_version', pd.Series(dtype=str)).dropna()
+        version = (recorded.iloc[0] if len(recorded) else expected.attrs.get('master_version'))
+        version = version or (VERSION_AH if 'master_replacement_status' in expected else VERSION_MARKET if 'master_profit_probability' in expected else VERSION)
     wanted = columns(version)
     if list(frame.columns) != wanted:
         return False
@@ -274,7 +280,7 @@ def write(decisions: pd.DataFrame, out_dir, run_summary: Mapping,
     if version is None:
         version = configured_version()
     columns(version)  # reject unknown versions before writing any output
-    if version in (VERSION_MARKET, VERSION_AH):
+    if version in (VERSION_MARKET, VERSION_AH, VERSION_NO_TOTALS):
         from master_selection import require_generation_clock
         module = selection_module(version)
         clock = require_generation_clock(decisions, run_summary.get('generated_at_utc'))
