@@ -5,11 +5,11 @@
 Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.
 
 Latest-view tables below are simulated recommendations, not executed-bet ROI.
-value: 764 captured recommendations; 142 graded; 97 distinct fixtures.
-cagey: 543 captured recommendations; 75 graded; 80 distinct fixtures.
+value: 942 captured recommendations; 142 graded; 97 distinct fixtures.
+cagey: 714 captured recommendations; 75 graded; 80 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
-Reviewed 2026-11-07T13:29:13.247957+00:00. Frozen v27 picks: 306.
+Reviewed 2026-11-07T13:56:38.671682+00:00. Frozen v27 picks: 308.
 
 **Mean CLV vs Pinnacle close:** -2.70% ± 1.62% (n=29). **Flat-stake profit per bet:** -2.06% ± 27.43% (n=32).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -88,9 +88,9 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 | group | mean CLV (n) |
 |---|---|
 | Q1 cagiest | -4.73% ± 1.51% (n=14) |
-| Q2 | -2.64% ± 1.99% (n=7) |
-| Q3 | -6.48% ± 6.28% (n=2) |
-| Q4 | +3.13% ± 5.31% (n=4) |
+| Q2 | -2.86% ± 2.38% (n=5) |
+| Q3 | -4.62% ± 5.74% (n=3) |
+| Q4 | +1.85% ± 4.82% (n=5) |
 | Q5 most open | +3.82% (n=1) |
 | n/a | +2.96% (n=1) |
 
@@ -106,7 +106,7 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 
 ## Master shortlist (10 best bets per run)
 
-Frozen picks: 43; CLV -0.62% ± 4.20% (n=7); realised profit per bet -12.00% ± 64.08% (n=7).
+Frozen picks: 48; CLV -0.62% ± 4.20% (n=7); realised profit per bet -12.00% ± 64.08% (n=7).
 
 | price flag | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
@@ -116,7 +116,7 @@ Frozen picks: 43; CLV -0.62% ± 4.20% (n=7); realised profit per bet -12.00% ± 
 
 ## Both tiers (value and cagey)
 
-Cagey-tier picks frozen: 219; CLV -2.94% ± 1.30% (n=19); realised profit per bet -9.00% ± 23.54% (n=23). Correction-only value picks: CLV n/a (0).
+Cagey-tier picks frozen: 222; CLV -2.94% ± 1.30% (n=19); realised profit per bet -9.00% ± 23.54% (n=23). Correction-only value picks: CLV n/a (0).
 Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false; >= 50 graded value-priced cagey-tier picks made under the active rule (no-loss-market-reference-v5) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false.
 
 ### Cagey-tier realised profit per bet by rule
@@ -220,8 +220,8 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 
 ## Tagged candidates (narrow-margin hypothesis)
 
-Frozen tagged candidates: 2025 (2025 with an offered price).
-1xBet edge vs fair at capture: -3.71% ± 0.23% (n=456).
+Frozen tagged candidates: 2049 (2049 with an offered price).
+1xBet edge vs fair at capture: -3.72% ± 0.22% (n=469).
 Return at the capture fair price, all tagged lines: +1.02% ± 8.53% (n=412); plus lines only: +0.43% ± 6.76% (n=243).
 
 - balanced: +2.56% ± 9.20% (n=371)
