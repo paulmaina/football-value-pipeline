@@ -1,0 +1,544 @@
+{
+  "fixture": {
+    "away_team": "Udinese",
+    "home_team": "Venezia",
+    "kickoff_utc": "2026-11-06T19:45:00+00:00",
+    "league": "Serie A",
+    "odds_event_id": "fa069801a5c9b49143447a1a1d173fd1"
+  },
+  "observed_at_utc": "2026-11-06T19:43:18.824429+00:00",
+  "payload": {
+    "away_team": "Udinese",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-06T19:42:57Z",
+            "outcomes": [
+              {
+                "name": "Udinese",
+                "price": 3.1
+              },
+              {
+                "name": "Venezia",
+                "price": 2.5
+              },
+              {
+                "name": "Draw",
+                "price": 3.32
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-06T19:42:57Z",
+            "outcomes": [
+              {
+                "name": "Udinese",
+                "point": 0.25,
+                "price": 1.81
+              },
+              {
+                "name": "Venezia",
+                "point": -0.25,
+                "price": 2.14
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-06T19:42:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.97
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.93
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-06T19:42:57Z",
+            "outcomes": [
+              {
+                "name": "Udinese",
+                "point": 0.25,
+                "price": 1.81
+              },
+              {
+                "name": "Udinese",
+                "point": 1.25,
+                "price": 1.23
+              },
+              {
+                "name": "Udinese",
+                "point": 1.0,
+                "price": 1.28
+              },
+              {
+                "name": "Udinese",
+                "point": 0.75,
+                "price": 1.44
+              },
+              {
+                "name": "Udinese",
+                "point": 0.5,
+                "price": 1.61
+              },
+              {
+                "name": "Udinese",
+                "point": -0.0,
+                "price": 2.19
+              },
+              {
+                "name": "Udinese",
+                "point": -0.25,
+                "price": 2.64
+              },
+              {
+                "name": "Udinese",
+                "point": -0.5,
+                "price": 3.07
+              },
+              {
+                "name": "Udinese",
+                "point": -0.75,
+                "price": 3.88
+              },
+              {
+                "name": "Venezia",
+                "point": -0.25,
+                "price": 2.14
+              },
+              {
+                "name": "Venezia",
+                "point": -1.25,
+                "price": 4.55
+              },
+              {
+                "name": "Venezia",
+                "point": -1.0,
+                "price": 4.05
+              },
+              {
+                "name": "Venezia",
+                "point": -0.75,
+                "price": 3.01
+              },
+              {
+                "name": "Venezia",
+                "point": -0.5,
+                "price": 2.49
+              },
+              {
+                "name": "Venezia",
+                "point": 0.0,
+                "price": 1.76
+              },
+              {
+                "name": "Venezia",
+                "point": 0.25,
+                "price": 1.54
+              },
+              {
+                "name": "Venezia",
+                "point": 0.5,
+                "price": 1.42
+              },
+              {
+                "name": "Venezia",
+                "point": 0.75,
+                "price": 1.29
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-11-06T19:42:57Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.97
+              },
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.29
+              },
+              {
+                "name": "Over",
+                "point": 1.75,
+                "price": 1.36
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.46
+              },
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.71
+              },
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.22
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.67
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.99
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 3.33
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.93
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 3.79
+              },
+              {
+                "name": "Under",
+                "point": 1.75,
+                "price": 3.33
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 2.88
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.25
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.73
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.52
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.42
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.36
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-11-06T19:43:10Z",
+            "outcomes": [
+              {
+                "name": "Udinese or Draw",
+                "price": 1.64
+              },
+              {
+                "name": "Venezia or Draw",
+                "price": 1.4
+              },
+              {
+                "name": "Udinese or Venezia",
+                "price": 1.35
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-06T19:43:10Z",
+            "outcomes": [
+              {
+                "name": "Udinese",
+                "price": 2.26
+              },
+              {
+                "name": "Venezia",
+                "price": 1.69
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-06T19:45:00Z",
+    "home_team": "Venezia",
+    "id": "fa069801a5c9b49143447a1a1d173fd1",
+    "sport_key": "soccer_italy_serie_a",
+    "sport_title": "Serie A - Italy"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.5,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3920089222687335,
+      "selection": "home",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.32,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.29334900643557765,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.1,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.3146420712956888,
+      "selection": "away",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.81,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.14,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.97,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.494676541515101,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5053234584848989,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.88,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.07,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.64,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-06T19:43:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.61,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.05,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.01,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.69,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-06T19:43:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.54,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.42,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.7607979667725892,
+      "selection": "over_1_5",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.79,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.23920203322741077,
+      "selection": "under_1_5",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.33,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.2786412442210405,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.36,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.7213587557789596,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-06T19:42:57+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.6918750000000001,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-11-06T19:43:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.64,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.5906250000000001,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-11-06T19:43:10+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.35,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7174999999999999,
+      "selection": "home_away",
+      "updated_at_utc": "2026-11-06T19:43:10+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

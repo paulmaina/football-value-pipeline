@@ -1,0 +1,478 @@
+{
+  "fixture": {
+    "away_team": "Kasimpasa SK",
+    "home_team": "Gazi\u015fehir Gaziantep",
+    "kickoff_utc": "2026-11-06T17:00:00+00:00",
+    "league": "Super Lig",
+    "odds_event_id": "51baab3ec98943f452377895491bfd6a"
+  },
+  "observed_at_utc": "2026-11-06T16:57:18.061423+00:00",
+  "payload": {
+    "away_team": "Kasimpasa SK",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-06T16:56:55Z",
+            "outcomes": [
+              {
+                "name": "Gazi\u015fehir Gaziantep",
+                "price": 2.37
+              },
+              {
+                "name": "Kasimpasa SK",
+                "price": 2.97
+              },
+              {
+                "name": "Draw",
+                "price": 3.68
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-06T16:56:55Z",
+            "outcomes": [
+              {
+                "name": "Gazi\u015fehir Gaziantep",
+                "point": -0.25,
+                "price": 2.06
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 0.25,
+                "price": 1.85
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-06T16:56:55Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.83
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.07
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-06T16:56:55Z",
+            "outcomes": [
+              {
+                "name": "Gazi\u015fehir Gaziantep",
+                "point": -0.25,
+                "price": 2.06
+              },
+              {
+                "name": "Gazi\u015fehir Gaziantep",
+                "point": -1.25,
+                "price": 4.2
+              },
+              {
+                "name": "Gazi\u015fehir Gaziantep",
+                "point": -1.0,
+                "price": 3.73
+              },
+              {
+                "name": "Gazi\u015fehir Gaziantep",
+                "point": -0.75,
+                "price": 2.82
+              },
+              {
+                "name": "Gazi\u015fehir Gaziantep",
+                "point": -0.5,
+                "price": 2.36
+              },
+              {
+                "name": "Gazi\u015fehir Gaziantep",
+                "point": 0.0,
+                "price": 1.75
+              },
+              {
+                "name": "Gazi\u015fehir Gaziantep",
+                "point": 0.25,
+                "price": 1.56
+              },
+              {
+                "name": "Gazi\u015fehir Gaziantep",
+                "point": 0.5,
+                "price": 1.44
+              },
+              {
+                "name": "Gazi\u015fehir Gaziantep",
+                "point": 0.75,
+                "price": 1.31
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 0.25,
+                "price": 1.85
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 1.25,
+                "price": 1.26
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 1.0,
+                "price": 1.3
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 0.75,
+                "price": 1.48
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": 0.5,
+                "price": 1.65
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": -0.0,
+                "price": 2.19
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": -0.25,
+                "price": 2.57
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": -0.5,
+                "price": 2.94
+              },
+              {
+                "name": "Kasimpasa SK",
+                "point": -0.75,
+                "price": 3.63
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-11-06T16:56:55Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.83
+              },
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 4.93
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.66
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.38
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.09
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.66
+              },
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.48
+              },
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.2
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.07
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.19
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.51
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.62
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.8
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.32
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.79
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 4.75
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-06T17:00:00Z",
+    "home_team": "Gazi\u015fehir Gaziantep",
+    "id": "51baab3ec98943f452377895491bfd6a",
+    "sport_key": "soccer_turkey_super_league",
+    "sport_title": "Turkey Super League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.37,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.4117113728291982,
+      "selection": "home",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.68,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.26185329256221584,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.97,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.326435334608586,
+      "selection": "away",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.85,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.06,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.63,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.94,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.57,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.19,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.65,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.48,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.26,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.2,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.73,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.82,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.36,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.75,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.8188219539767881,
+      "selection": "over_1_5",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.75,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.18117804602321183,
+      "selection": "under_1_5",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.66,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5870547840020517,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.32,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.4129452159979483,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.66,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3541767647146084,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.51,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6458232352853914,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-06T16:56:55+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

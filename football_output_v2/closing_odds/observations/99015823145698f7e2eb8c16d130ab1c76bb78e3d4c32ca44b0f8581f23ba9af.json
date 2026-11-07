@@ -1,0 +1,528 @@
+{
+  "fixture": {
+    "away_team": "Alav\u00e9s",
+    "home_team": "Sevilla",
+    "kickoff_utc": "2026-11-06T20:00:00+00:00",
+    "league": "La Liga",
+    "odds_event_id": "9dd0014685fd62d9b2890d7c33a8c9ab"
+  },
+  "observed_at_utc": "2026-11-06T19:54:56.229588+00:00",
+  "payload": {
+    "away_team": "Alav\u00e9s",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-06T19:54:48Z",
+            "outcomes": [
+              {
+                "name": "Alav\u00e9s",
+                "price": 4.54
+              },
+              {
+                "name": "Sevilla",
+                "price": 2.01
+              },
+              {
+                "name": "Draw",
+                "price": 3.26
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-06T19:54:48Z",
+            "outcomes": [
+              {
+                "name": "Alav\u00e9s",
+                "point": 0.5,
+                "price": 1.92
+              },
+              {
+                "name": "Sevilla",
+                "point": -0.5,
+                "price": 2.01
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-06T19:54:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 2.1
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 1.83
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-06T19:54:48Z",
+            "outcomes": [
+              {
+                "name": "Alav\u00e9s",
+                "point": 0.5,
+                "price": 1.92
+              },
+              {
+                "name": "Alav\u00e9s",
+                "point": 1.5,
+                "price": 1.29
+              },
+              {
+                "name": "Alav\u00e9s",
+                "point": 1.25,
+                "price": 1.34
+              },
+              {
+                "name": "Alav\u00e9s",
+                "point": 1.0,
+                "price": 1.44
+              },
+              {
+                "name": "Alav\u00e9s",
+                "point": 0.75,
+                "price": 1.67
+              },
+              {
+                "name": "Alav\u00e9s",
+                "point": 0.25,
+                "price": 2.29
+              },
+              {
+                "name": "Alav\u00e9s",
+                "point": -0.0,
+                "price": 3.19
+              },
+              {
+                "name": "Alav\u00e9s",
+                "point": -0.25,
+                "price": 3.82
+              },
+              {
+                "name": "Alav\u00e9s",
+                "point": -0.5,
+                "price": 4.32
+              },
+              {
+                "name": "Sevilla",
+                "point": -0.5,
+                "price": 2.01
+              },
+              {
+                "name": "Sevilla",
+                "point": -1.5,
+                "price": 3.95
+              },
+              {
+                "name": "Sevilla",
+                "point": -1.25,
+                "price": 3.48
+              },
+              {
+                "name": "Sevilla",
+                "point": -1.0,
+                "price": 3.02
+              },
+              {
+                "name": "Sevilla",
+                "point": -0.75,
+                "price": 2.34
+              },
+              {
+                "name": "Sevilla",
+                "point": -0.25,
+                "price": 1.7
+              },
+              {
+                "name": "Sevilla",
+                "point": 0.0,
+                "price": 1.4
+              },
+              {
+                "name": "Sevilla",
+                "point": 0.25,
+                "price": 1.3
+              },
+              {
+                "name": "Sevilla",
+                "point": 0.5,
+                "price": 1.25
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-11-06T19:54:48Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 2.1
+              },
+              {
+                "name": "Over",
+                "point": 1.25,
+                "price": 1.29
+              },
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.44
+              },
+              {
+                "name": "Over",
+                "point": 1.75,
+                "price": 1.57
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.77
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 2.41
+              },
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 2.86
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 3.7
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 4.13
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 1.83
+              },
+              {
+                "name": "Under",
+                "point": 1.25,
+                "price": 3.82
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 2.91
+              },
+              {
+                "name": "Under",
+                "point": 1.75,
+                "price": 2.54
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 2.16
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 1.63
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 1.47
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.3
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.26
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-11-06T19:54:36Z",
+            "outcomes": [
+              {
+                "name": "Alav\u00e9s or Draw",
+                "price": 1.88
+              },
+              {
+                "name": "Sevilla or Draw",
+                "price": 1.24
+              },
+              {
+                "name": "Alav\u00e9s or Sevilla",
+                "price": 1.38
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-06T19:54:36Z",
+            "outcomes": [
+              {
+                "name": "Alav\u00e9s",
+                "price": 3.16
+              },
+              {
+                "name": "Sevilla",
+                "price": 1.39
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-06T20:00:00Z",
+    "home_team": "Sevilla",
+    "id": "9dd0014685fd62d9b2890d7c33a8c9ab",
+    "sport_key": "soccer_spain_la_liga",
+    "sport_title": "La Liga - Spain"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.24,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7818225650916103,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-11-06T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.88,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.5156702025072324,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-11-06T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.38,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7025072324011572,
+      "selection": "home_away",
+      "updated_at_utc": "2026-11-06T19:54:36+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.19,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.01,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.48930424073072487,
+      "selection": "home",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.26,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2982309841891056,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.54,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2124647750801696,
+      "selection": "away",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.92,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.01,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.82,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.67,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.34,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.95,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.48,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.02,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.34,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.7,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.25,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6786933828459962,
+      "selection": "over_1_5",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.91,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.32130661715400377,
+      "selection": "under_1_5",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.41,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3993843983647241,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.63,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6006156016352758,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-06T19:54:48+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}

@@ -1,0 +1,528 @@
+{
+  "fixture": {
+    "away_team": "Coventry City",
+    "home_team": "Everton",
+    "kickoff_utc": "2026-11-06T20:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "586bec023ee8ac2f0645d963bd2c9d25"
+  },
+  "observed_at_utc": "2026-11-06T19:55:31.528935+00:00",
+  "payload": {
+    "away_team": "Coventry City",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-06T19:55:12Z",
+            "outcomes": [
+              {
+                "name": "Coventry City",
+                "price": 5.08
+              },
+              {
+                "name": "Everton",
+                "price": 1.69
+              },
+              {
+                "name": "Draw",
+                "price": 4.12
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-06T19:55:12Z",
+            "outcomes": [
+              {
+                "name": "Coventry City",
+                "point": 0.75,
+                "price": 2.05
+              },
+              {
+                "name": "Everton",
+                "point": -0.75,
+                "price": 1.88
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-06T19:55:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.87
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.04
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-06T19:55:12Z",
+            "outcomes": [
+              {
+                "name": "Coventry City",
+                "point": 0.75,
+                "price": 2.05
+              },
+              {
+                "name": "Coventry City",
+                "point": 1.75,
+                "price": 1.35
+              },
+              {
+                "name": "Coventry City",
+                "point": 1.5,
+                "price": 1.48
+              },
+              {
+                "name": "Coventry City",
+                "point": 1.25,
+                "price": 1.59
+              },
+              {
+                "name": "Coventry City",
+                "point": 1.0,
+                "price": 1.76
+              },
+              {
+                "name": "Coventry City",
+                "point": 0.5,
+                "price": 2.3
+              },
+              {
+                "name": "Coventry City",
+                "point": 0.25,
+                "price": 2.8
+              },
+              {
+                "name": "Coventry City",
+                "point": -0.0,
+                "price": 3.89
+              },
+              {
+                "name": "Coventry City",
+                "point": -0.25,
+                "price": 4.46
+              },
+              {
+                "name": "Everton",
+                "point": -0.75,
+                "price": 1.88
+              },
+              {
+                "name": "Everton",
+                "point": -1.75,
+                "price": 3.46
+              },
+              {
+                "name": "Everton",
+                "point": -1.5,
+                "price": 2.82
+              },
+              {
+                "name": "Everton",
+                "point": -1.25,
+                "price": 2.51
+              },
+              {
+                "name": "Everton",
+                "point": -1.0,
+                "price": 2.18
+              },
+              {
+                "name": "Everton",
+                "point": -0.5,
+                "price": 1.69
+              },
+              {
+                "name": "Everton",
+                "point": -0.25,
+                "price": 1.49
+              },
+              {
+                "name": "Everton",
+                "point": 0.0,
+                "price": 1.29
+              },
+              {
+                "name": "Everton",
+                "point": 0.25,
+                "price": 1.24
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-11-06T19:55:12Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.87
+              },
+              {
+                "name": "Over",
+                "point": 1.75,
+                "price": 1.26
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.31
+              },
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.51
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.69
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.13
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.42
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.69
+              },
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 3.21
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.04
+              },
+              {
+                "name": "Under",
+                "point": 1.75,
+                "price": 4.17
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 3.67
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.73
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.27
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.78
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.62
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.51
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 1.38
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-11-06T19:55:19Z",
+            "outcomes": [
+              {
+                "name": "Coventry City or Draw",
+                "price": 2.29
+              },
+              {
+                "name": "Everton or Draw",
+                "price": 1.2
+              },
+              {
+                "name": "Coventry City or Everton",
+                "price": 1.27
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-06T19:55:19Z",
+            "outcomes": [
+              {
+                "name": "Coventry City",
+                "price": 3.89
+              },
+              {
+                "name": "Everton",
+                "price": 1.29
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-06T20:00:00Z",
+    "home_team": "Everton",
+    "id": "586bec023ee8ac2f0645d963bd2c9d25",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.69,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.58163387974362,
+      "selection": "home",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.12,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.23172029033513963,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.08,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.1866458299212404,
+      "selection": "away",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.05,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.88,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.46,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.89,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-06T19:55:19+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.8,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.76,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.59,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.48,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.35,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.46,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.82,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.51,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.18,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.69,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-06T19:55:19+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.24,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.69,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5767520057301486,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.27,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.42324799426985144,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.69,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.35235836308278473,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.51,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6476416369172153,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-06T19:55:12+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.2,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.8100775733604447,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-11-06T19:55:19+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.29,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.42449479826748193,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-11-06T19:55:19+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.27,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7654276283720737,
+      "selection": "home_away",
+      "updated_at_utc": "2026-11-06T19:55:19+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
