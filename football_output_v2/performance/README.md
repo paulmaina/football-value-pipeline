@@ -17,16 +17,16 @@ Whole-fixture model metrics and research experiments retain their unique-fixture
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| All selections | 101 | 72-26 | 71.3% | +3.6% |
+| All selections | 172 | 123-46 | 71.5% | +2.3% |
 
-Unsettled / unverified entries: **290**.
-Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
+Unsettled / unverified entries: **219**.
+Whole-fixture 1X2 multiclass Brier (n=324): 0.5655
 
 ## First-prediction reference — historical comparison
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| Unique fixtures | 80 | 62-15 | 77.5% | +6.9% |
+| Unique fixtures | 98 | 78-17 | 79.6% | +8.8% |
 
 ## Latest selections by prediction run (generation UTC)
 
@@ -64,11 +64,11 @@ Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
 | 2026-11-03T13:58:02.173298+00:00 | 2 | 2-0 | 100.0% | +48.0% |
 | 2026-11-04T09:31:03.622249+00:00 | 0 | 0-0 | — | — |
 | 2026-11-04T10:20:33.895771+00:00 | 1 | 0-1 | 0.0% | -100.0% |
-| 2026-11-05T13:37:38.336530+00:00 | 7 | 6-1 | 85.7% | +64.9% |
-| 2026-11-05T16:50:22.659919+00:00 | 0 | 0-0 | — | — |
+| 2026-11-05T13:37:38.336530+00:00 | 55 | 41-14 | 74.5% | +11.5% |
+| 2026-11-05T16:50:22.659919+00:00 | 20 | 14-6 | 70.0% | -8.2% |
 | 2026-11-06T12:17:20.125743+00:00 | 0 | 0-0 | — | — |
 | 2026-11-06T13:40:19.404227+00:00 | 21 | 13-8 | 61.9% | -19.8% |
-| 2026-11-07T11:48:25.259368+00:00 | 0 | 0-0 | — | — |
+| 2026-11-07T11:48:25.259368+00:00 | 3 | 2-1 | 66.7% | +2.7% |
 | 2026-11-07T13:54:13.645217+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
@@ -76,13 +76,13 @@ Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | PROVISIONAL | 27 | 18-9 | 66.7% | -10.7% |
-| STRICT | 74 | 54-17 | 73.0% | +8.9% |
+| STRICT | 145 | 105-37 | 72.4% | +4.7% |
 
 ## By policy
 
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
-| 48h-ah-price-edge-cagey-v28 | 32 | 21-11 | 65.6% | -2.1% |
+| 48h-ah-price-edge-cagey-v28 | 103 | 72-31 | 69.9% | -0.4% |
 | 48h-top-ten-probability-ev-no-under35-v14 | 8 | 6-2 | 75.0% | +0.6% |
 | 48h-top-twelve-probability-ev-no-under35-v15 | 11 | 7-4 | 63.6% | -12.5% |
 | 48h-top-twelve-profitable-win-probability-v23 | 0 | 0-0 | — | — |
@@ -102,21 +102,21 @@ Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
 | Group | Graded | W-L | Win rate | Simulated ROI |
 |---|---:|---:|---:|---:|
 | Asian Handicap Away +0.00 | 0 | 0-0 | — | — |
-| Asian Handicap Away +0.25 | 0 | 0-0 | — | — |
+| Asian Handicap Away +0.25 | 2 | 2-0 | 100.0% | +44.0% |
 | Asian Handicap Away +0.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away +0.75 | 0 | 0-0 | — | — |
 | Asian Handicap Away +1.00 | 3 | 2-1 | 66.7% | -2.7% |
-| Asian Handicap Away +1.25 | 5 | 2-3 | 40.0% | -54.2% |
+| Asian Handicap Away +1.25 | 10 | 5-5 | 50.0% | -33.9% |
 | Asian Handicap Away +1.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away +1.75 | 0 | 0-0 | — | — |
 | Asian Handicap Away +2.00 | 6 | 4-0 | 66.7% | +24.8% |
-| Asian Handicap Away +2.25 | 0 | 0-0 | — | — |
+| Asian Handicap Away +2.25 | 1 | 1-0 | 100.0% | +31.0% |
 | Asian Handicap Away +2.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away +2.75 | 0 | 0-0 | — | — |
 | Asian Handicap Away +3.00 | 0 | 0-0 | — | — |
 | Asian Handicap Away -0.25 | 0 | 0-0 | — | — |
 | Asian Handicap Away -0.50 | 0 | 0-0 | — | — |
-| Asian Handicap Away -0.75 | 0 | 0-0 | — | — |
+| Asian Handicap Away -0.75 | 1 | 1-0 | 100.0% | +50.0% |
 | Asian Handicap Away -1.00 | 0 | 0-0 | — | — |
 | Asian Handicap Away -1.25 | 0 | 0-0 | — | — |
 | Asian Handicap Away -1.50 | 0 | 0-0 | — | — |
@@ -126,12 +126,12 @@ Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
 | Asian Handicap Away -2.50 | 0 | 0-0 | — | — |
 | Asian Handicap Away -2.75 | 0 | 0-0 | — | — |
 | Asian Handicap Away -3.00 | 0 | 0-0 | — | — |
-| Asian Handicap Home +0.00 | 2 | 1-1 | 50.0% | -23.5% |
-| Asian Handicap Home +0.25 | 0 | 0-0 | — | — |
-| Asian Handicap Home +0.50 | 2 | 2-0 | 100.0% | +27.0% |
+| Asian Handicap Home +0.00 | 3 | 2-1 | 66.7% | -14.3% |
+| Asian Handicap Home +0.25 | 5 | 5-0 | 100.0% | +31.8% |
+| Asian Handicap Home +0.50 | 3 | 3-0 | 100.0% | +27.0% |
 | Asian Handicap Home +0.75 | 1 | 1-0 | 100.0% | +28.0% |
 | Asian Handicap Home +1.00 | 2 | 2-0 | 100.0% | +27.0% |
-| Asian Handicap Home +1.25 | 2 | 2-0 | 100.0% | +46.0% |
+| Asian Handicap Home +1.25 | 3 | 3-0 | 100.0% | +41.3% |
 | Asian Handicap Home +1.50 | 0 | 0-0 | — | — |
 | Asian Handicap Home +1.75 | 0 | 0-0 | — | — |
 | Asian Handicap Home +2.00 | 3 | 2-0 | 66.7% | +16.7% |
@@ -140,8 +140,8 @@ Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
 | Asian Handicap Home +2.75 | 0 | 0-0 | — | — |
 | Asian Handicap Home +3.00 | 0 | 0-0 | — | — |
 | Asian Handicap Home -0.25 | 0 | 0-0 | — | — |
-| Asian Handicap Home -0.50 | 2 | 2-0 | 100.0% | +112.0% |
-| Asian Handicap Home -0.75 | 0 | 0-0 | — | — |
+| Asian Handicap Home -0.50 | 3 | 3-0 | 100.0% | +109.3% |
+| Asian Handicap Home -0.75 | 2 | 0-2 | 0.0% | -100.0% |
 | Asian Handicap Home -1.00 | 0 | 0-0 | — | — |
 | Asian Handicap Home -1.25 | 0 | 0-0 | — | — |
 | Asian Handicap Home -1.50 | 0 | 0-0 | — | — |
@@ -151,7 +151,7 @@ Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
 | Asian Handicap Home -2.50 | 0 | 0-0 | — | — |
 | Asian Handicap Home -2.75 | 0 | 0-0 | — | — |
 | Asian Handicap Home -3.00 | 0 | 0-0 | — | — |
-| Away win | 5 | 2-3 | 40.0% | -10.8% |
+| Away win | 9 | 5-4 | 55.6% | +13.6% |
 | Both Teams to Score - Yes | 3 | 2-1 | 66.7% | +0.7% |
 | Corners Over 10.5 | 0 | 0-0 | — | — |
 | Corners Over 11.5 | 0 | 0-0 | — | — |
@@ -165,12 +165,12 @@ Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
 | Corners Under 7.5 | 0 | 0-0 | — | — |
 | Corners Under 8.5 | 0 | 0-0 | — | — |
 | Corners Under 9.5 | 0 | 0-0 | — | — |
-| Double Chance 12 | 12 | 9-3 | 75.0% | -4.9% |
-| Double Chance 1X | 9 | 8-1 | 88.9% | +9.3% |
-| Double Chance X2 | 8 | 6-2 | 75.0% | +11.2% |
+| Double Chance 12 | 17 | 14-3 | 82.4% | +5.2% |
+| Double Chance 1X | 17 | 13-4 | 76.5% | -6.8% |
+| Double Chance X2 | 12 | 10-2 | 83.3% | +20.9% |
 | Draw | 0 | 0-0 | — | — |
-| Home win | 14 | 9-5 | 64.3% | +10.7% |
-| Over 1.5 | 15 | 12-3 | 80.0% | -2.0% |
+| Home win | 27 | 14-13 | 51.9% | -7.6% |
+| Over 1.5 | 32 | 25-7 | 78.1% | -5.2% |
 | Under 3.5 | 5 | 2-3 | 40.0% | -46.0% |
 
 ## By league
@@ -181,12 +181,12 @@ Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
 | Eredivisie | 6 | 3-3 | 50.0% | -35.3% |
 | La Liga | 15 | 11-3 | 73.3% | +3.8% |
 | Ligue 1 | 9 | 6-3 | 66.7% | -3.4% |
-| Premier League | 16 | 10-5 | 62.5% | -3.0% |
+| Premier League | 20 | 13-6 | 65.0% | +6.7% |
 | Primeira Liga | 5 | 4-1 | 80.0% | +36.8% |
 | Serie A | 20 | 14-5 | 70.0% | +3.9% |
 | Super Lig | 2 | 2-0 | 100.0% | +26.5% |
 | UEFA Champions League | 16 | 12-4 | 75.0% | +6.1% |
-| UEFA Europa League | 0 | 0-0 | — | — |
+| UEFA Europa League | 67 | 48-19 | 71.6% | -2.4% |
 
 ## Gameweeks
 
@@ -196,25 +196,25 @@ Whole-fixture 1X2 multiclass Brier (n=294): 0.5561
 | 2026-W42 | 22 | 19-3 | 86.4% | +19.5% |
 | 2026-W43 | 34 | 25-9 | 73.5% | +3.1% |
 | 2026-W44 | 9 | 5-1 | 55.6% | +4.9% |
-| 2026-W45 | 32 | 21-11 | 65.6% | -2.1% |
+| 2026-W45 | 103 | 72-31 | 69.9% | -0.4% |
 
 ## Confidence calibration of shortlisted markets
 
 | Forecast bin | Samples | Average forecast | Observed event rate (frozen probability basis) | Binary Brier |
 |---|---:|---:|---:|---:|
-| 0%–50% | 12 | 43.1% | 58.3% | 0.3020 |
-| 50%–60% | 3 | 56.9% | 33.3% | 0.2908 |
-| 60%–70% | 14 | 65.9% | 64.3% | 0.2155 |
-| 70%–80% | 39 | 75.9% | 74.4% | 0.1892 |
-| 80%–90% | 29 | 84.2% | 86.2% | 0.1152 |
-| 90%–100% | 4 | 92.8% | 100.0% | 0.0053 |
+| 0%–50% | 19 | 41.3% | 52.6% | 0.2708 |
+| 50%–60% | 8 | 56.2% | 50.0% | 0.2593 |
+| 60%–70% | 20 | 65.7% | 70.0% | 0.1985 |
+| 70%–80% | 56 | 75.6% | 66.1% | 0.2315 |
+| 80%–90% | 49 | 84.2% | 83.7% | 0.1356 |
+| 90%–100% | 20 | 93.8% | 100.0% | 0.0044 |
 
 Calibration bins report observed outcomes against the originally
 recorded reliability-adjusted chance; small buckets are unstable.
 
 ## Result-source problems
 
-- UEL: Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {"declared_rows": 152, "eligibility": "CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout 
+No provider errors detected.
 
 Accuracy is not calibration or profit. Simulated ROI assumes
 one unit staked separately on each settled selection with recorded
@@ -237,15 +237,15 @@ A missing, ambiguous or unverified result is **never called a win**.
 | SerieA | 2026-11-06 | 2001 | 1 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | SuperLig | 2026-11-02 | 1840 | 5 | RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED |
 | UCL | 2026-11-04 | 575 | 3 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
-| UEL | 2026-11-04 | 715 | 3 | STALE |
+| UEL | 2026-11-04 | 715 | 3 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 178, "exchange_quotes": 0, "missing_quote_age": 178, "quote_age_over_24h": 0, "costs_recorded": 178, "bookmakers": {"Pinnacle": 89, "1xBet": 89}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 178, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 178, "exchange_quotes": 0, "missing_quote_age": 178, "quote_age_over_24h": 0, "costs_recorded": 178, "bookmakers": {"Pinnacle": 89, "1xBet": 89}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 10, "upcoming_kickoff_count": 168, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 
 No forward model trials are generated or captured. The benchmark-forward and totals-anchor trials are archived (archive/); their frozen reports stay readable.
 
-Dependency versions at review: {"python": "3.12.16", "numpy": "2.5.4", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "7.17.2", "PyYAML": "6.0.3"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
+Dependency versions at review: {"python": "3.12.16", "numpy": "2.5.4", "pandas": "3.1.1", "scipy": "1.18.1", "requests": "2.34.2", "rapidfuzz": "3.14.6", "python-dotenv": "1.2.4", "coverage": "NOT_INSTALLED", "PyYAML": "NOT_INSTALLED"}. Forecast-generation versions are recorded in new frozen snapshot health; legacy generation environments are unknown.
 
 Closing odds: [report](closing_odds/report.md). Latest-selection comparison aligned with headline ROI, with a separate first-entry reference; official close and accepted execution are unverified.
 

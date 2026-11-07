@@ -9,24 +9,24 @@ Last observed live quote within 6 minutes of scheduled kickoff, market age <=120
 {
   "1xbet": {
     "covered_selections": 37,
-    "missing_selections": 173,
-    "pending_selections": 181,
+    "missing_selections": 183,
+    "pending_selections": 171,
     "mean_fair_close_ev": -0.019197941154740654,
     "mean_same_book_offered_price_clv": 0.019371207678824987,
     "positive_fair_close_ev": 11
   },
   "pinnacle": {
     "covered_selections": 85,
-    "missing_selections": 125,
-    "pending_selections": 181,
+    "missing_selections": 135,
+    "pending_selections": 171,
     "mean_fair_close_ev": -0.02610213302788223,
     "mean_same_book_offered_price_clv": 0.005152412926696233,
     "positive_fair_close_ev": 16
   },
   "bet365": {
     "covered_selections": 0,
-    "missing_selections": 210,
-    "pending_selections": 181,
+    "missing_selections": 220,
+    "pending_selections": 171,
     "mean_fair_close_ev": null,
     "mean_same_book_offered_price_clv": null,
     "positive_fair_close_ev": 0
@@ -38,24 +38,24 @@ Last observed live quote within 6 minutes of scheduled kickoff, market age <=120
 {
   "1xbet": {
     "covered_selections": 35,
-    "missing_selections": 175,
-    "pending_selections": 181,
+    "missing_selections": 185,
+    "pending_selections": 171,
     "mean_fair_close_ev": -0.019700242598333494,
     "mean_same_book_offered_price_clv": 0.020653396437256083,
     "positive_fair_close_ev": 9
   },
   "pinnacle": {
     "covered_selections": 78,
-    "missing_selections": 132,
-    "pending_selections": 181,
+    "missing_selections": 142,
+    "pending_selections": 171,
     "mean_fair_close_ev": -0.025896196132197246,
     "mean_same_book_offered_price_clv": -0.007413651991900643,
     "positive_fair_close_ev": 15
   },
   "bet365": {
     "covered_selections": 0,
-    "missing_selections": 210,
-    "pending_selections": 181,
+    "missing_selections": 220,
+    "pending_selections": 171,
     "mean_fair_close_ev": null,
     "mean_same_book_offered_price_clv": null,
     "positive_fair_close_ev": 0
