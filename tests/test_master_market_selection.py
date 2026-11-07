@@ -293,13 +293,13 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
             root=Path(tmp)
             for stamp in (None,(NOW+pd.Timedelta(seconds=1)).isoformat()):
                 with self.subTest(stamp=stamp),self.assertRaisesRegex(ValueError,'clock'):
-                    ms.write(d,root,{'generated_at_utc':stamp},p)
+                    ms.write(d,root,{'generated_at_utc':stamp},p,version=ms.VERSION_MARKET)
                 self.assertFalse((root/ms.FILE).exists())
                 self.assertFalse((root/selection.AUDIT_FILE).exists())
             clock=selection.require_generation_clock(d,NOW.isoformat())
             self.assertEqual(clock,NOW)
             with patch.object(selection,'_reference',return_value=([.75,0,0,0,.25],'test',NOW.isoformat())):
-                live=ms.write(d,root,{'generated_at_utc':NOW.isoformat()},p)
+                live=ms.write(d,root,{'generated_at_utc':NOW.isoformat()},p,version=ms.VERSION_MARKET)
                 replay=ms.build(d,p,ms.VERSION_MARKET)
             self.assertTrue(ms.matches(live,replay,ms.VERSION_MARKET))
 
@@ -328,7 +328,7 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);summary={'generated_at_utc':NOW.isoformat()}
             with patch.object(selection,'_reference',return_value=([.75,0,0,0,.25],'test',NOW.isoformat())):
-                written=ms.write(decisions,root,summary,pred)
+                written=ms.write(decisions,root,summary,pred,version=ms.VERSION_MARKET)
                 expected=ms.build(decisions,pred,ms.VERSION_MARKET)
             self.assertTrue(ms.matches(written,expected,ms.VERSION_MARKET))
             bad=written.copy();bad['master_p_push']=.5

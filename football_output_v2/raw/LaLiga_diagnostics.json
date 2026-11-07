@@ -10,8 +10,8 @@
     "2526",
     "2627"
   ],
-  "training_sha256": "87e80c989bd03b0b7ee7ecbedc08dff5abaf01f15aa3734df5a5d854022eb090",
-  "training_as_of_utc": "2026-11-07T11:40:53.052292+00:00",
+  "training_sha256": "c82148616f62f8c1f1f4ae400da66bdd63772018a2eab56f8e86f1449d1fd0ce",
+  "training_as_of_utc": "2026-11-07T13:47:25.380631+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 110,
     "bbs_added_results": 1,
@@ -35,9 +35,9 @@
   "bbs_statistics_model": {
     "version": "bbs-lagged-poisson-v2",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_utc": "2026-11-07T11:40:53.052292+00:00",
-    "observations": 685,
-    "observations_sha256": "f214e725468b7b343b002ca039718df14a0cc0999d41e5f3c444628579361a4c",
+    "cutoff_utc": "2026-11-07T13:47:25.380631+00:00",
+    "observations": 691,
+    "observations_sha256": "8dbe6cc538a040c2b4979ecef288ac08433a9589bb5ef563208ef1a781beb92b",
     "eligible_training_matches": 181,
     "required_training_matches": 120,
     "feature_fields": [
@@ -71,7 +71,7 @@
     "retrospective_publication_delay_hours": 24,
     "forward_accuracy_improvement_established": false,
     "first_observed_at_utc": "2026-10-16T20:39:27.155286+00:00",
-    "retrospective_inputs_sha256": "3f86868e9180661a25d20fde806f886488235d571ba41f92a11398c0d944cf55",
+    "retrospective_inputs_sha256": "cc66d89ef77b5da0150a89c0b8757b93ffae98772ed0ee3f56472575eb843349",
     "historical_corrections_may_be_present": true,
     "evaluation_note": "Retrospective latest-revision study with assumed 24-hour publication delay; not a point-in-time replay or proof of forward improvement.",
     "training_matches": 118,
@@ -209,10 +209,10 @@
   },
   "training_end": "2026-11-06",
   "fit_success": true,
-  "objective": 1844.3826801820762,
-  "base": 0.08823314600423748,
-  "home_adv": 0.28905457637543086,
-  "rho": -0.025474939865770676,
+  "objective": 1844.1486905677157,
+  "base": 0.08823319226774616,
+  "home_adv": 0.28902080462997676,
+  "rho": -0.02543999600987968,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -240,36 +240,16 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 9,
+  "live_odds_matched": 8,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 9,
+  "additional_event_odds_calls_used_before_this_league": 8,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261107T114053052292Z_80978e1a290f735397a270f58cbbc96c834bf3677d24a80c967be2e94a8c7412.json",
+  "bbs_statistics_model_artifact": "bbs/feature_models/LaLiga/20261107T134725380631Z_3ab0f612a2880e9f287c1dbc4b54934740bfcd47c13997058e965ea50ac2f5a7.json",
   "over_1_5_in_window_quote_fixtures": 5,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "de935794b7d93f3607ac9ad54d18f4c7",
-      "event_id": "de935794b7d93f3607ac9ad54d18f4c7",
-      "home_team": "M\u00e1laga",
-      "away_team": "Real Racing Club de Santander",
-      "kickoff_utc": "2026-11-07T13:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 2,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
-    },
     {
       "fixture_id": "262c2c99c38456b8a70cb9daa32f2f6d",
       "event_id": "262c2c99c38456b8a70cb9daa32f2f6d",
@@ -280,7 +260,7 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 30,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
@@ -288,7 +268,7 @@
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
       "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_bookmakers": 2
     },
     {
       "fixture_id": "71ca5141a1c532e390c6fa14e080d8bd",
@@ -340,15 +320,15 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 20,
+      "asian_handicap_quotes": 32,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": false,
-      "over_1_5_bookmakers": 0
+      "over_1_5_quote": true,
+      "over_1_5_bookmakers": 1
     },
     {
       "fixture_id": "339a6465fa5153fd8f31e487cf557cf0",
@@ -360,15 +340,15 @@
       "home_draw_quote": true,
       "draw_away_quote": true,
       "home_away_quote": true,
-      "asian_handicap_quotes": 32,
+      "asian_handicap_quotes": 20,
       "asian_handicap_bookmakers": [
         "1xBet",
         "Pinnacle"
       ],
       "asian_handicap_status": "QUOTES_AVAILABLE",
       "dc_bookmakers": 2,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
+      "over_1_5_quote": false,
+      "over_1_5_bookmakers": 0
     },
     {
       "fixture_id": "0d2e199bfba0db42871696c10037bad3",
@@ -431,20 +411,20 @@
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 9,
+  "additional_odds_in_window_linked_fixtures": 8,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 9,
+  "additional_event_odds_calls_this_league": 8,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 6,
-    "ANCHORED_MAIN": 3
+    "ANCHORED_MAIN": 3,
+    "ANCHORED_ALTERNATE": 5
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 9
+    "none": 8
   },
   "legacy_comparison_status": {
-    "None": 9
+    "None": 8
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
