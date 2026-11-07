@@ -1656,7 +1656,7 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
         "On value shortlist": raw.in_value_shortlist.map(lambda v: 'yes' if str(v) == 'True' else 'no'),
         "On cagey tier": raw.in_cagey_tier.map(lambda v: 'yes' if str(v) == 'True' else 'no'),
     })
-    if info.get('version') in (master_shortlist.VERSION_MARKET, master_shortlist.VERSION_AH):
+    if info.get('version') in (master_shortlist.VERSION_MARKET, master_shortlist.VERSION_AH, master_shortlist.VERSION_NO_TOTALS):
         readable = readable.drop(columns=['Value price from (1% edge)', 'Price flag (value / below value threshold)'])
         readable['Nomination price assessment'] = raw.master_price_flag
         readable['Lowest comparison no-loss (diagnostic only)'] = raw.master_consensus_no_loss.map(pct)
@@ -1681,7 +1681,7 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
         readable['Validation status'] = raw.master_validation_status
         readable['Suggested stake'] = raw.master_suggested_stake
         readable['Pinnacle reference time (UTC)'] = raw.master_reference_utc
-        if info.get('version') == master_shortlist.VERSION_AH:
+        if info.get('version') in (master_shortlist.VERSION_AH, master_shortlist.VERSION_NO_TOTALS):
             readable['Original nominated market'] = raw.master_original_market
             readable['Original nominated bookmaker'] = raw.master_original_bookmaker
             readable['Original nominated price'] = raw.master_original_odds.map(decimal)
@@ -1691,8 +1691,9 @@ def master_section(summary: dict, input_dir: Optional[Path], output_dir: Path) -
         readable.to_csv(output_dir / MASTER_READABLE, index=False, encoding="utf-8-sig")
         return ["", "## Master shortlist (10 profit-first nominations when available)", "",
                 ("One market per match; DC 1X/X2 nominations use actual Pinnacle AH +0.5 quotes, DC 12 is excluded. "
-                 if info.get('version') == master_shortlist.VERSION_AH else
+                 if info.get('version') in (master_shortlist.VERSION_AH, master_shortlist.VERSION_NO_TOTALS) else
                  "One market per match from the union of the value and cagey shortlists. ") +
+                ("Over 1.5 is excluded. " if info.get('version') == master_shortlist.VERSION_NO_TOTALS else "") +
                 "Fresh market references and valid execution evidence are required. There is no minimum EV or probability gate. "
                 "Ranked by Pinnacle-referenced profit probability, market net EV, no-loss probability and odds. Refunds are not wins. "
                 "Negative-EV nominations remain visible and flagged; they are not proven value bets. This selection rule is unvalidated; suggested stakes are zero. "

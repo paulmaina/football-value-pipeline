@@ -5,5 +5,8 @@
   "value_rule": "local-research-profit-115-200-dc12-v2",
   "model_version": "cagey-correction-through-2425-v1",
   "gate_report": "football_output_v2/performance/cagey_correction/report.md",
-  "quote_timing_rule": "observed-by-cutoff-v2"
+  "quote_timing_rule": "observed-by-cutoff-v2",
+  "excluded_markets": [
+    "Over 1.5"
+  ]
 }
