@@ -1,4 +1,4 @@
-# Master shortlist: ten profit-first nominations (v5)
+# Master shortlist: ten profit-first nominations, no DC offers (v6)
 
 The live rule writes master_shortlist.csv, its readable counterpart and
 master_shortlist_audit.csv. Nominate ten when the two source shortlists contain
@@ -7,13 +7,37 @@ record the numerical shortfall; never invent/repeat matches or accept invalid
 inputs to fill ten. No minimum EV or probability gate is added. Negative EV is
 labelled and all suggested stakes remain zero while the rule is unvalidated.
 
+## Native AH replacements for Pinnacle multi-bets
+
+The live v6 master contains no Double Chance offers. A nominated DC 1X outcome
+may nominate home AH +0.5; X2 may nominate away AH +0.5. These are equivalent
+regulation-time outcomes, but their bookmaker prices need not be equal. Only an
+actual, complete, valid Pinnacle spreads/alternate-spreads quote for the right
+side and +0.5 line can replace a DC offer. Never reuse a DC price, other-book
+quote, draw-no-bet line, inferred price or relabelled DC record.
+
+Each replacement passes the existing odds, freshness, synchronization, fixture,
+price-error and cost checks. Recompute fair-price comparison and EV at its actual
+AH quote, then compete with the fixture's other nominated markets. Provenance
+columns retain the original nomination, bookmaker/price, replacement reason and
+actual offered market type. Source-membership flags identify the originating
+nomination; they do not claim the substituted AH quote appeared in a source CSV.
+
+DC 12 (either team wins, excluding a draw) has no equivalent single AH line and
+is excluded. If a replacement is absent, stale or invalid, exclude that offer
+and select another eligible market/match if possible. Preserve one bet per match,
+target ten and an explicit shortfall rather than inventing unavailable bets.
+Source value/cagey lists and their own staking/selection are unchanged. The master
+exception to its original-offer-only pool is limited to these equivalent 1X/X2
+nominations with genuine Pinnacle AH quotes from the same frozen fixture.
+
 ## Explicit version and one generation clock
 
 master_shortlist_config.json explicitly selects the live version. A missing or
 invalid config is an error; presence/absence of research columns never selects
 a version. Archived replay uses the immutable recorded version and ignores live
-config. Archived master-10-v1/v2 behavior is unchanged. The unmerged PR's v3/v4
-proposals are superseded by v5; no production runs used those proposals.
+config. Archived master-10-v1/v2 and released master-profit-market-v5 behavior/schema are unchanged. The unmerged PR's v3/v4
+proposals were superseded by v5; v6 now adds DC removal. No production runs used those proposals.
 
 Before any master/audit file is written, generated_at_utc must equal every
 nonempty decision row's evaluated_at_utc. Invalid, mixed or mismatched clocks
@@ -28,7 +52,7 @@ Take only offers marked SHORTLISTED by value or cagey selectors in this run,
 corresponding to conservative_bet_shortlist.csv and cagey_tier_shortlist.csv.
 Membership in both is a label, not independent confirmation or a probability
 bonus. Never introduce an unshortlisted line. Compare valid offered prices and
-choose one market per fixture, then the first ten fixtures.
+choose one market per fixture, then the first ten fixtures. The explicit DC-to-native-AH replacement above is the only extension to those nominated outcomes.
 
 Require odds strictly above 1.15 and at most 2.00; kickoff 20 minutes–48 hours;
 allowed bookmaker; finite cost; and unique matching frozen fixture identity
