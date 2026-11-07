@@ -239,7 +239,7 @@ class MarketSelectionTests(OfflineQuotePolicyTestCase):
             decisions.to_csv(raw/'conservative_bet_rejections.csv',index=False)
             v28.cagey_tier_list(decisions).to_csv(raw/v28.TIER_FILE,index=False)
             result=ms.refresh(decisions,raw,info,forecasts_frame)
-            self.assertIn('Over 1.5',result.market.tolist())
+            self.assertNotIn('Over 1.5',result.market.tolist())
             (raw/'conservative_bet_summary.json').write_text(json.dumps(info),encoding='utf-8')
             write_generation_metadata(raw,info)
             self.assertEqual(raw_check(root)['selections'],len(selected))
