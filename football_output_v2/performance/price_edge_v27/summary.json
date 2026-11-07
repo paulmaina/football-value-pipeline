@@ -432,7 +432,7 @@
     }
   },
   "cagey_tier_active_rule": "no-loss-market-reference-v5",
-  "cagey_tier_picks": 219,
+  "cagey_tier_picks": 222,
   "cagey_tier_review": false,
   "cagey_tier_review_rule": ">= 50 graded value-priced cagey-tier picks made under the active rule (no-loss-market-reference-v5) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false",
   "cagey_tier_roi": {
@@ -526,22 +526,22 @@
         "standard_error": 0.007708961491739548
       },
       "Q2": {
-        "mean": -0.026376470260521336,
-        "n": 7,
-        "positive_share": 0.2857142857142857,
-        "standard_error": 0.010162588411201939
+        "mean": -0.0285894084955975,
+        "n": 5,
+        "positive_share": 0.2,
+        "standard_error": 0.012156130906776436
       },
       "Q3": {
-        "mean": -0.06475781345753157,
-        "n": 2,
-        "positive_share": 0.0,
-        "standard_error": 0.032026106140458366
+        "mean": -0.04615738964788393,
+        "n": 3,
+        "positive_share": 0.3333333333333333,
+        "standard_error": 0.029272066580091936
       },
       "Q4": {
-        "mean": 0.03131741140269184,
-        "n": 4,
-        "positive_share": 0.75,
-        "standard_error": 0.027071705075100944
+        "mean": 0.018507587658738833,
+        "n": 5,
+        "positive_share": 0.6,
+        "standard_error": 0.0245727066835359
       },
       "Q5 most open": {
         "mean": 0.03817000541418514,
@@ -890,7 +890,7 @@
     "positive_share": null,
     "standard_error": null
   },
-  "frozen_picks": 306,
+  "frozen_picks": 308,
   "master": {
     "by_price_flag": {
       "below value threshold": {
@@ -949,7 +949,7 @@
       "standard_error": 0.3269192415202728
     }
   },
-  "master_picks": 43,
+  "master_picks": 48,
   "note": "CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.",
   "policy": "48h-ah-price-edge-pinnacle-ref-v27",
   "profit": {
@@ -964,7 +964,7 @@
       "graded": 75,
       "no_loss_share": 0.76,
       "positive_return_share": 0.5733333333333334,
-      "recommendations": 543,
+      "recommendations": 714,
       "simulated_mean_unit_return": -0.07233333333333333
     },
     "note": "Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.",
@@ -973,12 +973,12 @@
       "graded": 142,
       "no_loss_share": 0.6830985915492958,
       "positive_return_share": 0.6830985915492958,
-      "recommendations": 764,
+      "recommendations": 942,
       "simulated_mean_unit_return": -0.07866197183098592
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-07T11:51:04.223445+00:00",
+  "reviewed_at_utc": "2026-11-07T13:56:38.671682+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
@@ -1009,12 +1009,12 @@
       }
     },
     "edge_at_capture_1xbet": {
-      "mean": -0.037106820452325134,
-      "n": 456,
-      "positive_share": 0.08333333333333333,
-      "standard_error": 0.0011677861115230608
+      "mean": -0.03715995582545602,
+      "n": 469,
+      "positive_share": 0.0767590618336887,
+      "standard_error": 0.0011431523983260962
     },
-    "frozen": 2025,
+    "frozen": 2049,
     "return_at_capture_fair": {
       "mean": 0.010233539655203768,
       "n": 412,
@@ -1027,7 +1027,7 @@
       "positive_share": 0.7366255144032922,
       "standard_error": 0.03447091580495022
     },
-    "with_offered_price": 2025
+    "with_offered_price": 2049
   },
   "version": "price-edge-v27-tracking-v1"
 }

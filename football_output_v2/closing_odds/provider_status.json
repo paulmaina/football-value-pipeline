@@ -1,16 +1,16 @@
 {
-  "checked_at_utc": "2026-11-06T20:41:54.930010+00:00",
+  "checked_at_utc": "2026-11-07T12:54:12.797985+00:00",
   "incident_started_at_utc": "2026-11-06T19:56:54.973766+00:00",
   "last_failure": {
-    "at_utc": "2026-11-06T20:41:54.930010+00:00",
+    "at_utc": "2026-11-07T12:54:12.797985+00:00",
     "attempts": [
       {
         "credential": "THE_ODDS_API_KEY",
         "error_code": "OUT_OF_USAGE_CREDITS",
         "http_status": 401,
         "x-requests-last": 0,
-        "x-requests-remaining": 5,
-        "x-requests-used": 495
+        "x-requests-remaining": 3,
+        "x-requests-used": 497
       },
       {
         "credential": "THE_ODDS_API_KEY_FALLBACK_1",

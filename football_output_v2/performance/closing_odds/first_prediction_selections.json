@@ -12172,13 +12172,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "0.3076728374727129",
@@ -12303,13 +12303,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "0.3076728374727129",
@@ -16269,13 +16269,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "",
@@ -16793,13 +16793,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "0.35964543918964675",
@@ -17841,13 +17841,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "0.30863936448294244",
@@ -19020,13 +19020,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "",
@@ -19413,13 +19413,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "",
@@ -19544,13 +19544,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "0.30863936448294244",
@@ -20461,13 +20461,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "0.30824923857142467",
@@ -20854,13 +20854,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "0.35964543918964675",
@@ -22295,13 +22295,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "0.30863936448294244",
@@ -22557,13 +22557,13 @@
     "cagey_tier_reasons": "",
     "closing": {
       "1xbet": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "bet365": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       },
       "pinnacle": {
-        "status": "PENDING_KICKOFF"
+        "status": "MISSING_VALID_PRE_KICKOFF_QUOTE"
       }
     },
     "corrected_cagey_score": "0.35964543918964675",
@@ -55305,6 +55305,374 @@
     "uncorrected_p_win": "0.49053983793267525",
     "value_expected_profit": "-0.028731120893303097",
     "value_market_group": "match_winner",
+    "value_probability_basis": "team_form_poisson_v1"
+  },
+  {
+    "ah_equivalent": "",
+    "any_tag": "True",
+    "away_team": "Lyon",
+    "balanced": "True",
+    "bookmaker": "1xBet",
+    "cagey_expected_return": "-0.03930505952468974",
+    "cagey_fair_odds": "1.3115505733553738",
+    "cagey_fit": "B",
+    "cagey_input_timing_status": "SYNCHRONIZED",
+    "cagey_market_group": "over_1_5",
+    "cagey_no_loss_probability": "0.762456301964532",
+    "cagey_p_half_loss": "0.0",
+    "cagey_p_half_win": "0.0",
+    "cagey_p_loss": "0.23754369803546804",
+    "cagey_p_profit": "0.762456301964532",
+    "cagey_p_push": "0.0",
+    "cagey_p_win": "0.762456301964532",
+    "cagey_probability_basis": "pinnacle_uncorrected_matrix_v1",
+    "cagey_score": "0.33872762084676344",
+    "cagey_settlement_fit": "B",
+    "cagey_tier_decision": "ELIGIBLE",
+    "cagey_tier_reasons": "",
+    "cagey_tier_rule": "no-loss-market-reference-v5",
+    "chance_of_no_loss": "0.8029172090926421",
+    "chance_of_positive_return": "0.8029172090926421",
+    "closing": {
+      "1xbet": {
+        "status": "PENDING_KICKOFF"
+      },
+      "bet365": {
+        "status": "PENDING_KICKOFF"
+      },
+      "pinnacle": {
+        "status": "PENDING_KICKOFF"
+      }
+    },
+    "corrected_cagey_score": "0.3225803391439429",
+    "corrected_draw_delta_vs_pinnacle": "0.006629873865101832",
+    "corrected_expected_profit": "-0.04661364107683827",
+    "corrected_fair_odds": "1.3216048123692001",
+    "corrected_fair_probability": "",
+    "corrected_fit": "B",
+    "corrected_input_quote_skew_minutes": "0.7666666666666667",
+    "corrected_input_timing_status": "SYNCHRONIZED",
+    "corrected_narrow_no_loss_contribution": "0.4340755012712647",
+    "corrected_narrow_no_loss_lower_bound": "",
+    "corrected_narrow_no_loss_upper_bound": "",
+    "corrected_narrow_profit_contribution": "0.4340755012712647",
+    "corrected_narrow_profit_lower_bound": "",
+    "corrected_narrow_profit_upper_bound": "",
+    "corrected_no_loss_probability": "0.7566558404152077",
+    "corrected_over_1_5_probability": "0.7566558404152077",
+    "corrected_p_away_by_one": "0.2043016998379041",
+    "corrected_p_draw": "0.27796974526367096",
+    "corrected_p_half_loss": "0.0",
+    "corrected_p_half_win": "0.0",
+    "corrected_p_home_by_one": "0.1951482157544819",
+    "corrected_p_loss": "0.24334415958479227",
+    "corrected_p_profit": "0.7566558404152077",
+    "corrected_p_push": "0.0",
+    "corrected_p_win": "0.7566558404152077",
+    "corrected_vs_pinnacle_gap": "",
+    "correction_validation_note": "Narrow-margin validation is not separate draw/totals validation",
+    "date": "2026-11-08",
+    "decision": "SHORTLISTED",
+    "edge": "",
+    "edge_shin": "",
+    "entry_price_basis": "frozen offered quote; accepted execution unverified",
+    "evaluated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+    "even_odds": "True",
+    "expected_return_after_cost": "0.011675683456729036",
+    "fair_odds": "",
+    "fair_odds_after_cost": "1.2454584217096014",
+    "fair_odds_uncorrected": "",
+    "fair_probability": "",
+    "fair_probability_shin": "",
+    "fit_max_residual": "0.0002342706470372935",
+    "fit_reasons": "",
+    "fit_usable": "True",
+    "fixture_id": "cc9731ee7796fe0d532f11ca2aa522c9",
+    "fixture_key": "Ligue 1|brest|lyon|2026-11-08",
+    "handicap_line": "",
+    "handicap_side": "",
+    "high_draw": "True",
+    "home_team": "Brest",
+    "in_value_tier": "",
+    "kickoff_utc": "2026-11-08T16:15:00+00:00",
+    "league": "Ligue 1",
+    "low_total": "False",
+    "market": "Over 1.5",
+    "market_to_bet": "Over 1.5",
+    "min_edge": "",
+    "minimum_odds": "",
+    "model_price_edge": "0.011675683456729091",
+    "model_vs_pinnacle_gap": "",
+    "model_win_share": "",
+    "narrow_high_67": "True",
+    "narrow_support_note": "P(narrow) >=67%; context only for this market; no directional or totals boost",
+    "narrow_support_role": "context_only",
+    "narrow_support_version": "corrected-narrow-support-v1",
+    "offered_decimal_odds": "1.26",
+    "offered_last_update_utc": "2026-11-07T13:52:49Z",
+    "offered_quote_age_minutes": "1.4107536166666668",
+    "other_value_lines": "",
+    "p_narrow": "0.6774196608560571",
+    "p_no_loss": "0.8029172090926421",
+    "per_stake_cost": "0.0",
+    "pinnacle_away_odds": "2.57",
+    "pinnacle_draw_probability": "0.27133987139856913",
+    "pinnacle_fair_odds": "",
+    "pinnacle_home_odds": "2.77",
+    "pinnacle_last_update_utc": "",
+    "pinnacle_no_loss_probability": "",
+    "pinnacle_over_2_5_probability": "0.5116279069767442",
+    "pinnacle_overround": "",
+    "pinnacle_quote_age_minutes": "",
+    "predicted_probability": "0.8029172090926421",
+    "price_assessment": "nonnegative expected value",
+    "price_edge_decision": "REJECTED",
+    "price_edge_execution_version": "2.0",
+    "price_edge_rejection_reasons": "no Pinnacle reference",
+    "price_flag": "below fair",
+    "price_guard_basis": "pinnacle_ou15_proportional",
+    "price_guard_fair_odds": "",
+    "price_guard_status": "UNAVAILABLE",
+    "price_guard_warning": "Pinnacle reference missing",
+    "probability_basis": "net_profit",
+    "profit_expected_return": "0.011675683456729036",
+    "profit_model_edge": "0.011675683456729091",
+    "profit_model_fair_odds": "1.2454584217096014",
+    "profit_price_flag": "nonnegative expected value",
+    "profit_probability": "0.8029172090926421",
+    "qualified_only_by_correction": "False",
+    "quote_skew_minutes": "",
+    "rank_probability": "0.8029172090926421",
+    "reference_market": "",
+    "reference_type": "",
+    "rejection_reasons": "",
+    "research_coverage": "{\"form\": \"last ten, exponential rank half-life five matches\", \"h2h\": \"last four years; descriptive only\", \"motivation\": \"standings context; urgency not inferred\", \"rotation\": \"schedule congestion only; rotation unconfirmed\", \"training_cache\": \"RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED\", \"travel\": \"previous fixture venue; itinerary and fatigue unverified\", \"venue_splits\": \"home team home matches / away team away matches\", \"weather\": \"Open-Meteo match-window forecast with units and observation time\", \"xg\": \"verified supplied xG; no goals-to-xG substitution\"}",
+    "research_details": "{\"coverage\": {\"motivation\": \"standings context; urgency not inferred\", \"weather\": \"Open-Meteo match-window forecast with units and observation time\"}, \"errors\": [\"TheSportsDB venue: exact fixture identity/time unavailable\"], \"news\": [], \"rest_and_travel\": {\"away\": {\"completed_matches_last_14_days\": 3, \"days_between_kickoffs\": 2.9375, \"note\": \"schedule-derived travel context; actual itinerary and fatigue unverified\", \"previous_fixture\": {\"completed\": true, \"date\": \"2026-11-05T17:45Z\", \"home_away\": \"away\", \"name\": \"Lyon at Real Sociedad\", \"venue\": {\"address\": {\"city\": \"San Sebastian\", \"country\": \"Spain\"}, \"fullName\": \"Reale Arena\"}}}, \"home\": {\"completed_matches_last_14_days\": 1, \"days_between_kickoffs\": 5.854166666666667, \"note\": \"schedule-derived travel context; actual itinerary and fatigue unverified\", \"previous_fixture\": {\"completed\": true, \"date\": \"2026-11-02T19:45Z\", \"home_away\": \"away\", \"name\": \"Brest at Lorient\", \"venue\": {\"address\": {\"city\": \"Lorient\", \"country\": \"France\"}, \"fullName\": \"Stade du Moustoir - Yves Allainmat\"}}}}, \"review_links\": [{\"label\": \"Sofascore\", \"status\": \"reference only; no authorized public bulk API\", \"url\": \"https://www.sofascore.com/football\"}, {\"label\": \"Sports Mole previews\", \"status\": \"reference only; article reproduction requires permission\", \"url\": \"https://www.sportsmole.co.uk/football/\"}], \"schedules\": {\"away\": [{\"completed\": true, \"date\": \"2026-11-05T17:45Z\", \"home_away\": \"away\", \"name\": \"Lyon at Real Sociedad\", \"venue\": {\"address\": {\"city\": \"San Sebastian\", \"country\": \"Spain\"}, \"fullName\": \"Reale Arena\"}}, {\"completed\": true, \"date\": \"2026-11-01T16:15Z\", \"home_away\": \"home\", \"name\": \"Angers at Lyon\", \"venue\": {\"address\": {\"city\": \"Lyon\", \"country\": \"France\"}, \"fullName\": \"Groupama Stadium\"}}, {\"completed\": true, \"date\": \"2026-10-26T19:30Z\", \"home_away\": \"away\", \"name\": \"Lyon at Paris Saint-Germain\", \"venue\": {\"address\": {\"city\": \"Paris\", \"country\": \"France\"}, \"fullName\": \"Parc des Princes\"}}], \"home\": [{\"completed\": true, \"date\": \"2026-11-02T19:45Z\", \"home_away\": \"away\", \"name\": \"Brest at Lorient\", \"venue\": {\"address\": {\"city\": \"Lorient\", \"country\": \"France\"}, \"fullName\": \"Stade du Moustoir - Yves Allainmat\"}}]}, \"venue\": {\"address\": {\"city\": \"Brest\", \"country\": \"France\"}, \"fullName\": \"Stade Francis-Le Bl\\u00e9\", \"guid\": \"3e3f6c45-208a-386d-897d-9b8a3d90df70\", \"id\": \"4618\", \"images\": [], \"shortName\": \"Stade Francis-Le Bl\\u00e9\"}, \"weather\": {\"complete_match_window\": true, \"effect_on_probabilities\": \"context only; no validated coefficient\", \"hours\": [{\"precipitation\": 0.0, \"rain\": 0.0, \"relative_humidity_2m\": 60.0, \"snowfall\": 0.0, \"temperature_2m\": 12.8, \"time\": \"2026-11-08T16:00:00+00:00\", \"wind_gusts_10m\": 27.7, \"wind_speed_10m\": 13.2}, {\"precipitation\": 0.0, \"rain\": 0.0, \"relative_humidity_2m\": 61.0, \"snowfall\": 0.0, \"temperature_2m\": 12.2, \"time\": \"2026-11-08T17:00:00+00:00\", \"wind_gusts_10m\": 25.2, \"wind_speed_10m\": 13.2}, {\"precipitation\": 0.0, \"rain\": 0.0, \"relative_humidity_2m\": 61.0, \"snowfall\": 0.0, \"temperature_2m\": 11.7, \"time\": \"2026-11-08T18:00:00+00:00\", \"wind_gusts_10m\": 26.6, \"wind_speed_10m\": 11.9}], \"latitude\": 48.39029, \"location_precision\": \"venue city centre; stadium coordinates unavailable\", \"longitude\": -4.48628, \"missing_fields\": [], \"observed_at_utc\": \"2026-11-07T13:54:02.901981+00:00\", \"precipitation\": 0.0, \"rain\": 0.0, \"relative_humidity_2m\": 60.0, \"roof_status\": \"unverified\", \"snowfall\": 0.0, \"source\": \"https://api.open-meteo.com/v1/forecast?latitude=48.39029&longitude=-4.48628&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m%2Cwind_gusts_10m%2Crelative_humidity_2m&timezone=UTC&forecast_days=7&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm\", \"temperature_2m\": 12.8, \"time\": \"2026-11-08T16:00:00+00:00\", \"units\": {\"precipitation\": \"mm\", \"rain\": \"mm\", \"relative_humidity_2m\": \"%\", \"snowfall\": \"cm\", \"temperature_2m\": \"\\u00b0C\", \"time\": \"iso8601\", \"wind_gusts_10m\": \"km/h\", \"wind_speed_10m\": \"km/h\"}, \"wind_gusts_10m\": 27.7, \"wind_speed_10m\": 13.2}, \"weather_location_precision\": \"venue city centre; stadium coordinates unavailable\"}",
+    "research_p_half_loss": "0.0",
+    "research_p_half_win": "0.0",
+    "research_p_loss": "0.19708279090735792",
+    "research_p_push": "0.0",
+    "research_p_win": "0.8029172090926421",
+    "research_probability_basis": "team_form_poisson_v1",
+    "research_sources": "[{\"observed_at_utc\": \"2026-11-07T13:54:00.832009+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261108\"}, {\"observed_at_utc\": \"2026-11-07T13:54:02.368999+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876410\"}, {\"observed_at_utc\": \"2026-11-07T13:54:02.436372+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/6997/schedule\"}, {\"observed_at_utc\": \"2026-11-07T13:54:02.506413+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/167/schedule\"}, {\"observed_at_utc\": \"2026-11-07T13:53:59.320561+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/v2/sports/soccer/fra.1/standings\"}, {\"observed_at_utc\": \"2026-11-07T13:53:59.381779+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/news?limit=20\"}, {\"observed_at_utc\": \"2026-11-07T13:54:02.660134+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://www.bing.com/news/search?q=%22Brest%22+%22Lyon%22+injury+suspension+lineup+preview&format=rss\"}, {\"observed_at_utc\": \"2026-11-07T13:53:59.701719+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://understat.com/league/Ligue_1/2026\"}, {\"observed_at_utc\": \"2026-11-07T13:53:59.841015+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://understat.com/league/Ligue_1/2025\"}, {\"observed_at_utc\": \"2026-11-07T13:53:41.045208+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://feeds.bbci.co.uk/sport/football/rss.xml\"}, {\"observed_at_utc\": \"2026-11-07T13:53:41.166595+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://www.theguardian.com/football/rss\"}, {\"observed_at_utc\": \"2026-11-07T13:54:02.720875+00:00\", \"reason\": \"TheSportsDB free source limit: 30 requests per minute\", \"status\": \"unavailable\", \"url\": \"https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Brest_vs_Lyon&d=2026-11-08\"}, {\"observed_at_utc\": \"2026-11-07T13:54:02.854521+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://geocoding-api.open-meteo.com/v1/search?name=Brest&count=10&language=en&format=json\"}, {\"observed_at_utc\": \"2026-11-07T13:54:02.901981+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://api.open-meteo.com/v1/forecast?latitude=48.39029&longitude=-4.48628&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m%2Cwind_gusts_10m%2Crelative_humidity_2m&timezone=UTC&forecast_days=7&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm\"}]",
+    "research_summary": "{\"away\": {\"all\": {\"goals_against\": 1.2473838787969944, \"goals_for\": 1.5938933811612237, \"last_match\": \"2026-11-05T17:45:00+00:00\", \"matches\": 10, \"points_per_game\": 1.6953805190144215, \"results\": \"DWLLWWLWWW\", \"xg_against\": 1.0952990956350883, \"xg_for\": 1.6339215937199383, \"xg_matches\": 5}, \"venue\": {\"goals_against\": 1.7886114273327172, \"goals_for\": 0.7271051391776809, \"last_match\": \"2026-11-05T17:45:00+00:00\", \"matches\": 5, \"points_per_game\": 0.7049939383988567, \"results\": \"DLLLW\", \"xg_against\": 1.085562963884608, \"xg_for\": 0.77951659327461, \"xg_matches\": 2}}, \"home\": {\"all\": {\"goals_against\": 1.287783290609635, \"goals_for\": 1.7683233860172793, \"last_match\": \"2026-11-02T00:00:00+00:00\", \"matches\": 10, \"points_per_game\": 1.3097305396317853, \"results\": \"WLDWDLLLWD\", \"xg_against\": 1.3884929195558, \"xg_for\": 1.8541253552043286, \"xg_matches\": 8}, \"venue\": {\"goals_against\": 1.6038058841422904, \"goals_for\": 2.0756356952860804, \"last_match\": \"2026-10-23T00:00:00+00:00\", \"matches\": 5, \"points_per_game\": 1.0210606909800894, \"results\": \"LWDLD\", \"xg_against\": 0.9948455616249431, \"xg_for\": 2.634164596410494, \"xg_matches\": 4}}}",
+    "research_warnings": "availability unavailable or unconfirmed; lineups unavailable or unconfirmed; tactics unavailable or unconfirmed; rivalry unavailable or unconfirmed; TheSportsDB venue: exact fixture identity/time unavailable; research probability model has not passed a forward calibration gate",
+    "selection_objective": "POSITIVE_RETURN_PROBABILITY",
+    "selection_policy_version": "48h-ah-price-edge-cagey-v28",
+    "selection_rule": "local-research-profit-115-200-dc12-v2",
+    "selection_tier": "STRICT",
+    "settlement_p_half_loss": "0.0",
+    "settlement_p_half_win": "0.0",
+    "settlement_p_loss": "0.19708279090735792",
+    "settlement_p_push": "0.0",
+    "settlement_p_win": "0.8029172090926421",
+    "shortlist_schema_version": "comparable-shortlist-v1",
+    "shortlist_source": "value",
+    "side_role": "",
+    "snapshot_captured_utc": "2026-11-07T13:56:03Z",
+    "snapshot_commit": "688a34b2f4bd83f218fa3d39aa21dfd1ec458eb7",
+    "snapshot_generated_utc": "2026-11-07T13:54:13.645217+00:00",
+    "source_market": "totals",
+    "source_probability_basis": "team_form_poisson_v1",
+    "tagged_probe": "False",
+    "totals_correction_delta": "-0.005800461549324232",
+    "uncorrected_expected_profit": "-0.03930505952468974",
+    "uncorrected_fit": "B",
+    "uncorrected_input_quote_skew_minutes": "0.7666666666666667",
+    "uncorrected_input_timing_status": "SYNCHRONIZED",
+    "uncorrected_matrix_fair_odds": "",
+    "uncorrected_over_1_5_probability": "0.762456301964532",
+    "uncorrected_p_half_loss": "0.0",
+    "uncorrected_p_half_win": "0.0",
+    "uncorrected_p_loss": "0.23754369803546804",
+    "uncorrected_p_push": "0.0",
+    "uncorrected_p_win": "0.762456301964532",
+    "value_expected_profit": "-0.03930505952468974",
+    "value_market_group": "over_1_5",
+    "value_probability_basis": "team_form_poisson_v1"
+  },
+  {
+    "ah_equivalent": "",
+    "any_tag": "False",
+    "away_team": "Nice",
+    "balanced": "False",
+    "bookmaker": "1xBet",
+    "cagey_expected_return": "-0.02390690466057241",
+    "cagey_fair_odds": "1.2601257050919703",
+    "cagey_fit": "B",
+    "cagey_input_timing_status": "SYNCHRONIZED",
+    "cagey_market_group": "over_1_5",
+    "cagey_no_loss_probability": "0.7935716222271769",
+    "cagey_p_half_loss": "0.0",
+    "cagey_p_half_win": "0.0",
+    "cagey_p_loss": "0.20642837777282308",
+    "cagey_p_profit": "0.7935716222271769",
+    "cagey_p_push": "0.0",
+    "cagey_p_win": "0.7935716222271769",
+    "cagey_probability_basis": "pinnacle_uncorrected_matrix_v1",
+    "cagey_score": "0.3674486491428198",
+    "cagey_settlement_fit": "B",
+    "cagey_tier_decision": "ELIGIBLE",
+    "cagey_tier_reasons": "",
+    "cagey_tier_rule": "no-loss-market-reference-v5",
+    "chance_of_no_loss": "0.6917357846593434",
+    "chance_of_positive_return": "0.6917357846593434",
+    "closing": {
+      "1xbet": {
+        "status": "PENDING_KICKOFF"
+      },
+      "bet365": {
+        "status": "PENDING_KICKOFF"
+      },
+      "pinnacle": {
+        "status": "PENDING_KICKOFF"
+      }
+    },
+    "corrected_cagey_score": "0.35042434241422926",
+    "corrected_draw_delta_vs_pinnacle": "0.006757605779529774",
+    "corrected_expected_profit": "-0.03074048270856969",
+    "corrected_fair_odds": "1.2690099793264882",
+    "corrected_fair_probability": "",
+    "corrected_fit": "B",
+    "corrected_input_quote_skew_minutes": "0.8333333333333334",
+    "corrected_input_timing_status": "SYNCHRONIZED",
+    "corrected_narrow_no_loss_contribution": "0.4375915253023809",
+    "corrected_narrow_no_loss_lower_bound": "",
+    "corrected_narrow_no_loss_upper_bound": "",
+    "corrected_narrow_profit_contribution": "0.4375915253023809",
+    "corrected_narrow_profit_lower_bound": "",
+    "corrected_narrow_profit_upper_bound": "",
+    "corrected_no_loss_probability": "0.78801586771661",
+    "corrected_over_1_5_probability": "0.78801586771661",
+    "corrected_p_away_by_one": "0.22028110018600525",
+    "corrected_p_draw": "0.2710374713807947",
+    "corrected_p_half_loss": "0.0",
+    "corrected_p_half_win": "0.0",
+    "corrected_p_home_by_one": "0.15825708601897087",
+    "corrected_p_loss": "0.21198413228338997",
+    "corrected_p_profit": "0.78801586771661",
+    "corrected_p_push": "0.0",
+    "corrected_p_win": "0.78801586771661",
+    "corrected_vs_pinnacle_gap": "",
+    "correction_validation_note": "Narrow-margin validation is not separate draw/totals validation",
+    "date": "2026-11-08",
+    "decision": "SHORTLISTED",
+    "edge": "",
+    "edge_shin": "",
+    "entry_price_basis": "frozen offered quote; accepted execution unverified",
+    "evaluated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+    "even_odds": "False",
+    "expected_return_after_cost": "-0.14916498486900764",
+    "fair_odds": "",
+    "fair_odds_after_cost": "1.4456386703956141",
+    "fair_odds_uncorrected": "",
+    "fair_probability": "",
+    "fair_probability_shin": "",
+    "fit_max_residual": "0.0010375181485108298",
+    "fit_reasons": "",
+    "fit_usable": "True",
+    "fixture_id": "54fae64b1421d836e07a17cad0536c73",
+    "fixture_key": "Ligue 1|angers|nice|2026-11-08",
+    "handicap_line": "",
+    "handicap_side": "",
+    "high_draw": "False",
+    "home_team": "Angers",
+    "in_value_tier": "",
+    "kickoff_utc": "2026-11-08T16:15:00+00:00",
+    "league": "Ligue 1",
+    "low_total": "False",
+    "market": "Over 1.5",
+    "market_to_bet": "Over 1.5",
+    "min_edge": "",
+    "minimum_odds": "",
+    "model_price_edge": "-0.14916498486900764",
+    "model_vs_pinnacle_gap": "",
+    "model_win_share": "",
+    "narrow_high_67": "False",
+    "narrow_support_note": "P(narrow) below 67%; context only for this market; no directional or totals boost",
+    "narrow_support_role": "context_only",
+    "narrow_support_version": "corrected-narrow-support-v1",
+    "offered_decimal_odds": "1.23",
+    "offered_last_update_utc": "2026-11-07T13:52:10Z",
+    "offered_quote_age_minutes": "2.0607536166666667",
+    "other_value_lines": "",
+    "p_narrow": "0.6495756575857707",
+    "p_no_loss": "0.6917357846593434",
+    "per_stake_cost": "0.0",
+    "pinnacle_away_odds": "2.08",
+    "pinnacle_draw_probability": "0.26427986560126493",
+    "pinnacle_fair_odds": "",
+    "pinnacle_home_odds": "3.6",
+    "pinnacle_last_update_utc": "",
+    "pinnacle_no_loss_probability": "",
+    "pinnacle_over_2_5_probability": "0.5498721227621484",
+    "pinnacle_overround": "",
+    "pinnacle_quote_age_minutes": "",
+    "predicted_probability": "0.6917357846593434",
+    "price_assessment": "negative expected value",
+    "price_edge_decision": "REJECTED",
+    "price_edge_execution_version": "2.0",
+    "price_edge_rejection_reasons": "no Pinnacle reference",
+    "price_flag": "below fair",
+    "price_guard_basis": "pinnacle_ou15_proportional",
+    "price_guard_fair_odds": "",
+    "price_guard_status": "UNAVAILABLE",
+    "price_guard_warning": "Pinnacle reference missing",
+    "probability_basis": "net_profit",
+    "profit_expected_return": "-0.14916498486900764",
+    "profit_model_edge": "-0.14916498486900764",
+    "profit_model_fair_odds": "1.4456386703956141",
+    "profit_price_flag": "negative expected value",
+    "profit_probability": "0.6917357846593434",
+    "qualified_only_by_correction": "False",
+    "quote_skew_minutes": "",
+    "rank_probability": "0.6917357846593434",
+    "reference_market": "",
+    "reference_type": "",
+    "rejection_reasons": "",
+    "research_coverage": "{\"form\": \"last ten, exponential rank half-life five matches\", \"h2h\": \"last four years; descriptive only\", \"motivation\": \"standings context; urgency not inferred\", \"rotation\": \"schedule congestion only; rotation unconfirmed\", \"training_cache\": \"RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED\", \"travel\": \"previous fixture venue; itinerary and fatigue unverified\", \"venue_splits\": \"home team home matches / away team away matches\", \"weather\": \"Open-Meteo match-window forecast with units and observation time\", \"xg\": \"verified supplied xG; no goals-to-xG substitution\"}",
+    "research_details": "{\"coverage\": {\"motivation\": \"standings context; urgency not inferred\", \"weather\": \"Open-Meteo match-window forecast with units and observation time\"}, \"errors\": [\"TheSportsDB venue: exact fixture identity/time unavailable\"], \"news\": [], \"rest_and_travel\": {\"away\": {\"completed_matches_last_14_days\": 1, \"days_between_kickoffs\": 8.927083333333334, \"note\": \"schedule-derived travel context; actual itinerary and fatigue unverified\", \"previous_fixture\": {\"completed\": true, \"date\": \"2026-10-30T18:00Z\", \"home_away\": \"home\", \"name\": \"Stade Rennais at Nice\", \"venue\": {\"address\": {\"city\": \"Nice\", \"country\": \"France\"}, \"fullName\": \"Allianz Riviera\"}}}, \"home\": {\"completed_matches_last_14_days\": 2, \"days_between_kickoffs\": 7.0, \"note\": \"schedule-derived travel context; actual itinerary and fatigue unverified\", \"previous_fixture\": {\"completed\": true, \"date\": \"2026-11-01T16:15Z\", \"home_away\": \"away\", \"name\": \"Angers at Lyon\", \"venue\": {\"address\": {\"city\": \"Lyon\", \"country\": \"France\"}, \"fullName\": \"Groupama Stadium\"}}}}, \"review_links\": [{\"label\": \"Sofascore\", \"status\": \"reference only; no authorized public bulk API\", \"url\": \"https://www.sofascore.com/football\"}, {\"label\": \"Sports Mole previews\", \"status\": \"reference only; article reproduction requires permission\", \"url\": \"https://www.sportsmole.co.uk/football/\"}], \"schedules\": {\"away\": [{\"completed\": true, \"date\": \"2026-10-30T18:00Z\", \"home_away\": \"home\", \"name\": \"Stade Rennais at Nice\", \"venue\": {\"address\": {\"city\": \"Nice\", \"country\": \"France\"}, \"fullName\": \"Allianz Riviera\"}}], \"home\": [{\"completed\": true, \"date\": \"2026-11-01T16:15Z\", \"home_away\": \"away\", \"name\": \"Angers at Lyon\", \"venue\": {\"address\": {\"city\": \"Lyon\", \"country\": \"France\"}, \"fullName\": \"Groupama Stadium\"}}, {\"completed\": true, \"date\": \"2026-10-25T16:15Z\", \"home_away\": \"home\", \"name\": \"Lorient at Angers\", \"venue\": {\"address\": {\"city\": \"Angers\", \"country\": \"France\"}, \"fullName\": \"Stade Raymond Kopa\"}}]}, \"venue\": {\"address\": {\"city\": \"Angers\", \"country\": \"France\"}, \"fullName\": \"Stade Raymond Kopa\", \"guid\": \"ad7086db-409d-3ca8-b89f-e5db83fd8f49\", \"id\": \"3369\", \"images\": [], \"shortName\": \"Stade Raymond Kopa\"}, \"weather\": {\"complete_match_window\": true, \"effect_on_probabilities\": \"context only; no validated coefficient\", \"hours\": [{\"precipitation\": 0.0, \"rain\": 0.0, \"relative_humidity_2m\": 79.0, \"snowfall\": 0.0, \"temperature_2m\": 9.8, \"time\": \"2026-11-08T16:00:00+00:00\", \"wind_gusts_10m\": 19.7, \"wind_speed_10m\": 8.4}, {\"precipitation\": 0.0, \"rain\": 0.0, \"relative_humidity_2m\": 87.0, \"snowfall\": 0.0, \"temperature_2m\": 8.2, \"time\": \"2026-11-08T17:00:00+00:00\", \"wind_gusts_10m\": 18.7, \"wind_speed_10m\": 7.9}, {\"precipitation\": 0.0, \"rain\": 0.0, \"relative_humidity_2m\": 91.0, \"snowfall\": 0.0, \"temperature_2m\": 7.1, \"time\": \"2026-11-08T18:00:00+00:00\", \"wind_gusts_10m\": 16.9, \"wind_speed_10m\": 7.6}], \"latitude\": 47.47156, \"location_precision\": \"venue city centre; stadium coordinates unavailable\", \"longitude\": -0.55202, \"missing_fields\": [], \"observed_at_utc\": \"2026-11-07T13:54:02.203263+00:00\", \"precipitation\": 0.0, \"rain\": 0.0, \"relative_humidity_2m\": 79.0, \"roof_status\": \"unverified\", \"snowfall\": 0.0, \"source\": \"https://api.open-meteo.com/v1/forecast?latitude=47.47156&longitude=-0.55202&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m%2Cwind_gusts_10m%2Crelative_humidity_2m&timezone=UTC&forecast_days=7&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm\", \"temperature_2m\": 9.8, \"time\": \"2026-11-08T16:00:00+00:00\", \"units\": {\"precipitation\": \"mm\", \"rain\": \"mm\", \"relative_humidity_2m\": \"%\", \"snowfall\": \"cm\", \"temperature_2m\": \"\\u00b0C\", \"time\": \"iso8601\", \"wind_gusts_10m\": \"km/h\", \"wind_speed_10m\": \"km/h\"}, \"wind_gusts_10m\": 19.7, \"wind_speed_10m\": 8.4}, \"weather_location_precision\": \"venue city centre; stadium coordinates unavailable\"}",
+    "research_p_half_loss": "0.0",
+    "research_p_half_win": "0.0",
+    "research_p_loss": "0.3082642153406566",
+    "research_p_push": "0.0",
+    "research_p_win": "0.6917357846593434",
+    "research_probability_basis": "team_form_poisson_v1",
+    "research_sources": "[{\"observed_at_utc\": \"2026-11-07T13:54:00.832009+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20261108\"}, {\"observed_at_utc\": \"2026-11-07T13:54:01.655751+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/summary?event=401876412\"}, {\"observed_at_utc\": \"2026-11-07T13:54:01.705250+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/7868/schedule\"}, {\"observed_at_utc\": \"2026-11-07T13:54:01.763973+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/site/v2/sports/soccer/all/teams/2502/schedule\"}, {\"observed_at_utc\": \"2026-11-07T13:53:59.320561+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/v2/sports/soccer/fra.1/standings\"}, {\"observed_at_utc\": \"2026-11-07T13:53:59.381779+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/news?limit=20\"}, {\"observed_at_utc\": \"2026-11-07T13:54:01.962125+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://www.bing.com/news/search?q=%22Angers%22+%22Nice%22+injury+suspension+lineup+preview&format=rss\"}, {\"observed_at_utc\": \"2026-11-07T13:53:59.701719+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://understat.com/league/Ligue_1/2026\"}, {\"observed_at_utc\": \"2026-11-07T13:53:59.841015+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://understat.com/league/Ligue_1/2025\"}, {\"observed_at_utc\": \"2026-11-07T13:53:41.045208+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://feeds.bbci.co.uk/sport/football/rss.xml\"}, {\"observed_at_utc\": \"2026-11-07T13:53:41.166595+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://www.theguardian.com/football/rss\"}, {\"observed_at_utc\": \"2026-11-07T13:54:02.024133+00:00\", \"reason\": \"TheSportsDB free source limit: 30 requests per minute\", \"status\": \"unavailable\", \"url\": \"https://www.thesportsdb.com/api/v1/json/123/searchevents.php?e=Angers_vs_Nice&d=2026-11-08\"}, {\"observed_at_utc\": \"2026-11-07T13:54:02.155523+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://geocoding-api.open-meteo.com/v1/search?name=Angers&count=10&language=en&format=json\"}, {\"observed_at_utc\": \"2026-11-07T13:54:02.203263+00:00\", \"reason\": null, \"status\": \"available\", \"url\": \"https://api.open-meteo.com/v1/forecast?latitude=47.47156&longitude=-0.55202&hourly=temperature_2m%2Cprecipitation%2Crain%2Csnowfall%2Cwind_speed_10m%2Cwind_gusts_10m%2Crelative_humidity_2m&timezone=UTC&forecast_days=7&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm\"}]",
+    "research_summary": "{\"away\": {\"all\": {\"goals_against\": 1.5358608961749973, \"goals_for\": 2.417562930659085, \"last_match\": \"2026-10-30T18:00:00+00:00\", \"matches\": 10, \"points_per_game\": 1.9742162804479864, \"results\": \"WWWLWWLLDL\", \"xg_against\": 1.9046908898546806, \"xg_for\": 1.5659336526118572, \"xg_matches\": 8}, \"venue\": {\"goals_against\": 1.52278127007592, \"goals_for\": 0.7431823068973537, \"last_match\": \"2026-10-23T00:00:00+00:00\", \"matches\": 5, \"points_per_game\": 0.7766966202232553, \"results\": \"WLLLL\", \"xg_against\": 2.115509168249997, \"xg_for\": 0.9357612457305563, \"xg_matches\": 4}}, \"home\": {\"all\": {\"goals_against\": 1.9561573170587467, \"goals_for\": 1.0337880342093035, \"last_match\": \"2026-11-01T00:00:00+00:00\", \"matches\": 10, \"points_per_game\": 0.853460618624115, \"results\": \"LDLLWDLLWW\", \"xg_against\": 1.9140679448093667, \"xg_for\": 1.2516716998813773, \"xg_matches\": 8}, \"venue\": {\"goals_against\": 1.7659386219550395, \"goals_for\": 1.1626943424116023, \"last_match\": \"2026-10-25T00:00:00+00:00\", \"matches\": 5, \"points_per_game\": 0.8475248406202632, \"results\": \"DLWLL\", \"xg_against\": 1.4321110662617886, \"xg_for\": 1.513312585180104, \"xg_matches\": 4}}}",
+    "research_warnings": "availability unavailable or unconfirmed; lineups unavailable or unconfirmed; tactics unavailable or unconfirmed; rivalry unavailable or unconfirmed; TheSportsDB venue: exact fixture identity/time unavailable; research probability model has not passed a forward calibration gate",
+    "selection_objective": "POSITIVE_RETURN_PROBABILITY",
+    "selection_policy_version": "48h-ah-price-edge-cagey-v28",
+    "selection_rule": "local-research-profit-115-200-dc12-v2",
+    "selection_tier": "STRICT",
+    "settlement_p_half_loss": "0.0",
+    "settlement_p_half_win": "0.0",
+    "settlement_p_loss": "0.3082642153406566",
+    "settlement_p_push": "0.0",
+    "settlement_p_win": "0.6917357846593434",
+    "shortlist_schema_version": "comparable-shortlist-v1",
+    "shortlist_source": "value",
+    "side_role": "",
+    "snapshot_captured_utc": "2026-11-07T13:56:03Z",
+    "snapshot_commit": "688a34b2f4bd83f218fa3d39aa21dfd1ec458eb7",
+    "snapshot_generated_utc": "2026-11-07T13:54:13.645217+00:00",
+    "source_market": "totals",
+    "source_probability_basis": "team_form_poisson_v1",
+    "tagged_probe": "False",
+    "totals_correction_delta": "-0.00555575451056689",
+    "uncorrected_expected_profit": "-0.02390690466057241",
+    "uncorrected_fit": "B",
+    "uncorrected_input_quote_skew_minutes": "0.8333333333333334",
+    "uncorrected_input_timing_status": "SYNCHRONIZED",
+    "uncorrected_matrix_fair_odds": "",
+    "uncorrected_over_1_5_probability": "0.7935716222271769",
+    "uncorrected_p_half_loss": "0.0",
+    "uncorrected_p_half_win": "0.0",
+    "uncorrected_p_loss": "0.20642837777282308",
+    "uncorrected_p_push": "0.0",
+    "uncorrected_p_win": "0.7935716222271769",
+    "value_expected_profit": "-0.02390690466057241",
+    "value_market_group": "over_1_5",
     "value_probability_basis": "team_form_poisson_v1"
   }
 ]

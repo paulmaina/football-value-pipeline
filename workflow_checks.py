@@ -235,7 +235,7 @@ def raw_check(root, *, raw_dir=None):
                 require(master_path.exists(), 'Missing current master shortlist')
                 master_version = summary['master_shortlist'].get('version')
                 require(master_version in master_shortlist.VERSIONS, 'Unknown master shortlist version')
-                if master_version == master_shortlist.VERSION_MARKET:
+                if master_version in (master_shortlist.VERSION_MARKET, master_shortlist.VERSION_AH):
                     from master_selection import require_generation_clock
                     require_generation_clock(decisions, summary.get('generated_at_utc'))
                 master_expected = master_shortlist.build(
@@ -248,11 +248,11 @@ def raw_check(root, *, raw_dir=None):
                         'Current master shortlist differs from deterministic replay')
                 require(equivalent(summary['master_shortlist'], master_shortlist.summary(master_expected, master_version)),
                         'Current master shortlist summary differs from replay')
-                if master_version == master_shortlist.VERSION_MARKET:
-                    from master_selection import evaluate as master_evaluate, AUDIT_FILE
-                    audit_path = raw/AUDIT_FILE
+                if master_version in (master_shortlist.VERSION_MARKET, master_shortlist.VERSION_AH):
+                    module = master_shortlist.selection_module(master_version)
+                    audit_path = raw/module.AUDIT_FILE
                     require(audit_path.exists(), 'Missing current master selection audit')
-                    audit_expected = master_evaluate(decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False))
+                    audit_expected = module.evaluate(decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False))
                     audit_actual = pd.read_csv(audit_path, low_memory=False)
                     require(master_shortlist.matches(audit_actual, audit_expected, master_version),
                             'Current master selection audit differs from deterministic replay')
