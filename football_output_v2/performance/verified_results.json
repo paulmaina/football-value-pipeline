@@ -2365,6 +2365,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "FL1:559638": {
+    "away_goals": 1,
+    "away_short_name": "Strasbourg",
+    "away_team": "RC Strasbourg Alsace",
+    "first_verified_at_utc": "2026-11-07T06:19:38Z",
+    "home_goals": 3,
+    "home_short_name": "Toulouse",
+    "home_team": "Toulouse FC",
+    "kickoff_utc": "2026-11-06T19:45:00Z",
+    "league_code": "FL1",
+    "match_id": 559638,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559639": {
     "away_goals": 0,
     "away_short_name": "RC Lens",
@@ -3505,6 +3520,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564740": {
+    "away_goals": 0,
+    "away_short_name": "Alavés",
+    "away_team": "Deportivo Alavés",
+    "first_verified_at_utc": "2026-11-07T06:19:38Z",
+    "home_goals": 0,
+    "home_short_name": "Sevilla FC",
+    "home_team": "Sevilla FC",
+    "kickoff_utc": "2026-11-06T20:00:00Z",
+    "league_code": "PD",
+    "match_id": 564740,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PL:560592": {
     "away_goals": 2,
     "away_short_name": "Brighton Hove",
@@ -4105,6 +4135,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PL:560634": {
+    "away_goals": 1,
+    "away_short_name": "Coventry City",
+    "away_team": "Coventry City FC",
+    "first_verified_at_utc": "2026-11-07T06:19:38Z",
+    "home_goals": 3,
+    "home_short_name": "Everton",
+    "home_team": "Everton FC",
+    "kickoff_utc": "2026-11-06T20:00:00Z",
+    "league_code": "PL",
+    "match_id": 560634,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PPL:567329": {
     "away_goals": 0,
     "away_short_name": "Marítimo",
@@ -4371,6 +4416,36 @@
     "kickoff_utc": "2026-11-02T20:15:00Z",
     "league_code": "PPL",
     "match_id": 567346,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "PPL:567353": {
+    "away_goals": 0,
+    "away_short_name": "Arouca",
+    "away_team": "FC Arouca",
+    "first_verified_at_utc": "2026-11-07T06:19:38Z",
+    "home_goals": 1,
+    "home_short_name": "Famalicão",
+    "home_team": "FC Famalicão",
+    "kickoff_utc": "2026-11-06T20:45:00Z",
+    "league_code": "PPL",
+    "match_id": 567353,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558537": {
+    "away_goals": 1,
+    "away_short_name": "Udinese",
+    "away_team": "Udinese Calcio",
+    "first_verified_at_utc": "2026-11-07T06:19:38Z",
+    "home_goals": 2,
+    "home_short_name": "Venezia FC",
+    "home_team": "Venezia FC",
+    "kickoff_utc": "2026-11-06T19:45:00Z",
+    "league_code": "SA",
+    "match_id": 558537,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
