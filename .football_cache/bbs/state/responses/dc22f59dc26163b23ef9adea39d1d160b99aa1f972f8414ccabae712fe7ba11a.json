@@ -1,1 +1,1 @@
-{"observed":"2026-10-31T01:53:02.512586+00:00","payload":"{\"data\":[],\"pagination\":{\"limit\":200,\"offset\":0,\"total\":0}}","query":"/v1/players?league=cl&limit=200&offset=0&sport=football"}
+{"observed":"2026-11-07T02:26:46.387078+00:00","payload":"{\"data\":[],\"pagination\":{\"limit\":200,\"offset\":0,\"total\":0}}","query":"/v1/players?league=cl&limit=200&offset=0&sport=football"}
