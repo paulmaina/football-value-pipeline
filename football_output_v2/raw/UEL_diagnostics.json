@@ -10,7 +10,7 @@
     "2026"
   ],
   "training_sha256": "f8b024bf6ab7032e18682f611b3a23123c4ab1981b3b3d264c1209a7de3a7885",
-  "training_as_of_utc": "2026-11-06T13:39:09.324766+00:00",
+  "training_as_of_utc": "2026-11-07T11:47:07.506148+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -27,7 +27,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "NO_SHOT_DATA",
-    "cutoff_date": "2026-11-06",
+    "cutoff_date": "2026-11-07",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -52,9 +52,9 @@
   },
   "training_end": "2026-11-04",
   "fit_success": true,
-  "objective": 793.5977068691028,
-  "base": 0.10324896185476566,
-  "home_adv": 0.2667685226122249,
+  "objective": 792.545960505097,
+  "base": 0.10330052063074154,
+  "home_adv": 0.2667957621571284,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -81,8 +81,8 @@
         "original_source_sha256": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b"
       }
     },
-    "status": "VERIFIED_WITHIN_24_HOURS",
-    "refresh_warning": null
+    "status": "LIVE_REFRESH_FAILED_USING_VERIFIED_CACHE",
+    "refresh_warning": "ValueError: Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {\"declared_rows\": 152, \"eligibility\": \"CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout semantics unverified"
   },
   "training_source": "verified .football_cache/europa/training.json",
   "fixture_provider_mode": "auto",
@@ -92,7 +92,7 @@
   "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 26,
+  "additional_event_odds_calls_used_before_this_league": 43,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
