@@ -112,6 +112,11 @@ class NoDoubleChanceMasterTests(OfflineQuotePolicyTestCase):
         r=dc();r.update(market='Asian Handicap Home +0.50',handicap_side='home',handicap_line=.5)
         a=v6.evaluate(pd.DataFrame([r]),pd.DataFrame([prediction()]))
         self.assertTrue(v6.select(a).empty)
+        # Contradictory labels/metadata cannot authorize a different outcome.
+        for label,side in [('Over 1.5','home'),('Asian Handicap Away +0.50','home')]:
+            r.update(market=label,handicap_side=side)
+            a=v6.evaluate(pd.DataFrame([r]),pd.DataFrame([prediction(native())]))
+            self.assertTrue(v6.select(a).empty)
 
     def test_v5_archived_rule_and_schema_replay_unchanged(self):
         r=dc();r['offered_decimal_odds']=1.4

@@ -48,9 +48,9 @@ def evaluate(decisions, predictions, now=None):
         market = str(row.get('market') or '')
         side = {'Double Chance 1X':'home', 'Double Chance X2':'away'}.get(market)
         # Older source rows can label the AH equivalent while retaining a DC offer.
-        if (side is None and not market.startswith('Double Chance ')
+        if (side is None and market in ('Asian Handicap Home +0.50', 'Asian Handicap Away +0.50')
                 and row.get('source_market') == 'double_chance' and previous.number(row.get('handicap_line')) == .5):
-            side = row.get('handicap_side') if row.get('handicap_side') in ('home','away') else None
+            side = row.get('handicap_side') if market == f"Asian Handicap {str(row.get('handicap_side')).title()} +0.50" else None
         is_dc = market.startswith('Double Chance ') or row.get('source_market') == 'double_chance'
         if not is_dc:
             native = dict(row)
