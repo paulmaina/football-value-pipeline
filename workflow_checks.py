@@ -239,7 +239,8 @@ def raw_check(root, *, raw_dir=None):
                     from master_selection import require_generation_clock
                     require_generation_clock(decisions, summary.get('generated_at_utc'))
                 master_expected = master_shortlist.build(
-                    decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), master_version)
+                    decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False), master_version,
+                    execution_policy=summary.get('quote_execution_policy', {}))
                 try:
                     master_actual = pd.read_csv(master_path, low_memory=False)
                 except pd.errors.EmptyDataError:
@@ -252,7 +253,9 @@ def raw_check(root, *, raw_dir=None):
                     module = master_shortlist.selection_module(master_version)
                     audit_path = raw/module.AUDIT_FILE
                     require(audit_path.exists(), 'Missing current master selection audit')
-                    audit_expected = module.evaluate(decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False))
+                    from quote_policy import policy_scope
+                    with policy_scope(summary.get('quote_execution_policy')):
+                        audit_expected = module.evaluate(decisions, pd.read_csv(raw/'all_leagues_predictions.csv', low_memory=False))
                     audit_actual = pd.read_csv(audit_path, low_memory=False)
                     require(master_shortlist.matches(audit_actual, audit_expected, master_version),
                             'Current master selection audit differs from deterministic replay')
