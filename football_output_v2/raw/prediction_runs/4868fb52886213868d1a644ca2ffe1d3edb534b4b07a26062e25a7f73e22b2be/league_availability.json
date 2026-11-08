@@ -1,0 +1,27 @@
+{
+  "requested_leagues": [
+    "EPL",
+    "LaLiga",
+    "Bundesliga",
+    "SerieA",
+    "Ligue1",
+    "UCL",
+    "UEL",
+    "Eredivisie",
+    "PrimeiraLiga",
+    "SuperLig"
+  ],
+  "excluded_leagues": {},
+  "forecast_leagues": [
+    "EPL",
+    "LaLiga",
+    "Bundesliga",
+    "SerieA",
+    "Ligue1",
+    "UCL",
+    "UEL",
+    "Eredivisie",
+    "PrimeiraLiga",
+    "SuperLig"
+  ]
+}
