@@ -2706,6 +2706,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "FL1:559635": {
+    "away_goals": 0,
+    "away_short_name": "Troyes",
+    "away_team": "ES Troyes AC",
+    "first_verified_at_utc": "2026-11-08T06:25:54Z",
+    "home_goals": 1,
+    "home_short_name": "PSG",
+    "home_team": "Paris Saint-Germain FC",
+    "kickoff_utc": "2026-11-07T20:05:00Z",
+    "league_code": "FL1",
+    "match_id": 559635,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "FL1:559637": {
     "away_goals": 1,
     "away_short_name": "Paris FC",
