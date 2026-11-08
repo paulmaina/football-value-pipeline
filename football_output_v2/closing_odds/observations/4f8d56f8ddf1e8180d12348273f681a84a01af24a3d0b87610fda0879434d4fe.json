@@ -1,0 +1,528 @@
+{
+  "fixture": {
+    "away_team": "Bournemouth",
+    "home_team": "Ipswich Town",
+    "kickoff_utc": "2026-11-08T14:00:00+00:00",
+    "league": "Premier League",
+    "odds_event_id": "79ed3df594d7b352ef027128b1ba5d0a"
+  },
+  "observed_at_utc": "2026-11-08T13:54:13.851785+00:00",
+  "payload": {
+    "away_team": "Bournemouth",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-08T13:54:13Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 1.99
+              },
+              {
+                "name": "Ipswich Town",
+                "price": 3.8
+              },
+              {
+                "name": "Draw",
+                "price": 3.84
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-08T13:54:13Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "point": -0.5,
+                "price": 2.0
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 0.5,
+                "price": 1.93
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-08T13:54:13Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.83
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.1
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-08T13:54:13Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "point": -0.5,
+                "price": 2.0
+              },
+              {
+                "name": "Bournemouth",
+                "point": 0.5,
+                "price": 1.31
+              },
+              {
+                "name": "Bournemouth",
+                "point": 0.25,
+                "price": 1.37
+              },
+              {
+                "name": "Bournemouth",
+                "point": -0.0,
+                "price": 1.48
+              },
+              {
+                "name": "Bournemouth",
+                "point": -0.25,
+                "price": 1.74
+              },
+              {
+                "name": "Bournemouth",
+                "point": -0.75,
+                "price": 2.28
+              },
+              {
+                "name": "Bournemouth",
+                "point": -1.0,
+                "price": 2.8
+              },
+              {
+                "name": "Bournemouth",
+                "point": -1.25,
+                "price": 3.17
+              },
+              {
+                "name": "Bournemouth",
+                "point": -1.5,
+                "price": 3.55
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 0.5,
+                "price": 1.93
+              },
+              {
+                "name": "Ipswich Town",
+                "point": -0.5,
+                "price": 3.75
+              },
+              {
+                "name": "Ipswich Town",
+                "point": -0.25,
+                "price": 3.29
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 0.0,
+                "price": 2.84
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 0.25,
+                "price": 2.23
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 0.75,
+                "price": 1.71
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 1.0,
+                "price": 1.49
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 1.25,
+                "price": 1.4
+              },
+              {
+                "name": "Ipswich Town",
+                "point": 1.5,
+                "price": 1.33
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-11-08T13:54:13Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.83
+              },
+              {
+                "name": "Over",
+                "point": 1.75,
+                "price": 1.24
+              },
+              {
+                "name": "Over",
+                "point": 2.0,
+                "price": 1.29
+              },
+              {
+                "name": "Over",
+                "point": 2.25,
+                "price": 1.47
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.66
+              },
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 2.06
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.34
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.6
+              },
+              {
+                "name": "Over",
+                "point": 3.75,
+                "price": 3.08
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.1
+              },
+              {
+                "name": "Under",
+                "point": 1.75,
+                "price": 4.38
+              },
+              {
+                "name": "Under",
+                "point": 2.0,
+                "price": 3.86
+              },
+              {
+                "name": "Under",
+                "point": 2.25,
+                "price": 2.83
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.34
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.84
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.66
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.53
+              },
+              {
+                "name": "Under",
+                "point": 3.75,
+                "price": 1.4
+              }
+            ]
+          },
+          {
+            "key": "double_chance",
+            "last_update": "2026-11-08T13:53:49Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth or Draw",
+                "price": 1.31
+              },
+              {
+                "name": "Ipswich Town or Draw",
+                "price": 1.9
+              },
+              {
+                "name": "Bournemouth or Ipswich Town",
+                "price": 1.3
+              }
+            ]
+          },
+          {
+            "key": "draw_no_bet",
+            "last_update": "2026-11-08T13:53:49Z",
+            "outcomes": [
+              {
+                "name": "Bournemouth",
+                "price": 1.47
+              },
+              {
+                "name": "Ipswich Town",
+                "price": 2.81
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-08T14:00:00Z",
+    "home_team": "Ipswich Town",
+    "id": "79ed3df594d7b352ef027128b1ba5d0a",
+    "sport_key": "soccer_epl",
+    "sport_title": "EPL"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.5112578805163616,
+      "selection": "home_draw",
+      "updated_at_utc": "2026-11-08T13:53:49+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7415190633443411,
+      "selection": "draw_away",
+      "updated_at_utc": "2026-11-08T13:53:49+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3,
+      "devig_method": "proportional_overlap_sum_two",
+      "fair_probability": 0.7472230561392976,
+      "selection": "home_away",
+      "updated_at_utc": "2026-11-08T13:53:49+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.48,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.84,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25443176820754576,
+      "selection": "home",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.84,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2517148498488956,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.99,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.49385338194355866,
+      "selection": "away",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.0,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.93,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.50",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.17,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.8,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.28,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.74,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.31,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.75,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.29,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.71,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.49,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.33,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.50",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.66,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.5887633567870605,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.34,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.41123664321293946,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.6,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3630090489101693,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6369909510898307,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-08T13:54:13+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
