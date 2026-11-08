@@ -1,11 +1,14 @@
 """Execution checks for production candidates; never infer exchange liquidity."""
 import json
+from contextlib import contextmanager
+from contextvars import ContextVar
 import math
 from pathlib import Path
 
 CONFIG = Path(__file__).with_name('shortlist_quote_policy.json')
 # Exact bookmaker titles The Odds API returns (EU region), by provider key.
 ODDS_API_TITLES = {'pinnacle': 'Pinnacle', 'onexbet': '1xBet'}
+_FROZEN_POLICY = ContextVar('frozen_quote_execution_policy', default=None)
 
 
 def is_exchange(name):
@@ -14,6 +17,9 @@ def is_exchange(name):
 
 
 def load_policy(path=None):
+    frozen = _FROZEN_POLICY.get()
+    if path is None and frozen is not None:
+        return validate_policy(frozen)
     file = Path(path) if path is not None else CONFIG
     data = json.loads(file.read_text(encoding='utf-8-sig')) if file.exists() else {}
     return validate_policy(data)
@@ -71,3 +77,25 @@ def bookmaker_priority(name, policy=None):
     policy = policy or load_policy()
     fallback = {n.casefold().strip() for n in policy.get('fallback_bookmakers', [])}
     return 0 if str(name).casefold().strip() in fallback else 1
+
+
+@contextmanager
+def policy_scope(policy):
+    """Use a run's recorded execution policy for replay, restoring the live policy afterwards."""
+    token = _FROZEN_POLICY.set(validate_policy(policy if policy is not None else {}))
+    try:
+        yield
+    finally:
+        _FROZEN_POLICY.reset(token)
+
+
+def odds_api_bookmaker_scope():
+    """Provider bookmaker keys, independent of the bettor's country.
+
+    Empty/legacy allowlists retain region collection. Named supported books get
+    an explicit filter; the selector still checks returned offers independently.
+    The scope also namespaces caches so changing books cannot reuse old payloads.
+    """
+    allowed = {name.strip().casefold() for name in load_policy()['allowed_bookmakers']}
+    keys = sorted(key for key, title in ODDS_API_TITLES.items() if title.casefold() in allowed)
+    return ({'bookmakers': ','.join(keys)} if keys else {}), '_'.join(keys) if keys else 'all'

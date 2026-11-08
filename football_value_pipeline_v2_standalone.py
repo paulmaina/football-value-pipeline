@@ -1180,13 +1180,16 @@ class TheOddsAPI:
         start, end = self._window(now, lookahead_days)
         url = f"{THE_ODDS_API_BASE}/sports/{league.odds_api_sport_key}/odds"
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
+        from quote_policy import odds_api_bookmaker_scope
+        book_params, book_scope = odds_api_bookmaker_scope()
         payload = self._get_json(
             url,
-            f"oddsapi_odds_ah_v1_{league.key}_{region_tag}.json",
+            f"oddsapi_odds_ah_v2_{league.key}_{region_tag}_{book_scope}.json",
             ttl=timedelta(minutes=5),
             force_refresh=self.force_refresh,
             params={
                 "apiKey": self.api_key,
+                **book_params,
                 "regions": self.regions,
                 "markets": "h2h,totals,spreads",
                 "oddsFormat": "decimal",
@@ -1252,15 +1255,18 @@ class TheOddsAPI:
             f"/events/{safe_id}/odds"
         )
         region_tag = re.sub(r"[^a-z0-9]+", "_", self.regions.lower()).strip("_")
+        from quote_policy import odds_api_bookmaker_scope
+        book_params, book_scope = odds_api_bookmaker_scope()
         # BTTS and corner/card totals are no longer requested: no production
         # policy uses them, and each returned market costs a credit.
         payload = self._get_json(
             url,
-            f"oddsapi_additional_ah_dc_v3_{league.key}_{region_tag}_{safe_id}.json",
+            f"oddsapi_additional_ah_dc_v4_{league.key}_{region_tag}_{book_scope}_{safe_id}.json",
             ttl=timedelta(minutes=5),
             force_refresh=self.force_refresh,
             params={
                 "apiKey": self.api_key,
+                **book_params,
                 "regions": self.regions,
                 "markets": ",".join(EXTRA_EVENT_MARKETS),
                 "oddsFormat": "decimal",
