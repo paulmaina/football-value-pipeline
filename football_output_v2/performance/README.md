@@ -71,6 +71,7 @@ Whole-fixture 1X2 multiclass Brier (n=346): 0.5590
 | 2026-11-07T11:48:25.259368+00:00 | 11 | 9-2 | 81.8% | +11.5% |
 | 2026-11-07T13:54:13.645217+00:00 | 53 | 37-16 | 69.8% | -3.7% |
 | 2026-11-08T09:01:04.075316+00:00 | 0 | 0-0 | — | — |
+| 2026-11-08T12:20:11.356382+00:00 | 0 | 0-0 | — | — |
 
 ## STRICT versus PROVISIONAL
 
@@ -240,7 +241,7 @@ A missing, ambiguous or unverified result is **never called a win**.
 | UCL | 2026-11-04 | 575 | 4 | CURRENT_WITHIN_PROVIDER_SCHEDULE |
 | UEL | 2026-11-05 | 732 | 3 | VERIFIED_WITHIN_24_HOURS |
 
-Latest shortlist audit: {"selected_quotes": 93, "exchange_quotes": 0, "missing_quote_age": 93, "quote_age_over_24h": 0, "costs_recorded": 93, "bookmakers": {"Pinnacle": 54, "1xBet": 39}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 93, "unknown_kickoff_count": 0}.
+Latest shortlist audit: {"selected_quotes": 85, "exchange_quotes": 0, "missing_quote_age": 85, "quote_age_over_24h": 0, "costs_recorded": 85, "bookmakers": {"Pinnacle": 47, "1xBet": 38}, "account_availability": "NOT_VERIFIED_WITH_BOOKMAKER_ACCOUNTS", "past_kickoff_count": 0, "upcoming_kickoff_count": 85, "unknown_kickoff_count": 0}.
 
 Source refresh does not retrain stored forecasts. Days since the last match do not by themselves establish missing data.
 

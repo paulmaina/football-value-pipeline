@@ -278,16 +278,16 @@
         "standard_error": 0.09117229624710665
       },
       "Q4": {
-        "mean": -0.2838709677419355,
-        "n": 31,
-        "positive_share": 0.5161290322580645,
-        "standard_error": 0.12302192078410108
+        "mean": -0.24727272727272728,
+        "n": 33,
+        "positive_share": 0.5454545454545454,
+        "standard_error": 0.11825476696720652
       },
       "Q5 most open": {
-        "mean": 0.013461538461538452,
-        "n": 52,
-        "positive_share": 0.7115384615384616,
-        "standard_error": 0.0837335268305894
+        "mean": 0.001199999999999992,
+        "n": 50,
+        "positive_share": 0.7,
+        "standard_error": 0.08664100928426399
       },
       "n/a": {
         "mean": 0.058076923076923054,
@@ -949,7 +949,7 @@
       "standard_error": 0.13303918446523416
     }
   },
-  "master_picks": 57,
+  "master_picks": 61,
   "note": "CLV = entry odds x Pinnacle near-kickoff fair win-share on the same AH line - 1 (proportional). Near-kickoff feed quotes, not verified official closes or executed bets. Tagged candidates are tracked for the narrow-margin hypothesis only; they never change a decision.",
   "policy": "48h-ah-price-edge-pinnacle-ref-v27",
   "profit": {
@@ -964,7 +964,7 @@
       "graded": 378,
       "no_loss_share": 0.8174603174603174,
       "positive_return_share": 0.6851851851851852,
-      "recommendations": 807,
+      "recommendations": 892,
       "simulated_mean_unit_return": 0.023452380952380943
     },
     "note": "Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.",
@@ -973,12 +973,12 @@
       "graded": 575,
       "no_loss_share": 0.697391304347826,
       "positive_return_share": 0.697391304347826,
-      "recommendations": 1035,
+      "recommendations": 1120,
       "simulated_mean_unit_return": -0.047678260869565225
     }
   },
   "rejected_observation_files": [],
-  "reviewed_at_utc": "2026-11-08T09:03:48.257066+00:00",
+  "reviewed_at_utc": "2026-11-08T12:21:49.102844+00:00",
   "stop_review": false,
   "stop_review_rule": ">= 100 graded picks with mean CLV < 0",
   "tagged_candidates": {
@@ -1009,12 +1009,12 @@
       }
     },
     "edge_at_capture_1xbet": {
-      "mean": -0.0378081391389863,
-      "n": 515,
-      "positive_share": 0.05631067961165048,
-      "standard_error": 0.0010918524636068948
+      "mean": -0.038044466655368196,
+      "n": 529,
+      "positive_share": 0.054820415879017016,
+      "standard_error": 0.0010473047909545074
     },
-    "frozen": 2199,
+    "frozen": 2249,
     "return_at_capture_fair": {
       "mean": 0.0008429075851094231,
       "n": 1035,
@@ -1027,7 +1027,7 @@
       "positive_share": 0.7619834710743801,
       "standard_error": 0.020729282269867356
     },
-    "with_offered_price": 2199
+    "with_offered_price": 2249
   },
   "version": "price-edge-v27-tracking-v1"
 }

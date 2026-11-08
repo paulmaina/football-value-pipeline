@@ -5,11 +5,11 @@
 Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.
 
 Latest-view tables below are simulated recommendations, not executed-bet ROI.
-value: 1035 captured recommendations; 575 graded; 98 distinct fixtures.
-cagey: 807 captured recommendations; 378 graded; 81 distinct fixtures.
+value: 1120 captured recommendations; 575 graded; 98 distinct fixtures.
+cagey: 892 captured recommendations; 378 graded; 81 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
-Reviewed 2026-11-08T09:03:48.257066+00:00. Frozen v27 picks: 311.
+Reviewed 2026-11-08T12:21:49.102844+00:00. Frozen v27 picks: 311.
 
 **Mean CLV vs Pinnacle close:** -2.70% ± 1.62% (n=29). **Flat-stake profit per bet:** -1.58% ± 10.42% (n=169).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -106,7 +106,7 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 
 ## Master shortlist (10 best bets per run)
 
-Frozen picks: 57; CLV -0.62% ± 4.20% (n=7); realised profit per bet -9.75% ± 26.08% (n=36).
+Frozen picks: 61; CLV -0.62% ± 4.20% (n=7); realised profit per bet -9.75% ± 26.08% (n=36).
 
 | price flag | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
@@ -164,8 +164,8 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 | Q1 cagiest | -4.34% ± 1.12% (n=15) | -3.98% ± 18.45% (n=54) |
 | Q2 | -3.54% ± 1.71% (n=17) | +2.83% ± 19.44% (n=41) |
 | Q3 | -2.43% ± 1.64% (n=12) | +7.60% ± 17.87% (n=52) |
-| Q4 | +6.76% ± 8.10% (n=2) | -28.39% ± 24.11% (n=31) |
-| Q5 most open | +3.82% (n=1) | +1.35% ± 16.41% (n=52) |
+| Q4 | +6.76% ± 8.10% (n=2) | -24.73% ± 23.18% (n=33) |
+| Q5 most open | +3.82% (n=1) | +0.12% ± 16.98% (n=50) |
 | n/a | +2.96% (n=1) | +5.81% ± 18.18% (n=26) |
 
 ### By balanced
@@ -220,8 +220,8 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 
 ## Tagged candidates (narrow-margin hypothesis)
 
-Frozen tagged candidates: 2199 (2199 with an offered price).
-1xBet edge vs fair at capture: -3.78% ± 0.21% (n=515).
+Frozen tagged candidates: 2249 (2249 with an offered price).
+1xBet edge vs fair at capture: -3.80% ± 0.21% (n=529).
 Return at the capture fair price, all tagged lines: +0.08% ± 5.18% (n=1035); plus lines only: +4.19% ± 4.06% (n=605).
 
 - balanced: +1.62% ± 5.66% (n=918)

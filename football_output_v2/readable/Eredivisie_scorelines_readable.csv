@@ -1,101 +1,81 @@
 ﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,1,1-1,9.02%,0.09017748302640383
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,2,1-2,8.87%,0.08870549420218818
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,3,1-3,6.96%,0.06960503918971961
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,4,0-2,6.64%,0.06635995468611632
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,5,2-2,6.56%,0.06562906886214141
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,6,2-1,5.54%,0.0553802842435774
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,7,0-3,5.21%,0.05207103898239938
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,8,0-1,5.03%,0.05028063525170536
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,9,2-3,4.65%,0.04652165172121898
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,10,1-4,4.10%,0.04096303327243248
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,11,0-0,3.33%,0.03326380741172735
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,12,0-4,3.06%,0.030644156331158117
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,13,3-2,2.90%,0.029044224588044357
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,14,1-0,2.85%,0.02849309014773232
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,15,2-4,2.74%,0.027378304638987525
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,16,3-1,2.47%,0.02467620472879346
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,17,2-0,2.35%,0.023525765471732064
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,18,3-3,2.29%,0.02294613737929456
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,19,1-5,1.93%,0.019285616264705624
-2026-11-08,Eredivisie,Heerenveen,Feyenoord,20,0-5,1.44%,0.014427433530809674
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,1,1-1,9.67%,0.096731269413911
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,2,2-1,9.34%,0.09344874850379424
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,3,2-2,7.25%,0.07248326047681718
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,4,1-2,6.27%,0.06272453254606618
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,5,3-1,6.01%,0.060106314761256135
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,6,2-0,5.57%,0.05565610367076652
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,7,3-2,5.05%,0.05046041243599295
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,8,1-0,4.98%,0.049847839064234074
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,9,3-0,3.58%,0.03579805336274107
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,10,1-3,3.51%,0.03510563789846091
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,11,0-0,3.49%,0.03486344874939538
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,12,2-3,3.39%,0.03386996436876681
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,13,0-1,3.27%,0.03267361398742797
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,14,0-2,3.25%,0.03250645177741884
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,15,4-1,2.90%,0.02899532469955318
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,16,3-3,2.61%,0.0260929852061614
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,17,4-2,2.43%,0.02434213524596413
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,18,0-3,1.82%,0.018193196172865158
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,19,4-0,1.73%,0.017269003847390704
-2026-11-08,Eredivisie,FC Twente Enschede,Ajax,20,1-4,1.47%,0.014735930610795122
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,1,2-1,10.22%,0.10220989404099735
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,2,1-1,9.02%,0.0901878678363408
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,3,2-0,8.32%,0.08318077664223636
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,4,3-1,7.55%,0.07548805248147811
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,5,1-0,6.76%,0.06761714241951754
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,6,3-0,6.14%,0.06143392370703971
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,7,2-2,5.68%,0.056789350482615505
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,8,3-2,4.64%,0.046378659571058835
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,9,1-2,4.58%,0.04583326399321276
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,10,4-1,4.18%,0.041814293916306346
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,11,0-0,3.74%,0.03739846704757048
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,12,4-0,3.40%,0.034029439863326565
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,13,0-1,2.76%,0.027631879126765947
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,14,4-2,2.57%,0.025690037548980308
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,15,2-3,2.08%,0.020797256153294225
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,16,0-2,2.07%,0.02068589179481421
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,17,1-3,1.88%,0.018772819255455427
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,18,5-1,1.85%,0.018529397627771668
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,19,3-3,1.72%,0.017179119353737723
-2026-11-08,Eredivisie,AZ Alkmaar,Groningen,20,5-0,1.51%,0.01507965251165052
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,1,1-2,8.29%,0.0828804083867388
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,2,1-3,8.09%,0.0809349645385119
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,3,0-2,7.07%,0.07069607566186066
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,4,0-3,6.90%,0.06903663348285521
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,5,1-4,5.93%,0.0592763894298536
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,6,1-1,5.77%,0.05774070720514755
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,7,0-4,5.06%,0.050562107422788244
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,8,2-3,4.74%,0.047441975038346455
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,9,2-2,4.59%,0.04586553929876951
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,10,0-1,4.37%,0.04368442081872942
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,11,2-1,3.67%,0.036721380894718096
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,12,2-4,3.47%,0.03474628059367682
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,13,1-5,3.47%,0.03473100026792711
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,14,0-5,2.96%,0.029625160765331636
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,15,3-2,2.10%,0.021019863073690852
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,16,2-5,2.04%,0.020358410696328415
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,17,0-0,1.99%,0.0198763966533222
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,18,3-3,1.75%,0.017502743313224975
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,19,1-6,1.70%,0.016957881420873233
-2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,20,1-0,1.63%,0.016313942674446302
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,1,1-1,10.23%,0.1023415370189987
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,2,2-1,8.51%,0.08513173828043442
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,3,1-2,7.45%,0.07446458914023932
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,4,2-2,7.26%,0.07260115863783706
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,5,3-1,5.24%,0.052422020334025383
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,6,2-0,5.13%,0.051272638832363715
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,7,1-0,4.81%,0.04805096295943676
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,8,3-2,4.35%,0.04352007051752251
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,9,0-1,4.13%,0.04129546005250473
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,10,1-3,4.12%,0.041213013790671243
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,11,0-2,4.03%,0.040309395895426196
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,12,0-0,3.85%,0.03853016120205122
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,13,2-3,3.81%,0.038066932919497955
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,14,3-0,3.16%,0.03157242374865312
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,15,3-3,2.47%,0.02474288757160789
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,16,4-1,2.42%,0.024210138352119288
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,17,0-3,2.23%,0.022309552877585216
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,18,4-2,2.01%,0.02009893784347975
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,19,1-4,1.71%,0.01710725049302876
-2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,20,2-4,1.58%,0.015801333051323245
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,1,1-1,9.51%,0.09512908133838695
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,2,2-1,9.24%,0.09244769685797044
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,3,2-2,7.23%,0.07229866884203823
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,4,1-2,6.34%,0.06338773075930426
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,5,3-1,5.99%,0.05988472433787801
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,6,2-0,5.47%,0.054670622430629166
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,7,3-2,5.06%,0.05063235606139375
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,8,1-0,4.86%,0.04856344700068414
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,9,1-3,3.57%,0.03572942503801775
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,10,3-0,3.54%,0.0354139179764344
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,11,2-3,3.47%,0.0347166047701506
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,12,0-0,3.39%,0.033904961543267456
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,13,0-2,3.26%,0.032618500419169714
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,14,0-1,3.25%,0.03251005407213919
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,15,4-1,2.91%,0.029093587489798456
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,16,3-3,2.64%,0.026398003541388507
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,17,4-2,2.46%,0.02459854156755369
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,18,0-3,1.84%,0.018385896633603776
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,19,4-0,1.72%,0.017205020685922213
+2026-11-08,Eredivisie,FC Twente Enschede,Ajax,20,1-4,1.51%,0.015104561224885944
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,1,2-1,10.23%,0.10225674009220108
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,2,1-1,8.90%,0.08897907297078818
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,3,2-0,8.27%,0.08271162883214618
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,4,3-1,7.60%,0.0759951923005314
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,5,1-0,6.68%,0.06677049175249426
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,6,3-0,6.15%,0.06146965112443012
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,7,2-2,5.67%,0.056723416858875164
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,8,3-2,4.70%,0.04697659045684302
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,9,1-2,4.54%,0.045352075553030356
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,10,4-1,4.24%,0.042358595978030905
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,11,0-0,3.65%,0.036527086348752125
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,12,4-0,3.43%,0.034262274205364984
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,13,0-1,2.70%,0.02696765417474493
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,14,4-2,2.62%,0.026184056587654974
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,15,2-3,2.08%,0.020834674347153352
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,16,0-2,2.03%,0.020341442057406144
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,17,5-1,1.89%,0.018888043823977636
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,18,1-3,1.87%,0.018689654920952255
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,19,3-3,1.74%,0.017372434134509715
+2026-11-08,Eredivisie,AZ Alkmaar,Groningen,20,5-0,1.53%,0.01527782783536339
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,1,1-2,8.31%,0.08307895798428576
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,2,1-3,8.18%,0.08184885205340942
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,3,0-2,7.02%,0.07023827793125188
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,4,0-3,6.92%,0.06919829711837125
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,5,1-4,6.05%,0.06047771973495424
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,6,1-1,5.59%,0.05588393067105579
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,7,0-4,5.11%,0.05113028606106912
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,8,2-3,4.84%,0.04840606533280095
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,9,2-2,4.52%,0.04518358069261937
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,10,0-1,4.30%,0.04297828491171549
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,11,2-4,3.58%,0.03576700685745386
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,12,1-5,3.57%,0.03574935498866115
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,13,2-1,3.44%,0.03439382606336918
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,14,0-5,3.02%,0.03022393627074035
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,15,2-5,2.11%,0.021142454289492286
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,16,3-2,2.00%,0.020039608486463526
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,17,0-0,1.90%,0.018973490802027128
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,18,1-6,1.76%,0.01761001665442889
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,19,3-3,1.76%,0.017550848911630265
+2026-11-08,Eredivisie,SC Cambuur,PSV Eindhoven,20,1-0,1.50%,0.014968804230001184
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,1,1-1,10.62%,0.106157954574652
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,2,2-1,8.27%,0.08272934817771646
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,3,1-2,8.11%,0.08107847033656858
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,4,2-2,6.96%,0.06963054712953382
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,5,2-0,5.18%,0.051820444600209487
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,6,1-0,5.08%,0.05080147737206676
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,7,3-1,4.90%,0.04898842065005846
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,8,0-1,4.90%,0.04895459414629149
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,9,0-2,4.56%,0.04564050656041874
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,10,1-3,4.31%,0.043146220595230246
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,11,0-0,4.26%,0.042578516625449564
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,12,3-2,3.91%,0.039104065392549126
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,13,2-3,3.83%,0.03832373729281988
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,14,3-0,3.07%,0.030685624802636813
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,15,0-3,2.43%,0.024287771537368424
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,16,3-3,2.19%,0.02194172949300616
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,17,4-1,2.18%,0.021756475277356482
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,18,4-2,1.74%,0.0173666883044557
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,19,1-4,1.72%,0.017220320733030405
+2026-11-08,Eredivisie,FC Utrecht,NEC Nijmegen,20,2-4,1.53%,0.0152955934208456
