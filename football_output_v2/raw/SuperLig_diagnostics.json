@@ -11,7 +11,7 @@
     "2627"
   ],
   "training_sha256": "428b36b889bc8107b0a0c389334f72426054f163962dc5b037f54c55da735d9c",
-  "training_as_of_utc": "2026-11-07T13:53:32.612675+00:00",
+  "training_as_of_utc": "2026-11-08T09:00:28.880683+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -28,7 +28,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "BASELINE_RETAINED_AUDIT_NOT_IMPROVED",
-    "cutoff_date": "2026-11-07",
+    "cutoff_date": "2026-11-08",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -50,30 +50,30 @@
     },
     "bbs_shot_source_enabled": false,
     "shot_matches": 1809,
-    "tune_start_date": "2025-11-08",
-    "audit_start_date": "2026-05-09",
-    "training_shot_matches": 1513,
-    "tuning_matches": 188,
-    "audit_matches": 94,
-    "audit_matchdays": 38,
+    "tune_start_date": "2025-11-09",
+    "audit_start_date": "2026-05-10",
+    "training_shot_matches": 1517,
+    "tuning_matches": 193,
+    "audit_matches": 85,
+    "audit_matchdays": 37,
     "selected_shrinkage": 5.0,
     "selected_component": "shots_on_target",
     "proposed_weight": 0.2,
-    "audit_baseline_poisson_score": 0.8406061330011584,
-    "audit_candidate_poisson_score": 0.832662940340293,
-    "audit_gain": 0.007943192660865406,
-    "audit_gain_lower95": 0.0007010941958230725,
+    "audit_baseline_poisson_score": 0.8612715466290578,
+    "audit_candidate_poisson_score": 0.8509913426733718,
+    "audit_gain": 0.010280203955685963,
+    "audit_gain_lower95": 0.0014239740665108083,
     "audit_baseline_briers": [
-      0.604125448119081,
-      0.17290702296888374,
-      0.21645984578617375,
-      0.24465189323875286
+      0.6219582018170083,
+      0.1819995717434133,
+      0.21029755458536836,
+      0.2434828257916931
     ],
     "audit_candidate_briers": [
-      0.60048662707422,
-      0.17155931610656247,
-      0.21342015723215774,
-      0.2454632457185039
+      0.6159068267897794,
+      0.18043073875674015,
+      0.2069831658198749,
+      0.24482515541950883
     ],
     "audit_brier_order": [
       "1x2",
@@ -82,16 +82,15 @@
       "btts_yes"
     ],
     "failed_gates": [
-      "audit_gain_below_minimum",
       "market_brier_worse"
     ]
   },
   "training_end": "2026-11-02",
   "fit_success": true,
-  "objective": 1667.2172838958386,
-  "base": 0.13097353223537217,
-  "home_adv": 0.2465089433964648,
-  "rho": -0.0965183360054592,
+  "objective": 1665.3012070684474,
+  "base": 0.13094050713499053,
+  "home_adv": 0.24644444849782043,
+  "rho": -0.09645846926781476,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
   "max_goals": 10,
@@ -109,7 +108,7 @@
   },
   "training_data_health": {
     "training_end": "2026-11-02",
-    "days_since_latest_result": 5,
+    "days_since_latest_result": 6,
     "status": "RESULT_DATE_ONLY_NOT_COMPLETENESS_VERIFIED"
   },
   "training_source": "Football-Data.co.uk",
@@ -119,85 +118,15 @@
   ],
   "the_odds_api_enabled": true,
   "odds_regions": "eu",
-  "live_odds_matched": 6,
+  "live_odds_matched": 4,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 55,
+  "additional_event_odds_calls_used_before_this_league": 35,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
-  "over_1_5_in_window_quote_fixtures": 5,
-  "odds_provider_health": {
-    "state": "CREDITS_EXHAUSTED",
-    "attempts": [
-      {
-        "credential": "THE_ODDS_API_KEY",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 3,
-        "x-requests-used": 497,
-        "x-requests-last": 0
-      },
-      {
-        "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 0,
-        "x-requests-used": 500,
-        "x-requests-last": 0
-      },
-      {
-        "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-        "http_status": 401,
-        "error_code": "OUT_OF_USAGE_CREDITS",
-        "x-requests-remaining": 1,
-        "x-requests-used": 499,
-        "x-requests-last": 0
-      }
-    ],
-    "blocked_utc_day": "2026-11-07"
-  },
+  "over_1_5_in_window_quote_fixtures": 3,
   "additional_odds_coverage_mode": "all",
   "additional_odds_coverage": [
-    {
-      "fixture_id": "e300554369b00b495db88afb743c95ab",
-      "event_id": "e300554369b00b495db88afb743c95ab",
-      "home_team": "Galatasaray",
-      "away_team": "Amed SK",
-      "kickoff_utc": "2026-11-07T16:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
-    {
-      "fixture_id": "c7ad58db2278db2259846b11c28ae1c2",
-      "event_id": "c7ad58db2278db2259846b11c28ae1c2",
-      "home_team": "Goztepe",
-      "away_team": "Basaksehir",
-      "kickoff_utc": "2026-11-07T16:00:00+00:00",
-      "status": "RECEIVED_VALID_DC_QUOTES",
-      "home_draw_quote": true,
-      "draw_away_quote": true,
-      "home_away_quote": true,
-      "asian_handicap_quotes": 20,
-      "asian_handicap_bookmakers": [
-        "1xBet",
-        "Pinnacle"
-      ],
-      "asian_handicap_status": "QUOTES_AVAILABLE",
-      "dc_bookmakers": 1,
-      "over_1_5_quote": true,
-      "over_1_5_bookmakers": 1
-    },
     {
       "fixture_id": "cf2febfddf729564889172cf83e8fbab",
       "event_id": "cf2febfddf729564889172cf83e8fbab",
@@ -264,57 +193,34 @@
       "home_team": "Besiktas JK",
       "away_team": "Genclerbirligi SK",
       "kickoff_utc": "2026-11-08T18:00:00+00:00",
-      "status": "REQUEST_FAILED",
-      "home_draw_quote": false,
-      "draw_away_quote": false,
-      "home_away_quote": false,
-      "error_type": "OddsProviderError",
-      "provider_category": "CREDITS_EXHAUSTED",
-      "provider_attempts": [
-        {
-          "credential": "THE_ODDS_API_KEY",
-          "http_status": 401,
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "x-requests-remaining": 3,
-          "x-requests-used": 497,
-          "x-requests-last": 0
-        },
-        {
-          "credential": "THE_ODDS_API_KEY_FALLBACK_1",
-          "http_status": 401,
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "x-requests-remaining": 0,
-          "x-requests-used": 500,
-          "x-requests-last": 0
-        },
-        {
-          "credential": "THE_ODDS_API_KEY_FALLBACK_2",
-          "http_status": 401,
-          "error_code": "OUT_OF_USAGE_CREDITS",
-          "x-requests-remaining": 1,
-          "x-requests-used": 499,
-          "x-requests-last": 0
-        }
+      "status": "RECEIVED_VALID_DC_QUOTES",
+      "home_draw_quote": true,
+      "draw_away_quote": true,
+      "home_away_quote": true,
+      "asian_handicap_quotes": 20,
+      "asian_handicap_bookmakers": [
+        "1xBet",
+        "Pinnacle"
       ],
+      "asian_handicap_status": "QUOTES_AVAILABLE",
+      "dc_bookmakers": 1,
       "over_1_5_quote": false,
       "over_1_5_bookmakers": 0
     }
   ],
-  "additional_odds_in_window_linked_fixtures": 6,
+  "additional_odds_in_window_linked_fixtures": 4,
   "additional_odds_unrequested_linked_fixtures": 0,
   "additional_event_odds_hard_cap_applies": false,
-  "additional_event_odds_calls_this_league": 6,
+  "additional_event_odds_calls_this_league": 4,
   "totals_anchor_fixtures": {
-    "ANCHORED_ALTERNATE": 4,
-    "ANCHORED_MAIN": 1,
-    "NOT_ANCHORED_PINNACLE_NO_2_5_LINE": 1
+    "ANCHORED_ALTERNATE": 4
   },
   "shot_features_applied_fixtures": 0,
   "goal_rate_features_used": {
-    "none": 6
+    "none": 4
   },
   "legacy_comparison_status": {
-    "None": 6
+    "None": 4
   },
   "bbs_statistics_applied_fixtures": 0,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
