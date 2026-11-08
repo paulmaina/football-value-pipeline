@@ -31,6 +31,14 @@ def context(row, now):
         # Legacy cached forecasts stay eligible with an explicit coverage gap.
         evidence = prepare(row, now, {'errors': ['research not collected for this forecast']})
     warnings = list(evidence.get('warnings', []))
+    from research_quality import VERSION as QUALITY_VERSION, assess
+    if evidence.get('evidence_quality_version') == QUALITY_VERSION:
+        # Reassess frozen facts at this selection cutoff; never fetch fresh news in replay.
+        import copy
+        evidence = copy.deepcopy(evidence)
+        review = assess(row, evidence, now)
+        evidence.setdefault('evidence', {})['quality_review'] = review
+        warnings = [w for w in warnings if not w.startswith('Research review:')] + review['warnings']
     if pd.notna(stamp) and now-stamp > pd.Timedelta(hours=24):
         warnings.append('research older than 24 hours; refresh team news')
     warnings.append('research probability model has not passed a forward calibration gate')

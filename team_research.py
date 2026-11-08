@@ -118,20 +118,25 @@ class FreeSources:
         self.source_requests = {}
 
     def get(self, url, xml=False, max_age_minutes=None):
-        if url in self.memo:
+        now = utc(self.clock())
+        def fresh(value):
+            if not isinstance(value, dict):
+                return False
+            stamp = utc(value.get('observed_at_utc'))
+            ttl = pd.Timedelta(hours=TTL_HOURS) if value.get('status') == 'available' else pd.Timedelta(minutes=10)
+            if max_age_minutes is not None:
+                ttl = min(ttl, pd.Timedelta(minutes=max_age_minutes))
+            return value.get('url') == url and pd.notna(stamp) and pd.Timedelta(0) <= now-stamp < ttl
+        # A shared URL may be requested later with a stricter lineup/weather TTL.
+        if url in self.memo and fresh(self.memo[url]):
             return self.memo[url]
         key = hashlib.sha256(url.encode()).hexdigest()
         path = self.cache / (key + '.json')
-        now = utc(self.clock())
         saved = decode(path.read_text(encoding='utf-8')) if path.exists() else {}
-        stamp = utc(saved.get('observed_at_utc'))
-        ttl = pd.Timedelta(hours=TTL_HOURS) if saved.get('status') == 'available' else pd.Timedelta(minutes=10)
-        if max_age_minutes is not None:
-            ttl = min(ttl, pd.Timedelta(minutes=max_age_minutes))
         host = (urlparse(url).hostname or '').removeprefix('www.')
         recent = [t for t in self.source_requests.get(host, []) if now-t < pd.Timedelta(minutes=1)]
         self.source_requests[host] = recent
-        if saved.get('url') == url and pd.notna(stamp) and pd.Timedelta(0) <= now-stamp < ttl:
+        if fresh(saved):
             self.memo[url] = saved
             return saved
         result = {'url': url, 'observed_at_utc': now.isoformat(), 'status': 'unavailable'}
@@ -174,7 +179,11 @@ def competitors(event):
 
 
 def same_fixture(event, row):
-    sides = {r.get('homeAway'): r.get('team', {}) for r in competitors(event)}
+    players = competitors(event)
+    if (not isinstance(players, list) or len(players) != 2
+            or any(not isinstance(r, dict) or not isinstance(r.get('team'), dict) for r in players)):
+        return False
+    sides = {r.get('homeAway'): r['team'] for r in players}
     kick, target = utc(event.get('date')), utc(row.get('kickoff_utc'))
     return (pd.notna(kick) and pd.notna(target) and abs((kick-target).total_seconds()) <= 60
             and all(name(row.get(side + '_team')) in {name(t.get('displayName')), name(t.get('name')),
@@ -254,10 +263,15 @@ def collect_fixture(row, client):
         summary = client.get(ESPN + league + '/summary?' + urlencode({'event': match['id']}),
                              max_age_minutes=5 if kick-utc(client.clock()) <= pd.Timedelta(hours=2) else 180)
         evidence['sources'].append({k: summary.get(k) for k in ('url', 'observed_at_utc', 'status', 'reason')})
-        data = summary.get('data', {})
-        from match_context import compact_squads
-        compact_squads(data, evidence, {str(c.get('team', {}).get('id')): c.get('team', {}).get('displayName')
-                                       for c in competitors(match)})
+        from match_context import compact_squads, verified_summary
+        data = verified_summary(summary.get('data'), row, match['id'])
+        if data is None:
+            evidence['errors'].append('ESPN summary identity unverified; no summary injuries, lineups or venue used')
+            data = {}
+        else:
+            evidence['summary_identity_verified'] = True
+            compact_squads(data, evidence, {str(c.get('team', {}).get('id')): c.get('team', {}).get('displayName')
+                                           for c in competitors(match)})
         venue = data.get('gameInfo', {}).get('venue') or (match.get('competitions') or [{}])[0].get('venue', {})
         evidence['venue'] = venue
         evidence['recent'] = {}
@@ -425,6 +439,11 @@ def enrich(predictions, cache, fetch=False, client=None, clock=None):
         if row.get('training_refresh_warning'):
             context['warnings'].append('training refresh unavailable; using verified local history through '
                 + str(row.get('training_cutoff')) + ': ' + str(row['training_refresh_warning']))
+        from research_quality import assess
+        quality = assess(row, context, clock)
+        context['evidence']['quality_review'] = quality
+        context['evidence_quality_version'] = quality['version']
+        context['warnings'] = list(dict.fromkeys([*context['warnings'], *quality['warnings']]))
         values = context.get('margin_distribution', {})
         for key, predicate in [('home', lambda d: d > 0), ('draw', lambda d: d == 0), ('away', lambda d: d < 0)]:
             row['research_p_' + key] = sum(p for d, p in values.items() if predicate(int(d))) if values else None
