@@ -1,0 +1,468 @@
+{
+  "fixture": {
+    "away_team": "Fenerbahce",
+    "home_team": "\u00c7orum FK",
+    "kickoff_utc": "2026-11-08T13:00:00+00:00",
+    "league": "Super Lig",
+    "odds_event_id": "6692a3ca274d09ffbfabd943320d62f5"
+  },
+  "observed_at_utc": "2026-11-08T12:55:48.527778+00:00",
+  "payload": {
+    "away_team": "Fenerbahce",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-08T12:55:31Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce",
+                "price": 1.96
+              },
+              {
+                "name": "\u00c7orum FK",
+                "price": 3.76
+              },
+              {
+                "name": "Draw",
+                "price": 3.92
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-08T12:55:31Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce",
+                "point": -0.5,
+                "price": 1.96
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 0.5,
+                "price": 1.94
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-08T12:55:31Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.99
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.9
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-08T12:55:31Z",
+            "outcomes": [
+              {
+                "name": "Fenerbahce",
+                "point": -0.5,
+                "price": 1.96
+              },
+              {
+                "name": "Fenerbahce",
+                "point": 0.5,
+                "price": 1.3
+              },
+              {
+                "name": "Fenerbahce",
+                "point": 0.25,
+                "price": 1.37
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -0.0,
+                "price": 1.47
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -0.25,
+                "price": 1.71
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -0.75,
+                "price": 2.23
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -1.0,
+                "price": 2.72
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -1.25,
+                "price": 3.08
+              },
+              {
+                "name": "Fenerbahce",
+                "point": -1.5,
+                "price": 3.45
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 0.5,
+                "price": 1.94
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": -0.5,
+                "price": 3.71
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": -0.25,
+                "price": 3.27
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 0.0,
+                "price": 2.84
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 0.25,
+                "price": 2.24
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 0.75,
+                "price": 1.72
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 1.0,
+                "price": 1.51
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 1.25,
+                "price": 1.4
+              },
+              {
+                "name": "\u00c7orum FK",
+                "point": 1.5,
+                "price": 1.34
+              }
+            ]
+          },
+          {
+            "key": "alternate_totals",
+            "last_update": "2026-11-08T12:55:31Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.0,
+                "price": 1.99
+              },
+              {
+                "name": "Over",
+                "point": 4.5,
+                "price": 4.5
+              },
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.51
+              },
+              {
+                "name": "Over",
+                "point": 3.25,
+                "price": 2.25
+              },
+              {
+                "name": "Over",
+                "point": 2.75,
+                "price": 1.76
+              },
+              {
+                "name": "Over",
+                "point": 2.5,
+                "price": 1.61
+              },
+              {
+                "name": "Over",
+                "point": 1.5,
+                "price": 1.19
+              },
+              {
+                "name": "Under",
+                "point": 3.0,
+                "price": 1.9
+              },
+              {
+                "name": "Under",
+                "point": 4.5,
+                "price": 1.22
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.57
+              },
+              {
+                "name": "Under",
+                "point": 3.25,
+                "price": 1.69
+              },
+              {
+                "name": "Under",
+                "point": 2.75,
+                "price": 2.15
+              },
+              {
+                "name": "Under",
+                "point": 2.5,
+                "price": 2.41
+              },
+              {
+                "name": "Under",
+                "point": 1.5,
+                "price": 5.02
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-08T13:00:00Z",
+    "home_team": "\u00c7orum FK",
+    "id": "6692a3ca274d09ffbfabd943320d62f5",
+    "sport_key": "soccer_turkey_super_league",
+    "sport_title": "Turkey Super League"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.76,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.25544212139983513,
+      "selection": "home",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.92,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.24470510890530944,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.96,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.49985276969485554,
+      "selection": "away",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.96,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.50",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.94,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.50",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.45,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.50",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.08,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.25",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.72,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -1.00",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.23,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.75",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.71,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.47,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.37,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.3,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.71,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.27,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.84,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.24,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.72,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.75",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.51,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.00",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.25",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.34,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +1.50",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.19,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.8274318941199817,
+      "selection": "over_1_5",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 5.02,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.17256810588001817,
+      "selection": "under_1_5",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.61,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6048784087668214,
+      "selection": "over_2_5",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.41,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.3951215912331785,
+      "selection": "under_2_5",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.51,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.378699575266092,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.57,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.6213004247339081,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-08T12:55:31+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
