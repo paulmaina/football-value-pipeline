@@ -1,21 +1,21 @@
 {
-  "generated_at_utc": "2026-11-07T13:54:13.645217+00:00",
+  "generated_at_utc": "2026-11-08T09:01:04.075316+00:00",
   "selection_policy_version": "48h-ah-price-edge-cagey-v28",
   "selection_objective": "TEAM_RESEARCH_PROFIT_PROBABILITY",
   "status": "QUALIFIED",
-  "n_fixtures": 63,
-  "n_markets_evaluated": 2263,
-  "n_shortlisted": 178,
-  "n_strict_qualified": 178,
+  "n_fixtures": 39,
+  "n_markets_evaluated": 1515,
+  "n_shortlisted": 93,
+  "n_strict_qualified": 93,
   "n_provisional_watchlist": 0,
-  "n_total_candidates": 178,
+  "n_total_candidates": 93,
   "target_distinct_matches": null,
   "shortfall": null,
-  "usable_distinct_fixtures": 63,
+  "usable_distinct_fixtures": 39,
   "shortlist_lookahead_hours": 48.0,
   "selected_matches_within_48_hours": true,
-  "shortlist_window_start_utc": "2026-11-07T13:54:13.645217+00:00",
-  "shortlist_window_end_utc": "2026-11-09T13:54:13.645217+00:00",
+  "shortlist_window_start_utc": "2026-11-08T09:01:04.075316+00:00",
+  "shortlist_window_end_utc": "2026-11-10T09:01:04.075316+00:00",
   "eligible_markets": [
     "Home win",
     "Away win",
@@ -71,7 +71,6 @@
     "Asian Handicap Away +2.50",
     "Asian Handicap Away +2.75",
     "Asian Handicap Away +3.00",
-    "Over 1.5",
     "Double Chance 12"
   ],
   "quote_execution_policy": {
@@ -111,25 +110,25 @@
     "use": "tracking only; never changes a decision"
   },
   "tagged_candidates": {
-    "balanced": 750,
-    "low_total": 137,
-    "high_draw": 308,
-    "even_odds": 198
+    "balanced": 427,
+    "low_total": 78,
+    "high_draw": 362,
+    "even_odds": 87
   },
-  "tagged_fixtures": 23,
+  "tagged_fixtures": 14,
   "rejection_counts": {
-    "offered odds above 2.00": 938,
-    "no offered quote at an allowed bookmaker": 167,
-    "offered quote stale or unavailable": 167,
-    "offered odds must be greater than 1.15": 138,
-    "kickoff outside 20-minute to 48-hour window": 26
+    "offered odds above 2.00": 638,
+    "offered odds must be greater than 1.15": 104,
+    "no offered quote at an allowed bookmaker": 97,
+    "offered quote stale or unavailable": 97,
+    "market excluded by shortlist configuration": 45
   },
   "reference_type_counts": {
-    "a": 110,
-    "b": 10,
-    "c-cagey": 5
+    "a": 57,
+    "c-cagey": 5,
+    "b": 3
   },
-  "selection_method": "Highest positive-return probability per fixture and market group; expected return then odds break ties; no cap",
+  "selection_method": "Highest positive-return probability per fixture and market group; expected return then odds break ties; no cap; configured excluded markets are rejected before selection",
   "ranking_metric": "probability of positive net return descending",
   "ev_required_for_selection": false,
   "model_ev_required": false,
@@ -142,15 +141,13 @@
   "value_market_groups": [
     "asian_handicap",
     "match_winner",
-    "double_chance",
-    "over_1_5"
+    "double_chance"
   ],
   "min_edge_by_market_group": {},
   "value_market_group_counts": {
-    "asian_handicap": 61,
-    "match_winner": 38,
-    "double_chance": 47,
-    "over_1_5": 32
+    "asian_handicap": 39,
+    "match_winner": 23,
+    "double_chance": 31
   },
   "cagey_correction_enabled": true,
   "cagey_tier_enabled": true,
@@ -160,19 +157,21 @@
     "enabled": true,
     "rule_version": "no-loss-market-reference-v5",
     "min_p_narrow": null,
-    "n_shortlisted": 171,
-    "value_picks": 8,
-    "below_fair_picks": 163,
+    "n_shortlisted": 93,
+    "value_picks": 7,
+    "below_fair_picks": 86,
     "probability_basis": "market_specific_pinnacle_v1",
     "selection_objective": "NO_LOSS_PROBABILITY",
-    "rule": "No narrow gate; per-market-source no-loss then expected return then odds; Over 1.5 uses uncorrected Pinnacle grid; binary price guard uses independent Pinnacle prices; narrow support is informational",
+    "rule": "No narrow gate; per-market-source no-loss then expected return then odds; Over 1.5 uses uncorrected Pinnacle grid; binary price guard uses independent Pinnacle prices; narrow support is informational; configured excluded markets are rejected before selection",
     "narrow_general_gate": false,
     "narrow_supplement_threshold": 0.67,
     "narrow_supplement_version": "corrected-narrow-support-v1",
     "probability_basis_by_market": {
-      "Over 1.5": "pinnacle_uncorrected_matrix_v1",
       "other_markets": "pinnacle_cagey_corrected_matrix_v1"
-    }
+    },
+    "excluded_markets": [
+      "Over 1.5"
+    ]
   },
   "correction_rule": "Derived plus lines (>= +1.0) are priced from the cagey-corrected matrix (c-cagey, 3% threshold); Pinnacle-quoted lines keep Pinnacle as the fair price; minus lines are never corrected.",
   "price_edge_execution_version": 2,
@@ -183,16 +182,19 @@
   "min_offered_odds_exclusive": 1.15,
   "asian_handicap_selection": "Highest positive-net-return probability among available quoted AH lines within (1.15, 2.00]; one per fixture/group",
   "training_rule": "Verified local competition history plus pre-cutoff free-source research; refresh failure retains valid cache with a warning",
+  "excluded_markets": [
+    "Over 1.5"
+  ],
   "shortlist_schema_version": "comparable-shortlist-v1",
   "master_shortlist": {
-    "version": "master-profit-no-dc-v6",
-    "size": 10,
-    "target_size": 10,
-    "n_bets": 10,
+    "version": "master-profit-15-context-v8",
+    "size": 15,
+    "target_size": 15,
+    "n_bets": 15,
     "shortfall": 0,
     "value_bets": 0,
-    "below_threshold_bets": 10,
-    "negative_ev_bets": 10,
+    "below_threshold_bets": 15,
+    "negative_ev_bets": 15,
     "min_edge_for_value": null,
     "min_net_expected_return": null,
     "value_label_threshold": 0.02,
@@ -200,14 +202,21 @@
     "probability_basis": "Independent margin-free Pinnacle binary reference or uncorrected fit B; valid research/corrected distributions are diagnostics only; no blend or missing-evidence ranking bonus",
     "validation_status": "UNVALIDATED_SELECTION_RULE",
     "automatic_staking": false,
-    "rule": "Union of value and cagey SHORTLISTED offers only; odds (1.15,2.00]; kickoff 20 minutes\u201348 hours; fresh synchronized market references; no EV or probability eligibility floor; nominate ten when ten executable distinct fixtures exist, otherwise explicit shortfall; one market per match; market profit probability then market net EV then no-loss probability then odds; negative EV flagged; no automatic stakes; no DC offers; equivalent 1X/X2 nominations require an actual Pinnacle AH +0.5 quote; DC 12 has no single AH equivalent; original market/book/price retained in audit",
+    "rule": "Union of value and cagey SHORTLISTED offers only; odds (1.15,2.00]; kickoff 20 minutes\u201348 hours; fresh synchronized market references; no EV or probability eligibility floor; nominate fifteen when fifteen executable distinct fixtures exist, otherwise explicit shortfall; one market per match; market profit probability then market net EV then no-loss probability then odds; negative EV flagged; no automatic stakes; no DC offers; equivalent 1X/X2 nominations require an actual Pinnacle AH +0.5 quote; DC 12 has no single AH equivalent; original market/book/price retained in audit; Over 1.5 excluded before ranking; other eligible matches fill the target when available; fifteen-match target, one selection per fixture; frozen training/research/weather review accompanies every pick",
     "excluded_markets": [
       "Double Chance 1X",
       "Double Chance X2",
-      "Double Chance 12"
+      "Double Chance 12",
+      "Over 1.5"
     ],
     "dc_replacement": "1X -> actual Pinnacle home +0.5; X2 -> actual Pinnacle away +0.5; 12 excluded",
-    "converted_bets": 0
+    "converted_bets": 0,
+    "context_review_version": "master-context-review-v1",
+    "context_influence": "Local training and researched form/xG inform source forecasts/nominations; master probabilities/ranking remain Pinnacle-referenced. Weather, team news, rest/travel, H2H, tactics and motivation are review context, with no unvalidated numerical adjustment.",
+    "context_status_counts": {
+      "PARTIAL": 15
+    },
+    "context_missing_policy": "Remain eligible with explicit warnings; no missing-evidence ranking bonus"
   },
   "correction_monitoring_version": "cagey-correction-monitoring-v1",
   "staking_settings": {
@@ -230,13 +239,6 @@
       "SuperLig"
     ],
     "excluded_leagues": {},
-    "training_warnings": {
-      "UEL": {
-        "status": "LIVE_REFRESH_FAILED_USING_VERIFIED_CACHE",
-        "verified_at_utc": "2026-11-05T15:54:25.582981+00:00",
-        "reason": "ValueError: Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {\"declared_rows\": 152, \"eligibility\": \"CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout semantics unverified"
-      }
-    },
     "forecast_leagues": [
       "EPL",
       "LaLiga",

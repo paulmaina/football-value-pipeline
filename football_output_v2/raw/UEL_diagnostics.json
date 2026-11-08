@@ -1,6 +1,6 @@
 {
   "league": "UEFA Europa League",
-  "training_matches": 715,
+  "training_matches": 732,
   "training_seasons_requested": 5,
   "training_seasons_loaded": [
     "2022",
@@ -9,8 +9,8 @@
     "2025",
     "2026"
   ],
-  "training_sha256": "f8b024bf6ab7032e18682f611b3a23123c4ab1981b3b3d264c1209a7de3a7885",
-  "training_as_of_utc": "2026-11-07T13:53:20.482054+00:00",
+  "training_sha256": "7423d6cb39c84355e5fbdd4ed6b7bfedf9856d0b77390f595fb8f318aaee7986",
+  "training_as_of_utc": "2026-11-08T09:00:16.415397+00:00",
   "training_data_provenance": {
     "bbs_confirmed_rows": 0,
     "bbs_added_results": 0,
@@ -27,7 +27,7 @@
   "shot_features_model": {
     "version": "football-data-lagged-shot-strength-v1",
     "status": "NO_SHOT_DATA",
-    "cutoff_date": "2026-11-07",
+    "cutoff_date": "2026-11-08",
     "selected_weight": 0.0,
     "feature_source": "football-data.co.uk HST/AST (+HS/AS candidate)",
     "lag_rule": "matches dated strictly before the origin date",
@@ -50,11 +50,11 @@
     "bbs_shot_source_enabled": false,
     "shot_matches": 0
   },
-  "training_end": "2026-11-04",
+  "training_end": "2026-11-05",
   "fit_success": true,
-  "objective": 792.4460695683582,
-  "base": 0.10327195755824611,
-  "home_adv": 0.26679138841231925,
+  "objective": 838.3283360768636,
+  "base": 0.12732015545562272,
+  "home_adv": 0.23248584735262662,
   "rho": 0.05,
   "half_life_days": 480.0,
   "xi_per_day": 0.0014440566261665526,
@@ -64,16 +64,16 @@
   "elo_ratings": {
     "version": "venue-elo-v1",
     "teams": 108,
-    "matches": 715,
+    "matches": 732,
     "k_factor": 20.0,
     "home_advantage": 60.0,
     "venue_weight": 0.5,
     "season_regression": 0.2,
-    "last_match_date": "2026-11-04"
+    "last_match_date": "2026-11-05"
   },
   "training_data_health": {
-    "training_end": "2026-11-04",
-    "verified_at_utc": "2026-11-05T15:54:25.582981+00:00",
+    "training_end": "2026-11-05",
+    "verified_at_utc": "2026-11-08T05:57:53.463097+00:00",
     "official_source_health": {
       "2025": {
         "status": "REVIEWED_HISTORICAL_FACTS",
@@ -81,8 +81,8 @@
         "original_source_sha256": "d6f3819c7189cf41ed644ab2c1aa144448031564a9334a678413508ec72c083b"
       }
     },
-    "status": "LIVE_REFRESH_FAILED_USING_VERIFIED_CACHE",
-    "refresh_warning": "ValueError: Current Europa sources disagree or coverage is incomplete; prior snapshot retained; {\"declared_rows\": 152, \"eligibility\": \"CORROBORATED_LEAGUE_PHASE_ONLY; refresh SLA and knockout semantics unverified"
+    "status": "VERIFIED_WITHIN_24_HOURS",
+    "refresh_warning": null
   },
   "training_source": "verified .football_cache/europa/training.json",
   "fixture_provider_mode": "auto",
@@ -92,7 +92,7 @@
   "live_odds_matched": 0,
   "excluded_started_fixtures": [],
   "excluded_unresolved_team_fixtures": [],
-  "additional_event_odds_calls_used_before_this_league": 39,
+  "additional_event_odds_calls_used_before_this_league": 24,
   "additional_event_odds_calls_budget": null,
   "additional_event_odds_league_quota": null,
   "goal_market_validation": "SKIPPED: not required by 48h-ah-price-edge-cagey-v28"
