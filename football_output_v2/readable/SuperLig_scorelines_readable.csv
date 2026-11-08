@@ -1,81 +1,61 @@
 ﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,1,1-1,12.49%,0.12487646217824254
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,2,2-1,9.83%,0.09834967585333838
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,3,1-0,8.55%,0.08548252651691887
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,4,2-0,8.48%,0.08482137965071444
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,5,0-0,6.67%,0.06671366382788636
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,6,1-2,5.94%,0.05940937931464284
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,7,2-2,5.82%,0.05818939428382232
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,8,3-1,5.78%,0.05778292274160363
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,9,3-0,4.98%,0.04983470646616366
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,10,0-1,4.83%,0.048254701255633
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,11,0-2,3.37%,0.03370599778745283
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,12,3-2,3.35%,0.03349940631063141
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,13,4-1,2.55%,0.025461696733559688
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,14,1-3,2.30%,0.02296155844318013
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,15,4-0,2.20%,0.02195936312397427
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,16,2-3,2.02%,0.020235744745020295
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,17,4-2,1.48%,0.014761311539221753
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,18,3-3,1.32%,0.013213466102251718
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,19,0-3,1.30%,0.013027273588962447
-2026-11-08,Super Lig,Çaykur Rizespor,Erzurum BB,20,5-1,0.90%,0.008975634596413247
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,1,1-2,11.27%,0.11267944757051158
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,2,1-1,10.24%,0.102385612417409
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,3,0-1,8.16%,0.08157657541636151
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,4,0-2,8.02%,0.08018465902304112
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,5,1-3,6.38%,0.06382929459156078
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,6,2-1,5.79%,0.05791660772806929
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,7,2-2,5.57%,0.05574895966137164
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,8,0-0,4.81%,0.04810894258562926
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,9,0-3,4.54%,0.04542203864908694
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,10,2-3,4.48%,0.04484804039215166
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,11,1-0,4.06%,0.040553650290054026
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,12,2-0,3.41%,0.03408054460320748
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,13,3-1,2.71%,0.027129093617444602
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,14,1-4,2.71%,0.02711793678372497
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,15,3-2,2.31%,0.023051642679907936
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,16,0-4,1.93%,0.019297596512005143
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,17,2-4,1.91%,0.019053732804202275
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,18,3-0,1.60%,0.015963888793607935
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,19,3-3,1.48%,0.014792591719970672
-2026-11-08,Super Lig,Çorum FK,Fenerbahce,20,4-1,0.95%,0.00953078593569859
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,1,1-2,11.32%,0.11317194087574198
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,2,1-1,11.21%,0.11212008385481281
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,3,0-1,9.75%,0.09752280982810047
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,4,0-2,9.25%,0.09246877726648087
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,5,1-3,6.31%,0.06309253339087027
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,6,0-0,5.98%,0.05981945075352073
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,7,2-2,5.23%,0.05232814531227694
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,8,2-1,5.19%,0.05189517803400723
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,9,0-3,5.16%,0.05155067035303366
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,10,1-0,4.25%,0.04252523839204071
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,11,2-3,3.86%,0.038609272609040145
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,12,2-0,3.10%,0.031028912110280582
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,13,1-4,2.64%,0.02638022114100273
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,14,0-4,2.16%,0.021554342658187602
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,15,3-1,2.12%,0.021171391374176892
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,16,3-2,1.77%,0.017704344913635123
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,17,2-4,1.61%,0.016143291365553602
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,18,3-0,1.27%,0.012658695221571453
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,19,3-3,1.19%,0.011901369496439804
-2026-11-08,Super Lig,Alanyaspor,Trabzonspor,20,1-5,0.88%,0.00882406877703737
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,1,2-1,10.00%,0.09999248814265557
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,2,2-0,8.98%,0.08978545989186096
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,3,3-1,8.82%,0.08823815857151925
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,4,3-0,7.92%,0.07923098819235368
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,5,1-1,6.36%,0.06359027305425613
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,6,1-0,6.05%,0.06054396330476266
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,7,4-1,5.84%,0.05839918157390445
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,8,4-0,5.24%,0.05243791281041775
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,9,3-2,4.91%,0.04913464293282648
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,10,2-2,4.27%,0.0427474478872458
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,11,4-2,3.25%,0.03251907089467824
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,12,5-1,3.09%,0.0309205401718586
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,13,5-0,2.78%,0.027764234804062107
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,14,1-2,2.55%,0.025498127158657655
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,15,0-0,2.53%,0.025265228795013667
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,16,5-2,1.72%,0.017217830984119904
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,17,3-3,1.40%,0.014003589184505503
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,18,6-1,1.36%,0.013642882467876104
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,19,0-1,1.29%,0.012879936169401026
-2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,20,2-3,1.25%,0.012529354921232349
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,1,1-2,10.69%,0.10687921556469765
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,2,1-1,10.61%,0.10614332830110117
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,3,0-1,7.77%,0.07771206943674522
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,4,0-2,7.62%,0.07621126685383592
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,5,2-1,6.29%,0.06286404856315292
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,6,1-3,6.04%,0.060422761460355794
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,7,2-2,5.76%,0.057562173771716574
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,8,0-0,5.00%,0.050038817858569146
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,9,1-0,4.42%,0.044211294944988974
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,10,0-3,4.31%,0.04308503925081062
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,11,2-3,4.24%,0.04236865239047411
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,12,2-0,3.71%,0.03706583432723543
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,13,3-1,2.94%,0.029386994316456343
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,14,1-4,2.56%,0.02561941124290697
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,15,3-2,2.49%,0.024920327187635684
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,16,0-4,1.83%,0.01826817100551641
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,17,2-4,1.80%,0.017964421075185637
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,18,3-0,1.73%,0.017327128742192312
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,19,3-3,1.52%,0.015212385423354319
+2026-11-08,Super Lig,Çorum FK,Fenerbahce,20,4-1,1.03%,0.01030313177437029
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,1,1-2,11.40%,0.11395133014550254
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,2,1-1,11.23%,0.11234184964994742
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,3,0-1,9.98%,0.09981639223222746
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,4,0-2,9.38%,0.09381722486732821
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,5,1-3,6.30%,0.06303505304460849
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,6,0-0,6.07%,0.0607147250699787
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,7,0-3,5.19%,0.05189736476492902
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,8,2-2,5.16%,0.0516302474304241
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,9,2-1,5.11%,0.05110775823554811
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,10,1-0,4.26%,0.042591547928251115
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,11,2-3,3.83%,0.03828149974795778
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,12,2-0,3.08%,0.03079660575296151
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,13,1-4,2.62%,0.02615207238430004
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,14,0-4,2.15%,0.0215312524434043
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,15,3-1,2.07%,0.020691996378885292
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,16,3-2,1.72%,0.017169449724848528
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,17,2-4,1.59%,0.015882283016081085
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,18,3-0,1.25%,0.012468620748053109
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,19,3-3,1.16%,0.011563318605531206
+2026-11-08,Super Lig,Alanyaspor,Trabzonspor,20,1-5,0.87%,0.008680007163755908
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,1,2-1,10.06%,0.10060248663569483
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,2,2-0,9.04%,0.09041783352273945
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,3,3-1,8.87%,0.0887104460972807
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,4,3-0,7.97%,0.07972970266627524
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,5,1-1,6.26%,0.06257930515681247
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,6,1-0,6.10%,0.06102147473898355
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,7,4-1,5.87%,0.05866810684766674
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,8,4-0,5.27%,0.05272874752346805
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,9,3-2,4.94%,0.04935138965535911
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,10,2-2,4.20%,0.04199663551085092
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,11,4-2,3.26%,0.03263823742027374
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,12,5-1,3.10%,0.031039832736855098
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,13,5-0,2.79%,0.027897465786684113
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,14,1-2,2.50%,0.02503274773066949
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,15,0-0,2.49%,0.024896632942726354
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,16,5-2,1.73%,0.017268077747617874
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,17,3-3,1.37%,0.013734533427027743
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,18,6-1,1.37%,0.013685334731549276
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,19,0-1,1.27%,0.012668673179460676
+2026-11-08,Super Lig,Besiktas JK,Genclerbirligi SK,20,6-0,1.23%,0.012299878053125025
