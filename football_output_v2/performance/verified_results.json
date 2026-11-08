@@ -3906,6 +3906,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "PD:564738": {
+    "away_goals": 2,
+    "away_short_name": "Real Betis",
+    "away_team": "Real Betis Balompié",
+    "first_verified_at_utc": "2026-11-08T15:27:31Z",
+    "home_goals": 0,
+    "home_short_name": "Elche",
+    "home_team": "Elche CF",
+    "kickoff_utc": "2026-11-08T13:00:00Z",
+    "league_code": "PD",
+    "match_id": 564738,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "PD:564739": {
     "away_goals": 1,
     "away_short_name": "Athletic",
