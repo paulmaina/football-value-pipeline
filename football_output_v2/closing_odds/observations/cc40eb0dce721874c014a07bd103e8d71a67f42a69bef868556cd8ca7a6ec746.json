@@ -1,0 +1,360 @@
+{
+  "fixture": {
+    "away_team": "Ajax",
+    "home_team": "FC Twente Enschede",
+    "kickoff_utc": "2026-11-08T13:30:00+00:00",
+    "league": "Eredivisie",
+    "odds_event_id": "b71f32fbba046e08d4cc26e2a8e1d5a6"
+  },
+  "observed_at_utc": "2026-11-08T13:29:17.941007+00:00",
+  "payload": {
+    "away_team": "Ajax",
+    "bookmakers": [
+      {
+        "key": "pinnacle",
+        "markets": [
+          {
+            "key": "h2h",
+            "last_update": "2026-11-08T13:29:02Z",
+            "outcomes": [
+              {
+                "name": "Ajax",
+                "price": 4.03
+              },
+              {
+                "name": "FC Twente Enschede",
+                "price": 1.8
+              },
+              {
+                "name": "Draw",
+                "price": 4.36
+              }
+            ]
+          },
+          {
+            "key": "spreads",
+            "last_update": "2026-11-08T13:29:02Z",
+            "outcomes": [
+              {
+                "name": "Ajax",
+                "point": 0.75,
+                "price": 1.9
+              },
+              {
+                "name": "FC Twente Enschede",
+                "point": -0.75,
+                "price": 2.01
+              }
+            ]
+          },
+          {
+            "key": "totals",
+            "last_update": "2026-11-08T13:29:02Z",
+            "outcomes": [
+              {
+                "name": "Over",
+                "point": 3.5,
+                "price": 2.02
+              },
+              {
+                "name": "Under",
+                "point": 3.5,
+                "price": 1.87
+              }
+            ]
+          },
+          {
+            "key": "alternate_spreads",
+            "last_update": "2026-11-08T13:29:02Z",
+            "outcomes": [
+              {
+                "name": "Ajax",
+                "point": 0.75,
+                "price": 1.9
+              },
+              {
+                "name": "Ajax",
+                "point": 1.75,
+                "price": 1.33
+              },
+              {
+                "name": "Ajax",
+                "point": 1.5,
+                "price": 1.44
+              },
+              {
+                "name": "Ajax",
+                "point": 1.25,
+                "price": 1.53
+              },
+              {
+                "name": "Ajax",
+                "point": 1.0,
+                "price": 1.67
+              },
+              {
+                "name": "Ajax",
+                "point": 0.5,
+                "price": 2.12
+              },
+              {
+                "name": "Ajax",
+                "point": 0.25,
+                "price": 2.47
+              },
+              {
+                "name": "Ajax",
+                "point": -0.0,
+                "price": 3.13
+              },
+              {
+                "name": "Ajax",
+                "point": -0.25,
+                "price": 3.56
+              },
+              {
+                "name": "FC Twente Enschede",
+                "point": -0.75,
+                "price": 2.01
+              },
+              {
+                "name": "FC Twente Enschede",
+                "point": -1.75,
+                "price": 3.55
+              },
+              {
+                "name": "FC Twente Enschede",
+                "point": -1.5,
+                "price": 2.92
+              },
+              {
+                "name": "FC Twente Enschede",
+                "point": -1.25,
+                "price": 2.63
+              },
+              {
+                "name": "FC Twente Enschede",
+                "point": -1.0,
+                "price": 2.33
+              },
+              {
+                "name": "FC Twente Enschede",
+                "point": -0.5,
+                "price": 1.79
+              },
+              {
+                "name": "FC Twente Enschede",
+                "point": -0.25,
+                "price": 1.6
+              },
+              {
+                "name": "FC Twente Enschede",
+                "point": 0.0,
+                "price": 1.4
+              },
+              {
+                "name": "FC Twente Enschede",
+                "point": 0.25,
+                "price": 1.32
+              }
+            ]
+          }
+        ],
+        "title": "Pinnacle"
+      }
+    ],
+    "commence_time": "2026-11-08T13:30:00Z",
+    "home_team": "FC Twente Enschede",
+    "id": "b71f32fbba046e08d4cc26e2a8e1d5a6",
+    "sport_key": "soccer_netherlands_eredivisie",
+    "sport_title": "Dutch Eredivisie"
+  },
+  "provenance": "local_clock_live_feed; content hash is not independent proof of capture time; last observed near kickoff, not guaranteed official closing price",
+  "quotes": [
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.8,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.5447689387145309,
+      "selection": "home",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.36,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2183645213906329,
+      "selection": "draw",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 4.03,
+      "devig_method": "power_complete_1x2",
+      "fair_probability": 0.2368665398948361,
+      "selection": "away",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.9,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.75",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.01,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.75",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.02,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.47986651461175195,
+      "selection": "over_3_5",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.87,
+      "devig_method": "power_complete_binary",
+      "fair_probability": 0.520133485388248,
+      "selection": "under_3_5",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.56,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away -0.25",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.13,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.00",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.47,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.25",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.12,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +0.50",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.67,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.00",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.53,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.25",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.44,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.50",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.33,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Away +1.75",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 3.55,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.75",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.92,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.50",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.63,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.25",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 2.33,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -1.00",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.79,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.50",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.6,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home -0.25",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.4,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.00",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    },
+    {
+      "bookmaker": "pinnacle",
+      "decimal_odds": 1.32,
+      "devig_method": "split_settlement_fair_probability_unavailable",
+      "fair_probability": null,
+      "selection": "Asian Handicap Home +0.25",
+      "updated_at_utc": "2026-11-08T13:29:02+00:00"
+    }
+  ],
+  "version": "local-closing-quotes-v4"
+}
