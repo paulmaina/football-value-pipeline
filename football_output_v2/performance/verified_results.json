@@ -1440,6 +1440,21 @@
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
   },
+  "DED:558840": {
+    "away_goals": 3,
+    "away_short_name": "Feyenoord",
+    "away_team": "Feyenoord Rotterdam",
+    "first_verified_at_utc": "2026-11-08T14:27:57Z",
+    "home_goals": 5,
+    "home_short_name": "Heerenveen",
+    "home_team": "SC Heerenveen",
+    "kickoff_utc": "2026-11-08T11:15:00Z",
+    "league_code": "DED",
+    "match_id": 558840,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
   "DED:558841": {
     "away_goals": 1,
     "away_short_name": "Sparta",
@@ -4982,6 +4997,21 @@
     "kickoff_utc": "2026-11-07T14:00:00Z",
     "league_code": "SA",
     "match_id": 558532,
+    "source": "football-data.org/v4",
+    "source_duration": "REGULAR",
+    "source_status": "FINISHED"
+  },
+  "SA:558533": {
+    "away_goals": 1,
+    "away_short_name": "Lazio",
+    "away_team": "SS Lazio",
+    "first_verified_at_utc": "2026-11-08T14:27:57Z",
+    "home_goals": 1,
+    "home_short_name": "Napoli",
+    "home_team": "SSC Napoli",
+    "kickoff_utc": "2026-11-08T11:30:00Z",
+    "league_code": "SA",
+    "match_id": 558533,
     "source": "football-data.org/v4",
     "source_duration": "REGULAR",
     "source_status": "FINISHED"
