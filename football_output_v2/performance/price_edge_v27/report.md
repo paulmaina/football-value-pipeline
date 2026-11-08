@@ -5,11 +5,11 @@
 Every captured generation is graded at its own offered odds; re-uploads deduplicate. Repeated fixtures and overlapping lists are correlated recommendations, not independent bets. Unit returns are hypothetical, not actual betting ROI. Latest-view reports remain separate.
 
 Latest-view tables below are simulated recommendations, not executed-bet ROI.
-value: 942 captured recommendations; 575 graded; 97 distinct fixtures.
-cagey: 714 captured recommendations; 378 graded; 80 distinct fixtures.
+value: 1035 captured recommendations; 575 graded; 98 distinct fixtures.
+cagey: 807 captured recommendations; 378 graded; 81 distinct fixtures.
 Actual placed bets: NOT_RECORDED
 
-Reviewed 2026-11-08T08:47:22.012373+00:00. Frozen v27 picks: 308.
+Reviewed 2026-11-08T09:03:48.257066+00:00. Frozen v27 picks: 311.
 
 **Mean CLV vs Pinnacle close:** -2.70% ± 1.62% (n=29). **Flat-stake profit per bet:** -1.58% ± 10.42% (n=169).
 STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
@@ -87,8 +87,8 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 
 | group | mean CLV (n) |
 |---|---|
-| Q1 cagiest | -4.73% ± 1.51% (n=14) |
-| Q2 | -2.86% ± 2.38% (n=5) |
+| Q1 cagiest | -4.48% ± 1.49% (n=12) |
+| Q2 | -3.82% ± 2.58% (n=7) |
 | Q3 | -4.62% ± 5.74% (n=3) |
 | Q4 | +1.85% ± 4.82% (n=5) |
 | Q5 most open | +3.82% (n=1) |
@@ -106,7 +106,7 @@ STOP REVIEW rule: >= 100 graded picks with mean CLV < 0.
 
 ## Master shortlist (10 best bets per run)
 
-Frozen picks: 48; CLV -0.62% ± 4.20% (n=7); realised profit per bet -9.75% ± 26.08% (n=36).
+Frozen picks: 57; CLV -0.62% ± 4.20% (n=7); realised profit per bet -9.75% ± 26.08% (n=36).
 
 | price flag | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
@@ -116,7 +116,7 @@ Frozen picks: 48; CLV -0.62% ± 4.20% (n=7); realised profit per bet -9.75% ± 2
 
 ## Both tiers (value and cagey)
 
-Cagey-tier picks frozen: 222; CLV -2.94% ± 1.30% (n=19); realised profit per bet -1.10% ± 11.22% (n=87). Correction-only value picks: CLV n/a (0).
+Cagey-tier picks frozen: 202; CLV -2.94% ± 1.30% (n=19); realised profit per bet -1.10% ± 11.22% (n=87). Correction-only value picks: CLV n/a (0).
 Flags: >= 50 graded correction-only value picks with mean CLV < 0; recommends cagey_correction_enabled = false; >= 50 graded value-priced cagey-tier picks made under the active rule (no-loss-market-reference-v5) with realised ROI 95% interval entirely below 0; recommends cagey_tier_enabled = false.
 
 ### Cagey-tier realised profit per bet by rule
@@ -162,10 +162,10 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 | group | mean CLV (n) | realised profit per bet (n) |
 |---|---|---|
 | Q1 cagiest | -4.34% ± 1.12% (n=15) | -3.98% ± 18.45% (n=54) |
-| Q2 | -3.54% ± 1.71% (n=17) | +7.52% ± 22.68% (n=31) |
-| Q3 | -2.43% ± 1.64% (n=12) | +6.20% ± 16.08% (n=61) |
-| Q4 | n/a (0) | -26.00% ± 24.46% (n=30) |
-| Q5 most open | +5.78% ± 5.05% (n=3) | -2.41% ± 16.62% (n=54) |
+| Q2 | -3.54% ± 1.71% (n=17) | +2.83% ± 19.44% (n=41) |
+| Q3 | -2.43% ± 1.64% (n=12) | +7.60% ± 17.87% (n=52) |
+| Q4 | +6.76% ± 8.10% (n=2) | -28.39% ± 24.11% (n=31) |
+| Q5 most open | +3.82% (n=1) | +1.35% ± 16.41% (n=52) |
 | n/a | +2.96% (n=1) | +5.81% ± 18.18% (n=26) |
 
 ### By balanced
@@ -220,8 +220,8 @@ Only the active rule's value-priced picks count toward CAGEY TIER REVIEW.
 
 ## Tagged candidates (narrow-margin hypothesis)
 
-Frozen tagged candidates: 2049 (2049 with an offered price).
-1xBet edge vs fair at capture: -3.72% ± 0.22% (n=469).
+Frozen tagged candidates: 2199 (2199 with an offered price).
+1xBet edge vs fair at capture: -3.78% ± 0.21% (n=515).
 Return at the capture fair price, all tagged lines: +0.08% ± 5.18% (n=1035); plus lines only: +4.19% ± 4.06% (n=605).
 
 - balanced: +1.62% ± 5.66% (n=918)
@@ -233,7 +233,7 @@ Return at the capture fair price, all tagged lines: +0.08% ± 5.18% (n=1035); pl
 
 Forward monitoring of cagey-correction-monitoring-v1 started 2026-11-03T13:58:25Z (first eligible capture). Earlier forecasts are not backfilled. One record per fixture: its first pre-kickoff capture at least 20 minutes before kickoff. Quintiles use the fixed training-period boundaries stored with the model.
 
-Fixtures: eligible 107, pending 47, graded 60, excluded 20.
+Fixtures: eligible 108, pending 48, graded 60, excluded 20.
 
 | excluded because | fixtures |
 |---|---:|

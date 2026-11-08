@@ -1,161 +1,121 @@
 ﻿Match date,League,Home team,Away team,Rank,Score,Probability,Probability (decimal)
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,1,1-1,13.51%,0.13506136309763328
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,2,0-1,10.78%,0.10783164065667701
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,3,1-0,10.05%,0.10046852183883949
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,4,0-0,8.90%,0.08902745391523868
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,5,0-2,8.26%,0.08261154577308742
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,6,1-2,7.62%,0.0762170890413808
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,7,2-1,6.88%,0.06877639377830898
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,8,2-2,5.26%,0.05256168118213043
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,9,0-3,4.41%,0.04413972267967784
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,10,2-0,4.29%,0.04290711297211775
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,11,1-3,4.07%,0.040723135516425917
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,12,3-1,2.12%,0.02115094397315314
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,13,2-3,1.88%,0.018785502780840017
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,14,0-4,1.77%,0.017688040152314656
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,15,3-2,1.70%,0.01695156759236897
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,16,1-4,1.63%,0.016318916667646583
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,17,3-0,1.32%,0.013195311540298215
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,18,3-3,0.86%,0.008636712321182512
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,19,2-4,0.75%,0.007527884347626399
-2026-11-07,Primeira Liga,Nacional,Académico de Viseu,20,0-5,0.57%,0.005670479929389151
-2026-11-07,Primeira Liga,Alverca,Casa Pia,1,1-0,12.71%,0.12705309483339727
-2026-11-07,Primeira Liga,Alverca,Casa Pia,2,1-1,12.41%,0.1240925413243381
-2026-11-07,Primeira Liga,Alverca,Casa Pia,3,2-1,9.67%,0.09668594766066245
-2026-11-07,Primeira Liga,Alverca,Casa Pia,4,2-0,9.59%,0.09591819162652351
-2026-11-07,Primeira Liga,Alverca,Casa Pia,5,0-0,7.52%,0.07517579502790947
-2026-11-07,Primeira Liga,Alverca,Casa Pia,6,0-1,7.04%,0.07041548901773237
-2026-11-07,Primeira Liga,Alverca,Casa Pia,7,2-2,5.22%,0.05220654938432599
-2026-11-07,Primeira Liga,Alverca,Casa Pia,8,1-2,5.22%,0.052150578336817646
-2026-11-07,Primeira Liga,Alverca,Casa Pia,9,3-1,5.11%,0.05111432555989364
-2026-11-07,Primeira Liga,Alverca,Casa Pia,10,3-0,5.07%,0.05070844101483771
-2026-11-07,Primeira Liga,Alverca,Casa Pia,11,0-2,3.29%,0.03288202822669583
-2026-11-07,Primeira Liga,Alverca,Casa Pia,12,3-2,2.58%,0.025761729459187137
-2026-11-07,Primeira Liga,Alverca,Casa Pia,13,4-1,2.03%,0.02026670633626462
-2026-11-07,Primeira Liga,Alverca,Casa Pia,14,4-0,2.01%,0.020105774096800005
-2026-11-07,Primeira Liga,Alverca,Casa Pia,15,1-3,1.75%,0.01752266871745505
-2026-11-07,Primeira Liga,Alverca,Casa Pia,16,2-3,1.39%,0.013895391447870685
-2026-11-07,Primeira Liga,Alverca,Casa Pia,17,0-3,1.10%,0.01104840839258
-2026-11-07,Primeira Liga,Alverca,Casa Pia,18,4-2,1.02%,0.01021446336119336
-2026-11-07,Primeira Liga,Alverca,Casa Pia,19,3-3,0.93%,0.009273536529196488
-2026-11-07,Primeira Liga,Alverca,Casa Pia,20,5-1,0.64%,0.006428559997163242
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,1,2-0,12.91%,0.12908667956102315
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,2,3-0,11.99%,0.11992913868632475
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,3,1-0,9.57%,0.09573432364406645
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,4,2-1,8.66%,0.08655139753157293
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,5,4-0,8.36%,0.08356593233489543
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,6,3-1,8.04%,0.08041135300216845
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,7,4-1,5.60%,0.05603016712653857
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,8,5-0,4.66%,0.046582607853226314
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,9,1-1,4.39%,0.04390876180271284
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,10,5-1,3.12%,0.031233197910679956
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,11,3-2,2.70%,0.02695752576257201
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,12,0-0,2.24%,0.022421647669003876
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,13,6-0,2.16%,0.02163899504038019
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,14,2-2,2.16%,0.02159358688212394
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,15,4-2,1.88%,0.01878384851644204
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,16,0-1,1.71%,0.017080057736097193
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,17,6-1,1.45%,0.014508741477375374
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,18,1-2,1.40%,0.01400735077379228
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,19,5-2,1.05%,0.010470781872081667
-2026-11-07,Primeira Liga,Sporting Lisbon,Moreirense FC,20,7-0,0.86%,0.008615958271678702
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,1,1-1,11.64%,0.11642363711644253
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,2,1-0,10.23%,0.10227606158224072
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,3,2-1,8.78%,0.08782089794345203
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,4,2-0,8.65%,0.08650598053445457
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,5,0-1,7.85%,0.07850937469269523
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,6,1-2,6.51%,0.06505358405800814
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,7,0-0,6.18%,0.06178657086870477
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,8,2-2,5.53%,0.05528597553604936
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,9,3-1,5.20%,0.05203341016656438
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,10,3-0,5.13%,0.05125432866683323
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,11,0-2,3.66%,0.03659869141849436
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,12,3-2,2.64%,0.026412166971898493
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,13,4-1,2.31%,0.02312213695968986
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,14,4-0,2.28%,0.0227759357577721
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,15,1-3,2.20%,0.02201413948922929
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,16,2-3,1.96%,0.019564889046874687
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,17,0-3,1.24%,0.012385000913886054
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,18,4-2,1.17%,0.011736800262975288
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,19,3-3,1.11%,0.011084851489468712
-2026-11-08,Primeira Liga,Estoril,CS Maritimo,20,5-1,0.82%,0.00821984514751179
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,1,1-1,14.21%,0.14207288777689012
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,2,1-0,13.88%,0.1388049465730519
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,3,0-0,11.45%,0.11447233184758361
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,4,0-1,10.19%,0.10192163042878656
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,5,2-1,8.10%,0.08101902688536194
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,6,2-0,8.02%,0.08022380364405525
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,7,1-2,5.89%,0.05891748198509067
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,8,0-2,4.85%,0.04852009323724738
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,9,2-2,4.58%,0.045849429447330066
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,10,3-1,3.28%,0.032793541386571146
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,11,3-0,3.25%,0.032471664078512964
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,12,1-3,1.98%,0.019833835013803532
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,13,3-2,1.66%,0.016559304661327403
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,14,0-3,1.63%,0.016333683852365815
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,15,2-3,1.20%,0.01204201743190348
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,16,4-1,1.00%,0.009955220378613199
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,17,4-0,0.99%,0.009857507249713186
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,18,3-3,0.62%,0.006247377519033525
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,19,4-2,0.50%,0.005026951047367434
-2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,20,1-4,0.50%,0.005007609771760857
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,1,0-1,12.43%,0.12430441071771944
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,2,0-2,11.45%,0.11454927164762299
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,3,1-1,10.65%,0.10652238115646809
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,4,1-2,9.19%,0.0919059577265596
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,5,0-3,7.32%,0.07319624236491745
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,6,0-0,6.73%,0.06729703199948356
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,7,1-0,6.29%,0.0629192165063983
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,8,1-3,5.87%,0.05872731148590163
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,9,2-1,4.42%,0.04415415985342549
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,10,2-2,4.31%,0.04311479359894471
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,11,0-4,3.51%,0.035078943449058465
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,12,1-4,2.81%,0.028144778638480698
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,13,2-3,2.36%,0.023559249784761833
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,14,2-0,2.30%,0.023033180793657765
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,15,0-5,1.34%,0.013449130542712434
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,16,3-1,1.18%,0.011808689514336999
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,17,3-2,1.13%,0.011318514128519207
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,18,2-4,1.13%,0.011290655970859072
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,19,1-5,1.08%,0.010790598712140831
-2026-11-08,Primeira Liga,Vitória SC,FC Porto,20,3-3,0.74%,0.007368054744525375
-2026-11-08,Primeira Liga,CF Estrela,Benfica,1,0-2,11.07%,0.1106880709390014
-2026-11-08,Primeira Liga,CF Estrela,Benfica,2,0-3,10.23%,0.10234522450478856
-2026-11-08,Primeira Liga,CF Estrela,Benfica,3,1-2,8.55%,0.08550593563964753
-2026-11-08,Primeira Liga,CF Estrela,Benfica,4,0-1,8.29%,0.08288986915451295
-2026-11-08,Primeira Liga,CF Estrela,Benfica,5,1-3,7.91%,0.0790611319295134
-2026-11-08,Primeira Liga,CF Estrela,Benfica,6,0-4,7.10%,0.07097340000198352
-2026-11-08,Primeira Liga,CF Estrela,Benfica,7,1-1,5.99%,0.05985847856690363
-2026-11-08,Primeira Liga,CF Estrela,Benfica,8,1-4,5.48%,0.054826567318540645
-2026-11-08,Primeira Liga,CF Estrela,Benfica,9,0-5,3.94%,0.03937437067310063
-2026-11-08,Primeira Liga,CF Estrela,Benfica,10,2-2,3.38%,0.033754022958373174
-2026-11-08,Primeira Liga,CF Estrela,Benfica,11,2-3,3.05%,0.03053714822660565
-2026-11-08,Primeira Liga,CF Estrela,Benfica,12,1-5,3.04%,0.030416488209295205
-2026-11-08,Primeira Liga,CF Estrela,Benfica,13,0-0,2.63%,0.026254379150849584
-2026-11-08,Primeira Liga,CF Estrela,Benfica,14,1-0,2.51%,0.02506441464319208
-2026-11-08,Primeira Liga,CF Estrela,Benfica,15,2-1,2.36%,0.02358326656555042
-2026-11-08,Primeira Liga,CF Estrela,Benfica,16,2-4,2.12%,0.021176613237145613
-2026-11-08,Primeira Liga,CF Estrela,Benfica,17,0-6,1.82%,0.01820331121541542
-2026-11-08,Primeira Liga,CF Estrela,Benfica,18,1-6,1.41%,0.014061959378364674
-2026-11-08,Primeira Liga,CF Estrela,Benfica,19,2-5,1.17%,0.011748286247762653
-2026-11-08,Primeira Liga,CF Estrela,Benfica,20,2-0,0.85%,0.008501898990114875
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,1,0-1,12.63%,0.1262975563295111
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,2,0-2,11.27%,0.1127033584421172
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,3,1-2,10.30%,0.10304664267874383
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,4,1-1,10.01%,0.10013306187683554
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,5,0-3,7.01%,0.07011342908742471
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,6,1-3,6.41%,0.06410592882078071
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,7,0-0,5.65%,0.056498942187519476
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,8,1-0,5.34%,0.05341441425362193
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,9,2-2,4.50%,0.04496519628827224
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,10,2-1,4.17%,0.04168361805996363
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,11,0-4,3.27%,0.03271348569165798
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,12,1-4,2.99%,0.029910509477637112
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,13,2-3,2.93%,0.02930658337114537
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,14,2-0,2.23%,0.022334683519370582
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,15,2-4,1.37%,0.01367384976404325
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,16,3-1,1.27%,0.012704019221066776
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,17,0-5,1.22%,0.012210752319803498
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,18,3-2,1.19%,0.011854868786882801
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,19,1-5,1.12%,0.011164503423237972
-2026-11-08,Primeira Liga,Rio Ave FC,Braga,20,3-3,0.85%,0.008525435599297432
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,1,1-1,11.91%,0.11908540260223413
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,2,1-0,10.57%,0.10572095564730864
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,3,2-0,8.76%,0.0875844870660709
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,4,2-1,8.70%,0.08698162647881985
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,5,0-1,8.14%,0.08141302300890893
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,6,0-0,6.63%,0.06630810141184267
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,7,1-2,6.47%,0.06468360390788179
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,8,2-2,5.41%,0.05412754117488621
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,9,3-0,5.08%,0.05077488742127616
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,10,3-1,5.04%,0.050425394269306166
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,11,0-2,3.72%,0.037192140692518846
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,12,3-2,2.50%,0.025039153372396268
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,13,4-0,2.21%,0.022076590949534607
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,14,4-1,2.19%,0.021924633599207283
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,15,1-3,2.14%,0.021412791476703014
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,16,2-3,1.86%,0.018620285047476814
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,17,0-3,1.23%,0.012312046718288465
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,18,4-2,1.09%,0.01088686110002918
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,19,3-3,1.04%,0.010387694198679909
+2026-11-08,Primeira Liga,Estoril,CS Maritimo,20,5-0,0.77%,0.007679006575188953
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,1,1-1,13.15%,0.13146514229061657
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,2,0-1,10.22%,0.10220199441640558
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,3,1-0,9.80%,0.09803674015800767
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,4,0-0,8.08%,0.08084472163465548
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,5,0-2,8.08%,0.0807632580091771
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,6,1-2,7.69%,0.07691270600494297
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,7,2-1,7.14%,0.07138174399247409
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,8,2-2,5.46%,0.05455039750282908
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,9,0-3,4.46%,0.044573754287539145
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,10,2-0,4.31%,0.043112232742911503
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,11,1-3,4.24%,0.04244861021659762
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,12,3-1,2.27%,0.02265949156066909
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,13,2-3,2.02%,0.020212393348077968
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,14,3-2,1.88%,0.018758875644746705
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,15,0-4,1.85%,0.01845040325509299
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,16,1-4,1.76%,0.0175707428874447
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,17,3-0,1.37%,0.013685589891199649
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,18,3-3,0.96%,0.009557103967974039
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,19,2-4,0.84%,0.008366511055292722
+2026-11-08,Primeira Liga,Nacional,Académico de Viseu,20,0-5,0.61%,0.006109736740227182
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,1,1-1,14.24%,0.14237494034844028
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,2,1-0,13.79%,0.13792612278092836
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,3,0-0,11.58%,0.11577271283728517
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,4,0-1,10.40%,0.1040122419623702
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,5,2-1,7.98%,0.07983228669111377
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,6,2-0,7.94%,0.07939132980686216
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,7,1-2,5.96%,0.05962501356005136
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,8,0-2,4.93%,0.04931372372238667
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,9,2-2,4.56%,0.045552911962267406
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,10,3-1,3.22%,0.03217495940402689
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,11,3-0,3.20%,0.03199723970642363
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,12,1-3,2.00%,0.01998539466071578
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,13,0-3,1.65%,0.01652920765860788
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,14,3-2,1.62%,0.016176833097933607
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,15,2-3,1.21%,0.012082127830748246
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,16,4-1,0.97%,0.009725651633808303
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,17,4-0,0.97%,0.009671931601231084
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,18,3-3,0.62%,0.006153749604172689
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,19,1-4,0.50%,0.005024099483125839
+2026-11-08,Primeira Liga,Santa Clara,Gil Vicente,20,4-2,0.49%,0.004889835019623098
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,1,0-1,12.25%,0.122509888483233
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,2,0-2,11.55%,0.11548252528623164
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,3,1-1,10.25%,0.10252556105006257
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,4,1-2,9.49%,0.09485574456559193
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,5,0-3,7.56%,0.07555266416665529
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,6,1-3,6.21%,0.06205791045596958
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,7,0-0,6.15%,0.061547110090206844
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,8,1-0,5.66%,0.05662439545880674
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,9,2-2,4.35%,0.04349613710401683
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,10,2-1,4.16%,0.04156424581787839
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,11,0-4,3.71%,0.0370718754755181
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,12,1-4,3.05%,0.03045032434091072
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,13,2-3,2.55%,0.025486753462896646
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,14,2-0,2.12%,0.021177034243197976
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,15,0-5,1.46%,0.014552222256420397
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,16,2-4,1.25%,0.012505737038836735
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,17,1-5,1.20%,0.01195299352690297
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,18,3-1,1.14%,0.011380098344143734
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,19,3-2,1.12%,0.011167881195629394
+2026-11-08,Primeira Liga,Vitória SC,FC Porto,20,3-3,0.78%,0.007791306880676813
+2026-11-08,Primeira Liga,CF Estrela,Benfica,1,0-2,10.21%,0.10206358998547095
+2026-11-08,Primeira Liga,CF Estrela,Benfica,2,0-3,9.91%,0.09908036480486969
+2026-11-08,Primeira Liga,CF Estrela,Benfica,3,1-2,8.28%,0.08278250602503233
+2026-11-08,Primeira Liga,CF Estrela,Benfica,4,1-3,8.04%,0.08036284925495096
+2026-11-08,Primeira Liga,CF Estrela,Benfica,5,0-1,7.29%,0.0729335922390886
+2026-11-08,Primeira Liga,CF Estrela,Benfica,6,0-4,7.21%,0.072138252421335
+2026-11-08,Primeira Liga,CF Estrela,Benfica,7,1-4,5.85%,0.05851043762574455
+2026-11-08,Primeira Liga,CF Estrela,Benfica,8,1-1,5.62%,0.05622309962023849
+2026-11-08,Primeira Liga,CF Estrela,Benfica,9,0-5,4.20%,0.04201783045634066
+2026-11-08,Primeira Liga,CF Estrela,Benfica,10,2-2,3.49%,0.034949175055863396
+2026-11-08,Primeira Liga,CF Estrela,Benfica,11,1-5,3.41%,0.03408013869986307
+2026-11-08,Primeira Liga,CF Estrela,Benfica,12,2-3,3.26%,0.03259065281548378
+2026-11-08,Primeira Liga,CF Estrela,Benfica,13,2-4,2.37%,0.02372854343047302
+2026-11-08,Primeira Liga,CF Estrela,Benfica,14,2-1,2.26%,0.022643013530863017
+2026-11-08,Primeira Liga,CF Estrela,Benfica,15,0-0,2.21%,0.022095372109259832
+2026-11-08,Primeira Liga,CF Estrela,Benfica,16,1-0,2.20%,0.021963290913093902
+2026-11-08,Primeira Liga,CF Estrela,Benfica,17,0-6,2.04%,0.020394843893478724
+2026-11-08,Primeira Liga,CF Estrela,Benfica,18,1-6,1.65%,0.016542003742292772
+2026-11-08,Primeira Liga,CF Estrela,Benfica,19,2-5,1.38%,0.013820987913794549
+2026-11-08,Primeira Liga,CF Estrela,Benfica,20,3-3,0.92%,0.009172762741995974
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,1,0-1,12.47%,0.12471789875004104
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,2,0-2,11.23%,0.11233645341621028
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,3,1-2,10.37%,0.10373045226561815
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,4,1-1,9.96%,0.09962175903119533
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,5,0-3,7.06%,0.0705705406862835
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,6,1-3,6.52%,0.06516419095852517
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,7,0-0,5.50%,0.05501562832574975
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,8,1-0,5.14%,0.051354521334375444
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,9,2-2,4.56%,0.04562261378569863
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,10,2-1,4.08%,0.04083656581069044
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,11,0-4,3.32%,0.033249678051762384
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,12,1-4,3.07%,0.030702448200112177
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,13,2-3,3.01%,0.03008600856663468
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,14,2-0,2.17%,0.021668319047668718
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,15,2-4,1.42%,0.014175179741787105
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,16,3-1,1.26%,0.012569370291057983
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,17,0-5,1.25%,0.01253260728677658
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,18,3-2,1.18%,0.011844248646157693
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,19,1-5,1.16%,0.011572494790343122
+2026-11-08,Primeira Liga,Rio Ave FC,Braga,20,3-3,0.88%,0.008821596867710106
