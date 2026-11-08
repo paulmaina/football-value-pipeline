@@ -42,7 +42,7 @@ class NoOverShortlistTests(OfflineQuotePolicyTestCase):
 
     def test_live_config_excludes_over_and_master_has_explicit_version(self):
         self.assertEqual(v28.load_settings()['excluded_markets'],['Over 1.5'])
-        self.assertEqual(master.configured_version(),v7.VERSION)
+        self.assertEqual(master.configured_version(),master.VERSION_CONTEXT)
         for invalid in ['Over 1.5',[None],[''],{}]:
             with self.subTest(invalid=invalid), self.assertRaises(ValueError):
                 v28.excluded_markets({'excluded_markets':invalid})
@@ -77,7 +77,7 @@ class NoOverShortlistTests(OfflineQuotePolicyTestCase):
         d=pd.DataFrame([candidate()]);pred=pd.DataFrame([fixture()])
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);info={'generated_at_utc':NOW.isoformat()}
-            top=master.write(d,root,info,pred)
+            top=master.write(d,root,info,pred,version=master.VERSION_NO_TOTALS)
             self.assertTrue(top.empty)
             self.assertEqual(master.summary(top)['version'],v7.VERSION)
             text=' '.join(master_section(info,root,root))

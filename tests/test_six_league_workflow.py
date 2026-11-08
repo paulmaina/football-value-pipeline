@@ -90,9 +90,9 @@ class SixLeagueWorkflowTests(OfflineQuotePolicyTestCase):
                 master = pd.read_csv(raw/'master_shortlist.csv')
                 self.assertEqual(summary['master_shortlist']['n_bets'], len(master))
                 # A negative edge and missing optional research do not block nominations.
-                self.assertEqual(len(master), min(10, len(keys)))
-                self.assertEqual(summary['master_shortlist']['version'], 'master-profit-no-dc-no-over15-v7')
-                self.assertEqual(summary['master_shortlist']['shortfall'], max(0, 10-len(keys)))
+                self.assertEqual(len(master), min(15, len(keys)))
+                self.assertEqual(summary['master_shortlist']['version'], 'master-profit-15-context-v8')
+                self.assertEqual(summary['master_shortlist']['shortfall'], max(0, 15-len(keys)))
                 self.assertTrue(master.master_suggested_stake.eq(0).all())
                 self.assertEqual(len(master[['league','home_team','away_team','kickoff_utc']].drop_duplicates()),len(master))
                 audit = pd.read_csv(raw/'master_shortlist_audit.csv')
